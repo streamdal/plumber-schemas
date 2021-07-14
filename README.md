@@ -1,5 +1,5 @@
-plumber-schema
-==============
+plumber-schemas
+===============
 
 This repo contains protobuf schemas that are used by `plumber` and `plumber-ui`
 when communicating over gRPC.
