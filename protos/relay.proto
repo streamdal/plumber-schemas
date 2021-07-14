@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+option go_package = "github.com/batchcorp/plumber-schemas/build/go";
+
+package protos;
+
+message CreateRelayRequest {
+
+}
+
+message CreateRelayResponse {
+
+}
+
+message UpdateRelayRequest {
+
+}
+
+message UpdateRelayResponse {
+
+}
+
+message StopRelayRequest {
+
+}
+
+message StopRelayResponse {
+
+}
+
+message DeleteRelayRequest {
+
+}
+
+message DeleteRelayResponse {
+
+}

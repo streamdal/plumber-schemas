@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/common";
+
+package protos.common;
+
+message Auth {
+    string token = 1;
+}

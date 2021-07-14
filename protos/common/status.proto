@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/common";
+
+package protos.common;
+
+import "vendor/google/rpc/code.proto";
+
+message Status {
+    google.rpc.Code code = 1;
+
+    // Message containing status details
+    string message = 2;
+
+    // Set by the backend (to enable troubleshooting)
+    string request_id = 3;
+}

@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/args";
+
+package protos.args;
+
+message Kafka {
+    repeated string topics = 1;
+}

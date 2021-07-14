@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/conns";
+
+package protos.conns;
+
+enum SASLType {
+    NONE = 0;
+    PLAIN = 1;
+    SCRAM = 2;
+}
+
+message Kafka {
+    // Required
+    string address = 1;
+
+    // Optional
+    bool use_tls = 2;
+
+    // Optional
+    bool insecure_tls = 3;
+
+    // Optional
+    SASLType sasl_type = 4;
+
+    // Required if sasl_type is not NONE
+    string sasl_username = 5;
+
+    // Required if sasl_type is not NONE
+    string sasl_password = 6;
+}

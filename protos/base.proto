@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+option go_package = "github.com/batchcorp/plumber-schemas/build/go";
+
+import "connect.proto";
+import "read.proto";
+import "write.proto";
+import "relay.proto";
+
+package protos;
+
+service PlumberServer {
+    // Create a connection in plumber
+    rpc CreateConnection(CreateConnectionRequest) returns (CreateConnectionResponse);
+
+    // Test a connection before saving its configuration
+    rpc TestConnection(TestConnectionRequest) returns (TestConnectionResponse);
+
+    // Any active connections will be restarted
+    rpc UpdateConnection(UpdateConnectionRequest) returns (UpdateConnectionResponse);
+
+    // If there are any active connections, delete will cause them to get closed
+    rpc DeleteConnection(DeleteConnectionRequest) returns (DeleteConnectionResponse);
+
+    // Start reading data from a connection
+    rpc StartRead(StartReadRequest) returns (stream StartReadResponse);
+
+    // Stop reading data from a connection
+    rpc StopRead(StopReadRequest) returns (StopReadResponse)
+
+    // Write data to a connection
+    rpc Write(WriteRequest) returns (WriteResponse);
+
+    // Create a data relay from plumber server to the Batch platform
+    rpc CreateRelay(CreateRelayRequest) returns (CreateRelayResponse);
+
+    // Update a relay (such as API token) - relay will be interrupted!
+    rpc UpdateRelay(UpdateRelayRequest) returns (UpdateRelayResponse);
+
+    rpc StopRelay(StopRelayRequest) returns (StopRelayResponse);
+
+    // Delete an existing relay
+    rpc DeleteRelay(DeleteRelayRequest) returns (DeleteRelayResponse);
+}

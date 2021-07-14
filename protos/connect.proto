@@ -1,0 +1,73 @@
+syntax = "proto3";
+
+option go_package = "github.com/batchcorp/plumber-schemas/build/go";
+
+import "conns/kafka.proto";
+import "common/auth.proto";
+import "common/status.proto";
+
+package protos;
+
+message CreateConnectionRequest {
+    // Every gRPC request must have a valid auth config
+    common.Auth auth = 1;
+
+    // Friendly name to identify this connection by (used in plumber-server logs)
+    string name = 2;
+
+    // Any notes associated with this connection (stored plumber-server side)
+    string notes = 3;
+
+    oneof conn {
+        conns.Kafka kafka = 100;
+    }
+}
+
+message CreateConnectionResponse {
+    // Set with uuid that represents connection if create is successful
+    string connection_id = 1;
+
+    common.Status status = 1000;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+message TestConnectionRequest {
+    // Every gRPC request must have a valid auth config
+    common.Auth auth = 1;
+
+    // Friendly name to identify this connection by (used in plumber-server logs)
+    string name = 2;
+
+    oneof conn {
+        conns.Kafka kafka = 100;
+    }
+}
+
+message TestConnectionResponse {
+    common.Status status = 1000;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+message UpdateConnectionRequest {
+    string connection_id = 1;
+
+    oneof conn {
+        conns.Kafka kafka = 100;
+    }
+}
+
+message UpdateConnectionResponse {
+    common.Status status = 1000;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+message DeleteConnectionRequest {
+    string connection_id = 1;
+}
+
+message DeleteConnectionResponse {
+    common.Status status = 1000;
+}
