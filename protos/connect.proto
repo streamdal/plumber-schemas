@@ -6,7 +6,7 @@ import "conns/kafka.proto";
 import "common/auth.proto";
 import "common/status.proto";
 
-option go_package = "github.com/batchcorp/plumber-schemas/build/go";
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
 
 message Connection {
     // Friendly name to identify this connection by (used in plumber-server logs)

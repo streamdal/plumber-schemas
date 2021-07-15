@@ -6,12 +6,12 @@ import "records/kafka.proto";
 import "common/auth.proto";
 import "common/status.proto";
 
-option go_package = "github.com/batchcorp/plumber-schemas/build/go";
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
 
 message WriteRecord {
-    repeated string topics = 1;
-    string key = 2;
-    bytes value = 3;
+    oneof Records {
+        records.Kafka kafka = 100;
+    }
 }
 
 message WriteRequest {
@@ -20,6 +20,7 @@ message WriteRequest {
 
     string connection_id = 1;
 
+    // We need to use a WriteRecord as a wrapper since there is no way to "repeated oneof ..."
     repeated WriteRecord records = 2;
 }
 

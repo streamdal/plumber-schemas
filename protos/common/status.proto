@@ -2,9 +2,9 @@ syntax = "proto3";
 
 package protos.common;
 
-import "vendor/google/rpc/code.proto";
+import "google/rpc/code.proto";
 
-option go_package = "github.com/batchcorp/plumber-schemas/build/go/common";
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/common";
 
 message Status {
     google.rpc.Code code = 1;

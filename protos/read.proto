@@ -8,7 +8,7 @@ import "args/kafka.proto";
 import "encoding/options.proto";
 import "records/base.proto";
 
-option go_package = "github.com/batchcorp/plumber-schemas/build/go";
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
 
 message ReadOptions {
     enum Type {

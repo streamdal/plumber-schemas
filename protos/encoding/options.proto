@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package protos.encoding;
 
-option go_package = "github.com/batchcorp/plumber-schemas/build/go/encoding";
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/encoding";
 
 enum Type {
     NONE = 0;

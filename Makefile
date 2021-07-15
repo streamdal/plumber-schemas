@@ -35,63 +35,54 @@ setup/linux:
 generate/go: description = Compile protobuf schemas for Go
 generate/go:
 	mkdir -p build/go/
-#	mkdir -p build/go/args
-#	mkdir -p build/go/common
-#	mkdir -p build/go/conns
-#	mkdir -p build/go/encoding
-#	mkdir -p build/go/records
+	mkdir -p build/go/args
+	mkdir -p build/go/common
+	mkdir -p build/go/conns
+	mkdir -p build/go/encoding
+	mkdir -p build/go/records
 #	mkdir -p build/go/vendor/google/rpc
 
 	docker run --rm -w $(PWD) -v $(PWD):$(PWD) -w${PWD} jaegertracing/protobuf:0.2.0 \
-	--proto_path=protos \
-	--proto_path=. \
+	--proto_path=./protos \
+	--proto_path=./protos/args \
+	--proto_path=./protos/common \
+	--proto_path=./protos/conns \
+  	--proto_path=./protos/encoding \
+  	--proto_path=./protos/records \
 	--go_out=plugins=grpc:build/go \
 	--go_opt=paths=source_relative \
 	protos/*.proto
 
 #	docker run --rm -w $(PWD) -v $(PWD):$(PWD) -w${PWD} jaegertracing/protobuf:0.2.0 \
-#	--proto_path=protos/args \
-#	--proto_path=. \
+#	--proto_path=./protos/args \
 #	--go_out=plugins=grpc:build/go/args \
 #	--go_opt=paths=source_relative \
 #	protos/args/*.proto
 #
 #	docker run --rm -w $(PWD) -v $(PWD):$(PWD) -w${PWD} jaegertracing/protobuf:0.2.0 \
-#	--proto_path=protos \
-#	--proto_path=. \
-#	--go_out=plugins=grpc:build/go/services \
+#	--proto_path=./protos/common \
+#	--proto_path=./protos/vendor \
+#	--go_out=plugins=grpc:build/go/common \
 #	--go_opt=paths=source_relative \
-#	protos/*.proto
+#	protos/common/*.proto
 #
 #	docker run --rm -w $(PWD) -v $(PWD):$(PWD) -w${PWD} jaegertracing/protobuf:0.2.0 \
-#	--proto_path=protos \
-#	--proto_path=. \
-#	--go_out=plugins=grpc:build/go/services \
+#	--proto_path=./protos/conns \
+#	--go_out=plugins=grpc:build/go/conns \
 #	--go_opt=paths=source_relative \
-#	protos/*.proto
+#	protos/conns/*.proto
 #
 #	docker run --rm -w $(PWD) -v $(PWD):$(PWD) -w${PWD} jaegertracing/protobuf:0.2.0 \
-#	--proto_path=protos \
-#	--proto_path=. \
-#	--go_out=plugins=grpc:build/go/services \
+#	--proto_path=./protos/encoding \
+#	--go_out=plugins=grpc:build/go/encoding \
 #	--go_opt=paths=source_relative \
-#	protos/*.proto
+#	protos/encoding/*.proto
 #
 #	docker run --rm -w $(PWD) -v $(PWD):$(PWD) -w${PWD} jaegertracing/protobuf:0.2.0 \
-#	--proto_path=protos \
-#	--proto_path=. \
-#	--go_out=plugins=grpc:build/go/services \
+#	--proto_path=./protos/records \
+#	--go_out=plugins=grpc:build/go/records \
 #	--go_opt=paths=source_relative \
-#	protos/*.proto
-#
-#	docker run --rm -w $(PWD) -v $(PWD):$(PWD) -w${PWD} jaegertracing/protobuf:0.2.0 \
-#	--proto_path=protos \
-#	--proto_path=. \
-#	--go_out=plugins=grpc:build/go/services \
-#	--go_opt=paths=source_relative \
-#	protos/*.proto
-
-
+#	protos/records/*.proto
 
 .PHONY: clean
 clean: description = Remove all build artifacts

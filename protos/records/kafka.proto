@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-package records;
+package protos.records;
 
-option go_package = "github.com/batchcorp/plumber-schemas/build/go/records";
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/records";
 
 message KafkaHeader {
     string key = 1;
@@ -13,9 +13,10 @@ message KafkaHeader {
 message Kafka {
     string topic = 1;
     bytes key = 2;
-    bytes value = 3;
-    int64 timestamp = 4;
-    int64 offset = 5;
-    int32 partition = 6;
-    repeated KafkaHeader headers = 7;
+    bytes value = 3; // if schema is provided to plumber, it will decode it and set the value to that
+    bytes blob = 4; // original value
+    int64 timestamp = 5;
+    int64 offset = 6;
+    int32 partition = 7;
+    repeated KafkaHeader headers = 8;
 }

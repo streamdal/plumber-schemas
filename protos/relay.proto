@@ -6,7 +6,7 @@ import "args/kafka.proto";
 import "common/auth.proto";
 import "common/status.proto";
 
-option go_package = "github.com/batchcorp/plumber-schemas/build/go";
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
 
 message Relay {
     // Required
@@ -70,26 +70,7 @@ message CreateRelayRequest {
     // Every gRPC request must have a valid auth config
     common.Auth auth = 9999;
 
-    // Required
-    string batch_collection_token = 1;
-
-    // Optional; how many messages to send in a single batch (default: 1000)
-    int32 batch_size = 2;
-
-    // Optional; how many times plumber will try re-sending a batch (default: 3)
-    int32 batch_max_retry = 3;
-
-    string connection_id = 4;
-
-    // Optional; where to send events to (default: grpc-collector.batch.sh:9000)
-    string batchsh_grpc_address = 5;
-
-    // Optional; whether to use TLS for gRPC (default: true)
-    bool batchsh_grpc_disable_tls = 6;
-
-    // Optional: how long to wait before giving up talking to the gRPC collector (default: 10s)
-    bool batchsh_grpc_timeout = 7;
-
+    Relay relay = 1;
 
     oneof Args {
         args.Kafka kafka = 100;

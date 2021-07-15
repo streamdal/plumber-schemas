@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package protos.common;
 
-option go_package = "github.com/batchcorp/plumber-schemas/build/go/common";
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/common";
 
 message Auth {
     string token = 1;
