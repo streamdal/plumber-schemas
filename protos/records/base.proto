@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package protos.records;
+package records;
 
 import "kafka.proto";
 
@@ -22,6 +22,6 @@ message Message {
     int64 unix_timestamp_utc = 99;
 
     oneof Message {
-        records.Kafka kafka = 100;
+        Kafka kafka = 100;
     }
 }

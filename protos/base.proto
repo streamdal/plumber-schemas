@@ -14,7 +14,7 @@ service PlumberServer {
     rpc GetAllConnections (GetAllConnectionsRequest) returns (GetAllConnectionsResponse);
 
     // Fetch a specific connection by ID
-    rpc GetCollection(GetConnectionRequest) returns (GetConnectionResponse)
+    rpc GetCollection(GetConnectionRequest) returns (GetConnectionResponse);
 
     // Create a connection in plumber
     rpc CreateConnection(CreateConnectionRequest) returns (CreateConnectionResponse);
@@ -32,7 +32,7 @@ service PlumberServer {
     rpc StartRead(StartReadRequest) returns (stream StartReadResponse);
 
     // Stop reading data from a connection
-    rpc StopRead(StopReadRequest) returns (StopReadResponse)
+    rpc StopRead(StopReadRequest) returns (StopReadResponse);
 
     // Write data to a connection
     rpc Write(WriteRequest) returns (WriteResponse);
