@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package protos.records;
+
+import "kafka.proto";
+
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/records";
+
+message Message {
+    // Unique id automatically created by plumber
+    string message_id = 1;
+
+    // Identifies which plumber instance received the event
+    string plumber_id = 2;
+
+    // This protobuf message as JSON
+    // TODO: I'm a bit iffy about this - is there a better place for this to live?
+    bytes as_json = 3;
+
+    // NOTE: Intentionally leaving this index space for future use
+
+    int64 unix_timestamp_utc = 99;
+
+    oneof Message {
+        records.Kafka kafka = 100;
+    }
+}

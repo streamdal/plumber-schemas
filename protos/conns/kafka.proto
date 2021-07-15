@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-option go_package = "github.com/batchcorp/plumber-schemas/build/go/conns";
-
 package protos.conns;
+
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/conns";
 
 enum SASLType {
     NONE = 0;
@@ -14,18 +14,21 @@ message Kafka {
     // Required
     string address = 1;
 
-    // Optional
-    bool use_tls = 2;
+    // Optional; how long to attempt connecting for (default: 10s)
+    int32 timeout_seconds = 2;
 
     // Optional
-    bool insecure_tls = 3;
+    bool use_tls = 3;
 
     // Optional
-    SASLType sasl_type = 4;
+    bool insecure_tls = 4;
+
+    // Optional
+    SASLType sasl_type = 5;
 
     // Required if sasl_type is not NONE
-    string sasl_username = 5;
+    string sasl_username = 6;
 
     // Required if sasl_type is not NONE
-    string sasl_password = 6;
+    string sasl_password = 7;
 }

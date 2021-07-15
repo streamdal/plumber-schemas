@@ -1,26 +1,58 @@
 syntax = "proto3";
 
-option go_package = "github.com/batchcorp/plumber-schemas/build/go";
+package protos;
 
 import "conns/kafka.proto";
 import "common/auth.proto";
 import "common/status.proto";
 
-package protos;
+option go_package = "github.com/batchcorp/plumber-schemas/build/go";
 
-message CreateConnectionRequest {
-    // Every gRPC request must have a valid auth config
-    common.Auth auth = 1;
-
+message Connection {
     // Friendly name to identify this connection by (used in plumber-server logs)
-    string name = 2;
+    string name = 1;
 
     // Any notes associated with this connection (stored plumber-server side)
-    string notes = 3;
+    string notes = 2;
 
     oneof conn {
         conns.Kafka kafka = 100;
     }
+}
+
+message GetAllConnectionsRequest {
+    // Every gRPC request must have a valid auth config
+    common.Auth auth = 9999;
+}
+
+message GetAllConnectionsResponse {
+    repeated Connection connections = 1;
+
+    common.Status status = 1000;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+message GetConnectionRequest {
+    // Every gRPC request must have a valid auth config
+    common.Auth auth = 9999;
+
+    string connection_id = 1;
+}
+
+message GetConnectionResponse {
+    Connection connection = 1;
+
+    common.Status status = 1000;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+message CreateConnectionRequest {
+    // Every gRPC request must have a valid auth config
+    common.Auth auth = 9999;
+
+    Connection connection = 1;
 }
 
 message CreateConnectionResponse {
@@ -34,14 +66,9 @@ message CreateConnectionResponse {
 
 message TestConnectionRequest {
     // Every gRPC request must have a valid auth config
-    common.Auth auth = 1;
+    common.Auth auth = 9999;
 
-    // Friendly name to identify this connection by (used in plumber-server logs)
-    string name = 2;
-
-    oneof conn {
-        conns.Kafka kafka = 100;
-    }
+    Connection connection = 1;
 }
 
 message TestConnectionResponse {
@@ -51,11 +78,12 @@ message TestConnectionResponse {
 ///////////////////////////////////////////////////////////////////////////////
 
 message UpdateConnectionRequest {
+    // Every gRPC request must have a valid auth config
+    common.Auth auth = 9999;
+
     string connection_id = 1;
 
-    oneof conn {
-        conns.Kafka kafka = 100;
-    }
+    Connection connection = 2;
 }
 
 message UpdateConnectionResponse {
@@ -65,6 +93,9 @@ message UpdateConnectionResponse {
 ///////////////////////////////////////////////////////////////////////////////
 
 message DeleteConnectionRequest {
+    // Every gRPC request must have a valid auth config
+    common.Auth auth = 9999;
+
     string connection_id = 1;
 }
 

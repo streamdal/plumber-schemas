@@ -1,15 +1,21 @@
 syntax = "proto3";
 
-option go_package = "github.com/batchcorp/plumber-schemas/build/go";
+package protos;
 
 import "connect.proto";
 import "read.proto";
 import "write.proto";
 import "relay.proto";
 
-package protos;
+option go_package = "github.com/batchcorp/plumber-schemas/build/go";
 
 service PlumberServer {
+    // List configured/known connections
+    rpc GetAllConnections (GetAllConnectionsRequest) returns (GetAllConnectionsResponse);
+
+    // Fetch a specific connection by ID
+    rpc GetCollection(GetConnectionRequest) returns (GetConnectionResponse)
+
     // Create a connection in plumber
     rpc CreateConnection(CreateConnectionRequest) returns (CreateConnectionResponse);
 

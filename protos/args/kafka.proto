@@ -1,9 +1,32 @@
 syntax = "proto3";
 
-option go_package = "github.com/batchcorp/plumber-schemas/build/go/args";
-
 package protos.args;
 
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/args";
+
 message Kafka {
+    // Required
     repeated string topics = 1;
+
+    // Optional: (default: true)
+    bool use_consumer_group = 2;
+
+    // Optional; used only if "use_consumer_group" is true
+    string consumer_group_name = 3;
+
+    // Optional; how long to wait for new data when reading batches of messages (default: 1s)
+    int32 max_wait_seconds = 4;
+
+    // Optional; minimum number of bytes to fetch in a single kafka request (throughput optimization)
+    int32 min_bytes = 5;
+
+    // Optional; maximum number of bytes to fetch in a single kafka request (throughput optimization)
+    int32 max_bytes = 6;
+
+    // Optional; how often to commit offsets to broker (default: 0 == synchronous)
+    // NOTE: Used only-if "use_consumer_group" is true
+    int32 commit_interval_seconds = 7;
+
+    // Optional; how long a coordinator will wait for member joins as part of a rebalance (default: 5s)
+    int32 rebalance_timeout_seconds = 8;
 }

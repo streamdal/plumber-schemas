@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-option go_package = "github.com/batchcorp/plumber-schemas/build/go/encoding";
-
 package protos.encoding;
+
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/encoding";
 
 enum Type {
     NONE = 0;
@@ -12,30 +12,26 @@ enum Type {
     AVRO = 4;
 }
 
-enum Source {
-    ZIP = 0;
-    GITHUB = 1;
+message Protobuf {
+    string root_type = 1;
+    bytes zip_archive = 2;
 }
 
-message ZipArchive {
-    bytes zip_archive = 1;
+message JSONSchema {
+    // TODO
 }
 
-message GithubArchive {
-    string org = 1;
-    string repo = 2;
-
-    // TODO: Fill out auth related bits here
+message Avro {
+    // TODO
 }
 
 message Options {
     Type type = 1;
 
-    Source schema_source = 2;
-
-    // Set only if schema_source != NONE or JSON
-    oneof Archive {
-        ZipArchive zip = 100;
-        GithubArchive github = 101;
+    // Only filled out if "type" is not NONE or JSON
+    oneof Encoding {
+        Protobuf protobuf = 100;
+        Avro avro = 102;
+        JSONSchema json_schema = 101;
     }
 }

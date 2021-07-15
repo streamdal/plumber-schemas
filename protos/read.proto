@@ -1,11 +1,14 @@
 syntax = "proto3";
 
-option go_package = "github.com/batchcorp/plumber-schemas/build/go";
-
 package protos;
 
+import "common/auth.proto";
+import "common/status.proto";
 import "args/kafka.proto";
 import "encoding/options.proto";
+import "records/base.proto";
+
+option go_package = "github.com/batchcorp/plumber-schemas/build/go";
 
 message ReadOptions {
     enum Type {
@@ -26,6 +29,9 @@ message SampleOptions {
 }
 
 message StartReadRequest {
+    // Every gRPC request must have a valid auth config
+    common.Auth auth = 9999;
+
     string connection_id = 1;
 
     ReadOptions read_options = 2;
@@ -40,16 +46,23 @@ message StartReadRequest {
 }
 
 message StartReadResponse {
-    oneof Response {
-    }
+    common.Status status = 1000;
+
+    // Assigned and returned by plumber-server to identify a successful read request
+    string read_id = 1;
+
+    repeated records.Message messages = 2;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 
 message StopReadRequest {
+    // Every gRPC request must have a valid auth config
+    common.Auth auth = 9999;
 
+    string read_id = 1;
 }
 
 message StopReadResponse {
-
+    common.Status status = 1000;
 }
