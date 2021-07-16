@@ -40,7 +40,6 @@ generate/go:
 	mkdir -p build/go/protos/conns
 	mkdir -p build/go/protos/encoding
 	mkdir -p build/go/protos/records
-	mkdir -p build/go/protos/vendor/google/rpc
 
 	docker run --rm -w $(PWD) -v $(PWD):$(PWD) -w${PWD} jaegertracing/protobuf:0.2.0 \
 	--proto_path=./protos \
@@ -61,7 +60,6 @@ generate/go:
 
 	docker run --rm -w $(PWD) -v $(PWD):$(PWD) -w${PWD} jaegertracing/protobuf:0.2.0 \
 	--proto_path=./protos/common \
-	--proto_path=./protos/vendor \
 	--go_out=plugins=grpc:build/go/protos/common \
 	--go_opt=paths=source_relative \
 	protos/common/*.proto
@@ -82,11 +80,6 @@ generate/go:
 	--proto_path=./protos \
 	--go_out=plugins=grpc:build/go/protos/records \
 	protos/records/*.proto
-
-	docker run --rm -w $(PWD) -v $(PWD):$(PWD) -w${PWD} jaegertracing/protobuf:0.2.0 \
-	--proto_path=./protos/vendor/google/rpc \
-	--go_out=plugins=grpc:build/go/protos/vendor/google/rpc \
-	protos/vendor/google/rpc/*.proto
 
 
 .PHONY: clean
