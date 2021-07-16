@@ -78,7 +78,8 @@ generate/go:
 
 	docker run --rm -w $(PWD) -v $(PWD):$(PWD) -w${PWD} jaegertracing/protobuf:0.2.0 \
 	--proto_path=./protos \
-	--go_out=plugins=grpc:build/go/protos/records \
+	--go_out=plugins=grpc:build/go/protos \
+	--go_opt=paths=source_relative \
 	protos/records/*.proto
 
 
