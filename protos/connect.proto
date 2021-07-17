@@ -27,8 +27,6 @@ message GetAllConnectionsRequest {
 
 message GetAllConnectionsResponse {
     repeated Connection connections = 1;
-
-    common.Status status = 1000;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -42,8 +40,6 @@ message GetConnectionRequest {
 
 message GetConnectionResponse {
     Connection connection = 1;
-
-    common.Status status = 1000;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -58,8 +54,6 @@ message CreateConnectionRequest {
 message CreateConnectionResponse {
     // Set with uuid that represents connection if create is successful
     string connection_id = 1;
-
-    common.Status status = 1000;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
