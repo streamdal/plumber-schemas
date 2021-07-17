@@ -33,6 +33,7 @@ setup/linux:
 
 .PHONY: generate/go
 generate/go: description = Compile protobuf schemas for Go
+generate/go: clean
 generate/go:
 	mkdir -p build/go/protos
 	mkdir -p build/go/protos/args
