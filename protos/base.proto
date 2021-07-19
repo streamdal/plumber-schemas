@@ -14,7 +14,7 @@ service PlumberServer {
     rpc GetAllConnections (GetAllConnectionsRequest) returns (GetAllConnectionsResponse);
 
     // Fetch a specific connection by ID
-    rpc GetCollection(GetConnectionRequest) returns (GetConnectionResponse);
+    rpc GetConnection(GetConnectionRequest) returns (GetConnectionResponse);
 
     // Create a connection in plumber
     rpc CreateConnection(CreateConnectionRequest) returns (CreateConnectionResponse);
