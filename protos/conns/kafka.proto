@@ -12,7 +12,7 @@ enum SASLType {
 
 message Kafka {
     // Required
-    string address = 1;
+    repeated string address = 1;
 
     // Optional; how long to attempt connecting for (default: 10s)
     int32 timeout_seconds = 2;
