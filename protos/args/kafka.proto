@@ -32,4 +32,6 @@ message Kafka {
 
     // Optional; how long a coordinator will wait for member joins as part of a rebalance (default: 5s)
     int32 rebalance_timeout_seconds = 9;
+
+    repeated string brokers = 10;
 }
