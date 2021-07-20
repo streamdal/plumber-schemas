@@ -31,6 +31,12 @@ setup/linux:
 	# Go plugin used by the protocol compiler
 	go get -u github.com/golang/protobuf/protoc-gen-go
 
+.PHONY: generate/ts
+generate/ts: description = Compile TypeScript Interfaces for UI
+generate/ts:
+	mkdir -p build/ts
+	./node_modules/.bin/rxjs-grpc -o build/ts/plumber-schemas.ts **/*.proto
+
 .PHONY: generate/go
 generate/go: description = Compile protobuf schemas for Go
 generate/go: clean
