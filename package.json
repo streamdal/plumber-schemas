@@ -21,7 +21,7 @@
   "homepage": "https://github.com/batchcorp/plumber-schemas#readme",
   "dependencies": {
     "grpc": "^1.24.10",
-    "rxjs": "^7.2.0",
+    "rxjs": "^6.6.7",
     "rxjs-grpc": "^0.2.6"
   }
 }
