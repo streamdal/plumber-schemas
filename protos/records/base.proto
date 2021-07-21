@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package protos.records;
 
-import "records/kafka.proto";
+import "kafka.proto";
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/records";
 

@@ -35,7 +35,7 @@ setup/linux:
 generate/ts: description = Compile TypeScript Interfaces for UI
 generate/ts:
 	mkdir -p build/ts
-	./node_modules/.bin/rxjs-grpc -o build/ts/plumber-schemas.ts **/*.proto
+	./node_modules/.bin/proto-loader-gen-types --defaults --keepCase=true --longs=Number --enums=String --arrays=true --objects=true --oneofs=true --grpcLib=@grpc/grpc-js --outDir=build/ts/ protos/*.proto
 
 .PHONY: generate/go
 generate/go: description = Compile protobuf schemas for Go
