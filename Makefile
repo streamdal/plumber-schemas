@@ -1,4 +1,4 @@
-\help: HELP_SCRIPT = \
+help: HELP_SCRIPT = \
 	if (/^([a-zA-Z0-9-\.\/]+).*?: description\s*=\s*(.+)/) { \
 		printf "\033[34m%-40s\033[0m %s\n", $$1, $$2 \
 	} elsif(/^\#\#\#\s*(.+)/) { \
