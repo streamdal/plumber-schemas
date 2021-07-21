@@ -48,8 +48,8 @@ generate/ts:
 		--includeDirs=./protos/args \
 		--includeDirs=./protos/common \
 		--includeDirs=./protos/conns \
-  	--includeDirs=./protos/encoding \
-  	--includeDirs=./protos/records \
+		--includeDirs=./protos/encoding \
+		--includeDirs=./protos/records \
 		--grpcLib=@grpc/grpc-js \
 		--outDir=build/ts/ \
 		protos/*.proto
