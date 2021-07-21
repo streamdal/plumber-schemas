@@ -1,4 +1,4 @@
-help: HELP_SCRIPT = \
+\help: HELP_SCRIPT = \
 	if (/^([a-zA-Z0-9-\.\/]+).*?: description\s*=\s*(.+)/) { \
 		printf "\033[34m%-40s\033[0m %s\n", $$1, $$2 \
 	} elsif(/^\#\#\#\s*(.+)/) { \
@@ -33,13 +33,30 @@ setup/linux:
 
 .PHONY: generate/ts
 generate/ts: description = Compile TypeScript Interfaces for UI
+generate/ts: clean-ts
 generate/ts:
 	mkdir -p build/ts
-	./node_modules/.bin/proto-loader-gen-types --defaults --keepCase=true --longs=Number --enums=String --arrays=true --objects=true --oneofs=true --grpcLib=@grpc/grpc-js --outDir=build/ts/ protos/*.proto
+	./node_modules/.bin/proto-loader-gen-types \
+		--defaults \
+		--keepCase=true \
+		--longs=Number \
+		--enums=String \
+		--arrays=true \
+		--objects=true \
+		--oneofs=true \
+		--includeDirs=./protos \
+		--includeDirs=./protos/args \
+		--includeDirs=./protos/common \
+		--includeDirs=./protos/conns \
+  	--includeDirs=./protos/encoding \
+  	--includeDirs=./protos/records \
+		--grpcLib=@grpc/grpc-js \
+		--outDir=build/ts/ \
+		protos/*.proto
 
 .PHONY: generate/go
 generate/go: description = Compile protobuf schemas for Go
-generate/go: clean
+generate/go: clean-go
 generate/go:
 	mkdir -p build/go/protos
 	mkdir -p build/go/protos/args
@@ -53,8 +70,8 @@ generate/go:
 	--proto_path=./protos/args \
 	--proto_path=./protos/common \
 	--proto_path=./protos/conns \
-  	--proto_path=./protos/encoding \
-  	--proto_path=./protos/records \
+	--proto_path=./protos/encoding \
+	--proto_path=./protos/records \
 	--go_out=plugins=grpc:build/go/protos \
 	--go_opt=paths=source_relative \
 	protos/*.proto
@@ -90,7 +107,12 @@ generate/go:
 	protos/records/*.proto
 
 
-.PHONY: clean
-clean: description = Remove all build artifacts
+.PHONY: clean-go
+clean: description = Remove all go build artifacts
 clean:
-	rm -rf ./build/*
+	rm -rf ./build/go/*
+
+.PHONY: clean-ts
+clean: description = Remove all ts build artifacts
+clean:
+	rm -rf ./build/ts/*
