@@ -16,6 +16,13 @@ export interface ProtoGrpcType {
       Code: EnumTypeDefinition
       Status: MessageTypeDefinition
     }
+    encoding: {
+      Avro: MessageTypeDefinition
+      JSONSchema: MessageTypeDefinition
+      Options: MessageTypeDefinition
+      Protobuf: MessageTypeDefinition
+      Type: EnumTypeDefinition
+    }
     records: {
       Kafka: MessageTypeDefinition
       KafkaHeader: MessageTypeDefinition

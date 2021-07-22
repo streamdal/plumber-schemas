@@ -5,6 +5,7 @@ package protos;
 import "records/kafka.proto";
 import "common/auth.proto";
 import "common/status.proto";
+import "encoding/options.proto";
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
 
@@ -22,6 +23,8 @@ message WriteRequest {
 
     // We need to use a WriteRecord as a wrapper since there is no way to "repeated oneof ..."
     repeated WriteRecord records = 2;
+
+    encoding.Options decode_options = 3;
 }
 
 message WriteResponse {
