@@ -26,7 +26,7 @@ message GetAllConnectionsRequest {
 }
 
 message GetAllConnectionsResponse {
-    map<string, Connection> connections = 1;
+    repeated Connection connections = 1;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
