@@ -7,13 +7,13 @@ import type { Auth as _protos_common_Auth, Auth__Output as _protos_common_Auth__
 export interface WriteRequest {
   'connection_id'?: (string);
   'records'?: (_protos_WriteRecord)[];
-  'decode_options'?: (_protos_encoding_Options | null);
+  'encode_options'?: (_protos_encoding_Options | null);
   'auth'?: (_protos_common_Auth | null);
 }
 
 export interface WriteRequest__Output {
   'connection_id': (string);
   'records': (_protos_WriteRecord__Output)[];
-  'decode_options': (_protos_encoding_Options__Output | null);
+  'encode_options': (_protos_encoding_Options__Output | null);
   'auth': (_protos_common_Auth__Output | null);
 }
