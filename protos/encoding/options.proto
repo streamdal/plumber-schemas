@@ -22,7 +22,7 @@ message JSONSchema {
 }
 
 message Avro {
-    // TODO
+    bytes Schema = 1;
 }
 
 message Options {
