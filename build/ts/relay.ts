@@ -17,6 +17,8 @@ export interface ProtoGrpcType {
     GetRelayRequest: MessageTypeDefinition
     GetRelayResponse: MessageTypeDefinition
     Relay: MessageTypeDefinition
+    ResumeRelayRequest: MessageTypeDefinition
+    ResumeRelayResponse: MessageTypeDefinition
     StopRelayRequest: MessageTypeDefinition
     StopRelayResponse: MessageTypeDefinition
     UpdateRelayRequest: MessageTypeDefinition

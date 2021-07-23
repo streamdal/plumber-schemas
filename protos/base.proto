@@ -43,6 +43,8 @@ service PlumberServer {
     // Update a relay (such as API token) - relay will be interrupted!
     rpc UpdateRelay(UpdateRelayRequest) returns (UpdateRelayResponse);
 
+    rpc ResumeRelay(ResumeRelayRequest) returns (ResumeRelayResponse);
+
     rpc StopRelay(StopRelayRequest) returns (StopRelayResponse);
 
     // Delete an existing relay

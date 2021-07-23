@@ -29,6 +29,8 @@ export interface ProtoGrpcType {
     PlumberServer: SubtypeConstructor<typeof grpc.Client, _protos_PlumberServerClient> & { service: _protos_PlumberServerDefinition }
     ReadOptions: MessageTypeDefinition
     Relay: MessageTypeDefinition
+    ResumeRelayRequest: MessageTypeDefinition
+    ResumeRelayResponse: MessageTypeDefinition
     SampleOptions: MessageTypeDefinition
     StartReadRequest: MessageTypeDefinition
     StartReadResponse: MessageTypeDefinition

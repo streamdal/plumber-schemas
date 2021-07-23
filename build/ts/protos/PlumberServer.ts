@@ -14,6 +14,8 @@ import type { GetAllConnectionsRequest as _protos_GetAllConnectionsRequest, GetA
 import type { GetAllConnectionsResponse as _protos_GetAllConnectionsResponse, GetAllConnectionsResponse__Output as _protos_GetAllConnectionsResponse__Output } from '../protos/GetAllConnectionsResponse';
 import type { GetConnectionRequest as _protos_GetConnectionRequest, GetConnectionRequest__Output as _protos_GetConnectionRequest__Output } from '../protos/GetConnectionRequest';
 import type { GetConnectionResponse as _protos_GetConnectionResponse, GetConnectionResponse__Output as _protos_GetConnectionResponse__Output } from '../protos/GetConnectionResponse';
+import type { ResumeRelayRequest as _protos_ResumeRelayRequest, ResumeRelayRequest__Output as _protos_ResumeRelayRequest__Output } from '../protos/ResumeRelayRequest';
+import type { ResumeRelayResponse as _protos_ResumeRelayResponse, ResumeRelayResponse__Output as _protos_ResumeRelayResponse__Output } from '../protos/ResumeRelayResponse';
 import type { StartReadRequest as _protos_StartReadRequest, StartReadRequest__Output as _protos_StartReadRequest__Output } from '../protos/StartReadRequest';
 import type { StartReadResponse as _protos_StartReadResponse, StartReadResponse__Output as _protos_StartReadResponse__Output } from '../protos/StartReadResponse';
 import type { StopReadRequest as _protos_StopReadRequest, StopReadRequest__Output as _protos_StopReadRequest__Output } from '../protos/StopReadRequest';
@@ -83,6 +85,15 @@ export interface PlumberServerClient extends grpc.Client {
   getConnection(argument: _protos_GetConnectionRequest, metadata: grpc.Metadata, callback: (error?: grpc.ServiceError, result?: _protos_GetConnectionResponse__Output) => void): grpc.ClientUnaryCall;
   getConnection(argument: _protos_GetConnectionRequest, options: grpc.CallOptions, callback: (error?: grpc.ServiceError, result?: _protos_GetConnectionResponse__Output) => void): grpc.ClientUnaryCall;
   getConnection(argument: _protos_GetConnectionRequest, callback: (error?: grpc.ServiceError, result?: _protos_GetConnectionResponse__Output) => void): grpc.ClientUnaryCall;
+  
+  ResumeRelay(argument: _protos_ResumeRelayRequest, metadata: grpc.Metadata, options: grpc.CallOptions, callback: (error?: grpc.ServiceError, result?: _protos_ResumeRelayResponse__Output) => void): grpc.ClientUnaryCall;
+  ResumeRelay(argument: _protos_ResumeRelayRequest, metadata: grpc.Metadata, callback: (error?: grpc.ServiceError, result?: _protos_ResumeRelayResponse__Output) => void): grpc.ClientUnaryCall;
+  ResumeRelay(argument: _protos_ResumeRelayRequest, options: grpc.CallOptions, callback: (error?: grpc.ServiceError, result?: _protos_ResumeRelayResponse__Output) => void): grpc.ClientUnaryCall;
+  ResumeRelay(argument: _protos_ResumeRelayRequest, callback: (error?: grpc.ServiceError, result?: _protos_ResumeRelayResponse__Output) => void): grpc.ClientUnaryCall;
+  resumeRelay(argument: _protos_ResumeRelayRequest, metadata: grpc.Metadata, options: grpc.CallOptions, callback: (error?: grpc.ServiceError, result?: _protos_ResumeRelayResponse__Output) => void): grpc.ClientUnaryCall;
+  resumeRelay(argument: _protos_ResumeRelayRequest, metadata: grpc.Metadata, callback: (error?: grpc.ServiceError, result?: _protos_ResumeRelayResponse__Output) => void): grpc.ClientUnaryCall;
+  resumeRelay(argument: _protos_ResumeRelayRequest, options: grpc.CallOptions, callback: (error?: grpc.ServiceError, result?: _protos_ResumeRelayResponse__Output) => void): grpc.ClientUnaryCall;
+  resumeRelay(argument: _protos_ResumeRelayRequest, callback: (error?: grpc.ServiceError, result?: _protos_ResumeRelayResponse__Output) => void): grpc.ClientUnaryCall;
   
   StartRead(argument: _protos_StartReadRequest, metadata: grpc.Metadata, options?: grpc.CallOptions): grpc.ClientReadableStream<_protos_StartReadResponse__Output>;
   StartRead(argument: _protos_StartReadRequest, options?: grpc.CallOptions): grpc.ClientReadableStream<_protos_StartReadResponse__Output>;
@@ -158,6 +169,8 @@ export interface PlumberServerHandlers extends grpc.UntypedServiceImplementation
   
   GetConnection: grpc.handleUnaryCall<_protos_GetConnectionRequest__Output, _protos_GetConnectionResponse>;
   
+  ResumeRelay: grpc.handleUnaryCall<_protos_ResumeRelayRequest__Output, _protos_ResumeRelayResponse>;
+  
   StartRead: grpc.handleServerStreamingCall<_protos_StartReadRequest__Output, _protos_StartReadResponse>;
   
   StopRead: grpc.handleUnaryCall<_protos_StopReadRequest__Output, _protos_StopReadResponse>;
@@ -181,6 +194,7 @@ export interface PlumberServerDefinition extends grpc.ServiceDefinition {
   DeleteRelay: MethodDefinition<_protos_DeleteRelayRequest, _protos_DeleteRelayResponse, _protos_DeleteRelayRequest__Output, _protos_DeleteRelayResponse__Output>
   GetAllConnections: MethodDefinition<_protos_GetAllConnectionsRequest, _protos_GetAllConnectionsResponse, _protos_GetAllConnectionsRequest__Output, _protos_GetAllConnectionsResponse__Output>
   GetConnection: MethodDefinition<_protos_GetConnectionRequest, _protos_GetConnectionResponse, _protos_GetConnectionRequest__Output, _protos_GetConnectionResponse__Output>
+  ResumeRelay: MethodDefinition<_protos_ResumeRelayRequest, _protos_ResumeRelayResponse, _protos_ResumeRelayRequest__Output, _protos_ResumeRelayResponse__Output>
   StartRead: MethodDefinition<_protos_StartReadRequest, _protos_StartReadResponse, _protos_StartReadRequest__Output, _protos_StartReadResponse__Output>
   StopRead: MethodDefinition<_protos_StopReadRequest, _protos_StopReadResponse, _protos_StopReadRequest__Output, _protos_StopReadResponse__Output>
   StopRelay: MethodDefinition<_protos_StopRelayRequest, _protos_StopRelayResponse, _protos_StopRelayRequest__Output, _protos_StopRelayResponse__Output>
