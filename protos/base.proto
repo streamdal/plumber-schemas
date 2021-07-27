@@ -47,6 +47,8 @@ service PlumberServer {
 
     rpc StopRelay(StopRelayRequest) returns (StopRelayResponse);
 
+    rpc GetAllRelays(GetAllRelaysRequest) returns (GetAllRelaysResponse);
+
     // Delete an existing relay
     rpc DeleteRelay(DeleteRelayRequest) returns (DeleteRelayResponse);
 }

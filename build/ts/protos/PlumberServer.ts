@@ -12,6 +12,8 @@ import type { DeleteRelayRequest as _protos_DeleteRelayRequest, DeleteRelayReque
 import type { DeleteRelayResponse as _protos_DeleteRelayResponse, DeleteRelayResponse__Output as _protos_DeleteRelayResponse__Output } from '../protos/DeleteRelayResponse';
 import type { GetAllConnectionsRequest as _protos_GetAllConnectionsRequest, GetAllConnectionsRequest__Output as _protos_GetAllConnectionsRequest__Output } from '../protos/GetAllConnectionsRequest';
 import type { GetAllConnectionsResponse as _protos_GetAllConnectionsResponse, GetAllConnectionsResponse__Output as _protos_GetAllConnectionsResponse__Output } from '../protos/GetAllConnectionsResponse';
+import type { GetAllRelaysRequest as _protos_GetAllRelaysRequest, GetAllRelaysRequest__Output as _protos_GetAllRelaysRequest__Output } from '../protos/GetAllRelaysRequest';
+import type { GetAllRelaysResponse as _protos_GetAllRelaysResponse, GetAllRelaysResponse__Output as _protos_GetAllRelaysResponse__Output } from '../protos/GetAllRelaysResponse';
 import type { GetConnectionRequest as _protos_GetConnectionRequest, GetConnectionRequest__Output as _protos_GetConnectionRequest__Output } from '../protos/GetConnectionRequest';
 import type { GetConnectionResponse as _protos_GetConnectionResponse, GetConnectionResponse__Output as _protos_GetConnectionResponse__Output } from '../protos/GetConnectionResponse';
 import type { ResumeRelayRequest as _protos_ResumeRelayRequest, ResumeRelayRequest__Output as _protos_ResumeRelayRequest__Output } from '../protos/ResumeRelayRequest';
@@ -76,6 +78,15 @@ export interface PlumberServerClient extends grpc.Client {
   getAllConnections(argument: _protos_GetAllConnectionsRequest, metadata: grpc.Metadata, callback: (error?: grpc.ServiceError, result?: _protos_GetAllConnectionsResponse__Output) => void): grpc.ClientUnaryCall;
   getAllConnections(argument: _protos_GetAllConnectionsRequest, options: grpc.CallOptions, callback: (error?: grpc.ServiceError, result?: _protos_GetAllConnectionsResponse__Output) => void): grpc.ClientUnaryCall;
   getAllConnections(argument: _protos_GetAllConnectionsRequest, callback: (error?: grpc.ServiceError, result?: _protos_GetAllConnectionsResponse__Output) => void): grpc.ClientUnaryCall;
+  
+  GetAllRelays(argument: _protos_GetAllRelaysRequest, metadata: grpc.Metadata, options: grpc.CallOptions, callback: (error?: grpc.ServiceError, result?: _protos_GetAllRelaysResponse__Output) => void): grpc.ClientUnaryCall;
+  GetAllRelays(argument: _protos_GetAllRelaysRequest, metadata: grpc.Metadata, callback: (error?: grpc.ServiceError, result?: _protos_GetAllRelaysResponse__Output) => void): grpc.ClientUnaryCall;
+  GetAllRelays(argument: _protos_GetAllRelaysRequest, options: grpc.CallOptions, callback: (error?: grpc.ServiceError, result?: _protos_GetAllRelaysResponse__Output) => void): grpc.ClientUnaryCall;
+  GetAllRelays(argument: _protos_GetAllRelaysRequest, callback: (error?: grpc.ServiceError, result?: _protos_GetAllRelaysResponse__Output) => void): grpc.ClientUnaryCall;
+  getAllRelays(argument: _protos_GetAllRelaysRequest, metadata: grpc.Metadata, options: grpc.CallOptions, callback: (error?: grpc.ServiceError, result?: _protos_GetAllRelaysResponse__Output) => void): grpc.ClientUnaryCall;
+  getAllRelays(argument: _protos_GetAllRelaysRequest, metadata: grpc.Metadata, callback: (error?: grpc.ServiceError, result?: _protos_GetAllRelaysResponse__Output) => void): grpc.ClientUnaryCall;
+  getAllRelays(argument: _protos_GetAllRelaysRequest, options: grpc.CallOptions, callback: (error?: grpc.ServiceError, result?: _protos_GetAllRelaysResponse__Output) => void): grpc.ClientUnaryCall;
+  getAllRelays(argument: _protos_GetAllRelaysRequest, callback: (error?: grpc.ServiceError, result?: _protos_GetAllRelaysResponse__Output) => void): grpc.ClientUnaryCall;
   
   GetConnection(argument: _protos_GetConnectionRequest, metadata: grpc.Metadata, options: grpc.CallOptions, callback: (error?: grpc.ServiceError, result?: _protos_GetConnectionResponse__Output) => void): grpc.ClientUnaryCall;
   GetConnection(argument: _protos_GetConnectionRequest, metadata: grpc.Metadata, callback: (error?: grpc.ServiceError, result?: _protos_GetConnectionResponse__Output) => void): grpc.ClientUnaryCall;
@@ -167,6 +178,8 @@ export interface PlumberServerHandlers extends grpc.UntypedServiceImplementation
   
   GetAllConnections: grpc.handleUnaryCall<_protos_GetAllConnectionsRequest__Output, _protos_GetAllConnectionsResponse>;
   
+  GetAllRelays: grpc.handleUnaryCall<_protos_GetAllRelaysRequest__Output, _protos_GetAllRelaysResponse>;
+  
   GetConnection: grpc.handleUnaryCall<_protos_GetConnectionRequest__Output, _protos_GetConnectionResponse>;
   
   ResumeRelay: grpc.handleUnaryCall<_protos_ResumeRelayRequest__Output, _protos_ResumeRelayResponse>;
@@ -193,6 +206,7 @@ export interface PlumberServerDefinition extends grpc.ServiceDefinition {
   DeleteConnection: MethodDefinition<_protos_DeleteConnectionRequest, _protos_DeleteConnectionResponse, _protos_DeleteConnectionRequest__Output, _protos_DeleteConnectionResponse__Output>
   DeleteRelay: MethodDefinition<_protos_DeleteRelayRequest, _protos_DeleteRelayResponse, _protos_DeleteRelayRequest__Output, _protos_DeleteRelayResponse__Output>
   GetAllConnections: MethodDefinition<_protos_GetAllConnectionsRequest, _protos_GetAllConnectionsResponse, _protos_GetAllConnectionsRequest__Output, _protos_GetAllConnectionsResponse__Output>
+  GetAllRelays: MethodDefinition<_protos_GetAllRelaysRequest, _protos_GetAllRelaysResponse, _protos_GetAllRelaysRequest__Output, _protos_GetAllRelaysResponse__Output>
   GetConnection: MethodDefinition<_protos_GetConnectionRequest, _protos_GetConnectionResponse, _protos_GetConnectionRequest__Output, _protos_GetConnectionResponse__Output>
   ResumeRelay: MethodDefinition<_protos_ResumeRelayRequest, _protos_ResumeRelayResponse, _protos_ResumeRelayRequest__Output, _protos_ResumeRelayResponse__Output>
   StartRead: MethodDefinition<_protos_StartReadRequest, _protos_StartReadResponse, _protos_StartReadRequest__Output, _protos_StartReadResponse__Output>

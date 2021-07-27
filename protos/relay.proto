@@ -29,6 +29,9 @@ message Relay {
     // Optional: how long to wait before giving up talking to the gRPC collector (default: 10s)
     bool batchsh_grpc_timeout = 7;
 
+    // ID of the created relay entry. Populated by plumber, ignored on creation
+    string relay_id = 8;
+
     // Set appropriate args based on what connection is specified
     // ie. If connection_id is for kafka - specify Kafka args
     oneof Args {
