@@ -20,6 +20,8 @@ export interface ProtoGrpcType {
     DeleteRelayResponse: MessageTypeDefinition
     GetAllConnectionsRequest: MessageTypeDefinition
     GetAllConnectionsResponse: MessageTypeDefinition
+    GetAllReadsRequest: MessageTypeDefinition
+    GetAllReadsResponse: MessageTypeDefinition
     GetAllRelaysRequest: MessageTypeDefinition
     GetAllRelaysResponse: MessageTypeDefinition
     GetConnectionRequest: MessageTypeDefinition
@@ -27,6 +29,7 @@ export interface ProtoGrpcType {
     GetRelayRequest: MessageTypeDefinition
     GetRelayResponse: MessageTypeDefinition
     PlumberServer: SubtypeConstructor<typeof grpc.Client, _protos_PlumberServerClient> & { service: _protos_PlumberServerDefinition }
+    Read: MessageTypeDefinition
     ReadOptions: MessageTypeDefinition
     Relay: MessageTypeDefinition
     ResumeRelayRequest: MessageTypeDefinition
@@ -38,6 +41,8 @@ export interface ProtoGrpcType {
     StopReadResponse: MessageTypeDefinition
     StopRelayRequest: MessageTypeDefinition
     StopRelayResponse: MessageTypeDefinition
+    StreamReadRequest: MessageTypeDefinition
+    StreamReadResponse: MessageTypeDefinition
     TestConnectionRequest: MessageTypeDefinition
     TestConnectionResponse: MessageTypeDefinition
     UpdateConnectionRequest: MessageTypeDefinition

@@ -29,7 +29,13 @@ service PlumberServer {
     rpc DeleteConnection(DeleteConnectionRequest) returns (DeleteConnectionResponse);
 
     // Start reading data from a connection
-    rpc StartRead(StartReadRequest) returns (stream StartReadResponse);
+    rpc StartRead(StartReadRequest) returns (StartReadResponse);
+
+    // Streams messages received off of a read
+    rpc StreamRead(StreamReadRequest) returns (stream StreamReadResponse);
+
+    // List all reads that have been created
+    rpc GetAllReads(GetAllReadsRequest) returns (GetAllReadsResponse);
 
     // Stop reading data from a connection
     rpc StopRead(StopReadRequest) returns (StopReadResponse);

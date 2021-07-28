@@ -8,12 +8,17 @@ type SubtypeConstructor<Constructor extends new (...args: any) => any, Subtype> 
 
 export interface ProtoGrpcType {
   protos: {
+    GetAllReadsRequest: MessageTypeDefinition
+    GetAllReadsResponse: MessageTypeDefinition
+    Read: MessageTypeDefinition
     ReadOptions: MessageTypeDefinition
     SampleOptions: MessageTypeDefinition
     StartReadRequest: MessageTypeDefinition
     StartReadResponse: MessageTypeDefinition
     StopReadRequest: MessageTypeDefinition
     StopReadResponse: MessageTypeDefinition
+    StreamReadRequest: MessageTypeDefinition
+    StreamReadResponse: MessageTypeDefinition
     args: {
       Kafka: MessageTypeDefinition
     }
