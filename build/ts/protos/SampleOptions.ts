@@ -6,7 +6,6 @@
 export enum _protos_SampleOptions_Interval {
   SECOND = 0,
   MINUTE = 1,
-  HOUR = 2,
 }
 
 export interface SampleOptions {

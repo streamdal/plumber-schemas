@@ -21,7 +21,6 @@ message SampleOptions {
     enum Interval {
         SECOND = 0;
         MINUTE = 1;
-        HOUR = 2;
     }
 
     uint32 sample_rate = 1;
