@@ -50,25 +50,6 @@ generate/ts:
     -I=./protos/records \
     protos/*.proto \
     protos/**/*.proto
-# generate/ts:
-# 	mkdir -p build/ts
-# 	./node_modules/.bin/proto-loader-gen-types \
-# 		--defaults \
-# 		--keepCase=true \
-# 		--longs=Number \
-# 		--enums=String \
-# 		--arrays=true \
-# 		--objects=true \
-# 		--oneofs=true \
-# 		--includeDirs=./protos \
-# 		--includeDirs=./protos/args \
-# 		--includeDirs=./protos/common \
-# 		--includeDirs=./protos/conns \
-# 		--includeDirs=./protos/encoding \
-# 		--includeDirs=./protos/records \
-# 		--grpcLib=@grpc/grpc-js \
-# 		--outDir=build/ts/ \
-# 		protos/*.proto
 
 .PHONY: generate/go
 generate/go: description = Compile protobuf schemas for Go

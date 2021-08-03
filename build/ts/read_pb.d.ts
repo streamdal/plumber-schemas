@@ -59,7 +59,6 @@ export namespace SampleOptions {
     export enum Interval {
     SECOND = 0,
     MINUTE = 1,
-    HOUR = 2,
     }
 
 }
@@ -67,6 +66,10 @@ export namespace SampleOptions {
 export class Read extends jspb.Message { 
     getId(): string;
     setId(value: string): Read;
+    getActive(): boolean;
+    setActive(value: boolean): Read;
+    getName(): string;
+    setName(value: string): Read;
     getConnectionId(): string;
     setConnectionId(value: string): Read;
 
@@ -105,6 +108,8 @@ export class Read extends jspb.Message {
 export namespace Read {
     export type AsObject = {
         id: string,
+        active: boolean,
+        name: string,
         connectionId: string,
         readOptions?: ReadOptions.AsObject,
         sampleOptions?: SampleOptions.AsObject,
@@ -119,55 +124,55 @@ export namespace Read {
 
 }
 
-export class StartReadRequest extends jspb.Message { 
+export class CreateReadRequest extends jspb.Message { 
 
     hasAuth(): boolean;
     clearAuth(): void;
     getAuth(): common_auth_pb.Auth | undefined;
-    setAuth(value?: common_auth_pb.Auth): StartReadRequest;
+    setAuth(value?: common_auth_pb.Auth): CreateReadRequest;
 
     hasRead(): boolean;
     clearRead(): void;
     getRead(): Read | undefined;
-    setRead(value?: Read): StartReadRequest;
+    setRead(value?: Read): CreateReadRequest;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): StartReadRequest.AsObject;
-    static toObject(includeInstance: boolean, msg: StartReadRequest): StartReadRequest.AsObject;
+    toObject(includeInstance?: boolean): CreateReadRequest.AsObject;
+    static toObject(includeInstance: boolean, msg: CreateReadRequest): CreateReadRequest.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: StartReadRequest, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): StartReadRequest;
-    static deserializeBinaryFromReader(message: StartReadRequest, reader: jspb.BinaryReader): StartReadRequest;
+    static serializeBinaryToWriter(message: CreateReadRequest, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): CreateReadRequest;
+    static deserializeBinaryFromReader(message: CreateReadRequest, reader: jspb.BinaryReader): CreateReadRequest;
 }
 
-export namespace StartReadRequest {
+export namespace CreateReadRequest {
     export type AsObject = {
         auth?: common_auth_pb.Auth.AsObject,
         read?: Read.AsObject,
     }
 }
 
-export class StartReadResponse extends jspb.Message { 
+export class CreateReadResponse extends jspb.Message { 
 
     hasStatus(): boolean;
     clearStatus(): void;
     getStatus(): common_status_pb.Status | undefined;
-    setStatus(value?: common_status_pb.Status): StartReadResponse;
+    setStatus(value?: common_status_pb.Status): CreateReadResponse;
     getReadId(): string;
-    setReadId(value: string): StartReadResponse;
+    setReadId(value: string): CreateReadResponse;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): StartReadResponse.AsObject;
-    static toObject(includeInstance: boolean, msg: StartReadResponse): StartReadResponse.AsObject;
+    toObject(includeInstance?: boolean): CreateReadResponse.AsObject;
+    static toObject(includeInstance: boolean, msg: CreateReadResponse): CreateReadResponse.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: StartReadResponse, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): StartReadResponse;
-    static deserializeBinaryFromReader(message: StartReadResponse, reader: jspb.BinaryReader): StartReadResponse;
+    static serializeBinaryToWriter(message: CreateReadResponse, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): CreateReadResponse;
+    static deserializeBinaryFromReader(message: CreateReadResponse, reader: jspb.BinaryReader): CreateReadResponse;
 }
 
-export namespace StartReadResponse {
+export namespace CreateReadResponse {
     export type AsObject = {
         status?: common_status_pb.Status.AsObject,
         readId: string,
@@ -219,6 +224,158 @@ export class StopReadResponse extends jspb.Message {
 
 export namespace StopReadResponse {
     export type AsObject = {
+        status?: common_status_pb.Status.AsObject,
+    }
+}
+
+export class ResumeReadRequest extends jspb.Message { 
+
+    hasAuth(): boolean;
+    clearAuth(): void;
+    getAuth(): common_auth_pb.Auth | undefined;
+    setAuth(value?: common_auth_pb.Auth): ResumeReadRequest;
+    getReadId(): string;
+    setReadId(value: string): ResumeReadRequest;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): ResumeReadRequest.AsObject;
+    static toObject(includeInstance: boolean, msg: ResumeReadRequest): ResumeReadRequest.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: ResumeReadRequest, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): ResumeReadRequest;
+    static deserializeBinaryFromReader(message: ResumeReadRequest, reader: jspb.BinaryReader): ResumeReadRequest;
+}
+
+export namespace ResumeReadRequest {
+    export type AsObject = {
+        auth?: common_auth_pb.Auth.AsObject,
+        readId: string,
+    }
+}
+
+export class ResumeReadResponse extends jspb.Message { 
+
+    hasStatus(): boolean;
+    clearStatus(): void;
+    getStatus(): common_status_pb.Status | undefined;
+    setStatus(value?: common_status_pb.Status): ResumeReadResponse;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): ResumeReadResponse.AsObject;
+    static toObject(includeInstance: boolean, msg: ResumeReadResponse): ResumeReadResponse.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: ResumeReadResponse, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): ResumeReadResponse;
+    static deserializeBinaryFromReader(message: ResumeReadResponse, reader: jspb.BinaryReader): ResumeReadResponse;
+}
+
+export namespace ResumeReadResponse {
+    export type AsObject = {
+        status?: common_status_pb.Status.AsObject,
+    }
+}
+
+export class DeleteReadRequest extends jspb.Message { 
+
+    hasAuth(): boolean;
+    clearAuth(): void;
+    getAuth(): common_auth_pb.Auth | undefined;
+    setAuth(value?: common_auth_pb.Auth): DeleteReadRequest;
+    getReadId(): string;
+    setReadId(value: string): DeleteReadRequest;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): DeleteReadRequest.AsObject;
+    static toObject(includeInstance: boolean, msg: DeleteReadRequest): DeleteReadRequest.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: DeleteReadRequest, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): DeleteReadRequest;
+    static deserializeBinaryFromReader(message: DeleteReadRequest, reader: jspb.BinaryReader): DeleteReadRequest;
+}
+
+export namespace DeleteReadRequest {
+    export type AsObject = {
+        auth?: common_auth_pb.Auth.AsObject,
+        readId: string,
+    }
+}
+
+export class DeleteReadResponse extends jspb.Message { 
+
+    hasStatus(): boolean;
+    clearStatus(): void;
+    getStatus(): common_status_pb.Status | undefined;
+    setStatus(value?: common_status_pb.Status): DeleteReadResponse;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): DeleteReadResponse.AsObject;
+    static toObject(includeInstance: boolean, msg: DeleteReadResponse): DeleteReadResponse.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: DeleteReadResponse, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): DeleteReadResponse;
+    static deserializeBinaryFromReader(message: DeleteReadResponse, reader: jspb.BinaryReader): DeleteReadResponse;
+}
+
+export namespace DeleteReadResponse {
+    export type AsObject = {
+        status?: common_status_pb.Status.AsObject,
+    }
+}
+
+export class StartReadRequest extends jspb.Message { 
+
+    hasAuth(): boolean;
+    clearAuth(): void;
+    getAuth(): common_auth_pb.Auth | undefined;
+    setAuth(value?: common_auth_pb.Auth): StartReadRequest;
+    getReadId(): string;
+    setReadId(value: string): StartReadRequest;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): StartReadRequest.AsObject;
+    static toObject(includeInstance: boolean, msg: StartReadRequest): StartReadRequest.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: StartReadRequest, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): StartReadRequest;
+    static deserializeBinaryFromReader(message: StartReadRequest, reader: jspb.BinaryReader): StartReadRequest;
+}
+
+export namespace StartReadRequest {
+    export type AsObject = {
+        auth?: common_auth_pb.Auth.AsObject,
+        readId: string,
+    }
+}
+
+export class StartReadResponse extends jspb.Message { 
+    clearMessagesList(): void;
+    getMessagesList(): Array<records_base_pb.Message>;
+    setMessagesList(value: Array<records_base_pb.Message>): StartReadResponse;
+    addMessages(value?: records_base_pb.Message, index?: number): records_base_pb.Message;
+
+    hasStatus(): boolean;
+    clearStatus(): void;
+    getStatus(): common_status_pb.Status | undefined;
+    setStatus(value?: common_status_pb.Status): StartReadResponse;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): StartReadResponse.AsObject;
+    static toObject(includeInstance: boolean, msg: StartReadResponse): StartReadResponse.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: StartReadResponse, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): StartReadResponse;
+    static deserializeBinaryFromReader(message: StartReadResponse, reader: jspb.BinaryReader): StartReadResponse;
+}
+
+export namespace StartReadResponse {
+    export type AsObject = {
+        messagesList: Array<records_base_pb.Message.AsObject>,
         status?: common_status_pb.Status.AsObject,
     }
 }

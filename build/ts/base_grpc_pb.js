@@ -29,6 +29,28 @@ function deserialize_protos_CreateConnectionResponse(buffer_arg) {
   return connect_pb.CreateConnectionResponse.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
+function serialize_protos_CreateReadRequest(arg) {
+  if (!(arg instanceof read_pb.CreateReadRequest)) {
+    throw new Error('Expected argument of type protos.CreateReadRequest');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_protos_CreateReadRequest(buffer_arg) {
+  return read_pb.CreateReadRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_protos_CreateReadResponse(arg) {
+  if (!(arg instanceof read_pb.CreateReadResponse)) {
+    throw new Error('Expected argument of type protos.CreateReadResponse');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_protos_CreateReadResponse(buffer_arg) {
+  return read_pb.CreateReadResponse.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
 function serialize_protos_CreateRelayRequest(arg) {
   if (!(arg instanceof relay_pb.CreateRelayRequest)) {
     throw new Error('Expected argument of type protos.CreateRelayRequest');
@@ -71,6 +93,28 @@ function serialize_protos_DeleteConnectionResponse(arg) {
 
 function deserialize_protos_DeleteConnectionResponse(buffer_arg) {
   return connect_pb.DeleteConnectionResponse.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_protos_DeleteReadRequest(arg) {
+  if (!(arg instanceof read_pb.DeleteReadRequest)) {
+    throw new Error('Expected argument of type protos.DeleteReadRequest');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_protos_DeleteReadRequest(buffer_arg) {
+  return read_pb.DeleteReadRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_protos_DeleteReadResponse(arg) {
+  if (!(arg instanceof read_pb.DeleteReadResponse)) {
+    throw new Error('Expected argument of type protos.DeleteReadResponse');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_protos_DeleteReadResponse(buffer_arg) {
+  return read_pb.DeleteReadResponse.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
 function serialize_protos_DeleteRelayRequest(arg) {
@@ -183,6 +227,28 @@ function deserialize_protos_GetConnectionResponse(buffer_arg) {
   return connect_pb.GetConnectionResponse.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
+function serialize_protos_ResumeReadRequest(arg) {
+  if (!(arg instanceof read_pb.ResumeReadRequest)) {
+    throw new Error('Expected argument of type protos.ResumeReadRequest');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_protos_ResumeReadRequest(buffer_arg) {
+  return read_pb.ResumeReadRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_protos_ResumeReadResponse(arg) {
+  if (!(arg instanceof read_pb.ResumeReadResponse)) {
+    throw new Error('Expected argument of type protos.ResumeReadResponse');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_protos_ResumeReadResponse(buffer_arg) {
+  return read_pb.ResumeReadResponse.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
 function serialize_protos_ResumeRelayRequest(arg) {
   if (!(arg instanceof relay_pb.ResumeRelayRequest)) {
     throw new Error('Expected argument of type protos.ResumeRelayRequest');
@@ -269,28 +335,6 @@ function serialize_protos_StopRelayResponse(arg) {
 
 function deserialize_protos_StopRelayResponse(buffer_arg) {
   return relay_pb.StopRelayResponse.deserializeBinary(new Uint8Array(buffer_arg));
-}
-
-function serialize_protos_StreamReadRequest(arg) {
-  if (!(arg instanceof read_pb.StreamReadRequest)) {
-    throw new Error('Expected argument of type protos.StreamReadRequest');
-  }
-  return Buffer.from(arg.serializeBinary());
-}
-
-function deserialize_protos_StreamReadRequest(buffer_arg) {
-  return read_pb.StreamReadRequest.deserializeBinary(new Uint8Array(buffer_arg));
-}
-
-function serialize_protos_StreamReadResponse(arg) {
-  if (!(arg instanceof read_pb.StreamReadResponse)) {
-    throw new Error('Expected argument of type protos.StreamReadResponse');
-  }
-  return Buffer.from(arg.serializeBinary());
-}
-
-function deserialize_protos_StreamReadResponse(buffer_arg) {
-  return read_pb.StreamReadResponse.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
 function serialize_protos_TestConnectionRequest(arg) {
@@ -456,28 +500,28 @@ deleteConnection: {
     responseDeserialize: deserialize_protos_DeleteConnectionResponse,
   },
   // Start reading data from a connection
+createRead: {
+    path: '/protos.PlumberServer/CreateRead',
+    requestStream: false,
+    responseStream: false,
+    requestType: read_pb.CreateReadRequest,
+    responseType: read_pb.CreateReadResponse,
+    requestSerialize: serialize_protos_CreateReadRequest,
+    requestDeserialize: deserialize_protos_CreateReadRequest,
+    responseSerialize: serialize_protos_CreateReadResponse,
+    responseDeserialize: deserialize_protos_CreateReadResponse,
+  },
+  // Streams messages received off of a read
 startRead: {
     path: '/protos.PlumberServer/StartRead',
     requestStream: false,
-    responseStream: false,
+    responseStream: true,
     requestType: read_pb.StartReadRequest,
     responseType: read_pb.StartReadResponse,
     requestSerialize: serialize_protos_StartReadRequest,
     requestDeserialize: deserialize_protos_StartReadRequest,
     responseSerialize: serialize_protos_StartReadResponse,
     responseDeserialize: deserialize_protos_StartReadResponse,
-  },
-  // Streams messages received off of a read
-streamRead: {
-    path: '/protos.PlumberServer/StreamRead',
-    requestStream: false,
-    responseStream: true,
-    requestType: read_pb.StreamReadRequest,
-    responseType: read_pb.StreamReadResponse,
-    requestSerialize: serialize_protos_StreamReadRequest,
-    requestDeserialize: deserialize_protos_StreamReadRequest,
-    responseSerialize: serialize_protos_StreamReadResponse,
-    responseDeserialize: deserialize_protos_StreamReadResponse,
   },
   // List all reads that have been created
 getAllReads: {
@@ -502,6 +546,30 @@ stopRead: {
     requestDeserialize: deserialize_protos_StopReadRequest,
     responseSerialize: serialize_protos_StopReadResponse,
     responseDeserialize: deserialize_protos_StopReadResponse,
+  },
+  // Resume reading data from an existing read
+resumeRead: {
+    path: '/protos.PlumberServer/ResumeRead',
+    requestStream: false,
+    responseStream: false,
+    requestType: read_pb.ResumeReadRequest,
+    responseType: read_pb.ResumeReadResponse,
+    requestSerialize: serialize_protos_ResumeReadRequest,
+    requestDeserialize: deserialize_protos_ResumeReadRequest,
+    responseSerialize: serialize_protos_ResumeReadResponse,
+    responseDeserialize: deserialize_protos_ResumeReadResponse,
+  },
+  // Resume reading data from an existing read
+deleteRead: {
+    path: '/protos.PlumberServer/DeleteRead',
+    requestStream: false,
+    responseStream: false,
+    requestType: read_pb.DeleteReadRequest,
+    responseType: read_pb.DeleteReadResponse,
+    requestSerialize: serialize_protos_DeleteReadRequest,
+    requestDeserialize: deserialize_protos_DeleteReadRequest,
+    responseSerialize: serialize_protos_DeleteReadResponse,
+    responseDeserialize: deserialize_protos_DeleteReadResponse,
   },
   // Write data to a connection
 write: {

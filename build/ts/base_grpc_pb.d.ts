@@ -18,10 +18,12 @@ interface IPlumberServerService extends grpc.ServiceDefinition<grpc.UntypedServi
     testConnection: IPlumberServerService_ITestConnection;
     updateConnection: IPlumberServerService_IUpdateConnection;
     deleteConnection: IPlumberServerService_IDeleteConnection;
+    createRead: IPlumberServerService_ICreateRead;
     startRead: IPlumberServerService_IStartRead;
-    streamRead: IPlumberServerService_IStreamRead;
     getAllReads: IPlumberServerService_IGetAllReads;
     stopRead: IPlumberServerService_IStopRead;
+    resumeRead: IPlumberServerService_IResumeRead;
+    deleteRead: IPlumberServerService_IDeleteRead;
     write: IPlumberServerService_IWrite;
     createRelay: IPlumberServerService_ICreateRelay;
     updateRelay: IPlumberServerService_IUpdateRelay;
@@ -85,23 +87,23 @@ interface IPlumberServerService_IDeleteConnection extends grpc.MethodDefinition<
     responseSerialize: grpc.serialize<connect_pb.DeleteConnectionResponse>;
     responseDeserialize: grpc.deserialize<connect_pb.DeleteConnectionResponse>;
 }
+interface IPlumberServerService_ICreateRead extends grpc.MethodDefinition<read_pb.CreateReadRequest, read_pb.CreateReadResponse> {
+    path: "/protos.PlumberServer/CreateRead";
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<read_pb.CreateReadRequest>;
+    requestDeserialize: grpc.deserialize<read_pb.CreateReadRequest>;
+    responseSerialize: grpc.serialize<read_pb.CreateReadResponse>;
+    responseDeserialize: grpc.deserialize<read_pb.CreateReadResponse>;
+}
 interface IPlumberServerService_IStartRead extends grpc.MethodDefinition<read_pb.StartReadRequest, read_pb.StartReadResponse> {
     path: "/protos.PlumberServer/StartRead";
     requestStream: false;
-    responseStream: false;
+    responseStream: true;
     requestSerialize: grpc.serialize<read_pb.StartReadRequest>;
     requestDeserialize: grpc.deserialize<read_pb.StartReadRequest>;
     responseSerialize: grpc.serialize<read_pb.StartReadResponse>;
     responseDeserialize: grpc.deserialize<read_pb.StartReadResponse>;
-}
-interface IPlumberServerService_IStreamRead extends grpc.MethodDefinition<read_pb.StreamReadRequest, read_pb.StreamReadResponse> {
-    path: "/protos.PlumberServer/StreamRead";
-    requestStream: false;
-    responseStream: true;
-    requestSerialize: grpc.serialize<read_pb.StreamReadRequest>;
-    requestDeserialize: grpc.deserialize<read_pb.StreamReadRequest>;
-    responseSerialize: grpc.serialize<read_pb.StreamReadResponse>;
-    responseDeserialize: grpc.deserialize<read_pb.StreamReadResponse>;
 }
 interface IPlumberServerService_IGetAllReads extends grpc.MethodDefinition<read_pb.GetAllReadsRequest, read_pb.GetAllReadsResponse> {
     path: "/protos.PlumberServer/GetAllReads";
@@ -120,6 +122,24 @@ interface IPlumberServerService_IStopRead extends grpc.MethodDefinition<read_pb.
     requestDeserialize: grpc.deserialize<read_pb.StopReadRequest>;
     responseSerialize: grpc.serialize<read_pb.StopReadResponse>;
     responseDeserialize: grpc.deserialize<read_pb.StopReadResponse>;
+}
+interface IPlumberServerService_IResumeRead extends grpc.MethodDefinition<read_pb.ResumeReadRequest, read_pb.ResumeReadResponse> {
+    path: "/protos.PlumberServer/ResumeRead";
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<read_pb.ResumeReadRequest>;
+    requestDeserialize: grpc.deserialize<read_pb.ResumeReadRequest>;
+    responseSerialize: grpc.serialize<read_pb.ResumeReadResponse>;
+    responseDeserialize: grpc.deserialize<read_pb.ResumeReadResponse>;
+}
+interface IPlumberServerService_IDeleteRead extends grpc.MethodDefinition<read_pb.DeleteReadRequest, read_pb.DeleteReadResponse> {
+    path: "/protos.PlumberServer/DeleteRead";
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<read_pb.DeleteReadRequest>;
+    requestDeserialize: grpc.deserialize<read_pb.DeleteReadRequest>;
+    responseSerialize: grpc.serialize<read_pb.DeleteReadResponse>;
+    responseDeserialize: grpc.deserialize<read_pb.DeleteReadResponse>;
 }
 interface IPlumberServerService_IWrite extends grpc.MethodDefinition<write_pb.WriteRequest, write_pb.WriteResponse> {
     path: "/protos.PlumberServer/Write";
@@ -194,10 +214,12 @@ export interface IPlumberServerServer extends grpc.UntypedServiceImplementation 
     testConnection: grpc.handleUnaryCall<connect_pb.TestConnectionRequest, connect_pb.TestConnectionResponse>;
     updateConnection: grpc.handleUnaryCall<connect_pb.UpdateConnectionRequest, connect_pb.UpdateConnectionResponse>;
     deleteConnection: grpc.handleUnaryCall<connect_pb.DeleteConnectionRequest, connect_pb.DeleteConnectionResponse>;
-    startRead: grpc.handleUnaryCall<read_pb.StartReadRequest, read_pb.StartReadResponse>;
-    streamRead: grpc.handleServerStreamingCall<read_pb.StreamReadRequest, read_pb.StreamReadResponse>;
+    createRead: grpc.handleUnaryCall<read_pb.CreateReadRequest, read_pb.CreateReadResponse>;
+    startRead: grpc.handleServerStreamingCall<read_pb.StartReadRequest, read_pb.StartReadResponse>;
     getAllReads: grpc.handleUnaryCall<read_pb.GetAllReadsRequest, read_pb.GetAllReadsResponse>;
     stopRead: grpc.handleUnaryCall<read_pb.StopReadRequest, read_pb.StopReadResponse>;
+    resumeRead: grpc.handleUnaryCall<read_pb.ResumeReadRequest, read_pb.ResumeReadResponse>;
+    deleteRead: grpc.handleUnaryCall<read_pb.DeleteReadRequest, read_pb.DeleteReadResponse>;
     write: grpc.handleUnaryCall<write_pb.WriteRequest, write_pb.WriteResponse>;
     createRelay: grpc.handleUnaryCall<relay_pb.CreateRelayRequest, relay_pb.CreateRelayResponse>;
     updateRelay: grpc.handleUnaryCall<relay_pb.UpdateRelayRequest, relay_pb.UpdateRelayResponse>;
@@ -226,17 +248,23 @@ export interface IPlumberServerClient {
     deleteConnection(request: connect_pb.DeleteConnectionRequest, callback: (error: grpc.ServiceError | null, response: connect_pb.DeleteConnectionResponse) => void): grpc.ClientUnaryCall;
     deleteConnection(request: connect_pb.DeleteConnectionRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: connect_pb.DeleteConnectionResponse) => void): grpc.ClientUnaryCall;
     deleteConnection(request: connect_pb.DeleteConnectionRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: connect_pb.DeleteConnectionResponse) => void): grpc.ClientUnaryCall;
-    startRead(request: read_pb.StartReadRequest, callback: (error: grpc.ServiceError | null, response: read_pb.StartReadResponse) => void): grpc.ClientUnaryCall;
-    startRead(request: read_pb.StartReadRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: read_pb.StartReadResponse) => void): grpc.ClientUnaryCall;
-    startRead(request: read_pb.StartReadRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: read_pb.StartReadResponse) => void): grpc.ClientUnaryCall;
-    streamRead(request: read_pb.StreamReadRequest, options?: Partial<grpc.CallOptions>): grpc.ClientReadableStream<read_pb.StreamReadResponse>;
-    streamRead(request: read_pb.StreamReadRequest, metadata?: grpc.Metadata, options?: Partial<grpc.CallOptions>): grpc.ClientReadableStream<read_pb.StreamReadResponse>;
+    createRead(request: read_pb.CreateReadRequest, callback: (error: grpc.ServiceError | null, response: read_pb.CreateReadResponse) => void): grpc.ClientUnaryCall;
+    createRead(request: read_pb.CreateReadRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: read_pb.CreateReadResponse) => void): grpc.ClientUnaryCall;
+    createRead(request: read_pb.CreateReadRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: read_pb.CreateReadResponse) => void): grpc.ClientUnaryCall;
+    startRead(request: read_pb.StartReadRequest, options?: Partial<grpc.CallOptions>): grpc.ClientReadableStream<read_pb.StartReadResponse>;
+    startRead(request: read_pb.StartReadRequest, metadata?: grpc.Metadata, options?: Partial<grpc.CallOptions>): grpc.ClientReadableStream<read_pb.StartReadResponse>;
     getAllReads(request: read_pb.GetAllReadsRequest, callback: (error: grpc.ServiceError | null, response: read_pb.GetAllReadsResponse) => void): grpc.ClientUnaryCall;
     getAllReads(request: read_pb.GetAllReadsRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: read_pb.GetAllReadsResponse) => void): grpc.ClientUnaryCall;
     getAllReads(request: read_pb.GetAllReadsRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: read_pb.GetAllReadsResponse) => void): grpc.ClientUnaryCall;
     stopRead(request: read_pb.StopReadRequest, callback: (error: grpc.ServiceError | null, response: read_pb.StopReadResponse) => void): grpc.ClientUnaryCall;
     stopRead(request: read_pb.StopReadRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: read_pb.StopReadResponse) => void): grpc.ClientUnaryCall;
     stopRead(request: read_pb.StopReadRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: read_pb.StopReadResponse) => void): grpc.ClientUnaryCall;
+    resumeRead(request: read_pb.ResumeReadRequest, callback: (error: grpc.ServiceError | null, response: read_pb.ResumeReadResponse) => void): grpc.ClientUnaryCall;
+    resumeRead(request: read_pb.ResumeReadRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: read_pb.ResumeReadResponse) => void): grpc.ClientUnaryCall;
+    resumeRead(request: read_pb.ResumeReadRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: read_pb.ResumeReadResponse) => void): grpc.ClientUnaryCall;
+    deleteRead(request: read_pb.DeleteReadRequest, callback: (error: grpc.ServiceError | null, response: read_pb.DeleteReadResponse) => void): grpc.ClientUnaryCall;
+    deleteRead(request: read_pb.DeleteReadRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: read_pb.DeleteReadResponse) => void): grpc.ClientUnaryCall;
+    deleteRead(request: read_pb.DeleteReadRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: read_pb.DeleteReadResponse) => void): grpc.ClientUnaryCall;
     write(request: write_pb.WriteRequest, callback: (error: grpc.ServiceError | null, response: write_pb.WriteResponse) => void): grpc.ClientUnaryCall;
     write(request: write_pb.WriteRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: write_pb.WriteResponse) => void): grpc.ClientUnaryCall;
     write(request: write_pb.WriteRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: write_pb.WriteResponse) => void): grpc.ClientUnaryCall;
@@ -280,17 +308,23 @@ export class PlumberServerClient extends grpc.Client implements IPlumberServerCl
     public deleteConnection(request: connect_pb.DeleteConnectionRequest, callback: (error: grpc.ServiceError | null, response: connect_pb.DeleteConnectionResponse) => void): grpc.ClientUnaryCall;
     public deleteConnection(request: connect_pb.DeleteConnectionRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: connect_pb.DeleteConnectionResponse) => void): grpc.ClientUnaryCall;
     public deleteConnection(request: connect_pb.DeleteConnectionRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: connect_pb.DeleteConnectionResponse) => void): grpc.ClientUnaryCall;
-    public startRead(request: read_pb.StartReadRequest, callback: (error: grpc.ServiceError | null, response: read_pb.StartReadResponse) => void): grpc.ClientUnaryCall;
-    public startRead(request: read_pb.StartReadRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: read_pb.StartReadResponse) => void): grpc.ClientUnaryCall;
-    public startRead(request: read_pb.StartReadRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: read_pb.StartReadResponse) => void): grpc.ClientUnaryCall;
-    public streamRead(request: read_pb.StreamReadRequest, options?: Partial<grpc.CallOptions>): grpc.ClientReadableStream<read_pb.StreamReadResponse>;
-    public streamRead(request: read_pb.StreamReadRequest, metadata?: grpc.Metadata, options?: Partial<grpc.CallOptions>): grpc.ClientReadableStream<read_pb.StreamReadResponse>;
+    public createRead(request: read_pb.CreateReadRequest, callback: (error: grpc.ServiceError | null, response: read_pb.CreateReadResponse) => void): grpc.ClientUnaryCall;
+    public createRead(request: read_pb.CreateReadRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: read_pb.CreateReadResponse) => void): grpc.ClientUnaryCall;
+    public createRead(request: read_pb.CreateReadRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: read_pb.CreateReadResponse) => void): grpc.ClientUnaryCall;
+    public startRead(request: read_pb.StartReadRequest, options?: Partial<grpc.CallOptions>): grpc.ClientReadableStream<read_pb.StartReadResponse>;
+    public startRead(request: read_pb.StartReadRequest, metadata?: grpc.Metadata, options?: Partial<grpc.CallOptions>): grpc.ClientReadableStream<read_pb.StartReadResponse>;
     public getAllReads(request: read_pb.GetAllReadsRequest, callback: (error: grpc.ServiceError | null, response: read_pb.GetAllReadsResponse) => void): grpc.ClientUnaryCall;
     public getAllReads(request: read_pb.GetAllReadsRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: read_pb.GetAllReadsResponse) => void): grpc.ClientUnaryCall;
     public getAllReads(request: read_pb.GetAllReadsRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: read_pb.GetAllReadsResponse) => void): grpc.ClientUnaryCall;
     public stopRead(request: read_pb.StopReadRequest, callback: (error: grpc.ServiceError | null, response: read_pb.StopReadResponse) => void): grpc.ClientUnaryCall;
     public stopRead(request: read_pb.StopReadRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: read_pb.StopReadResponse) => void): grpc.ClientUnaryCall;
     public stopRead(request: read_pb.StopReadRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: read_pb.StopReadResponse) => void): grpc.ClientUnaryCall;
+    public resumeRead(request: read_pb.ResumeReadRequest, callback: (error: grpc.ServiceError | null, response: read_pb.ResumeReadResponse) => void): grpc.ClientUnaryCall;
+    public resumeRead(request: read_pb.ResumeReadRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: read_pb.ResumeReadResponse) => void): grpc.ClientUnaryCall;
+    public resumeRead(request: read_pb.ResumeReadRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: read_pb.ResumeReadResponse) => void): grpc.ClientUnaryCall;
+    public deleteRead(request: read_pb.DeleteReadRequest, callback: (error: grpc.ServiceError | null, response: read_pb.DeleteReadResponse) => void): grpc.ClientUnaryCall;
+    public deleteRead(request: read_pb.DeleteReadRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: read_pb.DeleteReadResponse) => void): grpc.ClientUnaryCall;
+    public deleteRead(request: read_pb.DeleteReadRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: read_pb.DeleteReadResponse) => void): grpc.ClientUnaryCall;
     public write(request: write_pb.WriteRequest, callback: (error: grpc.ServiceError | null, response: write_pb.WriteResponse) => void): grpc.ClientUnaryCall;
     public write(request: write_pb.WriteRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: write_pb.WriteResponse) => void): grpc.ClientUnaryCall;
     public write(request: write_pb.WriteRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: write_pb.WriteResponse) => void): grpc.ClientUnaryCall;
