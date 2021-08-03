@@ -1,3 +1,5 @@
+TS_DEST = ./build/ts 
+
 help: HELP_SCRIPT = \
 	if (/^([a-zA-Z0-9-\.\/]+).*?: description\s*=\s*(.+)/) { \
 		printf "\033[34m%-40s\033[0m %s\n", $$1, $$2 \
@@ -35,24 +37,19 @@ setup/linux:
 generate/ts: description = Compile TypeScript Interfaces for UI
 generate/ts: clean-ts
 generate/ts:
-	mkdir -p build/ts
-	./node_modules/.bin/proto-loader-gen-types \
-		--defaults \
-		--keepCase=true \
-		--longs=Number \
-		--enums=String \
-		--arrays=true \
-		--objects=true \
-		--oneofs=true \
-		--includeDirs=./protos \
-		--includeDirs=./protos/args \
-		--includeDirs=./protos/common \
-		--includeDirs=./protos/conns \
-		--includeDirs=./protos/encoding \
-		--includeDirs=./protos/records \
-		--grpcLib=@grpc/grpc-js \
-		--outDir=build/ts/ \
-		protos/*.proto
+	yarn run grpc_tools_node_protoc \
+    --plugin=protoc-gen-ts=./node_modules/.bin/protoc-gen-ts \
+    --ts_out=grpc_js:${TS_DEST} \
+    --js_out=import_style=commonjs,binary:${TS_DEST} \
+    --grpc_out=grpc_js:${TS_DEST} \
+    -I=./protos \
+    -I=./protos/args \
+    -I=./protos/common \
+    -I=./protos/conns \
+    -I=./protos/encoding \
+    -I=./protos/records \
+    protos/*.proto \
+    protos/**/*.proto
 
 .PHONY: generate/go
 generate/go: description = Compile protobuf schemas for Go
