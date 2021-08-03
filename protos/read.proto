@@ -21,7 +21,6 @@ message SampleOptions {
     enum Interval {
         SECOND = 0;
         MINUTE = 1;
-        HOUR = 2;
     }
 
     uint32 sample_rate = 1;
@@ -31,13 +30,17 @@ message SampleOptions {
 message Read {
     string id = 1;
 
-    string connection_id = 2;
+    bool active = 2;
 
-    ReadOptions read_options = 3;
+    string name = 3;
 
-    SampleOptions sample_options = 4;
+    string connection_id = 4;
 
-    encoding.Options decode_options = 5;
+    ReadOptions read_options = 5;
+
+    SampleOptions sample_options = 6;
+
+    encoding.Options decode_options = 7;
 
     oneof Args {
         args.Kafka kafka = 100;
@@ -45,14 +48,14 @@ message Read {
 }
 
 
-message StartReadRequest {
+message CreateReadRequest {
     // Every gRPC request must have a valid auth config
     common.Auth auth = 9999;
 
     Read read = 1;
 }
 
-message StartReadResponse {
+message CreateReadResponse {
     common.Status status = 1000;
 
     // Assigned and returned by plumber-server to identify a successful read request
@@ -69,6 +72,47 @@ message StopReadRequest {
 }
 
 message StopReadResponse {
+    common.Status status = 1000;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+message ResumeReadRequest {
+    // Every gRPC request must have a valid auth config
+    common.Auth auth = 9999;
+
+    string read_id = 1;
+}
+
+message ResumeReadResponse {
+    common.Status status = 1000;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+message DeleteReadRequest {
+    // Every gRPC request must have a valid auth config
+    common.Auth auth = 9999;
+
+    string read_id = 1;
+}
+
+message DeleteReadResponse {
+    common.Status status = 1000;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+message StartReadRequest {
+    // Every gRPC request must have a valid auth config
+    common.Auth auth = 9999;
+
+    string read_id = 1;
+}
+
+message StartReadResponse {
+    repeated records.Message messages = 1;
+
     common.Status status = 1000;
 }
 
