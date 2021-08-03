@@ -7,6 +7,7 @@ import type { Kafka as _protos_args_Kafka, Kafka__Output as _protos_args_Kafka__
 
 export interface Read {
   'id'?: (string);
+  'name'?: (string);
   'connection_id'?: (string);
   'read_options'?: (_protos_ReadOptions | null);
   'sample_options'?: (_protos_SampleOptions | null);
@@ -17,6 +18,7 @@ export interface Read {
 
 export interface Read__Output {
   'id': (string);
+  'name': (string);
   'connection_id': (string);
   'read_options': (_protos_ReadOptions__Output | null);
   'sample_options': (_protos_SampleOptions__Output | null);
