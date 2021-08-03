@@ -12,10 +12,14 @@ export interface ProtoGrpcType {
     Connection: MessageTypeDefinition
     CreateConnectionRequest: MessageTypeDefinition
     CreateConnectionResponse: MessageTypeDefinition
+    CreateReadRequest: MessageTypeDefinition
+    CreateReadResponse: MessageTypeDefinition
     CreateRelayRequest: MessageTypeDefinition
     CreateRelayResponse: MessageTypeDefinition
     DeleteConnectionRequest: MessageTypeDefinition
     DeleteConnectionResponse: MessageTypeDefinition
+    DeleteReadRequest: MessageTypeDefinition
+    DeleteReadResponse: MessageTypeDefinition
     DeleteRelayRequest: MessageTypeDefinition
     DeleteRelayResponse: MessageTypeDefinition
     GetAllConnectionsRequest: MessageTypeDefinition
@@ -32,6 +36,8 @@ export interface ProtoGrpcType {
     Read: MessageTypeDefinition
     ReadOptions: MessageTypeDefinition
     Relay: MessageTypeDefinition
+    ResumeReadRequest: MessageTypeDefinition
+    ResumeReadResponse: MessageTypeDefinition
     ResumeRelayRequest: MessageTypeDefinition
     ResumeRelayResponse: MessageTypeDefinition
     SampleOptions: MessageTypeDefinition

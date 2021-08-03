@@ -8,10 +8,16 @@ type SubtypeConstructor<Constructor extends new (...args: any) => any, Subtype> 
 
 export interface ProtoGrpcType {
   protos: {
+    CreateReadRequest: MessageTypeDefinition
+    CreateReadResponse: MessageTypeDefinition
+    DeleteReadRequest: MessageTypeDefinition
+    DeleteReadResponse: MessageTypeDefinition
     GetAllReadsRequest: MessageTypeDefinition
     GetAllReadsResponse: MessageTypeDefinition
     Read: MessageTypeDefinition
     ReadOptions: MessageTypeDefinition
+    ResumeReadRequest: MessageTypeDefinition
+    ResumeReadResponse: MessageTypeDefinition
     SampleOptions: MessageTypeDefinition
     StartReadRequest: MessageTypeDefinition
     StartReadResponse: MessageTypeDefinition

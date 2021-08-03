@@ -2,12 +2,12 @@
 
 import type { Auth as _protos_common_Auth, Auth__Output as _protos_common_Auth__Output } from '../protos/common/Auth';
 
-export interface StartReadRequest {
+export interface ResumeReadRequest {
   'read_id'?: (string);
   'auth'?: (_protos_common_Auth | null);
 }
 
-export interface StartReadRequest__Output {
+export interface ResumeReadRequest__Output {
   'read_id': (string);
   'auth': (_protos_common_Auth__Output | null);
 }

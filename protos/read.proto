@@ -44,14 +44,14 @@ message Read {
 }
 
 
-message StartReadRequest {
+message CreateReadRequest {
     // Every gRPC request must have a valid auth config
     common.Auth auth = 9999;
 
     Read read = 1;
 }
 
-message StartReadResponse {
+message CreateReadResponse {
     common.Status status = 1000;
 
     // Assigned and returned by plumber-server to identify a successful read request
@@ -68,6 +68,47 @@ message StopReadRequest {
 }
 
 message StopReadResponse {
+    common.Status status = 1000;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+message ResumeReadRequest {
+    // Every gRPC request must have a valid auth config
+    common.Auth auth = 9999;
+
+    string read_id = 1;
+}
+
+message ResumeReadResponse {
+    common.Status status = 1000;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+message DeleteReadRequest {
+    // Every gRPC request must have a valid auth config
+    common.Auth auth = 9999;
+
+    string read_id = 1;
+}
+
+message DeleteReadResponse {
+    common.Status status = 1000;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+message StartReadRequest {
+    // Every gRPC request must have a valid auth config
+    common.Auth auth = 9999;
+
+    string read_id = 1;
+}
+
+message StartReadResponse {
+    repeated records.Message messages = 1;
+
     common.Status status = 1000;
 }
 
