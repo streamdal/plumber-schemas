@@ -30,15 +30,17 @@ message SampleOptions {
 message Read {
     string id = 1;
 
-    string name = 2;
+    bool active = 2;
 
-    string connection_id = 3;
+    string name = 3;
 
-    ReadOptions read_options = 4;
+    string connection_id = 4;
 
-    SampleOptions sample_options = 5;
+    ReadOptions read_options = 5;
 
-    encoding.Options decode_options = 6;
+    SampleOptions sample_options = 6;
+
+    encoding.Options decode_options = 7;
 
     oneof Args {
         args.Kafka kafka = 100;
