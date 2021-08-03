@@ -1,4 +1,4 @@
-TS_DEST = ./build/ts 
+TS_DEST = ./build/ts
 
 help: HELP_SCRIPT = \
 	if (/^([a-zA-Z0-9-\.\/]+).*?: description\s*=\s*(.+)/) { \
@@ -37,6 +37,7 @@ setup/linux:
 generate/ts: description = Compile TypeScript Interfaces for UI
 generate/ts: clean-ts
 generate/ts:
+	mkdir -p build/ts
 	yarn run grpc_tools_node_protoc \
     --plugin=protoc-gen-ts=./node_modules/.bin/protoc-gen-ts \
     --ts_out=grpc_js:${TS_DEST} \
@@ -105,11 +106,11 @@ generate/go:
 
 
 .PHONY: clean-go
-clean: description = Remove all go build artifacts
-clean:
+clean-go: description = Remove all go build artifacts
+clean-go:
 	rm -rf ./build/go/*
 
 .PHONY: clean-ts
-clean: description = Remove all ts build artifacts
-clean:
+clean-ts: description = Remove all ts build artifacts
+clean-ts:
 	rm -rf ./build/ts/*
