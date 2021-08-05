@@ -6,6 +6,7 @@ var connect_pb = require('./connect_pb.js');
 var read_pb = require('./read_pb.js');
 var write_pb = require('./write_pb.js');
 var relay_pb = require('./relay_pb.js');
+var github_pb = require('./github_pb.js');
 
 function serialize_protos_CreateConnectionRequest(arg) {
   if (!(arg instanceof connect_pb.CreateConnectionRequest)) {
@@ -227,6 +228,50 @@ function deserialize_protos_GetConnectionResponse(buffer_arg) {
   return connect_pb.GetConnectionResponse.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
+function serialize_protos_IsGithubAuthRequest(arg) {
+  if (!(arg instanceof github_pb.IsGithubAuthRequest)) {
+    throw new Error('Expected argument of type protos.IsGithubAuthRequest');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_protos_IsGithubAuthRequest(buffer_arg) {
+  return github_pb.IsGithubAuthRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_protos_IsGithubAuthResponse(arg) {
+  if (!(arg instanceof github_pb.IsGithubAuthResponse)) {
+    throw new Error('Expected argument of type protos.IsGithubAuthResponse');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_protos_IsGithubAuthResponse(buffer_arg) {
+  return github_pb.IsGithubAuthResponse.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_protos_PollGithubAuthRequest(arg) {
+  if (!(arg instanceof github_pb.PollGithubAuthRequest)) {
+    throw new Error('Expected argument of type protos.PollGithubAuthRequest');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_protos_PollGithubAuthRequest(buffer_arg) {
+  return github_pb.PollGithubAuthRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_protos_PollGithubAuthResponse(arg) {
+  if (!(arg instanceof github_pb.PollGithubAuthResponse)) {
+    throw new Error('Expected argument of type protos.PollGithubAuthResponse');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_protos_PollGithubAuthResponse(buffer_arg) {
+  return github_pb.PollGithubAuthResponse.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
 function serialize_protos_ResumeReadRequest(arg) {
   if (!(arg instanceof read_pb.ResumeReadRequest)) {
     throw new Error('Expected argument of type protos.ResumeReadRequest');
@@ -269,6 +314,28 @@ function serialize_protos_ResumeRelayResponse(arg) {
 
 function deserialize_protos_ResumeRelayResponse(buffer_arg) {
   return relay_pb.ResumeRelayResponse.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_protos_StartGithubAuthRequest(arg) {
+  if (!(arg instanceof github_pb.StartGithubAuthRequest)) {
+    throw new Error('Expected argument of type protos.StartGithubAuthRequest');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_protos_StartGithubAuthRequest(buffer_arg) {
+  return github_pb.StartGithubAuthRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_protos_StartGithubAuthResponse(arg) {
+  if (!(arg instanceof github_pb.StartGithubAuthResponse)) {
+    throw new Error('Expected argument of type protos.StartGithubAuthResponse');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_protos_StartGithubAuthResponse(buffer_arg) {
+  return github_pb.StartGithubAuthResponse.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
 function serialize_protos_StartReadRequest(arg) {
@@ -651,6 +718,42 @@ deleteRelay: {
     requestDeserialize: deserialize_protos_DeleteRelayRequest,
     responseSerialize: serialize_protos_DeleteRelayResponse,
     responseDeserialize: deserialize_protos_DeleteRelayResponse,
+  },
+  // Begins github authorization process
+startGithubAuth: {
+    path: '/protos.PlumberServer/StartGithubAuth',
+    requestStream: false,
+    responseStream: false,
+    requestType: github_pb.StartGithubAuthRequest,
+    responseType: github_pb.StartGithubAuthResponse,
+    requestSerialize: serialize_protos_StartGithubAuthRequest,
+    requestDeserialize: deserialize_protos_StartGithubAuthRequest,
+    responseSerialize: serialize_protos_StartGithubAuthResponse,
+    responseDeserialize: deserialize_protos_StartGithubAuthResponse,
+  },
+  // Starts a poll of the github authorization status
+pollGithubAuth: {
+    path: '/protos.PlumberServer/PollGithubAuth',
+    requestStream: false,
+    responseStream: true,
+    requestType: github_pb.PollGithubAuthRequest,
+    responseType: github_pb.PollGithubAuthResponse,
+    requestSerialize: serialize_protos_PollGithubAuthRequest,
+    requestDeserialize: deserialize_protos_PollGithubAuthRequest,
+    responseSerialize: serialize_protos_PollGithubAuthResponse,
+    responseDeserialize: deserialize_protos_PollGithubAuthResponse,
+  },
+  // Determines if we have authorized plumber with github
+isGithubAuth: {
+    path: '/protos.PlumberServer/IsGithubAuth',
+    requestStream: false,
+    responseStream: false,
+    requestType: github_pb.IsGithubAuthRequest,
+    responseType: github_pb.IsGithubAuthResponse,
+    requestSerialize: serialize_protos_IsGithubAuthRequest,
+    requestDeserialize: deserialize_protos_IsGithubAuthRequest,
+    responseSerialize: serialize_protos_IsGithubAuthResponse,
+    responseDeserialize: deserialize_protos_IsGithubAuthResponse,
   },
 };
 

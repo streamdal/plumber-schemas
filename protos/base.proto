@@ -6,6 +6,7 @@ import "connect.proto";
 import "read.proto";
 import "write.proto";
 import "relay.proto";
+import "github.proto";
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
 
@@ -63,4 +64,13 @@ service PlumberServer {
 
     // Delete an existing relay
     rpc DeleteRelay(DeleteRelayRequest) returns (DeleteRelayResponse);
+
+    // Begins github authorization process
+    rpc StartGithubAuth(StartGithubAuthRequest) returns (StartGithubAuthResponse);
+
+    // Starts a poll of the github authorization status
+    rpc PollGithubAuth(PollGithubAuthRequest) returns (stream PollGithubAuthResponse);
+
+    // Determines if we have authorized plumber with github
+    rpc IsGithubAuth(IsGithubAuthRequest) returns (IsGithubAuthResponse);
 }

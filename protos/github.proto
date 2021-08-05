@@ -1,0 +1,48 @@
+syntax = "proto3";
+
+package protos;
+
+import "common/auth.proto";
+
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
+
+message StartGithubAuthRequest {
+  // Every gRPC request must have a valid auth config
+  common.Auth auth = 9999;
+}
+
+message StartGithubAuthResponse {
+  // Authorization code that the user needs to enter on github's website
+  string code = 1;
+
+  // URL that the user needs to visit to enter the code
+  string verification_url = 2;
+
+  // Time deadline by which the user must enter the code before a new one must
+  // be generated
+  string enter_before = 3;
+}
+
+message PollGithubAuthRequest {
+  // Every gRPC request must have a valid auth config
+  common.Auth auth = 9999;
+}
+
+message PollGithubAuthResponse {
+  enum Status {
+    PENDING = 0;
+    SUCCESS = 1;
+    FAILED = 2;
+  }
+
+  Status status = 1;
+}
+
+message IsGithubAuthRequest {
+  // Every gRPC request must have a valid auth config
+  common.Auth auth = 9999;
+}
+
+message IsGithubAuthResponse {
+  bool authorized = 1;
+}
