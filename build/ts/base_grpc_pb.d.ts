@@ -11,6 +11,7 @@ import * as read_pb from "./read_pb";
 import * as write_pb from "./write_pb";
 import * as relay_pb from "./relay_pb";
 import * as github_pb from "./github_pb";
+import * as schema_pb from "./schema_pb";
 
 interface IPlumberServerService extends grpc.ServiceDefinition<grpc.UntypedServiceImplementation> {
     getAllConnections: IPlumberServerService_IGetAllConnections;
@@ -35,6 +36,11 @@ interface IPlumberServerService extends grpc.ServiceDefinition<grpc.UntypedServi
     startGithubAuth: IPlumberServerService_IStartGithubAuth;
     pollGithubAuth: IPlumberServerService_IPollGithubAuth;
     isGithubAuth: IPlumberServerService_IIsGithubAuth;
+    getSchema: IPlumberServerService_IGetSchema;
+    getAllSchemas: IPlumberServerService_IGetAllSchemas;
+    importGithub: IPlumberServerService_IImportGithub;
+    importLocal: IPlumberServerService_IImportLocal;
+    deleteSchema: IPlumberServerService_IDeleteSchema;
 }
 
 interface IPlumberServerService_IGetAllConnections extends grpc.MethodDefinition<connect_pb.GetAllConnectionsRequest, connect_pb.GetAllConnectionsResponse> {
@@ -235,6 +241,51 @@ interface IPlumberServerService_IIsGithubAuth extends grpc.MethodDefinition<gith
     responseSerialize: grpc.serialize<github_pb.IsGithubAuthResponse>;
     responseDeserialize: grpc.deserialize<github_pb.IsGithubAuthResponse>;
 }
+interface IPlumberServerService_IGetSchema extends grpc.MethodDefinition<schema_pb.GetSchemaRequest, schema_pb.GetSchemaResponse> {
+    path: "/protos.PlumberServer/GetSchema";
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<schema_pb.GetSchemaRequest>;
+    requestDeserialize: grpc.deserialize<schema_pb.GetSchemaRequest>;
+    responseSerialize: grpc.serialize<schema_pb.GetSchemaResponse>;
+    responseDeserialize: grpc.deserialize<schema_pb.GetSchemaResponse>;
+}
+interface IPlumberServerService_IGetAllSchemas extends grpc.MethodDefinition<schema_pb.GetAllSchemasRequest, schema_pb.GetAllSchemasResponse> {
+    path: "/protos.PlumberServer/GetAllSchemas";
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<schema_pb.GetAllSchemasRequest>;
+    requestDeserialize: grpc.deserialize<schema_pb.GetAllSchemasRequest>;
+    responseSerialize: grpc.serialize<schema_pb.GetAllSchemasResponse>;
+    responseDeserialize: grpc.deserialize<schema_pb.GetAllSchemasResponse>;
+}
+interface IPlumberServerService_IImportGithub extends grpc.MethodDefinition<schema_pb.ImportGithubRequest, schema_pb.ImportGithubResponse> {
+    path: "/protos.PlumberServer/ImportGithub";
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<schema_pb.ImportGithubRequest>;
+    requestDeserialize: grpc.deserialize<schema_pb.ImportGithubRequest>;
+    responseSerialize: grpc.serialize<schema_pb.ImportGithubResponse>;
+    responseDeserialize: grpc.deserialize<schema_pb.ImportGithubResponse>;
+}
+interface IPlumberServerService_IImportLocal extends grpc.MethodDefinition<schema_pb.ImportLocalRequest, schema_pb.ImportLocalResponse> {
+    path: "/protos.PlumberServer/ImportLocal";
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<schema_pb.ImportLocalRequest>;
+    requestDeserialize: grpc.deserialize<schema_pb.ImportLocalRequest>;
+    responseSerialize: grpc.serialize<schema_pb.ImportLocalResponse>;
+    responseDeserialize: grpc.deserialize<schema_pb.ImportLocalResponse>;
+}
+interface IPlumberServerService_IDeleteSchema extends grpc.MethodDefinition<schema_pb.DeleteSchemaRequest, schema_pb.DeleteSchemaResponse> {
+    path: "/protos.PlumberServer/DeleteSchema";
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<schema_pb.DeleteSchemaRequest>;
+    requestDeserialize: grpc.deserialize<schema_pb.DeleteSchemaRequest>;
+    responseSerialize: grpc.serialize<schema_pb.DeleteSchemaResponse>;
+    responseDeserialize: grpc.deserialize<schema_pb.DeleteSchemaResponse>;
+}
 
 export const PlumberServerService: IPlumberServerService;
 
@@ -261,6 +312,11 @@ export interface IPlumberServerServer extends grpc.UntypedServiceImplementation 
     startGithubAuth: grpc.handleUnaryCall<github_pb.StartGithubAuthRequest, github_pb.StartGithubAuthResponse>;
     pollGithubAuth: grpc.handleServerStreamingCall<github_pb.PollGithubAuthRequest, github_pb.PollGithubAuthResponse>;
     isGithubAuth: grpc.handleUnaryCall<github_pb.IsGithubAuthRequest, github_pb.IsGithubAuthResponse>;
+    getSchema: grpc.handleUnaryCall<schema_pb.GetSchemaRequest, schema_pb.GetSchemaResponse>;
+    getAllSchemas: grpc.handleUnaryCall<schema_pb.GetAllSchemasRequest, schema_pb.GetAllSchemasResponse>;
+    importGithub: grpc.handleUnaryCall<schema_pb.ImportGithubRequest, schema_pb.ImportGithubResponse>;
+    importLocal: grpc.handleUnaryCall<schema_pb.ImportLocalRequest, schema_pb.ImportLocalResponse>;
+    deleteSchema: grpc.handleUnaryCall<schema_pb.DeleteSchemaRequest, schema_pb.DeleteSchemaResponse>;
 }
 
 export interface IPlumberServerClient {
@@ -328,6 +384,21 @@ export interface IPlumberServerClient {
     isGithubAuth(request: github_pb.IsGithubAuthRequest, callback: (error: grpc.ServiceError | null, response: github_pb.IsGithubAuthResponse) => void): grpc.ClientUnaryCall;
     isGithubAuth(request: github_pb.IsGithubAuthRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: github_pb.IsGithubAuthResponse) => void): grpc.ClientUnaryCall;
     isGithubAuth(request: github_pb.IsGithubAuthRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: github_pb.IsGithubAuthResponse) => void): grpc.ClientUnaryCall;
+    getSchema(request: schema_pb.GetSchemaRequest, callback: (error: grpc.ServiceError | null, response: schema_pb.GetSchemaResponse) => void): grpc.ClientUnaryCall;
+    getSchema(request: schema_pb.GetSchemaRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: schema_pb.GetSchemaResponse) => void): grpc.ClientUnaryCall;
+    getSchema(request: schema_pb.GetSchemaRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: schema_pb.GetSchemaResponse) => void): grpc.ClientUnaryCall;
+    getAllSchemas(request: schema_pb.GetAllSchemasRequest, callback: (error: grpc.ServiceError | null, response: schema_pb.GetAllSchemasResponse) => void): grpc.ClientUnaryCall;
+    getAllSchemas(request: schema_pb.GetAllSchemasRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: schema_pb.GetAllSchemasResponse) => void): grpc.ClientUnaryCall;
+    getAllSchemas(request: schema_pb.GetAllSchemasRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: schema_pb.GetAllSchemasResponse) => void): grpc.ClientUnaryCall;
+    importGithub(request: schema_pb.ImportGithubRequest, callback: (error: grpc.ServiceError | null, response: schema_pb.ImportGithubResponse) => void): grpc.ClientUnaryCall;
+    importGithub(request: schema_pb.ImportGithubRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: schema_pb.ImportGithubResponse) => void): grpc.ClientUnaryCall;
+    importGithub(request: schema_pb.ImportGithubRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: schema_pb.ImportGithubResponse) => void): grpc.ClientUnaryCall;
+    importLocal(request: schema_pb.ImportLocalRequest, callback: (error: grpc.ServiceError | null, response: schema_pb.ImportLocalResponse) => void): grpc.ClientUnaryCall;
+    importLocal(request: schema_pb.ImportLocalRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: schema_pb.ImportLocalResponse) => void): grpc.ClientUnaryCall;
+    importLocal(request: schema_pb.ImportLocalRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: schema_pb.ImportLocalResponse) => void): grpc.ClientUnaryCall;
+    deleteSchema(request: schema_pb.DeleteSchemaRequest, callback: (error: grpc.ServiceError | null, response: schema_pb.DeleteSchemaResponse) => void): grpc.ClientUnaryCall;
+    deleteSchema(request: schema_pb.DeleteSchemaRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: schema_pb.DeleteSchemaResponse) => void): grpc.ClientUnaryCall;
+    deleteSchema(request: schema_pb.DeleteSchemaRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: schema_pb.DeleteSchemaResponse) => void): grpc.ClientUnaryCall;
 }
 
 export class PlumberServerClient extends grpc.Client implements IPlumberServerClient {
@@ -396,4 +467,19 @@ export class PlumberServerClient extends grpc.Client implements IPlumberServerCl
     public isGithubAuth(request: github_pb.IsGithubAuthRequest, callback: (error: grpc.ServiceError | null, response: github_pb.IsGithubAuthResponse) => void): grpc.ClientUnaryCall;
     public isGithubAuth(request: github_pb.IsGithubAuthRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: github_pb.IsGithubAuthResponse) => void): grpc.ClientUnaryCall;
     public isGithubAuth(request: github_pb.IsGithubAuthRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: github_pb.IsGithubAuthResponse) => void): grpc.ClientUnaryCall;
+    public getSchema(request: schema_pb.GetSchemaRequest, callback: (error: grpc.ServiceError | null, response: schema_pb.GetSchemaResponse) => void): grpc.ClientUnaryCall;
+    public getSchema(request: schema_pb.GetSchemaRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: schema_pb.GetSchemaResponse) => void): grpc.ClientUnaryCall;
+    public getSchema(request: schema_pb.GetSchemaRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: schema_pb.GetSchemaResponse) => void): grpc.ClientUnaryCall;
+    public getAllSchemas(request: schema_pb.GetAllSchemasRequest, callback: (error: grpc.ServiceError | null, response: schema_pb.GetAllSchemasResponse) => void): grpc.ClientUnaryCall;
+    public getAllSchemas(request: schema_pb.GetAllSchemasRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: schema_pb.GetAllSchemasResponse) => void): grpc.ClientUnaryCall;
+    public getAllSchemas(request: schema_pb.GetAllSchemasRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: schema_pb.GetAllSchemasResponse) => void): grpc.ClientUnaryCall;
+    public importGithub(request: schema_pb.ImportGithubRequest, callback: (error: grpc.ServiceError | null, response: schema_pb.ImportGithubResponse) => void): grpc.ClientUnaryCall;
+    public importGithub(request: schema_pb.ImportGithubRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: schema_pb.ImportGithubResponse) => void): grpc.ClientUnaryCall;
+    public importGithub(request: schema_pb.ImportGithubRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: schema_pb.ImportGithubResponse) => void): grpc.ClientUnaryCall;
+    public importLocal(request: schema_pb.ImportLocalRequest, callback: (error: grpc.ServiceError | null, response: schema_pb.ImportLocalResponse) => void): grpc.ClientUnaryCall;
+    public importLocal(request: schema_pb.ImportLocalRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: schema_pb.ImportLocalResponse) => void): grpc.ClientUnaryCall;
+    public importLocal(request: schema_pb.ImportLocalRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: schema_pb.ImportLocalResponse) => void): grpc.ClientUnaryCall;
+    public deleteSchema(request: schema_pb.DeleteSchemaRequest, callback: (error: grpc.ServiceError | null, response: schema_pb.DeleteSchemaResponse) => void): grpc.ClientUnaryCall;
+    public deleteSchema(request: schema_pb.DeleteSchemaRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: schema_pb.DeleteSchemaResponse) => void): grpc.ClientUnaryCall;
+    public deleteSchema(request: schema_pb.DeleteSchemaRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: schema_pb.DeleteSchemaResponse) => void): grpc.ClientUnaryCall;
 }

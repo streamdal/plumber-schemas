@@ -7,6 +7,7 @@ import "read.proto";
 import "write.proto";
 import "relay.proto";
 import "github.proto";
+import "schema.proto";
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
 
@@ -73,4 +74,19 @@ service PlumberServer {
 
     // Determines if we have authorized plumber with github
     rpc IsGithubAuth(IsGithubAuthRequest) returns (IsGithubAuthResponse);
+
+    // Retrieve a single schema
+    rpc GetSchema(GetSchemaRequest) returns (GetSchemaResponse);
+
+    // Retrieve all schemas
+    rpc GetAllSchemas(GetAllSchemasRequest) returns (GetAllSchemasResponse);
+
+    // Import a schema from github
+    rpc ImportGithub(ImportGithubRequest) returns (ImportGithubResponse);
+
+    // Import a schema from the local file system
+    rpc ImportLocal(ImportLocalRequest) returns (ImportLocalResponse);
+
+    // Delete a schema
+    rpc DeleteSchema(DeleteSchemaRequest) returns (DeleteSchemaResponse);
 }
