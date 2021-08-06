@@ -25,3 +25,5 @@ var relay_pb = require('./relay_pb.js');
 goog.object.extend(proto, relay_pb);
 var github_pb = require('./github_pb.js');
 goog.object.extend(proto, github_pb);
+var schema_pb = require('./schema_pb.js');
+goog.object.extend(proto, schema_pb);

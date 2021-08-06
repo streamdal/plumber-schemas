@@ -1,0 +1,96 @@
+syntax = "proto3";
+
+package protos;
+
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
+
+import "encoding/options.proto";
+import "common/auth.proto";
+import "common/status.proto";
+
+message Schema {
+    string id = 1;
+
+    string name = 2;
+
+    encoding.Type type = 3;
+
+    bytes data = 4;
+
+    // Protobuf only, root message name
+    string root_type = 5;
+
+    // Protobuf only, root message descriptor
+    bytes message_descriptor = 6;
+}
+
+message GetSchemaRequest {
+    // Every gRPC request must have a valid auth config
+    common.Auth auth = 9999;
+
+    string id = 1;
+}
+
+message GetSchemaResponse {
+    Schema schema = 1;
+}
+
+message GetAllSchemasRequest {
+    // Every gRPC request must have a valid auth config
+    common.Auth auth = 9999;
+}
+
+message GetAllSchemasResponse {
+    repeated Schema schema = 1;
+}
+
+message ImportGithubRequest {
+    // Every gRPC request must have a valid auth config
+    common.Auth auth = 9999;
+
+    string name = 1;
+
+    encoding.Type type = 2;
+
+    string github_url = 3;
+
+    // Protobuf only, root message name
+    string root_type = 4;
+}
+
+message ImportGithubResponse {
+    common.Status status = 1000;
+
+    string id = 1;
+}
+
+message ImportLocalRequest {
+    // Every gRPC request must have a valid auth config
+    common.Auth auth = 9999;
+
+    string name = 1;
+
+    encoding.Type type = 2;
+
+    bytes zip_archive = 3;
+
+    // Protobuf only, root message name
+    string root_type = 4;
+}
+
+message ImportLocalResponse {
+    common.Status status = 1000;
+
+    string id = 1;
+}
+
+message DeleteSchemaRequest {
+    // Every gRPC request must have a valid auth config
+    common.Auth auth = 9999;
+
+    string id = 1;
+}
+
+message DeleteSchemaResponse {
+    common.Status status = 1000;
+}

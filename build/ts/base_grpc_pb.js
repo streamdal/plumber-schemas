@@ -7,6 +7,7 @@ var read_pb = require('./read_pb.js');
 var write_pb = require('./write_pb.js');
 var relay_pb = require('./relay_pb.js');
 var github_pb = require('./github_pb.js');
+var schema_pb = require('./schema_pb.js');
 
 function serialize_protos_CreateConnectionRequest(arg) {
   if (!(arg instanceof connect_pb.CreateConnectionRequest)) {
@@ -140,6 +141,28 @@ function deserialize_protos_DeleteRelayResponse(buffer_arg) {
   return relay_pb.DeleteRelayResponse.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
+function serialize_protos_DeleteSchemaRequest(arg) {
+  if (!(arg instanceof schema_pb.DeleteSchemaRequest)) {
+    throw new Error('Expected argument of type protos.DeleteSchemaRequest');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_protos_DeleteSchemaRequest(buffer_arg) {
+  return schema_pb.DeleteSchemaRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_protos_DeleteSchemaResponse(arg) {
+  if (!(arg instanceof schema_pb.DeleteSchemaResponse)) {
+    throw new Error('Expected argument of type protos.DeleteSchemaResponse');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_protos_DeleteSchemaResponse(buffer_arg) {
+  return schema_pb.DeleteSchemaResponse.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
 function serialize_protos_GetAllConnectionsRequest(arg) {
   if (!(arg instanceof connect_pb.GetAllConnectionsRequest)) {
     throw new Error('Expected argument of type protos.GetAllConnectionsRequest');
@@ -206,6 +229,28 @@ function deserialize_protos_GetAllRelaysResponse(buffer_arg) {
   return relay_pb.GetAllRelaysResponse.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
+function serialize_protos_GetAllSchemasRequest(arg) {
+  if (!(arg instanceof schema_pb.GetAllSchemasRequest)) {
+    throw new Error('Expected argument of type protos.GetAllSchemasRequest');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_protos_GetAllSchemasRequest(buffer_arg) {
+  return schema_pb.GetAllSchemasRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_protos_GetAllSchemasResponse(arg) {
+  if (!(arg instanceof schema_pb.GetAllSchemasResponse)) {
+    throw new Error('Expected argument of type protos.GetAllSchemasResponse');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_protos_GetAllSchemasResponse(buffer_arg) {
+  return schema_pb.GetAllSchemasResponse.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
 function serialize_protos_GetConnectionRequest(arg) {
   if (!(arg instanceof connect_pb.GetConnectionRequest)) {
     throw new Error('Expected argument of type protos.GetConnectionRequest');
@@ -226,6 +271,72 @@ function serialize_protos_GetConnectionResponse(arg) {
 
 function deserialize_protos_GetConnectionResponse(buffer_arg) {
   return connect_pb.GetConnectionResponse.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_protos_GetSchemaRequest(arg) {
+  if (!(arg instanceof schema_pb.GetSchemaRequest)) {
+    throw new Error('Expected argument of type protos.GetSchemaRequest');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_protos_GetSchemaRequest(buffer_arg) {
+  return schema_pb.GetSchemaRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_protos_GetSchemaResponse(arg) {
+  if (!(arg instanceof schema_pb.GetSchemaResponse)) {
+    throw new Error('Expected argument of type protos.GetSchemaResponse');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_protos_GetSchemaResponse(buffer_arg) {
+  return schema_pb.GetSchemaResponse.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_protos_ImportGithubRequest(arg) {
+  if (!(arg instanceof schema_pb.ImportGithubRequest)) {
+    throw new Error('Expected argument of type protos.ImportGithubRequest');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_protos_ImportGithubRequest(buffer_arg) {
+  return schema_pb.ImportGithubRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_protos_ImportGithubResponse(arg) {
+  if (!(arg instanceof schema_pb.ImportGithubResponse)) {
+    throw new Error('Expected argument of type protos.ImportGithubResponse');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_protos_ImportGithubResponse(buffer_arg) {
+  return schema_pb.ImportGithubResponse.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_protos_ImportLocalRequest(arg) {
+  if (!(arg instanceof schema_pb.ImportLocalRequest)) {
+    throw new Error('Expected argument of type protos.ImportLocalRequest');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_protos_ImportLocalRequest(buffer_arg) {
+  return schema_pb.ImportLocalRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_protos_ImportLocalResponse(arg) {
+  if (!(arg instanceof schema_pb.ImportLocalResponse)) {
+    throw new Error('Expected argument of type protos.ImportLocalResponse');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_protos_ImportLocalResponse(buffer_arg) {
+  return schema_pb.ImportLocalResponse.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
 function serialize_protos_IsGithubAuthRequest(arg) {
@@ -754,6 +865,66 @@ isGithubAuth: {
     requestDeserialize: deserialize_protos_IsGithubAuthRequest,
     responseSerialize: serialize_protos_IsGithubAuthResponse,
     responseDeserialize: deserialize_protos_IsGithubAuthResponse,
+  },
+  // Retrieve a single schema
+getSchema: {
+    path: '/protos.PlumberServer/GetSchema',
+    requestStream: false,
+    responseStream: false,
+    requestType: schema_pb.GetSchemaRequest,
+    responseType: schema_pb.GetSchemaResponse,
+    requestSerialize: serialize_protos_GetSchemaRequest,
+    requestDeserialize: deserialize_protos_GetSchemaRequest,
+    responseSerialize: serialize_protos_GetSchemaResponse,
+    responseDeserialize: deserialize_protos_GetSchemaResponse,
+  },
+  // Retrieve all schemas
+getAllSchemas: {
+    path: '/protos.PlumberServer/GetAllSchemas',
+    requestStream: false,
+    responseStream: false,
+    requestType: schema_pb.GetAllSchemasRequest,
+    responseType: schema_pb.GetAllSchemasResponse,
+    requestSerialize: serialize_protos_GetAllSchemasRequest,
+    requestDeserialize: deserialize_protos_GetAllSchemasRequest,
+    responseSerialize: serialize_protos_GetAllSchemasResponse,
+    responseDeserialize: deserialize_protos_GetAllSchemasResponse,
+  },
+  // Import a schema from github
+importGithub: {
+    path: '/protos.PlumberServer/ImportGithub',
+    requestStream: false,
+    responseStream: false,
+    requestType: schema_pb.ImportGithubRequest,
+    responseType: schema_pb.ImportGithubResponse,
+    requestSerialize: serialize_protos_ImportGithubRequest,
+    requestDeserialize: deserialize_protos_ImportGithubRequest,
+    responseSerialize: serialize_protos_ImportGithubResponse,
+    responseDeserialize: deserialize_protos_ImportGithubResponse,
+  },
+  // Import a schema from the local file system
+importLocal: {
+    path: '/protos.PlumberServer/ImportLocal',
+    requestStream: false,
+    responseStream: false,
+    requestType: schema_pb.ImportLocalRequest,
+    responseType: schema_pb.ImportLocalResponse,
+    requestSerialize: serialize_protos_ImportLocalRequest,
+    requestDeserialize: deserialize_protos_ImportLocalRequest,
+    responseSerialize: serialize_protos_ImportLocalResponse,
+    responseDeserialize: deserialize_protos_ImportLocalResponse,
+  },
+  // Delete a schema
+deleteSchema: {
+    path: '/protos.PlumberServer/DeleteSchema',
+    requestStream: false,
+    responseStream: false,
+    requestType: schema_pb.DeleteSchemaRequest,
+    responseType: schema_pb.DeleteSchemaResponse,
+    requestSerialize: serialize_protos_DeleteSchemaRequest,
+    requestDeserialize: deserialize_protos_DeleteSchemaRequest,
+    responseSerialize: serialize_protos_DeleteSchemaResponse,
+    responseDeserialize: deserialize_protos_DeleteSchemaResponse,
   },
 };
 
