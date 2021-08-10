@@ -8,6 +8,7 @@ import "write.proto";
 import "relay.proto";
 import "github.proto";
 import "schema.proto";
+import "service.proto";
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
 
@@ -89,4 +90,14 @@ service PlumberServer {
 
     // Delete a schema
     rpc DeleteSchema(DeleteSchemaRequest) returns (DeleteSchemaResponse);
+
+    rpc GetService(GetServiceRequest) returns (GetServiceResponse);
+
+    rpc GetAllServices(GetAllServicesRequest) returns (GetAllServicesResponse);
+
+    rpc CreateService(CreateServiceRequest) returns (CreateServiceResponse);
+
+    rpc UpdateService(UpdateServiceRequest) returns (UpdateServiceResponse);
+
+    rpc DeleteService(DeleteServiceRequest) returns (DeleteServiceResponse);
 }

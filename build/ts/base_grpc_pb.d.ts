@@ -12,6 +12,7 @@ import * as write_pb from "./write_pb";
 import * as relay_pb from "./relay_pb";
 import * as github_pb from "./github_pb";
 import * as schema_pb from "./schema_pb";
+import * as service_pb from "./service_pb";
 
 interface IPlumberServerService extends grpc.ServiceDefinition<grpc.UntypedServiceImplementation> {
     getAllConnections: IPlumberServerService_IGetAllConnections;
@@ -41,6 +42,11 @@ interface IPlumberServerService extends grpc.ServiceDefinition<grpc.UntypedServi
     importGithub: IPlumberServerService_IImportGithub;
     importLocal: IPlumberServerService_IImportLocal;
     deleteSchema: IPlumberServerService_IDeleteSchema;
+    getService: IPlumberServerService_IGetService;
+    getAllServices: IPlumberServerService_IGetAllServices;
+    createService: IPlumberServerService_ICreateService;
+    updateService: IPlumberServerService_IUpdateService;
+    deleteService: IPlumberServerService_IDeleteService;
 }
 
 interface IPlumberServerService_IGetAllConnections extends grpc.MethodDefinition<connect_pb.GetAllConnectionsRequest, connect_pb.GetAllConnectionsResponse> {
@@ -286,6 +292,51 @@ interface IPlumberServerService_IDeleteSchema extends grpc.MethodDefinition<sche
     responseSerialize: grpc.serialize<schema_pb.DeleteSchemaResponse>;
     responseDeserialize: grpc.deserialize<schema_pb.DeleteSchemaResponse>;
 }
+interface IPlumberServerService_IGetService extends grpc.MethodDefinition<service_pb.GetServiceRequest, service_pb.GetServiceResponse> {
+    path: "/protos.PlumberServer/GetService";
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<service_pb.GetServiceRequest>;
+    requestDeserialize: grpc.deserialize<service_pb.GetServiceRequest>;
+    responseSerialize: grpc.serialize<service_pb.GetServiceResponse>;
+    responseDeserialize: grpc.deserialize<service_pb.GetServiceResponse>;
+}
+interface IPlumberServerService_IGetAllServices extends grpc.MethodDefinition<service_pb.GetAllServicesRequest, service_pb.GetAllServicesResponse> {
+    path: "/protos.PlumberServer/GetAllServices";
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<service_pb.GetAllServicesRequest>;
+    requestDeserialize: grpc.deserialize<service_pb.GetAllServicesRequest>;
+    responseSerialize: grpc.serialize<service_pb.GetAllServicesResponse>;
+    responseDeserialize: grpc.deserialize<service_pb.GetAllServicesResponse>;
+}
+interface IPlumberServerService_ICreateService extends grpc.MethodDefinition<service_pb.CreateServiceRequest, service_pb.CreateServiceResponse> {
+    path: "/protos.PlumberServer/CreateService";
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<service_pb.CreateServiceRequest>;
+    requestDeserialize: grpc.deserialize<service_pb.CreateServiceRequest>;
+    responseSerialize: grpc.serialize<service_pb.CreateServiceResponse>;
+    responseDeserialize: grpc.deserialize<service_pb.CreateServiceResponse>;
+}
+interface IPlumberServerService_IUpdateService extends grpc.MethodDefinition<service_pb.UpdateServiceRequest, service_pb.UpdateServiceResponse> {
+    path: "/protos.PlumberServer/UpdateService";
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<service_pb.UpdateServiceRequest>;
+    requestDeserialize: grpc.deserialize<service_pb.UpdateServiceRequest>;
+    responseSerialize: grpc.serialize<service_pb.UpdateServiceResponse>;
+    responseDeserialize: grpc.deserialize<service_pb.UpdateServiceResponse>;
+}
+interface IPlumberServerService_IDeleteService extends grpc.MethodDefinition<service_pb.DeleteServiceRequest, service_pb.DeleteServiceResponse> {
+    path: "/protos.PlumberServer/DeleteService";
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<service_pb.DeleteServiceRequest>;
+    requestDeserialize: grpc.deserialize<service_pb.DeleteServiceRequest>;
+    responseSerialize: grpc.serialize<service_pb.DeleteServiceResponse>;
+    responseDeserialize: grpc.deserialize<service_pb.DeleteServiceResponse>;
+}
 
 export const PlumberServerService: IPlumberServerService;
 
@@ -317,6 +368,11 @@ export interface IPlumberServerServer extends grpc.UntypedServiceImplementation 
     importGithub: grpc.handleUnaryCall<schema_pb.ImportGithubRequest, schema_pb.ImportGithubResponse>;
     importLocal: grpc.handleUnaryCall<schema_pb.ImportLocalRequest, schema_pb.ImportLocalResponse>;
     deleteSchema: grpc.handleUnaryCall<schema_pb.DeleteSchemaRequest, schema_pb.DeleteSchemaResponse>;
+    getService: grpc.handleUnaryCall<service_pb.GetServiceRequest, service_pb.GetServiceResponse>;
+    getAllServices: grpc.handleUnaryCall<service_pb.GetAllServicesRequest, service_pb.GetAllServicesResponse>;
+    createService: grpc.handleUnaryCall<service_pb.CreateServiceRequest, service_pb.CreateServiceResponse>;
+    updateService: grpc.handleUnaryCall<service_pb.UpdateServiceRequest, service_pb.UpdateServiceResponse>;
+    deleteService: grpc.handleUnaryCall<service_pb.DeleteServiceRequest, service_pb.DeleteServiceResponse>;
 }
 
 export interface IPlumberServerClient {
@@ -399,6 +455,21 @@ export interface IPlumberServerClient {
     deleteSchema(request: schema_pb.DeleteSchemaRequest, callback: (error: grpc.ServiceError | null, response: schema_pb.DeleteSchemaResponse) => void): grpc.ClientUnaryCall;
     deleteSchema(request: schema_pb.DeleteSchemaRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: schema_pb.DeleteSchemaResponse) => void): grpc.ClientUnaryCall;
     deleteSchema(request: schema_pb.DeleteSchemaRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: schema_pb.DeleteSchemaResponse) => void): grpc.ClientUnaryCall;
+    getService(request: service_pb.GetServiceRequest, callback: (error: grpc.ServiceError | null, response: service_pb.GetServiceResponse) => void): grpc.ClientUnaryCall;
+    getService(request: service_pb.GetServiceRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: service_pb.GetServiceResponse) => void): grpc.ClientUnaryCall;
+    getService(request: service_pb.GetServiceRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: service_pb.GetServiceResponse) => void): grpc.ClientUnaryCall;
+    getAllServices(request: service_pb.GetAllServicesRequest, callback: (error: grpc.ServiceError | null, response: service_pb.GetAllServicesResponse) => void): grpc.ClientUnaryCall;
+    getAllServices(request: service_pb.GetAllServicesRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: service_pb.GetAllServicesResponse) => void): grpc.ClientUnaryCall;
+    getAllServices(request: service_pb.GetAllServicesRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: service_pb.GetAllServicesResponse) => void): grpc.ClientUnaryCall;
+    createService(request: service_pb.CreateServiceRequest, callback: (error: grpc.ServiceError | null, response: service_pb.CreateServiceResponse) => void): grpc.ClientUnaryCall;
+    createService(request: service_pb.CreateServiceRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: service_pb.CreateServiceResponse) => void): grpc.ClientUnaryCall;
+    createService(request: service_pb.CreateServiceRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: service_pb.CreateServiceResponse) => void): grpc.ClientUnaryCall;
+    updateService(request: service_pb.UpdateServiceRequest, callback: (error: grpc.ServiceError | null, response: service_pb.UpdateServiceResponse) => void): grpc.ClientUnaryCall;
+    updateService(request: service_pb.UpdateServiceRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: service_pb.UpdateServiceResponse) => void): grpc.ClientUnaryCall;
+    updateService(request: service_pb.UpdateServiceRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: service_pb.UpdateServiceResponse) => void): grpc.ClientUnaryCall;
+    deleteService(request: service_pb.DeleteServiceRequest, callback: (error: grpc.ServiceError | null, response: service_pb.DeleteServiceResponse) => void): grpc.ClientUnaryCall;
+    deleteService(request: service_pb.DeleteServiceRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: service_pb.DeleteServiceResponse) => void): grpc.ClientUnaryCall;
+    deleteService(request: service_pb.DeleteServiceRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: service_pb.DeleteServiceResponse) => void): grpc.ClientUnaryCall;
 }
 
 export class PlumberServerClient extends grpc.Client implements IPlumberServerClient {
@@ -482,4 +553,19 @@ export class PlumberServerClient extends grpc.Client implements IPlumberServerCl
     public deleteSchema(request: schema_pb.DeleteSchemaRequest, callback: (error: grpc.ServiceError | null, response: schema_pb.DeleteSchemaResponse) => void): grpc.ClientUnaryCall;
     public deleteSchema(request: schema_pb.DeleteSchemaRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: schema_pb.DeleteSchemaResponse) => void): grpc.ClientUnaryCall;
     public deleteSchema(request: schema_pb.DeleteSchemaRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: schema_pb.DeleteSchemaResponse) => void): grpc.ClientUnaryCall;
+    public getService(request: service_pb.GetServiceRequest, callback: (error: grpc.ServiceError | null, response: service_pb.GetServiceResponse) => void): grpc.ClientUnaryCall;
+    public getService(request: service_pb.GetServiceRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: service_pb.GetServiceResponse) => void): grpc.ClientUnaryCall;
+    public getService(request: service_pb.GetServiceRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: service_pb.GetServiceResponse) => void): grpc.ClientUnaryCall;
+    public getAllServices(request: service_pb.GetAllServicesRequest, callback: (error: grpc.ServiceError | null, response: service_pb.GetAllServicesResponse) => void): grpc.ClientUnaryCall;
+    public getAllServices(request: service_pb.GetAllServicesRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: service_pb.GetAllServicesResponse) => void): grpc.ClientUnaryCall;
+    public getAllServices(request: service_pb.GetAllServicesRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: service_pb.GetAllServicesResponse) => void): grpc.ClientUnaryCall;
+    public createService(request: service_pb.CreateServiceRequest, callback: (error: grpc.ServiceError | null, response: service_pb.CreateServiceResponse) => void): grpc.ClientUnaryCall;
+    public createService(request: service_pb.CreateServiceRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: service_pb.CreateServiceResponse) => void): grpc.ClientUnaryCall;
+    public createService(request: service_pb.CreateServiceRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: service_pb.CreateServiceResponse) => void): grpc.ClientUnaryCall;
+    public updateService(request: service_pb.UpdateServiceRequest, callback: (error: grpc.ServiceError | null, response: service_pb.UpdateServiceResponse) => void): grpc.ClientUnaryCall;
+    public updateService(request: service_pb.UpdateServiceRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: service_pb.UpdateServiceResponse) => void): grpc.ClientUnaryCall;
+    public updateService(request: service_pb.UpdateServiceRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: service_pb.UpdateServiceResponse) => void): grpc.ClientUnaryCall;
+    public deleteService(request: service_pb.DeleteServiceRequest, callback: (error: grpc.ServiceError | null, response: service_pb.DeleteServiceResponse) => void): grpc.ClientUnaryCall;
+    public deleteService(request: service_pb.DeleteServiceRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: service_pb.DeleteServiceResponse) => void): grpc.ClientUnaryCall;
+    public deleteService(request: service_pb.DeleteServiceRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: service_pb.DeleteServiceResponse) => void): grpc.ClientUnaryCall;
 }
