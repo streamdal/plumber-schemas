@@ -8,6 +8,7 @@ var write_pb = require('./write_pb.js');
 var relay_pb = require('./relay_pb.js');
 var github_pb = require('./github_pb.js');
 var schema_pb = require('./schema_pb.js');
+var service_pb = require('./service_pb.js');
 
 function serialize_protos_CreateConnectionRequest(arg) {
   if (!(arg instanceof connect_pb.CreateConnectionRequest)) {
@@ -73,6 +74,28 @@ function serialize_protos_CreateRelayResponse(arg) {
 
 function deserialize_protos_CreateRelayResponse(buffer_arg) {
   return relay_pb.CreateRelayResponse.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_protos_CreateServiceRequest(arg) {
+  if (!(arg instanceof service_pb.CreateServiceRequest)) {
+    throw new Error('Expected argument of type protos.CreateServiceRequest');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_protos_CreateServiceRequest(buffer_arg) {
+  return service_pb.CreateServiceRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_protos_CreateServiceResponse(arg) {
+  if (!(arg instanceof service_pb.CreateServiceResponse)) {
+    throw new Error('Expected argument of type protos.CreateServiceResponse');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_protos_CreateServiceResponse(buffer_arg) {
+  return service_pb.CreateServiceResponse.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
 function serialize_protos_DeleteConnectionRequest(arg) {
@@ -163,6 +186,28 @@ function deserialize_protos_DeleteSchemaResponse(buffer_arg) {
   return schema_pb.DeleteSchemaResponse.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
+function serialize_protos_DeleteServiceRequest(arg) {
+  if (!(arg instanceof service_pb.DeleteServiceRequest)) {
+    throw new Error('Expected argument of type protos.DeleteServiceRequest');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_protos_DeleteServiceRequest(buffer_arg) {
+  return service_pb.DeleteServiceRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_protos_DeleteServiceResponse(arg) {
+  if (!(arg instanceof service_pb.DeleteServiceResponse)) {
+    throw new Error('Expected argument of type protos.DeleteServiceResponse');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_protos_DeleteServiceResponse(buffer_arg) {
+  return service_pb.DeleteServiceResponse.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
 function serialize_protos_GetAllConnectionsRequest(arg) {
   if (!(arg instanceof connect_pb.GetAllConnectionsRequest)) {
     throw new Error('Expected argument of type protos.GetAllConnectionsRequest');
@@ -251,6 +296,28 @@ function deserialize_protos_GetAllSchemasResponse(buffer_arg) {
   return schema_pb.GetAllSchemasResponse.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
+function serialize_protos_GetAllServicesRequest(arg) {
+  if (!(arg instanceof service_pb.GetAllServicesRequest)) {
+    throw new Error('Expected argument of type protos.GetAllServicesRequest');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_protos_GetAllServicesRequest(buffer_arg) {
+  return service_pb.GetAllServicesRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_protos_GetAllServicesResponse(arg) {
+  if (!(arg instanceof service_pb.GetAllServicesResponse)) {
+    throw new Error('Expected argument of type protos.GetAllServicesResponse');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_protos_GetAllServicesResponse(buffer_arg) {
+  return service_pb.GetAllServicesResponse.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
 function serialize_protos_GetConnectionRequest(arg) {
   if (!(arg instanceof connect_pb.GetConnectionRequest)) {
     throw new Error('Expected argument of type protos.GetConnectionRequest');
@@ -293,6 +360,28 @@ function serialize_protos_GetSchemaResponse(arg) {
 
 function deserialize_protos_GetSchemaResponse(buffer_arg) {
   return schema_pb.GetSchemaResponse.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_protos_GetServiceRequest(arg) {
+  if (!(arg instanceof service_pb.GetServiceRequest)) {
+    throw new Error('Expected argument of type protos.GetServiceRequest');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_protos_GetServiceRequest(buffer_arg) {
+  return service_pb.GetServiceRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_protos_GetServiceResponse(arg) {
+  if (!(arg instanceof service_pb.GetServiceResponse)) {
+    throw new Error('Expected argument of type protos.GetServiceResponse');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_protos_GetServiceResponse(buffer_arg) {
+  return service_pb.GetServiceResponse.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
 function serialize_protos_ImportGithubRequest(arg) {
@@ -579,6 +668,28 @@ function serialize_protos_UpdateRelayResponse(arg) {
 
 function deserialize_protos_UpdateRelayResponse(buffer_arg) {
   return relay_pb.UpdateRelayResponse.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_protos_UpdateServiceRequest(arg) {
+  if (!(arg instanceof service_pb.UpdateServiceRequest)) {
+    throw new Error('Expected argument of type protos.UpdateServiceRequest');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_protos_UpdateServiceRequest(buffer_arg) {
+  return service_pb.UpdateServiceRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_protos_UpdateServiceResponse(arg) {
+  if (!(arg instanceof service_pb.UpdateServiceResponse)) {
+    throw new Error('Expected argument of type protos.UpdateServiceResponse');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_protos_UpdateServiceResponse(buffer_arg) {
+  return service_pb.UpdateServiceResponse.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
 function serialize_protos_WriteRequest(arg) {
@@ -925,6 +1036,61 @@ deleteSchema: {
     requestDeserialize: deserialize_protos_DeleteSchemaRequest,
     responseSerialize: serialize_protos_DeleteSchemaResponse,
     responseDeserialize: deserialize_protos_DeleteSchemaResponse,
+  },
+  getService: {
+    path: '/protos.PlumberServer/GetService',
+    requestStream: false,
+    responseStream: false,
+    requestType: service_pb.GetServiceRequest,
+    responseType: service_pb.GetServiceResponse,
+    requestSerialize: serialize_protos_GetServiceRequest,
+    requestDeserialize: deserialize_protos_GetServiceRequest,
+    responseSerialize: serialize_protos_GetServiceResponse,
+    responseDeserialize: deserialize_protos_GetServiceResponse,
+  },
+  getAllServices: {
+    path: '/protos.PlumberServer/GetAllServices',
+    requestStream: false,
+    responseStream: false,
+    requestType: service_pb.GetAllServicesRequest,
+    responseType: service_pb.GetAllServicesResponse,
+    requestSerialize: serialize_protos_GetAllServicesRequest,
+    requestDeserialize: deserialize_protos_GetAllServicesRequest,
+    responseSerialize: serialize_protos_GetAllServicesResponse,
+    responseDeserialize: deserialize_protos_GetAllServicesResponse,
+  },
+  createService: {
+    path: '/protos.PlumberServer/CreateService',
+    requestStream: false,
+    responseStream: false,
+    requestType: service_pb.CreateServiceRequest,
+    responseType: service_pb.CreateServiceResponse,
+    requestSerialize: serialize_protos_CreateServiceRequest,
+    requestDeserialize: deserialize_protos_CreateServiceRequest,
+    responseSerialize: serialize_protos_CreateServiceResponse,
+    responseDeserialize: deserialize_protos_CreateServiceResponse,
+  },
+  updateService: {
+    path: '/protos.PlumberServer/UpdateService',
+    requestStream: false,
+    responseStream: false,
+    requestType: service_pb.UpdateServiceRequest,
+    responseType: service_pb.UpdateServiceResponse,
+    requestSerialize: serialize_protos_UpdateServiceRequest,
+    requestDeserialize: deserialize_protos_UpdateServiceRequest,
+    responseSerialize: serialize_protos_UpdateServiceResponse,
+    responseDeserialize: deserialize_protos_UpdateServiceResponse,
+  },
+  deleteService: {
+    path: '/protos.PlumberServer/DeleteService',
+    requestStream: false,
+    responseStream: false,
+    requestType: service_pb.DeleteServiceRequest,
+    responseType: service_pb.DeleteServiceResponse,
+    requestSerialize: serialize_protos_DeleteServiceRequest,
+    requestDeserialize: deserialize_protos_DeleteServiceRequest,
+    responseSerialize: serialize_protos_DeleteServiceResponse,
+    responseDeserialize: deserialize_protos_DeleteServiceResponse,
   },
 };
 

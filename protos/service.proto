@@ -1,0 +1,78 @@
+syntax = "proto3";
+
+package protos;
+
+import "common/auth.proto";
+import "common/status.proto";
+
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
+
+message Service {
+  string id = 1;
+
+  string name = 2;
+
+  string repo_url = 3;
+
+  string notes = 4;
+
+  string owner_id = 5;
+
+  repeated string used_schemas = 6;
+}
+
+message GetServiceRequest {
+  common.Auth auth = 9999;
+
+  string id = 1;
+}
+
+message GetServiceResponse {
+  Service service = 1;
+
+  common.Status status = 1000;
+}
+
+message GetAllServicesRequest {
+  common.Auth auth = 9999;
+}
+
+message GetAllServicesResponse {
+  repeated Service services = 1;
+
+  common.Status status = 1000;
+}
+
+message CreateServiceRequest {
+  common.Auth auth = 9999;
+
+  Service service = 1;
+}
+
+message CreateServiceResponse {
+  Service service = 1;
+
+  common.Status status = 1000;
+}
+
+message UpdateServiceRequest {
+  common.Auth auth = 9999;
+
+  Service service = 1;
+}
+
+message UpdateServiceResponse {
+  Service service = 1;
+
+  common.Status status = 1000;
+}
+
+message DeleteServiceRequest {
+  string id = 1;
+
+  common.Auth auth = 9999;
+}
+
+message DeleteServiceResponse {
+  common.Status status = 1000;
+}
