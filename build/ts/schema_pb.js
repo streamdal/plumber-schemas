@@ -298,7 +298,7 @@ proto.protos.Schema.toObject = function(includeInstance, msg) {
     id: jspb.Message.getFieldWithDefault(msg, 1, ""),
     name: jspb.Message.getFieldWithDefault(msg, 2, ""),
     type: jspb.Message.getFieldWithDefault(msg, 3, 0),
-    data: msg.getData_asB64(),
+    filesMap: (f = msg.getFilesMap()) ? f.toObject(includeInstance, undefined) : [],
     rootType: jspb.Message.getFieldWithDefault(msg, 5, ""),
     messageDescriptor: msg.getMessageDescriptor_asB64()
   };
@@ -350,8 +350,10 @@ proto.protos.Schema.deserializeBinaryFromReader = function(msg, reader) {
       msg.setType(value);
       break;
     case 4:
-      var value = /** @type {!Uint8Array} */ (reader.readBytes());
-      msg.setData(value);
+      var value = msg.getFilesMap();
+      reader.readMessage(value, function(message, reader) {
+        jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readString, jspb.BinaryReader.prototype.readString, null, "", "");
+         });
       break;
     case 5:
       var value = /** @type {string} */ (reader.readString());
@@ -411,12 +413,9 @@ proto.protos.Schema.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getData_asU8();
-  if (f.length > 0) {
-    writer.writeBytes(
-      4,
-      f
-    );
+  f = message.getFilesMap(true);
+  if (f && f.getLength() > 0) {
+    f.serializeBinary(4, writer, jspb.BinaryWriter.prototype.writeString, jspb.BinaryWriter.prototype.writeString);
   }
   f = message.getRootType();
   if (f.length > 0) {
@@ -490,45 +489,25 @@ proto.protos.Schema.prototype.setType = function(value) {
 
 
 /**
- * optional bytes data = 4;
- * @return {!(string|Uint8Array)}
+ * map<string, string> files = 4;
+ * @param {boolean=} opt_noLazyCreate Do not create the map if
+ * empty, instead returning `undefined`
+ * @return {!jspb.Map<string,string>}
  */
-proto.protos.Schema.prototype.getData = function() {
-  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
+proto.protos.Schema.prototype.getFilesMap = function(opt_noLazyCreate) {
+  return /** @type {!jspb.Map<string,string>} */ (
+      jspb.Message.getMapField(this, 4, opt_noLazyCreate,
+      null));
 };
 
 
 /**
- * optional bytes data = 4;
- * This is a type-conversion wrapper around `getData()`
- * @return {string}
- */
-proto.protos.Schema.prototype.getData_asB64 = function() {
-  return /** @type {string} */ (jspb.Message.bytesAsB64(
-      this.getData()));
-};
-
-
-/**
- * optional bytes data = 4;
- * Note that Uint8Array is not supported on all browsers.
- * @see http://caniuse.com/Uint8Array
- * This is a type-conversion wrapper around `getData()`
- * @return {!Uint8Array}
- */
-proto.protos.Schema.prototype.getData_asU8 = function() {
-  return /** @type {!Uint8Array} */ (jspb.Message.bytesAsU8(
-      this.getData()));
-};
-
-
-/**
- * @param {!(string|Uint8Array)} value
+ * Clears values from the map. The map will be non-null.
  * @return {!proto.protos.Schema} returns this
  */
-proto.protos.Schema.prototype.setData = function(value) {
-  return jspb.Message.setProto3BytesField(this, 4, value);
-};
+proto.protos.Schema.prototype.clearFilesMap = function() {
+  this.getFilesMap().clear();
+  return this;};
 
 
 /**

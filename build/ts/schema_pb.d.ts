@@ -16,10 +16,9 @@ export class Schema extends jspb.Message {
     setName(value: string): Schema;
     getType(): encoding_options_pb.Type;
     setType(value: encoding_options_pb.Type): Schema;
-    getData(): Uint8Array | string;
-    getData_asU8(): Uint8Array;
-    getData_asB64(): string;
-    setData(value: Uint8Array | string): Schema;
+
+    getFilesMap(): jspb.Map<string, string>;
+    clearFilesMap(): void;
     getRootType(): string;
     setRootType(value: string): Schema;
     getMessageDescriptor(): Uint8Array | string;
@@ -42,7 +41,8 @@ export namespace Schema {
         id: string,
         name: string,
         type: encoding_options_pb.Type,
-        data: Uint8Array | string,
+
+        filesMap: Array<[string, string]>,
         rootType: string,
         messageDescriptor: Uint8Array | string,
     }

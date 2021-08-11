@@ -15,7 +15,7 @@ message Schema {
 
     encoding.Type type = 3;
 
-    bytes data = 4;
+    map<string,string> files = 4;
 
     // Protobuf only, root message name
     string root_type = 5;
