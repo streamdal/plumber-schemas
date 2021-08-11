@@ -56,6 +56,9 @@ message ImportGithubRequest {
 
     // Protobuf only, root message name
     string root_type = 4;
+
+    // Directory inside github repo where protos are stored
+    string root_dir = 5;
 }
 
 message ImportGithubResponse {

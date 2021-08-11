@@ -1270,7 +1270,8 @@ proto.protos.ImportGithubRequest.toObject = function(includeInstance, msg) {
     name: jspb.Message.getFieldWithDefault(msg, 1, ""),
     type: jspb.Message.getFieldWithDefault(msg, 2, 0),
     githubUrl: jspb.Message.getFieldWithDefault(msg, 3, ""),
-    rootType: jspb.Message.getFieldWithDefault(msg, 4, "")
+    rootType: jspb.Message.getFieldWithDefault(msg, 4, ""),
+    rootDir: jspb.Message.getFieldWithDefault(msg, 5, "")
   };
 
   if (includeInstance) {
@@ -1327,6 +1328,10 @@ proto.protos.ImportGithubRequest.deserializeBinaryFromReader = function(msg, rea
     case 4:
       var value = /** @type {string} */ (reader.readString());
       msg.setRootType(value);
+      break;
+    case 5:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setRootDir(value);
       break;
     default:
       reader.skipField();
@@ -1390,6 +1395,13 @@ proto.protos.ImportGithubRequest.serializeBinaryToWriter = function(message, wri
   if (f.length > 0) {
     writer.writeString(
       4,
+      f
+    );
+  }
+  f = message.getRootDir();
+  if (f.length > 0) {
+    writer.writeString(
+      5,
       f
     );
   }
@@ -1502,6 +1514,24 @@ proto.protos.ImportGithubRequest.prototype.getRootType = function() {
  */
 proto.protos.ImportGithubRequest.prototype.setRootType = function(value) {
   return jspb.Message.setProto3StringField(this, 4, value);
+};
+
+
+/**
+ * optional string root_dir = 5;
+ * @return {string}
+ */
+proto.protos.ImportGithubRequest.prototype.getRootDir = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 5, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.protos.ImportGithubRequest} returns this
+ */
+proto.protos.ImportGithubRequest.prototype.setRootDir = function(value) {
+  return jspb.Message.setProto3StringField(this, 5, value);
 };
 
 

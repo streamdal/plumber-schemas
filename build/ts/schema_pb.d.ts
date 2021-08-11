@@ -156,6 +156,8 @@ export class ImportGithubRequest extends jspb.Message {
     setGithubUrl(value: string): ImportGithubRequest;
     getRootType(): string;
     setRootType(value: string): ImportGithubRequest;
+    getRootDir(): string;
+    setRootDir(value: string): ImportGithubRequest;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): ImportGithubRequest.AsObject;
@@ -174,6 +176,7 @@ export namespace ImportGithubRequest {
         type: encoding_options_pb.Type,
         githubUrl: string,
         rootType: string,
+        rootDir: string,
     }
 }
 
