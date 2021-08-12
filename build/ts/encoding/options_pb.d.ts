@@ -73,6 +73,8 @@ export namespace Avro {
 export class Options extends jspb.Message { 
     getType(): Type;
     setType(value: Type): Options;
+    getSchemaId(): string;
+    setSchemaId(value: string): Options;
 
     hasProtobuf(): boolean;
     clearProtobuf(): void;
@@ -104,6 +106,7 @@ export class Options extends jspb.Message {
 export namespace Options {
     export type AsObject = {
         type: Type,
+        schemaId: string,
         protobuf?: Protobuf.AsObject,
         avro?: Avro.AsObject,
         jsonSchema?: JSONSchema.AsObject,
