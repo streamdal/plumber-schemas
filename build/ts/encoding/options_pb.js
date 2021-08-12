@@ -604,6 +604,7 @@ proto.protos.encoding.Options.prototype.toObject = function(opt_includeInstance)
 proto.protos.encoding.Options.toObject = function(includeInstance, msg) {
   var f, obj = {
     type: jspb.Message.getFieldWithDefault(msg, 1, 0),
+    schemaId: jspb.Message.getFieldWithDefault(msg, 2, ""),
     protobuf: (f = msg.getProtobuf()) && proto.protos.encoding.Protobuf.toObject(includeInstance, f),
     avro: (f = msg.getAvro()) && proto.protos.encoding.Avro.toObject(includeInstance, f),
     jsonSchema: (f = msg.getJsonSchema()) && proto.protos.encoding.JSONSchema.toObject(includeInstance, f)
@@ -646,6 +647,10 @@ proto.protos.encoding.Options.deserializeBinaryFromReader = function(msg, reader
     case 1:
       var value = /** @type {!proto.protos.encoding.Type} */ (reader.readEnum());
       msg.setType(value);
+      break;
+    case 2:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setSchemaId(value);
       break;
     case 100:
       var value = new proto.protos.encoding.Protobuf;
@@ -698,6 +703,13 @@ proto.protos.encoding.Options.serializeBinaryToWriter = function(message, writer
       f
     );
   }
+  f = message.getSchemaId();
+  if (f.length > 0) {
+    writer.writeString(
+      2,
+      f
+    );
+  }
   f = message.getProtobuf();
   if (f != null) {
     writer.writeMessage(
@@ -740,6 +752,24 @@ proto.protos.encoding.Options.prototype.getType = function() {
  */
 proto.protos.encoding.Options.prototype.setType = function(value) {
   return jspb.Message.setProto3EnumField(this, 1, value);
+};
+
+
+/**
+ * optional string schema_id = 2;
+ * @return {string}
+ */
+proto.protos.encoding.Options.prototype.getSchemaId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.protos.encoding.Options} returns this
+ */
+proto.protos.encoding.Options.prototype.setSchemaId = function(value) {
+  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 

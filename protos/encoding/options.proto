@@ -28,6 +28,9 @@ message Avro {
 message Options {
     Type type = 1;
 
+    // Specify an existing stored schema to use instead of specifying a Encoding payload
+    string schema_id = 2;
+
     // Only filled out if "type" is not NONE or JSON
     oneof Encoding {
         Protobuf protobuf = 100;
