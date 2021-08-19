@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package protos;
 
-import "args/kafka.proto";
+import "backends/kafka.proto";
 import "common/auth.proto";
 import "common/status.proto";
 
@@ -32,10 +32,10 @@ message Relay {
     // ID of the created relay entry. Populated by plumber, ignored on creation
     string relay_id = 8;
 
-    // Set appropriate args based on what connection is specified
-    // ie. If connection_id is for kafka - specify Kafka args
-    oneof Args {
-        args.Kafka kafka = 100;
+    // Set appropriate backend based on what connection is specified
+    // ie. If connection_id is for kafka - specify Kafka backend
+    oneof Backends {
+        backends.Kafka kafka = 100;
     }
 }
 
@@ -75,8 +75,8 @@ message CreateRelayRequest {
 
     Relay relay = 1;
 
-    oneof Args {
-        args.Kafka kafka = 100;
+    oneof Backends {
+        backends.Kafka kafka = 100;
     }
 }
 

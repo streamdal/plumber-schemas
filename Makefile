@@ -20,6 +20,9 @@ setup/darwin:
 	# Go plugin used by the protocol compiler
 	go get -u github.com/golang/protobuf/protoc-gen-go
 
+	# protoc for ts
+	npm install grpc_tools_node_protoc_ts --save-dev
+
 .PHONY: setup/linux
 setup/linux: description = Install protobuf tooling for linux
 setup/linux:
@@ -44,7 +47,7 @@ generate/ts:
     --js_out=import_style=commonjs,binary:${TS_DEST} \
     --grpc_out=grpc_js:${TS_DEST} \
     -I=./protos \
-    -I=./protos/args \
+    -I=./protos/backends \
     -I=./protos/common \
     -I=./protos/conns \
     -I=./protos/encoding \
@@ -57,7 +60,7 @@ generate/go: description = Compile protobuf schemas for Go
 generate/go: clean-go
 generate/go:
 	mkdir -p build/go/protos
-	mkdir -p build/go/protos/args
+	mkdir -p build/go/protos/backends
 	mkdir -p build/go/protos/common
 	mkdir -p build/go/protos/conns
 	mkdir -p build/go/protos/encoding
@@ -65,7 +68,7 @@ generate/go:
 
 	docker run --rm -w $(PWD) -v $(PWD):$(PWD) -w${PWD} jaegertracing/protobuf:0.2.0 \
 	--proto_path=./protos \
-	--proto_path=./protos/args \
+	--proto_path=./protos/backends \
 	--proto_path=./protos/common \
 	--proto_path=./protos/conns \
 	--proto_path=./protos/encoding \
@@ -75,10 +78,10 @@ generate/go:
 	protos/*.proto
 
 	docker run --rm -w $(PWD) -v $(PWD):$(PWD) -w${PWD} jaegertracing/protobuf:0.2.0 \
-	--proto_path=./protos/args \
-	--go_out=plugins=grpc:build/go/protos/args \
+	--proto_path=./protos/backends \
+	--go_out=plugins=grpc:build/go/protos/backends \
 	--go_opt=paths=source_relative \
-	protos/args/*.proto
+	protos/backends/*.proto
 
 	docker run --rm -w $(PWD) -v $(PWD):$(PWD) -w${PWD} jaegertracing/protobuf:0.2.0 \
 	--proto_path=./protos/common \

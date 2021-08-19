@@ -19,8 +19,8 @@ var common_auth_pb = require('./common/auth_pb.js');
 goog.object.extend(proto, common_auth_pb);
 var common_status_pb = require('./common/status_pb.js');
 goog.object.extend(proto, common_status_pb);
-var args_kafka_pb = require('./args/kafka_pb.js');
-goog.object.extend(proto, args_kafka_pb);
+var backends_kafka_pb = require('./backends/kafka_pb.js');
+goog.object.extend(proto, backends_kafka_pb);
 var encoding_options_pb = require('./encoding/options_pb.js');
 goog.object.extend(proto, encoding_options_pb);
 var records_base_pb = require('./records/base_pb.js');
@@ -32,7 +32,7 @@ goog.exportSymbol('proto.protos.DeleteReadResponse', null, global);
 goog.exportSymbol('proto.protos.GetAllReadsRequest', null, global);
 goog.exportSymbol('proto.protos.GetAllReadsResponse', null, global);
 goog.exportSymbol('proto.protos.Read', null, global);
-goog.exportSymbol('proto.protos.Read.ArgsCase', null, global);
+goog.exportSymbol('proto.protos.Read.BackendsCase', null, global);
 goog.exportSymbol('proto.protos.ReadOptions', null, global);
 goog.exportSymbol('proto.protos.ReadOptions.Type', null, global);
 goog.exportSymbol('proto.protos.ResumeReadRequest', null, global);
@@ -693,16 +693,16 @@ proto.protos.Read.oneofGroups_ = [[100]];
 /**
  * @enum {number}
  */
-proto.protos.Read.ArgsCase = {
-  ARGS_NOT_SET: 0,
+proto.protos.Read.BackendsCase = {
+  BACKENDS_NOT_SET: 0,
   KAFKA: 100
 };
 
 /**
- * @return {proto.protos.Read.ArgsCase}
+ * @return {proto.protos.Read.BackendsCase}
  */
-proto.protos.Read.prototype.getArgsCase = function() {
-  return /** @type {proto.protos.Read.ArgsCase} */(jspb.Message.computeOneofCase(this, proto.protos.Read.oneofGroups_[0]));
+proto.protos.Read.prototype.getBackendsCase = function() {
+  return /** @type {proto.protos.Read.BackendsCase} */(jspb.Message.computeOneofCase(this, proto.protos.Read.oneofGroups_[0]));
 };
 
 
@@ -743,7 +743,7 @@ proto.protos.Read.toObject = function(includeInstance, msg) {
     readOptions: (f = msg.getReadOptions()) && proto.protos.ReadOptions.toObject(includeInstance, f),
     sampleOptions: (f = msg.getSampleOptions()) && proto.protos.SampleOptions.toObject(includeInstance, f),
     decodeOptions: (f = msg.getDecodeOptions()) && encoding_options_pb.Options.toObject(includeInstance, f),
-    kafka: (f = msg.getKafka()) && args_kafka_pb.Kafka.toObject(includeInstance, f)
+    kafka: (f = msg.getKafka()) && backends_kafka_pb.Kafka.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -812,8 +812,8 @@ proto.protos.Read.deserializeBinaryFromReader = function(msg, reader) {
       msg.setDecodeOptions(value);
       break;
     case 100:
-      var value = new args_kafka_pb.Kafka;
-      reader.readMessage(value,args_kafka_pb.Kafka.deserializeBinaryFromReader);
+      var value = new backends_kafka_pb.Kafka;
+      reader.readMessage(value,backends_kafka_pb.Kafka.deserializeBinaryFromReader);
       msg.setKafka(value);
       break;
     default:
@@ -902,7 +902,7 @@ proto.protos.Read.serializeBinaryToWriter = function(message, writer) {
     writer.writeMessage(
       100,
       f,
-      args_kafka_pb.Kafka.serializeBinaryToWriter
+      backends_kafka_pb.Kafka.serializeBinaryToWriter
     );
   }
 };
@@ -1092,17 +1092,17 @@ proto.protos.Read.prototype.hasDecodeOptions = function() {
 
 
 /**
- * optional args.Kafka kafka = 100;
- * @return {?proto.protos.args.Kafka}
+ * optional backends.Kafka kafka = 100;
+ * @return {?proto.protos.backends.Kafka}
  */
 proto.protos.Read.prototype.getKafka = function() {
-  return /** @type{?proto.protos.args.Kafka} */ (
-    jspb.Message.getWrapperField(this, args_kafka_pb.Kafka, 100));
+  return /** @type{?proto.protos.backends.Kafka} */ (
+    jspb.Message.getWrapperField(this, backends_kafka_pb.Kafka, 100));
 };
 
 
 /**
- * @param {?proto.protos.args.Kafka|undefined} value
+ * @param {?proto.protos.backends.Kafka|undefined} value
  * @return {!proto.protos.Read} returns this
 */
 proto.protos.Read.prototype.setKafka = function(value) {

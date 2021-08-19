@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-package protos.args;
+package protos.backends;
 
-option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/args";
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/backends";
 
 message Kafka {
     // Required
