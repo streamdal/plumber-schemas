@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package protos.conns;
+
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/conns";
+
+message AzureServiceBus {
+  // Required
+  string connection_string = 1;
+}

@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package protos.conns;
+
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/conns";
+
+message ActiveMQ {
+  // Required
+  string address = 1;
+}

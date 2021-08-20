@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package protos.backends;
+
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/backends";
+
+message RedisPubsub {
+
+  // Required
+  // Database (0-16)
+  uint32 database = 1;
+
+  // Required
+  // Channel(s) to read from/write to
+  repeated string channel = 2;
+
+}

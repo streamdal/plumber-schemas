@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+package protos.conns;
+
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/conns";
+
+message NSQ {
+
+  // Required for writes
+  // Required for reads if lookupd_address is not specified
+  string nsqd_address = 1;
+
+  // Required for reads if nsqd_address is not specified
+  // Ignored for writes
+  string lookupd_address = 2;
+
+  // Connect using TLS
+  bool use_tls = 3;
+
+  // Specify to not verify server's TLS certificate
+  bool insecure_tls = 4;
+
+  // Optional
+  bytes tls_ca_cert = 5;
+
+  // Optional
+  bytes tls_client_cert = 6;
+
+  // Optional
+  bytes tls_client_key = 7;
+
+  // Optional
+  string auth_secret = 8;
+
+  // Required
+  string client_id = 9;
+
+}

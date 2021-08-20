@@ -1,0 +1,51 @@
+syntax = "proto3";
+
+package protos.backends;
+
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/backends";
+
+
+message RedisStreams {
+
+  // Required
+  // Database (0-16)
+  uint32 database = 1;
+
+  // Required
+  // Stream(s) to read from/write to
+  repeated string stream = 2;
+
+  // Optional for Writes
+  // Ignored for reads
+  // Default is "*", which means redis will auto generate it
+  string id = 3;
+
+  // Required for writes
+  // Ignored for reads
+  string key = 4;
+
+  string consumer_group = 5;
+
+  string consumer_name = 6;
+
+  // Optional for reads
+  // Ignored for writes
+  // Specify if you the user needs to create/recreate a consumer group
+  CreateConsumerConfig create_consumer_config = 7;
+}
+
+message CreateConsumerConfig {
+  enum OffsetStart {
+    Latest = 0;
+    Oldest = 1;
+  }
+
+  // Create the streams if we're creating a new consumer group
+  bool create_streams = 3;
+
+  // Recreate this consumer group if it doesn't exist
+  bool recreate_consumer_group = 4;
+
+  // Required
+  OffsetStart offset_start = 5;
+}

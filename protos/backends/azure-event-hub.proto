@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package protos.backends;
+
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/backends";
+
+message AzureEventHub {
+
+  // Optional for writes
+  // Ignored for reads
+  string message_id = 1;
+
+  // Optional for writes
+  // Ignored for reads
+  string partition_key = 2;
+}

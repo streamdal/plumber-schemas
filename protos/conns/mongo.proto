@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package protos.conns;
+
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/conns";
+
+message Mongo {
+  // Full DNS to connect to mongo
+  // Ex: mongodb://user:pass@localhost:27017
+  string dsn = 1;
+}

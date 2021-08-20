@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package protos.backends;
+
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/backends";
+
+message Mongo {
+  // Optional
+  // Specify to limit CDC changes to a single database of the mongo instance
+  // Leave empty to get CDC changes from all databases
+  string database = 1;
+
+  // Optional
+  // Specify to limit CDC changes to a single collection.
+  // Leave blank to get changes from all collections in the specified database
+  string collection = 2;
+
+  // Include full document in update in update changes.
+  // Default is to return deltas only
+  bool include_full_document = 3;
+}

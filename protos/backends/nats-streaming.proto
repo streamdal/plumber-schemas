@@ -1,0 +1,47 @@
+syntax = "proto3";
+
+package protos.backends;
+
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/backends";
+
+message NatsStreaming {
+  // Required
+  // Channel name to read from/write to
+  string channel = 1;
+
+  // Optional
+  // Create a durable subscription with this name for the given channel
+  string durable_name = 2;
+
+  oneof read_option {
+    // Start reading at last available message
+    ReadLastAvailable last_available = 100;
+
+    // Start reading at a sequence number
+    ReadSequenceNumber read_sequence_number = 101;
+
+    // Start reading at a time interval ago
+    ReadSince read_since = 102;
+
+    // Read all messages on the channel from the beginning
+    ReadAll all = 103;
+  }
+
+}
+
+message ReadLastAvailable {
+  //
+}
+
+message ReadSequenceNumber {
+  uint32 sequence_number = 1;
+}
+
+message ReadSince {
+  // Ex: 1s, 15m, 3h, 10h
+  string since = 1;
+}
+
+message ReadAll {
+  //
+}

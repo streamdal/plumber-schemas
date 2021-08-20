@@ -7,9 +7,24 @@
 import * as jspb from "google-protobuf";
 import * as common_auth_pb from "./common/auth_pb";
 import * as common_status_pb from "./common/status_pb";
-import * as backends_kafka_pb from "./backends/kafka_pb";
 import * as encoding_options_pb from "./encoding/options_pb";
 import * as records_base_pb from "./records/base_pb";
+import * as backends_kafka_pb from "./backends/kafka_pb";
+import * as backends_activemq_pb from "./backends/activemq_pb";
+import * as backends_aws_sns_pb from "./backends/aws-sns_pb";
+import * as backends_aws_sqs_pb from "./backends/aws-sqs_pb";
+import * as backends_mongo_pb from "./backends/mongo_pb";
+import * as backends_nats_pb from "./backends/nats_pb";
+import * as backends_nats_streaming_pb from "./backends/nats-streaming_pb";
+import * as backends_nsq_pb from "./backends/nsq_pb";
+import * as backends_postgres_pb from "./backends/postgres_pb";
+import * as backends_pulsar_pb from "./backends/pulsar_pb";
+import * as backends_rabbit_pb from "./backends/rabbit_pb";
+import * as backends_rabbit_streams_pb from "./backends/rabbit-streams_pb";
+import * as backends_redis_pubsub_pb from "./backends/redis-pubsub_pb";
+import * as backends_redis_streams_pb from "./backends/redis-streams_pb";
+import * as backends_azure_service_bus_pb from "./backends/azure-service-bus_pb";
+import * as backends_azure_event_hub_pb from "./backends/azure-event-hub_pb";
 
 export class ReadOptions extends jspb.Message { 
 
@@ -93,6 +108,81 @@ export class Read extends jspb.Message {
     getKafka(): backends_kafka_pb.Kafka | undefined;
     setKafka(value?: backends_kafka_pb.Kafka): Read;
 
+    hasActiveMq(): boolean;
+    clearActiveMq(): void;
+    getActiveMq(): backends_activemq_pb.ActiveMQ | undefined;
+    setActiveMq(value?: backends_activemq_pb.ActiveMQ): Read;
+
+    hasAwssqs(): boolean;
+    clearAwssqs(): void;
+    getAwssqs(): backends_aws_sqs_pb.AWSSQS | undefined;
+    setAwssqs(value?: backends_aws_sqs_pb.AWSSQS): Read;
+
+    hasAwssns(): boolean;
+    clearAwssns(): void;
+    getAwssns(): backends_aws_sns_pb.AWSSNS | undefined;
+    setAwssns(value?: backends_aws_sns_pb.AWSSNS): Read;
+
+    hasMongo(): boolean;
+    clearMongo(): void;
+    getMongo(): backends_mongo_pb.Mongo | undefined;
+    setMongo(value?: backends_mongo_pb.Mongo): Read;
+
+    hasNats(): boolean;
+    clearNats(): void;
+    getNats(): backends_nats_pb.Nats | undefined;
+    setNats(value?: backends_nats_pb.Nats): Read;
+
+    hasNatsStreaming(): boolean;
+    clearNatsStreaming(): void;
+    getNatsStreaming(): backends_nats_streaming_pb.NatsStreaming | undefined;
+    setNatsStreaming(value?: backends_nats_streaming_pb.NatsStreaming): Read;
+
+    hasNsq(): boolean;
+    clearNsq(): void;
+    getNsq(): backends_nsq_pb.NSQ | undefined;
+    setNsq(value?: backends_nsq_pb.NSQ): Read;
+
+    hasPostgres(): boolean;
+    clearPostgres(): void;
+    getPostgres(): backends_postgres_pb.Postgres | undefined;
+    setPostgres(value?: backends_postgres_pb.Postgres): Read;
+
+    hasPulsar(): boolean;
+    clearPulsar(): void;
+    getPulsar(): backends_pulsar_pb.Pulsar | undefined;
+    setPulsar(value?: backends_pulsar_pb.Pulsar): Read;
+
+    hasRabbit(): boolean;
+    clearRabbit(): void;
+    getRabbit(): backends_rabbit_pb.Rabbit | undefined;
+    setRabbit(value?: backends_rabbit_pb.Rabbit): Read;
+
+    hasRabbitStreams(): boolean;
+    clearRabbitStreams(): void;
+    getRabbitStreams(): backends_rabbit_streams_pb.RabbitStreams | undefined;
+    setRabbitStreams(value?: backends_rabbit_streams_pb.RabbitStreams): Read;
+
+    hasRedisPubsub(): boolean;
+    clearRedisPubsub(): void;
+    getRedisPubsub(): backends_redis_pubsub_pb.RedisPubsub | undefined;
+    setRedisPubsub(value?: backends_redis_pubsub_pb.RedisPubsub): Read;
+
+    hasRedisStreams(): boolean;
+    clearRedisStreams(): void;
+    getRedisStreams(): backends_redis_streams_pb.RedisStreams | undefined;
+    setRedisStreams(value?: backends_redis_streams_pb.RedisStreams): Read;
+
+    hasAzureEventHub(): boolean;
+    clearAzureEventHub(): void;
+    getAzureEventHub(): backends_azure_event_hub_pb.AzureEventHub | undefined;
+    setAzureEventHub(value?: backends_azure_event_hub_pb.AzureEventHub): Read;
+
+    hasAzureServiceBus(): boolean;
+    clearAzureServiceBus(): void;
+    getAzureServiceBus(): backends_azure_service_bus_pb.AzureServiceBus | undefined;
+    setAzureServiceBus(value?: backends_azure_service_bus_pb.AzureServiceBus): Read;
+
     getBackendsCase(): Read.BackendsCase;
 
     serializeBinary(): Uint8Array;
@@ -115,11 +205,41 @@ export namespace Read {
         sampleOptions?: SampleOptions.AsObject,
         decodeOptions?: encoding_options_pb.Options.AsObject,
         kafka?: backends_kafka_pb.Kafka.AsObject,
+        activeMq?: backends_activemq_pb.ActiveMQ.AsObject,
+        awssqs?: backends_aws_sqs_pb.AWSSQS.AsObject,
+        awssns?: backends_aws_sns_pb.AWSSNS.AsObject,
+        mongo?: backends_mongo_pb.Mongo.AsObject,
+        nats?: backends_nats_pb.Nats.AsObject,
+        natsStreaming?: backends_nats_streaming_pb.NatsStreaming.AsObject,
+        nsq?: backends_nsq_pb.NSQ.AsObject,
+        postgres?: backends_postgres_pb.Postgres.AsObject,
+        pulsar?: backends_pulsar_pb.Pulsar.AsObject,
+        rabbit?: backends_rabbit_pb.Rabbit.AsObject,
+        rabbitStreams?: backends_rabbit_streams_pb.RabbitStreams.AsObject,
+        redisPubsub?: backends_redis_pubsub_pb.RedisPubsub.AsObject,
+        redisStreams?: backends_redis_streams_pb.RedisStreams.AsObject,
+        azureEventHub?: backends_azure_event_hub_pb.AzureEventHub.AsObject,
+        azureServiceBus?: backends_azure_service_bus_pb.AzureServiceBus.AsObject,
     }
 
     export enum BackendsCase {
         BACKENDS_NOT_SET = 0,
         KAFKA = 100,
+        ACTIVE_MQ = 101,
+        AWSSQS = 102,
+        AWSSNS = 103,
+        MONGO = 104,
+        NATS = 105,
+        NATS_STREAMING = 106,
+        NSQ = 107,
+        POSTGRES = 108,
+        PULSAR = 109,
+        RABBIT = 110,
+        RABBIT_STREAMS = 111,
+        REDIS_PUBSUB = 112,
+        REDIS_STREAMS = 113,
+        AZURE_EVENT_HUB = 114,
+        AZURE_SERVICE_BUS = 115,
     }
 
 }
