@@ -15,14 +15,14 @@ var jspb = require('google-protobuf');
 var goog = jspb;
 var global = Function('return this')();
 
-var args_kafka_pb = require('./args/kafka_pb.js');
-goog.object.extend(proto, args_kafka_pb);
+var backends_kafka_pb = require('./backends/kafka_pb.js');
+goog.object.extend(proto, backends_kafka_pb);
 var common_auth_pb = require('./common/auth_pb.js');
 goog.object.extend(proto, common_auth_pb);
 var common_status_pb = require('./common/status_pb.js');
 goog.object.extend(proto, common_status_pb);
 goog.exportSymbol('proto.protos.CreateRelayRequest', null, global);
-goog.exportSymbol('proto.protos.CreateRelayRequest.ArgsCase', null, global);
+goog.exportSymbol('proto.protos.CreateRelayRequest.BackendsCase', null, global);
 goog.exportSymbol('proto.protos.CreateRelayResponse', null, global);
 goog.exportSymbol('proto.protos.DeleteRelayRequest', null, global);
 goog.exportSymbol('proto.protos.DeleteRelayResponse', null, global);
@@ -31,7 +31,7 @@ goog.exportSymbol('proto.protos.GetAllRelaysResponse', null, global);
 goog.exportSymbol('proto.protos.GetRelayRequest', null, global);
 goog.exportSymbol('proto.protos.GetRelayResponse', null, global);
 goog.exportSymbol('proto.protos.Relay', null, global);
-goog.exportSymbol('proto.protos.Relay.ArgsCase', null, global);
+goog.exportSymbol('proto.protos.Relay.BackendsCase', null, global);
 goog.exportSymbol('proto.protos.ResumeRelayRequest', null, global);
 goog.exportSymbol('proto.protos.ResumeRelayResponse', null, global);
 goog.exportSymbol('proto.protos.StopRelayRequest', null, global);
@@ -367,16 +367,16 @@ proto.protos.Relay.oneofGroups_ = [[100]];
 /**
  * @enum {number}
  */
-proto.protos.Relay.ArgsCase = {
-  ARGS_NOT_SET: 0,
+proto.protos.Relay.BackendsCase = {
+  BACKENDS_NOT_SET: 0,
   KAFKA: 100
 };
 
 /**
- * @return {proto.protos.Relay.ArgsCase}
+ * @return {proto.protos.Relay.BackendsCase}
  */
-proto.protos.Relay.prototype.getArgsCase = function() {
-  return /** @type {proto.protos.Relay.ArgsCase} */(jspb.Message.computeOneofCase(this, proto.protos.Relay.oneofGroups_[0]));
+proto.protos.Relay.prototype.getBackendsCase = function() {
+  return /** @type {proto.protos.Relay.BackendsCase} */(jspb.Message.computeOneofCase(this, proto.protos.Relay.oneofGroups_[0]));
 };
 
 
@@ -418,7 +418,7 @@ proto.protos.Relay.toObject = function(includeInstance, msg) {
     batchshGrpcDisableTls: jspb.Message.getBooleanFieldWithDefault(msg, 6, false),
     batchshGrpcTimeout: jspb.Message.getBooleanFieldWithDefault(msg, 7, false),
     relayId: jspb.Message.getFieldWithDefault(msg, 8, ""),
-    kafka: (f = msg.getKafka()) && args_kafka_pb.Kafka.toObject(includeInstance, f)
+    kafka: (f = msg.getKafka()) && backends_kafka_pb.Kafka.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -488,8 +488,8 @@ proto.protos.Relay.deserializeBinaryFromReader = function(msg, reader) {
       msg.setRelayId(value);
       break;
     case 100:
-      var value = new args_kafka_pb.Kafka;
-      reader.readMessage(value,args_kafka_pb.Kafka.deserializeBinaryFromReader);
+      var value = new backends_kafka_pb.Kafka;
+      reader.readMessage(value,backends_kafka_pb.Kafka.deserializeBinaryFromReader);
       msg.setKafka(value);
       break;
     default:
@@ -582,7 +582,7 @@ proto.protos.Relay.serializeBinaryToWriter = function(message, writer) {
     writer.writeMessage(
       100,
       f,
-      args_kafka_pb.Kafka.serializeBinaryToWriter
+      backends_kafka_pb.Kafka.serializeBinaryToWriter
     );
   }
 };
@@ -733,17 +733,17 @@ proto.protos.Relay.prototype.setRelayId = function(value) {
 
 
 /**
- * optional args.Kafka kafka = 100;
- * @return {?proto.protos.args.Kafka}
+ * optional backends.Kafka kafka = 100;
+ * @return {?proto.protos.backends.Kafka}
  */
 proto.protos.Relay.prototype.getKafka = function() {
-  return /** @type{?proto.protos.args.Kafka} */ (
-    jspb.Message.getWrapperField(this, args_kafka_pb.Kafka, 100));
+  return /** @type{?proto.protos.backends.Kafka} */ (
+    jspb.Message.getWrapperField(this, backends_kafka_pb.Kafka, 100));
 };
 
 
 /**
- * @param {?proto.protos.args.Kafka|undefined} value
+ * @param {?proto.protos.backends.Kafka|undefined} value
  * @return {!proto.protos.Relay} returns this
 */
 proto.protos.Relay.prototype.setKafka = function(value) {
@@ -1528,16 +1528,16 @@ proto.protos.CreateRelayRequest.oneofGroups_ = [[100]];
 /**
  * @enum {number}
  */
-proto.protos.CreateRelayRequest.ArgsCase = {
-  ARGS_NOT_SET: 0,
+proto.protos.CreateRelayRequest.BackendsCase = {
+  BACKENDS_NOT_SET: 0,
   KAFKA: 100
 };
 
 /**
- * @return {proto.protos.CreateRelayRequest.ArgsCase}
+ * @return {proto.protos.CreateRelayRequest.BackendsCase}
  */
-proto.protos.CreateRelayRequest.prototype.getArgsCase = function() {
-  return /** @type {proto.protos.CreateRelayRequest.ArgsCase} */(jspb.Message.computeOneofCase(this, proto.protos.CreateRelayRequest.oneofGroups_[0]));
+proto.protos.CreateRelayRequest.prototype.getBackendsCase = function() {
+  return /** @type {proto.protos.CreateRelayRequest.BackendsCase} */(jspb.Message.computeOneofCase(this, proto.protos.CreateRelayRequest.oneofGroups_[0]));
 };
 
 
@@ -1573,7 +1573,7 @@ proto.protos.CreateRelayRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
     auth: (f = msg.getAuth()) && common_auth_pb.Auth.toObject(includeInstance, f),
     relay: (f = msg.getRelay()) && proto.protos.Relay.toObject(includeInstance, f),
-    kafka: (f = msg.getKafka()) && args_kafka_pb.Kafka.toObject(includeInstance, f)
+    kafka: (f = msg.getKafka()) && backends_kafka_pb.Kafka.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -1621,8 +1621,8 @@ proto.protos.CreateRelayRequest.deserializeBinaryFromReader = function(msg, read
       msg.setRelay(value);
       break;
     case 100:
-      var value = new args_kafka_pb.Kafka;
-      reader.readMessage(value,args_kafka_pb.Kafka.deserializeBinaryFromReader);
+      var value = new backends_kafka_pb.Kafka;
+      reader.readMessage(value,backends_kafka_pb.Kafka.deserializeBinaryFromReader);
       msg.setKafka(value);
       break;
     default:
@@ -1675,7 +1675,7 @@ proto.protos.CreateRelayRequest.serializeBinaryToWriter = function(message, writ
     writer.writeMessage(
       100,
       f,
-      args_kafka_pb.Kafka.serializeBinaryToWriter
+      backends_kafka_pb.Kafka.serializeBinaryToWriter
     );
   }
 };
@@ -1756,17 +1756,17 @@ proto.protos.CreateRelayRequest.prototype.hasRelay = function() {
 
 
 /**
- * optional args.Kafka kafka = 100;
- * @return {?proto.protos.args.Kafka}
+ * optional backends.Kafka kafka = 100;
+ * @return {?proto.protos.backends.Kafka}
  */
 proto.protos.CreateRelayRequest.prototype.getKafka = function() {
-  return /** @type{?proto.protos.args.Kafka} */ (
-    jspb.Message.getWrapperField(this, args_kafka_pb.Kafka, 100));
+  return /** @type{?proto.protos.backends.Kafka} */ (
+    jspb.Message.getWrapperField(this, backends_kafka_pb.Kafka, 100));
 };
 
 
 /**
- * @param {?proto.protos.args.Kafka|undefined} value
+ * @param {?proto.protos.backends.Kafka|undefined} value
  * @return {!proto.protos.CreateRelayRequest} returns this
 */
 proto.protos.CreateRelayRequest.prototype.setKafka = function(value) {

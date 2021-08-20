@@ -261,7 +261,7 @@ proto.protos.records.Kafka.toObject = function(includeInstance, msg) {
     topic: jspb.Message.getFieldWithDefault(msg, 1, ""),
     key: msg.getKey_asB64(),
     value: msg.getValue_asB64(),
-    blob: msg.getBlob_asB64(),
+    decoded: msg.getDecoded_asB64(),
     timestamp: jspb.Message.getFieldWithDefault(msg, 5, 0),
     offset: jspb.Message.getFieldWithDefault(msg, 6, 0),
     partition: jspb.Message.getFieldWithDefault(msg, 7, 0),
@@ -317,7 +317,7 @@ proto.protos.records.Kafka.deserializeBinaryFromReader = function(msg, reader) {
       break;
     case 4:
       var value = /** @type {!Uint8Array} */ (reader.readBytes());
-      msg.setBlob(value);
+      msg.setDecoded(value);
       break;
     case 5:
       var value = /** @type {number} */ (reader.readInt64());
@@ -386,7 +386,7 @@ proto.protos.records.Kafka.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getBlob_asU8();
+  f = message.getDecoded_asU8();
   if (f.length > 0) {
     writer.writeBytes(
       4,
@@ -528,35 +528,35 @@ proto.protos.records.Kafka.prototype.setValue = function(value) {
 
 
 /**
- * optional bytes blob = 4;
+ * optional bytes decoded = 4;
  * @return {!(string|Uint8Array)}
  */
-proto.protos.records.Kafka.prototype.getBlob = function() {
+proto.protos.records.Kafka.prototype.getDecoded = function() {
   return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
 };
 
 
 /**
- * optional bytes blob = 4;
- * This is a type-conversion wrapper around `getBlob()`
+ * optional bytes decoded = 4;
+ * This is a type-conversion wrapper around `getDecoded()`
  * @return {string}
  */
-proto.protos.records.Kafka.prototype.getBlob_asB64 = function() {
+proto.protos.records.Kafka.prototype.getDecoded_asB64 = function() {
   return /** @type {string} */ (jspb.Message.bytesAsB64(
-      this.getBlob()));
+      this.getDecoded()));
 };
 
 
 /**
- * optional bytes blob = 4;
+ * optional bytes decoded = 4;
  * Note that Uint8Array is not supported on all browsers.
  * @see http://caniuse.com/Uint8Array
- * This is a type-conversion wrapper around `getBlob()`
+ * This is a type-conversion wrapper around `getDecoded()`
  * @return {!Uint8Array}
  */
-proto.protos.records.Kafka.prototype.getBlob_asU8 = function() {
+proto.protos.records.Kafka.prototype.getDecoded_asU8 = function() {
   return /** @type {!Uint8Array} */ (jspb.Message.bytesAsU8(
-      this.getBlob()));
+      this.getDecoded()));
 };
 
 
@@ -564,7 +564,7 @@ proto.protos.records.Kafka.prototype.getBlob_asU8 = function() {
  * @param {!(string|Uint8Array)} value
  * @return {!proto.protos.records.Kafka} returns this
  */
-proto.protos.records.Kafka.prototype.setBlob = function(value) {
+proto.protos.records.Kafka.prototype.setDecoded = function(value) {
   return jspb.Message.setProto3BytesField(this, 4, value);
 };
 

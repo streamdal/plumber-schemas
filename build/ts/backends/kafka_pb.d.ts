@@ -1,5 +1,5 @@
-// package: protos.args
-// file: args/kafka.proto
+// package: protos.backends
+// file: backends/kafka.proto
 
 /* tslint:disable */
 /* eslint-disable */

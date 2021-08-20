@@ -7,7 +7,7 @@
 import * as jspb from "google-protobuf";
 import * as common_auth_pb from "./common/auth_pb";
 import * as common_status_pb from "./common/status_pb";
-import * as args_kafka_pb from "./args/kafka_pb";
+import * as backends_kafka_pb from "./backends/kafka_pb";
 import * as encoding_options_pb from "./encoding/options_pb";
 import * as records_base_pb from "./records/base_pb";
 
@@ -90,10 +90,10 @@ export class Read extends jspb.Message {
 
     hasKafka(): boolean;
     clearKafka(): void;
-    getKafka(): args_kafka_pb.Kafka | undefined;
-    setKafka(value?: args_kafka_pb.Kafka): Read;
+    getKafka(): backends_kafka_pb.Kafka | undefined;
+    setKafka(value?: backends_kafka_pb.Kafka): Read;
 
-    getArgsCase(): Read.ArgsCase;
+    getBackendsCase(): Read.BackendsCase;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): Read.AsObject;
@@ -114,11 +114,11 @@ export namespace Read {
         readOptions?: ReadOptions.AsObject,
         sampleOptions?: SampleOptions.AsObject,
         decodeOptions?: encoding_options_pb.Options.AsObject,
-        kafka?: args_kafka_pb.Kafka.AsObject,
+        kafka?: backends_kafka_pb.Kafka.AsObject,
     }
 
-    export enum ArgsCase {
-        ARGS_NOT_SET = 0,
+    export enum BackendsCase {
+        BACKENDS_NOT_SET = 0,
         KAFKA = 100,
     }
 

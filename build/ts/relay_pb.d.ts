@@ -5,7 +5,7 @@
 /* eslint-disable */
 
 import * as jspb from "google-protobuf";
-import * as args_kafka_pb from "./args/kafka_pb";
+import * as backends_kafka_pb from "./backends/kafka_pb";
 import * as common_auth_pb from "./common/auth_pb";
 import * as common_status_pb from "./common/status_pb";
 
@@ -29,10 +29,10 @@ export class Relay extends jspb.Message {
 
     hasKafka(): boolean;
     clearKafka(): void;
-    getKafka(): args_kafka_pb.Kafka | undefined;
-    setKafka(value?: args_kafka_pb.Kafka): Relay;
+    getKafka(): backends_kafka_pb.Kafka | undefined;
+    setKafka(value?: backends_kafka_pb.Kafka): Relay;
 
-    getArgsCase(): Relay.ArgsCase;
+    getBackendsCase(): Relay.BackendsCase;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): Relay.AsObject;
@@ -54,11 +54,11 @@ export namespace Relay {
         batchshGrpcDisableTls: boolean,
         batchshGrpcTimeout: boolean,
         relayId: string,
-        kafka?: args_kafka_pb.Kafka.AsObject,
+        kafka?: backends_kafka_pb.Kafka.AsObject,
     }
 
-    export enum ArgsCase {
-        ARGS_NOT_SET = 0,
+    export enum BackendsCase {
+        BACKENDS_NOT_SET = 0,
         KAFKA = 100,
     }
 
@@ -184,10 +184,10 @@ export class CreateRelayRequest extends jspb.Message {
 
     hasKafka(): boolean;
     clearKafka(): void;
-    getKafka(): args_kafka_pb.Kafka | undefined;
-    setKafka(value?: args_kafka_pb.Kafka): CreateRelayRequest;
+    getKafka(): backends_kafka_pb.Kafka | undefined;
+    setKafka(value?: backends_kafka_pb.Kafka): CreateRelayRequest;
 
-    getArgsCase(): CreateRelayRequest.ArgsCase;
+    getBackendsCase(): CreateRelayRequest.BackendsCase;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): CreateRelayRequest.AsObject;
@@ -203,11 +203,11 @@ export namespace CreateRelayRequest {
     export type AsObject = {
         auth?: common_auth_pb.Auth.AsObject,
         relay?: Relay.AsObject,
-        kafka?: args_kafka_pb.Kafka.AsObject,
+        kafka?: backends_kafka_pb.Kafka.AsObject,
     }
 
-    export enum ArgsCase {
-        ARGS_NOT_SET = 0,
+    export enum BackendsCase {
+        BACKENDS_NOT_SET = 0,
         KAFKA = 100,
     }
 

@@ -4,7 +4,7 @@ package protos;
 
 import "common/auth.proto";
 import "common/status.proto";
-import "args/kafka.proto";
+import "backends/kafka.proto";
 import "encoding/options.proto";
 import "records/base.proto";
 
@@ -42,8 +42,8 @@ message Read {
 
     encoding.Options decode_options = 7;
 
-    oneof Args {
-        args.Kafka kafka = 100;
+    oneof Backends {
+        backends.Kafka kafka = 100;
     }
 }
 
