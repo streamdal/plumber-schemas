@@ -2,7 +2,6 @@ syntax = "proto3";
 
 package protos;
 
-import "connect.proto";
 import "records/kafka.proto";
 import "common/auth.proto";
 import "records/base.proto";
@@ -11,24 +10,34 @@ import "encoding/options.proto";
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
 
+message WriteCLIConfig {
+    repeated string input_data = 1;
+	string input_file = 2;
+	string input_type = 3;
+	bool input_is_json_array = 4;
+}
+
+message WriteConfig {
+    // Required for server mode; ignored in CLI mode.
+    string connection_id = 1;
+
+    // We need to use a WriteRecord as a wrapper since there is no way to "repeated oneof ..."
+    repeated records.WriteRecord records = 2;
+
+    // Specifying encoding options will cause the _value_ of the record to get
+    // encoded and set in WriteRecord.encoded.
+    encoding.Options encode_options = 3;
+
+    // Optional; CLI-specific settings
+    WriteCLIConfig _cli_config = 4;
+}
+
 message WriteRequest {
     // Every gRPC request must have a valid auth config
     common.Auth auth = 9999;
 
-    // Semi-required; either set this or connection_config. If set, connection_config
-    // will be ignored.
-    string connection_id = 1;
+    WriteConfig config = 1;
 
-    // Semi-required; either set this or connection_id. This is generally used
-    // for creating ephemeral connections (ie. via CLI).
-    protos.ConnectionConfig connection_config = 2;
-
-    // We need to use a WriteRecord as a wrapper since there is no way to "repeated oneof ..."
-    repeated records.WriteRecord records = 3;
-
-    // Specifying encoding options will cause the _value_ of the record to get
-    // encoded and set in WriteRecord.encoded.
-    encoding.Options encode_options = 4;
 }
 
 message WriteResponse {

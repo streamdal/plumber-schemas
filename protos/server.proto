@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+package protos;
+
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
+
+message ServerConfig {
+    // Unique ID that identifies this plumber node
+    string node_id = 1;
+
+    // host:port that the gRPC server will bind to
+    string grpc_listen_address = 2;
+
+    // All gRPC requests will require this auth token to be set
+    string auth_token = 3;
+
+    ///////////// Embedded etcd settings /////////////////
+
+    // InitialCluster should contain comma separated list of key=value pairs
+    // of host:port entries for ALL peers in the cluster.
+    // Example: server1=http://192.168.1.10:2380,server2=http://192.168.1.11:2380,server3=http://192.168.1.12:2380
+    //
+    // IMPORTANT: The list should include _this_ instance's address.
+    string initial_cluster = 4;
+
+    // AdvertisePeerURL contains the address of _this_ plumber instance's etcd server interface
+    // This is usually something like http://local-ip:2380
+    string advertise_peer_url = 5;
+
+	// AdvertisePeerURL contains the address of _this_ plumber instance's etcd client interface
+	// This is usually something like http://local-ip:2379
+	string advertise_client_url = 6;
+
+	// ListenerPeerURL contains the address that _this_ plumber instance's etcd server should listen on
+	// This is usually something like http://local-ip:2380
+	string listener_peer_url = 7;
+
+	// ListenerClientURL contains the address that _this_ plumber instance's etcd client should listen on
+	// This is usually something like http://local-ip:2379
+	string listener_client_url = 8;
+
+	// PeerToken is the token that ALL cluster members should use/share. If this token
+	// does not match on one of the plumber instances - it won't be able to join the cluster.
+	string peer_token = 9;
+}

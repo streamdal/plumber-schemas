@@ -5,7 +5,6 @@
 /* eslint-disable */
 
 import * as jspb from "google-protobuf";
-import * as connect_pb from "./connect_pb";
 import * as common_auth_pb from "./common/auth_pb";
 import * as common_status_pb from "./common/status_pb";
 import * as encoding_options_pb from "./encoding/options_pb";
@@ -85,6 +84,32 @@ export namespace ReadOptions {
 
 }
 
+export class ReadCLIConfig extends jspb.Message { 
+    getDisplayLagStats(): boolean;
+    setDisplayLagStats(value: boolean): ReadCLIConfig;
+    getConvertOutput(): string;
+    setConvertOutput(value: string): ReadCLIConfig;
+    getVerboseOutput(): boolean;
+    setVerboseOutput(value: boolean): ReadCLIConfig;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): ReadCLIConfig.AsObject;
+    static toObject(includeInstance: boolean, msg: ReadCLIConfig): ReadCLIConfig.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: ReadCLIConfig, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): ReadCLIConfig;
+    static deserializeBinaryFromReader(message: ReadCLIConfig, reader: jspb.BinaryReader): ReadCLIConfig;
+}
+
+export namespace ReadCLIConfig {
+    export type AsObject = {
+        displayLagStats: boolean,
+        convertOutput: string,
+        verboseOutput: boolean,
+    }
+}
+
 export class ReadConfig extends jspb.Message { 
     getId(): string;
     setId(value: string): ReadConfig;
@@ -95,11 +120,6 @@ export class ReadConfig extends jspb.Message {
     getConnectionId(): string;
     setConnectionId(value: string): ReadConfig;
 
-    hasConnectionConfig(): boolean;
-    clearConnectionConfig(): void;
-    getConnectionConfig(): connect_pb.ConnectionConfig | undefined;
-    setConnectionConfig(value?: connect_pb.ConnectionConfig): ReadConfig;
-
     hasReadOptions(): boolean;
     clearReadOptions(): void;
     getReadOptions(): ReadOptions | undefined;
@@ -109,6 +129,11 @@ export class ReadConfig extends jspb.Message {
     clearDecodeOptions(): void;
     getDecodeOptions(): encoding_options_pb.Options | undefined;
     setDecodeOptions(value?: encoding_options_pb.Options): ReadConfig;
+
+    hasCliConfig(): boolean;
+    clearCliConfig(): void;
+    getCliConfig(): ReadCLIConfig | undefined;
+    setCliConfig(value?: ReadCLIConfig): ReadConfig;
 
     hasKafka(): boolean;
     clearKafka(): void;
@@ -208,9 +233,9 @@ export namespace ReadConfig {
         Active: boolean,
         name: string,
         connectionId: string,
-        connectionConfig?: connect_pb.ConnectionConfig.AsObject,
         readOptions?: ReadOptions.AsObject,
         decodeOptions?: encoding_options_pb.Options.AsObject,
+        CliConfig?: ReadCLIConfig.AsObject,
         kafka?: backends_kafka_pb.Kafka.AsObject,
         activeMq?: backends_activemq_pb.ActiveMQ.AsObject,
         awssqs?: backends_aws_sqs_pb.AWSSQS.AsObject,

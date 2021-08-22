@@ -14,11 +14,20 @@ enum Type {
     JSON_SCHEMA = 2;
     PROTOBUF = 3;
     AVRO = 4;
+    THRIFT = 5;
+}
+
+message Dirs {
+    repeated string dirs = 1;
 }
 
 message Protobuf {
     string root_type = 1;
-    bytes zip_archive = 2;
+
+    oneof Data {
+        bytes zip_archive = 2;
+        Dirs dirs = 3;
+    }
 }
 
 message JSONSchema {
@@ -26,7 +35,10 @@ message JSONSchema {
 }
 
 message Avro {
-    bytes Schema = 1;
+    oneof Data {
+        bytes schema_data = 1;
+        string schema_file = 2;
+    }
 }
 
 // Encoding options will cause plumber to encode (or decode) the _value_ of a

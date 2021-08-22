@@ -2,7 +2,6 @@ syntax = "proto3";
 
 package protos;
 
-import "connect.proto";
 import "common/auth.proto";
 import "common/status.proto";
 import "encoding/options.proto";
@@ -45,6 +44,12 @@ message ReadOptions {
     SampleOptions sample_options = 1;
 }
 
+message ReadCLIConfig {
+    bool display_lag_stats = 1;
+    string convert_output = 2;
+    bool verbose_output = 3;
+}
+
 message ReadConfig {
     // Automatically set by plumber when a new read is created
     string _id = 1;
@@ -55,21 +60,19 @@ message ReadConfig {
     // Required; friendly name for the read
     string name = 3;
 
-    // Semi-required; either set this or connection_config. If set, connection_config
-    // will be ignored.
+    // Required for server mode; ignored in CLI mode.
     string connection_id = 4;
 
-    // Semi-required; either set this or connection_id. This is generally used
-    // for creating ephemeral connections (ie. via CLI).
-    protos.ConnectionConfig connection_config = 5;
-
     // Required; options specifying how to read data
-    ReadOptions read_options = 6;
+    ReadOptions read_options = 5;
 
     // Optional; options specify how to decode the _value_ in a message.
     // If left unset, plumber will still populate records.ReadRecord.Decoded
     // with the (untouched) value.
-    encoding.Options decode_options = 7;
+    encoding.Options decode_options = 6;
+
+    // Optional; contains options specific to the CLI
+    ReadCLIConfig _cli_config = 7;
 
     oneof Backends {
         backends.Kafka kafka = 100;
