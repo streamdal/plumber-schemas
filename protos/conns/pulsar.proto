@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package protos.conns;
+
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/conns";
+
+message Pulsar {
+
+  // Required
+  // Full DSN to connect to Pulsar. Ex: pulsar://localhost:6650
+  string dsn = 1;
+
+  // Optional
+  // Default: 10s
+  string connect_timeout = 2;
+
+  // Specify to not verify server's TLS certificate
+  bool insecure_tls = 3;
+
+  // Optional
+  bytes tls_client_cert = 4;
+
+  // Optional
+  bytes tls_client_key = 5;
+
+}

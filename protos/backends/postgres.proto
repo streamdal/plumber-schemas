@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package protos.backends;
+
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/backends";
+
+message Postgres {
+  string replication_slot_name = 2;
+
+  string publisher_name = 3;
+}

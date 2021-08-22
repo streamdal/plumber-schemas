@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package protos.backends;
+
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/backends";
+
+message Rabbit {
+  // Required for reading and writing
+  string exchange_name = 1;
+
+  // Reading only
+  // Queue name to read from
+  string queue_name = 2;
+
+  // Routing key for topic based exchanges
+  string routing_key = 3;
+
+  // Reading only
+  // Whether the queue is exclusive to this connection
+  bool queue_exclusive = 4;
+
+  // Reading only
+  // Whether to create the queue
+  bool queue_declare = 5;
+
+  // Reading only
+  // Whether the queue should survive after disconnect
+  bool queue_durable = 6;
+
+  // Reading only
+  bool auto_ack = 7;
+
+  // Reading only
+  string app_id = 8;
+}

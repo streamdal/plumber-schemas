@@ -4,9 +4,24 @@ package protos;
 
 import "common/auth.proto";
 import "common/status.proto";
-import "backends/kafka.proto";
 import "encoding/options.proto";
 import "records/base.proto";
+import "backends/kafka.proto";
+import "backends/activemq.proto";
+import "backends/aws-sns.proto";
+import "backends/aws-sqs.proto";
+import "backends/mongo.proto";
+import "backends/nats.proto";
+import "backends/nats-streaming.proto";
+import "backends/nsq.proto";
+import "backends/postgres.proto";
+import "backends/pulsar.proto";
+import "backends/rabbit.proto";
+import "backends/rabbit-streams.proto";
+import "backends/redis-pubsub.proto";
+import "backends/redis-streams.proto";
+import "backends/azure-service-bus.proto";
+import "backends/azure-event-hub.proto";
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
 
@@ -44,6 +59,21 @@ message Read {
 
     oneof Backends {
         backends.Kafka kafka = 100;
+        backends.ActiveMQ active_mq = 101;
+        backends.AWSSQS awssqs = 102;
+        backends.AWSSNS awssns = 103;
+        backends.Mongo mongo = 104;
+        backends.Nats nats = 105;
+        backends.NatsStreaming nats_streaming = 106;
+        backends.NSQ nsq = 107;
+        backends.Postgres postgres = 108;
+        backends.Pulsar pulsar = 109;
+        backends.Rabbit rabbit = 110;
+        backends.RabbitStreams rabbit_streams = 111;
+        backends.RedisPubsub redis_pubsub = 112;
+        backends.RedisStreams redis_streams = 113;
+        backends.AzureEventHub azure_event_hub = 114;
+        backends.AzureServiceBus azure_service_bus = 115;
     }
 }
 

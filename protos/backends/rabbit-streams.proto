@@ -1,0 +1,48 @@
+syntax = "proto3";
+
+package protos.backends;
+
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/backends";
+
+message RabbitStreams {
+
+  // Required
+  string stream = 1;
+
+  // Optional
+  // If specified, stream will be declared
+  DeclareStream declare_stream = 2;
+
+  oneof offset_option {
+    SpecificOffset offset = 101;
+    LastOffset last_offset = 102;
+    LastConsumed last_consumed = 103;
+    FirstOffset first_offset = 104;
+    NextOffset next_offset = 105;
+  }
+}
+
+message DeclareStream {
+  // Size capacity to declare the stream with. Ex: 10mb, 3gb, 1024k
+  string size = 1;
+}
+
+message SpecificOffset {
+  uint64 offset = 1;
+}
+
+message LastOffset {
+  //
+}
+
+message LastConsumed {
+  //
+}
+
+message FirstOffset {
+  //
+}
+
+message NextOffset {
+  //
+}

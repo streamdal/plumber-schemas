@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package protos.backends;
+
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/backends";
+
+enum SubscriptionType {
+  Unset = 0;
+  Shared = 1;
+  Exclusive = 2;
+  Failover = 3;
+  Keyshared = 4;
+}
+
+
+message Pulsar {
+
+  // Required
+  string topic = 1;
+
+  // Required for reads
+  // Ignored for writes
+  string subscription_name = 2;
+
+  // Required for reads
+  // Ignored for writes
+  SubscriptionType subscription_type = 3;
+}

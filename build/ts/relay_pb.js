@@ -17,6 +17,36 @@ var global = Function('return this')();
 
 var backends_kafka_pb = require('./backends/kafka_pb.js');
 goog.object.extend(proto, backends_kafka_pb);
+var backends_activemq_pb = require('./backends/activemq_pb.js');
+goog.object.extend(proto, backends_activemq_pb);
+var backends_aws$sns_pb = require('./backends/aws-sns_pb.js');
+goog.object.extend(proto, backends_aws$sns_pb);
+var backends_aws$sqs_pb = require('./backends/aws-sqs_pb.js');
+goog.object.extend(proto, backends_aws$sqs_pb);
+var backends_mongo_pb = require('./backends/mongo_pb.js');
+goog.object.extend(proto, backends_mongo_pb);
+var backends_nats_pb = require('./backends/nats_pb.js');
+goog.object.extend(proto, backends_nats_pb);
+var backends_nats$streaming_pb = require('./backends/nats-streaming_pb.js');
+goog.object.extend(proto, backends_nats$streaming_pb);
+var backends_nsq_pb = require('./backends/nsq_pb.js');
+goog.object.extend(proto, backends_nsq_pb);
+var backends_postgres_pb = require('./backends/postgres_pb.js');
+goog.object.extend(proto, backends_postgres_pb);
+var backends_pulsar_pb = require('./backends/pulsar_pb.js');
+goog.object.extend(proto, backends_pulsar_pb);
+var backends_rabbit_pb = require('./backends/rabbit_pb.js');
+goog.object.extend(proto, backends_rabbit_pb);
+var backends_rabbit$streams_pb = require('./backends/rabbit-streams_pb.js');
+goog.object.extend(proto, backends_rabbit$streams_pb);
+var backends_redis$pubsub_pb = require('./backends/redis-pubsub_pb.js');
+goog.object.extend(proto, backends_redis$pubsub_pb);
+var backends_redis$streams_pb = require('./backends/redis-streams_pb.js');
+goog.object.extend(proto, backends_redis$streams_pb);
+var backends_azure$service$bus_pb = require('./backends/azure-service-bus_pb.js');
+goog.object.extend(proto, backends_azure$service$bus_pb);
+var backends_azure$event$hub_pb = require('./backends/azure-event-hub_pb.js');
+goog.object.extend(proto, backends_azure$event$hub_pb);
 var common_auth_pb = require('./common/auth_pb.js');
 goog.object.extend(proto, common_auth_pb);
 var common_status_pb = require('./common/status_pb.js');
@@ -362,14 +392,29 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<!Array<number>>}
  * @const
  */
-proto.protos.Relay.oneofGroups_ = [[100]];
+proto.protos.Relay.oneofGroups_ = [[100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115]];
 
 /**
  * @enum {number}
  */
 proto.protos.Relay.BackendsCase = {
   BACKENDS_NOT_SET: 0,
-  KAFKA: 100
+  KAFKA: 100,
+  ACTIVE_MQ: 101,
+  AWSSQS: 102,
+  AWSSNS: 103,
+  MONGO: 104,
+  NATS: 105,
+  NATS_STREAMING: 106,
+  NSQ: 107,
+  POSTGRES: 108,
+  PULSAR: 109,
+  RABBIT: 110,
+  RABBIT_STREAMS: 111,
+  REDIS_PUBSUB: 112,
+  REDIS_STREAMS: 113,
+  AZURE_EVENT_HUB: 114,
+  AZURE_SERVICE_BUS: 115
 };
 
 /**
@@ -418,7 +463,22 @@ proto.protos.Relay.toObject = function(includeInstance, msg) {
     batchshGrpcDisableTls: jspb.Message.getBooleanFieldWithDefault(msg, 6, false),
     batchshGrpcTimeout: jspb.Message.getBooleanFieldWithDefault(msg, 7, false),
     relayId: jspb.Message.getFieldWithDefault(msg, 8, ""),
-    kafka: (f = msg.getKafka()) && backends_kafka_pb.Kafka.toObject(includeInstance, f)
+    kafka: (f = msg.getKafka()) && backends_kafka_pb.Kafka.toObject(includeInstance, f),
+    activeMq: (f = msg.getActiveMq()) && backends_activemq_pb.ActiveMQ.toObject(includeInstance, f),
+    awssqs: (f = msg.getAwssqs()) && backends_aws$sqs_pb.AWSSQS.toObject(includeInstance, f),
+    awssns: (f = msg.getAwssns()) && backends_aws$sns_pb.AWSSNS.toObject(includeInstance, f),
+    mongo: (f = msg.getMongo()) && backends_mongo_pb.Mongo.toObject(includeInstance, f),
+    nats: (f = msg.getNats()) && backends_nats_pb.Nats.toObject(includeInstance, f),
+    natsStreaming: (f = msg.getNatsStreaming()) && backends_nats$streaming_pb.NatsStreaming.toObject(includeInstance, f),
+    nsq: (f = msg.getNsq()) && backends_nsq_pb.NSQ.toObject(includeInstance, f),
+    postgres: (f = msg.getPostgres()) && backends_postgres_pb.Postgres.toObject(includeInstance, f),
+    pulsar: (f = msg.getPulsar()) && backends_pulsar_pb.Pulsar.toObject(includeInstance, f),
+    rabbit: (f = msg.getRabbit()) && backends_rabbit_pb.Rabbit.toObject(includeInstance, f),
+    rabbitStreams: (f = msg.getRabbitStreams()) && backends_rabbit$streams_pb.RabbitStreams.toObject(includeInstance, f),
+    redisPubsub: (f = msg.getRedisPubsub()) && backends_redis$pubsub_pb.RedisPubsub.toObject(includeInstance, f),
+    redisStreams: (f = msg.getRedisStreams()) && backends_redis$streams_pb.RedisStreams.toObject(includeInstance, f),
+    azureEventHub: (f = msg.getAzureEventHub()) && backends_azure$event$hub_pb.AzureEventHub.toObject(includeInstance, f),
+    azureServiceBus: (f = msg.getAzureServiceBus()) && backends_azure$service$bus_pb.AzureServiceBus.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -491,6 +551,81 @@ proto.protos.Relay.deserializeBinaryFromReader = function(msg, reader) {
       var value = new backends_kafka_pb.Kafka;
       reader.readMessage(value,backends_kafka_pb.Kafka.deserializeBinaryFromReader);
       msg.setKafka(value);
+      break;
+    case 101:
+      var value = new backends_activemq_pb.ActiveMQ;
+      reader.readMessage(value,backends_activemq_pb.ActiveMQ.deserializeBinaryFromReader);
+      msg.setActiveMq(value);
+      break;
+    case 102:
+      var value = new backends_aws$sqs_pb.AWSSQS;
+      reader.readMessage(value,backends_aws$sqs_pb.AWSSQS.deserializeBinaryFromReader);
+      msg.setAwssqs(value);
+      break;
+    case 103:
+      var value = new backends_aws$sns_pb.AWSSNS;
+      reader.readMessage(value,backends_aws$sns_pb.AWSSNS.deserializeBinaryFromReader);
+      msg.setAwssns(value);
+      break;
+    case 104:
+      var value = new backends_mongo_pb.Mongo;
+      reader.readMessage(value,backends_mongo_pb.Mongo.deserializeBinaryFromReader);
+      msg.setMongo(value);
+      break;
+    case 105:
+      var value = new backends_nats_pb.Nats;
+      reader.readMessage(value,backends_nats_pb.Nats.deserializeBinaryFromReader);
+      msg.setNats(value);
+      break;
+    case 106:
+      var value = new backends_nats$streaming_pb.NatsStreaming;
+      reader.readMessage(value,backends_nats$streaming_pb.NatsStreaming.deserializeBinaryFromReader);
+      msg.setNatsStreaming(value);
+      break;
+    case 107:
+      var value = new backends_nsq_pb.NSQ;
+      reader.readMessage(value,backends_nsq_pb.NSQ.deserializeBinaryFromReader);
+      msg.setNsq(value);
+      break;
+    case 108:
+      var value = new backends_postgres_pb.Postgres;
+      reader.readMessage(value,backends_postgres_pb.Postgres.deserializeBinaryFromReader);
+      msg.setPostgres(value);
+      break;
+    case 109:
+      var value = new backends_pulsar_pb.Pulsar;
+      reader.readMessage(value,backends_pulsar_pb.Pulsar.deserializeBinaryFromReader);
+      msg.setPulsar(value);
+      break;
+    case 110:
+      var value = new backends_rabbit_pb.Rabbit;
+      reader.readMessage(value,backends_rabbit_pb.Rabbit.deserializeBinaryFromReader);
+      msg.setRabbit(value);
+      break;
+    case 111:
+      var value = new backends_rabbit$streams_pb.RabbitStreams;
+      reader.readMessage(value,backends_rabbit$streams_pb.RabbitStreams.deserializeBinaryFromReader);
+      msg.setRabbitStreams(value);
+      break;
+    case 112:
+      var value = new backends_redis$pubsub_pb.RedisPubsub;
+      reader.readMessage(value,backends_redis$pubsub_pb.RedisPubsub.deserializeBinaryFromReader);
+      msg.setRedisPubsub(value);
+      break;
+    case 113:
+      var value = new backends_redis$streams_pb.RedisStreams;
+      reader.readMessage(value,backends_redis$streams_pb.RedisStreams.deserializeBinaryFromReader);
+      msg.setRedisStreams(value);
+      break;
+    case 114:
+      var value = new backends_azure$event$hub_pb.AzureEventHub;
+      reader.readMessage(value,backends_azure$event$hub_pb.AzureEventHub.deserializeBinaryFromReader);
+      msg.setAzureEventHub(value);
+      break;
+    case 115:
+      var value = new backends_azure$service$bus_pb.AzureServiceBus;
+      reader.readMessage(value,backends_azure$service$bus_pb.AzureServiceBus.deserializeBinaryFromReader);
+      msg.setAzureServiceBus(value);
       break;
     default:
       reader.skipField();
@@ -583,6 +718,126 @@ proto.protos.Relay.serializeBinaryToWriter = function(message, writer) {
       100,
       f,
       backends_kafka_pb.Kafka.serializeBinaryToWriter
+    );
+  }
+  f = message.getActiveMq();
+  if (f != null) {
+    writer.writeMessage(
+      101,
+      f,
+      backends_activemq_pb.ActiveMQ.serializeBinaryToWriter
+    );
+  }
+  f = message.getAwssqs();
+  if (f != null) {
+    writer.writeMessage(
+      102,
+      f,
+      backends_aws$sqs_pb.AWSSQS.serializeBinaryToWriter
+    );
+  }
+  f = message.getAwssns();
+  if (f != null) {
+    writer.writeMessage(
+      103,
+      f,
+      backends_aws$sns_pb.AWSSNS.serializeBinaryToWriter
+    );
+  }
+  f = message.getMongo();
+  if (f != null) {
+    writer.writeMessage(
+      104,
+      f,
+      backends_mongo_pb.Mongo.serializeBinaryToWriter
+    );
+  }
+  f = message.getNats();
+  if (f != null) {
+    writer.writeMessage(
+      105,
+      f,
+      backends_nats_pb.Nats.serializeBinaryToWriter
+    );
+  }
+  f = message.getNatsStreaming();
+  if (f != null) {
+    writer.writeMessage(
+      106,
+      f,
+      backends_nats$streaming_pb.NatsStreaming.serializeBinaryToWriter
+    );
+  }
+  f = message.getNsq();
+  if (f != null) {
+    writer.writeMessage(
+      107,
+      f,
+      backends_nsq_pb.NSQ.serializeBinaryToWriter
+    );
+  }
+  f = message.getPostgres();
+  if (f != null) {
+    writer.writeMessage(
+      108,
+      f,
+      backends_postgres_pb.Postgres.serializeBinaryToWriter
+    );
+  }
+  f = message.getPulsar();
+  if (f != null) {
+    writer.writeMessage(
+      109,
+      f,
+      backends_pulsar_pb.Pulsar.serializeBinaryToWriter
+    );
+  }
+  f = message.getRabbit();
+  if (f != null) {
+    writer.writeMessage(
+      110,
+      f,
+      backends_rabbit_pb.Rabbit.serializeBinaryToWriter
+    );
+  }
+  f = message.getRabbitStreams();
+  if (f != null) {
+    writer.writeMessage(
+      111,
+      f,
+      backends_rabbit$streams_pb.RabbitStreams.serializeBinaryToWriter
+    );
+  }
+  f = message.getRedisPubsub();
+  if (f != null) {
+    writer.writeMessage(
+      112,
+      f,
+      backends_redis$pubsub_pb.RedisPubsub.serializeBinaryToWriter
+    );
+  }
+  f = message.getRedisStreams();
+  if (f != null) {
+    writer.writeMessage(
+      113,
+      f,
+      backends_redis$streams_pb.RedisStreams.serializeBinaryToWriter
+    );
+  }
+  f = message.getAzureEventHub();
+  if (f != null) {
+    writer.writeMessage(
+      114,
+      f,
+      backends_azure$event$hub_pb.AzureEventHub.serializeBinaryToWriter
+    );
+  }
+  f = message.getAzureServiceBus();
+  if (f != null) {
+    writer.writeMessage(
+      115,
+      f,
+      backends_azure$service$bus_pb.AzureServiceBus.serializeBinaryToWriter
     );
   }
 };
@@ -766,6 +1021,561 @@ proto.protos.Relay.prototype.clearKafka = function() {
  */
 proto.protos.Relay.prototype.hasKafka = function() {
   return jspb.Message.getField(this, 100) != null;
+};
+
+
+/**
+ * optional backends.ActiveMQ active_mq = 101;
+ * @return {?proto.protos.backends.ActiveMQ}
+ */
+proto.protos.Relay.prototype.getActiveMq = function() {
+  return /** @type{?proto.protos.backends.ActiveMQ} */ (
+    jspb.Message.getWrapperField(this, backends_activemq_pb.ActiveMQ, 101));
+};
+
+
+/**
+ * @param {?proto.protos.backends.ActiveMQ|undefined} value
+ * @return {!proto.protos.Relay} returns this
+*/
+proto.protos.Relay.prototype.setActiveMq = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 101, proto.protos.Relay.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.Relay} returns this
+ */
+proto.protos.Relay.prototype.clearActiveMq = function() {
+  return this.setActiveMq(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.Relay.prototype.hasActiveMq = function() {
+  return jspb.Message.getField(this, 101) != null;
+};
+
+
+/**
+ * optional backends.AWSSQS awssqs = 102;
+ * @return {?proto.protos.backends.AWSSQS}
+ */
+proto.protos.Relay.prototype.getAwssqs = function() {
+  return /** @type{?proto.protos.backends.AWSSQS} */ (
+    jspb.Message.getWrapperField(this, backends_aws$sqs_pb.AWSSQS, 102));
+};
+
+
+/**
+ * @param {?proto.protos.backends.AWSSQS|undefined} value
+ * @return {!proto.protos.Relay} returns this
+*/
+proto.protos.Relay.prototype.setAwssqs = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 102, proto.protos.Relay.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.Relay} returns this
+ */
+proto.protos.Relay.prototype.clearAwssqs = function() {
+  return this.setAwssqs(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.Relay.prototype.hasAwssqs = function() {
+  return jspb.Message.getField(this, 102) != null;
+};
+
+
+/**
+ * optional backends.AWSSNS awssns = 103;
+ * @return {?proto.protos.backends.AWSSNS}
+ */
+proto.protos.Relay.prototype.getAwssns = function() {
+  return /** @type{?proto.protos.backends.AWSSNS} */ (
+    jspb.Message.getWrapperField(this, backends_aws$sns_pb.AWSSNS, 103));
+};
+
+
+/**
+ * @param {?proto.protos.backends.AWSSNS|undefined} value
+ * @return {!proto.protos.Relay} returns this
+*/
+proto.protos.Relay.prototype.setAwssns = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 103, proto.protos.Relay.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.Relay} returns this
+ */
+proto.protos.Relay.prototype.clearAwssns = function() {
+  return this.setAwssns(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.Relay.prototype.hasAwssns = function() {
+  return jspb.Message.getField(this, 103) != null;
+};
+
+
+/**
+ * optional backends.Mongo mongo = 104;
+ * @return {?proto.protos.backends.Mongo}
+ */
+proto.protos.Relay.prototype.getMongo = function() {
+  return /** @type{?proto.protos.backends.Mongo} */ (
+    jspb.Message.getWrapperField(this, backends_mongo_pb.Mongo, 104));
+};
+
+
+/**
+ * @param {?proto.protos.backends.Mongo|undefined} value
+ * @return {!proto.protos.Relay} returns this
+*/
+proto.protos.Relay.prototype.setMongo = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 104, proto.protos.Relay.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.Relay} returns this
+ */
+proto.protos.Relay.prototype.clearMongo = function() {
+  return this.setMongo(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.Relay.prototype.hasMongo = function() {
+  return jspb.Message.getField(this, 104) != null;
+};
+
+
+/**
+ * optional backends.Nats nats = 105;
+ * @return {?proto.protos.backends.Nats}
+ */
+proto.protos.Relay.prototype.getNats = function() {
+  return /** @type{?proto.protos.backends.Nats} */ (
+    jspb.Message.getWrapperField(this, backends_nats_pb.Nats, 105));
+};
+
+
+/**
+ * @param {?proto.protos.backends.Nats|undefined} value
+ * @return {!proto.protos.Relay} returns this
+*/
+proto.protos.Relay.prototype.setNats = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 105, proto.protos.Relay.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.Relay} returns this
+ */
+proto.protos.Relay.prototype.clearNats = function() {
+  return this.setNats(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.Relay.prototype.hasNats = function() {
+  return jspb.Message.getField(this, 105) != null;
+};
+
+
+/**
+ * optional backends.NatsStreaming nats_streaming = 106;
+ * @return {?proto.protos.backends.NatsStreaming}
+ */
+proto.protos.Relay.prototype.getNatsStreaming = function() {
+  return /** @type{?proto.protos.backends.NatsStreaming} */ (
+    jspb.Message.getWrapperField(this, backends_nats$streaming_pb.NatsStreaming, 106));
+};
+
+
+/**
+ * @param {?proto.protos.backends.NatsStreaming|undefined} value
+ * @return {!proto.protos.Relay} returns this
+*/
+proto.protos.Relay.prototype.setNatsStreaming = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 106, proto.protos.Relay.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.Relay} returns this
+ */
+proto.protos.Relay.prototype.clearNatsStreaming = function() {
+  return this.setNatsStreaming(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.Relay.prototype.hasNatsStreaming = function() {
+  return jspb.Message.getField(this, 106) != null;
+};
+
+
+/**
+ * optional backends.NSQ nsq = 107;
+ * @return {?proto.protos.backends.NSQ}
+ */
+proto.protos.Relay.prototype.getNsq = function() {
+  return /** @type{?proto.protos.backends.NSQ} */ (
+    jspb.Message.getWrapperField(this, backends_nsq_pb.NSQ, 107));
+};
+
+
+/**
+ * @param {?proto.protos.backends.NSQ|undefined} value
+ * @return {!proto.protos.Relay} returns this
+*/
+proto.protos.Relay.prototype.setNsq = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 107, proto.protos.Relay.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.Relay} returns this
+ */
+proto.protos.Relay.prototype.clearNsq = function() {
+  return this.setNsq(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.Relay.prototype.hasNsq = function() {
+  return jspb.Message.getField(this, 107) != null;
+};
+
+
+/**
+ * optional backends.Postgres postgres = 108;
+ * @return {?proto.protos.backends.Postgres}
+ */
+proto.protos.Relay.prototype.getPostgres = function() {
+  return /** @type{?proto.protos.backends.Postgres} */ (
+    jspb.Message.getWrapperField(this, backends_postgres_pb.Postgres, 108));
+};
+
+
+/**
+ * @param {?proto.protos.backends.Postgres|undefined} value
+ * @return {!proto.protos.Relay} returns this
+*/
+proto.protos.Relay.prototype.setPostgres = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 108, proto.protos.Relay.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.Relay} returns this
+ */
+proto.protos.Relay.prototype.clearPostgres = function() {
+  return this.setPostgres(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.Relay.prototype.hasPostgres = function() {
+  return jspb.Message.getField(this, 108) != null;
+};
+
+
+/**
+ * optional backends.Pulsar pulsar = 109;
+ * @return {?proto.protos.backends.Pulsar}
+ */
+proto.protos.Relay.prototype.getPulsar = function() {
+  return /** @type{?proto.protos.backends.Pulsar} */ (
+    jspb.Message.getWrapperField(this, backends_pulsar_pb.Pulsar, 109));
+};
+
+
+/**
+ * @param {?proto.protos.backends.Pulsar|undefined} value
+ * @return {!proto.protos.Relay} returns this
+*/
+proto.protos.Relay.prototype.setPulsar = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 109, proto.protos.Relay.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.Relay} returns this
+ */
+proto.protos.Relay.prototype.clearPulsar = function() {
+  return this.setPulsar(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.Relay.prototype.hasPulsar = function() {
+  return jspb.Message.getField(this, 109) != null;
+};
+
+
+/**
+ * optional backends.Rabbit rabbit = 110;
+ * @return {?proto.protos.backends.Rabbit}
+ */
+proto.protos.Relay.prototype.getRabbit = function() {
+  return /** @type{?proto.protos.backends.Rabbit} */ (
+    jspb.Message.getWrapperField(this, backends_rabbit_pb.Rabbit, 110));
+};
+
+
+/**
+ * @param {?proto.protos.backends.Rabbit|undefined} value
+ * @return {!proto.protos.Relay} returns this
+*/
+proto.protos.Relay.prototype.setRabbit = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 110, proto.protos.Relay.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.Relay} returns this
+ */
+proto.protos.Relay.prototype.clearRabbit = function() {
+  return this.setRabbit(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.Relay.prototype.hasRabbit = function() {
+  return jspb.Message.getField(this, 110) != null;
+};
+
+
+/**
+ * optional backends.RabbitStreams rabbit_streams = 111;
+ * @return {?proto.protos.backends.RabbitStreams}
+ */
+proto.protos.Relay.prototype.getRabbitStreams = function() {
+  return /** @type{?proto.protos.backends.RabbitStreams} */ (
+    jspb.Message.getWrapperField(this, backends_rabbit$streams_pb.RabbitStreams, 111));
+};
+
+
+/**
+ * @param {?proto.protos.backends.RabbitStreams|undefined} value
+ * @return {!proto.protos.Relay} returns this
+*/
+proto.protos.Relay.prototype.setRabbitStreams = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 111, proto.protos.Relay.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.Relay} returns this
+ */
+proto.protos.Relay.prototype.clearRabbitStreams = function() {
+  return this.setRabbitStreams(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.Relay.prototype.hasRabbitStreams = function() {
+  return jspb.Message.getField(this, 111) != null;
+};
+
+
+/**
+ * optional backends.RedisPubsub redis_pubsub = 112;
+ * @return {?proto.protos.backends.RedisPubsub}
+ */
+proto.protos.Relay.prototype.getRedisPubsub = function() {
+  return /** @type{?proto.protos.backends.RedisPubsub} */ (
+    jspb.Message.getWrapperField(this, backends_redis$pubsub_pb.RedisPubsub, 112));
+};
+
+
+/**
+ * @param {?proto.protos.backends.RedisPubsub|undefined} value
+ * @return {!proto.protos.Relay} returns this
+*/
+proto.protos.Relay.prototype.setRedisPubsub = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 112, proto.protos.Relay.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.Relay} returns this
+ */
+proto.protos.Relay.prototype.clearRedisPubsub = function() {
+  return this.setRedisPubsub(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.Relay.prototype.hasRedisPubsub = function() {
+  return jspb.Message.getField(this, 112) != null;
+};
+
+
+/**
+ * optional backends.RedisStreams redis_streams = 113;
+ * @return {?proto.protos.backends.RedisStreams}
+ */
+proto.protos.Relay.prototype.getRedisStreams = function() {
+  return /** @type{?proto.protos.backends.RedisStreams} */ (
+    jspb.Message.getWrapperField(this, backends_redis$streams_pb.RedisStreams, 113));
+};
+
+
+/**
+ * @param {?proto.protos.backends.RedisStreams|undefined} value
+ * @return {!proto.protos.Relay} returns this
+*/
+proto.protos.Relay.prototype.setRedisStreams = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 113, proto.protos.Relay.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.Relay} returns this
+ */
+proto.protos.Relay.prototype.clearRedisStreams = function() {
+  return this.setRedisStreams(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.Relay.prototype.hasRedisStreams = function() {
+  return jspb.Message.getField(this, 113) != null;
+};
+
+
+/**
+ * optional backends.AzureEventHub azure_event_hub = 114;
+ * @return {?proto.protos.backends.AzureEventHub}
+ */
+proto.protos.Relay.prototype.getAzureEventHub = function() {
+  return /** @type{?proto.protos.backends.AzureEventHub} */ (
+    jspb.Message.getWrapperField(this, backends_azure$event$hub_pb.AzureEventHub, 114));
+};
+
+
+/**
+ * @param {?proto.protos.backends.AzureEventHub|undefined} value
+ * @return {!proto.protos.Relay} returns this
+*/
+proto.protos.Relay.prototype.setAzureEventHub = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 114, proto.protos.Relay.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.Relay} returns this
+ */
+proto.protos.Relay.prototype.clearAzureEventHub = function() {
+  return this.setAzureEventHub(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.Relay.prototype.hasAzureEventHub = function() {
+  return jspb.Message.getField(this, 114) != null;
+};
+
+
+/**
+ * optional backends.AzureServiceBus azure_service_bus = 115;
+ * @return {?proto.protos.backends.AzureServiceBus}
+ */
+proto.protos.Relay.prototype.getAzureServiceBus = function() {
+  return /** @type{?proto.protos.backends.AzureServiceBus} */ (
+    jspb.Message.getWrapperField(this, backends_azure$service$bus_pb.AzureServiceBus, 115));
+};
+
+
+/**
+ * @param {?proto.protos.backends.AzureServiceBus|undefined} value
+ * @return {!proto.protos.Relay} returns this
+*/
+proto.protos.Relay.prototype.setAzureServiceBus = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 115, proto.protos.Relay.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.Relay} returns this
+ */
+proto.protos.Relay.prototype.clearAzureServiceBus = function() {
+  return this.setAzureServiceBus(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.Relay.prototype.hasAzureServiceBus = function() {
+  return jspb.Message.getField(this, 115) != null;
 };
 
 
@@ -1523,14 +2333,27 @@ proto.protos.GetRelayResponse.prototype.hasRelay = function() {
  * @private {!Array<!Array<number>>}
  * @const
  */
-proto.protos.CreateRelayRequest.oneofGroups_ = [[100]];
+proto.protos.CreateRelayRequest.oneofGroups_ = [[100,101,102,103,104,105,106,107,108,109,110,111,112,113]];
 
 /**
  * @enum {number}
  */
 proto.protos.CreateRelayRequest.BackendsCase = {
   BACKENDS_NOT_SET: 0,
-  KAFKA: 100
+  KAFKA: 100,
+  ACTIVE_MQ: 101,
+  AWSSQS: 102,
+  AWSSNS: 103,
+  MONGO: 104,
+  NATS: 105,
+  NATS_STREAMING: 106,
+  NSQ: 107,
+  POSTGRES: 108,
+  PULSAR: 109,
+  RABBIT: 110,
+  RABBIT_STREAMS: 111,
+  REDIS_PUBSUB: 112,
+  REDIS_STREAMS: 113
 };
 
 /**
@@ -1573,7 +2396,20 @@ proto.protos.CreateRelayRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
     auth: (f = msg.getAuth()) && common_auth_pb.Auth.toObject(includeInstance, f),
     relay: (f = msg.getRelay()) && proto.protos.Relay.toObject(includeInstance, f),
-    kafka: (f = msg.getKafka()) && backends_kafka_pb.Kafka.toObject(includeInstance, f)
+    kafka: (f = msg.getKafka()) && backends_kafka_pb.Kafka.toObject(includeInstance, f),
+    activeMq: (f = msg.getActiveMq()) && backends_activemq_pb.ActiveMQ.toObject(includeInstance, f),
+    awssqs: (f = msg.getAwssqs()) && backends_aws$sqs_pb.AWSSQS.toObject(includeInstance, f),
+    awssns: (f = msg.getAwssns()) && backends_aws$sns_pb.AWSSNS.toObject(includeInstance, f),
+    mongo: (f = msg.getMongo()) && backends_mongo_pb.Mongo.toObject(includeInstance, f),
+    nats: (f = msg.getNats()) && backends_nats_pb.Nats.toObject(includeInstance, f),
+    natsStreaming: (f = msg.getNatsStreaming()) && backends_nats$streaming_pb.NatsStreaming.toObject(includeInstance, f),
+    nsq: (f = msg.getNsq()) && backends_nsq_pb.NSQ.toObject(includeInstance, f),
+    postgres: (f = msg.getPostgres()) && backends_postgres_pb.Postgres.toObject(includeInstance, f),
+    pulsar: (f = msg.getPulsar()) && backends_pulsar_pb.Pulsar.toObject(includeInstance, f),
+    rabbit: (f = msg.getRabbit()) && backends_rabbit_pb.Rabbit.toObject(includeInstance, f),
+    rabbitStreams: (f = msg.getRabbitStreams()) && backends_rabbit$streams_pb.RabbitStreams.toObject(includeInstance, f),
+    redisPubsub: (f = msg.getRedisPubsub()) && backends_redis$pubsub_pb.RedisPubsub.toObject(includeInstance, f),
+    redisStreams: (f = msg.getRedisStreams()) && backends_redis$streams_pb.RedisStreams.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -1624,6 +2460,71 @@ proto.protos.CreateRelayRequest.deserializeBinaryFromReader = function(msg, read
       var value = new backends_kafka_pb.Kafka;
       reader.readMessage(value,backends_kafka_pb.Kafka.deserializeBinaryFromReader);
       msg.setKafka(value);
+      break;
+    case 101:
+      var value = new backends_activemq_pb.ActiveMQ;
+      reader.readMessage(value,backends_activemq_pb.ActiveMQ.deserializeBinaryFromReader);
+      msg.setActiveMq(value);
+      break;
+    case 102:
+      var value = new backends_aws$sqs_pb.AWSSQS;
+      reader.readMessage(value,backends_aws$sqs_pb.AWSSQS.deserializeBinaryFromReader);
+      msg.setAwssqs(value);
+      break;
+    case 103:
+      var value = new backends_aws$sns_pb.AWSSNS;
+      reader.readMessage(value,backends_aws$sns_pb.AWSSNS.deserializeBinaryFromReader);
+      msg.setAwssns(value);
+      break;
+    case 104:
+      var value = new backends_mongo_pb.Mongo;
+      reader.readMessage(value,backends_mongo_pb.Mongo.deserializeBinaryFromReader);
+      msg.setMongo(value);
+      break;
+    case 105:
+      var value = new backends_nats_pb.Nats;
+      reader.readMessage(value,backends_nats_pb.Nats.deserializeBinaryFromReader);
+      msg.setNats(value);
+      break;
+    case 106:
+      var value = new backends_nats$streaming_pb.NatsStreaming;
+      reader.readMessage(value,backends_nats$streaming_pb.NatsStreaming.deserializeBinaryFromReader);
+      msg.setNatsStreaming(value);
+      break;
+    case 107:
+      var value = new backends_nsq_pb.NSQ;
+      reader.readMessage(value,backends_nsq_pb.NSQ.deserializeBinaryFromReader);
+      msg.setNsq(value);
+      break;
+    case 108:
+      var value = new backends_postgres_pb.Postgres;
+      reader.readMessage(value,backends_postgres_pb.Postgres.deserializeBinaryFromReader);
+      msg.setPostgres(value);
+      break;
+    case 109:
+      var value = new backends_pulsar_pb.Pulsar;
+      reader.readMessage(value,backends_pulsar_pb.Pulsar.deserializeBinaryFromReader);
+      msg.setPulsar(value);
+      break;
+    case 110:
+      var value = new backends_rabbit_pb.Rabbit;
+      reader.readMessage(value,backends_rabbit_pb.Rabbit.deserializeBinaryFromReader);
+      msg.setRabbit(value);
+      break;
+    case 111:
+      var value = new backends_rabbit$streams_pb.RabbitStreams;
+      reader.readMessage(value,backends_rabbit$streams_pb.RabbitStreams.deserializeBinaryFromReader);
+      msg.setRabbitStreams(value);
+      break;
+    case 112:
+      var value = new backends_redis$pubsub_pb.RedisPubsub;
+      reader.readMessage(value,backends_redis$pubsub_pb.RedisPubsub.deserializeBinaryFromReader);
+      msg.setRedisPubsub(value);
+      break;
+    case 113:
+      var value = new backends_redis$streams_pb.RedisStreams;
+      reader.readMessage(value,backends_redis$streams_pb.RedisStreams.deserializeBinaryFromReader);
+      msg.setRedisStreams(value);
       break;
     default:
       reader.skipField();
@@ -1676,6 +2577,110 @@ proto.protos.CreateRelayRequest.serializeBinaryToWriter = function(message, writ
       100,
       f,
       backends_kafka_pb.Kafka.serializeBinaryToWriter
+    );
+  }
+  f = message.getActiveMq();
+  if (f != null) {
+    writer.writeMessage(
+      101,
+      f,
+      backends_activemq_pb.ActiveMQ.serializeBinaryToWriter
+    );
+  }
+  f = message.getAwssqs();
+  if (f != null) {
+    writer.writeMessage(
+      102,
+      f,
+      backends_aws$sqs_pb.AWSSQS.serializeBinaryToWriter
+    );
+  }
+  f = message.getAwssns();
+  if (f != null) {
+    writer.writeMessage(
+      103,
+      f,
+      backends_aws$sns_pb.AWSSNS.serializeBinaryToWriter
+    );
+  }
+  f = message.getMongo();
+  if (f != null) {
+    writer.writeMessage(
+      104,
+      f,
+      backends_mongo_pb.Mongo.serializeBinaryToWriter
+    );
+  }
+  f = message.getNats();
+  if (f != null) {
+    writer.writeMessage(
+      105,
+      f,
+      backends_nats_pb.Nats.serializeBinaryToWriter
+    );
+  }
+  f = message.getNatsStreaming();
+  if (f != null) {
+    writer.writeMessage(
+      106,
+      f,
+      backends_nats$streaming_pb.NatsStreaming.serializeBinaryToWriter
+    );
+  }
+  f = message.getNsq();
+  if (f != null) {
+    writer.writeMessage(
+      107,
+      f,
+      backends_nsq_pb.NSQ.serializeBinaryToWriter
+    );
+  }
+  f = message.getPostgres();
+  if (f != null) {
+    writer.writeMessage(
+      108,
+      f,
+      backends_postgres_pb.Postgres.serializeBinaryToWriter
+    );
+  }
+  f = message.getPulsar();
+  if (f != null) {
+    writer.writeMessage(
+      109,
+      f,
+      backends_pulsar_pb.Pulsar.serializeBinaryToWriter
+    );
+  }
+  f = message.getRabbit();
+  if (f != null) {
+    writer.writeMessage(
+      110,
+      f,
+      backends_rabbit_pb.Rabbit.serializeBinaryToWriter
+    );
+  }
+  f = message.getRabbitStreams();
+  if (f != null) {
+    writer.writeMessage(
+      111,
+      f,
+      backends_rabbit$streams_pb.RabbitStreams.serializeBinaryToWriter
+    );
+  }
+  f = message.getRedisPubsub();
+  if (f != null) {
+    writer.writeMessage(
+      112,
+      f,
+      backends_redis$pubsub_pb.RedisPubsub.serializeBinaryToWriter
+    );
+  }
+  f = message.getRedisStreams();
+  if (f != null) {
+    writer.writeMessage(
+      113,
+      f,
+      backends_redis$streams_pb.RedisStreams.serializeBinaryToWriter
     );
   }
 };
@@ -1789,6 +2794,487 @@ proto.protos.CreateRelayRequest.prototype.clearKafka = function() {
  */
 proto.protos.CreateRelayRequest.prototype.hasKafka = function() {
   return jspb.Message.getField(this, 100) != null;
+};
+
+
+/**
+ * optional backends.ActiveMQ active_mq = 101;
+ * @return {?proto.protos.backends.ActiveMQ}
+ */
+proto.protos.CreateRelayRequest.prototype.getActiveMq = function() {
+  return /** @type{?proto.protos.backends.ActiveMQ} */ (
+    jspb.Message.getWrapperField(this, backends_activemq_pb.ActiveMQ, 101));
+};
+
+
+/**
+ * @param {?proto.protos.backends.ActiveMQ|undefined} value
+ * @return {!proto.protos.CreateRelayRequest} returns this
+*/
+proto.protos.CreateRelayRequest.prototype.setActiveMq = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 101, proto.protos.CreateRelayRequest.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.CreateRelayRequest} returns this
+ */
+proto.protos.CreateRelayRequest.prototype.clearActiveMq = function() {
+  return this.setActiveMq(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.CreateRelayRequest.prototype.hasActiveMq = function() {
+  return jspb.Message.getField(this, 101) != null;
+};
+
+
+/**
+ * optional backends.AWSSQS awssqs = 102;
+ * @return {?proto.protos.backends.AWSSQS}
+ */
+proto.protos.CreateRelayRequest.prototype.getAwssqs = function() {
+  return /** @type{?proto.protos.backends.AWSSQS} */ (
+    jspb.Message.getWrapperField(this, backends_aws$sqs_pb.AWSSQS, 102));
+};
+
+
+/**
+ * @param {?proto.protos.backends.AWSSQS|undefined} value
+ * @return {!proto.protos.CreateRelayRequest} returns this
+*/
+proto.protos.CreateRelayRequest.prototype.setAwssqs = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 102, proto.protos.CreateRelayRequest.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.CreateRelayRequest} returns this
+ */
+proto.protos.CreateRelayRequest.prototype.clearAwssqs = function() {
+  return this.setAwssqs(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.CreateRelayRequest.prototype.hasAwssqs = function() {
+  return jspb.Message.getField(this, 102) != null;
+};
+
+
+/**
+ * optional backends.AWSSNS awssns = 103;
+ * @return {?proto.protos.backends.AWSSNS}
+ */
+proto.protos.CreateRelayRequest.prototype.getAwssns = function() {
+  return /** @type{?proto.protos.backends.AWSSNS} */ (
+    jspb.Message.getWrapperField(this, backends_aws$sns_pb.AWSSNS, 103));
+};
+
+
+/**
+ * @param {?proto.protos.backends.AWSSNS|undefined} value
+ * @return {!proto.protos.CreateRelayRequest} returns this
+*/
+proto.protos.CreateRelayRequest.prototype.setAwssns = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 103, proto.protos.CreateRelayRequest.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.CreateRelayRequest} returns this
+ */
+proto.protos.CreateRelayRequest.prototype.clearAwssns = function() {
+  return this.setAwssns(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.CreateRelayRequest.prototype.hasAwssns = function() {
+  return jspb.Message.getField(this, 103) != null;
+};
+
+
+/**
+ * optional backends.Mongo mongo = 104;
+ * @return {?proto.protos.backends.Mongo}
+ */
+proto.protos.CreateRelayRequest.prototype.getMongo = function() {
+  return /** @type{?proto.protos.backends.Mongo} */ (
+    jspb.Message.getWrapperField(this, backends_mongo_pb.Mongo, 104));
+};
+
+
+/**
+ * @param {?proto.protos.backends.Mongo|undefined} value
+ * @return {!proto.protos.CreateRelayRequest} returns this
+*/
+proto.protos.CreateRelayRequest.prototype.setMongo = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 104, proto.protos.CreateRelayRequest.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.CreateRelayRequest} returns this
+ */
+proto.protos.CreateRelayRequest.prototype.clearMongo = function() {
+  return this.setMongo(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.CreateRelayRequest.prototype.hasMongo = function() {
+  return jspb.Message.getField(this, 104) != null;
+};
+
+
+/**
+ * optional backends.Nats nats = 105;
+ * @return {?proto.protos.backends.Nats}
+ */
+proto.protos.CreateRelayRequest.prototype.getNats = function() {
+  return /** @type{?proto.protos.backends.Nats} */ (
+    jspb.Message.getWrapperField(this, backends_nats_pb.Nats, 105));
+};
+
+
+/**
+ * @param {?proto.protos.backends.Nats|undefined} value
+ * @return {!proto.protos.CreateRelayRequest} returns this
+*/
+proto.protos.CreateRelayRequest.prototype.setNats = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 105, proto.protos.CreateRelayRequest.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.CreateRelayRequest} returns this
+ */
+proto.protos.CreateRelayRequest.prototype.clearNats = function() {
+  return this.setNats(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.CreateRelayRequest.prototype.hasNats = function() {
+  return jspb.Message.getField(this, 105) != null;
+};
+
+
+/**
+ * optional backends.NatsStreaming nats_streaming = 106;
+ * @return {?proto.protos.backends.NatsStreaming}
+ */
+proto.protos.CreateRelayRequest.prototype.getNatsStreaming = function() {
+  return /** @type{?proto.protos.backends.NatsStreaming} */ (
+    jspb.Message.getWrapperField(this, backends_nats$streaming_pb.NatsStreaming, 106));
+};
+
+
+/**
+ * @param {?proto.protos.backends.NatsStreaming|undefined} value
+ * @return {!proto.protos.CreateRelayRequest} returns this
+*/
+proto.protos.CreateRelayRequest.prototype.setNatsStreaming = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 106, proto.protos.CreateRelayRequest.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.CreateRelayRequest} returns this
+ */
+proto.protos.CreateRelayRequest.prototype.clearNatsStreaming = function() {
+  return this.setNatsStreaming(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.CreateRelayRequest.prototype.hasNatsStreaming = function() {
+  return jspb.Message.getField(this, 106) != null;
+};
+
+
+/**
+ * optional backends.NSQ nsq = 107;
+ * @return {?proto.protos.backends.NSQ}
+ */
+proto.protos.CreateRelayRequest.prototype.getNsq = function() {
+  return /** @type{?proto.protos.backends.NSQ} */ (
+    jspb.Message.getWrapperField(this, backends_nsq_pb.NSQ, 107));
+};
+
+
+/**
+ * @param {?proto.protos.backends.NSQ|undefined} value
+ * @return {!proto.protos.CreateRelayRequest} returns this
+*/
+proto.protos.CreateRelayRequest.prototype.setNsq = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 107, proto.protos.CreateRelayRequest.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.CreateRelayRequest} returns this
+ */
+proto.protos.CreateRelayRequest.prototype.clearNsq = function() {
+  return this.setNsq(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.CreateRelayRequest.prototype.hasNsq = function() {
+  return jspb.Message.getField(this, 107) != null;
+};
+
+
+/**
+ * optional backends.Postgres postgres = 108;
+ * @return {?proto.protos.backends.Postgres}
+ */
+proto.protos.CreateRelayRequest.prototype.getPostgres = function() {
+  return /** @type{?proto.protos.backends.Postgres} */ (
+    jspb.Message.getWrapperField(this, backends_postgres_pb.Postgres, 108));
+};
+
+
+/**
+ * @param {?proto.protos.backends.Postgres|undefined} value
+ * @return {!proto.protos.CreateRelayRequest} returns this
+*/
+proto.protos.CreateRelayRequest.prototype.setPostgres = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 108, proto.protos.CreateRelayRequest.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.CreateRelayRequest} returns this
+ */
+proto.protos.CreateRelayRequest.prototype.clearPostgres = function() {
+  return this.setPostgres(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.CreateRelayRequest.prototype.hasPostgres = function() {
+  return jspb.Message.getField(this, 108) != null;
+};
+
+
+/**
+ * optional backends.Pulsar pulsar = 109;
+ * @return {?proto.protos.backends.Pulsar}
+ */
+proto.protos.CreateRelayRequest.prototype.getPulsar = function() {
+  return /** @type{?proto.protos.backends.Pulsar} */ (
+    jspb.Message.getWrapperField(this, backends_pulsar_pb.Pulsar, 109));
+};
+
+
+/**
+ * @param {?proto.protos.backends.Pulsar|undefined} value
+ * @return {!proto.protos.CreateRelayRequest} returns this
+*/
+proto.protos.CreateRelayRequest.prototype.setPulsar = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 109, proto.protos.CreateRelayRequest.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.CreateRelayRequest} returns this
+ */
+proto.protos.CreateRelayRequest.prototype.clearPulsar = function() {
+  return this.setPulsar(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.CreateRelayRequest.prototype.hasPulsar = function() {
+  return jspb.Message.getField(this, 109) != null;
+};
+
+
+/**
+ * optional backends.Rabbit rabbit = 110;
+ * @return {?proto.protos.backends.Rabbit}
+ */
+proto.protos.CreateRelayRequest.prototype.getRabbit = function() {
+  return /** @type{?proto.protos.backends.Rabbit} */ (
+    jspb.Message.getWrapperField(this, backends_rabbit_pb.Rabbit, 110));
+};
+
+
+/**
+ * @param {?proto.protos.backends.Rabbit|undefined} value
+ * @return {!proto.protos.CreateRelayRequest} returns this
+*/
+proto.protos.CreateRelayRequest.prototype.setRabbit = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 110, proto.protos.CreateRelayRequest.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.CreateRelayRequest} returns this
+ */
+proto.protos.CreateRelayRequest.prototype.clearRabbit = function() {
+  return this.setRabbit(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.CreateRelayRequest.prototype.hasRabbit = function() {
+  return jspb.Message.getField(this, 110) != null;
+};
+
+
+/**
+ * optional backends.RabbitStreams rabbit_streams = 111;
+ * @return {?proto.protos.backends.RabbitStreams}
+ */
+proto.protos.CreateRelayRequest.prototype.getRabbitStreams = function() {
+  return /** @type{?proto.protos.backends.RabbitStreams} */ (
+    jspb.Message.getWrapperField(this, backends_rabbit$streams_pb.RabbitStreams, 111));
+};
+
+
+/**
+ * @param {?proto.protos.backends.RabbitStreams|undefined} value
+ * @return {!proto.protos.CreateRelayRequest} returns this
+*/
+proto.protos.CreateRelayRequest.prototype.setRabbitStreams = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 111, proto.protos.CreateRelayRequest.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.CreateRelayRequest} returns this
+ */
+proto.protos.CreateRelayRequest.prototype.clearRabbitStreams = function() {
+  return this.setRabbitStreams(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.CreateRelayRequest.prototype.hasRabbitStreams = function() {
+  return jspb.Message.getField(this, 111) != null;
+};
+
+
+/**
+ * optional backends.RedisPubsub redis_pubsub = 112;
+ * @return {?proto.protos.backends.RedisPubsub}
+ */
+proto.protos.CreateRelayRequest.prototype.getRedisPubsub = function() {
+  return /** @type{?proto.protos.backends.RedisPubsub} */ (
+    jspb.Message.getWrapperField(this, backends_redis$pubsub_pb.RedisPubsub, 112));
+};
+
+
+/**
+ * @param {?proto.protos.backends.RedisPubsub|undefined} value
+ * @return {!proto.protos.CreateRelayRequest} returns this
+*/
+proto.protos.CreateRelayRequest.prototype.setRedisPubsub = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 112, proto.protos.CreateRelayRequest.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.CreateRelayRequest} returns this
+ */
+proto.protos.CreateRelayRequest.prototype.clearRedisPubsub = function() {
+  return this.setRedisPubsub(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.CreateRelayRequest.prototype.hasRedisPubsub = function() {
+  return jspb.Message.getField(this, 112) != null;
+};
+
+
+/**
+ * optional backends.RedisStreams redis_streams = 113;
+ * @return {?proto.protos.backends.RedisStreams}
+ */
+proto.protos.CreateRelayRequest.prototype.getRedisStreams = function() {
+  return /** @type{?proto.protos.backends.RedisStreams} */ (
+    jspb.Message.getWrapperField(this, backends_redis$streams_pb.RedisStreams, 113));
+};
+
+
+/**
+ * @param {?proto.protos.backends.RedisStreams|undefined} value
+ * @return {!proto.protos.CreateRelayRequest} returns this
+*/
+proto.protos.CreateRelayRequest.prototype.setRedisStreams = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 113, proto.protos.CreateRelayRequest.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.CreateRelayRequest} returns this
+ */
+proto.protos.CreateRelayRequest.prototype.clearRedisStreams = function() {
+  return this.setRedisStreams(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.CreateRelayRequest.prototype.hasRedisStreams = function() {
+  return jspb.Message.getField(this, 113) != null;
 };
 
 

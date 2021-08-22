@@ -17,6 +17,36 @@ var global = Function('return this')();
 
 var conns_kafka_pb = require('./conns/kafka_pb.js');
 goog.object.extend(proto, conns_kafka_pb);
+var conns_activemq_pb = require('./conns/activemq_pb.js');
+goog.object.extend(proto, conns_activemq_pb);
+var conns_aws$sns_pb = require('./conns/aws-sns_pb.js');
+goog.object.extend(proto, conns_aws$sns_pb);
+var conns_aws$sqs_pb = require('./conns/aws-sqs_pb.js');
+goog.object.extend(proto, conns_aws$sqs_pb);
+var conns_mongo_pb = require('./conns/mongo_pb.js');
+goog.object.extend(proto, conns_mongo_pb);
+var conns_nats_pb = require('./conns/nats_pb.js');
+goog.object.extend(proto, conns_nats_pb);
+var conns_nats$streaming_pb = require('./conns/nats-streaming_pb.js');
+goog.object.extend(proto, conns_nats$streaming_pb);
+var conns_nsq_pb = require('./conns/nsq_pb.js');
+goog.object.extend(proto, conns_nsq_pb);
+var conns_postgres_pb = require('./conns/postgres_pb.js');
+goog.object.extend(proto, conns_postgres_pb);
+var conns_pulsar_pb = require('./conns/pulsar_pb.js');
+goog.object.extend(proto, conns_pulsar_pb);
+var conns_rabbit_pb = require('./conns/rabbit_pb.js');
+goog.object.extend(proto, conns_rabbit_pb);
+var conns_rabbit$streams_pb = require('./conns/rabbit-streams_pb.js');
+goog.object.extend(proto, conns_rabbit$streams_pb);
+var conns_redis$pubsub_pb = require('./conns/redis-pubsub_pb.js');
+goog.object.extend(proto, conns_redis$pubsub_pb);
+var conns_redis$streams_pb = require('./conns/redis-streams_pb.js');
+goog.object.extend(proto, conns_redis$streams_pb);
+var conns_azure$service$bus_pb = require('./conns/azure-service-bus_pb.js');
+goog.object.extend(proto, conns_azure$service$bus_pb);
+var conns_azure$event$hub_pb = require('./conns/azure-event-hub_pb.js');
+goog.object.extend(proto, conns_azure$event$hub_pb);
 var common_auth_pb = require('./common/auth_pb.js');
 goog.object.extend(proto, common_auth_pb);
 var common_status_pb = require('./common/status_pb.js');
@@ -317,14 +347,29 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<!Array<number>>}
  * @const
  */
-proto.protos.Connection.oneofGroups_ = [[100]];
+proto.protos.Connection.oneofGroups_ = [[100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115]];
 
 /**
  * @enum {number}
  */
 proto.protos.Connection.ConnCase = {
   CONN_NOT_SET: 0,
-  KAFKA: 100
+  KAFKA: 100,
+  ACTIVE_MQ: 101,
+  AWSSQS: 102,
+  AWSSNS: 103,
+  MONGO: 104,
+  NATS: 105,
+  NATS_STREAMING: 106,
+  NSQ: 107,
+  POSTGRES: 108,
+  PULSAR: 109,
+  RABBIT: 110,
+  RABBIT_STREAMS: 111,
+  REDIS_PUBSUB: 112,
+  REDIS_STREAMS: 113,
+  AZURE_EVENT_HUB: 114,
+  AZURE_SERVICE_BUS: 115
 };
 
 /**
@@ -368,7 +413,22 @@ proto.protos.Connection.toObject = function(includeInstance, msg) {
     name: jspb.Message.getFieldWithDefault(msg, 1, ""),
     notes: jspb.Message.getFieldWithDefault(msg, 2, ""),
     id: jspb.Message.getFieldWithDefault(msg, 3, ""),
-    kafka: (f = msg.getKafka()) && conns_kafka_pb.Kafka.toObject(includeInstance, f)
+    kafka: (f = msg.getKafka()) && conns_kafka_pb.Kafka.toObject(includeInstance, f),
+    activeMq: (f = msg.getActiveMq()) && conns_activemq_pb.ActiveMQ.toObject(includeInstance, f),
+    awssqs: (f = msg.getAwssqs()) && conns_aws$sqs_pb.AWSSQS.toObject(includeInstance, f),
+    awssns: (f = msg.getAwssns()) && conns_aws$sns_pb.AWSSNS.toObject(includeInstance, f),
+    mongo: (f = msg.getMongo()) && conns_mongo_pb.Mongo.toObject(includeInstance, f),
+    nats: (f = msg.getNats()) && conns_nats_pb.Nats.toObject(includeInstance, f),
+    natsStreaming: (f = msg.getNatsStreaming()) && conns_nats$streaming_pb.NatsStreaming.toObject(includeInstance, f),
+    nsq: (f = msg.getNsq()) && conns_nsq_pb.NSQ.toObject(includeInstance, f),
+    postgres: (f = msg.getPostgres()) && conns_postgres_pb.Postgres.toObject(includeInstance, f),
+    pulsar: (f = msg.getPulsar()) && conns_pulsar_pb.Pulsar.toObject(includeInstance, f),
+    rabbit: (f = msg.getRabbit()) && conns_rabbit_pb.Rabbit.toObject(includeInstance, f),
+    rabbitStreams: (f = msg.getRabbitStreams()) && conns_rabbit$streams_pb.RabbitStreams.toObject(includeInstance, f),
+    redisPubsub: (f = msg.getRedisPubsub()) && conns_redis$pubsub_pb.RedisPubsub.toObject(includeInstance, f),
+    redisStreams: (f = msg.getRedisStreams()) && conns_redis$streams_pb.RedisStreams.toObject(includeInstance, f),
+    azureEventHub: (f = msg.getAzureEventHub()) && conns_azure$event$hub_pb.AzureEventHub.toObject(includeInstance, f),
+    azureServiceBus: (f = msg.getAzureServiceBus()) && conns_azure$service$bus_pb.AzureServiceBus.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -421,6 +481,81 @@ proto.protos.Connection.deserializeBinaryFromReader = function(msg, reader) {
       var value = new conns_kafka_pb.Kafka;
       reader.readMessage(value,conns_kafka_pb.Kafka.deserializeBinaryFromReader);
       msg.setKafka(value);
+      break;
+    case 101:
+      var value = new conns_activemq_pb.ActiveMQ;
+      reader.readMessage(value,conns_activemq_pb.ActiveMQ.deserializeBinaryFromReader);
+      msg.setActiveMq(value);
+      break;
+    case 102:
+      var value = new conns_aws$sqs_pb.AWSSQS;
+      reader.readMessage(value,conns_aws$sqs_pb.AWSSQS.deserializeBinaryFromReader);
+      msg.setAwssqs(value);
+      break;
+    case 103:
+      var value = new conns_aws$sns_pb.AWSSNS;
+      reader.readMessage(value,conns_aws$sns_pb.AWSSNS.deserializeBinaryFromReader);
+      msg.setAwssns(value);
+      break;
+    case 104:
+      var value = new conns_mongo_pb.Mongo;
+      reader.readMessage(value,conns_mongo_pb.Mongo.deserializeBinaryFromReader);
+      msg.setMongo(value);
+      break;
+    case 105:
+      var value = new conns_nats_pb.Nats;
+      reader.readMessage(value,conns_nats_pb.Nats.deserializeBinaryFromReader);
+      msg.setNats(value);
+      break;
+    case 106:
+      var value = new conns_nats$streaming_pb.NatsStreaming;
+      reader.readMessage(value,conns_nats$streaming_pb.NatsStreaming.deserializeBinaryFromReader);
+      msg.setNatsStreaming(value);
+      break;
+    case 107:
+      var value = new conns_nsq_pb.NSQ;
+      reader.readMessage(value,conns_nsq_pb.NSQ.deserializeBinaryFromReader);
+      msg.setNsq(value);
+      break;
+    case 108:
+      var value = new conns_postgres_pb.Postgres;
+      reader.readMessage(value,conns_postgres_pb.Postgres.deserializeBinaryFromReader);
+      msg.setPostgres(value);
+      break;
+    case 109:
+      var value = new conns_pulsar_pb.Pulsar;
+      reader.readMessage(value,conns_pulsar_pb.Pulsar.deserializeBinaryFromReader);
+      msg.setPulsar(value);
+      break;
+    case 110:
+      var value = new conns_rabbit_pb.Rabbit;
+      reader.readMessage(value,conns_rabbit_pb.Rabbit.deserializeBinaryFromReader);
+      msg.setRabbit(value);
+      break;
+    case 111:
+      var value = new conns_rabbit$streams_pb.RabbitStreams;
+      reader.readMessage(value,conns_rabbit$streams_pb.RabbitStreams.deserializeBinaryFromReader);
+      msg.setRabbitStreams(value);
+      break;
+    case 112:
+      var value = new conns_redis$pubsub_pb.RedisPubsub;
+      reader.readMessage(value,conns_redis$pubsub_pb.RedisPubsub.deserializeBinaryFromReader);
+      msg.setRedisPubsub(value);
+      break;
+    case 113:
+      var value = new conns_redis$streams_pb.RedisStreams;
+      reader.readMessage(value,conns_redis$streams_pb.RedisStreams.deserializeBinaryFromReader);
+      msg.setRedisStreams(value);
+      break;
+    case 114:
+      var value = new conns_azure$event$hub_pb.AzureEventHub;
+      reader.readMessage(value,conns_azure$event$hub_pb.AzureEventHub.deserializeBinaryFromReader);
+      msg.setAzureEventHub(value);
+      break;
+    case 115:
+      var value = new conns_azure$service$bus_pb.AzureServiceBus;
+      reader.readMessage(value,conns_azure$service$bus_pb.AzureServiceBus.deserializeBinaryFromReader);
+      msg.setAzureServiceBus(value);
       break;
     default:
       reader.skipField();
@@ -478,6 +613,126 @@ proto.protos.Connection.serializeBinaryToWriter = function(message, writer) {
       100,
       f,
       conns_kafka_pb.Kafka.serializeBinaryToWriter
+    );
+  }
+  f = message.getActiveMq();
+  if (f != null) {
+    writer.writeMessage(
+      101,
+      f,
+      conns_activemq_pb.ActiveMQ.serializeBinaryToWriter
+    );
+  }
+  f = message.getAwssqs();
+  if (f != null) {
+    writer.writeMessage(
+      102,
+      f,
+      conns_aws$sqs_pb.AWSSQS.serializeBinaryToWriter
+    );
+  }
+  f = message.getAwssns();
+  if (f != null) {
+    writer.writeMessage(
+      103,
+      f,
+      conns_aws$sns_pb.AWSSNS.serializeBinaryToWriter
+    );
+  }
+  f = message.getMongo();
+  if (f != null) {
+    writer.writeMessage(
+      104,
+      f,
+      conns_mongo_pb.Mongo.serializeBinaryToWriter
+    );
+  }
+  f = message.getNats();
+  if (f != null) {
+    writer.writeMessage(
+      105,
+      f,
+      conns_nats_pb.Nats.serializeBinaryToWriter
+    );
+  }
+  f = message.getNatsStreaming();
+  if (f != null) {
+    writer.writeMessage(
+      106,
+      f,
+      conns_nats$streaming_pb.NatsStreaming.serializeBinaryToWriter
+    );
+  }
+  f = message.getNsq();
+  if (f != null) {
+    writer.writeMessage(
+      107,
+      f,
+      conns_nsq_pb.NSQ.serializeBinaryToWriter
+    );
+  }
+  f = message.getPostgres();
+  if (f != null) {
+    writer.writeMessage(
+      108,
+      f,
+      conns_postgres_pb.Postgres.serializeBinaryToWriter
+    );
+  }
+  f = message.getPulsar();
+  if (f != null) {
+    writer.writeMessage(
+      109,
+      f,
+      conns_pulsar_pb.Pulsar.serializeBinaryToWriter
+    );
+  }
+  f = message.getRabbit();
+  if (f != null) {
+    writer.writeMessage(
+      110,
+      f,
+      conns_rabbit_pb.Rabbit.serializeBinaryToWriter
+    );
+  }
+  f = message.getRabbitStreams();
+  if (f != null) {
+    writer.writeMessage(
+      111,
+      f,
+      conns_rabbit$streams_pb.RabbitStreams.serializeBinaryToWriter
+    );
+  }
+  f = message.getRedisPubsub();
+  if (f != null) {
+    writer.writeMessage(
+      112,
+      f,
+      conns_redis$pubsub_pb.RedisPubsub.serializeBinaryToWriter
+    );
+  }
+  f = message.getRedisStreams();
+  if (f != null) {
+    writer.writeMessage(
+      113,
+      f,
+      conns_redis$streams_pb.RedisStreams.serializeBinaryToWriter
+    );
+  }
+  f = message.getAzureEventHub();
+  if (f != null) {
+    writer.writeMessage(
+      114,
+      f,
+      conns_azure$event$hub_pb.AzureEventHub.serializeBinaryToWriter
+    );
+  }
+  f = message.getAzureServiceBus();
+  if (f != null) {
+    writer.writeMessage(
+      115,
+      f,
+      conns_azure$service$bus_pb.AzureServiceBus.serializeBinaryToWriter
     );
   }
 };
@@ -571,6 +826,561 @@ proto.protos.Connection.prototype.clearKafka = function() {
  */
 proto.protos.Connection.prototype.hasKafka = function() {
   return jspb.Message.getField(this, 100) != null;
+};
+
+
+/**
+ * optional conns.ActiveMQ active_mq = 101;
+ * @return {?proto.protos.conns.ActiveMQ}
+ */
+proto.protos.Connection.prototype.getActiveMq = function() {
+  return /** @type{?proto.protos.conns.ActiveMQ} */ (
+    jspb.Message.getWrapperField(this, conns_activemq_pb.ActiveMQ, 101));
+};
+
+
+/**
+ * @param {?proto.protos.conns.ActiveMQ|undefined} value
+ * @return {!proto.protos.Connection} returns this
+*/
+proto.protos.Connection.prototype.setActiveMq = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 101, proto.protos.Connection.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.Connection} returns this
+ */
+proto.protos.Connection.prototype.clearActiveMq = function() {
+  return this.setActiveMq(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.Connection.prototype.hasActiveMq = function() {
+  return jspb.Message.getField(this, 101) != null;
+};
+
+
+/**
+ * optional conns.AWSSQS awssqs = 102;
+ * @return {?proto.protos.conns.AWSSQS}
+ */
+proto.protos.Connection.prototype.getAwssqs = function() {
+  return /** @type{?proto.protos.conns.AWSSQS} */ (
+    jspb.Message.getWrapperField(this, conns_aws$sqs_pb.AWSSQS, 102));
+};
+
+
+/**
+ * @param {?proto.protos.conns.AWSSQS|undefined} value
+ * @return {!proto.protos.Connection} returns this
+*/
+proto.protos.Connection.prototype.setAwssqs = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 102, proto.protos.Connection.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.Connection} returns this
+ */
+proto.protos.Connection.prototype.clearAwssqs = function() {
+  return this.setAwssqs(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.Connection.prototype.hasAwssqs = function() {
+  return jspb.Message.getField(this, 102) != null;
+};
+
+
+/**
+ * optional conns.AWSSNS awssns = 103;
+ * @return {?proto.protos.conns.AWSSNS}
+ */
+proto.protos.Connection.prototype.getAwssns = function() {
+  return /** @type{?proto.protos.conns.AWSSNS} */ (
+    jspb.Message.getWrapperField(this, conns_aws$sns_pb.AWSSNS, 103));
+};
+
+
+/**
+ * @param {?proto.protos.conns.AWSSNS|undefined} value
+ * @return {!proto.protos.Connection} returns this
+*/
+proto.protos.Connection.prototype.setAwssns = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 103, proto.protos.Connection.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.Connection} returns this
+ */
+proto.protos.Connection.prototype.clearAwssns = function() {
+  return this.setAwssns(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.Connection.prototype.hasAwssns = function() {
+  return jspb.Message.getField(this, 103) != null;
+};
+
+
+/**
+ * optional conns.Mongo mongo = 104;
+ * @return {?proto.protos.conns.Mongo}
+ */
+proto.protos.Connection.prototype.getMongo = function() {
+  return /** @type{?proto.protos.conns.Mongo} */ (
+    jspb.Message.getWrapperField(this, conns_mongo_pb.Mongo, 104));
+};
+
+
+/**
+ * @param {?proto.protos.conns.Mongo|undefined} value
+ * @return {!proto.protos.Connection} returns this
+*/
+proto.protos.Connection.prototype.setMongo = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 104, proto.protos.Connection.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.Connection} returns this
+ */
+proto.protos.Connection.prototype.clearMongo = function() {
+  return this.setMongo(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.Connection.prototype.hasMongo = function() {
+  return jspb.Message.getField(this, 104) != null;
+};
+
+
+/**
+ * optional conns.Nats nats = 105;
+ * @return {?proto.protos.conns.Nats}
+ */
+proto.protos.Connection.prototype.getNats = function() {
+  return /** @type{?proto.protos.conns.Nats} */ (
+    jspb.Message.getWrapperField(this, conns_nats_pb.Nats, 105));
+};
+
+
+/**
+ * @param {?proto.protos.conns.Nats|undefined} value
+ * @return {!proto.protos.Connection} returns this
+*/
+proto.protos.Connection.prototype.setNats = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 105, proto.protos.Connection.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.Connection} returns this
+ */
+proto.protos.Connection.prototype.clearNats = function() {
+  return this.setNats(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.Connection.prototype.hasNats = function() {
+  return jspb.Message.getField(this, 105) != null;
+};
+
+
+/**
+ * optional conns.NatsStreaming nats_streaming = 106;
+ * @return {?proto.protos.conns.NatsStreaming}
+ */
+proto.protos.Connection.prototype.getNatsStreaming = function() {
+  return /** @type{?proto.protos.conns.NatsStreaming} */ (
+    jspb.Message.getWrapperField(this, conns_nats$streaming_pb.NatsStreaming, 106));
+};
+
+
+/**
+ * @param {?proto.protos.conns.NatsStreaming|undefined} value
+ * @return {!proto.protos.Connection} returns this
+*/
+proto.protos.Connection.prototype.setNatsStreaming = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 106, proto.protos.Connection.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.Connection} returns this
+ */
+proto.protos.Connection.prototype.clearNatsStreaming = function() {
+  return this.setNatsStreaming(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.Connection.prototype.hasNatsStreaming = function() {
+  return jspb.Message.getField(this, 106) != null;
+};
+
+
+/**
+ * optional conns.NSQ nsq = 107;
+ * @return {?proto.protos.conns.NSQ}
+ */
+proto.protos.Connection.prototype.getNsq = function() {
+  return /** @type{?proto.protos.conns.NSQ} */ (
+    jspb.Message.getWrapperField(this, conns_nsq_pb.NSQ, 107));
+};
+
+
+/**
+ * @param {?proto.protos.conns.NSQ|undefined} value
+ * @return {!proto.protos.Connection} returns this
+*/
+proto.protos.Connection.prototype.setNsq = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 107, proto.protos.Connection.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.Connection} returns this
+ */
+proto.protos.Connection.prototype.clearNsq = function() {
+  return this.setNsq(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.Connection.prototype.hasNsq = function() {
+  return jspb.Message.getField(this, 107) != null;
+};
+
+
+/**
+ * optional conns.Postgres postgres = 108;
+ * @return {?proto.protos.conns.Postgres}
+ */
+proto.protos.Connection.prototype.getPostgres = function() {
+  return /** @type{?proto.protos.conns.Postgres} */ (
+    jspb.Message.getWrapperField(this, conns_postgres_pb.Postgres, 108));
+};
+
+
+/**
+ * @param {?proto.protos.conns.Postgres|undefined} value
+ * @return {!proto.protos.Connection} returns this
+*/
+proto.protos.Connection.prototype.setPostgres = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 108, proto.protos.Connection.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.Connection} returns this
+ */
+proto.protos.Connection.prototype.clearPostgres = function() {
+  return this.setPostgres(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.Connection.prototype.hasPostgres = function() {
+  return jspb.Message.getField(this, 108) != null;
+};
+
+
+/**
+ * optional conns.Pulsar pulsar = 109;
+ * @return {?proto.protos.conns.Pulsar}
+ */
+proto.protos.Connection.prototype.getPulsar = function() {
+  return /** @type{?proto.protos.conns.Pulsar} */ (
+    jspb.Message.getWrapperField(this, conns_pulsar_pb.Pulsar, 109));
+};
+
+
+/**
+ * @param {?proto.protos.conns.Pulsar|undefined} value
+ * @return {!proto.protos.Connection} returns this
+*/
+proto.protos.Connection.prototype.setPulsar = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 109, proto.protos.Connection.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.Connection} returns this
+ */
+proto.protos.Connection.prototype.clearPulsar = function() {
+  return this.setPulsar(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.Connection.prototype.hasPulsar = function() {
+  return jspb.Message.getField(this, 109) != null;
+};
+
+
+/**
+ * optional conns.Rabbit rabbit = 110;
+ * @return {?proto.protos.conns.Rabbit}
+ */
+proto.protos.Connection.prototype.getRabbit = function() {
+  return /** @type{?proto.protos.conns.Rabbit} */ (
+    jspb.Message.getWrapperField(this, conns_rabbit_pb.Rabbit, 110));
+};
+
+
+/**
+ * @param {?proto.protos.conns.Rabbit|undefined} value
+ * @return {!proto.protos.Connection} returns this
+*/
+proto.protos.Connection.prototype.setRabbit = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 110, proto.protos.Connection.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.Connection} returns this
+ */
+proto.protos.Connection.prototype.clearRabbit = function() {
+  return this.setRabbit(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.Connection.prototype.hasRabbit = function() {
+  return jspb.Message.getField(this, 110) != null;
+};
+
+
+/**
+ * optional conns.RabbitStreams rabbit_streams = 111;
+ * @return {?proto.protos.conns.RabbitStreams}
+ */
+proto.protos.Connection.prototype.getRabbitStreams = function() {
+  return /** @type{?proto.protos.conns.RabbitStreams} */ (
+    jspb.Message.getWrapperField(this, conns_rabbit$streams_pb.RabbitStreams, 111));
+};
+
+
+/**
+ * @param {?proto.protos.conns.RabbitStreams|undefined} value
+ * @return {!proto.protos.Connection} returns this
+*/
+proto.protos.Connection.prototype.setRabbitStreams = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 111, proto.protos.Connection.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.Connection} returns this
+ */
+proto.protos.Connection.prototype.clearRabbitStreams = function() {
+  return this.setRabbitStreams(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.Connection.prototype.hasRabbitStreams = function() {
+  return jspb.Message.getField(this, 111) != null;
+};
+
+
+/**
+ * optional conns.RedisPubsub redis_pubsub = 112;
+ * @return {?proto.protos.conns.RedisPubsub}
+ */
+proto.protos.Connection.prototype.getRedisPubsub = function() {
+  return /** @type{?proto.protos.conns.RedisPubsub} */ (
+    jspb.Message.getWrapperField(this, conns_redis$pubsub_pb.RedisPubsub, 112));
+};
+
+
+/**
+ * @param {?proto.protos.conns.RedisPubsub|undefined} value
+ * @return {!proto.protos.Connection} returns this
+*/
+proto.protos.Connection.prototype.setRedisPubsub = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 112, proto.protos.Connection.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.Connection} returns this
+ */
+proto.protos.Connection.prototype.clearRedisPubsub = function() {
+  return this.setRedisPubsub(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.Connection.prototype.hasRedisPubsub = function() {
+  return jspb.Message.getField(this, 112) != null;
+};
+
+
+/**
+ * optional conns.RedisStreams redis_streams = 113;
+ * @return {?proto.protos.conns.RedisStreams}
+ */
+proto.protos.Connection.prototype.getRedisStreams = function() {
+  return /** @type{?proto.protos.conns.RedisStreams} */ (
+    jspb.Message.getWrapperField(this, conns_redis$streams_pb.RedisStreams, 113));
+};
+
+
+/**
+ * @param {?proto.protos.conns.RedisStreams|undefined} value
+ * @return {!proto.protos.Connection} returns this
+*/
+proto.protos.Connection.prototype.setRedisStreams = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 113, proto.protos.Connection.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.Connection} returns this
+ */
+proto.protos.Connection.prototype.clearRedisStreams = function() {
+  return this.setRedisStreams(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.Connection.prototype.hasRedisStreams = function() {
+  return jspb.Message.getField(this, 113) != null;
+};
+
+
+/**
+ * optional conns.AzureEventHub azure_event_hub = 114;
+ * @return {?proto.protos.conns.AzureEventHub}
+ */
+proto.protos.Connection.prototype.getAzureEventHub = function() {
+  return /** @type{?proto.protos.conns.AzureEventHub} */ (
+    jspb.Message.getWrapperField(this, conns_azure$event$hub_pb.AzureEventHub, 114));
+};
+
+
+/**
+ * @param {?proto.protos.conns.AzureEventHub|undefined} value
+ * @return {!proto.protos.Connection} returns this
+*/
+proto.protos.Connection.prototype.setAzureEventHub = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 114, proto.protos.Connection.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.Connection} returns this
+ */
+proto.protos.Connection.prototype.clearAzureEventHub = function() {
+  return this.setAzureEventHub(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.Connection.prototype.hasAzureEventHub = function() {
+  return jspb.Message.getField(this, 114) != null;
+};
+
+
+/**
+ * optional conns.AzureServiceBus azure_service_bus = 115;
+ * @return {?proto.protos.conns.AzureServiceBus}
+ */
+proto.protos.Connection.prototype.getAzureServiceBus = function() {
+  return /** @type{?proto.protos.conns.AzureServiceBus} */ (
+    jspb.Message.getWrapperField(this, conns_azure$service$bus_pb.AzureServiceBus, 115));
+};
+
+
+/**
+ * @param {?proto.protos.conns.AzureServiceBus|undefined} value
+ * @return {!proto.protos.Connection} returns this
+*/
+proto.protos.Connection.prototype.setAzureServiceBus = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 115, proto.protos.Connection.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.Connection} returns this
+ */
+proto.protos.Connection.prototype.clearAzureServiceBus = function() {
+  return this.setAzureServiceBus(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.Connection.prototype.hasAzureServiceBus = function() {
+  return jspb.Message.getField(this, 115) != null;
 };
 
 

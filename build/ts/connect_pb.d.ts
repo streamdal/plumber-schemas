@@ -6,6 +6,21 @@
 
 import * as jspb from "google-protobuf";
 import * as conns_kafka_pb from "./conns/kafka_pb";
+import * as conns_activemq_pb from "./conns/activemq_pb";
+import * as conns_aws_sns_pb from "./conns/aws-sns_pb";
+import * as conns_aws_sqs_pb from "./conns/aws-sqs_pb";
+import * as conns_mongo_pb from "./conns/mongo_pb";
+import * as conns_nats_pb from "./conns/nats_pb";
+import * as conns_nats_streaming_pb from "./conns/nats-streaming_pb";
+import * as conns_nsq_pb from "./conns/nsq_pb";
+import * as conns_postgres_pb from "./conns/postgres_pb";
+import * as conns_pulsar_pb from "./conns/pulsar_pb";
+import * as conns_rabbit_pb from "./conns/rabbit_pb";
+import * as conns_rabbit_streams_pb from "./conns/rabbit-streams_pb";
+import * as conns_redis_pubsub_pb from "./conns/redis-pubsub_pb";
+import * as conns_redis_streams_pb from "./conns/redis-streams_pb";
+import * as conns_azure_service_bus_pb from "./conns/azure-service-bus_pb";
+import * as conns_azure_event_hub_pb from "./conns/azure-event-hub_pb";
 import * as common_auth_pb from "./common/auth_pb";
 import * as common_status_pb from "./common/status_pb";
 
@@ -21,6 +36,81 @@ export class Connection extends jspb.Message {
     clearKafka(): void;
     getKafka(): conns_kafka_pb.Kafka | undefined;
     setKafka(value?: conns_kafka_pb.Kafka): Connection;
+
+    hasActiveMq(): boolean;
+    clearActiveMq(): void;
+    getActiveMq(): conns_activemq_pb.ActiveMQ | undefined;
+    setActiveMq(value?: conns_activemq_pb.ActiveMQ): Connection;
+
+    hasAwssqs(): boolean;
+    clearAwssqs(): void;
+    getAwssqs(): conns_aws_sqs_pb.AWSSQS | undefined;
+    setAwssqs(value?: conns_aws_sqs_pb.AWSSQS): Connection;
+
+    hasAwssns(): boolean;
+    clearAwssns(): void;
+    getAwssns(): conns_aws_sns_pb.AWSSNS | undefined;
+    setAwssns(value?: conns_aws_sns_pb.AWSSNS): Connection;
+
+    hasMongo(): boolean;
+    clearMongo(): void;
+    getMongo(): conns_mongo_pb.Mongo | undefined;
+    setMongo(value?: conns_mongo_pb.Mongo): Connection;
+
+    hasNats(): boolean;
+    clearNats(): void;
+    getNats(): conns_nats_pb.Nats | undefined;
+    setNats(value?: conns_nats_pb.Nats): Connection;
+
+    hasNatsStreaming(): boolean;
+    clearNatsStreaming(): void;
+    getNatsStreaming(): conns_nats_streaming_pb.NatsStreaming | undefined;
+    setNatsStreaming(value?: conns_nats_streaming_pb.NatsStreaming): Connection;
+
+    hasNsq(): boolean;
+    clearNsq(): void;
+    getNsq(): conns_nsq_pb.NSQ | undefined;
+    setNsq(value?: conns_nsq_pb.NSQ): Connection;
+
+    hasPostgres(): boolean;
+    clearPostgres(): void;
+    getPostgres(): conns_postgres_pb.Postgres | undefined;
+    setPostgres(value?: conns_postgres_pb.Postgres): Connection;
+
+    hasPulsar(): boolean;
+    clearPulsar(): void;
+    getPulsar(): conns_pulsar_pb.Pulsar | undefined;
+    setPulsar(value?: conns_pulsar_pb.Pulsar): Connection;
+
+    hasRabbit(): boolean;
+    clearRabbit(): void;
+    getRabbit(): conns_rabbit_pb.Rabbit | undefined;
+    setRabbit(value?: conns_rabbit_pb.Rabbit): Connection;
+
+    hasRabbitStreams(): boolean;
+    clearRabbitStreams(): void;
+    getRabbitStreams(): conns_rabbit_streams_pb.RabbitStreams | undefined;
+    setRabbitStreams(value?: conns_rabbit_streams_pb.RabbitStreams): Connection;
+
+    hasRedisPubsub(): boolean;
+    clearRedisPubsub(): void;
+    getRedisPubsub(): conns_redis_pubsub_pb.RedisPubsub | undefined;
+    setRedisPubsub(value?: conns_redis_pubsub_pb.RedisPubsub): Connection;
+
+    hasRedisStreams(): boolean;
+    clearRedisStreams(): void;
+    getRedisStreams(): conns_redis_streams_pb.RedisStreams | undefined;
+    setRedisStreams(value?: conns_redis_streams_pb.RedisStreams): Connection;
+
+    hasAzureEventHub(): boolean;
+    clearAzureEventHub(): void;
+    getAzureEventHub(): conns_azure_event_hub_pb.AzureEventHub | undefined;
+    setAzureEventHub(value?: conns_azure_event_hub_pb.AzureEventHub): Connection;
+
+    hasAzureServiceBus(): boolean;
+    clearAzureServiceBus(): void;
+    getAzureServiceBus(): conns_azure_service_bus_pb.AzureServiceBus | undefined;
+    setAzureServiceBus(value?: conns_azure_service_bus_pb.AzureServiceBus): Connection;
 
     getConnCase(): Connection.ConnCase;
 
@@ -40,11 +130,41 @@ export namespace Connection {
         notes: string,
         id: string,
         kafka?: conns_kafka_pb.Kafka.AsObject,
+        activeMq?: conns_activemq_pb.ActiveMQ.AsObject,
+        awssqs?: conns_aws_sqs_pb.AWSSQS.AsObject,
+        awssns?: conns_aws_sns_pb.AWSSNS.AsObject,
+        mongo?: conns_mongo_pb.Mongo.AsObject,
+        nats?: conns_nats_pb.Nats.AsObject,
+        natsStreaming?: conns_nats_streaming_pb.NatsStreaming.AsObject,
+        nsq?: conns_nsq_pb.NSQ.AsObject,
+        postgres?: conns_postgres_pb.Postgres.AsObject,
+        pulsar?: conns_pulsar_pb.Pulsar.AsObject,
+        rabbit?: conns_rabbit_pb.Rabbit.AsObject,
+        rabbitStreams?: conns_rabbit_streams_pb.RabbitStreams.AsObject,
+        redisPubsub?: conns_redis_pubsub_pb.RedisPubsub.AsObject,
+        redisStreams?: conns_redis_streams_pb.RedisStreams.AsObject,
+        azureEventHub?: conns_azure_event_hub_pb.AzureEventHub.AsObject,
+        azureServiceBus?: conns_azure_service_bus_pb.AzureServiceBus.AsObject,
     }
 
     export enum ConnCase {
         CONN_NOT_SET = 0,
         KAFKA = 100,
+        ACTIVE_MQ = 101,
+        AWSSQS = 102,
+        AWSSNS = 103,
+        MONGO = 104,
+        NATS = 105,
+        NATS_STREAMING = 106,
+        NSQ = 107,
+        POSTGRES = 108,
+        PULSAR = 109,
+        RABBIT = 110,
+        RABBIT_STREAMS = 111,
+        REDIS_PUBSUB = 112,
+        REDIS_STREAMS = 113,
+        AZURE_EVENT_HUB = 114,
+        AZURE_SERVICE_BUS = 115,
     }
 
 }

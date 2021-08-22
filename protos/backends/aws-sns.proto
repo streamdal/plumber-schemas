@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package protos.backends;
+
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/backends";
+
+message AWSSNS {
+  // Topic ARN to write to
+  string topic_arn = 1;
+}

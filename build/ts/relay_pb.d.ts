@@ -6,6 +6,21 @@
 
 import * as jspb from "google-protobuf";
 import * as backends_kafka_pb from "./backends/kafka_pb";
+import * as backends_activemq_pb from "./backends/activemq_pb";
+import * as backends_aws_sns_pb from "./backends/aws-sns_pb";
+import * as backends_aws_sqs_pb from "./backends/aws-sqs_pb";
+import * as backends_mongo_pb from "./backends/mongo_pb";
+import * as backends_nats_pb from "./backends/nats_pb";
+import * as backends_nats_streaming_pb from "./backends/nats-streaming_pb";
+import * as backends_nsq_pb from "./backends/nsq_pb";
+import * as backends_postgres_pb from "./backends/postgres_pb";
+import * as backends_pulsar_pb from "./backends/pulsar_pb";
+import * as backends_rabbit_pb from "./backends/rabbit_pb";
+import * as backends_rabbit_streams_pb from "./backends/rabbit-streams_pb";
+import * as backends_redis_pubsub_pb from "./backends/redis-pubsub_pb";
+import * as backends_redis_streams_pb from "./backends/redis-streams_pb";
+import * as backends_azure_service_bus_pb from "./backends/azure-service-bus_pb";
+import * as backends_azure_event_hub_pb from "./backends/azure-event-hub_pb";
 import * as common_auth_pb from "./common/auth_pb";
 import * as common_status_pb from "./common/status_pb";
 
@@ -32,6 +47,81 @@ export class Relay extends jspb.Message {
     getKafka(): backends_kafka_pb.Kafka | undefined;
     setKafka(value?: backends_kafka_pb.Kafka): Relay;
 
+    hasActiveMq(): boolean;
+    clearActiveMq(): void;
+    getActiveMq(): backends_activemq_pb.ActiveMQ | undefined;
+    setActiveMq(value?: backends_activemq_pb.ActiveMQ): Relay;
+
+    hasAwssqs(): boolean;
+    clearAwssqs(): void;
+    getAwssqs(): backends_aws_sqs_pb.AWSSQS | undefined;
+    setAwssqs(value?: backends_aws_sqs_pb.AWSSQS): Relay;
+
+    hasAwssns(): boolean;
+    clearAwssns(): void;
+    getAwssns(): backends_aws_sns_pb.AWSSNS | undefined;
+    setAwssns(value?: backends_aws_sns_pb.AWSSNS): Relay;
+
+    hasMongo(): boolean;
+    clearMongo(): void;
+    getMongo(): backends_mongo_pb.Mongo | undefined;
+    setMongo(value?: backends_mongo_pb.Mongo): Relay;
+
+    hasNats(): boolean;
+    clearNats(): void;
+    getNats(): backends_nats_pb.Nats | undefined;
+    setNats(value?: backends_nats_pb.Nats): Relay;
+
+    hasNatsStreaming(): boolean;
+    clearNatsStreaming(): void;
+    getNatsStreaming(): backends_nats_streaming_pb.NatsStreaming | undefined;
+    setNatsStreaming(value?: backends_nats_streaming_pb.NatsStreaming): Relay;
+
+    hasNsq(): boolean;
+    clearNsq(): void;
+    getNsq(): backends_nsq_pb.NSQ | undefined;
+    setNsq(value?: backends_nsq_pb.NSQ): Relay;
+
+    hasPostgres(): boolean;
+    clearPostgres(): void;
+    getPostgres(): backends_postgres_pb.Postgres | undefined;
+    setPostgres(value?: backends_postgres_pb.Postgres): Relay;
+
+    hasPulsar(): boolean;
+    clearPulsar(): void;
+    getPulsar(): backends_pulsar_pb.Pulsar | undefined;
+    setPulsar(value?: backends_pulsar_pb.Pulsar): Relay;
+
+    hasRabbit(): boolean;
+    clearRabbit(): void;
+    getRabbit(): backends_rabbit_pb.Rabbit | undefined;
+    setRabbit(value?: backends_rabbit_pb.Rabbit): Relay;
+
+    hasRabbitStreams(): boolean;
+    clearRabbitStreams(): void;
+    getRabbitStreams(): backends_rabbit_streams_pb.RabbitStreams | undefined;
+    setRabbitStreams(value?: backends_rabbit_streams_pb.RabbitStreams): Relay;
+
+    hasRedisPubsub(): boolean;
+    clearRedisPubsub(): void;
+    getRedisPubsub(): backends_redis_pubsub_pb.RedisPubsub | undefined;
+    setRedisPubsub(value?: backends_redis_pubsub_pb.RedisPubsub): Relay;
+
+    hasRedisStreams(): boolean;
+    clearRedisStreams(): void;
+    getRedisStreams(): backends_redis_streams_pb.RedisStreams | undefined;
+    setRedisStreams(value?: backends_redis_streams_pb.RedisStreams): Relay;
+
+    hasAzureEventHub(): boolean;
+    clearAzureEventHub(): void;
+    getAzureEventHub(): backends_azure_event_hub_pb.AzureEventHub | undefined;
+    setAzureEventHub(value?: backends_azure_event_hub_pb.AzureEventHub): Relay;
+
+    hasAzureServiceBus(): boolean;
+    clearAzureServiceBus(): void;
+    getAzureServiceBus(): backends_azure_service_bus_pb.AzureServiceBus | undefined;
+    setAzureServiceBus(value?: backends_azure_service_bus_pb.AzureServiceBus): Relay;
+
     getBackendsCase(): Relay.BackendsCase;
 
     serializeBinary(): Uint8Array;
@@ -55,11 +145,41 @@ export namespace Relay {
         batchshGrpcTimeout: boolean,
         relayId: string,
         kafka?: backends_kafka_pb.Kafka.AsObject,
+        activeMq?: backends_activemq_pb.ActiveMQ.AsObject,
+        awssqs?: backends_aws_sqs_pb.AWSSQS.AsObject,
+        awssns?: backends_aws_sns_pb.AWSSNS.AsObject,
+        mongo?: backends_mongo_pb.Mongo.AsObject,
+        nats?: backends_nats_pb.Nats.AsObject,
+        natsStreaming?: backends_nats_streaming_pb.NatsStreaming.AsObject,
+        nsq?: backends_nsq_pb.NSQ.AsObject,
+        postgres?: backends_postgres_pb.Postgres.AsObject,
+        pulsar?: backends_pulsar_pb.Pulsar.AsObject,
+        rabbit?: backends_rabbit_pb.Rabbit.AsObject,
+        rabbitStreams?: backends_rabbit_streams_pb.RabbitStreams.AsObject,
+        redisPubsub?: backends_redis_pubsub_pb.RedisPubsub.AsObject,
+        redisStreams?: backends_redis_streams_pb.RedisStreams.AsObject,
+        azureEventHub?: backends_azure_event_hub_pb.AzureEventHub.AsObject,
+        azureServiceBus?: backends_azure_service_bus_pb.AzureServiceBus.AsObject,
     }
 
     export enum BackendsCase {
         BACKENDS_NOT_SET = 0,
         KAFKA = 100,
+        ACTIVE_MQ = 101,
+        AWSSQS = 102,
+        AWSSNS = 103,
+        MONGO = 104,
+        NATS = 105,
+        NATS_STREAMING = 106,
+        NSQ = 107,
+        POSTGRES = 108,
+        PULSAR = 109,
+        RABBIT = 110,
+        RABBIT_STREAMS = 111,
+        REDIS_PUBSUB = 112,
+        REDIS_STREAMS = 113,
+        AZURE_EVENT_HUB = 114,
+        AZURE_SERVICE_BUS = 115,
     }
 
 }
@@ -187,6 +307,71 @@ export class CreateRelayRequest extends jspb.Message {
     getKafka(): backends_kafka_pb.Kafka | undefined;
     setKafka(value?: backends_kafka_pb.Kafka): CreateRelayRequest;
 
+    hasActiveMq(): boolean;
+    clearActiveMq(): void;
+    getActiveMq(): backends_activemq_pb.ActiveMQ | undefined;
+    setActiveMq(value?: backends_activemq_pb.ActiveMQ): CreateRelayRequest;
+
+    hasAwssqs(): boolean;
+    clearAwssqs(): void;
+    getAwssqs(): backends_aws_sqs_pb.AWSSQS | undefined;
+    setAwssqs(value?: backends_aws_sqs_pb.AWSSQS): CreateRelayRequest;
+
+    hasAwssns(): boolean;
+    clearAwssns(): void;
+    getAwssns(): backends_aws_sns_pb.AWSSNS | undefined;
+    setAwssns(value?: backends_aws_sns_pb.AWSSNS): CreateRelayRequest;
+
+    hasMongo(): boolean;
+    clearMongo(): void;
+    getMongo(): backends_mongo_pb.Mongo | undefined;
+    setMongo(value?: backends_mongo_pb.Mongo): CreateRelayRequest;
+
+    hasNats(): boolean;
+    clearNats(): void;
+    getNats(): backends_nats_pb.Nats | undefined;
+    setNats(value?: backends_nats_pb.Nats): CreateRelayRequest;
+
+    hasNatsStreaming(): boolean;
+    clearNatsStreaming(): void;
+    getNatsStreaming(): backends_nats_streaming_pb.NatsStreaming | undefined;
+    setNatsStreaming(value?: backends_nats_streaming_pb.NatsStreaming): CreateRelayRequest;
+
+    hasNsq(): boolean;
+    clearNsq(): void;
+    getNsq(): backends_nsq_pb.NSQ | undefined;
+    setNsq(value?: backends_nsq_pb.NSQ): CreateRelayRequest;
+
+    hasPostgres(): boolean;
+    clearPostgres(): void;
+    getPostgres(): backends_postgres_pb.Postgres | undefined;
+    setPostgres(value?: backends_postgres_pb.Postgres): CreateRelayRequest;
+
+    hasPulsar(): boolean;
+    clearPulsar(): void;
+    getPulsar(): backends_pulsar_pb.Pulsar | undefined;
+    setPulsar(value?: backends_pulsar_pb.Pulsar): CreateRelayRequest;
+
+    hasRabbit(): boolean;
+    clearRabbit(): void;
+    getRabbit(): backends_rabbit_pb.Rabbit | undefined;
+    setRabbit(value?: backends_rabbit_pb.Rabbit): CreateRelayRequest;
+
+    hasRabbitStreams(): boolean;
+    clearRabbitStreams(): void;
+    getRabbitStreams(): backends_rabbit_streams_pb.RabbitStreams | undefined;
+    setRabbitStreams(value?: backends_rabbit_streams_pb.RabbitStreams): CreateRelayRequest;
+
+    hasRedisPubsub(): boolean;
+    clearRedisPubsub(): void;
+    getRedisPubsub(): backends_redis_pubsub_pb.RedisPubsub | undefined;
+    setRedisPubsub(value?: backends_redis_pubsub_pb.RedisPubsub): CreateRelayRequest;
+
+    hasRedisStreams(): boolean;
+    clearRedisStreams(): void;
+    getRedisStreams(): backends_redis_streams_pb.RedisStreams | undefined;
+    setRedisStreams(value?: backends_redis_streams_pb.RedisStreams): CreateRelayRequest;
+
     getBackendsCase(): CreateRelayRequest.BackendsCase;
 
     serializeBinary(): Uint8Array;
@@ -204,11 +389,37 @@ export namespace CreateRelayRequest {
         auth?: common_auth_pb.Auth.AsObject,
         relay?: Relay.AsObject,
         kafka?: backends_kafka_pb.Kafka.AsObject,
+        activeMq?: backends_activemq_pb.ActiveMQ.AsObject,
+        awssqs?: backends_aws_sqs_pb.AWSSQS.AsObject,
+        awssns?: backends_aws_sns_pb.AWSSNS.AsObject,
+        mongo?: backends_mongo_pb.Mongo.AsObject,
+        nats?: backends_nats_pb.Nats.AsObject,
+        natsStreaming?: backends_nats_streaming_pb.NatsStreaming.AsObject,
+        nsq?: backends_nsq_pb.NSQ.AsObject,
+        postgres?: backends_postgres_pb.Postgres.AsObject,
+        pulsar?: backends_pulsar_pb.Pulsar.AsObject,
+        rabbit?: backends_rabbit_pb.Rabbit.AsObject,
+        rabbitStreams?: backends_rabbit_streams_pb.RabbitStreams.AsObject,
+        redisPubsub?: backends_redis_pubsub_pb.RedisPubsub.AsObject,
+        redisStreams?: backends_redis_streams_pb.RedisStreams.AsObject,
     }
 
     export enum BackendsCase {
         BACKENDS_NOT_SET = 0,
         KAFKA = 100,
+        ACTIVE_MQ = 101,
+        AWSSQS = 102,
+        AWSSNS = 103,
+        MONGO = 104,
+        NATS = 105,
+        NATS_STREAMING = 106,
+        NSQ = 107,
+        POSTGRES = 108,
+        PULSAR = 109,
+        RABBIT = 110,
+        RABBIT_STREAMS = 111,
+        REDIS_PUBSUB = 112,
+        REDIS_STREAMS = 113,
     }
 
 }
