@@ -36,6 +36,10 @@ setup/linux:
 	# Go plugin used by the protocol compiler
 	go get -u github.com/golang/protobuf/protoc-gen-go
 
+.PHONY: generate/all
+generate/all: description = Compile protos for all languages
+generate/all: generate/ts generate/go
+
 .PHONY: generate/ts
 generate/ts: description = Compile TypeScript Interfaces for UI
 generate/ts: clean-ts

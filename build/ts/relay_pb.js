@@ -969,7 +969,7 @@ proto.protos.RelayConfig.prototype.hasConnectionConfig = function() {
 
 
 /**
- * optional string batchsh_grpc_address = 6;
+ * optional string _batchsh_grpc_address = 6;
  * @return {string}
  */
 proto.protos.RelayConfig.prototype.getBatchshGrpcAddress = function() {
@@ -987,7 +987,7 @@ proto.protos.RelayConfig.prototype.setBatchshGrpcAddress = function(value) {
 
 
 /**
- * optional bool batchsh_grpc_disable_tls = 7;
+ * optional bool _batchsh_grpc_disable_tls = 7;
  * @return {boolean}
  */
 proto.protos.RelayConfig.prototype.getBatchshGrpcDisableTls = function() {
@@ -1005,7 +1005,7 @@ proto.protos.RelayConfig.prototype.setBatchshGrpcDisableTls = function(value) {
 
 
 /**
- * optional bool batchsh_grpc_timeout = 8;
+ * optional bool _batchsh_grpc_timeout = 8;
  * @return {boolean}
  */
 proto.protos.RelayConfig.prototype.getBatchshGrpcTimeout = function() {

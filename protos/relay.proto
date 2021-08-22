@@ -43,13 +43,13 @@ message RelayConfig {
     protos.ConnectionConfig connection_config = 5;
 
     // Optional; where to send events to (default: grpc-collector.batch.sh:9000)
-    string batchsh_grpc_address = 6;
+    string _batchsh_grpc_address = 6;
 
     // Optional; whether to use TLS for gRPC (default: true)
-    bool batchsh_grpc_disable_tls = 7;
+    bool _batchsh_grpc_disable_tls = 7;
 
     // Optional: how long to wait before giving up talking to the gRPC collector (default: 10s)
-    bool batchsh_grpc_timeout = 8;
+    bool _batchsh_grpc_timeout = 8;
 
     // ID of the created relay entry; populated by plumber.
     string _relay_id = 9;
