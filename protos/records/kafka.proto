@@ -9,14 +9,14 @@ message KafkaHeader {
     string value = 2;
 }
 
-// All of the fields will be filled out when reading or relaying messages
+// As of 08.21.2021, used in performing Write operations in both CLI & server.
+// It should _probably_ be used for reads, writes and relay. Eventually. ~ds
 message Kafka {
     string topic = 1;
     bytes key = 2;
-    bytes value = 3; // original value
-    bytes decoded = 4; // decoded value (if schema is provided/available)
-    int64 timestamp = 5;
-    int64 offset = 6;
-    int32 partition = 7;
-    repeated KafkaHeader headers = 8;
+    bytes value = 3; // Original value; do not mutate this. Decoded value should live elsewhere.
+    int64 timestamp = 4;
+    int64 offset = 5;
+    int32 partition = 6;
+    repeated KafkaHeader headers = 7;
 }

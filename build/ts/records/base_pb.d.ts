@@ -7,32 +7,32 @@
 import * as jspb from "google-protobuf";
 import * as records_kafka_pb from "../records/kafka_pb";
 
-export class Message extends jspb.Message { 
+export class Record extends jspb.Message { 
     getMessageId(): string;
-    setMessageId(value: string): Message;
+    setMessageId(value: string): Record;
     getPlumberId(): string;
-    setPlumberId(value: string): Message;
+    setPlumberId(value: string): Record;
     getUnixTimestampUtc(): number;
-    setUnixTimestampUtc(value: number): Message;
+    setUnixTimestampUtc(value: number): Record;
 
     hasKafka(): boolean;
     clearKafka(): void;
     getKafka(): records_kafka_pb.Kafka | undefined;
-    setKafka(value?: records_kafka_pb.Kafka): Message;
+    setKafka(value?: records_kafka_pb.Kafka): Record;
 
-    getMessageCase(): Message.MessageCase;
+    getRecordCase(): Record.RecordCase;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): Message.AsObject;
-    static toObject(includeInstance: boolean, msg: Message): Message.AsObject;
+    toObject(includeInstance?: boolean): Record.AsObject;
+    static toObject(includeInstance: boolean, msg: Record): Record.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: Message, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): Message;
-    static deserializeBinaryFromReader(message: Message, reader: jspb.BinaryReader): Message;
+    static serializeBinaryToWriter(message: Record, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): Record;
+    static deserializeBinaryFromReader(message: Record, reader: jspb.BinaryReader): Record;
 }
 
-export namespace Message {
+export namespace Record {
     export type AsObject = {
         messageId: string,
         plumberId: string,
@@ -40,8 +40,8 @@ export namespace Message {
         kafka?: records_kafka_pb.Kafka.AsObject,
     }
 
-    export enum MessageCase {
-        MESSAGE_NOT_SET = 0,
+    export enum RecordCase {
+        RECORD_NOT_SET = 0,
         KAFKA = 100,
     }
 

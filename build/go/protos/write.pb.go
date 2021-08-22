@@ -90,10 +90,13 @@ func (*WriteRecord) XXX_OneofWrappers() []interface{} {
 
 type WriteRequest struct {
 	// Every gRPC request must have a valid auth config
-	Auth         *common.Auth `protobuf:"bytes,9999,opt,name=auth,proto3" json:"auth,omitempty"`
-	ConnectionId string       `protobuf:"bytes,1,opt,name=connection_id,json=connectionId,proto3" json:"connection_id,omitempty"`
+	Auth *common.Auth `protobuf:"bytes,9999,opt,name=auth,proto3" json:"auth,omitempty"`
+	// Must point to an existing connection
+	ConnectionId string `protobuf:"bytes,1,opt,name=connection_id,json=connectionId,proto3" json:"connection_id,omitempty"`
 	// We need to use a WriteRecord as a wrapper since there is no way to "repeated oneof ..."
-	Records              []*WriteRecord    `protobuf:"bytes,2,rep,name=records,proto3" json:"records,omitempty"`
+	Records []*WriteRecord `protobuf:"bytes,2,rep,name=records,proto3" json:"records,omitempty"`
+	// Specifying encoding options will cause the _value_ of the record to be
+	// encoded and set in *plumber.types.WriteMessage.Value.
 	EncodeOptions        *encoding.Options `protobuf:"bytes,3,opt,name=encode_options,json=encodeOptions,proto3" json:"encode_options,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}          `json:"-"`
 	XXX_unrecognized     []byte            `json:"-"`

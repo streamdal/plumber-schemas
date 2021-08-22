@@ -3537,8 +3537,8 @@ proto.protos.StartReadResponse.prototype.toObject = function(opt_includeInstance
  */
 proto.protos.StartReadResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
-    messagesList: jspb.Message.toObjectList(msg.getMessagesList(),
-    records_base_pb.Message.toObject, includeInstance),
+    recordsList: jspb.Message.toObjectList(msg.getRecordsList(),
+    records_base_pb.Record.toObject, includeInstance),
     status: (f = msg.getStatus()) && common_status_pb.Status.toObject(includeInstance, f)
   };
 
@@ -3577,9 +3577,9 @@ proto.protos.StartReadResponse.deserializeBinaryFromReader = function(msg, reade
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = new records_base_pb.Message;
-      reader.readMessage(value,records_base_pb.Message.deserializeBinaryFromReader);
-      msg.addMessages(value);
+      var value = new records_base_pb.Record;
+      reader.readMessage(value,records_base_pb.Record.deserializeBinaryFromReader);
+      msg.addRecords(value);
       break;
     case 1000:
       var value = new common_status_pb.Status;
@@ -3615,12 +3615,12 @@ proto.protos.StartReadResponse.prototype.serializeBinary = function() {
  */
 proto.protos.StartReadResponse.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getMessagesList();
+  f = message.getRecordsList();
   if (f.length > 0) {
     writer.writeRepeatedMessage(
       1,
       f,
-      records_base_pb.Message.serializeBinaryToWriter
+      records_base_pb.Record.serializeBinaryToWriter
     );
   }
   f = message.getStatus();
@@ -3635,31 +3635,31 @@ proto.protos.StartReadResponse.serializeBinaryToWriter = function(message, write
 
 
 /**
- * repeated records.Message messages = 1;
- * @return {!Array<!proto.protos.records.Message>}
+ * repeated records.Record records = 1;
+ * @return {!Array<!proto.protos.records.Record>}
  */
-proto.protos.StartReadResponse.prototype.getMessagesList = function() {
-  return /** @type{!Array<!proto.protos.records.Message>} */ (
-    jspb.Message.getRepeatedWrapperField(this, records_base_pb.Message, 1));
+proto.protos.StartReadResponse.prototype.getRecordsList = function() {
+  return /** @type{!Array<!proto.protos.records.Record>} */ (
+    jspb.Message.getRepeatedWrapperField(this, records_base_pb.Record, 1));
 };
 
 
 /**
- * @param {!Array<!proto.protos.records.Message>} value
+ * @param {!Array<!proto.protos.records.Record>} value
  * @return {!proto.protos.StartReadResponse} returns this
 */
-proto.protos.StartReadResponse.prototype.setMessagesList = function(value) {
+proto.protos.StartReadResponse.prototype.setRecordsList = function(value) {
   return jspb.Message.setRepeatedWrapperField(this, 1, value);
 };
 
 
 /**
- * @param {!proto.protos.records.Message=} opt_value
+ * @param {!proto.protos.records.Record=} opt_value
  * @param {number=} opt_index
- * @return {!proto.protos.records.Message}
+ * @return {!proto.protos.records.Record}
  */
-proto.protos.StartReadResponse.prototype.addMessages = function(opt_value, opt_index) {
-  return jspb.Message.addToRepeatedWrapperField(this, 1, opt_value, proto.protos.records.Message, opt_index);
+proto.protos.StartReadResponse.prototype.addRecords = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 1, opt_value, proto.protos.records.Record, opt_index);
 };
 
 
@@ -3667,8 +3667,8 @@ proto.protos.StartReadResponse.prototype.addMessages = function(opt_value, opt_i
  * Clears the list making it empty but non-null.
  * @return {!proto.protos.StartReadResponse} returns this
  */
-proto.protos.StartReadResponse.prototype.clearMessagesList = function() {
-  return this.setMessagesList([]);
+proto.protos.StartReadResponse.prototype.clearRecordsList = function() {
+  return this.setRecordsList([]);
 };
 
 
@@ -3929,8 +3929,8 @@ proto.protos.StreamReadResponse.prototype.toObject = function(opt_includeInstanc
  */
 proto.protos.StreamReadResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
-    messagesList: jspb.Message.toObjectList(msg.getMessagesList(),
-    records_base_pb.Message.toObject, includeInstance),
+    recordsList: jspb.Message.toObjectList(msg.getRecordsList(),
+    records_base_pb.Record.toObject, includeInstance),
     status: (f = msg.getStatus()) && common_status_pb.Status.toObject(includeInstance, f)
   };
 
@@ -3969,9 +3969,9 @@ proto.protos.StreamReadResponse.deserializeBinaryFromReader = function(msg, read
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = new records_base_pb.Message;
-      reader.readMessage(value,records_base_pb.Message.deserializeBinaryFromReader);
-      msg.addMessages(value);
+      var value = new records_base_pb.Record;
+      reader.readMessage(value,records_base_pb.Record.deserializeBinaryFromReader);
+      msg.addRecords(value);
       break;
     case 1000:
       var value = new common_status_pb.Status;
@@ -4007,12 +4007,12 @@ proto.protos.StreamReadResponse.prototype.serializeBinary = function() {
  */
 proto.protos.StreamReadResponse.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getMessagesList();
+  f = message.getRecordsList();
   if (f.length > 0) {
     writer.writeRepeatedMessage(
       1,
       f,
-      records_base_pb.Message.serializeBinaryToWriter
+      records_base_pb.Record.serializeBinaryToWriter
     );
   }
   f = message.getStatus();
@@ -4027,31 +4027,31 @@ proto.protos.StreamReadResponse.serializeBinaryToWriter = function(message, writ
 
 
 /**
- * repeated records.Message messages = 1;
- * @return {!Array<!proto.protos.records.Message>}
+ * repeated records.Record records = 1;
+ * @return {!Array<!proto.protos.records.Record>}
  */
-proto.protos.StreamReadResponse.prototype.getMessagesList = function() {
-  return /** @type{!Array<!proto.protos.records.Message>} */ (
-    jspb.Message.getRepeatedWrapperField(this, records_base_pb.Message, 1));
+proto.protos.StreamReadResponse.prototype.getRecordsList = function() {
+  return /** @type{!Array<!proto.protos.records.Record>} */ (
+    jspb.Message.getRepeatedWrapperField(this, records_base_pb.Record, 1));
 };
 
 
 /**
- * @param {!Array<!proto.protos.records.Message>} value
+ * @param {!Array<!proto.protos.records.Record>} value
  * @return {!proto.protos.StreamReadResponse} returns this
 */
-proto.protos.StreamReadResponse.prototype.setMessagesList = function(value) {
+proto.protos.StreamReadResponse.prototype.setRecordsList = function(value) {
   return jspb.Message.setRepeatedWrapperField(this, 1, value);
 };
 
 
 /**
- * @param {!proto.protos.records.Message=} opt_value
+ * @param {!proto.protos.records.Record=} opt_value
  * @param {number=} opt_index
- * @return {!proto.protos.records.Message}
+ * @return {!proto.protos.records.Record}
  */
-proto.protos.StreamReadResponse.prototype.addMessages = function(opt_value, opt_index) {
-  return jspb.Message.addToRepeatedWrapperField(this, 1, opt_value, proto.protos.records.Message, opt_index);
+proto.protos.StreamReadResponse.prototype.addRecords = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 1, opt_value, proto.protos.records.Record, opt_index);
 };
 
 
@@ -4059,8 +4059,8 @@ proto.protos.StreamReadResponse.prototype.addMessages = function(opt_value, opt_
  * Clears the list making it empty but non-null.
  * @return {!proto.protos.StreamReadResponse} returns this
  */
-proto.protos.StreamReadResponse.prototype.clearMessagesList = function() {
-  return this.setMessagesList([]);
+proto.protos.StreamReadResponse.prototype.clearRecordsList = function() {
+  return this.setRecordsList([]);
 };
 
 

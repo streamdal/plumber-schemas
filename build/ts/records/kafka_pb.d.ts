@@ -40,10 +40,6 @@ export class Kafka extends jspb.Message {
     getValue_asU8(): Uint8Array;
     getValue_asB64(): string;
     setValue(value: Uint8Array | string): Kafka;
-    getDecoded(): Uint8Array | string;
-    getDecoded_asU8(): Uint8Array;
-    getDecoded_asB64(): string;
-    setDecoded(value: Uint8Array | string): Kafka;
     getTimestamp(): number;
     setTimestamp(value: number): Kafka;
     getOffset(): number;
@@ -70,7 +66,6 @@ export namespace Kafka {
         topic: string,
         key: Uint8Array | string,
         value: Uint8Array | string,
-        decoded: Uint8Array | string,
         timestamp: number,
         offset: number,
         partition: number,

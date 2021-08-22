@@ -473,10 +473,10 @@ export namespace StartReadRequest {
 }
 
 export class StartReadResponse extends jspb.Message { 
-    clearMessagesList(): void;
-    getMessagesList(): Array<records_base_pb.Message>;
-    setMessagesList(value: Array<records_base_pb.Message>): StartReadResponse;
-    addMessages(value?: records_base_pb.Message, index?: number): records_base_pb.Message;
+    clearRecordsList(): void;
+    getRecordsList(): Array<records_base_pb.Record>;
+    setRecordsList(value: Array<records_base_pb.Record>): StartReadResponse;
+    addRecords(value?: records_base_pb.Record, index?: number): records_base_pb.Record;
 
     hasStatus(): boolean;
     clearStatus(): void;
@@ -495,7 +495,7 @@ export class StartReadResponse extends jspb.Message {
 
 export namespace StartReadResponse {
     export type AsObject = {
-        messagesList: Array<records_base_pb.Message.AsObject>,
+        recordsList: Array<records_base_pb.Record.AsObject>,
         status?: common_status_pb.Status.AsObject,
     }
 }
@@ -527,10 +527,10 @@ export namespace StreamReadRequest {
 }
 
 export class StreamReadResponse extends jspb.Message { 
-    clearMessagesList(): void;
-    getMessagesList(): Array<records_base_pb.Message>;
-    setMessagesList(value: Array<records_base_pb.Message>): StreamReadResponse;
-    addMessages(value?: records_base_pb.Message, index?: number): records_base_pb.Message;
+    clearRecordsList(): void;
+    getRecordsList(): Array<records_base_pb.Record>;
+    setRecordsList(value: Array<records_base_pb.Record>): StreamReadResponse;
+    addRecords(value?: records_base_pb.Record, index?: number): records_base_pb.Record;
 
     hasStatus(): boolean;
     clearStatus(): void;
@@ -549,7 +549,7 @@ export class StreamReadResponse extends jspb.Message {
 
 export namespace StreamReadResponse {
     export type AsObject = {
-        messagesList: Array<records_base_pb.Message.AsObject>,
+        recordsList: Array<records_base_pb.Record.AsObject>,
         status?: common_status_pb.Status.AsObject,
     }
 }

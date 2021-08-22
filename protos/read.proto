@@ -141,7 +141,7 @@ message StartReadRequest {
 }
 
 message StartReadResponse {
-    repeated records.Message messages = 1;
+    repeated records.Record records = 1;
 
     common.Status status = 1000;
 }
@@ -156,7 +156,7 @@ message StreamReadRequest {
 }
 
 message StreamReadResponse {
-    repeated records.Message messages = 1;
+    repeated records.Record records = 1;
 
     common.Status status = 1000;
 }

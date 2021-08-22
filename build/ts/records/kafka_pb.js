@@ -225,7 +225,7 @@ proto.protos.records.KafkaHeader.prototype.setValue = function(value) {
  * @private {!Array<number>}
  * @const
  */
-proto.protos.records.Kafka.repeatedFields_ = [8];
+proto.protos.records.Kafka.repeatedFields_ = [7];
 
 
 
@@ -261,10 +261,9 @@ proto.protos.records.Kafka.toObject = function(includeInstance, msg) {
     topic: jspb.Message.getFieldWithDefault(msg, 1, ""),
     key: msg.getKey_asB64(),
     value: msg.getValue_asB64(),
-    decoded: msg.getDecoded_asB64(),
-    timestamp: jspb.Message.getFieldWithDefault(msg, 5, 0),
-    offset: jspb.Message.getFieldWithDefault(msg, 6, 0),
-    partition: jspb.Message.getFieldWithDefault(msg, 7, 0),
+    timestamp: jspb.Message.getFieldWithDefault(msg, 4, 0),
+    offset: jspb.Message.getFieldWithDefault(msg, 5, 0),
+    partition: jspb.Message.getFieldWithDefault(msg, 6, 0),
     headersList: jspb.Message.toObjectList(msg.getHeadersList(),
     proto.protos.records.KafkaHeader.toObject, includeInstance)
   };
@@ -316,22 +315,18 @@ proto.protos.records.Kafka.deserializeBinaryFromReader = function(msg, reader) {
       msg.setValue(value);
       break;
     case 4:
-      var value = /** @type {!Uint8Array} */ (reader.readBytes());
-      msg.setDecoded(value);
-      break;
-    case 5:
       var value = /** @type {number} */ (reader.readInt64());
       msg.setTimestamp(value);
       break;
-    case 6:
+    case 5:
       var value = /** @type {number} */ (reader.readInt64());
       msg.setOffset(value);
       break;
-    case 7:
+    case 6:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setPartition(value);
       break;
-    case 8:
+    case 7:
       var value = new proto.protos.records.KafkaHeader;
       reader.readMessage(value,proto.protos.records.KafkaHeader.deserializeBinaryFromReader);
       msg.addHeaders(value);
@@ -386,38 +381,31 @@ proto.protos.records.Kafka.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getDecoded_asU8();
-  if (f.length > 0) {
-    writer.writeBytes(
-      4,
-      f
-    );
-  }
   f = message.getTimestamp();
   if (f !== 0) {
     writer.writeInt64(
-      5,
+      4,
       f
     );
   }
   f = message.getOffset();
   if (f !== 0) {
     writer.writeInt64(
-      6,
+      5,
       f
     );
   }
   f = message.getPartition();
   if (f !== 0) {
     writer.writeInt32(
-      7,
+      6,
       f
     );
   }
   f = message.getHeadersList();
   if (f.length > 0) {
     writer.writeRepeatedMessage(
-      8,
+      7,
       f,
       proto.protos.records.KafkaHeader.serializeBinaryToWriter
     );
@@ -528,53 +516,11 @@ proto.protos.records.Kafka.prototype.setValue = function(value) {
 
 
 /**
- * optional bytes decoded = 4;
- * @return {!(string|Uint8Array)}
- */
-proto.protos.records.Kafka.prototype.getDecoded = function() {
-  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
-};
-
-
-/**
- * optional bytes decoded = 4;
- * This is a type-conversion wrapper around `getDecoded()`
- * @return {string}
- */
-proto.protos.records.Kafka.prototype.getDecoded_asB64 = function() {
-  return /** @type {string} */ (jspb.Message.bytesAsB64(
-      this.getDecoded()));
-};
-
-
-/**
- * optional bytes decoded = 4;
- * Note that Uint8Array is not supported on all browsers.
- * @see http://caniuse.com/Uint8Array
- * This is a type-conversion wrapper around `getDecoded()`
- * @return {!Uint8Array}
- */
-proto.protos.records.Kafka.prototype.getDecoded_asU8 = function() {
-  return /** @type {!Uint8Array} */ (jspb.Message.bytesAsU8(
-      this.getDecoded()));
-};
-
-
-/**
- * @param {!(string|Uint8Array)} value
- * @return {!proto.protos.records.Kafka} returns this
- */
-proto.protos.records.Kafka.prototype.setDecoded = function(value) {
-  return jspb.Message.setProto3BytesField(this, 4, value);
-};
-
-
-/**
- * optional int64 timestamp = 5;
+ * optional int64 timestamp = 4;
  * @return {number}
  */
 proto.protos.records.Kafka.prototype.getTimestamp = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
 };
 
 
@@ -583,16 +529,16 @@ proto.protos.records.Kafka.prototype.getTimestamp = function() {
  * @return {!proto.protos.records.Kafka} returns this
  */
 proto.protos.records.Kafka.prototype.setTimestamp = function(value) {
-  return jspb.Message.setProto3IntField(this, 5, value);
+  return jspb.Message.setProto3IntField(this, 4, value);
 };
 
 
 /**
- * optional int64 offset = 6;
+ * optional int64 offset = 5;
  * @return {number}
  */
 proto.protos.records.Kafka.prototype.getOffset = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 6, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
 };
 
 
@@ -601,16 +547,16 @@ proto.protos.records.Kafka.prototype.getOffset = function() {
  * @return {!proto.protos.records.Kafka} returns this
  */
 proto.protos.records.Kafka.prototype.setOffset = function(value) {
-  return jspb.Message.setProto3IntField(this, 6, value);
+  return jspb.Message.setProto3IntField(this, 5, value);
 };
 
 
 /**
- * optional int32 partition = 7;
+ * optional int32 partition = 6;
  * @return {number}
  */
 proto.protos.records.Kafka.prototype.getPartition = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 7, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 6, 0));
 };
 
 
@@ -619,17 +565,17 @@ proto.protos.records.Kafka.prototype.getPartition = function() {
  * @return {!proto.protos.records.Kafka} returns this
  */
 proto.protos.records.Kafka.prototype.setPartition = function(value) {
-  return jspb.Message.setProto3IntField(this, 7, value);
+  return jspb.Message.setProto3IntField(this, 6, value);
 };
 
 
 /**
- * repeated KafkaHeader headers = 8;
+ * repeated KafkaHeader headers = 7;
  * @return {!Array<!proto.protos.records.KafkaHeader>}
  */
 proto.protos.records.Kafka.prototype.getHeadersList = function() {
   return /** @type{!Array<!proto.protos.records.KafkaHeader>} */ (
-    jspb.Message.getRepeatedWrapperField(this, proto.protos.records.KafkaHeader, 8));
+    jspb.Message.getRepeatedWrapperField(this, proto.protos.records.KafkaHeader, 7));
 };
 
 
@@ -638,7 +584,7 @@ proto.protos.records.Kafka.prototype.getHeadersList = function() {
  * @return {!proto.protos.records.Kafka} returns this
 */
 proto.protos.records.Kafka.prototype.setHeadersList = function(value) {
-  return jspb.Message.setRepeatedWrapperField(this, 8, value);
+  return jspb.Message.setRepeatedWrapperField(this, 7, value);
 };
 
 
@@ -648,7 +594,7 @@ proto.protos.records.Kafka.prototype.setHeadersList = function(value) {
  * @return {!proto.protos.records.KafkaHeader}
  */
 proto.protos.records.Kafka.prototype.addHeaders = function(opt_value, opt_index) {
-  return jspb.Message.addToRepeatedWrapperField(this, 8, opt_value, proto.protos.records.KafkaHeader, opt_index);
+  return jspb.Message.addToRepeatedWrapperField(this, 7, opt_value, proto.protos.records.KafkaHeader, opt_index);
 };
 
 

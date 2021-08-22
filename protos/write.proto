@@ -19,11 +19,14 @@ message WriteRequest {
     // Every gRPC request must have a valid auth config
     common.Auth auth = 9999;
 
+    // Must point to an existing connection
     string connection_id = 1;
 
     // We need to use a WriteRecord as a wrapper since there is no way to "repeated oneof ..."
     repeated WriteRecord records = 2;
 
+    // Specifying encoding options will cause the _value_ of the record to be
+    // encoded and set in *plumber.types.WriteMessage.Value.
     encoding.Options encode_options = 3;
 }
 

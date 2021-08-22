@@ -6,7 +6,7 @@ import "records/kafka.proto";
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/records";
 
-message Message {
+message Record {
     // Unique id automatically created by plumber
     string message_id = 1;
 
@@ -17,7 +17,7 @@ message Message {
 
     int64 unix_timestamp_utc = 99;
 
-    oneof Message {
+    oneof Record {
         records.Kafka kafka = 100;
     }
 }
