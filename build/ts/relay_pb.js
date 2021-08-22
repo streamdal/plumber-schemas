@@ -2448,7 +2448,7 @@ proto.protos.CreateRelayRequest.prototype.toObject = function(opt_includeInstanc
 proto.protos.CreateRelayRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
     auth: (f = msg.getAuth()) && common_auth_pb.Auth.toObject(includeInstance, f),
-    relay: (f = msg.getRelay()) && proto.protos.RelayConfig.toObject(includeInstance, f),
+    config: (f = msg.getConfig()) && proto.protos.RelayConfig.toObject(includeInstance, f),
     kafka: (f = msg.getKafka()) && backends_kafka_pb.Kafka.toObject(includeInstance, f),
     activeMq: (f = msg.getActiveMq()) && backends_activemq_pb.ActiveMQ.toObject(includeInstance, f),
     awssqs: (f = msg.getAwssqs()) && backends_aws$sqs_pb.AWSSQS.toObject(includeInstance, f),
@@ -2507,7 +2507,7 @@ proto.protos.CreateRelayRequest.deserializeBinaryFromReader = function(msg, read
     case 1:
       var value = new proto.protos.RelayConfig;
       reader.readMessage(value,proto.protos.RelayConfig.deserializeBinaryFromReader);
-      msg.setRelay(value);
+      msg.setConfig(value);
       break;
     case 100:
       var value = new backends_kafka_pb.Kafka;
@@ -2616,7 +2616,7 @@ proto.protos.CreateRelayRequest.serializeBinaryToWriter = function(message, writ
       common_auth_pb.Auth.serializeBinaryToWriter
     );
   }
-  f = message.getRelay();
+  f = message.getConfig();
   if (f != null) {
     writer.writeMessage(
       1,
@@ -2777,10 +2777,10 @@ proto.protos.CreateRelayRequest.prototype.hasAuth = function() {
 
 
 /**
- * optional RelayConfig relay = 1;
+ * optional RelayConfig config = 1;
  * @return {?proto.protos.RelayConfig}
  */
-proto.protos.CreateRelayRequest.prototype.getRelay = function() {
+proto.protos.CreateRelayRequest.prototype.getConfig = function() {
   return /** @type{?proto.protos.RelayConfig} */ (
     jspb.Message.getWrapperField(this, proto.protos.RelayConfig, 1));
 };
@@ -2790,7 +2790,7 @@ proto.protos.CreateRelayRequest.prototype.getRelay = function() {
  * @param {?proto.protos.RelayConfig|undefined} value
  * @return {!proto.protos.CreateRelayRequest} returns this
 */
-proto.protos.CreateRelayRequest.prototype.setRelay = function(value) {
+proto.protos.CreateRelayRequest.prototype.setConfig = function(value) {
   return jspb.Message.setWrapperField(this, 1, value);
 };
 
@@ -2799,8 +2799,8 @@ proto.protos.CreateRelayRequest.prototype.setRelay = function(value) {
  * Clears the message field making it undefined.
  * @return {!proto.protos.CreateRelayRequest} returns this
  */
-proto.protos.CreateRelayRequest.prototype.clearRelay = function() {
-  return this.setRelay(undefined);
+proto.protos.CreateRelayRequest.prototype.clearConfig = function() {
+  return this.setConfig(undefined);
 };
 
 
@@ -2808,7 +2808,7 @@ proto.protos.CreateRelayRequest.prototype.clearRelay = function() {
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.protos.CreateRelayRequest.prototype.hasRelay = function() {
+proto.protos.CreateRelayRequest.prototype.hasConfig = function() {
   return jspb.Message.getField(this, 1) != null;
 };
 

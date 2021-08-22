@@ -304,10 +304,10 @@ export class CreateRelayRequest extends jspb.Message {
     getAuth(): common_auth_pb.Auth | undefined;
     setAuth(value?: common_auth_pb.Auth): CreateRelayRequest;
 
-    hasRelay(): boolean;
-    clearRelay(): void;
-    getRelay(): RelayConfig | undefined;
-    setRelay(value?: RelayConfig): CreateRelayRequest;
+    hasConfig(): boolean;
+    clearConfig(): void;
+    getConfig(): RelayConfig | undefined;
+    setConfig(value?: RelayConfig): CreateRelayRequest;
 
     hasKafka(): boolean;
     clearKafka(): void;
@@ -394,7 +394,7 @@ export class CreateRelayRequest extends jspb.Message {
 export namespace CreateRelayRequest {
     export type AsObject = {
         auth?: common_auth_pb.Auth.AsObject,
-        relay?: RelayConfig.AsObject,
+        config?: RelayConfig.AsObject,
         kafka?: backends_kafka_pb.Kafka.AsObject,
         activeMq?: backends_activemq_pb.ActiveMQ.AsObject,
         awssqs?: backends_aws_sqs_pb.AWSSQS.AsObject,
