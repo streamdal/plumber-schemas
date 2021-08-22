@@ -9,12 +9,10 @@ message KafkaHeader {
     string value = 2;
 }
 
-// As of 08.21.2021, used in performing Write operations in both CLI & server.
-// It should _probably_ be used for reads, writes and relay. Eventually. ~ds
 message Kafka {
     string topic = 1;
     bytes key = 2;
-    bytes value = 3; // Original value; do not mutate this. Decoded value should live elsewhere.
+    bytes value = 3;
     int64 timestamp = 4;
     int64 offset = 5;
     int32 partition = 6;

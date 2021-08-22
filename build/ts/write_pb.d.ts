@@ -7,39 +7,9 @@
 import * as jspb from "google-protobuf";
 import * as records_kafka_pb from "./records/kafka_pb";
 import * as common_auth_pb from "./common/auth_pb";
+import * as records_base_pb from "./records/base_pb";
 import * as common_status_pb from "./common/status_pb";
 import * as encoding_options_pb from "./encoding/options_pb";
-
-export class WriteRecord extends jspb.Message { 
-
-    hasKafka(): boolean;
-    clearKafka(): void;
-    getKafka(): records_kafka_pb.Kafka | undefined;
-    setKafka(value?: records_kafka_pb.Kafka): WriteRecord;
-
-    getRecordsCase(): WriteRecord.RecordsCase;
-
-    serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): WriteRecord.AsObject;
-    static toObject(includeInstance: boolean, msg: WriteRecord): WriteRecord.AsObject;
-    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: WriteRecord, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): WriteRecord;
-    static deserializeBinaryFromReader(message: WriteRecord, reader: jspb.BinaryReader): WriteRecord;
-}
-
-export namespace WriteRecord {
-    export type AsObject = {
-        kafka?: records_kafka_pb.Kafka.AsObject,
-    }
-
-    export enum RecordsCase {
-        RECORDS_NOT_SET = 0,
-        KAFKA = 100,
-    }
-
-}
 
 export class WriteRequest extends jspb.Message { 
 
@@ -50,9 +20,9 @@ export class WriteRequest extends jspb.Message {
     getConnectionId(): string;
     setConnectionId(value: string): WriteRequest;
     clearRecordsList(): void;
-    getRecordsList(): Array<WriteRecord>;
-    setRecordsList(value: Array<WriteRecord>): WriteRequest;
-    addRecords(value?: WriteRecord, index?: number): WriteRecord;
+    getRecordsList(): Array<records_base_pb.WriteRecord>;
+    setRecordsList(value: Array<records_base_pb.WriteRecord>): WriteRequest;
+    addRecords(value?: records_base_pb.WriteRecord, index?: number): records_base_pb.WriteRecord;
 
     hasEncodeOptions(): boolean;
     clearEncodeOptions(): void;
@@ -73,7 +43,7 @@ export namespace WriteRequest {
     export type AsObject = {
         auth?: common_auth_pb.Auth.AsObject,
         connectionId: string,
-        recordsList: Array<WriteRecord.AsObject>,
+        recordsList: Array<records_base_pb.WriteRecord.AsObject>,
         encodeOptions?: encoding_options_pb.Options.AsObject,
     }
 }

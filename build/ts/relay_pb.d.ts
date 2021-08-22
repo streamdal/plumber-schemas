@@ -24,117 +24,117 @@ import * as backends_azure_event_hub_pb from "./backends/azure-event-hub_pb";
 import * as common_auth_pb from "./common/auth_pb";
 import * as common_status_pb from "./common/status_pb";
 
-export class Relay extends jspb.Message { 
+export class RelayConfig extends jspb.Message { 
     getBatchCollectionToken(): string;
-    setBatchCollectionToken(value: string): Relay;
+    setBatchCollectionToken(value: string): RelayConfig;
     getBatchSize(): number;
-    setBatchSize(value: number): Relay;
+    setBatchSize(value: number): RelayConfig;
     getBatchMaxRetry(): number;
-    setBatchMaxRetry(value: number): Relay;
+    setBatchMaxRetry(value: number): RelayConfig;
     getConnectionId(): string;
-    setConnectionId(value: string): Relay;
+    setConnectionId(value: string): RelayConfig;
     getBatchshGrpcAddress(): string;
-    setBatchshGrpcAddress(value: string): Relay;
+    setBatchshGrpcAddress(value: string): RelayConfig;
     getBatchshGrpcDisableTls(): boolean;
-    setBatchshGrpcDisableTls(value: boolean): Relay;
+    setBatchshGrpcDisableTls(value: boolean): RelayConfig;
     getBatchshGrpcTimeout(): boolean;
-    setBatchshGrpcTimeout(value: boolean): Relay;
+    setBatchshGrpcTimeout(value: boolean): RelayConfig;
     getRelayId(): string;
-    setRelayId(value: string): Relay;
+    setRelayId(value: string): RelayConfig;
 
     hasKafka(): boolean;
     clearKafka(): void;
     getKafka(): backends_kafka_pb.Kafka | undefined;
-    setKafka(value?: backends_kafka_pb.Kafka): Relay;
+    setKafka(value?: backends_kafka_pb.Kafka): RelayConfig;
 
     hasActiveMq(): boolean;
     clearActiveMq(): void;
     getActiveMq(): backends_activemq_pb.ActiveMQ | undefined;
-    setActiveMq(value?: backends_activemq_pb.ActiveMQ): Relay;
+    setActiveMq(value?: backends_activemq_pb.ActiveMQ): RelayConfig;
 
     hasAwssqs(): boolean;
     clearAwssqs(): void;
     getAwssqs(): backends_aws_sqs_pb.AWSSQS | undefined;
-    setAwssqs(value?: backends_aws_sqs_pb.AWSSQS): Relay;
+    setAwssqs(value?: backends_aws_sqs_pb.AWSSQS): RelayConfig;
 
     hasAwssns(): boolean;
     clearAwssns(): void;
     getAwssns(): backends_aws_sns_pb.AWSSNS | undefined;
-    setAwssns(value?: backends_aws_sns_pb.AWSSNS): Relay;
+    setAwssns(value?: backends_aws_sns_pb.AWSSNS): RelayConfig;
 
     hasMongo(): boolean;
     clearMongo(): void;
     getMongo(): backends_mongo_pb.Mongo | undefined;
-    setMongo(value?: backends_mongo_pb.Mongo): Relay;
+    setMongo(value?: backends_mongo_pb.Mongo): RelayConfig;
 
     hasNats(): boolean;
     clearNats(): void;
     getNats(): backends_nats_pb.Nats | undefined;
-    setNats(value?: backends_nats_pb.Nats): Relay;
+    setNats(value?: backends_nats_pb.Nats): RelayConfig;
 
     hasNatsStreaming(): boolean;
     clearNatsStreaming(): void;
     getNatsStreaming(): backends_nats_streaming_pb.NatsStreaming | undefined;
-    setNatsStreaming(value?: backends_nats_streaming_pb.NatsStreaming): Relay;
+    setNatsStreaming(value?: backends_nats_streaming_pb.NatsStreaming): RelayConfig;
 
     hasNsq(): boolean;
     clearNsq(): void;
     getNsq(): backends_nsq_pb.NSQ | undefined;
-    setNsq(value?: backends_nsq_pb.NSQ): Relay;
+    setNsq(value?: backends_nsq_pb.NSQ): RelayConfig;
 
     hasPostgres(): boolean;
     clearPostgres(): void;
     getPostgres(): backends_postgres_pb.Postgres | undefined;
-    setPostgres(value?: backends_postgres_pb.Postgres): Relay;
+    setPostgres(value?: backends_postgres_pb.Postgres): RelayConfig;
 
     hasPulsar(): boolean;
     clearPulsar(): void;
     getPulsar(): backends_pulsar_pb.Pulsar | undefined;
-    setPulsar(value?: backends_pulsar_pb.Pulsar): Relay;
+    setPulsar(value?: backends_pulsar_pb.Pulsar): RelayConfig;
 
     hasRabbit(): boolean;
     clearRabbit(): void;
     getRabbit(): backends_rabbit_pb.Rabbit | undefined;
-    setRabbit(value?: backends_rabbit_pb.Rabbit): Relay;
+    setRabbit(value?: backends_rabbit_pb.Rabbit): RelayConfig;
 
     hasRabbitStreams(): boolean;
     clearRabbitStreams(): void;
     getRabbitStreams(): backends_rabbit_streams_pb.RabbitStreams | undefined;
-    setRabbitStreams(value?: backends_rabbit_streams_pb.RabbitStreams): Relay;
+    setRabbitStreams(value?: backends_rabbit_streams_pb.RabbitStreams): RelayConfig;
 
     hasRedisPubsub(): boolean;
     clearRedisPubsub(): void;
     getRedisPubsub(): backends_redis_pubsub_pb.RedisPubsub | undefined;
-    setRedisPubsub(value?: backends_redis_pubsub_pb.RedisPubsub): Relay;
+    setRedisPubsub(value?: backends_redis_pubsub_pb.RedisPubsub): RelayConfig;
 
     hasRedisStreams(): boolean;
     clearRedisStreams(): void;
     getRedisStreams(): backends_redis_streams_pb.RedisStreams | undefined;
-    setRedisStreams(value?: backends_redis_streams_pb.RedisStreams): Relay;
+    setRedisStreams(value?: backends_redis_streams_pb.RedisStreams): RelayConfig;
 
     hasAzureEventHub(): boolean;
     clearAzureEventHub(): void;
     getAzureEventHub(): backends_azure_event_hub_pb.AzureEventHub | undefined;
-    setAzureEventHub(value?: backends_azure_event_hub_pb.AzureEventHub): Relay;
+    setAzureEventHub(value?: backends_azure_event_hub_pb.AzureEventHub): RelayConfig;
 
     hasAzureServiceBus(): boolean;
     clearAzureServiceBus(): void;
     getAzureServiceBus(): backends_azure_service_bus_pb.AzureServiceBus | undefined;
-    setAzureServiceBus(value?: backends_azure_service_bus_pb.AzureServiceBus): Relay;
+    setAzureServiceBus(value?: backends_azure_service_bus_pb.AzureServiceBus): RelayConfig;
 
-    getBackendsCase(): Relay.BackendsCase;
+    getBackendsCase(): RelayConfig.BackendsCase;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): Relay.AsObject;
-    static toObject(includeInstance: boolean, msg: Relay): Relay.AsObject;
+    toObject(includeInstance?: boolean): RelayConfig.AsObject;
+    static toObject(includeInstance: boolean, msg: RelayConfig): RelayConfig.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: Relay, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): Relay;
-    static deserializeBinaryFromReader(message: Relay, reader: jspb.BinaryReader): Relay;
+    static serializeBinaryToWriter(message: RelayConfig, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): RelayConfig;
+    static deserializeBinaryFromReader(message: RelayConfig, reader: jspb.BinaryReader): RelayConfig;
 }
 
-export namespace Relay {
+export namespace RelayConfig {
     export type AsObject = {
         batchCollectionToken: string,
         batchSize: number,
@@ -213,10 +213,10 @@ export class GetAllRelaysResponse extends jspb.Message {
     clearStatus(): void;
     getStatus(): common_status_pb.Status | undefined;
     setStatus(value?: common_status_pb.Status): GetAllRelaysResponse;
-    clearRelaysList(): void;
-    getRelaysList(): Array<Relay>;
-    setRelaysList(value: Array<Relay>): GetAllRelaysResponse;
-    addRelays(value?: Relay, index?: number): Relay;
+    clearConfigsList(): void;
+    getConfigsList(): Array<RelayConfig>;
+    setConfigsList(value: Array<RelayConfig>): GetAllRelaysResponse;
+    addConfigs(value?: RelayConfig, index?: number): RelayConfig;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): GetAllRelaysResponse.AsObject;
@@ -231,7 +231,7 @@ export class GetAllRelaysResponse extends jspb.Message {
 export namespace GetAllRelaysResponse {
     export type AsObject = {
         status?: common_status_pb.Status.AsObject,
-        relaysList: Array<Relay.AsObject>,
+        configsList: Array<RelayConfig.AsObject>,
     }
 }
 
@@ -268,10 +268,10 @@ export class GetRelayResponse extends jspb.Message {
     getStatus(): common_status_pb.Status | undefined;
     setStatus(value?: common_status_pb.Status): GetRelayResponse;
 
-    hasRelay(): boolean;
-    clearRelay(): void;
-    getRelay(): Relay | undefined;
-    setRelay(value?: Relay): GetRelayResponse;
+    hasConfig(): boolean;
+    clearConfig(): void;
+    getConfig(): RelayConfig | undefined;
+    setConfig(value?: RelayConfig): GetRelayResponse;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): GetRelayResponse.AsObject;
@@ -286,7 +286,7 @@ export class GetRelayResponse extends jspb.Message {
 export namespace GetRelayResponse {
     export type AsObject = {
         status?: common_status_pb.Status.AsObject,
-        relay?: Relay.AsObject,
+        config?: RelayConfig.AsObject,
     }
 }
 
@@ -299,8 +299,8 @@ export class CreateRelayRequest extends jspb.Message {
 
     hasRelay(): boolean;
     clearRelay(): void;
-    getRelay(): Relay | undefined;
-    setRelay(value?: Relay): CreateRelayRequest;
+    getRelay(): RelayConfig | undefined;
+    setRelay(value?: RelayConfig): CreateRelayRequest;
 
     hasKafka(): boolean;
     clearKafka(): void;
@@ -387,7 +387,7 @@ export class CreateRelayRequest extends jspb.Message {
 export namespace CreateRelayRequest {
     export type AsObject = {
         auth?: common_auth_pb.Auth.AsObject,
-        relay?: Relay.AsObject,
+        relay?: RelayConfig.AsObject,
         kafka?: backends_kafka_pb.Kafka.AsObject,
         activeMq?: backends_activemq_pb.ActiveMQ.AsObject,
         awssqs?: backends_aws_sqs_pb.AWSSQS.AsObject,
@@ -459,10 +459,10 @@ export class UpdateRelayRequest extends jspb.Message {
     getRelayId(): string;
     setRelayId(value: string): UpdateRelayRequest;
 
-    hasRelay(): boolean;
-    clearRelay(): void;
-    getRelay(): Relay | undefined;
-    setRelay(value?: Relay): UpdateRelayRequest;
+    hasConfig(): boolean;
+    clearConfig(): void;
+    getConfig(): RelayConfig | undefined;
+    setConfig(value?: RelayConfig): UpdateRelayRequest;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): UpdateRelayRequest.AsObject;
@@ -478,7 +478,7 @@ export namespace UpdateRelayRequest {
     export type AsObject = {
         auth?: common_auth_pb.Auth.AsObject,
         relayId: string,
-        relay?: Relay.AsObject,
+        config?: RelayConfig.AsObject,
     }
 }
 

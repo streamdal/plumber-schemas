@@ -23,16 +23,17 @@ import "common/status.proto";
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
 
-message Relay {
+message RelayConfig {
     // Required
     string batch_collection_token = 1;
 
-    // Optional; how many messages to2 send in a single batch (default: 1000)
+    // Optional; how many messages to send in a single batch (default: 1000)
     int32 batch_size = 2;
 
     // Optional; how many times plumber will try re-sending a batch (default: 3)
     int32 batch_max_retry = 3;
 
+    // Required; must point to an existing connection
     string connection_id = 4;
 
     // Optional; where to send events to (default: grpc-collector.batch.sh:9000)
@@ -78,7 +79,7 @@ message GetAllRelaysResponse {
     common.Status status = 1000;
 
     // Will be set as empty []Relay if no relays are configured
-    repeated Relay relays = 1;
+    repeated RelayConfig configs = 1;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -94,7 +95,7 @@ message GetRelayResponse {
     common.Status status = 1000;
 
     // Set only if status is OK
-    Relay relay = 1;
+    RelayConfig config = 1;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -103,7 +104,7 @@ message CreateRelayRequest {
     // Every gRPC request must have a valid auth config
     common.Auth auth = 9999;
 
-    Relay relay = 1;
+    RelayConfig relay = 1;
 
     oneof Backends {
         backends.Kafka kafka = 100;
@@ -139,7 +140,7 @@ message UpdateRelayRequest {
 
     string relay_id = 1;
 
-    Relay relay = 2;
+    RelayConfig config = 2;
 }
 
 message UpdateRelayResponse {

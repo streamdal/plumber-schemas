@@ -1,3 +1,4 @@
+// Records contain types for read, write and relay operations.
 syntax = "proto3";
 
 package protos.records;
@@ -6,18 +7,37 @@ import "records/kafka.proto";
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/records";
 
-message Record {
+// Returned for read requests
+message ReadRecord {
     // Unique id automatically created by plumber
     string message_id = 1;
 
     // Identifies which plumber instance received the event
     string plumber_id = 2;
 
+    // Set _outside_ the backend; will contain the final value, regardless of
+    // whether decoding options were specified for a read.
+    bytes _decoded = 3;
+
+    map<string, bytes> metadata = 4;
+
     // NOTE: Intentionally leaving this index space for future use
 
     int64 unix_timestamp_utc = 99;
 
     oneof Record {
+        records.Kafka kafka = 100;
+    }
+}
+
+// Used as an arg in write requests
+message WriteRecord {
+    // Set _outside_ the backend; will contain the final value that will be
+    // written to the destination, regardless of whether encoding options were
+    // specified for the write.
+    bytes _encoded = 1;
+
+    oneof Records {
         records.Kafka kafka = 100;
     }
 }

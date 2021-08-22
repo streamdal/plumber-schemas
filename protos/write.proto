@@ -4,16 +4,11 @@ package protos;
 
 import "records/kafka.proto";
 import "common/auth.proto";
+import "records/base.proto";
 import "common/status.proto";
 import "encoding/options.proto";
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
-
-message WriteRecord {
-    oneof Records {
-        records.Kafka kafka = 100;
-    }
-}
 
 message WriteRequest {
     // Every gRPC request must have a valid auth config
@@ -23,10 +18,10 @@ message WriteRequest {
     string connection_id = 1;
 
     // We need to use a WriteRecord as a wrapper since there is no way to "repeated oneof ..."
-    repeated WriteRecord records = 2;
+    repeated records.WriteRecord records = 2;
 
-    // Specifying encoding options will cause the _value_ of the record to be
-    // encoded and set in *plumber.types.WriteMessage.Value.
+    // Specifying encoding options will cause the _value_ of the record to get
+    // encoded and set in WriteRecord.encoded.
     encoding.Options encode_options = 3;
 }
 

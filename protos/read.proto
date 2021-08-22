@@ -25,13 +25,6 @@ import "backends/azure-event-hub.proto";
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
 
-message ReadOptions {
-    enum Type {
-        ONE_TIME = 0;
-        CONTINUOUS = 1;
-    }
-}
-
 message SampleOptions {
     enum Interval {
         SECOND = 0;
@@ -42,19 +35,34 @@ message SampleOptions {
     Interval sample_interval = 2;
 }
 
-message Read {
-    string id = 1;
+message ReadOptions {
+    enum Type {
+        ONE_TIME = 0;
+        CONTINUOUS = 1;
+    }
 
-    bool active = 2;
+    SampleOptions sample_options = 1;
+}
 
+message ReadConfig {
+    // Automatically set by plumber when a new read is created
+    string _id = 1;
+
+    // Used by plumber to set read state
+    bool _active = 2;
+
+    // Required; friendly name for the read
     string name = 3;
 
+    // Required; must point to an existing connection
     string connection_id = 4;
 
+    // Required; options specifying how to read data
     ReadOptions read_options = 5;
 
-    SampleOptions sample_options = 6;
-
+    // Optional; options specify how to decode the _value_ in a message.
+    // If left unset, plumber will still populate records.ReadRecord.Decoded
+    // with the (untouched) value.
     encoding.Options decode_options = 7;
 
     oneof Backends {
@@ -82,7 +90,7 @@ message CreateReadRequest {
     // Every gRPC request must have a valid auth config
     common.Auth auth = 9999;
 
-    Read read = 1;
+    ReadConfig config = 1;
 }
 
 message CreateReadResponse {
@@ -141,22 +149,7 @@ message StartReadRequest {
 }
 
 message StartReadResponse {
-    repeated records.Record records = 1;
-
-    common.Status status = 1000;
-}
-
-///////////////////////////////////////////////////////////////////////////////
-
-message StreamReadRequest {
-    // Every gRPC request must have a valid auth config
-    common.Auth auth = 9999;
-
-    string read_id = 1;
-}
-
-message StreamReadResponse {
-    repeated records.Record records = 1;
+    repeated records.ReadRecord records = 1;
 
     common.Status status = 1000;
 }
@@ -169,7 +162,7 @@ message GetAllReadsRequest {
 }
 
 message GetAllReadsResponse {
-    repeated Read read = 1;
+    repeated ReadConfig read = 1;
 
     common.Status status = 1000;
 }

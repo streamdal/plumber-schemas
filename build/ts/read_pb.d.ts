@@ -26,29 +26,6 @@ import * as backends_redis_streams_pb from "./backends/redis-streams_pb";
 import * as backends_azure_service_bus_pb from "./backends/azure-service-bus_pb";
 import * as backends_azure_event_hub_pb from "./backends/azure-event-hub_pb";
 
-export class ReadOptions extends jspb.Message { 
-
-    serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): ReadOptions.AsObject;
-    static toObject(includeInstance: boolean, msg: ReadOptions): ReadOptions.AsObject;
-    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: ReadOptions, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): ReadOptions;
-    static deserializeBinaryFromReader(message: ReadOptions, reader: jspb.BinaryReader): ReadOptions;
-}
-
-export namespace ReadOptions {
-    export type AsObject = {
-    }
-
-    export enum Type {
-    ONE_TIME = 0,
-    CONTINUOUS = 1,
-    }
-
-}
-
 export class SampleOptions extends jspb.Message { 
     getSampleRate(): number;
     setSampleRate(value: number): SampleOptions;
@@ -78,131 +55,154 @@ export namespace SampleOptions {
 
 }
 
-export class Read extends jspb.Message { 
-    getId(): string;
-    setId(value: string): Read;
-    getActive(): boolean;
-    setActive(value: boolean): Read;
-    getName(): string;
-    setName(value: string): Read;
-    getConnectionId(): string;
-    setConnectionId(value: string): Read;
-
-    hasReadOptions(): boolean;
-    clearReadOptions(): void;
-    getReadOptions(): ReadOptions | undefined;
-    setReadOptions(value?: ReadOptions): Read;
+export class ReadOptions extends jspb.Message { 
 
     hasSampleOptions(): boolean;
     clearSampleOptions(): void;
     getSampleOptions(): SampleOptions | undefined;
-    setSampleOptions(value?: SampleOptions): Read;
+    setSampleOptions(value?: SampleOptions): ReadOptions;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): ReadOptions.AsObject;
+    static toObject(includeInstance: boolean, msg: ReadOptions): ReadOptions.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: ReadOptions, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): ReadOptions;
+    static deserializeBinaryFromReader(message: ReadOptions, reader: jspb.BinaryReader): ReadOptions;
+}
+
+export namespace ReadOptions {
+    export type AsObject = {
+        sampleOptions?: SampleOptions.AsObject,
+    }
+
+    export enum Type {
+    ONE_TIME = 0,
+    CONTINUOUS = 1,
+    }
+
+}
+
+export class ReadConfig extends jspb.Message { 
+    getId(): string;
+    setId(value: string): ReadConfig;
+    getActive(): boolean;
+    setActive(value: boolean): ReadConfig;
+    getName(): string;
+    setName(value: string): ReadConfig;
+    getConnectionId(): string;
+    setConnectionId(value: string): ReadConfig;
+
+    hasReadOptions(): boolean;
+    clearReadOptions(): void;
+    getReadOptions(): ReadOptions | undefined;
+    setReadOptions(value?: ReadOptions): ReadConfig;
 
     hasDecodeOptions(): boolean;
     clearDecodeOptions(): void;
     getDecodeOptions(): encoding_options_pb.Options | undefined;
-    setDecodeOptions(value?: encoding_options_pb.Options): Read;
+    setDecodeOptions(value?: encoding_options_pb.Options): ReadConfig;
 
     hasKafka(): boolean;
     clearKafka(): void;
     getKafka(): backends_kafka_pb.Kafka | undefined;
-    setKafka(value?: backends_kafka_pb.Kafka): Read;
+    setKafka(value?: backends_kafka_pb.Kafka): ReadConfig;
 
     hasActiveMq(): boolean;
     clearActiveMq(): void;
     getActiveMq(): backends_activemq_pb.ActiveMQ | undefined;
-    setActiveMq(value?: backends_activemq_pb.ActiveMQ): Read;
+    setActiveMq(value?: backends_activemq_pb.ActiveMQ): ReadConfig;
 
     hasAwssqs(): boolean;
     clearAwssqs(): void;
     getAwssqs(): backends_aws_sqs_pb.AWSSQS | undefined;
-    setAwssqs(value?: backends_aws_sqs_pb.AWSSQS): Read;
+    setAwssqs(value?: backends_aws_sqs_pb.AWSSQS): ReadConfig;
 
     hasAwssns(): boolean;
     clearAwssns(): void;
     getAwssns(): backends_aws_sns_pb.AWSSNS | undefined;
-    setAwssns(value?: backends_aws_sns_pb.AWSSNS): Read;
+    setAwssns(value?: backends_aws_sns_pb.AWSSNS): ReadConfig;
 
     hasMongo(): boolean;
     clearMongo(): void;
     getMongo(): backends_mongo_pb.Mongo | undefined;
-    setMongo(value?: backends_mongo_pb.Mongo): Read;
+    setMongo(value?: backends_mongo_pb.Mongo): ReadConfig;
 
     hasNats(): boolean;
     clearNats(): void;
     getNats(): backends_nats_pb.Nats | undefined;
-    setNats(value?: backends_nats_pb.Nats): Read;
+    setNats(value?: backends_nats_pb.Nats): ReadConfig;
 
     hasNatsStreaming(): boolean;
     clearNatsStreaming(): void;
     getNatsStreaming(): backends_nats_streaming_pb.NatsStreaming | undefined;
-    setNatsStreaming(value?: backends_nats_streaming_pb.NatsStreaming): Read;
+    setNatsStreaming(value?: backends_nats_streaming_pb.NatsStreaming): ReadConfig;
 
     hasNsq(): boolean;
     clearNsq(): void;
     getNsq(): backends_nsq_pb.NSQ | undefined;
-    setNsq(value?: backends_nsq_pb.NSQ): Read;
+    setNsq(value?: backends_nsq_pb.NSQ): ReadConfig;
 
     hasPostgres(): boolean;
     clearPostgres(): void;
     getPostgres(): backends_postgres_pb.Postgres | undefined;
-    setPostgres(value?: backends_postgres_pb.Postgres): Read;
+    setPostgres(value?: backends_postgres_pb.Postgres): ReadConfig;
 
     hasPulsar(): boolean;
     clearPulsar(): void;
     getPulsar(): backends_pulsar_pb.Pulsar | undefined;
-    setPulsar(value?: backends_pulsar_pb.Pulsar): Read;
+    setPulsar(value?: backends_pulsar_pb.Pulsar): ReadConfig;
 
     hasRabbit(): boolean;
     clearRabbit(): void;
     getRabbit(): backends_rabbit_pb.Rabbit | undefined;
-    setRabbit(value?: backends_rabbit_pb.Rabbit): Read;
+    setRabbit(value?: backends_rabbit_pb.Rabbit): ReadConfig;
 
     hasRabbitStreams(): boolean;
     clearRabbitStreams(): void;
     getRabbitStreams(): backends_rabbit_streams_pb.RabbitStreams | undefined;
-    setRabbitStreams(value?: backends_rabbit_streams_pb.RabbitStreams): Read;
+    setRabbitStreams(value?: backends_rabbit_streams_pb.RabbitStreams): ReadConfig;
 
     hasRedisPubsub(): boolean;
     clearRedisPubsub(): void;
     getRedisPubsub(): backends_redis_pubsub_pb.RedisPubsub | undefined;
-    setRedisPubsub(value?: backends_redis_pubsub_pb.RedisPubsub): Read;
+    setRedisPubsub(value?: backends_redis_pubsub_pb.RedisPubsub): ReadConfig;
 
     hasRedisStreams(): boolean;
     clearRedisStreams(): void;
     getRedisStreams(): backends_redis_streams_pb.RedisStreams | undefined;
-    setRedisStreams(value?: backends_redis_streams_pb.RedisStreams): Read;
+    setRedisStreams(value?: backends_redis_streams_pb.RedisStreams): ReadConfig;
 
     hasAzureEventHub(): boolean;
     clearAzureEventHub(): void;
     getAzureEventHub(): backends_azure_event_hub_pb.AzureEventHub | undefined;
-    setAzureEventHub(value?: backends_azure_event_hub_pb.AzureEventHub): Read;
+    setAzureEventHub(value?: backends_azure_event_hub_pb.AzureEventHub): ReadConfig;
 
     hasAzureServiceBus(): boolean;
     clearAzureServiceBus(): void;
     getAzureServiceBus(): backends_azure_service_bus_pb.AzureServiceBus | undefined;
-    setAzureServiceBus(value?: backends_azure_service_bus_pb.AzureServiceBus): Read;
+    setAzureServiceBus(value?: backends_azure_service_bus_pb.AzureServiceBus): ReadConfig;
 
-    getBackendsCase(): Read.BackendsCase;
+    getBackendsCase(): ReadConfig.BackendsCase;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): Read.AsObject;
-    static toObject(includeInstance: boolean, msg: Read): Read.AsObject;
+    toObject(includeInstance?: boolean): ReadConfig.AsObject;
+    static toObject(includeInstance: boolean, msg: ReadConfig): ReadConfig.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: Read, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): Read;
-    static deserializeBinaryFromReader(message: Read, reader: jspb.BinaryReader): Read;
+    static serializeBinaryToWriter(message: ReadConfig, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): ReadConfig;
+    static deserializeBinaryFromReader(message: ReadConfig, reader: jspb.BinaryReader): ReadConfig;
 }
 
-export namespace Read {
+export namespace ReadConfig {
     export type AsObject = {
-        id: string,
-        active: boolean,
+        Id: string,
+        Active: boolean,
         name: string,
         connectionId: string,
         readOptions?: ReadOptions.AsObject,
-        sampleOptions?: SampleOptions.AsObject,
         decodeOptions?: encoding_options_pb.Options.AsObject,
         kafka?: backends_kafka_pb.Kafka.AsObject,
         activeMq?: backends_activemq_pb.ActiveMQ.AsObject,
@@ -251,10 +251,10 @@ export class CreateReadRequest extends jspb.Message {
     getAuth(): common_auth_pb.Auth | undefined;
     setAuth(value?: common_auth_pb.Auth): CreateReadRequest;
 
-    hasRead(): boolean;
-    clearRead(): void;
-    getRead(): Read | undefined;
-    setRead(value?: Read): CreateReadRequest;
+    hasConfig(): boolean;
+    clearConfig(): void;
+    getConfig(): ReadConfig | undefined;
+    setConfig(value?: ReadConfig): CreateReadRequest;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): CreateReadRequest.AsObject;
@@ -269,7 +269,7 @@ export class CreateReadRequest extends jspb.Message {
 export namespace CreateReadRequest {
     export type AsObject = {
         auth?: common_auth_pb.Auth.AsObject,
-        read?: Read.AsObject,
+        config?: ReadConfig.AsObject,
     }
 }
 
@@ -474,9 +474,9 @@ export namespace StartReadRequest {
 
 export class StartReadResponse extends jspb.Message { 
     clearRecordsList(): void;
-    getRecordsList(): Array<records_base_pb.Record>;
-    setRecordsList(value: Array<records_base_pb.Record>): StartReadResponse;
-    addRecords(value?: records_base_pb.Record, index?: number): records_base_pb.Record;
+    getRecordsList(): Array<records_base_pb.ReadRecord>;
+    setRecordsList(value: Array<records_base_pb.ReadRecord>): StartReadResponse;
+    addRecords(value?: records_base_pb.ReadRecord, index?: number): records_base_pb.ReadRecord;
 
     hasStatus(): boolean;
     clearStatus(): void;
@@ -495,61 +495,7 @@ export class StartReadResponse extends jspb.Message {
 
 export namespace StartReadResponse {
     export type AsObject = {
-        recordsList: Array<records_base_pb.Record.AsObject>,
-        status?: common_status_pb.Status.AsObject,
-    }
-}
-
-export class StreamReadRequest extends jspb.Message { 
-
-    hasAuth(): boolean;
-    clearAuth(): void;
-    getAuth(): common_auth_pb.Auth | undefined;
-    setAuth(value?: common_auth_pb.Auth): StreamReadRequest;
-    getReadId(): string;
-    setReadId(value: string): StreamReadRequest;
-
-    serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): StreamReadRequest.AsObject;
-    static toObject(includeInstance: boolean, msg: StreamReadRequest): StreamReadRequest.AsObject;
-    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: StreamReadRequest, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): StreamReadRequest;
-    static deserializeBinaryFromReader(message: StreamReadRequest, reader: jspb.BinaryReader): StreamReadRequest;
-}
-
-export namespace StreamReadRequest {
-    export type AsObject = {
-        auth?: common_auth_pb.Auth.AsObject,
-        readId: string,
-    }
-}
-
-export class StreamReadResponse extends jspb.Message { 
-    clearRecordsList(): void;
-    getRecordsList(): Array<records_base_pb.Record>;
-    setRecordsList(value: Array<records_base_pb.Record>): StreamReadResponse;
-    addRecords(value?: records_base_pb.Record, index?: number): records_base_pb.Record;
-
-    hasStatus(): boolean;
-    clearStatus(): void;
-    getStatus(): common_status_pb.Status | undefined;
-    setStatus(value?: common_status_pb.Status): StreamReadResponse;
-
-    serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): StreamReadResponse.AsObject;
-    static toObject(includeInstance: boolean, msg: StreamReadResponse): StreamReadResponse.AsObject;
-    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: StreamReadResponse, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): StreamReadResponse;
-    static deserializeBinaryFromReader(message: StreamReadResponse, reader: jspb.BinaryReader): StreamReadResponse;
-}
-
-export namespace StreamReadResponse {
-    export type AsObject = {
-        recordsList: Array<records_base_pb.Record.AsObject>,
+        recordsList: Array<records_base_pb.ReadRecord.AsObject>,
         status?: common_status_pb.Status.AsObject,
     }
 }
@@ -579,9 +525,9 @@ export namespace GetAllReadsRequest {
 
 export class GetAllReadsResponse extends jspb.Message { 
     clearReadList(): void;
-    getReadList(): Array<Read>;
-    setReadList(value: Array<Read>): GetAllReadsResponse;
-    addRead(value?: Read, index?: number): Read;
+    getReadList(): Array<ReadConfig>;
+    setReadList(value: Array<ReadConfig>): GetAllReadsResponse;
+    addRead(value?: ReadConfig, index?: number): ReadConfig;
 
     hasStatus(): boolean;
     clearStatus(): void;
@@ -600,7 +546,7 @@ export class GetAllReadsResponse extends jspb.Message {
 
 export namespace GetAllReadsResponse {
     export type AsObject = {
-        readList: Array<Read.AsObject>,
+        readList: Array<ReadConfig.AsObject>,
         status?: common_status_pb.Status.AsObject,
     }
 }

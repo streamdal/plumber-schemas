@@ -67,8 +67,6 @@ func (m *KafkaHeader) GetValue() string {
 	return ""
 }
 
-// As of 08.21.2021, used in performing Write operations in both CLI & server.
-// It should _probably_ be used for reads, writes and relay. Eventually. ~ds
 type Kafka struct {
 	Topic                string         `protobuf:"bytes,1,opt,name=topic,proto3" json:"topic,omitempty"`
 	Key                  []byte         `protobuf:"bytes,2,opt,name=key,proto3" json:"key,omitempty"`
