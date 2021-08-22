@@ -12,15 +12,19 @@ export class ReadRecord extends jspb.Message {
     setMessageId(value: string): ReadRecord;
     getPlumberId(): string;
     setPlumberId(value: string): ReadRecord;
+
+    getMetadataMap(): jspb.Map<string, Uint8Array | string>;
+    clearMetadataMap(): void;
+    getRaw(): Uint8Array | string;
+    getRaw_asU8(): Uint8Array;
+    getRaw_asB64(): string;
+    setRaw(value: Uint8Array | string): ReadRecord;
+    getReceivedAtUnixTsUtc(): number;
+    setReceivedAtUnixTsUtc(value: number): ReadRecord;
     getDecoded(): Uint8Array | string;
     getDecoded_asU8(): Uint8Array;
     getDecoded_asB64(): string;
     setDecoded(value: Uint8Array | string): ReadRecord;
-
-    getMetadataMap(): jspb.Map<string, Uint8Array | string>;
-    clearMetadataMap(): void;
-    getUnixTimestampUtc(): number;
-    setUnixTimestampUtc(value: number): ReadRecord;
 
     hasKafka(): boolean;
     clearKafka(): void;
@@ -43,10 +47,11 @@ export namespace ReadRecord {
     export type AsObject = {
         messageId: string,
         plumberId: string,
-        Decoded: Uint8Array | string,
 
         metadataMap: Array<[string, Uint8Array | string]>,
-        unixTimestampUtc: number,
+        raw: Uint8Array | string,
+        receivedAtUnixTsUtc: number,
+        Decoded: Uint8Array | string,
         kafka?: records_kafka_pb.Kafka.AsObject,
     }
 
@@ -91,4 +96,32 @@ export namespace WriteRecord {
         KAFKA = 100,
     }
 
+}
+
+export class ErrorRecord extends jspb.Message { 
+    getOccurredAtUnixTsUtc(): number;
+    setOccurredAtUnixTsUtc(value: number): ErrorRecord;
+    getError(): string;
+    setError(value: string): ErrorRecord;
+
+    getMetadataMap(): jspb.Map<string, Uint8Array | string>;
+    clearMetadataMap(): void;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): ErrorRecord.AsObject;
+    static toObject(includeInstance: boolean, msg: ErrorRecord): ErrorRecord.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: ErrorRecord, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): ErrorRecord;
+    static deserializeBinaryFromReader(message: ErrorRecord, reader: jspb.BinaryReader): ErrorRecord;
+}
+
+export namespace ErrorRecord {
+    export type AsObject = {
+        occurredAtUnixTsUtc: number,
+        error: string,
+
+        metadataMap: Array<[string, Uint8Array | string]>,
+    }
 }

@@ -2,6 +2,7 @@ syntax = "proto3";
 
 package protos;
 
+import "connect.proto";
 import "common/auth.proto";
 import "common/status.proto";
 import "encoding/options.proto";
@@ -54,11 +55,16 @@ message ReadConfig {
     // Required; friendly name for the read
     string name = 3;
 
-    // Required; must point to an existing connection
+    // Semi-required; either set this or connection_config. If set, connection_config
+    // will be ignored.
     string connection_id = 4;
 
+    // Semi-required; either set this or connection_id. This is generally used
+    // for creating ephemeral connections (ie. via CLI).
+    protos.ConnectionConfig connection_config = 5;
+
     // Required; options specifying how to read data
-    ReadOptions read_options = 5;
+    ReadOptions read_options = 6;
 
     // Optional; options specify how to decode the _value_ in a message.
     // If left unset, plumber will still populate records.ReadRecord.Decoded

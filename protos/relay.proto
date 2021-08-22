@@ -2,6 +2,7 @@ syntax = "proto3";
 
 package protos;
 
+import "connect.proto";
 import "backends/kafka.proto";
 import "backends/activemq.proto";
 import "backends/aws-sns.proto";
@@ -33,20 +34,25 @@ message RelayConfig {
     // Optional; how many times plumber will try re-sending a batch (default: 3)
     int32 batch_max_retry = 3;
 
-    // Required; must point to an existing connection
+    // Semi-required; either set this or connection_config. If set,
+    // connection_config will be ignored.
     string connection_id = 4;
 
+    // Semi-required; either set this or connection_id. This is generally used
+    // for creating ephemeral connections (ie. via CLI).
+    protos.ConnectionConfig connection_config = 5;
+
     // Optional; where to send events to (default: grpc-collector.batch.sh:9000)
-    string batchsh_grpc_address = 5;
+    string batchsh_grpc_address = 6;
 
     // Optional; whether to use TLS for gRPC (default: true)
-    bool batchsh_grpc_disable_tls = 6;
+    bool batchsh_grpc_disable_tls = 7;
 
     // Optional: how long to wait before giving up talking to the gRPC collector (default: 10s)
-    bool batchsh_grpc_timeout = 7;
+    bool batchsh_grpc_timeout = 8;
 
-    // ID of the created relay entry. Populated by plumber, ignored on creation
-    string relay_id = 8;
+    // ID of the created relay entry; populated by plumber.
+    string _relay_id = 9;
 
     // Set appropriate backend based on what connection is specified
     // ie. If connection_id is for kafka - specify Kafka backend

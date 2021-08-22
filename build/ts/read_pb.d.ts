@@ -5,6 +5,7 @@
 /* eslint-disable */
 
 import * as jspb from "google-protobuf";
+import * as connect_pb from "./connect_pb";
 import * as common_auth_pb from "./common/auth_pb";
 import * as common_status_pb from "./common/status_pb";
 import * as encoding_options_pb from "./encoding/options_pb";
@@ -93,6 +94,11 @@ export class ReadConfig extends jspb.Message {
     setName(value: string): ReadConfig;
     getConnectionId(): string;
     setConnectionId(value: string): ReadConfig;
+
+    hasConnectionConfig(): boolean;
+    clearConnectionConfig(): void;
+    getConnectionConfig(): connect_pb.ConnectionConfig | undefined;
+    setConnectionConfig(value?: connect_pb.ConnectionConfig): ReadConfig;
 
     hasReadOptions(): boolean;
     clearReadOptions(): void;
@@ -202,6 +208,7 @@ export namespace ReadConfig {
         Active: boolean,
         name: string,
         connectionId: string,
+        connectionConfig?: connect_pb.ConnectionConfig.AsObject,
         readOptions?: ReadOptions.AsObject,
         decodeOptions?: encoding_options_pb.Options.AsObject,
         kafka?: backends_kafka_pb.Kafka.AsObject,

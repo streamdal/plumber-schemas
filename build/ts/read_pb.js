@@ -15,6 +15,8 @@ var jspb = require('google-protobuf');
 var goog = jspb;
 var global = Function('return this')();
 
+var connect_pb = require('./connect_pb.js');
+goog.object.extend(proto, connect_pb);
 var common_auth_pb = require('./common/auth_pb.js');
 goog.object.extend(proto, common_auth_pb);
 var common_status_pb = require('./common/status_pb.js');
@@ -791,6 +793,7 @@ proto.protos.ReadConfig.toObject = function(includeInstance, msg) {
     active: jspb.Message.getBooleanFieldWithDefault(msg, 2, false),
     name: jspb.Message.getFieldWithDefault(msg, 3, ""),
     connectionId: jspb.Message.getFieldWithDefault(msg, 4, ""),
+    connectionConfig: (f = msg.getConnectionConfig()) && connect_pb.ConnectionConfig.toObject(includeInstance, f),
     readOptions: (f = msg.getReadOptions()) && proto.protos.ReadOptions.toObject(includeInstance, f),
     decodeOptions: (f = msg.getDecodeOptions()) && encoding_options_pb.Options.toObject(includeInstance, f),
     kafka: (f = msg.getKafka()) && backends_kafka_pb.Kafka.toObject(includeInstance, f),
@@ -862,6 +865,11 @@ proto.protos.ReadConfig.deserializeBinaryFromReader = function(msg, reader) {
       msg.setConnectionId(value);
       break;
     case 5:
+      var value = new connect_pb.ConnectionConfig;
+      reader.readMessage(value,connect_pb.ConnectionConfig.deserializeBinaryFromReader);
+      msg.setConnectionConfig(value);
+      break;
+    case 6:
       var value = new proto.protos.ReadOptions;
       reader.readMessage(value,proto.protos.ReadOptions.deserializeBinaryFromReader);
       msg.setReadOptions(value);
@@ -1008,10 +1016,18 @@ proto.protos.ReadConfig.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getReadOptions();
+  f = message.getConnectionConfig();
   if (f != null) {
     writer.writeMessage(
       5,
+      f,
+      connect_pb.ConnectionConfig.serializeBinaryToWriter
+    );
+  }
+  f = message.getReadOptions();
+  if (f != null) {
+    writer.writeMessage(
+      6,
       f,
       proto.protos.ReadOptions.serializeBinaryToWriter
     );
@@ -1228,12 +1244,49 @@ proto.protos.ReadConfig.prototype.setConnectionId = function(value) {
 
 
 /**
- * optional ReadOptions read_options = 5;
+ * optional ConnectionConfig connection_config = 5;
+ * @return {?proto.protos.ConnectionConfig}
+ */
+proto.protos.ReadConfig.prototype.getConnectionConfig = function() {
+  return /** @type{?proto.protos.ConnectionConfig} */ (
+    jspb.Message.getWrapperField(this, connect_pb.ConnectionConfig, 5));
+};
+
+
+/**
+ * @param {?proto.protos.ConnectionConfig|undefined} value
+ * @return {!proto.protos.ReadConfig} returns this
+*/
+proto.protos.ReadConfig.prototype.setConnectionConfig = function(value) {
+  return jspb.Message.setWrapperField(this, 5, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.ReadConfig} returns this
+ */
+proto.protos.ReadConfig.prototype.clearConnectionConfig = function() {
+  return this.setConnectionConfig(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.ReadConfig.prototype.hasConnectionConfig = function() {
+  return jspb.Message.getField(this, 5) != null;
+};
+
+
+/**
+ * optional ReadOptions read_options = 6;
  * @return {?proto.protos.ReadOptions}
  */
 proto.protos.ReadConfig.prototype.getReadOptions = function() {
   return /** @type{?proto.protos.ReadOptions} */ (
-    jspb.Message.getWrapperField(this, proto.protos.ReadOptions, 5));
+    jspb.Message.getWrapperField(this, proto.protos.ReadOptions, 6));
 };
 
 
@@ -1242,7 +1295,7 @@ proto.protos.ReadConfig.prototype.getReadOptions = function() {
  * @return {!proto.protos.ReadConfig} returns this
 */
 proto.protos.ReadConfig.prototype.setReadOptions = function(value) {
-  return jspb.Message.setWrapperField(this, 5, value);
+  return jspb.Message.setWrapperField(this, 6, value);
 };
 
 
@@ -1260,7 +1313,7 @@ proto.protos.ReadConfig.prototype.clearReadOptions = function() {
  * @return {boolean}
  */
 proto.protos.ReadConfig.prototype.hasReadOptions = function() {
-  return jspb.Message.getField(this, 5) != null;
+  return jspb.Message.getField(this, 6) != null;
 };
 
 

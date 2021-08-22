@@ -5,6 +5,7 @@
 /* eslint-disable */
 
 import * as jspb from "google-protobuf";
+import * as connect_pb from "./connect_pb";
 import * as records_kafka_pb from "./records/kafka_pb";
 import * as common_auth_pb from "./common/auth_pb";
 import * as records_base_pb from "./records/base_pb";
@@ -19,6 +20,11 @@ export class WriteRequest extends jspb.Message {
     setAuth(value?: common_auth_pb.Auth): WriteRequest;
     getConnectionId(): string;
     setConnectionId(value: string): WriteRequest;
+
+    hasConnectionConfig(): boolean;
+    clearConnectionConfig(): void;
+    getConnectionConfig(): connect_pb.ConnectionConfig | undefined;
+    setConnectionConfig(value?: connect_pb.ConnectionConfig): WriteRequest;
     clearRecordsList(): void;
     getRecordsList(): Array<records_base_pb.WriteRecord>;
     setRecordsList(value: Array<records_base_pb.WriteRecord>): WriteRequest;
@@ -43,6 +49,7 @@ export namespace WriteRequest {
     export type AsObject = {
         auth?: common_auth_pb.Auth.AsObject,
         connectionId: string,
+        connectionConfig?: connect_pb.ConnectionConfig.AsObject,
         recordsList: Array<records_base_pb.WriteRecord.AsObject>,
         encodeOptions?: encoding_options_pb.Options.AsObject,
     }

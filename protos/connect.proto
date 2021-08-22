@@ -23,7 +23,7 @@ import "common/status.proto";
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
 
-message Connection {
+message ConnectionConfig {
     // Friendly name to identify this connection by (used in plumber-server logs)
     string name = 1;
 
@@ -58,7 +58,7 @@ message GetAllConnectionsRequest {
 }
 
 message GetAllConnectionsResponse {
-    repeated Connection connections = 1;
+    repeated ConnectionConfig configs = 1;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -71,7 +71,7 @@ message GetConnectionRequest {
 }
 
 message GetConnectionResponse {
-    Connection connection = 1;
+    ConnectionConfig connection = 1;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -80,7 +80,7 @@ message CreateConnectionRequest {
     // Every gRPC request must have a valid auth config
     common.Auth auth = 9999;
 
-    Connection connection = 1;
+    ConnectionConfig config = 1;
 }
 
 message CreateConnectionResponse {
@@ -94,7 +94,7 @@ message TestConnectionRequest {
     // Every gRPC request must have a valid auth config
     common.Auth auth = 9999;
 
-    Connection connection = 1;
+    ConnectionConfig config = 1;
 }
 
 message TestConnectionResponse {
@@ -109,7 +109,7 @@ message UpdateConnectionRequest {
 
     string connection_id = 1;
 
-    Connection connection = 2;
+    ConnectionConfig config = 2;
 }
 
 message UpdateConnectionResponse {

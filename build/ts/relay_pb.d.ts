@@ -5,6 +5,7 @@
 /* eslint-disable */
 
 import * as jspb from "google-protobuf";
+import * as connect_pb from "./connect_pb";
 import * as backends_kafka_pb from "./backends/kafka_pb";
 import * as backends_activemq_pb from "./backends/activemq_pb";
 import * as backends_aws_sns_pb from "./backends/aws-sns_pb";
@@ -33,6 +34,11 @@ export class RelayConfig extends jspb.Message {
     setBatchMaxRetry(value: number): RelayConfig;
     getConnectionId(): string;
     setConnectionId(value: string): RelayConfig;
+
+    hasConnectionConfig(): boolean;
+    clearConnectionConfig(): void;
+    getConnectionConfig(): connect_pb.ConnectionConfig | undefined;
+    setConnectionConfig(value?: connect_pb.ConnectionConfig): RelayConfig;
     getBatchshGrpcAddress(): string;
     setBatchshGrpcAddress(value: string): RelayConfig;
     getBatchshGrpcDisableTls(): boolean;
@@ -140,10 +146,11 @@ export namespace RelayConfig {
         batchSize: number,
         batchMaxRetry: number,
         connectionId: string,
+        connectionConfig?: connect_pb.ConnectionConfig.AsObject,
         batchshGrpcAddress: string,
         batchshGrpcDisableTls: boolean,
         batchshGrpcTimeout: boolean,
-        relayId: string,
+        RelayId: string,
         kafka?: backends_kafka_pb.Kafka.AsObject,
         activeMq?: backends_activemq_pb.ActiveMQ.AsObject,
         awssqs?: backends_aws_sqs_pb.AWSSQS.AsObject,

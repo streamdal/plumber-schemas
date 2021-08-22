@@ -15,6 +15,8 @@ var jspb = require('google-protobuf');
 var goog = jspb;
 var global = Function('return this')();
 
+var connect_pb = require('./connect_pb.js');
+goog.object.extend(proto, connect_pb);
 var records_kafka_pb = require('./records/kafka_pb.js');
 goog.object.extend(proto, records_kafka_pb);
 var common_auth_pb = require('./common/auth_pb.js');
@@ -75,7 +77,7 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<number>}
  * @const
  */
-proto.protos.WriteRequest.repeatedFields_ = [2];
+proto.protos.WriteRequest.repeatedFields_ = [3];
 
 
 
@@ -110,6 +112,7 @@ proto.protos.WriteRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
     auth: (f = msg.getAuth()) && common_auth_pb.Auth.toObject(includeInstance, f),
     connectionId: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    connectionConfig: (f = msg.getConnectionConfig()) && connect_pb.ConnectionConfig.toObject(includeInstance, f),
     recordsList: jspb.Message.toObjectList(msg.getRecordsList(),
     records_base_pb.WriteRecord.toObject, includeInstance),
     encodeOptions: (f = msg.getEncodeOptions()) && encoding_options_pb.Options.toObject(includeInstance, f)
@@ -159,11 +162,16 @@ proto.protos.WriteRequest.deserializeBinaryFromReader = function(msg, reader) {
       msg.setConnectionId(value);
       break;
     case 2:
+      var value = new connect_pb.ConnectionConfig;
+      reader.readMessage(value,connect_pb.ConnectionConfig.deserializeBinaryFromReader);
+      msg.setConnectionConfig(value);
+      break;
+    case 3:
       var value = new records_base_pb.WriteRecord;
       reader.readMessage(value,records_base_pb.WriteRecord.deserializeBinaryFromReader);
       msg.addRecords(value);
       break;
-    case 3:
+    case 4:
       var value = new encoding_options_pb.Options;
       reader.readMessage(value,encoding_options_pb.Options.deserializeBinaryFromReader);
       msg.setEncodeOptions(value);
@@ -212,10 +220,18 @@ proto.protos.WriteRequest.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
+  f = message.getConnectionConfig();
+  if (f != null) {
+    writer.writeMessage(
+      2,
+      f,
+      connect_pb.ConnectionConfig.serializeBinaryToWriter
+    );
+  }
   f = message.getRecordsList();
   if (f.length > 0) {
     writer.writeRepeatedMessage(
-      2,
+      3,
       f,
       records_base_pb.WriteRecord.serializeBinaryToWriter
     );
@@ -223,7 +239,7 @@ proto.protos.WriteRequest.serializeBinaryToWriter = function(message, writer) {
   f = message.getEncodeOptions();
   if (f != null) {
     writer.writeMessage(
-      3,
+      4,
       f,
       encoding_options_pb.Options.serializeBinaryToWriter
     );
@@ -287,12 +303,49 @@ proto.protos.WriteRequest.prototype.setConnectionId = function(value) {
 
 
 /**
- * repeated records.WriteRecord records = 2;
+ * optional ConnectionConfig connection_config = 2;
+ * @return {?proto.protos.ConnectionConfig}
+ */
+proto.protos.WriteRequest.prototype.getConnectionConfig = function() {
+  return /** @type{?proto.protos.ConnectionConfig} */ (
+    jspb.Message.getWrapperField(this, connect_pb.ConnectionConfig, 2));
+};
+
+
+/**
+ * @param {?proto.protos.ConnectionConfig|undefined} value
+ * @return {!proto.protos.WriteRequest} returns this
+*/
+proto.protos.WriteRequest.prototype.setConnectionConfig = function(value) {
+  return jspb.Message.setWrapperField(this, 2, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.WriteRequest} returns this
+ */
+proto.protos.WriteRequest.prototype.clearConnectionConfig = function() {
+  return this.setConnectionConfig(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.WriteRequest.prototype.hasConnectionConfig = function() {
+  return jspb.Message.getField(this, 2) != null;
+};
+
+
+/**
+ * repeated records.WriteRecord records = 3;
  * @return {!Array<!proto.protos.records.WriteRecord>}
  */
 proto.protos.WriteRequest.prototype.getRecordsList = function() {
   return /** @type{!Array<!proto.protos.records.WriteRecord>} */ (
-    jspb.Message.getRepeatedWrapperField(this, records_base_pb.WriteRecord, 2));
+    jspb.Message.getRepeatedWrapperField(this, records_base_pb.WriteRecord, 3));
 };
 
 
@@ -301,7 +354,7 @@ proto.protos.WriteRequest.prototype.getRecordsList = function() {
  * @return {!proto.protos.WriteRequest} returns this
 */
 proto.protos.WriteRequest.prototype.setRecordsList = function(value) {
-  return jspb.Message.setRepeatedWrapperField(this, 2, value);
+  return jspb.Message.setRepeatedWrapperField(this, 3, value);
 };
 
 
@@ -311,7 +364,7 @@ proto.protos.WriteRequest.prototype.setRecordsList = function(value) {
  * @return {!proto.protos.records.WriteRecord}
  */
 proto.protos.WriteRequest.prototype.addRecords = function(opt_value, opt_index) {
-  return jspb.Message.addToRepeatedWrapperField(this, 2, opt_value, proto.protos.records.WriteRecord, opt_index);
+  return jspb.Message.addToRepeatedWrapperField(this, 3, opt_value, proto.protos.records.WriteRecord, opt_index);
 };
 
 
@@ -325,12 +378,12 @@ proto.protos.WriteRequest.prototype.clearRecordsList = function() {
 
 
 /**
- * optional encoding.Options encode_options = 3;
+ * optional encoding.Options encode_options = 4;
  * @return {?proto.protos.encoding.Options}
  */
 proto.protos.WriteRequest.prototype.getEncodeOptions = function() {
   return /** @type{?proto.protos.encoding.Options} */ (
-    jspb.Message.getWrapperField(this, encoding_options_pb.Options, 3));
+    jspb.Message.getWrapperField(this, encoding_options_pb.Options, 4));
 };
 
 
@@ -339,7 +392,7 @@ proto.protos.WriteRequest.prototype.getEncodeOptions = function() {
  * @return {!proto.protos.WriteRequest} returns this
 */
 proto.protos.WriteRequest.prototype.setEncodeOptions = function(value) {
-  return jspb.Message.setWrapperField(this, 3, value);
+  return jspb.Message.setWrapperField(this, 4, value);
 };
 
 
@@ -357,7 +410,7 @@ proto.protos.WriteRequest.prototype.clearEncodeOptions = function() {
  * @return {boolean}
  */
 proto.protos.WriteRequest.prototype.hasEncodeOptions = function() {
-  return jspb.Message.getField(this, 3) != null;
+  return jspb.Message.getField(this, 4) != null;
 };
 
 

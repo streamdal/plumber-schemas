@@ -15,6 +15,8 @@ var jspb = require('google-protobuf');
 var goog = jspb;
 var global = Function('return this')();
 
+var connect_pb = require('./connect_pb.js');
+goog.object.extend(proto, connect_pb);
 var backends_kafka_pb = require('./backends/kafka_pb.js');
 goog.object.extend(proto, backends_kafka_pb);
 var backends_activemq_pb = require('./backends/activemq_pb.js');
@@ -459,10 +461,11 @@ proto.protos.RelayConfig.toObject = function(includeInstance, msg) {
     batchSize: jspb.Message.getFieldWithDefault(msg, 2, 0),
     batchMaxRetry: jspb.Message.getFieldWithDefault(msg, 3, 0),
     connectionId: jspb.Message.getFieldWithDefault(msg, 4, ""),
-    batchshGrpcAddress: jspb.Message.getFieldWithDefault(msg, 5, ""),
-    batchshGrpcDisableTls: jspb.Message.getBooleanFieldWithDefault(msg, 6, false),
-    batchshGrpcTimeout: jspb.Message.getBooleanFieldWithDefault(msg, 7, false),
-    relayId: jspb.Message.getFieldWithDefault(msg, 8, ""),
+    connectionConfig: (f = msg.getConnectionConfig()) && connect_pb.ConnectionConfig.toObject(includeInstance, f),
+    batchshGrpcAddress: jspb.Message.getFieldWithDefault(msg, 6, ""),
+    batchshGrpcDisableTls: jspb.Message.getBooleanFieldWithDefault(msg, 7, false),
+    batchshGrpcTimeout: jspb.Message.getBooleanFieldWithDefault(msg, 8, false),
+    relayId: jspb.Message.getFieldWithDefault(msg, 9, ""),
     kafka: (f = msg.getKafka()) && backends_kafka_pb.Kafka.toObject(includeInstance, f),
     activeMq: (f = msg.getActiveMq()) && backends_activemq_pb.ActiveMQ.toObject(includeInstance, f),
     awssqs: (f = msg.getAwssqs()) && backends_aws$sqs_pb.AWSSQS.toObject(includeInstance, f),
@@ -532,18 +535,23 @@ proto.protos.RelayConfig.deserializeBinaryFromReader = function(msg, reader) {
       msg.setConnectionId(value);
       break;
     case 5:
+      var value = new connect_pb.ConnectionConfig;
+      reader.readMessage(value,connect_pb.ConnectionConfig.deserializeBinaryFromReader);
+      msg.setConnectionConfig(value);
+      break;
+    case 6:
       var value = /** @type {string} */ (reader.readString());
       msg.setBatchshGrpcAddress(value);
       break;
-    case 6:
+    case 7:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setBatchshGrpcDisableTls(value);
       break;
-    case 7:
+    case 8:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setBatchshGrpcTimeout(value);
       break;
-    case 8:
+    case 9:
       var value = /** @type {string} */ (reader.readString());
       msg.setRelayId(value);
       break;
@@ -684,31 +692,39 @@ proto.protos.RelayConfig.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
+  f = message.getConnectionConfig();
+  if (f != null) {
+    writer.writeMessage(
+      5,
+      f,
+      connect_pb.ConnectionConfig.serializeBinaryToWriter
+    );
+  }
   f = message.getBatchshGrpcAddress();
   if (f.length > 0) {
     writer.writeString(
-      5,
+      6,
       f
     );
   }
   f = message.getBatchshGrpcDisableTls();
   if (f) {
     writer.writeBool(
-      6,
+      7,
       f
     );
   }
   f = message.getBatchshGrpcTimeout();
   if (f) {
     writer.writeBool(
-      7,
+      8,
       f
     );
   }
   f = message.getRelayId();
   if (f.length > 0) {
     writer.writeString(
-      8,
+      9,
       f
     );
   }
@@ -916,11 +932,48 @@ proto.protos.RelayConfig.prototype.setConnectionId = function(value) {
 
 
 /**
- * optional string batchsh_grpc_address = 5;
+ * optional ConnectionConfig connection_config = 5;
+ * @return {?proto.protos.ConnectionConfig}
+ */
+proto.protos.RelayConfig.prototype.getConnectionConfig = function() {
+  return /** @type{?proto.protos.ConnectionConfig} */ (
+    jspb.Message.getWrapperField(this, connect_pb.ConnectionConfig, 5));
+};
+
+
+/**
+ * @param {?proto.protos.ConnectionConfig|undefined} value
+ * @return {!proto.protos.RelayConfig} returns this
+*/
+proto.protos.RelayConfig.prototype.setConnectionConfig = function(value) {
+  return jspb.Message.setWrapperField(this, 5, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.RelayConfig} returns this
+ */
+proto.protos.RelayConfig.prototype.clearConnectionConfig = function() {
+  return this.setConnectionConfig(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.RelayConfig.prototype.hasConnectionConfig = function() {
+  return jspb.Message.getField(this, 5) != null;
+};
+
+
+/**
+ * optional string batchsh_grpc_address = 6;
  * @return {string}
  */
 proto.protos.RelayConfig.prototype.getBatchshGrpcAddress = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 5, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 6, ""));
 };
 
 
@@ -929,33 +982,15 @@ proto.protos.RelayConfig.prototype.getBatchshGrpcAddress = function() {
  * @return {!proto.protos.RelayConfig} returns this
  */
 proto.protos.RelayConfig.prototype.setBatchshGrpcAddress = function(value) {
-  return jspb.Message.setProto3StringField(this, 5, value);
+  return jspb.Message.setProto3StringField(this, 6, value);
 };
 
 
 /**
- * optional bool batchsh_grpc_disable_tls = 6;
+ * optional bool batchsh_grpc_disable_tls = 7;
  * @return {boolean}
  */
 proto.protos.RelayConfig.prototype.getBatchshGrpcDisableTls = function() {
-  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 6, false));
-};
-
-
-/**
- * @param {boolean} value
- * @return {!proto.protos.RelayConfig} returns this
- */
-proto.protos.RelayConfig.prototype.setBatchshGrpcDisableTls = function(value) {
-  return jspb.Message.setProto3BooleanField(this, 6, value);
-};
-
-
-/**
- * optional bool batchsh_grpc_timeout = 7;
- * @return {boolean}
- */
-proto.protos.RelayConfig.prototype.getBatchshGrpcTimeout = function() {
   return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 7, false));
 };
 
@@ -964,17 +999,35 @@ proto.protos.RelayConfig.prototype.getBatchshGrpcTimeout = function() {
  * @param {boolean} value
  * @return {!proto.protos.RelayConfig} returns this
  */
-proto.protos.RelayConfig.prototype.setBatchshGrpcTimeout = function(value) {
+proto.protos.RelayConfig.prototype.setBatchshGrpcDisableTls = function(value) {
   return jspb.Message.setProto3BooleanField(this, 7, value);
 };
 
 
 /**
- * optional string relay_id = 8;
+ * optional bool batchsh_grpc_timeout = 8;
+ * @return {boolean}
+ */
+proto.protos.RelayConfig.prototype.getBatchshGrpcTimeout = function() {
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 8, false));
+};
+
+
+/**
+ * @param {boolean} value
+ * @return {!proto.protos.RelayConfig} returns this
+ */
+proto.protos.RelayConfig.prototype.setBatchshGrpcTimeout = function(value) {
+  return jspb.Message.setProto3BooleanField(this, 8, value);
+};
+
+
+/**
+ * optional string _relay_id = 9;
  * @return {string}
  */
 proto.protos.RelayConfig.prototype.getRelayId = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 8, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 9, ""));
 };
 
 
@@ -983,7 +1036,7 @@ proto.protos.RelayConfig.prototype.getRelayId = function() {
  * @return {!proto.protos.RelayConfig} returns this
  */
 proto.protos.RelayConfig.prototype.setRelayId = function(value) {
-  return jspb.Message.setProto3StringField(this, 8, value);
+  return jspb.Message.setProto3StringField(this, 9, value);
 };
 
 

@@ -24,107 +24,107 @@ import * as conns_azure_event_hub_pb from "./conns/azure-event-hub_pb";
 import * as common_auth_pb from "./common/auth_pb";
 import * as common_status_pb from "./common/status_pb";
 
-export class Connection extends jspb.Message { 
+export class ConnectionConfig extends jspb.Message { 
     getName(): string;
-    setName(value: string): Connection;
+    setName(value: string): ConnectionConfig;
     getNotes(): string;
-    setNotes(value: string): Connection;
+    setNotes(value: string): ConnectionConfig;
     getId(): string;
-    setId(value: string): Connection;
+    setId(value: string): ConnectionConfig;
 
     hasKafka(): boolean;
     clearKafka(): void;
     getKafka(): conns_kafka_pb.Kafka | undefined;
-    setKafka(value?: conns_kafka_pb.Kafka): Connection;
+    setKafka(value?: conns_kafka_pb.Kafka): ConnectionConfig;
 
     hasActiveMq(): boolean;
     clearActiveMq(): void;
     getActiveMq(): conns_activemq_pb.ActiveMQ | undefined;
-    setActiveMq(value?: conns_activemq_pb.ActiveMQ): Connection;
+    setActiveMq(value?: conns_activemq_pb.ActiveMQ): ConnectionConfig;
 
     hasAwssqs(): boolean;
     clearAwssqs(): void;
     getAwssqs(): conns_aws_sqs_pb.AWSSQS | undefined;
-    setAwssqs(value?: conns_aws_sqs_pb.AWSSQS): Connection;
+    setAwssqs(value?: conns_aws_sqs_pb.AWSSQS): ConnectionConfig;
 
     hasAwssns(): boolean;
     clearAwssns(): void;
     getAwssns(): conns_aws_sns_pb.AWSSNS | undefined;
-    setAwssns(value?: conns_aws_sns_pb.AWSSNS): Connection;
+    setAwssns(value?: conns_aws_sns_pb.AWSSNS): ConnectionConfig;
 
     hasMongo(): boolean;
     clearMongo(): void;
     getMongo(): conns_mongo_pb.Mongo | undefined;
-    setMongo(value?: conns_mongo_pb.Mongo): Connection;
+    setMongo(value?: conns_mongo_pb.Mongo): ConnectionConfig;
 
     hasNats(): boolean;
     clearNats(): void;
     getNats(): conns_nats_pb.Nats | undefined;
-    setNats(value?: conns_nats_pb.Nats): Connection;
+    setNats(value?: conns_nats_pb.Nats): ConnectionConfig;
 
     hasNatsStreaming(): boolean;
     clearNatsStreaming(): void;
     getNatsStreaming(): conns_nats_streaming_pb.NatsStreaming | undefined;
-    setNatsStreaming(value?: conns_nats_streaming_pb.NatsStreaming): Connection;
+    setNatsStreaming(value?: conns_nats_streaming_pb.NatsStreaming): ConnectionConfig;
 
     hasNsq(): boolean;
     clearNsq(): void;
     getNsq(): conns_nsq_pb.NSQ | undefined;
-    setNsq(value?: conns_nsq_pb.NSQ): Connection;
+    setNsq(value?: conns_nsq_pb.NSQ): ConnectionConfig;
 
     hasPostgres(): boolean;
     clearPostgres(): void;
     getPostgres(): conns_postgres_pb.Postgres | undefined;
-    setPostgres(value?: conns_postgres_pb.Postgres): Connection;
+    setPostgres(value?: conns_postgres_pb.Postgres): ConnectionConfig;
 
     hasPulsar(): boolean;
     clearPulsar(): void;
     getPulsar(): conns_pulsar_pb.Pulsar | undefined;
-    setPulsar(value?: conns_pulsar_pb.Pulsar): Connection;
+    setPulsar(value?: conns_pulsar_pb.Pulsar): ConnectionConfig;
 
     hasRabbit(): boolean;
     clearRabbit(): void;
     getRabbit(): conns_rabbit_pb.Rabbit | undefined;
-    setRabbit(value?: conns_rabbit_pb.Rabbit): Connection;
+    setRabbit(value?: conns_rabbit_pb.Rabbit): ConnectionConfig;
 
     hasRabbitStreams(): boolean;
     clearRabbitStreams(): void;
     getRabbitStreams(): conns_rabbit_streams_pb.RabbitStreams | undefined;
-    setRabbitStreams(value?: conns_rabbit_streams_pb.RabbitStreams): Connection;
+    setRabbitStreams(value?: conns_rabbit_streams_pb.RabbitStreams): ConnectionConfig;
 
     hasRedisPubsub(): boolean;
     clearRedisPubsub(): void;
     getRedisPubsub(): conns_redis_pubsub_pb.RedisPubsub | undefined;
-    setRedisPubsub(value?: conns_redis_pubsub_pb.RedisPubsub): Connection;
+    setRedisPubsub(value?: conns_redis_pubsub_pb.RedisPubsub): ConnectionConfig;
 
     hasRedisStreams(): boolean;
     clearRedisStreams(): void;
     getRedisStreams(): conns_redis_streams_pb.RedisStreams | undefined;
-    setRedisStreams(value?: conns_redis_streams_pb.RedisStreams): Connection;
+    setRedisStreams(value?: conns_redis_streams_pb.RedisStreams): ConnectionConfig;
 
     hasAzureEventHub(): boolean;
     clearAzureEventHub(): void;
     getAzureEventHub(): conns_azure_event_hub_pb.AzureEventHub | undefined;
-    setAzureEventHub(value?: conns_azure_event_hub_pb.AzureEventHub): Connection;
+    setAzureEventHub(value?: conns_azure_event_hub_pb.AzureEventHub): ConnectionConfig;
 
     hasAzureServiceBus(): boolean;
     clearAzureServiceBus(): void;
     getAzureServiceBus(): conns_azure_service_bus_pb.AzureServiceBus | undefined;
-    setAzureServiceBus(value?: conns_azure_service_bus_pb.AzureServiceBus): Connection;
+    setAzureServiceBus(value?: conns_azure_service_bus_pb.AzureServiceBus): ConnectionConfig;
 
-    getConnCase(): Connection.ConnCase;
+    getConnCase(): ConnectionConfig.ConnCase;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): Connection.AsObject;
-    static toObject(includeInstance: boolean, msg: Connection): Connection.AsObject;
+    toObject(includeInstance?: boolean): ConnectionConfig.AsObject;
+    static toObject(includeInstance: boolean, msg: ConnectionConfig): ConnectionConfig.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: Connection, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): Connection;
-    static deserializeBinaryFromReader(message: Connection, reader: jspb.BinaryReader): Connection;
+    static serializeBinaryToWriter(message: ConnectionConfig, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): ConnectionConfig;
+    static deserializeBinaryFromReader(message: ConnectionConfig, reader: jspb.BinaryReader): ConnectionConfig;
 }
 
-export namespace Connection {
+export namespace ConnectionConfig {
     export type AsObject = {
         name: string,
         notes: string,
@@ -193,10 +193,10 @@ export namespace GetAllConnectionsRequest {
 }
 
 export class GetAllConnectionsResponse extends jspb.Message { 
-    clearConnectionsList(): void;
-    getConnectionsList(): Array<Connection>;
-    setConnectionsList(value: Array<Connection>): GetAllConnectionsResponse;
-    addConnections(value?: Connection, index?: number): Connection;
+    clearConfigsList(): void;
+    getConfigsList(): Array<ConnectionConfig>;
+    setConfigsList(value: Array<ConnectionConfig>): GetAllConnectionsResponse;
+    addConfigs(value?: ConnectionConfig, index?: number): ConnectionConfig;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): GetAllConnectionsResponse.AsObject;
@@ -210,7 +210,7 @@ export class GetAllConnectionsResponse extends jspb.Message {
 
 export namespace GetAllConnectionsResponse {
     export type AsObject = {
-        connectionsList: Array<Connection.AsObject>,
+        configsList: Array<ConnectionConfig.AsObject>,
     }
 }
 
@@ -244,8 +244,8 @@ export class GetConnectionResponse extends jspb.Message {
 
     hasConnection(): boolean;
     clearConnection(): void;
-    getConnection(): Connection | undefined;
-    setConnection(value?: Connection): GetConnectionResponse;
+    getConnection(): ConnectionConfig | undefined;
+    setConnection(value?: ConnectionConfig): GetConnectionResponse;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): GetConnectionResponse.AsObject;
@@ -259,7 +259,7 @@ export class GetConnectionResponse extends jspb.Message {
 
 export namespace GetConnectionResponse {
     export type AsObject = {
-        connection?: Connection.AsObject,
+        connection?: ConnectionConfig.AsObject,
     }
 }
 
@@ -270,10 +270,10 @@ export class CreateConnectionRequest extends jspb.Message {
     getAuth(): common_auth_pb.Auth | undefined;
     setAuth(value?: common_auth_pb.Auth): CreateConnectionRequest;
 
-    hasConnection(): boolean;
-    clearConnection(): void;
-    getConnection(): Connection | undefined;
-    setConnection(value?: Connection): CreateConnectionRequest;
+    hasConfig(): boolean;
+    clearConfig(): void;
+    getConfig(): ConnectionConfig | undefined;
+    setConfig(value?: ConnectionConfig): CreateConnectionRequest;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): CreateConnectionRequest.AsObject;
@@ -288,7 +288,7 @@ export class CreateConnectionRequest extends jspb.Message {
 export namespace CreateConnectionRequest {
     export type AsObject = {
         auth?: common_auth_pb.Auth.AsObject,
-        connection?: Connection.AsObject,
+        config?: ConnectionConfig.AsObject,
     }
 }
 
@@ -319,10 +319,10 @@ export class TestConnectionRequest extends jspb.Message {
     getAuth(): common_auth_pb.Auth | undefined;
     setAuth(value?: common_auth_pb.Auth): TestConnectionRequest;
 
-    hasConnection(): boolean;
-    clearConnection(): void;
-    getConnection(): Connection | undefined;
-    setConnection(value?: Connection): TestConnectionRequest;
+    hasConfig(): boolean;
+    clearConfig(): void;
+    getConfig(): ConnectionConfig | undefined;
+    setConfig(value?: ConnectionConfig): TestConnectionRequest;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): TestConnectionRequest.AsObject;
@@ -337,7 +337,7 @@ export class TestConnectionRequest extends jspb.Message {
 export namespace TestConnectionRequest {
     export type AsObject = {
         auth?: common_auth_pb.Auth.AsObject,
-        connection?: Connection.AsObject,
+        config?: ConnectionConfig.AsObject,
     }
 }
 
@@ -373,10 +373,10 @@ export class UpdateConnectionRequest extends jspb.Message {
     getConnectionId(): string;
     setConnectionId(value: string): UpdateConnectionRequest;
 
-    hasConnection(): boolean;
-    clearConnection(): void;
-    getConnection(): Connection | undefined;
-    setConnection(value?: Connection): UpdateConnectionRequest;
+    hasConfig(): boolean;
+    clearConfig(): void;
+    getConfig(): ConnectionConfig | undefined;
+    setConfig(value?: ConnectionConfig): UpdateConnectionRequest;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): UpdateConnectionRequest.AsObject;
@@ -392,7 +392,7 @@ export namespace UpdateConnectionRequest {
     export type AsObject = {
         auth?: common_auth_pb.Auth.AsObject,
         connectionId: string,
-        connection?: Connection.AsObject,
+        config?: ConnectionConfig.AsObject,
     }
 }
 
