@@ -25,6 +25,7 @@ import * as backends_redis_pubsub_pb from "./backends/redis-pubsub_pb";
 import * as backends_redis_streams_pb from "./backends/redis-streams_pb";
 import * as backends_azure_service_bus_pb from "./backends/azure-service-bus_pb";
 import * as backends_azure_event_hub_pb from "./backends/azure-event-hub_pb";
+import * as backends_kubemq_pb from "./backends/kubemq_pb";
 
 export class SampleOptions extends jspb.Message { 
     getSampleRate(): number;
@@ -218,6 +219,11 @@ export class ReadConfig extends jspb.Message {
     getAzureServiceBus(): backends_azure_service_bus_pb.AzureServiceBus | undefined;
     setAzureServiceBus(value?: backends_azure_service_bus_pb.AzureServiceBus): ReadConfig;
 
+    hasKubemq(): boolean;
+    clearKubemq(): void;
+    getKubemq(): backends_kubemq_pb.KubeMQ | undefined;
+    setKubemq(value?: backends_kubemq_pb.KubeMQ): ReadConfig;
+
     getBackendsCase(): ReadConfig.BackendsCase;
 
     serializeBinary(): Uint8Array;
@@ -255,6 +261,7 @@ export namespace ReadConfig {
         redisStreams?: backends_redis_streams_pb.RedisStreams.AsObject,
         azureEventHub?: backends_azure_event_hub_pb.AzureEventHub.AsObject,
         azureServiceBus?: backends_azure_service_bus_pb.AzureServiceBus.AsObject,
+        kubemq?: backends_kubemq_pb.KubeMQ.AsObject,
     }
 
     export enum BackendsCase {
@@ -275,6 +282,7 @@ export namespace ReadConfig {
         REDIS_STREAMS = 113,
         AZURE_EVENT_HUB = 114,
         AZURE_SERVICE_BUS = 115,
+        KUBEMQ = 116,
     }
 
 }

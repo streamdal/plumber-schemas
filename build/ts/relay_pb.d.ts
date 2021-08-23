@@ -7,7 +7,6 @@
 import * as jspb from "google-protobuf";
 import * as backends_kafka_pb from "./backends/kafka_pb";
 import * as backends_activemq_pb from "./backends/activemq_pb";
-import * as backends_aws_sns_pb from "./backends/aws-sns_pb";
 import * as backends_aws_sqs_pb from "./backends/aws-sqs_pb";
 import * as backends_mongo_pb from "./backends/mongo_pb";
 import * as backends_nats_pb from "./backends/nats_pb";
@@ -21,6 +20,7 @@ import * as backends_redis_pubsub_pb from "./backends/redis-pubsub_pb";
 import * as backends_redis_streams_pb from "./backends/redis-streams_pb";
 import * as backends_azure_service_bus_pb from "./backends/azure-service-bus_pb";
 import * as backends_azure_event_hub_pb from "./backends/azure-event-hub_pb";
+import * as backends_kubemq_pb from "./backends/kubemq_pb";
 import * as common_auth_pb from "./common/auth_pb";
 import * as common_status_pb from "./common/status_pb";
 
@@ -84,11 +84,6 @@ export class RelayConfig extends jspb.Message {
     getAwssqs(): backends_aws_sqs_pb.AWSSQS | undefined;
     setAwssqs(value?: backends_aws_sqs_pb.AWSSQS): RelayConfig;
 
-    hasAwssns(): boolean;
-    clearAwssns(): void;
-    getAwssns(): backends_aws_sns_pb.AWSSNS | undefined;
-    setAwssns(value?: backends_aws_sns_pb.AWSSNS): RelayConfig;
-
     hasMongo(): boolean;
     clearMongo(): void;
     getMongo(): backends_mongo_pb.Mongo | undefined;
@@ -149,6 +144,11 @@ export class RelayConfig extends jspb.Message {
     getAzureServiceBus(): backends_azure_service_bus_pb.AzureServiceBus | undefined;
     setAzureServiceBus(value?: backends_azure_service_bus_pb.AzureServiceBus): RelayConfig;
 
+    hasKubemq(): boolean;
+    clearKubemq(): void;
+    getKubemq(): backends_kubemq_pb.KubeMQ | undefined;
+    setKubemq(value?: backends_kubemq_pb.KubeMQ): RelayConfig;
+
     getBackendsCase(): RelayConfig.BackendsCase;
 
     serializeBinary(): Uint8Array;
@@ -176,7 +176,6 @@ export namespace RelayConfig {
         kafka?: backends_kafka_pb.Kafka.AsObject,
         activeMq?: backends_activemq_pb.ActiveMQ.AsObject,
         awssqs?: backends_aws_sqs_pb.AWSSQS.AsObject,
-        awssns?: backends_aws_sns_pb.AWSSNS.AsObject,
         mongo?: backends_mongo_pb.Mongo.AsObject,
         nats?: backends_nats_pb.Nats.AsObject,
         natsStreaming?: backends_nats_streaming_pb.NatsStreaming.AsObject,
@@ -189,6 +188,7 @@ export namespace RelayConfig {
         redisStreams?: backends_redis_streams_pb.RedisStreams.AsObject,
         azureEventHub?: backends_azure_event_hub_pb.AzureEventHub.AsObject,
         azureServiceBus?: backends_azure_service_bus_pb.AzureServiceBus.AsObject,
+        kubemq?: backends_kubemq_pb.KubeMQ.AsObject,
     }
 
     export enum BackendsCase {
@@ -196,19 +196,19 @@ export namespace RelayConfig {
         KAFKA = 100,
         ACTIVE_MQ = 101,
         AWSSQS = 102,
-        AWSSNS = 103,
-        MONGO = 104,
-        NATS = 105,
-        NATS_STREAMING = 106,
-        NSQ = 107,
-        POSTGRES = 108,
-        PULSAR = 109,
-        RABBIT = 110,
-        RABBIT_STREAMS = 111,
-        REDIS_PUBSUB = 112,
-        REDIS_STREAMS = 113,
-        AZURE_EVENT_HUB = 114,
-        AZURE_SERVICE_BUS = 115,
+        MONGO = 103,
+        NATS = 104,
+        NATS_STREAMING = 105,
+        NSQ = 106,
+        POSTGRES = 107,
+        PULSAR = 108,
+        RABBIT = 109,
+        RABBIT_STREAMS = 110,
+        REDIS_PUBSUB = 111,
+        REDIS_STREAMS = 112,
+        AZURE_EVENT_HUB = 113,
+        AZURE_SERVICE_BUS = 114,
+        KUBEMQ = 115,
     }
 
 }
@@ -346,11 +346,6 @@ export class CreateRelayRequest extends jspb.Message {
     getAwssqs(): backends_aws_sqs_pb.AWSSQS | undefined;
     setAwssqs(value?: backends_aws_sqs_pb.AWSSQS): CreateRelayRequest;
 
-    hasAwssns(): boolean;
-    clearAwssns(): void;
-    getAwssns(): backends_aws_sns_pb.AWSSNS | undefined;
-    setAwssns(value?: backends_aws_sns_pb.AWSSNS): CreateRelayRequest;
-
     hasMongo(): boolean;
     clearMongo(): void;
     getMongo(): backends_mongo_pb.Mongo | undefined;
@@ -401,6 +396,21 @@ export class CreateRelayRequest extends jspb.Message {
     getRedisStreams(): backends_redis_streams_pb.RedisStreams | undefined;
     setRedisStreams(value?: backends_redis_streams_pb.RedisStreams): CreateRelayRequest;
 
+    hasAzureEventHub(): boolean;
+    clearAzureEventHub(): void;
+    getAzureEventHub(): backends_azure_event_hub_pb.AzureEventHub | undefined;
+    setAzureEventHub(value?: backends_azure_event_hub_pb.AzureEventHub): CreateRelayRequest;
+
+    hasAzureServiceBus(): boolean;
+    clearAzureServiceBus(): void;
+    getAzureServiceBus(): backends_azure_service_bus_pb.AzureServiceBus | undefined;
+    setAzureServiceBus(value?: backends_azure_service_bus_pb.AzureServiceBus): CreateRelayRequest;
+
+    hasKubemq(): boolean;
+    clearKubemq(): void;
+    getKubemq(): backends_kubemq_pb.KubeMQ | undefined;
+    setKubemq(value?: backends_kubemq_pb.KubeMQ): CreateRelayRequest;
+
     getBackendsCase(): CreateRelayRequest.BackendsCase;
 
     serializeBinary(): Uint8Array;
@@ -420,7 +430,6 @@ export namespace CreateRelayRequest {
         kafka?: backends_kafka_pb.Kafka.AsObject,
         activeMq?: backends_activemq_pb.ActiveMQ.AsObject,
         awssqs?: backends_aws_sqs_pb.AWSSQS.AsObject,
-        awssns?: backends_aws_sns_pb.AWSSNS.AsObject,
         mongo?: backends_mongo_pb.Mongo.AsObject,
         nats?: backends_nats_pb.Nats.AsObject,
         natsStreaming?: backends_nats_streaming_pb.NatsStreaming.AsObject,
@@ -431,6 +440,9 @@ export namespace CreateRelayRequest {
         rabbitStreams?: backends_rabbit_streams_pb.RabbitStreams.AsObject,
         redisPubsub?: backends_redis_pubsub_pb.RedisPubsub.AsObject,
         redisStreams?: backends_redis_streams_pb.RedisStreams.AsObject,
+        azureEventHub?: backends_azure_event_hub_pb.AzureEventHub.AsObject,
+        azureServiceBus?: backends_azure_service_bus_pb.AzureServiceBus.AsObject,
+        kubemq?: backends_kubemq_pb.KubeMQ.AsObject,
     }
 
     export enum BackendsCase {
@@ -438,17 +450,19 @@ export namespace CreateRelayRequest {
         KAFKA = 100,
         ACTIVE_MQ = 101,
         AWSSQS = 102,
-        AWSSNS = 103,
-        MONGO = 104,
-        NATS = 105,
-        NATS_STREAMING = 106,
-        NSQ = 107,
-        POSTGRES = 108,
-        PULSAR = 109,
-        RABBIT = 110,
-        RABBIT_STREAMS = 111,
-        REDIS_PUBSUB = 112,
-        REDIS_STREAMS = 113,
+        MONGO = 103,
+        NATS = 104,
+        NATS_STREAMING = 105,
+        NSQ = 106,
+        POSTGRES = 107,
+        PULSAR = 108,
+        RABBIT = 109,
+        RABBIT_STREAMS = 110,
+        REDIS_PUBSUB = 111,
+        REDIS_STREAMS = 112,
+        AZURE_EVENT_HUB = 113,
+        AZURE_SERVICE_BUS = 114,
+        KUBEMQ = 115,
     }
 
 }

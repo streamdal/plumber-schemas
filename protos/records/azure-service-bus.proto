@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+package protos.records;
+
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/records";
+
+message AzureServiceBus {
+  string content_type = 1;
+  string correlation_id = 2;
+  bytes value = 3;
+  uint32 delivery_count = 4;
+  string session_id = 5;
+  uint32 group_sequence = 6;
+  string id = 7;
+  string label = 8;
+  string reply_to = 9;
+  string reply_to_group_id = 10;
+  string to = 11;
+  int64 ttl = 12;
+  string lock_token = 13;
+  AzureSystemProperties system_properties = 14;
+  map<string, string> user_properties = 15;
+  uint32 format = 16;
+}
+
+message AzureSystemProperties {
+  int64 locked_until = 1;
+  int64 sequence_number = 2;
+  int32 partition_id = 3;
+  string partition_key = 4;
+  int64 enqueued_time = 5;
+  string dead_letter_source = 6;
+  int64 scheduled_enqueue_time = 7;
+  int64 enqueued_sequence_number = 8;
+  string via_partition_key = 9;
+  map<string,string>annotations = 10;
+}

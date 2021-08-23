@@ -4,6 +4,22 @@ syntax = "proto3";
 package protos.records;
 
 import "records/kafka.proto";
+import "records/activemq.proto";
+import "records/aws-sqs.proto";
+import "records/mongo.proto";
+import "records/nats.proto";
+import "records/nats-streaming.proto";
+import "records/nsq.proto";
+import "records/postgres.proto";
+import "records/pulsar.proto";
+import "records/rabbit.proto";
+import "records/rabbit-streams.proto";
+import "records/redis-pubsub.proto";
+import "records/redis-streams.proto";
+import "records/azure-service-bus.proto";
+import "records/azure-event-hub.proto";
+import "records/mqtt.proto";
+import "records/kubemq.proto";
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/records";
 
@@ -39,6 +55,22 @@ message ReadRecord {
 
     oneof Record {
         records.Kafka kafka = 100;
+        records.ActiveMQ active_mq = 101;
+        records.AWSSQS awssqs = 102;
+        records.Mongo mongo = 103;
+        records.Nats nats = 104;
+        records.NatsStreaming nats_streaming = 105;
+        records.NSQ nsq = 106;
+        records.Postgres postgres = 107;
+        records.Pulsar pulsar = 108;
+        records.Rabbit rabbit = 109;
+        records.RabbitStreams rabbit_streams = 110;
+        records.RedisPubsub redis_pubsub = 111;
+        records.RedisStreams redis_streams = 112;
+        records.AzureEventHub azure_event_hub = 113;
+        records.AzureServiceBus azure_service_bus = 114;
+        records.MQTT mqtt = 115;
+        records.KubeMQ kubemq = 116;
     }
 }
 
@@ -51,6 +83,22 @@ message WriteRecord {
 
     oneof Records {
         records.Kafka kafka = 100;
+        records.ActiveMQ active_mq = 101;
+        records.AWSSQS awssqs = 102;
+        records.Mongo mongo = 103;
+        records.Nats nats = 104;
+        records.NatsStreaming nats_streaming = 105;
+        records.NSQ nsq = 106;
+        records.Postgres postgres = 107;
+        records.Pulsar pulsar = 108;
+        records.Rabbit rabbit = 109;
+        records.RabbitStreams rabbit_streams = 110;
+        records.RedisPubsub redis_pubsub = 111;
+        records.RedisStreams redis_streams = 112;
+        records.AzureEventHub azure_event_hub = 113;
+        records.AzureServiceBus azure_service_bus = 114;
+        records.MQTT mqtt = 115;
+        records.KubeMQ kubemq = 116;
     }
 }
 

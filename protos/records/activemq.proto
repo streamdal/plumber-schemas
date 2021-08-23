@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package protos.records;
+
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/records";
+
+message ActiveMQ {
+  string destination = 1;
+  string content_type = 2;
+  string subscription_id = 3;
+  int64 timestamp = 4;
+  bytes value = 5;
+}

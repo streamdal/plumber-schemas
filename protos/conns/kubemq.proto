@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package protos.conns;
+
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/conns";
+
+message KubeMQ {
+  // Required. Ex: localhost:50000
+  string address = 1;
+
+  // Required
+  string client_id = 2;
+
+  // Optional
+  // Contents of TLS certificate file
+  bytes tls_certificate = 3;
+
+  // Optional
+  // JWT authentication token
+  string auth_token = 4;
+}

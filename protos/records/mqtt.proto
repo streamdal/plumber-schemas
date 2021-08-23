@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package protos.records;
+
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/records";
+
+message MQTT {
+  uint32 id = 1;
+  string topic = 2;
+  bytes value = 3;
+  bool duplicate = 4;
+  bool retained = 5;
+  uint32 qos = 6;
+  int64 timestamp = 7;
+}

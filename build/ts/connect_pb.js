@@ -47,6 +47,8 @@ var conns_azure$service$bus_pb = require('./conns/azure-service-bus_pb.js');
 goog.object.extend(proto, conns_azure$service$bus_pb);
 var conns_azure$event$hub_pb = require('./conns/azure-event-hub_pb.js');
 goog.object.extend(proto, conns_azure$event$hub_pb);
+var conns_kubemq_pb = require('./conns/kubemq_pb.js');
+goog.object.extend(proto, conns_kubemq_pb);
 var common_auth_pb = require('./common/auth_pb.js');
 goog.object.extend(proto, common_auth_pb);
 var common_status_pb = require('./common/status_pb.js');
@@ -347,7 +349,7 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<!Array<number>>}
  * @const
  */
-proto.protos.ConnectionConfig.oneofGroups_ = [[100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115]];
+proto.protos.ConnectionConfig.oneofGroups_ = [[100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116]];
 
 /**
  * @enum {number}
@@ -369,7 +371,8 @@ proto.protos.ConnectionConfig.ConnCase = {
   REDIS_PUBSUB: 112,
   REDIS_STREAMS: 113,
   AZURE_EVENT_HUB: 114,
-  AZURE_SERVICE_BUS: 115
+  AZURE_SERVICE_BUS: 115,
+  KUBEMQ: 116
 };
 
 /**
@@ -428,7 +431,8 @@ proto.protos.ConnectionConfig.toObject = function(includeInstance, msg) {
     redisPubsub: (f = msg.getRedisPubsub()) && conns_redis$pubsub_pb.RedisPubsub.toObject(includeInstance, f),
     redisStreams: (f = msg.getRedisStreams()) && conns_redis$streams_pb.RedisStreams.toObject(includeInstance, f),
     azureEventHub: (f = msg.getAzureEventHub()) && conns_azure$event$hub_pb.AzureEventHub.toObject(includeInstance, f),
-    azureServiceBus: (f = msg.getAzureServiceBus()) && conns_azure$service$bus_pb.AzureServiceBus.toObject(includeInstance, f)
+    azureServiceBus: (f = msg.getAzureServiceBus()) && conns_azure$service$bus_pb.AzureServiceBus.toObject(includeInstance, f),
+    kubemq: (f = msg.getKubemq()) && conns_kubemq_pb.KubeMQ.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -556,6 +560,11 @@ proto.protos.ConnectionConfig.deserializeBinaryFromReader = function(msg, reader
       var value = new conns_azure$service$bus_pb.AzureServiceBus;
       reader.readMessage(value,conns_azure$service$bus_pb.AzureServiceBus.deserializeBinaryFromReader);
       msg.setAzureServiceBus(value);
+      break;
+    case 116:
+      var value = new conns_kubemq_pb.KubeMQ;
+      reader.readMessage(value,conns_kubemq_pb.KubeMQ.deserializeBinaryFromReader);
+      msg.setKubemq(value);
       break;
     default:
       reader.skipField();
@@ -733,6 +742,14 @@ proto.protos.ConnectionConfig.serializeBinaryToWriter = function(message, writer
       115,
       f,
       conns_azure$service$bus_pb.AzureServiceBus.serializeBinaryToWriter
+    );
+  }
+  f = message.getKubemq();
+  if (f != null) {
+    writer.writeMessage(
+      116,
+      f,
+      conns_kubemq_pb.KubeMQ.serializeBinaryToWriter
     );
   }
 };
@@ -1381,6 +1398,43 @@ proto.protos.ConnectionConfig.prototype.clearAzureServiceBus = function() {
  */
 proto.protos.ConnectionConfig.prototype.hasAzureServiceBus = function() {
   return jspb.Message.getField(this, 115) != null;
+};
+
+
+/**
+ * optional conns.KubeMQ kubemq = 116;
+ * @return {?proto.protos.conns.KubeMQ}
+ */
+proto.protos.ConnectionConfig.prototype.getKubemq = function() {
+  return /** @type{?proto.protos.conns.KubeMQ} */ (
+    jspb.Message.getWrapperField(this, conns_kubemq_pb.KubeMQ, 116));
+};
+
+
+/**
+ * @param {?proto.protos.conns.KubeMQ|undefined} value
+ * @return {!proto.protos.ConnectionConfig} returns this
+*/
+proto.protos.ConnectionConfig.prototype.setKubemq = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 116, proto.protos.ConnectionConfig.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.ConnectionConfig} returns this
+ */
+proto.protos.ConnectionConfig.prototype.clearKubemq = function() {
+  return this.setKubemq(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.ConnectionConfig.prototype.hasKubemq = function() {
+  return jspb.Message.getField(this, 116) != null;
 };
 
 

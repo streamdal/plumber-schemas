@@ -4,7 +4,6 @@ package protos;
 
 import "backends/kafka.proto";
 import "backends/activemq.proto";
-import "backends/aws-sns.proto";
 import "backends/aws-sqs.proto";
 import "backends/mongo.proto";
 import "backends/nats.proto";
@@ -18,6 +17,7 @@ import "backends/redis-pubsub.proto";
 import "backends/redis-streams.proto";
 import "backends/azure-service-bus.proto";
 import "backends/azure-event-hub.proto";
+import "backends/kubemq.proto";
 import "common/auth.proto";
 import "common/status.proto";
 
@@ -63,19 +63,19 @@ message RelayConfig {
         backends.Kafka kafka = 100;
         backends.ActiveMQ active_mq = 101;
         backends.AWSSQS awssqs = 102;
-        backends.AWSSNS awssns = 103;
-        backends.Mongo mongo = 104;
-        backends.Nats nats = 105;
-        backends.NatsStreaming nats_streaming = 106;
-        backends.NSQ nsq = 107;
-        backends.Postgres postgres = 108;
-        backends.Pulsar pulsar = 109;
-        backends.Rabbit rabbit = 110;
-        backends.RabbitStreams rabbit_streams = 111;
-        backends.RedisPubsub redis_pubsub = 112;
-        backends.RedisStreams redis_streams = 113;
-        backends.AzureEventHub azure_event_hub = 114;
-        backends.AzureServiceBus azure_service_bus = 115;
+        backends.Mongo mongo = 103;
+        backends.Nats nats = 104;
+        backends.NatsStreaming nats_streaming = 105;
+        backends.NSQ nsq = 106;
+        backends.Postgres postgres = 107;
+        backends.Pulsar pulsar = 108;
+        backends.Rabbit rabbit = 109;
+        backends.RabbitStreams rabbit_streams = 110;
+        backends.RedisPubsub redis_pubsub = 111;
+        backends.RedisStreams redis_streams = 112;
+        backends.AzureEventHub azure_event_hub = 113;
+        backends.AzureServiceBus azure_service_bus = 114;
+        backends.KubeMQ kubemq = 115;
     }
 }
 
@@ -119,17 +119,19 @@ message CreateRelayRequest {
         backends.Kafka kafka = 100;
         backends.ActiveMQ active_mq = 101;
         backends.AWSSQS awssqs = 102;
-        backends.AWSSNS awssns = 103;
-        backends.Mongo mongo = 104;
-        backends.Nats nats = 105;
-        backends.NatsStreaming nats_streaming = 106;
-        backends.NSQ nsq = 107;
-        backends.Postgres postgres = 108;
-        backends.Pulsar pulsar = 109;
-        backends.Rabbit rabbit = 110;
-        backends.RabbitStreams rabbit_streams = 111;
-        backends.RedisPubsub redis_pubsub = 112;
-        backends.RedisStreams redis_streams = 113;
+        backends.Mongo mongo = 103;
+        backends.Nats nats = 104;
+        backends.NatsStreaming nats_streaming = 105;
+        backends.NSQ nsq = 106;
+        backends.Postgres postgres = 107;
+        backends.Pulsar pulsar = 108;
+        backends.Rabbit rabbit = 109;
+        backends.RabbitStreams rabbit_streams = 110;
+        backends.RedisPubsub redis_pubsub = 111;
+        backends.RedisStreams redis_streams = 112;
+        backends.AzureEventHub azure_event_hub = 113;
+        backends.AzureServiceBus azure_service_bus = 114;
+        backends.KubeMQ kubemq = 115;
     }
 }
 

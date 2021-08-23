@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package protos.records;
+
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/records";
+
+message RedisStreams {
+  string id = 1;
+  string key = 2;
+  string value = 3;
+  string stream = 4;
+  int64 timestamp = 5;
+}

@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package protos.records;
+
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/records";
+
+message NSQ {
+  string id = 1;
+  string topic = 2;
+  string channel = 3;
+  int32 attempts = 4;
+  string nsqd_address = 5;
+  bytes value = 6;
+  int64 timestamp = 7;
+}

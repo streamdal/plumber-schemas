@@ -19,8 +19,6 @@ var backends_kafka_pb = require('./backends/kafka_pb.js');
 goog.object.extend(proto, backends_kafka_pb);
 var backends_activemq_pb = require('./backends/activemq_pb.js');
 goog.object.extend(proto, backends_activemq_pb);
-var backends_aws$sns_pb = require('./backends/aws-sns_pb.js');
-goog.object.extend(proto, backends_aws$sns_pb);
 var backends_aws$sqs_pb = require('./backends/aws-sqs_pb.js');
 goog.object.extend(proto, backends_aws$sqs_pb);
 var backends_mongo_pb = require('./backends/mongo_pb.js');
@@ -47,6 +45,8 @@ var backends_azure$service$bus_pb = require('./backends/azure-service-bus_pb.js'
 goog.object.extend(proto, backends_azure$service$bus_pb);
 var backends_azure$event$hub_pb = require('./backends/azure-event-hub_pb.js');
 goog.object.extend(proto, backends_azure$event$hub_pb);
+var backends_kubemq_pb = require('./backends/kubemq_pb.js');
+goog.object.extend(proto, backends_kubemq_pb);
 var common_auth_pb = require('./common/auth_pb.js');
 goog.object.extend(proto, common_auth_pb);
 var common_status_pb = require('./common/status_pb.js');
@@ -554,19 +554,19 @@ proto.protos.RelayConfig.BackendsCase = {
   KAFKA: 100,
   ACTIVE_MQ: 101,
   AWSSQS: 102,
-  AWSSNS: 103,
-  MONGO: 104,
-  NATS: 105,
-  NATS_STREAMING: 106,
-  NSQ: 107,
-  POSTGRES: 108,
-  PULSAR: 109,
-  RABBIT: 110,
-  RABBIT_STREAMS: 111,
-  REDIS_PUBSUB: 112,
-  REDIS_STREAMS: 113,
-  AZURE_EVENT_HUB: 114,
-  AZURE_SERVICE_BUS: 115
+  MONGO: 103,
+  NATS: 104,
+  NATS_STREAMING: 105,
+  NSQ: 106,
+  POSTGRES: 107,
+  PULSAR: 108,
+  RABBIT: 109,
+  RABBIT_STREAMS: 110,
+  REDIS_PUBSUB: 111,
+  REDIS_STREAMS: 112,
+  AZURE_EVENT_HUB: 113,
+  AZURE_SERVICE_BUS: 114,
+  KUBEMQ: 115
 };
 
 /**
@@ -620,7 +620,6 @@ proto.protos.RelayConfig.toObject = function(includeInstance, msg) {
     kafka: (f = msg.getKafka()) && backends_kafka_pb.Kafka.toObject(includeInstance, f),
     activeMq: (f = msg.getActiveMq()) && backends_activemq_pb.ActiveMQ.toObject(includeInstance, f),
     awssqs: (f = msg.getAwssqs()) && backends_aws$sqs_pb.AWSSQS.toObject(includeInstance, f),
-    awssns: (f = msg.getAwssns()) && backends_aws$sns_pb.AWSSNS.toObject(includeInstance, f),
     mongo: (f = msg.getMongo()) && backends_mongo_pb.Mongo.toObject(includeInstance, f),
     nats: (f = msg.getNats()) && backends_nats_pb.Nats.toObject(includeInstance, f),
     natsStreaming: (f = msg.getNatsStreaming()) && backends_nats$streaming_pb.NatsStreaming.toObject(includeInstance, f),
@@ -632,7 +631,8 @@ proto.protos.RelayConfig.toObject = function(includeInstance, msg) {
     redisPubsub: (f = msg.getRedisPubsub()) && backends_redis$pubsub_pb.RedisPubsub.toObject(includeInstance, f),
     redisStreams: (f = msg.getRedisStreams()) && backends_redis$streams_pb.RedisStreams.toObject(includeInstance, f),
     azureEventHub: (f = msg.getAzureEventHub()) && backends_azure$event$hub_pb.AzureEventHub.toObject(includeInstance, f),
-    azureServiceBus: (f = msg.getAzureServiceBus()) && backends_azure$service$bus_pb.AzureServiceBus.toObject(includeInstance, f)
+    azureServiceBus: (f = msg.getAzureServiceBus()) && backends_azure$service$bus_pb.AzureServiceBus.toObject(includeInstance, f),
+    kubemq: (f = msg.getKubemq()) && backends_kubemq_pb.KubeMQ.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -726,69 +726,69 @@ proto.protos.RelayConfig.deserializeBinaryFromReader = function(msg, reader) {
       msg.setAwssqs(value);
       break;
     case 103:
-      var value = new backends_aws$sns_pb.AWSSNS;
-      reader.readMessage(value,backends_aws$sns_pb.AWSSNS.deserializeBinaryFromReader);
-      msg.setAwssns(value);
-      break;
-    case 104:
       var value = new backends_mongo_pb.Mongo;
       reader.readMessage(value,backends_mongo_pb.Mongo.deserializeBinaryFromReader);
       msg.setMongo(value);
       break;
-    case 105:
+    case 104:
       var value = new backends_nats_pb.Nats;
       reader.readMessage(value,backends_nats_pb.Nats.deserializeBinaryFromReader);
       msg.setNats(value);
       break;
-    case 106:
+    case 105:
       var value = new backends_nats$streaming_pb.NatsStreaming;
       reader.readMessage(value,backends_nats$streaming_pb.NatsStreaming.deserializeBinaryFromReader);
       msg.setNatsStreaming(value);
       break;
-    case 107:
+    case 106:
       var value = new backends_nsq_pb.NSQ;
       reader.readMessage(value,backends_nsq_pb.NSQ.deserializeBinaryFromReader);
       msg.setNsq(value);
       break;
-    case 108:
+    case 107:
       var value = new backends_postgres_pb.Postgres;
       reader.readMessage(value,backends_postgres_pb.Postgres.deserializeBinaryFromReader);
       msg.setPostgres(value);
       break;
-    case 109:
+    case 108:
       var value = new backends_pulsar_pb.Pulsar;
       reader.readMessage(value,backends_pulsar_pb.Pulsar.deserializeBinaryFromReader);
       msg.setPulsar(value);
       break;
-    case 110:
+    case 109:
       var value = new backends_rabbit_pb.Rabbit;
       reader.readMessage(value,backends_rabbit_pb.Rabbit.deserializeBinaryFromReader);
       msg.setRabbit(value);
       break;
-    case 111:
+    case 110:
       var value = new backends_rabbit$streams_pb.RabbitStreams;
       reader.readMessage(value,backends_rabbit$streams_pb.RabbitStreams.deserializeBinaryFromReader);
       msg.setRabbitStreams(value);
       break;
-    case 112:
+    case 111:
       var value = new backends_redis$pubsub_pb.RedisPubsub;
       reader.readMessage(value,backends_redis$pubsub_pb.RedisPubsub.deserializeBinaryFromReader);
       msg.setRedisPubsub(value);
       break;
-    case 113:
+    case 112:
       var value = new backends_redis$streams_pb.RedisStreams;
       reader.readMessage(value,backends_redis$streams_pb.RedisStreams.deserializeBinaryFromReader);
       msg.setRedisStreams(value);
       break;
-    case 114:
+    case 113:
       var value = new backends_azure$event$hub_pb.AzureEventHub;
       reader.readMessage(value,backends_azure$event$hub_pb.AzureEventHub.deserializeBinaryFromReader);
       msg.setAzureEventHub(value);
       break;
-    case 115:
+    case 114:
       var value = new backends_azure$service$bus_pb.AzureServiceBus;
       reader.readMessage(value,backends_azure$service$bus_pb.AzureServiceBus.deserializeBinaryFromReader);
       msg.setAzureServiceBus(value);
+      break;
+    case 115:
+      var value = new backends_kubemq_pb.KubeMQ;
+      reader.readMessage(value,backends_kubemq_pb.KubeMQ.deserializeBinaryFromReader);
+      msg.setKubemq(value);
       break;
     default:
       reader.skipField();
@@ -914,18 +914,10 @@ proto.protos.RelayConfig.serializeBinaryToWriter = function(message, writer) {
       backends_aws$sqs_pb.AWSSQS.serializeBinaryToWriter
     );
   }
-  f = message.getAwssns();
-  if (f != null) {
-    writer.writeMessage(
-      103,
-      f,
-      backends_aws$sns_pb.AWSSNS.serializeBinaryToWriter
-    );
-  }
   f = message.getMongo();
   if (f != null) {
     writer.writeMessage(
-      104,
+      103,
       f,
       backends_mongo_pb.Mongo.serializeBinaryToWriter
     );
@@ -933,7 +925,7 @@ proto.protos.RelayConfig.serializeBinaryToWriter = function(message, writer) {
   f = message.getNats();
   if (f != null) {
     writer.writeMessage(
-      105,
+      104,
       f,
       backends_nats_pb.Nats.serializeBinaryToWriter
     );
@@ -941,7 +933,7 @@ proto.protos.RelayConfig.serializeBinaryToWriter = function(message, writer) {
   f = message.getNatsStreaming();
   if (f != null) {
     writer.writeMessage(
-      106,
+      105,
       f,
       backends_nats$streaming_pb.NatsStreaming.serializeBinaryToWriter
     );
@@ -949,7 +941,7 @@ proto.protos.RelayConfig.serializeBinaryToWriter = function(message, writer) {
   f = message.getNsq();
   if (f != null) {
     writer.writeMessage(
-      107,
+      106,
       f,
       backends_nsq_pb.NSQ.serializeBinaryToWriter
     );
@@ -957,7 +949,7 @@ proto.protos.RelayConfig.serializeBinaryToWriter = function(message, writer) {
   f = message.getPostgres();
   if (f != null) {
     writer.writeMessage(
-      108,
+      107,
       f,
       backends_postgres_pb.Postgres.serializeBinaryToWriter
     );
@@ -965,7 +957,7 @@ proto.protos.RelayConfig.serializeBinaryToWriter = function(message, writer) {
   f = message.getPulsar();
   if (f != null) {
     writer.writeMessage(
-      109,
+      108,
       f,
       backends_pulsar_pb.Pulsar.serializeBinaryToWriter
     );
@@ -973,7 +965,7 @@ proto.protos.RelayConfig.serializeBinaryToWriter = function(message, writer) {
   f = message.getRabbit();
   if (f != null) {
     writer.writeMessage(
-      110,
+      109,
       f,
       backends_rabbit_pb.Rabbit.serializeBinaryToWriter
     );
@@ -981,7 +973,7 @@ proto.protos.RelayConfig.serializeBinaryToWriter = function(message, writer) {
   f = message.getRabbitStreams();
   if (f != null) {
     writer.writeMessage(
-      111,
+      110,
       f,
       backends_rabbit$streams_pb.RabbitStreams.serializeBinaryToWriter
     );
@@ -989,7 +981,7 @@ proto.protos.RelayConfig.serializeBinaryToWriter = function(message, writer) {
   f = message.getRedisPubsub();
   if (f != null) {
     writer.writeMessage(
-      112,
+      111,
       f,
       backends_redis$pubsub_pb.RedisPubsub.serializeBinaryToWriter
     );
@@ -997,7 +989,7 @@ proto.protos.RelayConfig.serializeBinaryToWriter = function(message, writer) {
   f = message.getRedisStreams();
   if (f != null) {
     writer.writeMessage(
-      113,
+      112,
       f,
       backends_redis$streams_pb.RedisStreams.serializeBinaryToWriter
     );
@@ -1005,7 +997,7 @@ proto.protos.RelayConfig.serializeBinaryToWriter = function(message, writer) {
   f = message.getAzureEventHub();
   if (f != null) {
     writer.writeMessage(
-      114,
+      113,
       f,
       backends_azure$event$hub_pb.AzureEventHub.serializeBinaryToWriter
     );
@@ -1013,9 +1005,17 @@ proto.protos.RelayConfig.serializeBinaryToWriter = function(message, writer) {
   f = message.getAzureServiceBus();
   if (f != null) {
     writer.writeMessage(
-      115,
+      114,
       f,
       backends_azure$service$bus_pb.AzureServiceBus.serializeBinaryToWriter
+    );
+  }
+  f = message.getKubemq();
+  if (f != null) {
+    writer.writeMessage(
+      115,
+      f,
+      backends_kubemq_pb.KubeMQ.serializeBinaryToWriter
     );
   }
 };
@@ -1332,49 +1332,12 @@ proto.protos.RelayConfig.prototype.hasAwssqs = function() {
 
 
 /**
- * optional backends.AWSSNS awssns = 103;
- * @return {?proto.protos.backends.AWSSNS}
- */
-proto.protos.RelayConfig.prototype.getAwssns = function() {
-  return /** @type{?proto.protos.backends.AWSSNS} */ (
-    jspb.Message.getWrapperField(this, backends_aws$sns_pb.AWSSNS, 103));
-};
-
-
-/**
- * @param {?proto.protos.backends.AWSSNS|undefined} value
- * @return {!proto.protos.RelayConfig} returns this
-*/
-proto.protos.RelayConfig.prototype.setAwssns = function(value) {
-  return jspb.Message.setOneofWrapperField(this, 103, proto.protos.RelayConfig.oneofGroups_[0], value);
-};
-
-
-/**
- * Clears the message field making it undefined.
- * @return {!proto.protos.RelayConfig} returns this
- */
-proto.protos.RelayConfig.prototype.clearAwssns = function() {
-  return this.setAwssns(undefined);
-};
-
-
-/**
- * Returns whether this field is set.
- * @return {boolean}
- */
-proto.protos.RelayConfig.prototype.hasAwssns = function() {
-  return jspb.Message.getField(this, 103) != null;
-};
-
-
-/**
- * optional backends.Mongo mongo = 104;
+ * optional backends.Mongo mongo = 103;
  * @return {?proto.protos.backends.Mongo}
  */
 proto.protos.RelayConfig.prototype.getMongo = function() {
   return /** @type{?proto.protos.backends.Mongo} */ (
-    jspb.Message.getWrapperField(this, backends_mongo_pb.Mongo, 104));
+    jspb.Message.getWrapperField(this, backends_mongo_pb.Mongo, 103));
 };
 
 
@@ -1383,7 +1346,7 @@ proto.protos.RelayConfig.prototype.getMongo = function() {
  * @return {!proto.protos.RelayConfig} returns this
 */
 proto.protos.RelayConfig.prototype.setMongo = function(value) {
-  return jspb.Message.setOneofWrapperField(this, 104, proto.protos.RelayConfig.oneofGroups_[0], value);
+  return jspb.Message.setOneofWrapperField(this, 103, proto.protos.RelayConfig.oneofGroups_[0], value);
 };
 
 
@@ -1401,17 +1364,17 @@ proto.protos.RelayConfig.prototype.clearMongo = function() {
  * @return {boolean}
  */
 proto.protos.RelayConfig.prototype.hasMongo = function() {
-  return jspb.Message.getField(this, 104) != null;
+  return jspb.Message.getField(this, 103) != null;
 };
 
 
 /**
- * optional backends.Nats nats = 105;
+ * optional backends.Nats nats = 104;
  * @return {?proto.protos.backends.Nats}
  */
 proto.protos.RelayConfig.prototype.getNats = function() {
   return /** @type{?proto.protos.backends.Nats} */ (
-    jspb.Message.getWrapperField(this, backends_nats_pb.Nats, 105));
+    jspb.Message.getWrapperField(this, backends_nats_pb.Nats, 104));
 };
 
 
@@ -1420,7 +1383,7 @@ proto.protos.RelayConfig.prototype.getNats = function() {
  * @return {!proto.protos.RelayConfig} returns this
 */
 proto.protos.RelayConfig.prototype.setNats = function(value) {
-  return jspb.Message.setOneofWrapperField(this, 105, proto.protos.RelayConfig.oneofGroups_[0], value);
+  return jspb.Message.setOneofWrapperField(this, 104, proto.protos.RelayConfig.oneofGroups_[0], value);
 };
 
 
@@ -1438,17 +1401,17 @@ proto.protos.RelayConfig.prototype.clearNats = function() {
  * @return {boolean}
  */
 proto.protos.RelayConfig.prototype.hasNats = function() {
-  return jspb.Message.getField(this, 105) != null;
+  return jspb.Message.getField(this, 104) != null;
 };
 
 
 /**
- * optional backends.NatsStreaming nats_streaming = 106;
+ * optional backends.NatsStreaming nats_streaming = 105;
  * @return {?proto.protos.backends.NatsStreaming}
  */
 proto.protos.RelayConfig.prototype.getNatsStreaming = function() {
   return /** @type{?proto.protos.backends.NatsStreaming} */ (
-    jspb.Message.getWrapperField(this, backends_nats$streaming_pb.NatsStreaming, 106));
+    jspb.Message.getWrapperField(this, backends_nats$streaming_pb.NatsStreaming, 105));
 };
 
 
@@ -1457,7 +1420,7 @@ proto.protos.RelayConfig.prototype.getNatsStreaming = function() {
  * @return {!proto.protos.RelayConfig} returns this
 */
 proto.protos.RelayConfig.prototype.setNatsStreaming = function(value) {
-  return jspb.Message.setOneofWrapperField(this, 106, proto.protos.RelayConfig.oneofGroups_[0], value);
+  return jspb.Message.setOneofWrapperField(this, 105, proto.protos.RelayConfig.oneofGroups_[0], value);
 };
 
 
@@ -1475,17 +1438,17 @@ proto.protos.RelayConfig.prototype.clearNatsStreaming = function() {
  * @return {boolean}
  */
 proto.protos.RelayConfig.prototype.hasNatsStreaming = function() {
-  return jspb.Message.getField(this, 106) != null;
+  return jspb.Message.getField(this, 105) != null;
 };
 
 
 /**
- * optional backends.NSQ nsq = 107;
+ * optional backends.NSQ nsq = 106;
  * @return {?proto.protos.backends.NSQ}
  */
 proto.protos.RelayConfig.prototype.getNsq = function() {
   return /** @type{?proto.protos.backends.NSQ} */ (
-    jspb.Message.getWrapperField(this, backends_nsq_pb.NSQ, 107));
+    jspb.Message.getWrapperField(this, backends_nsq_pb.NSQ, 106));
 };
 
 
@@ -1494,7 +1457,7 @@ proto.protos.RelayConfig.prototype.getNsq = function() {
  * @return {!proto.protos.RelayConfig} returns this
 */
 proto.protos.RelayConfig.prototype.setNsq = function(value) {
-  return jspb.Message.setOneofWrapperField(this, 107, proto.protos.RelayConfig.oneofGroups_[0], value);
+  return jspb.Message.setOneofWrapperField(this, 106, proto.protos.RelayConfig.oneofGroups_[0], value);
 };
 
 
@@ -1512,17 +1475,17 @@ proto.protos.RelayConfig.prototype.clearNsq = function() {
  * @return {boolean}
  */
 proto.protos.RelayConfig.prototype.hasNsq = function() {
-  return jspb.Message.getField(this, 107) != null;
+  return jspb.Message.getField(this, 106) != null;
 };
 
 
 /**
- * optional backends.Postgres postgres = 108;
+ * optional backends.Postgres postgres = 107;
  * @return {?proto.protos.backends.Postgres}
  */
 proto.protos.RelayConfig.prototype.getPostgres = function() {
   return /** @type{?proto.protos.backends.Postgres} */ (
-    jspb.Message.getWrapperField(this, backends_postgres_pb.Postgres, 108));
+    jspb.Message.getWrapperField(this, backends_postgres_pb.Postgres, 107));
 };
 
 
@@ -1531,7 +1494,7 @@ proto.protos.RelayConfig.prototype.getPostgres = function() {
  * @return {!proto.protos.RelayConfig} returns this
 */
 proto.protos.RelayConfig.prototype.setPostgres = function(value) {
-  return jspb.Message.setOneofWrapperField(this, 108, proto.protos.RelayConfig.oneofGroups_[0], value);
+  return jspb.Message.setOneofWrapperField(this, 107, proto.protos.RelayConfig.oneofGroups_[0], value);
 };
 
 
@@ -1549,17 +1512,17 @@ proto.protos.RelayConfig.prototype.clearPostgres = function() {
  * @return {boolean}
  */
 proto.protos.RelayConfig.prototype.hasPostgres = function() {
-  return jspb.Message.getField(this, 108) != null;
+  return jspb.Message.getField(this, 107) != null;
 };
 
 
 /**
- * optional backends.Pulsar pulsar = 109;
+ * optional backends.Pulsar pulsar = 108;
  * @return {?proto.protos.backends.Pulsar}
  */
 proto.protos.RelayConfig.prototype.getPulsar = function() {
   return /** @type{?proto.protos.backends.Pulsar} */ (
-    jspb.Message.getWrapperField(this, backends_pulsar_pb.Pulsar, 109));
+    jspb.Message.getWrapperField(this, backends_pulsar_pb.Pulsar, 108));
 };
 
 
@@ -1568,7 +1531,7 @@ proto.protos.RelayConfig.prototype.getPulsar = function() {
  * @return {!proto.protos.RelayConfig} returns this
 */
 proto.protos.RelayConfig.prototype.setPulsar = function(value) {
-  return jspb.Message.setOneofWrapperField(this, 109, proto.protos.RelayConfig.oneofGroups_[0], value);
+  return jspb.Message.setOneofWrapperField(this, 108, proto.protos.RelayConfig.oneofGroups_[0], value);
 };
 
 
@@ -1586,17 +1549,17 @@ proto.protos.RelayConfig.prototype.clearPulsar = function() {
  * @return {boolean}
  */
 proto.protos.RelayConfig.prototype.hasPulsar = function() {
-  return jspb.Message.getField(this, 109) != null;
+  return jspb.Message.getField(this, 108) != null;
 };
 
 
 /**
- * optional backends.Rabbit rabbit = 110;
+ * optional backends.Rabbit rabbit = 109;
  * @return {?proto.protos.backends.Rabbit}
  */
 proto.protos.RelayConfig.prototype.getRabbit = function() {
   return /** @type{?proto.protos.backends.Rabbit} */ (
-    jspb.Message.getWrapperField(this, backends_rabbit_pb.Rabbit, 110));
+    jspb.Message.getWrapperField(this, backends_rabbit_pb.Rabbit, 109));
 };
 
 
@@ -1605,7 +1568,7 @@ proto.protos.RelayConfig.prototype.getRabbit = function() {
  * @return {!proto.protos.RelayConfig} returns this
 */
 proto.protos.RelayConfig.prototype.setRabbit = function(value) {
-  return jspb.Message.setOneofWrapperField(this, 110, proto.protos.RelayConfig.oneofGroups_[0], value);
+  return jspb.Message.setOneofWrapperField(this, 109, proto.protos.RelayConfig.oneofGroups_[0], value);
 };
 
 
@@ -1623,17 +1586,17 @@ proto.protos.RelayConfig.prototype.clearRabbit = function() {
  * @return {boolean}
  */
 proto.protos.RelayConfig.prototype.hasRabbit = function() {
-  return jspb.Message.getField(this, 110) != null;
+  return jspb.Message.getField(this, 109) != null;
 };
 
 
 /**
- * optional backends.RabbitStreams rabbit_streams = 111;
+ * optional backends.RabbitStreams rabbit_streams = 110;
  * @return {?proto.protos.backends.RabbitStreams}
  */
 proto.protos.RelayConfig.prototype.getRabbitStreams = function() {
   return /** @type{?proto.protos.backends.RabbitStreams} */ (
-    jspb.Message.getWrapperField(this, backends_rabbit$streams_pb.RabbitStreams, 111));
+    jspb.Message.getWrapperField(this, backends_rabbit$streams_pb.RabbitStreams, 110));
 };
 
 
@@ -1642,7 +1605,7 @@ proto.protos.RelayConfig.prototype.getRabbitStreams = function() {
  * @return {!proto.protos.RelayConfig} returns this
 */
 proto.protos.RelayConfig.prototype.setRabbitStreams = function(value) {
-  return jspb.Message.setOneofWrapperField(this, 111, proto.protos.RelayConfig.oneofGroups_[0], value);
+  return jspb.Message.setOneofWrapperField(this, 110, proto.protos.RelayConfig.oneofGroups_[0], value);
 };
 
 
@@ -1660,17 +1623,17 @@ proto.protos.RelayConfig.prototype.clearRabbitStreams = function() {
  * @return {boolean}
  */
 proto.protos.RelayConfig.prototype.hasRabbitStreams = function() {
-  return jspb.Message.getField(this, 111) != null;
+  return jspb.Message.getField(this, 110) != null;
 };
 
 
 /**
- * optional backends.RedisPubsub redis_pubsub = 112;
+ * optional backends.RedisPubsub redis_pubsub = 111;
  * @return {?proto.protos.backends.RedisPubsub}
  */
 proto.protos.RelayConfig.prototype.getRedisPubsub = function() {
   return /** @type{?proto.protos.backends.RedisPubsub} */ (
-    jspb.Message.getWrapperField(this, backends_redis$pubsub_pb.RedisPubsub, 112));
+    jspb.Message.getWrapperField(this, backends_redis$pubsub_pb.RedisPubsub, 111));
 };
 
 
@@ -1679,7 +1642,7 @@ proto.protos.RelayConfig.prototype.getRedisPubsub = function() {
  * @return {!proto.protos.RelayConfig} returns this
 */
 proto.protos.RelayConfig.prototype.setRedisPubsub = function(value) {
-  return jspb.Message.setOneofWrapperField(this, 112, proto.protos.RelayConfig.oneofGroups_[0], value);
+  return jspb.Message.setOneofWrapperField(this, 111, proto.protos.RelayConfig.oneofGroups_[0], value);
 };
 
 
@@ -1697,17 +1660,17 @@ proto.protos.RelayConfig.prototype.clearRedisPubsub = function() {
  * @return {boolean}
  */
 proto.protos.RelayConfig.prototype.hasRedisPubsub = function() {
-  return jspb.Message.getField(this, 112) != null;
+  return jspb.Message.getField(this, 111) != null;
 };
 
 
 /**
- * optional backends.RedisStreams redis_streams = 113;
+ * optional backends.RedisStreams redis_streams = 112;
  * @return {?proto.protos.backends.RedisStreams}
  */
 proto.protos.RelayConfig.prototype.getRedisStreams = function() {
   return /** @type{?proto.protos.backends.RedisStreams} */ (
-    jspb.Message.getWrapperField(this, backends_redis$streams_pb.RedisStreams, 113));
+    jspb.Message.getWrapperField(this, backends_redis$streams_pb.RedisStreams, 112));
 };
 
 
@@ -1716,7 +1679,7 @@ proto.protos.RelayConfig.prototype.getRedisStreams = function() {
  * @return {!proto.protos.RelayConfig} returns this
 */
 proto.protos.RelayConfig.prototype.setRedisStreams = function(value) {
-  return jspb.Message.setOneofWrapperField(this, 113, proto.protos.RelayConfig.oneofGroups_[0], value);
+  return jspb.Message.setOneofWrapperField(this, 112, proto.protos.RelayConfig.oneofGroups_[0], value);
 };
 
 
@@ -1734,17 +1697,17 @@ proto.protos.RelayConfig.prototype.clearRedisStreams = function() {
  * @return {boolean}
  */
 proto.protos.RelayConfig.prototype.hasRedisStreams = function() {
-  return jspb.Message.getField(this, 113) != null;
+  return jspb.Message.getField(this, 112) != null;
 };
 
 
 /**
- * optional backends.AzureEventHub azure_event_hub = 114;
+ * optional backends.AzureEventHub azure_event_hub = 113;
  * @return {?proto.protos.backends.AzureEventHub}
  */
 proto.protos.RelayConfig.prototype.getAzureEventHub = function() {
   return /** @type{?proto.protos.backends.AzureEventHub} */ (
-    jspb.Message.getWrapperField(this, backends_azure$event$hub_pb.AzureEventHub, 114));
+    jspb.Message.getWrapperField(this, backends_azure$event$hub_pb.AzureEventHub, 113));
 };
 
 
@@ -1753,7 +1716,7 @@ proto.protos.RelayConfig.prototype.getAzureEventHub = function() {
  * @return {!proto.protos.RelayConfig} returns this
 */
 proto.protos.RelayConfig.prototype.setAzureEventHub = function(value) {
-  return jspb.Message.setOneofWrapperField(this, 114, proto.protos.RelayConfig.oneofGroups_[0], value);
+  return jspb.Message.setOneofWrapperField(this, 113, proto.protos.RelayConfig.oneofGroups_[0], value);
 };
 
 
@@ -1771,17 +1734,17 @@ proto.protos.RelayConfig.prototype.clearAzureEventHub = function() {
  * @return {boolean}
  */
 proto.protos.RelayConfig.prototype.hasAzureEventHub = function() {
-  return jspb.Message.getField(this, 114) != null;
+  return jspb.Message.getField(this, 113) != null;
 };
 
 
 /**
- * optional backends.AzureServiceBus azure_service_bus = 115;
+ * optional backends.AzureServiceBus azure_service_bus = 114;
  * @return {?proto.protos.backends.AzureServiceBus}
  */
 proto.protos.RelayConfig.prototype.getAzureServiceBus = function() {
   return /** @type{?proto.protos.backends.AzureServiceBus} */ (
-    jspb.Message.getWrapperField(this, backends_azure$service$bus_pb.AzureServiceBus, 115));
+    jspb.Message.getWrapperField(this, backends_azure$service$bus_pb.AzureServiceBus, 114));
 };
 
 
@@ -1790,7 +1753,7 @@ proto.protos.RelayConfig.prototype.getAzureServiceBus = function() {
  * @return {!proto.protos.RelayConfig} returns this
 */
 proto.protos.RelayConfig.prototype.setAzureServiceBus = function(value) {
-  return jspb.Message.setOneofWrapperField(this, 115, proto.protos.RelayConfig.oneofGroups_[0], value);
+  return jspb.Message.setOneofWrapperField(this, 114, proto.protos.RelayConfig.oneofGroups_[0], value);
 };
 
 
@@ -1808,6 +1771,43 @@ proto.protos.RelayConfig.prototype.clearAzureServiceBus = function() {
  * @return {boolean}
  */
 proto.protos.RelayConfig.prototype.hasAzureServiceBus = function() {
+  return jspb.Message.getField(this, 114) != null;
+};
+
+
+/**
+ * optional backends.KubeMQ kubemq = 115;
+ * @return {?proto.protos.backends.KubeMQ}
+ */
+proto.protos.RelayConfig.prototype.getKubemq = function() {
+  return /** @type{?proto.protos.backends.KubeMQ} */ (
+    jspb.Message.getWrapperField(this, backends_kubemq_pb.KubeMQ, 115));
+};
+
+
+/**
+ * @param {?proto.protos.backends.KubeMQ|undefined} value
+ * @return {!proto.protos.RelayConfig} returns this
+*/
+proto.protos.RelayConfig.prototype.setKubemq = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 115, proto.protos.RelayConfig.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.RelayConfig} returns this
+ */
+proto.protos.RelayConfig.prototype.clearKubemq = function() {
+  return this.setKubemq(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.RelayConfig.prototype.hasKubemq = function() {
   return jspb.Message.getField(this, 115) != null;
 };
 
@@ -2566,7 +2566,7 @@ proto.protos.GetRelayResponse.prototype.hasConfig = function() {
  * @private {!Array<!Array<number>>}
  * @const
  */
-proto.protos.CreateRelayRequest.oneofGroups_ = [[100,101,102,103,104,105,106,107,108,109,110,111,112,113]];
+proto.protos.CreateRelayRequest.oneofGroups_ = [[100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115]];
 
 /**
  * @enum {number}
@@ -2576,17 +2576,19 @@ proto.protos.CreateRelayRequest.BackendsCase = {
   KAFKA: 100,
   ACTIVE_MQ: 101,
   AWSSQS: 102,
-  AWSSNS: 103,
-  MONGO: 104,
-  NATS: 105,
-  NATS_STREAMING: 106,
-  NSQ: 107,
-  POSTGRES: 108,
-  PULSAR: 109,
-  RABBIT: 110,
-  RABBIT_STREAMS: 111,
-  REDIS_PUBSUB: 112,
-  REDIS_STREAMS: 113
+  MONGO: 103,
+  NATS: 104,
+  NATS_STREAMING: 105,
+  NSQ: 106,
+  POSTGRES: 107,
+  PULSAR: 108,
+  RABBIT: 109,
+  RABBIT_STREAMS: 110,
+  REDIS_PUBSUB: 111,
+  REDIS_STREAMS: 112,
+  AZURE_EVENT_HUB: 113,
+  AZURE_SERVICE_BUS: 114,
+  KUBEMQ: 115
 };
 
 /**
@@ -2632,7 +2634,6 @@ proto.protos.CreateRelayRequest.toObject = function(includeInstance, msg) {
     kafka: (f = msg.getKafka()) && backends_kafka_pb.Kafka.toObject(includeInstance, f),
     activeMq: (f = msg.getActiveMq()) && backends_activemq_pb.ActiveMQ.toObject(includeInstance, f),
     awssqs: (f = msg.getAwssqs()) && backends_aws$sqs_pb.AWSSQS.toObject(includeInstance, f),
-    awssns: (f = msg.getAwssns()) && backends_aws$sns_pb.AWSSNS.toObject(includeInstance, f),
     mongo: (f = msg.getMongo()) && backends_mongo_pb.Mongo.toObject(includeInstance, f),
     nats: (f = msg.getNats()) && backends_nats_pb.Nats.toObject(includeInstance, f),
     natsStreaming: (f = msg.getNatsStreaming()) && backends_nats$streaming_pb.NatsStreaming.toObject(includeInstance, f),
@@ -2642,7 +2643,10 @@ proto.protos.CreateRelayRequest.toObject = function(includeInstance, msg) {
     rabbit: (f = msg.getRabbit()) && backends_rabbit_pb.Rabbit.toObject(includeInstance, f),
     rabbitStreams: (f = msg.getRabbitStreams()) && backends_rabbit$streams_pb.RabbitStreams.toObject(includeInstance, f),
     redisPubsub: (f = msg.getRedisPubsub()) && backends_redis$pubsub_pb.RedisPubsub.toObject(includeInstance, f),
-    redisStreams: (f = msg.getRedisStreams()) && backends_redis$streams_pb.RedisStreams.toObject(includeInstance, f)
+    redisStreams: (f = msg.getRedisStreams()) && backends_redis$streams_pb.RedisStreams.toObject(includeInstance, f),
+    azureEventHub: (f = msg.getAzureEventHub()) && backends_azure$event$hub_pb.AzureEventHub.toObject(includeInstance, f),
+    azureServiceBus: (f = msg.getAzureServiceBus()) && backends_azure$service$bus_pb.AzureServiceBus.toObject(includeInstance, f),
+    kubemq: (f = msg.getKubemq()) && backends_kubemq_pb.KubeMQ.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -2705,59 +2709,69 @@ proto.protos.CreateRelayRequest.deserializeBinaryFromReader = function(msg, read
       msg.setAwssqs(value);
       break;
     case 103:
-      var value = new backends_aws$sns_pb.AWSSNS;
-      reader.readMessage(value,backends_aws$sns_pb.AWSSNS.deserializeBinaryFromReader);
-      msg.setAwssns(value);
-      break;
-    case 104:
       var value = new backends_mongo_pb.Mongo;
       reader.readMessage(value,backends_mongo_pb.Mongo.deserializeBinaryFromReader);
       msg.setMongo(value);
       break;
-    case 105:
+    case 104:
       var value = new backends_nats_pb.Nats;
       reader.readMessage(value,backends_nats_pb.Nats.deserializeBinaryFromReader);
       msg.setNats(value);
       break;
-    case 106:
+    case 105:
       var value = new backends_nats$streaming_pb.NatsStreaming;
       reader.readMessage(value,backends_nats$streaming_pb.NatsStreaming.deserializeBinaryFromReader);
       msg.setNatsStreaming(value);
       break;
-    case 107:
+    case 106:
       var value = new backends_nsq_pb.NSQ;
       reader.readMessage(value,backends_nsq_pb.NSQ.deserializeBinaryFromReader);
       msg.setNsq(value);
       break;
-    case 108:
+    case 107:
       var value = new backends_postgres_pb.Postgres;
       reader.readMessage(value,backends_postgres_pb.Postgres.deserializeBinaryFromReader);
       msg.setPostgres(value);
       break;
-    case 109:
+    case 108:
       var value = new backends_pulsar_pb.Pulsar;
       reader.readMessage(value,backends_pulsar_pb.Pulsar.deserializeBinaryFromReader);
       msg.setPulsar(value);
       break;
-    case 110:
+    case 109:
       var value = new backends_rabbit_pb.Rabbit;
       reader.readMessage(value,backends_rabbit_pb.Rabbit.deserializeBinaryFromReader);
       msg.setRabbit(value);
       break;
-    case 111:
+    case 110:
       var value = new backends_rabbit$streams_pb.RabbitStreams;
       reader.readMessage(value,backends_rabbit$streams_pb.RabbitStreams.deserializeBinaryFromReader);
       msg.setRabbitStreams(value);
       break;
-    case 112:
+    case 111:
       var value = new backends_redis$pubsub_pb.RedisPubsub;
       reader.readMessage(value,backends_redis$pubsub_pb.RedisPubsub.deserializeBinaryFromReader);
       msg.setRedisPubsub(value);
       break;
-    case 113:
+    case 112:
       var value = new backends_redis$streams_pb.RedisStreams;
       reader.readMessage(value,backends_redis$streams_pb.RedisStreams.deserializeBinaryFromReader);
       msg.setRedisStreams(value);
+      break;
+    case 113:
+      var value = new backends_azure$event$hub_pb.AzureEventHub;
+      reader.readMessage(value,backends_azure$event$hub_pb.AzureEventHub.deserializeBinaryFromReader);
+      msg.setAzureEventHub(value);
+      break;
+    case 114:
+      var value = new backends_azure$service$bus_pb.AzureServiceBus;
+      reader.readMessage(value,backends_azure$service$bus_pb.AzureServiceBus.deserializeBinaryFromReader);
+      msg.setAzureServiceBus(value);
+      break;
+    case 115:
+      var value = new backends_kubemq_pb.KubeMQ;
+      reader.readMessage(value,backends_kubemq_pb.KubeMQ.deserializeBinaryFromReader);
+      msg.setKubemq(value);
       break;
     default:
       reader.skipField();
@@ -2828,18 +2842,10 @@ proto.protos.CreateRelayRequest.serializeBinaryToWriter = function(message, writ
       backends_aws$sqs_pb.AWSSQS.serializeBinaryToWriter
     );
   }
-  f = message.getAwssns();
-  if (f != null) {
-    writer.writeMessage(
-      103,
-      f,
-      backends_aws$sns_pb.AWSSNS.serializeBinaryToWriter
-    );
-  }
   f = message.getMongo();
   if (f != null) {
     writer.writeMessage(
-      104,
+      103,
       f,
       backends_mongo_pb.Mongo.serializeBinaryToWriter
     );
@@ -2847,7 +2853,7 @@ proto.protos.CreateRelayRequest.serializeBinaryToWriter = function(message, writ
   f = message.getNats();
   if (f != null) {
     writer.writeMessage(
-      105,
+      104,
       f,
       backends_nats_pb.Nats.serializeBinaryToWriter
     );
@@ -2855,7 +2861,7 @@ proto.protos.CreateRelayRequest.serializeBinaryToWriter = function(message, writ
   f = message.getNatsStreaming();
   if (f != null) {
     writer.writeMessage(
-      106,
+      105,
       f,
       backends_nats$streaming_pb.NatsStreaming.serializeBinaryToWriter
     );
@@ -2863,7 +2869,7 @@ proto.protos.CreateRelayRequest.serializeBinaryToWriter = function(message, writ
   f = message.getNsq();
   if (f != null) {
     writer.writeMessage(
-      107,
+      106,
       f,
       backends_nsq_pb.NSQ.serializeBinaryToWriter
     );
@@ -2871,7 +2877,7 @@ proto.protos.CreateRelayRequest.serializeBinaryToWriter = function(message, writ
   f = message.getPostgres();
   if (f != null) {
     writer.writeMessage(
-      108,
+      107,
       f,
       backends_postgres_pb.Postgres.serializeBinaryToWriter
     );
@@ -2879,7 +2885,7 @@ proto.protos.CreateRelayRequest.serializeBinaryToWriter = function(message, writ
   f = message.getPulsar();
   if (f != null) {
     writer.writeMessage(
-      109,
+      108,
       f,
       backends_pulsar_pb.Pulsar.serializeBinaryToWriter
     );
@@ -2887,7 +2893,7 @@ proto.protos.CreateRelayRequest.serializeBinaryToWriter = function(message, writ
   f = message.getRabbit();
   if (f != null) {
     writer.writeMessage(
-      110,
+      109,
       f,
       backends_rabbit_pb.Rabbit.serializeBinaryToWriter
     );
@@ -2895,7 +2901,7 @@ proto.protos.CreateRelayRequest.serializeBinaryToWriter = function(message, writ
   f = message.getRabbitStreams();
   if (f != null) {
     writer.writeMessage(
-      111,
+      110,
       f,
       backends_rabbit$streams_pb.RabbitStreams.serializeBinaryToWriter
     );
@@ -2903,7 +2909,7 @@ proto.protos.CreateRelayRequest.serializeBinaryToWriter = function(message, writ
   f = message.getRedisPubsub();
   if (f != null) {
     writer.writeMessage(
-      112,
+      111,
       f,
       backends_redis$pubsub_pb.RedisPubsub.serializeBinaryToWriter
     );
@@ -2911,9 +2917,33 @@ proto.protos.CreateRelayRequest.serializeBinaryToWriter = function(message, writ
   f = message.getRedisStreams();
   if (f != null) {
     writer.writeMessage(
-      113,
+      112,
       f,
       backends_redis$streams_pb.RedisStreams.serializeBinaryToWriter
+    );
+  }
+  f = message.getAzureEventHub();
+  if (f != null) {
+    writer.writeMessage(
+      113,
+      f,
+      backends_azure$event$hub_pb.AzureEventHub.serializeBinaryToWriter
+    );
+  }
+  f = message.getAzureServiceBus();
+  if (f != null) {
+    writer.writeMessage(
+      114,
+      f,
+      backends_azure$service$bus_pb.AzureServiceBus.serializeBinaryToWriter
+    );
+  }
+  f = message.getKubemq();
+  if (f != null) {
+    writer.writeMessage(
+      115,
+      f,
+      backends_kubemq_pb.KubeMQ.serializeBinaryToWriter
     );
   }
 };
@@ -3105,49 +3135,12 @@ proto.protos.CreateRelayRequest.prototype.hasAwssqs = function() {
 
 
 /**
- * optional backends.AWSSNS awssns = 103;
- * @return {?proto.protos.backends.AWSSNS}
- */
-proto.protos.CreateRelayRequest.prototype.getAwssns = function() {
-  return /** @type{?proto.protos.backends.AWSSNS} */ (
-    jspb.Message.getWrapperField(this, backends_aws$sns_pb.AWSSNS, 103));
-};
-
-
-/**
- * @param {?proto.protos.backends.AWSSNS|undefined} value
- * @return {!proto.protos.CreateRelayRequest} returns this
-*/
-proto.protos.CreateRelayRequest.prototype.setAwssns = function(value) {
-  return jspb.Message.setOneofWrapperField(this, 103, proto.protos.CreateRelayRequest.oneofGroups_[0], value);
-};
-
-
-/**
- * Clears the message field making it undefined.
- * @return {!proto.protos.CreateRelayRequest} returns this
- */
-proto.protos.CreateRelayRequest.prototype.clearAwssns = function() {
-  return this.setAwssns(undefined);
-};
-
-
-/**
- * Returns whether this field is set.
- * @return {boolean}
- */
-proto.protos.CreateRelayRequest.prototype.hasAwssns = function() {
-  return jspb.Message.getField(this, 103) != null;
-};
-
-
-/**
- * optional backends.Mongo mongo = 104;
+ * optional backends.Mongo mongo = 103;
  * @return {?proto.protos.backends.Mongo}
  */
 proto.protos.CreateRelayRequest.prototype.getMongo = function() {
   return /** @type{?proto.protos.backends.Mongo} */ (
-    jspb.Message.getWrapperField(this, backends_mongo_pb.Mongo, 104));
+    jspb.Message.getWrapperField(this, backends_mongo_pb.Mongo, 103));
 };
 
 
@@ -3156,7 +3149,7 @@ proto.protos.CreateRelayRequest.prototype.getMongo = function() {
  * @return {!proto.protos.CreateRelayRequest} returns this
 */
 proto.protos.CreateRelayRequest.prototype.setMongo = function(value) {
-  return jspb.Message.setOneofWrapperField(this, 104, proto.protos.CreateRelayRequest.oneofGroups_[0], value);
+  return jspb.Message.setOneofWrapperField(this, 103, proto.protos.CreateRelayRequest.oneofGroups_[0], value);
 };
 
 
@@ -3174,17 +3167,17 @@ proto.protos.CreateRelayRequest.prototype.clearMongo = function() {
  * @return {boolean}
  */
 proto.protos.CreateRelayRequest.prototype.hasMongo = function() {
-  return jspb.Message.getField(this, 104) != null;
+  return jspb.Message.getField(this, 103) != null;
 };
 
 
 /**
- * optional backends.Nats nats = 105;
+ * optional backends.Nats nats = 104;
  * @return {?proto.protos.backends.Nats}
  */
 proto.protos.CreateRelayRequest.prototype.getNats = function() {
   return /** @type{?proto.protos.backends.Nats} */ (
-    jspb.Message.getWrapperField(this, backends_nats_pb.Nats, 105));
+    jspb.Message.getWrapperField(this, backends_nats_pb.Nats, 104));
 };
 
 
@@ -3193,7 +3186,7 @@ proto.protos.CreateRelayRequest.prototype.getNats = function() {
  * @return {!proto.protos.CreateRelayRequest} returns this
 */
 proto.protos.CreateRelayRequest.prototype.setNats = function(value) {
-  return jspb.Message.setOneofWrapperField(this, 105, proto.protos.CreateRelayRequest.oneofGroups_[0], value);
+  return jspb.Message.setOneofWrapperField(this, 104, proto.protos.CreateRelayRequest.oneofGroups_[0], value);
 };
 
 
@@ -3211,17 +3204,17 @@ proto.protos.CreateRelayRequest.prototype.clearNats = function() {
  * @return {boolean}
  */
 proto.protos.CreateRelayRequest.prototype.hasNats = function() {
-  return jspb.Message.getField(this, 105) != null;
+  return jspb.Message.getField(this, 104) != null;
 };
 
 
 /**
- * optional backends.NatsStreaming nats_streaming = 106;
+ * optional backends.NatsStreaming nats_streaming = 105;
  * @return {?proto.protos.backends.NatsStreaming}
  */
 proto.protos.CreateRelayRequest.prototype.getNatsStreaming = function() {
   return /** @type{?proto.protos.backends.NatsStreaming} */ (
-    jspb.Message.getWrapperField(this, backends_nats$streaming_pb.NatsStreaming, 106));
+    jspb.Message.getWrapperField(this, backends_nats$streaming_pb.NatsStreaming, 105));
 };
 
 
@@ -3230,7 +3223,7 @@ proto.protos.CreateRelayRequest.prototype.getNatsStreaming = function() {
  * @return {!proto.protos.CreateRelayRequest} returns this
 */
 proto.protos.CreateRelayRequest.prototype.setNatsStreaming = function(value) {
-  return jspb.Message.setOneofWrapperField(this, 106, proto.protos.CreateRelayRequest.oneofGroups_[0], value);
+  return jspb.Message.setOneofWrapperField(this, 105, proto.protos.CreateRelayRequest.oneofGroups_[0], value);
 };
 
 
@@ -3248,17 +3241,17 @@ proto.protos.CreateRelayRequest.prototype.clearNatsStreaming = function() {
  * @return {boolean}
  */
 proto.protos.CreateRelayRequest.prototype.hasNatsStreaming = function() {
-  return jspb.Message.getField(this, 106) != null;
+  return jspb.Message.getField(this, 105) != null;
 };
 
 
 /**
- * optional backends.NSQ nsq = 107;
+ * optional backends.NSQ nsq = 106;
  * @return {?proto.protos.backends.NSQ}
  */
 proto.protos.CreateRelayRequest.prototype.getNsq = function() {
   return /** @type{?proto.protos.backends.NSQ} */ (
-    jspb.Message.getWrapperField(this, backends_nsq_pb.NSQ, 107));
+    jspb.Message.getWrapperField(this, backends_nsq_pb.NSQ, 106));
 };
 
 
@@ -3267,7 +3260,7 @@ proto.protos.CreateRelayRequest.prototype.getNsq = function() {
  * @return {!proto.protos.CreateRelayRequest} returns this
 */
 proto.protos.CreateRelayRequest.prototype.setNsq = function(value) {
-  return jspb.Message.setOneofWrapperField(this, 107, proto.protos.CreateRelayRequest.oneofGroups_[0], value);
+  return jspb.Message.setOneofWrapperField(this, 106, proto.protos.CreateRelayRequest.oneofGroups_[0], value);
 };
 
 
@@ -3285,17 +3278,17 @@ proto.protos.CreateRelayRequest.prototype.clearNsq = function() {
  * @return {boolean}
  */
 proto.protos.CreateRelayRequest.prototype.hasNsq = function() {
-  return jspb.Message.getField(this, 107) != null;
+  return jspb.Message.getField(this, 106) != null;
 };
 
 
 /**
- * optional backends.Postgres postgres = 108;
+ * optional backends.Postgres postgres = 107;
  * @return {?proto.protos.backends.Postgres}
  */
 proto.protos.CreateRelayRequest.prototype.getPostgres = function() {
   return /** @type{?proto.protos.backends.Postgres} */ (
-    jspb.Message.getWrapperField(this, backends_postgres_pb.Postgres, 108));
+    jspb.Message.getWrapperField(this, backends_postgres_pb.Postgres, 107));
 };
 
 
@@ -3304,7 +3297,7 @@ proto.protos.CreateRelayRequest.prototype.getPostgres = function() {
  * @return {!proto.protos.CreateRelayRequest} returns this
 */
 proto.protos.CreateRelayRequest.prototype.setPostgres = function(value) {
-  return jspb.Message.setOneofWrapperField(this, 108, proto.protos.CreateRelayRequest.oneofGroups_[0], value);
+  return jspb.Message.setOneofWrapperField(this, 107, proto.protos.CreateRelayRequest.oneofGroups_[0], value);
 };
 
 
@@ -3322,17 +3315,17 @@ proto.protos.CreateRelayRequest.prototype.clearPostgres = function() {
  * @return {boolean}
  */
 proto.protos.CreateRelayRequest.prototype.hasPostgres = function() {
-  return jspb.Message.getField(this, 108) != null;
+  return jspb.Message.getField(this, 107) != null;
 };
 
 
 /**
- * optional backends.Pulsar pulsar = 109;
+ * optional backends.Pulsar pulsar = 108;
  * @return {?proto.protos.backends.Pulsar}
  */
 proto.protos.CreateRelayRequest.prototype.getPulsar = function() {
   return /** @type{?proto.protos.backends.Pulsar} */ (
-    jspb.Message.getWrapperField(this, backends_pulsar_pb.Pulsar, 109));
+    jspb.Message.getWrapperField(this, backends_pulsar_pb.Pulsar, 108));
 };
 
 
@@ -3341,7 +3334,7 @@ proto.protos.CreateRelayRequest.prototype.getPulsar = function() {
  * @return {!proto.protos.CreateRelayRequest} returns this
 */
 proto.protos.CreateRelayRequest.prototype.setPulsar = function(value) {
-  return jspb.Message.setOneofWrapperField(this, 109, proto.protos.CreateRelayRequest.oneofGroups_[0], value);
+  return jspb.Message.setOneofWrapperField(this, 108, proto.protos.CreateRelayRequest.oneofGroups_[0], value);
 };
 
 
@@ -3359,17 +3352,17 @@ proto.protos.CreateRelayRequest.prototype.clearPulsar = function() {
  * @return {boolean}
  */
 proto.protos.CreateRelayRequest.prototype.hasPulsar = function() {
-  return jspb.Message.getField(this, 109) != null;
+  return jspb.Message.getField(this, 108) != null;
 };
 
 
 /**
- * optional backends.Rabbit rabbit = 110;
+ * optional backends.Rabbit rabbit = 109;
  * @return {?proto.protos.backends.Rabbit}
  */
 proto.protos.CreateRelayRequest.prototype.getRabbit = function() {
   return /** @type{?proto.protos.backends.Rabbit} */ (
-    jspb.Message.getWrapperField(this, backends_rabbit_pb.Rabbit, 110));
+    jspb.Message.getWrapperField(this, backends_rabbit_pb.Rabbit, 109));
 };
 
 
@@ -3378,7 +3371,7 @@ proto.protos.CreateRelayRequest.prototype.getRabbit = function() {
  * @return {!proto.protos.CreateRelayRequest} returns this
 */
 proto.protos.CreateRelayRequest.prototype.setRabbit = function(value) {
-  return jspb.Message.setOneofWrapperField(this, 110, proto.protos.CreateRelayRequest.oneofGroups_[0], value);
+  return jspb.Message.setOneofWrapperField(this, 109, proto.protos.CreateRelayRequest.oneofGroups_[0], value);
 };
 
 
@@ -3396,17 +3389,17 @@ proto.protos.CreateRelayRequest.prototype.clearRabbit = function() {
  * @return {boolean}
  */
 proto.protos.CreateRelayRequest.prototype.hasRabbit = function() {
-  return jspb.Message.getField(this, 110) != null;
+  return jspb.Message.getField(this, 109) != null;
 };
 
 
 /**
- * optional backends.RabbitStreams rabbit_streams = 111;
+ * optional backends.RabbitStreams rabbit_streams = 110;
  * @return {?proto.protos.backends.RabbitStreams}
  */
 proto.protos.CreateRelayRequest.prototype.getRabbitStreams = function() {
   return /** @type{?proto.protos.backends.RabbitStreams} */ (
-    jspb.Message.getWrapperField(this, backends_rabbit$streams_pb.RabbitStreams, 111));
+    jspb.Message.getWrapperField(this, backends_rabbit$streams_pb.RabbitStreams, 110));
 };
 
 
@@ -3415,7 +3408,7 @@ proto.protos.CreateRelayRequest.prototype.getRabbitStreams = function() {
  * @return {!proto.protos.CreateRelayRequest} returns this
 */
 proto.protos.CreateRelayRequest.prototype.setRabbitStreams = function(value) {
-  return jspb.Message.setOneofWrapperField(this, 111, proto.protos.CreateRelayRequest.oneofGroups_[0], value);
+  return jspb.Message.setOneofWrapperField(this, 110, proto.protos.CreateRelayRequest.oneofGroups_[0], value);
 };
 
 
@@ -3433,17 +3426,17 @@ proto.protos.CreateRelayRequest.prototype.clearRabbitStreams = function() {
  * @return {boolean}
  */
 proto.protos.CreateRelayRequest.prototype.hasRabbitStreams = function() {
-  return jspb.Message.getField(this, 111) != null;
+  return jspb.Message.getField(this, 110) != null;
 };
 
 
 /**
- * optional backends.RedisPubsub redis_pubsub = 112;
+ * optional backends.RedisPubsub redis_pubsub = 111;
  * @return {?proto.protos.backends.RedisPubsub}
  */
 proto.protos.CreateRelayRequest.prototype.getRedisPubsub = function() {
   return /** @type{?proto.protos.backends.RedisPubsub} */ (
-    jspb.Message.getWrapperField(this, backends_redis$pubsub_pb.RedisPubsub, 112));
+    jspb.Message.getWrapperField(this, backends_redis$pubsub_pb.RedisPubsub, 111));
 };
 
 
@@ -3452,7 +3445,7 @@ proto.protos.CreateRelayRequest.prototype.getRedisPubsub = function() {
  * @return {!proto.protos.CreateRelayRequest} returns this
 */
 proto.protos.CreateRelayRequest.prototype.setRedisPubsub = function(value) {
-  return jspb.Message.setOneofWrapperField(this, 112, proto.protos.CreateRelayRequest.oneofGroups_[0], value);
+  return jspb.Message.setOneofWrapperField(this, 111, proto.protos.CreateRelayRequest.oneofGroups_[0], value);
 };
 
 
@@ -3470,17 +3463,17 @@ proto.protos.CreateRelayRequest.prototype.clearRedisPubsub = function() {
  * @return {boolean}
  */
 proto.protos.CreateRelayRequest.prototype.hasRedisPubsub = function() {
-  return jspb.Message.getField(this, 112) != null;
+  return jspb.Message.getField(this, 111) != null;
 };
 
 
 /**
- * optional backends.RedisStreams redis_streams = 113;
+ * optional backends.RedisStreams redis_streams = 112;
  * @return {?proto.protos.backends.RedisStreams}
  */
 proto.protos.CreateRelayRequest.prototype.getRedisStreams = function() {
   return /** @type{?proto.protos.backends.RedisStreams} */ (
-    jspb.Message.getWrapperField(this, backends_redis$streams_pb.RedisStreams, 113));
+    jspb.Message.getWrapperField(this, backends_redis$streams_pb.RedisStreams, 112));
 };
 
 
@@ -3489,7 +3482,7 @@ proto.protos.CreateRelayRequest.prototype.getRedisStreams = function() {
  * @return {!proto.protos.CreateRelayRequest} returns this
 */
 proto.protos.CreateRelayRequest.prototype.setRedisStreams = function(value) {
-  return jspb.Message.setOneofWrapperField(this, 113, proto.protos.CreateRelayRequest.oneofGroups_[0], value);
+  return jspb.Message.setOneofWrapperField(this, 112, proto.protos.CreateRelayRequest.oneofGroups_[0], value);
 };
 
 
@@ -3507,7 +3500,118 @@ proto.protos.CreateRelayRequest.prototype.clearRedisStreams = function() {
  * @return {boolean}
  */
 proto.protos.CreateRelayRequest.prototype.hasRedisStreams = function() {
+  return jspb.Message.getField(this, 112) != null;
+};
+
+
+/**
+ * optional backends.AzureEventHub azure_event_hub = 113;
+ * @return {?proto.protos.backends.AzureEventHub}
+ */
+proto.protos.CreateRelayRequest.prototype.getAzureEventHub = function() {
+  return /** @type{?proto.protos.backends.AzureEventHub} */ (
+    jspb.Message.getWrapperField(this, backends_azure$event$hub_pb.AzureEventHub, 113));
+};
+
+
+/**
+ * @param {?proto.protos.backends.AzureEventHub|undefined} value
+ * @return {!proto.protos.CreateRelayRequest} returns this
+*/
+proto.protos.CreateRelayRequest.prototype.setAzureEventHub = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 113, proto.protos.CreateRelayRequest.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.CreateRelayRequest} returns this
+ */
+proto.protos.CreateRelayRequest.prototype.clearAzureEventHub = function() {
+  return this.setAzureEventHub(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.CreateRelayRequest.prototype.hasAzureEventHub = function() {
   return jspb.Message.getField(this, 113) != null;
+};
+
+
+/**
+ * optional backends.AzureServiceBus azure_service_bus = 114;
+ * @return {?proto.protos.backends.AzureServiceBus}
+ */
+proto.protos.CreateRelayRequest.prototype.getAzureServiceBus = function() {
+  return /** @type{?proto.protos.backends.AzureServiceBus} */ (
+    jspb.Message.getWrapperField(this, backends_azure$service$bus_pb.AzureServiceBus, 114));
+};
+
+
+/**
+ * @param {?proto.protos.backends.AzureServiceBus|undefined} value
+ * @return {!proto.protos.CreateRelayRequest} returns this
+*/
+proto.protos.CreateRelayRequest.prototype.setAzureServiceBus = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 114, proto.protos.CreateRelayRequest.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.CreateRelayRequest} returns this
+ */
+proto.protos.CreateRelayRequest.prototype.clearAzureServiceBus = function() {
+  return this.setAzureServiceBus(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.CreateRelayRequest.prototype.hasAzureServiceBus = function() {
+  return jspb.Message.getField(this, 114) != null;
+};
+
+
+/**
+ * optional backends.KubeMQ kubemq = 115;
+ * @return {?proto.protos.backends.KubeMQ}
+ */
+proto.protos.CreateRelayRequest.prototype.getKubemq = function() {
+  return /** @type{?proto.protos.backends.KubeMQ} */ (
+    jspb.Message.getWrapperField(this, backends_kubemq_pb.KubeMQ, 115));
+};
+
+
+/**
+ * @param {?proto.protos.backends.KubeMQ|undefined} value
+ * @return {!proto.protos.CreateRelayRequest} returns this
+*/
+proto.protos.CreateRelayRequest.prototype.setKubemq = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 115, proto.protos.CreateRelayRequest.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.CreateRelayRequest} returns this
+ */
+proto.protos.CreateRelayRequest.prototype.clearKubemq = function() {
+  return this.setKubemq(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.CreateRelayRequest.prototype.hasKubemq = function() {
+  return jspb.Message.getField(this, 115) != null;
 };
 
 

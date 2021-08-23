@@ -55,6 +55,8 @@ var backends_azure$service$bus_pb = require('./backends/azure-service-bus_pb.js'
 goog.object.extend(proto, backends_azure$service$bus_pb);
 var backends_azure$event$hub_pb = require('./backends/azure-event-hub_pb.js');
 goog.object.extend(proto, backends_azure$event$hub_pb);
+var backends_kubemq_pb = require('./backends/kubemq_pb.js');
+goog.object.extend(proto, backends_kubemq_pb);
 goog.exportSymbol('proto.protos.CreateReadRequest', null, global);
 goog.exportSymbol('proto.protos.CreateReadResponse', null, global);
 goog.exportSymbol('proto.protos.DeleteReadRequest', null, global);
@@ -966,7 +968,7 @@ proto.protos.ReadCLIConfig.prototype.setVerboseOutput = function(value) {
  * @private {!Array<!Array<number>>}
  * @const
  */
-proto.protos.ReadConfig.oneofGroups_ = [[100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115]];
+proto.protos.ReadConfig.oneofGroups_ = [[100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116]];
 
 /**
  * @enum {number}
@@ -988,7 +990,8 @@ proto.protos.ReadConfig.BackendsCase = {
   REDIS_PUBSUB: 112,
   REDIS_STREAMS: 113,
   AZURE_EVENT_HUB: 114,
-  AZURE_SERVICE_BUS: 115
+  AZURE_SERVICE_BUS: 115,
+  KUBEMQ: 116
 };
 
 /**
@@ -1051,7 +1054,8 @@ proto.protos.ReadConfig.toObject = function(includeInstance, msg) {
     redisPubsub: (f = msg.getRedisPubsub()) && backends_redis$pubsub_pb.RedisPubsub.toObject(includeInstance, f),
     redisStreams: (f = msg.getRedisStreams()) && backends_redis$streams_pb.RedisStreams.toObject(includeInstance, f),
     azureEventHub: (f = msg.getAzureEventHub()) && backends_azure$event$hub_pb.AzureEventHub.toObject(includeInstance, f),
-    azureServiceBus: (f = msg.getAzureServiceBus()) && backends_azure$service$bus_pb.AzureServiceBus.toObject(includeInstance, f)
+    azureServiceBus: (f = msg.getAzureServiceBus()) && backends_azure$service$bus_pb.AzureServiceBus.toObject(includeInstance, f),
+    kubemq: (f = msg.getKubemq()) && backends_kubemq_pb.KubeMQ.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -1198,6 +1202,11 @@ proto.protos.ReadConfig.deserializeBinaryFromReader = function(msg, reader) {
       var value = new backends_azure$service$bus_pb.AzureServiceBus;
       reader.readMessage(value,backends_azure$service$bus_pb.AzureServiceBus.deserializeBinaryFromReader);
       msg.setAzureServiceBus(value);
+      break;
+    case 116:
+      var value = new backends_kubemq_pb.KubeMQ;
+      reader.readMessage(value,backends_kubemq_pb.KubeMQ.deserializeBinaryFromReader);
+      msg.setKubemq(value);
       break;
     default:
       reader.skipField();
@@ -1406,6 +1415,14 @@ proto.protos.ReadConfig.serializeBinaryToWriter = function(message, writer) {
       115,
       f,
       backends_azure$service$bus_pb.AzureServiceBus.serializeBinaryToWriter
+    );
+  }
+  f = message.getKubemq();
+  if (f != null) {
+    writer.writeMessage(
+      116,
+      f,
+      backends_kubemq_pb.KubeMQ.serializeBinaryToWriter
     );
   }
 };
@@ -2183,6 +2200,43 @@ proto.protos.ReadConfig.prototype.clearAzureServiceBus = function() {
  */
 proto.protos.ReadConfig.prototype.hasAzureServiceBus = function() {
   return jspb.Message.getField(this, 115) != null;
+};
+
+
+/**
+ * optional backends.KubeMQ kubemq = 116;
+ * @return {?proto.protos.backends.KubeMQ}
+ */
+proto.protos.ReadConfig.prototype.getKubemq = function() {
+  return /** @type{?proto.protos.backends.KubeMQ} */ (
+    jspb.Message.getWrapperField(this, backends_kubemq_pb.KubeMQ, 116));
+};
+
+
+/**
+ * @param {?proto.protos.backends.KubeMQ|undefined} value
+ * @return {!proto.protos.ReadConfig} returns this
+*/
+proto.protos.ReadConfig.prototype.setKubemq = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 116, proto.protos.ReadConfig.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.ReadConfig} returns this
+ */
+proto.protos.ReadConfig.prototype.clearKubemq = function() {
+  return this.setKubemq(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.ReadConfig.prototype.hasKubemq = function() {
+  return jspb.Message.getField(this, 116) != null;
 };
 
 

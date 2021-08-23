@@ -21,6 +21,7 @@ import * as conns_redis_pubsub_pb from "./conns/redis-pubsub_pb";
 import * as conns_redis_streams_pb from "./conns/redis-streams_pb";
 import * as conns_azure_service_bus_pb from "./conns/azure-service-bus_pb";
 import * as conns_azure_event_hub_pb from "./conns/azure-event-hub_pb";
+import * as conns_kubemq_pb from "./conns/kubemq_pb";
 import * as common_auth_pb from "./common/auth_pb";
 import * as common_status_pb from "./common/status_pb";
 
@@ -112,6 +113,11 @@ export class ConnectionConfig extends jspb.Message {
     getAzureServiceBus(): conns_azure_service_bus_pb.AzureServiceBus | undefined;
     setAzureServiceBus(value?: conns_azure_service_bus_pb.AzureServiceBus): ConnectionConfig;
 
+    hasKubemq(): boolean;
+    clearKubemq(): void;
+    getKubemq(): conns_kubemq_pb.KubeMQ | undefined;
+    setKubemq(value?: conns_kubemq_pb.KubeMQ): ConnectionConfig;
+
     getConnCase(): ConnectionConfig.ConnCase;
 
     serializeBinary(): Uint8Array;
@@ -145,6 +151,7 @@ export namespace ConnectionConfig {
         redisStreams?: conns_redis_streams_pb.RedisStreams.AsObject,
         azureEventHub?: conns_azure_event_hub_pb.AzureEventHub.AsObject,
         azureServiceBus?: conns_azure_service_bus_pb.AzureServiceBus.AsObject,
+        kubemq?: conns_kubemq_pb.KubeMQ.AsObject,
     }
 
     export enum ConnCase {
@@ -165,6 +172,7 @@ export namespace ConnectionConfig {
         REDIS_STREAMS = 113,
         AZURE_EVENT_HUB = 114,
         AZURE_SERVICE_BUS = 115,
+        KUBEMQ = 116,
     }
 
 }

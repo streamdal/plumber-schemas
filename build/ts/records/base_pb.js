@@ -17,6 +17,38 @@ var global = Function('return this')();
 
 var records_kafka_pb = require('../records/kafka_pb.js');
 goog.object.extend(proto, records_kafka_pb);
+var records_activemq_pb = require('../records/activemq_pb.js');
+goog.object.extend(proto, records_activemq_pb);
+var records_aws$sqs_pb = require('../records/aws-sqs_pb.js');
+goog.object.extend(proto, records_aws$sqs_pb);
+var records_mongo_pb = require('../records/mongo_pb.js');
+goog.object.extend(proto, records_mongo_pb);
+var records_nats_pb = require('../records/nats_pb.js');
+goog.object.extend(proto, records_nats_pb);
+var records_nats$streaming_pb = require('../records/nats-streaming_pb.js');
+goog.object.extend(proto, records_nats$streaming_pb);
+var records_nsq_pb = require('../records/nsq_pb.js');
+goog.object.extend(proto, records_nsq_pb);
+var records_postgres_pb = require('../records/postgres_pb.js');
+goog.object.extend(proto, records_postgres_pb);
+var records_pulsar_pb = require('../records/pulsar_pb.js');
+goog.object.extend(proto, records_pulsar_pb);
+var records_rabbit_pb = require('../records/rabbit_pb.js');
+goog.object.extend(proto, records_rabbit_pb);
+var records_rabbit$streams_pb = require('../records/rabbit-streams_pb.js');
+goog.object.extend(proto, records_rabbit$streams_pb);
+var records_redis$pubsub_pb = require('../records/redis-pubsub_pb.js');
+goog.object.extend(proto, records_redis$pubsub_pb);
+var records_redis$streams_pb = require('../records/redis-streams_pb.js');
+goog.object.extend(proto, records_redis$streams_pb);
+var records_azure$service$bus_pb = require('../records/azure-service-bus_pb.js');
+goog.object.extend(proto, records_azure$service$bus_pb);
+var records_azure$event$hub_pb = require('../records/azure-event-hub_pb.js');
+goog.object.extend(proto, records_azure$event$hub_pb);
+var records_mqtt_pb = require('../records/mqtt_pb.js');
+goog.object.extend(proto, records_mqtt_pb);
+var records_kubemq_pb = require('../records/kubemq_pb.js');
+goog.object.extend(proto, records_kubemq_pb);
 goog.exportSymbol('proto.protos.records.ErrorRecord', null, global);
 goog.exportSymbol('proto.protos.records.ReadRecord', null, global);
 goog.exportSymbol('proto.protos.records.ReadRecord.RecordCase', null, global);
@@ -94,14 +126,30 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<!Array<number>>}
  * @const
  */
-proto.protos.records.ReadRecord.oneofGroups_ = [[100]];
+proto.protos.records.ReadRecord.oneofGroups_ = [[100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116]];
 
 /**
  * @enum {number}
  */
 proto.protos.records.ReadRecord.RecordCase = {
   RECORD_NOT_SET: 0,
-  KAFKA: 100
+  KAFKA: 100,
+  ACTIVE_MQ: 101,
+  AWSSQS: 102,
+  MONGO: 103,
+  NATS: 104,
+  NATS_STREAMING: 105,
+  NSQ: 106,
+  POSTGRES: 107,
+  PULSAR: 108,
+  RABBIT: 109,
+  RABBIT_STREAMS: 110,
+  REDIS_PUBSUB: 111,
+  REDIS_STREAMS: 112,
+  AZURE_EVENT_HUB: 113,
+  AZURE_SERVICE_BUS: 114,
+  MQTT: 115,
+  KUBEMQ: 116
 };
 
 /**
@@ -148,7 +196,23 @@ proto.protos.records.ReadRecord.toObject = function(includeInstance, msg) {
     raw: msg.getRaw_asB64(),
     receivedAtUnixTsUtc: jspb.Message.getFieldWithDefault(msg, 5, 0),
     decoded: msg.getDecoded_asB64(),
-    kafka: (f = msg.getKafka()) && records_kafka_pb.Kafka.toObject(includeInstance, f)
+    kafka: (f = msg.getKafka()) && records_kafka_pb.Kafka.toObject(includeInstance, f),
+    activeMq: (f = msg.getActiveMq()) && records_activemq_pb.ActiveMQ.toObject(includeInstance, f),
+    awssqs: (f = msg.getAwssqs()) && records_aws$sqs_pb.AWSSQS.toObject(includeInstance, f),
+    mongo: (f = msg.getMongo()) && records_mongo_pb.Mongo.toObject(includeInstance, f),
+    nats: (f = msg.getNats()) && records_nats_pb.Nats.toObject(includeInstance, f),
+    natsStreaming: (f = msg.getNatsStreaming()) && records_nats$streaming_pb.NatsStreaming.toObject(includeInstance, f),
+    nsq: (f = msg.getNsq()) && records_nsq_pb.NSQ.toObject(includeInstance, f),
+    postgres: (f = msg.getPostgres()) && records_postgres_pb.Postgres.toObject(includeInstance, f),
+    pulsar: (f = msg.getPulsar()) && records_pulsar_pb.Pulsar.toObject(includeInstance, f),
+    rabbit: (f = msg.getRabbit()) && records_rabbit_pb.Rabbit.toObject(includeInstance, f),
+    rabbitStreams: (f = msg.getRabbitStreams()) && records_rabbit$streams_pb.RabbitStreams.toObject(includeInstance, f),
+    redisPubsub: (f = msg.getRedisPubsub()) && records_redis$pubsub_pb.RedisPubsub.toObject(includeInstance, f),
+    redisStreams: (f = msg.getRedisStreams()) && records_redis$streams_pb.RedisStreams.toObject(includeInstance, f),
+    azureEventHub: (f = msg.getAzureEventHub()) && records_azure$event$hub_pb.AzureEventHub.toObject(includeInstance, f),
+    azureServiceBus: (f = msg.getAzureServiceBus()) && records_azure$service$bus_pb.AzureServiceBus.toObject(includeInstance, f),
+    mqtt: (f = msg.getMqtt()) && records_mqtt_pb.MQTT.toObject(includeInstance, f),
+    kubemq: (f = msg.getKubemq()) && records_kubemq_pb.KubeMQ.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -215,6 +279,86 @@ proto.protos.records.ReadRecord.deserializeBinaryFromReader = function(msg, read
       var value = new records_kafka_pb.Kafka;
       reader.readMessage(value,records_kafka_pb.Kafka.deserializeBinaryFromReader);
       msg.setKafka(value);
+      break;
+    case 101:
+      var value = new records_activemq_pb.ActiveMQ;
+      reader.readMessage(value,records_activemq_pb.ActiveMQ.deserializeBinaryFromReader);
+      msg.setActiveMq(value);
+      break;
+    case 102:
+      var value = new records_aws$sqs_pb.AWSSQS;
+      reader.readMessage(value,records_aws$sqs_pb.AWSSQS.deserializeBinaryFromReader);
+      msg.setAwssqs(value);
+      break;
+    case 103:
+      var value = new records_mongo_pb.Mongo;
+      reader.readMessage(value,records_mongo_pb.Mongo.deserializeBinaryFromReader);
+      msg.setMongo(value);
+      break;
+    case 104:
+      var value = new records_nats_pb.Nats;
+      reader.readMessage(value,records_nats_pb.Nats.deserializeBinaryFromReader);
+      msg.setNats(value);
+      break;
+    case 105:
+      var value = new records_nats$streaming_pb.NatsStreaming;
+      reader.readMessage(value,records_nats$streaming_pb.NatsStreaming.deserializeBinaryFromReader);
+      msg.setNatsStreaming(value);
+      break;
+    case 106:
+      var value = new records_nsq_pb.NSQ;
+      reader.readMessage(value,records_nsq_pb.NSQ.deserializeBinaryFromReader);
+      msg.setNsq(value);
+      break;
+    case 107:
+      var value = new records_postgres_pb.Postgres;
+      reader.readMessage(value,records_postgres_pb.Postgres.deserializeBinaryFromReader);
+      msg.setPostgres(value);
+      break;
+    case 108:
+      var value = new records_pulsar_pb.Pulsar;
+      reader.readMessage(value,records_pulsar_pb.Pulsar.deserializeBinaryFromReader);
+      msg.setPulsar(value);
+      break;
+    case 109:
+      var value = new records_rabbit_pb.Rabbit;
+      reader.readMessage(value,records_rabbit_pb.Rabbit.deserializeBinaryFromReader);
+      msg.setRabbit(value);
+      break;
+    case 110:
+      var value = new records_rabbit$streams_pb.RabbitStreams;
+      reader.readMessage(value,records_rabbit$streams_pb.RabbitStreams.deserializeBinaryFromReader);
+      msg.setRabbitStreams(value);
+      break;
+    case 111:
+      var value = new records_redis$pubsub_pb.RedisPubsub;
+      reader.readMessage(value,records_redis$pubsub_pb.RedisPubsub.deserializeBinaryFromReader);
+      msg.setRedisPubsub(value);
+      break;
+    case 112:
+      var value = new records_redis$streams_pb.RedisStreams;
+      reader.readMessage(value,records_redis$streams_pb.RedisStreams.deserializeBinaryFromReader);
+      msg.setRedisStreams(value);
+      break;
+    case 113:
+      var value = new records_azure$event$hub_pb.AzureEventHub;
+      reader.readMessage(value,records_azure$event$hub_pb.AzureEventHub.deserializeBinaryFromReader);
+      msg.setAzureEventHub(value);
+      break;
+    case 114:
+      var value = new records_azure$service$bus_pb.AzureServiceBus;
+      reader.readMessage(value,records_azure$service$bus_pb.AzureServiceBus.deserializeBinaryFromReader);
+      msg.setAzureServiceBus(value);
+      break;
+    case 115:
+      var value = new records_mqtt_pb.MQTT;
+      reader.readMessage(value,records_mqtt_pb.MQTT.deserializeBinaryFromReader);
+      msg.setMqtt(value);
+      break;
+    case 116:
+      var value = new records_kubemq_pb.KubeMQ;
+      reader.readMessage(value,records_kubemq_pb.KubeMQ.deserializeBinaryFromReader);
+      msg.setKubemq(value);
       break;
     default:
       reader.skipField();
@@ -290,6 +434,134 @@ proto.protos.records.ReadRecord.serializeBinaryToWriter = function(message, writ
       100,
       f,
       records_kafka_pb.Kafka.serializeBinaryToWriter
+    );
+  }
+  f = message.getActiveMq();
+  if (f != null) {
+    writer.writeMessage(
+      101,
+      f,
+      records_activemq_pb.ActiveMQ.serializeBinaryToWriter
+    );
+  }
+  f = message.getAwssqs();
+  if (f != null) {
+    writer.writeMessage(
+      102,
+      f,
+      records_aws$sqs_pb.AWSSQS.serializeBinaryToWriter
+    );
+  }
+  f = message.getMongo();
+  if (f != null) {
+    writer.writeMessage(
+      103,
+      f,
+      records_mongo_pb.Mongo.serializeBinaryToWriter
+    );
+  }
+  f = message.getNats();
+  if (f != null) {
+    writer.writeMessage(
+      104,
+      f,
+      records_nats_pb.Nats.serializeBinaryToWriter
+    );
+  }
+  f = message.getNatsStreaming();
+  if (f != null) {
+    writer.writeMessage(
+      105,
+      f,
+      records_nats$streaming_pb.NatsStreaming.serializeBinaryToWriter
+    );
+  }
+  f = message.getNsq();
+  if (f != null) {
+    writer.writeMessage(
+      106,
+      f,
+      records_nsq_pb.NSQ.serializeBinaryToWriter
+    );
+  }
+  f = message.getPostgres();
+  if (f != null) {
+    writer.writeMessage(
+      107,
+      f,
+      records_postgres_pb.Postgres.serializeBinaryToWriter
+    );
+  }
+  f = message.getPulsar();
+  if (f != null) {
+    writer.writeMessage(
+      108,
+      f,
+      records_pulsar_pb.Pulsar.serializeBinaryToWriter
+    );
+  }
+  f = message.getRabbit();
+  if (f != null) {
+    writer.writeMessage(
+      109,
+      f,
+      records_rabbit_pb.Rabbit.serializeBinaryToWriter
+    );
+  }
+  f = message.getRabbitStreams();
+  if (f != null) {
+    writer.writeMessage(
+      110,
+      f,
+      records_rabbit$streams_pb.RabbitStreams.serializeBinaryToWriter
+    );
+  }
+  f = message.getRedisPubsub();
+  if (f != null) {
+    writer.writeMessage(
+      111,
+      f,
+      records_redis$pubsub_pb.RedisPubsub.serializeBinaryToWriter
+    );
+  }
+  f = message.getRedisStreams();
+  if (f != null) {
+    writer.writeMessage(
+      112,
+      f,
+      records_redis$streams_pb.RedisStreams.serializeBinaryToWriter
+    );
+  }
+  f = message.getAzureEventHub();
+  if (f != null) {
+    writer.writeMessage(
+      113,
+      f,
+      records_azure$event$hub_pb.AzureEventHub.serializeBinaryToWriter
+    );
+  }
+  f = message.getAzureServiceBus();
+  if (f != null) {
+    writer.writeMessage(
+      114,
+      f,
+      records_azure$service$bus_pb.AzureServiceBus.serializeBinaryToWriter
+    );
+  }
+  f = message.getMqtt();
+  if (f != null) {
+    writer.writeMessage(
+      115,
+      f,
+      records_mqtt_pb.MQTT.serializeBinaryToWriter
+    );
+  }
+  f = message.getKubemq();
+  if (f != null) {
+    writer.writeMessage(
+      116,
+      f,
+      records_kubemq_pb.KubeMQ.serializeBinaryToWriter
     );
   }
 };
@@ -492,6 +764,598 @@ proto.protos.records.ReadRecord.prototype.hasKafka = function() {
 };
 
 
+/**
+ * optional ActiveMQ active_mq = 101;
+ * @return {?proto.protos.records.ActiveMQ}
+ */
+proto.protos.records.ReadRecord.prototype.getActiveMq = function() {
+  return /** @type{?proto.protos.records.ActiveMQ} */ (
+    jspb.Message.getWrapperField(this, records_activemq_pb.ActiveMQ, 101));
+};
+
+
+/**
+ * @param {?proto.protos.records.ActiveMQ|undefined} value
+ * @return {!proto.protos.records.ReadRecord} returns this
+*/
+proto.protos.records.ReadRecord.prototype.setActiveMq = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 101, proto.protos.records.ReadRecord.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.records.ReadRecord} returns this
+ */
+proto.protos.records.ReadRecord.prototype.clearActiveMq = function() {
+  return this.setActiveMq(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.records.ReadRecord.prototype.hasActiveMq = function() {
+  return jspb.Message.getField(this, 101) != null;
+};
+
+
+/**
+ * optional AWSSQS awssqs = 102;
+ * @return {?proto.protos.records.AWSSQS}
+ */
+proto.protos.records.ReadRecord.prototype.getAwssqs = function() {
+  return /** @type{?proto.protos.records.AWSSQS} */ (
+    jspb.Message.getWrapperField(this, records_aws$sqs_pb.AWSSQS, 102));
+};
+
+
+/**
+ * @param {?proto.protos.records.AWSSQS|undefined} value
+ * @return {!proto.protos.records.ReadRecord} returns this
+*/
+proto.protos.records.ReadRecord.prototype.setAwssqs = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 102, proto.protos.records.ReadRecord.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.records.ReadRecord} returns this
+ */
+proto.protos.records.ReadRecord.prototype.clearAwssqs = function() {
+  return this.setAwssqs(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.records.ReadRecord.prototype.hasAwssqs = function() {
+  return jspb.Message.getField(this, 102) != null;
+};
+
+
+/**
+ * optional Mongo mongo = 103;
+ * @return {?proto.protos.records.Mongo}
+ */
+proto.protos.records.ReadRecord.prototype.getMongo = function() {
+  return /** @type{?proto.protos.records.Mongo} */ (
+    jspb.Message.getWrapperField(this, records_mongo_pb.Mongo, 103));
+};
+
+
+/**
+ * @param {?proto.protos.records.Mongo|undefined} value
+ * @return {!proto.protos.records.ReadRecord} returns this
+*/
+proto.protos.records.ReadRecord.prototype.setMongo = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 103, proto.protos.records.ReadRecord.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.records.ReadRecord} returns this
+ */
+proto.protos.records.ReadRecord.prototype.clearMongo = function() {
+  return this.setMongo(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.records.ReadRecord.prototype.hasMongo = function() {
+  return jspb.Message.getField(this, 103) != null;
+};
+
+
+/**
+ * optional Nats nats = 104;
+ * @return {?proto.protos.records.Nats}
+ */
+proto.protos.records.ReadRecord.prototype.getNats = function() {
+  return /** @type{?proto.protos.records.Nats} */ (
+    jspb.Message.getWrapperField(this, records_nats_pb.Nats, 104));
+};
+
+
+/**
+ * @param {?proto.protos.records.Nats|undefined} value
+ * @return {!proto.protos.records.ReadRecord} returns this
+*/
+proto.protos.records.ReadRecord.prototype.setNats = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 104, proto.protos.records.ReadRecord.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.records.ReadRecord} returns this
+ */
+proto.protos.records.ReadRecord.prototype.clearNats = function() {
+  return this.setNats(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.records.ReadRecord.prototype.hasNats = function() {
+  return jspb.Message.getField(this, 104) != null;
+};
+
+
+/**
+ * optional NatsStreaming nats_streaming = 105;
+ * @return {?proto.protos.records.NatsStreaming}
+ */
+proto.protos.records.ReadRecord.prototype.getNatsStreaming = function() {
+  return /** @type{?proto.protos.records.NatsStreaming} */ (
+    jspb.Message.getWrapperField(this, records_nats$streaming_pb.NatsStreaming, 105));
+};
+
+
+/**
+ * @param {?proto.protos.records.NatsStreaming|undefined} value
+ * @return {!proto.protos.records.ReadRecord} returns this
+*/
+proto.protos.records.ReadRecord.prototype.setNatsStreaming = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 105, proto.protos.records.ReadRecord.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.records.ReadRecord} returns this
+ */
+proto.protos.records.ReadRecord.prototype.clearNatsStreaming = function() {
+  return this.setNatsStreaming(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.records.ReadRecord.prototype.hasNatsStreaming = function() {
+  return jspb.Message.getField(this, 105) != null;
+};
+
+
+/**
+ * optional NSQ nsq = 106;
+ * @return {?proto.protos.records.NSQ}
+ */
+proto.protos.records.ReadRecord.prototype.getNsq = function() {
+  return /** @type{?proto.protos.records.NSQ} */ (
+    jspb.Message.getWrapperField(this, records_nsq_pb.NSQ, 106));
+};
+
+
+/**
+ * @param {?proto.protos.records.NSQ|undefined} value
+ * @return {!proto.protos.records.ReadRecord} returns this
+*/
+proto.protos.records.ReadRecord.prototype.setNsq = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 106, proto.protos.records.ReadRecord.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.records.ReadRecord} returns this
+ */
+proto.protos.records.ReadRecord.prototype.clearNsq = function() {
+  return this.setNsq(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.records.ReadRecord.prototype.hasNsq = function() {
+  return jspb.Message.getField(this, 106) != null;
+};
+
+
+/**
+ * optional Postgres postgres = 107;
+ * @return {?proto.protos.records.Postgres}
+ */
+proto.protos.records.ReadRecord.prototype.getPostgres = function() {
+  return /** @type{?proto.protos.records.Postgres} */ (
+    jspb.Message.getWrapperField(this, records_postgres_pb.Postgres, 107));
+};
+
+
+/**
+ * @param {?proto.protos.records.Postgres|undefined} value
+ * @return {!proto.protos.records.ReadRecord} returns this
+*/
+proto.protos.records.ReadRecord.prototype.setPostgres = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 107, proto.protos.records.ReadRecord.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.records.ReadRecord} returns this
+ */
+proto.protos.records.ReadRecord.prototype.clearPostgres = function() {
+  return this.setPostgres(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.records.ReadRecord.prototype.hasPostgres = function() {
+  return jspb.Message.getField(this, 107) != null;
+};
+
+
+/**
+ * optional Pulsar pulsar = 108;
+ * @return {?proto.protos.records.Pulsar}
+ */
+proto.protos.records.ReadRecord.prototype.getPulsar = function() {
+  return /** @type{?proto.protos.records.Pulsar} */ (
+    jspb.Message.getWrapperField(this, records_pulsar_pb.Pulsar, 108));
+};
+
+
+/**
+ * @param {?proto.protos.records.Pulsar|undefined} value
+ * @return {!proto.protos.records.ReadRecord} returns this
+*/
+proto.protos.records.ReadRecord.prototype.setPulsar = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 108, proto.protos.records.ReadRecord.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.records.ReadRecord} returns this
+ */
+proto.protos.records.ReadRecord.prototype.clearPulsar = function() {
+  return this.setPulsar(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.records.ReadRecord.prototype.hasPulsar = function() {
+  return jspb.Message.getField(this, 108) != null;
+};
+
+
+/**
+ * optional Rabbit rabbit = 109;
+ * @return {?proto.protos.records.Rabbit}
+ */
+proto.protos.records.ReadRecord.prototype.getRabbit = function() {
+  return /** @type{?proto.protos.records.Rabbit} */ (
+    jspb.Message.getWrapperField(this, records_rabbit_pb.Rabbit, 109));
+};
+
+
+/**
+ * @param {?proto.protos.records.Rabbit|undefined} value
+ * @return {!proto.protos.records.ReadRecord} returns this
+*/
+proto.protos.records.ReadRecord.prototype.setRabbit = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 109, proto.protos.records.ReadRecord.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.records.ReadRecord} returns this
+ */
+proto.protos.records.ReadRecord.prototype.clearRabbit = function() {
+  return this.setRabbit(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.records.ReadRecord.prototype.hasRabbit = function() {
+  return jspb.Message.getField(this, 109) != null;
+};
+
+
+/**
+ * optional RabbitStreams rabbit_streams = 110;
+ * @return {?proto.protos.records.RabbitStreams}
+ */
+proto.protos.records.ReadRecord.prototype.getRabbitStreams = function() {
+  return /** @type{?proto.protos.records.RabbitStreams} */ (
+    jspb.Message.getWrapperField(this, records_rabbit$streams_pb.RabbitStreams, 110));
+};
+
+
+/**
+ * @param {?proto.protos.records.RabbitStreams|undefined} value
+ * @return {!proto.protos.records.ReadRecord} returns this
+*/
+proto.protos.records.ReadRecord.prototype.setRabbitStreams = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 110, proto.protos.records.ReadRecord.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.records.ReadRecord} returns this
+ */
+proto.protos.records.ReadRecord.prototype.clearRabbitStreams = function() {
+  return this.setRabbitStreams(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.records.ReadRecord.prototype.hasRabbitStreams = function() {
+  return jspb.Message.getField(this, 110) != null;
+};
+
+
+/**
+ * optional RedisPubsub redis_pubsub = 111;
+ * @return {?proto.protos.records.RedisPubsub}
+ */
+proto.protos.records.ReadRecord.prototype.getRedisPubsub = function() {
+  return /** @type{?proto.protos.records.RedisPubsub} */ (
+    jspb.Message.getWrapperField(this, records_redis$pubsub_pb.RedisPubsub, 111));
+};
+
+
+/**
+ * @param {?proto.protos.records.RedisPubsub|undefined} value
+ * @return {!proto.protos.records.ReadRecord} returns this
+*/
+proto.protos.records.ReadRecord.prototype.setRedisPubsub = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 111, proto.protos.records.ReadRecord.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.records.ReadRecord} returns this
+ */
+proto.protos.records.ReadRecord.prototype.clearRedisPubsub = function() {
+  return this.setRedisPubsub(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.records.ReadRecord.prototype.hasRedisPubsub = function() {
+  return jspb.Message.getField(this, 111) != null;
+};
+
+
+/**
+ * optional RedisStreams redis_streams = 112;
+ * @return {?proto.protos.records.RedisStreams}
+ */
+proto.protos.records.ReadRecord.prototype.getRedisStreams = function() {
+  return /** @type{?proto.protos.records.RedisStreams} */ (
+    jspb.Message.getWrapperField(this, records_redis$streams_pb.RedisStreams, 112));
+};
+
+
+/**
+ * @param {?proto.protos.records.RedisStreams|undefined} value
+ * @return {!proto.protos.records.ReadRecord} returns this
+*/
+proto.protos.records.ReadRecord.prototype.setRedisStreams = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 112, proto.protos.records.ReadRecord.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.records.ReadRecord} returns this
+ */
+proto.protos.records.ReadRecord.prototype.clearRedisStreams = function() {
+  return this.setRedisStreams(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.records.ReadRecord.prototype.hasRedisStreams = function() {
+  return jspb.Message.getField(this, 112) != null;
+};
+
+
+/**
+ * optional AzureEventHub azure_event_hub = 113;
+ * @return {?proto.protos.records.AzureEventHub}
+ */
+proto.protos.records.ReadRecord.prototype.getAzureEventHub = function() {
+  return /** @type{?proto.protos.records.AzureEventHub} */ (
+    jspb.Message.getWrapperField(this, records_azure$event$hub_pb.AzureEventHub, 113));
+};
+
+
+/**
+ * @param {?proto.protos.records.AzureEventHub|undefined} value
+ * @return {!proto.protos.records.ReadRecord} returns this
+*/
+proto.protos.records.ReadRecord.prototype.setAzureEventHub = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 113, proto.protos.records.ReadRecord.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.records.ReadRecord} returns this
+ */
+proto.protos.records.ReadRecord.prototype.clearAzureEventHub = function() {
+  return this.setAzureEventHub(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.records.ReadRecord.prototype.hasAzureEventHub = function() {
+  return jspb.Message.getField(this, 113) != null;
+};
+
+
+/**
+ * optional AzureServiceBus azure_service_bus = 114;
+ * @return {?proto.protos.records.AzureServiceBus}
+ */
+proto.protos.records.ReadRecord.prototype.getAzureServiceBus = function() {
+  return /** @type{?proto.protos.records.AzureServiceBus} */ (
+    jspb.Message.getWrapperField(this, records_azure$service$bus_pb.AzureServiceBus, 114));
+};
+
+
+/**
+ * @param {?proto.protos.records.AzureServiceBus|undefined} value
+ * @return {!proto.protos.records.ReadRecord} returns this
+*/
+proto.protos.records.ReadRecord.prototype.setAzureServiceBus = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 114, proto.protos.records.ReadRecord.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.records.ReadRecord} returns this
+ */
+proto.protos.records.ReadRecord.prototype.clearAzureServiceBus = function() {
+  return this.setAzureServiceBus(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.records.ReadRecord.prototype.hasAzureServiceBus = function() {
+  return jspb.Message.getField(this, 114) != null;
+};
+
+
+/**
+ * optional MQTT mqtt = 115;
+ * @return {?proto.protos.records.MQTT}
+ */
+proto.protos.records.ReadRecord.prototype.getMqtt = function() {
+  return /** @type{?proto.protos.records.MQTT} */ (
+    jspb.Message.getWrapperField(this, records_mqtt_pb.MQTT, 115));
+};
+
+
+/**
+ * @param {?proto.protos.records.MQTT|undefined} value
+ * @return {!proto.protos.records.ReadRecord} returns this
+*/
+proto.protos.records.ReadRecord.prototype.setMqtt = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 115, proto.protos.records.ReadRecord.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.records.ReadRecord} returns this
+ */
+proto.protos.records.ReadRecord.prototype.clearMqtt = function() {
+  return this.setMqtt(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.records.ReadRecord.prototype.hasMqtt = function() {
+  return jspb.Message.getField(this, 115) != null;
+};
+
+
+/**
+ * optional KubeMQ kubemq = 116;
+ * @return {?proto.protos.records.KubeMQ}
+ */
+proto.protos.records.ReadRecord.prototype.getKubemq = function() {
+  return /** @type{?proto.protos.records.KubeMQ} */ (
+    jspb.Message.getWrapperField(this, records_kubemq_pb.KubeMQ, 116));
+};
+
+
+/**
+ * @param {?proto.protos.records.KubeMQ|undefined} value
+ * @return {!proto.protos.records.ReadRecord} returns this
+*/
+proto.protos.records.ReadRecord.prototype.setKubemq = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 116, proto.protos.records.ReadRecord.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.records.ReadRecord} returns this
+ */
+proto.protos.records.ReadRecord.prototype.clearKubemq = function() {
+  return this.setKubemq(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.records.ReadRecord.prototype.hasKubemq = function() {
+  return jspb.Message.getField(this, 116) != null;
+};
+
+
 
 /**
  * Oneof group definitions for this message. Each group defines the field
@@ -501,14 +1365,30 @@ proto.protos.records.ReadRecord.prototype.hasKafka = function() {
  * @private {!Array<!Array<number>>}
  * @const
  */
-proto.protos.records.WriteRecord.oneofGroups_ = [[100]];
+proto.protos.records.WriteRecord.oneofGroups_ = [[100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116]];
 
 /**
  * @enum {number}
  */
 proto.protos.records.WriteRecord.RecordsCase = {
   RECORDS_NOT_SET: 0,
-  KAFKA: 100
+  KAFKA: 100,
+  ACTIVE_MQ: 101,
+  AWSSQS: 102,
+  MONGO: 103,
+  NATS: 104,
+  NATS_STREAMING: 105,
+  NSQ: 106,
+  POSTGRES: 107,
+  PULSAR: 108,
+  RABBIT: 109,
+  RABBIT_STREAMS: 110,
+  REDIS_PUBSUB: 111,
+  REDIS_STREAMS: 112,
+  AZURE_EVENT_HUB: 113,
+  AZURE_SERVICE_BUS: 114,
+  MQTT: 115,
+  KUBEMQ: 116
 };
 
 /**
@@ -550,7 +1430,23 @@ proto.protos.records.WriteRecord.prototype.toObject = function(opt_includeInstan
 proto.protos.records.WriteRecord.toObject = function(includeInstance, msg) {
   var f, obj = {
     encoded: msg.getEncoded_asB64(),
-    kafka: (f = msg.getKafka()) && records_kafka_pb.Kafka.toObject(includeInstance, f)
+    kafka: (f = msg.getKafka()) && records_kafka_pb.Kafka.toObject(includeInstance, f),
+    activeMq: (f = msg.getActiveMq()) && records_activemq_pb.ActiveMQ.toObject(includeInstance, f),
+    awssqs: (f = msg.getAwssqs()) && records_aws$sqs_pb.AWSSQS.toObject(includeInstance, f),
+    mongo: (f = msg.getMongo()) && records_mongo_pb.Mongo.toObject(includeInstance, f),
+    nats: (f = msg.getNats()) && records_nats_pb.Nats.toObject(includeInstance, f),
+    natsStreaming: (f = msg.getNatsStreaming()) && records_nats$streaming_pb.NatsStreaming.toObject(includeInstance, f),
+    nsq: (f = msg.getNsq()) && records_nsq_pb.NSQ.toObject(includeInstance, f),
+    postgres: (f = msg.getPostgres()) && records_postgres_pb.Postgres.toObject(includeInstance, f),
+    pulsar: (f = msg.getPulsar()) && records_pulsar_pb.Pulsar.toObject(includeInstance, f),
+    rabbit: (f = msg.getRabbit()) && records_rabbit_pb.Rabbit.toObject(includeInstance, f),
+    rabbitStreams: (f = msg.getRabbitStreams()) && records_rabbit$streams_pb.RabbitStreams.toObject(includeInstance, f),
+    redisPubsub: (f = msg.getRedisPubsub()) && records_redis$pubsub_pb.RedisPubsub.toObject(includeInstance, f),
+    redisStreams: (f = msg.getRedisStreams()) && records_redis$streams_pb.RedisStreams.toObject(includeInstance, f),
+    azureEventHub: (f = msg.getAzureEventHub()) && records_azure$event$hub_pb.AzureEventHub.toObject(includeInstance, f),
+    azureServiceBus: (f = msg.getAzureServiceBus()) && records_azure$service$bus_pb.AzureServiceBus.toObject(includeInstance, f),
+    mqtt: (f = msg.getMqtt()) && records_mqtt_pb.MQTT.toObject(includeInstance, f),
+    kubemq: (f = msg.getKubemq()) && records_kubemq_pb.KubeMQ.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -596,6 +1492,86 @@ proto.protos.records.WriteRecord.deserializeBinaryFromReader = function(msg, rea
       reader.readMessage(value,records_kafka_pb.Kafka.deserializeBinaryFromReader);
       msg.setKafka(value);
       break;
+    case 101:
+      var value = new records_activemq_pb.ActiveMQ;
+      reader.readMessage(value,records_activemq_pb.ActiveMQ.deserializeBinaryFromReader);
+      msg.setActiveMq(value);
+      break;
+    case 102:
+      var value = new records_aws$sqs_pb.AWSSQS;
+      reader.readMessage(value,records_aws$sqs_pb.AWSSQS.deserializeBinaryFromReader);
+      msg.setAwssqs(value);
+      break;
+    case 103:
+      var value = new records_mongo_pb.Mongo;
+      reader.readMessage(value,records_mongo_pb.Mongo.deserializeBinaryFromReader);
+      msg.setMongo(value);
+      break;
+    case 104:
+      var value = new records_nats_pb.Nats;
+      reader.readMessage(value,records_nats_pb.Nats.deserializeBinaryFromReader);
+      msg.setNats(value);
+      break;
+    case 105:
+      var value = new records_nats$streaming_pb.NatsStreaming;
+      reader.readMessage(value,records_nats$streaming_pb.NatsStreaming.deserializeBinaryFromReader);
+      msg.setNatsStreaming(value);
+      break;
+    case 106:
+      var value = new records_nsq_pb.NSQ;
+      reader.readMessage(value,records_nsq_pb.NSQ.deserializeBinaryFromReader);
+      msg.setNsq(value);
+      break;
+    case 107:
+      var value = new records_postgres_pb.Postgres;
+      reader.readMessage(value,records_postgres_pb.Postgres.deserializeBinaryFromReader);
+      msg.setPostgres(value);
+      break;
+    case 108:
+      var value = new records_pulsar_pb.Pulsar;
+      reader.readMessage(value,records_pulsar_pb.Pulsar.deserializeBinaryFromReader);
+      msg.setPulsar(value);
+      break;
+    case 109:
+      var value = new records_rabbit_pb.Rabbit;
+      reader.readMessage(value,records_rabbit_pb.Rabbit.deserializeBinaryFromReader);
+      msg.setRabbit(value);
+      break;
+    case 110:
+      var value = new records_rabbit$streams_pb.RabbitStreams;
+      reader.readMessage(value,records_rabbit$streams_pb.RabbitStreams.deserializeBinaryFromReader);
+      msg.setRabbitStreams(value);
+      break;
+    case 111:
+      var value = new records_redis$pubsub_pb.RedisPubsub;
+      reader.readMessage(value,records_redis$pubsub_pb.RedisPubsub.deserializeBinaryFromReader);
+      msg.setRedisPubsub(value);
+      break;
+    case 112:
+      var value = new records_redis$streams_pb.RedisStreams;
+      reader.readMessage(value,records_redis$streams_pb.RedisStreams.deserializeBinaryFromReader);
+      msg.setRedisStreams(value);
+      break;
+    case 113:
+      var value = new records_azure$event$hub_pb.AzureEventHub;
+      reader.readMessage(value,records_azure$event$hub_pb.AzureEventHub.deserializeBinaryFromReader);
+      msg.setAzureEventHub(value);
+      break;
+    case 114:
+      var value = new records_azure$service$bus_pb.AzureServiceBus;
+      reader.readMessage(value,records_azure$service$bus_pb.AzureServiceBus.deserializeBinaryFromReader);
+      msg.setAzureServiceBus(value);
+      break;
+    case 115:
+      var value = new records_mqtt_pb.MQTT;
+      reader.readMessage(value,records_mqtt_pb.MQTT.deserializeBinaryFromReader);
+      msg.setMqtt(value);
+      break;
+    case 116:
+      var value = new records_kubemq_pb.KubeMQ;
+      reader.readMessage(value,records_kubemq_pb.KubeMQ.deserializeBinaryFromReader);
+      msg.setKubemq(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -638,6 +1614,134 @@ proto.protos.records.WriteRecord.serializeBinaryToWriter = function(message, wri
       100,
       f,
       records_kafka_pb.Kafka.serializeBinaryToWriter
+    );
+  }
+  f = message.getActiveMq();
+  if (f != null) {
+    writer.writeMessage(
+      101,
+      f,
+      records_activemq_pb.ActiveMQ.serializeBinaryToWriter
+    );
+  }
+  f = message.getAwssqs();
+  if (f != null) {
+    writer.writeMessage(
+      102,
+      f,
+      records_aws$sqs_pb.AWSSQS.serializeBinaryToWriter
+    );
+  }
+  f = message.getMongo();
+  if (f != null) {
+    writer.writeMessage(
+      103,
+      f,
+      records_mongo_pb.Mongo.serializeBinaryToWriter
+    );
+  }
+  f = message.getNats();
+  if (f != null) {
+    writer.writeMessage(
+      104,
+      f,
+      records_nats_pb.Nats.serializeBinaryToWriter
+    );
+  }
+  f = message.getNatsStreaming();
+  if (f != null) {
+    writer.writeMessage(
+      105,
+      f,
+      records_nats$streaming_pb.NatsStreaming.serializeBinaryToWriter
+    );
+  }
+  f = message.getNsq();
+  if (f != null) {
+    writer.writeMessage(
+      106,
+      f,
+      records_nsq_pb.NSQ.serializeBinaryToWriter
+    );
+  }
+  f = message.getPostgres();
+  if (f != null) {
+    writer.writeMessage(
+      107,
+      f,
+      records_postgres_pb.Postgres.serializeBinaryToWriter
+    );
+  }
+  f = message.getPulsar();
+  if (f != null) {
+    writer.writeMessage(
+      108,
+      f,
+      records_pulsar_pb.Pulsar.serializeBinaryToWriter
+    );
+  }
+  f = message.getRabbit();
+  if (f != null) {
+    writer.writeMessage(
+      109,
+      f,
+      records_rabbit_pb.Rabbit.serializeBinaryToWriter
+    );
+  }
+  f = message.getRabbitStreams();
+  if (f != null) {
+    writer.writeMessage(
+      110,
+      f,
+      records_rabbit$streams_pb.RabbitStreams.serializeBinaryToWriter
+    );
+  }
+  f = message.getRedisPubsub();
+  if (f != null) {
+    writer.writeMessage(
+      111,
+      f,
+      records_redis$pubsub_pb.RedisPubsub.serializeBinaryToWriter
+    );
+  }
+  f = message.getRedisStreams();
+  if (f != null) {
+    writer.writeMessage(
+      112,
+      f,
+      records_redis$streams_pb.RedisStreams.serializeBinaryToWriter
+    );
+  }
+  f = message.getAzureEventHub();
+  if (f != null) {
+    writer.writeMessage(
+      113,
+      f,
+      records_azure$event$hub_pb.AzureEventHub.serializeBinaryToWriter
+    );
+  }
+  f = message.getAzureServiceBus();
+  if (f != null) {
+    writer.writeMessage(
+      114,
+      f,
+      records_azure$service$bus_pb.AzureServiceBus.serializeBinaryToWriter
+    );
+  }
+  f = message.getMqtt();
+  if (f != null) {
+    writer.writeMessage(
+      115,
+      f,
+      records_mqtt_pb.MQTT.serializeBinaryToWriter
+    );
+  }
+  f = message.getKubemq();
+  if (f != null) {
+    writer.writeMessage(
+      116,
+      f,
+      records_kubemq_pb.KubeMQ.serializeBinaryToWriter
     );
   }
 };
@@ -719,6 +1823,598 @@ proto.protos.records.WriteRecord.prototype.clearKafka = function() {
  */
 proto.protos.records.WriteRecord.prototype.hasKafka = function() {
   return jspb.Message.getField(this, 100) != null;
+};
+
+
+/**
+ * optional ActiveMQ active_mq = 101;
+ * @return {?proto.protos.records.ActiveMQ}
+ */
+proto.protos.records.WriteRecord.prototype.getActiveMq = function() {
+  return /** @type{?proto.protos.records.ActiveMQ} */ (
+    jspb.Message.getWrapperField(this, records_activemq_pb.ActiveMQ, 101));
+};
+
+
+/**
+ * @param {?proto.protos.records.ActiveMQ|undefined} value
+ * @return {!proto.protos.records.WriteRecord} returns this
+*/
+proto.protos.records.WriteRecord.prototype.setActiveMq = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 101, proto.protos.records.WriteRecord.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.records.WriteRecord} returns this
+ */
+proto.protos.records.WriteRecord.prototype.clearActiveMq = function() {
+  return this.setActiveMq(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.records.WriteRecord.prototype.hasActiveMq = function() {
+  return jspb.Message.getField(this, 101) != null;
+};
+
+
+/**
+ * optional AWSSQS awssqs = 102;
+ * @return {?proto.protos.records.AWSSQS}
+ */
+proto.protos.records.WriteRecord.prototype.getAwssqs = function() {
+  return /** @type{?proto.protos.records.AWSSQS} */ (
+    jspb.Message.getWrapperField(this, records_aws$sqs_pb.AWSSQS, 102));
+};
+
+
+/**
+ * @param {?proto.protos.records.AWSSQS|undefined} value
+ * @return {!proto.protos.records.WriteRecord} returns this
+*/
+proto.protos.records.WriteRecord.prototype.setAwssqs = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 102, proto.protos.records.WriteRecord.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.records.WriteRecord} returns this
+ */
+proto.protos.records.WriteRecord.prototype.clearAwssqs = function() {
+  return this.setAwssqs(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.records.WriteRecord.prototype.hasAwssqs = function() {
+  return jspb.Message.getField(this, 102) != null;
+};
+
+
+/**
+ * optional Mongo mongo = 103;
+ * @return {?proto.protos.records.Mongo}
+ */
+proto.protos.records.WriteRecord.prototype.getMongo = function() {
+  return /** @type{?proto.protos.records.Mongo} */ (
+    jspb.Message.getWrapperField(this, records_mongo_pb.Mongo, 103));
+};
+
+
+/**
+ * @param {?proto.protos.records.Mongo|undefined} value
+ * @return {!proto.protos.records.WriteRecord} returns this
+*/
+proto.protos.records.WriteRecord.prototype.setMongo = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 103, proto.protos.records.WriteRecord.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.records.WriteRecord} returns this
+ */
+proto.protos.records.WriteRecord.prototype.clearMongo = function() {
+  return this.setMongo(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.records.WriteRecord.prototype.hasMongo = function() {
+  return jspb.Message.getField(this, 103) != null;
+};
+
+
+/**
+ * optional Nats nats = 104;
+ * @return {?proto.protos.records.Nats}
+ */
+proto.protos.records.WriteRecord.prototype.getNats = function() {
+  return /** @type{?proto.protos.records.Nats} */ (
+    jspb.Message.getWrapperField(this, records_nats_pb.Nats, 104));
+};
+
+
+/**
+ * @param {?proto.protos.records.Nats|undefined} value
+ * @return {!proto.protos.records.WriteRecord} returns this
+*/
+proto.protos.records.WriteRecord.prototype.setNats = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 104, proto.protos.records.WriteRecord.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.records.WriteRecord} returns this
+ */
+proto.protos.records.WriteRecord.prototype.clearNats = function() {
+  return this.setNats(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.records.WriteRecord.prototype.hasNats = function() {
+  return jspb.Message.getField(this, 104) != null;
+};
+
+
+/**
+ * optional NatsStreaming nats_streaming = 105;
+ * @return {?proto.protos.records.NatsStreaming}
+ */
+proto.protos.records.WriteRecord.prototype.getNatsStreaming = function() {
+  return /** @type{?proto.protos.records.NatsStreaming} */ (
+    jspb.Message.getWrapperField(this, records_nats$streaming_pb.NatsStreaming, 105));
+};
+
+
+/**
+ * @param {?proto.protos.records.NatsStreaming|undefined} value
+ * @return {!proto.protos.records.WriteRecord} returns this
+*/
+proto.protos.records.WriteRecord.prototype.setNatsStreaming = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 105, proto.protos.records.WriteRecord.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.records.WriteRecord} returns this
+ */
+proto.protos.records.WriteRecord.prototype.clearNatsStreaming = function() {
+  return this.setNatsStreaming(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.records.WriteRecord.prototype.hasNatsStreaming = function() {
+  return jspb.Message.getField(this, 105) != null;
+};
+
+
+/**
+ * optional NSQ nsq = 106;
+ * @return {?proto.protos.records.NSQ}
+ */
+proto.protos.records.WriteRecord.prototype.getNsq = function() {
+  return /** @type{?proto.protos.records.NSQ} */ (
+    jspb.Message.getWrapperField(this, records_nsq_pb.NSQ, 106));
+};
+
+
+/**
+ * @param {?proto.protos.records.NSQ|undefined} value
+ * @return {!proto.protos.records.WriteRecord} returns this
+*/
+proto.protos.records.WriteRecord.prototype.setNsq = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 106, proto.protos.records.WriteRecord.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.records.WriteRecord} returns this
+ */
+proto.protos.records.WriteRecord.prototype.clearNsq = function() {
+  return this.setNsq(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.records.WriteRecord.prototype.hasNsq = function() {
+  return jspb.Message.getField(this, 106) != null;
+};
+
+
+/**
+ * optional Postgres postgres = 107;
+ * @return {?proto.protos.records.Postgres}
+ */
+proto.protos.records.WriteRecord.prototype.getPostgres = function() {
+  return /** @type{?proto.protos.records.Postgres} */ (
+    jspb.Message.getWrapperField(this, records_postgres_pb.Postgres, 107));
+};
+
+
+/**
+ * @param {?proto.protos.records.Postgres|undefined} value
+ * @return {!proto.protos.records.WriteRecord} returns this
+*/
+proto.protos.records.WriteRecord.prototype.setPostgres = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 107, proto.protos.records.WriteRecord.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.records.WriteRecord} returns this
+ */
+proto.protos.records.WriteRecord.prototype.clearPostgres = function() {
+  return this.setPostgres(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.records.WriteRecord.prototype.hasPostgres = function() {
+  return jspb.Message.getField(this, 107) != null;
+};
+
+
+/**
+ * optional Pulsar pulsar = 108;
+ * @return {?proto.protos.records.Pulsar}
+ */
+proto.protos.records.WriteRecord.prototype.getPulsar = function() {
+  return /** @type{?proto.protos.records.Pulsar} */ (
+    jspb.Message.getWrapperField(this, records_pulsar_pb.Pulsar, 108));
+};
+
+
+/**
+ * @param {?proto.protos.records.Pulsar|undefined} value
+ * @return {!proto.protos.records.WriteRecord} returns this
+*/
+proto.protos.records.WriteRecord.prototype.setPulsar = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 108, proto.protos.records.WriteRecord.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.records.WriteRecord} returns this
+ */
+proto.protos.records.WriteRecord.prototype.clearPulsar = function() {
+  return this.setPulsar(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.records.WriteRecord.prototype.hasPulsar = function() {
+  return jspb.Message.getField(this, 108) != null;
+};
+
+
+/**
+ * optional Rabbit rabbit = 109;
+ * @return {?proto.protos.records.Rabbit}
+ */
+proto.protos.records.WriteRecord.prototype.getRabbit = function() {
+  return /** @type{?proto.protos.records.Rabbit} */ (
+    jspb.Message.getWrapperField(this, records_rabbit_pb.Rabbit, 109));
+};
+
+
+/**
+ * @param {?proto.protos.records.Rabbit|undefined} value
+ * @return {!proto.protos.records.WriteRecord} returns this
+*/
+proto.protos.records.WriteRecord.prototype.setRabbit = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 109, proto.protos.records.WriteRecord.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.records.WriteRecord} returns this
+ */
+proto.protos.records.WriteRecord.prototype.clearRabbit = function() {
+  return this.setRabbit(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.records.WriteRecord.prototype.hasRabbit = function() {
+  return jspb.Message.getField(this, 109) != null;
+};
+
+
+/**
+ * optional RabbitStreams rabbit_streams = 110;
+ * @return {?proto.protos.records.RabbitStreams}
+ */
+proto.protos.records.WriteRecord.prototype.getRabbitStreams = function() {
+  return /** @type{?proto.protos.records.RabbitStreams} */ (
+    jspb.Message.getWrapperField(this, records_rabbit$streams_pb.RabbitStreams, 110));
+};
+
+
+/**
+ * @param {?proto.protos.records.RabbitStreams|undefined} value
+ * @return {!proto.protos.records.WriteRecord} returns this
+*/
+proto.protos.records.WriteRecord.prototype.setRabbitStreams = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 110, proto.protos.records.WriteRecord.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.records.WriteRecord} returns this
+ */
+proto.protos.records.WriteRecord.prototype.clearRabbitStreams = function() {
+  return this.setRabbitStreams(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.records.WriteRecord.prototype.hasRabbitStreams = function() {
+  return jspb.Message.getField(this, 110) != null;
+};
+
+
+/**
+ * optional RedisPubsub redis_pubsub = 111;
+ * @return {?proto.protos.records.RedisPubsub}
+ */
+proto.protos.records.WriteRecord.prototype.getRedisPubsub = function() {
+  return /** @type{?proto.protos.records.RedisPubsub} */ (
+    jspb.Message.getWrapperField(this, records_redis$pubsub_pb.RedisPubsub, 111));
+};
+
+
+/**
+ * @param {?proto.protos.records.RedisPubsub|undefined} value
+ * @return {!proto.protos.records.WriteRecord} returns this
+*/
+proto.protos.records.WriteRecord.prototype.setRedisPubsub = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 111, proto.protos.records.WriteRecord.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.records.WriteRecord} returns this
+ */
+proto.protos.records.WriteRecord.prototype.clearRedisPubsub = function() {
+  return this.setRedisPubsub(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.records.WriteRecord.prototype.hasRedisPubsub = function() {
+  return jspb.Message.getField(this, 111) != null;
+};
+
+
+/**
+ * optional RedisStreams redis_streams = 112;
+ * @return {?proto.protos.records.RedisStreams}
+ */
+proto.protos.records.WriteRecord.prototype.getRedisStreams = function() {
+  return /** @type{?proto.protos.records.RedisStreams} */ (
+    jspb.Message.getWrapperField(this, records_redis$streams_pb.RedisStreams, 112));
+};
+
+
+/**
+ * @param {?proto.protos.records.RedisStreams|undefined} value
+ * @return {!proto.protos.records.WriteRecord} returns this
+*/
+proto.protos.records.WriteRecord.prototype.setRedisStreams = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 112, proto.protos.records.WriteRecord.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.records.WriteRecord} returns this
+ */
+proto.protos.records.WriteRecord.prototype.clearRedisStreams = function() {
+  return this.setRedisStreams(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.records.WriteRecord.prototype.hasRedisStreams = function() {
+  return jspb.Message.getField(this, 112) != null;
+};
+
+
+/**
+ * optional AzureEventHub azure_event_hub = 113;
+ * @return {?proto.protos.records.AzureEventHub}
+ */
+proto.protos.records.WriteRecord.prototype.getAzureEventHub = function() {
+  return /** @type{?proto.protos.records.AzureEventHub} */ (
+    jspb.Message.getWrapperField(this, records_azure$event$hub_pb.AzureEventHub, 113));
+};
+
+
+/**
+ * @param {?proto.protos.records.AzureEventHub|undefined} value
+ * @return {!proto.protos.records.WriteRecord} returns this
+*/
+proto.protos.records.WriteRecord.prototype.setAzureEventHub = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 113, proto.protos.records.WriteRecord.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.records.WriteRecord} returns this
+ */
+proto.protos.records.WriteRecord.prototype.clearAzureEventHub = function() {
+  return this.setAzureEventHub(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.records.WriteRecord.prototype.hasAzureEventHub = function() {
+  return jspb.Message.getField(this, 113) != null;
+};
+
+
+/**
+ * optional AzureServiceBus azure_service_bus = 114;
+ * @return {?proto.protos.records.AzureServiceBus}
+ */
+proto.protos.records.WriteRecord.prototype.getAzureServiceBus = function() {
+  return /** @type{?proto.protos.records.AzureServiceBus} */ (
+    jspb.Message.getWrapperField(this, records_azure$service$bus_pb.AzureServiceBus, 114));
+};
+
+
+/**
+ * @param {?proto.protos.records.AzureServiceBus|undefined} value
+ * @return {!proto.protos.records.WriteRecord} returns this
+*/
+proto.protos.records.WriteRecord.prototype.setAzureServiceBus = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 114, proto.protos.records.WriteRecord.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.records.WriteRecord} returns this
+ */
+proto.protos.records.WriteRecord.prototype.clearAzureServiceBus = function() {
+  return this.setAzureServiceBus(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.records.WriteRecord.prototype.hasAzureServiceBus = function() {
+  return jspb.Message.getField(this, 114) != null;
+};
+
+
+/**
+ * optional MQTT mqtt = 115;
+ * @return {?proto.protos.records.MQTT}
+ */
+proto.protos.records.WriteRecord.prototype.getMqtt = function() {
+  return /** @type{?proto.protos.records.MQTT} */ (
+    jspb.Message.getWrapperField(this, records_mqtt_pb.MQTT, 115));
+};
+
+
+/**
+ * @param {?proto.protos.records.MQTT|undefined} value
+ * @return {!proto.protos.records.WriteRecord} returns this
+*/
+proto.protos.records.WriteRecord.prototype.setMqtt = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 115, proto.protos.records.WriteRecord.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.records.WriteRecord} returns this
+ */
+proto.protos.records.WriteRecord.prototype.clearMqtt = function() {
+  return this.setMqtt(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.records.WriteRecord.prototype.hasMqtt = function() {
+  return jspb.Message.getField(this, 115) != null;
+};
+
+
+/**
+ * optional KubeMQ kubemq = 116;
+ * @return {?proto.protos.records.KubeMQ}
+ */
+proto.protos.records.WriteRecord.prototype.getKubemq = function() {
+  return /** @type{?proto.protos.records.KubeMQ} */ (
+    jspb.Message.getWrapperField(this, records_kubemq_pb.KubeMQ, 116));
+};
+
+
+/**
+ * @param {?proto.protos.records.KubeMQ|undefined} value
+ * @return {!proto.protos.records.WriteRecord} returns this
+*/
+proto.protos.records.WriteRecord.prototype.setKubemq = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 116, proto.protos.records.WriteRecord.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.records.WriteRecord} returns this
+ */
+proto.protos.records.WriteRecord.prototype.clearKubemq = function() {
+  return this.setKubemq(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.records.WriteRecord.prototype.hasKubemq = function() {
+  return jspb.Message.getField(this, 116) != null;
 };
 
 

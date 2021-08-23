@@ -18,6 +18,7 @@ import "conns/redis-pubsub.proto";
 import "conns/redis-streams.proto";
 import "conns/azure-service-bus.proto";
 import "conns/azure-event-hub.proto";
+import "conns/kubemq.proto";
 import "common/auth.proto";
 import "common/status.proto";
 
@@ -49,6 +50,7 @@ message ConnectionConfig {
         conns.RedisStreams redis_streams = 113;
         conns.AzureEventHub azure_event_hub = 114;
         conns.AzureServiceBus azure_service_bus = 115;
+        conns.KubeMQ kubemq  = 116;
     }
 }
 

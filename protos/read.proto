@@ -22,6 +22,7 @@ import "backends/redis-pubsub.proto";
 import "backends/redis-streams.proto";
 import "backends/azure-service-bus.proto";
 import "backends/azure-event-hub.proto";
+import "backends/kubemq.proto";
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
 
@@ -92,6 +93,7 @@ message ReadConfig {
         backends.RedisStreams redis_streams = 113;
         backends.AzureEventHub azure_event_hub = 114;
         backends.AzureServiceBus azure_service_bus = 115;
+        backends.KubeMQ kubemq = 116;
     }
 }
 

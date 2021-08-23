@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package protos.records;
+
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/records";
+
+message Postgres {
+  map<string,string> metadata = 1;
+  int64 timestamp = 2;
+  bytes value = 3;
+}
