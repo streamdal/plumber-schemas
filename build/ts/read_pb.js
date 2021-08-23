@@ -769,9 +769,10 @@ proto.protos.ReadCLIConfig.prototype.toObject = function(opt_includeInstance) {
  */
 proto.protos.ReadCLIConfig.toObject = function(includeInstance, msg) {
   var f, obj = {
-    displayLagStats: jspb.Message.getBooleanFieldWithDefault(msg, 1, false),
-    convertOutput: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    verboseOutput: jspb.Message.getBooleanFieldWithDefault(msg, 3, false)
+    treatOutputAsJson: jspb.Message.getBooleanFieldWithDefault(msg, 1, false),
+    displayLagStats: jspb.Message.getBooleanFieldWithDefault(msg, 2, false),
+    convertOutput: jspb.Message.getFieldWithDefault(msg, 3, ""),
+    verboseOutput: jspb.Message.getBooleanFieldWithDefault(msg, 4, false)
   };
 
   if (includeInstance) {
@@ -810,13 +811,17 @@ proto.protos.ReadCLIConfig.deserializeBinaryFromReader = function(msg, reader) {
     switch (field) {
     case 1:
       var value = /** @type {boolean} */ (reader.readBool());
-      msg.setDisplayLagStats(value);
+      msg.setTreatOutputAsJson(value);
       break;
     case 2:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setDisplayLagStats(value);
+      break;
+    case 3:
       var value = /** @type {string} */ (reader.readString());
       msg.setConvertOutput(value);
       break;
-    case 3:
+    case 4:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setVerboseOutput(value);
       break;
@@ -849,24 +854,31 @@ proto.protos.ReadCLIConfig.prototype.serializeBinary = function() {
  */
 proto.protos.ReadCLIConfig.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getDisplayLagStats();
+  f = message.getTreatOutputAsJson();
   if (f) {
     writer.writeBool(
       1,
       f
     );
   }
+  f = message.getDisplayLagStats();
+  if (f) {
+    writer.writeBool(
+      2,
+      f
+    );
+  }
   f = message.getConvertOutput();
   if (f.length > 0) {
     writer.writeString(
-      2,
+      3,
       f
     );
   }
   f = message.getVerboseOutput();
   if (f) {
     writer.writeBool(
-      3,
+      4,
       f
     );
   }
@@ -874,10 +886,10 @@ proto.protos.ReadCLIConfig.serializeBinaryToWriter = function(message, writer) {
 
 
 /**
- * optional bool display_lag_stats = 1;
+ * optional bool treat_output_as_json = 1;
  * @return {boolean}
  */
-proto.protos.ReadCLIConfig.prototype.getDisplayLagStats = function() {
+proto.protos.ReadCLIConfig.prototype.getTreatOutputAsJson = function() {
   return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 1, false));
 };
 
@@ -886,17 +898,35 @@ proto.protos.ReadCLIConfig.prototype.getDisplayLagStats = function() {
  * @param {boolean} value
  * @return {!proto.protos.ReadCLIConfig} returns this
  */
-proto.protos.ReadCLIConfig.prototype.setDisplayLagStats = function(value) {
+proto.protos.ReadCLIConfig.prototype.setTreatOutputAsJson = function(value) {
   return jspb.Message.setProto3BooleanField(this, 1, value);
 };
 
 
 /**
- * optional string convert_output = 2;
+ * optional bool display_lag_stats = 2;
+ * @return {boolean}
+ */
+proto.protos.ReadCLIConfig.prototype.getDisplayLagStats = function() {
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 2, false));
+};
+
+
+/**
+ * @param {boolean} value
+ * @return {!proto.protos.ReadCLIConfig} returns this
+ */
+proto.protos.ReadCLIConfig.prototype.setDisplayLagStats = function(value) {
+  return jspb.Message.setProto3BooleanField(this, 2, value);
+};
+
+
+/**
+ * optional string convert_output = 3;
  * @return {string}
  */
 proto.protos.ReadCLIConfig.prototype.getConvertOutput = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
 };
 
 
@@ -905,16 +935,16 @@ proto.protos.ReadCLIConfig.prototype.getConvertOutput = function() {
  * @return {!proto.protos.ReadCLIConfig} returns this
  */
 proto.protos.ReadCLIConfig.prototype.setConvertOutput = function(value) {
-  return jspb.Message.setProto3StringField(this, 2, value);
+  return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
 /**
- * optional bool verbose_output = 3;
+ * optional bool verbose_output = 4;
  * @return {boolean}
  */
 proto.protos.ReadCLIConfig.prototype.getVerboseOutput = function() {
-  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 3, false));
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 4, false));
 };
 
 
@@ -923,7 +953,7 @@ proto.protos.ReadCLIConfig.prototype.getVerboseOutput = function() {
  * @return {!proto.protos.ReadCLIConfig} returns this
  */
 proto.protos.ReadCLIConfig.prototype.setVerboseOutput = function(value) {
-  return jspb.Message.setProto3BooleanField(this, 3, value);
+  return jspb.Message.setProto3BooleanField(this, 4, value);
 };
 
 

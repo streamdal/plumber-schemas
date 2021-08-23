@@ -85,6 +85,8 @@ export namespace ReadOptions {
 }
 
 export class ReadCLIConfig extends jspb.Message { 
+    getTreatOutputAsJson(): boolean;
+    setTreatOutputAsJson(value: boolean): ReadCLIConfig;
     getDisplayLagStats(): boolean;
     setDisplayLagStats(value: boolean): ReadCLIConfig;
     getConvertOutput(): string;
@@ -104,6 +106,7 @@ export class ReadCLIConfig extends jspb.Message {
 
 export namespace ReadCLIConfig {
     export type AsObject = {
+        treatOutputAsJson: boolean,
         displayLagStats: boolean,
         convertOutput: string,
         verboseOutput: boolean,

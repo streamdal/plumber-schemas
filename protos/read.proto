@@ -45,9 +45,10 @@ message ReadOptions {
 }
 
 message ReadCLIConfig {
-    bool display_lag_stats = 1;
-    string convert_output = 2;
-    bool verbose_output = 3;
+    bool treat_output_as_json = 1;
+    bool display_lag_stats = 2;
+    string convert_output = 3;
+    bool verbose_output = 4;
 }
 
 message ReadConfig {

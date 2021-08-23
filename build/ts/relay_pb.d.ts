@@ -24,23 +24,50 @@ import * as backends_azure_event_hub_pb from "./backends/azure-event-hub_pb";
 import * as common_auth_pb from "./common/auth_pb";
 import * as common_status_pb from "./common/status_pb";
 
+export class CLIRelayConfig extends jspb.Message { 
+    getHttpListenAddress(): string;
+    setHttpListenAddress(value: string): CLIRelayConfig;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): CLIRelayConfig.AsObject;
+    static toObject(includeInstance: boolean, msg: CLIRelayConfig): CLIRelayConfig.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: CLIRelayConfig, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): CLIRelayConfig;
+    static deserializeBinaryFromReader(message: CLIRelayConfig, reader: jspb.BinaryReader): CLIRelayConfig;
+}
+
+export namespace CLIRelayConfig {
+    export type AsObject = {
+        httpListenAddress: string,
+    }
+}
+
 export class RelayConfig extends jspb.Message { 
-    getBatchCollectionToken(): string;
-    setBatchCollectionToken(value: string): RelayConfig;
+    getCollectionToken(): string;
+    setCollectionToken(value: string): RelayConfig;
     getBatchSize(): number;
     setBatchSize(value: number): RelayConfig;
     getBatchMaxRetry(): number;
     setBatchMaxRetry(value: number): RelayConfig;
     getConnectionId(): string;
     setConnectionId(value: string): RelayConfig;
+    getNumWorkers(): number;
+    setNumWorkers(value: number): RelayConfig;
     getBatchshGrpcAddress(): string;
     setBatchshGrpcAddress(value: string): RelayConfig;
     getBatchshGrpcDisableTls(): boolean;
     setBatchshGrpcDisableTls(value: boolean): RelayConfig;
-    getBatchshGrpcTimeout(): boolean;
-    setBatchshGrpcTimeout(value: boolean): RelayConfig;
+    getBatchshGrpcTimeoutSeconds(): number;
+    setBatchshGrpcTimeoutSeconds(value: number): RelayConfig;
     getRelayId(): string;
     setRelayId(value: string): RelayConfig;
+
+    hasCliConfig(): boolean;
+    clearCliConfig(): void;
+    getCliConfig(): CLIRelayConfig | undefined;
+    setCliConfig(value?: CLIRelayConfig): RelayConfig;
 
     hasKafka(): boolean;
     clearKafka(): void;
@@ -136,14 +163,16 @@ export class RelayConfig extends jspb.Message {
 
 export namespace RelayConfig {
     export type AsObject = {
-        batchCollectionToken: string,
+        collectionToken: string,
         batchSize: number,
         batchMaxRetry: number,
         connectionId: string,
+        numWorkers: number,
         BatchshGrpcAddress: string,
         BatchshGrpcDisableTls: boolean,
-        BatchshGrpcTimeout: boolean,
+        BatchshGrpcTimeoutSeconds: number,
         RelayId: string,
+        CliConfig?: CLIRelayConfig.AsObject,
         kafka?: backends_kafka_pb.Kafka.AsObject,
         activeMq?: backends_activemq_pb.ActiveMQ.AsObject,
         awssqs?: backends_aws_sqs_pb.AWSSQS.AsObject,

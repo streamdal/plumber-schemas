@@ -37,7 +37,6 @@ message WriteRequest {
     common.Auth auth = 9999;
 
     WriteConfig config = 1;
-
 }
 
 message WriteResponse {
