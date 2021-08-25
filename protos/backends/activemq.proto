@@ -4,10 +4,20 @@ package protos.backends;
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/backends";
 
-message ActiveMQ {
+message ActiveMQConn {
+  // Required
+  string address = 1;
+}
+
+
+message ActiveMQReadArgs {
   // Required if queue not specified
   string topic = 1;
 
   // Required if topic not specified
   string queue = 2;
+}
+
+message ActiveMQWriteArgs {
+  // TODO: Fill out
 }

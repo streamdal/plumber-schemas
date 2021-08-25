@@ -56,6 +56,8 @@ export namespace SampleOptions {
 }
 
 export class ReadOptions extends jspb.Message { 
+    getType(): ReadOptions.Type;
+    setType(value: ReadOptions.Type): ReadOptions;
 
     hasSampleOptions(): boolean;
     clearSampleOptions(): void;
@@ -74,6 +76,7 @@ export class ReadOptions extends jspb.Message {
 
 export namespace ReadOptions {
     export type AsObject = {
+        type: ReadOptions.Type,
         sampleOptions?: SampleOptions.AsObject,
     }
 

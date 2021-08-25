@@ -4,7 +4,34 @@ package protos.backends;
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/backends";
 
-message NatsStreaming {
+message NatsStreamingConn {
+  // Required
+  // Full DNS to connect to NATS. Ex: tls://localhost:4222
+  string dsn = 1;
+
+  // Specify to not verify server's TLS certificate
+  bool insecure_tls = 2;
+
+  // Optional
+  bytes tls_ca_cert = 3;
+
+  // Optional
+  bytes tls_client_cert = 4;
+
+  // Optional
+  bytes tls_client_key = 5;
+
+  // Optional
+  bytes user_credentials = 6;
+
+  // Required
+  string cluster_id = 7;
+
+  // Required
+  string client_id = 8;
+}
+
+message NatsStreamingReadArgs {
   // Required
   // Channel name to read from/write to
   string channel = 1;
@@ -13,35 +40,20 @@ message NatsStreaming {
   // Create a durable subscription with this name for the given channel
   string durable_name = 2;
 
-  oneof read_option {
-    // Start reading at last available message
-    ReadLastAvailable last_available = 100;
+  // Start reading at last available message
+  bool read_last_available = 3;
 
-    // Start reading at a sequence number
-    ReadSequenceNumber read_sequence_number = 101;
+  // Start reading at a sequence number
+  uint32 read_sequence_number = 4;
 
-    // Start reading at a time interval ago
-    ReadSince read_since = 102;
-
-    // Read all messages on the channel from the beginning
-    ReadAll all = 103;
-  }
-
-}
-
-message ReadLastAvailable {
-  //
-}
-
-message ReadSequenceNumber {
-  uint32 sequence_number = 1;
-}
-
-message ReadSince {
+  // Start reading at a time interval ago
   // Ex: 1s, 15m, 3h, 10h
-  string since = 1;
+  string read_since = 5;
+
+  // Read everything
+  bool read_all = 6;
 }
 
-message ReadAll {
-  //
+message NatsStreamingWriteArgs {
+  // TODO: Fill out
 }

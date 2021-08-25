@@ -4,7 +4,23 @@ package protos.backends;
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/backends";
 
-message AWSSNS {
+message AWSSNSConn {
+  // Required
+  string aws_region = 1;
+
+  // Required
+  string aws_access_key_id = 2;
+
+  // Required
+  string aws_secret_access_key = 3;
+
+}
+
+message AWSSNSReadArgs {
   // Topic ARN to write to
   string topic_arn = 1;
+}
+
+message AWSSNSWriteArgs {
+  // TODO: Fill out
 }

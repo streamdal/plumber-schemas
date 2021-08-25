@@ -4,9 +4,35 @@ package protos.backends;
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/backends";
 
+message RedisStreamsConn {
+  // Required
+  // Address of redis server. Ex: "localhost:6379"
+  string address = 1;
 
-message RedisStreams {
+  // Optional
+  string username = 2;
 
+  // Optional
+  string password = 3;
+}
+
+message CreateConsumerConfig {
+  enum OffsetStart {
+    Latest = 0;
+    Oldest = 1;
+  }
+
+  // Create the streams if we're creating a new consumer group
+  bool create_streams = 3;
+
+  // Recreate this consumer group if it doesn't exist
+  bool recreate_consumer_group = 4;
+
+  // Required
+  OffsetStart offset_start = 5;
+}
+
+message RedisStreamsReadArgs {
   // Required
   // Database (0-16)
   uint32 database = 1;
@@ -34,18 +60,6 @@ message RedisStreams {
   CreateConsumerConfig create_consumer_config = 7;
 }
 
-message CreateConsumerConfig {
-  enum OffsetStart {
-    Latest = 0;
-    Oldest = 1;
-  }
-
-  // Create the streams if we're creating a new consumer group
-  bool create_streams = 3;
-
-  // Recreate this consumer group if it doesn't exist
-  bool recreate_consumer_group = 4;
-
-  // Required
-  OffsetStart offset_start = 5;
+message RedisStreamsWriteArgs {
+  // TODO: Fill out
 }

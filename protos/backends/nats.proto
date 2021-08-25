@@ -4,7 +4,32 @@ package protos.backends;
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/backends";
 
-message Nats {
+message NatsConn {
+  // Required
+  // Full DNS to connect to NATS. Ex: tls://localhost:4222
+  string dsn = 1;
+
+  // Specify to not verify server's TLS certificate
+  bool insecure_tls = 2;
+
+  // Optional
+  bytes tls_ca_cert = 3;
+
+  // Optional
+  bytes tls_client_cert = 4;
+
+  // Optional
+  bytes tls_client_key = 5;
+
+  // Optional
+  bytes user_credentials = 6;
+}
+
+message NatsReadArgs {
   // Subject to read from/write to. Ex: "foo.bar.*"
   string subject = 1;
+}
+
+message NatsWriteArgs {
+  // TODO: Fill out
 }

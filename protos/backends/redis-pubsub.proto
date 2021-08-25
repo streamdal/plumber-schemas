@@ -4,8 +4,19 @@ package protos.backends;
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/backends";
 
-message RedisPubsub {
+message RedisPubSubConn {
+  // Required
+  // Address of redis server. Ex: "localhost:6379"
+  string address = 1;
 
+  // Optional
+  string username = 2;
+
+  // Optional
+  string password = 3;
+}
+
+message RedisPubSubReadArgs {
   // Required
   // Database (0-16)
   uint32 database = 1;
@@ -13,5 +24,8 @@ message RedisPubsub {
   // Required
   // Channel(s) to read from/write to
   repeated string channel = 2;
+}
 
+message RedisPubSubWriteArgs {
+  // TODO: Fill out
 }

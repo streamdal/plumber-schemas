@@ -4,7 +4,37 @@ package protos.backends;
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/backends";
 
-message Kafka {
+message KafkaConn {
+    enum SASLType {
+        NONE = 0;
+        PLAIN = 1;
+        SCRAM = 2;
+    }
+
+    // Required
+    repeated string address = 1;
+
+    // Optional; how long to attempt connecting for (default: 10s)
+    int32 timeout_seconds = 2;
+
+    // Optional
+    bool use_tls = 3;
+
+    // Optional
+    bool insecure_tls = 4;
+
+    // Optional
+    SASLType sasl_type = 5;
+
+    // Required if sasl_type is not NONE
+    string sasl_username = 6;
+
+    // Required if sasl_type is not NONE
+    string sasl_password = 7;
+
+}
+
+message KafkaReadArgs {
     // Required
     repeated string topics = 1;
 
@@ -32,4 +62,8 @@ message Kafka {
 
     // Optional; how long a coordinator will wait for member joins as part of a rebalance (default: 5s)
     int32 rebalance_timeout_seconds = 9;
+}
+
+message KafkaWriteArgs {
+    // TODO: Fill this out
 }

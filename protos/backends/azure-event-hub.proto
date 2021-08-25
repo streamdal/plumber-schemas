@@ -4,8 +4,12 @@ package protos.backends;
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/backends";
 
-message AzureEventHub {
+message AzureEventHubConn {
+  // Required
+  string connection_string = 1;
+}
 
+message AzureEventHubReadArgs {
   // Optional for writes
   // Ignored for reads
   string message_id = 1;
@@ -13,4 +17,8 @@ message AzureEventHub {
   // Optional for writes
   // Ignored for reads
   string partition_key = 2;
+}
+
+message AzureEventHubWriteArgs {
+  // TODO: Fill out
 }

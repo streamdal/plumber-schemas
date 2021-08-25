@@ -53,7 +53,7 @@ message Options {
     string schema_id = 2;
 
     // Only filled out if "type" is not NONE or JSON
-    oneof Encoding {
+    message Encoding {
         Protobuf protobuf = 100;
         Avro avro = 102;
         JSONSchema json_schema = 101;

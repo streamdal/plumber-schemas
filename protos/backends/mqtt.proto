@@ -1,0 +1,48 @@
+syntax = "proto3";
+
+package protos.backends;
+
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/backends";
+
+enum MQTTQoSLevel {
+    AT_MOST_ONCE  = 0;
+    AT_LEAST_ONCE = 1;
+    EXACTLY_ONCE  = 2;
+}
+
+message MQTTTLSOptions {
+    string ca_file = 1;
+    string cert_file = 2;
+    string key_file = 3;
+    bool skip_verify = 4;
+}
+
+message MQTTConn {
+    // Required; default: "tcp://localhost:1883"
+    string address = 1;
+
+    // Required
+    string topic = 2;
+
+    // Optional; default: 5
+    uint32 timeout_seconds = 3;
+
+    // Optional; default: plumber-$uuid
+    string client_id = 4;
+
+    // Optional; default: 0
+    MQTTQoSLevel qos_level = 5;
+
+    // Optional
+    MQTTTLSOptions tls_options = 6;
+}
+
+message MQTTReadArgs {
+    // Optional; default 0
+    uint32 timeout_seconds = 1;
+}
+
+message MQTTWriteArgs {
+    // Optional; default 5
+    uint32 timeout_seconds = 1;
+}

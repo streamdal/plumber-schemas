@@ -4,7 +4,13 @@ package protos.backends;
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/backends";
 
-message Mongo {
+message MongoConn {
+  // Full DNS to connect to mongo
+  // Ex: mongodb://user:pass@localhost:27017
+  string dsn = 1;
+}
+
+message MongoReadArgs {
   // Optional
   // Specify to limit CDC changes to a single database of the mongo instance
   // Leave empty to get CDC changes from all databases
@@ -18,4 +24,9 @@ message Mongo {
   // Include full document in update in update changes.
   // Default is to return deltas only
   bool include_full_document = 3;
+}
+
+// TODO: Add correct kong tag to not allow this option
+message MongoWriteArgs {
+  // Not possible to write
 }

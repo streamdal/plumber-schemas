@@ -4,45 +4,51 @@ package protos.backends;
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/backends";
 
-message RabbitStreams {
+message RabbitStreamsConn {
+  // Required
+  // DSN used to connect to rabbitmq. Ex: rabbitmq-stream://localhost:5552
+  string dsn = 1;
 
+  // Connect over TLS
+  bool use_tls = 2;
+
+  // Specify to not verify server's TLS certificate
+  bool insecure_tls = 3;
+
+  // Required
+  string username = 4;
+
+  // Required
+  string password = 5;
+
+  // Required
+  string client_name = 6;
+}
+
+message RabbitStreamsOffsetOptions {
+  uint64 specific_offset = 1;
+  uint64 last_offset = 2;
+  bool last_consumed = 3;
+  bool first_offset = 4;
+  bool next_offset = 5;
+}
+
+message RabbitStreamsReadArgs {
   // Required
   string stream = 1;
 
   // Optional
   // If specified, stream will be declared
-  DeclareStream declare_stream = 2;
+  bool declare_stream = 2;
 
-  oneof offset_option {
-    SpecificOffset offset = 101;
-    LastOffset last_offset = 102;
-    LastConsumed last_consumed = 103;
-    FirstOffset first_offset = 104;
-    NextOffset next_offset = 105;
-  }
+  // Required if declare_stream is true; size capacity to declare the stream
+  // with. Ex: 1024k, 10mb, 3gb
+  string declare_stream_size = 3;
+
+  // Required read position
+  RabbitStreamsOffsetOptions offset_options = 4;
 }
 
-message DeclareStream {
-  // Size capacity to declare the stream with. Ex: 10mb, 3gb, 1024k
-  string size = 1;
-}
-
-message SpecificOffset {
-  uint64 offset = 1;
-}
-
-message LastOffset {
-  //
-}
-
-message LastConsumed {
-  //
-}
-
-message FirstOffset {
-  //
-}
-
-message NextOffset {
-  //
+message RabbitStreamsWriteArgs {
+  // TODO: Fill out
 }

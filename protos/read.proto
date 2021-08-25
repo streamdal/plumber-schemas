@@ -2,15 +2,22 @@ syntax = "proto3";
 
 package protos;
 
+import "base.proto";
 import "common/auth.proto";
 import "common/status.proto";
 import "encoding/options.proto";
 import "records/base.proto";
-import "backends/kafka.proto";
+import "backends/backends.proto";
 import "backends/activemq.proto";
+import "backends/azure-service-bus.proto";
+import "backends/azure-event-hub.proto";
 import "backends/aws-sns.proto";
 import "backends/aws-sqs.proto";
+import "backends/gcp-pubsub.proto";
+import "backends/kafka.proto";
+import "backends/kubemq-queue.proto";
 import "backends/mongo.proto";
+import "backends/mqtt.proto";
 import "backends/nats.proto";
 import "backends/nats-streaming.proto";
 import "backends/nsq.proto";
@@ -20,8 +27,6 @@ import "backends/rabbit.proto";
 import "backends/rabbit-streams.proto";
 import "backends/redis-pubsub.proto";
 import "backends/redis-streams.proto";
-import "backends/azure-service-bus.proto";
-import "backends/azure-event-hub.proto";
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
 
@@ -41,57 +46,170 @@ message ReadOptions {
         CONTINUOUS = 1;
     }
 
-    SampleOptions sample_options = 1;
+    Type type = 1;
+    SampleOptions sample_options = 2;
 }
 
 message ReadCLIConfig {
-    bool treat_output_as_json = 1;
-    bool display_lag_stats = 2;
-    string convert_output = 3;
-    bool verbose_output = 4;
+    bool display_lag_stats = 1;
+    string convert_output = 2;
+    bool verbose_output = 3;
+
+    // Used by CLI to inform components, which backend to use; server uses
+    // ReadConfig.connection_id.
+    // @gotags: kong:"-"
+    backends.Type _backend_type = 5;
 }
 
 message ReadConfig {
-    // Automatically set by plumber when a new read is created
-    string _id = 1;
-
-    // Used by plumber to set read state
-    bool _active = 2;
-
     // Required; friendly name for the read
-    string name = 3;
+    // @gotags: kong:"-"
+    string name = 1;
 
     // Required for server mode; ignored in CLI mode.
-    string connection_id = 4;
+    // @gotags: kong:"-"
+    string connection_id = 2;
 
     // Required; options specifying how to read data
-    ReadOptions read_options = 5;
+    ReadOptions read_options = 3;
 
     // Optional; options specify how to decode the _value_ in a message.
     // If left unset, plumber will still populate records.ReadRecord.Decoded
     // with the (untouched) value.
-    encoding.Options decode_options = 6;
+    encoding.Options decode_options = 4;
 
-    // Optional; contains options specific to the CLI
-    ReadCLIConfig _cli_config = 7;
+    ////////////////////////////////////////////////////////
+    ////////////// "Private" fields 500-999 ////////////////
+    ////////////////////////////////////////////////////////
 
-    oneof Backends {
-        backends.Kafka kafka = 100;
-        backends.ActiveMQ active_mq = 101;
-        backends.AWSSQS awssqs = 102;
-        backends.AWSSNS awssns = 103;
-        backends.Mongo mongo = 104;
-        backends.Nats nats = 105;
-        backends.NatsStreaming nats_streaming = 106;
-        backends.NSQ nsq = 107;
-        backends.Postgres postgres = 108;
-        backends.Pulsar pulsar = 109;
-        backends.Rabbit rabbit = 110;
-        backends.RabbitStreams rabbit_streams = 111;
-        backends.RedisPubsub redis_pubsub = 112;
-        backends.RedisStreams redis_streams = 113;
-        backends.AzureEventHub azure_event_hub = 114;
-        backends.AzureServiceBus azure_service_bus = 115;
+    // Automatically set by plumber when a new read is created
+    // @gotags: kong:"-"
+    string _id = 500;
+
+    // Used by plumber to set read state
+    // @gotags: kong:"-"
+    bool _active = 501;
+
+    // Contains options/fields specific to the CLI
+    // @gotags: embed:""
+    ReadCLIConfig _cli_config = 502;
+
+    ////////////////////////////////////////////////////////
+    //////////////         BACKENDS         ////////////////
+    ////////////////////////////////////////////////////////
+
+    message Backends {
+        // @gotags: cmd:""
+        message Kafka {
+            backends.KafkaConn conn = 1;
+            backends.KafkaReadArgs args = 2;
+        }
+
+        // @gotags: cmd:""
+        message ActiveMQ {
+            backends.ActiveMQConn conn = 1;
+            backends.ActiveMQReadArgs args = 2;
+        }
+
+        // @gotags: cmd:""
+        message AWSSQS {
+            backends.AWSSQSConn conn = 1;
+            backends.AWSSQSReadArgs args = 2;
+        }
+
+
+        // @gotags: cmd:""
+        message AWSSNS {
+            backends.AWSSNSConn conn = 1;
+            backends.AWSSNSReadArgs args = 2;
+        }
+
+        // @gotags: cmd:""
+        message Mongo {
+            backends.MongoConn conn = 1;
+            backends.MongoReadArgs args = 2;
+        }
+
+        // @gotags: cmd:""
+        message Nats {
+            backends.NatsConn conn = 1;
+            backends.NatsReadArgs args = 2;
+        }
+
+        // @gotags: cmd:""
+        message NatsStreaming {
+            backends.NatsStreamingConn conn = 1;
+            backends.NatsStreamingReadArgs args = 2;
+        }
+
+        // @gotags: cmd:""
+        message NSQ {
+            backends.NSQConn conn = 1;
+            backends.NSQReadArgs args = 2;
+        }
+
+        // @gotags: cmd:""
+        message Postgres {
+            backends.PostgresConn conn = 1;
+            backends.PostgresReadArgs args = 2;
+        }
+
+        // @gotags: cmd:""
+        message Pulsar {
+            backends.PulsarConn conn = 1;
+            backends.PulsarReadArgs args = 2;
+        }
+
+        // @gotags: cmd:""
+        message Rabbit {
+            backends.RabbitConn conn = 1;
+            backends.RabbitReadArgs args = 2;
+        }
+
+        // @gotags: cmd:""
+        message RabbitStreams {
+            backends.RabbitStreamsConn conn = 1;
+            backends.RabbitStreamsReadArgs args = 2;
+        }
+
+        // @gotags: cmd:""
+        message RedisPubSub {
+            backends.RedisPubSubConn conn = 1;
+            backends.RedisPubSubReadArgs args = 2;
+        }
+
+        // @gotags: cmd:""
+        message RedisStreams {
+            backends.RedisStreamsConn conn = 1;
+            backends.RedisStreamsReadArgs args = 2;
+        }
+
+        // @gotags: cmd:""
+        message AzureEventHub {
+            backends.AzureEventHubConn conn = 1;
+            backends.AzureEventHubReadArgs args = 2;
+        }
+
+        // @gotags: cmd:""
+        message AzureServiceBus {
+            backends.AzureServiceBusConn conn = 1;
+            backends.AzureServiceBusReadArgs args = 2;
+        }
+
+        message MQTT {
+            backends.MQTTConn conn = 1;
+            backends.MQTTReadArgs args = 2;
+        }
+
+        message GCPPubSub {
+            backends.GCPPubSubConn conn = 1;
+            backends.GCPPubSubReadArgs args = 2;
+        }
+
+        message KubeMQQueue {
+            backends.KubeMQQueueConn conn = 1;
+            backends.KubeMQQueueReadArgs args = 2;
+        }
     }
 }
 

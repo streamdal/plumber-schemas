@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package protos.backends;
+
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/backends";
+
+message GCPPubSubConn {
+    // Required
+    string project_id = 1;
+}
+
+message GCPPubSubReadArgs {
+    // Required
+    string subscription_id = 1;
+
+    // Optional; default: true
+    bool ack_messages = 2;
+}
+
+message GCPPubSubWriteArgs {
+    // Required
+    string topic_id = 1;
+}

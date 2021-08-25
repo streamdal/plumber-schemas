@@ -4,9 +4,24 @@ package protos.backends;
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/backends";
 
-message AWSSQS {
+message AWSSQSConn {
+  // Required
+  string aws_region = 1;
+
+  // Required
+  string aws_access_key_id = 2;
+
+  // Required
+  string aws_secret_access_key = 3;
+}
+
+message AWSSQSReadArgs {
   string queue_name = 1;
 
   // Required if the queue is located in a different account
   string remote_account_id = 2;
+}
+
+message AWSSQSWriteArgs {
+  // TODO: Fill out
 }

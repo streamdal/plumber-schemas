@@ -60,7 +60,7 @@ message RelayConfig {
     // Set appropriate backend based on what connection is specified
     // ie. If connection_id is for kafka - specify Kafka backend
     oneof Backends {
-        backends.Kafka kafka = 100;
+        backends.KafkaArgs kafka = 100;
         backends.ActiveMQ active_mq = 101;
         backends.AWSSQS awssqs = 102;
         backends.AWSSNS awssns = 103;
@@ -116,7 +116,7 @@ message CreateRelayRequest {
     RelayConfig config = 1;
 
     oneof Backends {
-        backends.Kafka kafka = 100;
+        backends.KafkaArgs kafka = 100;
         backends.ActiveMQ active_mq = 101;
         backends.AWSSQS awssqs = 102;
         backends.AWSSNS awssns = 103;

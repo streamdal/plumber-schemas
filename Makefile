@@ -53,7 +53,6 @@ generate/ts:
     -I=./protos \
     -I=./protos/backends \
     -I=./protos/common \
-    -I=./protos/conns \
     -I=./protos/encoding \
     -I=./protos/records \
     protos/*.proto \
@@ -66,7 +65,6 @@ generate/go:
 	mkdir -p build/go/protos
 	mkdir -p build/go/protos/backends
 	mkdir -p build/go/protos/common
-	mkdir -p build/go/protos/conns
 	mkdir -p build/go/protos/encoding
 	mkdir -p build/go/protos/records
 
@@ -74,7 +72,6 @@ generate/go:
 	--proto_path=./protos \
 	--proto_path=./protos/backends \
 	--proto_path=./protos/common \
-	--proto_path=./protos/conns \
 	--proto_path=./protos/encoding \
 	--proto_path=./protos/records \
 	--go_out=plugins=grpc:build/go/protos \
@@ -92,12 +89,6 @@ generate/go:
 	--go_out=plugins=grpc:build/go/protos/common \
 	--go_opt=paths=source_relative \
 	protos/common/*.proto
-
-	docker run --rm -w $(PWD) -v $(PWD):$(PWD) -w${PWD} jaegertracing/protobuf:0.2.0 \
-	--proto_path=./protos/conns \
-	--go_out=plugins=grpc:build/go/protos/conns \
-	--go_opt=paths=source_relative \
-	protos/conns/*.proto
 
 	docker run --rm -w $(PWD) -v $(PWD):$(PWD) -w${PWD} jaegertracing/protobuf:0.2.0 \
 	--proto_path=./protos/encoding \

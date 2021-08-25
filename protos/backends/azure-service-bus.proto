@@ -4,15 +4,24 @@ package protos.backends;
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/backends";
 
-message AzureServiceBus {
+
+message AzureServiceBusConn {
+  // Required
+  string connection_string = 1;
+}
+
+message AzureServiceBusReadArgs {
   // Required for reads and writes
   string queue = 1;
 
-  // Required for reads
-  // Ignored for writes
+  // Required
   string topic = 2;
 
-  // Required for reads
-  // Ignored for writes
+  // Required
   string subscription_name = 3;
+}
+
+message AzureServiceBusWriteArgs {
+  // Required
+  string queue = 1;
 }

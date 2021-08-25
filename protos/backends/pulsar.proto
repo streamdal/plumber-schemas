@@ -5,16 +5,33 @@ package protos.backends;
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/backends";
 
 enum SubscriptionType {
-  Unset = 0;
-  Shared = 1;
-  Exclusive = 2;
-  Failover = 3;
-  Keyshared = 4;
+  UNSET     = 0;
+  SHARED    = 1;
+  EXCLUSIVE = 2;
+  FAILOVER  = 3;
+  KEYSHARED = 4;
 }
 
+message PulsarConn {
+  // Required
+  // Full DSN to connect to Pulsar. Ex: pulsar://localhost:6650
+  string dsn = 1;
 
-message Pulsar {
+  // Optional
+  // Default: 10s
+  string connect_timeout = 2;
 
+  // Specify to not verify server's TLS certificate
+  bool insecure_tls = 3;
+
+  // Optional
+  bytes tls_client_cert = 4;
+
+  // Optional
+  bytes tls_client_key = 5;
+}
+
+message PulsarReadArgs {
   // Required
   string topic = 1;
 
@@ -25,4 +42,8 @@ message Pulsar {
   // Required for reads
   // Ignored for writes
   SubscriptionType subscription_type = 3;
+}
+
+message PulsarWriteArgs {
+  // TODO: Fill out
 }

@@ -4,8 +4,36 @@ package protos.backends;
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/backends";
 
-message Postgres {
+message PostgresConn {
+  // Required
+  string address = 1;
+
+  // Required
+  uint32 port = 2;
+
+  // Optional
+  string username = 3;
+
+  // Optional
+  string password = 4;
+
+  // Required
+  string database = 5;
+
+  // Whether to collect using TLS
+  bool use_tls = 6;
+
+  // Specify to not verify server's TLS certificate
+  bool insecure_tls = 7;
+}
+
+message PostgresReadArgs {
   string replication_slot_name = 2;
 
   string publisher_name = 3;
+}
+
+// TODO: Fill out kong tags to not expose this in the CLI
+message PostgresWriteArgs {
+  // Postgres CDC has no write functionality
 }

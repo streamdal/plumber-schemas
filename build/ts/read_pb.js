@@ -610,6 +610,7 @@ proto.protos.ReadOptions.prototype.toObject = function(opt_includeInstance) {
  */
 proto.protos.ReadOptions.toObject = function(includeInstance, msg) {
   var f, obj = {
+    type: jspb.Message.getFieldWithDefault(msg, 1, 0),
     sampleOptions: (f = msg.getSampleOptions()) && proto.protos.SampleOptions.toObject(includeInstance, f)
   };
 
@@ -648,6 +649,10 @@ proto.protos.ReadOptions.deserializeBinaryFromReader = function(msg, reader) {
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
+      var value = /** @type {!proto.protos.ReadOptions.Type} */ (reader.readEnum());
+      msg.setType(value);
+      break;
+    case 2:
       var value = new proto.protos.SampleOptions;
       reader.readMessage(value,proto.protos.SampleOptions.deserializeBinaryFromReader);
       msg.setSampleOptions(value);
@@ -681,10 +686,17 @@ proto.protos.ReadOptions.prototype.serializeBinary = function() {
  */
 proto.protos.ReadOptions.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
+  f = message.getType();
+  if (f !== 0.0) {
+    writer.writeEnum(
+      1,
+      f
+    );
+  }
   f = message.getSampleOptions();
   if (f != null) {
     writer.writeMessage(
-      1,
+      2,
       f,
       proto.protos.SampleOptions.serializeBinaryToWriter
     );
@@ -701,12 +713,30 @@ proto.protos.ReadOptions.Type = {
 };
 
 /**
- * optional SampleOptions sample_options = 1;
+ * optional Type type = 1;
+ * @return {!proto.protos.ReadOptions.Type}
+ */
+proto.protos.ReadOptions.prototype.getType = function() {
+  return /** @type {!proto.protos.ReadOptions.Type} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
+};
+
+
+/**
+ * @param {!proto.protos.ReadOptions.Type} value
+ * @return {!proto.protos.ReadOptions} returns this
+ */
+proto.protos.ReadOptions.prototype.setType = function(value) {
+  return jspb.Message.setProto3EnumField(this, 1, value);
+};
+
+
+/**
+ * optional SampleOptions sample_options = 2;
  * @return {?proto.protos.SampleOptions}
  */
 proto.protos.ReadOptions.prototype.getSampleOptions = function() {
   return /** @type{?proto.protos.SampleOptions} */ (
-    jspb.Message.getWrapperField(this, proto.protos.SampleOptions, 1));
+    jspb.Message.getWrapperField(this, proto.protos.SampleOptions, 2));
 };
 
 
@@ -715,7 +745,7 @@ proto.protos.ReadOptions.prototype.getSampleOptions = function() {
  * @return {!proto.protos.ReadOptions} returns this
 */
 proto.protos.ReadOptions.prototype.setSampleOptions = function(value) {
-  return jspb.Message.setWrapperField(this, 1, value);
+  return jspb.Message.setWrapperField(this, 2, value);
 };
 
 
@@ -733,7 +763,7 @@ proto.protos.ReadOptions.prototype.clearSampleOptions = function() {
  * @return {boolean}
  */
 proto.protos.ReadOptions.prototype.hasSampleOptions = function() {
-  return jspb.Message.getField(this, 1) != null;
+  return jspb.Message.getField(this, 2) != null;
 };
 
 

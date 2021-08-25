@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package protos.backends;
+
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/backends";
+
+message KubeMQQueueConn {
+    // Required; default: "localhost:50000"
+    string address = 1;
+
+    // Optional
+    string auth_token = 2;
+
+    // Optional
+    string tls_cert_file = 3;
+}
+
+message KubeMQQueueReadArgs {
+    // Optional; default: "plumber"
+    string client_id = 2;
+
+    // Optional
+    string queue_name = 3;
+}
+
+message KubeMQQueueWriteArgs {
+    // Optional; default: "plumber"
+    string client_id = 1;
+
+    // Optional
+    string queue_name = 2;
+}
