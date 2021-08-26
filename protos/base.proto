@@ -9,6 +9,7 @@ import "relay.proto";
 import "github.proto";
 import "schema.proto";
 import "service.proto";
+import "server.proto";
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
 
@@ -100,6 +101,8 @@ service PlumberServer {
     rpc UpdateService(UpdateServiceRequest) returns (UpdateServiceResponse);
 
     rpc DeleteService(DeleteServiceRequest) returns (DeleteServiceResponse);
+
+    rpc GetServerConfig(GetServerConfigRequest) returns (GetServerConfigResponse);
 
     // GetGithubEvents connects to github-app backend and returns a stream of events pushed from github
     rpc GetGithubEvents(GetGithubEventsRequest) returns (stream GithubEvent);

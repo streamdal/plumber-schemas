@@ -29,3 +29,5 @@ var schema_pb = require('./schema_pb.js');
 goog.object.extend(proto, schema_pb);
 var service_pb = require('./service_pb.js');
 goog.object.extend(proto, service_pb);
+var server_pb = require('./server_pb.js');
+goog.object.extend(proto, server_pb);

@@ -9,6 +9,7 @@ var relay_pb = require('./relay_pb.js');
 var github_pb = require('./github_pb.js');
 var schema_pb = require('./schema_pb.js');
 var service_pb = require('./service_pb.js');
+var server_pb = require('./server_pb.js');
 
 function serialize_protos_CreateConnectionRequest(arg) {
   if (!(arg instanceof connect_pb.CreateConnectionRequest)) {
@@ -371,6 +372,28 @@ function serialize_protos_GetSchemaResponse(arg) {
 
 function deserialize_protos_GetSchemaResponse(buffer_arg) {
   return schema_pb.GetSchemaResponse.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_protos_GetServerConfigRequest(arg) {
+  if (!(arg instanceof server_pb.GetServerConfigRequest)) {
+    throw new Error('Expected argument of type protos.GetServerConfigRequest');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_protos_GetServerConfigRequest(buffer_arg) {
+  return server_pb.GetServerConfigRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_protos_GetServerConfigResponse(arg) {
+  if (!(arg instanceof server_pb.GetServerConfigResponse)) {
+    throw new Error('Expected argument of type protos.GetServerConfigResponse');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_protos_GetServerConfigResponse(buffer_arg) {
+  return server_pb.GetServerConfigResponse.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
 function serialize_protos_GetServiceRequest(arg) {
@@ -1113,6 +1136,17 @@ deleteSchema: {
     requestDeserialize: deserialize_protos_DeleteServiceRequest,
     responseSerialize: serialize_protos_DeleteServiceResponse,
     responseDeserialize: deserialize_protos_DeleteServiceResponse,
+  },
+  getServerConfig: {
+    path: '/protos.PlumberServer/GetServerConfig',
+    requestStream: false,
+    responseStream: false,
+    requestType: server_pb.GetServerConfigRequest,
+    responseType: server_pb.GetServerConfigResponse,
+    requestSerialize: serialize_protos_GetServerConfigRequest,
+    requestDeserialize: deserialize_protos_GetServerConfigRequest,
+    responseSerialize: serialize_protos_GetServerConfigResponse,
+    responseDeserialize: deserialize_protos_GetServerConfigResponse,
   },
   // GetGithubEvents connects to github-app backend and returns a stream of events pushed from github
 getGithubEvents: {

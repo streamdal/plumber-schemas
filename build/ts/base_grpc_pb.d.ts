@@ -13,6 +13,7 @@ import * as relay_pb from "./relay_pb";
 import * as github_pb from "./github_pb";
 import * as schema_pb from "./schema_pb";
 import * as service_pb from "./service_pb";
+import * as server_pb from "./server_pb";
 
 interface IPlumberServerService extends grpc.ServiceDefinition<grpc.UntypedServiceImplementation> {
     getAllConnections: IPlumberServerService_IGetAllConnections;
@@ -47,6 +48,7 @@ interface IPlumberServerService extends grpc.ServiceDefinition<grpc.UntypedServi
     createService: IPlumberServerService_ICreateService;
     updateService: IPlumberServerService_IUpdateService;
     deleteService: IPlumberServerService_IDeleteService;
+    getServerConfig: IPlumberServerService_IGetServerConfig;
     getGithubEvents: IPlumberServerService_IGetGithubEvents;
 }
 
@@ -338,6 +340,15 @@ interface IPlumberServerService_IDeleteService extends grpc.MethodDefinition<ser
     responseSerialize: grpc.serialize<service_pb.DeleteServiceResponse>;
     responseDeserialize: grpc.deserialize<service_pb.DeleteServiceResponse>;
 }
+interface IPlumberServerService_IGetServerConfig extends grpc.MethodDefinition<server_pb.GetServerConfigRequest, server_pb.GetServerConfigResponse> {
+    path: "/protos.PlumberServer/GetServerConfig";
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<server_pb.GetServerConfigRequest>;
+    requestDeserialize: grpc.deserialize<server_pb.GetServerConfigRequest>;
+    responseSerialize: grpc.serialize<server_pb.GetServerConfigResponse>;
+    responseDeserialize: grpc.deserialize<server_pb.GetServerConfigResponse>;
+}
 interface IPlumberServerService_IGetGithubEvents extends grpc.MethodDefinition<github_pb.GetGithubEventsRequest, github_pb.GithubEvent> {
     path: "/protos.PlumberServer/GetGithubEvents";
     requestStream: false;
@@ -383,6 +394,7 @@ export interface IPlumberServerServer extends grpc.UntypedServiceImplementation 
     createService: grpc.handleUnaryCall<service_pb.CreateServiceRequest, service_pb.CreateServiceResponse>;
     updateService: grpc.handleUnaryCall<service_pb.UpdateServiceRequest, service_pb.UpdateServiceResponse>;
     deleteService: grpc.handleUnaryCall<service_pb.DeleteServiceRequest, service_pb.DeleteServiceResponse>;
+    getServerConfig: grpc.handleUnaryCall<server_pb.GetServerConfigRequest, server_pb.GetServerConfigResponse>;
     getGithubEvents: grpc.handleServerStreamingCall<github_pb.GetGithubEventsRequest, github_pb.GithubEvent>;
 }
 
@@ -481,6 +493,9 @@ export interface IPlumberServerClient {
     deleteService(request: service_pb.DeleteServiceRequest, callback: (error: grpc.ServiceError | null, response: service_pb.DeleteServiceResponse) => void): grpc.ClientUnaryCall;
     deleteService(request: service_pb.DeleteServiceRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: service_pb.DeleteServiceResponse) => void): grpc.ClientUnaryCall;
     deleteService(request: service_pb.DeleteServiceRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: service_pb.DeleteServiceResponse) => void): grpc.ClientUnaryCall;
+    getServerConfig(request: server_pb.GetServerConfigRequest, callback: (error: grpc.ServiceError | null, response: server_pb.GetServerConfigResponse) => void): grpc.ClientUnaryCall;
+    getServerConfig(request: server_pb.GetServerConfigRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: server_pb.GetServerConfigResponse) => void): grpc.ClientUnaryCall;
+    getServerConfig(request: server_pb.GetServerConfigRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: server_pb.GetServerConfigResponse) => void): grpc.ClientUnaryCall;
     getGithubEvents(request: github_pb.GetGithubEventsRequest, options?: Partial<grpc.CallOptions>): grpc.ClientReadableStream<github_pb.GithubEvent>;
     getGithubEvents(request: github_pb.GetGithubEventsRequest, metadata?: grpc.Metadata, options?: Partial<grpc.CallOptions>): grpc.ClientReadableStream<github_pb.GithubEvent>;
 }
@@ -581,6 +596,9 @@ export class PlumberServerClient extends grpc.Client implements IPlumberServerCl
     public deleteService(request: service_pb.DeleteServiceRequest, callback: (error: grpc.ServiceError | null, response: service_pb.DeleteServiceResponse) => void): grpc.ClientUnaryCall;
     public deleteService(request: service_pb.DeleteServiceRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: service_pb.DeleteServiceResponse) => void): grpc.ClientUnaryCall;
     public deleteService(request: service_pb.DeleteServiceRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: service_pb.DeleteServiceResponse) => void): grpc.ClientUnaryCall;
+    public getServerConfig(request: server_pb.GetServerConfigRequest, callback: (error: grpc.ServiceError | null, response: server_pb.GetServerConfigResponse) => void): grpc.ClientUnaryCall;
+    public getServerConfig(request: server_pb.GetServerConfigRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: server_pb.GetServerConfigResponse) => void): grpc.ClientUnaryCall;
+    public getServerConfig(request: server_pb.GetServerConfigRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: server_pb.GetServerConfigResponse) => void): grpc.ClientUnaryCall;
     public getGithubEvents(request: github_pb.GetGithubEventsRequest, options?: Partial<grpc.CallOptions>): grpc.ClientReadableStream<github_pb.GithubEvent>;
     public getGithubEvents(request: github_pb.GetGithubEventsRequest, metadata?: grpc.Metadata, options?: Partial<grpc.CallOptions>): grpc.ClientReadableStream<github_pb.GithubEvent>;
 }
