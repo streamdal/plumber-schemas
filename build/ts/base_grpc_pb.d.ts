@@ -47,6 +47,7 @@ interface IPlumberServerService extends grpc.ServiceDefinition<grpc.UntypedServi
     createService: IPlumberServerService_ICreateService;
     updateService: IPlumberServerService_IUpdateService;
     deleteService: IPlumberServerService_IDeleteService;
+    getGithubEvents: IPlumberServerService_IGetGithubEvents;
 }
 
 interface IPlumberServerService_IGetAllConnections extends grpc.MethodDefinition<connect_pb.GetAllConnectionsRequest, connect_pb.GetAllConnectionsResponse> {
@@ -337,6 +338,15 @@ interface IPlumberServerService_IDeleteService extends grpc.MethodDefinition<ser
     responseSerialize: grpc.serialize<service_pb.DeleteServiceResponse>;
     responseDeserialize: grpc.deserialize<service_pb.DeleteServiceResponse>;
 }
+interface IPlumberServerService_IGetGithubEvents extends grpc.MethodDefinition<github_pb.GetGithubEventsRequest, github_pb.GithubEvent> {
+    path: "/protos.PlumberServer/GetGithubEvents";
+    requestStream: false;
+    responseStream: true;
+    requestSerialize: grpc.serialize<github_pb.GetGithubEventsRequest>;
+    requestDeserialize: grpc.deserialize<github_pb.GetGithubEventsRequest>;
+    responseSerialize: grpc.serialize<github_pb.GithubEvent>;
+    responseDeserialize: grpc.deserialize<github_pb.GithubEvent>;
+}
 
 export const PlumberServerService: IPlumberServerService;
 
@@ -373,6 +383,7 @@ export interface IPlumberServerServer extends grpc.UntypedServiceImplementation 
     createService: grpc.handleUnaryCall<service_pb.CreateServiceRequest, service_pb.CreateServiceResponse>;
     updateService: grpc.handleUnaryCall<service_pb.UpdateServiceRequest, service_pb.UpdateServiceResponse>;
     deleteService: grpc.handleUnaryCall<service_pb.DeleteServiceRequest, service_pb.DeleteServiceResponse>;
+    getGithubEvents: grpc.handleServerStreamingCall<github_pb.GetGithubEventsRequest, github_pb.GithubEvent>;
 }
 
 export interface IPlumberServerClient {
@@ -470,6 +481,8 @@ export interface IPlumberServerClient {
     deleteService(request: service_pb.DeleteServiceRequest, callback: (error: grpc.ServiceError | null, response: service_pb.DeleteServiceResponse) => void): grpc.ClientUnaryCall;
     deleteService(request: service_pb.DeleteServiceRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: service_pb.DeleteServiceResponse) => void): grpc.ClientUnaryCall;
     deleteService(request: service_pb.DeleteServiceRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: service_pb.DeleteServiceResponse) => void): grpc.ClientUnaryCall;
+    getGithubEvents(request: github_pb.GetGithubEventsRequest, options?: Partial<grpc.CallOptions>): grpc.ClientReadableStream<github_pb.GithubEvent>;
+    getGithubEvents(request: github_pb.GetGithubEventsRequest, metadata?: grpc.Metadata, options?: Partial<grpc.CallOptions>): grpc.ClientReadableStream<github_pb.GithubEvent>;
 }
 
 export class PlumberServerClient extends grpc.Client implements IPlumberServerClient {
@@ -568,4 +581,6 @@ export class PlumberServerClient extends grpc.Client implements IPlumberServerCl
     public deleteService(request: service_pb.DeleteServiceRequest, callback: (error: grpc.ServiceError | null, response: service_pb.DeleteServiceResponse) => void): grpc.ClientUnaryCall;
     public deleteService(request: service_pb.DeleteServiceRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: service_pb.DeleteServiceResponse) => void): grpc.ClientUnaryCall;
     public deleteService(request: service_pb.DeleteServiceRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: service_pb.DeleteServiceResponse) => void): grpc.ClientUnaryCall;
+    public getGithubEvents(request: github_pb.GetGithubEventsRequest, options?: Partial<grpc.CallOptions>): grpc.ClientReadableStream<github_pb.GithubEvent>;
+    public getGithubEvents(request: github_pb.GetGithubEventsRequest, metadata?: grpc.Metadata, options?: Partial<grpc.CallOptions>): grpc.ClientReadableStream<github_pb.GithubEvent>;
 }

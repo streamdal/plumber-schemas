@@ -340,6 +340,17 @@ function deserialize_protos_GetConnectionResponse(buffer_arg) {
   return connect_pb.GetConnectionResponse.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
+function serialize_protos_GetGithubEventsRequest(arg) {
+  if (!(arg instanceof github_pb.GetGithubEventsRequest)) {
+    throw new Error('Expected argument of type protos.GetGithubEventsRequest');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_protos_GetGithubEventsRequest(buffer_arg) {
+  return github_pb.GetGithubEventsRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
 function serialize_protos_GetSchemaRequest(arg) {
   if (!(arg instanceof schema_pb.GetSchemaRequest)) {
     throw new Error('Expected argument of type protos.GetSchemaRequest');
@@ -382,6 +393,17 @@ function serialize_protos_GetServiceResponse(arg) {
 
 function deserialize_protos_GetServiceResponse(buffer_arg) {
   return service_pb.GetServiceResponse.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_protos_GithubEvent(arg) {
+  if (!(arg instanceof github_pb.GithubEvent)) {
+    throw new Error('Expected argument of type protos.GithubEvent');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_protos_GithubEvent(buffer_arg) {
+  return github_pb.GithubEvent.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
 function serialize_protos_ImportGithubRequest(arg) {
@@ -1091,6 +1113,18 @@ deleteSchema: {
     requestDeserialize: deserialize_protos_DeleteServiceRequest,
     responseSerialize: serialize_protos_DeleteServiceResponse,
     responseDeserialize: deserialize_protos_DeleteServiceResponse,
+  },
+  // GetGithubEvents connects to github-app backend and returns a stream of events pushed from github
+getGithubEvents: {
+    path: '/protos.PlumberServer/GetGithubEvents',
+    requestStream: false,
+    responseStream: true,
+    requestType: github_pb.GetGithubEventsRequest,
+    responseType: github_pb.GithubEvent,
+    requestSerialize: serialize_protos_GetGithubEventsRequest,
+    requestDeserialize: deserialize_protos_GetGithubEventsRequest,
+    responseSerialize: serialize_protos_GithubEvent,
+    responseDeserialize: deserialize_protos_GithubEvent,
   },
 };
 
