@@ -5,6 +5,7 @@ package protos
 
 import (
 	fmt "fmt"
+	backends "github.com/batchcorp/plumber-schemas/build/go/protos/backends"
 	common "github.com/batchcorp/plumber-schemas/build/go/protos/common"
 	encoding "github.com/batchcorp/plumber-schemas/build/go/protos/encoding"
 	records "github.com/batchcorp/plumber-schemas/build/go/protos/records"
@@ -23,14 +24,42 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
+type InputType int32
+
+const (
+	InputType_PLAIN  InputType = 0
+	InputType_JSONPB InputType = 1
+)
+
+var InputType_name = map[int32]string{
+	0: "PLAIN",
+	1: "JSONPB",
+}
+
+var InputType_value = map[string]int32{
+	"PLAIN":  0,
+	"JSONPB": 1,
+}
+
+func (x InputType) String() string {
+	return proto.EnumName(InputType_name, int32(x))
+}
+
+func (InputType) EnumDescriptor() ([]byte, []int) {
+	return fileDescriptor_67966b2b12a73214, []int{0}
+}
+
 type WriteCLIConfig struct {
-	InputData            []string `protobuf:"bytes,1,rep,name=input_data,json=inputData,proto3" json:"input_data,omitempty"`
-	InputFile            string   `protobuf:"bytes,2,opt,name=input_file,json=inputFile,proto3" json:"input_file,omitempty"`
-	InputType            string   `protobuf:"bytes,3,opt,name=input_type,json=inputType,proto3" json:"input_type,omitempty"`
-	InputIsJsonArray     bool     `protobuf:"varint,4,opt,name=input_is_json_array,json=inputIsJsonArray,proto3" json:"input_is_json_array,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	InputIsJsonArray bool `protobuf:"varint,1,opt,name=input_is_json_array,json=inputIsJsonArray,proto3" json:"input_is_json_array,omitempty"`
+	// Used by CLI to inform components, which backend to use; server uses
+	// ReadConfig.connection_id.
+	// @gotags: kong:"-"
+	XBackendType backends.Type `protobuf:"varint,2,opt,name=_backend_type,json=BackendType,proto3,enum=protos.backends.Type" json:"_backend_type,omitempty" kong:"-"`
+	// @gotags: embed:""
+	XWriteBackend        *WriteCLIConfig_WriteBackend `protobuf:"bytes,3,opt,name=_write_backend,json=WriteBackend,proto3" json:"_write_backend,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                     `json:"-"`
+	XXX_unrecognized     []byte                       `json:"-"`
+	XXX_sizecache        int32                        `json:"-"`
 }
 
 func (m *WriteCLIConfig) Reset()         { *m = WriteCLIConfig{} }
@@ -58,27 +87,6 @@ func (m *WriteCLIConfig) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_WriteCLIConfig proto.InternalMessageInfo
 
-func (m *WriteCLIConfig) GetInputData() []string {
-	if m != nil {
-		return m.InputData
-	}
-	return nil
-}
-
-func (m *WriteCLIConfig) GetInputFile() string {
-	if m != nil {
-		return m.InputFile
-	}
-	return ""
-}
-
-func (m *WriteCLIConfig) GetInputType() string {
-	if m != nil {
-		return m.InputType
-	}
-	return ""
-}
-
 func (m *WriteCLIConfig) GetInputIsJsonArray() bool {
 	if m != nil {
 		return m.InputIsJsonArray
@@ -86,15 +94,1065 @@ func (m *WriteCLIConfig) GetInputIsJsonArray() bool {
 	return false
 }
 
+func (m *WriteCLIConfig) GetXBackendType() backends.Type {
+	if m != nil {
+		return m.XBackendType
+	}
+	return backends.Type_UNSET
+}
+
+func (m *WriteCLIConfig) GetXWriteBackend() *WriteCLIConfig_WriteBackend {
+	if m != nil {
+		return m.XWriteBackend
+	}
+	return nil
+}
+
+type WriteCLIConfig_WriteBackend struct {
+	// @gotags: cmd:""
+	Kafka *WriteCLIConfig_WriteBackend_Kafka `protobuf:"bytes,1,opt,name=kafka,proto3" json:"kafka,omitempty"`
+	// @gotags: cmd:""
+	Activemq *WriteCLIConfig_WriteBackend_ActiveMQ `protobuf:"bytes,2,opt,name=activemq,proto3" json:"activemq,omitempty"`
+	// @gotags: cmd:""
+	Awssqs *WriteCLIConfig_WriteBackend_AWSSQS `protobuf:"bytes,3,opt,name=awssqs,proto3" json:"awssqs,omitempty"`
+	// @gotags: cmd:""
+	Awssns *WriteCLIConfig_WriteBackend_AWSSNS `protobuf:"bytes,4,opt,name=awssns,proto3" json:"awssns,omitempty"`
+	// @gotags: cmd:""
+	Nats *WriteCLIConfig_WriteBackend_Nats `protobuf:"bytes,5,opt,name=nats,proto3" json:"nats,omitempty"`
+	// @gotags: cmd:""
+	NatsStreaming *WriteCLIConfig_WriteBackend_NatsStreaming `protobuf:"bytes,6,opt,name=nats_streaming,json=natsStreaming,proto3" json:"nats_streaming,omitempty"`
+	// @gotags: cmd:""
+	Nsq *WriteCLIConfig_WriteBackend_NSQ `protobuf:"bytes,7,opt,name=nsq,proto3" json:"nsq,omitempty"`
+	// @gotags: cmd:""
+	Pulsar *WriteCLIConfig_WriteBackend_Pulsar `protobuf:"bytes,8,opt,name=pulsar,proto3" json:"pulsar,omitempty"`
+	// @gotags: cmd:""
+	Rabbit *WriteCLIConfig_WriteBackend_Rabbit `protobuf:"bytes,9,opt,name=rabbit,proto3" json:"rabbit,omitempty"`
+	// @gotags: cmd:""
+	RabbitStreams *WriteCLIConfig_WriteBackend_RabbitStreams `protobuf:"bytes,10,opt,name=rabbit_streams,json=rabbitStreams,proto3" json:"rabbit_streams,omitempty"`
+	// @gotags: cmd:""
+	Mqtt *WriteCLIConfig_WriteBackend_MQTT `protobuf:"bytes,11,opt,name=mqtt,proto3" json:"mqtt,omitempty"`
+	// @gotags: cmd:""
+	AzureServiceBus *WriteCLIConfig_WriteBackend_AzureServiceBus `protobuf:"bytes,12,opt,name=azure_service_bus,json=azureServiceBus,proto3" json:"azure_service_bus,omitempty"`
+	// @gotags: cmd:""
+	AzureEventHub *WriteCLIConfig_WriteBackend_AzureEventHub `protobuf:"bytes,13,opt,name=azure_event_hub,json=azureEventHub,proto3" json:"azure_event_hub,omitempty"`
+	// @gotags: cmd:""
+	GcpPubsub *WriteCLIConfig_WriteBackend_GCPPubSub `protobuf:"bytes,14,opt,name=gcp_pubsub,json=gcpPubsub,proto3" json:"gcp_pubsub,omitempty"`
+	// @gotags: cmd:""
+	KubemqQueue *WriteCLIConfig_WriteBackend_KubeMQQueue `protobuf:"bytes,15,opt,name=kubemq_queue,json=kubemqQueue,proto3" json:"kubemq_queue,omitempty"`
+	// @gotags: cmd:""
+	RedisPubsub *WriteCLIConfig_WriteBackend_RedisPubSub `protobuf:"bytes,16,opt,name=redis_pubsub,json=redisPubsub,proto3" json:"redis_pubsub,omitempty"`
+	// @gotags: cmd:""
+	RedisStreams         *WriteCLIConfig_WriteBackend_RedisStreams `protobuf:"bytes,17,opt,name=redis_streams,json=redisStreams,proto3" json:"redis_streams,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                                  `json:"-"`
+	XXX_unrecognized     []byte                                    `json:"-"`
+	XXX_sizecache        int32                                     `json:"-"`
+}
+
+func (m *WriteCLIConfig_WriteBackend) Reset()         { *m = WriteCLIConfig_WriteBackend{} }
+func (m *WriteCLIConfig_WriteBackend) String() string { return proto.CompactTextString(m) }
+func (*WriteCLIConfig_WriteBackend) ProtoMessage()    {}
+func (*WriteCLIConfig_WriteBackend) Descriptor() ([]byte, []int) {
+	return fileDescriptor_67966b2b12a73214, []int{0, 0}
+}
+
+func (m *WriteCLIConfig_WriteBackend) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_WriteCLIConfig_WriteBackend.Unmarshal(m, b)
+}
+func (m *WriteCLIConfig_WriteBackend) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_WriteCLIConfig_WriteBackend.Marshal(b, m, deterministic)
+}
+func (m *WriteCLIConfig_WriteBackend) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_WriteCLIConfig_WriteBackend.Merge(m, src)
+}
+func (m *WriteCLIConfig_WriteBackend) XXX_Size() int {
+	return xxx_messageInfo_WriteCLIConfig_WriteBackend.Size(m)
+}
+func (m *WriteCLIConfig_WriteBackend) XXX_DiscardUnknown() {
+	xxx_messageInfo_WriteCLIConfig_WriteBackend.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_WriteCLIConfig_WriteBackend proto.InternalMessageInfo
+
+func (m *WriteCLIConfig_WriteBackend) GetKafka() *WriteCLIConfig_WriteBackend_Kafka {
+	if m != nil {
+		return m.Kafka
+	}
+	return nil
+}
+
+func (m *WriteCLIConfig_WriteBackend) GetActivemq() *WriteCLIConfig_WriteBackend_ActiveMQ {
+	if m != nil {
+		return m.Activemq
+	}
+	return nil
+}
+
+func (m *WriteCLIConfig_WriteBackend) GetAwssqs() *WriteCLIConfig_WriteBackend_AWSSQS {
+	if m != nil {
+		return m.Awssqs
+	}
+	return nil
+}
+
+func (m *WriteCLIConfig_WriteBackend) GetAwssns() *WriteCLIConfig_WriteBackend_AWSSNS {
+	if m != nil {
+		return m.Awssns
+	}
+	return nil
+}
+
+func (m *WriteCLIConfig_WriteBackend) GetNats() *WriteCLIConfig_WriteBackend_Nats {
+	if m != nil {
+		return m.Nats
+	}
+	return nil
+}
+
+func (m *WriteCLIConfig_WriteBackend) GetNatsStreaming() *WriteCLIConfig_WriteBackend_NatsStreaming {
+	if m != nil {
+		return m.NatsStreaming
+	}
+	return nil
+}
+
+func (m *WriteCLIConfig_WriteBackend) GetNsq() *WriteCLIConfig_WriteBackend_NSQ {
+	if m != nil {
+		return m.Nsq
+	}
+	return nil
+}
+
+func (m *WriteCLIConfig_WriteBackend) GetPulsar() *WriteCLIConfig_WriteBackend_Pulsar {
+	if m != nil {
+		return m.Pulsar
+	}
+	return nil
+}
+
+func (m *WriteCLIConfig_WriteBackend) GetRabbit() *WriteCLIConfig_WriteBackend_Rabbit {
+	if m != nil {
+		return m.Rabbit
+	}
+	return nil
+}
+
+func (m *WriteCLIConfig_WriteBackend) GetRabbitStreams() *WriteCLIConfig_WriteBackend_RabbitStreams {
+	if m != nil {
+		return m.RabbitStreams
+	}
+	return nil
+}
+
+func (m *WriteCLIConfig_WriteBackend) GetMqtt() *WriteCLIConfig_WriteBackend_MQTT {
+	if m != nil {
+		return m.Mqtt
+	}
+	return nil
+}
+
+func (m *WriteCLIConfig_WriteBackend) GetAzureServiceBus() *WriteCLIConfig_WriteBackend_AzureServiceBus {
+	if m != nil {
+		return m.AzureServiceBus
+	}
+	return nil
+}
+
+func (m *WriteCLIConfig_WriteBackend) GetAzureEventHub() *WriteCLIConfig_WriteBackend_AzureEventHub {
+	if m != nil {
+		return m.AzureEventHub
+	}
+	return nil
+}
+
+func (m *WriteCLIConfig_WriteBackend) GetGcpPubsub() *WriteCLIConfig_WriteBackend_GCPPubSub {
+	if m != nil {
+		return m.GcpPubsub
+	}
+	return nil
+}
+
+func (m *WriteCLIConfig_WriteBackend) GetKubemqQueue() *WriteCLIConfig_WriteBackend_KubeMQQueue {
+	if m != nil {
+		return m.KubemqQueue
+	}
+	return nil
+}
+
+func (m *WriteCLIConfig_WriteBackend) GetRedisPubsub() *WriteCLIConfig_WriteBackend_RedisPubSub {
+	if m != nil {
+		return m.RedisPubsub
+	}
+	return nil
+}
+
+func (m *WriteCLIConfig_WriteBackend) GetRedisStreams() *WriteCLIConfig_WriteBackend_RedisStreams {
+	if m != nil {
+		return m.RedisStreams
+	}
+	return nil
+}
+
+type WriteCLIConfig_WriteBackend_Kafka struct {
+	// @gotags: embed:""
+	Conn *backends.KafkaConn `protobuf:"bytes,1,opt,name=conn,proto3" json:"conn,omitempty"`
+	// @gotags: embed:""
+	Args                 *backends.KafkaWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                 `json:"-"`
+	XXX_unrecognized     []byte                   `json:"-"`
+	XXX_sizecache        int32                    `json:"-"`
+}
+
+func (m *WriteCLIConfig_WriteBackend_Kafka) Reset()         { *m = WriteCLIConfig_WriteBackend_Kafka{} }
+func (m *WriteCLIConfig_WriteBackend_Kafka) String() string { return proto.CompactTextString(m) }
+func (*WriteCLIConfig_WriteBackend_Kafka) ProtoMessage()    {}
+func (*WriteCLIConfig_WriteBackend_Kafka) Descriptor() ([]byte, []int) {
+	return fileDescriptor_67966b2b12a73214, []int{0, 0, 0}
+}
+
+func (m *WriteCLIConfig_WriteBackend_Kafka) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_WriteCLIConfig_WriteBackend_Kafka.Unmarshal(m, b)
+}
+func (m *WriteCLIConfig_WriteBackend_Kafka) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_WriteCLIConfig_WriteBackend_Kafka.Marshal(b, m, deterministic)
+}
+func (m *WriteCLIConfig_WriteBackend_Kafka) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_WriteCLIConfig_WriteBackend_Kafka.Merge(m, src)
+}
+func (m *WriteCLIConfig_WriteBackend_Kafka) XXX_Size() int {
+	return xxx_messageInfo_WriteCLIConfig_WriteBackend_Kafka.Size(m)
+}
+func (m *WriteCLIConfig_WriteBackend_Kafka) XXX_DiscardUnknown() {
+	xxx_messageInfo_WriteCLIConfig_WriteBackend_Kafka.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_WriteCLIConfig_WriteBackend_Kafka proto.InternalMessageInfo
+
+func (m *WriteCLIConfig_WriteBackend_Kafka) GetConn() *backends.KafkaConn {
+	if m != nil {
+		return m.Conn
+	}
+	return nil
+}
+
+func (m *WriteCLIConfig_WriteBackend_Kafka) GetArgs() *backends.KafkaWriteArgs {
+	if m != nil {
+		return m.Args
+	}
+	return nil
+}
+
+type WriteCLIConfig_WriteBackend_ActiveMQ struct {
+	// @gotags: embed:""
+	Conn *backends.ActiveMQConn `protobuf:"bytes,1,opt,name=conn,proto3" json:"conn,omitempty"`
+	// @gotags: embed:""
+	Args                 *backends.ActiveMQWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                    `json:"-"`
+	XXX_unrecognized     []byte                      `json:"-"`
+	XXX_sizecache        int32                       `json:"-"`
+}
+
+func (m *WriteCLIConfig_WriteBackend_ActiveMQ) Reset()         { *m = WriteCLIConfig_WriteBackend_ActiveMQ{} }
+func (m *WriteCLIConfig_WriteBackend_ActiveMQ) String() string { return proto.CompactTextString(m) }
+func (*WriteCLIConfig_WriteBackend_ActiveMQ) ProtoMessage()    {}
+func (*WriteCLIConfig_WriteBackend_ActiveMQ) Descriptor() ([]byte, []int) {
+	return fileDescriptor_67966b2b12a73214, []int{0, 0, 1}
+}
+
+func (m *WriteCLIConfig_WriteBackend_ActiveMQ) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_WriteCLIConfig_WriteBackend_ActiveMQ.Unmarshal(m, b)
+}
+func (m *WriteCLIConfig_WriteBackend_ActiveMQ) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_WriteCLIConfig_WriteBackend_ActiveMQ.Marshal(b, m, deterministic)
+}
+func (m *WriteCLIConfig_WriteBackend_ActiveMQ) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_WriteCLIConfig_WriteBackend_ActiveMQ.Merge(m, src)
+}
+func (m *WriteCLIConfig_WriteBackend_ActiveMQ) XXX_Size() int {
+	return xxx_messageInfo_WriteCLIConfig_WriteBackend_ActiveMQ.Size(m)
+}
+func (m *WriteCLIConfig_WriteBackend_ActiveMQ) XXX_DiscardUnknown() {
+	xxx_messageInfo_WriteCLIConfig_WriteBackend_ActiveMQ.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_WriteCLIConfig_WriteBackend_ActiveMQ proto.InternalMessageInfo
+
+func (m *WriteCLIConfig_WriteBackend_ActiveMQ) GetConn() *backends.ActiveMQConn {
+	if m != nil {
+		return m.Conn
+	}
+	return nil
+}
+
+func (m *WriteCLIConfig_WriteBackend_ActiveMQ) GetArgs() *backends.ActiveMQWriteArgs {
+	if m != nil {
+		return m.Args
+	}
+	return nil
+}
+
+type WriteCLIConfig_WriteBackend_AWSSQS struct {
+	// @gotags: embed:""
+	Conn *backends.AWSSQSConn `protobuf:"bytes,1,opt,name=conn,proto3" json:"conn,omitempty"`
+	// @gotags: embed:""
+	Args                 *backends.AWSSQSWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                  `json:"-"`
+	XXX_unrecognized     []byte                    `json:"-"`
+	XXX_sizecache        int32                     `json:"-"`
+}
+
+func (m *WriteCLIConfig_WriteBackend_AWSSQS) Reset()         { *m = WriteCLIConfig_WriteBackend_AWSSQS{} }
+func (m *WriteCLIConfig_WriteBackend_AWSSQS) String() string { return proto.CompactTextString(m) }
+func (*WriteCLIConfig_WriteBackend_AWSSQS) ProtoMessage()    {}
+func (*WriteCLIConfig_WriteBackend_AWSSQS) Descriptor() ([]byte, []int) {
+	return fileDescriptor_67966b2b12a73214, []int{0, 0, 2}
+}
+
+func (m *WriteCLIConfig_WriteBackend_AWSSQS) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_WriteCLIConfig_WriteBackend_AWSSQS.Unmarshal(m, b)
+}
+func (m *WriteCLIConfig_WriteBackend_AWSSQS) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_WriteCLIConfig_WriteBackend_AWSSQS.Marshal(b, m, deterministic)
+}
+func (m *WriteCLIConfig_WriteBackend_AWSSQS) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_WriteCLIConfig_WriteBackend_AWSSQS.Merge(m, src)
+}
+func (m *WriteCLIConfig_WriteBackend_AWSSQS) XXX_Size() int {
+	return xxx_messageInfo_WriteCLIConfig_WriteBackend_AWSSQS.Size(m)
+}
+func (m *WriteCLIConfig_WriteBackend_AWSSQS) XXX_DiscardUnknown() {
+	xxx_messageInfo_WriteCLIConfig_WriteBackend_AWSSQS.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_WriteCLIConfig_WriteBackend_AWSSQS proto.InternalMessageInfo
+
+func (m *WriteCLIConfig_WriteBackend_AWSSQS) GetConn() *backends.AWSSQSConn {
+	if m != nil {
+		return m.Conn
+	}
+	return nil
+}
+
+func (m *WriteCLIConfig_WriteBackend_AWSSQS) GetArgs() *backends.AWSSQSWriteArgs {
+	if m != nil {
+		return m.Args
+	}
+	return nil
+}
+
+type WriteCLIConfig_WriteBackend_AWSSNS struct {
+	// @gotags: embed:""
+	Conn *backends.AWSSNSConn `protobuf:"bytes,1,opt,name=conn,proto3" json:"conn,omitempty"`
+	// @gotags: embed:""
+	Args                 *backends.AWSSNSWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                  `json:"-"`
+	XXX_unrecognized     []byte                    `json:"-"`
+	XXX_sizecache        int32                     `json:"-"`
+}
+
+func (m *WriteCLIConfig_WriteBackend_AWSSNS) Reset()         { *m = WriteCLIConfig_WriteBackend_AWSSNS{} }
+func (m *WriteCLIConfig_WriteBackend_AWSSNS) String() string { return proto.CompactTextString(m) }
+func (*WriteCLIConfig_WriteBackend_AWSSNS) ProtoMessage()    {}
+func (*WriteCLIConfig_WriteBackend_AWSSNS) Descriptor() ([]byte, []int) {
+	return fileDescriptor_67966b2b12a73214, []int{0, 0, 3}
+}
+
+func (m *WriteCLIConfig_WriteBackend_AWSSNS) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_WriteCLIConfig_WriteBackend_AWSSNS.Unmarshal(m, b)
+}
+func (m *WriteCLIConfig_WriteBackend_AWSSNS) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_WriteCLIConfig_WriteBackend_AWSSNS.Marshal(b, m, deterministic)
+}
+func (m *WriteCLIConfig_WriteBackend_AWSSNS) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_WriteCLIConfig_WriteBackend_AWSSNS.Merge(m, src)
+}
+func (m *WriteCLIConfig_WriteBackend_AWSSNS) XXX_Size() int {
+	return xxx_messageInfo_WriteCLIConfig_WriteBackend_AWSSNS.Size(m)
+}
+func (m *WriteCLIConfig_WriteBackend_AWSSNS) XXX_DiscardUnknown() {
+	xxx_messageInfo_WriteCLIConfig_WriteBackend_AWSSNS.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_WriteCLIConfig_WriteBackend_AWSSNS proto.InternalMessageInfo
+
+func (m *WriteCLIConfig_WriteBackend_AWSSNS) GetConn() *backends.AWSSNSConn {
+	if m != nil {
+		return m.Conn
+	}
+	return nil
+}
+
+func (m *WriteCLIConfig_WriteBackend_AWSSNS) GetArgs() *backends.AWSSNSWriteArgs {
+	if m != nil {
+		return m.Args
+	}
+	return nil
+}
+
+type WriteCLIConfig_WriteBackend_Nats struct {
+	// @gotags: embed:""
+	Conn *backends.NatsConn `protobuf:"bytes,1,opt,name=conn,proto3" json:"conn,omitempty"`
+	// @gotags: embed:""
+	Args                 *backends.NatsWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                `json:"-"`
+	XXX_unrecognized     []byte                  `json:"-"`
+	XXX_sizecache        int32                   `json:"-"`
+}
+
+func (m *WriteCLIConfig_WriteBackend_Nats) Reset()         { *m = WriteCLIConfig_WriteBackend_Nats{} }
+func (m *WriteCLIConfig_WriteBackend_Nats) String() string { return proto.CompactTextString(m) }
+func (*WriteCLIConfig_WriteBackend_Nats) ProtoMessage()    {}
+func (*WriteCLIConfig_WriteBackend_Nats) Descriptor() ([]byte, []int) {
+	return fileDescriptor_67966b2b12a73214, []int{0, 0, 4}
+}
+
+func (m *WriteCLIConfig_WriteBackend_Nats) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_WriteCLIConfig_WriteBackend_Nats.Unmarshal(m, b)
+}
+func (m *WriteCLIConfig_WriteBackend_Nats) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_WriteCLIConfig_WriteBackend_Nats.Marshal(b, m, deterministic)
+}
+func (m *WriteCLIConfig_WriteBackend_Nats) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_WriteCLIConfig_WriteBackend_Nats.Merge(m, src)
+}
+func (m *WriteCLIConfig_WriteBackend_Nats) XXX_Size() int {
+	return xxx_messageInfo_WriteCLIConfig_WriteBackend_Nats.Size(m)
+}
+func (m *WriteCLIConfig_WriteBackend_Nats) XXX_DiscardUnknown() {
+	xxx_messageInfo_WriteCLIConfig_WriteBackend_Nats.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_WriteCLIConfig_WriteBackend_Nats proto.InternalMessageInfo
+
+func (m *WriteCLIConfig_WriteBackend_Nats) GetConn() *backends.NatsConn {
+	if m != nil {
+		return m.Conn
+	}
+	return nil
+}
+
+func (m *WriteCLIConfig_WriteBackend_Nats) GetArgs() *backends.NatsWriteArgs {
+	if m != nil {
+		return m.Args
+	}
+	return nil
+}
+
+type WriteCLIConfig_WriteBackend_NatsStreaming struct {
+	// @gotags: embed:""
+	Conn *backends.NatsStreamingConn `protobuf:"bytes,1,opt,name=conn,proto3" json:"conn,omitempty"`
+	// @gotags: embed:""
+	Args                 *backends.NatsStreamingWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                         `json:"-"`
+	XXX_unrecognized     []byte                           `json:"-"`
+	XXX_sizecache        int32                            `json:"-"`
+}
+
+func (m *WriteCLIConfig_WriteBackend_NatsStreaming) Reset() {
+	*m = WriteCLIConfig_WriteBackend_NatsStreaming{}
+}
+func (m *WriteCLIConfig_WriteBackend_NatsStreaming) String() string { return proto.CompactTextString(m) }
+func (*WriteCLIConfig_WriteBackend_NatsStreaming) ProtoMessage()    {}
+func (*WriteCLIConfig_WriteBackend_NatsStreaming) Descriptor() ([]byte, []int) {
+	return fileDescriptor_67966b2b12a73214, []int{0, 0, 5}
+}
+
+func (m *WriteCLIConfig_WriteBackend_NatsStreaming) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_WriteCLIConfig_WriteBackend_NatsStreaming.Unmarshal(m, b)
+}
+func (m *WriteCLIConfig_WriteBackend_NatsStreaming) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_WriteCLIConfig_WriteBackend_NatsStreaming.Marshal(b, m, deterministic)
+}
+func (m *WriteCLIConfig_WriteBackend_NatsStreaming) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_WriteCLIConfig_WriteBackend_NatsStreaming.Merge(m, src)
+}
+func (m *WriteCLIConfig_WriteBackend_NatsStreaming) XXX_Size() int {
+	return xxx_messageInfo_WriteCLIConfig_WriteBackend_NatsStreaming.Size(m)
+}
+func (m *WriteCLIConfig_WriteBackend_NatsStreaming) XXX_DiscardUnknown() {
+	xxx_messageInfo_WriteCLIConfig_WriteBackend_NatsStreaming.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_WriteCLIConfig_WriteBackend_NatsStreaming proto.InternalMessageInfo
+
+func (m *WriteCLIConfig_WriteBackend_NatsStreaming) GetConn() *backends.NatsStreamingConn {
+	if m != nil {
+		return m.Conn
+	}
+	return nil
+}
+
+func (m *WriteCLIConfig_WriteBackend_NatsStreaming) GetArgs() *backends.NatsStreamingWriteArgs {
+	if m != nil {
+		return m.Args
+	}
+	return nil
+}
+
+type WriteCLIConfig_WriteBackend_NSQ struct {
+	// @gotags: embed:""
+	Conn *backends.NSQConn `protobuf:"bytes,1,opt,name=conn,proto3" json:"conn,omitempty"`
+	// @gotags: embed:""
+	Args                 *backends.NSQWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}               `json:"-"`
+	XXX_unrecognized     []byte                 `json:"-"`
+	XXX_sizecache        int32                  `json:"-"`
+}
+
+func (m *WriteCLIConfig_WriteBackend_NSQ) Reset()         { *m = WriteCLIConfig_WriteBackend_NSQ{} }
+func (m *WriteCLIConfig_WriteBackend_NSQ) String() string { return proto.CompactTextString(m) }
+func (*WriteCLIConfig_WriteBackend_NSQ) ProtoMessage()    {}
+func (*WriteCLIConfig_WriteBackend_NSQ) Descriptor() ([]byte, []int) {
+	return fileDescriptor_67966b2b12a73214, []int{0, 0, 6}
+}
+
+func (m *WriteCLIConfig_WriteBackend_NSQ) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_WriteCLIConfig_WriteBackend_NSQ.Unmarshal(m, b)
+}
+func (m *WriteCLIConfig_WriteBackend_NSQ) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_WriteCLIConfig_WriteBackend_NSQ.Marshal(b, m, deterministic)
+}
+func (m *WriteCLIConfig_WriteBackend_NSQ) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_WriteCLIConfig_WriteBackend_NSQ.Merge(m, src)
+}
+func (m *WriteCLIConfig_WriteBackend_NSQ) XXX_Size() int {
+	return xxx_messageInfo_WriteCLIConfig_WriteBackend_NSQ.Size(m)
+}
+func (m *WriteCLIConfig_WriteBackend_NSQ) XXX_DiscardUnknown() {
+	xxx_messageInfo_WriteCLIConfig_WriteBackend_NSQ.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_WriteCLIConfig_WriteBackend_NSQ proto.InternalMessageInfo
+
+func (m *WriteCLIConfig_WriteBackend_NSQ) GetConn() *backends.NSQConn {
+	if m != nil {
+		return m.Conn
+	}
+	return nil
+}
+
+func (m *WriteCLIConfig_WriteBackend_NSQ) GetArgs() *backends.NSQWriteArgs {
+	if m != nil {
+		return m.Args
+	}
+	return nil
+}
+
+type WriteCLIConfig_WriteBackend_Pulsar struct {
+	// @gotags: embed:""
+	Conn *backends.PulsarConn `protobuf:"bytes,1,opt,name=conn,proto3" json:"conn,omitempty"`
+	// @gotags: embed:""
+	Args                 *backends.PulsarWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                  `json:"-"`
+	XXX_unrecognized     []byte                    `json:"-"`
+	XXX_sizecache        int32                     `json:"-"`
+}
+
+func (m *WriteCLIConfig_WriteBackend_Pulsar) Reset()         { *m = WriteCLIConfig_WriteBackend_Pulsar{} }
+func (m *WriteCLIConfig_WriteBackend_Pulsar) String() string { return proto.CompactTextString(m) }
+func (*WriteCLIConfig_WriteBackend_Pulsar) ProtoMessage()    {}
+func (*WriteCLIConfig_WriteBackend_Pulsar) Descriptor() ([]byte, []int) {
+	return fileDescriptor_67966b2b12a73214, []int{0, 0, 7}
+}
+
+func (m *WriteCLIConfig_WriteBackend_Pulsar) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_WriteCLIConfig_WriteBackend_Pulsar.Unmarshal(m, b)
+}
+func (m *WriteCLIConfig_WriteBackend_Pulsar) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_WriteCLIConfig_WriteBackend_Pulsar.Marshal(b, m, deterministic)
+}
+func (m *WriteCLIConfig_WriteBackend_Pulsar) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_WriteCLIConfig_WriteBackend_Pulsar.Merge(m, src)
+}
+func (m *WriteCLIConfig_WriteBackend_Pulsar) XXX_Size() int {
+	return xxx_messageInfo_WriteCLIConfig_WriteBackend_Pulsar.Size(m)
+}
+func (m *WriteCLIConfig_WriteBackend_Pulsar) XXX_DiscardUnknown() {
+	xxx_messageInfo_WriteCLIConfig_WriteBackend_Pulsar.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_WriteCLIConfig_WriteBackend_Pulsar proto.InternalMessageInfo
+
+func (m *WriteCLIConfig_WriteBackend_Pulsar) GetConn() *backends.PulsarConn {
+	if m != nil {
+		return m.Conn
+	}
+	return nil
+}
+
+func (m *WriteCLIConfig_WriteBackend_Pulsar) GetArgs() *backends.PulsarWriteArgs {
+	if m != nil {
+		return m.Args
+	}
+	return nil
+}
+
+type WriteCLIConfig_WriteBackend_Rabbit struct {
+	// @gotags: embed:""
+	Conn *backends.RabbitConn `protobuf:"bytes,1,opt,name=conn,proto3" json:"conn,omitempty"`
+	// @gotags: embed:""
+	Args                 *backends.RabbitWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                  `json:"-"`
+	XXX_unrecognized     []byte                    `json:"-"`
+	XXX_sizecache        int32                     `json:"-"`
+}
+
+func (m *WriteCLIConfig_WriteBackend_Rabbit) Reset()         { *m = WriteCLIConfig_WriteBackend_Rabbit{} }
+func (m *WriteCLIConfig_WriteBackend_Rabbit) String() string { return proto.CompactTextString(m) }
+func (*WriteCLIConfig_WriteBackend_Rabbit) ProtoMessage()    {}
+func (*WriteCLIConfig_WriteBackend_Rabbit) Descriptor() ([]byte, []int) {
+	return fileDescriptor_67966b2b12a73214, []int{0, 0, 8}
+}
+
+func (m *WriteCLIConfig_WriteBackend_Rabbit) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_WriteCLIConfig_WriteBackend_Rabbit.Unmarshal(m, b)
+}
+func (m *WriteCLIConfig_WriteBackend_Rabbit) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_WriteCLIConfig_WriteBackend_Rabbit.Marshal(b, m, deterministic)
+}
+func (m *WriteCLIConfig_WriteBackend_Rabbit) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_WriteCLIConfig_WriteBackend_Rabbit.Merge(m, src)
+}
+func (m *WriteCLIConfig_WriteBackend_Rabbit) XXX_Size() int {
+	return xxx_messageInfo_WriteCLIConfig_WriteBackend_Rabbit.Size(m)
+}
+func (m *WriteCLIConfig_WriteBackend_Rabbit) XXX_DiscardUnknown() {
+	xxx_messageInfo_WriteCLIConfig_WriteBackend_Rabbit.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_WriteCLIConfig_WriteBackend_Rabbit proto.InternalMessageInfo
+
+func (m *WriteCLIConfig_WriteBackend_Rabbit) GetConn() *backends.RabbitConn {
+	if m != nil {
+		return m.Conn
+	}
+	return nil
+}
+
+func (m *WriteCLIConfig_WriteBackend_Rabbit) GetArgs() *backends.RabbitWriteArgs {
+	if m != nil {
+		return m.Args
+	}
+	return nil
+}
+
+type WriteCLIConfig_WriteBackend_RabbitStreams struct {
+	// @gotags: embed:""
+	Conn *backends.RabbitStreamsConn `protobuf:"bytes,1,opt,name=conn,proto3" json:"conn,omitempty"`
+	// @gotags: embed:""
+	Args                 *backends.RabbitStreamsWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                         `json:"-"`
+	XXX_unrecognized     []byte                           `json:"-"`
+	XXX_sizecache        int32                            `json:"-"`
+}
+
+func (m *WriteCLIConfig_WriteBackend_RabbitStreams) Reset() {
+	*m = WriteCLIConfig_WriteBackend_RabbitStreams{}
+}
+func (m *WriteCLIConfig_WriteBackend_RabbitStreams) String() string { return proto.CompactTextString(m) }
+func (*WriteCLIConfig_WriteBackend_RabbitStreams) ProtoMessage()    {}
+func (*WriteCLIConfig_WriteBackend_RabbitStreams) Descriptor() ([]byte, []int) {
+	return fileDescriptor_67966b2b12a73214, []int{0, 0, 9}
+}
+
+func (m *WriteCLIConfig_WriteBackend_RabbitStreams) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_WriteCLIConfig_WriteBackend_RabbitStreams.Unmarshal(m, b)
+}
+func (m *WriteCLIConfig_WriteBackend_RabbitStreams) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_WriteCLIConfig_WriteBackend_RabbitStreams.Marshal(b, m, deterministic)
+}
+func (m *WriteCLIConfig_WriteBackend_RabbitStreams) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_WriteCLIConfig_WriteBackend_RabbitStreams.Merge(m, src)
+}
+func (m *WriteCLIConfig_WriteBackend_RabbitStreams) XXX_Size() int {
+	return xxx_messageInfo_WriteCLIConfig_WriteBackend_RabbitStreams.Size(m)
+}
+func (m *WriteCLIConfig_WriteBackend_RabbitStreams) XXX_DiscardUnknown() {
+	xxx_messageInfo_WriteCLIConfig_WriteBackend_RabbitStreams.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_WriteCLIConfig_WriteBackend_RabbitStreams proto.InternalMessageInfo
+
+func (m *WriteCLIConfig_WriteBackend_RabbitStreams) GetConn() *backends.RabbitStreamsConn {
+	if m != nil {
+		return m.Conn
+	}
+	return nil
+}
+
+func (m *WriteCLIConfig_WriteBackend_RabbitStreams) GetArgs() *backends.RabbitStreamsWriteArgs {
+	if m != nil {
+		return m.Args
+	}
+	return nil
+}
+
+type WriteCLIConfig_WriteBackend_RedisPubSub struct {
+	// @gotags: embed:""
+	Conn *backends.RedisPubSubConn `protobuf:"bytes,1,opt,name=conn,proto3" json:"conn,omitempty"`
+	// @gotags: embed:""
+	Args                 *backends.RedisPubSubWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                       `json:"-"`
+	XXX_unrecognized     []byte                         `json:"-"`
+	XXX_sizecache        int32                          `json:"-"`
+}
+
+func (m *WriteCLIConfig_WriteBackend_RedisPubSub) Reset() {
+	*m = WriteCLIConfig_WriteBackend_RedisPubSub{}
+}
+func (m *WriteCLIConfig_WriteBackend_RedisPubSub) String() string { return proto.CompactTextString(m) }
+func (*WriteCLIConfig_WriteBackend_RedisPubSub) ProtoMessage()    {}
+func (*WriteCLIConfig_WriteBackend_RedisPubSub) Descriptor() ([]byte, []int) {
+	return fileDescriptor_67966b2b12a73214, []int{0, 0, 10}
+}
+
+func (m *WriteCLIConfig_WriteBackend_RedisPubSub) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_WriteCLIConfig_WriteBackend_RedisPubSub.Unmarshal(m, b)
+}
+func (m *WriteCLIConfig_WriteBackend_RedisPubSub) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_WriteCLIConfig_WriteBackend_RedisPubSub.Marshal(b, m, deterministic)
+}
+func (m *WriteCLIConfig_WriteBackend_RedisPubSub) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_WriteCLIConfig_WriteBackend_RedisPubSub.Merge(m, src)
+}
+func (m *WriteCLIConfig_WriteBackend_RedisPubSub) XXX_Size() int {
+	return xxx_messageInfo_WriteCLIConfig_WriteBackend_RedisPubSub.Size(m)
+}
+func (m *WriteCLIConfig_WriteBackend_RedisPubSub) XXX_DiscardUnknown() {
+	xxx_messageInfo_WriteCLIConfig_WriteBackend_RedisPubSub.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_WriteCLIConfig_WriteBackend_RedisPubSub proto.InternalMessageInfo
+
+func (m *WriteCLIConfig_WriteBackend_RedisPubSub) GetConn() *backends.RedisPubSubConn {
+	if m != nil {
+		return m.Conn
+	}
+	return nil
+}
+
+func (m *WriteCLIConfig_WriteBackend_RedisPubSub) GetArgs() *backends.RedisPubSubWriteArgs {
+	if m != nil {
+		return m.Args
+	}
+	return nil
+}
+
+type WriteCLIConfig_WriteBackend_RedisStreams struct {
+	// @gotags: embed:""
+	Conn *backends.RedisStreamsConn `protobuf:"bytes,1,opt,name=conn,proto3" json:"conn,omitempty"`
+	// @gotags: embed:""
+	Args                 *backends.RedisStreamsWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                        `json:"-"`
+	XXX_unrecognized     []byte                          `json:"-"`
+	XXX_sizecache        int32                           `json:"-"`
+}
+
+func (m *WriteCLIConfig_WriteBackend_RedisStreams) Reset() {
+	*m = WriteCLIConfig_WriteBackend_RedisStreams{}
+}
+func (m *WriteCLIConfig_WriteBackend_RedisStreams) String() string { return proto.CompactTextString(m) }
+func (*WriteCLIConfig_WriteBackend_RedisStreams) ProtoMessage()    {}
+func (*WriteCLIConfig_WriteBackend_RedisStreams) Descriptor() ([]byte, []int) {
+	return fileDescriptor_67966b2b12a73214, []int{0, 0, 11}
+}
+
+func (m *WriteCLIConfig_WriteBackend_RedisStreams) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_WriteCLIConfig_WriteBackend_RedisStreams.Unmarshal(m, b)
+}
+func (m *WriteCLIConfig_WriteBackend_RedisStreams) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_WriteCLIConfig_WriteBackend_RedisStreams.Marshal(b, m, deterministic)
+}
+func (m *WriteCLIConfig_WriteBackend_RedisStreams) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_WriteCLIConfig_WriteBackend_RedisStreams.Merge(m, src)
+}
+func (m *WriteCLIConfig_WriteBackend_RedisStreams) XXX_Size() int {
+	return xxx_messageInfo_WriteCLIConfig_WriteBackend_RedisStreams.Size(m)
+}
+func (m *WriteCLIConfig_WriteBackend_RedisStreams) XXX_DiscardUnknown() {
+	xxx_messageInfo_WriteCLIConfig_WriteBackend_RedisStreams.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_WriteCLIConfig_WriteBackend_RedisStreams proto.InternalMessageInfo
+
+func (m *WriteCLIConfig_WriteBackend_RedisStreams) GetConn() *backends.RedisStreamsConn {
+	if m != nil {
+		return m.Conn
+	}
+	return nil
+}
+
+func (m *WriteCLIConfig_WriteBackend_RedisStreams) GetArgs() *backends.RedisStreamsWriteArgs {
+	if m != nil {
+		return m.Args
+	}
+	return nil
+}
+
+type WriteCLIConfig_WriteBackend_AzureEventHub struct {
+	// @gotags: embed:""
+	Conn *backends.AzureEventHubConn `protobuf:"bytes,1,opt,name=conn,proto3" json:"conn,omitempty"`
+	// @gotags: embed:""
+	Args                 *backends.AzureEventHubWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                         `json:"-"`
+	XXX_unrecognized     []byte                           `json:"-"`
+	XXX_sizecache        int32                            `json:"-"`
+}
+
+func (m *WriteCLIConfig_WriteBackend_AzureEventHub) Reset() {
+	*m = WriteCLIConfig_WriteBackend_AzureEventHub{}
+}
+func (m *WriteCLIConfig_WriteBackend_AzureEventHub) String() string { return proto.CompactTextString(m) }
+func (*WriteCLIConfig_WriteBackend_AzureEventHub) ProtoMessage()    {}
+func (*WriteCLIConfig_WriteBackend_AzureEventHub) Descriptor() ([]byte, []int) {
+	return fileDescriptor_67966b2b12a73214, []int{0, 0, 12}
+}
+
+func (m *WriteCLIConfig_WriteBackend_AzureEventHub) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_WriteCLIConfig_WriteBackend_AzureEventHub.Unmarshal(m, b)
+}
+func (m *WriteCLIConfig_WriteBackend_AzureEventHub) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_WriteCLIConfig_WriteBackend_AzureEventHub.Marshal(b, m, deterministic)
+}
+func (m *WriteCLIConfig_WriteBackend_AzureEventHub) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_WriteCLIConfig_WriteBackend_AzureEventHub.Merge(m, src)
+}
+func (m *WriteCLIConfig_WriteBackend_AzureEventHub) XXX_Size() int {
+	return xxx_messageInfo_WriteCLIConfig_WriteBackend_AzureEventHub.Size(m)
+}
+func (m *WriteCLIConfig_WriteBackend_AzureEventHub) XXX_DiscardUnknown() {
+	xxx_messageInfo_WriteCLIConfig_WriteBackend_AzureEventHub.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_WriteCLIConfig_WriteBackend_AzureEventHub proto.InternalMessageInfo
+
+func (m *WriteCLIConfig_WriteBackend_AzureEventHub) GetConn() *backends.AzureEventHubConn {
+	if m != nil {
+		return m.Conn
+	}
+	return nil
+}
+
+func (m *WriteCLIConfig_WriteBackend_AzureEventHub) GetArgs() *backends.AzureEventHubWriteArgs {
+	if m != nil {
+		return m.Args
+	}
+	return nil
+}
+
+type WriteCLIConfig_WriteBackend_AzureServiceBus struct {
+	// @gotags: embed:""{
+	Conn *backends.AzureServiceBusConn `protobuf:"bytes,1,opt,name=conn,proto3" json:"conn,omitempty"`
+	// @gotags: embed:""
+	Args                 *backends.AzureServiceBusWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                           `json:"-"`
+	XXX_unrecognized     []byte                             `json:"-"`
+	XXX_sizecache        int32                              `json:"-"`
+}
+
+func (m *WriteCLIConfig_WriteBackend_AzureServiceBus) Reset() {
+	*m = WriteCLIConfig_WriteBackend_AzureServiceBus{}
+}
+func (m *WriteCLIConfig_WriteBackend_AzureServiceBus) String() string {
+	return proto.CompactTextString(m)
+}
+func (*WriteCLIConfig_WriteBackend_AzureServiceBus) ProtoMessage() {}
+func (*WriteCLIConfig_WriteBackend_AzureServiceBus) Descriptor() ([]byte, []int) {
+	return fileDescriptor_67966b2b12a73214, []int{0, 0, 13}
+}
+
+func (m *WriteCLIConfig_WriteBackend_AzureServiceBus) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_WriteCLIConfig_WriteBackend_AzureServiceBus.Unmarshal(m, b)
+}
+func (m *WriteCLIConfig_WriteBackend_AzureServiceBus) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_WriteCLIConfig_WriteBackend_AzureServiceBus.Marshal(b, m, deterministic)
+}
+func (m *WriteCLIConfig_WriteBackend_AzureServiceBus) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_WriteCLIConfig_WriteBackend_AzureServiceBus.Merge(m, src)
+}
+func (m *WriteCLIConfig_WriteBackend_AzureServiceBus) XXX_Size() int {
+	return xxx_messageInfo_WriteCLIConfig_WriteBackend_AzureServiceBus.Size(m)
+}
+func (m *WriteCLIConfig_WriteBackend_AzureServiceBus) XXX_DiscardUnknown() {
+	xxx_messageInfo_WriteCLIConfig_WriteBackend_AzureServiceBus.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_WriteCLIConfig_WriteBackend_AzureServiceBus proto.InternalMessageInfo
+
+func (m *WriteCLIConfig_WriteBackend_AzureServiceBus) GetConn() *backends.AzureServiceBusConn {
+	if m != nil {
+		return m.Conn
+	}
+	return nil
+}
+
+func (m *WriteCLIConfig_WriteBackend_AzureServiceBus) GetArgs() *backends.AzureServiceBusWriteArgs {
+	if m != nil {
+		return m.Args
+	}
+	return nil
+}
+
+type WriteCLIConfig_WriteBackend_MQTT struct {
+	// @gotags: embed:""
+	Conn *backends.MQTTConn `protobuf:"bytes,1,opt,name=conn,proto3" json:"conn,omitempty"`
+	// @gotags: embed:""
+	Args                 *backends.MQTTWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                `json:"-"`
+	XXX_unrecognized     []byte                  `json:"-"`
+	XXX_sizecache        int32                   `json:"-"`
+}
+
+func (m *WriteCLIConfig_WriteBackend_MQTT) Reset()         { *m = WriteCLIConfig_WriteBackend_MQTT{} }
+func (m *WriteCLIConfig_WriteBackend_MQTT) String() string { return proto.CompactTextString(m) }
+func (*WriteCLIConfig_WriteBackend_MQTT) ProtoMessage()    {}
+func (*WriteCLIConfig_WriteBackend_MQTT) Descriptor() ([]byte, []int) {
+	return fileDescriptor_67966b2b12a73214, []int{0, 0, 14}
+}
+
+func (m *WriteCLIConfig_WriteBackend_MQTT) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_WriteCLIConfig_WriteBackend_MQTT.Unmarshal(m, b)
+}
+func (m *WriteCLIConfig_WriteBackend_MQTT) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_WriteCLIConfig_WriteBackend_MQTT.Marshal(b, m, deterministic)
+}
+func (m *WriteCLIConfig_WriteBackend_MQTT) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_WriteCLIConfig_WriteBackend_MQTT.Merge(m, src)
+}
+func (m *WriteCLIConfig_WriteBackend_MQTT) XXX_Size() int {
+	return xxx_messageInfo_WriteCLIConfig_WriteBackend_MQTT.Size(m)
+}
+func (m *WriteCLIConfig_WriteBackend_MQTT) XXX_DiscardUnknown() {
+	xxx_messageInfo_WriteCLIConfig_WriteBackend_MQTT.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_WriteCLIConfig_WriteBackend_MQTT proto.InternalMessageInfo
+
+func (m *WriteCLIConfig_WriteBackend_MQTT) GetConn() *backends.MQTTConn {
+	if m != nil {
+		return m.Conn
+	}
+	return nil
+}
+
+func (m *WriteCLIConfig_WriteBackend_MQTT) GetArgs() *backends.MQTTWriteArgs {
+	if m != nil {
+		return m.Args
+	}
+	return nil
+}
+
+type WriteCLIConfig_WriteBackend_GCPPubSub struct {
+	// @gotags: embed:""
+	Conn *backends.GCPPubSubConn `protobuf:"bytes,1,opt,name=conn,proto3" json:"conn,omitempty"`
+	// @gotags: embed:""
+	Args                 *backends.GCPPubSubWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                     `json:"-"`
+	XXX_unrecognized     []byte                       `json:"-"`
+	XXX_sizecache        int32                        `json:"-"`
+}
+
+func (m *WriteCLIConfig_WriteBackend_GCPPubSub) Reset()         { *m = WriteCLIConfig_WriteBackend_GCPPubSub{} }
+func (m *WriteCLIConfig_WriteBackend_GCPPubSub) String() string { return proto.CompactTextString(m) }
+func (*WriteCLIConfig_WriteBackend_GCPPubSub) ProtoMessage()    {}
+func (*WriteCLIConfig_WriteBackend_GCPPubSub) Descriptor() ([]byte, []int) {
+	return fileDescriptor_67966b2b12a73214, []int{0, 0, 15}
+}
+
+func (m *WriteCLIConfig_WriteBackend_GCPPubSub) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_WriteCLIConfig_WriteBackend_GCPPubSub.Unmarshal(m, b)
+}
+func (m *WriteCLIConfig_WriteBackend_GCPPubSub) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_WriteCLIConfig_WriteBackend_GCPPubSub.Marshal(b, m, deterministic)
+}
+func (m *WriteCLIConfig_WriteBackend_GCPPubSub) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_WriteCLIConfig_WriteBackend_GCPPubSub.Merge(m, src)
+}
+func (m *WriteCLIConfig_WriteBackend_GCPPubSub) XXX_Size() int {
+	return xxx_messageInfo_WriteCLIConfig_WriteBackend_GCPPubSub.Size(m)
+}
+func (m *WriteCLIConfig_WriteBackend_GCPPubSub) XXX_DiscardUnknown() {
+	xxx_messageInfo_WriteCLIConfig_WriteBackend_GCPPubSub.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_WriteCLIConfig_WriteBackend_GCPPubSub proto.InternalMessageInfo
+
+func (m *WriteCLIConfig_WriteBackend_GCPPubSub) GetConn() *backends.GCPPubSubConn {
+	if m != nil {
+		return m.Conn
+	}
+	return nil
+}
+
+func (m *WriteCLIConfig_WriteBackend_GCPPubSub) GetArgs() *backends.GCPPubSubWriteArgs {
+	if m != nil {
+		return m.Args
+	}
+	return nil
+}
+
+type WriteCLIConfig_WriteBackend_KubeMQQueue struct {
+	// @gotags: embed:""
+	Conn *backends.KubeMQQueueConn `protobuf:"bytes,1,opt,name=conn,proto3" json:"conn,omitempty"`
+	// @gotags: embed:""
+	Args                 *backends.KubeMQQueueWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                       `json:"-"`
+	XXX_unrecognized     []byte                         `json:"-"`
+	XXX_sizecache        int32                          `json:"-"`
+}
+
+func (m *WriteCLIConfig_WriteBackend_KubeMQQueue) Reset() {
+	*m = WriteCLIConfig_WriteBackend_KubeMQQueue{}
+}
+func (m *WriteCLIConfig_WriteBackend_KubeMQQueue) String() string { return proto.CompactTextString(m) }
+func (*WriteCLIConfig_WriteBackend_KubeMQQueue) ProtoMessage()    {}
+func (*WriteCLIConfig_WriteBackend_KubeMQQueue) Descriptor() ([]byte, []int) {
+	return fileDescriptor_67966b2b12a73214, []int{0, 0, 16}
+}
+
+func (m *WriteCLIConfig_WriteBackend_KubeMQQueue) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_WriteCLIConfig_WriteBackend_KubeMQQueue.Unmarshal(m, b)
+}
+func (m *WriteCLIConfig_WriteBackend_KubeMQQueue) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_WriteCLIConfig_WriteBackend_KubeMQQueue.Marshal(b, m, deterministic)
+}
+func (m *WriteCLIConfig_WriteBackend_KubeMQQueue) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_WriteCLIConfig_WriteBackend_KubeMQQueue.Merge(m, src)
+}
+func (m *WriteCLIConfig_WriteBackend_KubeMQQueue) XXX_Size() int {
+	return xxx_messageInfo_WriteCLIConfig_WriteBackend_KubeMQQueue.Size(m)
+}
+func (m *WriteCLIConfig_WriteBackend_KubeMQQueue) XXX_DiscardUnknown() {
+	xxx_messageInfo_WriteCLIConfig_WriteBackend_KubeMQQueue.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_WriteCLIConfig_WriteBackend_KubeMQQueue proto.InternalMessageInfo
+
+func (m *WriteCLIConfig_WriteBackend_KubeMQQueue) GetConn() *backends.KubeMQQueueConn {
+	if m != nil {
+		return m.Conn
+	}
+	return nil
+}
+
+func (m *WriteCLIConfig_WriteBackend_KubeMQQueue) GetArgs() *backends.KubeMQQueueWriteArgs {
+	if m != nil {
+		return m.Args
+	}
+	return nil
+}
+
 type WriteConfig struct {
 	// Required for server mode; ignored in CLI mode.
-	ConnectionId string `protobuf:"bytes,1,opt,name=connection_id,json=connectionId,proto3" json:"connection_id,omitempty"`
-	// We need to use a WriteRecord as a wrapper since there is no way to "repeated oneof ..."
-	Records []*records.WriteRecord `protobuf:"bytes,2,rep,name=records,proto3" json:"records,omitempty"`
+	// @gotags: kong:"-"
+	ConnectionId string `protobuf:"bytes,1,opt,name=connection_id,json=connectionId,proto3" json:"connection_id,omitempty" kong:"-"`
+	// @gotags: kong:"-"
+	Record []*records.WriteRecord `protobuf:"bytes,2,rep,name=record,proto3" json:"record,omitempty" kong:"-"`
 	// Specifying encoding options will cause the _value_ of the record to get
 	// encoded and set in WriteRecord.encoded.
-	EncodeOptions *encoding.Options `protobuf:"bytes,3,opt,name=encode_options,json=encodeOptions,proto3" json:"encode_options,omitempty"`
+	// @gotags: embed:""
+	EncodeOptions *encoding.EncodeOptions `protobuf:"bytes,3,opt,name=encode_options,json=encodeOptions,proto3" json:"encode_options,omitempty"`
 	// Optional; CLI-specific settings
+	// @gotags: embed:""
 	XCliConfig           *WriteCLIConfig `protobuf:"bytes,4,opt,name=_cli_config,json=CliConfig,proto3" json:"_cli_config,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}        `json:"-"`
 	XXX_unrecognized     []byte          `json:"-"`
@@ -133,14 +1191,14 @@ func (m *WriteConfig) GetConnectionId() string {
 	return ""
 }
 
-func (m *WriteConfig) GetRecords() []*records.WriteRecord {
+func (m *WriteConfig) GetRecord() []*records.WriteRecord {
 	if m != nil {
-		return m.Records
+		return m.Record
 	}
 	return nil
 }
 
-func (m *WriteConfig) GetEncodeOptions() *encoding.Options {
+func (m *WriteConfig) GetEncodeOptions() *encoding.EncodeOptions {
 	if m != nil {
 		return m.EncodeOptions
 	}
@@ -242,7 +1300,26 @@ func (m *WriteResponse) GetStatus() *common.Status {
 }
 
 func init() {
+	proto.RegisterEnum("protos.InputType", InputType_name, InputType_value)
 	proto.RegisterType((*WriteCLIConfig)(nil), "protos.WriteCLIConfig")
+	proto.RegisterType((*WriteCLIConfig_WriteBackend)(nil), "protos.WriteCLIConfig.WriteBackend")
+	proto.RegisterType((*WriteCLIConfig_WriteBackend_Kafka)(nil), "protos.WriteCLIConfig.WriteBackend.Kafka")
+	proto.RegisterType((*WriteCLIConfig_WriteBackend_ActiveMQ)(nil), "protos.WriteCLIConfig.WriteBackend.ActiveMQ")
+	proto.RegisterType((*WriteCLIConfig_WriteBackend_AWSSQS)(nil), "protos.WriteCLIConfig.WriteBackend.AWSSQS")
+	proto.RegisterType((*WriteCLIConfig_WriteBackend_AWSSNS)(nil), "protos.WriteCLIConfig.WriteBackend.AWSSNS")
+	proto.RegisterType((*WriteCLIConfig_WriteBackend_Nats)(nil), "protos.WriteCLIConfig.WriteBackend.Nats")
+	proto.RegisterType((*WriteCLIConfig_WriteBackend_NatsStreaming)(nil), "protos.WriteCLIConfig.WriteBackend.NatsStreaming")
+	proto.RegisterType((*WriteCLIConfig_WriteBackend_NSQ)(nil), "protos.WriteCLIConfig.WriteBackend.NSQ")
+	proto.RegisterType((*WriteCLIConfig_WriteBackend_Pulsar)(nil), "protos.WriteCLIConfig.WriteBackend.Pulsar")
+	proto.RegisterType((*WriteCLIConfig_WriteBackend_Rabbit)(nil), "protos.WriteCLIConfig.WriteBackend.Rabbit")
+	proto.RegisterType((*WriteCLIConfig_WriteBackend_RabbitStreams)(nil), "protos.WriteCLIConfig.WriteBackend.RabbitStreams")
+	proto.RegisterType((*WriteCLIConfig_WriteBackend_RedisPubSub)(nil), "protos.WriteCLIConfig.WriteBackend.RedisPubSub")
+	proto.RegisterType((*WriteCLIConfig_WriteBackend_RedisStreams)(nil), "protos.WriteCLIConfig.WriteBackend.RedisStreams")
+	proto.RegisterType((*WriteCLIConfig_WriteBackend_AzureEventHub)(nil), "protos.WriteCLIConfig.WriteBackend.AzureEventHub")
+	proto.RegisterType((*WriteCLIConfig_WriteBackend_AzureServiceBus)(nil), "protos.WriteCLIConfig.WriteBackend.AzureServiceBus")
+	proto.RegisterType((*WriteCLIConfig_WriteBackend_MQTT)(nil), "protos.WriteCLIConfig.WriteBackend.MQTT")
+	proto.RegisterType((*WriteCLIConfig_WriteBackend_GCPPubSub)(nil), "protos.WriteCLIConfig.WriteBackend.GCPPubSub")
+	proto.RegisterType((*WriteCLIConfig_WriteBackend_KubeMQQueue)(nil), "protos.WriteCLIConfig.WriteBackend.KubeMQQueue")
 	proto.RegisterType((*WriteConfig)(nil), "protos.WriteConfig")
 	proto.RegisterType((*WriteRequest)(nil), "protos.WriteRequest")
 	proto.RegisterType((*WriteResponse)(nil), "protos.WriteResponse")
@@ -251,33 +1328,91 @@ func init() {
 func init() { proto.RegisterFile("write.proto", fileDescriptor_67966b2b12a73214) }
 
 var fileDescriptor_67966b2b12a73214 = []byte{
-	// 445 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x5c, 0x52, 0xdd, 0x8a, 0x13, 0x31,
-	0x18, 0x65, 0xb6, 0x4b, 0xd7, 0x66, 0xb6, 0x8b, 0xa6, 0xb8, 0x84, 0x8a, 0x50, 0xea, 0x4d, 0x41,
-	0x76, 0x02, 0x55, 0xf7, 0x76, 0x59, 0x2b, 0x42, 0x45, 0x14, 0xa2, 0x20, 0x78, 0x33, 0x64, 0x32,
-	0x69, 0x27, 0xee, 0x34, 0x89, 0xf9, 0x41, 0xfa, 0x14, 0xbe, 0x80, 0x4f, 0xe7, 0x95, 0x8f, 0x21,
-	0x93, 0x64, 0xec, 0xd6, 0xab, 0x99, 0x9c, 0x73, 0xbe, 0xef, 0x3b, 0xdf, 0x49, 0x40, 0xfe, 0xc3,
-	0x08, 0xc7, 0x0b, 0x6d, 0x94, 0x53, 0x70, 0x18, 0x3e, 0x76, 0x3a, 0x31, 0x9c, 0x29, 0x53, 0x5b,
-	0x7c, 0x47, 0x37, 0x77, 0x34, 0x92, 0xd3, 0x47, 0x4c, 0xed, 0x76, 0x4a, 0x62, 0xea, 0x5d, 0x93,
-	0x20, 0xd8, 0xeb, 0x2a, 0x6a, 0x53, 0x8f, 0xe9, 0x24, 0xc9, 0xac, 0xa3, 0xce, 0xdb, 0x04, 0x5e,
-	0x72, 0xc9, 0x54, 0x2d, 0xe4, 0x16, 0x2b, 0xed, 0x84, 0x92, 0x09, 0x9f, 0xff, 0xca, 0xc0, 0xc5,
-	0x97, 0xce, 0xc0, 0xea, 0xfd, 0x7a, 0xa5, 0xe4, 0x46, 0x6c, 0xe1, 0x53, 0x00, 0x84, 0xd4, 0xde,
-	0x95, 0x35, 0x75, 0x14, 0x65, 0xb3, 0xc1, 0x62, 0x44, 0x46, 0x01, 0x79, 0x43, 0x1d, 0x3d, 0xd0,
-	0x1b, 0xd1, 0x72, 0x74, 0x32, 0xcb, 0xfe, 0xd1, 0x6f, 0x45, 0xcb, 0x0f, 0xb4, 0xdb, 0x6b, 0x8e,
-	0x06, 0xf7, 0xe8, 0xcf, 0x7b, 0xcd, 0xe1, 0x15, 0x98, 0x44, 0x5a, 0xd8, 0xf2, 0x9b, 0x55, 0xb2,
-	0xa4, 0xc6, 0xd0, 0x3d, 0x3a, 0x9d, 0x65, 0x8b, 0x07, 0xe4, 0x61, 0xa0, 0xd6, 0xf6, 0x9d, 0x55,
-	0xf2, 0xb6, 0xc3, 0xe7, 0xbf, 0x33, 0x90, 0x47, 0x7b, 0xd1, 0xdb, 0x33, 0x30, 0x66, 0x4a, 0x4a,
-	0xce, 0xba, 0x1d, 0x4a, 0x51, 0xa3, 0x2c, 0x0c, 0x38, 0x3f, 0x80, 0xeb, 0x1a, 0xbe, 0x02, 0x67,
-	0x29, 0x16, 0x74, 0x32, 0x1b, 0x2c, 0xf2, 0xe5, 0x93, 0xb8, 0xac, 0x2d, 0x12, 0x5c, 0x84, 0x96,
-	0x24, 0x1c, 0x48, 0xaf, 0x85, 0x37, 0xe0, 0x22, 0x84, 0xc4, 0xcb, 0x14, 0x51, 0x70, 0x9f, 0x2f,
-	0x51, 0x5f, 0xdd, 0x47, 0x58, 0x7c, 0x8c, 0x3c, 0x19, 0x47, 0x7d, 0x3a, 0xc2, 0x6b, 0x90, 0x97,
-	0xac, 0x15, 0x25, 0x0b, 0x5e, 0xc3, 0x4e, 0xf9, 0xf2, 0xb2, 0xaf, 0x3e, 0x4e, 0x99, 0x8c, 0x56,
-	0xad, 0x88, 0xbf, 0x73, 0x0e, 0xce, 0x93, 0xa1, 0xef, 0x9e, 0x5b, 0x07, 0x17, 0xe0, 0xb4, 0xbb,
-	0x62, 0xf4, 0xf3, 0x43, 0xe8, 0x30, 0xe9, 0x3b, 0xc4, 0x7b, 0x2d, 0x6e, 0xbd, 0x6b, 0x48, 0x50,
-	0xc0, 0xe7, 0x60, 0x98, 0x86, 0x65, 0xc7, 0xd2, 0x7b, 0x99, 0x91, 0x24, 0x99, 0xdf, 0x80, 0x71,
-	0x1a, 0x63, 0xb5, 0x92, 0x96, 0xc3, 0x02, 0x0c, 0xe3, 0x1b, 0x41, 0x7f, 0xce, 0x42, 0xf9, 0xe3,
-	0xff, 0x26, 0x7d, 0x0a, 0x2c, 0x49, 0xaa, 0xd7, 0xd7, 0x5f, 0x5f, 0x6e, 0x85, 0x6b, 0x7c, 0xd5,
-	0xf1, 0xb8, 0xa2, 0x8e, 0x35, 0x4c, 0x19, 0x8d, 0x75, 0xeb, 0x77, 0x15, 0x37, 0x57, 0x96, 0x35,
-	0x7c, 0x47, 0x2d, 0xae, 0xbc, 0x68, 0x6b, 0xbc, 0x55, 0x38, 0x76, 0xab, 0xe2, 0xa3, 0x7e, 0xf1,
-	0x37, 0x00, 0x00, 0xff, 0xff, 0x52, 0x2a, 0xa4, 0xc7, 0xea, 0x02, 0x00, 0x00,
+	// 1363 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x94, 0x58, 0x6f, 0x93, 0xd3, 0x44,
+	0x18, 0xb7, 0xdc, 0x5d, 0xbd, 0x6e, 0xaf, 0xc7, 0xb1, 0x27, 0x18, 0x8a, 0xe0, 0x59, 0x54, 0x0e,
+	0xa4, 0xad, 0xdc, 0x21, 0x8a, 0x7f, 0x86, 0xb9, 0xbb, 0x61, 0xa4, 0x08, 0xa5, 0xdd, 0xe2, 0xa0,
+	0xbe, 0xc9, 0x24, 0xe9, 0x92, 0x46, 0xda, 0x24, 0xcd, 0x66, 0x41, 0x7c, 0xe1, 0x8c, 0x33, 0xbe,
+	0xf2, 0x8d, 0x5f, 0xc2, 0xcf, 0xe6, 0xf8, 0xc2, 0x0f, 0xe1, 0xec, 0x9f, 0xa4, 0xbb, 0x49, 0x8e,
+	0xa6, 0xaf, 0xda, 0x7d, 0xf6, 0xf7, 0xe7, 0xc9, 0xee, 0x93, 0x27, 0xc9, 0x82, 0xfa, 0xab, 0xc8,
+	0x8b, 0x71, 0x27, 0x8c, 0x82, 0x38, 0x80, 0x55, 0xfe, 0x43, 0x9a, 0xbb, 0x11, 0x76, 0x82, 0x68,
+	0x4c, 0xba, 0x2f, 0xac, 0xe7, 0x2f, 0x2c, 0x31, 0xd9, 0x3c, 0xe7, 0x04, 0xb3, 0x59, 0xe0, 0x77,
+	0x2d, 0x1a, 0x4f, 0x64, 0x08, 0x26, 0x38, 0xdb, 0x22, 0x52, 0xa3, 0xb9, 0x2b, 0x61, 0x24, 0xb6,
+	0x62, 0x4a, 0x64, 0xf0, 0x02, 0xf6, 0x9d, 0x60, 0xec, 0xf9, 0x6e, 0x37, 0x08, 0x63, 0x2f, 0xf0,
+	0x93, 0xf8, 0xbb, 0xb6, 0xe5, 0xbc, 0xc0, 0x3e, 0x57, 0x10, 0x7f, 0x72, 0x13, 0x96, 0x13, 0x7b,
+	0x2f, 0xf1, 0x6c, 0x2e, 0x27, 0xf6, 0x16, 0x13, 0xbf, 0xd2, 0x08, 0xb7, 0x09, 0x8e, 0x5e, 0x7a,
+	0x0e, 0x6e, 0xdb, 0xa9, 0xd7, 0x95, 0x0c, 0x02, 0xbf, 0xc4, 0x7e, 0xdc, 0x9e, 0x50, 0x3b, 0xc9,
+	0x65, 0x31, 0xff, 0x8a, 0xb4, 0x49, 0x9a, 0x4b, 0x26, 0x3e, 0x4f, 0xe2, 0x17, 0xd3, 0xb8, 0xeb,
+	0x84, 0xed, 0x90, 0xda, 0x24, 0x95, 0x7a, 0x27, 0x9d, 0x52, 0x17, 0xea, 0xd2, 0x22, 0x4a, 0x6d,
+	0x3c, 0x9b, 0xb7, 0xe7, 0x14, 0x53, 0x9c, 0xa3, 0xcc, 0x02, 0xdf, 0x0d, 0x92, 0x45, 0x5b, 0x44,
+	0xe7, 0x71, 0x9c, 0x0b, 0xfa, 0x56, 0x9c, 0x64, 0x73, 0x59, 0x0b, 0xb6, 0x49, 0x1c, 0x61, 0x6b,
+	0xe6, 0xf9, 0x6e, 0xb2, 0x23, 0x8b, 0x69, 0x32, 0xcf, 0xad, 0x65, 0x18, 0x90, 0xd8, 0x8d, 0x70,
+	0xa2, 0x75, 0x7e, 0x31, 0x41, 0xa7, 0xc4, 0x8a, 0x72, 0xe1, 0xc8, 0xb2, 0x6d, 0x2f, 0xce, 0x39,
+	0x8b, 0xb0, 0xf4, 0x26, 0xb9, 0xab, 0x8e, 0xf0, 0xd8, 0x23, 0xfa, 0x42, 0xbd, 0x97, 0x99, 0xd4,
+	0xa8, 0xad, 0xff, 0x2e, 0x81, 0xed, 0x67, 0xac, 0x0c, 0x4f, 0x1e, 0xf5, 0x4e, 0x02, 0xff, 0xb9,
+	0xe7, 0xc2, 0x36, 0xd8, 0xf5, 0xfc, 0x90, 0xc6, 0xa6, 0x47, 0xcc, 0x9f, 0x49, 0xe0, 0x9b, 0x56,
+	0x14, 0x59, 0xaf, 0x8d, 0xca, 0x5e, 0x65, 0x7f, 0x13, 0xed, 0xf0, 0xa9, 0x1e, 0x79, 0x48, 0x02,
+	0xff, 0x88, 0xc5, 0xe1, 0x5d, 0xd0, 0x30, 0xa5, 0x85, 0x19, 0xbf, 0x0e, 0xb1, 0x71, 0x66, 0xaf,
+	0xb2, 0xbf, 0x7d, 0x70, 0x5e, 0x18, 0x90, 0x4e, 0x5a, 0x5d, 0x4f, 0x5f, 0x87, 0x18, 0xd5, 0x8f,
+	0xc5, 0x90, 0x0d, 0x60, 0x0f, 0x6c, 0x9b, 0xfc, 0x1e, 0x48, 0x04, 0x8c, 0xb5, 0xbd, 0xca, 0x7e,
+	0xfd, 0xe0, 0x6a, 0xc2, 0xd5, 0x33, 0x13, 0x43, 0x29, 0x80, 0xb6, 0xd4, 0x51, 0xf3, 0xef, 0x26,
+	0xd0, 0x02, 0xf0, 0x1e, 0xd8, 0xe0, 0x85, 0xc1, 0xf3, 0xae, 0x1f, 0x5c, 0x2f, 0x21, 0xd9, 0xf9,
+	0x8e, 0x11, 0x90, 0xe0, 0xc1, 0x07, 0x60, 0x33, 0xa9, 0x7f, 0x7e, 0x49, 0xf5, 0x83, 0x9b, 0x65,
+	0x34, 0x8e, 0x38, 0xe7, 0xf1, 0x10, 0xa5, 0x6c, 0x78, 0x0c, 0xaa, 0xd6, 0x2b, 0x42, 0xe6, 0x44,
+	0x5e, 0xde, 0x8d, 0x52, 0x3a, 0xcf, 0x46, 0xa3, 0xe1, 0x08, 0x49, 0x66, 0xa2, 0xe1, 0x13, 0x63,
+	0x7d, 0x35, 0x8d, 0xbe, 0xd4, 0xf0, 0x09, 0xfc, 0x1a, 0xac, 0xb3, 0xc2, 0x35, 0x36, 0xb8, 0xc2,
+	0x7e, 0x19, 0x85, 0xbe, 0x15, 0x13, 0xc4, 0x59, 0xf0, 0x07, 0xb0, 0xcd, 0x7e, 0xcd, 0xb4, 0xec,
+	0x8d, 0x2a, 0xd7, 0xb9, 0x55, 0x56, 0x67, 0x94, 0x10, 0x51, 0xc3, 0x57, 0x87, 0xf0, 0x2e, 0x58,
+	0xf3, 0xc9, 0xdc, 0x78, 0x9b, 0xcb, 0x5d, 0x2b, 0x25, 0x37, 0x1a, 0x22, 0xc6, 0x61, 0xcb, 0x22,
+	0xee, 0x1f, 0x63, 0xb3, 0xfc, 0xb2, 0x0c, 0x38, 0x03, 0x49, 0x26, 0xd3, 0x10, 0x77, 0x95, 0x51,
+	0x2b, 0xaf, 0x81, 0x38, 0x03, 0x49, 0x26, 0x5b, 0x1c, 0xf1, 0x4f, 0x2e, 0x0f, 0x31, 0x40, 0xf9,
+	0xc5, 0x11, 0x5a, 0x62, 0x3d, 0x08, 0x6a, 0x44, 0xea, 0x90, 0x6d, 0x1a, 0xeb, 0x4b, 0x46, 0xbd,
+	0xfc, 0xa6, 0x3d, 0x1e, 0x3e, 0x7d, 0x8a, 0x38, 0x0b, 0x9a, 0xe0, 0x1c, 0xef, 0xc4, 0xa6, 0xec,
+	0xd5, 0xa6, 0x4d, 0x89, 0xb1, 0xc5, 0xa5, 0x0e, 0x4b, 0x55, 0x10, 0x23, 0x8f, 0x04, 0xf7, 0x98,
+	0x12, 0x74, 0xd6, 0xd2, 0x03, 0xf0, 0x47, 0x20, 0x42, 0x26, 0x6f, 0xf5, 0xe6, 0x84, 0xda, 0x46,
+	0xa3, 0xfc, 0x95, 0x73, 0xf9, 0xfb, 0x8c, 0xf9, 0x80, 0xda, 0xa8, 0x61, 0xa9, 0x43, 0xf8, 0x08,
+	0x00, 0xd7, 0x09, 0x4d, 0xd1, 0xcc, 0x8c, 0x6d, 0xae, 0xda, 0x2e, 0xa3, 0xfa, 0xed, 0xc9, 0x60,
+	0x40, 0xed, 0x11, 0xb5, 0x51, 0xcd, 0x75, 0xc2, 0x01, 0xe7, 0x43, 0x04, 0xb6, 0xc4, 0x23, 0xc1,
+	0xe4, 0x8f, 0x04, 0xe3, 0x2c, 0xd7, 0xeb, 0x96, 0x6a, 0x0b, 0xd4, 0xc6, 0x8f, 0x87, 0x43, 0x46,
+	0x43, 0x75, 0x21, 0xc2, 0x07, 0x4c, 0x93, 0xf7, 0xd4, 0x24, 0xc7, 0x9d, 0xf2, 0x9a, 0x88, 0xf1,
+	0x64, 0x96, 0xf5, 0x48, 0x0e, 0x58, 0x9e, 0xdf, 0x83, 0x86, 0xd0, 0x4c, 0x0a, 0xe9, 0x1c, 0x17,
+	0xfd, 0xb4, 0xb4, 0x68, 0x52, 0x47, 0x22, 0x35, 0x39, 0x6a, 0x4e, 0xc1, 0x06, 0xef, 0x6e, 0xb0,
+	0x03, 0xd6, 0x9d, 0xc0, 0xf7, 0x65, 0x5b, 0x6c, 0xe6, 0xba, 0x34, 0x47, 0x9d, 0x04, 0xbe, 0x8f,
+	0x38, 0x0e, 0x1e, 0x82, 0x75, 0x2b, 0x72, 0x89, 0x6c, 0x81, 0xef, 0x17, 0xe3, 0x79, 0x16, 0x47,
+	0x91, 0x4b, 0x10, 0x07, 0x37, 0x29, 0xd8, 0x4c, 0xfa, 0x20, 0xbc, 0xa5, 0x19, 0x5e, 0xce, 0x09,
+	0x24, 0x40, 0xc5, 0xf3, 0x8e, 0xe6, 0xd9, 0x3a, 0x95, 0x92, 0xb5, 0x0d, 0x40, 0x55, 0xb4, 0x4d,
+	0xd8, 0xd5, 0x4c, 0x2f, 0xe5, 0x15, 0x38, 0x4c, 0xb1, 0xbc, 0xad, 0x59, 0xee, 0x9d, 0x42, 0x38,
+	0xc5, 0xb0, 0x5f, 0xce, 0xb0, 0xbf, 0xaa, 0x61, 0x3f, 0x67, 0xe8, 0x81, 0x75, 0xd6, 0x4a, 0x61,
+	0x5b, 0xb3, 0xbb, 0x98, 0x63, 0x33, 0x90, 0x62, 0x76, 0xa0, 0x99, 0x5d, 0x29, 0x84, 0x67, 0xad,
+	0xfe, 0xa8, 0x80, 0x86, 0xd6, 0xb6, 0xd9, 0xb6, 0x28, 0xa6, 0xad, 0x42, 0x95, 0x14, 0xad, 0xb8,
+	0x7f, 0xa5, 0xb9, 0x5f, 0x7b, 0x33, 0x2f, 0x9b, 0xc6, 0x73, 0xb0, 0xd6, 0x1f, 0x0d, 0xe1, 0x4d,
+	0xcd, 0xdb, 0xc8, 0x6b, 0x8c, 0xd4, 0x02, 0xba, 0xa5, 0x39, 0x5e, 0x2e, 0x42, 0x17, 0x6c, 0xa5,
+	0x78, 0x2e, 0x2c, 0xdd, 0x4a, 0x01, 0x5b, 0x61, 0x2b, 0x05, 0xa1, 0xc0, 0x50, 0x34, 0xfe, 0xa5,
+	0x86, 0x02, 0xb6, 0x82, 0xa1, 0x20, 0x14, 0x6d, 0xa8, 0xf6, 0xa8, 0x59, 0xba, 0xa1, 0x1a, 0x7a,
+	0x85, 0x0d, 0xd5, 0x78, 0xd9, 0x34, 0x7e, 0x03, 0x75, 0xa5, 0xf9, 0xb1, 0x6b, 0x51, 0x72, 0x28,
+	0xb8, 0x96, 0x05, 0x56, 0xc9, 0xe0, 0xae, 0x96, 0xc1, 0x47, 0x6f, 0x62, 0x65, 0xfd, 0x7f, 0xaf,
+	0x80, 0x2d, 0xb5, 0x51, 0xc2, 0xcf, 0xb4, 0x0c, 0x3e, 0x28, 0xd6, 0xca, 0x2f, 0xc2, 0x97, 0x5a,
+	0x0a, 0x1f, 0xbf, 0x91, 0x56, 0xb4, 0x15, 0xda, 0xb3, 0x6f, 0xe9, 0x56, 0x68, 0xe8, 0x15, 0xb6,
+	0x42, 0xe3, 0x65, 0xd3, 0xf8, 0xb3, 0x02, 0xce, 0x66, 0x9e, 0xf0, 0xf0, 0x0b, 0x2d, 0x91, 0x0f,
+	0x8b, 0x05, 0x17, 0x78, 0x25, 0x95, 0x6f, 0xb4, 0x54, 0xae, 0x2f, 0x63, 0x16, 0xb4, 0x36, 0xf6,
+	0xe2, 0xb2, 0xb4, 0xb5, 0x31, 0xd0, 0x0a, 0xad, 0x8d, 0xc1, 0xb3, 0x56, 0xbf, 0x80, 0x5a, 0xfa,
+	0x8e, 0xc0, 0x04, 0x14, 0xbf, 0xbc, 0x40, 0x8a, 0x54, 0x4c, 0x3f, 0xd7, 0x4c, 0xaf, 0x9e, 0xce,
+	0x29, 0x28, 0x7e, 0xe5, 0x6d, 0x62, 0x69, 0xf1, 0x2b, 0xd8, 0x15, 0x8a, 0x5f, 0x61, 0x65, 0xfc,
+	0x5b, 0xff, 0x54, 0x40, 0x5d, 0xbc, 0x41, 0x88, 0x6f, 0xbd, 0xab, 0xa0, 0xc1, 0x24, 0xb1, 0x13,
+	0x7b, 0x81, 0x6f, 0x7a, 0x63, 0x9e, 0x49, 0x0d, 0x6d, 0x2d, 0x82, 0xbd, 0x31, 0x3c, 0x04, 0x55,
+	0x71, 0xd8, 0x60, 0x9c, 0xd9, 0x5b, 0x53, 0x3b, 0x94, 0x3c, 0x82, 0x10, 0x2f, 0x21, 0x88, 0x0f,
+	0x90, 0x84, 0xc2, 0xfb, 0x60, 0x9b, 0x1f, 0x3c, 0x60, 0x53, 0x1e, 0x3b, 0xc8, 0x8f, 0x9f, 0x74,
+	0x81, 0x93, 0x63, 0x89, 0xce, 0x7d, 0x0e, 0x7b, 0x22, 0x50, 0xa8, 0x81, 0xd5, 0x21, 0xbc, 0x03,
+	0xea, 0xa6, 0x33, 0xf5, 0x4c, 0x87, 0xe7, 0x2b, 0x3f, 0x7e, 0x2e, 0x14, 0xbf, 0x0c, 0xa1, 0xda,
+	0xc9, 0xd4, 0x13, 0x7f, 0x5b, 0x58, 0x7e, 0x0e, 0x22, 0x3c, 0xa7, 0x98, 0xc4, 0x70, 0x1f, 0xac,
+	0x5b, 0x34, 0x9e, 0x18, 0x7f, 0xf5, 0xb9, 0xc2, 0x6e, 0xa2, 0x20, 0x4e, 0x4c, 0x3a, 0x47, 0x34,
+	0x9e, 0x20, 0x8e, 0x80, 0x9f, 0x80, 0xaa, 0x34, 0xab, 0xe8, 0x50, 0x65, 0xdd, 0x90, 0x84, 0xb4,
+	0xee, 0x81, 0x86, 0xb4, 0x21, 0x61, 0xe0, 0x13, 0x0c, 0x3b, 0xa0, 0x2a, 0x4e, 0x5f, 0x8c, 0x7f,
+	0xc5, 0xf7, 0xcc, 0xf9, 0x8c, 0xd3, 0x88, 0xcf, 0x22, 0x89, 0xba, 0xd1, 0x02, 0xb5, 0x1e, 0xfb,
+	0xa2, 0xe6, 0xdf, 0xc3, 0x35, 0xb0, 0x31, 0x78, 0x74, 0xd4, 0xeb, 0xef, 0xbc, 0x05, 0x01, 0xa8,
+	0x3e, 0x1c, 0x3d, 0xe9, 0x0f, 0x8e, 0x77, 0x2a, 0xc7, 0x77, 0x7e, 0xba, 0xed, 0x7a, 0xf1, 0x84,
+	0xda, 0x4c, 0xa3, 0x6b, 0x5b, 0xb1, 0x33, 0x71, 0x82, 0x28, 0xec, 0x86, 0x53, 0x3a, 0xb3, 0x71,
+	0xd4, 0x26, 0xce, 0x04, 0xcf, 0x2c, 0xd2, 0xb5, 0xa9, 0x37, 0x1d, 0x77, 0xdd, 0xa0, 0x2b, 0x1c,
+	0x6d, 0x71, 0xa4, 0x74, 0xf8, 0x7f, 0x00, 0x00, 0x00, 0xff, 0xff, 0x5d, 0x11, 0x32, 0xba, 0x68,
+	0x12, 0x00, 0x00,
 }

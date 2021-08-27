@@ -20,7 +20,101 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
-type Postgres struct {
+type PostgresConn struct {
+	// Required
+	Address string `protobuf:"bytes,1,opt,name=address,proto3" json:"address,omitempty"`
+	// Required
+	Port uint32 `protobuf:"varint,2,opt,name=port,proto3" json:"port,omitempty"`
+	// Optional
+	Username string `protobuf:"bytes,3,opt,name=username,proto3" json:"username,omitempty"`
+	// Optional
+	Password string `protobuf:"bytes,4,opt,name=password,proto3" json:"password,omitempty"`
+	// Required
+	Database string `protobuf:"bytes,5,opt,name=database,proto3" json:"database,omitempty"`
+	// Whether to collect using TLS
+	UseTls bool `protobuf:"varint,6,opt,name=use_tls,json=useTls,proto3" json:"use_tls,omitempty"`
+	// Specify to not verify server's TLS certificate
+	InsecureTls          bool     `protobuf:"varint,7,opt,name=insecure_tls,json=insecureTls,proto3" json:"insecure_tls,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *PostgresConn) Reset()         { *m = PostgresConn{} }
+func (m *PostgresConn) String() string { return proto.CompactTextString(m) }
+func (*PostgresConn) ProtoMessage()    {}
+func (*PostgresConn) Descriptor() ([]byte, []int) {
+	return fileDescriptor_a62b40fab176d0d3, []int{0}
+}
+
+func (m *PostgresConn) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_PostgresConn.Unmarshal(m, b)
+}
+func (m *PostgresConn) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_PostgresConn.Marshal(b, m, deterministic)
+}
+func (m *PostgresConn) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_PostgresConn.Merge(m, src)
+}
+func (m *PostgresConn) XXX_Size() int {
+	return xxx_messageInfo_PostgresConn.Size(m)
+}
+func (m *PostgresConn) XXX_DiscardUnknown() {
+	xxx_messageInfo_PostgresConn.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_PostgresConn proto.InternalMessageInfo
+
+func (m *PostgresConn) GetAddress() string {
+	if m != nil {
+		return m.Address
+	}
+	return ""
+}
+
+func (m *PostgresConn) GetPort() uint32 {
+	if m != nil {
+		return m.Port
+	}
+	return 0
+}
+
+func (m *PostgresConn) GetUsername() string {
+	if m != nil {
+		return m.Username
+	}
+	return ""
+}
+
+func (m *PostgresConn) GetPassword() string {
+	if m != nil {
+		return m.Password
+	}
+	return ""
+}
+
+func (m *PostgresConn) GetDatabase() string {
+	if m != nil {
+		return m.Database
+	}
+	return ""
+}
+
+func (m *PostgresConn) GetUseTls() bool {
+	if m != nil {
+		return m.UseTls
+	}
+	return false
+}
+
+func (m *PostgresConn) GetInsecureTls() bool {
+	if m != nil {
+		return m.InsecureTls
+	}
+	return false
+}
+
+type PostgresReadArgs struct {
 	ReplicationSlotName  string   `protobuf:"bytes,2,opt,name=replication_slot_name,json=replicationSlotName,proto3" json:"replication_slot_name,omitempty"`
 	PublisherName        string   `protobuf:"bytes,3,opt,name=publisher_name,json=publisherName,proto3" json:"publisher_name,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
@@ -28,63 +122,105 @@ type Postgres struct {
 	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *Postgres) Reset()         { *m = Postgres{} }
-func (m *Postgres) String() string { return proto.CompactTextString(m) }
-func (*Postgres) ProtoMessage()    {}
-func (*Postgres) Descriptor() ([]byte, []int) {
-	return fileDescriptor_a62b40fab176d0d3, []int{0}
+func (m *PostgresReadArgs) Reset()         { *m = PostgresReadArgs{} }
+func (m *PostgresReadArgs) String() string { return proto.CompactTextString(m) }
+func (*PostgresReadArgs) ProtoMessage()    {}
+func (*PostgresReadArgs) Descriptor() ([]byte, []int) {
+	return fileDescriptor_a62b40fab176d0d3, []int{1}
 }
 
-func (m *Postgres) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_Postgres.Unmarshal(m, b)
+func (m *PostgresReadArgs) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_PostgresReadArgs.Unmarshal(m, b)
 }
-func (m *Postgres) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_Postgres.Marshal(b, m, deterministic)
+func (m *PostgresReadArgs) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_PostgresReadArgs.Marshal(b, m, deterministic)
 }
-func (m *Postgres) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_Postgres.Merge(m, src)
+func (m *PostgresReadArgs) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_PostgresReadArgs.Merge(m, src)
 }
-func (m *Postgres) XXX_Size() int {
-	return xxx_messageInfo_Postgres.Size(m)
+func (m *PostgresReadArgs) XXX_Size() int {
+	return xxx_messageInfo_PostgresReadArgs.Size(m)
 }
-func (m *Postgres) XXX_DiscardUnknown() {
-	xxx_messageInfo_Postgres.DiscardUnknown(m)
+func (m *PostgresReadArgs) XXX_DiscardUnknown() {
+	xxx_messageInfo_PostgresReadArgs.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_Postgres proto.InternalMessageInfo
+var xxx_messageInfo_PostgresReadArgs proto.InternalMessageInfo
 
-func (m *Postgres) GetReplicationSlotName() string {
+func (m *PostgresReadArgs) GetReplicationSlotName() string {
 	if m != nil {
 		return m.ReplicationSlotName
 	}
 	return ""
 }
 
-func (m *Postgres) GetPublisherName() string {
+func (m *PostgresReadArgs) GetPublisherName() string {
 	if m != nil {
 		return m.PublisherName
 	}
 	return ""
 }
 
+// TODO: Fill out kong tags to not expose this in the CLI
+type PostgresWriteArgs struct {
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *PostgresWriteArgs) Reset()         { *m = PostgresWriteArgs{} }
+func (m *PostgresWriteArgs) String() string { return proto.CompactTextString(m) }
+func (*PostgresWriteArgs) ProtoMessage()    {}
+func (*PostgresWriteArgs) Descriptor() ([]byte, []int) {
+	return fileDescriptor_a62b40fab176d0d3, []int{2}
+}
+
+func (m *PostgresWriteArgs) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_PostgresWriteArgs.Unmarshal(m, b)
+}
+func (m *PostgresWriteArgs) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_PostgresWriteArgs.Marshal(b, m, deterministic)
+}
+func (m *PostgresWriteArgs) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_PostgresWriteArgs.Merge(m, src)
+}
+func (m *PostgresWriteArgs) XXX_Size() int {
+	return xxx_messageInfo_PostgresWriteArgs.Size(m)
+}
+func (m *PostgresWriteArgs) XXX_DiscardUnknown() {
+	xxx_messageInfo_PostgresWriteArgs.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_PostgresWriteArgs proto.InternalMessageInfo
+
 func init() {
-	proto.RegisterType((*Postgres)(nil), "protos.backends.Postgres")
+	proto.RegisterType((*PostgresConn)(nil), "protos.backends.PostgresConn")
+	proto.RegisterType((*PostgresReadArgs)(nil), "protos.backends.PostgresReadArgs")
+	proto.RegisterType((*PostgresWriteArgs)(nil), "protos.backends.PostgresWriteArgs")
 }
 
 func init() { proto.RegisterFile("postgres.proto", fileDescriptor_a62b40fab176d0d3) }
 
 var fileDescriptor_a62b40fab176d0d3 = []byte{
-	// 183 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x4c, 0xce, 0xc1, 0x8a, 0xc2, 0x30,
-	0x10, 0xc6, 0x71, 0x76, 0x17, 0x96, 0xdd, 0x80, 0x15, 0x2a, 0x82, 0x47, 0x11, 0x04, 0x2f, 0x36,
-	0xa0, 0x67, 0x11, 0x7c, 0x00, 0x11, 0xbd, 0x79, 0x29, 0x49, 0x3a, 0x34, 0xc1, 0xa4, 0x13, 0x32,
-	0x93, 0xf7, 0x17, 0x5b, 0x15, 0x4f, 0x03, 0xdf, 0xfc, 0x0e, 0x7f, 0x51, 0x44, 0x24, 0x6e, 0x13,
-	0x50, 0x15, 0x13, 0x32, 0x96, 0xe3, 0xfe, 0x50, 0xa5, 0x95, 0xb9, 0x41, 0xd7, 0xd0, 0x02, 0xc4,
-	0xdf, 0xe9, 0x49, 0xca, 0x8d, 0x98, 0x26, 0x88, 0xde, 0x19, 0xc5, 0x0e, 0xbb, 0x9a, 0x3c, 0x72,
-	0xdd, 0xa9, 0x00, 0xb3, 0xef, 0xf9, 0xd7, 0xea, 0xff, 0x3c, 0xf9, 0x78, 0x5e, 0x3c, 0xf2, 0x51,
-	0x05, 0x28, 0x97, 0xa2, 0x88, 0x59, 0x7b, 0x47, 0x16, 0xd2, 0x80, 0x7f, 0x7a, 0x3c, 0x7a, 0xaf,
-	0x0f, 0x76, 0xd8, 0x5f, 0x77, 0xad, 0x63, 0x9b, 0x75, 0x65, 0x30, 0x48, 0xad, 0xd8, 0x58, 0x83,
-	0x29, 0xca, 0xe8, 0x73, 0xd0, 0x90, 0xd6, 0x64, 0x2c, 0x04, 0x45, 0x52, 0x67, 0xe7, 0x1b, 0xd9,
-	0xa2, 0x1c, 0x3a, 0xe5, 0xab, 0x53, 0xff, 0xf6, 0xc3, 0xf6, 0x1e, 0x00, 0x00, 0xff, 0xff, 0x73,
-	0xf2, 0x60, 0xd1, 0xd1, 0x00, 0x00, 0x00,
+	// 310 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x4c, 0x91, 0x4f, 0x4b, 0x2b, 0x31,
+	0x14, 0xc5, 0x99, 0xbe, 0xbe, 0xb6, 0x2f, 0xaf, 0xad, 0x9a, 0x22, 0x0e, 0xae, 0x6a, 0x41, 0xe8,
+	0xc6, 0x0e, 0xe8, 0x5a, 0x44, 0xdd, 0x8b, 0x8c, 0x05, 0xc1, 0xcd, 0x90, 0x3f, 0x97, 0x99, 0x60,
+	0x66, 0x12, 0x72, 0x13, 0xfc, 0x92, 0x7e, 0x28, 0x99, 0x8c, 0x29, 0x5d, 0x25, 0xe7, 0xfc, 0x0e,
+	0x9c, 0x7b, 0xb9, 0x64, 0x69, 0x0d, 0xfa, 0xda, 0x01, 0xee, 0xac, 0x33, 0xde, 0xd0, 0x93, 0xf8,
+	0xe0, 0x8e, 0x33, 0xf1, 0x09, 0x9d, 0xc4, 0xcd, 0x77, 0x46, 0xe6, 0xaf, 0xbf, 0x99, 0x67, 0xd3,
+	0x75, 0x34, 0x27, 0x53, 0x26, 0xa5, 0x03, 0xc4, 0x3c, 0x5b, 0x67, 0xdb, 0x7f, 0x65, 0x92, 0x94,
+	0x92, 0xb1, 0x35, 0xce, 0xe7, 0xa3, 0x75, 0xb6, 0x5d, 0x94, 0xf1, 0x4f, 0x2f, 0xc9, 0x2c, 0x20,
+	0xb8, 0x8e, 0xb5, 0x90, 0xff, 0x89, 0xf1, 0x83, 0xee, 0x99, 0x65, 0x88, 0x5f, 0xc6, 0xc9, 0x7c,
+	0x3c, 0xb0, 0xa4, 0x7b, 0x26, 0x99, 0x67, 0x9c, 0x21, 0xe4, 0x7f, 0x07, 0x96, 0x34, 0xbd, 0x20,
+	0xd3, 0x80, 0x50, 0x79, 0x8d, 0xf9, 0x64, 0x9d, 0x6d, 0x67, 0xe5, 0x24, 0x20, 0xec, 0x35, 0xd2,
+	0x2b, 0x32, 0x57, 0x1d, 0x82, 0x08, 0x6e, 0xa0, 0xd3, 0x48, 0xff, 0x27, 0x6f, 0xaf, 0x71, 0xd3,
+	0x92, 0xd3, 0xb4, 0x4d, 0x09, 0x4c, 0x3e, 0xba, 0x1a, 0xe9, 0x2d, 0x39, 0x77, 0x60, 0xb5, 0x12,
+	0xcc, 0x2b, 0xd3, 0x55, 0xa8, 0x8d, 0xaf, 0xe2, 0xc0, 0xa3, 0x58, 0xbc, 0x3a, 0x82, 0x6f, 0xda,
+	0xf8, 0x97, 0x7e, 0xf6, 0x6b, 0xb2, 0xb4, 0x81, 0x6b, 0x85, 0x0d, 0xb8, 0xea, 0x68, 0xbb, 0xc5,
+	0xc1, 0xed, 0x63, 0x9b, 0x15, 0x39, 0x4b, 0x75, 0xef, 0x4e, 0x79, 0xe8, 0xfb, 0x9e, 0x1e, 0x3e,
+	0xee, 0x6b, 0xe5, 0x9b, 0xc0, 0x77, 0xc2, 0xb4, 0x05, 0x67, 0x5e, 0x34, 0xc2, 0x38, 0x5b, 0x58,
+	0x1d, 0x5a, 0x0e, 0xee, 0x06, 0x45, 0x03, 0x2d, 0xc3, 0x82, 0x07, 0xa5, 0x65, 0x51, 0x9b, 0x62,
+	0xb8, 0x49, 0x91, 0x6e, 0xc2, 0x27, 0xd1, 0xb8, 0xfb, 0x09, 0x00, 0x00, 0xff, 0xff, 0x90, 0xff,
+	0x67, 0x11, 0xbd, 0x01, 0x00, 0x00,
 }

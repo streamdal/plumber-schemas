@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+package protos;
+
+import "read.proto";
+import "write.proto";
+import "relay.proto";
+import "server.proto";
+
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
+
+message GlobalCLIOptions {
+    bool debug = 1;
+    bool quiet = 2;
+    bool stats_enable = 3;
+    int32 stats_report_interval_sec = 4;
+}
+
+// CLI options in plumber are derived 100% from the protobuf schemas.
+// The CLIOptions type is used for populating base CLI options. Introducing
+// a top-level CLI option should begin here (and trickle all the way down to
+// any newly introduced types).
+//
+// For more info, check README_CLI.md
+message CLIOptions {
+    // @gotags: kong:"embed"
+    GlobalCLIOptions global = 1;
+
+    // @gotags: kong:"cmd"
+    protos.ReadConfig read = 2;
+
+    // @gotags: kong:"cmd"
+    protos.WriteConfig write = 3;
+
+    // @gotags: kong:"cmd"
+    protos.RelayConfig relay = 4;
+
+     // @gotags: kong:"cmd"
+    protos.ServerConfig server = 5;
+}

@@ -7,28 +7,217 @@ import "common/auth.proto";
 import "records/base.proto";
 import "common/status.proto";
 import "encoding/options.proto";
+import "backends/backends.proto";
+import "backends/activemq.proto";
+import "backends/azure-service-bus.proto";
+import "backends/azure-event-hub.proto";
+import "backends/aws-sns.proto";
+import "backends/aws-sqs.proto";
+import "backends/gcp-pubsub.proto";
+import "backends/kafka.proto";
+import "backends/kubemq-queue.proto";
+import "backends/mongo.proto";
+import "backends/mqtt.proto";
+import "backends/nats.proto";
+import "backends/nats-streaming.proto";
+import "backends/nsq.proto";
+import "backends/postgres.proto";
+import "backends/pulsar.proto";
+import "backends/rabbit.proto";
+import "backends/rabbit-streams.proto";
+import "backends/redis-pubsub.proto";
+import "backends/redis-streams.proto";
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
 
+enum InputType {
+    PLAIN  = 0;
+    JSONPB = 1;
+}
+
 message WriteCLIConfig {
-    repeated string input_data = 1;
-	string input_file = 2;
-	string input_type = 3;
-	bool input_is_json_array = 4;
+    bool input_is_json_array = 1;
+
+    // Used by CLI to inform components, which backend to use; server uses
+    // ReadConfig.connection_id.
+    // @gotags: kong:"-"
+    backends.Type _backend_type = 2;
+
+    // @gotags: embed:""
+    WriteBackend _write_backend = 3;
+
+    message WriteBackend {
+        // @gotags: cmd:""
+        Kafka kafka = 1;
+        // @gotags: cmd:""
+        ActiveMQ activemq = 2;
+        // @gotags: cmd:""
+        AWSSQS awssqs = 3;
+        // @gotags: cmd:""
+        AWSSNS awssns = 4;
+        // @gotags: cmd:""
+        Nats nats = 5;
+        // @gotags: cmd:""
+        NatsStreaming nats_streaming = 6;
+        // @gotags: cmd:""
+        NSQ nsq = 7;
+        // @gotags: cmd:""
+        Pulsar pulsar = 8;
+        // @gotags: cmd:""
+        Rabbit rabbit = 9;
+        // @gotags: cmd:""
+        RabbitStreams rabbit_streams = 10;
+        // @gotags: cmd:""
+        MQTT mqtt = 11;
+        // @gotags: cmd:""
+        AzureServiceBus azure_service_bus = 12;
+        // @gotags: cmd:""
+        AzureEventHub azure_event_hub = 13;
+        // @gotags: cmd:""
+        GCPPubSub gcp_pubsub = 14;
+        // @gotags: cmd:""
+        KubeMQQueue kubemq_queue = 15;
+        // @gotags: cmd:""
+        RedisPubSub redis_pubsub = 16;
+        // @gotags: cmd:""
+        RedisStreams redis_streams = 17;
+
+        message Kafka {
+            // @gotags: embed:""
+            backends.KafkaConn conn = 1;
+            // @gotags: embed:""
+            backends.KafkaWriteArgs args = 2;
+        }
+
+        message ActiveMQ {
+            // @gotags: embed:""
+            backends.ActiveMQConn conn = 1;
+            // @gotags: embed:""
+            backends.ActiveMQWriteArgs args = 2;
+        }
+
+        message AWSSQS {
+            // @gotags: embed:""
+            backends.AWSSQSConn conn = 1;
+            // @gotags: embed:""
+            backends.AWSSQSWriteArgs args = 2;
+        }
+
+        message AWSSNS {
+            // @gotags: embed:""
+            backends.AWSSNSConn conn = 1;
+            // @gotags: embed:""
+            backends.AWSSNSWriteArgs args = 2;
+        }
+
+        message Nats {
+            // @gotags: embed:""
+            backends.NatsConn conn = 1;
+            // @gotags: embed:""
+            backends.NatsWriteArgs args = 2;
+        }
+
+        message NatsStreaming {
+            // @gotags: embed:""
+            backends.NatsStreamingConn conn = 1;
+            // @gotags: embed:""
+            backends.NatsStreamingWriteArgs args = 2;
+        }
+
+        message NSQ {
+            // @gotags: embed:""
+            backends.NSQConn conn = 1;
+            // @gotags: embed:""
+            backends.NSQWriteArgs args = 2;
+        }
+
+        message Pulsar {
+            // @gotags: embed:""
+            backends.PulsarConn conn = 1;
+            // @gotags: embed:""
+            backends.PulsarWriteArgs args = 2;
+        }
+
+        message Rabbit {
+            // @gotags: embed:""
+            backends.RabbitConn conn = 1;
+            // @gotags: embed:""
+            backends.RabbitWriteArgs args = 2;
+        }
+
+        message RabbitStreams {
+            // @gotags: embed:""
+            backends.RabbitStreamsConn conn = 1;
+            // @gotags: embed:""
+            backends.RabbitStreamsWriteArgs args = 2;
+        }
+
+        message RedisPubSub {
+            // @gotags: embed:""
+            backends.RedisPubSubConn conn = 1;
+            // @gotags: embed:""
+            backends.RedisPubSubWriteArgs args = 2;
+        }
+
+        message RedisStreams {
+            // @gotags: embed:""
+            backends.RedisStreamsConn conn = 1;
+            // @gotags: embed:""
+            backends.RedisStreamsWriteArgs args = 2;
+        }
+
+        message AzureEventHub {
+            // @gotags: embed:""
+            backends.AzureEventHubConn conn = 1;
+            // @gotags: embed:""
+            backends.AzureEventHubWriteArgs args = 2;
+        }
+
+        message AzureServiceBus {
+            // @gotags: embed:""{
+            backends.AzureServiceBusConn conn = 1;
+            // @gotags: embed:""
+            backends.AzureServiceBusWriteArgs args = 2;
+        }
+
+        message MQTT {
+            // @gotags: embed:""
+            backends.MQTTConn conn = 1;
+            // @gotags: embed:""
+            backends.MQTTWriteArgs args = 2;
+        }
+
+        message GCPPubSub {
+            // @gotags: embed:""
+            backends.GCPPubSubConn conn = 1;
+            // @gotags: embed:""
+            backends.GCPPubSubWriteArgs args = 2;
+        }
+
+        message KubeMQQueue {
+            // @gotags: embed:""
+            backends.KubeMQQueueConn conn = 1;
+            // @gotags: embed:""
+            backends.KubeMQQueueWriteArgs args = 2;
+        }
+    }
 }
 
 message WriteConfig {
     // Required for server mode; ignored in CLI mode.
+    // @gotags: kong:"-"
     string connection_id = 1;
 
-    // We need to use a WriteRecord as a wrapper since there is no way to "repeated oneof ..."
-    repeated records.WriteRecord records = 2;
+    // @gotags: kong:"-"
+    repeated records.WriteRecord record = 2; // Hmm... this is a oneoff
 
     // Specifying encoding options will cause the _value_ of the record to get
     // encoded and set in WriteRecord.encoded.
-    encoding.Options encode_options = 3;
+    // @gotags: embed:""
+    encoding.EncodeOptions encode_options = 3;
 
     // Optional; CLI-specific settings
+    // @gotags: embed:""
     WriteCLIConfig _cli_config = 4;
 }
 

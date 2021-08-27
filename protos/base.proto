@@ -14,12 +14,6 @@ import "ghserver.proto";
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
 
-enum Mode {
-    UNSET  = 0;
-    CLI    = 1;
-    SERVER = 2;
-}
-
 service PlumberServer {
     // List configured/known connections
     rpc GetAllConnections (GetAllConnectionsRequest) returns (GetAllConnectionsResponse);

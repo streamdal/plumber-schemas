@@ -20,388 +20,299 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
-type RabbitStreams struct {
+type RabbitStreamsConn struct {
+	// Required
+	// DSN used to connect to rabbitmq. Ex: rabbitmq-stream://localhost:5552
+	Dsn string `protobuf:"bytes,1,opt,name=dsn,proto3" json:"dsn,omitempty"`
+	// Connect over TLS
+	UseTls bool `protobuf:"varint,2,opt,name=use_tls,json=useTls,proto3" json:"use_tls,omitempty"`
+	// Specify to not verify server's TLS certificate
+	InsecureTls bool `protobuf:"varint,3,opt,name=insecure_tls,json=insecureTls,proto3" json:"insecure_tls,omitempty"`
+	// Required
+	Username string `protobuf:"bytes,4,opt,name=username,proto3" json:"username,omitempty"`
+	// Required
+	Password string `protobuf:"bytes,5,opt,name=password,proto3" json:"password,omitempty"`
+	// Required
+	ClientName           string   `protobuf:"bytes,6,opt,name=client_name,json=clientName,proto3" json:"client_name,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *RabbitStreamsConn) Reset()         { *m = RabbitStreamsConn{} }
+func (m *RabbitStreamsConn) String() string { return proto.CompactTextString(m) }
+func (*RabbitStreamsConn) ProtoMessage()    {}
+func (*RabbitStreamsConn) Descriptor() ([]byte, []int) {
+	return fileDescriptor_1f92fc7a2c25d9d7, []int{0}
+}
+
+func (m *RabbitStreamsConn) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_RabbitStreamsConn.Unmarshal(m, b)
+}
+func (m *RabbitStreamsConn) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_RabbitStreamsConn.Marshal(b, m, deterministic)
+}
+func (m *RabbitStreamsConn) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_RabbitStreamsConn.Merge(m, src)
+}
+func (m *RabbitStreamsConn) XXX_Size() int {
+	return xxx_messageInfo_RabbitStreamsConn.Size(m)
+}
+func (m *RabbitStreamsConn) XXX_DiscardUnknown() {
+	xxx_messageInfo_RabbitStreamsConn.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_RabbitStreamsConn proto.InternalMessageInfo
+
+func (m *RabbitStreamsConn) GetDsn() string {
+	if m != nil {
+		return m.Dsn
+	}
+	return ""
+}
+
+func (m *RabbitStreamsConn) GetUseTls() bool {
+	if m != nil {
+		return m.UseTls
+	}
+	return false
+}
+
+func (m *RabbitStreamsConn) GetInsecureTls() bool {
+	if m != nil {
+		return m.InsecureTls
+	}
+	return false
+}
+
+func (m *RabbitStreamsConn) GetUsername() string {
+	if m != nil {
+		return m.Username
+	}
+	return ""
+}
+
+func (m *RabbitStreamsConn) GetPassword() string {
+	if m != nil {
+		return m.Password
+	}
+	return ""
+}
+
+func (m *RabbitStreamsConn) GetClientName() string {
+	if m != nil {
+		return m.ClientName
+	}
+	return ""
+}
+
+type RabbitStreamsOffsetOptions struct {
+	SpecificOffset       uint64   `protobuf:"varint,1,opt,name=specific_offset,json=specificOffset,proto3" json:"specific_offset,omitempty"`
+	LastOffset           uint64   `protobuf:"varint,2,opt,name=last_offset,json=lastOffset,proto3" json:"last_offset,omitempty"`
+	LastConsumed         bool     `protobuf:"varint,3,opt,name=last_consumed,json=lastConsumed,proto3" json:"last_consumed,omitempty"`
+	FirstOffset          bool     `protobuf:"varint,4,opt,name=first_offset,json=firstOffset,proto3" json:"first_offset,omitempty"`
+	NextOffset           bool     `protobuf:"varint,5,opt,name=next_offset,json=nextOffset,proto3" json:"next_offset,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *RabbitStreamsOffsetOptions) Reset()         { *m = RabbitStreamsOffsetOptions{} }
+func (m *RabbitStreamsOffsetOptions) String() string { return proto.CompactTextString(m) }
+func (*RabbitStreamsOffsetOptions) ProtoMessage()    {}
+func (*RabbitStreamsOffsetOptions) Descriptor() ([]byte, []int) {
+	return fileDescriptor_1f92fc7a2c25d9d7, []int{1}
+}
+
+func (m *RabbitStreamsOffsetOptions) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_RabbitStreamsOffsetOptions.Unmarshal(m, b)
+}
+func (m *RabbitStreamsOffsetOptions) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_RabbitStreamsOffsetOptions.Marshal(b, m, deterministic)
+}
+func (m *RabbitStreamsOffsetOptions) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_RabbitStreamsOffsetOptions.Merge(m, src)
+}
+func (m *RabbitStreamsOffsetOptions) XXX_Size() int {
+	return xxx_messageInfo_RabbitStreamsOffsetOptions.Size(m)
+}
+func (m *RabbitStreamsOffsetOptions) XXX_DiscardUnknown() {
+	xxx_messageInfo_RabbitStreamsOffsetOptions.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_RabbitStreamsOffsetOptions proto.InternalMessageInfo
+
+func (m *RabbitStreamsOffsetOptions) GetSpecificOffset() uint64 {
+	if m != nil {
+		return m.SpecificOffset
+	}
+	return 0
+}
+
+func (m *RabbitStreamsOffsetOptions) GetLastOffset() uint64 {
+	if m != nil {
+		return m.LastOffset
+	}
+	return 0
+}
+
+func (m *RabbitStreamsOffsetOptions) GetLastConsumed() bool {
+	if m != nil {
+		return m.LastConsumed
+	}
+	return false
+}
+
+func (m *RabbitStreamsOffsetOptions) GetFirstOffset() bool {
+	if m != nil {
+		return m.FirstOffset
+	}
+	return false
+}
+
+func (m *RabbitStreamsOffsetOptions) GetNextOffset() bool {
+	if m != nil {
+		return m.NextOffset
+	}
+	return false
+}
+
+type RabbitStreamsReadArgs struct {
 	// Required
 	Stream string `protobuf:"bytes,1,opt,name=stream,proto3" json:"stream,omitempty"`
 	// Optional
 	// If specified, stream will be declared
-	DeclareStream *DeclareStream `protobuf:"bytes,2,opt,name=declare_stream,json=declareStream,proto3" json:"declare_stream,omitempty"`
-	// Types that are valid to be assigned to OffsetOption:
-	//	*RabbitStreams_Offset
-	//	*RabbitStreams_LastOffset
-	//	*RabbitStreams_LastConsumed
-	//	*RabbitStreams_FirstOffset
-	//	*RabbitStreams_NextOffset
-	OffsetOption         isRabbitStreams_OffsetOption `protobuf_oneof:"offset_option"`
-	XXX_NoUnkeyedLiteral struct{}                     `json:"-"`
-	XXX_unrecognized     []byte                       `json:"-"`
-	XXX_sizecache        int32                        `json:"-"`
+	DeclareStream bool `protobuf:"varint,2,opt,name=declare_stream,json=declareStream,proto3" json:"declare_stream,omitempty"`
+	// Required if declare_stream is true; size capacity to declare the stream
+	// with. Ex: 1024k, 10mb, 3gb
+	DeclareStreamSize string `protobuf:"bytes,3,opt,name=declare_stream_size,json=declareStreamSize,proto3" json:"declare_stream_size,omitempty"`
+	// Required read position
+	OffsetOptions        *RabbitStreamsOffsetOptions `protobuf:"bytes,4,opt,name=offset_options,json=offsetOptions,proto3" json:"offset_options,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                    `json:"-"`
+	XXX_unrecognized     []byte                      `json:"-"`
+	XXX_sizecache        int32                       `json:"-"`
 }
 
-func (m *RabbitStreams) Reset()         { *m = RabbitStreams{} }
-func (m *RabbitStreams) String() string { return proto.CompactTextString(m) }
-func (*RabbitStreams) ProtoMessage()    {}
-func (*RabbitStreams) Descriptor() ([]byte, []int) {
-	return fileDescriptor_1f92fc7a2c25d9d7, []int{0}
+func (m *RabbitStreamsReadArgs) Reset()         { *m = RabbitStreamsReadArgs{} }
+func (m *RabbitStreamsReadArgs) String() string { return proto.CompactTextString(m) }
+func (*RabbitStreamsReadArgs) ProtoMessage()    {}
+func (*RabbitStreamsReadArgs) Descriptor() ([]byte, []int) {
+	return fileDescriptor_1f92fc7a2c25d9d7, []int{2}
 }
 
-func (m *RabbitStreams) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_RabbitStreams.Unmarshal(m, b)
+func (m *RabbitStreamsReadArgs) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_RabbitStreamsReadArgs.Unmarshal(m, b)
 }
-func (m *RabbitStreams) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_RabbitStreams.Marshal(b, m, deterministic)
+func (m *RabbitStreamsReadArgs) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_RabbitStreamsReadArgs.Marshal(b, m, deterministic)
 }
-func (m *RabbitStreams) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_RabbitStreams.Merge(m, src)
+func (m *RabbitStreamsReadArgs) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_RabbitStreamsReadArgs.Merge(m, src)
 }
-func (m *RabbitStreams) XXX_Size() int {
-	return xxx_messageInfo_RabbitStreams.Size(m)
+func (m *RabbitStreamsReadArgs) XXX_Size() int {
+	return xxx_messageInfo_RabbitStreamsReadArgs.Size(m)
 }
-func (m *RabbitStreams) XXX_DiscardUnknown() {
-	xxx_messageInfo_RabbitStreams.DiscardUnknown(m)
+func (m *RabbitStreamsReadArgs) XXX_DiscardUnknown() {
+	xxx_messageInfo_RabbitStreamsReadArgs.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_RabbitStreams proto.InternalMessageInfo
+var xxx_messageInfo_RabbitStreamsReadArgs proto.InternalMessageInfo
 
-func (m *RabbitStreams) GetStream() string {
+func (m *RabbitStreamsReadArgs) GetStream() string {
 	if m != nil {
 		return m.Stream
 	}
 	return ""
 }
 
-func (m *RabbitStreams) GetDeclareStream() *DeclareStream {
+func (m *RabbitStreamsReadArgs) GetDeclareStream() bool {
 	if m != nil {
 		return m.DeclareStream
 	}
-	return nil
+	return false
 }
 
-type isRabbitStreams_OffsetOption interface {
-	isRabbitStreams_OffsetOption()
-}
-
-type RabbitStreams_Offset struct {
-	Offset *SpecificOffset `protobuf:"bytes,101,opt,name=offset,proto3,oneof"`
-}
-
-type RabbitStreams_LastOffset struct {
-	LastOffset *LastOffset `protobuf:"bytes,102,opt,name=last_offset,json=lastOffset,proto3,oneof"`
-}
-
-type RabbitStreams_LastConsumed struct {
-	LastConsumed *LastConsumed `protobuf:"bytes,103,opt,name=last_consumed,json=lastConsumed,proto3,oneof"`
-}
-
-type RabbitStreams_FirstOffset struct {
-	FirstOffset *FirstOffset `protobuf:"bytes,104,opt,name=first_offset,json=firstOffset,proto3,oneof"`
-}
-
-type RabbitStreams_NextOffset struct {
-	NextOffset *NextOffset `protobuf:"bytes,105,opt,name=next_offset,json=nextOffset,proto3,oneof"`
-}
-
-func (*RabbitStreams_Offset) isRabbitStreams_OffsetOption() {}
-
-func (*RabbitStreams_LastOffset) isRabbitStreams_OffsetOption() {}
-
-func (*RabbitStreams_LastConsumed) isRabbitStreams_OffsetOption() {}
-
-func (*RabbitStreams_FirstOffset) isRabbitStreams_OffsetOption() {}
-
-func (*RabbitStreams_NextOffset) isRabbitStreams_OffsetOption() {}
-
-func (m *RabbitStreams) GetOffsetOption() isRabbitStreams_OffsetOption {
+func (m *RabbitStreamsReadArgs) GetDeclareStreamSize() string {
 	if m != nil {
-		return m.OffsetOption
-	}
-	return nil
-}
-
-func (m *RabbitStreams) GetOffset() *SpecificOffset {
-	if x, ok := m.GetOffsetOption().(*RabbitStreams_Offset); ok {
-		return x.Offset
-	}
-	return nil
-}
-
-func (m *RabbitStreams) GetLastOffset() *LastOffset {
-	if x, ok := m.GetOffsetOption().(*RabbitStreams_LastOffset); ok {
-		return x.LastOffset
-	}
-	return nil
-}
-
-func (m *RabbitStreams) GetLastConsumed() *LastConsumed {
-	if x, ok := m.GetOffsetOption().(*RabbitStreams_LastConsumed); ok {
-		return x.LastConsumed
-	}
-	return nil
-}
-
-func (m *RabbitStreams) GetFirstOffset() *FirstOffset {
-	if x, ok := m.GetOffsetOption().(*RabbitStreams_FirstOffset); ok {
-		return x.FirstOffset
-	}
-	return nil
-}
-
-func (m *RabbitStreams) GetNextOffset() *NextOffset {
-	if x, ok := m.GetOffsetOption().(*RabbitStreams_NextOffset); ok {
-		return x.NextOffset
-	}
-	return nil
-}
-
-// XXX_OneofWrappers is for the internal use of the proto package.
-func (*RabbitStreams) XXX_OneofWrappers() []interface{} {
-	return []interface{}{
-		(*RabbitStreams_Offset)(nil),
-		(*RabbitStreams_LastOffset)(nil),
-		(*RabbitStreams_LastConsumed)(nil),
-		(*RabbitStreams_FirstOffset)(nil),
-		(*RabbitStreams_NextOffset)(nil),
-	}
-}
-
-type DeclareStream struct {
-	// Size capacity to declare the stream with. Ex: 10mb, 3gb, 1024k
-	Size                 string   `protobuf:"bytes,1,opt,name=size,proto3" json:"size,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
-}
-
-func (m *DeclareStream) Reset()         { *m = DeclareStream{} }
-func (m *DeclareStream) String() string { return proto.CompactTextString(m) }
-func (*DeclareStream) ProtoMessage()    {}
-func (*DeclareStream) Descriptor() ([]byte, []int) {
-	return fileDescriptor_1f92fc7a2c25d9d7, []int{1}
-}
-
-func (m *DeclareStream) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_DeclareStream.Unmarshal(m, b)
-}
-func (m *DeclareStream) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_DeclareStream.Marshal(b, m, deterministic)
-}
-func (m *DeclareStream) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_DeclareStream.Merge(m, src)
-}
-func (m *DeclareStream) XXX_Size() int {
-	return xxx_messageInfo_DeclareStream.Size(m)
-}
-func (m *DeclareStream) XXX_DiscardUnknown() {
-	xxx_messageInfo_DeclareStream.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_DeclareStream proto.InternalMessageInfo
-
-func (m *DeclareStream) GetSize() string {
-	if m != nil {
-		return m.Size
+		return m.DeclareStreamSize
 	}
 	return ""
 }
 
-type SpecificOffset struct {
-	Offset               uint64   `protobuf:"varint,1,opt,name=offset,proto3" json:"offset,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
-}
-
-func (m *SpecificOffset) Reset()         { *m = SpecificOffset{} }
-func (m *SpecificOffset) String() string { return proto.CompactTextString(m) }
-func (*SpecificOffset) ProtoMessage()    {}
-func (*SpecificOffset) Descriptor() ([]byte, []int) {
-	return fileDescriptor_1f92fc7a2c25d9d7, []int{2}
-}
-
-func (m *SpecificOffset) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SpecificOffset.Unmarshal(m, b)
-}
-func (m *SpecificOffset) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SpecificOffset.Marshal(b, m, deterministic)
-}
-func (m *SpecificOffset) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SpecificOffset.Merge(m, src)
-}
-func (m *SpecificOffset) XXX_Size() int {
-	return xxx_messageInfo_SpecificOffset.Size(m)
-}
-func (m *SpecificOffset) XXX_DiscardUnknown() {
-	xxx_messageInfo_SpecificOffset.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SpecificOffset proto.InternalMessageInfo
-
-func (m *SpecificOffset) GetOffset() uint64 {
+func (m *RabbitStreamsReadArgs) GetOffsetOptions() *RabbitStreamsOffsetOptions {
 	if m != nil {
-		return m.Offset
+		return m.OffsetOptions
 	}
-	return 0
+	return nil
 }
 
-type LastOffset struct {
+type RabbitStreamsWriteArgs struct {
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *LastOffset) Reset()         { *m = LastOffset{} }
-func (m *LastOffset) String() string { return proto.CompactTextString(m) }
-func (*LastOffset) ProtoMessage()    {}
-func (*LastOffset) Descriptor() ([]byte, []int) {
+func (m *RabbitStreamsWriteArgs) Reset()         { *m = RabbitStreamsWriteArgs{} }
+func (m *RabbitStreamsWriteArgs) String() string { return proto.CompactTextString(m) }
+func (*RabbitStreamsWriteArgs) ProtoMessage()    {}
+func (*RabbitStreamsWriteArgs) Descriptor() ([]byte, []int) {
 	return fileDescriptor_1f92fc7a2c25d9d7, []int{3}
 }
 
-func (m *LastOffset) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_LastOffset.Unmarshal(m, b)
+func (m *RabbitStreamsWriteArgs) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_RabbitStreamsWriteArgs.Unmarshal(m, b)
 }
-func (m *LastOffset) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_LastOffset.Marshal(b, m, deterministic)
+func (m *RabbitStreamsWriteArgs) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_RabbitStreamsWriteArgs.Marshal(b, m, deterministic)
 }
-func (m *LastOffset) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_LastOffset.Merge(m, src)
+func (m *RabbitStreamsWriteArgs) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_RabbitStreamsWriteArgs.Merge(m, src)
 }
-func (m *LastOffset) XXX_Size() int {
-	return xxx_messageInfo_LastOffset.Size(m)
+func (m *RabbitStreamsWriteArgs) XXX_Size() int {
+	return xxx_messageInfo_RabbitStreamsWriteArgs.Size(m)
 }
-func (m *LastOffset) XXX_DiscardUnknown() {
-	xxx_messageInfo_LastOffset.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_LastOffset proto.InternalMessageInfo
-
-type LastConsumed struct {
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+func (m *RabbitStreamsWriteArgs) XXX_DiscardUnknown() {
+	xxx_messageInfo_RabbitStreamsWriteArgs.DiscardUnknown(m)
 }
 
-func (m *LastConsumed) Reset()         { *m = LastConsumed{} }
-func (m *LastConsumed) String() string { return proto.CompactTextString(m) }
-func (*LastConsumed) ProtoMessage()    {}
-func (*LastConsumed) Descriptor() ([]byte, []int) {
-	return fileDescriptor_1f92fc7a2c25d9d7, []int{4}
-}
-
-func (m *LastConsumed) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_LastConsumed.Unmarshal(m, b)
-}
-func (m *LastConsumed) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_LastConsumed.Marshal(b, m, deterministic)
-}
-func (m *LastConsumed) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_LastConsumed.Merge(m, src)
-}
-func (m *LastConsumed) XXX_Size() int {
-	return xxx_messageInfo_LastConsumed.Size(m)
-}
-func (m *LastConsumed) XXX_DiscardUnknown() {
-	xxx_messageInfo_LastConsumed.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_LastConsumed proto.InternalMessageInfo
-
-type FirstOffset struct {
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
-}
-
-func (m *FirstOffset) Reset()         { *m = FirstOffset{} }
-func (m *FirstOffset) String() string { return proto.CompactTextString(m) }
-func (*FirstOffset) ProtoMessage()    {}
-func (*FirstOffset) Descriptor() ([]byte, []int) {
-	return fileDescriptor_1f92fc7a2c25d9d7, []int{5}
-}
-
-func (m *FirstOffset) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_FirstOffset.Unmarshal(m, b)
-}
-func (m *FirstOffset) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_FirstOffset.Marshal(b, m, deterministic)
-}
-func (m *FirstOffset) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_FirstOffset.Merge(m, src)
-}
-func (m *FirstOffset) XXX_Size() int {
-	return xxx_messageInfo_FirstOffset.Size(m)
-}
-func (m *FirstOffset) XXX_DiscardUnknown() {
-	xxx_messageInfo_FirstOffset.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_FirstOffset proto.InternalMessageInfo
-
-type NextOffset struct {
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
-}
-
-func (m *NextOffset) Reset()         { *m = NextOffset{} }
-func (m *NextOffset) String() string { return proto.CompactTextString(m) }
-func (*NextOffset) ProtoMessage()    {}
-func (*NextOffset) Descriptor() ([]byte, []int) {
-	return fileDescriptor_1f92fc7a2c25d9d7, []int{6}
-}
-
-func (m *NextOffset) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_NextOffset.Unmarshal(m, b)
-}
-func (m *NextOffset) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_NextOffset.Marshal(b, m, deterministic)
-}
-func (m *NextOffset) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_NextOffset.Merge(m, src)
-}
-func (m *NextOffset) XXX_Size() int {
-	return xxx_messageInfo_NextOffset.Size(m)
-}
-func (m *NextOffset) XXX_DiscardUnknown() {
-	xxx_messageInfo_NextOffset.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_NextOffset proto.InternalMessageInfo
+var xxx_messageInfo_RabbitStreamsWriteArgs proto.InternalMessageInfo
 
 func init() {
-	proto.RegisterType((*RabbitStreams)(nil), "protos.backends.RabbitStreams")
-	proto.RegisterType((*DeclareStream)(nil), "protos.backends.DeclareStream")
-	proto.RegisterType((*SpecificOffset)(nil), "protos.backends.SpecificOffset")
-	proto.RegisterType((*LastOffset)(nil), "protos.backends.LastOffset")
-	proto.RegisterType((*LastConsumed)(nil), "protos.backends.LastConsumed")
-	proto.RegisterType((*FirstOffset)(nil), "protos.backends.FirstOffset")
-	proto.RegisterType((*NextOffset)(nil), "protos.backends.NextOffset")
+	proto.RegisterType((*RabbitStreamsConn)(nil), "protos.backends.RabbitStreamsConn")
+	proto.RegisterType((*RabbitStreamsOffsetOptions)(nil), "protos.backends.RabbitStreamsOffsetOptions")
+	proto.RegisterType((*RabbitStreamsReadArgs)(nil), "protos.backends.RabbitStreamsReadArgs")
+	proto.RegisterType((*RabbitStreamsWriteArgs)(nil), "protos.backends.RabbitStreamsWriteArgs")
 }
 
 func init() { proto.RegisterFile("rabbit-streams.proto", fileDescriptor_1f92fc7a2c25d9d7) }
 
 var fileDescriptor_1f92fc7a2c25d9d7 = []byte{
-	// 364 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x74, 0x91, 0x4f, 0x4f, 0x83, 0x40,
-	0x10, 0xc5, 0x5b, 0x6d, 0x9a, 0x38, 0x40, 0x9b, 0x6c, 0x8c, 0x69, 0xe2, 0xbf, 0x06, 0x2f, 0xbd,
-	0x14, 0x12, 0x3d, 0x79, 0x50, 0x63, 0xad, 0xa6, 0x07, 0xa3, 0x09, 0xbd, 0x79, 0x69, 0x76, 0x97,
-	0xa5, 0x6c, 0x04, 0x96, 0xb0, 0x4b, 0xd2, 0xf8, 0xf5, 0xfc, 0x62, 0x86, 0x85, 0x02, 0xb5, 0x7a,
-	0x82, 0x07, 0xef, 0xf7, 0x32, 0x6f, 0x06, 0x8e, 0x33, 0x4c, 0x08, 0x57, 0x53, 0xa9, 0x32, 0x86,
-	0x63, 0xe9, 0xa4, 0x99, 0x50, 0x02, 0x0d, 0xf5, 0x43, 0x3a, 0x04, 0xd3, 0x4f, 0x96, 0xf8, 0xd2,
-	0xfe, 0x3e, 0x04, 0xcb, 0xd3, 0xce, 0x65, 0x69, 0x44, 0x27, 0xd0, 0x2f, 0x99, 0x51, 0x77, 0xdc,
-	0x9d, 0x1c, 0x79, 0x95, 0x42, 0xcf, 0x30, 0xf0, 0x19, 0x8d, 0x70, 0xc6, 0x56, 0xd5, 0xff, 0x83,
-	0x71, 0x77, 0x62, 0x5c, 0x5f, 0x38, 0xbf, 0x32, 0x9d, 0x79, 0x69, 0x2b, 0x03, 0x3d, 0xcb, 0x6f,
-	0x4b, 0x74, 0x0b, 0x7d, 0x11, 0x04, 0x92, 0xa9, 0x11, 0xd3, 0xf8, 0xe5, 0x1e, 0xbe, 0x4c, 0x19,
-	0xe5, 0x01, 0xa7, 0xef, 0xda, 0xb6, 0xe8, 0x78, 0x15, 0x80, 0xee, 0xc1, 0x88, 0xb0, 0x54, 0xab,
-	0x8a, 0x0f, 0x34, 0x7f, 0xba, 0xc7, 0xbf, 0x62, 0xa9, 0x6a, 0x16, 0xa2, 0x5a, 0xa1, 0x39, 0x58,
-	0x9a, 0xa7, 0x22, 0x91, 0x79, 0xcc, 0xfc, 0xd1, 0x5a, 0x27, 0x9c, 0xff, 0x99, 0xf0, 0x54, 0x99,
-	0x16, 0x1d, 0xcf, 0x8c, 0x5a, 0x1a, 0x3d, 0x82, 0x19, 0xf0, 0xac, 0x19, 0x23, 0xd4, 0x21, 0x67,
-	0x7b, 0x21, 0x2f, 0x85, 0xa9, 0x9e, 0xc3, 0x08, 0x1a, 0x59, 0x14, 0x49, 0xd8, 0xa6, 0x4e, 0xe0,
-	0xff, 0x14, 0x79, 0x63, 0x9b, 0x56, 0x91, 0xa4, 0x56, 0xb3, 0x21, 0x58, 0x25, 0xba, 0x12, 0xa9,
-	0xe2, 0x22, 0xb1, 0xaf, 0xc0, 0xda, 0x59, 0x3a, 0x42, 0xd0, 0x93, 0xfc, 0x8b, 0x55, 0x27, 0xd4,
-	0xef, 0xf6, 0x04, 0x06, 0xbb, 0xab, 0x2d, 0x4e, 0x5d, 0x8d, 0x50, 0xf8, 0x7a, 0xdb, 0x45, 0xdb,
-	0x26, 0x40, 0xb3, 0x44, 0x7b, 0x00, 0x66, 0x7b, 0x21, 0xb6, 0x05, 0x46, 0xab, 0x5b, 0x61, 0x6e,
-	0x06, 0x9d, 0x3d, 0x7c, 0xdc, 0xad, 0xb9, 0x0a, 0x73, 0xe2, 0x50, 0x11, 0xbb, 0x04, 0x2b, 0x1a,
-	0x52, 0x91, 0xa5, 0x6e, 0x1a, 0xe5, 0x31, 0x61, 0xd9, 0x54, 0xd2, 0x90, 0xc5, 0x58, 0xba, 0x24,
-	0xe7, 0x91, 0xef, 0xae, 0x85, 0x5b, 0x96, 0x76, 0xb7, 0xa5, 0x49, 0x5f, 0x7f, 0xb8, 0xf9, 0x09,
-	0x00, 0x00, 0xff, 0xff, 0xd7, 0xc9, 0x0a, 0x68, 0xc0, 0x02, 0x00, 0x00,
+	// 429 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x74, 0x92, 0xc1, 0x6e, 0xd4, 0x30,
+	0x10, 0x86, 0x95, 0x76, 0xbb, 0xb4, 0xb3, 0xdd, 0x2d, 0x35, 0x50, 0xa2, 0x5e, 0x28, 0x8b, 0x10,
+	0x95, 0x50, 0x13, 0x09, 0xce, 0x08, 0x41, 0xef, 0x54, 0x4a, 0x91, 0x90, 0xb8, 0x44, 0x8e, 0x33,
+	0xd9, 0xb5, 0x48, 0xec, 0xc8, 0x63, 0x0b, 0xd4, 0x47, 0xe3, 0x25, 0xb8, 0xf3, 0x34, 0xc8, 0x76,
+	0xd2, 0x25, 0x48, 0x9c, 0x92, 0xf9, 0xff, 0x2f, 0xf6, 0xfc, 0x33, 0x81, 0xc7, 0x86, 0x57, 0x95,
+	0xb4, 0x57, 0x64, 0x0d, 0xf2, 0x8e, 0xb2, 0xde, 0x68, 0xab, 0xd9, 0x49, 0x78, 0x50, 0x56, 0x71,
+	0xf1, 0x0d, 0x55, 0x4d, 0xeb, 0x9f, 0x09, 0x9c, 0x16, 0x81, 0xbc, 0x8d, 0xe0, 0xb5, 0x56, 0x8a,
+	0x3d, 0x84, 0xfd, 0x9a, 0x54, 0x9a, 0x5c, 0x24, 0x97, 0x47, 0x85, 0x7f, 0x65, 0x4f, 0xe1, 0x81,
+	0x23, 0x2c, 0x6d, 0x4b, 0xe9, 0xde, 0x45, 0x72, 0x79, 0x58, 0xcc, 0x1d, 0xe1, 0xe7, 0x96, 0xd8,
+	0x73, 0x38, 0x96, 0x8a, 0x50, 0x38, 0x13, 0xdd, 0xfd, 0xe0, 0x2e, 0x46, 0xcd, 0x23, 0xe7, 0x70,
+	0xe8, 0x08, 0x8d, 0xe2, 0x1d, 0xa6, 0xb3, 0x70, 0xe4, 0x7d, 0xed, 0xbd, 0x9e, 0x13, 0x7d, 0xd7,
+	0xa6, 0x4e, 0x0f, 0xa2, 0x37, 0xd6, 0xec, 0x19, 0x2c, 0x44, 0x2b, 0x51, 0xd9, 0x32, 0x7c, 0x3a,
+	0x0f, 0x36, 0x44, 0xe9, 0x13, 0xef, 0x70, 0xfd, 0x2b, 0x81, 0xf3, 0x49, 0xf3, 0x37, 0x4d, 0x43,
+	0x68, 0x6f, 0x7a, 0x2b, 0xb5, 0x22, 0xf6, 0x0a, 0x4e, 0xa8, 0x47, 0x21, 0x1b, 0x29, 0x4a, 0x1d,
+	0x9c, 0x90, 0x68, 0x56, 0xac, 0x46, 0x39, 0xf2, 0xfe, 0xa2, 0x96, 0x93, 0x1d, 0xa1, 0xbd, 0x00,
+	0x81, 0x97, 0x06, 0xe0, 0x05, 0x2c, 0x03, 0x20, 0xb4, 0x22, 0xd7, 0x61, 0x3d, 0xa4, 0x3c, 0xf6,
+	0xe2, 0xf5, 0xa0, 0xf9, 0x49, 0x34, 0xd2, 0xec, 0x8e, 0x99, 0xc5, 0x49, 0x04, 0x6d, 0x77, 0x91,
+	0xc2, 0x1f, 0xf7, 0xc4, 0x41, 0x20, 0xc0, 0x4b, 0x11, 0x58, 0xff, 0x4e, 0xe0, 0xc9, 0x24, 0x51,
+	0x81, 0xbc, 0xfe, 0x60, 0x36, 0xc4, 0xce, 0x60, 0x1e, 0x57, 0x39, 0x6c, 0x65, 0xa8, 0xd8, 0x4b,
+	0x58, 0xd5, 0x28, 0x5a, 0x6e, 0xb0, 0x1c, 0xfc, 0xb8, 0x9f, 0xe5, 0xa0, 0xc6, 0x73, 0x58, 0x06,
+	0x8f, 0xa6, 0x58, 0x49, 0xf2, 0x0e, 0x43, 0x8e, 0xa3, 0xe2, 0x74, 0xc2, 0xde, 0xca, 0x3b, 0x64,
+	0x05, 0xac, 0x62, 0x93, 0xa5, 0x8e, 0xd3, 0x0c, 0x71, 0x16, 0x6f, 0x5e, 0x67, 0xff, 0xfc, 0x41,
+	0xd9, 0xff, 0x17, 0x50, 0x2c, 0xf5, 0xdf, 0xe5, 0x3a, 0x85, 0xb3, 0x09, 0xfc, 0xc5, 0x48, 0x8b,
+	0x3e, 0xdc, 0xc7, 0xf7, 0x5f, 0xdf, 0x6d, 0xa4, 0xdd, 0xba, 0x2a, 0x13, 0xba, 0xcb, 0x2b, 0x6e,
+	0xc5, 0x56, 0x68, 0xd3, 0xe7, 0x7d, 0xeb, 0xba, 0x0a, 0xcd, 0x15, 0x89, 0x2d, 0x76, 0x9c, 0xf2,
+	0xca, 0xc9, 0xb6, 0xce, 0x37, 0x3a, 0x8f, 0x4d, 0xe4, 0x63, 0x13, 0xd5, 0x3c, 0x08, 0x6f, 0xff,
+	0x04, 0x00, 0x00, 0xff, 0xff, 0x7e, 0x13, 0x52, 0x36, 0xf6, 0x02, 0x00, 0x00,
 }

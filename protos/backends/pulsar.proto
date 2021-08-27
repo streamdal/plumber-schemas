@@ -5,11 +5,10 @@ package protos.backends;
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/backends";
 
 enum SubscriptionType {
-  UNSET     = 0;
-  SHARED    = 1;
-  EXCLUSIVE = 2;
-  FAILOVER  = 3;
-  KEYSHARED = 4;
+  SHARED    = 0;
+  EXCLUSIVE = 1;
+  FAILOVER  = 2;
+  KEYSHARED = 3;
 }
 
 message PulsarConn {

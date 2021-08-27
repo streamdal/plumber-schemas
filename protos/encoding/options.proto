@@ -15,47 +15,48 @@ enum Type {
     PROTOBUF = 3;
     AVRO = 4;
     THRIFT = 5;
+    FLATBUFFER = 6;
 }
 
-message Dirs {
-    repeated string dirs = 1;
-}
-
-message Protobuf {
-    string root_type = 1;
-
-    oneof Data {
-        bytes zip_archive = 2;
-        Dirs dirs = 3;
-    }
-}
-
-message JSONSchema {
-    // TODO
-}
-
-message Avro {
-    oneof Data {
-        bytes schema_data = 1;
-        string schema_file = 2;
-    }
-}
-
-// Encoding options will cause plumber to encode (or decode) the _value_ of a
-// message. Either the schema_id must be specified OR a oneof Encoding.
-// If schema_id is specified, oneof Encoding will be ignored. schema_id takes
-// precedence over oneof Encoding. oneof Encoding is to be used for one-off
-// operations.
-message Options {
+message EncodeOptions {
+    // The type of decoder selected determines which Encoding should be used (if any).
+    // NOTE: This type will also determine which metadata k:v's need to be set.
+    // @gotags: name:"encoder"
     Type type = 1;
 
     // Specify an existing stored schema to use instead of specifying a Encoding payload
+    // @gotags: kong:"-"
     string schema_id = 2;
 
-    // Only filled out if "type" is not NONE or JSON
-    message Encoding {
-        Protobuf protobuf = 100;
-        Avro avro = 102;
-        JSONSchema json_schema = 101;
-    }
+    // Valid input keys: dir, file, string, github, zip
+    // TODO: Help needs to outline all of the available options here
+    // @gotag: name:"decoder-input"
+    map<string, string> input = 3;
+
+    // Valid input keys:
+    // TODO: Help needs to outline all of the available options here
+    // @gotag: name:"decoder-metadata"
+    map<string, string> metadata = 4;
+}
+
+
+message DecodeOptions {
+    // The type of decoder selected determines which Encoding should be used (if any)
+    // NOTE: This type will also determine which metadata k:v's need to be set.
+    // @gotags: name:"decoder"
+    Type type = 1;
+
+    // Specify an existing stored schema to use instead of specifying a Encoding payload
+    // @gotags: kong:"-"
+    string schema_id = 2;
+
+    // Valid input keys: dir, file, string, github, zip
+    // TODO: Help needs to outline all of the available options here
+    // @gotag: name:"decoder-input"
+    map<string, string> input = 3;
+
+    // Valid input keys:
+    // TODO: Help needs to outline all of the available options here
+    // @gotag: name:"decoder-metadata"
+    map<string, string> metadata = 4;
 }

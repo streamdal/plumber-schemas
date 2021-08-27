@@ -6,134 +6,103 @@
 
 import * as jspb from "google-protobuf";
 
-export class NatsStreaming extends jspb.Message { 
-    getChannel(): string;
-    setChannel(value: string): NatsStreaming;
-    getDurableName(): string;
-    setDurableName(value: string): NatsStreaming;
-
-    hasLastAvailable(): boolean;
-    clearLastAvailable(): void;
-    getLastAvailable(): ReadLastAvailable | undefined;
-    setLastAvailable(value?: ReadLastAvailable): NatsStreaming;
-
-    hasReadSequenceNumber(): boolean;
-    clearReadSequenceNumber(): void;
-    getReadSequenceNumber(): ReadSequenceNumber | undefined;
-    setReadSequenceNumber(value?: ReadSequenceNumber): NatsStreaming;
-
-    hasReadSince(): boolean;
-    clearReadSince(): void;
-    getReadSince(): ReadSince | undefined;
-    setReadSince(value?: ReadSince): NatsStreaming;
-
-    hasAll(): boolean;
-    clearAll(): void;
-    getAll(): ReadAll | undefined;
-    setAll(value?: ReadAll): NatsStreaming;
-
-    getReadOptionCase(): NatsStreaming.ReadOptionCase;
+export class NatsStreamingConn extends jspb.Message { 
+    getDsn(): string;
+    setDsn(value: string): NatsStreamingConn;
+    getInsecureTls(): boolean;
+    setInsecureTls(value: boolean): NatsStreamingConn;
+    getTlsCaCert(): Uint8Array | string;
+    getTlsCaCert_asU8(): Uint8Array;
+    getTlsCaCert_asB64(): string;
+    setTlsCaCert(value: Uint8Array | string): NatsStreamingConn;
+    getTlsClientCert(): Uint8Array | string;
+    getTlsClientCert_asU8(): Uint8Array;
+    getTlsClientCert_asB64(): string;
+    setTlsClientCert(value: Uint8Array | string): NatsStreamingConn;
+    getTlsClientKey(): Uint8Array | string;
+    getTlsClientKey_asU8(): Uint8Array;
+    getTlsClientKey_asB64(): string;
+    setTlsClientKey(value: Uint8Array | string): NatsStreamingConn;
+    getUserCredentials(): Uint8Array | string;
+    getUserCredentials_asU8(): Uint8Array;
+    getUserCredentials_asB64(): string;
+    setUserCredentials(value: Uint8Array | string): NatsStreamingConn;
+    getClusterId(): string;
+    setClusterId(value: string): NatsStreamingConn;
+    getClientId(): string;
+    setClientId(value: string): NatsStreamingConn;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): NatsStreaming.AsObject;
-    static toObject(includeInstance: boolean, msg: NatsStreaming): NatsStreaming.AsObject;
+    toObject(includeInstance?: boolean): NatsStreamingConn.AsObject;
+    static toObject(includeInstance: boolean, msg: NatsStreamingConn): NatsStreamingConn.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: NatsStreaming, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): NatsStreaming;
-    static deserializeBinaryFromReader(message: NatsStreaming, reader: jspb.BinaryReader): NatsStreaming;
+    static serializeBinaryToWriter(message: NatsStreamingConn, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): NatsStreamingConn;
+    static deserializeBinaryFromReader(message: NatsStreamingConn, reader: jspb.BinaryReader): NatsStreamingConn;
 }
 
-export namespace NatsStreaming {
+export namespace NatsStreamingConn {
+    export type AsObject = {
+        dsn: string,
+        insecureTls: boolean,
+        tlsCaCert: Uint8Array | string,
+        tlsClientCert: Uint8Array | string,
+        tlsClientKey: Uint8Array | string,
+        userCredentials: Uint8Array | string,
+        clusterId: string,
+        clientId: string,
+    }
+}
+
+export class NatsStreamingReadArgs extends jspb.Message { 
+    getChannel(): string;
+    setChannel(value: string): NatsStreamingReadArgs;
+    getDurableName(): string;
+    setDurableName(value: string): NatsStreamingReadArgs;
+    getReadLastAvailable(): boolean;
+    setReadLastAvailable(value: boolean): NatsStreamingReadArgs;
+    getReadSequenceNumber(): number;
+    setReadSequenceNumber(value: number): NatsStreamingReadArgs;
+    getReadSince(): string;
+    setReadSince(value: string): NatsStreamingReadArgs;
+    getReadAll(): boolean;
+    setReadAll(value: boolean): NatsStreamingReadArgs;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): NatsStreamingReadArgs.AsObject;
+    static toObject(includeInstance: boolean, msg: NatsStreamingReadArgs): NatsStreamingReadArgs.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: NatsStreamingReadArgs, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): NatsStreamingReadArgs;
+    static deserializeBinaryFromReader(message: NatsStreamingReadArgs, reader: jspb.BinaryReader): NatsStreamingReadArgs;
+}
+
+export namespace NatsStreamingReadArgs {
     export type AsObject = {
         channel: string,
         durableName: string,
-        lastAvailable?: ReadLastAvailable.AsObject,
-        readSequenceNumber?: ReadSequenceNumber.AsObject,
-        readSince?: ReadSince.AsObject,
-        all?: ReadAll.AsObject,
+        readLastAvailable: boolean,
+        readSequenceNumber: number,
+        readSince: string,
+        readAll: boolean,
     }
-
-    export enum ReadOptionCase {
-        READ_OPTION_NOT_SET = 0,
-        LAST_AVAILABLE = 100,
-        READ_SEQUENCE_NUMBER = 101,
-        READ_SINCE = 102,
-        ALL = 103,
-    }
-
 }
 
-export class ReadLastAvailable extends jspb.Message { 
+export class NatsStreamingWriteArgs extends jspb.Message { 
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): ReadLastAvailable.AsObject;
-    static toObject(includeInstance: boolean, msg: ReadLastAvailable): ReadLastAvailable.AsObject;
+    toObject(includeInstance?: boolean): NatsStreamingWriteArgs.AsObject;
+    static toObject(includeInstance: boolean, msg: NatsStreamingWriteArgs): NatsStreamingWriteArgs.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: ReadLastAvailable, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): ReadLastAvailable;
-    static deserializeBinaryFromReader(message: ReadLastAvailable, reader: jspb.BinaryReader): ReadLastAvailable;
+    static serializeBinaryToWriter(message: NatsStreamingWriteArgs, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): NatsStreamingWriteArgs;
+    static deserializeBinaryFromReader(message: NatsStreamingWriteArgs, reader: jspb.BinaryReader): NatsStreamingWriteArgs;
 }
 
-export namespace ReadLastAvailable {
-    export type AsObject = {
-    }
-}
-
-export class ReadSequenceNumber extends jspb.Message { 
-    getSequenceNumber(): number;
-    setSequenceNumber(value: number): ReadSequenceNumber;
-
-    serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): ReadSequenceNumber.AsObject;
-    static toObject(includeInstance: boolean, msg: ReadSequenceNumber): ReadSequenceNumber.AsObject;
-    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: ReadSequenceNumber, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): ReadSequenceNumber;
-    static deserializeBinaryFromReader(message: ReadSequenceNumber, reader: jspb.BinaryReader): ReadSequenceNumber;
-}
-
-export namespace ReadSequenceNumber {
-    export type AsObject = {
-        sequenceNumber: number,
-    }
-}
-
-export class ReadSince extends jspb.Message { 
-    getSince(): string;
-    setSince(value: string): ReadSince;
-
-    serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): ReadSince.AsObject;
-    static toObject(includeInstance: boolean, msg: ReadSince): ReadSince.AsObject;
-    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: ReadSince, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): ReadSince;
-    static deserializeBinaryFromReader(message: ReadSince, reader: jspb.BinaryReader): ReadSince;
-}
-
-export namespace ReadSince {
-    export type AsObject = {
-        since: string,
-    }
-}
-
-export class ReadAll extends jspb.Message { 
-
-    serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): ReadAll.AsObject;
-    static toObject(includeInstance: boolean, msg: ReadAll): ReadAll.AsObject;
-    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: ReadAll, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): ReadAll;
-    static deserializeBinaryFromReader(message: ReadAll, reader: jspb.BinaryReader): ReadAll;
-}
-
-export namespace ReadAll {
+export namespace NatsStreamingWriteArgs {
     export type AsObject = {
     }
 }

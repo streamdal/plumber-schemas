@@ -24,165 +24,151 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
-type SampleOptions_Interval int32
+type ReadType int32
 
 const (
-	SampleOptions_SECOND SampleOptions_Interval = 0
-	SampleOptions_MINUTE SampleOptions_Interval = 1
+	ReadType_ONE_TIME   ReadType = 0
+	ReadType_CONTINUOUS ReadType = 1
 )
 
-var SampleOptions_Interval_name = map[int32]string{
-	0: "SECOND",
-	1: "MINUTE",
-}
-
-var SampleOptions_Interval_value = map[string]int32{
-	"SECOND": 0,
-	"MINUTE": 1,
-}
-
-func (x SampleOptions_Interval) String() string {
-	return proto.EnumName(SampleOptions_Interval_name, int32(x))
-}
-
-func (SampleOptions_Interval) EnumDescriptor() ([]byte, []int) {
-	return fileDescriptor_7b10ec61df6818dd, []int{0, 0}
-}
-
-type ReadOptions_Type int32
-
-const (
-	ReadOptions_ONE_TIME   ReadOptions_Type = 0
-	ReadOptions_CONTINUOUS ReadOptions_Type = 1
-)
-
-var ReadOptions_Type_name = map[int32]string{
+var ReadType_name = map[int32]string{
 	0: "ONE_TIME",
 	1: "CONTINUOUS",
 }
 
-var ReadOptions_Type_value = map[string]int32{
+var ReadType_value = map[string]int32{
 	"ONE_TIME":   0,
 	"CONTINUOUS": 1,
 }
 
-func (x ReadOptions_Type) String() string {
-	return proto.EnumName(ReadOptions_Type_name, int32(x))
+func (x ReadType) String() string {
+	return proto.EnumName(ReadType_name, int32(x))
 }
 
-func (ReadOptions_Type) EnumDescriptor() ([]byte, []int) {
-	return fileDescriptor_7b10ec61df6818dd, []int{1, 0}
-}
-
-type SampleOptions struct {
-	SampleRate           uint32                 `protobuf:"varint,1,opt,name=sample_rate,json=sampleRate,proto3" json:"sample_rate,omitempty"`
-	SampleInterval       SampleOptions_Interval `protobuf:"varint,2,opt,name=sample_interval,json=sampleInterval,proto3,enum=protos.SampleOptions_Interval" json:"sample_interval,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}               `json:"-"`
-	XXX_unrecognized     []byte                 `json:"-"`
-	XXX_sizecache        int32                  `json:"-"`
-}
-
-func (m *SampleOptions) Reset()         { *m = SampleOptions{} }
-func (m *SampleOptions) String() string { return proto.CompactTextString(m) }
-func (*SampleOptions) ProtoMessage()    {}
-func (*SampleOptions) Descriptor() ([]byte, []int) {
+func (ReadType) EnumDescriptor() ([]byte, []int) {
 	return fileDescriptor_7b10ec61df6818dd, []int{0}
 }
 
-func (m *SampleOptions) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SampleOptions.Unmarshal(m, b)
-}
-func (m *SampleOptions) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SampleOptions.Marshal(b, m, deterministic)
-}
-func (m *SampleOptions) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SampleOptions.Merge(m, src)
-}
-func (m *SampleOptions) XXX_Size() int {
-	return xxx_messageInfo_SampleOptions.Size(m)
-}
-func (m *SampleOptions) XXX_DiscardUnknown() {
-	xxx_messageInfo_SampleOptions.DiscardUnknown(m)
+type ConvertOption int32
+
+const (
+	ConvertOption_UNSET  ConvertOption = 0
+	ConvertOption_BASE64 ConvertOption = 1
+	ConvertOption_GZIP   ConvertOption = 2
+)
+
+var ConvertOption_name = map[int32]string{
+	0: "UNSET",
+	1: "BASE64",
+	2: "GZIP",
 }
 
-var xxx_messageInfo_SampleOptions proto.InternalMessageInfo
+var ConvertOption_value = map[string]int32{
+	"UNSET":  0,
+	"BASE64": 1,
+	"GZIP":   2,
+}
 
-func (m *SampleOptions) GetSampleRate() uint32 {
+func (x ConvertOption) String() string {
+	return proto.EnumName(ConvertOption_name, int32(x))
+}
+
+func (ConvertOption) EnumDescriptor() ([]byte, []int) {
+	return fileDescriptor_7b10ec61df6818dd, []int{1}
+}
+
+type ReadSampleOptions_Interval int32
+
+const (
+	ReadSampleOptions_SECOND ReadSampleOptions_Interval = 0
+	ReadSampleOptions_MINUTE ReadSampleOptions_Interval = 1
+)
+
+var ReadSampleOptions_Interval_name = map[int32]string{
+	0: "SECOND",
+	1: "MINUTE",
+}
+
+var ReadSampleOptions_Interval_value = map[string]int32{
+	"SECOND": 0,
+	"MINUTE": 1,
+}
+
+func (x ReadSampleOptions_Interval) String() string {
+	return proto.EnumName(ReadSampleOptions_Interval_name, int32(x))
+}
+
+func (ReadSampleOptions_Interval) EnumDescriptor() ([]byte, []int) {
+	return fileDescriptor_7b10ec61df6818dd, []int{0, 0}
+}
+
+type ReadSampleOptions struct {
+	SampleRate           uint32                     `protobuf:"varint,1,opt,name=sample_rate,json=sampleRate,proto3" json:"sample_rate,omitempty"`
+	SampleInterval       ReadSampleOptions_Interval `protobuf:"varint,2,opt,name=sample_interval,json=sampleInterval,proto3,enum=protos.ReadSampleOptions_Interval" json:"sample_interval,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                   `json:"-"`
+	XXX_unrecognized     []byte                     `json:"-"`
+	XXX_sizecache        int32                      `json:"-"`
+}
+
+func (m *ReadSampleOptions) Reset()         { *m = ReadSampleOptions{} }
+func (m *ReadSampleOptions) String() string { return proto.CompactTextString(m) }
+func (*ReadSampleOptions) ProtoMessage()    {}
+func (*ReadSampleOptions) Descriptor() ([]byte, []int) {
+	return fileDescriptor_7b10ec61df6818dd, []int{0}
+}
+
+func (m *ReadSampleOptions) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ReadSampleOptions.Unmarshal(m, b)
+}
+func (m *ReadSampleOptions) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ReadSampleOptions.Marshal(b, m, deterministic)
+}
+func (m *ReadSampleOptions) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ReadSampleOptions.Merge(m, src)
+}
+func (m *ReadSampleOptions) XXX_Size() int {
+	return xxx_messageInfo_ReadSampleOptions.Size(m)
+}
+func (m *ReadSampleOptions) XXX_DiscardUnknown() {
+	xxx_messageInfo_ReadSampleOptions.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ReadSampleOptions proto.InternalMessageInfo
+
+func (m *ReadSampleOptions) GetSampleRate() uint32 {
 	if m != nil {
 		return m.SampleRate
 	}
 	return 0
 }
 
-func (m *SampleOptions) GetSampleInterval() SampleOptions_Interval {
+func (m *ReadSampleOptions) GetSampleInterval() ReadSampleOptions_Interval {
 	if m != nil {
 		return m.SampleInterval
 	}
-	return SampleOptions_SECOND
-}
-
-type ReadOptions struct {
-	Type                 ReadOptions_Type `protobuf:"varint,1,opt,name=type,proto3,enum=protos.ReadOptions_Type" json:"type,omitempty"`
-	SampleOptions        *SampleOptions   `protobuf:"bytes,2,opt,name=sample_options,json=sampleOptions,proto3" json:"sample_options,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}         `json:"-"`
-	XXX_unrecognized     []byte           `json:"-"`
-	XXX_sizecache        int32            `json:"-"`
-}
-
-func (m *ReadOptions) Reset()         { *m = ReadOptions{} }
-func (m *ReadOptions) String() string { return proto.CompactTextString(m) }
-func (*ReadOptions) ProtoMessage()    {}
-func (*ReadOptions) Descriptor() ([]byte, []int) {
-	return fileDescriptor_7b10ec61df6818dd, []int{1}
-}
-
-func (m *ReadOptions) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_ReadOptions.Unmarshal(m, b)
-}
-func (m *ReadOptions) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_ReadOptions.Marshal(b, m, deterministic)
-}
-func (m *ReadOptions) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_ReadOptions.Merge(m, src)
-}
-func (m *ReadOptions) XXX_Size() int {
-	return xxx_messageInfo_ReadOptions.Size(m)
-}
-func (m *ReadOptions) XXX_DiscardUnknown() {
-	xxx_messageInfo_ReadOptions.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_ReadOptions proto.InternalMessageInfo
-
-func (m *ReadOptions) GetType() ReadOptions_Type {
-	if m != nil {
-		return m.Type
-	}
-	return ReadOptions_ONE_TIME
-}
-
-func (m *ReadOptions) GetSampleOptions() *SampleOptions {
-	if m != nil {
-		return m.SampleOptions
-	}
-	return nil
+	return ReadSampleOptions_SECOND
 }
 
 type ReadCLIConfig struct {
-	TreatOutputAsJson    bool     `protobuf:"varint,1,opt,name=treat_output_as_json,json=treatOutputAsJson,proto3" json:"treat_output_as_json,omitempty"`
-	DisplayLagStats      bool     `protobuf:"varint,2,opt,name=display_lag_stats,json=displayLagStats,proto3" json:"display_lag_stats,omitempty"`
-	ConvertOutput        string   `protobuf:"bytes,3,opt,name=convert_output,json=convertOutput,proto3" json:"convert_output,omitempty"`
-	VerboseOutput        bool     `protobuf:"varint,4,opt,name=verbose_output,json=verboseOutput,proto3" json:"verbose_output,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	DisplayLagStats bool            `protobuf:"varint,1,opt,name=display_lag_stats,json=displayLagStats,proto3" json:"display_lag_stats,omitempty"`
+	ConvertOutput   []ConvertOption `protobuf:"varint,2,rep,packed,name=convert_output,json=convertOutput,proto3,enum=protos.ConvertOption" json:"convert_output,omitempty"`
+	VerboseOutput   bool            `protobuf:"varint,3,opt,name=verbose_output,json=verboseOutput,proto3" json:"verbose_output,omitempty"`
+	// Used by CLI to inform components, which backend to use; server uses
+	// ReadConfig.connection_id.
+	// @gotags: kong:"-"
+	XBackendType backends.Type `protobuf:"varint,5,opt,name=_backend_type,json=BackendType,proto3,enum=protos.backends.Type" json:"_backend_type,omitempty" kong:"-"`
+	// @gotags: embed:""
+	XReadBackend         *ReadCLIConfig_ReadBackend `protobuf:"bytes,6,opt,name=_read_backend,json=ReadBackend,proto3" json:"_read_backend,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                   `json:"-"`
+	XXX_unrecognized     []byte                     `json:"-"`
+	XXX_sizecache        int32                      `json:"-"`
 }
 
 func (m *ReadCLIConfig) Reset()         { *m = ReadCLIConfig{} }
 func (m *ReadCLIConfig) String() string { return proto.CompactTextString(m) }
 func (*ReadCLIConfig) ProtoMessage()    {}
 func (*ReadCLIConfig) Descriptor() ([]byte, []int) {
-	return fileDescriptor_7b10ec61df6818dd, []int{2}
+	return fileDescriptor_7b10ec61df6818dd, []int{1}
 }
 
 func (m *ReadCLIConfig) XXX_Unmarshal(b []byte) error {
@@ -203,13 +189,6 @@ func (m *ReadCLIConfig) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_ReadCLIConfig proto.InternalMessageInfo
 
-func (m *ReadCLIConfig) GetTreatOutputAsJson() bool {
-	if m != nil {
-		return m.TreatOutputAsJson
-	}
-	return false
-}
-
 func (m *ReadCLIConfig) GetDisplayLagStats() bool {
 	if m != nil {
 		return m.DisplayLagStats
@@ -217,11 +196,11 @@ func (m *ReadCLIConfig) GetDisplayLagStats() bool {
 	return false
 }
 
-func (m *ReadCLIConfig) GetConvertOutput() string {
+func (m *ReadCLIConfig) GetConvertOutput() []ConvertOption {
 	if m != nil {
 		return m.ConvertOutput
 	}
-	return ""
+	return nil
 }
 
 func (m *ReadCLIConfig) GetVerboseOutput() bool {
@@ -231,51 +210,1157 @@ func (m *ReadCLIConfig) GetVerboseOutput() bool {
 	return false
 }
 
+func (m *ReadCLIConfig) GetXBackendType() backends.Type {
+	if m != nil {
+		return m.XBackendType
+	}
+	return backends.Type_UNSET
+}
+
+func (m *ReadCLIConfig) GetXReadBackend() *ReadCLIConfig_ReadBackend {
+	if m != nil {
+		return m.XReadBackend
+	}
+	return nil
+}
+
+type ReadCLIConfig_ReadBackend struct {
+	// @gotags: cmd:""
+	Kafka *ReadCLIConfig_ReadBackend_Kafka `protobuf:"bytes,1,opt,name=kafka,proto3" json:"kafka,omitempty"`
+	// @gotags: cmd:""
+	Activemq *ReadCLIConfig_ReadBackend_ActiveMQ `protobuf:"bytes,2,opt,name=activemq,proto3" json:"activemq,omitempty"`
+	// @gotags: cmd:""
+	Awssqs *ReadCLIConfig_ReadBackend_AWSSQS `protobuf:"bytes,3,opt,name=awssqs,proto3" json:"awssqs,omitempty"`
+	// @gotags: cmd:""
+	Mongo *ReadCLIConfig_ReadBackend_Mongo `protobuf:"bytes,4,opt,name=mongo,proto3" json:"mongo,omitempty"`
+	// @gotags: cmd:""
+	Nats *ReadCLIConfig_ReadBackend_Nats `protobuf:"bytes,5,opt,name=nats,proto3" json:"nats,omitempty"`
+	// @gotags: cmd:""
+	NatsStreaming *ReadCLIConfig_ReadBackend_NatsStreaming `protobuf:"bytes,6,opt,name=nats_streaming,json=natsStreaming,proto3" json:"nats_streaming,omitempty"`
+	// @gotags: cmd:""
+	Nsq *ReadCLIConfig_ReadBackend_NSQ `protobuf:"bytes,7,opt,name=nsq,proto3" json:"nsq,omitempty"`
+	// @gotags: cmd:""
+	Pulsar *ReadCLIConfig_ReadBackend_Pulsar `protobuf:"bytes,8,opt,name=pulsar,proto3" json:"pulsar,omitempty"`
+	// @gotags: cmd:""
+	Rabbit *ReadCLIConfig_ReadBackend_Rabbit `protobuf:"bytes,9,opt,name=rabbit,proto3" json:"rabbit,omitempty"`
+	// @gotags: cmd:""
+	RabbitStreams *ReadCLIConfig_ReadBackend_RabbitStreams `protobuf:"bytes,10,opt,name=rabbit_streams,json=rabbitStreams,proto3" json:"rabbit_streams,omitempty"`
+	// @gotags: cmd:""
+	Mqtt *ReadCLIConfig_ReadBackend_MQTT `protobuf:"bytes,11,opt,name=mqtt,proto3" json:"mqtt,omitempty"`
+	// @gotags: cmd:""
+	AzureServiceBus *ReadCLIConfig_ReadBackend_AzureServiceBus `protobuf:"bytes,12,opt,name=azure_service_bus,json=azureServiceBus,proto3" json:"azure_service_bus,omitempty"`
+	// @gotags: cmd:""
+	AzureEventHub *ReadCLIConfig_ReadBackend_AzureEventHub `protobuf:"bytes,13,opt,name=azure_event_hub,json=azureEventHub,proto3" json:"azure_event_hub,omitempty"`
+	// @gotags: cmd:""
+	GcpPubsub *ReadCLIConfig_ReadBackend_GCPPubSub `protobuf:"bytes,14,opt,name=gcp_pubsub,json=gcpPubsub,proto3" json:"gcp_pubsub,omitempty"`
+	// @gotags: cmd:""
+	KubemqQueue *ReadCLIConfig_ReadBackend_KubeMQQueue `protobuf:"bytes,15,opt,name=kubemq_queue,json=kubemqQueue,proto3" json:"kubemq_queue,omitempty"`
+	// @gotags: cmd:""
+	RedisPubsub *ReadCLIConfig_ReadBackend_RedisPubSub `protobuf:"bytes,16,opt,name=redis_pubsub,json=redisPubsub,proto3" json:"redis_pubsub,omitempty"`
+	// @gotags: cmd:""
+	RedisStreams *ReadCLIConfig_ReadBackend_RedisStreams `protobuf:"bytes,17,opt,name=redis_streams,json=redisStreams,proto3" json:"redis_streams,omitempty"`
+	// @gotags: cmd:""
+	Postgres             *ReadCLIConfig_ReadBackend_Postgres `protobuf:"bytes,18,opt,name=postgres,proto3" json:"postgres,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                            `json:"-"`
+	XXX_unrecognized     []byte                              `json:"-"`
+	XXX_sizecache        int32                               `json:"-"`
+}
+
+func (m *ReadCLIConfig_ReadBackend) Reset()         { *m = ReadCLIConfig_ReadBackend{} }
+func (m *ReadCLIConfig_ReadBackend) String() string { return proto.CompactTextString(m) }
+func (*ReadCLIConfig_ReadBackend) ProtoMessage()    {}
+func (*ReadCLIConfig_ReadBackend) Descriptor() ([]byte, []int) {
+	return fileDescriptor_7b10ec61df6818dd, []int{1, 0}
+}
+
+func (m *ReadCLIConfig_ReadBackend) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ReadCLIConfig_ReadBackend.Unmarshal(m, b)
+}
+func (m *ReadCLIConfig_ReadBackend) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ReadCLIConfig_ReadBackend.Marshal(b, m, deterministic)
+}
+func (m *ReadCLIConfig_ReadBackend) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ReadCLIConfig_ReadBackend.Merge(m, src)
+}
+func (m *ReadCLIConfig_ReadBackend) XXX_Size() int {
+	return xxx_messageInfo_ReadCLIConfig_ReadBackend.Size(m)
+}
+func (m *ReadCLIConfig_ReadBackend) XXX_DiscardUnknown() {
+	xxx_messageInfo_ReadCLIConfig_ReadBackend.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ReadCLIConfig_ReadBackend proto.InternalMessageInfo
+
+func (m *ReadCLIConfig_ReadBackend) GetKafka() *ReadCLIConfig_ReadBackend_Kafka {
+	if m != nil {
+		return m.Kafka
+	}
+	return nil
+}
+
+func (m *ReadCLIConfig_ReadBackend) GetActivemq() *ReadCLIConfig_ReadBackend_ActiveMQ {
+	if m != nil {
+		return m.Activemq
+	}
+	return nil
+}
+
+func (m *ReadCLIConfig_ReadBackend) GetAwssqs() *ReadCLIConfig_ReadBackend_AWSSQS {
+	if m != nil {
+		return m.Awssqs
+	}
+	return nil
+}
+
+func (m *ReadCLIConfig_ReadBackend) GetMongo() *ReadCLIConfig_ReadBackend_Mongo {
+	if m != nil {
+		return m.Mongo
+	}
+	return nil
+}
+
+func (m *ReadCLIConfig_ReadBackend) GetNats() *ReadCLIConfig_ReadBackend_Nats {
+	if m != nil {
+		return m.Nats
+	}
+	return nil
+}
+
+func (m *ReadCLIConfig_ReadBackend) GetNatsStreaming() *ReadCLIConfig_ReadBackend_NatsStreaming {
+	if m != nil {
+		return m.NatsStreaming
+	}
+	return nil
+}
+
+func (m *ReadCLIConfig_ReadBackend) GetNsq() *ReadCLIConfig_ReadBackend_NSQ {
+	if m != nil {
+		return m.Nsq
+	}
+	return nil
+}
+
+func (m *ReadCLIConfig_ReadBackend) GetPulsar() *ReadCLIConfig_ReadBackend_Pulsar {
+	if m != nil {
+		return m.Pulsar
+	}
+	return nil
+}
+
+func (m *ReadCLIConfig_ReadBackend) GetRabbit() *ReadCLIConfig_ReadBackend_Rabbit {
+	if m != nil {
+		return m.Rabbit
+	}
+	return nil
+}
+
+func (m *ReadCLIConfig_ReadBackend) GetRabbitStreams() *ReadCLIConfig_ReadBackend_RabbitStreams {
+	if m != nil {
+		return m.RabbitStreams
+	}
+	return nil
+}
+
+func (m *ReadCLIConfig_ReadBackend) GetMqtt() *ReadCLIConfig_ReadBackend_MQTT {
+	if m != nil {
+		return m.Mqtt
+	}
+	return nil
+}
+
+func (m *ReadCLIConfig_ReadBackend) GetAzureServiceBus() *ReadCLIConfig_ReadBackend_AzureServiceBus {
+	if m != nil {
+		return m.AzureServiceBus
+	}
+	return nil
+}
+
+func (m *ReadCLIConfig_ReadBackend) GetAzureEventHub() *ReadCLIConfig_ReadBackend_AzureEventHub {
+	if m != nil {
+		return m.AzureEventHub
+	}
+	return nil
+}
+
+func (m *ReadCLIConfig_ReadBackend) GetGcpPubsub() *ReadCLIConfig_ReadBackend_GCPPubSub {
+	if m != nil {
+		return m.GcpPubsub
+	}
+	return nil
+}
+
+func (m *ReadCLIConfig_ReadBackend) GetKubemqQueue() *ReadCLIConfig_ReadBackend_KubeMQQueue {
+	if m != nil {
+		return m.KubemqQueue
+	}
+	return nil
+}
+
+func (m *ReadCLIConfig_ReadBackend) GetRedisPubsub() *ReadCLIConfig_ReadBackend_RedisPubSub {
+	if m != nil {
+		return m.RedisPubsub
+	}
+	return nil
+}
+
+func (m *ReadCLIConfig_ReadBackend) GetRedisStreams() *ReadCLIConfig_ReadBackend_RedisStreams {
+	if m != nil {
+		return m.RedisStreams
+	}
+	return nil
+}
+
+func (m *ReadCLIConfig_ReadBackend) GetPostgres() *ReadCLIConfig_ReadBackend_Postgres {
+	if m != nil {
+		return m.Postgres
+	}
+	return nil
+}
+
+// @gotags: cmd:""
+type ReadCLIConfig_ReadBackend_Kafka struct {
+	// @gotags: embed:""
+	Conn *backends.KafkaConn `protobuf:"bytes,1,opt,name=conn,proto3" json:"conn,omitempty"`
+	// @gotags: embed:""
+	Args                 *backends.KafkaReadArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                `json:"-"`
+	XXX_unrecognized     []byte                  `json:"-"`
+	XXX_sizecache        int32                   `json:"-"`
+}
+
+func (m *ReadCLIConfig_ReadBackend_Kafka) Reset()         { *m = ReadCLIConfig_ReadBackend_Kafka{} }
+func (m *ReadCLIConfig_ReadBackend_Kafka) String() string { return proto.CompactTextString(m) }
+func (*ReadCLIConfig_ReadBackend_Kafka) ProtoMessage()    {}
+func (*ReadCLIConfig_ReadBackend_Kafka) Descriptor() ([]byte, []int) {
+	return fileDescriptor_7b10ec61df6818dd, []int{1, 0, 0}
+}
+
+func (m *ReadCLIConfig_ReadBackend_Kafka) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ReadCLIConfig_ReadBackend_Kafka.Unmarshal(m, b)
+}
+func (m *ReadCLIConfig_ReadBackend_Kafka) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ReadCLIConfig_ReadBackend_Kafka.Marshal(b, m, deterministic)
+}
+func (m *ReadCLIConfig_ReadBackend_Kafka) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ReadCLIConfig_ReadBackend_Kafka.Merge(m, src)
+}
+func (m *ReadCLIConfig_ReadBackend_Kafka) XXX_Size() int {
+	return xxx_messageInfo_ReadCLIConfig_ReadBackend_Kafka.Size(m)
+}
+func (m *ReadCLIConfig_ReadBackend_Kafka) XXX_DiscardUnknown() {
+	xxx_messageInfo_ReadCLIConfig_ReadBackend_Kafka.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ReadCLIConfig_ReadBackend_Kafka proto.InternalMessageInfo
+
+func (m *ReadCLIConfig_ReadBackend_Kafka) GetConn() *backends.KafkaConn {
+	if m != nil {
+		return m.Conn
+	}
+	return nil
+}
+
+func (m *ReadCLIConfig_ReadBackend_Kafka) GetArgs() *backends.KafkaReadArgs {
+	if m != nil {
+		return m.Args
+	}
+	return nil
+}
+
+// @gotags: cmd:""
+type ReadCLIConfig_ReadBackend_ActiveMQ struct {
+	// @gotags: embed:""
+	Conn *backends.ActiveMQConn `protobuf:"bytes,1,opt,name=conn,proto3" json:"conn,omitempty"`
+	// @gotags: embed:""
+	Args                 *backends.ActiveMQReadArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                   `json:"-"`
+	XXX_unrecognized     []byte                     `json:"-"`
+	XXX_sizecache        int32                      `json:"-"`
+}
+
+func (m *ReadCLIConfig_ReadBackend_ActiveMQ) Reset()         { *m = ReadCLIConfig_ReadBackend_ActiveMQ{} }
+func (m *ReadCLIConfig_ReadBackend_ActiveMQ) String() string { return proto.CompactTextString(m) }
+func (*ReadCLIConfig_ReadBackend_ActiveMQ) ProtoMessage()    {}
+func (*ReadCLIConfig_ReadBackend_ActiveMQ) Descriptor() ([]byte, []int) {
+	return fileDescriptor_7b10ec61df6818dd, []int{1, 0, 1}
+}
+
+func (m *ReadCLIConfig_ReadBackend_ActiveMQ) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ReadCLIConfig_ReadBackend_ActiveMQ.Unmarshal(m, b)
+}
+func (m *ReadCLIConfig_ReadBackend_ActiveMQ) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ReadCLIConfig_ReadBackend_ActiveMQ.Marshal(b, m, deterministic)
+}
+func (m *ReadCLIConfig_ReadBackend_ActiveMQ) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ReadCLIConfig_ReadBackend_ActiveMQ.Merge(m, src)
+}
+func (m *ReadCLIConfig_ReadBackend_ActiveMQ) XXX_Size() int {
+	return xxx_messageInfo_ReadCLIConfig_ReadBackend_ActiveMQ.Size(m)
+}
+func (m *ReadCLIConfig_ReadBackend_ActiveMQ) XXX_DiscardUnknown() {
+	xxx_messageInfo_ReadCLIConfig_ReadBackend_ActiveMQ.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ReadCLIConfig_ReadBackend_ActiveMQ proto.InternalMessageInfo
+
+func (m *ReadCLIConfig_ReadBackend_ActiveMQ) GetConn() *backends.ActiveMQConn {
+	if m != nil {
+		return m.Conn
+	}
+	return nil
+}
+
+func (m *ReadCLIConfig_ReadBackend_ActiveMQ) GetArgs() *backends.ActiveMQReadArgs {
+	if m != nil {
+		return m.Args
+	}
+	return nil
+}
+
+// @gotags: cmd:""
+type ReadCLIConfig_ReadBackend_AWSSQS struct {
+	// @gotags: embed:""
+	Conn *backends.AWSSQSConn `protobuf:"bytes,1,opt,name=conn,proto3" json:"conn,omitempty"`
+	// @gotags: embed:""
+	Args                 *backends.AWSSQSReadArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                 `json:"-"`
+	XXX_unrecognized     []byte                   `json:"-"`
+	XXX_sizecache        int32                    `json:"-"`
+}
+
+func (m *ReadCLIConfig_ReadBackend_AWSSQS) Reset()         { *m = ReadCLIConfig_ReadBackend_AWSSQS{} }
+func (m *ReadCLIConfig_ReadBackend_AWSSQS) String() string { return proto.CompactTextString(m) }
+func (*ReadCLIConfig_ReadBackend_AWSSQS) ProtoMessage()    {}
+func (*ReadCLIConfig_ReadBackend_AWSSQS) Descriptor() ([]byte, []int) {
+	return fileDescriptor_7b10ec61df6818dd, []int{1, 0, 2}
+}
+
+func (m *ReadCLIConfig_ReadBackend_AWSSQS) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ReadCLIConfig_ReadBackend_AWSSQS.Unmarshal(m, b)
+}
+func (m *ReadCLIConfig_ReadBackend_AWSSQS) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ReadCLIConfig_ReadBackend_AWSSQS.Marshal(b, m, deterministic)
+}
+func (m *ReadCLIConfig_ReadBackend_AWSSQS) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ReadCLIConfig_ReadBackend_AWSSQS.Merge(m, src)
+}
+func (m *ReadCLIConfig_ReadBackend_AWSSQS) XXX_Size() int {
+	return xxx_messageInfo_ReadCLIConfig_ReadBackend_AWSSQS.Size(m)
+}
+func (m *ReadCLIConfig_ReadBackend_AWSSQS) XXX_DiscardUnknown() {
+	xxx_messageInfo_ReadCLIConfig_ReadBackend_AWSSQS.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ReadCLIConfig_ReadBackend_AWSSQS proto.InternalMessageInfo
+
+func (m *ReadCLIConfig_ReadBackend_AWSSQS) GetConn() *backends.AWSSQSConn {
+	if m != nil {
+		return m.Conn
+	}
+	return nil
+}
+
+func (m *ReadCLIConfig_ReadBackend_AWSSQS) GetArgs() *backends.AWSSQSReadArgs {
+	if m != nil {
+		return m.Args
+	}
+	return nil
+}
+
+// @gotags: cmd:""
+type ReadCLIConfig_ReadBackend_Mongo struct {
+	// @gotags: embed:""
+	Conn *backends.MongoConn `protobuf:"bytes,1,opt,name=conn,proto3" json:"conn,omitempty"`
+	// @gotags: embed:""
+	Args                 *backends.MongoReadArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                `json:"-"`
+	XXX_unrecognized     []byte                  `json:"-"`
+	XXX_sizecache        int32                   `json:"-"`
+}
+
+func (m *ReadCLIConfig_ReadBackend_Mongo) Reset()         { *m = ReadCLIConfig_ReadBackend_Mongo{} }
+func (m *ReadCLIConfig_ReadBackend_Mongo) String() string { return proto.CompactTextString(m) }
+func (*ReadCLIConfig_ReadBackend_Mongo) ProtoMessage()    {}
+func (*ReadCLIConfig_ReadBackend_Mongo) Descriptor() ([]byte, []int) {
+	return fileDescriptor_7b10ec61df6818dd, []int{1, 0, 3}
+}
+
+func (m *ReadCLIConfig_ReadBackend_Mongo) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ReadCLIConfig_ReadBackend_Mongo.Unmarshal(m, b)
+}
+func (m *ReadCLIConfig_ReadBackend_Mongo) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ReadCLIConfig_ReadBackend_Mongo.Marshal(b, m, deterministic)
+}
+func (m *ReadCLIConfig_ReadBackend_Mongo) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ReadCLIConfig_ReadBackend_Mongo.Merge(m, src)
+}
+func (m *ReadCLIConfig_ReadBackend_Mongo) XXX_Size() int {
+	return xxx_messageInfo_ReadCLIConfig_ReadBackend_Mongo.Size(m)
+}
+func (m *ReadCLIConfig_ReadBackend_Mongo) XXX_DiscardUnknown() {
+	xxx_messageInfo_ReadCLIConfig_ReadBackend_Mongo.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ReadCLIConfig_ReadBackend_Mongo proto.InternalMessageInfo
+
+func (m *ReadCLIConfig_ReadBackend_Mongo) GetConn() *backends.MongoConn {
+	if m != nil {
+		return m.Conn
+	}
+	return nil
+}
+
+func (m *ReadCLIConfig_ReadBackend_Mongo) GetArgs() *backends.MongoReadArgs {
+	if m != nil {
+		return m.Args
+	}
+	return nil
+}
+
+// @gotags: cmd:""
+type ReadCLIConfig_ReadBackend_Nats struct {
+	// @gotags: embed:""
+	Conn *backends.NatsConn `protobuf:"bytes,1,opt,name=conn,proto3" json:"conn,omitempty"`
+	// @gotags: embed:""
+	Args                 *backends.NatsReadArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}               `json:"-"`
+	XXX_unrecognized     []byte                 `json:"-"`
+	XXX_sizecache        int32                  `json:"-"`
+}
+
+func (m *ReadCLIConfig_ReadBackend_Nats) Reset()         { *m = ReadCLIConfig_ReadBackend_Nats{} }
+func (m *ReadCLIConfig_ReadBackend_Nats) String() string { return proto.CompactTextString(m) }
+func (*ReadCLIConfig_ReadBackend_Nats) ProtoMessage()    {}
+func (*ReadCLIConfig_ReadBackend_Nats) Descriptor() ([]byte, []int) {
+	return fileDescriptor_7b10ec61df6818dd, []int{1, 0, 4}
+}
+
+func (m *ReadCLIConfig_ReadBackend_Nats) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ReadCLIConfig_ReadBackend_Nats.Unmarshal(m, b)
+}
+func (m *ReadCLIConfig_ReadBackend_Nats) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ReadCLIConfig_ReadBackend_Nats.Marshal(b, m, deterministic)
+}
+func (m *ReadCLIConfig_ReadBackend_Nats) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ReadCLIConfig_ReadBackend_Nats.Merge(m, src)
+}
+func (m *ReadCLIConfig_ReadBackend_Nats) XXX_Size() int {
+	return xxx_messageInfo_ReadCLIConfig_ReadBackend_Nats.Size(m)
+}
+func (m *ReadCLIConfig_ReadBackend_Nats) XXX_DiscardUnknown() {
+	xxx_messageInfo_ReadCLIConfig_ReadBackend_Nats.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ReadCLIConfig_ReadBackend_Nats proto.InternalMessageInfo
+
+func (m *ReadCLIConfig_ReadBackend_Nats) GetConn() *backends.NatsConn {
+	if m != nil {
+		return m.Conn
+	}
+	return nil
+}
+
+func (m *ReadCLIConfig_ReadBackend_Nats) GetArgs() *backends.NatsReadArgs {
+	if m != nil {
+		return m.Args
+	}
+	return nil
+}
+
+// @gotags: cmd:""
+type ReadCLIConfig_ReadBackend_NatsStreaming struct {
+	// @gotags: embed:""
+	Conn *backends.NatsStreamingConn `protobuf:"bytes,1,opt,name=conn,proto3" json:"conn,omitempty"`
+	// @gotags: embed:""
+	Args                 *backends.NatsStreamingReadArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                        `json:"-"`
+	XXX_unrecognized     []byte                          `json:"-"`
+	XXX_sizecache        int32                           `json:"-"`
+}
+
+func (m *ReadCLIConfig_ReadBackend_NatsStreaming) Reset() {
+	*m = ReadCLIConfig_ReadBackend_NatsStreaming{}
+}
+func (m *ReadCLIConfig_ReadBackend_NatsStreaming) String() string { return proto.CompactTextString(m) }
+func (*ReadCLIConfig_ReadBackend_NatsStreaming) ProtoMessage()    {}
+func (*ReadCLIConfig_ReadBackend_NatsStreaming) Descriptor() ([]byte, []int) {
+	return fileDescriptor_7b10ec61df6818dd, []int{1, 0, 5}
+}
+
+func (m *ReadCLIConfig_ReadBackend_NatsStreaming) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ReadCLIConfig_ReadBackend_NatsStreaming.Unmarshal(m, b)
+}
+func (m *ReadCLIConfig_ReadBackend_NatsStreaming) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ReadCLIConfig_ReadBackend_NatsStreaming.Marshal(b, m, deterministic)
+}
+func (m *ReadCLIConfig_ReadBackend_NatsStreaming) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ReadCLIConfig_ReadBackend_NatsStreaming.Merge(m, src)
+}
+func (m *ReadCLIConfig_ReadBackend_NatsStreaming) XXX_Size() int {
+	return xxx_messageInfo_ReadCLIConfig_ReadBackend_NatsStreaming.Size(m)
+}
+func (m *ReadCLIConfig_ReadBackend_NatsStreaming) XXX_DiscardUnknown() {
+	xxx_messageInfo_ReadCLIConfig_ReadBackend_NatsStreaming.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ReadCLIConfig_ReadBackend_NatsStreaming proto.InternalMessageInfo
+
+func (m *ReadCLIConfig_ReadBackend_NatsStreaming) GetConn() *backends.NatsStreamingConn {
+	if m != nil {
+		return m.Conn
+	}
+	return nil
+}
+
+func (m *ReadCLIConfig_ReadBackend_NatsStreaming) GetArgs() *backends.NatsStreamingReadArgs {
+	if m != nil {
+		return m.Args
+	}
+	return nil
+}
+
+// @gotags: cmd:""
+type ReadCLIConfig_ReadBackend_NSQ struct {
+	// @gotags: embed:""
+	Conn *backends.NSQConn `protobuf:"bytes,1,opt,name=conn,proto3" json:"conn,omitempty"`
+	// @gotags: embed:""
+	Args                 *backends.NSQReadArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}              `json:"-"`
+	XXX_unrecognized     []byte                `json:"-"`
+	XXX_sizecache        int32                 `json:"-"`
+}
+
+func (m *ReadCLIConfig_ReadBackend_NSQ) Reset()         { *m = ReadCLIConfig_ReadBackend_NSQ{} }
+func (m *ReadCLIConfig_ReadBackend_NSQ) String() string { return proto.CompactTextString(m) }
+func (*ReadCLIConfig_ReadBackend_NSQ) ProtoMessage()    {}
+func (*ReadCLIConfig_ReadBackend_NSQ) Descriptor() ([]byte, []int) {
+	return fileDescriptor_7b10ec61df6818dd, []int{1, 0, 6}
+}
+
+func (m *ReadCLIConfig_ReadBackend_NSQ) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ReadCLIConfig_ReadBackend_NSQ.Unmarshal(m, b)
+}
+func (m *ReadCLIConfig_ReadBackend_NSQ) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ReadCLIConfig_ReadBackend_NSQ.Marshal(b, m, deterministic)
+}
+func (m *ReadCLIConfig_ReadBackend_NSQ) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ReadCLIConfig_ReadBackend_NSQ.Merge(m, src)
+}
+func (m *ReadCLIConfig_ReadBackend_NSQ) XXX_Size() int {
+	return xxx_messageInfo_ReadCLIConfig_ReadBackend_NSQ.Size(m)
+}
+func (m *ReadCLIConfig_ReadBackend_NSQ) XXX_DiscardUnknown() {
+	xxx_messageInfo_ReadCLIConfig_ReadBackend_NSQ.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ReadCLIConfig_ReadBackend_NSQ proto.InternalMessageInfo
+
+func (m *ReadCLIConfig_ReadBackend_NSQ) GetConn() *backends.NSQConn {
+	if m != nil {
+		return m.Conn
+	}
+	return nil
+}
+
+func (m *ReadCLIConfig_ReadBackend_NSQ) GetArgs() *backends.NSQReadArgs {
+	if m != nil {
+		return m.Args
+	}
+	return nil
+}
+
+// @gotags: cmd:""
+type ReadCLIConfig_ReadBackend_Postgres struct {
+	// @gotags: embed:""
+	Conn *backends.PostgresConn `protobuf:"bytes,1,opt,name=conn,proto3" json:"conn,omitempty"`
+	// @gotags: embed:""
+	Args                 *backends.PostgresReadArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                   `json:"-"`
+	XXX_unrecognized     []byte                     `json:"-"`
+	XXX_sizecache        int32                      `json:"-"`
+}
+
+func (m *ReadCLIConfig_ReadBackend_Postgres) Reset()         { *m = ReadCLIConfig_ReadBackend_Postgres{} }
+func (m *ReadCLIConfig_ReadBackend_Postgres) String() string { return proto.CompactTextString(m) }
+func (*ReadCLIConfig_ReadBackend_Postgres) ProtoMessage()    {}
+func (*ReadCLIConfig_ReadBackend_Postgres) Descriptor() ([]byte, []int) {
+	return fileDescriptor_7b10ec61df6818dd, []int{1, 0, 7}
+}
+
+func (m *ReadCLIConfig_ReadBackend_Postgres) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ReadCLIConfig_ReadBackend_Postgres.Unmarshal(m, b)
+}
+func (m *ReadCLIConfig_ReadBackend_Postgres) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ReadCLIConfig_ReadBackend_Postgres.Marshal(b, m, deterministic)
+}
+func (m *ReadCLIConfig_ReadBackend_Postgres) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ReadCLIConfig_ReadBackend_Postgres.Merge(m, src)
+}
+func (m *ReadCLIConfig_ReadBackend_Postgres) XXX_Size() int {
+	return xxx_messageInfo_ReadCLIConfig_ReadBackend_Postgres.Size(m)
+}
+func (m *ReadCLIConfig_ReadBackend_Postgres) XXX_DiscardUnknown() {
+	xxx_messageInfo_ReadCLIConfig_ReadBackend_Postgres.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ReadCLIConfig_ReadBackend_Postgres proto.InternalMessageInfo
+
+func (m *ReadCLIConfig_ReadBackend_Postgres) GetConn() *backends.PostgresConn {
+	if m != nil {
+		return m.Conn
+	}
+	return nil
+}
+
+func (m *ReadCLIConfig_ReadBackend_Postgres) GetArgs() *backends.PostgresReadArgs {
+	if m != nil {
+		return m.Args
+	}
+	return nil
+}
+
+// @gotags: cmd:""
+type ReadCLIConfig_ReadBackend_Pulsar struct {
+	// @gotags: embed:""
+	Conn *backends.PulsarConn `protobuf:"bytes,1,opt,name=conn,proto3" json:"conn,omitempty"`
+	// @gotags: embed:""
+	Args                 *backends.PulsarReadArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                 `json:"-"`
+	XXX_unrecognized     []byte                   `json:"-"`
+	XXX_sizecache        int32                    `json:"-"`
+}
+
+func (m *ReadCLIConfig_ReadBackend_Pulsar) Reset()         { *m = ReadCLIConfig_ReadBackend_Pulsar{} }
+func (m *ReadCLIConfig_ReadBackend_Pulsar) String() string { return proto.CompactTextString(m) }
+func (*ReadCLIConfig_ReadBackend_Pulsar) ProtoMessage()    {}
+func (*ReadCLIConfig_ReadBackend_Pulsar) Descriptor() ([]byte, []int) {
+	return fileDescriptor_7b10ec61df6818dd, []int{1, 0, 8}
+}
+
+func (m *ReadCLIConfig_ReadBackend_Pulsar) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ReadCLIConfig_ReadBackend_Pulsar.Unmarshal(m, b)
+}
+func (m *ReadCLIConfig_ReadBackend_Pulsar) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ReadCLIConfig_ReadBackend_Pulsar.Marshal(b, m, deterministic)
+}
+func (m *ReadCLIConfig_ReadBackend_Pulsar) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ReadCLIConfig_ReadBackend_Pulsar.Merge(m, src)
+}
+func (m *ReadCLIConfig_ReadBackend_Pulsar) XXX_Size() int {
+	return xxx_messageInfo_ReadCLIConfig_ReadBackend_Pulsar.Size(m)
+}
+func (m *ReadCLIConfig_ReadBackend_Pulsar) XXX_DiscardUnknown() {
+	xxx_messageInfo_ReadCLIConfig_ReadBackend_Pulsar.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ReadCLIConfig_ReadBackend_Pulsar proto.InternalMessageInfo
+
+func (m *ReadCLIConfig_ReadBackend_Pulsar) GetConn() *backends.PulsarConn {
+	if m != nil {
+		return m.Conn
+	}
+	return nil
+}
+
+func (m *ReadCLIConfig_ReadBackend_Pulsar) GetArgs() *backends.PulsarReadArgs {
+	if m != nil {
+		return m.Args
+	}
+	return nil
+}
+
+// @gotags: cmd:""
+type ReadCLIConfig_ReadBackend_Rabbit struct {
+	// @gotags: embed:""
+	Conn *backends.RabbitConn `protobuf:"bytes,1,opt,name=conn,proto3" json:"conn,omitempty"`
+	// @gotags: embed:""
+	Args                 *backends.RabbitReadArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                 `json:"-"`
+	XXX_unrecognized     []byte                   `json:"-"`
+	XXX_sizecache        int32                    `json:"-"`
+}
+
+func (m *ReadCLIConfig_ReadBackend_Rabbit) Reset()         { *m = ReadCLIConfig_ReadBackend_Rabbit{} }
+func (m *ReadCLIConfig_ReadBackend_Rabbit) String() string { return proto.CompactTextString(m) }
+func (*ReadCLIConfig_ReadBackend_Rabbit) ProtoMessage()    {}
+func (*ReadCLIConfig_ReadBackend_Rabbit) Descriptor() ([]byte, []int) {
+	return fileDescriptor_7b10ec61df6818dd, []int{1, 0, 9}
+}
+
+func (m *ReadCLIConfig_ReadBackend_Rabbit) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ReadCLIConfig_ReadBackend_Rabbit.Unmarshal(m, b)
+}
+func (m *ReadCLIConfig_ReadBackend_Rabbit) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ReadCLIConfig_ReadBackend_Rabbit.Marshal(b, m, deterministic)
+}
+func (m *ReadCLIConfig_ReadBackend_Rabbit) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ReadCLIConfig_ReadBackend_Rabbit.Merge(m, src)
+}
+func (m *ReadCLIConfig_ReadBackend_Rabbit) XXX_Size() int {
+	return xxx_messageInfo_ReadCLIConfig_ReadBackend_Rabbit.Size(m)
+}
+func (m *ReadCLIConfig_ReadBackend_Rabbit) XXX_DiscardUnknown() {
+	xxx_messageInfo_ReadCLIConfig_ReadBackend_Rabbit.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ReadCLIConfig_ReadBackend_Rabbit proto.InternalMessageInfo
+
+func (m *ReadCLIConfig_ReadBackend_Rabbit) GetConn() *backends.RabbitConn {
+	if m != nil {
+		return m.Conn
+	}
+	return nil
+}
+
+func (m *ReadCLIConfig_ReadBackend_Rabbit) GetArgs() *backends.RabbitReadArgs {
+	if m != nil {
+		return m.Args
+	}
+	return nil
+}
+
+// @gotags: cmd:""
+type ReadCLIConfig_ReadBackend_RabbitStreams struct {
+	// @gotags: embed:""
+	Conn *backends.RabbitStreamsConn `protobuf:"bytes,1,opt,name=conn,proto3" json:"conn,omitempty"`
+	// @gotags: embed:""
+	Args                 *backends.RabbitStreamsReadArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                        `json:"-"`
+	XXX_unrecognized     []byte                          `json:"-"`
+	XXX_sizecache        int32                           `json:"-"`
+}
+
+func (m *ReadCLIConfig_ReadBackend_RabbitStreams) Reset() {
+	*m = ReadCLIConfig_ReadBackend_RabbitStreams{}
+}
+func (m *ReadCLIConfig_ReadBackend_RabbitStreams) String() string { return proto.CompactTextString(m) }
+func (*ReadCLIConfig_ReadBackend_RabbitStreams) ProtoMessage()    {}
+func (*ReadCLIConfig_ReadBackend_RabbitStreams) Descriptor() ([]byte, []int) {
+	return fileDescriptor_7b10ec61df6818dd, []int{1, 0, 10}
+}
+
+func (m *ReadCLIConfig_ReadBackend_RabbitStreams) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ReadCLIConfig_ReadBackend_RabbitStreams.Unmarshal(m, b)
+}
+func (m *ReadCLIConfig_ReadBackend_RabbitStreams) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ReadCLIConfig_ReadBackend_RabbitStreams.Marshal(b, m, deterministic)
+}
+func (m *ReadCLIConfig_ReadBackend_RabbitStreams) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ReadCLIConfig_ReadBackend_RabbitStreams.Merge(m, src)
+}
+func (m *ReadCLIConfig_ReadBackend_RabbitStreams) XXX_Size() int {
+	return xxx_messageInfo_ReadCLIConfig_ReadBackend_RabbitStreams.Size(m)
+}
+func (m *ReadCLIConfig_ReadBackend_RabbitStreams) XXX_DiscardUnknown() {
+	xxx_messageInfo_ReadCLIConfig_ReadBackend_RabbitStreams.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ReadCLIConfig_ReadBackend_RabbitStreams proto.InternalMessageInfo
+
+func (m *ReadCLIConfig_ReadBackend_RabbitStreams) GetConn() *backends.RabbitStreamsConn {
+	if m != nil {
+		return m.Conn
+	}
+	return nil
+}
+
+func (m *ReadCLIConfig_ReadBackend_RabbitStreams) GetArgs() *backends.RabbitStreamsReadArgs {
+	if m != nil {
+		return m.Args
+	}
+	return nil
+}
+
+// @gotags: cmd:""
+type ReadCLIConfig_ReadBackend_RedisPubSub struct {
+	// @gotags: embed:""
+	Conn *backends.RedisPubSubConn `protobuf:"bytes,1,opt,name=conn,proto3" json:"conn,omitempty"`
+	// @gotags: embed:""
+	Args                 *backends.RedisPubSubReadArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                      `json:"-"`
+	XXX_unrecognized     []byte                        `json:"-"`
+	XXX_sizecache        int32                         `json:"-"`
+}
+
+func (m *ReadCLIConfig_ReadBackend_RedisPubSub) Reset()         { *m = ReadCLIConfig_ReadBackend_RedisPubSub{} }
+func (m *ReadCLIConfig_ReadBackend_RedisPubSub) String() string { return proto.CompactTextString(m) }
+func (*ReadCLIConfig_ReadBackend_RedisPubSub) ProtoMessage()    {}
+func (*ReadCLIConfig_ReadBackend_RedisPubSub) Descriptor() ([]byte, []int) {
+	return fileDescriptor_7b10ec61df6818dd, []int{1, 0, 11}
+}
+
+func (m *ReadCLIConfig_ReadBackend_RedisPubSub) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ReadCLIConfig_ReadBackend_RedisPubSub.Unmarshal(m, b)
+}
+func (m *ReadCLIConfig_ReadBackend_RedisPubSub) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ReadCLIConfig_ReadBackend_RedisPubSub.Marshal(b, m, deterministic)
+}
+func (m *ReadCLIConfig_ReadBackend_RedisPubSub) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ReadCLIConfig_ReadBackend_RedisPubSub.Merge(m, src)
+}
+func (m *ReadCLIConfig_ReadBackend_RedisPubSub) XXX_Size() int {
+	return xxx_messageInfo_ReadCLIConfig_ReadBackend_RedisPubSub.Size(m)
+}
+func (m *ReadCLIConfig_ReadBackend_RedisPubSub) XXX_DiscardUnknown() {
+	xxx_messageInfo_ReadCLIConfig_ReadBackend_RedisPubSub.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ReadCLIConfig_ReadBackend_RedisPubSub proto.InternalMessageInfo
+
+func (m *ReadCLIConfig_ReadBackend_RedisPubSub) GetConn() *backends.RedisPubSubConn {
+	if m != nil {
+		return m.Conn
+	}
+	return nil
+}
+
+func (m *ReadCLIConfig_ReadBackend_RedisPubSub) GetArgs() *backends.RedisPubSubReadArgs {
+	if m != nil {
+		return m.Args
+	}
+	return nil
+}
+
+// @gotags: cmd:""
+type ReadCLIConfig_ReadBackend_RedisStreams struct {
+	// @gotags: embed:""
+	Conn *backends.RedisStreamsConn `protobuf:"bytes,1,opt,name=conn,proto3" json:"conn,omitempty"`
+	// @gotags: embed:""
+	Args                 *backends.RedisStreamsReadArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                       `json:"-"`
+	XXX_unrecognized     []byte                         `json:"-"`
+	XXX_sizecache        int32                          `json:"-"`
+}
+
+func (m *ReadCLIConfig_ReadBackend_RedisStreams) Reset() {
+	*m = ReadCLIConfig_ReadBackend_RedisStreams{}
+}
+func (m *ReadCLIConfig_ReadBackend_RedisStreams) String() string { return proto.CompactTextString(m) }
+func (*ReadCLIConfig_ReadBackend_RedisStreams) ProtoMessage()    {}
+func (*ReadCLIConfig_ReadBackend_RedisStreams) Descriptor() ([]byte, []int) {
+	return fileDescriptor_7b10ec61df6818dd, []int{1, 0, 12}
+}
+
+func (m *ReadCLIConfig_ReadBackend_RedisStreams) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ReadCLIConfig_ReadBackend_RedisStreams.Unmarshal(m, b)
+}
+func (m *ReadCLIConfig_ReadBackend_RedisStreams) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ReadCLIConfig_ReadBackend_RedisStreams.Marshal(b, m, deterministic)
+}
+func (m *ReadCLIConfig_ReadBackend_RedisStreams) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ReadCLIConfig_ReadBackend_RedisStreams.Merge(m, src)
+}
+func (m *ReadCLIConfig_ReadBackend_RedisStreams) XXX_Size() int {
+	return xxx_messageInfo_ReadCLIConfig_ReadBackend_RedisStreams.Size(m)
+}
+func (m *ReadCLIConfig_ReadBackend_RedisStreams) XXX_DiscardUnknown() {
+	xxx_messageInfo_ReadCLIConfig_ReadBackend_RedisStreams.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ReadCLIConfig_ReadBackend_RedisStreams proto.InternalMessageInfo
+
+func (m *ReadCLIConfig_ReadBackend_RedisStreams) GetConn() *backends.RedisStreamsConn {
+	if m != nil {
+		return m.Conn
+	}
+	return nil
+}
+
+func (m *ReadCLIConfig_ReadBackend_RedisStreams) GetArgs() *backends.RedisStreamsReadArgs {
+	if m != nil {
+		return m.Args
+	}
+	return nil
+}
+
+// @gotags: cmd:""
+type ReadCLIConfig_ReadBackend_AzureEventHub struct {
+	// @gotags: embed:""
+	Conn *backends.AzureEventHubConn `protobuf:"bytes,1,opt,name=conn,proto3" json:"conn,omitempty"`
+	// @gotags: embed:""
+	Args                 *backends.AzureEventHubReadArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                        `json:"-"`
+	XXX_unrecognized     []byte                          `json:"-"`
+	XXX_sizecache        int32                           `json:"-"`
+}
+
+func (m *ReadCLIConfig_ReadBackend_AzureEventHub) Reset() {
+	*m = ReadCLIConfig_ReadBackend_AzureEventHub{}
+}
+func (m *ReadCLIConfig_ReadBackend_AzureEventHub) String() string { return proto.CompactTextString(m) }
+func (*ReadCLIConfig_ReadBackend_AzureEventHub) ProtoMessage()    {}
+func (*ReadCLIConfig_ReadBackend_AzureEventHub) Descriptor() ([]byte, []int) {
+	return fileDescriptor_7b10ec61df6818dd, []int{1, 0, 13}
+}
+
+func (m *ReadCLIConfig_ReadBackend_AzureEventHub) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ReadCLIConfig_ReadBackend_AzureEventHub.Unmarshal(m, b)
+}
+func (m *ReadCLIConfig_ReadBackend_AzureEventHub) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ReadCLIConfig_ReadBackend_AzureEventHub.Marshal(b, m, deterministic)
+}
+func (m *ReadCLIConfig_ReadBackend_AzureEventHub) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ReadCLIConfig_ReadBackend_AzureEventHub.Merge(m, src)
+}
+func (m *ReadCLIConfig_ReadBackend_AzureEventHub) XXX_Size() int {
+	return xxx_messageInfo_ReadCLIConfig_ReadBackend_AzureEventHub.Size(m)
+}
+func (m *ReadCLIConfig_ReadBackend_AzureEventHub) XXX_DiscardUnknown() {
+	xxx_messageInfo_ReadCLIConfig_ReadBackend_AzureEventHub.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ReadCLIConfig_ReadBackend_AzureEventHub proto.InternalMessageInfo
+
+func (m *ReadCLIConfig_ReadBackend_AzureEventHub) GetConn() *backends.AzureEventHubConn {
+	if m != nil {
+		return m.Conn
+	}
+	return nil
+}
+
+func (m *ReadCLIConfig_ReadBackend_AzureEventHub) GetArgs() *backends.AzureEventHubReadArgs {
+	if m != nil {
+		return m.Args
+	}
+	return nil
+}
+
+// @gotags: cmd:""
+type ReadCLIConfig_ReadBackend_AzureServiceBus struct {
+	// @gotags: embed:""
+	Conn *backends.AzureServiceBusConn `protobuf:"bytes,1,opt,name=conn,proto3" json:"conn,omitempty"`
+	// @gotags: embed:""
+	Args                 *backends.AzureServiceBusReadArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                          `json:"-"`
+	XXX_unrecognized     []byte                            `json:"-"`
+	XXX_sizecache        int32                             `json:"-"`
+}
+
+func (m *ReadCLIConfig_ReadBackend_AzureServiceBus) Reset() {
+	*m = ReadCLIConfig_ReadBackend_AzureServiceBus{}
+}
+func (m *ReadCLIConfig_ReadBackend_AzureServiceBus) String() string { return proto.CompactTextString(m) }
+func (*ReadCLIConfig_ReadBackend_AzureServiceBus) ProtoMessage()    {}
+func (*ReadCLIConfig_ReadBackend_AzureServiceBus) Descriptor() ([]byte, []int) {
+	return fileDescriptor_7b10ec61df6818dd, []int{1, 0, 14}
+}
+
+func (m *ReadCLIConfig_ReadBackend_AzureServiceBus) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ReadCLIConfig_ReadBackend_AzureServiceBus.Unmarshal(m, b)
+}
+func (m *ReadCLIConfig_ReadBackend_AzureServiceBus) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ReadCLIConfig_ReadBackend_AzureServiceBus.Marshal(b, m, deterministic)
+}
+func (m *ReadCLIConfig_ReadBackend_AzureServiceBus) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ReadCLIConfig_ReadBackend_AzureServiceBus.Merge(m, src)
+}
+func (m *ReadCLIConfig_ReadBackend_AzureServiceBus) XXX_Size() int {
+	return xxx_messageInfo_ReadCLIConfig_ReadBackend_AzureServiceBus.Size(m)
+}
+func (m *ReadCLIConfig_ReadBackend_AzureServiceBus) XXX_DiscardUnknown() {
+	xxx_messageInfo_ReadCLIConfig_ReadBackend_AzureServiceBus.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ReadCLIConfig_ReadBackend_AzureServiceBus proto.InternalMessageInfo
+
+func (m *ReadCLIConfig_ReadBackend_AzureServiceBus) GetConn() *backends.AzureServiceBusConn {
+	if m != nil {
+		return m.Conn
+	}
+	return nil
+}
+
+func (m *ReadCLIConfig_ReadBackend_AzureServiceBus) GetArgs() *backends.AzureServiceBusReadArgs {
+	if m != nil {
+		return m.Args
+	}
+	return nil
+}
+
+type ReadCLIConfig_ReadBackend_MQTT struct {
+	// @gotags: embed:""
+	Conn *backends.MQTTConn `protobuf:"bytes,1,opt,name=conn,proto3" json:"conn,omitempty"`
+	// @gotags: embed:""
+	Args                 *backends.MQTTReadArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}               `json:"-"`
+	XXX_unrecognized     []byte                 `json:"-"`
+	XXX_sizecache        int32                  `json:"-"`
+}
+
+func (m *ReadCLIConfig_ReadBackend_MQTT) Reset()         { *m = ReadCLIConfig_ReadBackend_MQTT{} }
+func (m *ReadCLIConfig_ReadBackend_MQTT) String() string { return proto.CompactTextString(m) }
+func (*ReadCLIConfig_ReadBackend_MQTT) ProtoMessage()    {}
+func (*ReadCLIConfig_ReadBackend_MQTT) Descriptor() ([]byte, []int) {
+	return fileDescriptor_7b10ec61df6818dd, []int{1, 0, 15}
+}
+
+func (m *ReadCLIConfig_ReadBackend_MQTT) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ReadCLIConfig_ReadBackend_MQTT.Unmarshal(m, b)
+}
+func (m *ReadCLIConfig_ReadBackend_MQTT) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ReadCLIConfig_ReadBackend_MQTT.Marshal(b, m, deterministic)
+}
+func (m *ReadCLIConfig_ReadBackend_MQTT) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ReadCLIConfig_ReadBackend_MQTT.Merge(m, src)
+}
+func (m *ReadCLIConfig_ReadBackend_MQTT) XXX_Size() int {
+	return xxx_messageInfo_ReadCLIConfig_ReadBackend_MQTT.Size(m)
+}
+func (m *ReadCLIConfig_ReadBackend_MQTT) XXX_DiscardUnknown() {
+	xxx_messageInfo_ReadCLIConfig_ReadBackend_MQTT.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ReadCLIConfig_ReadBackend_MQTT proto.InternalMessageInfo
+
+func (m *ReadCLIConfig_ReadBackend_MQTT) GetConn() *backends.MQTTConn {
+	if m != nil {
+		return m.Conn
+	}
+	return nil
+}
+
+func (m *ReadCLIConfig_ReadBackend_MQTT) GetArgs() *backends.MQTTReadArgs {
+	if m != nil {
+		return m.Args
+	}
+	return nil
+}
+
+type ReadCLIConfig_ReadBackend_GCPPubSub struct {
+	// @gotags: embed:""
+	Conn *backends.GCPPubSubConn `protobuf:"bytes,1,opt,name=conn,proto3" json:"conn,omitempty"`
+	// @gotags: embed:""
+	Args                 *backends.GCPPubSubReadArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                    `json:"-"`
+	XXX_unrecognized     []byte                      `json:"-"`
+	XXX_sizecache        int32                       `json:"-"`
+}
+
+func (m *ReadCLIConfig_ReadBackend_GCPPubSub) Reset()         { *m = ReadCLIConfig_ReadBackend_GCPPubSub{} }
+func (m *ReadCLIConfig_ReadBackend_GCPPubSub) String() string { return proto.CompactTextString(m) }
+func (*ReadCLIConfig_ReadBackend_GCPPubSub) ProtoMessage()    {}
+func (*ReadCLIConfig_ReadBackend_GCPPubSub) Descriptor() ([]byte, []int) {
+	return fileDescriptor_7b10ec61df6818dd, []int{1, 0, 16}
+}
+
+func (m *ReadCLIConfig_ReadBackend_GCPPubSub) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ReadCLIConfig_ReadBackend_GCPPubSub.Unmarshal(m, b)
+}
+func (m *ReadCLIConfig_ReadBackend_GCPPubSub) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ReadCLIConfig_ReadBackend_GCPPubSub.Marshal(b, m, deterministic)
+}
+func (m *ReadCLIConfig_ReadBackend_GCPPubSub) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ReadCLIConfig_ReadBackend_GCPPubSub.Merge(m, src)
+}
+func (m *ReadCLIConfig_ReadBackend_GCPPubSub) XXX_Size() int {
+	return xxx_messageInfo_ReadCLIConfig_ReadBackend_GCPPubSub.Size(m)
+}
+func (m *ReadCLIConfig_ReadBackend_GCPPubSub) XXX_DiscardUnknown() {
+	xxx_messageInfo_ReadCLIConfig_ReadBackend_GCPPubSub.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ReadCLIConfig_ReadBackend_GCPPubSub proto.InternalMessageInfo
+
+func (m *ReadCLIConfig_ReadBackend_GCPPubSub) GetConn() *backends.GCPPubSubConn {
+	if m != nil {
+		return m.Conn
+	}
+	return nil
+}
+
+func (m *ReadCLIConfig_ReadBackend_GCPPubSub) GetArgs() *backends.GCPPubSubReadArgs {
+	if m != nil {
+		return m.Args
+	}
+	return nil
+}
+
+type ReadCLIConfig_ReadBackend_KubeMQQueue struct {
+	// @gotags: embed:""
+	Conn *backends.KubeMQQueueConn `protobuf:"bytes,1,opt,name=conn,proto3" json:"conn,omitempty"`
+	// @gotags: embed:""
+	Args                 *backends.KubeMQQueueReadArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                      `json:"-"`
+	XXX_unrecognized     []byte                        `json:"-"`
+	XXX_sizecache        int32                         `json:"-"`
+}
+
+func (m *ReadCLIConfig_ReadBackend_KubeMQQueue) Reset()         { *m = ReadCLIConfig_ReadBackend_KubeMQQueue{} }
+func (m *ReadCLIConfig_ReadBackend_KubeMQQueue) String() string { return proto.CompactTextString(m) }
+func (*ReadCLIConfig_ReadBackend_KubeMQQueue) ProtoMessage()    {}
+func (*ReadCLIConfig_ReadBackend_KubeMQQueue) Descriptor() ([]byte, []int) {
+	return fileDescriptor_7b10ec61df6818dd, []int{1, 0, 17}
+}
+
+func (m *ReadCLIConfig_ReadBackend_KubeMQQueue) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ReadCLIConfig_ReadBackend_KubeMQQueue.Unmarshal(m, b)
+}
+func (m *ReadCLIConfig_ReadBackend_KubeMQQueue) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ReadCLIConfig_ReadBackend_KubeMQQueue.Marshal(b, m, deterministic)
+}
+func (m *ReadCLIConfig_ReadBackend_KubeMQQueue) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ReadCLIConfig_ReadBackend_KubeMQQueue.Merge(m, src)
+}
+func (m *ReadCLIConfig_ReadBackend_KubeMQQueue) XXX_Size() int {
+	return xxx_messageInfo_ReadCLIConfig_ReadBackend_KubeMQQueue.Size(m)
+}
+func (m *ReadCLIConfig_ReadBackend_KubeMQQueue) XXX_DiscardUnknown() {
+	xxx_messageInfo_ReadCLIConfig_ReadBackend_KubeMQQueue.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ReadCLIConfig_ReadBackend_KubeMQQueue proto.InternalMessageInfo
+
+func (m *ReadCLIConfig_ReadBackend_KubeMQQueue) GetConn() *backends.KubeMQQueueConn {
+	if m != nil {
+		return m.Conn
+	}
+	return nil
+}
+
+func (m *ReadCLIConfig_ReadBackend_KubeMQQueue) GetArgs() *backends.KubeMQQueueReadArgs {
+	if m != nil {
+		return m.Args
+	}
+	return nil
+}
+
 type ReadConfig struct {
-	// Automatically set by plumber when a new read is created
-	XId string `protobuf:"bytes,1,opt,name=_id,json=Id,proto3" json:"_id,omitempty"`
-	// Used by plumber to set read state
-	XActive bool `protobuf:"varint,2,opt,name=_active,json=Active,proto3" json:"_active,omitempty"`
 	// Required; friendly name for the read
-	Name string `protobuf:"bytes,3,opt,name=name,proto3" json:"name,omitempty"`
+	// @gotags: kong:"-"
+	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty" kong:"-"`
 	// Required for server mode; ignored in CLI mode.
-	ConnectionId string `protobuf:"bytes,4,opt,name=connection_id,json=connectionId,proto3" json:"connection_id,omitempty"`
-	// Required; options specifying how to read data
-	ReadOptions *ReadOptions `protobuf:"bytes,5,opt,name=read_options,json=readOptions,proto3" json:"read_options,omitempty"`
-	// Optional; options specify how to decode the _value_ in a message.
+	// @gotags: kong:"-"
+	ConnectionId string `protobuf:"bytes,2,opt,name=connection_id,json=connectionId,proto3" json:"connection_id,omitempty" kong:"-"`
+	// Required; specify if a read is continuous or not (default: false)
+	// @gotags: short:"X" default: "false"
+	Continuous bool `protobuf:"varint,3,opt,name=continuous,proto3" json:"continuous,omitempty" short:"X"`
+	// Optional; specify if reading should utilize sampling
+	// @gotags: embed:""
+	SampleOptions *ReadSampleOptions `protobuf:"bytes,4,opt,name=sample_options,json=sampleOptions,proto3" json:"sample_options,omitempty"`
+	// Optional; decode_options specify how to decode the _value_ in a message.
 	// If left unset, plumber will still populate records.ReadRecord.Decoded
 	// with the (untouched) value.
-	DecodeOptions *encoding.Options `protobuf:"bytes,6,opt,name=decode_options,json=decodeOptions,proto3" json:"decode_options,omitempty"`
-	// Optional; contains options specific to the CLI
-	XCliConfig *ReadCLIConfig `protobuf:"bytes,7,opt,name=_cli_config,json=CliConfig,proto3" json:"_cli_config,omitempty"`
-	// Types that are valid to be assigned to Backends:
-	//	*ReadConfig_Kafka
-	//	*ReadConfig_ActiveMq
-	//	*ReadConfig_Awssqs
-	//	*ReadConfig_Awssns
-	//	*ReadConfig_Mongo
-	//	*ReadConfig_Nats
-	//	*ReadConfig_NatsStreaming
-	//	*ReadConfig_Nsq
-	//	*ReadConfig_Postgres
-	//	*ReadConfig_Pulsar
-	//	*ReadConfig_Rabbit
-	//	*ReadConfig_RabbitStreams
-	//	*ReadConfig_RedisPubsub
-	//	*ReadConfig_RedisStreams
-	//	*ReadConfig_AzureEventHub
-	//	*ReadConfig_AzureServiceBus
-	Backends             isReadConfig_Backends `protobuf_oneof:"Backends"`
-	XXX_NoUnkeyedLiteral struct{}              `json:"-" kong:"-"`
-	XXX_unrecognized     []byte                `json:"-" kong:"-"`
-	XXX_sizecache        int32                 `json:"-" kong:"-"`
+	// @gotags: embed:""
+	DecodeOptions *encoding.DecodeOptions `protobuf:"bytes,5,opt,name=decode_options,json=decodeOptions,proto3" json:"decode_options,omitempty"`
+	// Automatically set by plumber when a new read is created
+	// @gotags: kong:"-"
+	XId string `protobuf:"bytes,1000,opt,name=_id,json=Id,proto3" json:"_id,omitempty" kong:"-"`
+	// Used by plumber to set read state
+	// @gotags: kong:"-"
+	XActive bool `protobuf:"varint,1001,opt,name=_active,json=Active,proto3" json:"_active,omitempty" kong:"-"`
+	// Contains options/fields specific to the CLI
+	// @gotags: embed:""
+	XCliConfig           *ReadCLIConfig `protobuf:"bytes,1002,opt,name=_cli_config,json=CliConfig,proto3" json:"_cli_config,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}       `json:"-"`
+	XXX_unrecognized     []byte         `json:"-"`
+	XXX_sizecache        int32          `json:"-"`
 }
 
 func (m *ReadConfig) Reset()         { *m = ReadConfig{} }
 func (m *ReadConfig) String() string { return proto.CompactTextString(m) }
 func (*ReadConfig) ProtoMessage()    {}
 func (*ReadConfig) Descriptor() ([]byte, []int) {
-	return fileDescriptor_7b10ec61df6818dd, []int{3}
+	return fileDescriptor_7b10ec61df6818dd, []int{2}
 }
 
 func (m *ReadConfig) XXX_Unmarshal(b []byte) error {
@@ -296,20 +1381,6 @@ func (m *ReadConfig) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_ReadConfig proto.InternalMessageInfo
 
-func (m *ReadConfig) GetXId() string {
-	if m != nil {
-		return m.XId
-	}
-	return ""
-}
-
-func (m *ReadConfig) GetXActive() bool {
-	if m != nil {
-		return m.XActive
-	}
-	return false
-}
-
 func (m *ReadConfig) GetName() string {
 	if m != nil {
 		return m.Name
@@ -324,18 +1395,39 @@ func (m *ReadConfig) GetConnectionId() string {
 	return ""
 }
 
-func (m *ReadConfig) GetReadOptions() *ReadOptions {
+func (m *ReadConfig) GetContinuous() bool {
 	if m != nil {
-		return m.ReadOptions
+		return m.Continuous
+	}
+	return false
+}
+
+func (m *ReadConfig) GetSampleOptions() *ReadSampleOptions {
+	if m != nil {
+		return m.SampleOptions
 	}
 	return nil
 }
 
-func (m *ReadConfig) GetDecodeOptions() *encoding.Options {
+func (m *ReadConfig) GetDecodeOptions() *encoding.DecodeOptions {
 	if m != nil {
 		return m.DecodeOptions
 	}
 	return nil
+}
+
+func (m *ReadConfig) GetXId() string {
+	if m != nil {
+		return m.XId
+	}
+	return ""
+}
+
+func (m *ReadConfig) GetXActive() bool {
+	if m != nil {
+		return m.XActive
+	}
+	return false
 }
 
 func (m *ReadConfig) GetXCliConfig() *ReadCLIConfig {
@@ -343,247 +1435,6 @@ func (m *ReadConfig) GetXCliConfig() *ReadCLIConfig {
 		return m.XCliConfig
 	}
 	return nil
-}
-
-type isReadConfig_Backends interface {
-	isReadConfig_Backends()
-}
-
-type ReadConfig_Kafka struct {
-	Kafka *backends.Kafka `protobuf:"bytes,100,opt,name=kafka,proto3,oneof"`
-}
-
-type ReadConfig_ActiveMq struct {
-	ActiveMq *backends.ActiveMQ `protobuf:"bytes,101,opt,name=active_mq,json=activeMq,proto3,oneof"`
-}
-
-type ReadConfig_Awssqs struct {
-	Awssqs *backends.AWSSQS `protobuf:"bytes,102,opt,name=awssqs,proto3,oneof"`
-}
-
-type ReadConfig_Awssns struct {
-	Awssns *backends.AWSSNS `protobuf:"bytes,103,opt,name=awssns,proto3,oneof"`
-}
-
-type ReadConfig_Mongo struct {
-	Mongo *backends.Mongo `protobuf:"bytes,104,opt,name=mongo,proto3,oneof"`
-}
-
-type ReadConfig_Nats struct {
-	Nats *backends.Nats `protobuf:"bytes,105,opt,name=nats,proto3,oneof"`
-}
-
-type ReadConfig_NatsStreaming struct {
-	NatsStreaming *backends.NatsStreaming `protobuf:"bytes,106,opt,name=nats_streaming,json=natsStreaming,proto3,oneof"`
-}
-
-type ReadConfig_Nsq struct {
-	Nsq *backends.NSQ `protobuf:"bytes,107,opt,name=nsq,proto3,oneof"`
-}
-
-type ReadConfig_Postgres struct {
-	Postgres *backends.Postgres `protobuf:"bytes,108,opt,name=postgres,proto3,oneof"`
-}
-
-type ReadConfig_Pulsar struct {
-	Pulsar *backends.Pulsar `protobuf:"bytes,109,opt,name=pulsar,proto3,oneof"`
-}
-
-type ReadConfig_Rabbit struct {
-	Rabbit *backends.Rabbit `protobuf:"bytes,110,opt,name=rabbit,proto3,oneof"`
-}
-
-type ReadConfig_RabbitStreams struct {
-	RabbitStreams *backends.RabbitStreams `protobuf:"bytes,111,opt,name=rabbit_streams,json=rabbitStreams,proto3,oneof"`
-}
-
-type ReadConfig_RedisPubsub struct {
-	RedisPubsub *backends.RedisPubsub `protobuf:"bytes,112,opt,name=redis_pubsub,json=redisPubsub,proto3,oneof"`
-}
-
-type ReadConfig_RedisStreams struct {
-	RedisStreams *backends.RedisStreams `protobuf:"bytes,113,opt,name=redis_streams,json=redisStreams,proto3,oneof"`
-}
-
-type ReadConfig_AzureEventHub struct {
-	AzureEventHub *backends.AzureEventHub `protobuf:"bytes,114,opt,name=azure_event_hub,json=azureEventHub,proto3,oneof"`
-}
-
-type ReadConfig_AzureServiceBus struct {
-	AzureServiceBus *backends.AzureServiceBus `protobuf:"bytes,115,opt,name=azure_service_bus,json=azureServiceBus,proto3,oneof"`
-}
-
-func (*ReadConfig_Kafka) isReadConfig_Backends() {}
-
-func (*ReadConfig_ActiveMq) isReadConfig_Backends() {}
-
-func (*ReadConfig_Awssqs) isReadConfig_Backends() {}
-
-func (*ReadConfig_Awssns) isReadConfig_Backends() {}
-
-func (*ReadConfig_Mongo) isReadConfig_Backends() {}
-
-func (*ReadConfig_Nats) isReadConfig_Backends() {}
-
-func (*ReadConfig_NatsStreaming) isReadConfig_Backends() {}
-
-func (*ReadConfig_Nsq) isReadConfig_Backends() {}
-
-func (*ReadConfig_Postgres) isReadConfig_Backends() {}
-
-func (*ReadConfig_Pulsar) isReadConfig_Backends() {}
-
-func (*ReadConfig_Rabbit) isReadConfig_Backends() {}
-
-func (*ReadConfig_RabbitStreams) isReadConfig_Backends() {}
-
-func (*ReadConfig_RedisPubsub) isReadConfig_Backends() {}
-
-func (*ReadConfig_RedisStreams) isReadConfig_Backends() {}
-
-func (*ReadConfig_AzureEventHub) isReadConfig_Backends() {}
-
-func (*ReadConfig_AzureServiceBus) isReadConfig_Backends() {}
-
-func (m *ReadConfig) GetBackends() isReadConfig_Backends {
-	if m != nil {
-		return m.Backends
-	}
-	return nil
-}
-
-func (m *ReadConfig) GetKafka() *backends.Kafka {
-	if x, ok := m.GetBackends().(*ReadConfig_Kafka); ok {
-		return x.Kafka
-	}
-	return nil
-}
-
-func (m *ReadConfig) GetActiveMq() *backends.ActiveMQ {
-	if x, ok := m.GetBackends().(*ReadConfig_ActiveMq); ok {
-		return x.ActiveMq
-	}
-	return nil
-}
-
-func (m *ReadConfig) GetAwssqs() *backends.AWSSQS {
-	if x, ok := m.GetBackends().(*ReadConfig_Awssqs); ok {
-		return x.Awssqs
-	}
-	return nil
-}
-
-func (m *ReadConfig) GetAwssns() *backends.AWSSNS {
-	if x, ok := m.GetBackends().(*ReadConfig_Awssns); ok {
-		return x.Awssns
-	}
-	return nil
-}
-
-func (m *ReadConfig) GetMongo() *backends.Mongo {
-	if x, ok := m.GetBackends().(*ReadConfig_Mongo); ok {
-		return x.Mongo
-	}
-	return nil
-}
-
-func (m *ReadConfig) GetNats() *backends.Nats {
-	if x, ok := m.GetBackends().(*ReadConfig_Nats); ok {
-		return x.Nats
-	}
-	return nil
-}
-
-func (m *ReadConfig) GetNatsStreaming() *backends.NatsStreaming {
-	if x, ok := m.GetBackends().(*ReadConfig_NatsStreaming); ok {
-		return x.NatsStreaming
-	}
-	return nil
-}
-
-func (m *ReadConfig) GetNsq() *backends.NSQ {
-	if x, ok := m.GetBackends().(*ReadConfig_Nsq); ok {
-		return x.Nsq
-	}
-	return nil
-}
-
-func (m *ReadConfig) GetPostgres() *backends.Postgres {
-	if x, ok := m.GetBackends().(*ReadConfig_Postgres); ok {
-		return x.Postgres
-	}
-	return nil
-}
-
-func (m *ReadConfig) GetPulsar() *backends.Pulsar {
-	if x, ok := m.GetBackends().(*ReadConfig_Pulsar); ok {
-		return x.Pulsar
-	}
-	return nil
-}
-
-func (m *ReadConfig) GetRabbit() *backends.Rabbit {
-	if x, ok := m.GetBackends().(*ReadConfig_Rabbit); ok {
-		return x.Rabbit
-	}
-	return nil
-}
-
-func (m *ReadConfig) GetRabbitStreams() *backends.RabbitStreams {
-	if x, ok := m.GetBackends().(*ReadConfig_RabbitStreams); ok {
-		return x.RabbitStreams
-	}
-	return nil
-}
-
-func (m *ReadConfig) GetRedisPubsub() *backends.RedisPubsub {
-	if x, ok := m.GetBackends().(*ReadConfig_RedisPubsub); ok {
-		return x.RedisPubsub
-	}
-	return nil
-}
-
-func (m *ReadConfig) GetRedisStreams() *backends.RedisStreams {
-	if x, ok := m.GetBackends().(*ReadConfig_RedisStreams); ok {
-		return x.RedisStreams
-	}
-	return nil
-}
-
-func (m *ReadConfig) GetAzureEventHub() *backends.AzureEventHub {
-	if x, ok := m.GetBackends().(*ReadConfig_AzureEventHub); ok {
-		return x.AzureEventHub
-	}
-	return nil
-}
-
-func (m *ReadConfig) GetAzureServiceBus() *backends.AzureServiceBus {
-	if x, ok := m.GetBackends().(*ReadConfig_AzureServiceBus); ok {
-		return x.AzureServiceBus
-	}
-	return nil
-}
-
-// XXX_OneofWrappers is for the internal use of the proto package.
-func (*ReadConfig) XXX_OneofWrappers() []interface{} {
-	return []interface{}{
-		(*ReadConfig_Kafka)(nil),
-		(*ReadConfig_ActiveMq)(nil),
-		(*ReadConfig_Awssqs)(nil),
-		(*ReadConfig_Awssns)(nil),
-		(*ReadConfig_Mongo)(nil),
-		(*ReadConfig_Nats)(nil),
-		(*ReadConfig_NatsStreaming)(nil),
-		(*ReadConfig_Nsq)(nil),
-		(*ReadConfig_Postgres)(nil),
-		(*ReadConfig_Pulsar)(nil),
-		(*ReadConfig_Rabbit)(nil),
-		(*ReadConfig_RabbitStreams)(nil),
-		(*ReadConfig_RedisPubsub)(nil),
-		(*ReadConfig_RedisStreams)(nil),
-		(*ReadConfig_AzureEventHub)(nil),
-		(*ReadConfig_AzureServiceBus)(nil),
-	}
 }
 
 type CreateReadRequest struct {
@@ -599,7 +1450,7 @@ func (m *CreateReadRequest) Reset()         { *m = CreateReadRequest{} }
 func (m *CreateReadRequest) String() string { return proto.CompactTextString(m) }
 func (*CreateReadRequest) ProtoMessage()    {}
 func (*CreateReadRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_7b10ec61df6818dd, []int{4}
+	return fileDescriptor_7b10ec61df6818dd, []int{3}
 }
 
 func (m *CreateReadRequest) XXX_Unmarshal(b []byte) error {
@@ -647,7 +1498,7 @@ func (m *CreateReadResponse) Reset()         { *m = CreateReadResponse{} }
 func (m *CreateReadResponse) String() string { return proto.CompactTextString(m) }
 func (*CreateReadResponse) ProtoMessage()    {}
 func (*CreateReadResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_7b10ec61df6818dd, []int{5}
+	return fileDescriptor_7b10ec61df6818dd, []int{4}
 }
 
 func (m *CreateReadResponse) XXX_Unmarshal(b []byte) error {
@@ -695,7 +1546,7 @@ func (m *StopReadRequest) Reset()         { *m = StopReadRequest{} }
 func (m *StopReadRequest) String() string { return proto.CompactTextString(m) }
 func (*StopReadRequest) ProtoMessage()    {}
 func (*StopReadRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_7b10ec61df6818dd, []int{6}
+	return fileDescriptor_7b10ec61df6818dd, []int{5}
 }
 
 func (m *StopReadRequest) XXX_Unmarshal(b []byte) error {
@@ -741,7 +1592,7 @@ func (m *StopReadResponse) Reset()         { *m = StopReadResponse{} }
 func (m *StopReadResponse) String() string { return proto.CompactTextString(m) }
 func (*StopReadResponse) ProtoMessage()    {}
 func (*StopReadResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_7b10ec61df6818dd, []int{7}
+	return fileDescriptor_7b10ec61df6818dd, []int{6}
 }
 
 func (m *StopReadResponse) XXX_Unmarshal(b []byte) error {
@@ -782,7 +1633,7 @@ func (m *ResumeReadRequest) Reset()         { *m = ResumeReadRequest{} }
 func (m *ResumeReadRequest) String() string { return proto.CompactTextString(m) }
 func (*ResumeReadRequest) ProtoMessage()    {}
 func (*ResumeReadRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_7b10ec61df6818dd, []int{8}
+	return fileDescriptor_7b10ec61df6818dd, []int{7}
 }
 
 func (m *ResumeReadRequest) XXX_Unmarshal(b []byte) error {
@@ -828,7 +1679,7 @@ func (m *ResumeReadResponse) Reset()         { *m = ResumeReadResponse{} }
 func (m *ResumeReadResponse) String() string { return proto.CompactTextString(m) }
 func (*ResumeReadResponse) ProtoMessage()    {}
 func (*ResumeReadResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_7b10ec61df6818dd, []int{9}
+	return fileDescriptor_7b10ec61df6818dd, []int{8}
 }
 
 func (m *ResumeReadResponse) XXX_Unmarshal(b []byte) error {
@@ -869,7 +1720,7 @@ func (m *DeleteReadRequest) Reset()         { *m = DeleteReadRequest{} }
 func (m *DeleteReadRequest) String() string { return proto.CompactTextString(m) }
 func (*DeleteReadRequest) ProtoMessage()    {}
 func (*DeleteReadRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_7b10ec61df6818dd, []int{10}
+	return fileDescriptor_7b10ec61df6818dd, []int{9}
 }
 
 func (m *DeleteReadRequest) XXX_Unmarshal(b []byte) error {
@@ -915,7 +1766,7 @@ func (m *DeleteReadResponse) Reset()         { *m = DeleteReadResponse{} }
 func (m *DeleteReadResponse) String() string { return proto.CompactTextString(m) }
 func (*DeleteReadResponse) ProtoMessage()    {}
 func (*DeleteReadResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_7b10ec61df6818dd, []int{11}
+	return fileDescriptor_7b10ec61df6818dd, []int{10}
 }
 
 func (m *DeleteReadResponse) XXX_Unmarshal(b []byte) error {
@@ -956,7 +1807,7 @@ func (m *StartReadRequest) Reset()         { *m = StartReadRequest{} }
 func (m *StartReadRequest) String() string { return proto.CompactTextString(m) }
 func (*StartReadRequest) ProtoMessage()    {}
 func (*StartReadRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_7b10ec61df6818dd, []int{12}
+	return fileDescriptor_7b10ec61df6818dd, []int{11}
 }
 
 func (m *StartReadRequest) XXX_Unmarshal(b []byte) error {
@@ -1003,7 +1854,7 @@ func (m *StartReadResponse) Reset()         { *m = StartReadResponse{} }
 func (m *StartReadResponse) String() string { return proto.CompactTextString(m) }
 func (*StartReadResponse) ProtoMessage()    {}
 func (*StartReadResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_7b10ec61df6818dd, []int{13}
+	return fileDescriptor_7b10ec61df6818dd, []int{12}
 }
 
 func (m *StartReadResponse) XXX_Unmarshal(b []byte) error {
@@ -1050,7 +1901,7 @@ func (m *GetAllReadsRequest) Reset()         { *m = GetAllReadsRequest{} }
 func (m *GetAllReadsRequest) String() string { return proto.CompactTextString(m) }
 func (*GetAllReadsRequest) ProtoMessage()    {}
 func (*GetAllReadsRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_7b10ec61df6818dd, []int{14}
+	return fileDescriptor_7b10ec61df6818dd, []int{13}
 }
 
 func (m *GetAllReadsRequest) XXX_Unmarshal(b []byte) error {
@@ -1090,7 +1941,7 @@ func (m *GetAllReadsResponse) Reset()         { *m = GetAllReadsResponse{} }
 func (m *GetAllReadsResponse) String() string { return proto.CompactTextString(m) }
 func (*GetAllReadsResponse) ProtoMessage()    {}
 func (*GetAllReadsResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_7b10ec61df6818dd, []int{15}
+	return fileDescriptor_7b10ec61df6818dd, []int{14}
 }
 
 func (m *GetAllReadsResponse) XXX_Unmarshal(b []byte) error {
@@ -1126,11 +1977,30 @@ func (m *GetAllReadsResponse) GetStatus() *common.Status {
 }
 
 func init() {
-	proto.RegisterEnum("protos.SampleOptions_Interval", SampleOptions_Interval_name, SampleOptions_Interval_value)
-	proto.RegisterEnum("protos.ReadOptions_Type", ReadOptions_Type_name, ReadOptions_Type_value)
-	proto.RegisterType((*SampleOptions)(nil), "protos.SampleOptions")
-	proto.RegisterType((*ReadOptions)(nil), "protos.ReadOptions")
+	proto.RegisterEnum("protos.ReadType", ReadType_name, ReadType_value)
+	proto.RegisterEnum("protos.ConvertOption", ConvertOption_name, ConvertOption_value)
+	proto.RegisterEnum("protos.ReadSampleOptions_Interval", ReadSampleOptions_Interval_name, ReadSampleOptions_Interval_value)
+	proto.RegisterType((*ReadSampleOptions)(nil), "protos.ReadSampleOptions")
 	proto.RegisterType((*ReadCLIConfig)(nil), "protos.ReadCLIConfig")
+	proto.RegisterType((*ReadCLIConfig_ReadBackend)(nil), "protos.ReadCLIConfig.ReadBackend")
+	proto.RegisterType((*ReadCLIConfig_ReadBackend_Kafka)(nil), "protos.ReadCLIConfig.ReadBackend.Kafka")
+	proto.RegisterType((*ReadCLIConfig_ReadBackend_ActiveMQ)(nil), "protos.ReadCLIConfig.ReadBackend.ActiveMQ")
+	proto.RegisterType((*ReadCLIConfig_ReadBackend_AWSSQS)(nil), "protos.ReadCLIConfig.ReadBackend.AWSSQS")
+	proto.RegisterType((*ReadCLIConfig_ReadBackend_Mongo)(nil), "protos.ReadCLIConfig.ReadBackend.Mongo")
+	proto.RegisterType((*ReadCLIConfig_ReadBackend_Nats)(nil), "protos.ReadCLIConfig.ReadBackend.Nats")
+	proto.RegisterType((*ReadCLIConfig_ReadBackend_NatsStreaming)(nil), "protos.ReadCLIConfig.ReadBackend.NatsStreaming")
+	proto.RegisterType((*ReadCLIConfig_ReadBackend_NSQ)(nil), "protos.ReadCLIConfig.ReadBackend.NSQ")
+	proto.RegisterType((*ReadCLIConfig_ReadBackend_Postgres)(nil), "protos.ReadCLIConfig.ReadBackend.Postgres")
+	proto.RegisterType((*ReadCLIConfig_ReadBackend_Pulsar)(nil), "protos.ReadCLIConfig.ReadBackend.Pulsar")
+	proto.RegisterType((*ReadCLIConfig_ReadBackend_Rabbit)(nil), "protos.ReadCLIConfig.ReadBackend.Rabbit")
+	proto.RegisterType((*ReadCLIConfig_ReadBackend_RabbitStreams)(nil), "protos.ReadCLIConfig.ReadBackend.RabbitStreams")
+	proto.RegisterType((*ReadCLIConfig_ReadBackend_RedisPubSub)(nil), "protos.ReadCLIConfig.ReadBackend.RedisPubSub")
+	proto.RegisterType((*ReadCLIConfig_ReadBackend_RedisStreams)(nil), "protos.ReadCLIConfig.ReadBackend.RedisStreams")
+	proto.RegisterType((*ReadCLIConfig_ReadBackend_AzureEventHub)(nil), "protos.ReadCLIConfig.ReadBackend.AzureEventHub")
+	proto.RegisterType((*ReadCLIConfig_ReadBackend_AzureServiceBus)(nil), "protos.ReadCLIConfig.ReadBackend.AzureServiceBus")
+	proto.RegisterType((*ReadCLIConfig_ReadBackend_MQTT)(nil), "protos.ReadCLIConfig.ReadBackend.MQTT")
+	proto.RegisterType((*ReadCLIConfig_ReadBackend_GCPPubSub)(nil), "protos.ReadCLIConfig.ReadBackend.GCPPubSub")
+	proto.RegisterType((*ReadCLIConfig_ReadBackend_KubeMQQueue)(nil), "protos.ReadCLIConfig.ReadBackend.KubeMQQueue")
 	proto.RegisterType((*ReadConfig)(nil), "protos.ReadConfig")
 	proto.RegisterType((*CreateReadRequest)(nil), "protos.CreateReadRequest")
 	proto.RegisterType((*CreateReadResponse)(nil), "protos.CreateReadResponse")
@@ -1149,83 +2019,116 @@ func init() {
 func init() { proto.RegisterFile("read.proto", fileDescriptor_7b10ec61df6818dd) }
 
 var fileDescriptor_7b10ec61df6818dd = []byte{
-	// 1244 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xb4, 0x57, 0x6b, 0x6e, 0xdb, 0x46,
-	0x17, 0x95, 0x62, 0x45, 0x91, 0xaf, 0x23, 0xd9, 0x9a, 0xbc, 0xf8, 0xe5, 0x4b, 0x52, 0x83, 0x7d,
-	0xc0, 0x48, 0x2b, 0x09, 0x75, 0xd3, 0xb4, 0x3f, 0x8a, 0x16, 0x7e, 0x21, 0x52, 0x1b, 0xcb, 0x09,
-	0x69, 0xb7, 0x40, 0x81, 0x82, 0x18, 0x92, 0x13, 0x89, 0x31, 0xc9, 0xa1, 0x38, 0x43, 0x07, 0xee,
-	0x26, 0xba, 0x82, 0xa2, 0xfb, 0xe8, 0x42, 0xba, 0x86, 0x2e, 0xa3, 0x98, 0x17, 0x25, 0x59, 0x56,
-	0x01, 0x1b, 0xe9, 0x2f, 0x91, 0xe7, 0x9e, 0x7b, 0xe6, 0xcc, 0xbd, 0x9c, 0x4b, 0x0a, 0x20, 0x27,
-	0x38, 0xec, 0x66, 0x39, 0xe5, 0x14, 0xd5, 0xe5, 0x0f, 0x7b, 0xd8, 0x0e, 0x68, 0x92, 0xd0, 0xb4,
-	0x87, 0x0b, 0x3e, 0x56, 0xa1, 0x87, 0x77, 0x34, 0xc4, 0x38, 0xe6, 0x05, 0xd3, 0xe0, 0x7d, 0x92,
-	0x06, 0x34, 0x8c, 0xd2, 0x51, 0x8f, 0x66, 0x3c, 0xa2, 0xa9, 0xc1, 0x51, 0x4e, 0x02, 0x9a, 0x87,
-	0xac, 0xe7, 0x63, 0x46, 0x34, 0x76, 0xd7, 0xc7, 0xc1, 0x29, 0x49, 0x43, 0xd6, 0x3b, 0xc5, 0x6f,
-	0x4e, 0xb1, 0x46, 0x1f, 0x94, 0x28, 0x0e, 0x78, 0x74, 0x46, 0x92, 0x89, 0x91, 0x9e, 0x06, 0xde,
-	0xb1, 0x0e, 0x2b, 0xa5, 0x2f, 0xe0, 0x13, 0xb6, 0x20, 0x9f, 0xd0, 0x74, 0x44, 0x8d, 0xeb, 0x12,
-	0x4d, 0x31, 0x37, 0xd4, 0xc7, 0x73, 0x60, 0x87, 0xf1, 0x9c, 0xe0, 0x24, 0x4a, 0x47, 0xc6, 0xfc,
-	0x34, 0xcc, 0x26, 0x0b, 0x36, 0x33, 0xca, 0xf8, 0x28, 0x27, 0x46, 0xeb, 0xde, 0x34, 0x50, 0xc4,
-	0x0c, 0xe7, 0x0b, 0x70, 0x8e, 0x7d, 0x3f, 0xe2, 0x0b, 0x2b, 0x2b, 0x58, 0xaf, 0x6d, 0xc4, 0xfe,
-	0x3f, 0x0d, 0x93, 0x30, 0x62, 0x9d, 0xac, 0xf0, 0x59, 0xe1, 0xeb, 0xe0, 0xa3, 0x0b, 0xc1, 0xf9,
-	0xd4, 0xcd, 0x69, 0x59, 0x7e, 0x2d, 0x72, 0xd2, 0x61, 0x24, 0x3f, 0x8b, 0x02, 0xd2, 0xf1, 0xcb,
-	0x5e, 0x3d, 0xb9, 0xc0, 0x20, 0x67, 0x24, 0xe5, 0x9d, 0xb1, 0xd1, 0xb7, 0x7f, 0xaf, 0x42, 0xd3,
-	0xc5, 0x49, 0x16, 0x93, 0x23, 0xd5, 0x4b, 0xf4, 0x01, 0xac, 0x31, 0x09, 0x78, 0x39, 0xe6, 0xc4,
-	0xaa, 0x6e, 0x56, 0xb7, 0x9a, 0x0e, 0x28, 0xc8, 0xc1, 0x9c, 0xa0, 0x17, 0xb0, 0xae, 0x09, 0x51,
-	0xca, 0x49, 0x7e, 0x86, 0x63, 0xeb, 0xc6, 0x66, 0x75, 0xab, 0xb5, 0xfd, 0x44, 0x69, 0xb2, 0xee,
-	0x9c, 0x60, 0x77, 0xa0, 0x59, 0x4e, 0x4b, 0xa5, 0x99, 0x7b, 0xdb, 0x86, 0x86, 0xb9, 0x46, 0x00,
-	0x75, 0xf7, 0x60, 0xef, 0x68, 0xb8, 0xbf, 0x51, 0x11, 0xd7, 0x87, 0x83, 0xe1, 0xc9, 0xf1, 0xc1,
-	0x46, 0xd5, 0xfe, 0xa3, 0x0a, 0x6b, 0x0e, 0xc1, 0xa1, 0x71, 0xf7, 0x19, 0xd4, 0xf8, 0x79, 0xa6,
-	0x6c, 0xb5, 0xb6, 0x2d, 0xb3, 0xe2, 0x0c, 0xa5, 0x7b, 0x7c, 0x9e, 0x11, 0x47, 0xb2, 0xd0, 0x37,
-	0xa0, 0xd7, 0xf4, 0xf4, 0x93, 0x2a, 0x9d, 0xae, 0x6d, 0xdf, 0xbb, 0xd4, 0xa9, 0xd3, 0x64, 0xb3,
-	0xb7, 0xf6, 0x47, 0x50, 0x13, 0x5a, 0xe8, 0x36, 0x34, 0x8e, 0x86, 0x07, 0xde, 0xf1, 0xe0, 0xf0,
-	0x60, 0xa3, 0x82, 0x5a, 0x00, 0x7b, 0x47, 0xc3, 0xe3, 0xc1, 0xf0, 0xe4, 0xe8, 0xc4, 0xdd, 0xa8,
-	0xda, 0x7f, 0x56, 0xa1, 0x29, 0x96, 0xdf, 0x7b, 0x39, 0xd8, 0xa3, 0xe9, 0x9b, 0x68, 0x84, 0x7a,
-	0x70, 0x57, 0x74, 0x89, 0x7b, 0xb4, 0xe0, 0x59, 0xc1, 0x3d, 0xcc, 0xbc, 0xb7, 0x8c, 0xa6, 0xd2,
-	0x73, 0xc3, 0x69, 0xcb, 0xd8, 0x91, 0x0c, 0xed, 0xb0, 0xef, 0x19, 0x4d, 0xd1, 0x53, 0x68, 0x87,
-	0x11, 0xcb, 0x62, 0x7c, 0xee, 0xc5, 0x78, 0xe4, 0x89, 0xc3, 0xa6, 0x9c, 0x36, 0x9c, 0x75, 0x1d,
-	0x78, 0x89, 0x47, 0xae, 0x80, 0xd1, 0xc7, 0xd0, 0x0a, 0x68, 0x7a, 0x46, 0x72, 0x23, 0x6f, 0xad,
-	0x6c, 0x56, 0xb7, 0x56, 0x9d, 0xa6, 0x46, 0x95, 0xb0, 0xa0, 0x9d, 0x91, 0xdc, 0xa7, 0x8c, 0x18,
-	0x5a, 0x4d, 0xea, 0x35, 0x35, 0xaa, 0x68, 0xf6, 0x5f, 0xab, 0x00, 0xd2, 0xbc, 0x72, 0xbe, 0x0e,
-	0x2b, 0x5e, 0x14, 0x4a, 0xa3, 0xab, 0xce, 0x8d, 0x41, 0x88, 0x1e, 0xc0, 0x2d, 0x4f, 0x1d, 0x51,
-	0xed, 0xa7, 0xbe, 0x23, 0xef, 0x10, 0x82, 0x5a, 0x8a, 0x13, 0xa2, 0x17, 0x97, 0xd7, 0xe8, 0x43,
-	0x10, 0x26, 0x52, 0x12, 0x88, 0xf2, 0x09, 0x9d, 0x9a, 0x0c, 0xde, 0x9e, 0x82, 0x83, 0x10, 0x3d,
-	0x87, 0xdb, 0x62, 0xf4, 0x94, 0x0d, 0xb9, 0x29, 0x1b, 0x72, 0xe7, 0x92, 0x46, 0x3a, 0x6b, 0xf9,
-	0x4c, 0xe3, 0xbf, 0x83, 0x56, 0x48, 0x02, 0x1a, 0x4e, 0x5b, 0x59, 0x97, 0x99, 0xe5, 0x23, 0x60,
-	0x86, 0x52, 0xb7, 0xec, 0xa6, 0xe2, 0x1b, 0x81, 0x2f, 0x61, 0xcd, 0x0b, 0xe2, 0xc8, 0x0b, 0xe4,
-	0x56, 0xad, 0x5b, 0xf3, 0x0f, 0xc2, 0x5c, 0x07, 0x9d, 0xd5, 0xbd, 0x38, 0xd2, 0x25, 0xe9, 0xc2,
-	0x4d, 0x39, 0xb9, 0xac, 0x50, 0x26, 0xdc, 0x37, 0x09, 0xe6, 0x5c, 0x75, 0x7f, 0x10, 0xd1, 0x7e,
-	0xc5, 0x51, 0x34, 0xf4, 0x35, 0xac, 0xaa, 0x82, 0x79, 0xc9, 0xc4, 0x22, 0x32, 0xe7, 0x7f, 0x0b,
-	0x39, 0xaa, 0x88, 0x87, 0xaf, 0xfb, 0x15, 0xa7, 0xa1, 0xd8, 0x87, 0x13, 0xf4, 0x39, 0xd4, 0xf1,
-	0x3b, 0xc6, 0x26, 0xcc, 0x7a, 0x23, 0xd3, 0x1e, 0x2c, 0xa6, 0xfd, 0xe4, 0xba, 0xaf, 0xdd, 0x7e,
-	0xc5, 0xd1, 0x44, 0x93, 0x92, 0x32, 0x6b, 0xf4, 0x2f, 0x29, 0xc3, 0x32, 0x25, 0x65, 0x62, 0x3f,
-	0x72, 0x54, 0x5a, 0xe3, 0x25, 0xfb, 0x39, 0x14, 0x51, 0xb1, 0x1f, 0x49, 0x43, 0x9f, 0x8a, 0x46,
-	0x73, 0x66, 0x45, 0xf3, 0xf5, 0x2a, 0xe9, 0x43, 0xcc, 0x59, 0xbf, 0xe2, 0x48, 0x12, 0x7a, 0x01,
-	0x2d, 0xf1, 0xeb, 0x95, 0xc3, 0xd5, 0x7a, 0x2b, 0xd3, 0x9e, 0x5c, 0x9a, 0xe6, 0x1a, 0x56, 0xbf,
-	0xe2, 0x34, 0xd3, 0x59, 0x00, 0x6d, 0xc1, 0x4a, 0xca, 0x26, 0xd6, 0xa9, 0xcc, 0xbe, 0xbb, 0x98,
-	0xed, 0x8a, 0xd2, 0x09, 0x0a, 0xfa, 0x0a, 0x1a, 0x66, 0x38, 0x5b, 0xf1, 0x92, 0x72, 0xbf, 0xd2,
-	0x04, 0x51, 0x6e, 0x43, 0x16, 0xb5, 0x53, 0xc3, 0xdb, 0x4a, 0x96, 0xd4, 0xee, 0x95, 0x0c, 0x8b,
-	0xda, 0x29, 0xa2, 0x48, 0x51, 0x13, 0xdc, 0x4a, 0x97, 0xa4, 0x38, 0x32, 0x2c, 0x52, 0x14, 0x51,
-	0x54, 0x44, 0x5d, 0xe9, 0x9a, 0x30, 0x8b, 0x2e, 0xa9, 0x88, 0x4a, 0x55, 0x25, 0x10, 0x4e, 0x9b,
-	0xf9, 0x2c, 0x80, 0x76, 0xc4, 0xb9, 0x09, 0x23, 0xe6, 0xa9, 0xd7, 0x83, 0x95, 0x49, 0x99, 0x47,
-	0x8b, 0x32, 0x82, 0xf4, 0x4a, 0x72, 0xfa, 0x15, 0x71, 0x84, 0xca, 0x5b, 0xb4, 0x0f, 0x4d, 0x25,
-	0x61, 0xac, 0x4c, 0xa4, 0xc6, 0xe3, 0xcb, 0x35, 0xa6, 0x4e, 0xd4, 0xc2, 0xc6, 0x48, 0x1f, 0xd6,
-	0xe5, 0xab, 0xc4, 0x93, 0xaf, 0x12, 0x6f, 0x5c, 0xf8, 0x56, 0xbe, 0x64, 0x4b, 0x3b, 0x82, 0x77,
-	0x20, 0x68, 0x7d, 0xe9, 0xa6, 0x89, 0x67, 0x01, 0x34, 0x84, 0xb6, 0x52, 0xd2, 0xaf, 0x2d, 0xcf,
-	0x2f, 0x98, 0xc5, 0xa4, 0xd6, 0xe6, 0xe5, 0x5a, 0xae, 0x22, 0xee, 0x16, 0xc2, 0x96, 0xb2, 0x31,
-	0x85, 0x76, 0x01, 0x1a, 0xbb, 0x9a, 0x6e, 0x47, 0xd0, 0xde, 0x13, 0x73, 0x96, 0x88, 0x83, 0xed,
-	0x90, 0x49, 0x41, 0x18, 0x47, 0x5b, 0x50, 0x13, 0xdf, 0x36, 0xd6, 0x6f, 0xc3, 0xf9, 0xa1, 0xa3,
-	0x3e, 0x72, 0xba, 0x3b, 0x05, 0x1f, 0x3b, 0x92, 0x81, 0x9e, 0x42, 0x5d, 0xcf, 0x89, 0xaa, 0xa4,
-	0xa2, 0xb9, 0x39, 0xa1, 0x86, 0x84, 0x66, 0xd8, 0xbf, 0x00, 0x9a, 0x5d, 0x8a, 0x65, 0x34, 0x65,
-	0x04, 0x75, 0xa1, 0xae, 0x3e, 0x9a, 0xac, 0xbf, 0x2f, 0x8c, 0x1a, 0xbd, 0x9a, 0x2b, 0xa3, 0x8e,
-	0x66, 0x89, 0x49, 0x2b, 0xe7, 0x62, 0x39, 0x7e, 0xeb, 0xe2, 0x76, 0x10, 0xda, 0xc7, 0xb0, 0xee,
-	0x72, 0x9a, 0x5d, 0x6f, 0x1f, 0x4b, 0x55, 0x77, 0x61, 0x63, 0xaa, 0x7a, 0x3d, 0xcb, 0xf6, 0x8f,
-	0xd0, 0x76, 0x08, 0x2b, 0x12, 0xf2, 0x9e, 0xbd, 0xed, 0x03, 0x9a, 0xd5, 0xbd, 0xbe, 0xbb, 0x7d,
-	0x12, 0x13, 0xfe, 0x1f, 0xb8, 0x9b, 0xd5, 0xbd, 0xa6, 0xbb, 0x13, 0x51, 0x7f, 0x9c, 0xf3, 0xf7,
-	0x6c, 0xee, 0x1c, 0xda, 0x33, 0xb2, 0xda, 0xdb, 0x33, 0xc1, 0x96, 0x5f, 0xe6, 0x56, 0x75, 0x73,
-	0x65, 0x6b, 0x6d, 0xfb, 0xa1, 0x51, 0xd6, 0x70, 0x57, 0xd1, 0xc5, 0xb5, 0x63, 0xa8, 0x57, 0xde,
-	0xd1, 0xb7, 0x80, 0x5e, 0x10, 0xbe, 0x13, 0xc7, 0x42, 0x8c, 0x5d, 0x79, 0x4f, 0x76, 0x02, 0x77,
-	0xe6, 0xf2, 0xb5, 0xf9, 0x4f, 0xa0, 0x26, 0xf6, 0xa6, 0x9d, 0x5f, 0x76, 0x0e, 0x65, 0xfc, 0xaa,
-	0x76, 0x77, 0x9f, 0xff, 0xfc, 0x6c, 0x14, 0x71, 0xf1, 0x21, 0x1c, 0xd0, 0xa4, 0xe7, 0x63, 0x1e,
-	0x8c, 0x03, 0x9a, 0x67, 0xbd, 0x2c, 0x2e, 0x12, 0x9f, 0xe4, 0x1d, 0x16, 0x8c, 0x49, 0x82, 0x59,
-	0xcf, 0x2f, 0xa2, 0x38, 0xec, 0x8d, 0x68, 0x4f, 0xa9, 0xf9, 0xea, 0xcf, 0xd2, 0x17, 0xff, 0x04,
-	0x00, 0x00, 0xff, 0xff, 0x61, 0xe0, 0xc8, 0xc6, 0x41, 0x0d, 0x00, 0x00,
+	// 1767 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xb4, 0x58, 0x6d, 0x6f, 0x1b, 0xc7,
+	0x11, 0x0e, 0xf5, 0x42, 0x51, 0x43, 0x91, 0xa2, 0xd6, 0x75, 0x73, 0x96, 0x63, 0x47, 0x66, 0x63,
+	0x57, 0x50, 0x4b, 0x32, 0x56, 0x5c, 0xb5, 0x09, 0xd2, 0x22, 0x12, 0xcd, 0xb8, 0x6c, 0x22, 0x4a,
+	0xda, 0xa3, 0x12, 0x20, 0x40, 0x70, 0xb8, 0x3b, 0x6e, 0xc8, 0x83, 0xc8, 0x3b, 0xf2, 0x76, 0x4f,
+	0x86, 0x0b, 0x14, 0x28, 0xd0, 0x4f, 0xfd, 0xd4, 0x5f, 0x51, 0xa0, 0x7f, 0xa6, 0x5f, 0xfa, 0x2b,
+	0xda, 0xfe, 0x8a, 0x62, 0x5f, 0xee, 0x78, 0xcb, 0xa3, 0x4c, 0xd2, 0x48, 0x3f, 0xdd, 0xed, 0xec,
+	0xcc, 0xf3, 0xcc, 0xce, 0xce, 0xce, 0xbe, 0x00, 0x84, 0xc4, 0xee, 0xd5, 0xc7, 0x61, 0xc0, 0x02,
+	0x94, 0x17, 0x1f, 0xba, 0xbf, 0xe7, 0x06, 0xa3, 0x51, 0xe0, 0x37, 0xec, 0x88, 0x0d, 0x64, 0xd7,
+	0xfe, 0x3d, 0x25, 0xa2, 0xcc, 0x66, 0x11, 0x55, 0xc2, 0x9f, 0x12, 0xdf, 0x0d, 0x7a, 0x9e, 0xdf,
+	0x6f, 0x04, 0x63, 0xe6, 0x05, 0x7e, 0x2c, 0x47, 0x21, 0x71, 0x83, 0xb0, 0x47, 0x1b, 0x8e, 0x4d,
+	0x89, 0x92, 0xbd, 0xef, 0xd8, 0xee, 0x0d, 0xf1, 0x85, 0x50, 0xfe, 0x64, 0x3a, 0x6c, 0x97, 0x79,
+	0xb7, 0x64, 0x34, 0x51, 0x1d, 0x07, 0xd3, 0x8e, 0x3f, 0x46, 0x21, 0xa9, 0x51, 0x12, 0xde, 0x7a,
+	0x2e, 0xa9, 0x39, 0x09, 0xff, 0xe3, 0x19, 0x0d, 0x72, 0x4b, 0x7c, 0x56, 0x1b, 0x44, 0x4e, 0xec,
+	0xdf, 0xb4, 0xff, 0x35, 0xad, 0xd1, 0xc4, 0xbf, 0x19, 0xf9, 0x24, 0x96, 0x3f, 0x48, 0xe4, 0x7d,
+	0x77, 0x5c, 0x1b, 0x47, 0x0e, 0x4d, 0xa0, 0x7e, 0x92, 0x74, 0xdd, 0xd8, 0x3f, 0xdc, 0xd8, 0x4a,
+	0xfa, 0x70, 0x2a, 0x8d, 0x1c, 0x32, 0x9a, 0xd4, 0x26, 0x11, 0x89, 0x48, 0xc6, 0x64, 0x14, 0xf8,
+	0xfd, 0x20, 0x0e, 0xe4, 0x54, 0x3a, 0x61, 0x2c, 0x23, 0xf4, 0x6d, 0x16, 0x7b, 0xf3, 0x48, 0x13,
+	0xd6, 0x28, 0x0b, 0x89, 0x3d, 0xf2, 0xfc, 0x7e, 0x1c, 0xe4, 0x69, 0x37, 0x9d, 0x64, 0x62, 0x39,
+	0x0e, 0x28, 0xeb, 0x87, 0x24, 0xc6, 0xba, 0x3f, 0xed, 0x88, 0x86, 0xd4, 0x0e, 0x33, 0xe2, 0xd0,
+	0x76, 0x1c, 0x8f, 0x65, 0x98, 0xa5, 0x58, 0x71, 0xd3, 0xcc, 0xa8, 0x43, 0xd2, 0xf3, 0xa8, 0x1e,
+	0xa8, 0x0f, 0x66, 0x3a, 0x35, 0xd3, 0xea, 0xdf, 0x73, 0xb0, 0x87, 0x89, 0xdd, 0x33, 0xed, 0xd1,
+	0x78, 0x48, 0x2e, 0x64, 0xd6, 0xa0, 0x0f, 0xa1, 0x48, 0x85, 0xc0, 0x0a, 0x6d, 0x46, 0x8c, 0xdc,
+	0x41, 0xee, 0xb0, 0x84, 0x41, 0x8a, 0xb0, 0xcd, 0x08, 0xfa, 0x0a, 0x76, 0x95, 0x82, 0xe7, 0x33,
+	0x12, 0xde, 0xda, 0x43, 0x63, 0xed, 0x20, 0x77, 0x58, 0x3e, 0xae, 0x4a, 0x5c, 0x5a, 0xcf, 0x80,
+	0xd6, 0xdb, 0x4a, 0x13, 0x97, 0xa5, 0x69, 0xdc, 0xae, 0x56, 0xa1, 0x10, 0xff, 0x23, 0x80, 0xbc,
+	0xd9, 0x6a, 0x5e, 0x74, 0x5e, 0x56, 0xde, 0xe3, 0xff, 0xe7, 0xed, 0xce, 0x75, 0xb7, 0x55, 0xc9,
+	0x55, 0xff, 0xf9, 0x08, 0x4a, 0x1c, 0xb2, 0xf9, 0x75, 0xbb, 0x19, 0xf8, 0x3f, 0x78, 0x7d, 0x74,
+	0x04, 0x7b, 0x3d, 0x8f, 0x8e, 0x87, 0xf6, 0x1b, 0x6b, 0x68, 0xf7, 0x2d, 0xbe, 0x0e, 0xa8, 0xf0,
+	0xb4, 0x80, 0x77, 0x55, 0xc7, 0xd7, 0x76, 0xdf, 0xe4, 0x62, 0xf4, 0x39, 0x94, 0xdd, 0xc0, 0xbf,
+	0x25, 0x21, 0xb3, 0x82, 0x88, 0x8d, 0x23, 0x66, 0xac, 0x1d, 0xac, 0x1f, 0x96, 0x8f, 0xef, 0xc7,
+	0xde, 0x36, 0x65, 0xaf, 0x74, 0x15, 0x97, 0x94, 0xf2, 0x85, 0xd0, 0x45, 0x4f, 0xa1, 0x7c, 0x4b,
+	0x42, 0x27, 0xa0, 0x24, 0xb6, 0x5e, 0x17, 0x34, 0x25, 0x25, 0x55, 0x6a, 0x9f, 0x42, 0xc9, 0x52,
+	0xb1, 0xb6, 0xd8, 0x9b, 0x31, 0x31, 0x36, 0x45, 0x44, 0x12, 0x8e, 0x64, 0x99, 0x75, 0xdf, 0x8c,
+	0x09, 0x2e, 0x9e, 0xc9, 0x26, 0x6f, 0xa0, 0x16, 0x94, 0x2c, 0xbe, 0xec, 0x63, 0x7b, 0x23, 0x7f,
+	0x90, 0x3b, 0x2c, 0x1e, 0x3f, 0x49, 0x07, 0x33, 0x19, 0xb9, 0x68, 0x29, 0x6b, 0x5c, 0x4c, 0x35,
+	0xf6, 0xff, 0xf1, 0x10, 0xd2, 0x6d, 0xf4, 0x5b, 0xd8, 0x14, 0x8b, 0x43, 0x84, 0xa5, 0x78, 0xfc,
+	0xf3, 0x85, 0x70, 0xf5, 0xaf, 0xb8, 0x3a, 0x96, 0x56, 0xe8, 0x4b, 0x28, 0xc4, 0x15, 0x40, 0xcc,
+	0x6e, 0xf1, 0xf8, 0x68, 0x31, 0xc2, 0xa9, 0xb0, 0x38, 0xbf, 0xc2, 0x89, 0x2d, 0xfa, 0x02, 0xf2,
+	0xf6, 0x6b, 0x4a, 0x27, 0x54, 0xc4, 0xad, 0x78, 0x7c, 0xb8, 0x04, 0xca, 0xb7, 0xa6, 0x79, 0x65,
+	0x62, 0x65, 0xc7, 0x07, 0x22, 0x96, 0xac, 0xb1, 0xb1, 0xec, 0x40, 0xce, 0xb9, 0x3a, 0x96, 0x56,
+	0xe8, 0x33, 0xd8, 0xe0, 0x2b, 0x56, 0x4c, 0x48, 0xf1, 0xf8, 0xd9, 0x62, 0xeb, 0x8e, 0xcd, 0x28,
+	0x16, 0x36, 0xe8, 0x1b, 0x28, 0xf3, 0xaf, 0x95, 0xac, 0x76, 0x35, 0x37, 0x8d, 0xe5, 0x50, 0xcc,
+	0xd8, 0x0c, 0x97, 0xfc, 0x74, 0x13, 0xfd, 0x1a, 0xd6, 0x7d, 0x3a, 0x31, 0xb6, 0x04, 0xd8, 0xd3,
+	0x25, 0xc0, 0xcc, 0x2b, 0xcc, 0x2d, 0x78, 0x34, 0x65, 0xc9, 0x30, 0x0a, 0xcb, 0x46, 0xf3, 0x52,
+	0xe8, 0x63, 0x65, 0xc7, 0x11, 0x64, 0x19, 0x31, 0xb6, 0x97, 0x45, 0xc0, 0x42, 0x1f, 0x2b, 0x3b,
+	0x1e, 0x14, 0xf9, 0xa7, 0xc2, 0x42, 0x0d, 0x58, 0x36, 0x28, 0x12, 0x49, 0xc6, 0x81, 0xe2, 0x52,
+	0x98, 0x6e, 0xf2, 0x89, 0xe2, 0x45, 0xd8, 0x28, 0x2e, 0x3b, 0x51, 0xe7, 0x57, 0xdd, 0x2e, 0x16,
+	0x36, 0xe8, 0x7b, 0xd8, 0x13, 0x9b, 0x8e, 0xa5, 0xb6, 0x25, 0xcb, 0x89, 0xa8, 0xb1, 0x23, 0x80,
+	0x9e, 0x2f, 0x91, 0x70, 0xdc, 0xd4, 0x94, 0x96, 0x67, 0x11, 0xc5, 0xbb, 0xb6, 0x2e, 0x40, 0xdf,
+	0x82, 0x14, 0x59, 0x62, 0x4f, 0xb3, 0x06, 0x91, 0x63, 0x94, 0x96, 0x1d, 0xb3, 0x00, 0x6f, 0x71,
+	0xbb, 0xdf, 0x47, 0x0e, 0x2e, 0xd9, 0xe9, 0x26, 0xfa, 0x03, 0x40, 0xdf, 0x1d, 0x5b, 0xb2, 0x66,
+	0x1b, 0x65, 0x81, 0xf9, 0x8b, 0xc5, 0x98, 0xaf, 0x9a, 0x97, 0x97, 0x91, 0x63, 0x46, 0x0e, 0xde,
+	0xee, 0xbb, 0xe3, 0x4b, 0x61, 0x8d, 0x2e, 0x61, 0x47, 0xee, 0x7b, 0x96, 0xd8, 0xf7, 0x8c, 0x5d,
+	0x81, 0x56, 0x5b, 0x62, 0xdd, 0x47, 0x0e, 0x39, 0xbf, 0xba, 0xe2, 0x46, 0xb8, 0x28, 0x21, 0x44,
+	0x83, 0x23, 0x8a, 0x6d, 0x23, 0xf6, 0xaf, 0xb2, 0x2c, 0x22, 0xe6, 0x56, 0xca, 0xc3, 0x62, 0xa8,
+	0x1a, 0xdc, 0x47, 0x13, 0x4a, 0x12, 0x31, 0x4e, 0x9d, 0x3d, 0x01, 0x59, 0x5f, 0x12, 0x32, 0xce,
+	0x1c, 0xe9, 0x56, 0x9c, 0x38, 0x5f, 0x42, 0x21, 0xde, 0x60, 0x0d, 0xb4, 0x6c, 0xa9, 0xba, 0x54,
+	0x16, 0x38, 0xb1, 0xdd, 0xbf, 0x81, 0x4d, 0x51, 0x02, 0x51, 0x1d, 0x36, 0xdc, 0xc0, 0xf7, 0x55,
+	0xe5, 0xdc, 0xcf, 0xd4, 0x70, 0xa1, 0xd5, 0x0c, 0x7c, 0x1f, 0x0b, 0x3d, 0x74, 0x0c, 0x1b, 0x76,
+	0xd8, 0xa7, 0xaa, 0x4e, 0x3e, 0x9e, 0xaf, 0xcf, 0xc9, 0x4f, 0xc3, 0x3e, 0xc5, 0x42, 0x77, 0x9f,
+	0x41, 0x21, 0xae, 0x96, 0xe8, 0xb9, 0xc6, 0xf7, 0x28, 0x63, 0x1f, 0x2b, 0xa6, 0x28, 0x7f, 0xa5,
+	0x51, 0x3e, 0xb9, 0xd3, 0x64, 0x86, 0xd5, 0x87, 0xbc, 0xac, 0xae, 0xa8, 0xa1, 0x71, 0x3e, 0xcc,
+	0x02, 0x08, 0xb5, 0x14, 0xe3, 0x27, 0x1a, 0xe3, 0x87, 0x77, 0x18, 0xcc, 0xf0, 0xdd, 0xc0, 0xa6,
+	0x28, 0xc6, 0x0b, 0x43, 0x2a, 0xb4, 0x56, 0x08, 0xa9, 0x2c, 0xf1, 0x3a, 0xd9, 0x00, 0x36, 0x78,
+	0xd5, 0x45, 0x35, 0x8d, 0xeb, 0x41, 0xc6, 0x96, 0x2b, 0xa5, 0xa8, 0x9e, 0x6b, 0x54, 0x8f, 0xe6,
+	0xaa, 0xcf, 0x30, 0xfd, 0x25, 0x07, 0x25, 0xad, 0xc0, 0xa3, 0x13, 0x8d, 0xb3, 0x3a, 0x17, 0x24,
+	0xd1, 0x4e, 0x91, 0x7f, 0xa6, 0x91, 0x3f, 0x7b, 0xbb, 0xdd, 0x8c, 0x17, 0x04, 0xd6, 0x3b, 0xe6,
+	0x15, 0xfa, 0xa5, 0x46, 0x6d, 0x64, 0x21, 0xcc, 0x74, 0xe2, 0x7c, 0xac, 0x11, 0x7e, 0x30, 0x4f,
+	0x3b, 0x9b, 0xa9, 0xf1, 0x62, 0x59, 0x98, 0xa9, 0xb1, 0xe2, 0x0a, 0x99, 0x9a, 0x2c, 0xc4, 0x4c,
+	0xa6, 0xca, 0x9d, 0x6b, 0x61, 0xa6, 0x4a, 0xb5, 0x15, 0x32, 0x55, 0xed, 0x88, 0x19, 0x3e, 0xb9,
+	0x3b, 0x2d, 0xe4, 0x93, 0x6a, 0x2b, 0xf0, 0xa9, 0xfd, 0x33, 0x9b, 0x42, 0xda, 0x76, 0xb8, 0x30,
+	0x85, 0x34, 0xed, 0x15, 0x52, 0x48, 0xdf, 0x74, 0x75, 0x2f, 0xfe, 0xc4, 0xcf, 0x8c, 0x49, 0xad,
+	0x46, 0x2f, 0x34, 0x17, 0x0e, 0xb2, 0x50, 0x53, 0xdd, 0x94, 0x03, 0xbf, 0xd1, 0x1c, 0xf8, 0xe8,
+	0x6d, 0x56, 0x33, 0xf4, 0x7f, 0xce, 0xc1, 0x4e, 0xba, 0xb0, 0xf3, 0x64, 0x49, 0x39, 0xf0, 0x64,
+	0x3e, 0x54, 0x36, 0x04, 0x9f, 0x6a, 0x1e, 0x3c, 0x7d, 0xab, 0xd9, 0x9c, 0x79, 0xd0, 0xb6, 0xe8,
+	0x85, 0xf3, 0xa0, 0x69, 0xaf, 0x30, 0x0f, 0xfa, 0x41, 0x40, 0xf7, 0xe2, 0xaf, 0x39, 0xd8, 0x9d,
+	0x39, 0x85, 0xf0, 0xb0, 0xa6, 0xfc, 0xf8, 0x68, 0x3e, 0xde, 0x54, 0x3f, 0xe5, 0xc9, 0xe7, 0x9a,
+	0x27, 0x87, 0x8b, 0x2c, 0xb3, 0x65, 0x94, 0x9f, 0xac, 0x16, 0x96, 0x51, 0xae, 0xb4, 0x42, 0x19,
+	0x15, 0xa7, 0x35, 0x9d, 0xe9, 0x35, 0x6c, 0x27, 0x27, 0x19, 0x5e, 0xf1, 0x53, 0x74, 0xd9, 0x8a,
+	0x9f, 0x68, 0xa6, 0x38, 0x4f, 0x34, 0xce, 0xea, 0xdd, 0x36, 0xd9, 0xb4, 0x4f, 0x1d, 0x7a, 0x16,
+	0xa6, 0x7d, 0x4a, 0x77, 0x85, 0xb4, 0x4f, 0x1f, 0xab, 0x34, 0xfa, 0xea, 0xbf, 0xd6, 0x00, 0xc4,
+	0xc9, 0x44, 0x5e, 0x66, 0x11, 0xbf, 0xa1, 0x8c, 0xe4, 0x4d, 0x7b, 0x1b, 0x8b, 0x7f, 0xf4, 0x33,
+	0xe0, 0xf7, 0x50, 0x9f, 0xb8, 0xfc, 0x4e, 0x6a, 0x79, 0x3d, 0xc1, 0xb2, 0x8d, 0x77, 0xa6, 0xc2,
+	0x76, 0x0f, 0x3d, 0x06, 0x70, 0x03, 0x9f, 0x79, 0x7e, 0x14, 0x44, 0x54, 0xdd, 0x4b, 0x53, 0x12,
+	0xf4, 0x05, 0xa8, 0xdb, 0xb6, 0xa5, 0x5e, 0x84, 0xd4, 0x15, 0xea, 0xc1, 0x9d, 0xf7, 0x74, 0x5c,
+	0xa2, 0xda, 0x5b, 0x40, 0x0b, 0xca, 0x3d, 0xe2, 0x06, 0xbd, 0x29, 0xc2, 0xa6, 0x3e, 0x3d, 0xf1,
+	0x9b, 0x53, 0xfd, 0xa5, 0x50, 0x4b, 0x60, 0x7a, 0xe9, 0x26, 0xaa, 0xc0, 0x3a, 0x1f, 0xc3, 0xbf,
+	0xb7, 0xc4, 0x20, 0xd6, 0xda, 0x3d, 0x64, 0xc0, 0x96, 0x25, 0xef, 0x88, 0xc6, 0x7f, 0xb6, 0x84,
+	0xe3, 0x79, 0x79, 0x64, 0x41, 0x27, 0x50, 0xb4, 0xdc, 0xa1, 0x67, 0xb9, 0x22, 0x38, 0xc6, 0x7f,
+	0xe5, 0x25, 0xe9, 0xfe, 0xdc, 0x13, 0x1d, 0xde, 0x6e, 0x0e, 0x3d, 0xf9, 0x5b, 0xf5, 0x60, 0xaf,
+	0x19, 0x12, 0x9b, 0x89, 0x60, 0x63, 0x32, 0x89, 0x08, 0x65, 0xe8, 0x10, 0x36, 0xec, 0x88, 0x0d,
+	0x8c, 0xbf, 0x75, 0x04, 0xca, 0xbd, 0x18, 0x45, 0xbe, 0x9f, 0xd5, 0x4f, 0x23, 0x36, 0xc0, 0x42,
+	0x03, 0x1d, 0x41, 0x5e, 0x31, 0xca, 0x2c, 0x40, 0x1a, 0xa1, 0x64, 0x53, 0x1a, 0xd5, 0xef, 0x01,
+	0xa5, 0xa9, 0xe8, 0x38, 0xf0, 0x29, 0x41, 0x75, 0xc8, 0xcb, 0xf7, 0x38, 0x39, 0xce, 0x94, 0xcf,
+	0x8a, 0xcd, 0x14, 0xbd, 0x58, 0x69, 0xa1, 0xf7, 0x61, 0x4b, 0x5c, 0xfb, 0xbd, 0x9e, 0x9a, 0xf9,
+	0x3c, 0x6f, 0xb6, 0x7b, 0xd5, 0x2e, 0xec, 0x9a, 0x2c, 0x18, 0xbf, 0xdb, 0x38, 0xee, 0x44, 0x3d,
+	0x83, 0xca, 0x14, 0xf5, 0xdd, 0x5c, 0xae, 0x7e, 0x03, 0x7b, 0x98, 0xd0, 0x68, 0x44, 0x7e, 0x64,
+	0xdf, 0x5e, 0x02, 0x4a, 0xe3, 0xbe, 0xbb, 0x77, 0x2f, 0xc9, 0x90, 0xb0, 0xff, 0x83, 0x77, 0x69,
+	0xdc, 0x77, 0xf4, 0xee, 0x9a, 0xc7, 0xdf, 0x0e, 0xd9, 0x8f, 0xec, 0xdc, 0x1b, 0xd8, 0x4b, 0xc1,
+	0x2a, 0xdf, 0x5e, 0x70, 0x6d, 0xf1, 0xe8, 0x6b, 0xe4, 0x0e, 0xd6, 0xd3, 0x07, 0x6e, 0x25, 0xae,
+	0x4b, 0x75, 0xfe, 0x8f, 0x63, 0xd5, 0x95, 0x47, 0xf4, 0x3b, 0x40, 0xaf, 0x08, 0x3b, 0x1d, 0x0e,
+	0x39, 0x18, 0x5d, 0x79, 0x4c, 0xd5, 0x11, 0xdc, 0xd3, 0xec, 0x95, 0xf3, 0xcf, 0x60, 0x83, 0x8f,
+	0x4d, 0x79, 0x3e, 0x6f, 0x1d, 0x8a, 0xfe, 0x55, 0xdd, 0x3d, 0x3a, 0x84, 0x02, 0xc7, 0x10, 0x6f,
+	0x6e, 0x3b, 0x50, 0xb8, 0xe8, 0xb4, 0xac, 0x6e, 0xfb, 0xbc, 0x55, 0x79, 0x0f, 0x95, 0x01, 0x9a,
+	0x17, 0x9d, 0x6e, 0xbb, 0x73, 0x7d, 0x71, 0x6d, 0x56, 0x72, 0x47, 0x1f, 0x43, 0x49, 0x7b, 0x13,
+	0x44, 0xdb, 0xb0, 0x79, 0xdd, 0x31, 0x5b, 0x5d, 0xf9, 0x2e, 0x79, 0x76, 0x6a, 0xb6, 0x4e, 0x5e,
+	0x54, 0x72, 0xa8, 0x00, 0x1b, 0xaf, 0xbe, 0x6b, 0x5f, 0x56, 0xd6, 0xce, 0x4e, 0xbe, 0x7b, 0xd1,
+	0xf7, 0xd8, 0x20, 0x72, 0x38, 0x77, 0xc3, 0xb1, 0x99, 0x3b, 0x70, 0x83, 0x70, 0xdc, 0x18, 0x0f,
+	0xa3, 0x91, 0x43, 0xc2, 0x1a, 0x75, 0x07, 0x64, 0x64, 0xd3, 0x86, 0x13, 0x79, 0xc3, 0x5e, 0xa3,
+	0x1f, 0x34, 0xa4, 0xa7, 0x8e, 0x7c, 0xe3, 0xff, 0xe4, 0x7f, 0x01, 0x00, 0x00, 0xff, 0xff, 0xd8,
+	0xec, 0x95, 0x02, 0xf8, 0x17, 0x00, 0x00,
 }

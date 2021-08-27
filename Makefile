@@ -38,7 +38,7 @@ setup/linux:
 
 .PHONY: generate/all
 generate/all: description = Compile protos for all languages
-generate/all: generate/ts generate/go
+generate/all: generate/ts generate/go inject-tags
 
 .PHONY: generate/ts
 generate/ts: description = Compile TypeScript Interfaces for UI
@@ -102,6 +102,14 @@ generate/go:
 	--go_opt=paths=source_relative \
 	protos/records/*.proto
 
+.PHONY: inject-tags
+inject-tags: description = Inject tags for CLI
+inject-tags:
+	protoc-go-inject-tag -input="build/go/protos/*.pb.go"
+	protoc-go-inject-tag -input="build/go/protos/backends/*.pb.go"
+	protoc-go-inject-tag -input="build/go/protos/common/*.pb.go"
+	protoc-go-inject-tag -input="build/go/protos/encoding/*.pb.go"
+	protoc-go-inject-tag -input="build/go/protos/records/*.pb.go"
 
 .PHONY: clean-go
 clean-go: description = Remove all go build artifacts

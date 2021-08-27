@@ -6,46 +6,29 @@
 
 import * as jspb from "google-protobuf";
 
-export class RedisStreams extends jspb.Message { 
-    getDatabase(): number;
-    setDatabase(value: number): RedisStreams;
-    clearStreamList(): void;
-    getStreamList(): Array<string>;
-    setStreamList(value: Array<string>): RedisStreams;
-    addStream(value: string, index?: number): string;
-    getId(): string;
-    setId(value: string): RedisStreams;
-    getKey(): string;
-    setKey(value: string): RedisStreams;
-    getConsumerGroup(): string;
-    setConsumerGroup(value: string): RedisStreams;
-    getConsumerName(): string;
-    setConsumerName(value: string): RedisStreams;
-
-    hasCreateConsumerConfig(): boolean;
-    clearCreateConsumerConfig(): void;
-    getCreateConsumerConfig(): CreateConsumerConfig | undefined;
-    setCreateConsumerConfig(value?: CreateConsumerConfig): RedisStreams;
+export class RedisStreamsConn extends jspb.Message { 
+    getAddress(): string;
+    setAddress(value: string): RedisStreamsConn;
+    getUsername(): string;
+    setUsername(value: string): RedisStreamsConn;
+    getPassword(): string;
+    setPassword(value: string): RedisStreamsConn;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): RedisStreams.AsObject;
-    static toObject(includeInstance: boolean, msg: RedisStreams): RedisStreams.AsObject;
+    toObject(includeInstance?: boolean): RedisStreamsConn.AsObject;
+    static toObject(includeInstance: boolean, msg: RedisStreamsConn): RedisStreamsConn.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: RedisStreams, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): RedisStreams;
-    static deserializeBinaryFromReader(message: RedisStreams, reader: jspb.BinaryReader): RedisStreams;
+    static serializeBinaryToWriter(message: RedisStreamsConn, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): RedisStreamsConn;
+    static deserializeBinaryFromReader(message: RedisStreamsConn, reader: jspb.BinaryReader): RedisStreamsConn;
 }
 
-export namespace RedisStreams {
+export namespace RedisStreamsConn {
     export type AsObject = {
-        database: number,
-        streamList: Array<string>,
-        id: string,
-        key: string,
-        consumerGroup: string,
-        consumerName: string,
-        createConsumerConfig?: CreateConsumerConfig.AsObject,
+        address: string,
+        username: string,
+        password: string,
     }
 }
 
@@ -79,4 +62,64 @@ export namespace CreateConsumerConfig {
     OLDEST = 1,
     }
 
+}
+
+export class RedisStreamsReadArgs extends jspb.Message { 
+    getDatabase(): number;
+    setDatabase(value: number): RedisStreamsReadArgs;
+    clearStreamList(): void;
+    getStreamList(): Array<string>;
+    setStreamList(value: Array<string>): RedisStreamsReadArgs;
+    addStream(value: string, index?: number): string;
+    getId(): string;
+    setId(value: string): RedisStreamsReadArgs;
+    getKey(): string;
+    setKey(value: string): RedisStreamsReadArgs;
+    getConsumerGroup(): string;
+    setConsumerGroup(value: string): RedisStreamsReadArgs;
+    getConsumerName(): string;
+    setConsumerName(value: string): RedisStreamsReadArgs;
+
+    hasCreateConsumerConfig(): boolean;
+    clearCreateConsumerConfig(): void;
+    getCreateConsumerConfig(): CreateConsumerConfig | undefined;
+    setCreateConsumerConfig(value?: CreateConsumerConfig): RedisStreamsReadArgs;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): RedisStreamsReadArgs.AsObject;
+    static toObject(includeInstance: boolean, msg: RedisStreamsReadArgs): RedisStreamsReadArgs.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: RedisStreamsReadArgs, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): RedisStreamsReadArgs;
+    static deserializeBinaryFromReader(message: RedisStreamsReadArgs, reader: jspb.BinaryReader): RedisStreamsReadArgs;
+}
+
+export namespace RedisStreamsReadArgs {
+    export type AsObject = {
+        database: number,
+        streamList: Array<string>,
+        id: string,
+        key: string,
+        consumerGroup: string,
+        consumerName: string,
+        createConsumerConfig?: CreateConsumerConfig.AsObject,
+    }
+}
+
+export class RedisStreamsWriteArgs extends jspb.Message { 
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): RedisStreamsWriteArgs.AsObject;
+    static toObject(includeInstance: boolean, msg: RedisStreamsWriteArgs): RedisStreamsWriteArgs.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: RedisStreamsWriteArgs, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): RedisStreamsWriteArgs;
+    static deserializeBinaryFromReader(message: RedisStreamsWriteArgs, reader: jspb.BinaryReader): RedisStreamsWriteArgs;
+}
+
+export namespace RedisStreamsWriteArgs {
+    export type AsObject = {
+    }
 }
