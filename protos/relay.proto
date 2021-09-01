@@ -2,81 +2,191 @@ syntax = "proto3";
 
 package protos;
 
+import "backends/backends.proto";
 import "backends/kafka.proto";
-import "backends/activemq.proto";
-import "backends/aws-sns.proto";
 import "backends/aws-sqs.proto";
 import "backends/mongo.proto";
-import "backends/nats.proto";
-import "backends/nats-streaming.proto";
 import "backends/nsq.proto";
 import "backends/postgres.proto";
-import "backends/pulsar.proto";
 import "backends/rabbit.proto";
-import "backends/rabbit-streams.proto";
 import "backends/redis-pubsub.proto";
 import "backends/redis-streams.proto";
 import "backends/azure-service-bus.proto";
-import "backends/azure-event-hub.proto";
+import "backends/mqtt.proto";
+import "backends/gcp-pubsub.proto";
+import "backends/kubemq-queue.proto";
 import "common/auth.proto";
 import "common/status.proto";
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
 
 message CLIRelayConfig {
+    // @gotags: kong:"help='What address to bind the built-in HTTP server to',default='http://localhost:9191'"
     string http_listen_address = 1;
+
+    // Used by CLI to inform components, which backend to use; server uses
+    // ReadConfig.connection_id.
+    // @gotags: kong:"-"
+    backends.Type _backend_type = 2;
+
+    // @gotags: kong:"embed,group=relay"
+    RelayBackend _relay_backend = 3;
+
+    message RelayBackend {
+        // @gotags: kong:"cmd,help='Apache Kafka'"
+        Kafka kafka = 1;
+
+        // @gotags: kong:"cmd,help='AWS Simple Queue System'"
+        AWSSQS awssqs = 2;
+
+        // @gotags: kong:"cmd,help='MongoDB (CDC)'"
+        Mongo mongo = 3;
+
+        // @gotags: kong:"cmd,help='NSQ'"
+        NSQ nsq = 4;
+
+        // @gotags: kong:"cmd,help='MQTT'"
+        Rabbit rabbit = 5;
+
+        // @gotags: kong:"cmd,help='MQTT'"
+        MQTT mqtt = 6;
+
+        // @gotags: kong:"cmd,help='Azure Service Bus'"
+        AzureServiceBus azure_service_bus = 7;
+
+        // @gotags: kong:"cmd,help='Google Cloud Platform Pub/Sub'"
+        GCPPubSub gcp_pubsub = 8;
+
+        // @gotags: kong:"cmd,help='KubeMQ Queue'"
+        KubeMQQueue kubemq_queue = 9;
+
+        // @gotags: kong:"cmd,help='Redis PubSub'"
+        RedisPubSub redis_pubsub = 10;
+
+        // @gotags: kong:"cmd,help='Redis Streams'"
+        RedisStreams redis_streams = 11;
+
+        // @gotags: kong:"cmd,help='PostgreSQL (CDC)'"
+        Postgres postgres = 12;
+
+        message Kafka {
+            // @gotags: kong:"embed"
+            backends.KafkaConn conn = 1;
+            // @gotags: kong:"embed"
+            backends.KafkaReadArgs args = 2;
+        }
+
+        message AWSSQS {
+            // @gotags: kong:"embed"
+            backends.AWSSQSConn conn = 1;
+            // @gotags: kong:"embed"
+            backends.AWSSQSRelayArgs args = 2;
+        }
+
+        message Mongo {
+            // @gotags: kong:"embed"
+            backends.MongoConn conn = 1;
+            // @gotags: kong:"embed"
+            backends.MongoReadArgs args = 2;
+        }
+
+        message NSQ {
+            // @gotags: kong:"embed"
+            backends.NSQConn conn = 1;
+            // @gotags: kong:"embed"
+            backends.NSQReadArgs args = 2;
+        }
+
+        message Postgres {
+            // @gotags: kong:"embed"
+            backends.PostgresConn conn = 1;
+            // @gotags: kong:"embed"
+            backends.PostgresReadArgs args = 2;
+        }
+
+        message Rabbit {
+            // @gotags: kong:"embed"
+            backends.RabbitConn conn = 1;
+            // @gotags: kong:"embed"
+            backends.RabbitReadArgs args = 2;
+        }
+
+        message RedisPubSub {
+            // @gotags: kong:"embed"
+            backends.RedisPubSubConn conn = 1;
+            // @gotags: kong:"embed"
+            backends.RedisPubSubReadArgs args = 2;
+        }
+
+        message RedisStreams {
+            // @gotags: kong:"embed"
+            backends.RedisStreamsConn conn = 1;
+            // @gotags: kong:"embed"
+            backends.RedisStreamsReadArgs args = 2;
+        }
+
+        message AzureServiceBus {
+            // @gotags: kong:"embed"
+            backends.AzureServiceBusConn conn = 1;
+            // @gotags: kong:"embed"
+            backends.AzureServiceBusReadArgs args = 2;
+        }
+
+        message MQTT {
+            // @gotags: kong:"embed"
+            backends.MQTTConn conn = 1;
+            // @gotags: kong:"embed"
+            backends.MQTTReadArgs args = 2;
+        }
+
+        message GCPPubSub {
+            // @gotags: kong:"embed"
+            backends.GCPPubSubConn conn = 1;
+            // @gotags: kong:"embed"
+            backends.GCPPubSubReadArgs args = 2;
+        }
+
+        message KubeMQQueue {
+            // @gotags: kong:"embed"
+            backends.KubeMQQueueConn conn = 1;
+            // @gotags: kong:"embed"
+            backends.KubeMQQueueReadArgs args = 2;
+        }
+    }
 }
 
 message RelayConfig {
-    // Required
+    // @gotags: kong:"help='Secret collection token',name=token,required"
     string collection_token = 1;
 
-    // Optional; how many messages to send in a single batch (default: 1000)
+    // @gotags: kong:"help='How many messages to send in a single batch',default=1000"
     int32 batch_size = 2;
 
-    // Optional; how many times plumber will try re-sending a batch (default: 3)
+    // @gotags: kong:"help='How many times plumber will try re-sending a batch',default=3"
     int32 batch_max_retry = 3;
 
     // Required for server mode; ignored in CLI mode.
+    // @gotags: kong:"-"
     string connection_id = 4;
 
-    // How many workers to launch per relay (default: 10)
+    // @gotags: kong:"name='How many workers to launch per relay',default=10"
     int32 num_workers = 5;
 
-    // Optional; where to send events to (default: grpc-collector.batch.sh:9000)
+    // @gotags: kong:"help='Alternative collector to relay events to',name='grpc-address',default='grpc-collector.batch.sh:9000'"
     string _batchsh_grpc_address = 6;
 
-    // Optional; whether to use TLS for gRPC (default: true)
+    // @gotags: kong:"help='Whether to use TLS with collector',name=grpc-disable-tls,default=true"
     bool _batchsh_grpc_disable_tls = 7;
 
-    // Optional: how long to wait before giving up talking to the gRPC collector (default: 10)
+    // @gotags: kong:"help='How long to wait before giving up talking to the gRPC collector',name='grpc-timeout-seconds'"
     int32 _batchsh_grpc_timeout_seconds = 8;
 
     // ID of the created relay entry; populated by plumber.
+    // @gotags: kong:"-"
     string _relay_id = 9;
 
+    // @gotags: kong:"embed"
     CLIRelayConfig _cli_config = 10;
-
-    // Set appropriate backend based on what connection is specified
-    // ie. If connection_id is for kafka - specify Kafka backend
-    oneof Backends {
-        backends.Kafka kafka = 100;
-        backends.ActiveMQ active_mq = 101;
-        backends.AWSSQS awssqs = 102;
-        backends.AWSSNS awssns = 103;
-        backends.Mongo mongo = 104;
-        backends.Nats nats = 105;
-        backends.NatsStreaming nats_streaming = 106;
-        backends.NSQ nsq = 107;
-        backends.Postgres postgres = 108;
-        backends.Pulsar pulsar = 109;
-        backends.Rabbit rabbit = 110;
-        backends.RabbitStreams rabbit_streams = 111;
-        backends.RedisPubsub redis_pubsub = 112;
-        backends.RedisStreams redis_streams = 113;
-        backends.AzureEventHub azure_event_hub = 114;
-        backends.AzureServiceBus azure_service_bus = 115;
-    }
 }
 
 message GetAllRelaysRequest {
@@ -116,20 +226,17 @@ message CreateRelayRequest {
     RelayConfig config = 1;
 
     oneof Backends {
-        backends.Kafka kafka = 100;
-        backends.ActiveMQ active_mq = 101;
-        backends.AWSSQS awssqs = 102;
-        backends.AWSSNS awssns = 103;
-        backends.Mongo mongo = 104;
-        backends.Nats nats = 105;
-        backends.NatsStreaming nats_streaming = 106;
-        backends.NSQ nsq = 107;
-        backends.Postgres postgres = 108;
-        backends.Pulsar pulsar = 109;
-        backends.Rabbit rabbit = 110;
-        backends.RabbitStreams rabbit_streams = 111;
-        backends.RedisPubsub redis_pubsub = 112;
-        backends.RedisStreams redis_streams = 113;
+        backends.KafkaReadArgs kafka = 100;
+        backends.MQTTReadArgs mqtt = 101;
+        backends.AWSSQSReadArgs awssqs = 102;
+        backends.MongoReadArgs mongo = 104;
+        backends.GCPPubSubReadArgs gcp_pubsub = 105;
+        backends.AzureServiceBusReadArgs azure_service_bus = 106;
+        backends.NSQReadArgs nsq = 107;
+        backends.PostgresReadArgs postgres = 108;
+        backends.RabbitReadArgs rabbit = 109;
+        backends.RedisPubSubReadArgs redis_pubsub = 111;
+        backends.RedisStreamsReadArgs redis_streams = 112;
     }
 }
 

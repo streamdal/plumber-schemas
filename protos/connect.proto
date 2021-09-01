@@ -2,22 +2,25 @@ syntax = "proto3";
 
 package protos;
 
-import "conns/kafka.proto";
-import "conns/activemq.proto";
-import "conns/aws-sns.proto";
-import "conns/aws-sqs.proto";
-import "conns/mongo.proto";
-import "conns/nats.proto";
-import "conns/nats-streaming.proto";
-import "conns/nsq.proto";
-import "conns/postgres.proto";
-import "conns/pulsar.proto";
-import "conns/rabbit.proto";
-import "conns/rabbit-streams.proto";
-import "conns/redis-pubsub.proto";
-import "conns/redis-streams.proto";
-import "conns/azure-service-bus.proto";
-import "conns/azure-event-hub.proto";
+import "backends/kafka.proto";
+import "backends/activemq.proto";
+import "backends/aws-sns.proto";
+import "backends/aws-sqs.proto";
+import "backends/mongo.proto";
+import "backends/nats.proto";
+import "backends/nats-streaming.proto";
+import "backends/nsq.proto";
+import "backends/mqtt.proto";
+import "backends/gcp-pubsub.proto";
+import "backends/kubemq-queue.proto";
+import "backends/postgres.proto";
+import "backends/pulsar.proto";
+import "backends/rabbit.proto";
+import "backends/rabbit-streams.proto";
+import "backends/redis-pubsub.proto";
+import "backends/redis-streams.proto";
+import "backends/azure-service-bus.proto";
+import "backends/azure-event-hub.proto";
 import "common/auth.proto";
 import "common/status.proto";
 
@@ -33,22 +36,25 @@ message ConnectionConfig {
     string id = 3;
 
     oneof conn {
-        conns.Kafka kafka = 100;
-        conns.ActiveMQ active_mq = 101;
-        conns.AWSSQS awssqs = 102;
-        conns.AWSSNS awssns = 103;
-        conns.Mongo mongo = 104;
-        conns.Nats nats = 105;
-        conns.NatsStreaming nats_streaming = 106;
-        conns.NSQ nsq = 107;
-        conns.Postgres postgres = 108;
-        conns.Pulsar pulsar = 109;
-        conns.Rabbit rabbit = 110;
-        conns.RabbitStreams rabbit_streams = 111;
-        conns.RedisPubsub redis_pubsub = 112;
-        conns.RedisStreams redis_streams = 113;
-        conns.AzureEventHub azure_event_hub = 114;
-        conns.AzureServiceBus azure_service_bus = 115;
+        backends.KafkaConn kafka = 100;
+        backends.ActiveMQConn active_mq = 101;
+        backends.AWSSQSConn awssqs = 102;
+        backends.AWSSNSConn awssns = 103;
+        backends.MongoConn mongo = 104;
+        backends.NatsConn nats = 105;
+        backends.NatsStreamingConn nats_streaming = 106;
+        backends.NSQConn nsq = 107;
+        backends.PostgresConn postgres = 108;
+        backends.PulsarConn pulsar = 109;
+        backends.RabbitConn rabbit = 110;
+        backends.RabbitStreamsConn rabbit_streams = 111;
+        backends.RedisPubSubConn redis_pubsub = 112;
+        backends.RedisStreamsConn redis_streams = 113;
+        backends.AzureEventHubConn azure_event_hub = 114;
+        backends.AzureServiceBusConn azure_service_bus = 115;
+        backends.MQTTConn mqtt = 116;
+        backends.KubeMQQueueConn kubemq_queue = 117;
+        backends.GCPPubSubConn gcp_pubsub = 118;
     }
 }
 

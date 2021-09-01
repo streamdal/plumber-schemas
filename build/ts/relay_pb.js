@@ -15,43 +15,50 @@ var jspb = require('google-protobuf');
 var goog = jspb;
 var global = Function('return this')();
 
+var backends_backends_pb = require('./backends/backends_pb.js');
+goog.object.extend(proto, backends_backends_pb);
 var backends_kafka_pb = require('./backends/kafka_pb.js');
 goog.object.extend(proto, backends_kafka_pb);
-var backends_activemq_pb = require('./backends/activemq_pb.js');
-goog.object.extend(proto, backends_activemq_pb);
-var backends_aws$sns_pb = require('./backends/aws-sns_pb.js');
-goog.object.extend(proto, backends_aws$sns_pb);
 var backends_aws$sqs_pb = require('./backends/aws-sqs_pb.js');
 goog.object.extend(proto, backends_aws$sqs_pb);
 var backends_mongo_pb = require('./backends/mongo_pb.js');
 goog.object.extend(proto, backends_mongo_pb);
-var backends_nats_pb = require('./backends/nats_pb.js');
-goog.object.extend(proto, backends_nats_pb);
-var backends_nats$streaming_pb = require('./backends/nats-streaming_pb.js');
-goog.object.extend(proto, backends_nats$streaming_pb);
 var backends_nsq_pb = require('./backends/nsq_pb.js');
 goog.object.extend(proto, backends_nsq_pb);
 var backends_postgres_pb = require('./backends/postgres_pb.js');
 goog.object.extend(proto, backends_postgres_pb);
-var backends_pulsar_pb = require('./backends/pulsar_pb.js');
-goog.object.extend(proto, backends_pulsar_pb);
 var backends_rabbit_pb = require('./backends/rabbit_pb.js');
 goog.object.extend(proto, backends_rabbit_pb);
-var backends_rabbit$streams_pb = require('./backends/rabbit-streams_pb.js');
-goog.object.extend(proto, backends_rabbit$streams_pb);
 var backends_redis$pubsub_pb = require('./backends/redis-pubsub_pb.js');
 goog.object.extend(proto, backends_redis$pubsub_pb);
 var backends_redis$streams_pb = require('./backends/redis-streams_pb.js');
 goog.object.extend(proto, backends_redis$streams_pb);
 var backends_azure$service$bus_pb = require('./backends/azure-service-bus_pb.js');
 goog.object.extend(proto, backends_azure$service$bus_pb);
-var backends_azure$event$hub_pb = require('./backends/azure-event-hub_pb.js');
-goog.object.extend(proto, backends_azure$event$hub_pb);
+var backends_mqtt_pb = require('./backends/mqtt_pb.js');
+goog.object.extend(proto, backends_mqtt_pb);
+var backends_gcp$pubsub_pb = require('./backends/gcp-pubsub_pb.js');
+goog.object.extend(proto, backends_gcp$pubsub_pb);
+var backends_kubemq$queue_pb = require('./backends/kubemq-queue_pb.js');
+goog.object.extend(proto, backends_kubemq$queue_pb);
 var common_auth_pb = require('./common/auth_pb.js');
 goog.object.extend(proto, common_auth_pb);
 var common_status_pb = require('./common/status_pb.js');
 goog.object.extend(proto, common_status_pb);
 goog.exportSymbol('proto.protos.CLIRelayConfig', null, global);
+goog.exportSymbol('proto.protos.CLIRelayConfig.RelayBackend', null, global);
+goog.exportSymbol('proto.protos.CLIRelayConfig.RelayBackend.AWSSQS', null, global);
+goog.exportSymbol('proto.protos.CLIRelayConfig.RelayBackend.AzureServiceBus', null, global);
+goog.exportSymbol('proto.protos.CLIRelayConfig.RelayBackend.GCPPubSub', null, global);
+goog.exportSymbol('proto.protos.CLIRelayConfig.RelayBackend.Kafka', null, global);
+goog.exportSymbol('proto.protos.CLIRelayConfig.RelayBackend.KubeMQQueue', null, global);
+goog.exportSymbol('proto.protos.CLIRelayConfig.RelayBackend.MQTT', null, global);
+goog.exportSymbol('proto.protos.CLIRelayConfig.RelayBackend.Mongo', null, global);
+goog.exportSymbol('proto.protos.CLIRelayConfig.RelayBackend.NSQ', null, global);
+goog.exportSymbol('proto.protos.CLIRelayConfig.RelayBackend.Postgres', null, global);
+goog.exportSymbol('proto.protos.CLIRelayConfig.RelayBackend.Rabbit', null, global);
+goog.exportSymbol('proto.protos.CLIRelayConfig.RelayBackend.RedisPubSub', null, global);
+goog.exportSymbol('proto.protos.CLIRelayConfig.RelayBackend.RedisStreams', null, global);
 goog.exportSymbol('proto.protos.CreateRelayRequest', null, global);
 goog.exportSymbol('proto.protos.CreateRelayRequest.BackendsCase', null, global);
 goog.exportSymbol('proto.protos.CreateRelayResponse', null, global);
@@ -62,7 +69,6 @@ goog.exportSymbol('proto.protos.GetAllRelaysResponse', null, global);
 goog.exportSymbol('proto.protos.GetRelayRequest', null, global);
 goog.exportSymbol('proto.protos.GetRelayResponse', null, global);
 goog.exportSymbol('proto.protos.RelayConfig', null, global);
-goog.exportSymbol('proto.protos.RelayConfig.BackendsCase', null, global);
 goog.exportSymbol('proto.protos.ResumeRelayRequest', null, global);
 goog.exportSymbol('proto.protos.ResumeRelayResponse', null, global);
 goog.exportSymbol('proto.protos.StopRelayRequest', null, global);
@@ -100,8 +106,281 @@ if (goog.DEBUG && !COMPILED) {
  * @extends {jspb.Message}
  * @constructor
  */
+proto.protos.CLIRelayConfig.RelayBackend = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+};
+goog.inherits(proto.protos.CLIRelayConfig.RelayBackend, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  /**
+   * @public
+   * @override
+   */
+  proto.protos.CLIRelayConfig.RelayBackend.displayName = 'proto.protos.CLIRelayConfig.RelayBackend';
+}
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.protos.CLIRelayConfig.RelayBackend.Kafka = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+};
+goog.inherits(proto.protos.CLIRelayConfig.RelayBackend.Kafka, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  /**
+   * @public
+   * @override
+   */
+  proto.protos.CLIRelayConfig.RelayBackend.Kafka.displayName = 'proto.protos.CLIRelayConfig.RelayBackend.Kafka';
+}
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.protos.CLIRelayConfig.RelayBackend.AWSSQS = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+};
+goog.inherits(proto.protos.CLIRelayConfig.RelayBackend.AWSSQS, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  /**
+   * @public
+   * @override
+   */
+  proto.protos.CLIRelayConfig.RelayBackend.AWSSQS.displayName = 'proto.protos.CLIRelayConfig.RelayBackend.AWSSQS';
+}
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.protos.CLIRelayConfig.RelayBackend.Mongo = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+};
+goog.inherits(proto.protos.CLIRelayConfig.RelayBackend.Mongo, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  /**
+   * @public
+   * @override
+   */
+  proto.protos.CLIRelayConfig.RelayBackend.Mongo.displayName = 'proto.protos.CLIRelayConfig.RelayBackend.Mongo';
+}
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.protos.CLIRelayConfig.RelayBackend.NSQ = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+};
+goog.inherits(proto.protos.CLIRelayConfig.RelayBackend.NSQ, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  /**
+   * @public
+   * @override
+   */
+  proto.protos.CLIRelayConfig.RelayBackend.NSQ.displayName = 'proto.protos.CLIRelayConfig.RelayBackend.NSQ';
+}
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.protos.CLIRelayConfig.RelayBackend.Postgres = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+};
+goog.inherits(proto.protos.CLIRelayConfig.RelayBackend.Postgres, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  /**
+   * @public
+   * @override
+   */
+  proto.protos.CLIRelayConfig.RelayBackend.Postgres.displayName = 'proto.protos.CLIRelayConfig.RelayBackend.Postgres';
+}
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.protos.CLIRelayConfig.RelayBackend.Rabbit = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+};
+goog.inherits(proto.protos.CLIRelayConfig.RelayBackend.Rabbit, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  /**
+   * @public
+   * @override
+   */
+  proto.protos.CLIRelayConfig.RelayBackend.Rabbit.displayName = 'proto.protos.CLIRelayConfig.RelayBackend.Rabbit';
+}
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.protos.CLIRelayConfig.RelayBackend.RedisPubSub = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+};
+goog.inherits(proto.protos.CLIRelayConfig.RelayBackend.RedisPubSub, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  /**
+   * @public
+   * @override
+   */
+  proto.protos.CLIRelayConfig.RelayBackend.RedisPubSub.displayName = 'proto.protos.CLIRelayConfig.RelayBackend.RedisPubSub';
+}
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.protos.CLIRelayConfig.RelayBackend.RedisStreams = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+};
+goog.inherits(proto.protos.CLIRelayConfig.RelayBackend.RedisStreams, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  /**
+   * @public
+   * @override
+   */
+  proto.protos.CLIRelayConfig.RelayBackend.RedisStreams.displayName = 'proto.protos.CLIRelayConfig.RelayBackend.RedisStreams';
+}
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.protos.CLIRelayConfig.RelayBackend.AzureServiceBus = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+};
+goog.inherits(proto.protos.CLIRelayConfig.RelayBackend.AzureServiceBus, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  /**
+   * @public
+   * @override
+   */
+  proto.protos.CLIRelayConfig.RelayBackend.AzureServiceBus.displayName = 'proto.protos.CLIRelayConfig.RelayBackend.AzureServiceBus';
+}
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.protos.CLIRelayConfig.RelayBackend.MQTT = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+};
+goog.inherits(proto.protos.CLIRelayConfig.RelayBackend.MQTT, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  /**
+   * @public
+   * @override
+   */
+  proto.protos.CLIRelayConfig.RelayBackend.MQTT.displayName = 'proto.protos.CLIRelayConfig.RelayBackend.MQTT';
+}
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.protos.CLIRelayConfig.RelayBackend.GCPPubSub = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+};
+goog.inherits(proto.protos.CLIRelayConfig.RelayBackend.GCPPubSub, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  /**
+   * @public
+   * @override
+   */
+  proto.protos.CLIRelayConfig.RelayBackend.GCPPubSub.displayName = 'proto.protos.CLIRelayConfig.RelayBackend.GCPPubSub';
+}
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.protos.CLIRelayConfig.RelayBackend.KubeMQQueue = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+};
+goog.inherits(proto.protos.CLIRelayConfig.RelayBackend.KubeMQQueue, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  /**
+   * @public
+   * @override
+   */
+  proto.protos.CLIRelayConfig.RelayBackend.KubeMQQueue.displayName = 'proto.protos.CLIRelayConfig.RelayBackend.KubeMQQueue';
+}
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
 proto.protos.RelayConfig = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, proto.protos.RelayConfig.oneofGroups_);
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
 goog.inherits(proto.protos.RelayConfig, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
@@ -437,7 +716,9 @@ proto.protos.CLIRelayConfig.prototype.toObject = function(opt_includeInstance) {
  */
 proto.protos.CLIRelayConfig.toObject = function(includeInstance, msg) {
   var f, obj = {
-    httpListenAddress: jspb.Message.getFieldWithDefault(msg, 1, "")
+    httpListenAddress: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    backendType: jspb.Message.getFieldWithDefault(msg, 2, 0),
+    relayBackend: (f = msg.getRelayBackend()) && proto.protos.CLIRelayConfig.RelayBackend.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -478,6 +759,15 @@ proto.protos.CLIRelayConfig.deserializeBinaryFromReader = function(msg, reader) 
       var value = /** @type {string} */ (reader.readString());
       msg.setHttpListenAddress(value);
       break;
+    case 2:
+      var value = /** @type {!proto.protos.backends.Type} */ (reader.readEnum());
+      msg.setBackendType(value);
+      break;
+    case 3:
+      var value = new proto.protos.CLIRelayConfig.RelayBackend;
+      reader.readMessage(value,proto.protos.CLIRelayConfig.RelayBackend.deserializeBinaryFromReader);
+      msg.setRelayBackend(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -514,6 +804,3157 @@ proto.protos.CLIRelayConfig.serializeBinaryToWriter = function(message, writer) 
       f
     );
   }
+  f = message.getBackendType();
+  if (f !== 0.0) {
+    writer.writeEnum(
+      2,
+      f
+    );
+  }
+  f = message.getRelayBackend();
+  if (f != null) {
+    writer.writeMessage(
+      3,
+      f,
+      proto.protos.CLIRelayConfig.RelayBackend.serializeBinaryToWriter
+    );
+  }
+};
+
+
+
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * Optional fields that are not set will be set to undefined.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+ * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+ *     JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.prototype.toObject = function(opt_includeInstance) {
+  return proto.protos.CLIRelayConfig.RelayBackend.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+ *     the JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.protos.CLIRelayConfig.RelayBackend} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.protos.CLIRelayConfig.RelayBackend.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    kafka: (f = msg.getKafka()) && proto.protos.CLIRelayConfig.RelayBackend.Kafka.toObject(includeInstance, f),
+    awssqs: (f = msg.getAwssqs()) && proto.protos.CLIRelayConfig.RelayBackend.AWSSQS.toObject(includeInstance, f),
+    mongo: (f = msg.getMongo()) && proto.protos.CLIRelayConfig.RelayBackend.Mongo.toObject(includeInstance, f),
+    nsq: (f = msg.getNsq()) && proto.protos.CLIRelayConfig.RelayBackend.NSQ.toObject(includeInstance, f),
+    rabbit: (f = msg.getRabbit()) && proto.protos.CLIRelayConfig.RelayBackend.Rabbit.toObject(includeInstance, f),
+    mqtt: (f = msg.getMqtt()) && proto.protos.CLIRelayConfig.RelayBackend.MQTT.toObject(includeInstance, f),
+    azureServiceBus: (f = msg.getAzureServiceBus()) && proto.protos.CLIRelayConfig.RelayBackend.AzureServiceBus.toObject(includeInstance, f),
+    gcpPubsub: (f = msg.getGcpPubsub()) && proto.protos.CLIRelayConfig.RelayBackend.GCPPubSub.toObject(includeInstance, f),
+    kubemqQueue: (f = msg.getKubemqQueue()) && proto.protos.CLIRelayConfig.RelayBackend.KubeMQQueue.toObject(includeInstance, f),
+    redisPubsub: (f = msg.getRedisPubsub()) && proto.protos.CLIRelayConfig.RelayBackend.RedisPubSub.toObject(includeInstance, f),
+    redisStreams: (f = msg.getRedisStreams()) && proto.protos.CLIRelayConfig.RelayBackend.RedisStreams.toObject(includeInstance, f),
+    postgres: (f = msg.getPostgres()) && proto.protos.CLIRelayConfig.RelayBackend.Postgres.toObject(includeInstance, f)
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.protos.CLIRelayConfig.RelayBackend;
+  return proto.protos.CLIRelayConfig.RelayBackend.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.protos.CLIRelayConfig.RelayBackend} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = new proto.protos.CLIRelayConfig.RelayBackend.Kafka;
+      reader.readMessage(value,proto.protos.CLIRelayConfig.RelayBackend.Kafka.deserializeBinaryFromReader);
+      msg.setKafka(value);
+      break;
+    case 2:
+      var value = new proto.protos.CLIRelayConfig.RelayBackend.AWSSQS;
+      reader.readMessage(value,proto.protos.CLIRelayConfig.RelayBackend.AWSSQS.deserializeBinaryFromReader);
+      msg.setAwssqs(value);
+      break;
+    case 3:
+      var value = new proto.protos.CLIRelayConfig.RelayBackend.Mongo;
+      reader.readMessage(value,proto.protos.CLIRelayConfig.RelayBackend.Mongo.deserializeBinaryFromReader);
+      msg.setMongo(value);
+      break;
+    case 4:
+      var value = new proto.protos.CLIRelayConfig.RelayBackend.NSQ;
+      reader.readMessage(value,proto.protos.CLIRelayConfig.RelayBackend.NSQ.deserializeBinaryFromReader);
+      msg.setNsq(value);
+      break;
+    case 5:
+      var value = new proto.protos.CLIRelayConfig.RelayBackend.Rabbit;
+      reader.readMessage(value,proto.protos.CLIRelayConfig.RelayBackend.Rabbit.deserializeBinaryFromReader);
+      msg.setRabbit(value);
+      break;
+    case 6:
+      var value = new proto.protos.CLIRelayConfig.RelayBackend.MQTT;
+      reader.readMessage(value,proto.protos.CLIRelayConfig.RelayBackend.MQTT.deserializeBinaryFromReader);
+      msg.setMqtt(value);
+      break;
+    case 7:
+      var value = new proto.protos.CLIRelayConfig.RelayBackend.AzureServiceBus;
+      reader.readMessage(value,proto.protos.CLIRelayConfig.RelayBackend.AzureServiceBus.deserializeBinaryFromReader);
+      msg.setAzureServiceBus(value);
+      break;
+    case 8:
+      var value = new proto.protos.CLIRelayConfig.RelayBackend.GCPPubSub;
+      reader.readMessage(value,proto.protos.CLIRelayConfig.RelayBackend.GCPPubSub.deserializeBinaryFromReader);
+      msg.setGcpPubsub(value);
+      break;
+    case 9:
+      var value = new proto.protos.CLIRelayConfig.RelayBackend.KubeMQQueue;
+      reader.readMessage(value,proto.protos.CLIRelayConfig.RelayBackend.KubeMQQueue.deserializeBinaryFromReader);
+      msg.setKubemqQueue(value);
+      break;
+    case 10:
+      var value = new proto.protos.CLIRelayConfig.RelayBackend.RedisPubSub;
+      reader.readMessage(value,proto.protos.CLIRelayConfig.RelayBackend.RedisPubSub.deserializeBinaryFromReader);
+      msg.setRedisPubsub(value);
+      break;
+    case 11:
+      var value = new proto.protos.CLIRelayConfig.RelayBackend.RedisStreams;
+      reader.readMessage(value,proto.protos.CLIRelayConfig.RelayBackend.RedisStreams.deserializeBinaryFromReader);
+      msg.setRedisStreams(value);
+      break;
+    case 12:
+      var value = new proto.protos.CLIRelayConfig.RelayBackend.Postgres;
+      reader.readMessage(value,proto.protos.CLIRelayConfig.RelayBackend.Postgres.deserializeBinaryFromReader);
+      msg.setPostgres(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.protos.CLIRelayConfig.RelayBackend.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.protos.CLIRelayConfig.RelayBackend} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.protos.CLIRelayConfig.RelayBackend.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getKafka();
+  if (f != null) {
+    writer.writeMessage(
+      1,
+      f,
+      proto.protos.CLIRelayConfig.RelayBackend.Kafka.serializeBinaryToWriter
+    );
+  }
+  f = message.getAwssqs();
+  if (f != null) {
+    writer.writeMessage(
+      2,
+      f,
+      proto.protos.CLIRelayConfig.RelayBackend.AWSSQS.serializeBinaryToWriter
+    );
+  }
+  f = message.getMongo();
+  if (f != null) {
+    writer.writeMessage(
+      3,
+      f,
+      proto.protos.CLIRelayConfig.RelayBackend.Mongo.serializeBinaryToWriter
+    );
+  }
+  f = message.getNsq();
+  if (f != null) {
+    writer.writeMessage(
+      4,
+      f,
+      proto.protos.CLIRelayConfig.RelayBackend.NSQ.serializeBinaryToWriter
+    );
+  }
+  f = message.getRabbit();
+  if (f != null) {
+    writer.writeMessage(
+      5,
+      f,
+      proto.protos.CLIRelayConfig.RelayBackend.Rabbit.serializeBinaryToWriter
+    );
+  }
+  f = message.getMqtt();
+  if (f != null) {
+    writer.writeMessage(
+      6,
+      f,
+      proto.protos.CLIRelayConfig.RelayBackend.MQTT.serializeBinaryToWriter
+    );
+  }
+  f = message.getAzureServiceBus();
+  if (f != null) {
+    writer.writeMessage(
+      7,
+      f,
+      proto.protos.CLIRelayConfig.RelayBackend.AzureServiceBus.serializeBinaryToWriter
+    );
+  }
+  f = message.getGcpPubsub();
+  if (f != null) {
+    writer.writeMessage(
+      8,
+      f,
+      proto.protos.CLIRelayConfig.RelayBackend.GCPPubSub.serializeBinaryToWriter
+    );
+  }
+  f = message.getKubemqQueue();
+  if (f != null) {
+    writer.writeMessage(
+      9,
+      f,
+      proto.protos.CLIRelayConfig.RelayBackend.KubeMQQueue.serializeBinaryToWriter
+    );
+  }
+  f = message.getRedisPubsub();
+  if (f != null) {
+    writer.writeMessage(
+      10,
+      f,
+      proto.protos.CLIRelayConfig.RelayBackend.RedisPubSub.serializeBinaryToWriter
+    );
+  }
+  f = message.getRedisStreams();
+  if (f != null) {
+    writer.writeMessage(
+      11,
+      f,
+      proto.protos.CLIRelayConfig.RelayBackend.RedisStreams.serializeBinaryToWriter
+    );
+  }
+  f = message.getPostgres();
+  if (f != null) {
+    writer.writeMessage(
+      12,
+      f,
+      proto.protos.CLIRelayConfig.RelayBackend.Postgres.serializeBinaryToWriter
+    );
+  }
+};
+
+
+
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * Optional fields that are not set will be set to undefined.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+ * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+ *     JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.Kafka.prototype.toObject = function(opt_includeInstance) {
+  return proto.protos.CLIRelayConfig.RelayBackend.Kafka.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+ *     the JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.protos.CLIRelayConfig.RelayBackend.Kafka} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.protos.CLIRelayConfig.RelayBackend.Kafka.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    conn: (f = msg.getConn()) && backends_kafka_pb.KafkaConn.toObject(includeInstance, f),
+    args: (f = msg.getArgs()) && backends_kafka_pb.KafkaReadArgs.toObject(includeInstance, f)
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend.Kafka}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.Kafka.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.protos.CLIRelayConfig.RelayBackend.Kafka;
+  return proto.protos.CLIRelayConfig.RelayBackend.Kafka.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.protos.CLIRelayConfig.RelayBackend.Kafka} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend.Kafka}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.Kafka.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = new backends_kafka_pb.KafkaConn;
+      reader.readMessage(value,backends_kafka_pb.KafkaConn.deserializeBinaryFromReader);
+      msg.setConn(value);
+      break;
+    case 2:
+      var value = new backends_kafka_pb.KafkaReadArgs;
+      reader.readMessage(value,backends_kafka_pb.KafkaReadArgs.deserializeBinaryFromReader);
+      msg.setArgs(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.Kafka.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.protos.CLIRelayConfig.RelayBackend.Kafka.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.protos.CLIRelayConfig.RelayBackend.Kafka} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.protos.CLIRelayConfig.RelayBackend.Kafka.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getConn();
+  if (f != null) {
+    writer.writeMessage(
+      1,
+      f,
+      backends_kafka_pb.KafkaConn.serializeBinaryToWriter
+    );
+  }
+  f = message.getArgs();
+  if (f != null) {
+    writer.writeMessage(
+      2,
+      f,
+      backends_kafka_pb.KafkaReadArgs.serializeBinaryToWriter
+    );
+  }
+};
+
+
+/**
+ * optional backends.KafkaConn conn = 1;
+ * @return {?proto.protos.backends.KafkaConn}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.Kafka.prototype.getConn = function() {
+  return /** @type{?proto.protos.backends.KafkaConn} */ (
+    jspb.Message.getWrapperField(this, backends_kafka_pb.KafkaConn, 1));
+};
+
+
+/**
+ * @param {?proto.protos.backends.KafkaConn|undefined} value
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend.Kafka} returns this
+*/
+proto.protos.CLIRelayConfig.RelayBackend.Kafka.prototype.setConn = function(value) {
+  return jspb.Message.setWrapperField(this, 1, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend.Kafka} returns this
+ */
+proto.protos.CLIRelayConfig.RelayBackend.Kafka.prototype.clearConn = function() {
+  return this.setConn(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.Kafka.prototype.hasConn = function() {
+  return jspb.Message.getField(this, 1) != null;
+};
+
+
+/**
+ * optional backends.KafkaReadArgs args = 2;
+ * @return {?proto.protos.backends.KafkaReadArgs}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.Kafka.prototype.getArgs = function() {
+  return /** @type{?proto.protos.backends.KafkaReadArgs} */ (
+    jspb.Message.getWrapperField(this, backends_kafka_pb.KafkaReadArgs, 2));
+};
+
+
+/**
+ * @param {?proto.protos.backends.KafkaReadArgs|undefined} value
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend.Kafka} returns this
+*/
+proto.protos.CLIRelayConfig.RelayBackend.Kafka.prototype.setArgs = function(value) {
+  return jspb.Message.setWrapperField(this, 2, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend.Kafka} returns this
+ */
+proto.protos.CLIRelayConfig.RelayBackend.Kafka.prototype.clearArgs = function() {
+  return this.setArgs(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.Kafka.prototype.hasArgs = function() {
+  return jspb.Message.getField(this, 2) != null;
+};
+
+
+
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * Optional fields that are not set will be set to undefined.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+ * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+ *     JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.AWSSQS.prototype.toObject = function(opt_includeInstance) {
+  return proto.protos.CLIRelayConfig.RelayBackend.AWSSQS.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+ *     the JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.protos.CLIRelayConfig.RelayBackend.AWSSQS} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.protos.CLIRelayConfig.RelayBackend.AWSSQS.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    conn: (f = msg.getConn()) && backends_aws$sqs_pb.AWSSQSConn.toObject(includeInstance, f),
+    args: (f = msg.getArgs()) && backends_aws$sqs_pb.AWSSQSRelayArgs.toObject(includeInstance, f)
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend.AWSSQS}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.AWSSQS.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.protos.CLIRelayConfig.RelayBackend.AWSSQS;
+  return proto.protos.CLIRelayConfig.RelayBackend.AWSSQS.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.protos.CLIRelayConfig.RelayBackend.AWSSQS} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend.AWSSQS}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.AWSSQS.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = new backends_aws$sqs_pb.AWSSQSConn;
+      reader.readMessage(value,backends_aws$sqs_pb.AWSSQSConn.deserializeBinaryFromReader);
+      msg.setConn(value);
+      break;
+    case 2:
+      var value = new backends_aws$sqs_pb.AWSSQSRelayArgs;
+      reader.readMessage(value,backends_aws$sqs_pb.AWSSQSRelayArgs.deserializeBinaryFromReader);
+      msg.setArgs(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.AWSSQS.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.protos.CLIRelayConfig.RelayBackend.AWSSQS.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.protos.CLIRelayConfig.RelayBackend.AWSSQS} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.protos.CLIRelayConfig.RelayBackend.AWSSQS.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getConn();
+  if (f != null) {
+    writer.writeMessage(
+      1,
+      f,
+      backends_aws$sqs_pb.AWSSQSConn.serializeBinaryToWriter
+    );
+  }
+  f = message.getArgs();
+  if (f != null) {
+    writer.writeMessage(
+      2,
+      f,
+      backends_aws$sqs_pb.AWSSQSRelayArgs.serializeBinaryToWriter
+    );
+  }
+};
+
+
+/**
+ * optional backends.AWSSQSConn conn = 1;
+ * @return {?proto.protos.backends.AWSSQSConn}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.AWSSQS.prototype.getConn = function() {
+  return /** @type{?proto.protos.backends.AWSSQSConn} */ (
+    jspb.Message.getWrapperField(this, backends_aws$sqs_pb.AWSSQSConn, 1));
+};
+
+
+/**
+ * @param {?proto.protos.backends.AWSSQSConn|undefined} value
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend.AWSSQS} returns this
+*/
+proto.protos.CLIRelayConfig.RelayBackend.AWSSQS.prototype.setConn = function(value) {
+  return jspb.Message.setWrapperField(this, 1, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend.AWSSQS} returns this
+ */
+proto.protos.CLIRelayConfig.RelayBackend.AWSSQS.prototype.clearConn = function() {
+  return this.setConn(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.AWSSQS.prototype.hasConn = function() {
+  return jspb.Message.getField(this, 1) != null;
+};
+
+
+/**
+ * optional backends.AWSSQSRelayArgs args = 2;
+ * @return {?proto.protos.backends.AWSSQSRelayArgs}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.AWSSQS.prototype.getArgs = function() {
+  return /** @type{?proto.protos.backends.AWSSQSRelayArgs} */ (
+    jspb.Message.getWrapperField(this, backends_aws$sqs_pb.AWSSQSRelayArgs, 2));
+};
+
+
+/**
+ * @param {?proto.protos.backends.AWSSQSRelayArgs|undefined} value
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend.AWSSQS} returns this
+*/
+proto.protos.CLIRelayConfig.RelayBackend.AWSSQS.prototype.setArgs = function(value) {
+  return jspb.Message.setWrapperField(this, 2, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend.AWSSQS} returns this
+ */
+proto.protos.CLIRelayConfig.RelayBackend.AWSSQS.prototype.clearArgs = function() {
+  return this.setArgs(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.AWSSQS.prototype.hasArgs = function() {
+  return jspb.Message.getField(this, 2) != null;
+};
+
+
+
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * Optional fields that are not set will be set to undefined.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+ * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+ *     JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.Mongo.prototype.toObject = function(opt_includeInstance) {
+  return proto.protos.CLIRelayConfig.RelayBackend.Mongo.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+ *     the JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.protos.CLIRelayConfig.RelayBackend.Mongo} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.protos.CLIRelayConfig.RelayBackend.Mongo.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    conn: (f = msg.getConn()) && backends_mongo_pb.MongoConn.toObject(includeInstance, f),
+    args: (f = msg.getArgs()) && backends_mongo_pb.MongoReadArgs.toObject(includeInstance, f)
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend.Mongo}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.Mongo.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.protos.CLIRelayConfig.RelayBackend.Mongo;
+  return proto.protos.CLIRelayConfig.RelayBackend.Mongo.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.protos.CLIRelayConfig.RelayBackend.Mongo} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend.Mongo}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.Mongo.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = new backends_mongo_pb.MongoConn;
+      reader.readMessage(value,backends_mongo_pb.MongoConn.deserializeBinaryFromReader);
+      msg.setConn(value);
+      break;
+    case 2:
+      var value = new backends_mongo_pb.MongoReadArgs;
+      reader.readMessage(value,backends_mongo_pb.MongoReadArgs.deserializeBinaryFromReader);
+      msg.setArgs(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.Mongo.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.protos.CLIRelayConfig.RelayBackend.Mongo.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.protos.CLIRelayConfig.RelayBackend.Mongo} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.protos.CLIRelayConfig.RelayBackend.Mongo.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getConn();
+  if (f != null) {
+    writer.writeMessage(
+      1,
+      f,
+      backends_mongo_pb.MongoConn.serializeBinaryToWriter
+    );
+  }
+  f = message.getArgs();
+  if (f != null) {
+    writer.writeMessage(
+      2,
+      f,
+      backends_mongo_pb.MongoReadArgs.serializeBinaryToWriter
+    );
+  }
+};
+
+
+/**
+ * optional backends.MongoConn conn = 1;
+ * @return {?proto.protos.backends.MongoConn}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.Mongo.prototype.getConn = function() {
+  return /** @type{?proto.protos.backends.MongoConn} */ (
+    jspb.Message.getWrapperField(this, backends_mongo_pb.MongoConn, 1));
+};
+
+
+/**
+ * @param {?proto.protos.backends.MongoConn|undefined} value
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend.Mongo} returns this
+*/
+proto.protos.CLIRelayConfig.RelayBackend.Mongo.prototype.setConn = function(value) {
+  return jspb.Message.setWrapperField(this, 1, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend.Mongo} returns this
+ */
+proto.protos.CLIRelayConfig.RelayBackend.Mongo.prototype.clearConn = function() {
+  return this.setConn(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.Mongo.prototype.hasConn = function() {
+  return jspb.Message.getField(this, 1) != null;
+};
+
+
+/**
+ * optional backends.MongoReadArgs args = 2;
+ * @return {?proto.protos.backends.MongoReadArgs}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.Mongo.prototype.getArgs = function() {
+  return /** @type{?proto.protos.backends.MongoReadArgs} */ (
+    jspb.Message.getWrapperField(this, backends_mongo_pb.MongoReadArgs, 2));
+};
+
+
+/**
+ * @param {?proto.protos.backends.MongoReadArgs|undefined} value
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend.Mongo} returns this
+*/
+proto.protos.CLIRelayConfig.RelayBackend.Mongo.prototype.setArgs = function(value) {
+  return jspb.Message.setWrapperField(this, 2, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend.Mongo} returns this
+ */
+proto.protos.CLIRelayConfig.RelayBackend.Mongo.prototype.clearArgs = function() {
+  return this.setArgs(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.Mongo.prototype.hasArgs = function() {
+  return jspb.Message.getField(this, 2) != null;
+};
+
+
+
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * Optional fields that are not set will be set to undefined.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+ * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+ *     JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.NSQ.prototype.toObject = function(opt_includeInstance) {
+  return proto.protos.CLIRelayConfig.RelayBackend.NSQ.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+ *     the JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.protos.CLIRelayConfig.RelayBackend.NSQ} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.protos.CLIRelayConfig.RelayBackend.NSQ.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    conn: (f = msg.getConn()) && backends_nsq_pb.NSQConn.toObject(includeInstance, f),
+    args: (f = msg.getArgs()) && backends_nsq_pb.NSQReadArgs.toObject(includeInstance, f)
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend.NSQ}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.NSQ.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.protos.CLIRelayConfig.RelayBackend.NSQ;
+  return proto.protos.CLIRelayConfig.RelayBackend.NSQ.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.protos.CLIRelayConfig.RelayBackend.NSQ} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend.NSQ}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.NSQ.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = new backends_nsq_pb.NSQConn;
+      reader.readMessage(value,backends_nsq_pb.NSQConn.deserializeBinaryFromReader);
+      msg.setConn(value);
+      break;
+    case 2:
+      var value = new backends_nsq_pb.NSQReadArgs;
+      reader.readMessage(value,backends_nsq_pb.NSQReadArgs.deserializeBinaryFromReader);
+      msg.setArgs(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.NSQ.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.protos.CLIRelayConfig.RelayBackend.NSQ.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.protos.CLIRelayConfig.RelayBackend.NSQ} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.protos.CLIRelayConfig.RelayBackend.NSQ.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getConn();
+  if (f != null) {
+    writer.writeMessage(
+      1,
+      f,
+      backends_nsq_pb.NSQConn.serializeBinaryToWriter
+    );
+  }
+  f = message.getArgs();
+  if (f != null) {
+    writer.writeMessage(
+      2,
+      f,
+      backends_nsq_pb.NSQReadArgs.serializeBinaryToWriter
+    );
+  }
+};
+
+
+/**
+ * optional backends.NSQConn conn = 1;
+ * @return {?proto.protos.backends.NSQConn}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.NSQ.prototype.getConn = function() {
+  return /** @type{?proto.protos.backends.NSQConn} */ (
+    jspb.Message.getWrapperField(this, backends_nsq_pb.NSQConn, 1));
+};
+
+
+/**
+ * @param {?proto.protos.backends.NSQConn|undefined} value
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend.NSQ} returns this
+*/
+proto.protos.CLIRelayConfig.RelayBackend.NSQ.prototype.setConn = function(value) {
+  return jspb.Message.setWrapperField(this, 1, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend.NSQ} returns this
+ */
+proto.protos.CLIRelayConfig.RelayBackend.NSQ.prototype.clearConn = function() {
+  return this.setConn(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.NSQ.prototype.hasConn = function() {
+  return jspb.Message.getField(this, 1) != null;
+};
+
+
+/**
+ * optional backends.NSQReadArgs args = 2;
+ * @return {?proto.protos.backends.NSQReadArgs}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.NSQ.prototype.getArgs = function() {
+  return /** @type{?proto.protos.backends.NSQReadArgs} */ (
+    jspb.Message.getWrapperField(this, backends_nsq_pb.NSQReadArgs, 2));
+};
+
+
+/**
+ * @param {?proto.protos.backends.NSQReadArgs|undefined} value
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend.NSQ} returns this
+*/
+proto.protos.CLIRelayConfig.RelayBackend.NSQ.prototype.setArgs = function(value) {
+  return jspb.Message.setWrapperField(this, 2, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend.NSQ} returns this
+ */
+proto.protos.CLIRelayConfig.RelayBackend.NSQ.prototype.clearArgs = function() {
+  return this.setArgs(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.NSQ.prototype.hasArgs = function() {
+  return jspb.Message.getField(this, 2) != null;
+};
+
+
+
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * Optional fields that are not set will be set to undefined.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+ * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+ *     JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.Postgres.prototype.toObject = function(opt_includeInstance) {
+  return proto.protos.CLIRelayConfig.RelayBackend.Postgres.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+ *     the JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.protos.CLIRelayConfig.RelayBackend.Postgres} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.protos.CLIRelayConfig.RelayBackend.Postgres.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    conn: (f = msg.getConn()) && backends_postgres_pb.PostgresConn.toObject(includeInstance, f),
+    args: (f = msg.getArgs()) && backends_postgres_pb.PostgresReadArgs.toObject(includeInstance, f)
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend.Postgres}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.Postgres.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.protos.CLIRelayConfig.RelayBackend.Postgres;
+  return proto.protos.CLIRelayConfig.RelayBackend.Postgres.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.protos.CLIRelayConfig.RelayBackend.Postgres} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend.Postgres}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.Postgres.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = new backends_postgres_pb.PostgresConn;
+      reader.readMessage(value,backends_postgres_pb.PostgresConn.deserializeBinaryFromReader);
+      msg.setConn(value);
+      break;
+    case 2:
+      var value = new backends_postgres_pb.PostgresReadArgs;
+      reader.readMessage(value,backends_postgres_pb.PostgresReadArgs.deserializeBinaryFromReader);
+      msg.setArgs(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.Postgres.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.protos.CLIRelayConfig.RelayBackend.Postgres.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.protos.CLIRelayConfig.RelayBackend.Postgres} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.protos.CLIRelayConfig.RelayBackend.Postgres.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getConn();
+  if (f != null) {
+    writer.writeMessage(
+      1,
+      f,
+      backends_postgres_pb.PostgresConn.serializeBinaryToWriter
+    );
+  }
+  f = message.getArgs();
+  if (f != null) {
+    writer.writeMessage(
+      2,
+      f,
+      backends_postgres_pb.PostgresReadArgs.serializeBinaryToWriter
+    );
+  }
+};
+
+
+/**
+ * optional backends.PostgresConn conn = 1;
+ * @return {?proto.protos.backends.PostgresConn}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.Postgres.prototype.getConn = function() {
+  return /** @type{?proto.protos.backends.PostgresConn} */ (
+    jspb.Message.getWrapperField(this, backends_postgres_pb.PostgresConn, 1));
+};
+
+
+/**
+ * @param {?proto.protos.backends.PostgresConn|undefined} value
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend.Postgres} returns this
+*/
+proto.protos.CLIRelayConfig.RelayBackend.Postgres.prototype.setConn = function(value) {
+  return jspb.Message.setWrapperField(this, 1, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend.Postgres} returns this
+ */
+proto.protos.CLIRelayConfig.RelayBackend.Postgres.prototype.clearConn = function() {
+  return this.setConn(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.Postgres.prototype.hasConn = function() {
+  return jspb.Message.getField(this, 1) != null;
+};
+
+
+/**
+ * optional backends.PostgresReadArgs args = 2;
+ * @return {?proto.protos.backends.PostgresReadArgs}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.Postgres.prototype.getArgs = function() {
+  return /** @type{?proto.protos.backends.PostgresReadArgs} */ (
+    jspb.Message.getWrapperField(this, backends_postgres_pb.PostgresReadArgs, 2));
+};
+
+
+/**
+ * @param {?proto.protos.backends.PostgresReadArgs|undefined} value
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend.Postgres} returns this
+*/
+proto.protos.CLIRelayConfig.RelayBackend.Postgres.prototype.setArgs = function(value) {
+  return jspb.Message.setWrapperField(this, 2, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend.Postgres} returns this
+ */
+proto.protos.CLIRelayConfig.RelayBackend.Postgres.prototype.clearArgs = function() {
+  return this.setArgs(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.Postgres.prototype.hasArgs = function() {
+  return jspb.Message.getField(this, 2) != null;
+};
+
+
+
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * Optional fields that are not set will be set to undefined.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+ * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+ *     JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.Rabbit.prototype.toObject = function(opt_includeInstance) {
+  return proto.protos.CLIRelayConfig.RelayBackend.Rabbit.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+ *     the JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.protos.CLIRelayConfig.RelayBackend.Rabbit} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.protos.CLIRelayConfig.RelayBackend.Rabbit.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    conn: (f = msg.getConn()) && backends_rabbit_pb.RabbitConn.toObject(includeInstance, f),
+    args: (f = msg.getArgs()) && backends_rabbit_pb.RabbitReadArgs.toObject(includeInstance, f)
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend.Rabbit}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.Rabbit.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.protos.CLIRelayConfig.RelayBackend.Rabbit;
+  return proto.protos.CLIRelayConfig.RelayBackend.Rabbit.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.protos.CLIRelayConfig.RelayBackend.Rabbit} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend.Rabbit}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.Rabbit.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = new backends_rabbit_pb.RabbitConn;
+      reader.readMessage(value,backends_rabbit_pb.RabbitConn.deserializeBinaryFromReader);
+      msg.setConn(value);
+      break;
+    case 2:
+      var value = new backends_rabbit_pb.RabbitReadArgs;
+      reader.readMessage(value,backends_rabbit_pb.RabbitReadArgs.deserializeBinaryFromReader);
+      msg.setArgs(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.Rabbit.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.protos.CLIRelayConfig.RelayBackend.Rabbit.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.protos.CLIRelayConfig.RelayBackend.Rabbit} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.protos.CLIRelayConfig.RelayBackend.Rabbit.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getConn();
+  if (f != null) {
+    writer.writeMessage(
+      1,
+      f,
+      backends_rabbit_pb.RabbitConn.serializeBinaryToWriter
+    );
+  }
+  f = message.getArgs();
+  if (f != null) {
+    writer.writeMessage(
+      2,
+      f,
+      backends_rabbit_pb.RabbitReadArgs.serializeBinaryToWriter
+    );
+  }
+};
+
+
+/**
+ * optional backends.RabbitConn conn = 1;
+ * @return {?proto.protos.backends.RabbitConn}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.Rabbit.prototype.getConn = function() {
+  return /** @type{?proto.protos.backends.RabbitConn} */ (
+    jspb.Message.getWrapperField(this, backends_rabbit_pb.RabbitConn, 1));
+};
+
+
+/**
+ * @param {?proto.protos.backends.RabbitConn|undefined} value
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend.Rabbit} returns this
+*/
+proto.protos.CLIRelayConfig.RelayBackend.Rabbit.prototype.setConn = function(value) {
+  return jspb.Message.setWrapperField(this, 1, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend.Rabbit} returns this
+ */
+proto.protos.CLIRelayConfig.RelayBackend.Rabbit.prototype.clearConn = function() {
+  return this.setConn(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.Rabbit.prototype.hasConn = function() {
+  return jspb.Message.getField(this, 1) != null;
+};
+
+
+/**
+ * optional backends.RabbitReadArgs args = 2;
+ * @return {?proto.protos.backends.RabbitReadArgs}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.Rabbit.prototype.getArgs = function() {
+  return /** @type{?proto.protos.backends.RabbitReadArgs} */ (
+    jspb.Message.getWrapperField(this, backends_rabbit_pb.RabbitReadArgs, 2));
+};
+
+
+/**
+ * @param {?proto.protos.backends.RabbitReadArgs|undefined} value
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend.Rabbit} returns this
+*/
+proto.protos.CLIRelayConfig.RelayBackend.Rabbit.prototype.setArgs = function(value) {
+  return jspb.Message.setWrapperField(this, 2, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend.Rabbit} returns this
+ */
+proto.protos.CLIRelayConfig.RelayBackend.Rabbit.prototype.clearArgs = function() {
+  return this.setArgs(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.Rabbit.prototype.hasArgs = function() {
+  return jspb.Message.getField(this, 2) != null;
+};
+
+
+
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * Optional fields that are not set will be set to undefined.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+ * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+ *     JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.RedisPubSub.prototype.toObject = function(opt_includeInstance) {
+  return proto.protos.CLIRelayConfig.RelayBackend.RedisPubSub.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+ *     the JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.protos.CLIRelayConfig.RelayBackend.RedisPubSub} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.protos.CLIRelayConfig.RelayBackend.RedisPubSub.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    conn: (f = msg.getConn()) && backends_redis$pubsub_pb.RedisPubSubConn.toObject(includeInstance, f),
+    args: (f = msg.getArgs()) && backends_redis$pubsub_pb.RedisPubSubReadArgs.toObject(includeInstance, f)
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend.RedisPubSub}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.RedisPubSub.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.protos.CLIRelayConfig.RelayBackend.RedisPubSub;
+  return proto.protos.CLIRelayConfig.RelayBackend.RedisPubSub.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.protos.CLIRelayConfig.RelayBackend.RedisPubSub} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend.RedisPubSub}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.RedisPubSub.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = new backends_redis$pubsub_pb.RedisPubSubConn;
+      reader.readMessage(value,backends_redis$pubsub_pb.RedisPubSubConn.deserializeBinaryFromReader);
+      msg.setConn(value);
+      break;
+    case 2:
+      var value = new backends_redis$pubsub_pb.RedisPubSubReadArgs;
+      reader.readMessage(value,backends_redis$pubsub_pb.RedisPubSubReadArgs.deserializeBinaryFromReader);
+      msg.setArgs(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.RedisPubSub.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.protos.CLIRelayConfig.RelayBackend.RedisPubSub.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.protos.CLIRelayConfig.RelayBackend.RedisPubSub} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.protos.CLIRelayConfig.RelayBackend.RedisPubSub.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getConn();
+  if (f != null) {
+    writer.writeMessage(
+      1,
+      f,
+      backends_redis$pubsub_pb.RedisPubSubConn.serializeBinaryToWriter
+    );
+  }
+  f = message.getArgs();
+  if (f != null) {
+    writer.writeMessage(
+      2,
+      f,
+      backends_redis$pubsub_pb.RedisPubSubReadArgs.serializeBinaryToWriter
+    );
+  }
+};
+
+
+/**
+ * optional backends.RedisPubSubConn conn = 1;
+ * @return {?proto.protos.backends.RedisPubSubConn}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.RedisPubSub.prototype.getConn = function() {
+  return /** @type{?proto.protos.backends.RedisPubSubConn} */ (
+    jspb.Message.getWrapperField(this, backends_redis$pubsub_pb.RedisPubSubConn, 1));
+};
+
+
+/**
+ * @param {?proto.protos.backends.RedisPubSubConn|undefined} value
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend.RedisPubSub} returns this
+*/
+proto.protos.CLIRelayConfig.RelayBackend.RedisPubSub.prototype.setConn = function(value) {
+  return jspb.Message.setWrapperField(this, 1, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend.RedisPubSub} returns this
+ */
+proto.protos.CLIRelayConfig.RelayBackend.RedisPubSub.prototype.clearConn = function() {
+  return this.setConn(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.RedisPubSub.prototype.hasConn = function() {
+  return jspb.Message.getField(this, 1) != null;
+};
+
+
+/**
+ * optional backends.RedisPubSubReadArgs args = 2;
+ * @return {?proto.protos.backends.RedisPubSubReadArgs}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.RedisPubSub.prototype.getArgs = function() {
+  return /** @type{?proto.protos.backends.RedisPubSubReadArgs} */ (
+    jspb.Message.getWrapperField(this, backends_redis$pubsub_pb.RedisPubSubReadArgs, 2));
+};
+
+
+/**
+ * @param {?proto.protos.backends.RedisPubSubReadArgs|undefined} value
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend.RedisPubSub} returns this
+*/
+proto.protos.CLIRelayConfig.RelayBackend.RedisPubSub.prototype.setArgs = function(value) {
+  return jspb.Message.setWrapperField(this, 2, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend.RedisPubSub} returns this
+ */
+proto.protos.CLIRelayConfig.RelayBackend.RedisPubSub.prototype.clearArgs = function() {
+  return this.setArgs(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.RedisPubSub.prototype.hasArgs = function() {
+  return jspb.Message.getField(this, 2) != null;
+};
+
+
+
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * Optional fields that are not set will be set to undefined.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+ * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+ *     JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.RedisStreams.prototype.toObject = function(opt_includeInstance) {
+  return proto.protos.CLIRelayConfig.RelayBackend.RedisStreams.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+ *     the JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.protos.CLIRelayConfig.RelayBackend.RedisStreams} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.protos.CLIRelayConfig.RelayBackend.RedisStreams.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    conn: (f = msg.getConn()) && backends_redis$streams_pb.RedisStreamsConn.toObject(includeInstance, f),
+    args: (f = msg.getArgs()) && backends_redis$streams_pb.RedisStreamsReadArgs.toObject(includeInstance, f)
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend.RedisStreams}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.RedisStreams.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.protos.CLIRelayConfig.RelayBackend.RedisStreams;
+  return proto.protos.CLIRelayConfig.RelayBackend.RedisStreams.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.protos.CLIRelayConfig.RelayBackend.RedisStreams} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend.RedisStreams}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.RedisStreams.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = new backends_redis$streams_pb.RedisStreamsConn;
+      reader.readMessage(value,backends_redis$streams_pb.RedisStreamsConn.deserializeBinaryFromReader);
+      msg.setConn(value);
+      break;
+    case 2:
+      var value = new backends_redis$streams_pb.RedisStreamsReadArgs;
+      reader.readMessage(value,backends_redis$streams_pb.RedisStreamsReadArgs.deserializeBinaryFromReader);
+      msg.setArgs(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.RedisStreams.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.protos.CLIRelayConfig.RelayBackend.RedisStreams.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.protos.CLIRelayConfig.RelayBackend.RedisStreams} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.protos.CLIRelayConfig.RelayBackend.RedisStreams.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getConn();
+  if (f != null) {
+    writer.writeMessage(
+      1,
+      f,
+      backends_redis$streams_pb.RedisStreamsConn.serializeBinaryToWriter
+    );
+  }
+  f = message.getArgs();
+  if (f != null) {
+    writer.writeMessage(
+      2,
+      f,
+      backends_redis$streams_pb.RedisStreamsReadArgs.serializeBinaryToWriter
+    );
+  }
+};
+
+
+/**
+ * optional backends.RedisStreamsConn conn = 1;
+ * @return {?proto.protos.backends.RedisStreamsConn}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.RedisStreams.prototype.getConn = function() {
+  return /** @type{?proto.protos.backends.RedisStreamsConn} */ (
+    jspb.Message.getWrapperField(this, backends_redis$streams_pb.RedisStreamsConn, 1));
+};
+
+
+/**
+ * @param {?proto.protos.backends.RedisStreamsConn|undefined} value
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend.RedisStreams} returns this
+*/
+proto.protos.CLIRelayConfig.RelayBackend.RedisStreams.prototype.setConn = function(value) {
+  return jspb.Message.setWrapperField(this, 1, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend.RedisStreams} returns this
+ */
+proto.protos.CLIRelayConfig.RelayBackend.RedisStreams.prototype.clearConn = function() {
+  return this.setConn(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.RedisStreams.prototype.hasConn = function() {
+  return jspb.Message.getField(this, 1) != null;
+};
+
+
+/**
+ * optional backends.RedisStreamsReadArgs args = 2;
+ * @return {?proto.protos.backends.RedisStreamsReadArgs}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.RedisStreams.prototype.getArgs = function() {
+  return /** @type{?proto.protos.backends.RedisStreamsReadArgs} */ (
+    jspb.Message.getWrapperField(this, backends_redis$streams_pb.RedisStreamsReadArgs, 2));
+};
+
+
+/**
+ * @param {?proto.protos.backends.RedisStreamsReadArgs|undefined} value
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend.RedisStreams} returns this
+*/
+proto.protos.CLIRelayConfig.RelayBackend.RedisStreams.prototype.setArgs = function(value) {
+  return jspb.Message.setWrapperField(this, 2, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend.RedisStreams} returns this
+ */
+proto.protos.CLIRelayConfig.RelayBackend.RedisStreams.prototype.clearArgs = function() {
+  return this.setArgs(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.RedisStreams.prototype.hasArgs = function() {
+  return jspb.Message.getField(this, 2) != null;
+};
+
+
+
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * Optional fields that are not set will be set to undefined.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+ * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+ *     JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.AzureServiceBus.prototype.toObject = function(opt_includeInstance) {
+  return proto.protos.CLIRelayConfig.RelayBackend.AzureServiceBus.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+ *     the JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.protos.CLIRelayConfig.RelayBackend.AzureServiceBus} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.protos.CLIRelayConfig.RelayBackend.AzureServiceBus.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    conn: (f = msg.getConn()) && backends_azure$service$bus_pb.AzureServiceBusConn.toObject(includeInstance, f),
+    args: (f = msg.getArgs()) && backends_azure$service$bus_pb.AzureServiceBusReadArgs.toObject(includeInstance, f)
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend.AzureServiceBus}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.AzureServiceBus.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.protos.CLIRelayConfig.RelayBackend.AzureServiceBus;
+  return proto.protos.CLIRelayConfig.RelayBackend.AzureServiceBus.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.protos.CLIRelayConfig.RelayBackend.AzureServiceBus} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend.AzureServiceBus}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.AzureServiceBus.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = new backends_azure$service$bus_pb.AzureServiceBusConn;
+      reader.readMessage(value,backends_azure$service$bus_pb.AzureServiceBusConn.deserializeBinaryFromReader);
+      msg.setConn(value);
+      break;
+    case 2:
+      var value = new backends_azure$service$bus_pb.AzureServiceBusReadArgs;
+      reader.readMessage(value,backends_azure$service$bus_pb.AzureServiceBusReadArgs.deserializeBinaryFromReader);
+      msg.setArgs(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.AzureServiceBus.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.protos.CLIRelayConfig.RelayBackend.AzureServiceBus.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.protos.CLIRelayConfig.RelayBackend.AzureServiceBus} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.protos.CLIRelayConfig.RelayBackend.AzureServiceBus.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getConn();
+  if (f != null) {
+    writer.writeMessage(
+      1,
+      f,
+      backends_azure$service$bus_pb.AzureServiceBusConn.serializeBinaryToWriter
+    );
+  }
+  f = message.getArgs();
+  if (f != null) {
+    writer.writeMessage(
+      2,
+      f,
+      backends_azure$service$bus_pb.AzureServiceBusReadArgs.serializeBinaryToWriter
+    );
+  }
+};
+
+
+/**
+ * optional backends.AzureServiceBusConn conn = 1;
+ * @return {?proto.protos.backends.AzureServiceBusConn}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.AzureServiceBus.prototype.getConn = function() {
+  return /** @type{?proto.protos.backends.AzureServiceBusConn} */ (
+    jspb.Message.getWrapperField(this, backends_azure$service$bus_pb.AzureServiceBusConn, 1));
+};
+
+
+/**
+ * @param {?proto.protos.backends.AzureServiceBusConn|undefined} value
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend.AzureServiceBus} returns this
+*/
+proto.protos.CLIRelayConfig.RelayBackend.AzureServiceBus.prototype.setConn = function(value) {
+  return jspb.Message.setWrapperField(this, 1, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend.AzureServiceBus} returns this
+ */
+proto.protos.CLIRelayConfig.RelayBackend.AzureServiceBus.prototype.clearConn = function() {
+  return this.setConn(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.AzureServiceBus.prototype.hasConn = function() {
+  return jspb.Message.getField(this, 1) != null;
+};
+
+
+/**
+ * optional backends.AzureServiceBusReadArgs args = 2;
+ * @return {?proto.protos.backends.AzureServiceBusReadArgs}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.AzureServiceBus.prototype.getArgs = function() {
+  return /** @type{?proto.protos.backends.AzureServiceBusReadArgs} */ (
+    jspb.Message.getWrapperField(this, backends_azure$service$bus_pb.AzureServiceBusReadArgs, 2));
+};
+
+
+/**
+ * @param {?proto.protos.backends.AzureServiceBusReadArgs|undefined} value
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend.AzureServiceBus} returns this
+*/
+proto.protos.CLIRelayConfig.RelayBackend.AzureServiceBus.prototype.setArgs = function(value) {
+  return jspb.Message.setWrapperField(this, 2, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend.AzureServiceBus} returns this
+ */
+proto.protos.CLIRelayConfig.RelayBackend.AzureServiceBus.prototype.clearArgs = function() {
+  return this.setArgs(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.AzureServiceBus.prototype.hasArgs = function() {
+  return jspb.Message.getField(this, 2) != null;
+};
+
+
+
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * Optional fields that are not set will be set to undefined.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+ * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+ *     JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.MQTT.prototype.toObject = function(opt_includeInstance) {
+  return proto.protos.CLIRelayConfig.RelayBackend.MQTT.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+ *     the JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.protos.CLIRelayConfig.RelayBackend.MQTT} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.protos.CLIRelayConfig.RelayBackend.MQTT.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    conn: (f = msg.getConn()) && backends_mqtt_pb.MQTTConn.toObject(includeInstance, f),
+    args: (f = msg.getArgs()) && backends_mqtt_pb.MQTTReadArgs.toObject(includeInstance, f)
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend.MQTT}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.MQTT.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.protos.CLIRelayConfig.RelayBackend.MQTT;
+  return proto.protos.CLIRelayConfig.RelayBackend.MQTT.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.protos.CLIRelayConfig.RelayBackend.MQTT} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend.MQTT}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.MQTT.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = new backends_mqtt_pb.MQTTConn;
+      reader.readMessage(value,backends_mqtt_pb.MQTTConn.deserializeBinaryFromReader);
+      msg.setConn(value);
+      break;
+    case 2:
+      var value = new backends_mqtt_pb.MQTTReadArgs;
+      reader.readMessage(value,backends_mqtt_pb.MQTTReadArgs.deserializeBinaryFromReader);
+      msg.setArgs(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.MQTT.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.protos.CLIRelayConfig.RelayBackend.MQTT.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.protos.CLIRelayConfig.RelayBackend.MQTT} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.protos.CLIRelayConfig.RelayBackend.MQTT.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getConn();
+  if (f != null) {
+    writer.writeMessage(
+      1,
+      f,
+      backends_mqtt_pb.MQTTConn.serializeBinaryToWriter
+    );
+  }
+  f = message.getArgs();
+  if (f != null) {
+    writer.writeMessage(
+      2,
+      f,
+      backends_mqtt_pb.MQTTReadArgs.serializeBinaryToWriter
+    );
+  }
+};
+
+
+/**
+ * optional backends.MQTTConn conn = 1;
+ * @return {?proto.protos.backends.MQTTConn}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.MQTT.prototype.getConn = function() {
+  return /** @type{?proto.protos.backends.MQTTConn} */ (
+    jspb.Message.getWrapperField(this, backends_mqtt_pb.MQTTConn, 1));
+};
+
+
+/**
+ * @param {?proto.protos.backends.MQTTConn|undefined} value
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend.MQTT} returns this
+*/
+proto.protos.CLIRelayConfig.RelayBackend.MQTT.prototype.setConn = function(value) {
+  return jspb.Message.setWrapperField(this, 1, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend.MQTT} returns this
+ */
+proto.protos.CLIRelayConfig.RelayBackend.MQTT.prototype.clearConn = function() {
+  return this.setConn(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.MQTT.prototype.hasConn = function() {
+  return jspb.Message.getField(this, 1) != null;
+};
+
+
+/**
+ * optional backends.MQTTReadArgs args = 2;
+ * @return {?proto.protos.backends.MQTTReadArgs}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.MQTT.prototype.getArgs = function() {
+  return /** @type{?proto.protos.backends.MQTTReadArgs} */ (
+    jspb.Message.getWrapperField(this, backends_mqtt_pb.MQTTReadArgs, 2));
+};
+
+
+/**
+ * @param {?proto.protos.backends.MQTTReadArgs|undefined} value
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend.MQTT} returns this
+*/
+proto.protos.CLIRelayConfig.RelayBackend.MQTT.prototype.setArgs = function(value) {
+  return jspb.Message.setWrapperField(this, 2, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend.MQTT} returns this
+ */
+proto.protos.CLIRelayConfig.RelayBackend.MQTT.prototype.clearArgs = function() {
+  return this.setArgs(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.MQTT.prototype.hasArgs = function() {
+  return jspb.Message.getField(this, 2) != null;
+};
+
+
+
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * Optional fields that are not set will be set to undefined.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+ * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+ *     JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.GCPPubSub.prototype.toObject = function(opt_includeInstance) {
+  return proto.protos.CLIRelayConfig.RelayBackend.GCPPubSub.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+ *     the JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.protos.CLIRelayConfig.RelayBackend.GCPPubSub} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.protos.CLIRelayConfig.RelayBackend.GCPPubSub.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    conn: (f = msg.getConn()) && backends_gcp$pubsub_pb.GCPPubSubConn.toObject(includeInstance, f),
+    args: (f = msg.getArgs()) && backends_gcp$pubsub_pb.GCPPubSubReadArgs.toObject(includeInstance, f)
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend.GCPPubSub}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.GCPPubSub.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.protos.CLIRelayConfig.RelayBackend.GCPPubSub;
+  return proto.protos.CLIRelayConfig.RelayBackend.GCPPubSub.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.protos.CLIRelayConfig.RelayBackend.GCPPubSub} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend.GCPPubSub}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.GCPPubSub.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = new backends_gcp$pubsub_pb.GCPPubSubConn;
+      reader.readMessage(value,backends_gcp$pubsub_pb.GCPPubSubConn.deserializeBinaryFromReader);
+      msg.setConn(value);
+      break;
+    case 2:
+      var value = new backends_gcp$pubsub_pb.GCPPubSubReadArgs;
+      reader.readMessage(value,backends_gcp$pubsub_pb.GCPPubSubReadArgs.deserializeBinaryFromReader);
+      msg.setArgs(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.GCPPubSub.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.protos.CLIRelayConfig.RelayBackend.GCPPubSub.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.protos.CLIRelayConfig.RelayBackend.GCPPubSub} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.protos.CLIRelayConfig.RelayBackend.GCPPubSub.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getConn();
+  if (f != null) {
+    writer.writeMessage(
+      1,
+      f,
+      backends_gcp$pubsub_pb.GCPPubSubConn.serializeBinaryToWriter
+    );
+  }
+  f = message.getArgs();
+  if (f != null) {
+    writer.writeMessage(
+      2,
+      f,
+      backends_gcp$pubsub_pb.GCPPubSubReadArgs.serializeBinaryToWriter
+    );
+  }
+};
+
+
+/**
+ * optional backends.GCPPubSubConn conn = 1;
+ * @return {?proto.protos.backends.GCPPubSubConn}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.GCPPubSub.prototype.getConn = function() {
+  return /** @type{?proto.protos.backends.GCPPubSubConn} */ (
+    jspb.Message.getWrapperField(this, backends_gcp$pubsub_pb.GCPPubSubConn, 1));
+};
+
+
+/**
+ * @param {?proto.protos.backends.GCPPubSubConn|undefined} value
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend.GCPPubSub} returns this
+*/
+proto.protos.CLIRelayConfig.RelayBackend.GCPPubSub.prototype.setConn = function(value) {
+  return jspb.Message.setWrapperField(this, 1, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend.GCPPubSub} returns this
+ */
+proto.protos.CLIRelayConfig.RelayBackend.GCPPubSub.prototype.clearConn = function() {
+  return this.setConn(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.GCPPubSub.prototype.hasConn = function() {
+  return jspb.Message.getField(this, 1) != null;
+};
+
+
+/**
+ * optional backends.GCPPubSubReadArgs args = 2;
+ * @return {?proto.protos.backends.GCPPubSubReadArgs}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.GCPPubSub.prototype.getArgs = function() {
+  return /** @type{?proto.protos.backends.GCPPubSubReadArgs} */ (
+    jspb.Message.getWrapperField(this, backends_gcp$pubsub_pb.GCPPubSubReadArgs, 2));
+};
+
+
+/**
+ * @param {?proto.protos.backends.GCPPubSubReadArgs|undefined} value
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend.GCPPubSub} returns this
+*/
+proto.protos.CLIRelayConfig.RelayBackend.GCPPubSub.prototype.setArgs = function(value) {
+  return jspb.Message.setWrapperField(this, 2, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend.GCPPubSub} returns this
+ */
+proto.protos.CLIRelayConfig.RelayBackend.GCPPubSub.prototype.clearArgs = function() {
+  return this.setArgs(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.GCPPubSub.prototype.hasArgs = function() {
+  return jspb.Message.getField(this, 2) != null;
+};
+
+
+
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * Optional fields that are not set will be set to undefined.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+ * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+ *     JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.KubeMQQueue.prototype.toObject = function(opt_includeInstance) {
+  return proto.protos.CLIRelayConfig.RelayBackend.KubeMQQueue.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+ *     the JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.protos.CLIRelayConfig.RelayBackend.KubeMQQueue} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.protos.CLIRelayConfig.RelayBackend.KubeMQQueue.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    conn: (f = msg.getConn()) && backends_kubemq$queue_pb.KubeMQQueueConn.toObject(includeInstance, f),
+    args: (f = msg.getArgs()) && backends_kubemq$queue_pb.KubeMQQueueReadArgs.toObject(includeInstance, f)
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend.KubeMQQueue}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.KubeMQQueue.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.protos.CLIRelayConfig.RelayBackend.KubeMQQueue;
+  return proto.protos.CLIRelayConfig.RelayBackend.KubeMQQueue.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.protos.CLIRelayConfig.RelayBackend.KubeMQQueue} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend.KubeMQQueue}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.KubeMQQueue.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = new backends_kubemq$queue_pb.KubeMQQueueConn;
+      reader.readMessage(value,backends_kubemq$queue_pb.KubeMQQueueConn.deserializeBinaryFromReader);
+      msg.setConn(value);
+      break;
+    case 2:
+      var value = new backends_kubemq$queue_pb.KubeMQQueueReadArgs;
+      reader.readMessage(value,backends_kubemq$queue_pb.KubeMQQueueReadArgs.deserializeBinaryFromReader);
+      msg.setArgs(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.KubeMQQueue.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.protos.CLIRelayConfig.RelayBackend.KubeMQQueue.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.protos.CLIRelayConfig.RelayBackend.KubeMQQueue} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.protos.CLIRelayConfig.RelayBackend.KubeMQQueue.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getConn();
+  if (f != null) {
+    writer.writeMessage(
+      1,
+      f,
+      backends_kubemq$queue_pb.KubeMQQueueConn.serializeBinaryToWriter
+    );
+  }
+  f = message.getArgs();
+  if (f != null) {
+    writer.writeMessage(
+      2,
+      f,
+      backends_kubemq$queue_pb.KubeMQQueueReadArgs.serializeBinaryToWriter
+    );
+  }
+};
+
+
+/**
+ * optional backends.KubeMQQueueConn conn = 1;
+ * @return {?proto.protos.backends.KubeMQQueueConn}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.KubeMQQueue.prototype.getConn = function() {
+  return /** @type{?proto.protos.backends.KubeMQQueueConn} */ (
+    jspb.Message.getWrapperField(this, backends_kubemq$queue_pb.KubeMQQueueConn, 1));
+};
+
+
+/**
+ * @param {?proto.protos.backends.KubeMQQueueConn|undefined} value
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend.KubeMQQueue} returns this
+*/
+proto.protos.CLIRelayConfig.RelayBackend.KubeMQQueue.prototype.setConn = function(value) {
+  return jspb.Message.setWrapperField(this, 1, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend.KubeMQQueue} returns this
+ */
+proto.protos.CLIRelayConfig.RelayBackend.KubeMQQueue.prototype.clearConn = function() {
+  return this.setConn(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.KubeMQQueue.prototype.hasConn = function() {
+  return jspb.Message.getField(this, 1) != null;
+};
+
+
+/**
+ * optional backends.KubeMQQueueReadArgs args = 2;
+ * @return {?proto.protos.backends.KubeMQQueueReadArgs}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.KubeMQQueue.prototype.getArgs = function() {
+  return /** @type{?proto.protos.backends.KubeMQQueueReadArgs} */ (
+    jspb.Message.getWrapperField(this, backends_kubemq$queue_pb.KubeMQQueueReadArgs, 2));
+};
+
+
+/**
+ * @param {?proto.protos.backends.KubeMQQueueReadArgs|undefined} value
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend.KubeMQQueue} returns this
+*/
+proto.protos.CLIRelayConfig.RelayBackend.KubeMQQueue.prototype.setArgs = function(value) {
+  return jspb.Message.setWrapperField(this, 2, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend.KubeMQQueue} returns this
+ */
+proto.protos.CLIRelayConfig.RelayBackend.KubeMQQueue.prototype.clearArgs = function() {
+  return this.setArgs(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.KubeMQQueue.prototype.hasArgs = function() {
+  return jspb.Message.getField(this, 2) != null;
+};
+
+
+/**
+ * optional Kafka kafka = 1;
+ * @return {?proto.protos.CLIRelayConfig.RelayBackend.Kafka}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.prototype.getKafka = function() {
+  return /** @type{?proto.protos.CLIRelayConfig.RelayBackend.Kafka} */ (
+    jspb.Message.getWrapperField(this, proto.protos.CLIRelayConfig.RelayBackend.Kafka, 1));
+};
+
+
+/**
+ * @param {?proto.protos.CLIRelayConfig.RelayBackend.Kafka|undefined} value
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend} returns this
+*/
+proto.protos.CLIRelayConfig.RelayBackend.prototype.setKafka = function(value) {
+  return jspb.Message.setWrapperField(this, 1, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend} returns this
+ */
+proto.protos.CLIRelayConfig.RelayBackend.prototype.clearKafka = function() {
+  return this.setKafka(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.prototype.hasKafka = function() {
+  return jspb.Message.getField(this, 1) != null;
+};
+
+
+/**
+ * optional AWSSQS awssqs = 2;
+ * @return {?proto.protos.CLIRelayConfig.RelayBackend.AWSSQS}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.prototype.getAwssqs = function() {
+  return /** @type{?proto.protos.CLIRelayConfig.RelayBackend.AWSSQS} */ (
+    jspb.Message.getWrapperField(this, proto.protos.CLIRelayConfig.RelayBackend.AWSSQS, 2));
+};
+
+
+/**
+ * @param {?proto.protos.CLIRelayConfig.RelayBackend.AWSSQS|undefined} value
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend} returns this
+*/
+proto.protos.CLIRelayConfig.RelayBackend.prototype.setAwssqs = function(value) {
+  return jspb.Message.setWrapperField(this, 2, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend} returns this
+ */
+proto.protos.CLIRelayConfig.RelayBackend.prototype.clearAwssqs = function() {
+  return this.setAwssqs(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.prototype.hasAwssqs = function() {
+  return jspb.Message.getField(this, 2) != null;
+};
+
+
+/**
+ * optional Mongo mongo = 3;
+ * @return {?proto.protos.CLIRelayConfig.RelayBackend.Mongo}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.prototype.getMongo = function() {
+  return /** @type{?proto.protos.CLIRelayConfig.RelayBackend.Mongo} */ (
+    jspb.Message.getWrapperField(this, proto.protos.CLIRelayConfig.RelayBackend.Mongo, 3));
+};
+
+
+/**
+ * @param {?proto.protos.CLIRelayConfig.RelayBackend.Mongo|undefined} value
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend} returns this
+*/
+proto.protos.CLIRelayConfig.RelayBackend.prototype.setMongo = function(value) {
+  return jspb.Message.setWrapperField(this, 3, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend} returns this
+ */
+proto.protos.CLIRelayConfig.RelayBackend.prototype.clearMongo = function() {
+  return this.setMongo(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.prototype.hasMongo = function() {
+  return jspb.Message.getField(this, 3) != null;
+};
+
+
+/**
+ * optional NSQ nsq = 4;
+ * @return {?proto.protos.CLIRelayConfig.RelayBackend.NSQ}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.prototype.getNsq = function() {
+  return /** @type{?proto.protos.CLIRelayConfig.RelayBackend.NSQ} */ (
+    jspb.Message.getWrapperField(this, proto.protos.CLIRelayConfig.RelayBackend.NSQ, 4));
+};
+
+
+/**
+ * @param {?proto.protos.CLIRelayConfig.RelayBackend.NSQ|undefined} value
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend} returns this
+*/
+proto.protos.CLIRelayConfig.RelayBackend.prototype.setNsq = function(value) {
+  return jspb.Message.setWrapperField(this, 4, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend} returns this
+ */
+proto.protos.CLIRelayConfig.RelayBackend.prototype.clearNsq = function() {
+  return this.setNsq(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.prototype.hasNsq = function() {
+  return jspb.Message.getField(this, 4) != null;
+};
+
+
+/**
+ * optional Rabbit rabbit = 5;
+ * @return {?proto.protos.CLIRelayConfig.RelayBackend.Rabbit}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.prototype.getRabbit = function() {
+  return /** @type{?proto.protos.CLIRelayConfig.RelayBackend.Rabbit} */ (
+    jspb.Message.getWrapperField(this, proto.protos.CLIRelayConfig.RelayBackend.Rabbit, 5));
+};
+
+
+/**
+ * @param {?proto.protos.CLIRelayConfig.RelayBackend.Rabbit|undefined} value
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend} returns this
+*/
+proto.protos.CLIRelayConfig.RelayBackend.prototype.setRabbit = function(value) {
+  return jspb.Message.setWrapperField(this, 5, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend} returns this
+ */
+proto.protos.CLIRelayConfig.RelayBackend.prototype.clearRabbit = function() {
+  return this.setRabbit(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.prototype.hasRabbit = function() {
+  return jspb.Message.getField(this, 5) != null;
+};
+
+
+/**
+ * optional MQTT mqtt = 6;
+ * @return {?proto.protos.CLIRelayConfig.RelayBackend.MQTT}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.prototype.getMqtt = function() {
+  return /** @type{?proto.protos.CLIRelayConfig.RelayBackend.MQTT} */ (
+    jspb.Message.getWrapperField(this, proto.protos.CLIRelayConfig.RelayBackend.MQTT, 6));
+};
+
+
+/**
+ * @param {?proto.protos.CLIRelayConfig.RelayBackend.MQTT|undefined} value
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend} returns this
+*/
+proto.protos.CLIRelayConfig.RelayBackend.prototype.setMqtt = function(value) {
+  return jspb.Message.setWrapperField(this, 6, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend} returns this
+ */
+proto.protos.CLIRelayConfig.RelayBackend.prototype.clearMqtt = function() {
+  return this.setMqtt(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.prototype.hasMqtt = function() {
+  return jspb.Message.getField(this, 6) != null;
+};
+
+
+/**
+ * optional AzureServiceBus azure_service_bus = 7;
+ * @return {?proto.protos.CLIRelayConfig.RelayBackend.AzureServiceBus}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.prototype.getAzureServiceBus = function() {
+  return /** @type{?proto.protos.CLIRelayConfig.RelayBackend.AzureServiceBus} */ (
+    jspb.Message.getWrapperField(this, proto.protos.CLIRelayConfig.RelayBackend.AzureServiceBus, 7));
+};
+
+
+/**
+ * @param {?proto.protos.CLIRelayConfig.RelayBackend.AzureServiceBus|undefined} value
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend} returns this
+*/
+proto.protos.CLIRelayConfig.RelayBackend.prototype.setAzureServiceBus = function(value) {
+  return jspb.Message.setWrapperField(this, 7, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend} returns this
+ */
+proto.protos.CLIRelayConfig.RelayBackend.prototype.clearAzureServiceBus = function() {
+  return this.setAzureServiceBus(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.prototype.hasAzureServiceBus = function() {
+  return jspb.Message.getField(this, 7) != null;
+};
+
+
+/**
+ * optional GCPPubSub gcp_pubsub = 8;
+ * @return {?proto.protos.CLIRelayConfig.RelayBackend.GCPPubSub}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.prototype.getGcpPubsub = function() {
+  return /** @type{?proto.protos.CLIRelayConfig.RelayBackend.GCPPubSub} */ (
+    jspb.Message.getWrapperField(this, proto.protos.CLIRelayConfig.RelayBackend.GCPPubSub, 8));
+};
+
+
+/**
+ * @param {?proto.protos.CLIRelayConfig.RelayBackend.GCPPubSub|undefined} value
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend} returns this
+*/
+proto.protos.CLIRelayConfig.RelayBackend.prototype.setGcpPubsub = function(value) {
+  return jspb.Message.setWrapperField(this, 8, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend} returns this
+ */
+proto.protos.CLIRelayConfig.RelayBackend.prototype.clearGcpPubsub = function() {
+  return this.setGcpPubsub(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.prototype.hasGcpPubsub = function() {
+  return jspb.Message.getField(this, 8) != null;
+};
+
+
+/**
+ * optional KubeMQQueue kubemq_queue = 9;
+ * @return {?proto.protos.CLIRelayConfig.RelayBackend.KubeMQQueue}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.prototype.getKubemqQueue = function() {
+  return /** @type{?proto.protos.CLIRelayConfig.RelayBackend.KubeMQQueue} */ (
+    jspb.Message.getWrapperField(this, proto.protos.CLIRelayConfig.RelayBackend.KubeMQQueue, 9));
+};
+
+
+/**
+ * @param {?proto.protos.CLIRelayConfig.RelayBackend.KubeMQQueue|undefined} value
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend} returns this
+*/
+proto.protos.CLIRelayConfig.RelayBackend.prototype.setKubemqQueue = function(value) {
+  return jspb.Message.setWrapperField(this, 9, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend} returns this
+ */
+proto.protos.CLIRelayConfig.RelayBackend.prototype.clearKubemqQueue = function() {
+  return this.setKubemqQueue(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.prototype.hasKubemqQueue = function() {
+  return jspb.Message.getField(this, 9) != null;
+};
+
+
+/**
+ * optional RedisPubSub redis_pubsub = 10;
+ * @return {?proto.protos.CLIRelayConfig.RelayBackend.RedisPubSub}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.prototype.getRedisPubsub = function() {
+  return /** @type{?proto.protos.CLIRelayConfig.RelayBackend.RedisPubSub} */ (
+    jspb.Message.getWrapperField(this, proto.protos.CLIRelayConfig.RelayBackend.RedisPubSub, 10));
+};
+
+
+/**
+ * @param {?proto.protos.CLIRelayConfig.RelayBackend.RedisPubSub|undefined} value
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend} returns this
+*/
+proto.protos.CLIRelayConfig.RelayBackend.prototype.setRedisPubsub = function(value) {
+  return jspb.Message.setWrapperField(this, 10, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend} returns this
+ */
+proto.protos.CLIRelayConfig.RelayBackend.prototype.clearRedisPubsub = function() {
+  return this.setRedisPubsub(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.prototype.hasRedisPubsub = function() {
+  return jspb.Message.getField(this, 10) != null;
+};
+
+
+/**
+ * optional RedisStreams redis_streams = 11;
+ * @return {?proto.protos.CLIRelayConfig.RelayBackend.RedisStreams}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.prototype.getRedisStreams = function() {
+  return /** @type{?proto.protos.CLIRelayConfig.RelayBackend.RedisStreams} */ (
+    jspb.Message.getWrapperField(this, proto.protos.CLIRelayConfig.RelayBackend.RedisStreams, 11));
+};
+
+
+/**
+ * @param {?proto.protos.CLIRelayConfig.RelayBackend.RedisStreams|undefined} value
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend} returns this
+*/
+proto.protos.CLIRelayConfig.RelayBackend.prototype.setRedisStreams = function(value) {
+  return jspb.Message.setWrapperField(this, 11, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend} returns this
+ */
+proto.protos.CLIRelayConfig.RelayBackend.prototype.clearRedisStreams = function() {
+  return this.setRedisStreams(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.prototype.hasRedisStreams = function() {
+  return jspb.Message.getField(this, 11) != null;
+};
+
+
+/**
+ * optional Postgres postgres = 12;
+ * @return {?proto.protos.CLIRelayConfig.RelayBackend.Postgres}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.prototype.getPostgres = function() {
+  return /** @type{?proto.protos.CLIRelayConfig.RelayBackend.Postgres} */ (
+    jspb.Message.getWrapperField(this, proto.protos.CLIRelayConfig.RelayBackend.Postgres, 12));
+};
+
+
+/**
+ * @param {?proto.protos.CLIRelayConfig.RelayBackend.Postgres|undefined} value
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend} returns this
+*/
+proto.protos.CLIRelayConfig.RelayBackend.prototype.setPostgres = function(value) {
+  return jspb.Message.setWrapperField(this, 12, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.CLIRelayConfig.RelayBackend} returns this
+ */
+proto.protos.CLIRelayConfig.RelayBackend.prototype.clearPostgres = function() {
+  return this.setPostgres(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.CLIRelayConfig.RelayBackend.prototype.hasPostgres = function() {
+  return jspb.Message.getField(this, 12) != null;
 };
 
 
@@ -535,46 +3976,61 @@ proto.protos.CLIRelayConfig.prototype.setHttpListenAddress = function(value) {
 };
 
 
-
 /**
- * Oneof group definitions for this message. Each group defines the field
- * numbers belonging to that group. When of these fields' value is set, all
- * other fields in the group are cleared. During deserialization, if multiple
- * fields are encountered for a group, only the last value seen will be kept.
- * @private {!Array<!Array<number>>}
- * @const
+ * optional backends.Type _backend_type = 2;
+ * @return {!proto.protos.backends.Type}
  */
-proto.protos.RelayConfig.oneofGroups_ = [[100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115]];
-
-/**
- * @enum {number}
- */
-proto.protos.RelayConfig.BackendsCase = {
-  BACKENDS_NOT_SET: 0,
-  KAFKA: 100,
-  ACTIVE_MQ: 101,
-  AWSSQS: 102,
-  AWSSNS: 103,
-  MONGO: 104,
-  NATS: 105,
-  NATS_STREAMING: 106,
-  NSQ: 107,
-  POSTGRES: 108,
-  PULSAR: 109,
-  RABBIT: 110,
-  RABBIT_STREAMS: 111,
-  REDIS_PUBSUB: 112,
-  REDIS_STREAMS: 113,
-  AZURE_EVENT_HUB: 114,
-  AZURE_SERVICE_BUS: 115
+proto.protos.CLIRelayConfig.prototype.getBackendType = function() {
+  return /** @type {!proto.protos.backends.Type} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
 };
 
+
 /**
- * @return {proto.protos.RelayConfig.BackendsCase}
+ * @param {!proto.protos.backends.Type} value
+ * @return {!proto.protos.CLIRelayConfig} returns this
  */
-proto.protos.RelayConfig.prototype.getBackendsCase = function() {
-  return /** @type {proto.protos.RelayConfig.BackendsCase} */(jspb.Message.computeOneofCase(this, proto.protos.RelayConfig.oneofGroups_[0]));
+proto.protos.CLIRelayConfig.prototype.setBackendType = function(value) {
+  return jspb.Message.setProto3EnumField(this, 2, value);
 };
+
+
+/**
+ * optional RelayBackend _relay_backend = 3;
+ * @return {?proto.protos.CLIRelayConfig.RelayBackend}
+ */
+proto.protos.CLIRelayConfig.prototype.getRelayBackend = function() {
+  return /** @type{?proto.protos.CLIRelayConfig.RelayBackend} */ (
+    jspb.Message.getWrapperField(this, proto.protos.CLIRelayConfig.RelayBackend, 3));
+};
+
+
+/**
+ * @param {?proto.protos.CLIRelayConfig.RelayBackend|undefined} value
+ * @return {!proto.protos.CLIRelayConfig} returns this
+*/
+proto.protos.CLIRelayConfig.prototype.setRelayBackend = function(value) {
+  return jspb.Message.setWrapperField(this, 3, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.CLIRelayConfig} returns this
+ */
+proto.protos.CLIRelayConfig.prototype.clearRelayBackend = function() {
+  return this.setRelayBackend(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.CLIRelayConfig.prototype.hasRelayBackend = function() {
+  return jspb.Message.getField(this, 3) != null;
+};
+
+
 
 
 
@@ -616,23 +4072,7 @@ proto.protos.RelayConfig.toObject = function(includeInstance, msg) {
     batchshGrpcDisableTls: jspb.Message.getBooleanFieldWithDefault(msg, 7, false),
     batchshGrpcTimeoutSeconds: jspb.Message.getFieldWithDefault(msg, 8, 0),
     relayId: jspb.Message.getFieldWithDefault(msg, 9, ""),
-    cliConfig: (f = msg.getCliConfig()) && proto.protos.CLIRelayConfig.toObject(includeInstance, f),
-    kafka: (f = msg.getKafka()) && backends_kafka_pb.Kafka.toObject(includeInstance, f),
-    activeMq: (f = msg.getActiveMq()) && backends_activemq_pb.ActiveMQ.toObject(includeInstance, f),
-    awssqs: (f = msg.getAwssqs()) && backends_aws$sqs_pb.AWSSQS.toObject(includeInstance, f),
-    awssns: (f = msg.getAwssns()) && backends_aws$sns_pb.AWSSNS.toObject(includeInstance, f),
-    mongo: (f = msg.getMongo()) && backends_mongo_pb.Mongo.toObject(includeInstance, f),
-    nats: (f = msg.getNats()) && backends_nats_pb.Nats.toObject(includeInstance, f),
-    natsStreaming: (f = msg.getNatsStreaming()) && backends_nats$streaming_pb.NatsStreaming.toObject(includeInstance, f),
-    nsq: (f = msg.getNsq()) && backends_nsq_pb.NSQ.toObject(includeInstance, f),
-    postgres: (f = msg.getPostgres()) && backends_postgres_pb.Postgres.toObject(includeInstance, f),
-    pulsar: (f = msg.getPulsar()) && backends_pulsar_pb.Pulsar.toObject(includeInstance, f),
-    rabbit: (f = msg.getRabbit()) && backends_rabbit_pb.Rabbit.toObject(includeInstance, f),
-    rabbitStreams: (f = msg.getRabbitStreams()) && backends_rabbit$streams_pb.RabbitStreams.toObject(includeInstance, f),
-    redisPubsub: (f = msg.getRedisPubsub()) && backends_redis$pubsub_pb.RedisPubsub.toObject(includeInstance, f),
-    redisStreams: (f = msg.getRedisStreams()) && backends_redis$streams_pb.RedisStreams.toObject(includeInstance, f),
-    azureEventHub: (f = msg.getAzureEventHub()) && backends_azure$event$hub_pb.AzureEventHub.toObject(includeInstance, f),
-    azureServiceBus: (f = msg.getAzureServiceBus()) && backends_azure$service$bus_pb.AzureServiceBus.toObject(includeInstance, f)
+    cliConfig: (f = msg.getCliConfig()) && proto.protos.CLIRelayConfig.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -709,86 +4149,6 @@ proto.protos.RelayConfig.deserializeBinaryFromReader = function(msg, reader) {
       var value = new proto.protos.CLIRelayConfig;
       reader.readMessage(value,proto.protos.CLIRelayConfig.deserializeBinaryFromReader);
       msg.setCliConfig(value);
-      break;
-    case 100:
-      var value = new backends_kafka_pb.Kafka;
-      reader.readMessage(value,backends_kafka_pb.Kafka.deserializeBinaryFromReader);
-      msg.setKafka(value);
-      break;
-    case 101:
-      var value = new backends_activemq_pb.ActiveMQ;
-      reader.readMessage(value,backends_activemq_pb.ActiveMQ.deserializeBinaryFromReader);
-      msg.setActiveMq(value);
-      break;
-    case 102:
-      var value = new backends_aws$sqs_pb.AWSSQS;
-      reader.readMessage(value,backends_aws$sqs_pb.AWSSQS.deserializeBinaryFromReader);
-      msg.setAwssqs(value);
-      break;
-    case 103:
-      var value = new backends_aws$sns_pb.AWSSNS;
-      reader.readMessage(value,backends_aws$sns_pb.AWSSNS.deserializeBinaryFromReader);
-      msg.setAwssns(value);
-      break;
-    case 104:
-      var value = new backends_mongo_pb.Mongo;
-      reader.readMessage(value,backends_mongo_pb.Mongo.deserializeBinaryFromReader);
-      msg.setMongo(value);
-      break;
-    case 105:
-      var value = new backends_nats_pb.Nats;
-      reader.readMessage(value,backends_nats_pb.Nats.deserializeBinaryFromReader);
-      msg.setNats(value);
-      break;
-    case 106:
-      var value = new backends_nats$streaming_pb.NatsStreaming;
-      reader.readMessage(value,backends_nats$streaming_pb.NatsStreaming.deserializeBinaryFromReader);
-      msg.setNatsStreaming(value);
-      break;
-    case 107:
-      var value = new backends_nsq_pb.NSQ;
-      reader.readMessage(value,backends_nsq_pb.NSQ.deserializeBinaryFromReader);
-      msg.setNsq(value);
-      break;
-    case 108:
-      var value = new backends_postgres_pb.Postgres;
-      reader.readMessage(value,backends_postgres_pb.Postgres.deserializeBinaryFromReader);
-      msg.setPostgres(value);
-      break;
-    case 109:
-      var value = new backends_pulsar_pb.Pulsar;
-      reader.readMessage(value,backends_pulsar_pb.Pulsar.deserializeBinaryFromReader);
-      msg.setPulsar(value);
-      break;
-    case 110:
-      var value = new backends_rabbit_pb.Rabbit;
-      reader.readMessage(value,backends_rabbit_pb.Rabbit.deserializeBinaryFromReader);
-      msg.setRabbit(value);
-      break;
-    case 111:
-      var value = new backends_rabbit$streams_pb.RabbitStreams;
-      reader.readMessage(value,backends_rabbit$streams_pb.RabbitStreams.deserializeBinaryFromReader);
-      msg.setRabbitStreams(value);
-      break;
-    case 112:
-      var value = new backends_redis$pubsub_pb.RedisPubsub;
-      reader.readMessage(value,backends_redis$pubsub_pb.RedisPubsub.deserializeBinaryFromReader);
-      msg.setRedisPubsub(value);
-      break;
-    case 113:
-      var value = new backends_redis$streams_pb.RedisStreams;
-      reader.readMessage(value,backends_redis$streams_pb.RedisStreams.deserializeBinaryFromReader);
-      msg.setRedisStreams(value);
-      break;
-    case 114:
-      var value = new backends_azure$event$hub_pb.AzureEventHub;
-      reader.readMessage(value,backends_azure$event$hub_pb.AzureEventHub.deserializeBinaryFromReader);
-      msg.setAzureEventHub(value);
-      break;
-    case 115:
-      var value = new backends_azure$service$bus_pb.AzureServiceBus;
-      reader.readMessage(value,backends_azure$service$bus_pb.AzureServiceBus.deserializeBinaryFromReader);
-      msg.setAzureServiceBus(value);
       break;
     default:
       reader.skipField();
@@ -888,134 +4248,6 @@ proto.protos.RelayConfig.serializeBinaryToWriter = function(message, writer) {
       10,
       f,
       proto.protos.CLIRelayConfig.serializeBinaryToWriter
-    );
-  }
-  f = message.getKafka();
-  if (f != null) {
-    writer.writeMessage(
-      100,
-      f,
-      backends_kafka_pb.Kafka.serializeBinaryToWriter
-    );
-  }
-  f = message.getActiveMq();
-  if (f != null) {
-    writer.writeMessage(
-      101,
-      f,
-      backends_activemq_pb.ActiveMQ.serializeBinaryToWriter
-    );
-  }
-  f = message.getAwssqs();
-  if (f != null) {
-    writer.writeMessage(
-      102,
-      f,
-      backends_aws$sqs_pb.AWSSQS.serializeBinaryToWriter
-    );
-  }
-  f = message.getAwssns();
-  if (f != null) {
-    writer.writeMessage(
-      103,
-      f,
-      backends_aws$sns_pb.AWSSNS.serializeBinaryToWriter
-    );
-  }
-  f = message.getMongo();
-  if (f != null) {
-    writer.writeMessage(
-      104,
-      f,
-      backends_mongo_pb.Mongo.serializeBinaryToWriter
-    );
-  }
-  f = message.getNats();
-  if (f != null) {
-    writer.writeMessage(
-      105,
-      f,
-      backends_nats_pb.Nats.serializeBinaryToWriter
-    );
-  }
-  f = message.getNatsStreaming();
-  if (f != null) {
-    writer.writeMessage(
-      106,
-      f,
-      backends_nats$streaming_pb.NatsStreaming.serializeBinaryToWriter
-    );
-  }
-  f = message.getNsq();
-  if (f != null) {
-    writer.writeMessage(
-      107,
-      f,
-      backends_nsq_pb.NSQ.serializeBinaryToWriter
-    );
-  }
-  f = message.getPostgres();
-  if (f != null) {
-    writer.writeMessage(
-      108,
-      f,
-      backends_postgres_pb.Postgres.serializeBinaryToWriter
-    );
-  }
-  f = message.getPulsar();
-  if (f != null) {
-    writer.writeMessage(
-      109,
-      f,
-      backends_pulsar_pb.Pulsar.serializeBinaryToWriter
-    );
-  }
-  f = message.getRabbit();
-  if (f != null) {
-    writer.writeMessage(
-      110,
-      f,
-      backends_rabbit_pb.Rabbit.serializeBinaryToWriter
-    );
-  }
-  f = message.getRabbitStreams();
-  if (f != null) {
-    writer.writeMessage(
-      111,
-      f,
-      backends_rabbit$streams_pb.RabbitStreams.serializeBinaryToWriter
-    );
-  }
-  f = message.getRedisPubsub();
-  if (f != null) {
-    writer.writeMessage(
-      112,
-      f,
-      backends_redis$pubsub_pb.RedisPubsub.serializeBinaryToWriter
-    );
-  }
-  f = message.getRedisStreams();
-  if (f != null) {
-    writer.writeMessage(
-      113,
-      f,
-      backends_redis$streams_pb.RedisStreams.serializeBinaryToWriter
-    );
-  }
-  f = message.getAzureEventHub();
-  if (f != null) {
-    writer.writeMessage(
-      114,
-      f,
-      backends_azure$event$hub_pb.AzureEventHub.serializeBinaryToWriter
-    );
-  }
-  f = message.getAzureServiceBus();
-  if (f != null) {
-    writer.writeMessage(
-      115,
-      f,
-      backends_azure$service$bus_pb.AzureServiceBus.serializeBinaryToWriter
     );
   }
 };
@@ -1217,598 +4449,6 @@ proto.protos.RelayConfig.prototype.clearCliConfig = function() {
  */
 proto.protos.RelayConfig.prototype.hasCliConfig = function() {
   return jspb.Message.getField(this, 10) != null;
-};
-
-
-/**
- * optional backends.Kafka kafka = 100;
- * @return {?proto.protos.backends.Kafka}
- */
-proto.protos.RelayConfig.prototype.getKafka = function() {
-  return /** @type{?proto.protos.backends.Kafka} */ (
-    jspb.Message.getWrapperField(this, backends_kafka_pb.Kafka, 100));
-};
-
-
-/**
- * @param {?proto.protos.backends.Kafka|undefined} value
- * @return {!proto.protos.RelayConfig} returns this
-*/
-proto.protos.RelayConfig.prototype.setKafka = function(value) {
-  return jspb.Message.setOneofWrapperField(this, 100, proto.protos.RelayConfig.oneofGroups_[0], value);
-};
-
-
-/**
- * Clears the message field making it undefined.
- * @return {!proto.protos.RelayConfig} returns this
- */
-proto.protos.RelayConfig.prototype.clearKafka = function() {
-  return this.setKafka(undefined);
-};
-
-
-/**
- * Returns whether this field is set.
- * @return {boolean}
- */
-proto.protos.RelayConfig.prototype.hasKafka = function() {
-  return jspb.Message.getField(this, 100) != null;
-};
-
-
-/**
- * optional backends.ActiveMQ active_mq = 101;
- * @return {?proto.protos.backends.ActiveMQ}
- */
-proto.protos.RelayConfig.prototype.getActiveMq = function() {
-  return /** @type{?proto.protos.backends.ActiveMQ} */ (
-    jspb.Message.getWrapperField(this, backends_activemq_pb.ActiveMQ, 101));
-};
-
-
-/**
- * @param {?proto.protos.backends.ActiveMQ|undefined} value
- * @return {!proto.protos.RelayConfig} returns this
-*/
-proto.protos.RelayConfig.prototype.setActiveMq = function(value) {
-  return jspb.Message.setOneofWrapperField(this, 101, proto.protos.RelayConfig.oneofGroups_[0], value);
-};
-
-
-/**
- * Clears the message field making it undefined.
- * @return {!proto.protos.RelayConfig} returns this
- */
-proto.protos.RelayConfig.prototype.clearActiveMq = function() {
-  return this.setActiveMq(undefined);
-};
-
-
-/**
- * Returns whether this field is set.
- * @return {boolean}
- */
-proto.protos.RelayConfig.prototype.hasActiveMq = function() {
-  return jspb.Message.getField(this, 101) != null;
-};
-
-
-/**
- * optional backends.AWSSQS awssqs = 102;
- * @return {?proto.protos.backends.AWSSQS}
- */
-proto.protos.RelayConfig.prototype.getAwssqs = function() {
-  return /** @type{?proto.protos.backends.AWSSQS} */ (
-    jspb.Message.getWrapperField(this, backends_aws$sqs_pb.AWSSQS, 102));
-};
-
-
-/**
- * @param {?proto.protos.backends.AWSSQS|undefined} value
- * @return {!proto.protos.RelayConfig} returns this
-*/
-proto.protos.RelayConfig.prototype.setAwssqs = function(value) {
-  return jspb.Message.setOneofWrapperField(this, 102, proto.protos.RelayConfig.oneofGroups_[0], value);
-};
-
-
-/**
- * Clears the message field making it undefined.
- * @return {!proto.protos.RelayConfig} returns this
- */
-proto.protos.RelayConfig.prototype.clearAwssqs = function() {
-  return this.setAwssqs(undefined);
-};
-
-
-/**
- * Returns whether this field is set.
- * @return {boolean}
- */
-proto.protos.RelayConfig.prototype.hasAwssqs = function() {
-  return jspb.Message.getField(this, 102) != null;
-};
-
-
-/**
- * optional backends.AWSSNS awssns = 103;
- * @return {?proto.protos.backends.AWSSNS}
- */
-proto.protos.RelayConfig.prototype.getAwssns = function() {
-  return /** @type{?proto.protos.backends.AWSSNS} */ (
-    jspb.Message.getWrapperField(this, backends_aws$sns_pb.AWSSNS, 103));
-};
-
-
-/**
- * @param {?proto.protos.backends.AWSSNS|undefined} value
- * @return {!proto.protos.RelayConfig} returns this
-*/
-proto.protos.RelayConfig.prototype.setAwssns = function(value) {
-  return jspb.Message.setOneofWrapperField(this, 103, proto.protos.RelayConfig.oneofGroups_[0], value);
-};
-
-
-/**
- * Clears the message field making it undefined.
- * @return {!proto.protos.RelayConfig} returns this
- */
-proto.protos.RelayConfig.prototype.clearAwssns = function() {
-  return this.setAwssns(undefined);
-};
-
-
-/**
- * Returns whether this field is set.
- * @return {boolean}
- */
-proto.protos.RelayConfig.prototype.hasAwssns = function() {
-  return jspb.Message.getField(this, 103) != null;
-};
-
-
-/**
- * optional backends.Mongo mongo = 104;
- * @return {?proto.protos.backends.Mongo}
- */
-proto.protos.RelayConfig.prototype.getMongo = function() {
-  return /** @type{?proto.protos.backends.Mongo} */ (
-    jspb.Message.getWrapperField(this, backends_mongo_pb.Mongo, 104));
-};
-
-
-/**
- * @param {?proto.protos.backends.Mongo|undefined} value
- * @return {!proto.protos.RelayConfig} returns this
-*/
-proto.protos.RelayConfig.prototype.setMongo = function(value) {
-  return jspb.Message.setOneofWrapperField(this, 104, proto.protos.RelayConfig.oneofGroups_[0], value);
-};
-
-
-/**
- * Clears the message field making it undefined.
- * @return {!proto.protos.RelayConfig} returns this
- */
-proto.protos.RelayConfig.prototype.clearMongo = function() {
-  return this.setMongo(undefined);
-};
-
-
-/**
- * Returns whether this field is set.
- * @return {boolean}
- */
-proto.protos.RelayConfig.prototype.hasMongo = function() {
-  return jspb.Message.getField(this, 104) != null;
-};
-
-
-/**
- * optional backends.Nats nats = 105;
- * @return {?proto.protos.backends.Nats}
- */
-proto.protos.RelayConfig.prototype.getNats = function() {
-  return /** @type{?proto.protos.backends.Nats} */ (
-    jspb.Message.getWrapperField(this, backends_nats_pb.Nats, 105));
-};
-
-
-/**
- * @param {?proto.protos.backends.Nats|undefined} value
- * @return {!proto.protos.RelayConfig} returns this
-*/
-proto.protos.RelayConfig.prototype.setNats = function(value) {
-  return jspb.Message.setOneofWrapperField(this, 105, proto.protos.RelayConfig.oneofGroups_[0], value);
-};
-
-
-/**
- * Clears the message field making it undefined.
- * @return {!proto.protos.RelayConfig} returns this
- */
-proto.protos.RelayConfig.prototype.clearNats = function() {
-  return this.setNats(undefined);
-};
-
-
-/**
- * Returns whether this field is set.
- * @return {boolean}
- */
-proto.protos.RelayConfig.prototype.hasNats = function() {
-  return jspb.Message.getField(this, 105) != null;
-};
-
-
-/**
- * optional backends.NatsStreaming nats_streaming = 106;
- * @return {?proto.protos.backends.NatsStreaming}
- */
-proto.protos.RelayConfig.prototype.getNatsStreaming = function() {
-  return /** @type{?proto.protos.backends.NatsStreaming} */ (
-    jspb.Message.getWrapperField(this, backends_nats$streaming_pb.NatsStreaming, 106));
-};
-
-
-/**
- * @param {?proto.protos.backends.NatsStreaming|undefined} value
- * @return {!proto.protos.RelayConfig} returns this
-*/
-proto.protos.RelayConfig.prototype.setNatsStreaming = function(value) {
-  return jspb.Message.setOneofWrapperField(this, 106, proto.protos.RelayConfig.oneofGroups_[0], value);
-};
-
-
-/**
- * Clears the message field making it undefined.
- * @return {!proto.protos.RelayConfig} returns this
- */
-proto.protos.RelayConfig.prototype.clearNatsStreaming = function() {
-  return this.setNatsStreaming(undefined);
-};
-
-
-/**
- * Returns whether this field is set.
- * @return {boolean}
- */
-proto.protos.RelayConfig.prototype.hasNatsStreaming = function() {
-  return jspb.Message.getField(this, 106) != null;
-};
-
-
-/**
- * optional backends.NSQ nsq = 107;
- * @return {?proto.protos.backends.NSQ}
- */
-proto.protos.RelayConfig.prototype.getNsq = function() {
-  return /** @type{?proto.protos.backends.NSQ} */ (
-    jspb.Message.getWrapperField(this, backends_nsq_pb.NSQ, 107));
-};
-
-
-/**
- * @param {?proto.protos.backends.NSQ|undefined} value
- * @return {!proto.protos.RelayConfig} returns this
-*/
-proto.protos.RelayConfig.prototype.setNsq = function(value) {
-  return jspb.Message.setOneofWrapperField(this, 107, proto.protos.RelayConfig.oneofGroups_[0], value);
-};
-
-
-/**
- * Clears the message field making it undefined.
- * @return {!proto.protos.RelayConfig} returns this
- */
-proto.protos.RelayConfig.prototype.clearNsq = function() {
-  return this.setNsq(undefined);
-};
-
-
-/**
- * Returns whether this field is set.
- * @return {boolean}
- */
-proto.protos.RelayConfig.prototype.hasNsq = function() {
-  return jspb.Message.getField(this, 107) != null;
-};
-
-
-/**
- * optional backends.Postgres postgres = 108;
- * @return {?proto.protos.backends.Postgres}
- */
-proto.protos.RelayConfig.prototype.getPostgres = function() {
-  return /** @type{?proto.protos.backends.Postgres} */ (
-    jspb.Message.getWrapperField(this, backends_postgres_pb.Postgres, 108));
-};
-
-
-/**
- * @param {?proto.protos.backends.Postgres|undefined} value
- * @return {!proto.protos.RelayConfig} returns this
-*/
-proto.protos.RelayConfig.prototype.setPostgres = function(value) {
-  return jspb.Message.setOneofWrapperField(this, 108, proto.protos.RelayConfig.oneofGroups_[0], value);
-};
-
-
-/**
- * Clears the message field making it undefined.
- * @return {!proto.protos.RelayConfig} returns this
- */
-proto.protos.RelayConfig.prototype.clearPostgres = function() {
-  return this.setPostgres(undefined);
-};
-
-
-/**
- * Returns whether this field is set.
- * @return {boolean}
- */
-proto.protos.RelayConfig.prototype.hasPostgres = function() {
-  return jspb.Message.getField(this, 108) != null;
-};
-
-
-/**
- * optional backends.Pulsar pulsar = 109;
- * @return {?proto.protos.backends.Pulsar}
- */
-proto.protos.RelayConfig.prototype.getPulsar = function() {
-  return /** @type{?proto.protos.backends.Pulsar} */ (
-    jspb.Message.getWrapperField(this, backends_pulsar_pb.Pulsar, 109));
-};
-
-
-/**
- * @param {?proto.protos.backends.Pulsar|undefined} value
- * @return {!proto.protos.RelayConfig} returns this
-*/
-proto.protos.RelayConfig.prototype.setPulsar = function(value) {
-  return jspb.Message.setOneofWrapperField(this, 109, proto.protos.RelayConfig.oneofGroups_[0], value);
-};
-
-
-/**
- * Clears the message field making it undefined.
- * @return {!proto.protos.RelayConfig} returns this
- */
-proto.protos.RelayConfig.prototype.clearPulsar = function() {
-  return this.setPulsar(undefined);
-};
-
-
-/**
- * Returns whether this field is set.
- * @return {boolean}
- */
-proto.protos.RelayConfig.prototype.hasPulsar = function() {
-  return jspb.Message.getField(this, 109) != null;
-};
-
-
-/**
- * optional backends.Rabbit rabbit = 110;
- * @return {?proto.protos.backends.Rabbit}
- */
-proto.protos.RelayConfig.prototype.getRabbit = function() {
-  return /** @type{?proto.protos.backends.Rabbit} */ (
-    jspb.Message.getWrapperField(this, backends_rabbit_pb.Rabbit, 110));
-};
-
-
-/**
- * @param {?proto.protos.backends.Rabbit|undefined} value
- * @return {!proto.protos.RelayConfig} returns this
-*/
-proto.protos.RelayConfig.prototype.setRabbit = function(value) {
-  return jspb.Message.setOneofWrapperField(this, 110, proto.protos.RelayConfig.oneofGroups_[0], value);
-};
-
-
-/**
- * Clears the message field making it undefined.
- * @return {!proto.protos.RelayConfig} returns this
- */
-proto.protos.RelayConfig.prototype.clearRabbit = function() {
-  return this.setRabbit(undefined);
-};
-
-
-/**
- * Returns whether this field is set.
- * @return {boolean}
- */
-proto.protos.RelayConfig.prototype.hasRabbit = function() {
-  return jspb.Message.getField(this, 110) != null;
-};
-
-
-/**
- * optional backends.RabbitStreams rabbit_streams = 111;
- * @return {?proto.protos.backends.RabbitStreams}
- */
-proto.protos.RelayConfig.prototype.getRabbitStreams = function() {
-  return /** @type{?proto.protos.backends.RabbitStreams} */ (
-    jspb.Message.getWrapperField(this, backends_rabbit$streams_pb.RabbitStreams, 111));
-};
-
-
-/**
- * @param {?proto.protos.backends.RabbitStreams|undefined} value
- * @return {!proto.protos.RelayConfig} returns this
-*/
-proto.protos.RelayConfig.prototype.setRabbitStreams = function(value) {
-  return jspb.Message.setOneofWrapperField(this, 111, proto.protos.RelayConfig.oneofGroups_[0], value);
-};
-
-
-/**
- * Clears the message field making it undefined.
- * @return {!proto.protos.RelayConfig} returns this
- */
-proto.protos.RelayConfig.prototype.clearRabbitStreams = function() {
-  return this.setRabbitStreams(undefined);
-};
-
-
-/**
- * Returns whether this field is set.
- * @return {boolean}
- */
-proto.protos.RelayConfig.prototype.hasRabbitStreams = function() {
-  return jspb.Message.getField(this, 111) != null;
-};
-
-
-/**
- * optional backends.RedisPubsub redis_pubsub = 112;
- * @return {?proto.protos.backends.RedisPubsub}
- */
-proto.protos.RelayConfig.prototype.getRedisPubsub = function() {
-  return /** @type{?proto.protos.backends.RedisPubsub} */ (
-    jspb.Message.getWrapperField(this, backends_redis$pubsub_pb.RedisPubsub, 112));
-};
-
-
-/**
- * @param {?proto.protos.backends.RedisPubsub|undefined} value
- * @return {!proto.protos.RelayConfig} returns this
-*/
-proto.protos.RelayConfig.prototype.setRedisPubsub = function(value) {
-  return jspb.Message.setOneofWrapperField(this, 112, proto.protos.RelayConfig.oneofGroups_[0], value);
-};
-
-
-/**
- * Clears the message field making it undefined.
- * @return {!proto.protos.RelayConfig} returns this
- */
-proto.protos.RelayConfig.prototype.clearRedisPubsub = function() {
-  return this.setRedisPubsub(undefined);
-};
-
-
-/**
- * Returns whether this field is set.
- * @return {boolean}
- */
-proto.protos.RelayConfig.prototype.hasRedisPubsub = function() {
-  return jspb.Message.getField(this, 112) != null;
-};
-
-
-/**
- * optional backends.RedisStreams redis_streams = 113;
- * @return {?proto.protos.backends.RedisStreams}
- */
-proto.protos.RelayConfig.prototype.getRedisStreams = function() {
-  return /** @type{?proto.protos.backends.RedisStreams} */ (
-    jspb.Message.getWrapperField(this, backends_redis$streams_pb.RedisStreams, 113));
-};
-
-
-/**
- * @param {?proto.protos.backends.RedisStreams|undefined} value
- * @return {!proto.protos.RelayConfig} returns this
-*/
-proto.protos.RelayConfig.prototype.setRedisStreams = function(value) {
-  return jspb.Message.setOneofWrapperField(this, 113, proto.protos.RelayConfig.oneofGroups_[0], value);
-};
-
-
-/**
- * Clears the message field making it undefined.
- * @return {!proto.protos.RelayConfig} returns this
- */
-proto.protos.RelayConfig.prototype.clearRedisStreams = function() {
-  return this.setRedisStreams(undefined);
-};
-
-
-/**
- * Returns whether this field is set.
- * @return {boolean}
- */
-proto.protos.RelayConfig.prototype.hasRedisStreams = function() {
-  return jspb.Message.getField(this, 113) != null;
-};
-
-
-/**
- * optional backends.AzureEventHub azure_event_hub = 114;
- * @return {?proto.protos.backends.AzureEventHub}
- */
-proto.protos.RelayConfig.prototype.getAzureEventHub = function() {
-  return /** @type{?proto.protos.backends.AzureEventHub} */ (
-    jspb.Message.getWrapperField(this, backends_azure$event$hub_pb.AzureEventHub, 114));
-};
-
-
-/**
- * @param {?proto.protos.backends.AzureEventHub|undefined} value
- * @return {!proto.protos.RelayConfig} returns this
-*/
-proto.protos.RelayConfig.prototype.setAzureEventHub = function(value) {
-  return jspb.Message.setOneofWrapperField(this, 114, proto.protos.RelayConfig.oneofGroups_[0], value);
-};
-
-
-/**
- * Clears the message field making it undefined.
- * @return {!proto.protos.RelayConfig} returns this
- */
-proto.protos.RelayConfig.prototype.clearAzureEventHub = function() {
-  return this.setAzureEventHub(undefined);
-};
-
-
-/**
- * Returns whether this field is set.
- * @return {boolean}
- */
-proto.protos.RelayConfig.prototype.hasAzureEventHub = function() {
-  return jspb.Message.getField(this, 114) != null;
-};
-
-
-/**
- * optional backends.AzureServiceBus azure_service_bus = 115;
- * @return {?proto.protos.backends.AzureServiceBus}
- */
-proto.protos.RelayConfig.prototype.getAzureServiceBus = function() {
-  return /** @type{?proto.protos.backends.AzureServiceBus} */ (
-    jspb.Message.getWrapperField(this, backends_azure$service$bus_pb.AzureServiceBus, 115));
-};
-
-
-/**
- * @param {?proto.protos.backends.AzureServiceBus|undefined} value
- * @return {!proto.protos.RelayConfig} returns this
-*/
-proto.protos.RelayConfig.prototype.setAzureServiceBus = function(value) {
-  return jspb.Message.setOneofWrapperField(this, 115, proto.protos.RelayConfig.oneofGroups_[0], value);
-};
-
-
-/**
- * Clears the message field making it undefined.
- * @return {!proto.protos.RelayConfig} returns this
- */
-proto.protos.RelayConfig.prototype.clearAzureServiceBus = function() {
-  return this.setAzureServiceBus(undefined);
-};
-
-
-/**
- * Returns whether this field is set.
- * @return {boolean}
- */
-proto.protos.RelayConfig.prototype.hasAzureServiceBus = function() {
-  return jspb.Message.getField(this, 115) != null;
 };
 
 
@@ -2566,7 +5206,7 @@ proto.protos.GetRelayResponse.prototype.hasConfig = function() {
  * @private {!Array<!Array<number>>}
  * @const
  */
-proto.protos.CreateRelayRequest.oneofGroups_ = [[100,101,102,103,104,105,106,107,108,109,110,111,112,113]];
+proto.protos.CreateRelayRequest.oneofGroups_ = [[100,101,102,104,105,106,107,108,109,111,112]];
 
 /**
  * @enum {number}
@@ -2574,19 +5214,16 @@ proto.protos.CreateRelayRequest.oneofGroups_ = [[100,101,102,103,104,105,106,107
 proto.protos.CreateRelayRequest.BackendsCase = {
   BACKENDS_NOT_SET: 0,
   KAFKA: 100,
-  ACTIVE_MQ: 101,
+  MQTT: 101,
   AWSSQS: 102,
-  AWSSNS: 103,
   MONGO: 104,
-  NATS: 105,
-  NATS_STREAMING: 106,
+  GCP_PUBSUB: 105,
+  AZURE_SERVICE_BUS: 106,
   NSQ: 107,
   POSTGRES: 108,
-  PULSAR: 109,
-  RABBIT: 110,
-  RABBIT_STREAMS: 111,
-  REDIS_PUBSUB: 112,
-  REDIS_STREAMS: 113
+  RABBIT: 109,
+  REDIS_PUBSUB: 111,
+  REDIS_STREAMS: 112
 };
 
 /**
@@ -2629,20 +5266,17 @@ proto.protos.CreateRelayRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
     auth: (f = msg.getAuth()) && common_auth_pb.Auth.toObject(includeInstance, f),
     config: (f = msg.getConfig()) && proto.protos.RelayConfig.toObject(includeInstance, f),
-    kafka: (f = msg.getKafka()) && backends_kafka_pb.Kafka.toObject(includeInstance, f),
-    activeMq: (f = msg.getActiveMq()) && backends_activemq_pb.ActiveMQ.toObject(includeInstance, f),
-    awssqs: (f = msg.getAwssqs()) && backends_aws$sqs_pb.AWSSQS.toObject(includeInstance, f),
-    awssns: (f = msg.getAwssns()) && backends_aws$sns_pb.AWSSNS.toObject(includeInstance, f),
-    mongo: (f = msg.getMongo()) && backends_mongo_pb.Mongo.toObject(includeInstance, f),
-    nats: (f = msg.getNats()) && backends_nats_pb.Nats.toObject(includeInstance, f),
-    natsStreaming: (f = msg.getNatsStreaming()) && backends_nats$streaming_pb.NatsStreaming.toObject(includeInstance, f),
-    nsq: (f = msg.getNsq()) && backends_nsq_pb.NSQ.toObject(includeInstance, f),
-    postgres: (f = msg.getPostgres()) && backends_postgres_pb.Postgres.toObject(includeInstance, f),
-    pulsar: (f = msg.getPulsar()) && backends_pulsar_pb.Pulsar.toObject(includeInstance, f),
-    rabbit: (f = msg.getRabbit()) && backends_rabbit_pb.Rabbit.toObject(includeInstance, f),
-    rabbitStreams: (f = msg.getRabbitStreams()) && backends_rabbit$streams_pb.RabbitStreams.toObject(includeInstance, f),
-    redisPubsub: (f = msg.getRedisPubsub()) && backends_redis$pubsub_pb.RedisPubsub.toObject(includeInstance, f),
-    redisStreams: (f = msg.getRedisStreams()) && backends_redis$streams_pb.RedisStreams.toObject(includeInstance, f)
+    kafka: (f = msg.getKafka()) && backends_kafka_pb.KafkaReadArgs.toObject(includeInstance, f),
+    mqtt: (f = msg.getMqtt()) && backends_mqtt_pb.MQTTReadArgs.toObject(includeInstance, f),
+    awssqs: (f = msg.getAwssqs()) && backends_aws$sqs_pb.AWSSQSReadArgs.toObject(includeInstance, f),
+    mongo: (f = msg.getMongo()) && backends_mongo_pb.MongoReadArgs.toObject(includeInstance, f),
+    gcpPubsub: (f = msg.getGcpPubsub()) && backends_gcp$pubsub_pb.GCPPubSubReadArgs.toObject(includeInstance, f),
+    azureServiceBus: (f = msg.getAzureServiceBus()) && backends_azure$service$bus_pb.AzureServiceBusReadArgs.toObject(includeInstance, f),
+    nsq: (f = msg.getNsq()) && backends_nsq_pb.NSQReadArgs.toObject(includeInstance, f),
+    postgres: (f = msg.getPostgres()) && backends_postgres_pb.PostgresReadArgs.toObject(includeInstance, f),
+    rabbit: (f = msg.getRabbit()) && backends_rabbit_pb.RabbitReadArgs.toObject(includeInstance, f),
+    redisPubsub: (f = msg.getRedisPubsub()) && backends_redis$pubsub_pb.RedisPubSubReadArgs.toObject(includeInstance, f),
+    redisStreams: (f = msg.getRedisStreams()) && backends_redis$streams_pb.RedisStreamsReadArgs.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -2690,73 +5324,58 @@ proto.protos.CreateRelayRequest.deserializeBinaryFromReader = function(msg, read
       msg.setConfig(value);
       break;
     case 100:
-      var value = new backends_kafka_pb.Kafka;
-      reader.readMessage(value,backends_kafka_pb.Kafka.deserializeBinaryFromReader);
+      var value = new backends_kafka_pb.KafkaReadArgs;
+      reader.readMessage(value,backends_kafka_pb.KafkaReadArgs.deserializeBinaryFromReader);
       msg.setKafka(value);
       break;
     case 101:
-      var value = new backends_activemq_pb.ActiveMQ;
-      reader.readMessage(value,backends_activemq_pb.ActiveMQ.deserializeBinaryFromReader);
-      msg.setActiveMq(value);
+      var value = new backends_mqtt_pb.MQTTReadArgs;
+      reader.readMessage(value,backends_mqtt_pb.MQTTReadArgs.deserializeBinaryFromReader);
+      msg.setMqtt(value);
       break;
     case 102:
-      var value = new backends_aws$sqs_pb.AWSSQS;
-      reader.readMessage(value,backends_aws$sqs_pb.AWSSQS.deserializeBinaryFromReader);
+      var value = new backends_aws$sqs_pb.AWSSQSReadArgs;
+      reader.readMessage(value,backends_aws$sqs_pb.AWSSQSReadArgs.deserializeBinaryFromReader);
       msg.setAwssqs(value);
       break;
-    case 103:
-      var value = new backends_aws$sns_pb.AWSSNS;
-      reader.readMessage(value,backends_aws$sns_pb.AWSSNS.deserializeBinaryFromReader);
-      msg.setAwssns(value);
-      break;
     case 104:
-      var value = new backends_mongo_pb.Mongo;
-      reader.readMessage(value,backends_mongo_pb.Mongo.deserializeBinaryFromReader);
+      var value = new backends_mongo_pb.MongoReadArgs;
+      reader.readMessage(value,backends_mongo_pb.MongoReadArgs.deserializeBinaryFromReader);
       msg.setMongo(value);
       break;
     case 105:
-      var value = new backends_nats_pb.Nats;
-      reader.readMessage(value,backends_nats_pb.Nats.deserializeBinaryFromReader);
-      msg.setNats(value);
+      var value = new backends_gcp$pubsub_pb.GCPPubSubReadArgs;
+      reader.readMessage(value,backends_gcp$pubsub_pb.GCPPubSubReadArgs.deserializeBinaryFromReader);
+      msg.setGcpPubsub(value);
       break;
     case 106:
-      var value = new backends_nats$streaming_pb.NatsStreaming;
-      reader.readMessage(value,backends_nats$streaming_pb.NatsStreaming.deserializeBinaryFromReader);
-      msg.setNatsStreaming(value);
+      var value = new backends_azure$service$bus_pb.AzureServiceBusReadArgs;
+      reader.readMessage(value,backends_azure$service$bus_pb.AzureServiceBusReadArgs.deserializeBinaryFromReader);
+      msg.setAzureServiceBus(value);
       break;
     case 107:
-      var value = new backends_nsq_pb.NSQ;
-      reader.readMessage(value,backends_nsq_pb.NSQ.deserializeBinaryFromReader);
+      var value = new backends_nsq_pb.NSQReadArgs;
+      reader.readMessage(value,backends_nsq_pb.NSQReadArgs.deserializeBinaryFromReader);
       msg.setNsq(value);
       break;
     case 108:
-      var value = new backends_postgres_pb.Postgres;
-      reader.readMessage(value,backends_postgres_pb.Postgres.deserializeBinaryFromReader);
+      var value = new backends_postgres_pb.PostgresReadArgs;
+      reader.readMessage(value,backends_postgres_pb.PostgresReadArgs.deserializeBinaryFromReader);
       msg.setPostgres(value);
       break;
     case 109:
-      var value = new backends_pulsar_pb.Pulsar;
-      reader.readMessage(value,backends_pulsar_pb.Pulsar.deserializeBinaryFromReader);
-      msg.setPulsar(value);
-      break;
-    case 110:
-      var value = new backends_rabbit_pb.Rabbit;
-      reader.readMessage(value,backends_rabbit_pb.Rabbit.deserializeBinaryFromReader);
+      var value = new backends_rabbit_pb.RabbitReadArgs;
+      reader.readMessage(value,backends_rabbit_pb.RabbitReadArgs.deserializeBinaryFromReader);
       msg.setRabbit(value);
       break;
     case 111:
-      var value = new backends_rabbit$streams_pb.RabbitStreams;
-      reader.readMessage(value,backends_rabbit$streams_pb.RabbitStreams.deserializeBinaryFromReader);
-      msg.setRabbitStreams(value);
-      break;
-    case 112:
-      var value = new backends_redis$pubsub_pb.RedisPubsub;
-      reader.readMessage(value,backends_redis$pubsub_pb.RedisPubsub.deserializeBinaryFromReader);
+      var value = new backends_redis$pubsub_pb.RedisPubSubReadArgs;
+      reader.readMessage(value,backends_redis$pubsub_pb.RedisPubSubReadArgs.deserializeBinaryFromReader);
       msg.setRedisPubsub(value);
       break;
-    case 113:
-      var value = new backends_redis$streams_pb.RedisStreams;
-      reader.readMessage(value,backends_redis$streams_pb.RedisStreams.deserializeBinaryFromReader);
+    case 112:
+      var value = new backends_redis$streams_pb.RedisStreamsReadArgs;
+      reader.readMessage(value,backends_redis$streams_pb.RedisStreamsReadArgs.deserializeBinaryFromReader);
       msg.setRedisStreams(value);
       break;
     default:
@@ -2809,15 +5428,15 @@ proto.protos.CreateRelayRequest.serializeBinaryToWriter = function(message, writ
     writer.writeMessage(
       100,
       f,
-      backends_kafka_pb.Kafka.serializeBinaryToWriter
+      backends_kafka_pb.KafkaReadArgs.serializeBinaryToWriter
     );
   }
-  f = message.getActiveMq();
+  f = message.getMqtt();
   if (f != null) {
     writer.writeMessage(
       101,
       f,
-      backends_activemq_pb.ActiveMQ.serializeBinaryToWriter
+      backends_mqtt_pb.MQTTReadArgs.serializeBinaryToWriter
     );
   }
   f = message.getAwssqs();
@@ -2825,15 +5444,7 @@ proto.protos.CreateRelayRequest.serializeBinaryToWriter = function(message, writ
     writer.writeMessage(
       102,
       f,
-      backends_aws$sqs_pb.AWSSQS.serializeBinaryToWriter
-    );
-  }
-  f = message.getAwssns();
-  if (f != null) {
-    writer.writeMessage(
-      103,
-      f,
-      backends_aws$sns_pb.AWSSNS.serializeBinaryToWriter
+      backends_aws$sqs_pb.AWSSQSReadArgs.serializeBinaryToWriter
     );
   }
   f = message.getMongo();
@@ -2841,23 +5452,23 @@ proto.protos.CreateRelayRequest.serializeBinaryToWriter = function(message, writ
     writer.writeMessage(
       104,
       f,
-      backends_mongo_pb.Mongo.serializeBinaryToWriter
+      backends_mongo_pb.MongoReadArgs.serializeBinaryToWriter
     );
   }
-  f = message.getNats();
+  f = message.getGcpPubsub();
   if (f != null) {
     writer.writeMessage(
       105,
       f,
-      backends_nats_pb.Nats.serializeBinaryToWriter
+      backends_gcp$pubsub_pb.GCPPubSubReadArgs.serializeBinaryToWriter
     );
   }
-  f = message.getNatsStreaming();
+  f = message.getAzureServiceBus();
   if (f != null) {
     writer.writeMessage(
       106,
       f,
-      backends_nats$streaming_pb.NatsStreaming.serializeBinaryToWriter
+      backends_azure$service$bus_pb.AzureServiceBusReadArgs.serializeBinaryToWriter
     );
   }
   f = message.getNsq();
@@ -2865,7 +5476,7 @@ proto.protos.CreateRelayRequest.serializeBinaryToWriter = function(message, writ
     writer.writeMessage(
       107,
       f,
-      backends_nsq_pb.NSQ.serializeBinaryToWriter
+      backends_nsq_pb.NSQReadArgs.serializeBinaryToWriter
     );
   }
   f = message.getPostgres();
@@ -2873,47 +5484,31 @@ proto.protos.CreateRelayRequest.serializeBinaryToWriter = function(message, writ
     writer.writeMessage(
       108,
       f,
-      backends_postgres_pb.Postgres.serializeBinaryToWriter
-    );
-  }
-  f = message.getPulsar();
-  if (f != null) {
-    writer.writeMessage(
-      109,
-      f,
-      backends_pulsar_pb.Pulsar.serializeBinaryToWriter
+      backends_postgres_pb.PostgresReadArgs.serializeBinaryToWriter
     );
   }
   f = message.getRabbit();
   if (f != null) {
     writer.writeMessage(
-      110,
+      109,
       f,
-      backends_rabbit_pb.Rabbit.serializeBinaryToWriter
-    );
-  }
-  f = message.getRabbitStreams();
-  if (f != null) {
-    writer.writeMessage(
-      111,
-      f,
-      backends_rabbit$streams_pb.RabbitStreams.serializeBinaryToWriter
+      backends_rabbit_pb.RabbitReadArgs.serializeBinaryToWriter
     );
   }
   f = message.getRedisPubsub();
   if (f != null) {
     writer.writeMessage(
-      112,
+      111,
       f,
-      backends_redis$pubsub_pb.RedisPubsub.serializeBinaryToWriter
+      backends_redis$pubsub_pb.RedisPubSubReadArgs.serializeBinaryToWriter
     );
   }
   f = message.getRedisStreams();
   if (f != null) {
     writer.writeMessage(
-      113,
+      112,
       f,
-      backends_redis$streams_pb.RedisStreams.serializeBinaryToWriter
+      backends_redis$streams_pb.RedisStreamsReadArgs.serializeBinaryToWriter
     );
   }
 };
@@ -2994,17 +5589,17 @@ proto.protos.CreateRelayRequest.prototype.hasConfig = function() {
 
 
 /**
- * optional backends.Kafka kafka = 100;
- * @return {?proto.protos.backends.Kafka}
+ * optional backends.KafkaReadArgs kafka = 100;
+ * @return {?proto.protos.backends.KafkaReadArgs}
  */
 proto.protos.CreateRelayRequest.prototype.getKafka = function() {
-  return /** @type{?proto.protos.backends.Kafka} */ (
-    jspb.Message.getWrapperField(this, backends_kafka_pb.Kafka, 100));
+  return /** @type{?proto.protos.backends.KafkaReadArgs} */ (
+    jspb.Message.getWrapperField(this, backends_kafka_pb.KafkaReadArgs, 100));
 };
 
 
 /**
- * @param {?proto.protos.backends.Kafka|undefined} value
+ * @param {?proto.protos.backends.KafkaReadArgs|undefined} value
  * @return {!proto.protos.CreateRelayRequest} returns this
 */
 proto.protos.CreateRelayRequest.prototype.setKafka = function(value) {
@@ -3031,20 +5626,20 @@ proto.protos.CreateRelayRequest.prototype.hasKafka = function() {
 
 
 /**
- * optional backends.ActiveMQ active_mq = 101;
- * @return {?proto.protos.backends.ActiveMQ}
+ * optional backends.MQTTReadArgs mqtt = 101;
+ * @return {?proto.protos.backends.MQTTReadArgs}
  */
-proto.protos.CreateRelayRequest.prototype.getActiveMq = function() {
-  return /** @type{?proto.protos.backends.ActiveMQ} */ (
-    jspb.Message.getWrapperField(this, backends_activemq_pb.ActiveMQ, 101));
+proto.protos.CreateRelayRequest.prototype.getMqtt = function() {
+  return /** @type{?proto.protos.backends.MQTTReadArgs} */ (
+    jspb.Message.getWrapperField(this, backends_mqtt_pb.MQTTReadArgs, 101));
 };
 
 
 /**
- * @param {?proto.protos.backends.ActiveMQ|undefined} value
+ * @param {?proto.protos.backends.MQTTReadArgs|undefined} value
  * @return {!proto.protos.CreateRelayRequest} returns this
 */
-proto.protos.CreateRelayRequest.prototype.setActiveMq = function(value) {
+proto.protos.CreateRelayRequest.prototype.setMqtt = function(value) {
   return jspb.Message.setOneofWrapperField(this, 101, proto.protos.CreateRelayRequest.oneofGroups_[0], value);
 };
 
@@ -3053,8 +5648,8 @@ proto.protos.CreateRelayRequest.prototype.setActiveMq = function(value) {
  * Clears the message field making it undefined.
  * @return {!proto.protos.CreateRelayRequest} returns this
  */
-proto.protos.CreateRelayRequest.prototype.clearActiveMq = function() {
-  return this.setActiveMq(undefined);
+proto.protos.CreateRelayRequest.prototype.clearMqtt = function() {
+  return this.setMqtt(undefined);
 };
 
 
@@ -3062,23 +5657,23 @@ proto.protos.CreateRelayRequest.prototype.clearActiveMq = function() {
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.protos.CreateRelayRequest.prototype.hasActiveMq = function() {
+proto.protos.CreateRelayRequest.prototype.hasMqtt = function() {
   return jspb.Message.getField(this, 101) != null;
 };
 
 
 /**
- * optional backends.AWSSQS awssqs = 102;
- * @return {?proto.protos.backends.AWSSQS}
+ * optional backends.AWSSQSReadArgs awssqs = 102;
+ * @return {?proto.protos.backends.AWSSQSReadArgs}
  */
 proto.protos.CreateRelayRequest.prototype.getAwssqs = function() {
-  return /** @type{?proto.protos.backends.AWSSQS} */ (
-    jspb.Message.getWrapperField(this, backends_aws$sqs_pb.AWSSQS, 102));
+  return /** @type{?proto.protos.backends.AWSSQSReadArgs} */ (
+    jspb.Message.getWrapperField(this, backends_aws$sqs_pb.AWSSQSReadArgs, 102));
 };
 
 
 /**
- * @param {?proto.protos.backends.AWSSQS|undefined} value
+ * @param {?proto.protos.backends.AWSSQSReadArgs|undefined} value
  * @return {!proto.protos.CreateRelayRequest} returns this
 */
 proto.protos.CreateRelayRequest.prototype.setAwssqs = function(value) {
@@ -3105,54 +5700,17 @@ proto.protos.CreateRelayRequest.prototype.hasAwssqs = function() {
 
 
 /**
- * optional backends.AWSSNS awssns = 103;
- * @return {?proto.protos.backends.AWSSNS}
- */
-proto.protos.CreateRelayRequest.prototype.getAwssns = function() {
-  return /** @type{?proto.protos.backends.AWSSNS} */ (
-    jspb.Message.getWrapperField(this, backends_aws$sns_pb.AWSSNS, 103));
-};
-
-
-/**
- * @param {?proto.protos.backends.AWSSNS|undefined} value
- * @return {!proto.protos.CreateRelayRequest} returns this
-*/
-proto.protos.CreateRelayRequest.prototype.setAwssns = function(value) {
-  return jspb.Message.setOneofWrapperField(this, 103, proto.protos.CreateRelayRequest.oneofGroups_[0], value);
-};
-
-
-/**
- * Clears the message field making it undefined.
- * @return {!proto.protos.CreateRelayRequest} returns this
- */
-proto.protos.CreateRelayRequest.prototype.clearAwssns = function() {
-  return this.setAwssns(undefined);
-};
-
-
-/**
- * Returns whether this field is set.
- * @return {boolean}
- */
-proto.protos.CreateRelayRequest.prototype.hasAwssns = function() {
-  return jspb.Message.getField(this, 103) != null;
-};
-
-
-/**
- * optional backends.Mongo mongo = 104;
- * @return {?proto.protos.backends.Mongo}
+ * optional backends.MongoReadArgs mongo = 104;
+ * @return {?proto.protos.backends.MongoReadArgs}
  */
 proto.protos.CreateRelayRequest.prototype.getMongo = function() {
-  return /** @type{?proto.protos.backends.Mongo} */ (
-    jspb.Message.getWrapperField(this, backends_mongo_pb.Mongo, 104));
+  return /** @type{?proto.protos.backends.MongoReadArgs} */ (
+    jspb.Message.getWrapperField(this, backends_mongo_pb.MongoReadArgs, 104));
 };
 
 
 /**
- * @param {?proto.protos.backends.Mongo|undefined} value
+ * @param {?proto.protos.backends.MongoReadArgs|undefined} value
  * @return {!proto.protos.CreateRelayRequest} returns this
 */
 proto.protos.CreateRelayRequest.prototype.setMongo = function(value) {
@@ -3179,20 +5737,20 @@ proto.protos.CreateRelayRequest.prototype.hasMongo = function() {
 
 
 /**
- * optional backends.Nats nats = 105;
- * @return {?proto.protos.backends.Nats}
+ * optional backends.GCPPubSubReadArgs gcp_pubsub = 105;
+ * @return {?proto.protos.backends.GCPPubSubReadArgs}
  */
-proto.protos.CreateRelayRequest.prototype.getNats = function() {
-  return /** @type{?proto.protos.backends.Nats} */ (
-    jspb.Message.getWrapperField(this, backends_nats_pb.Nats, 105));
+proto.protos.CreateRelayRequest.prototype.getGcpPubsub = function() {
+  return /** @type{?proto.protos.backends.GCPPubSubReadArgs} */ (
+    jspb.Message.getWrapperField(this, backends_gcp$pubsub_pb.GCPPubSubReadArgs, 105));
 };
 
 
 /**
- * @param {?proto.protos.backends.Nats|undefined} value
+ * @param {?proto.protos.backends.GCPPubSubReadArgs|undefined} value
  * @return {!proto.protos.CreateRelayRequest} returns this
 */
-proto.protos.CreateRelayRequest.prototype.setNats = function(value) {
+proto.protos.CreateRelayRequest.prototype.setGcpPubsub = function(value) {
   return jspb.Message.setOneofWrapperField(this, 105, proto.protos.CreateRelayRequest.oneofGroups_[0], value);
 };
 
@@ -3201,8 +5759,8 @@ proto.protos.CreateRelayRequest.prototype.setNats = function(value) {
  * Clears the message field making it undefined.
  * @return {!proto.protos.CreateRelayRequest} returns this
  */
-proto.protos.CreateRelayRequest.prototype.clearNats = function() {
-  return this.setNats(undefined);
+proto.protos.CreateRelayRequest.prototype.clearGcpPubsub = function() {
+  return this.setGcpPubsub(undefined);
 };
 
 
@@ -3210,26 +5768,26 @@ proto.protos.CreateRelayRequest.prototype.clearNats = function() {
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.protos.CreateRelayRequest.prototype.hasNats = function() {
+proto.protos.CreateRelayRequest.prototype.hasGcpPubsub = function() {
   return jspb.Message.getField(this, 105) != null;
 };
 
 
 /**
- * optional backends.NatsStreaming nats_streaming = 106;
- * @return {?proto.protos.backends.NatsStreaming}
+ * optional backends.AzureServiceBusReadArgs azure_service_bus = 106;
+ * @return {?proto.protos.backends.AzureServiceBusReadArgs}
  */
-proto.protos.CreateRelayRequest.prototype.getNatsStreaming = function() {
-  return /** @type{?proto.protos.backends.NatsStreaming} */ (
-    jspb.Message.getWrapperField(this, backends_nats$streaming_pb.NatsStreaming, 106));
+proto.protos.CreateRelayRequest.prototype.getAzureServiceBus = function() {
+  return /** @type{?proto.protos.backends.AzureServiceBusReadArgs} */ (
+    jspb.Message.getWrapperField(this, backends_azure$service$bus_pb.AzureServiceBusReadArgs, 106));
 };
 
 
 /**
- * @param {?proto.protos.backends.NatsStreaming|undefined} value
+ * @param {?proto.protos.backends.AzureServiceBusReadArgs|undefined} value
  * @return {!proto.protos.CreateRelayRequest} returns this
 */
-proto.protos.CreateRelayRequest.prototype.setNatsStreaming = function(value) {
+proto.protos.CreateRelayRequest.prototype.setAzureServiceBus = function(value) {
   return jspb.Message.setOneofWrapperField(this, 106, proto.protos.CreateRelayRequest.oneofGroups_[0], value);
 };
 
@@ -3238,8 +5796,8 @@ proto.protos.CreateRelayRequest.prototype.setNatsStreaming = function(value) {
  * Clears the message field making it undefined.
  * @return {!proto.protos.CreateRelayRequest} returns this
  */
-proto.protos.CreateRelayRequest.prototype.clearNatsStreaming = function() {
-  return this.setNatsStreaming(undefined);
+proto.protos.CreateRelayRequest.prototype.clearAzureServiceBus = function() {
+  return this.setAzureServiceBus(undefined);
 };
 
 
@@ -3247,23 +5805,23 @@ proto.protos.CreateRelayRequest.prototype.clearNatsStreaming = function() {
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.protos.CreateRelayRequest.prototype.hasNatsStreaming = function() {
+proto.protos.CreateRelayRequest.prototype.hasAzureServiceBus = function() {
   return jspb.Message.getField(this, 106) != null;
 };
 
 
 /**
- * optional backends.NSQ nsq = 107;
- * @return {?proto.protos.backends.NSQ}
+ * optional backends.NSQReadArgs nsq = 107;
+ * @return {?proto.protos.backends.NSQReadArgs}
  */
 proto.protos.CreateRelayRequest.prototype.getNsq = function() {
-  return /** @type{?proto.protos.backends.NSQ} */ (
-    jspb.Message.getWrapperField(this, backends_nsq_pb.NSQ, 107));
+  return /** @type{?proto.protos.backends.NSQReadArgs} */ (
+    jspb.Message.getWrapperField(this, backends_nsq_pb.NSQReadArgs, 107));
 };
 
 
 /**
- * @param {?proto.protos.backends.NSQ|undefined} value
+ * @param {?proto.protos.backends.NSQReadArgs|undefined} value
  * @return {!proto.protos.CreateRelayRequest} returns this
 */
 proto.protos.CreateRelayRequest.prototype.setNsq = function(value) {
@@ -3290,17 +5848,17 @@ proto.protos.CreateRelayRequest.prototype.hasNsq = function() {
 
 
 /**
- * optional backends.Postgres postgres = 108;
- * @return {?proto.protos.backends.Postgres}
+ * optional backends.PostgresReadArgs postgres = 108;
+ * @return {?proto.protos.backends.PostgresReadArgs}
  */
 proto.protos.CreateRelayRequest.prototype.getPostgres = function() {
-  return /** @type{?proto.protos.backends.Postgres} */ (
-    jspb.Message.getWrapperField(this, backends_postgres_pb.Postgres, 108));
+  return /** @type{?proto.protos.backends.PostgresReadArgs} */ (
+    jspb.Message.getWrapperField(this, backends_postgres_pb.PostgresReadArgs, 108));
 };
 
 
 /**
- * @param {?proto.protos.backends.Postgres|undefined} value
+ * @param {?proto.protos.backends.PostgresReadArgs|undefined} value
  * @return {!proto.protos.CreateRelayRequest} returns this
 */
 proto.protos.CreateRelayRequest.prototype.setPostgres = function(value) {
@@ -3327,58 +5885,21 @@ proto.protos.CreateRelayRequest.prototype.hasPostgres = function() {
 
 
 /**
- * optional backends.Pulsar pulsar = 109;
- * @return {?proto.protos.backends.Pulsar}
- */
-proto.protos.CreateRelayRequest.prototype.getPulsar = function() {
-  return /** @type{?proto.protos.backends.Pulsar} */ (
-    jspb.Message.getWrapperField(this, backends_pulsar_pb.Pulsar, 109));
-};
-
-
-/**
- * @param {?proto.protos.backends.Pulsar|undefined} value
- * @return {!proto.protos.CreateRelayRequest} returns this
-*/
-proto.protos.CreateRelayRequest.prototype.setPulsar = function(value) {
-  return jspb.Message.setOneofWrapperField(this, 109, proto.protos.CreateRelayRequest.oneofGroups_[0], value);
-};
-
-
-/**
- * Clears the message field making it undefined.
- * @return {!proto.protos.CreateRelayRequest} returns this
- */
-proto.protos.CreateRelayRequest.prototype.clearPulsar = function() {
-  return this.setPulsar(undefined);
-};
-
-
-/**
- * Returns whether this field is set.
- * @return {boolean}
- */
-proto.protos.CreateRelayRequest.prototype.hasPulsar = function() {
-  return jspb.Message.getField(this, 109) != null;
-};
-
-
-/**
- * optional backends.Rabbit rabbit = 110;
- * @return {?proto.protos.backends.Rabbit}
+ * optional backends.RabbitReadArgs rabbit = 109;
+ * @return {?proto.protos.backends.RabbitReadArgs}
  */
 proto.protos.CreateRelayRequest.prototype.getRabbit = function() {
-  return /** @type{?proto.protos.backends.Rabbit} */ (
-    jspb.Message.getWrapperField(this, backends_rabbit_pb.Rabbit, 110));
+  return /** @type{?proto.protos.backends.RabbitReadArgs} */ (
+    jspb.Message.getWrapperField(this, backends_rabbit_pb.RabbitReadArgs, 109));
 };
 
 
 /**
- * @param {?proto.protos.backends.Rabbit|undefined} value
+ * @param {?proto.protos.backends.RabbitReadArgs|undefined} value
  * @return {!proto.protos.CreateRelayRequest} returns this
 */
 proto.protos.CreateRelayRequest.prototype.setRabbit = function(value) {
-  return jspb.Message.setOneofWrapperField(this, 110, proto.protos.CreateRelayRequest.oneofGroups_[0], value);
+  return jspb.Message.setOneofWrapperField(this, 109, proto.protos.CreateRelayRequest.oneofGroups_[0], value);
 };
 
 
@@ -3396,63 +5917,26 @@ proto.protos.CreateRelayRequest.prototype.clearRabbit = function() {
  * @return {boolean}
  */
 proto.protos.CreateRelayRequest.prototype.hasRabbit = function() {
-  return jspb.Message.getField(this, 110) != null;
+  return jspb.Message.getField(this, 109) != null;
 };
 
 
 /**
- * optional backends.RabbitStreams rabbit_streams = 111;
- * @return {?proto.protos.backends.RabbitStreams}
- */
-proto.protos.CreateRelayRequest.prototype.getRabbitStreams = function() {
-  return /** @type{?proto.protos.backends.RabbitStreams} */ (
-    jspb.Message.getWrapperField(this, backends_rabbit$streams_pb.RabbitStreams, 111));
-};
-
-
-/**
- * @param {?proto.protos.backends.RabbitStreams|undefined} value
- * @return {!proto.protos.CreateRelayRequest} returns this
-*/
-proto.protos.CreateRelayRequest.prototype.setRabbitStreams = function(value) {
-  return jspb.Message.setOneofWrapperField(this, 111, proto.protos.CreateRelayRequest.oneofGroups_[0], value);
-};
-
-
-/**
- * Clears the message field making it undefined.
- * @return {!proto.protos.CreateRelayRequest} returns this
- */
-proto.protos.CreateRelayRequest.prototype.clearRabbitStreams = function() {
-  return this.setRabbitStreams(undefined);
-};
-
-
-/**
- * Returns whether this field is set.
- * @return {boolean}
- */
-proto.protos.CreateRelayRequest.prototype.hasRabbitStreams = function() {
-  return jspb.Message.getField(this, 111) != null;
-};
-
-
-/**
- * optional backends.RedisPubsub redis_pubsub = 112;
- * @return {?proto.protos.backends.RedisPubsub}
+ * optional backends.RedisPubSubReadArgs redis_pubsub = 111;
+ * @return {?proto.protos.backends.RedisPubSubReadArgs}
  */
 proto.protos.CreateRelayRequest.prototype.getRedisPubsub = function() {
-  return /** @type{?proto.protos.backends.RedisPubsub} */ (
-    jspb.Message.getWrapperField(this, backends_redis$pubsub_pb.RedisPubsub, 112));
+  return /** @type{?proto.protos.backends.RedisPubSubReadArgs} */ (
+    jspb.Message.getWrapperField(this, backends_redis$pubsub_pb.RedisPubSubReadArgs, 111));
 };
 
 
 /**
- * @param {?proto.protos.backends.RedisPubsub|undefined} value
+ * @param {?proto.protos.backends.RedisPubSubReadArgs|undefined} value
  * @return {!proto.protos.CreateRelayRequest} returns this
 */
 proto.protos.CreateRelayRequest.prototype.setRedisPubsub = function(value) {
-  return jspb.Message.setOneofWrapperField(this, 112, proto.protos.CreateRelayRequest.oneofGroups_[0], value);
+  return jspb.Message.setOneofWrapperField(this, 111, proto.protos.CreateRelayRequest.oneofGroups_[0], value);
 };
 
 
@@ -3470,26 +5954,26 @@ proto.protos.CreateRelayRequest.prototype.clearRedisPubsub = function() {
  * @return {boolean}
  */
 proto.protos.CreateRelayRequest.prototype.hasRedisPubsub = function() {
-  return jspb.Message.getField(this, 112) != null;
+  return jspb.Message.getField(this, 111) != null;
 };
 
 
 /**
- * optional backends.RedisStreams redis_streams = 113;
- * @return {?proto.protos.backends.RedisStreams}
+ * optional backends.RedisStreamsReadArgs redis_streams = 112;
+ * @return {?proto.protos.backends.RedisStreamsReadArgs}
  */
 proto.protos.CreateRelayRequest.prototype.getRedisStreams = function() {
-  return /** @type{?proto.protos.backends.RedisStreams} */ (
-    jspb.Message.getWrapperField(this, backends_redis$streams_pb.RedisStreams, 113));
+  return /** @type{?proto.protos.backends.RedisStreamsReadArgs} */ (
+    jspb.Message.getWrapperField(this, backends_redis$streams_pb.RedisStreamsReadArgs, 112));
 };
 
 
 /**
- * @param {?proto.protos.backends.RedisStreams|undefined} value
+ * @param {?proto.protos.backends.RedisStreamsReadArgs|undefined} value
  * @return {!proto.protos.CreateRelayRequest} returns this
 */
 proto.protos.CreateRelayRequest.prototype.setRedisStreams = function(value) {
-  return jspb.Message.setOneofWrapperField(this, 113, proto.protos.CreateRelayRequest.oneofGroups_[0], value);
+  return jspb.Message.setOneofWrapperField(this, 112, proto.protos.CreateRelayRequest.oneofGroups_[0], value);
 };
 
 
@@ -3507,7 +5991,7 @@ proto.protos.CreateRelayRequest.prototype.clearRedisStreams = function() {
  * @return {boolean}
  */
 proto.protos.CreateRelayRequest.prototype.hasRedisStreams = function() {
-  return jspb.Message.getField(this, 113) != null;
+  return jspb.Message.getField(this, 112) != null;
 };
 
 

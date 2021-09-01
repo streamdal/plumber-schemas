@@ -31,3 +31,5 @@ var service_pb = require('./service_pb.js');
 goog.object.extend(proto, service_pb);
 var server_pb = require('./server_pb.js');
 goog.object.extend(proto, server_pb);
+var ghserver_pb = require('./ghserver_pb.js');
+goog.object.extend(proto, ghserver_pb);

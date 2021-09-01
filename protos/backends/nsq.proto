@@ -4,11 +4,44 @@ package protos.backends;
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/backends";
 
-message NSQ {
-  // Required
+message NSQConn {
+  // @gotags: kong:"help='Address of NSQ server (Ex: localhost:4150)',env='PLUMBER_RELAY_NSQ_NSQD_ADDRESS',default='localhost:4150',xor=nsq_addressZ"
+  string nsqd_address = 1;
+
+  // @gotags: kong:"help='Address of LookupD server (Ex: localhost:4161)',env='PLUMBER_RELAY_NSQ_LOOKUPD_ADDRESS',xor=nsq_address"
+  string lookupd_address = 2;
+
+  // @gotags: kong:"help='Enable TLS usage',env='PLUMBER_RELAY_NSQ_USE_TLS'"
+  bool use_tls = 3;
+
+  // @gotags: kong:"help='Whether to verify server certificate',env='PLUMBER_RELAY_NSQ_SKIP_VERIFY_TLS'"
+  bool insecure_tls = 4;
+
+  // @gotags: kong:"help='CA file',env='PLUMBER_RELAY_NSQ_TLS_CA_FILE',type=existingfile"
+  bytes tls_ca_cert = 5;
+
+  // @gotags: kong:"help='',env='PLUMBER_RELAY_NSQ_TLS_CERT_FILE',type=existingfile"
+  bytes tls_client_cert = 6;
+
+  // @gotags: kong:"help='',env='PLUMBER_RELAY_NSQ_TLS_KEY_FILE',type=existingfile"
+  bytes tls_client_key = 7;
+
+  // @gotags: kong:"help='Authentication secret',env='PLUMBER_RELAY_NSQ_AUTH_SECRET'"
+  string auth_secret = 8;
+
+  // @gotags: kong:"help='Client ID to identify as',env='PLUMBER_RELAY_NSQ_CLIENT_ID',default=plumber"
+  string client_id = 9;
+}
+
+message NSQReadArgs {
+  // @gotags: kong:"help='NSQ topic to read from',env='PLUMBER_RELAY_NSQ_TOPIC',required"
   string topic = 1;
 
-  // Required for reads
-  // Ignored for writes
+  // @gotags: kong:"help='Output channel',env='PLUMBER_RELAY_NSQ_CHANNEL',required"
   string channel = 2;
+}
+
+message NSQWriteArgs {
+  // @gotags: kong:"help='NSQ topic to write to',required"
+  string topic = 1;
 }

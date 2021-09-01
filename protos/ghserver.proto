@@ -1,9 +1,7 @@
+// @mark: we should explain the difference between ghserver.proto and github.proto
 syntax = "proto3";
 
 package protos;
-
-import "common/auth.proto";
-import "github.proto";
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
 

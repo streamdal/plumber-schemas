@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+package protos.backends;
+
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/backends";
+
+enum MQTTQoSLevel {
+    AT_MOST_ONCE  = 0;
+    AT_LEAST_ONCE = 1;
+    EXACTLY_ONCE  = 2;
+}
+
+message MQTTTLSOptions {
+    // @gotags: kong:"help='CA file (only needed if addr is ssl://)',env=PLUMBER_RELAY_MQTT_TLS_CA_FILE,type=existingfile"
+    string ca_file = 1;
+
+    // @gotags: kong:"help='Client cert file (only needed if addr is ssl://)',env=PLUMBER_RELAY_MQTT_TLS_CERT_FILE,type=existingfile"
+    string cert_file = 2;
+
+    // @gotags: kong:"help='Client key file (only needed if addr is ssl://)',env=PLUMBER_RELAY_MQTT_TLS_KEY_FILE,type=existingfile"
+    string key_file = 3;
+
+    // @gotags: kong:"help='Whether to verify server certificate',env=PLUMBER_RELAY_MQTT_SKIP_VERIFY_TLS"
+    bool skip_verify = 4;
+}
+
+message MQTTConn {
+    // @gotags: kong:"help='MQTT address',default='tcp://localhost:1883',env='PLUMBER_RELAY_MQTT_ADDRESS',required"
+    string address = 1;
+
+    // @gotags: kong:"help='How long to attempt to connect for',env='PLUMBER_RELAY_MQTT_CONNECT_TIMEOUT',default=5"
+    uint32 conn_timeout_seconds = 3;
+
+    // @gotags: kong:"help='Client id presented to MQTT broker',env='PLUMBER_RELAY_MQTT_CLIENT_ID',default=plumber"
+    string client_id = 4;
+
+    // @gotags: kong:"help='QoS level to use for pub/sub (0: at most once, 1: at least once, 2: exactly once)',enum='0,1,2',env=PLUMBER_RELAY_MQTT_QOS,default=0"
+    MQTTQoSLevel qos_level = 5;
+
+    // @gotags: kong:"embed"
+    MQTTTLSOptions tls_options = 6;
+}
+
+message MQTTReadArgs {
+    // @gotags: kong:"help='Topic to read message(s) from',env='PLUMBER_RELAY_MQTT_TOPIC',required"
+    string topic = 1;
+
+    // @gotags: kong:"help='How long to attempt to read message(s)',default=0,env='PLUMBER_RELAY_MQTT_READ_TIMEOUT_SECONDS'"
+    uint32 read_timeout_seconds = 2;
+}
+
+message MQTTWriteArgs {
+    // @gotags: kong:"help='Topic to write message(s) to',required"
+    string topic = 1;
+
+    // @gotags: kong:"help='How long to attempt to publish message(s)',default=5"
+    uint32 write_timeout_seconds = 2;
+}

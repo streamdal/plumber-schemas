@@ -38,7 +38,7 @@ setup/linux:
 
 .PHONY: generate/all
 generate/all: description = Compile protos for all languages
-generate/all: generate/ts generate/go
+generate/all: generate/ts generate/go inject-tags
 
 .PHONY: generate/ts
 generate/ts: description = Compile TypeScript Interfaces for UI
@@ -53,7 +53,6 @@ generate/ts:
     -I=./protos \
     -I=./protos/backends \
     -I=./protos/common \
-    -I=./protos/conns \
     -I=./protos/encoding \
     -I=./protos/records \
     protos/*.proto \
@@ -66,7 +65,6 @@ generate/go:
 	mkdir -p build/go/protos
 	mkdir -p build/go/protos/backends
 	mkdir -p build/go/protos/common
-	mkdir -p build/go/protos/conns
 	mkdir -p build/go/protos/encoding
 	mkdir -p build/go/protos/records
 
@@ -74,7 +72,6 @@ generate/go:
 	--proto_path=./protos \
 	--proto_path=./protos/backends \
 	--proto_path=./protos/common \
-	--proto_path=./protos/conns \
 	--proto_path=./protos/encoding \
 	--proto_path=./protos/records \
 	--go_out=plugins=grpc:build/go/protos \
@@ -94,12 +91,6 @@ generate/go:
 	protos/common/*.proto
 
 	docker run --rm -w $(PWD) -v $(PWD):$(PWD) -w${PWD} jaegertracing/protobuf:0.2.0 \
-	--proto_path=./protos/conns \
-	--go_out=plugins=grpc:build/go/protos/conns \
-	--go_opt=paths=source_relative \
-	protos/conns/*.proto
-
-	docker run --rm -w $(PWD) -v $(PWD):$(PWD) -w${PWD} jaegertracing/protobuf:0.2.0 \
 	--proto_path=./protos/encoding \
 	--go_out=plugins=grpc:build/go/protos/encoding \
 	--go_opt=paths=source_relative \
@@ -111,6 +102,14 @@ generate/go:
 	--go_opt=paths=source_relative \
 	protos/records/*.proto
 
+.PHONY: inject-tags
+inject-tags: description = Inject tags for CLI
+inject-tags:
+	protoc-go-inject-tag -input="build/go/protos/*.pb.go"
+	protoc-go-inject-tag -input="build/go/protos/backends/*.pb.go"
+	protoc-go-inject-tag -input="build/go/protos/common/*.pb.go"
+	protoc-go-inject-tag -input="build/go/protos/encoding/*.pb.go"
+	protoc-go-inject-tag -input="build/go/protos/records/*.pb.go"
 
 .PHONY: clean-go
 clean-go: description = Remove all go build artifacts

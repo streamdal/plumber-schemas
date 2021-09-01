@@ -15,38 +15,44 @@ var jspb = require('google-protobuf');
 var goog = jspb;
 var global = Function('return this')();
 
-var conns_kafka_pb = require('./conns/kafka_pb.js');
-goog.object.extend(proto, conns_kafka_pb);
-var conns_activemq_pb = require('./conns/activemq_pb.js');
-goog.object.extend(proto, conns_activemq_pb);
-var conns_aws$sns_pb = require('./conns/aws-sns_pb.js');
-goog.object.extend(proto, conns_aws$sns_pb);
-var conns_aws$sqs_pb = require('./conns/aws-sqs_pb.js');
-goog.object.extend(proto, conns_aws$sqs_pb);
-var conns_mongo_pb = require('./conns/mongo_pb.js');
-goog.object.extend(proto, conns_mongo_pb);
-var conns_nats_pb = require('./conns/nats_pb.js');
-goog.object.extend(proto, conns_nats_pb);
-var conns_nats$streaming_pb = require('./conns/nats-streaming_pb.js');
-goog.object.extend(proto, conns_nats$streaming_pb);
-var conns_nsq_pb = require('./conns/nsq_pb.js');
-goog.object.extend(proto, conns_nsq_pb);
-var conns_postgres_pb = require('./conns/postgres_pb.js');
-goog.object.extend(proto, conns_postgres_pb);
-var conns_pulsar_pb = require('./conns/pulsar_pb.js');
-goog.object.extend(proto, conns_pulsar_pb);
-var conns_rabbit_pb = require('./conns/rabbit_pb.js');
-goog.object.extend(proto, conns_rabbit_pb);
-var conns_rabbit$streams_pb = require('./conns/rabbit-streams_pb.js');
-goog.object.extend(proto, conns_rabbit$streams_pb);
-var conns_redis$pubsub_pb = require('./conns/redis-pubsub_pb.js');
-goog.object.extend(proto, conns_redis$pubsub_pb);
-var conns_redis$streams_pb = require('./conns/redis-streams_pb.js');
-goog.object.extend(proto, conns_redis$streams_pb);
-var conns_azure$service$bus_pb = require('./conns/azure-service-bus_pb.js');
-goog.object.extend(proto, conns_azure$service$bus_pb);
-var conns_azure$event$hub_pb = require('./conns/azure-event-hub_pb.js');
-goog.object.extend(proto, conns_azure$event$hub_pb);
+var backends_kafka_pb = require('./backends/kafka_pb.js');
+goog.object.extend(proto, backends_kafka_pb);
+var backends_activemq_pb = require('./backends/activemq_pb.js');
+goog.object.extend(proto, backends_activemq_pb);
+var backends_aws$sns_pb = require('./backends/aws-sns_pb.js');
+goog.object.extend(proto, backends_aws$sns_pb);
+var backends_aws$sqs_pb = require('./backends/aws-sqs_pb.js');
+goog.object.extend(proto, backends_aws$sqs_pb);
+var backends_mongo_pb = require('./backends/mongo_pb.js');
+goog.object.extend(proto, backends_mongo_pb);
+var backends_nats_pb = require('./backends/nats_pb.js');
+goog.object.extend(proto, backends_nats_pb);
+var backends_nats$streaming_pb = require('./backends/nats-streaming_pb.js');
+goog.object.extend(proto, backends_nats$streaming_pb);
+var backends_nsq_pb = require('./backends/nsq_pb.js');
+goog.object.extend(proto, backends_nsq_pb);
+var backends_mqtt_pb = require('./backends/mqtt_pb.js');
+goog.object.extend(proto, backends_mqtt_pb);
+var backends_gcp$pubsub_pb = require('./backends/gcp-pubsub_pb.js');
+goog.object.extend(proto, backends_gcp$pubsub_pb);
+var backends_kubemq$queue_pb = require('./backends/kubemq-queue_pb.js');
+goog.object.extend(proto, backends_kubemq$queue_pb);
+var backends_postgres_pb = require('./backends/postgres_pb.js');
+goog.object.extend(proto, backends_postgres_pb);
+var backends_pulsar_pb = require('./backends/pulsar_pb.js');
+goog.object.extend(proto, backends_pulsar_pb);
+var backends_rabbit_pb = require('./backends/rabbit_pb.js');
+goog.object.extend(proto, backends_rabbit_pb);
+var backends_rabbit$streams_pb = require('./backends/rabbit-streams_pb.js');
+goog.object.extend(proto, backends_rabbit$streams_pb);
+var backends_redis$pubsub_pb = require('./backends/redis-pubsub_pb.js');
+goog.object.extend(proto, backends_redis$pubsub_pb);
+var backends_redis$streams_pb = require('./backends/redis-streams_pb.js');
+goog.object.extend(proto, backends_redis$streams_pb);
+var backends_azure$service$bus_pb = require('./backends/azure-service-bus_pb.js');
+goog.object.extend(proto, backends_azure$service$bus_pb);
+var backends_azure$event$hub_pb = require('./backends/azure-event-hub_pb.js');
+goog.object.extend(proto, backends_azure$event$hub_pb);
 var common_auth_pb = require('./common/auth_pb.js');
 goog.object.extend(proto, common_auth_pb);
 var common_status_pb = require('./common/status_pb.js');
@@ -347,7 +353,7 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<!Array<number>>}
  * @const
  */
-proto.protos.ConnectionConfig.oneofGroups_ = [[100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115]];
+proto.protos.ConnectionConfig.oneofGroups_ = [[100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118]];
 
 /**
  * @enum {number}
@@ -369,7 +375,10 @@ proto.protos.ConnectionConfig.ConnCase = {
   REDIS_PUBSUB: 112,
   REDIS_STREAMS: 113,
   AZURE_EVENT_HUB: 114,
-  AZURE_SERVICE_BUS: 115
+  AZURE_SERVICE_BUS: 115,
+  MQTT: 116,
+  KUBEMQ_QUEUE: 117,
+  GCP_PUBSUB: 118
 };
 
 /**
@@ -413,22 +422,25 @@ proto.protos.ConnectionConfig.toObject = function(includeInstance, msg) {
     name: jspb.Message.getFieldWithDefault(msg, 1, ""),
     notes: jspb.Message.getFieldWithDefault(msg, 2, ""),
     id: jspb.Message.getFieldWithDefault(msg, 3, ""),
-    kafka: (f = msg.getKafka()) && conns_kafka_pb.Kafka.toObject(includeInstance, f),
-    activeMq: (f = msg.getActiveMq()) && conns_activemq_pb.ActiveMQ.toObject(includeInstance, f),
-    awssqs: (f = msg.getAwssqs()) && conns_aws$sqs_pb.AWSSQS.toObject(includeInstance, f),
-    awssns: (f = msg.getAwssns()) && conns_aws$sns_pb.AWSSNS.toObject(includeInstance, f),
-    mongo: (f = msg.getMongo()) && conns_mongo_pb.Mongo.toObject(includeInstance, f),
-    nats: (f = msg.getNats()) && conns_nats_pb.Nats.toObject(includeInstance, f),
-    natsStreaming: (f = msg.getNatsStreaming()) && conns_nats$streaming_pb.NatsStreaming.toObject(includeInstance, f),
-    nsq: (f = msg.getNsq()) && conns_nsq_pb.NSQ.toObject(includeInstance, f),
-    postgres: (f = msg.getPostgres()) && conns_postgres_pb.Postgres.toObject(includeInstance, f),
-    pulsar: (f = msg.getPulsar()) && conns_pulsar_pb.Pulsar.toObject(includeInstance, f),
-    rabbit: (f = msg.getRabbit()) && conns_rabbit_pb.Rabbit.toObject(includeInstance, f),
-    rabbitStreams: (f = msg.getRabbitStreams()) && conns_rabbit$streams_pb.RabbitStreams.toObject(includeInstance, f),
-    redisPubsub: (f = msg.getRedisPubsub()) && conns_redis$pubsub_pb.RedisPubsub.toObject(includeInstance, f),
-    redisStreams: (f = msg.getRedisStreams()) && conns_redis$streams_pb.RedisStreams.toObject(includeInstance, f),
-    azureEventHub: (f = msg.getAzureEventHub()) && conns_azure$event$hub_pb.AzureEventHub.toObject(includeInstance, f),
-    azureServiceBus: (f = msg.getAzureServiceBus()) && conns_azure$service$bus_pb.AzureServiceBus.toObject(includeInstance, f)
+    kafka: (f = msg.getKafka()) && backends_kafka_pb.KafkaConn.toObject(includeInstance, f),
+    activeMq: (f = msg.getActiveMq()) && backends_activemq_pb.ActiveMQConn.toObject(includeInstance, f),
+    awssqs: (f = msg.getAwssqs()) && backends_aws$sqs_pb.AWSSQSConn.toObject(includeInstance, f),
+    awssns: (f = msg.getAwssns()) && backends_aws$sns_pb.AWSSNSConn.toObject(includeInstance, f),
+    mongo: (f = msg.getMongo()) && backends_mongo_pb.MongoConn.toObject(includeInstance, f),
+    nats: (f = msg.getNats()) && backends_nats_pb.NatsConn.toObject(includeInstance, f),
+    natsStreaming: (f = msg.getNatsStreaming()) && backends_nats$streaming_pb.NatsStreamingConn.toObject(includeInstance, f),
+    nsq: (f = msg.getNsq()) && backends_nsq_pb.NSQConn.toObject(includeInstance, f),
+    postgres: (f = msg.getPostgres()) && backends_postgres_pb.PostgresConn.toObject(includeInstance, f),
+    pulsar: (f = msg.getPulsar()) && backends_pulsar_pb.PulsarConn.toObject(includeInstance, f),
+    rabbit: (f = msg.getRabbit()) && backends_rabbit_pb.RabbitConn.toObject(includeInstance, f),
+    rabbitStreams: (f = msg.getRabbitStreams()) && backends_rabbit$streams_pb.RabbitStreamsConn.toObject(includeInstance, f),
+    redisPubsub: (f = msg.getRedisPubsub()) && backends_redis$pubsub_pb.RedisPubSubConn.toObject(includeInstance, f),
+    redisStreams: (f = msg.getRedisStreams()) && backends_redis$streams_pb.RedisStreamsConn.toObject(includeInstance, f),
+    azureEventHub: (f = msg.getAzureEventHub()) && backends_azure$event$hub_pb.AzureEventHubConn.toObject(includeInstance, f),
+    azureServiceBus: (f = msg.getAzureServiceBus()) && backends_azure$service$bus_pb.AzureServiceBusConn.toObject(includeInstance, f),
+    mqtt: (f = msg.getMqtt()) && backends_mqtt_pb.MQTTConn.toObject(includeInstance, f),
+    kubemqQueue: (f = msg.getKubemqQueue()) && backends_kubemq$queue_pb.KubeMQQueueConn.toObject(includeInstance, f),
+    gcpPubsub: (f = msg.getGcpPubsub()) && backends_gcp$pubsub_pb.GCPPubSubConn.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -478,84 +490,99 @@ proto.protos.ConnectionConfig.deserializeBinaryFromReader = function(msg, reader
       msg.setId(value);
       break;
     case 100:
-      var value = new conns_kafka_pb.Kafka;
-      reader.readMessage(value,conns_kafka_pb.Kafka.deserializeBinaryFromReader);
+      var value = new backends_kafka_pb.KafkaConn;
+      reader.readMessage(value,backends_kafka_pb.KafkaConn.deserializeBinaryFromReader);
       msg.setKafka(value);
       break;
     case 101:
-      var value = new conns_activemq_pb.ActiveMQ;
-      reader.readMessage(value,conns_activemq_pb.ActiveMQ.deserializeBinaryFromReader);
+      var value = new backends_activemq_pb.ActiveMQConn;
+      reader.readMessage(value,backends_activemq_pb.ActiveMQConn.deserializeBinaryFromReader);
       msg.setActiveMq(value);
       break;
     case 102:
-      var value = new conns_aws$sqs_pb.AWSSQS;
-      reader.readMessage(value,conns_aws$sqs_pb.AWSSQS.deserializeBinaryFromReader);
+      var value = new backends_aws$sqs_pb.AWSSQSConn;
+      reader.readMessage(value,backends_aws$sqs_pb.AWSSQSConn.deserializeBinaryFromReader);
       msg.setAwssqs(value);
       break;
     case 103:
-      var value = new conns_aws$sns_pb.AWSSNS;
-      reader.readMessage(value,conns_aws$sns_pb.AWSSNS.deserializeBinaryFromReader);
+      var value = new backends_aws$sns_pb.AWSSNSConn;
+      reader.readMessage(value,backends_aws$sns_pb.AWSSNSConn.deserializeBinaryFromReader);
       msg.setAwssns(value);
       break;
     case 104:
-      var value = new conns_mongo_pb.Mongo;
-      reader.readMessage(value,conns_mongo_pb.Mongo.deserializeBinaryFromReader);
+      var value = new backends_mongo_pb.MongoConn;
+      reader.readMessage(value,backends_mongo_pb.MongoConn.deserializeBinaryFromReader);
       msg.setMongo(value);
       break;
     case 105:
-      var value = new conns_nats_pb.Nats;
-      reader.readMessage(value,conns_nats_pb.Nats.deserializeBinaryFromReader);
+      var value = new backends_nats_pb.NatsConn;
+      reader.readMessage(value,backends_nats_pb.NatsConn.deserializeBinaryFromReader);
       msg.setNats(value);
       break;
     case 106:
-      var value = new conns_nats$streaming_pb.NatsStreaming;
-      reader.readMessage(value,conns_nats$streaming_pb.NatsStreaming.deserializeBinaryFromReader);
+      var value = new backends_nats$streaming_pb.NatsStreamingConn;
+      reader.readMessage(value,backends_nats$streaming_pb.NatsStreamingConn.deserializeBinaryFromReader);
       msg.setNatsStreaming(value);
       break;
     case 107:
-      var value = new conns_nsq_pb.NSQ;
-      reader.readMessage(value,conns_nsq_pb.NSQ.deserializeBinaryFromReader);
+      var value = new backends_nsq_pb.NSQConn;
+      reader.readMessage(value,backends_nsq_pb.NSQConn.deserializeBinaryFromReader);
       msg.setNsq(value);
       break;
     case 108:
-      var value = new conns_postgres_pb.Postgres;
-      reader.readMessage(value,conns_postgres_pb.Postgres.deserializeBinaryFromReader);
+      var value = new backends_postgres_pb.PostgresConn;
+      reader.readMessage(value,backends_postgres_pb.PostgresConn.deserializeBinaryFromReader);
       msg.setPostgres(value);
       break;
     case 109:
-      var value = new conns_pulsar_pb.Pulsar;
-      reader.readMessage(value,conns_pulsar_pb.Pulsar.deserializeBinaryFromReader);
+      var value = new backends_pulsar_pb.PulsarConn;
+      reader.readMessage(value,backends_pulsar_pb.PulsarConn.deserializeBinaryFromReader);
       msg.setPulsar(value);
       break;
     case 110:
-      var value = new conns_rabbit_pb.Rabbit;
-      reader.readMessage(value,conns_rabbit_pb.Rabbit.deserializeBinaryFromReader);
+      var value = new backends_rabbit_pb.RabbitConn;
+      reader.readMessage(value,backends_rabbit_pb.RabbitConn.deserializeBinaryFromReader);
       msg.setRabbit(value);
       break;
     case 111:
-      var value = new conns_rabbit$streams_pb.RabbitStreams;
-      reader.readMessage(value,conns_rabbit$streams_pb.RabbitStreams.deserializeBinaryFromReader);
+      var value = new backends_rabbit$streams_pb.RabbitStreamsConn;
+      reader.readMessage(value,backends_rabbit$streams_pb.RabbitStreamsConn.deserializeBinaryFromReader);
       msg.setRabbitStreams(value);
       break;
     case 112:
-      var value = new conns_redis$pubsub_pb.RedisPubsub;
-      reader.readMessage(value,conns_redis$pubsub_pb.RedisPubsub.deserializeBinaryFromReader);
+      var value = new backends_redis$pubsub_pb.RedisPubSubConn;
+      reader.readMessage(value,backends_redis$pubsub_pb.RedisPubSubConn.deserializeBinaryFromReader);
       msg.setRedisPubsub(value);
       break;
     case 113:
-      var value = new conns_redis$streams_pb.RedisStreams;
-      reader.readMessage(value,conns_redis$streams_pb.RedisStreams.deserializeBinaryFromReader);
+      var value = new backends_redis$streams_pb.RedisStreamsConn;
+      reader.readMessage(value,backends_redis$streams_pb.RedisStreamsConn.deserializeBinaryFromReader);
       msg.setRedisStreams(value);
       break;
     case 114:
-      var value = new conns_azure$event$hub_pb.AzureEventHub;
-      reader.readMessage(value,conns_azure$event$hub_pb.AzureEventHub.deserializeBinaryFromReader);
+      var value = new backends_azure$event$hub_pb.AzureEventHubConn;
+      reader.readMessage(value,backends_azure$event$hub_pb.AzureEventHubConn.deserializeBinaryFromReader);
       msg.setAzureEventHub(value);
       break;
     case 115:
-      var value = new conns_azure$service$bus_pb.AzureServiceBus;
-      reader.readMessage(value,conns_azure$service$bus_pb.AzureServiceBus.deserializeBinaryFromReader);
+      var value = new backends_azure$service$bus_pb.AzureServiceBusConn;
+      reader.readMessage(value,backends_azure$service$bus_pb.AzureServiceBusConn.deserializeBinaryFromReader);
       msg.setAzureServiceBus(value);
+      break;
+    case 116:
+      var value = new backends_mqtt_pb.MQTTConn;
+      reader.readMessage(value,backends_mqtt_pb.MQTTConn.deserializeBinaryFromReader);
+      msg.setMqtt(value);
+      break;
+    case 117:
+      var value = new backends_kubemq$queue_pb.KubeMQQueueConn;
+      reader.readMessage(value,backends_kubemq$queue_pb.KubeMQQueueConn.deserializeBinaryFromReader);
+      msg.setKubemqQueue(value);
+      break;
+    case 118:
+      var value = new backends_gcp$pubsub_pb.GCPPubSubConn;
+      reader.readMessage(value,backends_gcp$pubsub_pb.GCPPubSubConn.deserializeBinaryFromReader);
+      msg.setGcpPubsub(value);
       break;
     default:
       reader.skipField();
@@ -612,7 +639,7 @@ proto.protos.ConnectionConfig.serializeBinaryToWriter = function(message, writer
     writer.writeMessage(
       100,
       f,
-      conns_kafka_pb.Kafka.serializeBinaryToWriter
+      backends_kafka_pb.KafkaConn.serializeBinaryToWriter
     );
   }
   f = message.getActiveMq();
@@ -620,7 +647,7 @@ proto.protos.ConnectionConfig.serializeBinaryToWriter = function(message, writer
     writer.writeMessage(
       101,
       f,
-      conns_activemq_pb.ActiveMQ.serializeBinaryToWriter
+      backends_activemq_pb.ActiveMQConn.serializeBinaryToWriter
     );
   }
   f = message.getAwssqs();
@@ -628,7 +655,7 @@ proto.protos.ConnectionConfig.serializeBinaryToWriter = function(message, writer
     writer.writeMessage(
       102,
       f,
-      conns_aws$sqs_pb.AWSSQS.serializeBinaryToWriter
+      backends_aws$sqs_pb.AWSSQSConn.serializeBinaryToWriter
     );
   }
   f = message.getAwssns();
@@ -636,7 +663,7 @@ proto.protos.ConnectionConfig.serializeBinaryToWriter = function(message, writer
     writer.writeMessage(
       103,
       f,
-      conns_aws$sns_pb.AWSSNS.serializeBinaryToWriter
+      backends_aws$sns_pb.AWSSNSConn.serializeBinaryToWriter
     );
   }
   f = message.getMongo();
@@ -644,7 +671,7 @@ proto.protos.ConnectionConfig.serializeBinaryToWriter = function(message, writer
     writer.writeMessage(
       104,
       f,
-      conns_mongo_pb.Mongo.serializeBinaryToWriter
+      backends_mongo_pb.MongoConn.serializeBinaryToWriter
     );
   }
   f = message.getNats();
@@ -652,7 +679,7 @@ proto.protos.ConnectionConfig.serializeBinaryToWriter = function(message, writer
     writer.writeMessage(
       105,
       f,
-      conns_nats_pb.Nats.serializeBinaryToWriter
+      backends_nats_pb.NatsConn.serializeBinaryToWriter
     );
   }
   f = message.getNatsStreaming();
@@ -660,7 +687,7 @@ proto.protos.ConnectionConfig.serializeBinaryToWriter = function(message, writer
     writer.writeMessage(
       106,
       f,
-      conns_nats$streaming_pb.NatsStreaming.serializeBinaryToWriter
+      backends_nats$streaming_pb.NatsStreamingConn.serializeBinaryToWriter
     );
   }
   f = message.getNsq();
@@ -668,7 +695,7 @@ proto.protos.ConnectionConfig.serializeBinaryToWriter = function(message, writer
     writer.writeMessage(
       107,
       f,
-      conns_nsq_pb.NSQ.serializeBinaryToWriter
+      backends_nsq_pb.NSQConn.serializeBinaryToWriter
     );
   }
   f = message.getPostgres();
@@ -676,7 +703,7 @@ proto.protos.ConnectionConfig.serializeBinaryToWriter = function(message, writer
     writer.writeMessage(
       108,
       f,
-      conns_postgres_pb.Postgres.serializeBinaryToWriter
+      backends_postgres_pb.PostgresConn.serializeBinaryToWriter
     );
   }
   f = message.getPulsar();
@@ -684,7 +711,7 @@ proto.protos.ConnectionConfig.serializeBinaryToWriter = function(message, writer
     writer.writeMessage(
       109,
       f,
-      conns_pulsar_pb.Pulsar.serializeBinaryToWriter
+      backends_pulsar_pb.PulsarConn.serializeBinaryToWriter
     );
   }
   f = message.getRabbit();
@@ -692,7 +719,7 @@ proto.protos.ConnectionConfig.serializeBinaryToWriter = function(message, writer
     writer.writeMessage(
       110,
       f,
-      conns_rabbit_pb.Rabbit.serializeBinaryToWriter
+      backends_rabbit_pb.RabbitConn.serializeBinaryToWriter
     );
   }
   f = message.getRabbitStreams();
@@ -700,7 +727,7 @@ proto.protos.ConnectionConfig.serializeBinaryToWriter = function(message, writer
     writer.writeMessage(
       111,
       f,
-      conns_rabbit$streams_pb.RabbitStreams.serializeBinaryToWriter
+      backends_rabbit$streams_pb.RabbitStreamsConn.serializeBinaryToWriter
     );
   }
   f = message.getRedisPubsub();
@@ -708,7 +735,7 @@ proto.protos.ConnectionConfig.serializeBinaryToWriter = function(message, writer
     writer.writeMessage(
       112,
       f,
-      conns_redis$pubsub_pb.RedisPubsub.serializeBinaryToWriter
+      backends_redis$pubsub_pb.RedisPubSubConn.serializeBinaryToWriter
     );
   }
   f = message.getRedisStreams();
@@ -716,7 +743,7 @@ proto.protos.ConnectionConfig.serializeBinaryToWriter = function(message, writer
     writer.writeMessage(
       113,
       f,
-      conns_redis$streams_pb.RedisStreams.serializeBinaryToWriter
+      backends_redis$streams_pb.RedisStreamsConn.serializeBinaryToWriter
     );
   }
   f = message.getAzureEventHub();
@@ -724,7 +751,7 @@ proto.protos.ConnectionConfig.serializeBinaryToWriter = function(message, writer
     writer.writeMessage(
       114,
       f,
-      conns_azure$event$hub_pb.AzureEventHub.serializeBinaryToWriter
+      backends_azure$event$hub_pb.AzureEventHubConn.serializeBinaryToWriter
     );
   }
   f = message.getAzureServiceBus();
@@ -732,7 +759,31 @@ proto.protos.ConnectionConfig.serializeBinaryToWriter = function(message, writer
     writer.writeMessage(
       115,
       f,
-      conns_azure$service$bus_pb.AzureServiceBus.serializeBinaryToWriter
+      backends_azure$service$bus_pb.AzureServiceBusConn.serializeBinaryToWriter
+    );
+  }
+  f = message.getMqtt();
+  if (f != null) {
+    writer.writeMessage(
+      116,
+      f,
+      backends_mqtt_pb.MQTTConn.serializeBinaryToWriter
+    );
+  }
+  f = message.getKubemqQueue();
+  if (f != null) {
+    writer.writeMessage(
+      117,
+      f,
+      backends_kubemq$queue_pb.KubeMQQueueConn.serializeBinaryToWriter
+    );
+  }
+  f = message.getGcpPubsub();
+  if (f != null) {
+    writer.writeMessage(
+      118,
+      f,
+      backends_gcp$pubsub_pb.GCPPubSubConn.serializeBinaryToWriter
     );
   }
 };
@@ -793,17 +844,17 @@ proto.protos.ConnectionConfig.prototype.setId = function(value) {
 
 
 /**
- * optional conns.Kafka kafka = 100;
- * @return {?proto.protos.conns.Kafka}
+ * optional backends.KafkaConn kafka = 100;
+ * @return {?proto.protos.backends.KafkaConn}
  */
 proto.protos.ConnectionConfig.prototype.getKafka = function() {
-  return /** @type{?proto.protos.conns.Kafka} */ (
-    jspb.Message.getWrapperField(this, conns_kafka_pb.Kafka, 100));
+  return /** @type{?proto.protos.backends.KafkaConn} */ (
+    jspb.Message.getWrapperField(this, backends_kafka_pb.KafkaConn, 100));
 };
 
 
 /**
- * @param {?proto.protos.conns.Kafka|undefined} value
+ * @param {?proto.protos.backends.KafkaConn|undefined} value
  * @return {!proto.protos.ConnectionConfig} returns this
 */
 proto.protos.ConnectionConfig.prototype.setKafka = function(value) {
@@ -830,17 +881,17 @@ proto.protos.ConnectionConfig.prototype.hasKafka = function() {
 
 
 /**
- * optional conns.ActiveMQ active_mq = 101;
- * @return {?proto.protos.conns.ActiveMQ}
+ * optional backends.ActiveMQConn active_mq = 101;
+ * @return {?proto.protos.backends.ActiveMQConn}
  */
 proto.protos.ConnectionConfig.prototype.getActiveMq = function() {
-  return /** @type{?proto.protos.conns.ActiveMQ} */ (
-    jspb.Message.getWrapperField(this, conns_activemq_pb.ActiveMQ, 101));
+  return /** @type{?proto.protos.backends.ActiveMQConn} */ (
+    jspb.Message.getWrapperField(this, backends_activemq_pb.ActiveMQConn, 101));
 };
 
 
 /**
- * @param {?proto.protos.conns.ActiveMQ|undefined} value
+ * @param {?proto.protos.backends.ActiveMQConn|undefined} value
  * @return {!proto.protos.ConnectionConfig} returns this
 */
 proto.protos.ConnectionConfig.prototype.setActiveMq = function(value) {
@@ -867,17 +918,17 @@ proto.protos.ConnectionConfig.prototype.hasActiveMq = function() {
 
 
 /**
- * optional conns.AWSSQS awssqs = 102;
- * @return {?proto.protos.conns.AWSSQS}
+ * optional backends.AWSSQSConn awssqs = 102;
+ * @return {?proto.protos.backends.AWSSQSConn}
  */
 proto.protos.ConnectionConfig.prototype.getAwssqs = function() {
-  return /** @type{?proto.protos.conns.AWSSQS} */ (
-    jspb.Message.getWrapperField(this, conns_aws$sqs_pb.AWSSQS, 102));
+  return /** @type{?proto.protos.backends.AWSSQSConn} */ (
+    jspb.Message.getWrapperField(this, backends_aws$sqs_pb.AWSSQSConn, 102));
 };
 
 
 /**
- * @param {?proto.protos.conns.AWSSQS|undefined} value
+ * @param {?proto.protos.backends.AWSSQSConn|undefined} value
  * @return {!proto.protos.ConnectionConfig} returns this
 */
 proto.protos.ConnectionConfig.prototype.setAwssqs = function(value) {
@@ -904,17 +955,17 @@ proto.protos.ConnectionConfig.prototype.hasAwssqs = function() {
 
 
 /**
- * optional conns.AWSSNS awssns = 103;
- * @return {?proto.protos.conns.AWSSNS}
+ * optional backends.AWSSNSConn awssns = 103;
+ * @return {?proto.protos.backends.AWSSNSConn}
  */
 proto.protos.ConnectionConfig.prototype.getAwssns = function() {
-  return /** @type{?proto.protos.conns.AWSSNS} */ (
-    jspb.Message.getWrapperField(this, conns_aws$sns_pb.AWSSNS, 103));
+  return /** @type{?proto.protos.backends.AWSSNSConn} */ (
+    jspb.Message.getWrapperField(this, backends_aws$sns_pb.AWSSNSConn, 103));
 };
 
 
 /**
- * @param {?proto.protos.conns.AWSSNS|undefined} value
+ * @param {?proto.protos.backends.AWSSNSConn|undefined} value
  * @return {!proto.protos.ConnectionConfig} returns this
 */
 proto.protos.ConnectionConfig.prototype.setAwssns = function(value) {
@@ -941,17 +992,17 @@ proto.protos.ConnectionConfig.prototype.hasAwssns = function() {
 
 
 /**
- * optional conns.Mongo mongo = 104;
- * @return {?proto.protos.conns.Mongo}
+ * optional backends.MongoConn mongo = 104;
+ * @return {?proto.protos.backends.MongoConn}
  */
 proto.protos.ConnectionConfig.prototype.getMongo = function() {
-  return /** @type{?proto.protos.conns.Mongo} */ (
-    jspb.Message.getWrapperField(this, conns_mongo_pb.Mongo, 104));
+  return /** @type{?proto.protos.backends.MongoConn} */ (
+    jspb.Message.getWrapperField(this, backends_mongo_pb.MongoConn, 104));
 };
 
 
 /**
- * @param {?proto.protos.conns.Mongo|undefined} value
+ * @param {?proto.protos.backends.MongoConn|undefined} value
  * @return {!proto.protos.ConnectionConfig} returns this
 */
 proto.protos.ConnectionConfig.prototype.setMongo = function(value) {
@@ -978,17 +1029,17 @@ proto.protos.ConnectionConfig.prototype.hasMongo = function() {
 
 
 /**
- * optional conns.Nats nats = 105;
- * @return {?proto.protos.conns.Nats}
+ * optional backends.NatsConn nats = 105;
+ * @return {?proto.protos.backends.NatsConn}
  */
 proto.protos.ConnectionConfig.prototype.getNats = function() {
-  return /** @type{?proto.protos.conns.Nats} */ (
-    jspb.Message.getWrapperField(this, conns_nats_pb.Nats, 105));
+  return /** @type{?proto.protos.backends.NatsConn} */ (
+    jspb.Message.getWrapperField(this, backends_nats_pb.NatsConn, 105));
 };
 
 
 /**
- * @param {?proto.protos.conns.Nats|undefined} value
+ * @param {?proto.protos.backends.NatsConn|undefined} value
  * @return {!proto.protos.ConnectionConfig} returns this
 */
 proto.protos.ConnectionConfig.prototype.setNats = function(value) {
@@ -1015,17 +1066,17 @@ proto.protos.ConnectionConfig.prototype.hasNats = function() {
 
 
 /**
- * optional conns.NatsStreaming nats_streaming = 106;
- * @return {?proto.protos.conns.NatsStreaming}
+ * optional backends.NatsStreamingConn nats_streaming = 106;
+ * @return {?proto.protos.backends.NatsStreamingConn}
  */
 proto.protos.ConnectionConfig.prototype.getNatsStreaming = function() {
-  return /** @type{?proto.protos.conns.NatsStreaming} */ (
-    jspb.Message.getWrapperField(this, conns_nats$streaming_pb.NatsStreaming, 106));
+  return /** @type{?proto.protos.backends.NatsStreamingConn} */ (
+    jspb.Message.getWrapperField(this, backends_nats$streaming_pb.NatsStreamingConn, 106));
 };
 
 
 /**
- * @param {?proto.protos.conns.NatsStreaming|undefined} value
+ * @param {?proto.protos.backends.NatsStreamingConn|undefined} value
  * @return {!proto.protos.ConnectionConfig} returns this
 */
 proto.protos.ConnectionConfig.prototype.setNatsStreaming = function(value) {
@@ -1052,17 +1103,17 @@ proto.protos.ConnectionConfig.prototype.hasNatsStreaming = function() {
 
 
 /**
- * optional conns.NSQ nsq = 107;
- * @return {?proto.protos.conns.NSQ}
+ * optional backends.NSQConn nsq = 107;
+ * @return {?proto.protos.backends.NSQConn}
  */
 proto.protos.ConnectionConfig.prototype.getNsq = function() {
-  return /** @type{?proto.protos.conns.NSQ} */ (
-    jspb.Message.getWrapperField(this, conns_nsq_pb.NSQ, 107));
+  return /** @type{?proto.protos.backends.NSQConn} */ (
+    jspb.Message.getWrapperField(this, backends_nsq_pb.NSQConn, 107));
 };
 
 
 /**
- * @param {?proto.protos.conns.NSQ|undefined} value
+ * @param {?proto.protos.backends.NSQConn|undefined} value
  * @return {!proto.protos.ConnectionConfig} returns this
 */
 proto.protos.ConnectionConfig.prototype.setNsq = function(value) {
@@ -1089,17 +1140,17 @@ proto.protos.ConnectionConfig.prototype.hasNsq = function() {
 
 
 /**
- * optional conns.Postgres postgres = 108;
- * @return {?proto.protos.conns.Postgres}
+ * optional backends.PostgresConn postgres = 108;
+ * @return {?proto.protos.backends.PostgresConn}
  */
 proto.protos.ConnectionConfig.prototype.getPostgres = function() {
-  return /** @type{?proto.protos.conns.Postgres} */ (
-    jspb.Message.getWrapperField(this, conns_postgres_pb.Postgres, 108));
+  return /** @type{?proto.protos.backends.PostgresConn} */ (
+    jspb.Message.getWrapperField(this, backends_postgres_pb.PostgresConn, 108));
 };
 
 
 /**
- * @param {?proto.protos.conns.Postgres|undefined} value
+ * @param {?proto.protos.backends.PostgresConn|undefined} value
  * @return {!proto.protos.ConnectionConfig} returns this
 */
 proto.protos.ConnectionConfig.prototype.setPostgres = function(value) {
@@ -1126,17 +1177,17 @@ proto.protos.ConnectionConfig.prototype.hasPostgres = function() {
 
 
 /**
- * optional conns.Pulsar pulsar = 109;
- * @return {?proto.protos.conns.Pulsar}
+ * optional backends.PulsarConn pulsar = 109;
+ * @return {?proto.protos.backends.PulsarConn}
  */
 proto.protos.ConnectionConfig.prototype.getPulsar = function() {
-  return /** @type{?proto.protos.conns.Pulsar} */ (
-    jspb.Message.getWrapperField(this, conns_pulsar_pb.Pulsar, 109));
+  return /** @type{?proto.protos.backends.PulsarConn} */ (
+    jspb.Message.getWrapperField(this, backends_pulsar_pb.PulsarConn, 109));
 };
 
 
 /**
- * @param {?proto.protos.conns.Pulsar|undefined} value
+ * @param {?proto.protos.backends.PulsarConn|undefined} value
  * @return {!proto.protos.ConnectionConfig} returns this
 */
 proto.protos.ConnectionConfig.prototype.setPulsar = function(value) {
@@ -1163,17 +1214,17 @@ proto.protos.ConnectionConfig.prototype.hasPulsar = function() {
 
 
 /**
- * optional conns.Rabbit rabbit = 110;
- * @return {?proto.protos.conns.Rabbit}
+ * optional backends.RabbitConn rabbit = 110;
+ * @return {?proto.protos.backends.RabbitConn}
  */
 proto.protos.ConnectionConfig.prototype.getRabbit = function() {
-  return /** @type{?proto.protos.conns.Rabbit} */ (
-    jspb.Message.getWrapperField(this, conns_rabbit_pb.Rabbit, 110));
+  return /** @type{?proto.protos.backends.RabbitConn} */ (
+    jspb.Message.getWrapperField(this, backends_rabbit_pb.RabbitConn, 110));
 };
 
 
 /**
- * @param {?proto.protos.conns.Rabbit|undefined} value
+ * @param {?proto.protos.backends.RabbitConn|undefined} value
  * @return {!proto.protos.ConnectionConfig} returns this
 */
 proto.protos.ConnectionConfig.prototype.setRabbit = function(value) {
@@ -1200,17 +1251,17 @@ proto.protos.ConnectionConfig.prototype.hasRabbit = function() {
 
 
 /**
- * optional conns.RabbitStreams rabbit_streams = 111;
- * @return {?proto.protos.conns.RabbitStreams}
+ * optional backends.RabbitStreamsConn rabbit_streams = 111;
+ * @return {?proto.protos.backends.RabbitStreamsConn}
  */
 proto.protos.ConnectionConfig.prototype.getRabbitStreams = function() {
-  return /** @type{?proto.protos.conns.RabbitStreams} */ (
-    jspb.Message.getWrapperField(this, conns_rabbit$streams_pb.RabbitStreams, 111));
+  return /** @type{?proto.protos.backends.RabbitStreamsConn} */ (
+    jspb.Message.getWrapperField(this, backends_rabbit$streams_pb.RabbitStreamsConn, 111));
 };
 
 
 /**
- * @param {?proto.protos.conns.RabbitStreams|undefined} value
+ * @param {?proto.protos.backends.RabbitStreamsConn|undefined} value
  * @return {!proto.protos.ConnectionConfig} returns this
 */
 proto.protos.ConnectionConfig.prototype.setRabbitStreams = function(value) {
@@ -1237,17 +1288,17 @@ proto.protos.ConnectionConfig.prototype.hasRabbitStreams = function() {
 
 
 /**
- * optional conns.RedisPubsub redis_pubsub = 112;
- * @return {?proto.protos.conns.RedisPubsub}
+ * optional backends.RedisPubSubConn redis_pubsub = 112;
+ * @return {?proto.protos.backends.RedisPubSubConn}
  */
 proto.protos.ConnectionConfig.prototype.getRedisPubsub = function() {
-  return /** @type{?proto.protos.conns.RedisPubsub} */ (
-    jspb.Message.getWrapperField(this, conns_redis$pubsub_pb.RedisPubsub, 112));
+  return /** @type{?proto.protos.backends.RedisPubSubConn} */ (
+    jspb.Message.getWrapperField(this, backends_redis$pubsub_pb.RedisPubSubConn, 112));
 };
 
 
 /**
- * @param {?proto.protos.conns.RedisPubsub|undefined} value
+ * @param {?proto.protos.backends.RedisPubSubConn|undefined} value
  * @return {!proto.protos.ConnectionConfig} returns this
 */
 proto.protos.ConnectionConfig.prototype.setRedisPubsub = function(value) {
@@ -1274,17 +1325,17 @@ proto.protos.ConnectionConfig.prototype.hasRedisPubsub = function() {
 
 
 /**
- * optional conns.RedisStreams redis_streams = 113;
- * @return {?proto.protos.conns.RedisStreams}
+ * optional backends.RedisStreamsConn redis_streams = 113;
+ * @return {?proto.protos.backends.RedisStreamsConn}
  */
 proto.protos.ConnectionConfig.prototype.getRedisStreams = function() {
-  return /** @type{?proto.protos.conns.RedisStreams} */ (
-    jspb.Message.getWrapperField(this, conns_redis$streams_pb.RedisStreams, 113));
+  return /** @type{?proto.protos.backends.RedisStreamsConn} */ (
+    jspb.Message.getWrapperField(this, backends_redis$streams_pb.RedisStreamsConn, 113));
 };
 
 
 /**
- * @param {?proto.protos.conns.RedisStreams|undefined} value
+ * @param {?proto.protos.backends.RedisStreamsConn|undefined} value
  * @return {!proto.protos.ConnectionConfig} returns this
 */
 proto.protos.ConnectionConfig.prototype.setRedisStreams = function(value) {
@@ -1311,17 +1362,17 @@ proto.protos.ConnectionConfig.prototype.hasRedisStreams = function() {
 
 
 /**
- * optional conns.AzureEventHub azure_event_hub = 114;
- * @return {?proto.protos.conns.AzureEventHub}
+ * optional backends.AzureEventHubConn azure_event_hub = 114;
+ * @return {?proto.protos.backends.AzureEventHubConn}
  */
 proto.protos.ConnectionConfig.prototype.getAzureEventHub = function() {
-  return /** @type{?proto.protos.conns.AzureEventHub} */ (
-    jspb.Message.getWrapperField(this, conns_azure$event$hub_pb.AzureEventHub, 114));
+  return /** @type{?proto.protos.backends.AzureEventHubConn} */ (
+    jspb.Message.getWrapperField(this, backends_azure$event$hub_pb.AzureEventHubConn, 114));
 };
 
 
 /**
- * @param {?proto.protos.conns.AzureEventHub|undefined} value
+ * @param {?proto.protos.backends.AzureEventHubConn|undefined} value
  * @return {!proto.protos.ConnectionConfig} returns this
 */
 proto.protos.ConnectionConfig.prototype.setAzureEventHub = function(value) {
@@ -1348,17 +1399,17 @@ proto.protos.ConnectionConfig.prototype.hasAzureEventHub = function() {
 
 
 /**
- * optional conns.AzureServiceBus azure_service_bus = 115;
- * @return {?proto.protos.conns.AzureServiceBus}
+ * optional backends.AzureServiceBusConn azure_service_bus = 115;
+ * @return {?proto.protos.backends.AzureServiceBusConn}
  */
 proto.protos.ConnectionConfig.prototype.getAzureServiceBus = function() {
-  return /** @type{?proto.protos.conns.AzureServiceBus} */ (
-    jspb.Message.getWrapperField(this, conns_azure$service$bus_pb.AzureServiceBus, 115));
+  return /** @type{?proto.protos.backends.AzureServiceBusConn} */ (
+    jspb.Message.getWrapperField(this, backends_azure$service$bus_pb.AzureServiceBusConn, 115));
 };
 
 
 /**
- * @param {?proto.protos.conns.AzureServiceBus|undefined} value
+ * @param {?proto.protos.backends.AzureServiceBusConn|undefined} value
  * @return {!proto.protos.ConnectionConfig} returns this
 */
 proto.protos.ConnectionConfig.prototype.setAzureServiceBus = function(value) {
@@ -1381,6 +1432,117 @@ proto.protos.ConnectionConfig.prototype.clearAzureServiceBus = function() {
  */
 proto.protos.ConnectionConfig.prototype.hasAzureServiceBus = function() {
   return jspb.Message.getField(this, 115) != null;
+};
+
+
+/**
+ * optional backends.MQTTConn mqtt = 116;
+ * @return {?proto.protos.backends.MQTTConn}
+ */
+proto.protos.ConnectionConfig.prototype.getMqtt = function() {
+  return /** @type{?proto.protos.backends.MQTTConn} */ (
+    jspb.Message.getWrapperField(this, backends_mqtt_pb.MQTTConn, 116));
+};
+
+
+/**
+ * @param {?proto.protos.backends.MQTTConn|undefined} value
+ * @return {!proto.protos.ConnectionConfig} returns this
+*/
+proto.protos.ConnectionConfig.prototype.setMqtt = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 116, proto.protos.ConnectionConfig.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.ConnectionConfig} returns this
+ */
+proto.protos.ConnectionConfig.prototype.clearMqtt = function() {
+  return this.setMqtt(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.ConnectionConfig.prototype.hasMqtt = function() {
+  return jspb.Message.getField(this, 116) != null;
+};
+
+
+/**
+ * optional backends.KubeMQQueueConn kubemq_queue = 117;
+ * @return {?proto.protos.backends.KubeMQQueueConn}
+ */
+proto.protos.ConnectionConfig.prototype.getKubemqQueue = function() {
+  return /** @type{?proto.protos.backends.KubeMQQueueConn} */ (
+    jspb.Message.getWrapperField(this, backends_kubemq$queue_pb.KubeMQQueueConn, 117));
+};
+
+
+/**
+ * @param {?proto.protos.backends.KubeMQQueueConn|undefined} value
+ * @return {!proto.protos.ConnectionConfig} returns this
+*/
+proto.protos.ConnectionConfig.prototype.setKubemqQueue = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 117, proto.protos.ConnectionConfig.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.ConnectionConfig} returns this
+ */
+proto.protos.ConnectionConfig.prototype.clearKubemqQueue = function() {
+  return this.setKubemqQueue(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.ConnectionConfig.prototype.hasKubemqQueue = function() {
+  return jspb.Message.getField(this, 117) != null;
+};
+
+
+/**
+ * optional backends.GCPPubSubConn gcp_pubsub = 118;
+ * @return {?proto.protos.backends.GCPPubSubConn}
+ */
+proto.protos.ConnectionConfig.prototype.getGcpPubsub = function() {
+  return /** @type{?proto.protos.backends.GCPPubSubConn} */ (
+    jspb.Message.getWrapperField(this, backends_gcp$pubsub_pb.GCPPubSubConn, 118));
+};
+
+
+/**
+ * @param {?proto.protos.backends.GCPPubSubConn|undefined} value
+ * @return {!proto.protos.ConnectionConfig} returns this
+*/
+proto.protos.ConnectionConfig.prototype.setGcpPubsub = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 118, proto.protos.ConnectionConfig.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.ConnectionConfig} returns this
+ */
+proto.protos.ConnectionConfig.prototype.clearGcpPubsub = function() {
+  return this.setGcpPubsub(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.ConnectionConfig.prototype.hasGcpPubsub = function() {
+  return jspb.Message.getField(this, 118) != null;
 };
 
 

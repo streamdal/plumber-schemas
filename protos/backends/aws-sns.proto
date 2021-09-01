@@ -4,7 +4,21 @@ package protos.backends;
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/backends";
 
-message AWSSNS {
-  // Topic ARN to write to
-  string topic_arn = 1;
+message AWSSNSConn {
+  // @gotags: kong:"en=AWS_DEFAULT_REGION,hidden,required"
+  string aws_region = 1;
+
+  // @gotags: kong:"env=AWS_ACCESS_KEY_ID,hidden,required"
+  string aws_access_key_id = 2;
+
+  // @gotags: kong:"env=AWS_SECRET_ACCESS_KEY,hidden,required"
+  string aws_secret_access_key = 3;
+
+}
+
+// SNS has no read functionality
+
+message AWSSNSWriteArgs {
+  // @gotags: kong:"help='Topic ARN',required"
+  string topic = 1;
 }

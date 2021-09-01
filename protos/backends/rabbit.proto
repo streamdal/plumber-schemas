@@ -4,32 +4,53 @@ package protos.backends;
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/backends";
 
-message Rabbit {
-  // Required for reading and writing
+message RabbitConn {
+  // @gotags: kong:"help='Destination host address (full DSN)',env='PLUMBER_RELAY_RABBIT_ADDRESS',default='amqp://localhost',required"
+  string address = 1;
+
+  // @gotags: kong:"help='Force TLS usage (regardless of DSN)',env='PLUMBER_RELAY_RABBIT_USE_TLS'"
+  bool use_tls = 2;
+
+  // @gotags: kong:"help='Whether to verify server TLS certificate',env='PLUMBER_RELAY_RABBIT_SKIP_VERIFY_TLS'"
+  bool insecure_tls = 3;
+}
+
+message RabbitReadArgs {
+  // @gotags: kong:"help='Name of the exchange',env='PLUMBER_RELAY_RABBIT_EXCHANGE',required"
   string exchange_name = 1;
 
-  // Reading only
-  // Queue name to read from
+  // @gotags: kong:"help='Name of the queue where messages will be routed to',env='PLUMBER_RELAY_RABBIT_QUEUE',required"
   string queue_name = 2;
 
-  // Routing key for topic based exchanges
-  string routing_key = 3;
+  // @gotags: kong:"help='Binding key for topic based exchanges',env='PLUMBER_RELAY_RABBIT_ROUTING_KEY',required"
+  string binding_key = 3;
 
-  // Reading only
-  // Whether the queue is exclusive to this connection
+  // @gotags: kong:"help='Whether plumber should be the only one using the queue',env='PLUMBER_RELAY_RABBIT_QUEUE_EXCLUSIVE'"
   bool queue_exclusive = 4;
 
-  // Reading only
-  // Whether to create the queue
+  // @gotags: kong:"help='Whether to create/declare the queue (if it does not exist)',env='PLUMBER_RELAY_RABBIT_QUEUE_DECLARE',default=true"
   bool queue_declare = 5;
 
-  // Reading only
-  // Whether the queue should survive after disconnect
+  // @gotags: kong:"help='Whether the queue should survive after disconnect',env='PLUMBER_RELAY_RABBIT_QUEUE_DURABLE'"
   bool queue_durable = 6;
 
-  // Reading only
+  // @gotags: kong:"help='Automatically acknowledge receipt of read/received messages',env='PLUMBER_RELAY_RABBIT_AUTOACK',default=true"
   bool auto_ack = 7;
 
-  // Reading only
-  string app_id = 8;
+  // @gotags: kong:"help='How to identify the consumer to RabbitMQ',env='PLUMBER_RELAY_CONSUMER_TAG',default=plumber"
+  string consumer_tag = 8;
+
+  // @gotags: kong:"help='Whether to auto-delete the queue after plumber has disconnected',env='PLUMBER_RELAY_RABBIT_QUEUE_AUTO_DELETE',default=true"
+  bool queue_delete = 9;
+}
+
+message RabbitWriteArgs {
+  // @gotags: kong:"help='Exchange to write message(s) to',required"
+  string exchange_name = 1;
+
+  // @gotags: kong:"help='Routing key to write message(s) to',required"
+  string routing_key = 2;
+
+  // @gotags: kong:"help='Fills message properties 'app_id' with this value',default=plumber"
+  string app_id = 3;
 }

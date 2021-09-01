@@ -4,8 +4,35 @@ package protos.backends;
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/backends";
 
-message Postgres {
+message PostgresConn {
+  // @gotags: kong:"help='Postgres server hostname',env='PLUMBER_RELAY_CDCPOSTGRES_HOSTNAME',required"
+  string address = 1;
+
+  // @gotags: kong:"help='Postgres port',env='PLUMBER_RELAY_CDCPOSTGRES_USERNAME',default=5432,required"
+  uint32 port = 2;
+
+  // @gotags: kong:"help='Postgres username',env='PLUMBER_RELAY_CDCPOSTGRES_USERNAME',required"
+  string username = 3;
+
+  // @gotags: kong:"help='Postgres server password',env='PLUMBER_RELAY_CDCPOSTGRES_PASSWORD'"
+  string password = 4;
+
+  // @gotags: kong:"help='Postgres server database name',env='PLUMBER_RELAY_CDCPOSTGRES_DATABASE',required"
+  string database = 5;
+
+  // @gotags: kong:"help='Enable TLS usage',env='PLUMBER_RELAY_CDCPOSTGRES_USE_TLS'"
+  bool use_tls = 6;
+
+  // @gotags: kong:"help='Whether to verify server certificate',env='PLUMBER_RELAY_CDCPOSTGRES_SKIP_VERIFY_TLS'"
+  bool insecure_tls = 7;
+}
+
+message PostgresReadArgs {
+  // @gotags: kong:"help='CDC replication slot name',env='PLUMBER_RELAY_CDCPOSTGRES_SLOT',required"
   string replication_slot_name = 2;
 
+  // @gotags: kong:"help='CDC publisher name',env='PLUMBER_RELAY_CDCPOSTGRES_PUBLISHER',required"
   string publisher_name = 3;
 }
+
+// Postgres CDC does not have write functionality

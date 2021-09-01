@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package protos.backends;
+
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/backends";
+
+message KubeMQQueueConn {
+    // @gotags: kong:"help='Dial string for KubeMQ server',env='PLUMBER_RELAY_KUBEMQ_QUEUE_ADDRESS',default='localhost:50000',required"
+    string address = 1;
+
+    // @gotags: kong:"help='Client JWT authentication token',env='PLUMBER_RELAY_KUBEMQ_QUEUE_AUTH_TOKEN'"
+    string auth_token = 2;
+
+    // @gotags: kong:"help='KubeMQ client cert file',env='PLUMBER_RELAY_KUBEMQ_QUEUE_TLS_CERT_FILE',type=existingfile"
+    string tls_cert_file = 3;
+}
+
+message KubeMQQueueReadArgs {
+    // @gotags: kong:"help='KubeMQ client ID',env='PLUMBER_RELAY_KUBEMQ_QUEUE_CLIENT_ID',default=plumber"
+    string client_id = 2;
+
+    // @gotags: kong:"help='KubeMQ queue name',env='PLUMBER_RELAY_KUBEMQ_QUEUE_QUEUE'"
+    string queue_name = 3;
+}
+
+message KubeMQQueueWriteArgs {
+    // @gotags: kong:"help='KubeMQ client ID',default=plumber"
+    string client_id = 1;
+
+    // @gotags: kong:"help='KubeMQ queue name'"
+    string queue_name = 2;
+}

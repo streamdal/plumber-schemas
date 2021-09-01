@@ -13,3 +13,4 @@ import * as github_pb from "./github_pb";
 import * as schema_pb from "./schema_pb";
 import * as service_pb from "./service_pb";
 import * as server_pb from "./server_pb";
+import * as ghserver_pb from "./ghserver_pb";

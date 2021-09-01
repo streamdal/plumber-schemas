@@ -5,24 +5,41 @@ package protos.backends;
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/backends";
 
 enum SubscriptionType {
-  Unset = 0;
-  Shared = 1;
-  Exclusive = 2;
-  Failover = 3;
-  Keyshared = 4;
+  SHARED    = 0;
+  EXCLUSIVE = 1;
+  FAILOVER  = 2;
+  KEYSHARED = 3;
 }
 
+message PulsarConn {
+  // @gotags: kong:"help='Full DSN to connect to Pulsar',default='pulsar://localhost:6650',required"
+  string dsn = 1;
 
-message Pulsar {
+  // @gotags: kong:"help='Connection timeout',default=10"
+  uint32 connect_timeout_seconds = 2;
 
-  // Required
+  // @gotags: kong:"help='Whether to verify server certificate'"
+  bool insecure_tls = 3;
+
+  // @gotags: kong:"help='TLS client certificate file',type=existingfile"
+  bytes tls_client_cert = 4;
+
+  // @gotags: kong:"help='TLS client key file',type=existingfile"
+  bytes tls_client_key = 5;
+}
+
+message PulsarReadArgs {
+  // @gotags: kong:"help='Topic to read messages from',required"
   string topic = 1;
 
-  // Required for reads
-  // Ignored for writes
+  // @gotags: kong:"help='Subscription name',required"
   string subscription_name = 2;
 
-  // Required for reads
-  // Ignored for writes
+  // @gotags: kong:"help='Subscription type (0: shared, 1: exclusive, 2: failover, 3: keyshared)',required"
   SubscriptionType subscription_type = 3;
+}
+
+message PulsarWriteArgs {
+  // @gotags: kong:"help='topic to write messages to'"
+  string topic = 1;
 }

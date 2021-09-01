@@ -4,34 +4,15 @@ package protos.backends;
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/backends";
 
+message RedisStreamsConn {
+  // @gotags: kong:"help='Address of redis server',default=localhost:6379,required,env='PLUMBER_RELAY_REDIS_STREAMS_ADDRESS'"
+  string address = 1;
 
-message RedisStreams {
+  // @gotags: kong:"help='Username (redis >= v6.0.0)',env='PLUMBER_RELAY_REDIS_STREAMS_USERNAME'"
+  string username = 2;
 
-  // Required
-  // Database (0-16)
-  uint32 database = 1;
-
-  // Required
-  // Stream(s) to read from/write to
-  repeated string stream = 2;
-
-  // Optional for Writes
-  // Ignored for reads
-  // Default is "*", which means redis will auto generate it
-  string id = 3;
-
-  // Required for writes
-  // Ignored for reads
-  string key = 4;
-
-  string consumer_group = 5;
-
-  string consumer_name = 6;
-
-  // Optional for reads
-  // Ignored for writes
-  // Specify if you the user needs to create/recreate a consumer group
-  CreateConsumerConfig create_consumer_config = 7;
+  // @gotags: kong:"help='Oasswird (redis >= v6.0.0)',env='PLUMBER_RELAY_REDIS_STREAMS_PASSWORD'"
+  string password = 3;
 }
 
 message CreateConsumerConfig {
@@ -40,12 +21,43 @@ message CreateConsumerConfig {
     Oldest = 1;
   }
 
-  // Create the streams if we're creating a new consumer group
-  bool create_streams = 3;
+  // @gotags: kong:"help='Create the streams if creating a new consumer group',env='PLUMBER_RELAY_REDIS_STREAMS_CREATE_STREAMS'"
+  bool create_streams = 1;
 
-  // Recreate this consumer group if it doesn't exist
-  bool recreate_consumer_group = 4;
+  // @gotags: kong:"help='Recreate this consumer group if it doesn't exist',env='PLUMBER_RELAY_REDIS_STREAMS_RECREATE_CONSUMER_GROUP'"
+  bool recreate_consumer_group = 2;
 
-  // Required
-  OffsetStart offset_start = 5;
+  // @gotags: kong:"help='What offset to start reading at (0: latest, 1: oldest)',default=0,required,env='PLUMBER_RELAY_REDIS_STREAMS_START_ID'"
+  OffsetStart offset_start = 3;
+}
+
+message RedisStreamsReadArgs {
+  // @gotags: kong:"help='Database',required,default=0,env='PLUMBER_RELAY_REDIS_STREAMS_DATABASE'"
+  uint32 database = 1;
+
+  // @gotags: kong:"help='Streams to read from',required,env='PLUMBER_RELAY_REDIS_STREAMS_STREAMS'"
+  repeated string stream = 2;
+
+  // @gotags: kong:"help='Consumer group name',env='PLUMBER_RELAY_REDIS_STREAMS_CONSUMER_GROUP',default=plumber"
+  string consumer_group = 3;
+
+  // @gotags: kong:"help='Consumer name',env='PLUMBER_RELAY_REDIS_STREAMS_CONSUMER_NAME',default=plumber-consumer-1"
+  string consumer_name = 4;
+
+  // @gotags: kong:"help='Number of records to read from stream(s) per read',env='PLUMBER_RELAY_REDIS_STREAMS_COUNT',default=10"
+  uint32 count = 5;
+
+  // @gotags: kong:"embed"
+  CreateConsumerConfig create_consumer_config = 6;
+}
+
+message RedisStreamsWriteArgs {
+  // @gotags: kong:"help='What redis ID to use for input data ("*" = auto-generate)',default='*'"
+  string write_id = 1;
+
+  // @gotags: kong:"help='Streams to write to'"
+  repeated string streams = 2;
+
+  // @gotags: kong:"help='Key name to write input data to'"
+  string key = 3;
 }

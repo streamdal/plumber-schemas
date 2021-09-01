@@ -4,18 +4,18 @@ package protos.backends;
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/backends";
 
-message Mongo {
-  // Optional
-  // Specify to limit CDC changes to a single database of the mongo instance
-  // Leave empty to get CDC changes from all databases
+message MongoConn {
+  // @gotags: kong:"help='Dial string for mongo server (Ex: mongodb://localhost:27017)',env=,default=PLUMBER_RELAY_CDCMONGO_DSN'mongodb://localhost:27017'"
+  string dsn = 1;
+}
+
+message MongoReadArgs {
+  // @gotags: kong:"help='Database name',env='PLUMBER_RELAY_CDCMONGO_DATABASE'"
   string database = 1;
 
-  // Optional
-  // Specify to limit CDC changes to a single collection.
-  // Leave blank to get changes from all collections in the specified database
+  // @gotags: kong:"help='Collection name',env='PLUMBER_RELAY_CDCMONGO_COLLECTION'"
   string collection = 2;
 
-  // Include full document in update in update changes.
-  // Default is to return deltas only
+  // @gotags: kong:"help='Include full document in update in update changes (default - return deltas only)',env='PLUMBER_RELAY_CDCMONGO_INCLUDE_FULL_DOC'"
   bool include_full_document = 3;
 }

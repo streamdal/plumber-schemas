@@ -10,6 +10,7 @@ var github_pb = require('./github_pb.js');
 var schema_pb = require('./schema_pb.js');
 var service_pb = require('./service_pb.js');
 var server_pb = require('./server_pb.js');
+var ghserver_pb = require('./ghserver_pb.js');
 
 function serialize_protos_CreateConnectionRequest(arg) {
   if (!(arg instanceof connect_pb.CreateConnectionRequest)) {
@@ -419,14 +420,14 @@ function deserialize_protos_GetServiceResponse(buffer_arg) {
 }
 
 function serialize_protos_GithubEvent(arg) {
-  if (!(arg instanceof github_pb.GithubEvent)) {
+  if (!(arg instanceof ghserver_pb.GithubEvent)) {
     throw new Error('Expected argument of type protos.GithubEvent');
   }
   return Buffer.from(arg.serializeBinary());
 }
 
 function deserialize_protos_GithubEvent(buffer_arg) {
-  return github_pb.GithubEvent.deserializeBinary(new Uint8Array(buffer_arg));
+  return ghserver_pb.GithubEvent.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
 function serialize_protos_ImportGithubRequest(arg) {
@@ -1154,7 +1155,7 @@ getGithubEvents: {
     requestStream: false,
     responseStream: true,
     requestType: github_pb.GetGithubEventsRequest,
-    responseType: github_pb.GithubEvent,
+    responseType: ghserver_pb.GithubEvent,
     requestSerialize: serialize_protos_GetGithubEventsRequest,
     requestDeserialize: deserialize_protos_GetGithubEventsRequest,
     responseSerialize: serialize_protos_GithubEvent,

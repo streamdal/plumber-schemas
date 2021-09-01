@@ -7,45 +7,36 @@ import "common/auth.proto";
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
 
 message ServerConfig {
-    // Unique ID that identifies this plumber node
+    // @gotags: kong:"help='Unique ID that identifies this plumber node',env='PLUMBER_SERVER_NODE_ID',required"
     string node_id = 1;
 
-    // ID of the plumber cluster
+    // @gotags: kong:"help='ID of the plumber cluster (has to be the same across all nodes)',env='PLUMBER_SERVER_CLUSTER_ID',required"
     string cluster_id = 2;
 
-    // host:port that the gRPC server will bind to
+    // @gotags: kong:"help='Host:port that the gRPC server will bind to',env='PLUMBER_SERVER_GRPC_LISTEN_ADDRESS',default=127.0.0.1:9000"
     string grpc_listen_address = 3;
 
-    // All gRPC requests will require this auth token to be set
+    // @gotags: kong:"help='All gRPC requests require this auth token to be set',env='PLUMBER_SERVER_AUTH_TOKEN',required"
     string auth_token = 4;
 
     ///////////// Embedded etcd settings /////////////////
 
-    // InitialCluster should contain comma separated list of key=value pairs
-    // of host:port entries for ALL peers in the cluster.
-    // Example: server1=http://192.168.1.10:2380,server2=http://192.168.1.11:2380,server3=http://192.168.1.12:2380
-    //
-    // IMPORTANT: The list should include _this_ instance's address.
+    // @gotags: kong:"help='InitialCluster should contain comma separated list of key=value pairs of host:port entries for ALL peers in the cluster. (Example: server1=http://192.168.1.10:2380,server2=http://192.168.1.11:2380,server3=http://192.168.1.12:2380). IMPORTANT! The list should include the address of _this_ instance.',env='PLUMBER_SERVER_INITIAL_CLUSTER',required"
     string initial_cluster = 5;
 
-    // AdvertisePeerURL contains the address of _this_ plumber instance's etcd server interface
-    // This is usually something like http://local-ip:2380
+    // @gotags: kong:"help='Address of _this_ plumber instance etcd server interface. Example: http://local-ip:2380',env='PLUMBER_SERVER_ADVERTISE_PEER_URL'"
     string advertise_peer_url = 6;
 
-	// AdvertisePeerURL contains the address of _this_ plumber instance's etcd client interface
-	// This is usually something like http://local-ip:2379
-	string advertise_client_url = 7;
+    // @gotags: kong:"help='Address of _this_ plumber instance's etcd client interface. Example: http://local-ip:2379',env='PLUMBER_SERVER_ADVERTISE_CLIENT_URL',required"
+    string advertise_client_url = 7;
 
-	// ListenerPeerURL contains the address that _this_ plumber instance's etcd server should listen on
-	// This is usually something like http://local-ip:2380
-	string listener_peer_url = 8;
+    // @gotags: kong:"help='Address that _this_ plumber instance's etcd server should listen on. Example: http://local-ip:2380',env='PLUMBER_SERVER_LISTENER_PEER_URL'"
+    string listener_peer_url = 8;
 
-	// ListenerClientURL contains the address that _this_ plumber instance's etcd client should listen on
-	// This is usually something like http://local-ip:2379
-	string listener_client_url = 9;
+    // @gotags: kong:"help='Address that _this_ plumber instance's etcd client should listen on. Example: http://local-ip:2379',env='PLUMBER_SERVER_LISTENER_CLIENT_URL'"
+    string listener_client_url = 9;
 
-	// PeerToken is the token that ALL cluster members should use/share. If this token
-	// does not match on one of the plumber instances - it won't be able to join the cluster.
+    // @gotags: kong:"help='Secret token that ALL cluster members should use/share. If this token does not match on one of the plumber instances, this node will NOT be able to join the cluster.',env='PLUMBER_SERVER_PEER_TOKEN'"
 	string peer_token = 10;
 }
 

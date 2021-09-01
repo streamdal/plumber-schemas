@@ -4,44 +4,53 @@ package protos.backends;
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/backends";
 
-message NatsStreaming {
-  // Required
-  // Channel name to read from/write to
+message NatsStreamingConn {
+  // @gotags: kong:"help='Dial string for NATS server. Ex: nats://localhost:4222',default='nats://localhost:4222'"
+  string dsn = 1;
+
+  // @gotags: kong:"help='Whether to verify server certificate'"
+  bool insecure_tls = 2;
+
+  // @gotags: kong:"help='CA file (only needed if addr is tls://)*',type=existingfile"
+  bytes tls_ca_cert = 3;
+
+  // @gotags: kong:"help='Cient cert file (only needed if addr is tls://*)',type=existingfile"
+  bytes tls_client_cert = 4;
+
+  // @gotags: kong:"help='Client key file (only needed if addr is tls://*)',type=existingfile"
+  bytes tls_client_key = 5;
+
+  // @gotags: kong:"help='NATS .creds file containing authentication credentials'"
+  bytes user_credentials = 6;
+
+  // @gotags: kong:"help='Cluster ID of the Nats server',required"
+  string cluster_id = 7;
+
+  // @gotags: kong:"help='User specified client ID to connect with',default=plumber"
+  string client_id = 8;
+}
+
+message NatsStreamingReadArgs {
+  // @gotags: kong:"help='NATS stream channel. Ex: "orders"'"
   string channel = 1;
 
-  // Optional
-  // Create a durable subscription with this name for the given channel
+  // @gotags: kong:"help='Create a durable subscription with this name for the given channel'"
   string durable_name = 2;
 
-  oneof read_option {
-    // Start reading at last available message
-    ReadLastAvailable last_available = 100;
+  // @gotags: kong:"help='Deliver starting with last published message',xor=nats_delivery_option"
+  bool read_last_available = 3;
 
-    // Start reading at a sequence number
-    ReadSequenceNumber read_sequence_number = 101;
+  // @gotags: kong:"help='Deliver messages starting at sequence number',xor=nats_delivery_option"
+  uint32 read_sequence_number = 4;
 
-    // Start reading at a time interval ago
-    ReadSince read_since = 102;
+  // @gotags: kong:"help='Deliver messages in last interval (e.g. 1s, 1h)',xor=nats_delivery_option"
+  string read_since = 5;
 
-    // Read all messages on the channel from the beginning
-    ReadAll all = 103;
-  }
-
+  // @gotags: kong:"help='Deliver all available messages',xor=nats_delivery_option"
+  bool read_all = 6;
 }
 
-message ReadLastAvailable {
-  //
-}
-
-message ReadSequenceNumber {
-  uint32 sequence_number = 1;
-}
-
-message ReadSince {
-  // Ex: 1s, 15m, 3h, 10h
-  string since = 1;
-}
-
-message ReadAll {
-  //
+message NatsStreamingWriteArgs {
+  // @gotags: kong:"help='NATS stream channel. Ex: "orders"'"
+  string channel = 1;
 }

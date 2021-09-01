@@ -4,9 +4,74 @@ package protos.backends;
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/backends";
 
-message AWSSQS {
+message AWSSQSConn {
+  // @gotags: kong:"en=AWS_DEFAULT_REGION,hidden,required"
+  string aws_region = 1;
+
+  // @gotags: kong:"env=AWS_ACCESS_KEY_ID,hidden,required"
+  string aws_access_key_id = 2;
+
+  // @gotags: kong:"env=AWS_SECRET_ACCESS_KEY,hidden,required"
+  string aws_secret_access_key = 3;
+}
+
+message AWSSQSReadArgs {
+  // @gotags: kong:"help='Queue name'"
   string queue_name = 1;
 
-  // Required if the queue is located in a different account
+  // @gotags: kong:"help='Remote AWS account ID',optional"
   string remote_account_id = 2;
+
+  // @gotags: kong:"help='Max number of messages to read',default=1"
+  uint32 max_num_messages = 3;
+
+  // @gotags: kong:"help='"An id to identify this read request by',default='plumber/relay"
+  string receive_request_attempt_id = 4;
+
+  // @gotags: kong:"help='Auto-delete read/received message(s)'"
+  bool auto_delete = 5;
+
+  // @gotags: kong:"help='Number of seconds to wait for messages (not used when using 'follow')',default=5"
+  uint32 wait_time_seconds = 6;
+}
+
+message AWSSQSWriteArgs {
+  // @gotags: kong:"help='Queue name'"
+  string queue_name = 1;
+
+  // @gotags: kong:"help='Remote AWS account ID',optional"
+  string remote_account_id = 2;
+
+  // @gotags: kong:"help='How many seconds to delay message delivery by',default=0"
+  uint32 delay_seconds = 3;
+
+  // @gotags: kong:"help='Add optional attributes to outgoing message (k=v, delimited by ;)'"
+  map<string, string> attributes = 4;
+
+  // @gotags: kong:"help='Message Group ID. For FIFO queues only'"
+  string message_group_id = 5;
+
+  // @gotags: kong:"help='Required when publishing to a FIFO queue that does not have content based deduplication enabled'"
+  string message_deduplication_id = 6;
+}
+
+// SQS has a dedicated RelayArgs struct as relay has different defaults than read
+message AWSSQSRelayArgs {
+  // @gotags: kong:"help='Queue name',env=PLUMBER_RELAY_SQS_QUEUE_NAME"
+  string queue_name = 1;
+
+  // @gotags: kong:"help='Remote AWS account ID',env=PLUMBER_RELAY_SQS_REMOTE_ACCOUNT_ID,optional"
+  string remote_account_id = 2;
+
+  // @gotags: kong:"help='Max number of messages to read',env=PLUMBER_RELAY_SQS_MAX_NUM_MESSAGES,default=1"
+  uint32 max_num_messages = 3;
+
+  // @gotags: kong:"help='"An id to identify this read request by',env=PLUMBER_RELAY_SQS_RECEIVE_REQUEST_ATTEMPT_ID,default='plumber/relay"
+  string receive_request_attempt_id = 4;
+
+  // @gotags: kong:"help='Auto-delete read/received message(s)',env=PLUMBER_RELAY_SQS_AUTO_DELETE"
+  bool auto_delete = 5;
+
+  // @gotags: kong:"help='Number of seconds to wait for messages (not used when using 'follow')',env=PLUMBER_RELAY_SQS_WAIT_TIME_SECONDS,default=5"
+  int32 wait_time_seconds = 6;
 }

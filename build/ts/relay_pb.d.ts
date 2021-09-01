@@ -5,28 +5,32 @@
 /* eslint-disable */
 
 import * as jspb from "google-protobuf";
+import * as backends_backends_pb from "./backends/backends_pb";
 import * as backends_kafka_pb from "./backends/kafka_pb";
-import * as backends_activemq_pb from "./backends/activemq_pb";
-import * as backends_aws_sns_pb from "./backends/aws-sns_pb";
 import * as backends_aws_sqs_pb from "./backends/aws-sqs_pb";
 import * as backends_mongo_pb from "./backends/mongo_pb";
-import * as backends_nats_pb from "./backends/nats_pb";
-import * as backends_nats_streaming_pb from "./backends/nats-streaming_pb";
 import * as backends_nsq_pb from "./backends/nsq_pb";
 import * as backends_postgres_pb from "./backends/postgres_pb";
-import * as backends_pulsar_pb from "./backends/pulsar_pb";
 import * as backends_rabbit_pb from "./backends/rabbit_pb";
-import * as backends_rabbit_streams_pb from "./backends/rabbit-streams_pb";
 import * as backends_redis_pubsub_pb from "./backends/redis-pubsub_pb";
 import * as backends_redis_streams_pb from "./backends/redis-streams_pb";
 import * as backends_azure_service_bus_pb from "./backends/azure-service-bus_pb";
-import * as backends_azure_event_hub_pb from "./backends/azure-event-hub_pb";
+import * as backends_mqtt_pb from "./backends/mqtt_pb";
+import * as backends_gcp_pubsub_pb from "./backends/gcp-pubsub_pb";
+import * as backends_kubemq_queue_pb from "./backends/kubemq-queue_pb";
 import * as common_auth_pb from "./common/auth_pb";
 import * as common_status_pb from "./common/status_pb";
 
 export class CLIRelayConfig extends jspb.Message { 
     getHttpListenAddress(): string;
     setHttpListenAddress(value: string): CLIRelayConfig;
+    getBackendType(): backends_backends_pb.Type;
+    setBackendType(value: backends_backends_pb.Type): CLIRelayConfig;
+
+    hasRelayBackend(): boolean;
+    clearRelayBackend(): void;
+    getRelayBackend(): CLIRelayConfig.RelayBackend | undefined;
+    setRelayBackend(value?: CLIRelayConfig.RelayBackend): CLIRelayConfig;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): CLIRelayConfig.AsObject;
@@ -41,7 +45,450 @@ export class CLIRelayConfig extends jspb.Message {
 export namespace CLIRelayConfig {
     export type AsObject = {
         httpListenAddress: string,
+        BackendType: backends_backends_pb.Type,
+        RelayBackend?: CLIRelayConfig.RelayBackend.AsObject,
     }
+
+
+    export class RelayBackend extends jspb.Message { 
+
+        hasKafka(): boolean;
+        clearKafka(): void;
+        getKafka(): CLIRelayConfig.RelayBackend.Kafka | undefined;
+        setKafka(value?: CLIRelayConfig.RelayBackend.Kafka): RelayBackend;
+
+        hasAwssqs(): boolean;
+        clearAwssqs(): void;
+        getAwssqs(): CLIRelayConfig.RelayBackend.AWSSQS | undefined;
+        setAwssqs(value?: CLIRelayConfig.RelayBackend.AWSSQS): RelayBackend;
+
+        hasMongo(): boolean;
+        clearMongo(): void;
+        getMongo(): CLIRelayConfig.RelayBackend.Mongo | undefined;
+        setMongo(value?: CLIRelayConfig.RelayBackend.Mongo): RelayBackend;
+
+        hasNsq(): boolean;
+        clearNsq(): void;
+        getNsq(): CLIRelayConfig.RelayBackend.NSQ | undefined;
+        setNsq(value?: CLIRelayConfig.RelayBackend.NSQ): RelayBackend;
+
+        hasRabbit(): boolean;
+        clearRabbit(): void;
+        getRabbit(): CLIRelayConfig.RelayBackend.Rabbit | undefined;
+        setRabbit(value?: CLIRelayConfig.RelayBackend.Rabbit): RelayBackend;
+
+        hasMqtt(): boolean;
+        clearMqtt(): void;
+        getMqtt(): CLIRelayConfig.RelayBackend.MQTT | undefined;
+        setMqtt(value?: CLIRelayConfig.RelayBackend.MQTT): RelayBackend;
+
+        hasAzureServiceBus(): boolean;
+        clearAzureServiceBus(): void;
+        getAzureServiceBus(): CLIRelayConfig.RelayBackend.AzureServiceBus | undefined;
+        setAzureServiceBus(value?: CLIRelayConfig.RelayBackend.AzureServiceBus): RelayBackend;
+
+        hasGcpPubsub(): boolean;
+        clearGcpPubsub(): void;
+        getGcpPubsub(): CLIRelayConfig.RelayBackend.GCPPubSub | undefined;
+        setGcpPubsub(value?: CLIRelayConfig.RelayBackend.GCPPubSub): RelayBackend;
+
+        hasKubemqQueue(): boolean;
+        clearKubemqQueue(): void;
+        getKubemqQueue(): CLIRelayConfig.RelayBackend.KubeMQQueue | undefined;
+        setKubemqQueue(value?: CLIRelayConfig.RelayBackend.KubeMQQueue): RelayBackend;
+
+        hasRedisPubsub(): boolean;
+        clearRedisPubsub(): void;
+        getRedisPubsub(): CLIRelayConfig.RelayBackend.RedisPubSub | undefined;
+        setRedisPubsub(value?: CLIRelayConfig.RelayBackend.RedisPubSub): RelayBackend;
+
+        hasRedisStreams(): boolean;
+        clearRedisStreams(): void;
+        getRedisStreams(): CLIRelayConfig.RelayBackend.RedisStreams | undefined;
+        setRedisStreams(value?: CLIRelayConfig.RelayBackend.RedisStreams): RelayBackend;
+
+        hasPostgres(): boolean;
+        clearPostgres(): void;
+        getPostgres(): CLIRelayConfig.RelayBackend.Postgres | undefined;
+        setPostgres(value?: CLIRelayConfig.RelayBackend.Postgres): RelayBackend;
+
+        serializeBinary(): Uint8Array;
+        toObject(includeInstance?: boolean): RelayBackend.AsObject;
+        static toObject(includeInstance: boolean, msg: RelayBackend): RelayBackend.AsObject;
+        static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+        static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+        static serializeBinaryToWriter(message: RelayBackend, writer: jspb.BinaryWriter): void;
+        static deserializeBinary(bytes: Uint8Array): RelayBackend;
+        static deserializeBinaryFromReader(message: RelayBackend, reader: jspb.BinaryReader): RelayBackend;
+    }
+
+    export namespace RelayBackend {
+        export type AsObject = {
+            kafka?: CLIRelayConfig.RelayBackend.Kafka.AsObject,
+            awssqs?: CLIRelayConfig.RelayBackend.AWSSQS.AsObject,
+            mongo?: CLIRelayConfig.RelayBackend.Mongo.AsObject,
+            nsq?: CLIRelayConfig.RelayBackend.NSQ.AsObject,
+            rabbit?: CLIRelayConfig.RelayBackend.Rabbit.AsObject,
+            mqtt?: CLIRelayConfig.RelayBackend.MQTT.AsObject,
+            azureServiceBus?: CLIRelayConfig.RelayBackend.AzureServiceBus.AsObject,
+            gcpPubsub?: CLIRelayConfig.RelayBackend.GCPPubSub.AsObject,
+            kubemqQueue?: CLIRelayConfig.RelayBackend.KubeMQQueue.AsObject,
+            redisPubsub?: CLIRelayConfig.RelayBackend.RedisPubSub.AsObject,
+            redisStreams?: CLIRelayConfig.RelayBackend.RedisStreams.AsObject,
+            postgres?: CLIRelayConfig.RelayBackend.Postgres.AsObject,
+        }
+
+
+        export class Kafka extends jspb.Message { 
+
+            hasConn(): boolean;
+            clearConn(): void;
+            getConn(): backends_kafka_pb.KafkaConn | undefined;
+            setConn(value?: backends_kafka_pb.KafkaConn): Kafka;
+
+            hasArgs(): boolean;
+            clearArgs(): void;
+            getArgs(): backends_kafka_pb.KafkaReadArgs | undefined;
+            setArgs(value?: backends_kafka_pb.KafkaReadArgs): Kafka;
+
+            serializeBinary(): Uint8Array;
+            toObject(includeInstance?: boolean): Kafka.AsObject;
+            static toObject(includeInstance: boolean, msg: Kafka): Kafka.AsObject;
+            static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+            static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+            static serializeBinaryToWriter(message: Kafka, writer: jspb.BinaryWriter): void;
+            static deserializeBinary(bytes: Uint8Array): Kafka;
+            static deserializeBinaryFromReader(message: Kafka, reader: jspb.BinaryReader): Kafka;
+        }
+
+        export namespace Kafka {
+            export type AsObject = {
+                conn?: backends_kafka_pb.KafkaConn.AsObject,
+                args?: backends_kafka_pb.KafkaReadArgs.AsObject,
+            }
+        }
+
+        export class AWSSQS extends jspb.Message { 
+
+            hasConn(): boolean;
+            clearConn(): void;
+            getConn(): backends_aws_sqs_pb.AWSSQSConn | undefined;
+            setConn(value?: backends_aws_sqs_pb.AWSSQSConn): AWSSQS;
+
+            hasArgs(): boolean;
+            clearArgs(): void;
+            getArgs(): backends_aws_sqs_pb.AWSSQSRelayArgs | undefined;
+            setArgs(value?: backends_aws_sqs_pb.AWSSQSRelayArgs): AWSSQS;
+
+            serializeBinary(): Uint8Array;
+            toObject(includeInstance?: boolean): AWSSQS.AsObject;
+            static toObject(includeInstance: boolean, msg: AWSSQS): AWSSQS.AsObject;
+            static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+            static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+            static serializeBinaryToWriter(message: AWSSQS, writer: jspb.BinaryWriter): void;
+            static deserializeBinary(bytes: Uint8Array): AWSSQS;
+            static deserializeBinaryFromReader(message: AWSSQS, reader: jspb.BinaryReader): AWSSQS;
+        }
+
+        export namespace AWSSQS {
+            export type AsObject = {
+                conn?: backends_aws_sqs_pb.AWSSQSConn.AsObject,
+                args?: backends_aws_sqs_pb.AWSSQSRelayArgs.AsObject,
+            }
+        }
+
+        export class Mongo extends jspb.Message { 
+
+            hasConn(): boolean;
+            clearConn(): void;
+            getConn(): backends_mongo_pb.MongoConn | undefined;
+            setConn(value?: backends_mongo_pb.MongoConn): Mongo;
+
+            hasArgs(): boolean;
+            clearArgs(): void;
+            getArgs(): backends_mongo_pb.MongoReadArgs | undefined;
+            setArgs(value?: backends_mongo_pb.MongoReadArgs): Mongo;
+
+            serializeBinary(): Uint8Array;
+            toObject(includeInstance?: boolean): Mongo.AsObject;
+            static toObject(includeInstance: boolean, msg: Mongo): Mongo.AsObject;
+            static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+            static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+            static serializeBinaryToWriter(message: Mongo, writer: jspb.BinaryWriter): void;
+            static deserializeBinary(bytes: Uint8Array): Mongo;
+            static deserializeBinaryFromReader(message: Mongo, reader: jspb.BinaryReader): Mongo;
+        }
+
+        export namespace Mongo {
+            export type AsObject = {
+                conn?: backends_mongo_pb.MongoConn.AsObject,
+                args?: backends_mongo_pb.MongoReadArgs.AsObject,
+            }
+        }
+
+        export class NSQ extends jspb.Message { 
+
+            hasConn(): boolean;
+            clearConn(): void;
+            getConn(): backends_nsq_pb.NSQConn | undefined;
+            setConn(value?: backends_nsq_pb.NSQConn): NSQ;
+
+            hasArgs(): boolean;
+            clearArgs(): void;
+            getArgs(): backends_nsq_pb.NSQReadArgs | undefined;
+            setArgs(value?: backends_nsq_pb.NSQReadArgs): NSQ;
+
+            serializeBinary(): Uint8Array;
+            toObject(includeInstance?: boolean): NSQ.AsObject;
+            static toObject(includeInstance: boolean, msg: NSQ): NSQ.AsObject;
+            static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+            static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+            static serializeBinaryToWriter(message: NSQ, writer: jspb.BinaryWriter): void;
+            static deserializeBinary(bytes: Uint8Array): NSQ;
+            static deserializeBinaryFromReader(message: NSQ, reader: jspb.BinaryReader): NSQ;
+        }
+
+        export namespace NSQ {
+            export type AsObject = {
+                conn?: backends_nsq_pb.NSQConn.AsObject,
+                args?: backends_nsq_pb.NSQReadArgs.AsObject,
+            }
+        }
+
+        export class Postgres extends jspb.Message { 
+
+            hasConn(): boolean;
+            clearConn(): void;
+            getConn(): backends_postgres_pb.PostgresConn | undefined;
+            setConn(value?: backends_postgres_pb.PostgresConn): Postgres;
+
+            hasArgs(): boolean;
+            clearArgs(): void;
+            getArgs(): backends_postgres_pb.PostgresReadArgs | undefined;
+            setArgs(value?: backends_postgres_pb.PostgresReadArgs): Postgres;
+
+            serializeBinary(): Uint8Array;
+            toObject(includeInstance?: boolean): Postgres.AsObject;
+            static toObject(includeInstance: boolean, msg: Postgres): Postgres.AsObject;
+            static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+            static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+            static serializeBinaryToWriter(message: Postgres, writer: jspb.BinaryWriter): void;
+            static deserializeBinary(bytes: Uint8Array): Postgres;
+            static deserializeBinaryFromReader(message: Postgres, reader: jspb.BinaryReader): Postgres;
+        }
+
+        export namespace Postgres {
+            export type AsObject = {
+                conn?: backends_postgres_pb.PostgresConn.AsObject,
+                args?: backends_postgres_pb.PostgresReadArgs.AsObject,
+            }
+        }
+
+        export class Rabbit extends jspb.Message { 
+
+            hasConn(): boolean;
+            clearConn(): void;
+            getConn(): backends_rabbit_pb.RabbitConn | undefined;
+            setConn(value?: backends_rabbit_pb.RabbitConn): Rabbit;
+
+            hasArgs(): boolean;
+            clearArgs(): void;
+            getArgs(): backends_rabbit_pb.RabbitReadArgs | undefined;
+            setArgs(value?: backends_rabbit_pb.RabbitReadArgs): Rabbit;
+
+            serializeBinary(): Uint8Array;
+            toObject(includeInstance?: boolean): Rabbit.AsObject;
+            static toObject(includeInstance: boolean, msg: Rabbit): Rabbit.AsObject;
+            static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+            static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+            static serializeBinaryToWriter(message: Rabbit, writer: jspb.BinaryWriter): void;
+            static deserializeBinary(bytes: Uint8Array): Rabbit;
+            static deserializeBinaryFromReader(message: Rabbit, reader: jspb.BinaryReader): Rabbit;
+        }
+
+        export namespace Rabbit {
+            export type AsObject = {
+                conn?: backends_rabbit_pb.RabbitConn.AsObject,
+                args?: backends_rabbit_pb.RabbitReadArgs.AsObject,
+            }
+        }
+
+        export class RedisPubSub extends jspb.Message { 
+
+            hasConn(): boolean;
+            clearConn(): void;
+            getConn(): backends_redis_pubsub_pb.RedisPubSubConn | undefined;
+            setConn(value?: backends_redis_pubsub_pb.RedisPubSubConn): RedisPubSub;
+
+            hasArgs(): boolean;
+            clearArgs(): void;
+            getArgs(): backends_redis_pubsub_pb.RedisPubSubReadArgs | undefined;
+            setArgs(value?: backends_redis_pubsub_pb.RedisPubSubReadArgs): RedisPubSub;
+
+            serializeBinary(): Uint8Array;
+            toObject(includeInstance?: boolean): RedisPubSub.AsObject;
+            static toObject(includeInstance: boolean, msg: RedisPubSub): RedisPubSub.AsObject;
+            static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+            static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+            static serializeBinaryToWriter(message: RedisPubSub, writer: jspb.BinaryWriter): void;
+            static deserializeBinary(bytes: Uint8Array): RedisPubSub;
+            static deserializeBinaryFromReader(message: RedisPubSub, reader: jspb.BinaryReader): RedisPubSub;
+        }
+
+        export namespace RedisPubSub {
+            export type AsObject = {
+                conn?: backends_redis_pubsub_pb.RedisPubSubConn.AsObject,
+                args?: backends_redis_pubsub_pb.RedisPubSubReadArgs.AsObject,
+            }
+        }
+
+        export class RedisStreams extends jspb.Message { 
+
+            hasConn(): boolean;
+            clearConn(): void;
+            getConn(): backends_redis_streams_pb.RedisStreamsConn | undefined;
+            setConn(value?: backends_redis_streams_pb.RedisStreamsConn): RedisStreams;
+
+            hasArgs(): boolean;
+            clearArgs(): void;
+            getArgs(): backends_redis_streams_pb.RedisStreamsReadArgs | undefined;
+            setArgs(value?: backends_redis_streams_pb.RedisStreamsReadArgs): RedisStreams;
+
+            serializeBinary(): Uint8Array;
+            toObject(includeInstance?: boolean): RedisStreams.AsObject;
+            static toObject(includeInstance: boolean, msg: RedisStreams): RedisStreams.AsObject;
+            static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+            static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+            static serializeBinaryToWriter(message: RedisStreams, writer: jspb.BinaryWriter): void;
+            static deserializeBinary(bytes: Uint8Array): RedisStreams;
+            static deserializeBinaryFromReader(message: RedisStreams, reader: jspb.BinaryReader): RedisStreams;
+        }
+
+        export namespace RedisStreams {
+            export type AsObject = {
+                conn?: backends_redis_streams_pb.RedisStreamsConn.AsObject,
+                args?: backends_redis_streams_pb.RedisStreamsReadArgs.AsObject,
+            }
+        }
+
+        export class AzureServiceBus extends jspb.Message { 
+
+            hasConn(): boolean;
+            clearConn(): void;
+            getConn(): backends_azure_service_bus_pb.AzureServiceBusConn | undefined;
+            setConn(value?: backends_azure_service_bus_pb.AzureServiceBusConn): AzureServiceBus;
+
+            hasArgs(): boolean;
+            clearArgs(): void;
+            getArgs(): backends_azure_service_bus_pb.AzureServiceBusReadArgs | undefined;
+            setArgs(value?: backends_azure_service_bus_pb.AzureServiceBusReadArgs): AzureServiceBus;
+
+            serializeBinary(): Uint8Array;
+            toObject(includeInstance?: boolean): AzureServiceBus.AsObject;
+            static toObject(includeInstance: boolean, msg: AzureServiceBus): AzureServiceBus.AsObject;
+            static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+            static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+            static serializeBinaryToWriter(message: AzureServiceBus, writer: jspb.BinaryWriter): void;
+            static deserializeBinary(bytes: Uint8Array): AzureServiceBus;
+            static deserializeBinaryFromReader(message: AzureServiceBus, reader: jspb.BinaryReader): AzureServiceBus;
+        }
+
+        export namespace AzureServiceBus {
+            export type AsObject = {
+                conn?: backends_azure_service_bus_pb.AzureServiceBusConn.AsObject,
+                args?: backends_azure_service_bus_pb.AzureServiceBusReadArgs.AsObject,
+            }
+        }
+
+        export class MQTT extends jspb.Message { 
+
+            hasConn(): boolean;
+            clearConn(): void;
+            getConn(): backends_mqtt_pb.MQTTConn | undefined;
+            setConn(value?: backends_mqtt_pb.MQTTConn): MQTT;
+
+            hasArgs(): boolean;
+            clearArgs(): void;
+            getArgs(): backends_mqtt_pb.MQTTReadArgs | undefined;
+            setArgs(value?: backends_mqtt_pb.MQTTReadArgs): MQTT;
+
+            serializeBinary(): Uint8Array;
+            toObject(includeInstance?: boolean): MQTT.AsObject;
+            static toObject(includeInstance: boolean, msg: MQTT): MQTT.AsObject;
+            static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+            static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+            static serializeBinaryToWriter(message: MQTT, writer: jspb.BinaryWriter): void;
+            static deserializeBinary(bytes: Uint8Array): MQTT;
+            static deserializeBinaryFromReader(message: MQTT, reader: jspb.BinaryReader): MQTT;
+        }
+
+        export namespace MQTT {
+            export type AsObject = {
+                conn?: backends_mqtt_pb.MQTTConn.AsObject,
+                args?: backends_mqtt_pb.MQTTReadArgs.AsObject,
+            }
+        }
+
+        export class GCPPubSub extends jspb.Message { 
+
+            hasConn(): boolean;
+            clearConn(): void;
+            getConn(): backends_gcp_pubsub_pb.GCPPubSubConn | undefined;
+            setConn(value?: backends_gcp_pubsub_pb.GCPPubSubConn): GCPPubSub;
+
+            hasArgs(): boolean;
+            clearArgs(): void;
+            getArgs(): backends_gcp_pubsub_pb.GCPPubSubReadArgs | undefined;
+            setArgs(value?: backends_gcp_pubsub_pb.GCPPubSubReadArgs): GCPPubSub;
+
+            serializeBinary(): Uint8Array;
+            toObject(includeInstance?: boolean): GCPPubSub.AsObject;
+            static toObject(includeInstance: boolean, msg: GCPPubSub): GCPPubSub.AsObject;
+            static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+            static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+            static serializeBinaryToWriter(message: GCPPubSub, writer: jspb.BinaryWriter): void;
+            static deserializeBinary(bytes: Uint8Array): GCPPubSub;
+            static deserializeBinaryFromReader(message: GCPPubSub, reader: jspb.BinaryReader): GCPPubSub;
+        }
+
+        export namespace GCPPubSub {
+            export type AsObject = {
+                conn?: backends_gcp_pubsub_pb.GCPPubSubConn.AsObject,
+                args?: backends_gcp_pubsub_pb.GCPPubSubReadArgs.AsObject,
+            }
+        }
+
+        export class KubeMQQueue extends jspb.Message { 
+
+            hasConn(): boolean;
+            clearConn(): void;
+            getConn(): backends_kubemq_queue_pb.KubeMQQueueConn | undefined;
+            setConn(value?: backends_kubemq_queue_pb.KubeMQQueueConn): KubeMQQueue;
+
+            hasArgs(): boolean;
+            clearArgs(): void;
+            getArgs(): backends_kubemq_queue_pb.KubeMQQueueReadArgs | undefined;
+            setArgs(value?: backends_kubemq_queue_pb.KubeMQQueueReadArgs): KubeMQQueue;
+
+            serializeBinary(): Uint8Array;
+            toObject(includeInstance?: boolean): KubeMQQueue.AsObject;
+            static toObject(includeInstance: boolean, msg: KubeMQQueue): KubeMQQueue.AsObject;
+            static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+            static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+            static serializeBinaryToWriter(message: KubeMQQueue, writer: jspb.BinaryWriter): void;
+            static deserializeBinary(bytes: Uint8Array): KubeMQQueue;
+            static deserializeBinaryFromReader(message: KubeMQQueue, reader: jspb.BinaryReader): KubeMQQueue;
+        }
+
+        export namespace KubeMQQueue {
+            export type AsObject = {
+                conn?: backends_kubemq_queue_pb.KubeMQQueueConn.AsObject,
+                args?: backends_kubemq_queue_pb.KubeMQQueueReadArgs.AsObject,
+            }
+        }
+
+    }
+
 }
 
 export class RelayConfig extends jspb.Message { 
@@ -69,88 +516,6 @@ export class RelayConfig extends jspb.Message {
     getCliConfig(): CLIRelayConfig | undefined;
     setCliConfig(value?: CLIRelayConfig): RelayConfig;
 
-    hasKafka(): boolean;
-    clearKafka(): void;
-    getKafka(): backends_kafka_pb.Kafka | undefined;
-    setKafka(value?: backends_kafka_pb.Kafka): RelayConfig;
-
-    hasActiveMq(): boolean;
-    clearActiveMq(): void;
-    getActiveMq(): backends_activemq_pb.ActiveMQ | undefined;
-    setActiveMq(value?: backends_activemq_pb.ActiveMQ): RelayConfig;
-
-    hasAwssqs(): boolean;
-    clearAwssqs(): void;
-    getAwssqs(): backends_aws_sqs_pb.AWSSQS | undefined;
-    setAwssqs(value?: backends_aws_sqs_pb.AWSSQS): RelayConfig;
-
-    hasAwssns(): boolean;
-    clearAwssns(): void;
-    getAwssns(): backends_aws_sns_pb.AWSSNS | undefined;
-    setAwssns(value?: backends_aws_sns_pb.AWSSNS): RelayConfig;
-
-    hasMongo(): boolean;
-    clearMongo(): void;
-    getMongo(): backends_mongo_pb.Mongo | undefined;
-    setMongo(value?: backends_mongo_pb.Mongo): RelayConfig;
-
-    hasNats(): boolean;
-    clearNats(): void;
-    getNats(): backends_nats_pb.Nats | undefined;
-    setNats(value?: backends_nats_pb.Nats): RelayConfig;
-
-    hasNatsStreaming(): boolean;
-    clearNatsStreaming(): void;
-    getNatsStreaming(): backends_nats_streaming_pb.NatsStreaming | undefined;
-    setNatsStreaming(value?: backends_nats_streaming_pb.NatsStreaming): RelayConfig;
-
-    hasNsq(): boolean;
-    clearNsq(): void;
-    getNsq(): backends_nsq_pb.NSQ | undefined;
-    setNsq(value?: backends_nsq_pb.NSQ): RelayConfig;
-
-    hasPostgres(): boolean;
-    clearPostgres(): void;
-    getPostgres(): backends_postgres_pb.Postgres | undefined;
-    setPostgres(value?: backends_postgres_pb.Postgres): RelayConfig;
-
-    hasPulsar(): boolean;
-    clearPulsar(): void;
-    getPulsar(): backends_pulsar_pb.Pulsar | undefined;
-    setPulsar(value?: backends_pulsar_pb.Pulsar): RelayConfig;
-
-    hasRabbit(): boolean;
-    clearRabbit(): void;
-    getRabbit(): backends_rabbit_pb.Rabbit | undefined;
-    setRabbit(value?: backends_rabbit_pb.Rabbit): RelayConfig;
-
-    hasRabbitStreams(): boolean;
-    clearRabbitStreams(): void;
-    getRabbitStreams(): backends_rabbit_streams_pb.RabbitStreams | undefined;
-    setRabbitStreams(value?: backends_rabbit_streams_pb.RabbitStreams): RelayConfig;
-
-    hasRedisPubsub(): boolean;
-    clearRedisPubsub(): void;
-    getRedisPubsub(): backends_redis_pubsub_pb.RedisPubsub | undefined;
-    setRedisPubsub(value?: backends_redis_pubsub_pb.RedisPubsub): RelayConfig;
-
-    hasRedisStreams(): boolean;
-    clearRedisStreams(): void;
-    getRedisStreams(): backends_redis_streams_pb.RedisStreams | undefined;
-    setRedisStreams(value?: backends_redis_streams_pb.RedisStreams): RelayConfig;
-
-    hasAzureEventHub(): boolean;
-    clearAzureEventHub(): void;
-    getAzureEventHub(): backends_azure_event_hub_pb.AzureEventHub | undefined;
-    setAzureEventHub(value?: backends_azure_event_hub_pb.AzureEventHub): RelayConfig;
-
-    hasAzureServiceBus(): boolean;
-    clearAzureServiceBus(): void;
-    getAzureServiceBus(): backends_azure_service_bus_pb.AzureServiceBus | undefined;
-    setAzureServiceBus(value?: backends_azure_service_bus_pb.AzureServiceBus): RelayConfig;
-
-    getBackendsCase(): RelayConfig.BackendsCase;
-
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): RelayConfig.AsObject;
     static toObject(includeInstance: boolean, msg: RelayConfig): RelayConfig.AsObject;
@@ -173,44 +538,7 @@ export namespace RelayConfig {
         BatchshGrpcTimeoutSeconds: number,
         RelayId: string,
         CliConfig?: CLIRelayConfig.AsObject,
-        kafka?: backends_kafka_pb.Kafka.AsObject,
-        activeMq?: backends_activemq_pb.ActiveMQ.AsObject,
-        awssqs?: backends_aws_sqs_pb.AWSSQS.AsObject,
-        awssns?: backends_aws_sns_pb.AWSSNS.AsObject,
-        mongo?: backends_mongo_pb.Mongo.AsObject,
-        nats?: backends_nats_pb.Nats.AsObject,
-        natsStreaming?: backends_nats_streaming_pb.NatsStreaming.AsObject,
-        nsq?: backends_nsq_pb.NSQ.AsObject,
-        postgres?: backends_postgres_pb.Postgres.AsObject,
-        pulsar?: backends_pulsar_pb.Pulsar.AsObject,
-        rabbit?: backends_rabbit_pb.Rabbit.AsObject,
-        rabbitStreams?: backends_rabbit_streams_pb.RabbitStreams.AsObject,
-        redisPubsub?: backends_redis_pubsub_pb.RedisPubsub.AsObject,
-        redisStreams?: backends_redis_streams_pb.RedisStreams.AsObject,
-        azureEventHub?: backends_azure_event_hub_pb.AzureEventHub.AsObject,
-        azureServiceBus?: backends_azure_service_bus_pb.AzureServiceBus.AsObject,
     }
-
-    export enum BackendsCase {
-        BACKENDS_NOT_SET = 0,
-        KAFKA = 100,
-        ACTIVE_MQ = 101,
-        AWSSQS = 102,
-        AWSSNS = 103,
-        MONGO = 104,
-        NATS = 105,
-        NATS_STREAMING = 106,
-        NSQ = 107,
-        POSTGRES = 108,
-        PULSAR = 109,
-        RABBIT = 110,
-        RABBIT_STREAMS = 111,
-        REDIS_PUBSUB = 112,
-        REDIS_STREAMS = 113,
-        AZURE_EVENT_HUB = 114,
-        AZURE_SERVICE_BUS = 115,
-    }
-
 }
 
 export class GetAllRelaysRequest extends jspb.Message { 
@@ -333,73 +661,58 @@ export class CreateRelayRequest extends jspb.Message {
 
     hasKafka(): boolean;
     clearKafka(): void;
-    getKafka(): backends_kafka_pb.Kafka | undefined;
-    setKafka(value?: backends_kafka_pb.Kafka): CreateRelayRequest;
+    getKafka(): backends_kafka_pb.KafkaReadArgs | undefined;
+    setKafka(value?: backends_kafka_pb.KafkaReadArgs): CreateRelayRequest;
 
-    hasActiveMq(): boolean;
-    clearActiveMq(): void;
-    getActiveMq(): backends_activemq_pb.ActiveMQ | undefined;
-    setActiveMq(value?: backends_activemq_pb.ActiveMQ): CreateRelayRequest;
+    hasMqtt(): boolean;
+    clearMqtt(): void;
+    getMqtt(): backends_mqtt_pb.MQTTReadArgs | undefined;
+    setMqtt(value?: backends_mqtt_pb.MQTTReadArgs): CreateRelayRequest;
 
     hasAwssqs(): boolean;
     clearAwssqs(): void;
-    getAwssqs(): backends_aws_sqs_pb.AWSSQS | undefined;
-    setAwssqs(value?: backends_aws_sqs_pb.AWSSQS): CreateRelayRequest;
-
-    hasAwssns(): boolean;
-    clearAwssns(): void;
-    getAwssns(): backends_aws_sns_pb.AWSSNS | undefined;
-    setAwssns(value?: backends_aws_sns_pb.AWSSNS): CreateRelayRequest;
+    getAwssqs(): backends_aws_sqs_pb.AWSSQSReadArgs | undefined;
+    setAwssqs(value?: backends_aws_sqs_pb.AWSSQSReadArgs): CreateRelayRequest;
 
     hasMongo(): boolean;
     clearMongo(): void;
-    getMongo(): backends_mongo_pb.Mongo | undefined;
-    setMongo(value?: backends_mongo_pb.Mongo): CreateRelayRequest;
+    getMongo(): backends_mongo_pb.MongoReadArgs | undefined;
+    setMongo(value?: backends_mongo_pb.MongoReadArgs): CreateRelayRequest;
 
-    hasNats(): boolean;
-    clearNats(): void;
-    getNats(): backends_nats_pb.Nats | undefined;
-    setNats(value?: backends_nats_pb.Nats): CreateRelayRequest;
+    hasGcpPubsub(): boolean;
+    clearGcpPubsub(): void;
+    getGcpPubsub(): backends_gcp_pubsub_pb.GCPPubSubReadArgs | undefined;
+    setGcpPubsub(value?: backends_gcp_pubsub_pb.GCPPubSubReadArgs): CreateRelayRequest;
 
-    hasNatsStreaming(): boolean;
-    clearNatsStreaming(): void;
-    getNatsStreaming(): backends_nats_streaming_pb.NatsStreaming | undefined;
-    setNatsStreaming(value?: backends_nats_streaming_pb.NatsStreaming): CreateRelayRequest;
+    hasAzureServiceBus(): boolean;
+    clearAzureServiceBus(): void;
+    getAzureServiceBus(): backends_azure_service_bus_pb.AzureServiceBusReadArgs | undefined;
+    setAzureServiceBus(value?: backends_azure_service_bus_pb.AzureServiceBusReadArgs): CreateRelayRequest;
 
     hasNsq(): boolean;
     clearNsq(): void;
-    getNsq(): backends_nsq_pb.NSQ | undefined;
-    setNsq(value?: backends_nsq_pb.NSQ): CreateRelayRequest;
+    getNsq(): backends_nsq_pb.NSQReadArgs | undefined;
+    setNsq(value?: backends_nsq_pb.NSQReadArgs): CreateRelayRequest;
 
     hasPostgres(): boolean;
     clearPostgres(): void;
-    getPostgres(): backends_postgres_pb.Postgres | undefined;
-    setPostgres(value?: backends_postgres_pb.Postgres): CreateRelayRequest;
-
-    hasPulsar(): boolean;
-    clearPulsar(): void;
-    getPulsar(): backends_pulsar_pb.Pulsar | undefined;
-    setPulsar(value?: backends_pulsar_pb.Pulsar): CreateRelayRequest;
+    getPostgres(): backends_postgres_pb.PostgresReadArgs | undefined;
+    setPostgres(value?: backends_postgres_pb.PostgresReadArgs): CreateRelayRequest;
 
     hasRabbit(): boolean;
     clearRabbit(): void;
-    getRabbit(): backends_rabbit_pb.Rabbit | undefined;
-    setRabbit(value?: backends_rabbit_pb.Rabbit): CreateRelayRequest;
-
-    hasRabbitStreams(): boolean;
-    clearRabbitStreams(): void;
-    getRabbitStreams(): backends_rabbit_streams_pb.RabbitStreams | undefined;
-    setRabbitStreams(value?: backends_rabbit_streams_pb.RabbitStreams): CreateRelayRequest;
+    getRabbit(): backends_rabbit_pb.RabbitReadArgs | undefined;
+    setRabbit(value?: backends_rabbit_pb.RabbitReadArgs): CreateRelayRequest;
 
     hasRedisPubsub(): boolean;
     clearRedisPubsub(): void;
-    getRedisPubsub(): backends_redis_pubsub_pb.RedisPubsub | undefined;
-    setRedisPubsub(value?: backends_redis_pubsub_pb.RedisPubsub): CreateRelayRequest;
+    getRedisPubsub(): backends_redis_pubsub_pb.RedisPubSubReadArgs | undefined;
+    setRedisPubsub(value?: backends_redis_pubsub_pb.RedisPubSubReadArgs): CreateRelayRequest;
 
     hasRedisStreams(): boolean;
     clearRedisStreams(): void;
-    getRedisStreams(): backends_redis_streams_pb.RedisStreams | undefined;
-    setRedisStreams(value?: backends_redis_streams_pb.RedisStreams): CreateRelayRequest;
+    getRedisStreams(): backends_redis_streams_pb.RedisStreamsReadArgs | undefined;
+    setRedisStreams(value?: backends_redis_streams_pb.RedisStreamsReadArgs): CreateRelayRequest;
 
     getBackendsCase(): CreateRelayRequest.BackendsCase;
 
@@ -417,38 +730,32 @@ export namespace CreateRelayRequest {
     export type AsObject = {
         auth?: common_auth_pb.Auth.AsObject,
         config?: RelayConfig.AsObject,
-        kafka?: backends_kafka_pb.Kafka.AsObject,
-        activeMq?: backends_activemq_pb.ActiveMQ.AsObject,
-        awssqs?: backends_aws_sqs_pb.AWSSQS.AsObject,
-        awssns?: backends_aws_sns_pb.AWSSNS.AsObject,
-        mongo?: backends_mongo_pb.Mongo.AsObject,
-        nats?: backends_nats_pb.Nats.AsObject,
-        natsStreaming?: backends_nats_streaming_pb.NatsStreaming.AsObject,
-        nsq?: backends_nsq_pb.NSQ.AsObject,
-        postgres?: backends_postgres_pb.Postgres.AsObject,
-        pulsar?: backends_pulsar_pb.Pulsar.AsObject,
-        rabbit?: backends_rabbit_pb.Rabbit.AsObject,
-        rabbitStreams?: backends_rabbit_streams_pb.RabbitStreams.AsObject,
-        redisPubsub?: backends_redis_pubsub_pb.RedisPubsub.AsObject,
-        redisStreams?: backends_redis_streams_pb.RedisStreams.AsObject,
+        kafka?: backends_kafka_pb.KafkaReadArgs.AsObject,
+        mqtt?: backends_mqtt_pb.MQTTReadArgs.AsObject,
+        awssqs?: backends_aws_sqs_pb.AWSSQSReadArgs.AsObject,
+        mongo?: backends_mongo_pb.MongoReadArgs.AsObject,
+        gcpPubsub?: backends_gcp_pubsub_pb.GCPPubSubReadArgs.AsObject,
+        azureServiceBus?: backends_azure_service_bus_pb.AzureServiceBusReadArgs.AsObject,
+        nsq?: backends_nsq_pb.NSQReadArgs.AsObject,
+        postgres?: backends_postgres_pb.PostgresReadArgs.AsObject,
+        rabbit?: backends_rabbit_pb.RabbitReadArgs.AsObject,
+        redisPubsub?: backends_redis_pubsub_pb.RedisPubSubReadArgs.AsObject,
+        redisStreams?: backends_redis_streams_pb.RedisStreamsReadArgs.AsObject,
     }
 
     export enum BackendsCase {
         BACKENDS_NOT_SET = 0,
         KAFKA = 100,
-        ACTIVE_MQ = 101,
+        MQTT = 101,
         AWSSQS = 102,
-        AWSSNS = 103,
         MONGO = 104,
-        NATS = 105,
-        NATS_STREAMING = 106,
+        GCP_PUBSUB = 105,
+        AZURE_SERVICE_BUS = 106,
         NSQ = 107,
         POSTGRES = 108,
-        PULSAR = 109,
-        RABBIT = 110,
-        RABBIT_STREAMS = 111,
-        REDIS_PUBSUB = 112,
-        REDIS_STREAMS = 113,
+        RABBIT = 109,
+        REDIS_PUBSUB = 111,
+        REDIS_STREAMS = 112,
     }
 
 }
