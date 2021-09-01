@@ -15,6 +15,12 @@ export class GlobalCLIOptions extends jspb.Message {
     setDebug(value: boolean): GlobalCLIOptions;
     getQuiet(): boolean;
     setQuiet(value: boolean): GlobalCLIOptions;
+    getFullCommand(): string;
+    setFullCommand(value: string): GlobalCLIOptions;
+    getAction(): string;
+    setAction(value: string): GlobalCLIOptions;
+    getBackend(): string;
+    setBackend(value: string): GlobalCLIOptions;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): GlobalCLIOptions.AsObject;
@@ -30,6 +36,9 @@ export namespace GlobalCLIOptions {
     export type AsObject = {
         debug: boolean,
         quiet: boolean,
+        FullCommand: string,
+        Action: string,
+        Backend: string,
     }
 }
 
