@@ -40,8 +40,8 @@ export class MQTTConn extends jspb.Message {
     setAddress(value: string): MQTTConn;
     getTopic(): string;
     setTopic(value: string): MQTTConn;
-    getTimeoutSeconds(): number;
-    setTimeoutSeconds(value: number): MQTTConn;
+    getConnTimeoutSeconds(): number;
+    setConnTimeoutSeconds(value: number): MQTTConn;
     getClientId(): string;
     setClientId(value: string): MQTTConn;
     getQosLevel(): MQTTQoSLevel;
@@ -66,7 +66,7 @@ export namespace MQTTConn {
     export type AsObject = {
         address: string,
         topic: string,
-        timeoutSeconds: number,
+        connTimeoutSeconds: number,
         clientId: string,
         qosLevel: MQTTQoSLevel,
         tlsOptions?: MQTTTLSOptions.AsObject,
@@ -74,8 +74,8 @@ export namespace MQTTConn {
 }
 
 export class MQTTReadArgs extends jspb.Message { 
-    getTimeoutSeconds(): number;
-    setTimeoutSeconds(value: number): MQTTReadArgs;
+    getReadTimeoutSeconds(): number;
+    setReadTimeoutSeconds(value: number): MQTTReadArgs;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): MQTTReadArgs.AsObject;
@@ -89,13 +89,13 @@ export class MQTTReadArgs extends jspb.Message {
 
 export namespace MQTTReadArgs {
     export type AsObject = {
-        timeoutSeconds: number,
+        readTimeoutSeconds: number,
     }
 }
 
 export class MQTTWriteArgs extends jspb.Message { 
-    getTimeoutSeconds(): number;
-    setTimeoutSeconds(value: number): MQTTWriteArgs;
+    getWriteTimeoutSeconds(): number;
+    setWriteTimeoutSeconds(value: number): MQTTWriteArgs;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): MQTTWriteArgs.AsObject;
@@ -109,7 +109,7 @@ export class MQTTWriteArgs extends jspb.Message {
 
 export namespace MQTTWriteArgs {
     export type AsObject = {
-        timeoutSeconds: number,
+        writeTimeoutSeconds: number,
     }
 }
 

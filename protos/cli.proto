@@ -10,10 +10,11 @@ import "server.proto";
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
 
 message GlobalCLIOptions {
+    // @gotags: kong:"help='Enable debug output'"
     bool debug = 1;
+
+    // @gotags: kong:"help='Disable fancy output (like curl -s)'"
     bool quiet = 2;
-    bool stats_enable = 3;
-    int32 stats_report_interval_sec = 4;
 }
 
 // CLI options in plumber are derived 100% from the protobuf schemas.
@@ -26,15 +27,15 @@ message CLIOptions {
     // @gotags: kong:"embed"
     GlobalCLIOptions global = 1;
 
-    // @gotags: kong:"cmd"
+    // @gotags: kong:"cmd,help=Read message(s) from messaging system"
     protos.ReadConfig read = 2;
 
-    // @gotags: kong:"cmd"
+    // @gotags: kong:"cmd,help=Write message(s) to messaging system"
     protos.WriteConfig write = 3;
 
-    // @gotags: kong:"cmd"
+    // @gotags: kong:"cmd,help=Relay message(s) from messaging system to Batch"
     protos.RelayConfig relay = 4;
 
-     // @gotags: kong:"cmd"
+     // @gotags: kong:"cmd,group=server,help=Run plumber in server mode"
     protos.ServerConfig server = 5;
 }

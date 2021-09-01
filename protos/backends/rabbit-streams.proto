@@ -5,50 +5,64 @@ package protos.backends;
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/backends";
 
 message RabbitStreamsConn {
-  // Required
-  // DSN used to connect to rabbitmq. Ex: rabbitmq-stream://localhost:5552
+  // @gotags: kong:"help='DSN used to connect to RabbitMQ',default='rabbitmq-stream://guest:guest@localhost:5552',required"
   string dsn = 1;
 
-  // Connect over TLS
+  // @gotags: kong:"help='Enable TLS usage (regardless of DSN)'"
   bool use_tls = 2;
 
-  // Specify to not verify server's TLS certificate
+  // @gotags: kong:"help='Whether to verify server certificate'"
   bool insecure_tls = 3;
 
-  // Required
+  // @gotags: kong:"help='Username to authenticate to server with',default=guest"
   string username = 4;
 
-  // Required
+  // @gotags: kong:"help='Password used to authenticate to server with',default=guest"
   string password = 5;
 
-  // Required
+  // @gotags: kong:"help='Consumer or producer name to identify as to RabbitMQ',default=plumber,required"
   string client_name = 6;
 }
 
 message RabbitStreamsOffsetOptions {
+  // @gotags: kong:"group=offset,xor=offset"
   uint64 specific_offset = 1;
+
+  // @gotags: kong:"group=offset,xor=offset"
   uint64 last_offset = 2;
+
+  // @gotags: kong:"group=offset,xor=offset"
   bool last_consumed = 3;
+
+  // @gotags: kong:"group=offset,xor=offset"
   bool first_offset = 4;
+
+  // @gotags: kong:"group=offset,xor=offset"
   bool next_offset = 5;
 }
 
 message RabbitStreamsReadArgs {
-  // Required
+  // @gotags: kong:"help='Stream name',required"
   string stream = 1;
 
-  // Optional
-  // If specified, stream will be declared
+  // @gotags: kong:"help='Declare the stream if it does not exist'"
   bool declare_stream = 2;
 
-  // Required if declare_stream is true; size capacity to declare the stream
-  // with. Ex: 1024k, 10mb, 3gb
+  // @gotags: kong:"help='Stream capacity to declare (required if declare_stream is true; ex: 1024k, 10mb, 3gb'"
   string declare_stream_size = 3;
 
-  // Required read position
+  // TODO: Will this break? Might just need to be a string.
+  // @gotags: kong:"help='Offset to start reading at'"
   RabbitStreamsOffsetOptions offset_options = 4;
 }
 
 message RabbitStreamsWriteArgs {
-  // TODO: Fill out
+  // @gotags: kong:"help='',required"
+  string stream = 1;
+
+  // @gotags: kong:"help='Declare the stream if it does not exist'"
+  bool declare_stream = 2;
+
+  // @gotags: kong:"help='Stream capacity to declare (required if declare_stream is true; ex: 1024k, 10mb, 3gb',default=10mb"
+  string declare_stream_size = 3;
 }

@@ -181,7 +181,8 @@ type RedisStreamsReadArgs struct {
 	// Optional for reads
 	// Ignored for writes
 	// Specify if you the user needs to create/recreate a consumer group
-	CreateConsumerConfig *CreateConsumerConfig `protobuf:"bytes,7,opt,name=create_consumer_config,json=createConsumerConfig,proto3" json:"create_consumer_config,omitempty"`
+	// @gotags: kong:"embed"
+	CreateConsumerConfig *CreateConsumerConfig `protobuf:"bytes,7,opt,name=create_consumer_config,json=createConsumerConfig,proto3" json:"create_consumer_config,omitempty" kong:"embed"`
 	XXX_NoUnkeyedLiteral struct{}              `json:"-"`
 	XXX_unrecognized     []byte                `json:"-"`
 	XXX_sizecache        int32                 `json:"-"`

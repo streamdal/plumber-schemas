@@ -15,10 +15,6 @@ export class GlobalCLIOptions extends jspb.Message {
     setDebug(value: boolean): GlobalCLIOptions;
     getQuiet(): boolean;
     setQuiet(value: boolean): GlobalCLIOptions;
-    getStatsEnable(): boolean;
-    setStatsEnable(value: boolean): GlobalCLIOptions;
-    getStatsReportIntervalSec(): number;
-    setStatsReportIntervalSec(value: number): GlobalCLIOptions;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): GlobalCLIOptions.AsObject;
@@ -34,8 +30,6 @@ export namespace GlobalCLIOptions {
     export type AsObject = {
         debug: boolean,
         quiet: boolean,
-        statsEnable: boolean,
-        statsReportIntervalSec: number,
     }
 }
 

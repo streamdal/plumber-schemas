@@ -5,19 +5,19 @@ package protos.backends;
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/backends";
 
 message GCPPubSubConn {
-    // Required
+    // @gotags: kong:"help='Project ID',env='PLUMBER_RELAY_GCP_PROJECT_ID',required"
     string project_id = 1;
 }
 
 message GCPPubSubReadArgs {
-    // Required
+    // @gotags: kong:"help='Subscription ID',env='PLUMBER_RELAY_GCP_SUBSCRIPTION_ID',required"
     string subscription_id = 1;
 
-    // Optional; default: true
+    // @gotags: kong:"help='Whether to acknowledge message receive',env='PLUMBER_RELAY_GCP_ACK_MESSAGE',default=true"
     bool ack_messages = 2;
 }
 
 message GCPPubSubWriteArgs {
-    // Required
+    // @gotags: kong:"help='Topic ID to publish message(s) to',required"
     string topic_id = 1;
 }

@@ -5,19 +5,23 @@ package protos.backends;
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/backends";
 
 message ActiveMQConn {
-  // Required
+  // @gotags: kong:"help='Destination host address',required,default=localhost:61613"
   string address = 1;
 }
 
 
 message ActiveMQReadArgs {
-  // Required if queue not specified
+  // @gotags: kong:"help='Topic to read message(s) from',xor=activemq_read"
   string topic = 1;
 
-  // Required if topic not specified
+  // @gotags: kong:'help='Queue to read message(s) from',xor=activemq_read"
   string queue = 2;
 }
 
 message ActiveMQWriteArgs {
-  // TODO: Fill out
+  // @gotags: kong:"help='Topic to write message(s) to',xor=activemq_write"
+  string topic = 1;
+
+  // @gotags: kong:'help='Queue to write message(s) to',xor=activemq_write"
+  string queue = 2;
 }

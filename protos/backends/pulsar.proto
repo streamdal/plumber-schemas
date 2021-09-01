@@ -12,37 +12,34 @@ enum SubscriptionType {
 }
 
 message PulsarConn {
-  // Required
-  // Full DSN to connect to Pulsar. Ex: pulsar://localhost:6650
+  // @gotags: kong:"help='Full DSN to connect to Pulsar',default='pulsar://localhost:6650',required"
   string dsn = 1;
 
-  // Optional
-  // Default: 10s
-  string connect_timeout = 2;
+  // @gotags: kong:"help='Connection timeout',default=10"
+  uint32 connect_timeout_seconds = 2;
 
-  // Specify to not verify server's TLS certificate
+  // @gotags: kong:"help='Whether to verify server certificate'"
   bool insecure_tls = 3;
 
-  // Optional
+  // @gotags: kong:"help='TLS client certificate file',type=existingfile"
   bytes tls_client_cert = 4;
 
-  // Optional
+  // @gotags: kong:"help='TLS client key file',type=existingfile"
   bytes tls_client_key = 5;
 }
 
 message PulsarReadArgs {
-  // Required
+  // @gotags: kong:"help='Topic to read messages from',required"
   string topic = 1;
 
-  // Required for reads
-  // Ignored for writes
+  // @gotags: kong:"help='Subscription name',required"
   string subscription_name = 2;
 
-  // Required for reads
-  // Ignored for writes
+  // @gotags: kong:"help='Subscription type (0: shared, 1: exclusive, 2: failover, 3: keyshared)',required"
   SubscriptionType subscription_type = 3;
 }
 
 message PulsarWriteArgs {
-  // TODO: Fill out
+  // @gotags: kong:"help='topic to write messages to'"
+  string topic = 1;
 }

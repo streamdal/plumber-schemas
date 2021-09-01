@@ -5,20 +5,18 @@ package protos.backends;
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/backends";
 
 message AzureEventHubConn {
-  // Required
+  // @gotags: kong:"help='Connection string',env='EVENTHUB_CONNECTION_STRING',required"
   string connection_string = 1;
 }
 
 message AzureEventHubReadArgs {
-  // Optional for writes
-  // Ignored for reads
-  string message_id = 1;
-
-  // Optional for writes
-  // Ignored for reads
-  string partition_key = 2;
+  // None
 }
 
 message AzureEventHubWriteArgs {
-  // TODO: Fill out
+  // @gotags: kong:"help='Send message with this ID'"
+  string message_id = 1;
+
+  // @gotags: kong:"help='Send message with this partition key'"
+  string partition_key = 2;
 }

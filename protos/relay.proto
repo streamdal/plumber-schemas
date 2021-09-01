@@ -4,21 +4,14 @@ package protos;
 
 import "backends/backends.proto";
 import "backends/kafka.proto";
-import "backends/activemq.proto";
-import "backends/aws-sns.proto";
 import "backends/aws-sqs.proto";
 import "backends/mongo.proto";
-import "backends/nats.proto";
-import "backends/nats-streaming.proto";
 import "backends/nsq.proto";
 import "backends/postgres.proto";
-import "backends/pulsar.proto";
 import "backends/rabbit.proto";
-import "backends/rabbit-streams.proto";
 import "backends/redis-pubsub.proto";
 import "backends/redis-streams.proto";
 import "backends/azure-service-bus.proto";
-import "backends/azure-event-hub.proto";
 import "backends/mqtt.proto";
 import "backends/gcp-pubsub.proto";
 import "backends/kubemq-queue.proto";
@@ -35,125 +28,127 @@ message CLIRelayConfig {
     // @gotags: kong:"-"
     backends.Type _backend_type = 2;
 
-    // @gotags: embed:""
+    // @gotags: kong:"embed,group=relay"
     RelayBackend _relay_backend = 3;
 
     message RelayBackend {
-        // @gotags: cmd:""
+        // @gotags: kong:"cmd,help='Apache Kafka'"
         Kafka kafka = 1;
-        // @gotags: cmd:""
+
+        // @gotags: kong:"cmd,help='AWS Simple Queue System'"
         AWSSQS awssqs = 2;
-        // @gotags: cmd:""
+
+        // @gotags: kong:"cmd,help='MongoDB (CDC)'"
         Mongo mongo = 3;
-        // @gotags: cmd:""
+
+        // @gotags: kong:"cmd,help='NSQ'"
         NSQ nsq = 4;
-        // @gotags: cmd:""
+
+        // @gotags: kong:"cmd,help='MQTT'"
         Rabbit rabbit = 5;
-        // @gotags: cmd:""
+
+        // @gotags: kong:"cmd,help='MQTT'"
         MQTT mqtt = 6;
-        // @gotags: cmd:""
+
+        // @gotags: kong:"cmd,help='Azure Service Bus'"
         AzureServiceBus azure_service_bus = 7;
-        // @gotags: cmd:""
+
+        // @gotags: kong:"cmd,help='Google Cloud Platform Pub/Sub'"
         GCPPubSub gcp_pubsub = 8;
-        // @gotags: cmd:""
+
+        // @gotags: kong:"cmd,help='KubeMQ Queue'"
         KubeMQQueue kubemq_queue = 9;
-        // @gotags: cmd:""
+
+        // @gotags: kong:"cmd,help='Redis PubSub'"
         RedisPubSub redis_pubsub = 10;
-        // @gotags: cmd:""
+
+        // @gotags: kong:"cmd,help='Redis Streams'"
         RedisStreams redis_streams = 11;
-        // @gotags: cmd:""
+
+        // @gotags: kong:"cmd,help='PostgreSQL (CDC)'"
         Postgres postgres = 12;
 
-        // @gotags: cmd:""
         message Kafka {
-            // @gotags: embed:""
+            // @gotags: kong:"embed"
             backends.KafkaConn conn = 1;
-            // @gotags: embed:""
+            // @gotags: kong:"embed"
             backends.KafkaReadArgs args = 2;
         }
 
-        // @gotags: cmd:""
         message AWSSQS {
-            // @gotags: embed:""
+            // @gotags: kong:"embed"
             backends.AWSSQSConn conn = 1;
-            // @gotags: embed:""
+            // @gotags: kong:"embed"
             backends.AWSSQSReadArgs args = 2;
         }
 
-        // @gotags: cmd:""
         message Mongo {
-            // @gotags: embed:""
+            // @gotags: kong:"embed"
             backends.MongoConn conn = 1;
-            // @gotags: embed:""
+            // @gotags: kong:"embed"
             backends.MongoReadArgs args = 2;
         }
 
-        // @gotags: cmd:""
         message NSQ {
-            // @gotags: embed:""
+            // @gotags: kong:"embed"
             backends.NSQConn conn = 1;
-            // @gotags: embed:""
+            // @gotags: kong:"embed"
             backends.NSQReadArgs args = 2;
         }
 
-        // @gotags: cmd:""
         message Postgres {
-            // @gotags: embed:""
+            // @gotags: kong:"embed"
             backends.PostgresConn conn = 1;
-            // @gotags: embed:""
+            // @gotags: kong:"embed"
             backends.PostgresReadArgs args = 2;
         }
 
-        // @gotags: cmd:""
         message Rabbit {
-            // @gotags: embed:""
+            // @gotags: kong:"embed"
             backends.RabbitConn conn = 1;
-            // @gotags: embed:""
+            // @gotags: kong:"embed"
             backends.RabbitReadArgs args = 2;
         }
 
-        // @gotags: cmd:""
         message RedisPubSub {
-            // @gotags: embed:""
+            // @gotags: kong:"embed"
             backends.RedisPubSubConn conn = 1;
-            // @gotags: embed:""
+            // @gotags: kong:"embed"
             backends.RedisPubSubReadArgs args = 2;
         }
 
-        // @gotags: cmd:""
         message RedisStreams {
-            // @gotags: embed:""
+            // @gotags: kong:"embed"
             backends.RedisStreamsConn conn = 1;
-            // @gotags: embed:""
+            // @gotags: kong:"embed"
             backends.RedisStreamsReadArgs args = 2;
         }
 
-        // @gotags: cmd:""
         message AzureServiceBus {
-            // @gotags: embed:""
+            // @gotags: kong:"embed"
             backends.AzureServiceBusConn conn = 1;
-            // @gotags: embed:""
+            // @gotags: kong:"embed"
             backends.AzureServiceBusReadArgs args = 2;
         }
 
         message MQTT {
-            // @gotags: embed:""
+            // @gotags: kong:"embed"
             backends.MQTTConn conn = 1;
-            // @gotags: embed:""
+            // @gotags: kong:"embed"
             backends.MQTTReadArgs args = 2;
         }
 
         message GCPPubSub {
-            // @gotags: embed:""
+            // @gotags: kong:"embed"
             backends.GCPPubSubConn conn = 1;
-            // @gotags: embed:""
+            // @gotags: kong:"embed"
             backends.GCPPubSubReadArgs args = 2;
         }
 
         message KubeMQQueue {
-            // @gotags: embed:""
+            // @gotags: kong:"embed"
             backends.KubeMQQueueConn conn = 1;
-            // @gotags: embed:""
+            // @gotags: kong:"embed"
             backends.KubeMQQueueReadArgs args = 2;
         }
     }
@@ -196,7 +191,7 @@ message RelayConfig {
     // @gotags: kong:"-"
     string _relay_id = 9;
 
-    // @gotags: embed:""
+    // @gotags: kong:"embed"
     CLIRelayConfig _cli_config = 10;
 }
 

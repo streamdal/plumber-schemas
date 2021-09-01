@@ -100,9 +100,7 @@ proto.protos.GlobalCLIOptions.prototype.toObject = function(opt_includeInstance)
 proto.protos.GlobalCLIOptions.toObject = function(includeInstance, msg) {
   var f, obj = {
     debug: jspb.Message.getBooleanFieldWithDefault(msg, 1, false),
-    quiet: jspb.Message.getBooleanFieldWithDefault(msg, 2, false),
-    statsEnable: jspb.Message.getBooleanFieldWithDefault(msg, 3, false),
-    statsReportIntervalSec: jspb.Message.getFieldWithDefault(msg, 4, 0)
+    quiet: jspb.Message.getBooleanFieldWithDefault(msg, 2, false)
   };
 
   if (includeInstance) {
@@ -147,14 +145,6 @@ proto.protos.GlobalCLIOptions.deserializeBinaryFromReader = function(msg, reader
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setQuiet(value);
       break;
-    case 3:
-      var value = /** @type {boolean} */ (reader.readBool());
-      msg.setStatsEnable(value);
-      break;
-    case 4:
-      var value = /** @type {number} */ (reader.readInt32());
-      msg.setStatsReportIntervalSec(value);
-      break;
     default:
       reader.skipField();
       break;
@@ -198,20 +188,6 @@ proto.protos.GlobalCLIOptions.serializeBinaryToWriter = function(message, writer
       f
     );
   }
-  f = message.getStatsEnable();
-  if (f) {
-    writer.writeBool(
-      3,
-      f
-    );
-  }
-  f = message.getStatsReportIntervalSec();
-  if (f !== 0) {
-    writer.writeInt32(
-      4,
-      f
-    );
-  }
 };
 
 
@@ -248,42 +224,6 @@ proto.protos.GlobalCLIOptions.prototype.getQuiet = function() {
  */
 proto.protos.GlobalCLIOptions.prototype.setQuiet = function(value) {
   return jspb.Message.setProto3BooleanField(this, 2, value);
-};
-
-
-/**
- * optional bool stats_enable = 3;
- * @return {boolean}
- */
-proto.protos.GlobalCLIOptions.prototype.getStatsEnable = function() {
-  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 3, false));
-};
-
-
-/**
- * @param {boolean} value
- * @return {!proto.protos.GlobalCLIOptions} returns this
- */
-proto.protos.GlobalCLIOptions.prototype.setStatsEnable = function(value) {
-  return jspb.Message.setProto3BooleanField(this, 3, value);
-};
-
-
-/**
- * optional int32 stats_report_interval_sec = 4;
- * @return {number}
- */
-proto.protos.GlobalCLIOptions.prototype.getStatsReportIntervalSec = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
-};
-
-
-/**
- * @param {number} value
- * @return {!proto.protos.GlobalCLIOptions} returns this
- */
-proto.protos.GlobalCLIOptions.prototype.setStatsReportIntervalSec = function(value) {
-  return jspb.Message.setProto3IntField(this, 4, value);
 };
 
 

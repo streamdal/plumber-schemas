@@ -6,22 +6,25 @@ option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/backen
 
 
 message AzureServiceBusConn {
-  // Required
+  // @gotags: kong:"help='Connection string',env='SERVICEBUS_CONNECTION_STRING',required"
   string connection_string = 1;
 }
 
 message AzureServiceBusReadArgs {
-  // Required for reads and writes
+  // @gotags: kong:"help='Queue name',env='PLUMBER_RELAY_AZURE_QUEUE_NAME',required"
   string queue = 1;
 
-  // Required
+  // @gotags: kong:"help='Topic name',env='PLUMBER_RELAY_AZURE_TOPIC_NAME',required"
   string topic = 2;
 
-  // Required
+  // @gotags: kong:"help='Subscription name',env='PLUMBER_RELAY_AZURE_SUBSCRIPTION',required"
   string subscription_name = 3;
 }
 
 message AzureServiceBusWriteArgs {
-  // Required
+  // @gotags: kong:"help='Queue name',required"
   string queue = 1;
+
+  // @gotags: kong:"help='Topic name',required"
+  string topic = 2;
 }

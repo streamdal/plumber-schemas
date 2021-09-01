@@ -23,7 +23,7 @@ const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 type Type int32
 
 const (
-	Type_NONE        Type = 0
+	Type_None        Type = 0
 	Type_JSON        Type = 1
 	Type_JSON_SCHEMA Type = 2
 	Type_PROTOBUF    Type = 3
@@ -33,7 +33,7 @@ const (
 )
 
 var Type_name = map[int32]string{
-	0: "NONE",
+	0: "None",
 	1: "JSON",
 	2: "JSON_SCHEMA",
 	3: "PROTOBUF",
@@ -43,7 +43,7 @@ var Type_name = map[int32]string{
 }
 
 var Type_value = map[string]int32{
-	"NONE":        0,
+	"None":        0,
 	"JSON":        1,
 	"JSON_SCHEMA": 2,
 	"PROTOBUF":    3,
@@ -63,19 +63,19 @@ func (Type) EnumDescriptor() ([]byte, []int) {
 type EncodeOptions struct {
 	// The type of decoder selected determines which Encoding should be used (if any).
 	// NOTE: This type will also determine which metadata k:v's need to be set.
-	// @gotags: name:"encoder"
-	Type Type `protobuf:"varint,1,opt,name=type,proto3,enum=protos.encoding.Type" json:"type,omitempty" name:"encoder"`
+	// @gotags: kong:"name=encoder,help='How to encode input'"
+	Type Type `protobuf:"varint,1,opt,name=type,proto3,enum=protos.encoding.Type" json:"type,omitempty" kong:"name=encoder,help='How to encode input'"`
 	// Specify an existing stored schema to use instead of specifying a Encoding payload
 	// @gotags: kong:"-"
 	SchemaId string `protobuf:"bytes,2,opt,name=schema_id,json=schemaId,proto3" json:"schema_id,omitempty" kong:"-"`
 	// Valid input keys: dir, file, string, github, zip
 	// TODO: Help needs to outline all of the available options here
-	// @gotag: name:"decoder-input"
-	Input map[string]string `protobuf:"bytes,3,rep,name=input,proto3" json:"input,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3" name:"decoder-input"`
+	// @gotags: name:"encoder-input"
+	Input map[string]string `protobuf:"bytes,3,rep,name=input,proto3" json:"input,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3" name:"encoder-input"`
 	// Valid input keys:
 	// TODO: Help needs to outline all of the available options here
-	// @gotag: name:"decoder-metadata"
-	Metadata             map[string]string `protobuf:"bytes,4,rep,name=metadata,proto3" json:"metadata,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3" name:"decoder-metadata"`
+	// @gotags: name:"encoder-metadata"
+	Metadata             map[string]string `protobuf:"bytes,4,rep,name=metadata,proto3" json:"metadata,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3" name:"encoder-metadata"`
 	XXX_NoUnkeyedLiteral struct{}          `json:"-"`
 	XXX_unrecognized     []byte            `json:"-"`
 	XXX_sizecache        int32             `json:"-"`
@@ -110,7 +110,7 @@ func (m *EncodeOptions) GetType() Type {
 	if m != nil {
 		return m.Type
 	}
-	return Type_NONE
+	return Type_None
 }
 
 func (m *EncodeOptions) GetSchemaId() string {
@@ -137,18 +137,21 @@ func (m *EncodeOptions) GetMetadata() map[string]string {
 type DecodeOptions struct {
 	// The type of decoder selected determines which Encoding should be used (if any)
 	// NOTE: This type will also determine which metadata k:v's need to be set.
-	// @gotags: name:"decoder"
-	Type Type `protobuf:"varint,1,opt,name=type,proto3,enum=protos.encoding.Type" json:"type,omitempty" name:"decoder"`
+	// @gotags: kong:"name=decoder,help='How to decode output (1 = JSON, 2 = JSON_SCHEMA, 3 = PROTOBUF, 4 = AVRO, 5 = THRIFT, 6 = FLATBUFFER'"
+	// TODO: ^ This sucks and needs to be improved. Not sure how yet.
+	Type Type `protobuf:"varint,1,opt,name=type,proto3,enum=protos.encoding.Type" json:"type,omitempty" kong:"name=decoder,help='How to decode output (1 = JSON, 2 = JSON_SCHEMA, 3 = PROTOBUF, 4 = AVRO, 5 = THRIFT, 6 = FLATBUFFER'"`
 	// Specify an existing stored schema to use instead of specifying a Encoding payload
 	// @gotags: kong:"-"
 	SchemaId string `protobuf:"bytes,2,opt,name=schema_id,json=schemaId,proto3" json:"schema_id,omitempty" kong:"-"`
 	// Valid input keys: dir, file, string, github, zip
 	// TODO: Help needs to outline all of the available options here
-	// @gotag: name:"decoder-input"
-	Input map[string]string `protobuf:"bytes,3,rep,name=input,proto3" json:"input,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3" name:"decoder-input"`
+	// TODO: This needs to improve as well. Probably new 'map_keys' tag?
+	// @gotags: kong:"name='decoder-input',required"
+	Input map[string]string `protobuf:"bytes,3,rep,name=input,proto3" json:"input,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3" kong:"name='decoder-input',required"`
 	// Valid input keys:
 	// TODO: Help needs to outline all of the available options here
-	// @gotag: name:"decoder-metadata"
+	// TODO: Same, needs to be improved? Not sure how.
+	// @gotags: name:"decoder-metadata"
 	Metadata             map[string]string `protobuf:"bytes,4,rep,name=metadata,proto3" json:"metadata,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3" name:"decoder-metadata"`
 	XXX_NoUnkeyedLiteral struct{}          `json:"-"`
 	XXX_unrecognized     []byte            `json:"-"`
@@ -184,7 +187,7 @@ func (m *DecodeOptions) GetType() Type {
 	if m != nil {
 		return m.Type
 	}
-	return Type_NONE
+	return Type_None
 }
 
 func (m *DecodeOptions) GetSchemaId() string {
@@ -238,12 +241,12 @@ var fileDescriptor_110d40819f1994f9 = []byte{
 	0xd7, 0x22, 0x45, 0x89, 0x3f, 0x41, 0xe3, 0xda, 0x39, 0x66, 0xf4, 0x74, 0x43, 0xd5, 0xfc, 0x12,
 	0x27, 0x42, 0xff, 0x37, 0x74, 0x6a, 0xa1, 0x2f, 0x31, 0x97, 0x6c, 0xff, 0xd1, 0x37, 0x61, 0x5b,
 	0x5b, 0xfb, 0x4a, 0xb6, 0xf5, 0x8c, 0xf7, 0xc5, 0xf6, 0xdb, 0x0e, 0xe4, 0x02, 0x16, 0x56, 0x40,
-	0x5e, 0x5b, 0x6b, 0x03, 0x7d, 0x28, 0xaa, 0xff, 0x1b, 0x6b, 0x8d, 0x04, 0xdc, 0x83, 0x76, 0x51,
-	0xed, 0x36, 0x7f, 0x17, 0xc6, 0x6a, 0x86, 0x44, 0xfc, 0x11, 0x94, 0x73, 0x62, 0xd9, 0xd6, 0x7c,
-	0x6b, 0x22, 0xa9, 0x10, 0xce, 0x2e, 0x88, 0x85, 0x64, 0x0c, 0xd0, 0xb4, 0x17, 0x64, 0x69, 0xda,
-	0xa8, 0x81, 0xbb, 0x00, 0xe6, 0xd9, 0xcc, 0x9e, 0x6f, 0x4d, 0xd3, 0x20, 0xa8, 0x39, 0x9f, 0x5e,
-	0xfe, 0xd9, 0x07, 0xfc, 0x90, 0xb9, 0x9a, 0xc7, 0x42, 0xdd, 0x75, 0xb8, 0x77, 0xf0, 0x58, 0x12,
-	0xeb, 0xf1, 0x31, 0x0b, 0x5d, 0x9a, 0xfc, 0xa8, 0xfe, 0x22, 0xd5, 0xdd, 0x2c, 0x38, 0xfa, 0xfa,
-	0x9e, 0xe9, 0x15, 0x3e, 0xfd, 0x0e, 0x9f, 0xdb, 0x2c, 0x07, 0x3f, 0x6f, 0x03, 0x00, 0x00, 0xff,
-	0xff, 0xd6, 0x9d, 0x73, 0xdf, 0x82, 0x03, 0x00, 0x00,
+	0x5e, 0xb3, 0x88, 0xa2, 0x0f, 0x45, 0xf5, 0x7f, 0x63, 0xad, 0x91, 0x80, 0x7b, 0xd0, 0x2e, 0xaa,
+	0xdd, 0xe6, 0xef, 0xc2, 0x58, 0xcd, 0x90, 0x88, 0x3f, 0x82, 0x72, 0x4e, 0x2c, 0xdb, 0x9a, 0x6f,
+	0x4d, 0x24, 0x15, 0xc2, 0xd9, 0x05, 0xb1, 0x90, 0x8c, 0x01, 0x9a, 0xf6, 0x82, 0x2c, 0x4d, 0x1b,
+	0x35, 0x70, 0x17, 0xc0, 0x3c, 0x9b, 0xd9, 0xf3, 0xad, 0x69, 0x1a, 0x04, 0x35, 0xe7, 0xd3, 0xcb,
+	0x3f, 0xfb, 0x80, 0x1f, 0x32, 0x57, 0xf3, 0x58, 0xa8, 0xbb, 0x0e, 0xf7, 0x0e, 0x1e, 0x4b, 0x62,
+	0x3d, 0x3e, 0x66, 0xa1, 0x4b, 0x93, 0x1f, 0xd5, 0x5f, 0xa4, 0xba, 0x9b, 0x05, 0x47, 0x5f, 0xdf,
+	0x33, 0xbd, 0xc2, 0xa7, 0xdf, 0xe1, 0x73, 0x9b, 0xe5, 0xe0, 0xe7, 0x6d, 0x00, 0x00, 0x00, 0xff,
+	0xff, 0x2c, 0x05, 0xef, 0xc0, 0x82, 0x03, 0x00, 0x00,
 }

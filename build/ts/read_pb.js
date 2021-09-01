@@ -31,8 +31,6 @@ var backends_azure$service$bus_pb = require('./backends/azure-service-bus_pb.js'
 goog.object.extend(proto, backends_azure$service$bus_pb);
 var backends_azure$event$hub_pb = require('./backends/azure-event-hub_pb.js');
 goog.object.extend(proto, backends_azure$event$hub_pb);
-var backends_aws$sns_pb = require('./backends/aws-sns_pb.js');
-goog.object.extend(proto, backends_aws$sns_pb);
 var backends_aws$sqs_pb = require('./backends/aws-sqs_pb.js');
 goog.object.extend(proto, backends_aws$sqs_pb);
 var backends_gcp$pubsub_pb = require('./backends/gcp-pubsub_pb.js');
@@ -92,8 +90,6 @@ goog.exportSymbol('proto.protos.ReadCLIConfig.ReadBackend.RedisPubSub', null, gl
 goog.exportSymbol('proto.protos.ReadCLIConfig.ReadBackend.RedisStreams', null, global);
 goog.exportSymbol('proto.protos.ReadConfig', null, global);
 goog.exportSymbol('proto.protos.ReadSampleOptions', null, global);
-goog.exportSymbol('proto.protos.ReadSampleOptions.Interval', null, global);
-goog.exportSymbol('proto.protos.ReadType', null, global);
 goog.exportSymbol('proto.protos.ResumeReadRequest', null, global);
 goog.exportSymbol('proto.protos.ResumeReadResponse', null, global);
 goog.exportSymbol('proto.protos.StartReadRequest', null, global);
@@ -847,7 +843,7 @@ proto.protos.ReadSampleOptions.prototype.toObject = function(opt_includeInstance
 proto.protos.ReadSampleOptions.toObject = function(includeInstance, msg) {
   var f, obj = {
     sampleRate: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    sampleInterval: jspb.Message.getFieldWithDefault(msg, 2, 0)
+    sampleIntervalSeconds: jspb.Message.getFieldWithDefault(msg, 2, 0)
   };
 
   if (includeInstance) {
@@ -889,8 +885,8 @@ proto.protos.ReadSampleOptions.deserializeBinaryFromReader = function(msg, reade
       msg.setSampleRate(value);
       break;
     case 2:
-      var value = /** @type {!proto.protos.ReadSampleOptions.Interval} */ (reader.readEnum());
-      msg.setSampleInterval(value);
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setSampleIntervalSeconds(value);
       break;
     default:
       reader.skipField();
@@ -928,23 +924,15 @@ proto.protos.ReadSampleOptions.serializeBinaryToWriter = function(message, write
       f
     );
   }
-  f = message.getSampleInterval();
-  if (f !== 0.0) {
-    writer.writeEnum(
+  f = message.getSampleIntervalSeconds();
+  if (f !== 0) {
+    writer.writeUint32(
       2,
       f
     );
   }
 };
 
-
-/**
- * @enum {number}
- */
-proto.protos.ReadSampleOptions.Interval = {
-  SECOND: 0,
-  MINUTE: 1
-};
 
 /**
  * optional uint32 sample_rate = 1;
@@ -965,20 +953,20 @@ proto.protos.ReadSampleOptions.prototype.setSampleRate = function(value) {
 
 
 /**
- * optional Interval sample_interval = 2;
- * @return {!proto.protos.ReadSampleOptions.Interval}
+ * optional uint32 sample_interval_seconds = 2;
+ * @return {number}
  */
-proto.protos.ReadSampleOptions.prototype.getSampleInterval = function() {
-  return /** @type {!proto.protos.ReadSampleOptions.Interval} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
+proto.protos.ReadSampleOptions.prototype.getSampleIntervalSeconds = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
 };
 
 
 /**
- * @param {!proto.protos.ReadSampleOptions.Interval} value
+ * @param {number} value
  * @return {!proto.protos.ReadSampleOptions} returns this
  */
-proto.protos.ReadSampleOptions.prototype.setSampleInterval = function(value) {
-  return jspb.Message.setProto3EnumField(this, 2, value);
+proto.protos.ReadSampleOptions.prototype.setSampleIntervalSeconds = function(value) {
+  return jspb.Message.setProto3IntField(this, 2, value);
 };
 
 
@@ -1021,10 +1009,12 @@ proto.protos.ReadCLIConfig.prototype.toObject = function(opt_includeInstance) {
  */
 proto.protos.ReadCLIConfig.toObject = function(includeInstance, msg) {
   var f, obj = {
-    displayLagStats: jspb.Message.getBooleanFieldWithDefault(msg, 1, false),
+    displayOffsetStats: jspb.Message.getBooleanFieldWithDefault(msg, 1, false),
     convertOutputList: (f = jspb.Message.getRepeatedField(msg, 2)) == null ? undefined : f,
     verboseOutput: jspb.Message.getBooleanFieldWithDefault(msg, 3, false),
-    backendType: jspb.Message.getFieldWithDefault(msg, 5, 0),
+    statsEnable: jspb.Message.getBooleanFieldWithDefault(msg, 4, false),
+    statsReportIntervalSec: jspb.Message.getFieldWithDefault(msg, 5, 0),
+    backendType: jspb.Message.getFieldWithDefault(msg, 6, 0),
     readBackend: (f = msg.getReadBackend()) && proto.protos.ReadCLIConfig.ReadBackend.toObject(includeInstance, f)
   };
 
@@ -1064,7 +1054,7 @@ proto.protos.ReadCLIConfig.deserializeBinaryFromReader = function(msg, reader) {
     switch (field) {
     case 1:
       var value = /** @type {boolean} */ (reader.readBool());
-      msg.setDisplayLagStats(value);
+      msg.setDisplayOffsetStats(value);
       break;
     case 2:
       var values = /** @type {!Array<!proto.protos.ConvertOption>} */ (reader.isDelimited() ? reader.readPackedEnum() : [reader.readEnum()]);
@@ -1076,11 +1066,19 @@ proto.protos.ReadCLIConfig.deserializeBinaryFromReader = function(msg, reader) {
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setVerboseOutput(value);
       break;
+    case 4:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setStatsEnable(value);
+      break;
     case 5:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setStatsReportIntervalSec(value);
+      break;
+    case 6:
       var value = /** @type {!proto.protos.backends.Type} */ (reader.readEnum());
       msg.setBackendType(value);
       break;
-    case 6:
+    case 7:
       var value = new proto.protos.ReadCLIConfig.ReadBackend;
       reader.readMessage(value,proto.protos.ReadCLIConfig.ReadBackend.deserializeBinaryFromReader);
       msg.setReadBackend(value);
@@ -1114,7 +1112,7 @@ proto.protos.ReadCLIConfig.prototype.serializeBinary = function() {
  */
 proto.protos.ReadCLIConfig.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getDisplayLagStats();
+  f = message.getDisplayOffsetStats();
   if (f) {
     writer.writeBool(
       1,
@@ -1135,17 +1133,31 @@ proto.protos.ReadCLIConfig.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
+  f = message.getStatsEnable();
+  if (f) {
+    writer.writeBool(
+      4,
+      f
+    );
+  }
+  f = message.getStatsReportIntervalSec();
+  if (f !== 0) {
+    writer.writeInt32(
+      5,
+      f
+    );
+  }
   f = message.getBackendType();
   if (f !== 0.0) {
     writer.writeEnum(
-      5,
+      6,
       f
     );
   }
   f = message.getReadBackend();
   if (f != null) {
     writer.writeMessage(
-      6,
+      7,
       f,
       proto.protos.ReadCLIConfig.ReadBackend.serializeBinaryToWriter
     );
@@ -5808,10 +5820,10 @@ proto.protos.ReadCLIConfig.ReadBackend.prototype.hasPostgres = function() {
 
 
 /**
- * optional bool display_lag_stats = 1;
+ * optional bool display_offset_stats = 1;
  * @return {boolean}
  */
-proto.protos.ReadCLIConfig.prototype.getDisplayLagStats = function() {
+proto.protos.ReadCLIConfig.prototype.getDisplayOffsetStats = function() {
   return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 1, false));
 };
 
@@ -5820,7 +5832,7 @@ proto.protos.ReadCLIConfig.prototype.getDisplayLagStats = function() {
  * @param {boolean} value
  * @return {!proto.protos.ReadCLIConfig} returns this
  */
-proto.protos.ReadCLIConfig.prototype.setDisplayLagStats = function(value) {
+proto.protos.ReadCLIConfig.prototype.setDisplayOffsetStats = function(value) {
   return jspb.Message.setProto3BooleanField(this, 1, value);
 };
 
@@ -5881,11 +5893,47 @@ proto.protos.ReadCLIConfig.prototype.setVerboseOutput = function(value) {
 
 
 /**
- * optional backends.Type _backend_type = 5;
+ * optional bool stats_enable = 4;
+ * @return {boolean}
+ */
+proto.protos.ReadCLIConfig.prototype.getStatsEnable = function() {
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 4, false));
+};
+
+
+/**
+ * @param {boolean} value
+ * @return {!proto.protos.ReadCLIConfig} returns this
+ */
+proto.protos.ReadCLIConfig.prototype.setStatsEnable = function(value) {
+  return jspb.Message.setProto3BooleanField(this, 4, value);
+};
+
+
+/**
+ * optional int32 stats_report_interval_sec = 5;
+ * @return {number}
+ */
+proto.protos.ReadCLIConfig.prototype.getStatsReportIntervalSec = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.protos.ReadCLIConfig} returns this
+ */
+proto.protos.ReadCLIConfig.prototype.setStatsReportIntervalSec = function(value) {
+  return jspb.Message.setProto3IntField(this, 5, value);
+};
+
+
+/**
+ * optional backends.Type _backend_type = 6;
  * @return {!proto.protos.backends.Type}
  */
 proto.protos.ReadCLIConfig.prototype.getBackendType = function() {
-  return /** @type {!proto.protos.backends.Type} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
+  return /** @type {!proto.protos.backends.Type} */ (jspb.Message.getFieldWithDefault(this, 6, 0));
 };
 
 
@@ -5894,17 +5942,17 @@ proto.protos.ReadCLIConfig.prototype.getBackendType = function() {
  * @return {!proto.protos.ReadCLIConfig} returns this
  */
 proto.protos.ReadCLIConfig.prototype.setBackendType = function(value) {
-  return jspb.Message.setProto3EnumField(this, 5, value);
+  return jspb.Message.setProto3EnumField(this, 6, value);
 };
 
 
 /**
- * optional ReadBackend _read_backend = 6;
+ * optional ReadBackend _read_backend = 7;
  * @return {?proto.protos.ReadCLIConfig.ReadBackend}
  */
 proto.protos.ReadCLIConfig.prototype.getReadBackend = function() {
   return /** @type{?proto.protos.ReadCLIConfig.ReadBackend} */ (
-    jspb.Message.getWrapperField(this, proto.protos.ReadCLIConfig.ReadBackend, 6));
+    jspb.Message.getWrapperField(this, proto.protos.ReadCLIConfig.ReadBackend, 7));
 };
 
 
@@ -5913,7 +5961,7 @@ proto.protos.ReadCLIConfig.prototype.getReadBackend = function() {
  * @return {!proto.protos.ReadCLIConfig} returns this
 */
 proto.protos.ReadCLIConfig.prototype.setReadBackend = function(value) {
-  return jspb.Message.setWrapperField(this, 6, value);
+  return jspb.Message.setWrapperField(this, 7, value);
 };
 
 
@@ -5931,7 +5979,7 @@ proto.protos.ReadCLIConfig.prototype.clearReadBackend = function() {
  * @return {boolean}
  */
 proto.protos.ReadCLIConfig.prototype.hasReadBackend = function() {
-  return jspb.Message.getField(this, 6) != null;
+  return jspb.Message.getField(this, 7) != null;
 };
 
 
@@ -8470,14 +8518,6 @@ proto.protos.GetAllReadsResponse.prototype.hasStatus = function() {
   return jspb.Message.getField(this, 1000) != null;
 };
 
-
-/**
- * @enum {number}
- */
-proto.protos.ReadType = {
-  ONE_TIME: 0,
-  CONTINUOUS: 1
-};
 
 /**
  * @enum {number}

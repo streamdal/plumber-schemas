@@ -5,31 +5,31 @@ package protos.backends;
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/backends";
 
 message NatsConn {
-  // Required
-  // Full DNS to connect to NATS. Ex: tls://localhost:4222
+  // @gotags: kong:"help='Dial string for NATS server. Ex: nats://localhost:4222',default='nas://localhost:4222'"
   string dsn = 1;
 
-  // Specify to not verify server's TLS certificate
+  // @gotags: kong:"help='Whether to verify server certificate'"
   bool insecure_tls = 2;
 
-  // Optional
+  // @gotags: kong:"help='CA file (only needed if addr is tls://)',type=existingfile"
   bytes tls_ca_cert = 3;
 
-  // Optional
+  // @gotags: kong:"help='Client cert file (only needed if addr is tls://)',type=existingfile"
   bytes tls_client_cert = 4;
 
-  // Optional
+  // @gotags: kong:"help='client key file (only needed if addr is tls://)',type=existingfile"
   bytes tls_client_key = 5;
 
-  // Optional
+  // @gotags: kong:"help='NATS .creds file containing authentication credentials',type=existingfile"
   bytes user_credentials = 6;
 }
 
 message NatsReadArgs {
-  // Subject to read from/write to. Ex: "foo.bar.*"
+  // @gotags: kong:"help='NATS Subject. Ex: foo.bar.*'"
   string subject = 1;
 }
 
 message NatsWriteArgs {
-  // TODO: Fill out
+  // @gotags: kong:"help='NATS Subject. Ex: foo.bar.*'"
+  string subject = 1;
 }

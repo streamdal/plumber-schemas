@@ -13,7 +13,6 @@ import * as backends_backends_pb from "./backends/backends_pb";
 import * as backends_activemq_pb from "./backends/activemq_pb";
 import * as backends_azure_service_bus_pb from "./backends/azure-service-bus_pb";
 import * as backends_azure_event_hub_pb from "./backends/azure-event-hub_pb";
-import * as backends_aws_sns_pb from "./backends/aws-sns_pb";
 import * as backends_aws_sqs_pb from "./backends/aws-sqs_pb";
 import * as backends_gcp_pubsub_pb from "./backends/gcp-pubsub_pb";
 import * as backends_kafka_pb from "./backends/kafka_pb";
@@ -33,8 +32,8 @@ import * as backends_redis_streams_pb from "./backends/redis-streams_pb";
 export class ReadSampleOptions extends jspb.Message { 
     getSampleRate(): number;
     setSampleRate(value: number): ReadSampleOptions;
-    getSampleInterval(): ReadSampleOptions.Interval;
-    setSampleInterval(value: ReadSampleOptions.Interval): ReadSampleOptions;
+    getSampleIntervalSeconds(): number;
+    setSampleIntervalSeconds(value: number): ReadSampleOptions;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): ReadSampleOptions.AsObject;
@@ -49,25 +48,23 @@ export class ReadSampleOptions extends jspb.Message {
 export namespace ReadSampleOptions {
     export type AsObject = {
         sampleRate: number,
-        sampleInterval: ReadSampleOptions.Interval,
+        sampleIntervalSeconds: number,
     }
-
-    export enum Interval {
-    SECOND = 0,
-    MINUTE = 1,
-    }
-
 }
 
 export class ReadCLIConfig extends jspb.Message { 
-    getDisplayLagStats(): boolean;
-    setDisplayLagStats(value: boolean): ReadCLIConfig;
+    getDisplayOffsetStats(): boolean;
+    setDisplayOffsetStats(value: boolean): ReadCLIConfig;
     clearConvertOutputList(): void;
     getConvertOutputList(): Array<ConvertOption>;
     setConvertOutputList(value: Array<ConvertOption>): ReadCLIConfig;
     addConvertOutput(value: ConvertOption, index?: number): ConvertOption;
     getVerboseOutput(): boolean;
     setVerboseOutput(value: boolean): ReadCLIConfig;
+    getStatsEnable(): boolean;
+    setStatsEnable(value: boolean): ReadCLIConfig;
+    getStatsReportIntervalSec(): number;
+    setStatsReportIntervalSec(value: number): ReadCLIConfig;
     getBackendType(): backends_backends_pb.Type;
     setBackendType(value: backends_backends_pb.Type): ReadCLIConfig;
 
@@ -88,9 +85,11 @@ export class ReadCLIConfig extends jspb.Message {
 
 export namespace ReadCLIConfig {
     export type AsObject = {
-        displayLagStats: boolean,
+        displayOffsetStats: boolean,
         convertOutputList: Array<ConvertOption>,
         verboseOutput: boolean,
+        statsEnable: boolean,
+        statsReportIntervalSec: number,
         BackendType: backends_backends_pb.Type,
         ReadBackend?: ReadCLIConfig.ReadBackend.AsObject,
     }
@@ -1102,11 +1101,6 @@ export namespace GetAllReadsResponse {
         readList: Array<ReadConfig.AsObject>,
         status?: common_status_pb.Status.AsObject,
     }
-}
-
-export enum ReadType {
-    ONE_TIME = 0,
-    CONTINUOUS = 1,
 }
 
 export enum ConvertOption {

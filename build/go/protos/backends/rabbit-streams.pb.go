@@ -107,11 +107,16 @@ func (m *RabbitStreamsConn) GetClientName() string {
 }
 
 type RabbitStreamsOffsetOptions struct {
-	SpecificOffset       uint64   `protobuf:"varint,1,opt,name=specific_offset,json=specificOffset,proto3" json:"specific_offset,omitempty"`
-	LastOffset           uint64   `protobuf:"varint,2,opt,name=last_offset,json=lastOffset,proto3" json:"last_offset,omitempty"`
-	LastConsumed         bool     `protobuf:"varint,3,opt,name=last_consumed,json=lastConsumed,proto3" json:"last_consumed,omitempty"`
-	FirstOffset          bool     `protobuf:"varint,4,opt,name=first_offset,json=firstOffset,proto3" json:"first_offset,omitempty"`
-	NextOffset           bool     `protobuf:"varint,5,opt,name=next_offset,json=nextOffset,proto3" json:"next_offset,omitempty"`
+	// @gotags: kong:"group=offset,xor=offset,required"
+	SpecificOffset uint64 `protobuf:"varint,1,opt,name=specific_offset,json=specificOffset,proto3" json:"specific_offset,omitempty" kong:"group=offset,xor=offset,required"`
+	// @gotags: kong:"group=offset,xor=offset,required"
+	LastOffset uint64 `protobuf:"varint,2,opt,name=last_offset,json=lastOffset,proto3" json:"last_offset,omitempty" kong:"group=offset,xor=offset,required"`
+	// @gotags: kong:"group=offset,xor=offset,required"
+	LastConsumed bool `protobuf:"varint,3,opt,name=last_consumed,json=lastConsumed,proto3" json:"last_consumed,omitempty" kong:"group=offset,xor=offset,required"`
+	// @gotags: kong:"group=offset,xor=offset,required"
+	FirstOffset bool `protobuf:"varint,4,opt,name=first_offset,json=firstOffset,proto3" json:"first_offset,omitempty" kong:"group=offset,xor=offset,required"`
+	// @gotags: kong:"group=offset,xor=offset,required"
+	NextOffset           bool     `protobuf:"varint,5,opt,name=next_offset,json=nextOffset,proto3" json:"next_offset,omitempty" kong:"group=offset,xor=offset,required"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -187,7 +192,8 @@ type RabbitStreamsReadArgs struct {
 	// with. Ex: 1024k, 10mb, 3gb
 	DeclareStreamSize string `protobuf:"bytes,3,opt,name=declare_stream_size,json=declareStreamSize,proto3" json:"declare_stream_size,omitempty"`
 	// Required read position
-	OffsetOptions        *RabbitStreamsOffsetOptions `protobuf:"bytes,4,opt,name=offset_options,json=offsetOptions,proto3" json:"offset_options,omitempty"`
+	// @gotags: kong:"embed"
+	OffsetOptions        *RabbitStreamsOffsetOptions `protobuf:"bytes,4,opt,name=offset_options,json=offsetOptions,proto3" json:"offset_options,omitempty" kong:"embed"`
 	XXX_NoUnkeyedLiteral struct{}                    `json:"-"`
 	XXX_unrecognized     []byte                      `json:"-"`
 	XXX_sizecache        int32                       `json:"-"`

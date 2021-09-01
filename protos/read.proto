@@ -10,7 +10,6 @@ import "backends/backends.proto";
 import "backends/activemq.proto";
 import "backends/azure-service-bus.proto";
 import "backends/azure-event-hub.proto";
-import "backends/aws-sns.proto";
 import "backends/aws-sqs.proto";
 import "backends/gcp-pubsub.proto";
 import "backends/kafka.proto";
@@ -30,18 +29,11 @@ import "backends/redis-streams.proto";
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
 
 message ReadSampleOptions {
-    enum Interval {
-        SECOND = 0;
-        MINUTE = 1;
-    }
-
+    // @gotags: kong:"help='How many events to fetch during a sample interval',default=100"
     uint32 sample_rate = 1;
-    Interval sample_interval = 2;
-}
 
-enum ReadType {
-    ONE_TIME = 0;
-    CONTINUOUS = 1;
+    // @gotags: kong:"help='Sample interval seconds',enum:'1,60',default=60"
+     uint32 sample_interval_seconds = 2;
 }
 
 enum ConvertOption {
@@ -51,194 +43,225 @@ enum ConvertOption {
 }
 
 message ReadCLIConfig {
-    bool display_lag_stats = 1;
+    // @gotags: kong:"help='Display consumer offset stats during read'"
+    bool display_offset_stats = 1;
+
+    // @gotags: kong:"help='Convert output before it is printed to STDOUT (1 = base64, 2 = gzip)',enum"
     repeated ConvertOption convert_output = 2;
+
+    // @gotags: kong:"help='Display more verbose information during reads (varies by backend)'"
     bool verbose_output = 3;
+
+    // @gotags: kong:"group=stats,help='Display periodic read stats'"
+    bool stats_enable = 4;
+
+    // @gotags: kong:"group=stats,help='How often to print stats',default=5"
+    int32 stats_report_interval_sec = 5;
 
     // Used by CLI to inform components, which backend to use; server uses
     // ReadConfig.connection_id.
     // @gotags: kong:"-"
-    backends.Type _backend_type = 5;
+    backends.Type _backend_type = 6;
 
-    // @gotags: embed:""
-    ReadBackend _read_backend = 6;
+    // @gotags: kong:"embed,group=read"
+    ReadBackend _read_backend = 7;
 
     message ReadBackend {
-        // @gotags: cmd:""
-        Kafka kafka = 1;
-        // @gotags: cmd:""
-        ActiveMQ activemq = 2;
-        // @gotags: cmd:""
-        AWSSQS awssqs = 3;
-        // @gotags: cmd:""
-        Mongo mongo = 4;
-        // @gotags: cmd:""
-        Nats nats = 5;
-        // @gotags: cmd:""
-        NatsStreaming nats_streaming = 6;
-        // @gotags: cmd:""
-        NSQ nsq = 7;
-        // @gotags: cmd:""
-        Pulsar pulsar = 8;
-        // @gotags: cmd:""
-        Rabbit rabbit = 9;
-        // @gotags: cmd:""
+        // @gotags: kong:"cmd,help='Apache Kafka'"
+        Kafka kafka =  1;
+
+        // @gotags: kong:"cmd,help='Apache ActiveMQ (STOMP)'"
+        ActiveMQ activemq =  2;
+
+        // @gotags: kong:"cmd,help='AWS Simple Queue System'"
+        AWSSQS awssqs =  3;
+
+        // @gotags: kong:"cmd,help='MongoDB'"
+        Mongo mongo =  4;
+
+        // @gotags: kong:"cmd,help='NATS'"
+        Nats nats =  5;
+
+        // @gotags: kong:"cmd,help='NATS Streaming'"
+        NatsStreaming nats_streaming =  6;
+
+        // @gotags: kong:"cmd,help='NSQ'"
+        NSQ nsq =  7;
+
+        // @gotags: kong:"cmd,help='Apache Pulsar'"
+        Pulsar pulsar =  8;
+
+        // @gotags: kong:"cmd,help='RabbitMQ'"
+        Rabbit rabbit =  9;
+
+        // @gotags: kong:"cmd,help='RabbitMQ Streams'"
         RabbitStreams rabbit_streams = 10;
-        // @gotags: cmd:""
+
+        // @gotags: kong:"cmd,help='MQTT'"
         MQTT mqtt = 11;
-        // @gotags: cmd:""
+
+        // @gotags: kong:"cmd,help='Azure Service Bus'"
         AzureServiceBus azure_service_bus = 12;
-        // @gotags: cmd:""
+
+        // @gotags: kong:"cmd,help=''"
         AzureEventHub azure_event_hub = 13;
-        // @gotags: cmd:""
+
+        // @gotags: kong:"cmd,help='Google Cloud Platform Pub/Sub'"
         GCPPubSub gcp_pubsub = 14;
-        // @gotags: cmd:""
+
+        // @gotags: kong:"cmd,help='KubeMQ Queue'"
         KubeMQQueue kubemq_queue = 15;
-        // @gotags: cmd:""
+
+        // @gotags: kong:"cmd,help='Redis PubSub'"
         RedisPubSub redis_pubsub = 16;
-        // @gotags: cmd:""
+
+        // @gotags: kong:"cmd,help='Redis Streams'"
         RedisStreams redis_streams = 17;
-        // @gotags: cmd:""
+
+        // @gotags: kong:"cmd,help='PostgreSQL'"
         Postgres postgres = 18;
 
-        // @gotags: cmd:""
         message Kafka {
-            // @gotags: embed:""
+            // @gotags: kong:"embed"
             backends.KafkaConn conn = 1;
-            // @gotags: embed:""
+
+            // @gotags: kong:"embed"
             backends.KafkaReadArgs args = 2;
         }
 
-        // @gotags: cmd:""
         message ActiveMQ {
-            // @gotags: embed:""
+            // @gotags: kong:"embed"
             backends.ActiveMQConn conn = 1;
-            // @gotags: embed:""
+
+            // @gotags: kong:"embed"
             backends.ActiveMQReadArgs args = 2;
         }
 
-        // @gotags: cmd:""
         message AWSSQS {
-            // @gotags: embed:""
+            // @gotags: kong:"embed"
             backends.AWSSQSConn conn = 1;
-            // @gotags: embed:""
+
+            // @gotags: kong:"embed"
             backends.AWSSQSReadArgs args = 2;
         }
 
-        // @gotags: cmd:""
         message Mongo {
-            // @gotags: embed:""
+            // @gotags: kong:"embed"
             backends.MongoConn conn = 1;
-            // @gotags: embed:""
+
+            // @gotags: kong:"embed"
             backends.MongoReadArgs args = 2;
         }
 
-        // @gotags: cmd:""
         message Nats {
-            // @gotags: embed:""
+            // @gotags: kong:"embed"
             backends.NatsConn conn = 1;
-            // @gotags: embed:""
+
+            // @gotags: kong:"embed"
             backends.NatsReadArgs args = 2;
         }
 
-        // @gotags: cmd:""
         message NatsStreaming {
-            // @gotags: embed:""
+            // @gotags: kong:"embed"
             backends.NatsStreamingConn conn = 1;
-            // @gotags: embed:""
+
+            // @gotags: kong:"embed"
             backends.NatsStreamingReadArgs args = 2;
         }
 
-        // @gotags: cmd:""
         message NSQ {
-            // @gotags: embed:""
+            // @gotags: kong:"embed"
             backends.NSQConn conn = 1;
-            // @gotags: embed:""
+
+            // @gotags: kong:"embed"
             backends.NSQReadArgs args = 2;
         }
 
-        // @gotags: cmd:""
         message Postgres {
-            // @gotags: embed:""
+            // @gotags: kong:"embed"
             backends.PostgresConn conn = 1;
-            // @gotags: embed:""
+
+            // @gotags: kong:"embed"
             backends.PostgresReadArgs args = 2;
         }
 
-        // @gotags: cmd:""
         message Pulsar {
-            // @gotags: embed:""
+            // @gotags: kong:"embed"
             backends.PulsarConn conn = 1;
-            // @gotags: embed:""
+
+            // @gotags: kong:"embed"
             backends.PulsarReadArgs args = 2;
         }
 
-        // @gotags: cmd:""
         message Rabbit {
-            // @gotags: embed:""
+            // @gotags: kong:"embed"
             backends.RabbitConn conn = 1;
-            // @gotags: embed:""
+
+            // @gotags: kong:"embed"
             backends.RabbitReadArgs args = 2;
         }
 
-        // @gotags: cmd:""
         message RabbitStreams {
-            // @gotags: embed:""
+            // @gotags: kong:"embed"
             backends.RabbitStreamsConn conn = 1;
-            // @gotags: embed:""
+
+            // @gotags: kong:"embed"
             backends.RabbitStreamsReadArgs args = 2;
         }
 
-        // @gotags: cmd:""
         message RedisPubSub {
-            // @gotags: embed:""
+            // @gotags: kong:"embed"
             backends.RedisPubSubConn conn = 1;
-            // @gotags: embed:""
+
+            // @gotags: kong:"embed"
             backends.RedisPubSubReadArgs args = 2;
         }
 
-        // @gotags: cmd:""
         message RedisStreams {
-            // @gotags: embed:""
+            // @gotags: kong:"embed"
             backends.RedisStreamsConn conn = 1;
-            // @gotags: embed:""
+
+            // @gotags: kong:"embed"
             backends.RedisStreamsReadArgs args = 2;
         }
 
-        // @gotags: cmd:""
         message AzureEventHub {
-            // @gotags: embed:""
+            // @gotags: kong:"embed"
             backends.AzureEventHubConn conn = 1;
-            // @gotags: embed:""
+
+            // @gotags: kong:"embed"
             backends.AzureEventHubReadArgs args = 2;
         }
 
-        // @gotags: cmd:""
         message AzureServiceBus {
-            // @gotags: embed:""
+            // @gotags: kong:"embed"
             backends.AzureServiceBusConn conn = 1;
-            // @gotags: embed:""
+
+            // @gotags: kong:"embed"
             backends.AzureServiceBusReadArgs args = 2;
         }
 
         message MQTT {
-            // @gotags: embed:""
+            // @gotags: kong:"embed"
             backends.MQTTConn conn = 1;
-            // @gotags: embed:""
+
+            // @gotags: kong:"embed"
             backends.MQTTReadArgs args = 2;
         }
 
         message GCPPubSub {
-            // @gotags: embed:""
-            backends.GCPPubSubConn conn = 1;
-            // @gotags: embed:""
+            // @gotags: kong:"embed"
+            backends.GCPPubSubConn conn  = 1;
+
+            // @gotags: kong:"embed"
             backends.GCPPubSubReadArgs args = 2;
         }
 
         message KubeMQQueue {
-            // @gotags: embed:""
+            // @gotags: kong:"embed"
             backends.KubeMQQueueConn conn = 1;
-            // @gotags: embed:""
+
+            // @gotags: kong:"embed"
             backends.KubeMQQueueReadArgs args = 2;
         }
     }
@@ -254,17 +277,17 @@ message ReadConfig {
     string connection_id = 2;
 
     // Required; specify if a read is continuous or not (default: false)
-    // @gotags: short:"X" default: "false"
+    // @gotags: short:"f" default: "false"
     bool continuous = 3;
 
     // Optional; specify if reading should utilize sampling
-    // @gotags: embed:""
+    // @gotags: kong:"embed,group=sampling"
     ReadSampleOptions sample_options = 4;
 
     // Optional; decode_options specify how to decode the _value_ in a message.
     // If left unset, plumber will still populate records.ReadRecord.Decoded
     // with the (untouched) value.
-    // @gotags: embed:""
+    // @gotags: kong:"embed,group=decode"
     encoding.DecodeOptions decode_options = 5;
 
     ////////////////////////////////////////////////////////
@@ -280,7 +303,7 @@ message ReadConfig {
     bool _active = 1001;
 
     // Contains options/fields specific to the CLI
-    // @gotags: embed:""
+    // @gotags: kong:"embed"
     ReadCLIConfig _cli_config = 1002;
 }
 
