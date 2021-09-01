@@ -22,35 +22,26 @@ var _ = math.Inf
 const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
 type ServerConfig struct {
-	// Unique ID that identifies this plumber node
-	NodeId string `protobuf:"bytes,1,opt,name=node_id,json=nodeId,proto3" json:"node_id,omitempty"`
-	// ID of the plumber cluster
-	ClusterId string `protobuf:"bytes,2,opt,name=cluster_id,json=clusterId,proto3" json:"cluster_id,omitempty"`
-	// host:port that the gRPC server will bind to
-	GrpcListenAddress string `protobuf:"bytes,3,opt,name=grpc_listen_address,json=grpcListenAddress,proto3" json:"grpc_listen_address,omitempty"`
-	// All gRPC requests will require this auth token to be set
-	AuthToken string `protobuf:"bytes,4,opt,name=auth_token,json=authToken,proto3" json:"auth_token,omitempty"`
-	// InitialCluster should contain comma separated list of key=value pairs
-	// of host:port entries for ALL peers in the cluster.
-	// Example: server1=http://192.168.1.10:2380,server2=http://192.168.1.11:2380,server3=http://192.168.1.12:2380
-	//
-	// IMPORTANT: The list should include _this_ instance's address.
-	InitialCluster string `protobuf:"bytes,5,opt,name=initial_cluster,json=initialCluster,proto3" json:"initial_cluster,omitempty"`
-	// AdvertisePeerURL contains the address of _this_ plumber instance's etcd server interface
-	// This is usually something like http://local-ip:2380
-	AdvertisePeerUrl string `protobuf:"bytes,6,opt,name=advertise_peer_url,json=advertisePeerUrl,proto3" json:"advertise_peer_url,omitempty"`
-	// AdvertisePeerURL contains the address of _this_ plumber instance's etcd client interface
-	// This is usually something like http://local-ip:2379
-	AdvertiseClientUrl string `protobuf:"bytes,7,opt,name=advertise_client_url,json=advertiseClientUrl,proto3" json:"advertise_client_url,omitempty"`
-	// ListenerPeerURL contains the address that _this_ plumber instance's etcd server should listen on
-	// This is usually something like http://local-ip:2380
-	ListenerPeerUrl string `protobuf:"bytes,8,opt,name=listener_peer_url,json=listenerPeerUrl,proto3" json:"listener_peer_url,omitempty"`
-	// ListenerClientURL contains the address that _this_ plumber instance's etcd client should listen on
-	// This is usually something like http://local-ip:2379
-	ListenerClientUrl string `protobuf:"bytes,9,opt,name=listener_client_url,json=listenerClientUrl,proto3" json:"listener_client_url,omitempty"`
-	// PeerToken is the token that ALL cluster members should use/share. If this token
-	// does not match on one of the plumber instances - it won't be able to join the cluster.
-	PeerToken            string   `protobuf:"bytes,10,opt,name=peer_token,json=peerToken,proto3" json:"peer_token,omitempty"`
+	// @gotags: kong:"help='Unique ID that identifies this plumber node',env='PLUMBER_SERVER_NODE_ID',required"
+	NodeId string `protobuf:"bytes,1,opt,name=node_id,json=nodeId,proto3" json:"node_id,omitempty" kong:"help='Unique ID that identifies this plumber node',env='PLUMBER_SERVER_NODE_ID',required"`
+	// @gotags: kong:"help='ID of the plumber cluster (has to be the same across all nodes)',env='PLUMBER_SERVER_CLUSTER_ID',required"
+	ClusterId string `protobuf:"bytes,2,opt,name=cluster_id,json=clusterId,proto3" json:"cluster_id,omitempty" kong:"help='ID of the plumber cluster (has to be the same across all nodes)',env='PLUMBER_SERVER_CLUSTER_ID',required"`
+	// @gotags: kong:"help='Host:port that the gRPC server will bind to',env='PLUMBER_SERVER_GRPC_LISTEN_ADDRESS',default=127.0.0.1:9000"
+	GrpcListenAddress string `protobuf:"bytes,3,opt,name=grpc_listen_address,json=grpcListenAddress,proto3" json:"grpc_listen_address,omitempty" kong:"help='Host:port that the gRPC server will bind to',env='PLUMBER_SERVER_GRPC_LISTEN_ADDRESS',default=127.0.0.1:9000"`
+	// @gotags: kong:"help='All gRPC requests require this auth token to be set',env='PLUMBER_SERVER_AUTH_TOKEN',required"
+	AuthToken string `protobuf:"bytes,4,opt,name=auth_token,json=authToken,proto3" json:"auth_token,omitempty" kong:"help='All gRPC requests require this auth token to be set',env='PLUMBER_SERVER_AUTH_TOKEN',required"`
+	// @gotags: kong:"help='InitialCluster should contain comma separated list of key=value pairs of host:port entries for ALL peers in the cluster. (Example: server1=http://192.168.1.10:2380,server2=http://192.168.1.11:2380,server3=http://192.168.1.12:2380). IMPORTANT! The list should include the address of _this_ instance.',env='PLUMBER_SERVER_INITIAL_CLUSTER',required"
+	InitialCluster string `protobuf:"bytes,5,opt,name=initial_cluster,json=initialCluster,proto3" json:"initial_cluster,omitempty" kong:"help='InitialCluster should contain comma separated list of key=value pairs of host:port entries for ALL peers in the cluster. (Example: server1=http://192.168.1.10:2380,server2=http://192.168.1.11:2380,server3=http://192.168.1.12:2380). IMPORTANT! The list should include the address of _this_ instance.',env='PLUMBER_SERVER_INITIAL_CLUSTER',required"`
+	// @gotags: kong:"help='Address of _this_ plumber instance etcd server interface. Example: http://local-ip:2380',env='PLUMBER_SERVER_ADVERTISE_PEER_URL'"
+	AdvertisePeerUrl string `protobuf:"bytes,6,opt,name=advertise_peer_url,json=advertisePeerUrl,proto3" json:"advertise_peer_url,omitempty" kong:"help='Address of _this_ plumber instance etcd server interface. Example: http://local-ip:2380',env='PLUMBER_SERVER_ADVERTISE_PEER_URL'"`
+	// @gotags: kong:"help='Address of _this_ plumber instance's etcd client interface. Example: http://local-ip:2379',env='PLUMBER_SERVER_ADVERTISE_CLIENT_URL',required"
+	AdvertiseClientUrl string `protobuf:"bytes,7,opt,name=advertise_client_url,json=advertiseClientUrl,proto3" json:"advertise_client_url,omitempty" kong:"help='Address of _this_ plumber instance's etcd client interface. Example: http://local-ip:2379',env='PLUMBER_SERVER_ADVERTISE_CLIENT_URL',required"`
+	// @gotags: kong:"help='Address that _this_ plumber instance's etcd server should listen on. Example: http://local-ip:2380',env='PLUMBER_SERVER_LISTENER_PEER_URL'"
+	ListenerPeerUrl string `protobuf:"bytes,8,opt,name=listener_peer_url,json=listenerPeerUrl,proto3" json:"listener_peer_url,omitempty" kong:"help='Address that _this_ plumber instance's etcd server should listen on. Example: http://local-ip:2380',env='PLUMBER_SERVER_LISTENER_PEER_URL'"`
+	// @gotags: kong:"help='Address that _this_ plumber instance's etcd client should listen on. Example: http://local-ip:2379',env='PLUMBER_SERVER_LISTENER_CLIENT_URL'"
+	ListenerClientUrl string `protobuf:"bytes,9,opt,name=listener_client_url,json=listenerClientUrl,proto3" json:"listener_client_url,omitempty" kong:"help='Address that _this_ plumber instance's etcd client should listen on. Example: http://local-ip:2379',env='PLUMBER_SERVER_LISTENER_CLIENT_URL'"`
+	// @gotags: kong:"help='Secret token that ALL cluster members should use/share. If this token does not match on one of the plumber instances, this node will NOT be able to join the cluster.',env='PLUMBER_SERVER_PEER_TOKEN'"
+	PeerToken            string   `protobuf:"bytes,10,opt,name=peer_token,json=peerToken,proto3" json:"peer_token,omitempty" kong:"help='Secret token that ALL cluster members should use/share. If this token does not match on one of the plumber instances, this node will NOT be able to join the cluster.',env='PLUMBER_SERVER_PEER_TOKEN'"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
