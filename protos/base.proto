@@ -10,6 +10,7 @@ import "github.proto";
 import "schema.proto";
 import "service.proto";
 import "server.proto";
+import "ghserver.proto";
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
 
