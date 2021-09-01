@@ -829,7 +829,7 @@ proto.protos.backends.NatsStreamingWriteArgs.prototype.toObject = function(opt_i
  */
 proto.protos.backends.NatsStreamingWriteArgs.toObject = function(includeInstance, msg) {
   var f, obj = {
-
+    channel: jspb.Message.getFieldWithDefault(msg, 1, "")
   };
 
   if (includeInstance) {
@@ -866,6 +866,10 @@ proto.protos.backends.NatsStreamingWriteArgs.deserializeBinaryFromReader = funct
     }
     var field = reader.getFieldNumber();
     switch (field) {
+    case 1:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setChannel(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -895,6 +899,31 @@ proto.protos.backends.NatsStreamingWriteArgs.prototype.serializeBinary = functio
  */
 proto.protos.backends.NatsStreamingWriteArgs.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
+  f = message.getChannel();
+  if (f.length > 0) {
+    writer.writeString(
+      1,
+      f
+    );
+  }
+};
+
+
+/**
+ * optional string channel = 1;
+ * @return {string}
+ */
+proto.protos.backends.NatsStreamingWriteArgs.prototype.getChannel = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.protos.backends.NatsStreamingWriteArgs} returns this
+ */
+proto.protos.backends.NatsStreamingWriteArgs.prototype.setChannel = function(value) {
+  return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 

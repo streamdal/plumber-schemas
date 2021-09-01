@@ -433,7 +433,8 @@ proto.protos.backends.AzureServiceBusWriteArgs.prototype.toObject = function(opt
  */
 proto.protos.backends.AzureServiceBusWriteArgs.toObject = function(includeInstance, msg) {
   var f, obj = {
-    queue: jspb.Message.getFieldWithDefault(msg, 1, "")
+    queue: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    topic: jspb.Message.getFieldWithDefault(msg, 2, "")
   };
 
   if (includeInstance) {
@@ -474,6 +475,10 @@ proto.protos.backends.AzureServiceBusWriteArgs.deserializeBinaryFromReader = fun
       var value = /** @type {string} */ (reader.readString());
       msg.setQueue(value);
       break;
+    case 2:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setTopic(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -510,6 +515,13 @@ proto.protos.backends.AzureServiceBusWriteArgs.serializeBinaryToWriter = functio
       f
     );
   }
+  f = message.getTopic();
+  if (f.length > 0) {
+    writer.writeString(
+      2,
+      f
+    );
+  }
 };
 
 
@@ -528,6 +540,24 @@ proto.protos.backends.AzureServiceBusWriteArgs.prototype.getQueue = function() {
  */
 proto.protos.backends.AzureServiceBusWriteArgs.prototype.setQueue = function(value) {
   return jspb.Message.setProto3StringField(this, 1, value);
+};
+
+
+/**
+ * optional string topic = 2;
+ * @return {string}
+ */
+proto.protos.backends.AzureServiceBusWriteArgs.prototype.getTopic = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.protos.backends.AzureServiceBusWriteArgs} returns this
+ */
+proto.protos.backends.AzureServiceBusWriteArgs.prototype.setTopic = function(value) {
+  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 

@@ -91,6 +91,8 @@ export namespace NatsStreamingReadArgs {
 }
 
 export class NatsStreamingWriteArgs extends jspb.Message { 
+    getChannel(): string;
+    setChannel(value: string): NatsStreamingWriteArgs;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): NatsStreamingWriteArgs.AsObject;
@@ -104,5 +106,6 @@ export class NatsStreamingWriteArgs extends jspb.Message {
 
 export namespace NatsStreamingWriteArgs {
     export type AsObject = {
+        channel: string,
     }
 }

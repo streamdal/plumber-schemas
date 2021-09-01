@@ -42,6 +42,6 @@ message NSQReadArgs {
 }
 
 message NSQWriteArgs {
-  // @gotags: kong:"help='NSQ topic to write to',env='PLUMBER_RELAY_NSQ_TOPIC',required"
+  // @gotags: kong:"help='NSQ topic to write to',required"
   string topic = 1;
 }

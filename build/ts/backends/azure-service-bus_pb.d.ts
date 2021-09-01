@@ -55,6 +55,8 @@ export namespace AzureServiceBusReadArgs {
 export class AzureServiceBusWriteArgs extends jspb.Message { 
     getQueue(): string;
     setQueue(value: string): AzureServiceBusWriteArgs;
+    getTopic(): string;
+    setTopic(value: string): AzureServiceBusWriteArgs;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): AzureServiceBusWriteArgs.AsObject;
@@ -69,5 +71,6 @@ export class AzureServiceBusWriteArgs extends jspb.Message {
 export namespace AzureServiceBusWriteArgs {
     export type AsObject = {
         queue: string,
+        topic: string,
     }
 }

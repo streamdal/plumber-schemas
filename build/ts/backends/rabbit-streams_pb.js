@@ -906,7 +906,9 @@ proto.protos.backends.RabbitStreamsWriteArgs.prototype.toObject = function(opt_i
  */
 proto.protos.backends.RabbitStreamsWriteArgs.toObject = function(includeInstance, msg) {
   var f, obj = {
-
+    stream: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    declareStream: jspb.Message.getBooleanFieldWithDefault(msg, 2, false),
+    declareStreamSize: jspb.Message.getFieldWithDefault(msg, 3, "")
   };
 
   if (includeInstance) {
@@ -943,6 +945,18 @@ proto.protos.backends.RabbitStreamsWriteArgs.deserializeBinaryFromReader = funct
     }
     var field = reader.getFieldNumber();
     switch (field) {
+    case 1:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setStream(value);
+      break;
+    case 2:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setDeclareStream(value);
+      break;
+    case 3:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setDeclareStreamSize(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -972,6 +986,81 @@ proto.protos.backends.RabbitStreamsWriteArgs.prototype.serializeBinary = functio
  */
 proto.protos.backends.RabbitStreamsWriteArgs.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
+  f = message.getStream();
+  if (f.length > 0) {
+    writer.writeString(
+      1,
+      f
+    );
+  }
+  f = message.getDeclareStream();
+  if (f) {
+    writer.writeBool(
+      2,
+      f
+    );
+  }
+  f = message.getDeclareStreamSize();
+  if (f.length > 0) {
+    writer.writeString(
+      3,
+      f
+    );
+  }
+};
+
+
+/**
+ * optional string stream = 1;
+ * @return {string}
+ */
+proto.protos.backends.RabbitStreamsWriteArgs.prototype.getStream = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.protos.backends.RabbitStreamsWriteArgs} returns this
+ */
+proto.protos.backends.RabbitStreamsWriteArgs.prototype.setStream = function(value) {
+  return jspb.Message.setProto3StringField(this, 1, value);
+};
+
+
+/**
+ * optional bool declare_stream = 2;
+ * @return {boolean}
+ */
+proto.protos.backends.RabbitStreamsWriteArgs.prototype.getDeclareStream = function() {
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 2, false));
+};
+
+
+/**
+ * @param {boolean} value
+ * @return {!proto.protos.backends.RabbitStreamsWriteArgs} returns this
+ */
+proto.protos.backends.RabbitStreamsWriteArgs.prototype.setDeclareStream = function(value) {
+  return jspb.Message.setProto3BooleanField(this, 2, value);
+};
+
+
+/**
+ * optional string declare_stream_size = 3;
+ * @return {string}
+ */
+proto.protos.backends.RabbitStreamsWriteArgs.prototype.getDeclareStreamSize = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.protos.backends.RabbitStreamsWriteArgs} returns this
+ */
+proto.protos.backends.RabbitStreamsWriteArgs.prototype.setDeclareStreamSize = function(value) {
+  return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 

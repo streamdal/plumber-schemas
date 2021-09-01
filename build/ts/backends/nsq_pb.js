@@ -715,7 +715,7 @@ proto.protos.backends.NSQWriteArgs.prototype.toObject = function(opt_includeInst
  */
 proto.protos.backends.NSQWriteArgs.toObject = function(includeInstance, msg) {
   var f, obj = {
-
+    topic: jspb.Message.getFieldWithDefault(msg, 1, "")
   };
 
   if (includeInstance) {
@@ -752,6 +752,10 @@ proto.protos.backends.NSQWriteArgs.deserializeBinaryFromReader = function(msg, r
     }
     var field = reader.getFieldNumber();
     switch (field) {
+    case 1:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setTopic(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -781,6 +785,31 @@ proto.protos.backends.NSQWriteArgs.prototype.serializeBinary = function() {
  */
 proto.protos.backends.NSQWriteArgs.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
+  f = message.getTopic();
+  if (f.length > 0) {
+    writer.writeString(
+      1,
+      f
+    );
+  }
+};
+
+
+/**
+ * optional string topic = 1;
+ * @return {string}
+ */
+proto.protos.backends.NSQWriteArgs.prototype.getTopic = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.protos.backends.NSQWriteArgs} returns this
+ */
+proto.protos.backends.NSQWriteArgs.prototype.setTopic = function(value) {
+  return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 

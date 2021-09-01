@@ -70,6 +70,8 @@ export namespace NatsReadArgs {
 }
 
 export class NatsWriteArgs extends jspb.Message { 
+    getSubject(): string;
+    setSubject(value: string): NatsWriteArgs;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): NatsWriteArgs.AsObject;
@@ -83,5 +85,6 @@ export class NatsWriteArgs extends jspb.Message {
 
 export namespace NatsWriteArgs {
     export type AsObject = {
+        subject: string,
     }
 }

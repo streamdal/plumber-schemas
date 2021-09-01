@@ -21,8 +21,8 @@ var _ = math.Inf
 const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
 type GCPPubSubConn struct {
-	// Required
-	ProjectId            string   `protobuf:"bytes,1,opt,name=project_id,json=projectId,proto3" json:"project_id,omitempty"`
+	// @gotags: kong:"help='Project ID',env='PLUMBER_RELAY_GCP_PROJECT_ID',required"
+	ProjectId            string   `protobuf:"bytes,1,opt,name=project_id,json=projectId,proto3" json:"project_id,omitempty" kong:"help='Project ID',env='PLUMBER_RELAY_GCP_PROJECT_ID',required"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -61,10 +61,10 @@ func (m *GCPPubSubConn) GetProjectId() string {
 }
 
 type GCPPubSubReadArgs struct {
-	// Required
-	SubscriptionId string `protobuf:"bytes,1,opt,name=subscription_id,json=subscriptionId,proto3" json:"subscription_id,omitempty"`
-	// Optional; default: true
-	AckMessages          bool     `protobuf:"varint,2,opt,name=ack_messages,json=ackMessages,proto3" json:"ack_messages,omitempty"`
+	// @gotags: kong:"help='Subscription ID',env='PLUMBER_RELAY_GCP_SUBSCRIPTION_ID',required"
+	SubscriptionId string `protobuf:"bytes,1,opt,name=subscription_id,json=subscriptionId,proto3" json:"subscription_id,omitempty" kong:"help='Subscription ID',env='PLUMBER_RELAY_GCP_SUBSCRIPTION_ID',required"`
+	// @gotags: kong:"help='Whether to acknowledge message receive',env='PLUMBER_RELAY_GCP_ACK_MESSAGE',default=true"
+	AckMessages          bool     `protobuf:"varint,2,opt,name=ack_messages,json=ackMessages,proto3" json:"ack_messages,omitempty" kong:"help='Whether to acknowledge message receive',env='PLUMBER_RELAY_GCP_ACK_MESSAGE',default=true"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -110,8 +110,8 @@ func (m *GCPPubSubReadArgs) GetAckMessages() bool {
 }
 
 type GCPPubSubWriteArgs struct {
-	// Required
-	TopicId              string   `protobuf:"bytes,1,opt,name=topic_id,json=topicId,proto3" json:"topic_id,omitempty"`
+	// @gotags: kong:"help='Topic ID to publish message(s) to',required"
+	TopicId              string   `protobuf:"bytes,1,opt,name=topic_id,json=topicId,proto3" json:"topic_id,omitempty" kong:"help='Topic ID to publish message(s) to',required"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`

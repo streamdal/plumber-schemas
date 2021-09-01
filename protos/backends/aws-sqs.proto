@@ -25,13 +25,13 @@ message AWSSQSReadArgs {
   // @gotags: kong:"help='Max number of messages to read',default=1"
   uint32 max_num_messages = 3;
 
-  // @gotags: kong:"help='"An id to identify this read request by',env=PLUMBER_RELAY_SQS_RECEIVE_REQUEST_ATTEMPT_ID,default='plumber/relay"
+  // @gotags: kong:"help='"An id to identify this read request by',default='plumber/relay"
   string receive_request_attempt_id = 4;
 
-  // @gotags: kong:"help='Auto-delete read/received message(s)',env=PLUMBER_RELAY_SQS_AUTO_DELETE"
+  // @gotags: kong:"help='Auto-delete read/received message(s)'"
   bool auto_delete = 5;
 
-  // @gotags: kong:"help='Number of seconds to wait for messages (not used when using 'follow')',env=PLUMBER_RELAY_SQS_WAIT_TIME_SECONDS,default=5"
+  // @gotags: kong:"help='Number of seconds to wait for messages (not used when using 'follow')',default=5"
   uint32 wait_time_seconds = 6;
 }
 
@@ -55,6 +55,7 @@ message AWSSQSWriteArgs {
   string message_deduplication_id = 6;
 }
 
+// SQS has a dedicated RelayArgs struct as relay has different defaults than read
 message AWSSQSRelayArgs {
   // @gotags: kong:"help='Queue name',env=PLUMBER_RELAY_SQS_QUEUE_NAME"
   string queue_name = 1;

@@ -243,8 +243,7 @@ proto.protos.backends.AzureEventHubReadArgs.prototype.toObject = function(opt_in
  */
 proto.protos.backends.AzureEventHubReadArgs.toObject = function(includeInstance, msg) {
   var f, obj = {
-    messageId: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    partitionKey: jspb.Message.getFieldWithDefault(msg, 2, "")
+
   };
 
   if (includeInstance) {
@@ -281,14 +280,6 @@ proto.protos.backends.AzureEventHubReadArgs.deserializeBinaryFromReader = functi
     }
     var field = reader.getFieldNumber();
     switch (field) {
-    case 1:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setMessageId(value);
-      break;
-    case 2:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setPartitionKey(value);
-      break;
     default:
       reader.skipField();
       break;
@@ -318,56 +309,6 @@ proto.protos.backends.AzureEventHubReadArgs.prototype.serializeBinary = function
  */
 proto.protos.backends.AzureEventHubReadArgs.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getMessageId();
-  if (f.length > 0) {
-    writer.writeString(
-      1,
-      f
-    );
-  }
-  f = message.getPartitionKey();
-  if (f.length > 0) {
-    writer.writeString(
-      2,
-      f
-    );
-  }
-};
-
-
-/**
- * optional string message_id = 1;
- * @return {string}
- */
-proto.protos.backends.AzureEventHubReadArgs.prototype.getMessageId = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
-};
-
-
-/**
- * @param {string} value
- * @return {!proto.protos.backends.AzureEventHubReadArgs} returns this
- */
-proto.protos.backends.AzureEventHubReadArgs.prototype.setMessageId = function(value) {
-  return jspb.Message.setProto3StringField(this, 1, value);
-};
-
-
-/**
- * optional string partition_key = 2;
- * @return {string}
- */
-proto.protos.backends.AzureEventHubReadArgs.prototype.getPartitionKey = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
-};
-
-
-/**
- * @param {string} value
- * @return {!proto.protos.backends.AzureEventHubReadArgs} returns this
- */
-proto.protos.backends.AzureEventHubReadArgs.prototype.setPartitionKey = function(value) {
-  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -403,7 +344,8 @@ proto.protos.backends.AzureEventHubWriteArgs.prototype.toObject = function(opt_i
  */
 proto.protos.backends.AzureEventHubWriteArgs.toObject = function(includeInstance, msg) {
   var f, obj = {
-
+    messageId: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    partitionKey: jspb.Message.getFieldWithDefault(msg, 2, "")
   };
 
   if (includeInstance) {
@@ -440,6 +382,14 @@ proto.protos.backends.AzureEventHubWriteArgs.deserializeBinaryFromReader = funct
     }
     var field = reader.getFieldNumber();
     switch (field) {
+    case 1:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setMessageId(value);
+      break;
+    case 2:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setPartitionKey(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -469,6 +419,56 @@ proto.protos.backends.AzureEventHubWriteArgs.prototype.serializeBinary = functio
  */
 proto.protos.backends.AzureEventHubWriteArgs.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
+  f = message.getMessageId();
+  if (f.length > 0) {
+    writer.writeString(
+      1,
+      f
+    );
+  }
+  f = message.getPartitionKey();
+  if (f.length > 0) {
+    writer.writeString(
+      2,
+      f
+    );
+  }
+};
+
+
+/**
+ * optional string message_id = 1;
+ * @return {string}
+ */
+proto.protos.backends.AzureEventHubWriteArgs.prototype.getMessageId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.protos.backends.AzureEventHubWriteArgs} returns this
+ */
+proto.protos.backends.AzureEventHubWriteArgs.prototype.setMessageId = function(value) {
+  return jspb.Message.setProto3StringField(this, 1, value);
+};
+
+
+/**
+ * optional string partition_key = 2;
+ * @return {string}
+ */
+proto.protos.backends.AzureEventHubWriteArgs.prototype.getPartitionKey = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.protos.backends.AzureEventHubWriteArgs} returns this
+ */
+proto.protos.backends.AzureEventHubWriteArgs.prototype.setPartitionKey = function(value) {
+  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 

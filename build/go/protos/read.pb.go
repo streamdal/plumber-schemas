@@ -104,8 +104,8 @@ func (m *ReadSampleOptions) GetSampleIntervalSeconds() uint32 {
 type ReadCLIConfig struct {
 	// @gotags: kong:"help='Display consumer offset stats during read'"
 	DisplayOffsetStats bool `protobuf:"varint,1,opt,name=display_offset_stats,json=displayOffsetStats,proto3" json:"display_offset_stats,omitempty" kong:"help='Display consumer offset stats during read'"`
-	// @gotags: kong:"help='Convert output before it is printed to STDOUT (1 = base64, 2 = gzip)'"
-	ConvertOutput []ConvertOption `protobuf:"varint,2,rep,packed,name=convert_output,json=convertOutput,proto3,enum=protos.ConvertOption" json:"convert_output,omitempty" kong:"help='Convert output before it is printed to STDOUT (1 = base64, 2 = gzip)'"`
+	// @gotags: kong:"help='Convert output before it is printed to STDOUT (1 = base64, 2 = gzip)',enum"
+	ConvertOutput []ConvertOption `protobuf:"varint,2,rep,packed,name=convert_output,json=convertOutput,proto3,enum=protos.ConvertOption" json:"convert_output,omitempty" kong:"help='Convert output before it is printed to STDOUT (1 = base64, 2 = gzip)',enum"`
 	// @gotags: kong:"help='Display more verbose information during reads (varies by backend)'"
 	VerboseOutput bool `protobuf:"varint,3,opt,name=verbose_output,json=verboseOutput,proto3" json:"verbose_output,omitempty" kong:"help='Display more verbose information during reads (varies by backend)'"`
 	// @gotags: kong:"group=stats,help='Display periodic read stats'"
@@ -198,42 +198,42 @@ func (m *ReadCLIConfig) GetXReadBackend() *ReadCLIConfig_ReadBackend {
 }
 
 type ReadCLIConfig_ReadBackend struct {
-	// @gotags: kong:"cmd"
-	Kafka *ReadCLIConfig_ReadBackend_Kafka `protobuf:"bytes,1,opt,name=kafka,proto3" json:"kafka,omitempty" kong:"cmd"`
-	// @gotags: kong:"cmd"
-	Activemq *ReadCLIConfig_ReadBackend_ActiveMQ `protobuf:"bytes,2,opt,name=activemq,proto3" json:"activemq,omitempty" kong:"cmd"`
-	// @gotags: kong:"cmd"
-	Awssqs *ReadCLIConfig_ReadBackend_AWSSQS `protobuf:"bytes,3,opt,name=awssqs,proto3" json:"awssqs,omitempty" kong:"cmd"`
-	// @gotags: kong:"cmd"
-	Mongo *ReadCLIConfig_ReadBackend_Mongo `protobuf:"bytes,4,opt,name=mongo,proto3" json:"mongo,omitempty" kong:"cmd"`
-	// @gotags: kong:"cmd"
-	Nats *ReadCLIConfig_ReadBackend_Nats `protobuf:"bytes,5,opt,name=nats,proto3" json:"nats,omitempty" kong:"cmd"`
-	// @gotags: kong:"cmd"
-	NatsStreaming *ReadCLIConfig_ReadBackend_NatsStreaming `protobuf:"bytes,6,opt,name=nats_streaming,json=natsStreaming,proto3" json:"nats_streaming,omitempty" kong:"cmd"`
-	// @gotags: kong:"cmd"
-	Nsq *ReadCLIConfig_ReadBackend_NSQ `protobuf:"bytes,7,opt,name=nsq,proto3" json:"nsq,omitempty" kong:"cmd"`
-	// @gotags: kong:"cmd"
-	Pulsar *ReadCLIConfig_ReadBackend_Pulsar `protobuf:"bytes,8,opt,name=pulsar,proto3" json:"pulsar,omitempty" kong:"cmd"`
-	// @gotags: kong:"cmd"
-	Rabbit *ReadCLIConfig_ReadBackend_Rabbit `protobuf:"bytes,9,opt,name=rabbit,proto3" json:"rabbit,omitempty" kong:"cmd"`
-	// @gotags: kong:"cmd"
-	RabbitStreams *ReadCLIConfig_ReadBackend_RabbitStreams `protobuf:"bytes,10,opt,name=rabbit_streams,json=rabbitStreams,proto3" json:"rabbit_streams,omitempty" kong:"cmd"`
-	// @gotags: kong:"cmd"
-	Mqtt *ReadCLIConfig_ReadBackend_MQTT `protobuf:"bytes,11,opt,name=mqtt,proto3" json:"mqtt,omitempty" kong:"cmd"`
-	// @gotags: kong:"cmd"
-	AzureServiceBus *ReadCLIConfig_ReadBackend_AzureServiceBus `protobuf:"bytes,12,opt,name=azure_service_bus,json=azureServiceBus,proto3" json:"azure_service_bus,omitempty" kong:"cmd"`
-	// @gotags: kong:"cmd"
-	AzureEventHub *ReadCLIConfig_ReadBackend_AzureEventHub `protobuf:"bytes,13,opt,name=azure_event_hub,json=azureEventHub,proto3" json:"azure_event_hub,omitempty" kong:"cmd"`
-	// @gotags: kong:"cmd"
-	GcpPubsub *ReadCLIConfig_ReadBackend_GCPPubSub `protobuf:"bytes,14,opt,name=gcp_pubsub,json=gcpPubsub,proto3" json:"gcp_pubsub,omitempty" kong:"cmd"`
-	// @gotags: kong:"cmd"
-	KubemqQueue *ReadCLIConfig_ReadBackend_KubeMQQueue `protobuf:"bytes,15,opt,name=kubemq_queue,json=kubemqQueue,proto3" json:"kubemq_queue,omitempty" kong:"cmd"`
-	// @gotags: kong:"cmd"
-	RedisPubsub *ReadCLIConfig_ReadBackend_RedisPubSub `protobuf:"bytes,16,opt,name=redis_pubsub,json=redisPubsub,proto3" json:"redis_pubsub,omitempty" kong:"cmd"`
-	// @gotags: kong:"cmd"
-	RedisStreams *ReadCLIConfig_ReadBackend_RedisStreams `protobuf:"bytes,17,opt,name=redis_streams,json=redisStreams,proto3" json:"redis_streams,omitempty" kong:"cmd"`
-	// @gotags: kong:"cmd"
-	Postgres             *ReadCLIConfig_ReadBackend_Postgres `protobuf:"bytes,18,opt,name=postgres,proto3" json:"postgres,omitempty" kong:"cmd"`
+	// @gotags: kong:"cmd,help='Apache Kafka'"
+	Kafka *ReadCLIConfig_ReadBackend_Kafka `protobuf:"bytes,1,opt,name=kafka,proto3" json:"kafka,omitempty" kong:"cmd,help='Apache Kafka'"`
+	// @gotags: kong:"cmd,help='Apache ActiveMQ (STOMP)'"
+	Activemq *ReadCLIConfig_ReadBackend_ActiveMQ `protobuf:"bytes,2,opt,name=activemq,proto3" json:"activemq,omitempty" kong:"cmd,help='Apache ActiveMQ (STOMP)'"`
+	// @gotags: kong:"cmd,help='AWS Simple Queue System'"
+	Awssqs *ReadCLIConfig_ReadBackend_AWSSQS `protobuf:"bytes,3,opt,name=awssqs,proto3" json:"awssqs,omitempty" kong:"cmd,help='AWS Simple Queue System'"`
+	// @gotags: kong:"cmd,help='MongoDB'"
+	Mongo *ReadCLIConfig_ReadBackend_Mongo `protobuf:"bytes,4,opt,name=mongo,proto3" json:"mongo,omitempty" kong:"cmd,help='MongoDB'"`
+	// @gotags: kong:"cmd,help='NATS'"
+	Nats *ReadCLIConfig_ReadBackend_Nats `protobuf:"bytes,5,opt,name=nats,proto3" json:"nats,omitempty" kong:"cmd,help='NATS'"`
+	// @gotags: kong:"cmd,help='NATS Streaming'"
+	NatsStreaming *ReadCLIConfig_ReadBackend_NatsStreaming `protobuf:"bytes,6,opt,name=nats_streaming,json=natsStreaming,proto3" json:"nats_streaming,omitempty" kong:"cmd,help='NATS Streaming'"`
+	// @gotags: kong:"cmd,help='NSQ'"
+	Nsq *ReadCLIConfig_ReadBackend_NSQ `protobuf:"bytes,7,opt,name=nsq,proto3" json:"nsq,omitempty" kong:"cmd,help='NSQ'"`
+	// @gotags: kong:"cmd,help='Apache Pulsar'"
+	Pulsar *ReadCLIConfig_ReadBackend_Pulsar `protobuf:"bytes,8,opt,name=pulsar,proto3" json:"pulsar,omitempty" kong:"cmd,help='Apache Pulsar'"`
+	// @gotags: kong:"cmd,help='RabbitMQ'"
+	Rabbit *ReadCLIConfig_ReadBackend_Rabbit `protobuf:"bytes,9,opt,name=rabbit,proto3" json:"rabbit,omitempty" kong:"cmd,help='RabbitMQ'"`
+	// @gotags: kong:"cmd,help='RabbitMQ Streams'"
+	RabbitStreams *ReadCLIConfig_ReadBackend_RabbitStreams `protobuf:"bytes,10,opt,name=rabbit_streams,json=rabbitStreams,proto3" json:"rabbit_streams,omitempty" kong:"cmd,help='RabbitMQ Streams'"`
+	// @gotags: kong:"cmd,help='MQTT'"
+	Mqtt *ReadCLIConfig_ReadBackend_MQTT `protobuf:"bytes,11,opt,name=mqtt,proto3" json:"mqtt,omitempty" kong:"cmd,help='MQTT'"`
+	// @gotags: kong:"cmd,help='Azure Service Bus'"
+	AzureServiceBus *ReadCLIConfig_ReadBackend_AzureServiceBus `protobuf:"bytes,12,opt,name=azure_service_bus,json=azureServiceBus,proto3" json:"azure_service_bus,omitempty" kong:"cmd,help='Azure Service Bus'"`
+	// @gotags: kong:"cmd,help=''"
+	AzureEventHub *ReadCLIConfig_ReadBackend_AzureEventHub `protobuf:"bytes,13,opt,name=azure_event_hub,json=azureEventHub,proto3" json:"azure_event_hub,omitempty" kong:"cmd,help=''"`
+	// @gotags: kong:"cmd,help='Google Cloud Platform Pub/Sub'"
+	GcpPubsub *ReadCLIConfig_ReadBackend_GCPPubSub `protobuf:"bytes,14,opt,name=gcp_pubsub,json=gcpPubsub,proto3" json:"gcp_pubsub,omitempty" kong:"cmd,help='Google Cloud Platform Pub/Sub'"`
+	// @gotags: kong:"cmd,help='KubeMQ Queue'"
+	KubemqQueue *ReadCLIConfig_ReadBackend_KubeMQQueue `protobuf:"bytes,15,opt,name=kubemq_queue,json=kubemqQueue,proto3" json:"kubemq_queue,omitempty" kong:"cmd,help='KubeMQ Queue'"`
+	// @gotags: kong:"cmd,help='Redis PubSub'"
+	RedisPubsub *ReadCLIConfig_ReadBackend_RedisPubSub `protobuf:"bytes,16,opt,name=redis_pubsub,json=redisPubsub,proto3" json:"redis_pubsub,omitempty" kong:"cmd,help='Redis PubSub'"`
+	// @gotags: kong:"cmd,help='Redis Streams'"
+	RedisStreams *ReadCLIConfig_ReadBackend_RedisStreams `protobuf:"bytes,17,opt,name=redis_streams,json=redisStreams,proto3" json:"redis_streams,omitempty" kong:"cmd,help='Redis Streams'"`
+	// @gotags: kong:"cmd,help='PostgreSQL'"
+	Postgres             *ReadCLIConfig_ReadBackend_Postgres `protobuf:"bytes,18,opt,name=postgres,proto3" json:"postgres,omitempty" kong:"cmd,help='PostgreSQL'"`
 	XXX_NoUnkeyedLiteral struct{}                            `json:"-"`
 	XXX_unrecognized     []byte                              `json:"-"`
 	XXX_sizecache        int32                               `json:"-"`

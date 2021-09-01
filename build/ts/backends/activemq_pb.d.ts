@@ -50,6 +50,10 @@ export namespace ActiveMQReadArgs {
 }
 
 export class ActiveMQWriteArgs extends jspb.Message { 
+    getTopic(): string;
+    setTopic(value: string): ActiveMQWriteArgs;
+    getQueue(): string;
+    setQueue(value: string): ActiveMQWriteArgs;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): ActiveMQWriteArgs.AsObject;
@@ -63,5 +67,7 @@ export class ActiveMQWriteArgs extends jspb.Message {
 
 export namespace ActiveMQWriteArgs {
     export type AsObject = {
+        topic: string,
+        queue: string,
     }
 }

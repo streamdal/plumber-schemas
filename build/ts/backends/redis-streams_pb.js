@@ -94,7 +94,7 @@ if (goog.DEBUG && !COMPILED) {
  * @constructor
  */
 proto.protos.backends.RedisStreamsWriteArgs = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.protos.backends.RedisStreamsWriteArgs.repeatedFields_, null);
 };
 goog.inherits(proto.protos.backends.RedisStreamsWriteArgs, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
@@ -326,9 +326,9 @@ proto.protos.backends.CreateConsumerConfig.prototype.toObject = function(opt_inc
  */
 proto.protos.backends.CreateConsumerConfig.toObject = function(includeInstance, msg) {
   var f, obj = {
-    createStreams: jspb.Message.getBooleanFieldWithDefault(msg, 3, false),
-    recreateConsumerGroup: jspb.Message.getBooleanFieldWithDefault(msg, 4, false),
-    offsetStart: jspb.Message.getFieldWithDefault(msg, 5, 0)
+    createStreams: jspb.Message.getBooleanFieldWithDefault(msg, 1, false),
+    recreateConsumerGroup: jspb.Message.getBooleanFieldWithDefault(msg, 2, false),
+    offsetStart: jspb.Message.getFieldWithDefault(msg, 3, 0)
   };
 
   if (includeInstance) {
@@ -365,15 +365,15 @@ proto.protos.backends.CreateConsumerConfig.deserializeBinaryFromReader = functio
     }
     var field = reader.getFieldNumber();
     switch (field) {
-    case 3:
+    case 1:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setCreateStreams(value);
       break;
-    case 4:
+    case 2:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setRecreateConsumerGroup(value);
       break;
-    case 5:
+    case 3:
       var value = /** @type {!proto.protos.backends.CreateConsumerConfig.OffsetStart} */ (reader.readEnum());
       msg.setOffsetStart(value);
       break;
@@ -409,21 +409,21 @@ proto.protos.backends.CreateConsumerConfig.serializeBinaryToWriter = function(me
   f = message.getCreateStreams();
   if (f) {
     writer.writeBool(
-      3,
+      1,
       f
     );
   }
   f = message.getRecreateConsumerGroup();
   if (f) {
     writer.writeBool(
-      4,
+      2,
       f
     );
   }
   f = message.getOffsetStart();
   if (f !== 0.0) {
     writer.writeEnum(
-      5,
+      3,
       f
     );
   }
@@ -439,11 +439,11 @@ proto.protos.backends.CreateConsumerConfig.OffsetStart = {
 };
 
 /**
- * optional bool create_streams = 3;
+ * optional bool create_streams = 1;
  * @return {boolean}
  */
 proto.protos.backends.CreateConsumerConfig.prototype.getCreateStreams = function() {
-  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 3, false));
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 1, false));
 };
 
 
@@ -452,16 +452,16 @@ proto.protos.backends.CreateConsumerConfig.prototype.getCreateStreams = function
  * @return {!proto.protos.backends.CreateConsumerConfig} returns this
  */
 proto.protos.backends.CreateConsumerConfig.prototype.setCreateStreams = function(value) {
-  return jspb.Message.setProto3BooleanField(this, 3, value);
+  return jspb.Message.setProto3BooleanField(this, 1, value);
 };
 
 
 /**
- * optional bool recreate_consumer_group = 4;
+ * optional bool recreate_consumer_group = 2;
  * @return {boolean}
  */
 proto.protos.backends.CreateConsumerConfig.prototype.getRecreateConsumerGroup = function() {
-  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 4, false));
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 2, false));
 };
 
 
@@ -470,16 +470,16 @@ proto.protos.backends.CreateConsumerConfig.prototype.getRecreateConsumerGroup = 
  * @return {!proto.protos.backends.CreateConsumerConfig} returns this
  */
 proto.protos.backends.CreateConsumerConfig.prototype.setRecreateConsumerGroup = function(value) {
-  return jspb.Message.setProto3BooleanField(this, 4, value);
+  return jspb.Message.setProto3BooleanField(this, 2, value);
 };
 
 
 /**
- * optional OffsetStart offset_start = 5;
+ * optional OffsetStart offset_start = 3;
  * @return {!proto.protos.backends.CreateConsumerConfig.OffsetStart}
  */
 proto.protos.backends.CreateConsumerConfig.prototype.getOffsetStart = function() {
-  return /** @type {!proto.protos.backends.CreateConsumerConfig.OffsetStart} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
+  return /** @type {!proto.protos.backends.CreateConsumerConfig.OffsetStart} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
 };
 
 
@@ -488,7 +488,7 @@ proto.protos.backends.CreateConsumerConfig.prototype.getOffsetStart = function()
  * @return {!proto.protos.backends.CreateConsumerConfig} returns this
  */
 proto.protos.backends.CreateConsumerConfig.prototype.setOffsetStart = function(value) {
-  return jspb.Message.setProto3EnumField(this, 5, value);
+  return jspb.Message.setProto3EnumField(this, 3, value);
 };
 
 
@@ -533,10 +533,9 @@ proto.protos.backends.RedisStreamsReadArgs.toObject = function(includeInstance, 
   var f, obj = {
     database: jspb.Message.getFieldWithDefault(msg, 1, 0),
     streamList: (f = jspb.Message.getRepeatedField(msg, 2)) == null ? undefined : f,
-    id: jspb.Message.getFieldWithDefault(msg, 3, ""),
-    key: jspb.Message.getFieldWithDefault(msg, 4, ""),
-    consumerGroup: jspb.Message.getFieldWithDefault(msg, 5, ""),
-    consumerName: jspb.Message.getFieldWithDefault(msg, 6, ""),
+    consumerGroup: jspb.Message.getFieldWithDefault(msg, 3, ""),
+    consumerName: jspb.Message.getFieldWithDefault(msg, 4, ""),
+    count: jspb.Message.getFieldWithDefault(msg, 5, 0),
     createConsumerConfig: (f = msg.getCreateConsumerConfig()) && proto.protos.backends.CreateConsumerConfig.toObject(includeInstance, f)
   };
 
@@ -584,21 +583,17 @@ proto.protos.backends.RedisStreamsReadArgs.deserializeBinaryFromReader = functio
       break;
     case 3:
       var value = /** @type {string} */ (reader.readString());
-      msg.setId(value);
+      msg.setConsumerGroup(value);
       break;
     case 4:
       var value = /** @type {string} */ (reader.readString());
-      msg.setKey(value);
-      break;
-    case 5:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setConsumerGroup(value);
-      break;
-    case 6:
-      var value = /** @type {string} */ (reader.readString());
       msg.setConsumerName(value);
       break;
-    case 7:
+    case 5:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setCount(value);
+      break;
+    case 6:
       var value = new proto.protos.backends.CreateConsumerConfig;
       reader.readMessage(value,proto.protos.backends.CreateConsumerConfig.deserializeBinaryFromReader);
       msg.setCreateConsumerConfig(value);
@@ -646,38 +641,31 @@ proto.protos.backends.RedisStreamsReadArgs.serializeBinaryToWriter = function(me
       f
     );
   }
-  f = message.getId();
+  f = message.getConsumerGroup();
   if (f.length > 0) {
     writer.writeString(
       3,
       f
     );
   }
-  f = message.getKey();
+  f = message.getConsumerName();
   if (f.length > 0) {
     writer.writeString(
       4,
       f
     );
   }
-  f = message.getConsumerGroup();
-  if (f.length > 0) {
-    writer.writeString(
+  f = message.getCount();
+  if (f !== 0) {
+    writer.writeUint32(
       5,
-      f
-    );
-  }
-  f = message.getConsumerName();
-  if (f.length > 0) {
-    writer.writeString(
-      6,
       f
     );
   }
   f = message.getCreateConsumerConfig();
   if (f != null) {
     writer.writeMessage(
-      7,
+      6,
       f,
       proto.protos.backends.CreateConsumerConfig.serializeBinaryToWriter
     );
@@ -741,10 +729,10 @@ proto.protos.backends.RedisStreamsReadArgs.prototype.clearStreamList = function(
 
 
 /**
- * optional string id = 3;
+ * optional string consumer_group = 3;
  * @return {string}
  */
-proto.protos.backends.RedisStreamsReadArgs.prototype.getId = function() {
+proto.protos.backends.RedisStreamsReadArgs.prototype.getConsumerGroup = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
 };
 
@@ -753,16 +741,16 @@ proto.protos.backends.RedisStreamsReadArgs.prototype.getId = function() {
  * @param {string} value
  * @return {!proto.protos.backends.RedisStreamsReadArgs} returns this
  */
-proto.protos.backends.RedisStreamsReadArgs.prototype.setId = function(value) {
+proto.protos.backends.RedisStreamsReadArgs.prototype.setConsumerGroup = function(value) {
   return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
 /**
- * optional string key = 4;
+ * optional string consumer_name = 4;
  * @return {string}
  */
-proto.protos.backends.RedisStreamsReadArgs.prototype.getKey = function() {
+proto.protos.backends.RedisStreamsReadArgs.prototype.getConsumerName = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
 };
 
@@ -771,54 +759,36 @@ proto.protos.backends.RedisStreamsReadArgs.prototype.getKey = function() {
  * @param {string} value
  * @return {!proto.protos.backends.RedisStreamsReadArgs} returns this
  */
-proto.protos.backends.RedisStreamsReadArgs.prototype.setKey = function(value) {
+proto.protos.backends.RedisStreamsReadArgs.prototype.setConsumerName = function(value) {
   return jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
 /**
- * optional string consumer_group = 5;
- * @return {string}
+ * optional uint32 count = 5;
+ * @return {number}
  */
-proto.protos.backends.RedisStreamsReadArgs.prototype.getConsumerGroup = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 5, ""));
+proto.protos.backends.RedisStreamsReadArgs.prototype.getCount = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
 };
 
 
 /**
- * @param {string} value
+ * @param {number} value
  * @return {!proto.protos.backends.RedisStreamsReadArgs} returns this
  */
-proto.protos.backends.RedisStreamsReadArgs.prototype.setConsumerGroup = function(value) {
-  return jspb.Message.setProto3StringField(this, 5, value);
+proto.protos.backends.RedisStreamsReadArgs.prototype.setCount = function(value) {
+  return jspb.Message.setProto3IntField(this, 5, value);
 };
 
 
 /**
- * optional string consumer_name = 6;
- * @return {string}
- */
-proto.protos.backends.RedisStreamsReadArgs.prototype.getConsumerName = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 6, ""));
-};
-
-
-/**
- * @param {string} value
- * @return {!proto.protos.backends.RedisStreamsReadArgs} returns this
- */
-proto.protos.backends.RedisStreamsReadArgs.prototype.setConsumerName = function(value) {
-  return jspb.Message.setProto3StringField(this, 6, value);
-};
-
-
-/**
- * optional CreateConsumerConfig create_consumer_config = 7;
+ * optional CreateConsumerConfig create_consumer_config = 6;
  * @return {?proto.protos.backends.CreateConsumerConfig}
  */
 proto.protos.backends.RedisStreamsReadArgs.prototype.getCreateConsumerConfig = function() {
   return /** @type{?proto.protos.backends.CreateConsumerConfig} */ (
-    jspb.Message.getWrapperField(this, proto.protos.backends.CreateConsumerConfig, 7));
+    jspb.Message.getWrapperField(this, proto.protos.backends.CreateConsumerConfig, 6));
 };
 
 
@@ -827,7 +797,7 @@ proto.protos.backends.RedisStreamsReadArgs.prototype.getCreateConsumerConfig = f
  * @return {!proto.protos.backends.RedisStreamsReadArgs} returns this
 */
 proto.protos.backends.RedisStreamsReadArgs.prototype.setCreateConsumerConfig = function(value) {
-  return jspb.Message.setWrapperField(this, 7, value);
+  return jspb.Message.setWrapperField(this, 6, value);
 };
 
 
@@ -845,10 +815,17 @@ proto.protos.backends.RedisStreamsReadArgs.prototype.clearCreateConsumerConfig =
  * @return {boolean}
  */
 proto.protos.backends.RedisStreamsReadArgs.prototype.hasCreateConsumerConfig = function() {
-  return jspb.Message.getField(this, 7) != null;
+  return jspb.Message.getField(this, 6) != null;
 };
 
 
+
+/**
+ * List of repeated fields within this message type.
+ * @private {!Array<number>}
+ * @const
+ */
+proto.protos.backends.RedisStreamsWriteArgs.repeatedFields_ = [2];
 
 
 
@@ -881,7 +858,9 @@ proto.protos.backends.RedisStreamsWriteArgs.prototype.toObject = function(opt_in
  */
 proto.protos.backends.RedisStreamsWriteArgs.toObject = function(includeInstance, msg) {
   var f, obj = {
-
+    writeId: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    streamsList: (f = jspb.Message.getRepeatedField(msg, 2)) == null ? undefined : f,
+    key: jspb.Message.getFieldWithDefault(msg, 3, "")
   };
 
   if (includeInstance) {
@@ -918,6 +897,18 @@ proto.protos.backends.RedisStreamsWriteArgs.deserializeBinaryFromReader = functi
     }
     var field = reader.getFieldNumber();
     switch (field) {
+    case 1:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setWriteId(value);
+      break;
+    case 2:
+      var value = /** @type {string} */ (reader.readString());
+      msg.addStreams(value);
+      break;
+    case 3:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setKey(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -947,6 +938,100 @@ proto.protos.backends.RedisStreamsWriteArgs.prototype.serializeBinary = function
  */
 proto.protos.backends.RedisStreamsWriteArgs.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
+  f = message.getWriteId();
+  if (f.length > 0) {
+    writer.writeString(
+      1,
+      f
+    );
+  }
+  f = message.getStreamsList();
+  if (f.length > 0) {
+    writer.writeRepeatedString(
+      2,
+      f
+    );
+  }
+  f = message.getKey();
+  if (f.length > 0) {
+    writer.writeString(
+      3,
+      f
+    );
+  }
+};
+
+
+/**
+ * optional string write_id = 1;
+ * @return {string}
+ */
+proto.protos.backends.RedisStreamsWriteArgs.prototype.getWriteId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.protos.backends.RedisStreamsWriteArgs} returns this
+ */
+proto.protos.backends.RedisStreamsWriteArgs.prototype.setWriteId = function(value) {
+  return jspb.Message.setProto3StringField(this, 1, value);
+};
+
+
+/**
+ * repeated string streams = 2;
+ * @return {!Array<string>}
+ */
+proto.protos.backends.RedisStreamsWriteArgs.prototype.getStreamsList = function() {
+  return /** @type {!Array<string>} */ (jspb.Message.getRepeatedField(this, 2));
+};
+
+
+/**
+ * @param {!Array<string>} value
+ * @return {!proto.protos.backends.RedisStreamsWriteArgs} returns this
+ */
+proto.protos.backends.RedisStreamsWriteArgs.prototype.setStreamsList = function(value) {
+  return jspb.Message.setField(this, 2, value || []);
+};
+
+
+/**
+ * @param {string} value
+ * @param {number=} opt_index
+ * @return {!proto.protos.backends.RedisStreamsWriteArgs} returns this
+ */
+proto.protos.backends.RedisStreamsWriteArgs.prototype.addStreams = function(value, opt_index) {
+  return jspb.Message.addToRepeatedField(this, 2, value, opt_index);
+};
+
+
+/**
+ * Clears the list making it empty but non-null.
+ * @return {!proto.protos.backends.RedisStreamsWriteArgs} returns this
+ */
+proto.protos.backends.RedisStreamsWriteArgs.prototype.clearStreamsList = function() {
+  return this.setStreamsList([]);
+};
+
+
+/**
+ * optional string key = 3;
+ * @return {string}
+ */
+proto.protos.backends.RedisStreamsWriteArgs.prototype.getKey = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.protos.backends.RedisStreamsWriteArgs} returns this
+ */
+proto.protos.backends.RedisStreamsWriteArgs.prototype.setKey = function(value) {
+  return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 

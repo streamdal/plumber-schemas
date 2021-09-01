@@ -71,7 +71,7 @@ if (goog.DEBUG && !COMPILED) {
  * @constructor
  */
 proto.protos.backends.RedisPubSubWriteArgs = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.protos.backends.RedisPubSubWriteArgs.repeatedFields_, null);
 };
 goog.inherits(proto.protos.backends.RedisPubSubWriteArgs, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
@@ -458,6 +458,13 @@ proto.protos.backends.RedisPubSubReadArgs.prototype.clearChannelList = function(
 
 
 
+/**
+ * List of repeated fields within this message type.
+ * @private {!Array<number>}
+ * @const
+ */
+proto.protos.backends.RedisPubSubWriteArgs.repeatedFields_ = [2];
+
 
 
 if (jspb.Message.GENERATE_TO_OBJECT) {
@@ -489,7 +496,8 @@ proto.protos.backends.RedisPubSubWriteArgs.prototype.toObject = function(opt_inc
  */
 proto.protos.backends.RedisPubSubWriteArgs.toObject = function(includeInstance, msg) {
   var f, obj = {
-
+    database: jspb.Message.getFieldWithDefault(msg, 1, 0),
+    channelList: (f = jspb.Message.getRepeatedField(msg, 2)) == null ? undefined : f
   };
 
   if (includeInstance) {
@@ -526,6 +534,14 @@ proto.protos.backends.RedisPubSubWriteArgs.deserializeBinaryFromReader = functio
     }
     var field = reader.getFieldNumber();
     switch (field) {
+    case 1:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setDatabase(value);
+      break;
+    case 2:
+      var value = /** @type {string} */ (reader.readString());
+      msg.addChannel(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -555,6 +571,75 @@ proto.protos.backends.RedisPubSubWriteArgs.prototype.serializeBinary = function(
  */
 proto.protos.backends.RedisPubSubWriteArgs.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
+  f = message.getDatabase();
+  if (f !== 0) {
+    writer.writeUint32(
+      1,
+      f
+    );
+  }
+  f = message.getChannelList();
+  if (f.length > 0) {
+    writer.writeRepeatedString(
+      2,
+      f
+    );
+  }
+};
+
+
+/**
+ * optional uint32 database = 1;
+ * @return {number}
+ */
+proto.protos.backends.RedisPubSubWriteArgs.prototype.getDatabase = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.protos.backends.RedisPubSubWriteArgs} returns this
+ */
+proto.protos.backends.RedisPubSubWriteArgs.prototype.setDatabase = function(value) {
+  return jspb.Message.setProto3IntField(this, 1, value);
+};
+
+
+/**
+ * repeated string channel = 2;
+ * @return {!Array<string>}
+ */
+proto.protos.backends.RedisPubSubWriteArgs.prototype.getChannelList = function() {
+  return /** @type {!Array<string>} */ (jspb.Message.getRepeatedField(this, 2));
+};
+
+
+/**
+ * @param {!Array<string>} value
+ * @return {!proto.protos.backends.RedisPubSubWriteArgs} returns this
+ */
+proto.protos.backends.RedisPubSubWriteArgs.prototype.setChannelList = function(value) {
+  return jspb.Message.setField(this, 2, value || []);
+};
+
+
+/**
+ * @param {string} value
+ * @param {number=} opt_index
+ * @return {!proto.protos.backends.RedisPubSubWriteArgs} returns this
+ */
+proto.protos.backends.RedisPubSubWriteArgs.prototype.addChannel = function(value, opt_index) {
+  return jspb.Message.addToRepeatedField(this, 2, value, opt_index);
+};
+
+
+/**
+ * Clears the list making it empty but non-null.
+ * @return {!proto.protos.backends.RedisPubSubWriteArgs} returns this
+ */
+proto.protos.backends.RedisPubSubWriteArgs.prototype.clearChannelList = function() {
+  return this.setChannelList([]);
 };
 
 

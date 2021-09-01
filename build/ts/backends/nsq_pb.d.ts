@@ -80,6 +80,8 @@ export namespace NSQReadArgs {
 }
 
 export class NSQWriteArgs extends jspb.Message { 
+    getTopic(): string;
+    setTopic(value: string): NSQWriteArgs;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): NSQWriteArgs.AsObject;
@@ -93,5 +95,6 @@ export class NSQWriteArgs extends jspb.Message {
 
 export namespace NSQWriteArgs {
     export type AsObject = {
+        topic: string,
     }
 }

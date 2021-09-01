@@ -403,7 +403,8 @@ proto.protos.backends.ActiveMQWriteArgs.prototype.toObject = function(opt_includ
  */
 proto.protos.backends.ActiveMQWriteArgs.toObject = function(includeInstance, msg) {
   var f, obj = {
-
+    topic: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    queue: jspb.Message.getFieldWithDefault(msg, 2, "")
   };
 
   if (includeInstance) {
@@ -440,6 +441,14 @@ proto.protos.backends.ActiveMQWriteArgs.deserializeBinaryFromReader = function(m
     }
     var field = reader.getFieldNumber();
     switch (field) {
+    case 1:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setTopic(value);
+      break;
+    case 2:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setQueue(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -469,6 +478,56 @@ proto.protos.backends.ActiveMQWriteArgs.prototype.serializeBinary = function() {
  */
 proto.protos.backends.ActiveMQWriteArgs.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
+  f = message.getTopic();
+  if (f.length > 0) {
+    writer.writeString(
+      1,
+      f
+    );
+  }
+  f = message.getQueue();
+  if (f.length > 0) {
+    writer.writeString(
+      2,
+      f
+    );
+  }
+};
+
+
+/**
+ * optional string topic = 1;
+ * @return {string}
+ */
+proto.protos.backends.ActiveMQWriteArgs.prototype.getTopic = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.protos.backends.ActiveMQWriteArgs} returns this
+ */
+proto.protos.backends.ActiveMQWriteArgs.prototype.setTopic = function(value) {
+  return jspb.Message.setProto3StringField(this, 1, value);
+};
+
+
+/**
+ * optional string queue = 2;
+ * @return {string}
+ */
+proto.protos.backends.ActiveMQWriteArgs.prototype.getQueue = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.protos.backends.ActiveMQWriteArgs} returns this
+ */
+proto.protos.backends.ActiveMQWriteArgs.prototype.setQueue = function(value) {
+  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 

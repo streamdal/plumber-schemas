@@ -357,7 +357,6 @@ proto.protos.backends.MQTTConn.prototype.toObject = function(opt_includeInstance
 proto.protos.backends.MQTTConn.toObject = function(includeInstance, msg) {
   var f, obj = {
     address: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    topic: jspb.Message.getFieldWithDefault(msg, 2, ""),
     connTimeoutSeconds: jspb.Message.getFieldWithDefault(msg, 3, 0),
     clientId: jspb.Message.getFieldWithDefault(msg, 4, ""),
     qosLevel: jspb.Message.getFieldWithDefault(msg, 5, 0),
@@ -401,10 +400,6 @@ proto.protos.backends.MQTTConn.deserializeBinaryFromReader = function(msg, reade
     case 1:
       var value = /** @type {string} */ (reader.readString());
       msg.setAddress(value);
-      break;
-    case 2:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setTopic(value);
       break;
     case 3:
       var value = /** @type {number} */ (reader.readUint32());
@@ -459,13 +454,6 @@ proto.protos.backends.MQTTConn.serializeBinaryToWriter = function(message, write
       f
     );
   }
-  f = message.getTopic();
-  if (f.length > 0) {
-    writer.writeString(
-      2,
-      f
-    );
-  }
   f = message.getConnTimeoutSeconds();
   if (f !== 0) {
     writer.writeUint32(
@@ -513,24 +501,6 @@ proto.protos.backends.MQTTConn.prototype.getAddress = function() {
  */
 proto.protos.backends.MQTTConn.prototype.setAddress = function(value) {
   return jspb.Message.setProto3StringField(this, 1, value);
-};
-
-
-/**
- * optional string topic = 2;
- * @return {string}
- */
-proto.protos.backends.MQTTConn.prototype.getTopic = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
-};
-
-
-/**
- * @param {string} value
- * @return {!proto.protos.backends.MQTTConn} returns this
- */
-proto.protos.backends.MQTTConn.prototype.setTopic = function(value) {
-  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -657,7 +627,8 @@ proto.protos.backends.MQTTReadArgs.prototype.toObject = function(opt_includeInst
  */
 proto.protos.backends.MQTTReadArgs.toObject = function(includeInstance, msg) {
   var f, obj = {
-    readTimeoutSeconds: jspb.Message.getFieldWithDefault(msg, 1, 0)
+    topic: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    readTimeoutSeconds: jspb.Message.getFieldWithDefault(msg, 2, 0)
   };
 
   if (includeInstance) {
@@ -695,6 +666,10 @@ proto.protos.backends.MQTTReadArgs.deserializeBinaryFromReader = function(msg, r
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setTopic(value);
+      break;
+    case 2:
       var value = /** @type {number} */ (reader.readUint32());
       msg.setReadTimeoutSeconds(value);
       break;
@@ -727,10 +702,17 @@ proto.protos.backends.MQTTReadArgs.prototype.serializeBinary = function() {
  */
 proto.protos.backends.MQTTReadArgs.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
+  f = message.getTopic();
+  if (f.length > 0) {
+    writer.writeString(
+      1,
+      f
+    );
+  }
   f = message.getReadTimeoutSeconds();
   if (f !== 0) {
     writer.writeUint32(
-      1,
+      2,
       f
     );
   }
@@ -738,11 +720,29 @@ proto.protos.backends.MQTTReadArgs.serializeBinaryToWriter = function(message, w
 
 
 /**
- * optional uint32 read_timeout_seconds = 1;
+ * optional string topic = 1;
+ * @return {string}
+ */
+proto.protos.backends.MQTTReadArgs.prototype.getTopic = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.protos.backends.MQTTReadArgs} returns this
+ */
+proto.protos.backends.MQTTReadArgs.prototype.setTopic = function(value) {
+  return jspb.Message.setProto3StringField(this, 1, value);
+};
+
+
+/**
+ * optional uint32 read_timeout_seconds = 2;
  * @return {number}
  */
 proto.protos.backends.MQTTReadArgs.prototype.getReadTimeoutSeconds = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
 };
 
 
@@ -751,7 +751,7 @@ proto.protos.backends.MQTTReadArgs.prototype.getReadTimeoutSeconds = function() 
  * @return {!proto.protos.backends.MQTTReadArgs} returns this
  */
 proto.protos.backends.MQTTReadArgs.prototype.setReadTimeoutSeconds = function(value) {
-  return jspb.Message.setProto3IntField(this, 1, value);
+  return jspb.Message.setProto3IntField(this, 2, value);
 };
 
 
@@ -787,7 +787,8 @@ proto.protos.backends.MQTTWriteArgs.prototype.toObject = function(opt_includeIns
  */
 proto.protos.backends.MQTTWriteArgs.toObject = function(includeInstance, msg) {
   var f, obj = {
-    writeTimeoutSeconds: jspb.Message.getFieldWithDefault(msg, 1, 0)
+    topic: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    writeTimeoutSeconds: jspb.Message.getFieldWithDefault(msg, 2, 0)
   };
 
   if (includeInstance) {
@@ -825,6 +826,10 @@ proto.protos.backends.MQTTWriteArgs.deserializeBinaryFromReader = function(msg, 
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setTopic(value);
+      break;
+    case 2:
       var value = /** @type {number} */ (reader.readUint32());
       msg.setWriteTimeoutSeconds(value);
       break;
@@ -857,10 +862,17 @@ proto.protos.backends.MQTTWriteArgs.prototype.serializeBinary = function() {
  */
 proto.protos.backends.MQTTWriteArgs.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
+  f = message.getTopic();
+  if (f.length > 0) {
+    writer.writeString(
+      1,
+      f
+    );
+  }
   f = message.getWriteTimeoutSeconds();
   if (f !== 0) {
     writer.writeUint32(
-      1,
+      2,
       f
     );
   }
@@ -868,11 +880,29 @@ proto.protos.backends.MQTTWriteArgs.serializeBinaryToWriter = function(message, 
 
 
 /**
- * optional uint32 write_timeout_seconds = 1;
+ * optional string topic = 1;
+ * @return {string}
+ */
+proto.protos.backends.MQTTWriteArgs.prototype.getTopic = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.protos.backends.MQTTWriteArgs} returns this
+ */
+proto.protos.backends.MQTTWriteArgs.prototype.setTopic = function(value) {
+  return jspb.Message.setProto3StringField(this, 1, value);
+};
+
+
+/**
+ * optional uint32 write_timeout_seconds = 2;
  * @return {number}
  */
 proto.protos.backends.MQTTWriteArgs.prototype.getWriteTimeoutSeconds = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
 };
 
 
@@ -881,7 +911,7 @@ proto.protos.backends.MQTTWriteArgs.prototype.getWriteTimeoutSeconds = function(
  * @return {!proto.protos.backends.MQTTWriteArgs} returns this
  */
 proto.protos.backends.MQTTWriteArgs.prototype.setWriteTimeoutSeconds = function(value) {
-  return jspb.Message.setProto3IntField(this, 1, value);
+  return jspb.Message.setProto3IntField(this, 2, value);
 };
 
 

@@ -45,12 +45,12 @@ message MQTTReadArgs {
     // @gotags: kong:"help='Topic to read message(s) from',env='PLUMBER_RELAY_MQTT_TOPIC',required"
     string topic = 1;
 
-    // @gotags: kong:"help='How long to attempt to read message(s)',default=0"
+    // @gotags: kong:"help='How long to attempt to read message(s)',default=0,env='PLUMBER_RELAY_MQTT_READ_TIMEOUT_SECONDS'"
     uint32 read_timeout_seconds = 2;
 }
 
 message MQTTWriteArgs {
-    // @gotags: kong:"help='Topic to write message(s) to',env='PLUMBER_RELAY_MQTT_TOPIC',required"
+    // @gotags: kong:"help='Topic to write message(s) to',required"
     string topic = 1;
 
     // @gotags: kong:"help='How long to attempt to publish message(s)',default=5"

@@ -71,14 +71,12 @@ export class RedisStreamsReadArgs extends jspb.Message {
     getStreamList(): Array<string>;
     setStreamList(value: Array<string>): RedisStreamsReadArgs;
     addStream(value: string, index?: number): string;
-    getId(): string;
-    setId(value: string): RedisStreamsReadArgs;
-    getKey(): string;
-    setKey(value: string): RedisStreamsReadArgs;
     getConsumerGroup(): string;
     setConsumerGroup(value: string): RedisStreamsReadArgs;
     getConsumerName(): string;
     setConsumerName(value: string): RedisStreamsReadArgs;
+    getCount(): number;
+    setCount(value: number): RedisStreamsReadArgs;
 
     hasCreateConsumerConfig(): boolean;
     clearCreateConsumerConfig(): void;
@@ -99,15 +97,22 @@ export namespace RedisStreamsReadArgs {
     export type AsObject = {
         database: number,
         streamList: Array<string>,
-        id: string,
-        key: string,
         consumerGroup: string,
         consumerName: string,
+        count: number,
         createConsumerConfig?: CreateConsumerConfig.AsObject,
     }
 }
 
 export class RedisStreamsWriteArgs extends jspb.Message { 
+    getWriteId(): string;
+    setWriteId(value: string): RedisStreamsWriteArgs;
+    clearStreamsList(): void;
+    getStreamsList(): Array<string>;
+    setStreamsList(value: Array<string>): RedisStreamsWriteArgs;
+    addStreams(value: string, index?: number): string;
+    getKey(): string;
+    setKey(value: string): RedisStreamsWriteArgs;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): RedisStreamsWriteArgs.AsObject;
@@ -121,5 +126,8 @@ export class RedisStreamsWriteArgs extends jspb.Message {
 
 export namespace RedisStreamsWriteArgs {
     export type AsObject = {
+        writeId: string,
+        streamsList: Array<string>,
+        key: string,
     }
 }

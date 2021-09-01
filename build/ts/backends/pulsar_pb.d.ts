@@ -9,8 +9,8 @@ import * as jspb from "google-protobuf";
 export class PulsarConn extends jspb.Message { 
     getDsn(): string;
     setDsn(value: string): PulsarConn;
-    getConnectTimeout(): string;
-    setConnectTimeout(value: string): PulsarConn;
+    getConnectTimeoutSeconds(): number;
+    setConnectTimeoutSeconds(value: number): PulsarConn;
     getInsecureTls(): boolean;
     setInsecureTls(value: boolean): PulsarConn;
     getTlsClientCert(): Uint8Array | string;
@@ -35,7 +35,7 @@ export class PulsarConn extends jspb.Message {
 export namespace PulsarConn {
     export type AsObject = {
         dsn: string,
-        connectTimeout: string,
+        connectTimeoutSeconds: number,
         insecureTls: boolean,
         tlsClientCert: Uint8Array | string,
         tlsClientKey: Uint8Array | string,
@@ -69,6 +69,8 @@ export namespace PulsarReadArgs {
 }
 
 export class PulsarWriteArgs extends jspb.Message { 
+    getTopic(): string;
+    setTopic(value: string): PulsarWriteArgs;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): PulsarWriteArgs.AsObject;
@@ -82,6 +84,7 @@ export class PulsarWriteArgs extends jspb.Message {
 
 export namespace PulsarWriteArgs {
     export type AsObject = {
+        topic: string,
     }
 }
 

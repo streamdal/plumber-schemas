@@ -66,20 +66,3 @@ export namespace PostgresReadArgs {
         publisherName: string,
     }
 }
-
-export class PostgresWriteArgs extends jspb.Message { 
-
-    serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): PostgresWriteArgs.AsObject;
-    static toObject(includeInstance: boolean, msg: PostgresWriteArgs): PostgresWriteArgs.AsObject;
-    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: PostgresWriteArgs, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): PostgresWriteArgs;
-    static deserializeBinaryFromReader(message: PostgresWriteArgs, reader: jspb.BinaryReader): PostgresWriteArgs;
-}
-
-export namespace PostgresWriteArgs {
-    export type AsObject = {
-    }
-}

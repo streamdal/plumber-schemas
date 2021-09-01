@@ -106,6 +106,12 @@ export namespace RabbitStreamsReadArgs {
 }
 
 export class RabbitStreamsWriteArgs extends jspb.Message { 
+    getStream(): string;
+    setStream(value: string): RabbitStreamsWriteArgs;
+    getDeclareStream(): boolean;
+    setDeclareStream(value: boolean): RabbitStreamsWriteArgs;
+    getDeclareStreamSize(): string;
+    setDeclareStreamSize(value: string): RabbitStreamsWriteArgs;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): RabbitStreamsWriteArgs.AsObject;
@@ -119,5 +125,8 @@ export class RabbitStreamsWriteArgs extends jspb.Message {
 
 export namespace RabbitStreamsWriteArgs {
     export type AsObject = {
+        stream: string,
+        declareStream: boolean,
+        declareStreamSize: string,
     }
 }

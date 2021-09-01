@@ -32,27 +32,9 @@ export namespace AWSSNSConn {
     }
 }
 
-export class AWSSNSReadArgs extends jspb.Message { 
-    getTopicArn(): string;
-    setTopicArn(value: string): AWSSNSReadArgs;
-
-    serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): AWSSNSReadArgs.AsObject;
-    static toObject(includeInstance: boolean, msg: AWSSNSReadArgs): AWSSNSReadArgs.AsObject;
-    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: AWSSNSReadArgs, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): AWSSNSReadArgs;
-    static deserializeBinaryFromReader(message: AWSSNSReadArgs, reader: jspb.BinaryReader): AWSSNSReadArgs;
-}
-
-export namespace AWSSNSReadArgs {
-    export type AsObject = {
-        topicArn: string,
-    }
-}
-
 export class AWSSNSWriteArgs extends jspb.Message { 
+    getTopic(): string;
+    setTopic(value: string): AWSSNSWriteArgs;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): AWSSNSWriteArgs.AsObject;
@@ -66,5 +48,6 @@ export class AWSSNSWriteArgs extends jspb.Message {
 
 export namespace AWSSNSWriteArgs {
     export type AsObject = {
+        topic: string,
     }
 }

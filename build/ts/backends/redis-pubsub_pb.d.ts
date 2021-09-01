@@ -58,6 +58,12 @@ export namespace RedisPubSubReadArgs {
 }
 
 export class RedisPubSubWriteArgs extends jspb.Message { 
+    getDatabase(): number;
+    setDatabase(value: number): RedisPubSubWriteArgs;
+    clearChannelList(): void;
+    getChannelList(): Array<string>;
+    setChannelList(value: Array<string>): RedisPubSubWriteArgs;
+    addChannel(value: string, index?: number): string;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): RedisPubSubWriteArgs.AsObject;
@@ -71,5 +77,7 @@ export class RedisPubSubWriteArgs extends jspb.Message {
 
 export namespace RedisPubSubWriteArgs {
     export type AsObject = {
+        database: number,
+        channelList: Array<string>,
     }
 }

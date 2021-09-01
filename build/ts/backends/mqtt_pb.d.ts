@@ -38,8 +38,6 @@ export namespace MQTTTLSOptions {
 export class MQTTConn extends jspb.Message { 
     getAddress(): string;
     setAddress(value: string): MQTTConn;
-    getTopic(): string;
-    setTopic(value: string): MQTTConn;
     getConnTimeoutSeconds(): number;
     setConnTimeoutSeconds(value: number): MQTTConn;
     getClientId(): string;
@@ -65,7 +63,6 @@ export class MQTTConn extends jspb.Message {
 export namespace MQTTConn {
     export type AsObject = {
         address: string,
-        topic: string,
         connTimeoutSeconds: number,
         clientId: string,
         qosLevel: MQTTQoSLevel,
@@ -74,6 +71,8 @@ export namespace MQTTConn {
 }
 
 export class MQTTReadArgs extends jspb.Message { 
+    getTopic(): string;
+    setTopic(value: string): MQTTReadArgs;
     getReadTimeoutSeconds(): number;
     setReadTimeoutSeconds(value: number): MQTTReadArgs;
 
@@ -89,11 +88,14 @@ export class MQTTReadArgs extends jspb.Message {
 
 export namespace MQTTReadArgs {
     export type AsObject = {
+        topic: string,
         readTimeoutSeconds: number,
     }
 }
 
 export class MQTTWriteArgs extends jspb.Message { 
+    getTopic(): string;
+    setTopic(value: string): MQTTWriteArgs;
     getWriteTimeoutSeconds(): number;
     setWriteTimeoutSeconds(value: number): MQTTWriteArgs;
 
@@ -109,6 +111,7 @@ export class MQTTWriteArgs extends jspb.Message {
 
 export namespace MQTTWriteArgs {
     export type AsObject = {
+        topic: string,
         writeTimeoutSeconds: number,
     }
 }

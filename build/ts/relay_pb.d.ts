@@ -177,8 +177,8 @@ export namespace CLIRelayConfig {
 
             hasArgs(): boolean;
             clearArgs(): void;
-            getArgs(): backends_aws_sqs_pb.AWSSQSReadArgs | undefined;
-            setArgs(value?: backends_aws_sqs_pb.AWSSQSReadArgs): AWSSQS;
+            getArgs(): backends_aws_sqs_pb.AWSSQSRelayArgs | undefined;
+            setArgs(value?: backends_aws_sqs_pb.AWSSQSRelayArgs): AWSSQS;
 
             serializeBinary(): Uint8Array;
             toObject(includeInstance?: boolean): AWSSQS.AsObject;
@@ -193,7 +193,7 @@ export namespace CLIRelayConfig {
         export namespace AWSSQS {
             export type AsObject = {
                 conn?: backends_aws_sqs_pb.AWSSQSConn.AsObject,
-                args?: backends_aws_sqs_pb.AWSSQSReadArgs.AsObject,
+                args?: backends_aws_sqs_pb.AWSSQSRelayArgs.AsObject,
             }
         }
 

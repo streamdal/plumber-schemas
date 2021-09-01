@@ -619,7 +619,7 @@ proto.protos.backends.NatsWriteArgs.prototype.toObject = function(opt_includeIns
  */
 proto.protos.backends.NatsWriteArgs.toObject = function(includeInstance, msg) {
   var f, obj = {
-
+    subject: jspb.Message.getFieldWithDefault(msg, 1, "")
   };
 
   if (includeInstance) {
@@ -656,6 +656,10 @@ proto.protos.backends.NatsWriteArgs.deserializeBinaryFromReader = function(msg, 
     }
     var field = reader.getFieldNumber();
     switch (field) {
+    case 1:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setSubject(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -685,6 +689,31 @@ proto.protos.backends.NatsWriteArgs.prototype.serializeBinary = function() {
  */
 proto.protos.backends.NatsWriteArgs.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
+  f = message.getSubject();
+  if (f.length > 0) {
+    writer.writeString(
+      1,
+      f
+    );
+  }
+};
+
+
+/**
+ * optional string subject = 1;
+ * @return {string}
+ */
+proto.protos.backends.NatsWriteArgs.prototype.getSubject = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.protos.backends.NatsWriteArgs} returns this
+ */
+proto.protos.backends.NatsWriteArgs.prototype.setSubject = function(value) {
+  return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 

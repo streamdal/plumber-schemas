@@ -27,10 +27,6 @@ export namespace AzureEventHubConn {
 }
 
 export class AzureEventHubReadArgs extends jspb.Message { 
-    getMessageId(): string;
-    setMessageId(value: string): AzureEventHubReadArgs;
-    getPartitionKey(): string;
-    setPartitionKey(value: string): AzureEventHubReadArgs;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): AzureEventHubReadArgs.AsObject;
@@ -44,12 +40,14 @@ export class AzureEventHubReadArgs extends jspb.Message {
 
 export namespace AzureEventHubReadArgs {
     export type AsObject = {
-        messageId: string,
-        partitionKey: string,
     }
 }
 
 export class AzureEventHubWriteArgs extends jspb.Message { 
+    getMessageId(): string;
+    setMessageId(value: string): AzureEventHubWriteArgs;
+    getPartitionKey(): string;
+    setPartitionKey(value: string): AzureEventHubWriteArgs;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): AzureEventHubWriteArgs.AsObject;
@@ -63,5 +61,7 @@ export class AzureEventHubWriteArgs extends jspb.Message {
 
 export namespace AzureEventHubWriteArgs {
     export type AsObject = {
+        messageId: string,
+        partitionKey: string,
     }
 }

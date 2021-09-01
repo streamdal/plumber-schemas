@@ -109,40 +109,40 @@ func (m *WriteCLIConfig) GetXWriteBackend() *WriteCLIConfig_WriteBackend {
 }
 
 type WriteCLIConfig_WriteBackend struct {
-	// @gotags: kong:"cmd"
-	Kafka *WriteCLIConfig_WriteBackend_Kafka `protobuf:"bytes,1,opt,name=kafka,proto3" json:"kafka,omitempty" kong:"cmd"`
-	// @gotags: kong:"cmd"
-	Activemq *WriteCLIConfig_WriteBackend_ActiveMQ `protobuf:"bytes,2,opt,name=activemq,proto3" json:"activemq,omitempty" kong:"cmd"`
-	// @gotags: kong:"cmd"
-	Awssqs *WriteCLIConfig_WriteBackend_AWSSQS `protobuf:"bytes,3,opt,name=awssqs,proto3" json:"awssqs,omitempty" kong:"cmd"`
-	// @gotags: kong:"cmd"
-	Awssns *WriteCLIConfig_WriteBackend_AWSSNS `protobuf:"bytes,4,opt,name=awssns,proto3" json:"awssns,omitempty" kong:"cmd"`
-	// @gotags: kong:"cmd"
-	Nats *WriteCLIConfig_WriteBackend_Nats `protobuf:"bytes,5,opt,name=nats,proto3" json:"nats,omitempty" kong:"cmd"`
-	// @gotags: kong:"cmd"
-	NatsStreaming *WriteCLIConfig_WriteBackend_NatsStreaming `protobuf:"bytes,6,opt,name=nats_streaming,json=natsStreaming,proto3" json:"nats_streaming,omitempty" kong:"cmd"`
-	// @gotags: kong:"cmd"
-	Nsq *WriteCLIConfig_WriteBackend_NSQ `protobuf:"bytes,7,opt,name=nsq,proto3" json:"nsq,omitempty" kong:"cmd"`
-	// @gotags: kong:"cmd"
-	Pulsar *WriteCLIConfig_WriteBackend_Pulsar `protobuf:"bytes,8,opt,name=pulsar,proto3" json:"pulsar,omitempty" kong:"cmd"`
-	// @gotags: kong:"cmd"
-	Rabbit *WriteCLIConfig_WriteBackend_Rabbit `protobuf:"bytes,9,opt,name=rabbit,proto3" json:"rabbit,omitempty" kong:"cmd"`
-	// @gotags: kong:"cmd"
-	RabbitStreams *WriteCLIConfig_WriteBackend_RabbitStreams `protobuf:"bytes,10,opt,name=rabbit_streams,json=rabbitStreams,proto3" json:"rabbit_streams,omitempty" kong:"cmd"`
-	// @gotags: kong:"cmd"
-	Mqtt *WriteCLIConfig_WriteBackend_MQTT `protobuf:"bytes,11,opt,name=mqtt,proto3" json:"mqtt,omitempty" kong:"cmd"`
-	// @gotags: kong:"cmd"
-	AzureServiceBus *WriteCLIConfig_WriteBackend_AzureServiceBus `protobuf:"bytes,12,opt,name=azure_service_bus,json=azureServiceBus,proto3" json:"azure_service_bus,omitempty" kong:"cmd"`
-	// @gotags: kong:"cmd"
-	AzureEventHub *WriteCLIConfig_WriteBackend_AzureEventHub `protobuf:"bytes,13,opt,name=azure_event_hub,json=azureEventHub,proto3" json:"azure_event_hub,omitempty" kong:"cmd"`
-	// @gotags: kong:"cmd"
-	GcpPubsub *WriteCLIConfig_WriteBackend_GCPPubSub `protobuf:"bytes,14,opt,name=gcp_pubsub,json=gcpPubsub,proto3" json:"gcp_pubsub,omitempty" kong:"cmd"`
-	// @gotags: kong:"cmd"
-	KubemqQueue *WriteCLIConfig_WriteBackend_KubeMQQueue `protobuf:"bytes,15,opt,name=kubemq_queue,json=kubemqQueue,proto3" json:"kubemq_queue,omitempty" kong:"cmd"`
-	// @gotags: kong:"cmd"
-	RedisPubsub *WriteCLIConfig_WriteBackend_RedisPubSub `protobuf:"bytes,16,opt,name=redis_pubsub,json=redisPubsub,proto3" json:"redis_pubsub,omitempty" kong:"cmd"`
-	// @gotags: kong:"cmd"
-	RedisStreams         *WriteCLIConfig_WriteBackend_RedisStreams `protobuf:"bytes,17,opt,name=redis_streams,json=redisStreams,proto3" json:"redis_streams,omitempty" kong:"cmd"`
+	// @gotags: kong:"cmd,help='Apache Kafka'"
+	Kafka *WriteCLIConfig_WriteBackend_Kafka `protobuf:"bytes,1,opt,name=kafka,proto3" json:"kafka,omitempty" kong:"cmd,help='Apache Kafka'"`
+	// @gotags: kong:"cmd,help='Apache ActiveMQ'"
+	Activemq *WriteCLIConfig_WriteBackend_ActiveMQ `protobuf:"bytes,2,opt,name=activemq,proto3" json:"activemq,omitempty" kong:"cmd,help='Apache ActiveMQ'"`
+	// @gotags: kong:"cmd,help='AWS Simple Queue System'"
+	Awssqs *WriteCLIConfig_WriteBackend_AWSSQS `protobuf:"bytes,3,opt,name=awssqs,proto3" json:"awssqs,omitempty" kong:"cmd,help='AWS Simple Queue System'"`
+	// @gotags: kong:"cmd,help='AWS Simple Notification System'"
+	Awssns *WriteCLIConfig_WriteBackend_AWSSNS `protobuf:"bytes,4,opt,name=awssns,proto3" json:"awssns,omitempty" kong:"cmd,help='AWS Simple Notification System'"`
+	// @gotags: kong:"cmd,help='NATS'"
+	Nats *WriteCLIConfig_WriteBackend_Nats `protobuf:"bytes,5,opt,name=nats,proto3" json:"nats,omitempty" kong:"cmd,help='NATS'"`
+	// @gotags: kong:"cmd,help='NATS Streaming'"
+	NatsStreaming *WriteCLIConfig_WriteBackend_NatsStreaming `protobuf:"bytes,6,opt,name=nats_streaming,json=natsStreaming,proto3" json:"nats_streaming,omitempty" kong:"cmd,help='NATS Streaming'"`
+	// @gotags: kong:"cmd,help='NSQ'"
+	Nsq *WriteCLIConfig_WriteBackend_NSQ `protobuf:"bytes,7,opt,name=nsq,proto3" json:"nsq,omitempty" kong:"cmd,help='NSQ'"`
+	// @gotags: kong:"cmd,help='Apache Pulsar'"
+	Pulsar *WriteCLIConfig_WriteBackend_Pulsar `protobuf:"bytes,8,opt,name=pulsar,proto3" json:"pulsar,omitempty" kong:"cmd,help='Apache Pulsar'"`
+	// @gotags: kong:"cmd,help='RabbitMQ'"
+	Rabbit *WriteCLIConfig_WriteBackend_Rabbit `protobuf:"bytes,9,opt,name=rabbit,proto3" json:"rabbit,omitempty" kong:"cmd,help='RabbitMQ'"`
+	// @gotags: kong:"cmd,help='RabbitMQ Streams'"
+	RabbitStreams *WriteCLIConfig_WriteBackend_RabbitStreams `protobuf:"bytes,10,opt,name=rabbit_streams,json=rabbitStreams,proto3" json:"rabbit_streams,omitempty" kong:"cmd,help='RabbitMQ Streams'"`
+	// @gotags: kong:"cmd,help='MQTT'"
+	Mqtt *WriteCLIConfig_WriteBackend_MQTT `protobuf:"bytes,11,opt,name=mqtt,proto3" json:"mqtt,omitempty" kong:"cmd,help='MQTT'"`
+	// @gotags: kong:"cmd,help='Azure Service Bus'"
+	AzureServiceBus *WriteCLIConfig_WriteBackend_AzureServiceBus `protobuf:"bytes,12,opt,name=azure_service_bus,json=azureServiceBus,proto3" json:"azure_service_bus,omitempty" kong:"cmd,help='Azure Service Bus'"`
+	// @gotags: kong:"cmd,help='Azure Event Hub'"
+	AzureEventHub *WriteCLIConfig_WriteBackend_AzureEventHub `protobuf:"bytes,13,opt,name=azure_event_hub,json=azureEventHub,proto3" json:"azure_event_hub,omitempty" kong:"cmd,help='Azure Event Hub'"`
+	// @gotags: kong:"cmd,help='Google Cloud Platform Pub/Sub'"
+	GcpPubsub *WriteCLIConfig_WriteBackend_GCPPubSub `protobuf:"bytes,14,opt,name=gcp_pubsub,json=gcpPubsub,proto3" json:"gcp_pubsub,omitempty" kong:"cmd,help='Google Cloud Platform Pub/Sub'"`
+	// @gotags: kong:"cmd,help='KubeMQ Queue'"
+	KubemqQueue *WriteCLIConfig_WriteBackend_KubeMQQueue `protobuf:"bytes,15,opt,name=kubemq_queue,json=kubemqQueue,proto3" json:"kubemq_queue,omitempty" kong:"cmd,help='KubeMQ Queue'"`
+	// @gotags: kong:"cmd,help='Redis PubSub'"
+	RedisPubsub *WriteCLIConfig_WriteBackend_RedisPubSub `protobuf:"bytes,16,opt,name=redis_pubsub,json=redisPubsub,proto3" json:"redis_pubsub,omitempty" kong:"cmd,help='Redis PubSub'"`
+	// @gotags: kong:"cmd,help='Redis Streams'"
+	RedisStreams         *WriteCLIConfig_WriteBackend_RedisStreams `protobuf:"bytes,17,opt,name=redis_streams,json=redisStreams,proto3" json:"redis_streams,omitempty" kong:"cmd,help='Redis Streams'"`
 	XXX_NoUnkeyedLiteral struct{}                                  `json:"-"`
 	XXX_unrecognized     []byte                                    `json:"-"`
 	XXX_sizecache        int32                                     `json:"-"`

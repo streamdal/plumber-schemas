@@ -6,6 +6,7 @@ option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/backen
 
 
 message AzureServiceBusConn {
+  // NOTE: This is an azure-defined env var
   // @gotags: kong:"help='Connection string',env='SERVICEBUS_CONNECTION_STRING',required"
   string connection_string = 1;
 }

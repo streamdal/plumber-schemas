@@ -6,17 +6,21 @@ import "common/auth.proto";
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
 
+// TODO: Update kong server fields
 message ServerConfig {
     // Unique ID that identifies this plumber node
+    // @gotags: kong:"help=''"
     string node_id = 1;
 
     // ID of the plumber cluster
     string cluster_id = 2;
 
     // host:port that the gRPC server will bind to
+    // @gotags: kong:"help=''"
     string grpc_listen_address = 3;
 
     // All gRPC requests will require this auth token to be set
+    // @gotags: kong:"help=''"
     string auth_token = 4;
 
     ///////////// Embedded etcd settings /////////////////
@@ -26,26 +30,32 @@ message ServerConfig {
     // Example: server1=http://192.168.1.10:2380,server2=http://192.168.1.11:2380,server3=http://192.168.1.12:2380
     //
     // IMPORTANT: The list should include _this_ instance's address.
+    // @gotags: kong:"help=''"
     string initial_cluster = 5;
 
     // AdvertisePeerURL contains the address of _this_ plumber instance's etcd server interface
     // This is usually something like http://local-ip:2380
+    // @gotags: kong:"help=''"
     string advertise_peer_url = 6;
 
 	// AdvertisePeerURL contains the address of _this_ plumber instance's etcd client interface
 	// This is usually something like http://local-ip:2379
-	string advertise_client_url = 7;
+    // @gotags: kong:"help=''"
+    string advertise_client_url = 7;
 
 	// ListenerPeerURL contains the address that _this_ plumber instance's etcd server should listen on
 	// This is usually something like http://local-ip:2380
-	string listener_peer_url = 8;
+    // @gotags: kong:"help=''"
+    string listener_peer_url = 8;
 
 	// ListenerClientURL contains the address that _this_ plumber instance's etcd client should listen on
 	// This is usually something like http://local-ip:2379
-	string listener_client_url = 9;
+    // @gotags: kong:"help=''"
+    string listener_client_url = 9;
 
 	// PeerToken is the token that ALL cluster members should use/share. If this token
 	// does not match on one of the plumber instances - it won't be able to join the cluster.
+    // @gotags: kong:"help=''"
 	string peer_token = 10;
 }
 

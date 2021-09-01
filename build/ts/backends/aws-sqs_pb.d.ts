@@ -37,6 +37,14 @@ export class AWSSQSReadArgs extends jspb.Message {
     setQueueName(value: string): AWSSQSReadArgs;
     getRemoteAccountId(): string;
     setRemoteAccountId(value: string): AWSSQSReadArgs;
+    getMaxNumMessages(): number;
+    setMaxNumMessages(value: number): AWSSQSReadArgs;
+    getReceiveRequestAttemptId(): string;
+    setReceiveRequestAttemptId(value: string): AWSSQSReadArgs;
+    getAutoDelete(): boolean;
+    setAutoDelete(value: boolean): AWSSQSReadArgs;
+    getWaitTimeSeconds(): number;
+    setWaitTimeSeconds(value: number): AWSSQSReadArgs;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): AWSSQSReadArgs.AsObject;
@@ -52,10 +60,27 @@ export namespace AWSSQSReadArgs {
     export type AsObject = {
         queueName: string,
         remoteAccountId: string,
+        maxNumMessages: number,
+        receiveRequestAttemptId: string,
+        autoDelete: boolean,
+        waitTimeSeconds: number,
     }
 }
 
 export class AWSSQSWriteArgs extends jspb.Message { 
+    getQueueName(): string;
+    setQueueName(value: string): AWSSQSWriteArgs;
+    getRemoteAccountId(): string;
+    setRemoteAccountId(value: string): AWSSQSWriteArgs;
+    getDelaySeconds(): number;
+    setDelaySeconds(value: number): AWSSQSWriteArgs;
+
+    getAttributesMap(): jspb.Map<string, string>;
+    clearAttributesMap(): void;
+    getMessageGroupId(): string;
+    setMessageGroupId(value: string): AWSSQSWriteArgs;
+    getMessageDeduplicationId(): string;
+    setMessageDeduplicationId(value: string): AWSSQSWriteArgs;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): AWSSQSWriteArgs.AsObject;
@@ -69,5 +94,47 @@ export class AWSSQSWriteArgs extends jspb.Message {
 
 export namespace AWSSQSWriteArgs {
     export type AsObject = {
+        queueName: string,
+        remoteAccountId: string,
+        delaySeconds: number,
+
+        attributesMap: Array<[string, string]>,
+        messageGroupId: string,
+        messageDeduplicationId: string,
+    }
+}
+
+export class AWSSQSRelayArgs extends jspb.Message { 
+    getQueueName(): string;
+    setQueueName(value: string): AWSSQSRelayArgs;
+    getRemoteAccountId(): string;
+    setRemoteAccountId(value: string): AWSSQSRelayArgs;
+    getMaxNumMessages(): number;
+    setMaxNumMessages(value: number): AWSSQSRelayArgs;
+    getReceiveRequestAttemptId(): string;
+    setReceiveRequestAttemptId(value: string): AWSSQSRelayArgs;
+    getAutoDelete(): boolean;
+    setAutoDelete(value: boolean): AWSSQSRelayArgs;
+    getWaitTimeSeconds(): number;
+    setWaitTimeSeconds(value: number): AWSSQSRelayArgs;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): AWSSQSRelayArgs.AsObject;
+    static toObject(includeInstance: boolean, msg: AWSSQSRelayArgs): AWSSQSRelayArgs.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: AWSSQSRelayArgs, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): AWSSQSRelayArgs;
+    static deserializeBinaryFromReader(message: AWSSQSRelayArgs, reader: jspb.BinaryReader): AWSSQSRelayArgs;
+}
+
+export namespace AWSSQSRelayArgs {
+    export type AsObject = {
+        queueName: string,
+        remoteAccountId: string,
+        maxNumMessages: number,
+        receiveRequestAttemptId: string,
+        autoDelete: boolean,
+        waitTimeSeconds: number,
     }
 }

@@ -21,6 +21,7 @@ import "common/status.proto";
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
 
 message CLIRelayConfig {
+    // @gotags: kong:"help='What address to bind the built-in HTTP server to',default='http://localhost:9191'"
     string http_listen_address = 1;
 
     // Used by CLI to inform components, which backend to use; server uses
@@ -79,7 +80,7 @@ message CLIRelayConfig {
             // @gotags: kong:"embed"
             backends.AWSSQSConn conn = 1;
             // @gotags: kong:"embed"
-            backends.AWSSQSReadArgs args = 2;
+            backends.AWSSQSRelayArgs args = 2;
         }
 
         message Mongo {
@@ -155,36 +156,29 @@ message CLIRelayConfig {
 }
 
 message RelayConfig {
-    // Required
-    // @gotags: name:"token"
+    // @gotags: kong:"help='Secret collection token',name=token,required"
     string collection_token = 1;
 
-    // Optional; how many messages to send in a single batch (default: 1000)
-    // @gotags: name:"batch-size"
+    // @gotags: kong:"help='How many messages to send in a single batch',default=1000"
     int32 batch_size = 2;
 
-    // Optional; how many times plumber will try re-sending a batch (default: 3)
-    // @gotags: name:"batch-max-retry"
+    // @gotags: kong:"help='How many times plumber will try re-sending a batch',default=3"
     int32 batch_max_retry = 3;
 
     // Required for server mode; ignored in CLI mode.
     // @gotags: kong:"-"
     string connection_id = 4;
 
-    // How many workers to launch per relay (default: 10)
-    // @gotags: name:"name-workers"
+    // @gotags: kong:"name='How many workers to launch per relay',default=10"
     int32 num_workers = 5;
 
-    // Optional; where to send events to (default: grpc-collector.batch.sh:9000)
-    // @gotags: name:"grpc-address"
+    // @gotags: kong:"help='Alternative collector to relay events to',name='grpc-address',default='grpc-collector.batch.sh:9000'"
     string _batchsh_grpc_address = 6;
 
-    // Optional; whether to use TLS for gRPC (default: true)
-    // @gotags: name="grpc-disable-tls"
+    // @gotags: kong:"help='Whether to use TLS with collector',name=grpc-disable-tls,default=true"
     bool _batchsh_grpc_disable_tls = 7;
 
-    // Optional: how long to wait before giving up talking to the gRPC collector (default: 10)
-    // @gotags: name="grpc-timeout-seconds"
+    // @gotags: kong:"help='How long to wait before giving up talking to the gRPC collector',name='grpc-timeout-seconds'"
     int32 _batchsh_grpc_timeout_seconds = 8;
 
     // ID of the created relay entry; populated by plumber.

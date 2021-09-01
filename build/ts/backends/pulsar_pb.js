@@ -115,7 +115,7 @@ proto.protos.backends.PulsarConn.prototype.toObject = function(opt_includeInstan
 proto.protos.backends.PulsarConn.toObject = function(includeInstance, msg) {
   var f, obj = {
     dsn: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    connectTimeout: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    connectTimeoutSeconds: jspb.Message.getFieldWithDefault(msg, 2, 0),
     insecureTls: jspb.Message.getBooleanFieldWithDefault(msg, 3, false),
     tlsClientCert: msg.getTlsClientCert_asB64(),
     tlsClientKey: msg.getTlsClientKey_asB64()
@@ -160,8 +160,8 @@ proto.protos.backends.PulsarConn.deserializeBinaryFromReader = function(msg, rea
       msg.setDsn(value);
       break;
     case 2:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setConnectTimeout(value);
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setConnectTimeoutSeconds(value);
       break;
     case 3:
       var value = /** @type {boolean} */ (reader.readBool());
@@ -211,9 +211,9 @@ proto.protos.backends.PulsarConn.serializeBinaryToWriter = function(message, wri
       f
     );
   }
-  f = message.getConnectTimeout();
-  if (f.length > 0) {
-    writer.writeString(
+  f = message.getConnectTimeoutSeconds();
+  if (f !== 0) {
+    writer.writeUint32(
       2,
       f
     );
@@ -261,20 +261,20 @@ proto.protos.backends.PulsarConn.prototype.setDsn = function(value) {
 
 
 /**
- * optional string connect_timeout = 2;
- * @return {string}
+ * optional uint32 connect_timeout_seconds = 2;
+ * @return {number}
  */
-proto.protos.backends.PulsarConn.prototype.getConnectTimeout = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
+proto.protos.backends.PulsarConn.prototype.getConnectTimeoutSeconds = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
 };
 
 
 /**
- * @param {string} value
+ * @param {number} value
  * @return {!proto.protos.backends.PulsarConn} returns this
  */
-proto.protos.backends.PulsarConn.prototype.setConnectTimeout = function(value) {
-  return jspb.Message.setProto3StringField(this, 2, value);
+proto.protos.backends.PulsarConn.prototype.setConnectTimeoutSeconds = function(value) {
+  return jspb.Message.setProto3IntField(this, 2, value);
 };
 
 
@@ -602,7 +602,7 @@ proto.protos.backends.PulsarWriteArgs.prototype.toObject = function(opt_includeI
  */
 proto.protos.backends.PulsarWriteArgs.toObject = function(includeInstance, msg) {
   var f, obj = {
-
+    topic: jspb.Message.getFieldWithDefault(msg, 1, "")
   };
 
   if (includeInstance) {
@@ -639,6 +639,10 @@ proto.protos.backends.PulsarWriteArgs.deserializeBinaryFromReader = function(msg
     }
     var field = reader.getFieldNumber();
     switch (field) {
+    case 1:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setTopic(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -668,6 +672,31 @@ proto.protos.backends.PulsarWriteArgs.prototype.serializeBinary = function() {
  */
 proto.protos.backends.PulsarWriteArgs.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
+  f = message.getTopic();
+  if (f.length > 0) {
+    writer.writeString(
+      1,
+      f
+    );
+  }
+};
+
+
+/**
+ * optional string topic = 1;
+ * @return {string}
+ */
+proto.protos.backends.PulsarWriteArgs.prototype.getTopic = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.protos.backends.PulsarWriteArgs} returns this
+ */
+proto.protos.backends.PulsarWriteArgs.prototype.setTopic = function(value) {
+  return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 

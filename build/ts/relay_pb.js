@@ -1325,7 +1325,7 @@ proto.protos.CLIRelayConfig.RelayBackend.AWSSQS.prototype.toObject = function(op
 proto.protos.CLIRelayConfig.RelayBackend.AWSSQS.toObject = function(includeInstance, msg) {
   var f, obj = {
     conn: (f = msg.getConn()) && backends_aws$sqs_pb.AWSSQSConn.toObject(includeInstance, f),
-    args: (f = msg.getArgs()) && backends_aws$sqs_pb.AWSSQSReadArgs.toObject(includeInstance, f)
+    args: (f = msg.getArgs()) && backends_aws$sqs_pb.AWSSQSRelayArgs.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -1368,8 +1368,8 @@ proto.protos.CLIRelayConfig.RelayBackend.AWSSQS.deserializeBinaryFromReader = fu
       msg.setConn(value);
       break;
     case 2:
-      var value = new backends_aws$sqs_pb.AWSSQSReadArgs;
-      reader.readMessage(value,backends_aws$sqs_pb.AWSSQSReadArgs.deserializeBinaryFromReader);
+      var value = new backends_aws$sqs_pb.AWSSQSRelayArgs;
+      reader.readMessage(value,backends_aws$sqs_pb.AWSSQSRelayArgs.deserializeBinaryFromReader);
       msg.setArgs(value);
       break;
     default:
@@ -1414,7 +1414,7 @@ proto.protos.CLIRelayConfig.RelayBackend.AWSSQS.serializeBinaryToWriter = functi
     writer.writeMessage(
       2,
       f,
-      backends_aws$sqs_pb.AWSSQSReadArgs.serializeBinaryToWriter
+      backends_aws$sqs_pb.AWSSQSRelayArgs.serializeBinaryToWriter
     );
   }
 };
@@ -1458,17 +1458,17 @@ proto.protos.CLIRelayConfig.RelayBackend.AWSSQS.prototype.hasConn = function() {
 
 
 /**
- * optional backends.AWSSQSReadArgs args = 2;
- * @return {?proto.protos.backends.AWSSQSReadArgs}
+ * optional backends.AWSSQSRelayArgs args = 2;
+ * @return {?proto.protos.backends.AWSSQSRelayArgs}
  */
 proto.protos.CLIRelayConfig.RelayBackend.AWSSQS.prototype.getArgs = function() {
-  return /** @type{?proto.protos.backends.AWSSQSReadArgs} */ (
-    jspb.Message.getWrapperField(this, backends_aws$sqs_pb.AWSSQSReadArgs, 2));
+  return /** @type{?proto.protos.backends.AWSSQSRelayArgs} */ (
+    jspb.Message.getWrapperField(this, backends_aws$sqs_pb.AWSSQSRelayArgs, 2));
 };
 
 
 /**
- * @param {?proto.protos.backends.AWSSQSReadArgs|undefined} value
+ * @param {?proto.protos.backends.AWSSQSRelayArgs|undefined} value
  * @return {!proto.protos.CLIRelayConfig.RelayBackend.AWSSQS} returns this
 */
 proto.protos.CLIRelayConfig.RelayBackend.AWSSQS.prototype.setArgs = function(value) {

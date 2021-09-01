@@ -21,12 +21,12 @@ var _ = math.Inf
 const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
 type KubeMQQueueConn struct {
-	// Required; default: "localhost:50000"
-	Address string `protobuf:"bytes,1,opt,name=address,proto3" json:"address,omitempty"`
-	// Optional
-	AuthToken string `protobuf:"bytes,2,opt,name=auth_token,json=authToken,proto3" json:"auth_token,omitempty"`
-	// Optional
-	TlsCertFile          string   `protobuf:"bytes,3,opt,name=tls_cert_file,json=tlsCertFile,proto3" json:"tls_cert_file,omitempty"`
+	// @gotags: kong:"help='Dial string for KubeMQ server',env='PLUMBER_RELAY_KUBEMQ_QUEUE_ADDRESS',default='localhost:50000',required"
+	Address string `protobuf:"bytes,1,opt,name=address,proto3" json:"address,omitempty" kong:"help='Dial string for KubeMQ server',env='PLUMBER_RELAY_KUBEMQ_QUEUE_ADDRESS',default='localhost:50000',required"`
+	// @gotags: kong:"help='Client JWT authentication token',env='PLUMBER_RELAY_KUBEMQ_QUEUE_AUTH_TOKEN'"
+	AuthToken string `protobuf:"bytes,2,opt,name=auth_token,json=authToken,proto3" json:"auth_token,omitempty" kong:"help='Client JWT authentication token',env='PLUMBER_RELAY_KUBEMQ_QUEUE_AUTH_TOKEN'"`
+	// @gotags: kong:"help='KubeMQ client cert file',env='PLUMBER_RELAY_KUBEMQ_QUEUE_TLS_CERT_FILE',type=existingfile"
+	TlsCertFile          string   `protobuf:"bytes,3,opt,name=tls_cert_file,json=tlsCertFile,proto3" json:"tls_cert_file,omitempty" kong:"help='KubeMQ client cert file',env='PLUMBER_RELAY_KUBEMQ_QUEUE_TLS_CERT_FILE',type=existingfile"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -79,10 +79,10 @@ func (m *KubeMQQueueConn) GetTlsCertFile() string {
 }
 
 type KubeMQQueueReadArgs struct {
-	// Optional; default: "plumber"
-	ClientId string `protobuf:"bytes,2,opt,name=client_id,json=clientId,proto3" json:"client_id,omitempty"`
-	// Optional
-	QueueName            string   `protobuf:"bytes,3,opt,name=queue_name,json=queueName,proto3" json:"queue_name,omitempty"`
+	// @gotags: kong:"help='KubeMQ client ID',env='PLUMBER_RELAY_KUBEMQ_QUEUE_CLIENT_ID',default=plumber"
+	ClientId string `protobuf:"bytes,2,opt,name=client_id,json=clientId,proto3" json:"client_id,omitempty" kong:"help='KubeMQ client ID',env='PLUMBER_RELAY_KUBEMQ_QUEUE_CLIENT_ID',default=plumber"`
+	// @gotags: kong:"help='KubeMQ queue name',env='PLUMBER_RELAY_KUBEMQ_QUEUE_QUEUE'"
+	QueueName            string   `protobuf:"bytes,3,opt,name=queue_name,json=queueName,proto3" json:"queue_name,omitempty" kong:"help='KubeMQ queue name',env='PLUMBER_RELAY_KUBEMQ_QUEUE_QUEUE'"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -128,10 +128,10 @@ func (m *KubeMQQueueReadArgs) GetQueueName() string {
 }
 
 type KubeMQQueueWriteArgs struct {
-	// Optional; default: "plumber"
-	ClientId string `protobuf:"bytes,1,opt,name=client_id,json=clientId,proto3" json:"client_id,omitempty"`
-	// Optional
-	QueueName            string   `protobuf:"bytes,2,opt,name=queue_name,json=queueName,proto3" json:"queue_name,omitempty"`
+	// @gotags: kong:"help='KubeMQ client ID',default=plumber"
+	ClientId string `protobuf:"bytes,1,opt,name=client_id,json=clientId,proto3" json:"client_id,omitempty" kong:"help='KubeMQ client ID',default=plumber"`
+	// @gotags: kong:"help='KubeMQ queue name'"
+	QueueName            string   `protobuf:"bytes,2,opt,name=queue_name,json=queueName,proto3" json:"queue_name,omitempty" kong:"help='KubeMQ queue name'"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`

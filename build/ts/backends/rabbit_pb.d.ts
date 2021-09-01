@@ -37,8 +37,8 @@ export class RabbitReadArgs extends jspb.Message {
     setExchangeName(value: string): RabbitReadArgs;
     getQueueName(): string;
     setQueueName(value: string): RabbitReadArgs;
-    getRoutingKey(): string;
-    setRoutingKey(value: string): RabbitReadArgs;
+    getBindingKey(): string;
+    setBindingKey(value: string): RabbitReadArgs;
     getQueueExclusive(): boolean;
     setQueueExclusive(value: boolean): RabbitReadArgs;
     getQueueDeclare(): boolean;
@@ -47,8 +47,10 @@ export class RabbitReadArgs extends jspb.Message {
     setQueueDurable(value: boolean): RabbitReadArgs;
     getAutoAck(): boolean;
     setAutoAck(value: boolean): RabbitReadArgs;
-    getAppId(): string;
-    setAppId(value: string): RabbitReadArgs;
+    getConsumerTag(): string;
+    setConsumerTag(value: string): RabbitReadArgs;
+    getQueueDelete(): boolean;
+    setQueueDelete(value: boolean): RabbitReadArgs;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): RabbitReadArgs.AsObject;
@@ -64,12 +66,13 @@ export namespace RabbitReadArgs {
     export type AsObject = {
         exchangeName: string,
         queueName: string,
-        routingKey: string,
+        bindingKey: string,
         queueExclusive: boolean,
         queueDeclare: boolean,
         queueDurable: boolean,
         autoAck: boolean,
-        appId: string,
+        consumerTag: string,
+        queueDelete: boolean,
     }
 }
 
@@ -78,6 +81,8 @@ export class RabbitWriteArgs extends jspb.Message {
     setExchangeName(value: string): RabbitWriteArgs;
     getRoutingKey(): string;
     setRoutingKey(value: string): RabbitWriteArgs;
+    getAppId(): string;
+    setAppId(value: string): RabbitWriteArgs;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): RabbitWriteArgs.AsObject;
@@ -93,5 +98,6 @@ export namespace RabbitWriteArgs {
     export type AsObject = {
         exchangeName: string,
         routingKey: string,
+        appId: string,
     }
 }

@@ -24,10 +24,10 @@ message RedisPubSubReadArgs {
 }
 
 message RedisPubSubWriteArgs {
-  // @gotags: kong:"help='Database (0-16)',env='PLUMBER_RELAY_REDIS_PUBSUB_DATABASE'"
+  // @gotags: kong:"help='Database (0-16)'"
   uint32 database = 1;
 
-  // @gotags: kong:"help='Comma separated list of channels to write to',,required"
+  // @gotags: kong:"help='Comma separated list of channels to write to',required"
   repeated string channel = 2;
 
 }

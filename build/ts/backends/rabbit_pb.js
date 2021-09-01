@@ -305,12 +305,13 @@ proto.protos.backends.RabbitReadArgs.toObject = function(includeInstance, msg) {
   var f, obj = {
     exchangeName: jspb.Message.getFieldWithDefault(msg, 1, ""),
     queueName: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    routingKey: jspb.Message.getFieldWithDefault(msg, 3, ""),
+    bindingKey: jspb.Message.getFieldWithDefault(msg, 3, ""),
     queueExclusive: jspb.Message.getBooleanFieldWithDefault(msg, 4, false),
     queueDeclare: jspb.Message.getBooleanFieldWithDefault(msg, 5, false),
     queueDurable: jspb.Message.getBooleanFieldWithDefault(msg, 6, false),
     autoAck: jspb.Message.getBooleanFieldWithDefault(msg, 7, false),
-    appId: jspb.Message.getFieldWithDefault(msg, 8, "")
+    consumerTag: jspb.Message.getFieldWithDefault(msg, 8, ""),
+    queueDelete: jspb.Message.getBooleanFieldWithDefault(msg, 9, false)
   };
 
   if (includeInstance) {
@@ -357,7 +358,7 @@ proto.protos.backends.RabbitReadArgs.deserializeBinaryFromReader = function(msg,
       break;
     case 3:
       var value = /** @type {string} */ (reader.readString());
-      msg.setRoutingKey(value);
+      msg.setBindingKey(value);
       break;
     case 4:
       var value = /** @type {boolean} */ (reader.readBool());
@@ -377,7 +378,11 @@ proto.protos.backends.RabbitReadArgs.deserializeBinaryFromReader = function(msg,
       break;
     case 8:
       var value = /** @type {string} */ (reader.readString());
-      msg.setAppId(value);
+      msg.setConsumerTag(value);
+      break;
+    case 9:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setQueueDelete(value);
       break;
     default:
       reader.skipField();
@@ -422,7 +427,7 @@ proto.protos.backends.RabbitReadArgs.serializeBinaryToWriter = function(message,
       f
     );
   }
-  f = message.getRoutingKey();
+  f = message.getBindingKey();
   if (f.length > 0) {
     writer.writeString(
       3,
@@ -457,10 +462,17 @@ proto.protos.backends.RabbitReadArgs.serializeBinaryToWriter = function(message,
       f
     );
   }
-  f = message.getAppId();
+  f = message.getConsumerTag();
   if (f.length > 0) {
     writer.writeString(
       8,
+      f
+    );
+  }
+  f = message.getQueueDelete();
+  if (f) {
+    writer.writeBool(
+      9,
       f
     );
   }
@@ -504,10 +516,10 @@ proto.protos.backends.RabbitReadArgs.prototype.setQueueName = function(value) {
 
 
 /**
- * optional string routing_key = 3;
+ * optional string binding_key = 3;
  * @return {string}
  */
-proto.protos.backends.RabbitReadArgs.prototype.getRoutingKey = function() {
+proto.protos.backends.RabbitReadArgs.prototype.getBindingKey = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
 };
 
@@ -516,7 +528,7 @@ proto.protos.backends.RabbitReadArgs.prototype.getRoutingKey = function() {
  * @param {string} value
  * @return {!proto.protos.backends.RabbitReadArgs} returns this
  */
-proto.protos.backends.RabbitReadArgs.prototype.setRoutingKey = function(value) {
+proto.protos.backends.RabbitReadArgs.prototype.setBindingKey = function(value) {
   return jspb.Message.setProto3StringField(this, 3, value);
 };
 
@@ -594,10 +606,10 @@ proto.protos.backends.RabbitReadArgs.prototype.setAutoAck = function(value) {
 
 
 /**
- * optional string app_id = 8;
+ * optional string consumer_tag = 8;
  * @return {string}
  */
-proto.protos.backends.RabbitReadArgs.prototype.getAppId = function() {
+proto.protos.backends.RabbitReadArgs.prototype.getConsumerTag = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 8, ""));
 };
 
@@ -606,8 +618,26 @@ proto.protos.backends.RabbitReadArgs.prototype.getAppId = function() {
  * @param {string} value
  * @return {!proto.protos.backends.RabbitReadArgs} returns this
  */
-proto.protos.backends.RabbitReadArgs.prototype.setAppId = function(value) {
+proto.protos.backends.RabbitReadArgs.prototype.setConsumerTag = function(value) {
   return jspb.Message.setProto3StringField(this, 8, value);
+};
+
+
+/**
+ * optional bool queue_delete = 9;
+ * @return {boolean}
+ */
+proto.protos.backends.RabbitReadArgs.prototype.getQueueDelete = function() {
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 9, false));
+};
+
+
+/**
+ * @param {boolean} value
+ * @return {!proto.protos.backends.RabbitReadArgs} returns this
+ */
+proto.protos.backends.RabbitReadArgs.prototype.setQueueDelete = function(value) {
+  return jspb.Message.setProto3BooleanField(this, 9, value);
 };
 
 
@@ -644,7 +674,8 @@ proto.protos.backends.RabbitWriteArgs.prototype.toObject = function(opt_includeI
 proto.protos.backends.RabbitWriteArgs.toObject = function(includeInstance, msg) {
   var f, obj = {
     exchangeName: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    routingKey: jspb.Message.getFieldWithDefault(msg, 2, "")
+    routingKey: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    appId: jspb.Message.getFieldWithDefault(msg, 3, "")
   };
 
   if (includeInstance) {
@@ -689,6 +720,10 @@ proto.protos.backends.RabbitWriteArgs.deserializeBinaryFromReader = function(msg
       var value = /** @type {string} */ (reader.readString());
       msg.setRoutingKey(value);
       break;
+    case 3:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setAppId(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -732,6 +767,13 @@ proto.protos.backends.RabbitWriteArgs.serializeBinaryToWriter = function(message
       f
     );
   }
+  f = message.getAppId();
+  if (f.length > 0) {
+    writer.writeString(
+      3,
+      f
+    );
+  }
 };
 
 
@@ -768,6 +810,24 @@ proto.protos.backends.RabbitWriteArgs.prototype.getRoutingKey = function() {
  */
 proto.protos.backends.RabbitWriteArgs.prototype.setRoutingKey = function(value) {
   return jspb.Message.setProto3StringField(this, 2, value);
+};
+
+
+/**
+ * optional string app_id = 3;
+ * @return {string}
+ */
+proto.protos.backends.RabbitWriteArgs.prototype.getAppId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.protos.backends.RabbitWriteArgs} returns this
+ */
+proto.protos.backends.RabbitWriteArgs.prototype.setAppId = function(value) {
+  return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 

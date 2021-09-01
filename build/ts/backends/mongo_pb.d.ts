@@ -51,20 +51,3 @@ export namespace MongoReadArgs {
         includeFullDocument: boolean,
     }
 }
-
-export class MongoWriteArgs extends jspb.Message { 
-
-    serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): MongoWriteArgs.AsObject;
-    static toObject(includeInstance: boolean, msg: MongoWriteArgs): MongoWriteArgs.AsObject;
-    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: MongoWriteArgs, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): MongoWriteArgs;
-    static deserializeBinaryFromReader(message: MongoWriteArgs, reader: jspb.BinaryReader): MongoWriteArgs;
-}
-
-export namespace MongoWriteArgs {
-    export type AsObject = {
-    }
-}
