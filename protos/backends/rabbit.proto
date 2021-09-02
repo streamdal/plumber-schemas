@@ -51,6 +51,6 @@ message RabbitWriteArgs {
   // @gotags: kong:"help='Routing key to write message(s) to',required"
   string routing_key = 2;
 
-  // @gotags: kong:"help='Fills message properties 'app_id' with this value',default=plumber"
+  // @gotags: kong:"help='Fills message properties $app_id with this value',default=plumber"
   string app_id = 3;
 }

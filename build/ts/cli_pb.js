@@ -101,9 +101,10 @@ proto.protos.GlobalCLIOptions.toObject = function(includeInstance, msg) {
   var f, obj = {
     debug: jspb.Message.getBooleanFieldWithDefault(msg, 1, false),
     quiet: jspb.Message.getBooleanFieldWithDefault(msg, 2, false),
-    fullCommand: jspb.Message.getFieldWithDefault(msg, 3, ""),
-    action: jspb.Message.getFieldWithDefault(msg, 4, ""),
-    backend: jspb.Message.getFieldWithDefault(msg, 5, "")
+    version: jspb.Message.getBooleanFieldWithDefault(msg, 3, false),
+    fullCommand: jspb.Message.getFieldWithDefault(msg, 4, ""),
+    action: jspb.Message.getFieldWithDefault(msg, 5, ""),
+    backend: jspb.Message.getFieldWithDefault(msg, 6, "")
   };
 
   if (includeInstance) {
@@ -149,14 +150,18 @@ proto.protos.GlobalCLIOptions.deserializeBinaryFromReader = function(msg, reader
       msg.setQuiet(value);
       break;
     case 3:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setFullCommand(value);
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setVersion(value);
       break;
     case 4:
       var value = /** @type {string} */ (reader.readString());
-      msg.setAction(value);
+      msg.setFullCommand(value);
       break;
     case 5:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setAction(value);
+      break;
+    case 6:
       var value = /** @type {string} */ (reader.readString());
       msg.setBackend(value);
       break;
@@ -203,24 +208,31 @@ proto.protos.GlobalCLIOptions.serializeBinaryToWriter = function(message, writer
       f
     );
   }
-  f = message.getFullCommand();
-  if (f.length > 0) {
-    writer.writeString(
+  f = message.getVersion();
+  if (f) {
+    writer.writeBool(
       3,
       f
     );
   }
-  f = message.getAction();
+  f = message.getFullCommand();
   if (f.length > 0) {
     writer.writeString(
       4,
       f
     );
   }
-  f = message.getBackend();
+  f = message.getAction();
   if (f.length > 0) {
     writer.writeString(
       5,
+      f
+    );
+  }
+  f = message.getBackend();
+  if (f.length > 0) {
+    writer.writeString(
+      6,
       f
     );
   }
@@ -264,28 +276,28 @@ proto.protos.GlobalCLIOptions.prototype.setQuiet = function(value) {
 
 
 /**
- * optional string _full_command = 3;
+ * optional bool version = 3;
+ * @return {boolean}
+ */
+proto.protos.GlobalCLIOptions.prototype.getVersion = function() {
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 3, false));
+};
+
+
+/**
+ * @param {boolean} value
+ * @return {!proto.protos.GlobalCLIOptions} returns this
+ */
+proto.protos.GlobalCLIOptions.prototype.setVersion = function(value) {
+  return jspb.Message.setProto3BooleanField(this, 3, value);
+};
+
+
+/**
+ * optional string _full_command = 4;
  * @return {string}
  */
 proto.protos.GlobalCLIOptions.prototype.getFullCommand = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
-};
-
-
-/**
- * @param {string} value
- * @return {!proto.protos.GlobalCLIOptions} returns this
- */
-proto.protos.GlobalCLIOptions.prototype.setFullCommand = function(value) {
-  return jspb.Message.setProto3StringField(this, 3, value);
-};
-
-
-/**
- * optional string _action = 4;
- * @return {string}
- */
-proto.protos.GlobalCLIOptions.prototype.getAction = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
 };
 
@@ -294,16 +306,16 @@ proto.protos.GlobalCLIOptions.prototype.getAction = function() {
  * @param {string} value
  * @return {!proto.protos.GlobalCLIOptions} returns this
  */
-proto.protos.GlobalCLIOptions.prototype.setAction = function(value) {
+proto.protos.GlobalCLIOptions.prototype.setFullCommand = function(value) {
   return jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
 /**
- * optional string _backend = 5;
+ * optional string _action = 5;
  * @return {string}
  */
-proto.protos.GlobalCLIOptions.prototype.getBackend = function() {
+proto.protos.GlobalCLIOptions.prototype.getAction = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 5, ""));
 };
 
@@ -312,8 +324,26 @@ proto.protos.GlobalCLIOptions.prototype.getBackend = function() {
  * @param {string} value
  * @return {!proto.protos.GlobalCLIOptions} returns this
  */
-proto.protos.GlobalCLIOptions.prototype.setBackend = function(value) {
+proto.protos.GlobalCLIOptions.prototype.setAction = function(value) {
   return jspb.Message.setProto3StringField(this, 5, value);
+};
+
+
+/**
+ * optional string _backend = 6;
+ * @return {string}
+ */
+proto.protos.GlobalCLIOptions.prototype.getBackend = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 6, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.protos.GlobalCLIOptions} returns this
+ */
+proto.protos.GlobalCLIOptions.prototype.setBackend = function(value) {
+  return jspb.Message.setProto3StringField(this, 6, value);
 };
 
 

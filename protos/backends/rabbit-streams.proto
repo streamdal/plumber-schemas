@@ -52,7 +52,7 @@ message RabbitStreamsReadArgs {
   string declare_stream_size = 3;
 
   // TODO: Will this break? Might just need to be a string.
-  // @gotags: kong:"help='Offset to start reading at'"
+  // @gotags: kong:"help='Offset to start reading at',embed"
   RabbitStreamsOffsetOptions offset_options = 4;
 }
 

@@ -42,8 +42,8 @@ export class MQTTConn extends jspb.Message {
     setConnTimeoutSeconds(value: number): MQTTConn;
     getClientId(): string;
     setClientId(value: string): MQTTConn;
-    getQosLevel(): MQTTQoSLevel;
-    setQosLevel(value: MQTTQoSLevel): MQTTConn;
+    getQosLevel(): number;
+    setQosLevel(value: number): MQTTConn;
 
     hasTlsOptions(): boolean;
     clearTlsOptions(): void;
@@ -65,7 +65,7 @@ export namespace MQTTConn {
         address: string,
         connTimeoutSeconds: number,
         clientId: string,
-        qosLevel: MQTTQoSLevel,
+        qosLevel: number,
         tlsOptions?: MQTTTLSOptions.AsObject,
     }
 }

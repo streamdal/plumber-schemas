@@ -73,7 +73,7 @@ message CLIRelayConfig {
             // @gotags: kong:"embed"
             backends.KafkaConn conn = 1;
             // @gotags: kong:"embed"
-            backends.KafkaReadArgs args = 2;
+            backends.KafkaRelayArgs args = 2;
         }
 
         message AWSSQS {

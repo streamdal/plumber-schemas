@@ -15,6 +15,8 @@ export class GlobalCLIOptions extends jspb.Message {
     setDebug(value: boolean): GlobalCLIOptions;
     getQuiet(): boolean;
     setQuiet(value: boolean): GlobalCLIOptions;
+    getVersion(): boolean;
+    setVersion(value: boolean): GlobalCLIOptions;
     getFullCommand(): string;
     setFullCommand(value: string): GlobalCLIOptions;
     getAction(): string;
@@ -36,6 +38,7 @@ export namespace GlobalCLIOptions {
     export type AsObject = {
         debug: boolean,
         quiet: boolean,
+        version: boolean,
         FullCommand: string,
         Action: string,
         Backend: string,

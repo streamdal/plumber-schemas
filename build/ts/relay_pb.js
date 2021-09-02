@@ -1123,7 +1123,7 @@ proto.protos.CLIRelayConfig.RelayBackend.Kafka.prototype.toObject = function(opt
 proto.protos.CLIRelayConfig.RelayBackend.Kafka.toObject = function(includeInstance, msg) {
   var f, obj = {
     conn: (f = msg.getConn()) && backends_kafka_pb.KafkaConn.toObject(includeInstance, f),
-    args: (f = msg.getArgs()) && backends_kafka_pb.KafkaReadArgs.toObject(includeInstance, f)
+    args: (f = msg.getArgs()) && backends_kafka_pb.KafkaRelayArgs.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -1166,8 +1166,8 @@ proto.protos.CLIRelayConfig.RelayBackend.Kafka.deserializeBinaryFromReader = fun
       msg.setConn(value);
       break;
     case 2:
-      var value = new backends_kafka_pb.KafkaReadArgs;
-      reader.readMessage(value,backends_kafka_pb.KafkaReadArgs.deserializeBinaryFromReader);
+      var value = new backends_kafka_pb.KafkaRelayArgs;
+      reader.readMessage(value,backends_kafka_pb.KafkaRelayArgs.deserializeBinaryFromReader);
       msg.setArgs(value);
       break;
     default:
@@ -1212,7 +1212,7 @@ proto.protos.CLIRelayConfig.RelayBackend.Kafka.serializeBinaryToWriter = functio
     writer.writeMessage(
       2,
       f,
-      backends_kafka_pb.KafkaReadArgs.serializeBinaryToWriter
+      backends_kafka_pb.KafkaRelayArgs.serializeBinaryToWriter
     );
   }
 };
@@ -1256,17 +1256,17 @@ proto.protos.CLIRelayConfig.RelayBackend.Kafka.prototype.hasConn = function() {
 
 
 /**
- * optional backends.KafkaReadArgs args = 2;
- * @return {?proto.protos.backends.KafkaReadArgs}
+ * optional backends.KafkaRelayArgs args = 2;
+ * @return {?proto.protos.backends.KafkaRelayArgs}
  */
 proto.protos.CLIRelayConfig.RelayBackend.Kafka.prototype.getArgs = function() {
-  return /** @type{?proto.protos.backends.KafkaReadArgs} */ (
-    jspb.Message.getWrapperField(this, backends_kafka_pb.KafkaReadArgs, 2));
+  return /** @type{?proto.protos.backends.KafkaRelayArgs} */ (
+    jspb.Message.getWrapperField(this, backends_kafka_pb.KafkaRelayArgs, 2));
 };
 
 
 /**
- * @param {?proto.protos.backends.KafkaReadArgs|undefined} value
+ * @param {?proto.protos.backends.KafkaRelayArgs|undefined} value
  * @return {!proto.protos.CLIRelayConfig.RelayBackend.Kafka} returns this
 */
 proto.protos.CLIRelayConfig.RelayBackend.Kafka.prototype.setArgs = function(value) {

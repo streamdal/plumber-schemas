@@ -31,7 +31,7 @@ message NatsStreamingConn {
 }
 
 message NatsStreamingReadArgs {
-  // @gotags: kong:"help='NATS stream channel. Ex: "orders"'"
+  // @gotags: kong:"help='NATS stream channel. Ex: orders'"
   string channel = 1;
 
   // @gotags: kong:"help='Create a durable subscription with this name for the given channel'"
@@ -51,6 +51,6 @@ message NatsStreamingReadArgs {
 }
 
 message NatsStreamingWriteArgs {
-  // @gotags: kong:"help='NATS stream channel. Ex: "orders"'"
+  // @gotags: kong:"help='NATS stream channel. Ex: orders'"
   string channel = 1;
 }

@@ -27,13 +27,13 @@ message ServerConfig {
     // @gotags: kong:"help='Address of _this_ plumber instance etcd server interface. Example: http://local-ip:2380',env='PLUMBER_SERVER_ADVERTISE_PEER_URL'"
     string advertise_peer_url = 6;
 
-    // @gotags: kong:"help='Address of _this_ plumber instance's etcd client interface. Example: http://local-ip:2379',env='PLUMBER_SERVER_ADVERTISE_CLIENT_URL',required"
+    // @gotags: kong:"help='Address of _this_ plumber instance etcd client interface. Example: http://local-ip:2379',env='PLUMBER_SERVER_ADVERTISE_CLIENT_URL',required"
     string advertise_client_url = 7;
 
-    // @gotags: kong:"help='Address that _this_ plumber instance's etcd server should listen on. Example: http://local-ip:2380',env='PLUMBER_SERVER_LISTENER_PEER_URL'"
+    // @gotags: kong:"help='Address that _this_ plumber instance etcd server should listen on. Example: http://local-ip:2380',env='PLUMBER_SERVER_LISTENER_PEER_URL'"
     string listener_peer_url = 8;
 
-    // @gotags: kong:"help='Address that _this_ plumber instance's etcd client should listen on. Example: http://local-ip:2379',env='PLUMBER_SERVER_LISTENER_CLIENT_URL'"
+    // @gotags: kong:"help='Address that _this_ plumber instance etcd client should listen on. Example: http://local-ip:2379',env='PLUMBER_SERVER_LISTENER_CLIENT_URL'"
     string listener_client_url = 9;
 
     // @gotags: kong:"help='Secret token that ALL cluster members should use/share. If this token does not match on one of the plumber instances, this node will NOT be able to join the cluster.',env='PLUMBER_SERVER_PEER_TOKEN'"

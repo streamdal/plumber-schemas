@@ -39,7 +39,7 @@ message KafkaReadArgs {
     // @gotags: kong:"help='Topic(s) to read, write or get lag stats for',required"
     repeated string topics = 1;
 
-    // @gotags: kong:"help='Specify what offset the consumer should read from (only works if '--use-consumer-group' is false)',default=0"
+    // @gotags: kong:"help='Specify what offset the consumer should read from (only works if --use-consumer-group is false)',default=0"
     int64 read_offset = 2;
 
     // @gotags: kong:"help='Whether plumber should use a consumer group',default=true"
@@ -63,7 +63,7 @@ message KafkaReadArgs {
     // @gotags: kong:"help='How long a coordinator will wait for member joins as part of a rebalance',default=0"
     int32 rebalance_timeout_seconds = 9;
 
-    // @gotags: kong:"help='Internal library queue capacity (throughput optimization)',env=PLUMBER_RELAY_KAFKA_QUEUE_CAPACITY,default=1"
+    // @gotags: kong:"help='Internal library queue capacity (throughput optimization)',default=1"
     int32 queue_capacity = 10;
 }
 
@@ -79,7 +79,7 @@ message KafkaRelayArgs {
     // @gotags: kong:"help='Topic(s) to read, write or get lag stats for',env=PLUMBER_RELAY_KAFKA_TOPIC,required"
     repeated string topics = 1;
 
-    // @gotags: kong:"help='Specify what offset the consumer should read from (only works if '--use-consumer-group' is false)',env=PLUMBER_RELAY_KAFKA_READ_OFFSET,default=0"
+    // @gotags: kong:"help='Specify what offset the consumer should read from (only works if --use-consumer-group is false)',env=PLUMBER_RELAY_KAFKA_READ_OFFSET,default=0"
     int64 read_offset = 2;
 
     // @gotags: kong:"help='Whether plumber should use a consumer group',env=PLUMBER_RELAY_KAFKA_USE_CONSUMER_GROUP,default=true"

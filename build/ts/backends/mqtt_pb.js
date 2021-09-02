@@ -410,7 +410,7 @@ proto.protos.backends.MQTTConn.deserializeBinaryFromReader = function(msg, reade
       msg.setClientId(value);
       break;
     case 5:
-      var value = /** @type {!proto.protos.backends.MQTTQoSLevel} */ (reader.readEnum());
+      var value = /** @type {number} */ (reader.readUint32());
       msg.setQosLevel(value);
       break;
     case 6:
@@ -469,8 +469,8 @@ proto.protos.backends.MQTTConn.serializeBinaryToWriter = function(message, write
     );
   }
   f = message.getQosLevel();
-  if (f !== 0.0) {
-    writer.writeEnum(
+  if (f !== 0) {
+    writer.writeUint32(
       5,
       f
     );
@@ -541,20 +541,20 @@ proto.protos.backends.MQTTConn.prototype.setClientId = function(value) {
 
 
 /**
- * optional MQTTQoSLevel qos_level = 5;
- * @return {!proto.protos.backends.MQTTQoSLevel}
+ * optional uint32 qos_level = 5;
+ * @return {number}
  */
 proto.protos.backends.MQTTConn.prototype.getQosLevel = function() {
-  return /** @type {!proto.protos.backends.MQTTQoSLevel} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
 };
 
 
 /**
- * @param {!proto.protos.backends.MQTTQoSLevel} value
+ * @param {number} value
  * @return {!proto.protos.backends.MQTTConn} returns this
  */
 proto.protos.backends.MQTTConn.prototype.setQosLevel = function(value) {
-  return jspb.Message.setProto3EnumField(this, 5, value);
+  return jspb.Message.setProto3IntField(this, 5, value);
 };
 
 

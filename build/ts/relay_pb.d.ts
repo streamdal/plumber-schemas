@@ -148,8 +148,8 @@ export namespace CLIRelayConfig {
 
             hasArgs(): boolean;
             clearArgs(): void;
-            getArgs(): backends_kafka_pb.KafkaReadArgs | undefined;
-            setArgs(value?: backends_kafka_pb.KafkaReadArgs): Kafka;
+            getArgs(): backends_kafka_pb.KafkaRelayArgs | undefined;
+            setArgs(value?: backends_kafka_pb.KafkaRelayArgs): Kafka;
 
             serializeBinary(): Uint8Array;
             toObject(includeInstance?: boolean): Kafka.AsObject;
@@ -164,7 +164,7 @@ export namespace CLIRelayConfig {
         export namespace Kafka {
             export type AsObject = {
                 conn?: backends_kafka_pb.KafkaConn.AsObject,
-                args?: backends_kafka_pb.KafkaReadArgs.AsObject,
+                args?: backends_kafka_pb.KafkaRelayArgs.AsObject,
             }
         }
 
