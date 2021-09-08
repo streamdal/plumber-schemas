@@ -20,61 +20,136 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
-type Type int32
+type EncodeType int32
 
 const (
-	Type_TYPE_UNSET      Type = 0
-	Type_TYPE_PLAIN      Type = 1
-	Type_TYPE_PROTOBUF   Type = 2
-	Type_TYPE_AVRO       Type = 3
-	Type_TYPE_THRIFT     Type = 4
-	Type_TYPE_FLATBUFFER Type = 5
+	EncodeType_ENCODE_TYPE_UNSET  EncodeType = 0
+	EncodeType_ENCODE_TYPE_JSONPB EncodeType = 1
 )
 
-var Type_name = map[int32]string{
-	0: "TYPE_UNSET",
-	1: "TYPE_PLAIN",
-	2: "TYPE_PROTOBUF",
-	3: "TYPE_AVRO",
-	4: "TYPE_THRIFT",
-	5: "TYPE_FLATBUFFER",
+var EncodeType_name = map[int32]string{
+	0: "ENCODE_TYPE_UNSET",
+	1: "ENCODE_TYPE_JSONPB",
 }
 
-var Type_value = map[string]int32{
-	"TYPE_UNSET":      0,
-	"TYPE_PLAIN":      1,
-	"TYPE_PROTOBUF":   2,
-	"TYPE_AVRO":       3,
-	"TYPE_THRIFT":     4,
-	"TYPE_FLATBUFFER": 5,
+var EncodeType_value = map[string]int32{
+	"ENCODE_TYPE_UNSET":  0,
+	"ENCODE_TYPE_JSONPB": 1,
 }
 
-func (x Type) String() string {
-	return proto.EnumName(Type_name, int32(x))
+func (x EncodeType) String() string {
+	return proto.EnumName(EncodeType_name, int32(x))
 }
 
-func (Type) EnumDescriptor() ([]byte, []int) {
+func (EncodeType) EnumDescriptor() ([]byte, []int) {
 	return fileDescriptor_110d40819f1994f9, []int{0}
 }
 
-type EncodeOptions struct {
-	// If specified, plumber will attempt to use a pre-existing schema (and ignore all other encoding params)
-	// @gotags: kong:"-"
-	SchemaId string `protobuf:"bytes,1,opt,name=schema_id,json=schemaId,proto3" json:"schema_id,omitempty" kong:"-"`
+type DecodeType int32
+
+const (
+	DecodeType_DECODE_TYPE_UNSET      DecodeType = 0
+	DecodeType_DECODE_TYPE_JSONPB     DecodeType = 1
+	DecodeType_DECODE_TYPE_PROTOBUF   DecodeType = 2
+	DecodeType_DECODE_TYPE_AVRO       DecodeType = 3
+	DecodeType_DECODE_TYPE_THRIFT     DecodeType = 4
+	DecodeType_DECODE_TYPE_FLATBUFFER DecodeType = 5
+)
+
+var DecodeType_name = map[int32]string{
+	0: "DECODE_TYPE_UNSET",
+	1: "DECODE_TYPE_JSONPB",
+	2: "DECODE_TYPE_PROTOBUF",
+	3: "DECODE_TYPE_AVRO",
+	4: "DECODE_TYPE_THRIFT",
+	5: "DECODE_TYPE_FLATBUFFER",
+}
+
+var DecodeType_value = map[string]int32{
+	"DECODE_TYPE_UNSET":      0,
+	"DECODE_TYPE_JSONPB":     1,
+	"DECODE_TYPE_PROTOBUF":   2,
+	"DECODE_TYPE_AVRO":       3,
+	"DECODE_TYPE_THRIFT":     4,
+	"DECODE_TYPE_FLATBUFFER": 5,
+}
+
+func (x DecodeType) String() string {
+	return proto.EnumName(DecodeType_name, int32(x))
+}
+
+func (DecodeType) EnumDescriptor() ([]byte, []int) {
+	return fileDescriptor_110d40819f1994f9, []int{1}
+}
+
+type ProtobufSettings struct {
 	// @gotags: kong:"help='Input message(s) should be encoded with this message envelope'"
-	ProtobufRootMessage string `protobuf:"bytes,2,opt,name=protobuf_root_message,json=protobufRootMessage,proto3" json:"protobuf_root_message,omitempty" kong:"help='Input message(s) should be encoded with this message envelope'"`
-	// @gotags: kong:"help='Directory which contains protobuf schemas',existingdir"
-	ProtobufDir          string   `protobuf:"bytes,3,opt,name=protobuf_dir,json=protobufDir,proto3" json:"protobuf_dir,omitempty" kong:"help='Directory which contains protobuf schemas',existingdir"`
+	ProtobufRootMessage string `protobuf:"bytes,3,opt,name=protobuf_root_message,json=protobufRootMessage,proto3" json:"protobuf_root_message,omitempty" kong:"help='Input message(s) should be encoded with this message envelope'"`
+	// @gotags: kong:"help='One or more directories which contains protobuf schemas',existingdir"
+	ProtobufDirs         []string `protobuf:"bytes,4,rep,name=protobuf_dirs,json=protobufDirs,proto3" json:"protobuf_dirs,omitempty" kong:"help='One or more directories which contains protobuf schemas',existingdir"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *ProtobufSettings) Reset()         { *m = ProtobufSettings{} }
+func (m *ProtobufSettings) String() string { return proto.CompactTextString(m) }
+func (*ProtobufSettings) ProtoMessage()    {}
+func (*ProtobufSettings) Descriptor() ([]byte, []int) {
+	return fileDescriptor_110d40819f1994f9, []int{0}
+}
+
+func (m *ProtobufSettings) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ProtobufSettings.Unmarshal(m, b)
+}
+func (m *ProtobufSettings) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ProtobufSettings.Marshal(b, m, deterministic)
+}
+func (m *ProtobufSettings) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ProtobufSettings.Merge(m, src)
+}
+func (m *ProtobufSettings) XXX_Size() int {
+	return xxx_messageInfo_ProtobufSettings.Size(m)
+}
+func (m *ProtobufSettings) XXX_DiscardUnknown() {
+	xxx_messageInfo_ProtobufSettings.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ProtobufSettings proto.InternalMessageInfo
+
+func (m *ProtobufSettings) GetProtobufRootMessage() string {
+	if m != nil {
+		return m.ProtobufRootMessage
+	}
+	return ""
+}
+
+func (m *ProtobufSettings) GetProtobufDirs() []string {
+	if m != nil {
+		return m.ProtobufDirs
+	}
+	return nil
+}
+
+type EncodeOptions struct {
+	// Use an existing schema for encoding (and ignore all other encode settings)
+	// @gotags: kong:"-"
+	SchemaId string `protobuf:"bytes,1,opt,name=schema_id,json=schemaId,proto3" json:"schema_id,omitempty" kong:"-"`
+	// TODO: Update kong to be able to use proto/smart enums
+	// @gotags: kong:"help='Input type (0: Unset, 1: JSONPB)',default=0"
+	EncodeType EncodeType `protobuf:"varint,2,opt,name=encode_type,json=encodeType,proto3,enum=protos.encoding.EncodeType" json:"encode_type,omitempty" kong:"help='Input type (0: Unset, 1: JSONPB)',default=0"`
+	// @gotags: kong="embed,group=protobuf"
+	ProtobufSettings     *ProtobufSettings `protobuf:"bytes,3,opt,name=protobuf_settings,json=protobufSettings,proto3" json:"protobuf_settings,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}          `json:"-"`
+	XXX_unrecognized     []byte            `json:"-"`
+	XXX_sizecache        int32             `json:"-"`
 }
 
 func (m *EncodeOptions) Reset()         { *m = EncodeOptions{} }
 func (m *EncodeOptions) String() string { return proto.CompactTextString(m) }
 func (*EncodeOptions) ProtoMessage()    {}
 func (*EncodeOptions) Descriptor() ([]byte, []int) {
-	return fileDescriptor_110d40819f1994f9, []int{0}
+	return fileDescriptor_110d40819f1994f9, []int{1}
 }
 
 func (m *EncodeOptions) XXX_Unmarshal(b []byte) error {
@@ -102,39 +177,28 @@ func (m *EncodeOptions) GetSchemaId() string {
 	return ""
 }
 
-func (m *EncodeOptions) GetProtobufRootMessage() string {
+func (m *EncodeOptions) GetEncodeType() EncodeType {
 	if m != nil {
-		return m.ProtobufRootMessage
+		return m.EncodeType
 	}
-	return ""
+	return EncodeType_ENCODE_TYPE_UNSET
 }
 
-func (m *EncodeOptions) GetProtobufDir() string {
+func (m *EncodeOptions) GetProtobufSettings() *ProtobufSettings {
 	if m != nil {
-		return m.ProtobufDir
+		return m.ProtobufSettings
 	}
-	return ""
+	return nil
 }
 
 type DecodeOptions struct {
-	// The type of decoder selected determines which Encoding should be used (if any)
-	// NOTE: This type will also determine which metadata k:v's need to be set.
-	// @gotags: kong:"name=decoder,help='How to decode output (valid TYPEs: 1: Plain, 2 = Protobuf, 3 = Avro, 4 = Thrift, 5 = FlatBuffer)',default=1"
-	// TODO: ^ This sucks and needs to be improved. Not sure how yet.
-	Type Type `protobuf:"varint,1,opt,name=type,proto3,enum=protos.encoding.Type" json:"type,omitempty" kong:"name=decoder,help='How to decode output (valid TYPEs: 1: Plain, 2 = Protobuf, 3 = Avro, 4 = Thrift, 5 = FlatBuffer)',default=1"`
-	// Specify an existing stored schema to use instead of specifying a Encoding payload
+	// Use an existing schema for decoding (and ignore all other decode settings)
 	// @gotags: kong:"-"
-	SchemaId string `protobuf:"bytes,2,opt,name=schema_id,json=schemaId,proto3" json:"schema_id,omitempty" kong:"-"`
-	// Valid input keys: dir, file, string, github, zip
-	// TODO: Help needs to outline all of the available options here
-	// TODO: This needs to improve as well. Probably new 'map_keys' tag?
-	// @gotags: kong:"name='decoder-input',required"
-	Input map[string]string `protobuf:"bytes,3,rep,name=input,proto3" json:"input,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3" kong:"name='decoder-input',required"`
-	// Valid input keys:
-	// TODO: Help needs to outline all of the available options here
-	// TODO: Same, needs to be improved? Not sure how.
-	// @gotags: name:"decoder-metadata"
-	Metadata             map[string]string `protobuf:"bytes,4,rep,name=metadata,proto3" json:"metadata,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3" name:"decoder-metadata"`
+	SchemaId string `protobuf:"bytes,1,opt,name=schema_id,json=schemaId,proto3" json:"schema_id,omitempty" kong:"-"`
+	// @gotags: kong:"help='Input type (0: Unset, 1: JSONPB, 2: Protobuf, 3: Avro, 4: Thrift, 5: Flatbuffer)',default=0"
+	DecodeType DecodeType `protobuf:"varint,2,opt,name=decode_type,json=decodeType,proto3,enum=protos.encoding.DecodeType" json:"decode_type,omitempty" kong:"help='Input type (0: Unset, 1: JSONPB, 2: Protobuf, 3: Avro, 4: Thrift, 5: Flatbuffer)',default=0"`
+	// @gotags: kong="embed,group=protobuf"
+	ProtobufSettings     *ProtobufSettings `protobuf:"bytes,3,opt,name=protobuf_settings,json=protobufSettings,proto3" json:"protobuf_settings,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}          `json:"-"`
 	XXX_unrecognized     []byte            `json:"-"`
 	XXX_sizecache        int32             `json:"-"`
@@ -144,7 +208,7 @@ func (m *DecodeOptions) Reset()         { *m = DecodeOptions{} }
 func (m *DecodeOptions) String() string { return proto.CompactTextString(m) }
 func (*DecodeOptions) ProtoMessage()    {}
 func (*DecodeOptions) Descriptor() ([]byte, []int) {
-	return fileDescriptor_110d40819f1994f9, []int{1}
+	return fileDescriptor_110d40819f1994f9, []int{2}
 }
 
 func (m *DecodeOptions) XXX_Unmarshal(b []byte) error {
@@ -165,13 +229,6 @@ func (m *DecodeOptions) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_DecodeOptions proto.InternalMessageInfo
 
-func (m *DecodeOptions) GetType() Type {
-	if m != nil {
-		return m.Type
-	}
-	return Type_TYPE_UNSET
-}
-
 func (m *DecodeOptions) GetSchemaId() string {
 	if m != nil {
 		return m.SchemaId
@@ -179,56 +236,56 @@ func (m *DecodeOptions) GetSchemaId() string {
 	return ""
 }
 
-func (m *DecodeOptions) GetInput() map[string]string {
+func (m *DecodeOptions) GetDecodeType() DecodeType {
 	if m != nil {
-		return m.Input
+		return m.DecodeType
 	}
-	return nil
+	return DecodeType_DECODE_TYPE_UNSET
 }
 
-func (m *DecodeOptions) GetMetadata() map[string]string {
+func (m *DecodeOptions) GetProtobufSettings() *ProtobufSettings {
 	if m != nil {
-		return m.Metadata
+		return m.ProtobufSettings
 	}
 	return nil
 }
 
 func init() {
-	proto.RegisterEnum("protos.encoding.Type", Type_name, Type_value)
+	proto.RegisterEnum("protos.encoding.EncodeType", EncodeType_name, EncodeType_value)
+	proto.RegisterEnum("protos.encoding.DecodeType", DecodeType_name, DecodeType_value)
+	proto.RegisterType((*ProtobufSettings)(nil), "protos.encoding.ProtobufSettings")
 	proto.RegisterType((*EncodeOptions)(nil), "protos.encoding.EncodeOptions")
 	proto.RegisterType((*DecodeOptions)(nil), "protos.encoding.DecodeOptions")
-	proto.RegisterMapType((map[string]string)(nil), "protos.encoding.DecodeOptions.InputEntry")
-	proto.RegisterMapType((map[string]string)(nil), "protos.encoding.DecodeOptions.MetadataEntry")
 }
 
 func init() { proto.RegisterFile("options.proto", fileDescriptor_110d40819f1994f9) }
 
 var fileDescriptor_110d40819f1994f9 = []byte{
-	// 411 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x94, 0x51, 0x4f, 0x6f, 0x94, 0x40,
-	0x1c, 0x95, 0x3f, 0x6b, 0xba, 0xbf, 0x95, 0x2e, 0x4e, 0x6d, 0x42, 0xea, 0xa5, 0xf6, 0xd4, 0x1a,
-	0x85, 0x64, 0xbd, 0x34, 0x1a, 0xd3, 0xec, 0xa6, 0x90, 0x92, 0xb4, 0xa5, 0x19, 0x59, 0x13, 0xbd,
-	0x10, 0xfe, 0x8c, 0xec, 0xc4, 0x85, 0x21, 0x30, 0x98, 0x70, 0xf6, 0x53, 0xfa, 0x6d, 0x0c, 0x33,
-	0xcb, 0xea, 0xae, 0x07, 0xd3, 0x13, 0xbc, 0xf7, 0x7b, 0xef, 0xf1, 0xf2, 0x00, 0x83, 0x55, 0x9c,
-	0xb2, 0xb2, 0xb1, 0xab, 0x9a, 0x71, 0x86, 0xa6, 0xe2, 0xd1, 0xd8, 0xa4, 0x4c, 0x59, 0x46, 0xcb,
-	0xfc, 0xec, 0xa7, 0x02, 0x86, 0xdb, 0x03, 0x12, 0x48, 0x21, 0x7a, 0x09, 0xe3, 0x26, 0x5d, 0x91,
-	0x22, 0x8e, 0x68, 0x66, 0x29, 0xa7, 0xca, 0xf9, 0x18, 0x1f, 0x48, 0xc2, 0xcf, 0xd0, 0x0c, 0x8e,
-	0x45, 0x42, 0xd2, 0x7e, 0x8b, 0x6a, 0xc6, 0x78, 0x54, 0x90, 0xa6, 0x89, 0x73, 0x62, 0xa9, 0x42,
-	0x78, 0x34, 0x1c, 0x31, 0x63, 0xfc, 0x4e, 0x9e, 0xd0, 0x2b, 0x78, 0xb6, 0xf5, 0x64, 0xb4, 0xb6,
-	0x34, 0x21, 0x9d, 0x0c, 0xdc, 0x35, 0xad, 0xcf, 0x7e, 0xa9, 0x60, 0x5c, 0x93, 0xbf, 0x5b, 0x5c,
-	0x80, 0xce, 0xbb, 0x8a, 0x88, 0x02, 0x87, 0xb3, 0x63, 0x7b, 0xaf, 0xb7, 0x1d, 0x76, 0x15, 0xc1,
-	0x42, 0xb2, 0x5b, 0x58, 0xdd, 0x2b, 0x7c, 0x05, 0x23, 0x5a, 0x56, 0x2d, 0xb7, 0xb4, 0x53, 0xed,
-	0x7c, 0x32, 0xbb, 0xf8, 0x27, 0x68, 0xe7, 0xb3, 0xb6, 0xdf, 0x6b, 0xdd, 0x92, 0xd7, 0x1d, 0x96,
-	0x3e, 0x74, 0x03, 0x07, 0x05, 0xe1, 0x71, 0x16, 0xf3, 0xd8, 0xd2, 0x45, 0xc6, 0x9b, 0xff, 0x64,
-	0xdc, 0x6d, 0xe4, 0x32, 0x66, 0xeb, 0x3e, 0xb9, 0x04, 0xf8, 0x13, 0x8f, 0x4c, 0xd0, 0xbe, 0x93,
-	0x6e, 0x33, 0x70, 0xff, 0x8a, 0x5e, 0xc0, 0xe8, 0x47, 0xbc, 0x6e, 0x87, 0x2d, 0x25, 0x78, 0xaf,
-	0x5e, 0x2a, 0x27, 0x1f, 0xc0, 0xd8, 0x09, 0x7d, 0x8c, 0xf9, 0x75, 0x09, 0x7a, 0x3f, 0x16, 0x3a,
-	0x04, 0x08, 0xbf, 0x3c, 0xb8, 0xd1, 0xf2, 0xfe, 0x93, 0x1b, 0x9a, 0x4f, 0xb6, 0xf8, 0xe1, 0x76,
-	0xee, 0xdf, 0x9b, 0x0a, 0x7a, 0x0e, 0x86, 0xc4, 0x38, 0x08, 0x83, 0xc5, 0xd2, 0x33, 0x55, 0x64,
-	0xc0, 0x58, 0x50, 0xf3, 0xcf, 0x38, 0x30, 0x35, 0x34, 0x85, 0x89, 0x80, 0xe1, 0x0d, 0xf6, 0xbd,
-	0xd0, 0xd4, 0xd1, 0x11, 0x4c, 0x05, 0xe1, 0xdd, 0xce, 0xc3, 0xc5, 0xd2, 0xf3, 0x5c, 0x6c, 0x8e,
-	0x16, 0x57, 0x5f, 0x3f, 0xe6, 0x94, 0xaf, 0xda, 0xc4, 0x4e, 0x59, 0xe1, 0x24, 0x31, 0x4f, 0x57,
-	0x29, 0xab, 0x2b, 0xa7, 0x5a, 0xb7, 0x45, 0x42, 0xea, 0xb7, 0xf2, 0xd7, 0x34, 0x4e, 0xd2, 0xd2,
-	0x75, 0xe6, 0xe4, 0xcc, 0x91, 0x6b, 0x3a, 0xc3, 0x9a, 0xc9, 0x53, 0x41, 0xbc, 0xfb, 0x1d, 0x00,
-	0x00, 0xff, 0xff, 0x0d, 0x82, 0x4a, 0x1e, 0xbb, 0x02, 0x00, 0x00,
+	// 404 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xb4, 0x91, 0x41, 0x6f, 0x94, 0x40,
+	0x14, 0xc7, 0xa5, 0x5b, 0x8d, 0xfb, 0xea, 0xea, 0x74, 0x6c, 0x1b, 0x62, 0x2f, 0x6b, 0xbd, 0x6c,
+	0x9a, 0x08, 0xc9, 0x7a, 0x54, 0x63, 0x8a, 0x40, 0xac, 0x51, 0x20, 0xb3, 0xac, 0x89, 0x5e, 0xc8,
+	0x02, 0x23, 0x3b, 0xb1, 0x30, 0x13, 0x66, 0x38, 0xf4, 0xd3, 0xf8, 0x3d, 0xfc, 0x74, 0x66, 0x99,
+	0x65, 0x97, 0xa0, 0x89, 0xf1, 0xd0, 0x13, 0xe4, 0xf7, 0xf2, 0xfe, 0xfc, 0xde, 0x1f, 0x98, 0x70,
+	0xa1, 0x18, 0xaf, 0xa4, 0x25, 0x6a, 0xae, 0x38, 0x7e, 0xd2, 0x3e, 0xa4, 0x45, 0xab, 0x8c, 0xe7,
+	0xac, 0x2a, 0x2e, 0x7e, 0x00, 0x8a, 0x36, 0x28, 0x6d, 0xbe, 0x2f, 0xa8, 0x52, 0xac, 0x2a, 0x24,
+	0x9e, 0xc3, 0xa9, 0xd8, 0xb2, 0xa4, 0xe6, 0x5c, 0x25, 0x25, 0x95, 0x72, 0x55, 0x50, 0x73, 0x34,
+	0x35, 0x66, 0x63, 0xf2, 0xb4, 0x1b, 0x12, 0xce, 0xd5, 0x67, 0x3d, 0xc2, 0x2f, 0x60, 0xb2, 0xdb,
+	0xc9, 0x59, 0x2d, 0xcd, 0xc3, 0xe9, 0x68, 0x36, 0x26, 0x8f, 0x3a, 0xe8, 0xb2, 0x5a, 0x5e, 0xfc,
+	0x32, 0x60, 0xe2, 0x6d, 0xbe, 0x4c, 0x43, 0x6d, 0x85, 0xcf, 0x61, 0x2c, 0xb3, 0x35, 0x2d, 0x57,
+	0x09, 0xcb, 0x4d, 0xa3, 0x8d, 0x7f, 0xa8, 0xc1, 0x75, 0x8e, 0xdf, 0xc0, 0x51, 0xeb, 0x49, 0x13,
+	0x75, 0x2b, 0xa8, 0x79, 0x30, 0x35, 0x66, 0x8f, 0xe7, 0xe7, 0xd6, 0xe0, 0x04, 0x4b, 0x27, 0xc6,
+	0xb7, 0x82, 0x12, 0xa0, 0xbb, 0x77, 0x1c, 0xc0, 0xf1, 0xce, 0x48, 0x6e, 0x4f, 0x6b, 0x2f, 0x38,
+	0x9a, 0x3f, 0xff, 0x23, 0x63, 0xd8, 0x01, 0x41, 0x62, 0x40, 0x5a, 0x79, 0x97, 0xfe, 0x8f, 0x7c,
+	0x4e, 0xff, 0x2d, 0xaf, 0x13, 0xb5, 0x7c, 0x4e, 0xef, 0x4a, 0xfe, 0xf2, 0x35, 0xc0, 0xbe, 0x26,
+	0x7c, 0x0a, 0xc7, 0x5e, 0xf0, 0x3e, 0x74, 0xbd, 0x24, 0xfe, 0x1a, 0x79, 0xc9, 0x32, 0x58, 0x78,
+	0x31, 0xba, 0x87, 0xcf, 0x00, 0xf7, 0xf1, 0xc7, 0x45, 0x18, 0x44, 0x0e, 0x32, 0x2e, 0x7f, 0x1a,
+	0x00, 0x7b, 0xcf, 0xcd, 0xb6, 0xeb, 0xfd, 0x75, 0xbb, 0x8f, 0xbb, 0x6d, 0x6c, 0xc2, 0x49, 0x9f,
+	0x47, 0x24, 0x8c, 0x43, 0x67, 0xe9, 0xa3, 0x03, 0x7c, 0x02, 0xa8, 0x3f, 0xb9, 0xfa, 0x42, 0x42,
+	0x34, 0x1a, 0xe6, 0xc4, 0x1f, 0xc8, 0xb5, 0x1f, 0xa3, 0x43, 0xfc, 0x0c, 0xce, 0xfa, 0xdc, 0xff,
+	0x74, 0x15, 0x3b, 0x4b, 0xdf, 0xf7, 0x08, 0xba, 0xef, 0xbc, 0xfb, 0xf6, 0xb6, 0x60, 0x6a, 0xdd,
+	0xa4, 0x56, 0xc6, 0x4b, 0x3b, 0x5d, 0xa9, 0x6c, 0x9d, 0xf1, 0x5a, 0xd8, 0xe2, 0xa6, 0x29, 0x53,
+	0x5a, 0xbf, 0xd4, 0x7f, 0x45, 0xda, 0x69, 0xc3, 0x6e, 0x72, 0xbb, 0xe0, 0xb6, 0xae, 0xd0, 0xee,
+	0x2a, 0x4c, 0x1f, 0xb4, 0xe0, 0xd5, 0xef, 0x00, 0x00, 0x00, 0xff, 0xff, 0x12, 0xd1, 0x9a, 0xd9,
+	0x2f, 0x03, 0x00, 0x00,
 }

@@ -14,8 +14,8 @@ export class Schema extends jspb.Message {
     setId(value: string): Schema;
     getName(): string;
     setName(value: string): Schema;
-    getType(): encoding_options_pb.Type;
-    setType(value: encoding_options_pb.Type): Schema;
+    getType(): encoding_options_pb.EncodeType;
+    setType(value: encoding_options_pb.EncodeType): Schema;
 
     getFilesMap(): jspb.Map<string, string>;
     clearFilesMap(): void;
@@ -40,7 +40,7 @@ export namespace Schema {
     export type AsObject = {
         id: string,
         name: string,
-        type: encoding_options_pb.Type,
+        type: encoding_options_pb.EncodeType,
 
         filesMap: Array<[string, string]>,
         rootType: string,
@@ -150,8 +150,8 @@ export class ImportGithubRequest extends jspb.Message {
     setAuth(value?: common_auth_pb.Auth): ImportGithubRequest;
     getName(): string;
     setName(value: string): ImportGithubRequest;
-    getType(): encoding_options_pb.Type;
-    setType(value: encoding_options_pb.Type): ImportGithubRequest;
+    getType(): encoding_options_pb.EncodeType;
+    setType(value: encoding_options_pb.EncodeType): ImportGithubRequest;
     getGithubUrl(): string;
     setGithubUrl(value: string): ImportGithubRequest;
     getRootType(): string;
@@ -173,7 +173,7 @@ export namespace ImportGithubRequest {
     export type AsObject = {
         auth?: common_auth_pb.Auth.AsObject,
         name: string,
-        type: encoding_options_pb.Type,
+        type: encoding_options_pb.EncodeType,
         githubUrl: string,
         rootType: string,
         rootDir: string,
@@ -214,8 +214,8 @@ export class ImportLocalRequest extends jspb.Message {
     setAuth(value?: common_auth_pb.Auth): ImportLocalRequest;
     getName(): string;
     setName(value: string): ImportLocalRequest;
-    getType(): encoding_options_pb.Type;
-    setType(value: encoding_options_pb.Type): ImportLocalRequest;
+    getType(): encoding_options_pb.EncodeType;
+    setType(value: encoding_options_pb.EncodeType): ImportLocalRequest;
     getZipArchive(): Uint8Array | string;
     getZipArchive_asU8(): Uint8Array;
     getZipArchive_asB64(): string;
@@ -237,7 +237,7 @@ export namespace ImportLocalRequest {
     export type AsObject = {
         auth?: common_auth_pb.Auth.AsObject,
         name: string,
-        type: encoding_options_pb.Type,
+        type: encoding_options_pb.EncodeType,
         zipArchive: Uint8Array | string,
         rootType: string,
     }

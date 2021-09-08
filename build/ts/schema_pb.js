@@ -346,7 +346,7 @@ proto.protos.Schema.deserializeBinaryFromReader = function(msg, reader) {
       msg.setName(value);
       break;
     case 3:
-      var value = /** @type {!proto.protos.encoding.Type} */ (reader.readEnum());
+      var value = /** @type {!proto.protos.encoding.EncodeType} */ (reader.readEnum());
       msg.setType(value);
       break;
     case 4:
@@ -471,16 +471,16 @@ proto.protos.Schema.prototype.setName = function(value) {
 
 
 /**
- * optional encoding.Type type = 3;
- * @return {!proto.protos.encoding.Type}
+ * optional encoding.EncodeType type = 3;
+ * @return {!proto.protos.encoding.EncodeType}
  */
 proto.protos.Schema.prototype.getType = function() {
-  return /** @type {!proto.protos.encoding.Type} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
+  return /** @type {!proto.protos.encoding.EncodeType} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
 };
 
 
 /**
- * @param {!proto.protos.encoding.Type} value
+ * @param {!proto.protos.encoding.EncodeType} value
  * @return {!proto.protos.Schema} returns this
  */
 proto.protos.Schema.prototype.setType = function(value) {
@@ -1297,7 +1297,7 @@ proto.protos.ImportGithubRequest.deserializeBinaryFromReader = function(msg, rea
       msg.setName(value);
       break;
     case 2:
-      var value = /** @type {!proto.protos.encoding.Type} */ (reader.readEnum());
+      var value = /** @type {!proto.protos.encoding.EncodeType} */ (reader.readEnum());
       msg.setType(value);
       break;
     case 3:
@@ -1443,16 +1443,16 @@ proto.protos.ImportGithubRequest.prototype.setName = function(value) {
 
 
 /**
- * optional encoding.Type type = 2;
- * @return {!proto.protos.encoding.Type}
+ * optional encoding.EncodeType type = 2;
+ * @return {!proto.protos.encoding.EncodeType}
  */
 proto.protos.ImportGithubRequest.prototype.getType = function() {
-  return /** @type {!proto.protos.encoding.Type} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
+  return /** @type {!proto.protos.encoding.EncodeType} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
 };
 
 
 /**
- * @param {!proto.protos.encoding.Type} value
+ * @param {!proto.protos.encoding.EncodeType} value
  * @return {!proto.protos.ImportGithubRequest} returns this
  */
 proto.protos.ImportGithubRequest.prototype.setType = function(value) {
@@ -1778,7 +1778,7 @@ proto.protos.ImportLocalRequest.deserializeBinaryFromReader = function(msg, read
       msg.setName(value);
       break;
     case 2:
-      var value = /** @type {!proto.protos.encoding.Type} */ (reader.readEnum());
+      var value = /** @type {!proto.protos.encoding.EncodeType} */ (reader.readEnum());
       msg.setType(value);
       break;
     case 3:
@@ -1913,16 +1913,16 @@ proto.protos.ImportLocalRequest.prototype.setName = function(value) {
 
 
 /**
- * optional encoding.Type type = 2;
- * @return {!proto.protos.encoding.Type}
+ * optional encoding.EncodeType type = 2;
+ * @return {!proto.protos.encoding.EncodeType}
  */
 proto.protos.ImportLocalRequest.prototype.getType = function() {
-  return /** @type {!proto.protos.encoding.Type} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
+  return /** @type {!proto.protos.encoding.EncodeType} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
 };
 
 
 /**
- * @param {!proto.protos.encoding.Type} value
+ * @param {!proto.protos.encoding.EncodeType} value
  * @return {!proto.protos.ImportLocalRequest} returns this
  */
 proto.protos.ImportLocalRequest.prototype.setType = function(value) {

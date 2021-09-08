@@ -26,8 +26,8 @@ message ProtobufSettings {
     // @gotags: kong:"help='Input message(s) should be encoded with this message envelope'"
     string protobuf_root_message = 3;
 
-    // @gotags: kong:"help='Directory which contains protobuf schemas',existingdir"
-    string protobuf_dir = 4;
+    // @gotags: kong:"help='One or more directories which contains protobuf schemas',existingdir"
+    repeated string protobuf_dirs = 4;
 }
 
 message EncodeOptions {
