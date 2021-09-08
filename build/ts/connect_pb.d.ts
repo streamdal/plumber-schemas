@@ -5,25 +5,25 @@
 /* eslint-disable */
 
 import * as jspb from "google-protobuf";
-import * as backends_kafka_pb from "./backends/kafka_pb";
-import * as backends_activemq_pb from "./backends/activemq_pb";
-import * as backends_aws_sns_pb from "./backends/aws-sns_pb";
-import * as backends_aws_sqs_pb from "./backends/aws-sqs_pb";
-import * as backends_mongo_pb from "./backends/mongo_pb";
-import * as backends_nats_pb from "./backends/nats_pb";
-import * as backends_nats_streaming_pb from "./backends/nats-streaming_pb";
-import * as backends_nsq_pb from "./backends/nsq_pb";
-import * as backends_mqtt_pb from "./backends/mqtt_pb";
-import * as backends_gcp_pubsub_pb from "./backends/gcp-pubsub_pb";
-import * as backends_kubemq_queue_pb from "./backends/kubemq-queue_pb";
-import * as backends_postgres_pb from "./backends/postgres_pb";
-import * as backends_pulsar_pb from "./backends/pulsar_pb";
-import * as backends_rabbit_pb from "./backends/rabbit_pb";
-import * as backends_rabbit_streams_pb from "./backends/rabbit-streams_pb";
-import * as backends_redis_pubsub_pb from "./backends/redis-pubsub_pb";
-import * as backends_redis_streams_pb from "./backends/redis-streams_pb";
-import * as backends_azure_service_bus_pb from "./backends/azure-service-bus_pb";
-import * as backends_azure_event_hub_pb from "./backends/azure-event-hub_pb";
+import * as args_kafka_pb from "./args/kafka_pb";
+import * as args_activemq_pb from "./args/activemq_pb";
+import * as args_aws_sns_pb from "./args/aws-sns_pb";
+import * as args_aws_sqs_pb from "./args/aws-sqs_pb";
+import * as args_mongo_pb from "./args/mongo_pb";
+import * as args_nats_pb from "./args/nats_pb";
+import * as args_nats_streaming_pb from "./args/nats-streaming_pb";
+import * as args_nsq_pb from "./args/nsq_pb";
+import * as args_mqtt_pb from "./args/mqtt_pb";
+import * as args_gcp_pubsub_pb from "./args/gcp-pubsub_pb";
+import * as args_kubemq_queue_pb from "./args/kubemq-queue_pb";
+import * as args_postgres_pb from "./args/postgres_pb";
+import * as args_pulsar_pb from "./args/pulsar_pb";
+import * as args_rabbit_pb from "./args/rabbit_pb";
+import * as args_rabbit_streams_pb from "./args/rabbit-streams_pb";
+import * as args_redis_pubsub_pb from "./args/redis-pubsub_pb";
+import * as args_redis_streams_pb from "./args/redis-streams_pb";
+import * as args_azure_service_bus_pb from "./args/azure-service-bus_pb";
+import * as args_azure_event_hub_pb from "./args/azure-event-hub_pb";
 import * as common_auth_pb from "./common/auth_pb";
 import * as common_status_pb from "./common/status_pb";
 
@@ -37,98 +37,98 @@ export class ConnectionConfig extends jspb.Message {
 
     hasKafka(): boolean;
     clearKafka(): void;
-    getKafka(): backends_kafka_pb.KafkaConn | undefined;
-    setKafka(value?: backends_kafka_pb.KafkaConn): ConnectionConfig;
+    getKafka(): args_kafka_pb.KafkaConn | undefined;
+    setKafka(value?: args_kafka_pb.KafkaConn): ConnectionConfig;
 
     hasActiveMq(): boolean;
     clearActiveMq(): void;
-    getActiveMq(): backends_activemq_pb.ActiveMQConn | undefined;
-    setActiveMq(value?: backends_activemq_pb.ActiveMQConn): ConnectionConfig;
+    getActiveMq(): args_activemq_pb.ActiveMQConn | undefined;
+    setActiveMq(value?: args_activemq_pb.ActiveMQConn): ConnectionConfig;
 
     hasAwssqs(): boolean;
     clearAwssqs(): void;
-    getAwssqs(): backends_aws_sqs_pb.AWSSQSConn | undefined;
-    setAwssqs(value?: backends_aws_sqs_pb.AWSSQSConn): ConnectionConfig;
+    getAwssqs(): args_aws_sqs_pb.AWSSQSConn | undefined;
+    setAwssqs(value?: args_aws_sqs_pb.AWSSQSConn): ConnectionConfig;
 
     hasAwssns(): boolean;
     clearAwssns(): void;
-    getAwssns(): backends_aws_sns_pb.AWSSNSConn | undefined;
-    setAwssns(value?: backends_aws_sns_pb.AWSSNSConn): ConnectionConfig;
+    getAwssns(): args_aws_sns_pb.AWSSNSConn | undefined;
+    setAwssns(value?: args_aws_sns_pb.AWSSNSConn): ConnectionConfig;
 
     hasMongo(): boolean;
     clearMongo(): void;
-    getMongo(): backends_mongo_pb.MongoConn | undefined;
-    setMongo(value?: backends_mongo_pb.MongoConn): ConnectionConfig;
+    getMongo(): args_mongo_pb.MongoConn | undefined;
+    setMongo(value?: args_mongo_pb.MongoConn): ConnectionConfig;
 
     hasNats(): boolean;
     clearNats(): void;
-    getNats(): backends_nats_pb.NatsConn | undefined;
-    setNats(value?: backends_nats_pb.NatsConn): ConnectionConfig;
+    getNats(): args_nats_pb.NatsConn | undefined;
+    setNats(value?: args_nats_pb.NatsConn): ConnectionConfig;
 
     hasNatsStreaming(): boolean;
     clearNatsStreaming(): void;
-    getNatsStreaming(): backends_nats_streaming_pb.NatsStreamingConn | undefined;
-    setNatsStreaming(value?: backends_nats_streaming_pb.NatsStreamingConn): ConnectionConfig;
+    getNatsStreaming(): args_nats_streaming_pb.NatsStreamingConn | undefined;
+    setNatsStreaming(value?: args_nats_streaming_pb.NatsStreamingConn): ConnectionConfig;
 
     hasNsq(): boolean;
     clearNsq(): void;
-    getNsq(): backends_nsq_pb.NSQConn | undefined;
-    setNsq(value?: backends_nsq_pb.NSQConn): ConnectionConfig;
+    getNsq(): args_nsq_pb.NSQConn | undefined;
+    setNsq(value?: args_nsq_pb.NSQConn): ConnectionConfig;
 
     hasPostgres(): boolean;
     clearPostgres(): void;
-    getPostgres(): backends_postgres_pb.PostgresConn | undefined;
-    setPostgres(value?: backends_postgres_pb.PostgresConn): ConnectionConfig;
+    getPostgres(): args_postgres_pb.PostgresConn | undefined;
+    setPostgres(value?: args_postgres_pb.PostgresConn): ConnectionConfig;
 
     hasPulsar(): boolean;
     clearPulsar(): void;
-    getPulsar(): backends_pulsar_pb.PulsarConn | undefined;
-    setPulsar(value?: backends_pulsar_pb.PulsarConn): ConnectionConfig;
+    getPulsar(): args_pulsar_pb.PulsarConn | undefined;
+    setPulsar(value?: args_pulsar_pb.PulsarConn): ConnectionConfig;
 
     hasRabbit(): boolean;
     clearRabbit(): void;
-    getRabbit(): backends_rabbit_pb.RabbitConn | undefined;
-    setRabbit(value?: backends_rabbit_pb.RabbitConn): ConnectionConfig;
+    getRabbit(): args_rabbit_pb.RabbitConn | undefined;
+    setRabbit(value?: args_rabbit_pb.RabbitConn): ConnectionConfig;
 
     hasRabbitStreams(): boolean;
     clearRabbitStreams(): void;
-    getRabbitStreams(): backends_rabbit_streams_pb.RabbitStreamsConn | undefined;
-    setRabbitStreams(value?: backends_rabbit_streams_pb.RabbitStreamsConn): ConnectionConfig;
+    getRabbitStreams(): args_rabbit_streams_pb.RabbitStreamsConn | undefined;
+    setRabbitStreams(value?: args_rabbit_streams_pb.RabbitStreamsConn): ConnectionConfig;
 
     hasRedisPubsub(): boolean;
     clearRedisPubsub(): void;
-    getRedisPubsub(): backends_redis_pubsub_pb.RedisPubSubConn | undefined;
-    setRedisPubsub(value?: backends_redis_pubsub_pb.RedisPubSubConn): ConnectionConfig;
+    getRedisPubsub(): args_redis_pubsub_pb.RedisPubSubConn | undefined;
+    setRedisPubsub(value?: args_redis_pubsub_pb.RedisPubSubConn): ConnectionConfig;
 
     hasRedisStreams(): boolean;
     clearRedisStreams(): void;
-    getRedisStreams(): backends_redis_streams_pb.RedisStreamsConn | undefined;
-    setRedisStreams(value?: backends_redis_streams_pb.RedisStreamsConn): ConnectionConfig;
+    getRedisStreams(): args_redis_streams_pb.RedisStreamsConn | undefined;
+    setRedisStreams(value?: args_redis_streams_pb.RedisStreamsConn): ConnectionConfig;
 
     hasAzureEventHub(): boolean;
     clearAzureEventHub(): void;
-    getAzureEventHub(): backends_azure_event_hub_pb.AzureEventHubConn | undefined;
-    setAzureEventHub(value?: backends_azure_event_hub_pb.AzureEventHubConn): ConnectionConfig;
+    getAzureEventHub(): args_azure_event_hub_pb.AzureEventHubConn | undefined;
+    setAzureEventHub(value?: args_azure_event_hub_pb.AzureEventHubConn): ConnectionConfig;
 
     hasAzureServiceBus(): boolean;
     clearAzureServiceBus(): void;
-    getAzureServiceBus(): backends_azure_service_bus_pb.AzureServiceBusConn | undefined;
-    setAzureServiceBus(value?: backends_azure_service_bus_pb.AzureServiceBusConn): ConnectionConfig;
+    getAzureServiceBus(): args_azure_service_bus_pb.AzureServiceBusConn | undefined;
+    setAzureServiceBus(value?: args_azure_service_bus_pb.AzureServiceBusConn): ConnectionConfig;
 
     hasMqtt(): boolean;
     clearMqtt(): void;
-    getMqtt(): backends_mqtt_pb.MQTTConn | undefined;
-    setMqtt(value?: backends_mqtt_pb.MQTTConn): ConnectionConfig;
+    getMqtt(): args_mqtt_pb.MQTTConn | undefined;
+    setMqtt(value?: args_mqtt_pb.MQTTConn): ConnectionConfig;
 
     hasKubemqQueue(): boolean;
     clearKubemqQueue(): void;
-    getKubemqQueue(): backends_kubemq_queue_pb.KubeMQQueueConn | undefined;
-    setKubemqQueue(value?: backends_kubemq_queue_pb.KubeMQQueueConn): ConnectionConfig;
+    getKubemqQueue(): args_kubemq_queue_pb.KubeMQQueueConn | undefined;
+    setKubemqQueue(value?: args_kubemq_queue_pb.KubeMQQueueConn): ConnectionConfig;
 
     hasGcpPubsub(): boolean;
     clearGcpPubsub(): void;
-    getGcpPubsub(): backends_gcp_pubsub_pb.GCPPubSubConn | undefined;
-    setGcpPubsub(value?: backends_gcp_pubsub_pb.GCPPubSubConn): ConnectionConfig;
+    getGcpPubsub(): args_gcp_pubsub_pb.GCPPubSubConn | undefined;
+    setGcpPubsub(value?: args_gcp_pubsub_pb.GCPPubSubConn): ConnectionConfig;
 
     getConnCase(): ConnectionConfig.ConnCase;
 
@@ -146,26 +146,26 @@ export namespace ConnectionConfig {
     export type AsObject = {
         name: string,
         notes: string,
-        id: string,
-        kafka?: backends_kafka_pb.KafkaConn.AsObject,
-        activeMq?: backends_activemq_pb.ActiveMQConn.AsObject,
-        awssqs?: backends_aws_sqs_pb.AWSSQSConn.AsObject,
-        awssns?: backends_aws_sns_pb.AWSSNSConn.AsObject,
-        mongo?: backends_mongo_pb.MongoConn.AsObject,
-        nats?: backends_nats_pb.NatsConn.AsObject,
-        natsStreaming?: backends_nats_streaming_pb.NatsStreamingConn.AsObject,
-        nsq?: backends_nsq_pb.NSQConn.AsObject,
-        postgres?: backends_postgres_pb.PostgresConn.AsObject,
-        pulsar?: backends_pulsar_pb.PulsarConn.AsObject,
-        rabbit?: backends_rabbit_pb.RabbitConn.AsObject,
-        rabbitStreams?: backends_rabbit_streams_pb.RabbitStreamsConn.AsObject,
-        redisPubsub?: backends_redis_pubsub_pb.RedisPubSubConn.AsObject,
-        redisStreams?: backends_redis_streams_pb.RedisStreamsConn.AsObject,
-        azureEventHub?: backends_azure_event_hub_pb.AzureEventHubConn.AsObject,
-        azureServiceBus?: backends_azure_service_bus_pb.AzureServiceBusConn.AsObject,
-        mqtt?: backends_mqtt_pb.MQTTConn.AsObject,
-        kubemqQueue?: backends_kubemq_queue_pb.KubeMQQueueConn.AsObject,
-        gcpPubsub?: backends_gcp_pubsub_pb.GCPPubSubConn.AsObject,
+        Id: string,
+        kafka?: args_kafka_pb.KafkaConn.AsObject,
+        activeMq?: args_activemq_pb.ActiveMQConn.AsObject,
+        awssqs?: args_aws_sqs_pb.AWSSQSConn.AsObject,
+        awssns?: args_aws_sns_pb.AWSSNSConn.AsObject,
+        mongo?: args_mongo_pb.MongoConn.AsObject,
+        nats?: args_nats_pb.NatsConn.AsObject,
+        natsStreaming?: args_nats_streaming_pb.NatsStreamingConn.AsObject,
+        nsq?: args_nsq_pb.NSQConn.AsObject,
+        postgres?: args_postgres_pb.PostgresConn.AsObject,
+        pulsar?: args_pulsar_pb.PulsarConn.AsObject,
+        rabbit?: args_rabbit_pb.RabbitConn.AsObject,
+        rabbitStreams?: args_rabbit_streams_pb.RabbitStreamsConn.AsObject,
+        redisPubsub?: args_redis_pubsub_pb.RedisPubSubConn.AsObject,
+        redisStreams?: args_redis_streams_pb.RedisStreamsConn.AsObject,
+        azureEventHub?: args_azure_event_hub_pb.AzureEventHubConn.AsObject,
+        azureServiceBus?: args_azure_service_bus_pb.AzureServiceBusConn.AsObject,
+        mqtt?: args_mqtt_pb.MQTTConn.AsObject,
+        kubemqQueue?: args_kubemq_queue_pb.KubeMQQueueConn.AsObject,
+        gcpPubsub?: args_gcp_pubsub_pb.GCPPubSubConn.AsObject,
     }
 
     export enum ConnCase {

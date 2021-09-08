@@ -9,7 +9,7 @@ message MongoConn {
   string dsn = 1;
 }
 
-message MongoReadArgs {
+message MongoReadOpts {
   // @gotags: kong:"help='Database name',env='PLUMBER_RELAY_CDCMONGO_DATABASE'"
   string database = 1;
 

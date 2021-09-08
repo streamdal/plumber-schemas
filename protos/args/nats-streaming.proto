@@ -30,7 +30,7 @@ message NatsStreamingConn {
   string client_id = 8;
 }
 
-message NatsStreamingReadArgs {
+message NatsStreamingReadOpts {
   // @gotags: kong:"help='NATS stream channel. Ex: orders'"
   string channel = 1;
 
@@ -50,7 +50,7 @@ message NatsStreamingReadArgs {
   bool read_all = 6;
 }
 
-message NatsStreamingWriteArgs {
+message NatsStreamingWriteOpts {
   // @gotags: kong:"help='NATS stream channel. Ex: orders'"
   string channel = 1;
 }

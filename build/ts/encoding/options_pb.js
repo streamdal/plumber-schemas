@@ -516,13 +516,12 @@ proto.protos.encoding.DecodeOptions.prototype.clearMetadataMap = function() {
  * @enum {number}
  */
 proto.protos.encoding.Type = {
-  NONE: 0,
-  JSON: 1,
-  JSON_SCHEMA: 2,
-  PROTOBUF: 3,
-  AVRO: 4,
-  THRIFT: 5,
-  FLATBUFFER: 6
+  TYPE_UNSET: 0,
+  TYPE_PLAIN: 1,
+  TYPE_PROTOBUF: 2,
+  TYPE_AVRO: 3,
+  TYPE_THRIFT: 4,
+  TYPE_FLATBUFFER: 5
 };
 
 goog.object.extend(exports, proto.protos.encoding);

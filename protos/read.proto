@@ -19,9 +19,9 @@ message ReadSampleOptions {
 }
 
 enum ConvertOption {
-    UNSET = 0;
-    BASE64 = 1;
-    GZIP = 2;
+    CONVERT_OPTION_UNSET  = 0;
+    CONVERT_OPTION_BASE64 = 1;
+    CONVERT_OPTION_GZIP   = 2;
 }
 
 message ReadCLIConfig {
@@ -64,11 +64,11 @@ message ReadConfig {
     // @gotags: kong:"embed,group=decode"
     encoding.DecodeOptions decode_options = 5;
 
-    // Any extra args that can differ between reads (topics, read offset, etc.).
+    // Any extra opts that can differ between reads (topics, read offset, etc.).
     // NOTE: Desktop can leave conn unset - an existing connection will be used
     // by looking up connection_id.
     // @gotags: kong:"embed"
-    ReadArgs read_args = 6;
+    ReadOpts read_opts = 6;
 
     ////////////////////////////////////////////////////////
     ////////////// "Private" fields 1000+ ////////////////

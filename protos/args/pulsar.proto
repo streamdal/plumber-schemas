@@ -28,7 +28,7 @@ message PulsarConn {
   bytes tls_client_key = 5;
 }
 
-message PulsarReadArgs {
+message PulsarReadOpts {
   // @gotags: kong:"help='Topic to read messages from',required"
   string topic = 1;
 
@@ -39,7 +39,7 @@ message PulsarReadArgs {
   SubscriptionType subscription_type = 3;
 }
 
-message PulsarWriteArgs {
+message PulsarWriteOpts {
   // @gotags: kong:"help='topic to write messages to'"
   string topic = 1;
 }

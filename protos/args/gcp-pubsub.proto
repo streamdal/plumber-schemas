@@ -9,7 +9,7 @@ message GCPPubSubConn {
     string project_id = 1;
 }
 
-message GCPPubSubReadArgs {
+message GCPPubSubReadOpts {
     // @gotags: kong:"help='Subscription ID',env='PLUMBER_RELAY_GCP_SUBSCRIPTION_ID',required"
     string subscription_id = 1;
 
@@ -17,7 +17,7 @@ message GCPPubSubReadArgs {
     bool ack_messages = 2;
 }
 
-message GCPPubSubWriteArgs {
+message GCPPubSubWriteOpts {
     // @gotags: kong:"help='Topic ID to publish message(s) to',required"
     string topic_id = 1;
 }

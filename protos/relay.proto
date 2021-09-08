@@ -39,11 +39,11 @@ message RelayConfig {
     // @gotags: kong:"help='How long to wait before giving up talking to the gRPC collector',name='grpc-timeout-seconds'"
     int32 _batchsh_grpc_timeout_seconds = 8;
 
-    // Any extra args that can differ between relays (same as reads).
+    // Any extra opts that can differ between relays (same as reads).
     // NOTE: Desktop can leave conn unset - an existing connection will be used
     // by looking up connection_id.
     // @gotags: kong:"embed"
-    RelayArgs relay_args = 9;
+    RelayOpts relay_opts = 9;
 
     // ID of the created relay entry; populated by plumber.
     // @gotags: kong:"-"

@@ -27,7 +27,7 @@ message PostgresConn {
   bool insecure_tls = 7;
 }
 
-message PostgresReadArgs {
+message PostgresReadOpts {
   // @gotags: kong:"help='CDC replication slot name',env='PLUMBER_RELAY_CDCPOSTGRES_SLOT',required"
   string replication_slot_name = 2;
 

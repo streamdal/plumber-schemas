@@ -8,7 +8,6 @@ syntax = "proto3";
 package protos;
 
 import "records/base.proto";
-import "x_backends.proto";
 import "args/activemq.proto";
 import "args/azure-service-bus.proto";
 import "args/azure-event-hub.proto";
@@ -29,197 +28,197 @@ import "args/redis-streams.proto";
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
 
-// WriteArgs is the structure that backends accept for performing a write.
+// WriteOpts is the structure that backends accept for performing a write.
 // NOTE: _conn is only used by the CLI - desktop does not need to set it.
-message WriteArgs {
+message WriteOpts {
     // @gotags: kong:"embed"
     records.WriteRecord record = 1;
 
     // @gotags: kong:"cmd,help='Apache Kafka'"
-    WriteArgsKafka kafka = 100;
+    WriteOptsKafka kafka = 100;
 
     // @gotags: kong:"cmd,help='Apache ActiveMQ'"
-    WriteArgsActiveMQ activemq = 101;
+    WriteOptsActiveMQ activemq = 101;
 
     // @gotags: kong:"cmd,help='AWS Simple Queue System'"
-    WriteArgsAWSSQS awssqs = 102;
+    WriteOptsAWSSQS awssqs = 102;
 
     // @gotags: kong:"cmd,help='AWS Simple Notification System'"
-    WriteArgsAWSSNS awssns = 103;
+    WriteOptsAWSSNS awssns = 103;
 
     // @gotags: kong:"cmd,help='NATS'"
-    WriteArgsNats nats = 104;
+    WriteOptsNats nats = 104;
 
     // @gotags: kong:"cmd,help='NATS Streaming'"
-    WriteArgsNatsStreaming nats_streaming = 105;
+    WriteOptsNatsStreaming nats_streaming = 105;
 
     // @gotags: kong:"cmd,help='NSQ'"
-    WriteArgsNSQ nsq = 106;
+    WriteOptsNSQ nsq = 106;
 
     // @gotags: kong:"cmd,help='Apache Pulsar'"
-    WriteArgsPulsar pulsar = 107;
+    WriteOptsPulsar pulsar = 107;
 
     // @gotags: kong:"cmd,help='RabbitMQ'"
-    WriteArgsRabbit rabbit = 108;
+    WriteOptsRabbit rabbit = 108;
 
     // @gotags: kong:"cmd,help='RabbitMQ Streams'"
-    WriteArgsRabbitStreams rabbit_streams = 109;
+    WriteOptsRabbitStreams rabbit_streams = 109;
 
     // @gotags: kong:"cmd,help='MQTT'"
-    WriteArgsMQTT mqtt = 110;
+    WriteOptsMQTT mqtt = 110;
 
     // @gotags: kong:"cmd,help='Azure Service Bus'"
-    WriteArgsAzureServiceBus azure_service_bus = 111;
+    WriteOptsAzureServiceBus azure_service_bus = 111;
 
     // @gotags: kong:"cmd,help='Azure Event Hub'"
-    WriteArgsAzureEventHub azure_event_hub = 112;
+    WriteOptsAzureEventHub azure_event_hub = 112;
 
     // @gotags: kong:"cmd,help='Google Cloud Platform Pub/Sub'"
-    WriteArgsGCPPubSub gcp_pubsub = 113;
+    WriteOptsGCPPubSub gcp_pubsub = 113;
 
     // @gotags: kong:"cmd,help='KubeMQ Queue'"
-    WriteArgsKubeMQQueue kubemq_queue = 114;
+    WriteOptsKubeMQQueue kubemq_queue = 114;
 
     // @gotags: kong:"cmd,help='Redis PubSub'"
-    WriteArgsRedisPubSub redis_pubsub = 115;
+    WriteOptsRedisPubSub redis_pubsub = 115;
 
     // @gotags: kong:"cmd,help='Redis Streams'"
-    WriteArgsRedisStreams redis_streams = 116;
+    WriteOptsRedisStreams redis_streams = 116;
 }
 
-message WriteArgsKafka {
+message WriteOptsKafka {
     // @gotags: kong:"embed"
     args.KafkaConn _conn = 1;
 
     // @gotags: kong:"embed"
-    args.KafkaWriteArgs args = 2;
+    args.KafkaWriteOpts args = 2;
 }
 
-message WriteArgsActiveMQ {
+message WriteOptsActiveMQ {
     // @gotags: kong:"embed"
     args.ActiveMQConn _conn = 1;
 
     // @gotags: kong:"embed"
-    args.ActiveMQWriteArgs args = 2;
+    args.ActiveMQWriteOpts args = 2;
 }
 
-message WriteArgsAWSSQS {
+message WriteOptsAWSSQS {
     // @gotags: kong:"embed"
     args.AWSSQSConn _conn = 1;
 
 
     // @gotags: kong:"embed"
-    args.AWSSQSWriteArgs args = 2;
+    args.AWSSQSWriteOpts args = 2;
 }
 
-message WriteArgsAWSSNS {
+message WriteOptsAWSSNS {
     // @gotags: kong:"embed"
     args.AWSSNSConn _conn = 1;
 
     // @gotags: kong:"embed"
-    args.AWSSNSWriteArgs args = 2;
+    args.AWSSNSWriteOpts args = 2;
 }
 
-message WriteArgsNats {
+message WriteOptsNats {
     // @gotags: kong:"embed"
     args.NatsConn _conn = 1;
 
     // @gotags: kong:"embed"
-    args.NatsWriteArgs args = 2;
+    args.NatsWriteOpts args = 2;
 }
 
-message WriteArgsNatsStreaming {
+message WriteOptsNatsStreaming {
     // @gotags: kong:"embed"
     args.NatsStreamingConn _conn = 1;
 
     // @gotags: kong:"embed"
-    args.NatsStreamingWriteArgs args = 2;
+    args.NatsStreamingWriteOpts args = 2;
 }
 
-message WriteArgsNSQ {
+message WriteOptsNSQ {
     // @gotags: kong:"embed"
     args.NSQConn _conn = 1;
 
     // @gotags: kong:"embed"
-    args.NSQWriteArgs args = 2;
+    args.NSQWriteOpts args = 2;
 }
 
-message WriteArgsPulsar {
+message WriteOptsPulsar {
     // @gotags: kong:"embed"
     args.PulsarConn _conn = 1;
 
     // @gotags: kong:"embed"
-    args.PulsarWriteArgs args = 2;
+    args.PulsarWriteOpts args = 2;
 }
 
-message WriteArgsRabbit {
+message WriteOptsRabbit {
     // @gotags: kong:"embed"
     args.RabbitConn _conn = 1;
 
     // @gotags: kong:"embed"
-    args.RabbitWriteArgs args = 2;
+    args.RabbitWriteOpts args = 2;
 }
 
-message WriteArgsRabbitStreams {
+message WriteOptsRabbitStreams {
     // @gotags: kong:"embed"
     args.RabbitStreamsConn _conn = 1;
 
     // @gotags: kong:"embed"
-    args.RabbitStreamsWriteArgs args = 2;
+    args.RabbitStreamsWriteOpts args = 2;
 }
 
-message WriteArgsRedisPubSub {
+message WriteOptsRedisPubSub {
     // @gotags: kong:"embed"
     args.RedisPubSubConn _conn = 1;
 
     // @gotags: kong:"embed"
-    args.RedisPubSubWriteArgs args = 2;
+    args.RedisPubSubWriteOpts args = 2;
 }
 
-message WriteArgsRedisStreams {
+message WriteOptsRedisStreams {
     // @gotags: kong:"embed"
     args.RedisStreamsConn _conn = 1;
 
     // @gotags: kong:"embed"
-    args.RedisStreamsWriteArgs args = 2;
+    args.RedisStreamsWriteOpts args = 2;
 }
 
-message WriteArgsAzureEventHub {
+message WriteOptsAzureEventHub {
     // @gotags: kong:"embed"
     args.AzureEventHubConn _conn = 1;
 
     // @gotags: kong:"embed"
-    args.AzureEventHubWriteArgs args = 2;
+    args.AzureEventHubWriteOpts args = 2;
 }
 
-message WriteArgsAzureServiceBus {
+message WriteOptsAzureServiceBus {
     // @gotags: kong:"embed"{
     args.AzureServiceBusConn _conn = 1;
 
     // @gotags: kong:"embed"
-    args.AzureServiceBusWriteArgs args = 2;
+    args.AzureServiceBusWriteOpts args = 2;
 }
 
-message WriteArgsMQTT {
+message WriteOptsMQTT {
     // @gotags: kong:"embed"
     args.MQTTConn _conn = 1;
 
     // @gotags: kong:"embed"
-    args.MQTTWriteArgs args = 2;
+    args.MQTTWriteOpts args = 2;
 }
 
-message WriteArgsGCPPubSub {
+message WriteOptsGCPPubSub {
     // @gotags: kong:"embed"
     args.GCPPubSubConn _conn = 1;
 
     // @gotags: kong:"embed"
-    args.GCPPubSubWriteArgs args = 2;
+    args.GCPPubSubWriteOpts args = 2;
 }
 
-message WriteArgsKubeMQQueue {
+message WriteOptsKubeMQQueue {
     // @gotags: kong:"embed"
     args.KubeMQQueueConn _conn = 1;
 
     // @gotags: kong:"embed"
-    args.KubeMQQueueWriteArgs args = 2;
+    args.KubeMQQueueWriteOpts args = 2;
 }

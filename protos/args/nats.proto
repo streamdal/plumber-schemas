@@ -24,12 +24,12 @@ message NatsConn {
   bytes user_credentials = 6;
 }
 
-message NatsReadArgs {
+message NatsReadOpts {
   // @gotags: kong:"help='NATS Subject. Ex: foo.bar.*'"
   string subject = 1;
 }
 
-message NatsWriteArgs {
+message NatsWriteOpts {
   // @gotags: kong:"help='NATS Subject. Ex: foo.bar.*'"
   string subject = 1;
 }

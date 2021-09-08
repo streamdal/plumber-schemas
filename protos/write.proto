@@ -3,9 +3,7 @@ syntax = "proto3";
 package protos;
 
 import "x_write.proto";
-import "records/kafka.proto";
 import "common/auth.proto";
-import "records/base.proto";
 import "common/status.proto";
 import "encoding/options.proto";
 
@@ -18,8 +16,8 @@ message WriteCLIConfig {
 
 // WriteConfig is used by both CLI and server to facilitate a write request.
 // It is the responsibility of the handler (CLI or server) to read EncodeOptions,
-// CLI config, etc. and update the *WriteArgs accordingly. Ie. If CLI passes
-// a file, the CLI handler should read the file and set it in *WriteArgs.WriteRecord.
+// CLI config, etc. and update the *WriteOpts accordingly. Ie. If CLI passes
+// a file, the CLI handler should read the file and set it in *WriteOpts.WriteRecord.
 message WriteConfig {
     // Required for desktop; ignored in CLI.
     // @gotags: kong:"-"
@@ -30,8 +28,12 @@ message WriteConfig {
     // @gotags: kong:"embed,group=encode"
     encoding.EncodeOptions encode_options = 2;
 
+    // This will be passed directly to the backend to perform the write.
+    // The opts must include the actual payload that should be written, any
+    // backend & write-specific opts. Desktop can omit conn - it will be
+    // auto-filled out in CLI mode.
     // @gotags: kong:"embed"
-    WriteArgs write_args = 3;
+    WriteOpts write_opts = 3;
 
     // Optional; CLI-specific and non-backend-specific options
     // @gotags: kong:"embed"

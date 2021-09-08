@@ -7,7 +7,6 @@ syntax = "proto3";
 
 package protos;
 
-import "x_backends.proto";
 import "args/activemq.proto";
 import "args/azure-service-bus.proto";
 import "args/azure-event-hub.proto";
@@ -27,209 +26,204 @@ import "args/rabbit-streams.proto";
 import "args/redis-pubsub.proto";
 import "args/redis-streams.proto";
 
-option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/args";
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
 
-message ReadArgs {
-    // Used by CLI to inform components which backend to use; server uses
-    // ReadConfig.connection_id.
-    // @gotags: kong:"-"
-    BackendType _backend_type = 6; // TODO: Is this needed?
-
+message ReadOpts {
     // @gotags: kong:"cmd,help='Apache Kafka'"
-    ReadArgsKafka kafka = 100;
+    ReadOptsKafka kafka = 100;
 
     // @gotags: kong:"cmd,help='Apache ActiveMQ (STOMP)'"
-    ReadArgsActiveMQ activemq = 101;
+    ReadOptsActiveMQ activemq = 101;
 
     // @gotags: kong:"cmd,help='AWS Simple Queue System'"
-    ReadArgsAWSSQS awssqs = 102;
+    ReadOptsAWSSQS awssqs = 102;
 
     // @gotags: kong:"cmd,help='MongoDB'"
-    ReadArgsMongo mongo = 103;
+    ReadOptsMongo mongo = 103;
 
     // @gotags: kong:"cmd,help='NATS'"
-    ReadArgsNats nats = 104;
+    ReadOptsNats nats = 104;
 
     // @gotags: kong:"cmd,help='NATS Streaming'"
-    ReadArgsNatsStreaming nats_streaming = 105;
+    ReadOptsNatsStreaming nats_streaming = 105;
 
     // @gotags: kong:"cmd,help='NSQ'"
-    ReadArgsNSQ nsq = 106;
+    ReadOptsNSQ nsq = 106;
 
     // @gotags: kong:"cmd,help='Apache Pulsar'"
-    ReadArgsPulsar pulsar = 107;
+    ReadOptsPulsar pulsar = 107;
 
     // @gotags: kong:"cmd,help='RabbitMQ'"
-    ReadArgsRabbit rabbit = 108;
+    ReadOptsRabbit rabbit = 108;
 
     // @gotags: kong:"cmd,help='RabbitMQ Streams'"
-    ReadArgsRabbitStreams rabbit_streams = 109;
+    ReadOptsRabbitStreams rabbit_streams = 109;
 
     // @gotags: kong:"cmd,help='MQTT'"
-    ReadArgsMQTT mqtt = 110;
+    ReadOptsMQTT mqtt = 110;
 
     // @gotags: kong:"cmd,help='Azure Service Bus'"
-    ReadArgsAzureServiceBus azure_service_bus = 111;
+    ReadOptsAzureServiceBus azure_service_bus = 111;
 
     // @gotags: kong:"cmd,help=''"
-    ReadArgsAzureEventHub azure_event_hub = 112;
+    ReadOptsAzureEventHub azure_event_hub = 112;
 
     // @gotags: kong:"cmd,help='Google Cloud Platform Pub/Sub'"
-    ReadArgsGCPPubSub gcp_pubsub = 113;
+    ReadOptsGCPPubSub gcp_pubsub = 113;
 
     // @gotags: kong:"cmd,help='KubeMQ Queue'"
-    ReadArgsKubeMQQueue kubemq_queue = 114;
+    ReadOptsKubeMQQueue kubemq_queue = 114;
 
     // @gotags: kong:"cmd,help='Redis PubSub'"
-    ReadArgsRedisPubSub redis_pubsub = 115;
+    ReadOptsRedisPubSub redis_pubsub = 115;
 
     // @gotags: kong:"cmd,help='Redis Streams'"
-    ReadArgsRedisStreams redis_streams = 116;
+    ReadOptsRedisStreams redis_streams = 116;
 
     // @gotags: kong:"cmd,help='PostgreSQL'"
-    ReadArgsPostgres postgres = 117;
+    ReadOptsPostgres postgres = 117;
 }
 
-message ReadArgsKafka {
+message ReadOptsKafka {
     // @gotags: kong:"embed"
     args.KafkaConn conn = 1;
 
     // @gotags: kong:"embed"
-    args.KafkaReadArgs args = 2;
+    args.KafkaReadOpts args = 2;
 }
 
-message ReadArgsActiveMQ {
+message ReadOptsActiveMQ {
     // @gotags: kong:"embed"
     args.ActiveMQConn conn = 1;
 
     // @gotags: kong:"embed"
-    args.ActiveMQReadArgs args = 2;
+    args.ActiveMQReadOpts args = 2;
 }
 
-message ReadArgsAWSSQS {
+message ReadOptsAWSSQS {
     // @gotags: kong:"embed"
     args.AWSSQSConn conn = 1;
 
     // @gotags: kong:"embed"
-    args.AWSSQSReadArgs args = 2;
+    args.AWSSQSReadOpts args = 2;
 }
 
-message ReadArgsMongo {
+message ReadOptsMongo {
     // @gotags: kong:"embed"
     args.MongoConn conn = 1;
 
     // @gotags: kong:"embed"
-    args.MongoReadArgs args = 2;
+    args.MongoReadOpts args = 2;
 }
 
-message ReadArgsNats {
+message ReadOptsNats {
     // @gotags: kong:"embed"
     args.NatsConn conn = 1;
 
     // @gotags: kong:"embed"
-    args.NatsReadArgs args = 2;
+    args.NatsReadOpts args = 2;
 }
 
-message ReadArgsNatsStreaming {
+message ReadOptsNatsStreaming {
     // @gotags: kong:"embed"
     args.NatsStreamingConn conn = 1;
 
     // @gotags: kong:"embed"
-    args.NatsStreamingReadArgs args = 2;
+    args.NatsStreamingReadOpts args = 2;
 }
 
-message ReadArgsNSQ {
+message ReadOptsNSQ {
     // @gotags: kong:"embed"
     args.NSQConn conn = 1;
 
     // @gotags: kong:"embed"
-    args.NSQReadArgs args = 2;
+    args.NSQReadOpts args = 2;
 }
 
-message ReadArgsPostgres {
+message ReadOptsPostgres {
     // @gotags: kong:"embed"
     args.PostgresConn conn = 1;
 
     // @gotags: kong:"embed"
-    args.PostgresReadArgs args = 2;
+    args.PostgresReadOpts args = 2;
 }
 
-message ReadArgsPulsar {
+message ReadOptsPulsar {
     // @gotags: kong:"embed"
     args.PulsarConn conn = 1;
 
     // @gotags: kong:"embed"
-    args.PulsarReadArgs args = 2;
+    args.PulsarReadOpts args = 2;
 }
 
-message ReadArgsRabbit {
+message ReadOptsRabbit {
     // @gotags: kong:"embed"
     args.RabbitConn conn = 1;
 
     // @gotags: kong:"embed"
-    args.RabbitReadArgs args = 2;
+    args.RabbitReadOpts args = 2;
 }
 
-message ReadArgsRabbitStreams {
+message ReadOptsRabbitStreams {
     // @gotags: kong:"embed"
     args.RabbitStreamsConn conn = 1;
 
     // @gotags: kong:"embed"
-    args.RabbitStreamsReadArgs args = 2;
+    args.RabbitStreamsReadOpts args = 2;
 }
 
-message ReadArgsRedisPubSub {
+message ReadOptsRedisPubSub {
     // @gotags: kong:"embed"
     args.RedisPubSubConn conn = 1;
 
     // @gotags: kong:"embed"
-    args.RedisPubSubReadArgs args = 2;
+    args.RedisPubSubReadOpts args = 2;
 }
 
-message ReadArgsRedisStreams {
+message ReadOptsRedisStreams {
     // @gotags: kong:"embed"
     args.RedisStreamsConn conn = 1;
 
     // @gotags: kong:"embed"
-    args.RedisStreamsReadArgs args = 2;
+    args.RedisStreamsReadOpts args = 2;
 }
 
-message ReadArgsAzureEventHub {
+message ReadOptsAzureEventHub {
     // @gotags: kong:"embed"
     args.AzureEventHubConn conn = 1;
 
     // @gotags: kong:"embed"
-    args.AzureEventHubReadArgs args = 2;
+    args.AzureEventHubReadOpts args = 2;
 }
 
-message ReadArgsAzureServiceBus {
+message ReadOptsAzureServiceBus {
     // @gotags: kong:"embed"
     args.AzureServiceBusConn conn = 1;
 
     // @gotags: kong:"embed"
-    args.AzureServiceBusReadArgs args = 2;
+    args.AzureServiceBusReadOpts args = 2;
 }
 
-message ReadArgsMQTT {
+message ReadOptsMQTT {
     // @gotags: kong:"embed"
     args.MQTTConn conn = 1;
 
     // @gotags: kong:"embed"
-    args.MQTTReadArgs args = 2;
+    args.MQTTReadOpts args = 2;
 }
 
-message ReadArgsGCPPubSub {
+message ReadOptsGCPPubSub {
     // @gotags: kong:"embed"
     args.GCPPubSubConn conn  = 1;
 
     // @gotags: kong:"embed"
-    args.GCPPubSubReadArgs args = 2;
+    args.GCPPubSubReadOpts args = 2;
 }
 
-message ReadArgsKubeMQQueue {
+message ReadOptsKubeMQQueue {
     // @gotags: kong:"embed"
     args.KubeMQQueueConn conn = 1;
 
     // @gotags: kong:"embed"
-    args.KubeMQQueueReadArgs args = 2;
+    args.KubeMQQueueReadOpts args = 2;
 }

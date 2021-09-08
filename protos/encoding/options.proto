@@ -9,12 +9,12 @@ package protos.encoding;
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/encoding";
 
 enum Type {
-    None = 0;
-    PLAIN = 1;
-    PROTOBUF = 2;
-    AVRO = 3;
-    THRIFT = 4;
-    FLATBUFFER = 5;
+    TYPE_UNSET      = 0;
+    TYPE_PLAIN      = 1;
+    TYPE_PROTOBUF   = 2;
+    TYPE_AVRO       = 3;
+    TYPE_THRIFT     = 4;
+    TYPE_FLATBUFFER = 5;
 }
 
 message EncodeOptions {

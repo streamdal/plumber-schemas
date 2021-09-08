@@ -63,17 +63,13 @@ export namespace ReadRecord {
 }
 
 export class WriteRecord extends jspb.Message { 
-    getEncoded(): Uint8Array | string;
-    getEncoded_asU8(): Uint8Array;
-    getEncoded_asB64(): string;
-    setEncoded(value: Uint8Array | string): WriteRecord;
+    getInput(): string;
+    setInput(value: string): WriteRecord;
+    getInputType(): string;
+    setInputType(value: string): WriteRecord;
 
-    hasKafka(): boolean;
-    clearKafka(): void;
-    getKafka(): records_kafka_pb.Kafka | undefined;
-    setKafka(value?: records_kafka_pb.Kafka): WriteRecord;
-
-    getRecordsCase(): WriteRecord.RecordsCase;
+    getInputMetadataMap(): jspb.Map<string, string>;
+    clearInputMetadataMap(): void;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): WriteRecord.AsObject;
@@ -87,15 +83,11 @@ export class WriteRecord extends jspb.Message {
 
 export namespace WriteRecord {
     export type AsObject = {
-        Encoded: Uint8Array | string,
-        kafka?: records_kafka_pb.Kafka.AsObject,
-    }
+        input: string,
+        inputType: string,
 
-    export enum RecordsCase {
-        RECORDS_NOT_SET = 0,
-        KAFKA = 100,
+        inputMetadataMap: Array<[string, string]>,
     }
-
 }
 
 export class ErrorRecord extends jspb.Message { 
@@ -124,4 +116,11 @@ export namespace ErrorRecord {
 
         metadataMap: Array<[string, Uint8Array | string]>,
     }
+}
+
+export enum WriteInputType {
+    WRITE_INPUT_TYPE_UNSET = 0,
+    WRITE_INPUT_TYPE_PLAIN = 1,
+    WRITE_INPUT_TYPE_JSONPB = 2,
+    WRITE_INPUT_TYPE_AVRO = 3,
 }

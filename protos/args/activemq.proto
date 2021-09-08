@@ -10,7 +10,7 @@ message ActiveMQConn {
 }
 
 
-message ActiveMQReadArgs {
+message ActiveMQReadOpts {
   // @gotags: kong:"help='Topic to read message(s) from',xor=activemq_read"
   string topic = 1;
 
@@ -18,7 +18,7 @@ message ActiveMQReadArgs {
   string queue = 2;
 }
 
-message ActiveMQWriteArgs {
+message ActiveMQWriteOpts {
   // @gotags: kong:"help='Topic to write message(s) to',xor=activemq_write"
   string topic = 1;
 

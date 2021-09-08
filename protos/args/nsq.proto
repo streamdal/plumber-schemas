@@ -33,7 +33,7 @@ message NSQConn {
   string client_id = 9;
 }
 
-message NSQReadArgs {
+message NSQReadOpts {
   // @gotags: kong:"help='NSQ topic to read from',env='PLUMBER_RELAY_NSQ_TOPIC',required"
   string topic = 1;
 
@@ -41,7 +41,7 @@ message NSQReadArgs {
   string channel = 2;
 }
 
-message NSQWriteArgs {
+message NSQWriteOpts {
   // @gotags: kong:"help='NSQ topic to write to',required"
   string topic = 1;
 }

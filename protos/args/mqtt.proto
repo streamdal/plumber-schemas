@@ -6,9 +6,9 @@ option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/args";
 
 // TODO: This needs to be used by CLI
 enum MQTTQoSLevel {
-    AT_MOST_ONCE  = 0;
-    AT_LEAST_ONCE = 1;
-    EXACTLY_ONCE  = 2;
+    MQTT_QOS_LEVEL_AT_MOST_ONCE  = 0;
+    MQTT_QOS_LEVEL_AT_LEAST_ONCE = 1;
+    MQTT_QOS_LEVEL_EXACTLY_ONCE  = 2;
 }
 
 message MQTTTLSOptions {
@@ -42,7 +42,7 @@ message MQTTConn {
     MQTTTLSOptions tls_options = 6;
 }
 
-message MQTTReadArgs {
+message MQTTReadOpts {
     // @gotags: kong:"help='Topic to read message(s) from',env='PLUMBER_RELAY_MQTT_TOPIC',required"
     string topic = 1;
 
@@ -50,7 +50,7 @@ message MQTTReadArgs {
     uint32 read_timeout_seconds = 2;
 }
 
-message MQTTWriteArgs {
+message MQTTWriteOpts {
     // @gotags: kong:"help='Topic to write message(s) to',required"
     string topic = 1;
 
