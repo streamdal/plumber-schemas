@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-package protos.backends;
+package protos.args;
 
-option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/backends";
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/args";
 
 message PostgresConn {
   // @gotags: kong:"help='Postgres server hostname',env='PLUMBER_RELAY_CDCPOSTGRES_HOSTNAME',required"

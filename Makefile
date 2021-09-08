@@ -51,7 +51,7 @@ generate/ts:
     --js_out=import_style=commonjs,binary:${TS_DEST} \
     --grpc_out=grpc_js:${TS_DEST} \
     -I=./protos \
-    -I=./protos/backends \
+    -I=./protos/args \
     -I=./protos/common \
     -I=./protos/encoding \
     -I=./protos/records \
@@ -63,14 +63,14 @@ generate/go: description = Compile protobuf schemas for Go
 generate/go: clean-go
 generate/go:
 	mkdir -p build/go/protos
-	mkdir -p build/go/protos/backends
+	mkdir -p build/go/protos/args
 	mkdir -p build/go/protos/common
 	mkdir -p build/go/protos/encoding
 	mkdir -p build/go/protos/records
 
 	docker run --rm -w $(PWD) -v $(PWD):$(PWD) -w${PWD} jaegertracing/protobuf:0.2.0 \
 	--proto_path=./protos \
-	--proto_path=./protos/backends \
+	--proto_path=./protos/args \
 	--proto_path=./protos/common \
 	--proto_path=./protos/encoding \
 	--proto_path=./protos/records \
@@ -79,10 +79,10 @@ generate/go:
 	protos/*.proto
 
 	docker run --rm -w $(PWD) -v $(PWD):$(PWD) -w${PWD} jaegertracing/protobuf:0.2.0 \
-	--proto_path=./protos/backends \
-	--go_out=plugins=grpc:build/go/protos/backends \
+	--proto_path=./protos/args \
+	--go_out=plugins=grpc:build/go/protos/args \
 	--go_opt=paths=source_relative \
-	protos/backends/*.proto
+	protos/args/*.proto
 
 	docker run --rm -w $(PWD) -v $(PWD):$(PWD) -w${PWD} jaegertracing/protobuf:0.2.0 \
 	--proto_path=./protos/common \
@@ -106,7 +106,7 @@ generate/go:
 inject-tags: description = Inject tags for CLI
 inject-tags:
 	protoc-go-inject-tag -input="build/go/protos/*.pb.go"
-	protoc-go-inject-tag -input="build/go/protos/backends/*.pb.go"
+	protoc-go-inject-tag -input="build/go/protos/args/*.pb.go"
 	protoc-go-inject-tag -input="build/go/protos/common/*.pb.go"
 	protoc-go-inject-tag -input="build/go/protos/encoding/*.pb.go"
 	protoc-go-inject-tag -input="build/go/protos/records/*.pb.go"

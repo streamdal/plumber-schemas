@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-package protos.backends;
+package protos.args;
 
-option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/backends";
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/args";
 
 message RedisStreamsConn {
   // @gotags: kong:"help='Address of redis server',default=localhost:6379,required,env='PLUMBER_RELAY_REDIS_STREAMS_ADDRESS'"

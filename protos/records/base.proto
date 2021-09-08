@@ -42,16 +42,24 @@ message ReadRecord {
     }
 }
 
+// Not used yet ~ds 09.7.2021
+enum WriteInputType {
+    UNSET  = 0;
+    PLAIN  = 1;
+    JSONPB = 2;
+    AVRO   = 3;
+}
+
 // Used as an arg for write requests (server & cli)
 message WriteRecord {
-    // Set _outside_ the backend; will contain the final value that will be
-    // written to the destination, regardless of whether encoding options were
-    // specified for the write.
-    bytes _encoded = 1;
+    // @gotags: kong:"help='Input string',name=input,xor=input,default"
+    string input = 1;
 
-    oneof Records {
-        records.Kafka kafka = 100;
-    }
+    // @gotags: kong:"help='Input type',enum='plain,jsonpb',default=plain"
+    string input_type = 2;
+
+    // @gotags: kong:"help='Optional metadata a backend may use (key1:value,key2:value,etc)',name=input-metadata"
+    map<string, string> input_metadata = 3;
 }
 
 // Used for communicating errors that occur during a read, write, relay, etc.

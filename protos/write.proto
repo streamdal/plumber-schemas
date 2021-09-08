@@ -2,235 +2,38 @@ syntax = "proto3";
 
 package protos;
 
+import "x_write.proto";
 import "records/kafka.proto";
 import "common/auth.proto";
 import "records/base.proto";
 import "common/status.proto";
 import "encoding/options.proto";
-import "backends/backends.proto";
-import "backends/activemq.proto";
-import "backends/azure-service-bus.proto";
-import "backends/azure-event-hub.proto";
-import "backends/aws-sns.proto";
-import "backends/aws-sqs.proto";
-import "backends/gcp-pubsub.proto";
-import "backends/kafka.proto";
-import "backends/kubemq-queue.proto";
-import "backends/mqtt.proto";
-import "backends/nats.proto";
-import "backends/nats-streaming.proto";
-import "backends/nsq.proto";
-import "backends/pulsar.proto";
-import "backends/rabbit.proto";
-import "backends/rabbit-streams.proto";
-import "backends/redis-pubsub.proto";
-import "backends/redis-streams.proto";
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
 
-enum InputType {
-    PLAIN  = 0;
-    JSONPB = 1;
-}
-
 message WriteCLIConfig {
-    bool input_is_json_array = 1;
-
-    // Used by CLI to inform components, which backend to use; server uses
-    // ReadConfig.connection_id.
-    // @gotags: kong:"-"
-    backends.Type _backend_type = 2;
-
-    // @gotags: kong:"embed,group=write"
-    WriteBackend _write_backend = 3;
-
-    message WriteBackend {
-        // @gotags: kong:"cmd,help='Apache Kafka'"
-        Kafka kafka = 1;
-
-        // @gotags: kong:"cmd,help='Apache ActiveMQ'"
-        ActiveMQ activemq = 2;
-
-        // @gotags: kong:"cmd,help='AWS Simple Queue System'"
-        AWSSQS awssqs = 3;
-
-        // @gotags: kong:"cmd,help='AWS Simple Notification System'"
-        AWSSNS awssns = 4;
-
-        // @gotags: kong:"cmd,help='NATS'"
-        Nats nats = 5;
-
-        // @gotags: kong:"cmd,help='NATS Streaming'"
-        NatsStreaming nats_streaming = 6;
-
-        // @gotags: kong:"cmd,help='NSQ'"
-        NSQ nsq = 7;
-
-        // @gotags: kong:"cmd,help='Apache Pulsar'"
-        Pulsar pulsar = 8;
-
-        // @gotags: kong:"cmd,help='RabbitMQ'"
-        Rabbit rabbit = 9;
-
-        // @gotags: kong:"cmd,help='RabbitMQ Streams'"
-        RabbitStreams rabbit_streams = 10;
-
-        // @gotags: kong:"cmd,help='MQTT'"
-        MQTT mqtt = 11;
-
-        // @gotags: kong:"cmd,help='Azure Service Bus'"
-        AzureServiceBus azure_service_bus = 12;
-
-        // @gotags: kong:"cmd,help='Azure Event Hub'"
-        AzureEventHub azure_event_hub = 13;
-
-        // @gotags: kong:"cmd,help='Google Cloud Platform Pub/Sub'"
-        GCPPubSub gcp_pubsub = 14;
-
-        // @gotags: kong:"cmd,help='KubeMQ Queue'"
-        KubeMQQueue kubemq_queue = 15;
-
-        // @gotags: kong:"cmd,help='Redis PubSub'"
-        RedisPubSub redis_pubsub = 16;
-
-        // @gotags: kong:"cmd,help='Redis Streams'"
-        RedisStreams redis_streams = 17;
-
-        message Kafka {
-            // @gotags: kong:"embed"
-            backends.KafkaConn conn = 1;
-            // @gotags: kong:"embed"
-            backends.KafkaWriteArgs args = 2;
-        }
-
-        message ActiveMQ {
-            // @gotags: kong:"embed"
-            backends.ActiveMQConn conn = 1;
-            // @gotags: kong:"embed"
-            backends.ActiveMQWriteArgs args = 2;
-        }
-
-        message AWSSQS {
-            // @gotags: kong:"embed"
-            backends.AWSSQSConn conn = 1;
-            // @gotags: kong:"embed"
-            backends.AWSSQSWriteArgs args = 2;
-        }
-
-        message AWSSNS {
-            // @gotags: kong:"embed"
-            backends.AWSSNSConn conn = 1;
-            // @gotags: kong:"embed"
-            backends.AWSSNSWriteArgs args = 2;
-        }
-
-        message Nats {
-            // @gotags: kong:"embed"
-            backends.NatsConn conn = 1;
-            // @gotags: kong:"embed"
-            backends.NatsWriteArgs args = 2;
-        }
-
-        message NatsStreaming {
-            // @gotags: kong:"embed"
-            backends.NatsStreamingConn conn = 1;
-            // @gotags: kong:"embed"
-            backends.NatsStreamingWriteArgs args = 2;
-        }
-
-        message NSQ {
-            // @gotags: kong:"embed"
-            backends.NSQConn conn = 1;
-            // @gotags: kong:"embed"
-            backends.NSQWriteArgs args = 2;
-        }
-
-        message Pulsar {
-            // @gotags: kong:"embed"
-            backends.PulsarConn conn = 1;
-            // @gotags: kong:"embed"
-            backends.PulsarWriteArgs args = 2;
-        }
-
-        message Rabbit {
-            // @gotags: kong:"embed"
-            backends.RabbitConn conn = 1;
-            // @gotags: kong:"embed"
-            backends.RabbitWriteArgs args = 2;
-        }
-
-        message RabbitStreams {
-            // @gotags: kong:"embed"
-            backends.RabbitStreamsConn conn = 1;
-            // @gotags: kong:"embed"
-            backends.RabbitStreamsWriteArgs args = 2;
-        }
-
-        message RedisPubSub {
-            // @gotags: kong:"embed"
-            backends.RedisPubSubConn conn = 1;
-            // @gotags: kong:"embed"
-            backends.RedisPubSubWriteArgs args = 2;
-        }
-
-        message RedisStreams {
-            // @gotags: kong:"embed"
-            backends.RedisStreamsConn conn = 1;
-            // @gotags: kong:"embed"
-            backends.RedisStreamsWriteArgs args = 2;
-        }
-
-        message AzureEventHub {
-            // @gotags: kong:"embed"
-            backends.AzureEventHubConn conn = 1;
-            // @gotags: kong:"embed"
-            backends.AzureEventHubWriteArgs args = 2;
-        }
-
-        message AzureServiceBus {
-            // @gotags: kong:"embed"{
-            backends.AzureServiceBusConn conn = 1;
-            // @gotags: kong:"embed"
-            backends.AzureServiceBusWriteArgs args = 2;
-        }
-
-        message MQTT {
-            // @gotags: kong:"embed"
-            backends.MQTTConn conn = 1;
-            // @gotags: kong:"embed"
-            backends.MQTTWriteArgs args = 2;
-        }
-
-        message GCPPubSub {
-            // @gotags: kong:"embed"
-            backends.GCPPubSubConn conn = 1;
-            // @gotags: kong:"embed"
-            backends.GCPPubSubWriteArgs args = 2;
-        }
-
-        message KubeMQQueue {
-            // @gotags: kong:"embed"
-            backends.KubeMQQueueConn conn = 1;
-            // @gotags: kong:"embed"
-            backends.KubeMQQueueWriteArgs args = 2;
-        }
-    }
+    // @gotags: kong:"help='Write data from input file',existingfile,xor=input"
+    string input_file = 1;
 }
 
+// WriteConfig is used by both CLI and server to facilitate a write request.
+// It is the responsibility of the handler (CLI or server) to read EncodeOptions,
+// CLI config, etc. and update the *WriteArgs accordingly. Ie. If CLI passes
+// a file, the CLI handler should read the file and set it in *WriteArgs.WriteRecord.
 message WriteConfig {
-    // Required for server mode; ignored in CLI mode.
+    // Required for desktop; ignored in CLI.
     // @gotags: kong:"-"
     string connection_id = 1;
-
-    // @gotags: kong:"-"
-    repeated records.WriteRecord record = 2; // Hmm... this is a oneoff
 
     // Specifying encoding options will cause the _value_ of the record to get
     // encoded and set in WriteRecord.encoded.
     // @gotags: kong:"embed,group=encode"
-    encoding.EncodeOptions encode_options = 3;
+    encoding.EncodeOptions encode_options = 2;
 
-    // Optional; CLI-specific settings
+    // @gotags: kong:"embed"
+    WriteArgs write_args = 3;
+
+    // Optional; CLI-specific and non-backend-specific options
     // @gotags: kong:"embed"
     WriteCLIConfig _cli_config = 4;
 }

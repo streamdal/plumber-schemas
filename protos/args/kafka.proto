@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-package protos.backends;
+package protos.args;
 
-option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/backends";
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/args";
 
 message KafkaConn {
     enum SASLType {
@@ -32,7 +32,6 @@ message KafkaConn {
     // Required if sasl_type is not NONE
     // @gotags: kong:"help='SASL Password. If omitted, you will be prompted for the password',env=PLUMBER_RELAY_KAFKA_PASSWORD"
     string sasl_password = 7;
-
 }
 
 message KafkaReadArgs {

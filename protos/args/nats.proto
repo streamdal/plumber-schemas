@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-package protos.backends;
+package protos.args;
 
-option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/backends";
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/args";
 
 message NatsConn {
   // @gotags: kong:"help='Dial string for NATS server. Ex: nats://localhost:4222',default='nas://localhost:4222'"

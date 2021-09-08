@@ -2,29 +2,11 @@ syntax = "proto3";
 
 package protos;
 
+import "x_read.proto";
 import "common/auth.proto";
 import "common/status.proto";
 import "encoding/options.proto";
 import "records/base.proto";
-import "backends/backends.proto";
-import "backends/activemq.proto";
-import "backends/azure-service-bus.proto";
-import "backends/azure-event-hub.proto";
-import "backends/aws-sqs.proto";
-import "backends/gcp-pubsub.proto";
-import "backends/kafka.proto";
-import "backends/kubemq-queue.proto";
-import "backends/mongo.proto";
-import "backends/mqtt.proto";
-import "backends/nats.proto";
-import "backends/nats-streaming.proto";
-import "backends/nsq.proto";
-import "backends/postgres.proto";
-import "backends/pulsar.proto";
-import "backends/rabbit.proto";
-import "backends/rabbit-streams.proto";
-import "backends/redis-pubsub.proto";
-import "backends/redis-streams.proto";
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
 
@@ -57,214 +39,6 @@ message ReadCLIConfig {
 
     // @gotags: kong:"group=stats,help='How often to print stats',default=5"
     int32 stats_report_interval_sec = 5;
-
-    // Used by CLI to inform components, which backend to use; server uses
-    // ReadConfig.connection_id.
-    // @gotags: kong:"-"
-    backends.Type _backend_type = 6;
-
-    // @gotags: kong:"embed,group=read"
-    ReadBackend _read_backend = 7;
-
-    message ReadBackend {
-        // @gotags: kong:"cmd,help='Apache Kafka'"
-        Kafka kafka =  1;
-
-        // @gotags: kong:"cmd,help='Apache ActiveMQ (STOMP)'"
-        ActiveMQ activemq =  2;
-
-        // @gotags: kong:"cmd,help='AWS Simple Queue System'"
-        AWSSQS awssqs =  3;
-
-        // @gotags: kong:"cmd,help='MongoDB'"
-        Mongo mongo =  4;
-
-        // @gotags: kong:"cmd,help='NATS'"
-        Nats nats =  5;
-
-        // @gotags: kong:"cmd,help='NATS Streaming'"
-        NatsStreaming nats_streaming =  6;
-
-        // @gotags: kong:"cmd,help='NSQ'"
-        NSQ nsq =  7;
-
-        // @gotags: kong:"cmd,help='Apache Pulsar'"
-        Pulsar pulsar =  8;
-
-        // @gotags: kong:"cmd,help='RabbitMQ'"
-        Rabbit rabbit =  9;
-
-        // @gotags: kong:"cmd,help='RabbitMQ Streams'"
-        RabbitStreams rabbit_streams = 10;
-
-        // @gotags: kong:"cmd,help='MQTT'"
-        MQTT mqtt = 11;
-
-        // @gotags: kong:"cmd,help='Azure Service Bus'"
-        AzureServiceBus azure_service_bus = 12;
-
-        // @gotags: kong:"cmd,help=''"
-        AzureEventHub azure_event_hub = 13;
-
-        // @gotags: kong:"cmd,help='Google Cloud Platform Pub/Sub'"
-        GCPPubSub gcp_pubsub = 14;
-
-        // @gotags: kong:"cmd,help='KubeMQ Queue'"
-        KubeMQQueue kubemq_queue = 15;
-
-        // @gotags: kong:"cmd,help='Redis PubSub'"
-        RedisPubSub redis_pubsub = 16;
-
-        // @gotags: kong:"cmd,help='Redis Streams'"
-        RedisStreams redis_streams = 17;
-
-        // @gotags: kong:"cmd,help='PostgreSQL'"
-        Postgres postgres = 18;
-
-        message Kafka {
-            // @gotags: kong:"embed"
-            backends.KafkaConn conn = 1;
-
-            // @gotags: kong:"embed"
-            backends.KafkaReadArgs args = 2;
-        }
-
-        message ActiveMQ {
-            // @gotags: kong:"embed"
-            backends.ActiveMQConn conn = 1;
-
-            // @gotags: kong:"embed"
-            backends.ActiveMQReadArgs args = 2;
-        }
-
-        message AWSSQS {
-            // @gotags: kong:"embed"
-            backends.AWSSQSConn conn = 1;
-
-            // @gotags: kong:"embed"
-            backends.AWSSQSReadArgs args = 2;
-        }
-
-        message Mongo {
-            // @gotags: kong:"embed"
-            backends.MongoConn conn = 1;
-
-            // @gotags: kong:"embed"
-            backends.MongoReadArgs args = 2;
-        }
-
-        message Nats {
-            // @gotags: kong:"embed"
-            backends.NatsConn conn = 1;
-
-            // @gotags: kong:"embed"
-            backends.NatsReadArgs args = 2;
-        }
-
-        message NatsStreaming {
-            // @gotags: kong:"embed"
-            backends.NatsStreamingConn conn = 1;
-
-            // @gotags: kong:"embed"
-            backends.NatsStreamingReadArgs args = 2;
-        }
-
-        message NSQ {
-            // @gotags: kong:"embed"
-            backends.NSQConn conn = 1;
-
-            // @gotags: kong:"embed"
-            backends.NSQReadArgs args = 2;
-        }
-
-        message Postgres {
-            // @gotags: kong:"embed"
-            backends.PostgresConn conn = 1;
-
-            // @gotags: kong:"embed"
-            backends.PostgresReadArgs args = 2;
-        }
-
-        message Pulsar {
-            // @gotags: kong:"embed"
-            backends.PulsarConn conn = 1;
-
-            // @gotags: kong:"embed"
-            backends.PulsarReadArgs args = 2;
-        }
-
-        message Rabbit {
-            // @gotags: kong:"embed"
-            backends.RabbitConn conn = 1;
-
-            // @gotags: kong:"embed"
-            backends.RabbitReadArgs args = 2;
-        }
-
-        message RabbitStreams {
-            // @gotags: kong:"embed"
-            backends.RabbitStreamsConn conn = 1;
-
-            // @gotags: kong:"embed"
-            backends.RabbitStreamsReadArgs args = 2;
-        }
-
-        message RedisPubSub {
-            // @gotags: kong:"embed"
-            backends.RedisPubSubConn conn = 1;
-
-            // @gotags: kong:"embed"
-            backends.RedisPubSubReadArgs args = 2;
-        }
-
-        message RedisStreams {
-            // @gotags: kong:"embed"
-            backends.RedisStreamsConn conn = 1;
-
-            // @gotags: kong:"embed"
-            backends.RedisStreamsReadArgs args = 2;
-        }
-
-        message AzureEventHub {
-            // @gotags: kong:"embed"
-            backends.AzureEventHubConn conn = 1;
-
-            // @gotags: kong:"embed"
-            backends.AzureEventHubReadArgs args = 2;
-        }
-
-        message AzureServiceBus {
-            // @gotags: kong:"embed"
-            backends.AzureServiceBusConn conn = 1;
-
-            // @gotags: kong:"embed"
-            backends.AzureServiceBusReadArgs args = 2;
-        }
-
-        message MQTT {
-            // @gotags: kong:"embed"
-            backends.MQTTConn conn = 1;
-
-            // @gotags: kong:"embed"
-            backends.MQTTReadArgs args = 2;
-        }
-
-        message GCPPubSub {
-            // @gotags: kong:"embed"
-            backends.GCPPubSubConn conn  = 1;
-
-            // @gotags: kong:"embed"
-            backends.GCPPubSubReadArgs args = 2;
-        }
-
-        message KubeMQQueue {
-            // @gotags: kong:"embed"
-            backends.KubeMQQueueConn conn = 1;
-
-            // @gotags: kong:"embed"
-            backends.KubeMQQueueReadArgs args = 2;
-        }
-    }
 }
 
 message ReadConfig {
@@ -272,7 +46,7 @@ message ReadConfig {
     // @gotags: kong:"-"
     string name = 1;
 
-    // Required for server mode; ignored in CLI mode.
+    // Required for desktop; ignored in CLI.
     // @gotags: kong:"-"
     string connection_id = 2;
 
@@ -289,6 +63,12 @@ message ReadConfig {
     // with the (untouched) value.
     // @gotags: kong:"embed,group=decode"
     encoding.DecodeOptions decode_options = 5;
+
+    // Any extra args that can differ between reads (topics, read offset, etc.).
+    // NOTE: Desktop can leave conn unset - an existing connection will be used
+    // by looking up connection_id.
+    // @gotags: kong:"embed"
+    ReadArgs read_args = 6;
 
     ////////////////////////////////////////////////////////
     ////////////// "Private" fields 1000+ ////////////////
