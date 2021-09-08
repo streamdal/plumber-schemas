@@ -158,8 +158,8 @@ export class ReadOptsKafka extends jspb.Message {
 
     hasArgs(): boolean;
     clearArgs(): void;
-    getArgs(): args_kafka_pb.KafkaReadOpts | undefined;
-    setArgs(value?: args_kafka_pb.KafkaReadOpts): ReadOptsKafka;
+    getArgs(): args_kafka_pb.KafkaReadArgs | undefined;
+    setArgs(value?: args_kafka_pb.KafkaReadArgs): ReadOptsKafka;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): ReadOptsKafka.AsObject;
@@ -173,8 +173,8 @@ export class ReadOptsKafka extends jspb.Message {
 
 export namespace ReadOptsKafka {
     export type AsObject = {
-        conn?: args_kafka_pb.KafkaConn.AsObject,
-        args?: args_kafka_pb.KafkaReadOpts.AsObject,
+        Conn?: args_kafka_pb.KafkaConn.AsObject,
+        args?: args_kafka_pb.KafkaReadArgs.AsObject,
     }
 }
 
@@ -187,8 +187,8 @@ export class ReadOptsActiveMQ extends jspb.Message {
 
     hasArgs(): boolean;
     clearArgs(): void;
-    getArgs(): args_activemq_pb.ActiveMQReadOpts | undefined;
-    setArgs(value?: args_activemq_pb.ActiveMQReadOpts): ReadOptsActiveMQ;
+    getArgs(): args_activemq_pb.ActiveMQReadArgs | undefined;
+    setArgs(value?: args_activemq_pb.ActiveMQReadArgs): ReadOptsActiveMQ;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): ReadOptsActiveMQ.AsObject;
@@ -202,8 +202,8 @@ export class ReadOptsActiveMQ extends jspb.Message {
 
 export namespace ReadOptsActiveMQ {
     export type AsObject = {
-        conn?: args_activemq_pb.ActiveMQConn.AsObject,
-        args?: args_activemq_pb.ActiveMQReadOpts.AsObject,
+        Conn?: args_activemq_pb.ActiveMQConn.AsObject,
+        args?: args_activemq_pb.ActiveMQReadArgs.AsObject,
     }
 }
 
@@ -216,8 +216,8 @@ export class ReadOptsAWSSQS extends jspb.Message {
 
     hasArgs(): boolean;
     clearArgs(): void;
-    getArgs(): args_aws_sqs_pb.AWSSQSReadOpts | undefined;
-    setArgs(value?: args_aws_sqs_pb.AWSSQSReadOpts): ReadOptsAWSSQS;
+    getArgs(): args_aws_sqs_pb.AWSSQSReadArgs | undefined;
+    setArgs(value?: args_aws_sqs_pb.AWSSQSReadArgs): ReadOptsAWSSQS;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): ReadOptsAWSSQS.AsObject;
@@ -231,8 +231,8 @@ export class ReadOptsAWSSQS extends jspb.Message {
 
 export namespace ReadOptsAWSSQS {
     export type AsObject = {
-        conn?: args_aws_sqs_pb.AWSSQSConn.AsObject,
-        args?: args_aws_sqs_pb.AWSSQSReadOpts.AsObject,
+        Conn?: args_aws_sqs_pb.AWSSQSConn.AsObject,
+        args?: args_aws_sqs_pb.AWSSQSReadArgs.AsObject,
     }
 }
 
@@ -245,8 +245,8 @@ export class ReadOptsMongo extends jspb.Message {
 
     hasArgs(): boolean;
     clearArgs(): void;
-    getArgs(): args_mongo_pb.MongoReadOpts | undefined;
-    setArgs(value?: args_mongo_pb.MongoReadOpts): ReadOptsMongo;
+    getArgs(): args_mongo_pb.MongoReadArgs | undefined;
+    setArgs(value?: args_mongo_pb.MongoReadArgs): ReadOptsMongo;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): ReadOptsMongo.AsObject;
@@ -260,8 +260,8 @@ export class ReadOptsMongo extends jspb.Message {
 
 export namespace ReadOptsMongo {
     export type AsObject = {
-        conn?: args_mongo_pb.MongoConn.AsObject,
-        args?: args_mongo_pb.MongoReadOpts.AsObject,
+        Conn?: args_mongo_pb.MongoConn.AsObject,
+        args?: args_mongo_pb.MongoReadArgs.AsObject,
     }
 }
 
@@ -274,8 +274,8 @@ export class ReadOptsNats extends jspb.Message {
 
     hasArgs(): boolean;
     clearArgs(): void;
-    getArgs(): args_nats_pb.NatsReadOpts | undefined;
-    setArgs(value?: args_nats_pb.NatsReadOpts): ReadOptsNats;
+    getArgs(): args_nats_pb.NatsReadArgs | undefined;
+    setArgs(value?: args_nats_pb.NatsReadArgs): ReadOptsNats;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): ReadOptsNats.AsObject;
@@ -289,8 +289,8 @@ export class ReadOptsNats extends jspb.Message {
 
 export namespace ReadOptsNats {
     export type AsObject = {
-        conn?: args_nats_pb.NatsConn.AsObject,
-        args?: args_nats_pb.NatsReadOpts.AsObject,
+        Conn?: args_nats_pb.NatsConn.AsObject,
+        args?: args_nats_pb.NatsReadArgs.AsObject,
     }
 }
 
@@ -303,8 +303,8 @@ export class ReadOptsNatsStreaming extends jspb.Message {
 
     hasArgs(): boolean;
     clearArgs(): void;
-    getArgs(): args_nats_streaming_pb.NatsStreamingReadOpts | undefined;
-    setArgs(value?: args_nats_streaming_pb.NatsStreamingReadOpts): ReadOptsNatsStreaming;
+    getArgs(): args_nats_streaming_pb.NatsStreamingReadArgs | undefined;
+    setArgs(value?: args_nats_streaming_pb.NatsStreamingReadArgs): ReadOptsNatsStreaming;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): ReadOptsNatsStreaming.AsObject;
@@ -318,8 +318,8 @@ export class ReadOptsNatsStreaming extends jspb.Message {
 
 export namespace ReadOptsNatsStreaming {
     export type AsObject = {
-        conn?: args_nats_streaming_pb.NatsStreamingConn.AsObject,
-        args?: args_nats_streaming_pb.NatsStreamingReadOpts.AsObject,
+        Conn?: args_nats_streaming_pb.NatsStreamingConn.AsObject,
+        args?: args_nats_streaming_pb.NatsStreamingReadArgs.AsObject,
     }
 }
 
@@ -332,8 +332,8 @@ export class ReadOptsNSQ extends jspb.Message {
 
     hasArgs(): boolean;
     clearArgs(): void;
-    getArgs(): args_nsq_pb.NSQReadOpts | undefined;
-    setArgs(value?: args_nsq_pb.NSQReadOpts): ReadOptsNSQ;
+    getArgs(): args_nsq_pb.NSQReadArgs | undefined;
+    setArgs(value?: args_nsq_pb.NSQReadArgs): ReadOptsNSQ;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): ReadOptsNSQ.AsObject;
@@ -347,8 +347,8 @@ export class ReadOptsNSQ extends jspb.Message {
 
 export namespace ReadOptsNSQ {
     export type AsObject = {
-        conn?: args_nsq_pb.NSQConn.AsObject,
-        args?: args_nsq_pb.NSQReadOpts.AsObject,
+        Conn?: args_nsq_pb.NSQConn.AsObject,
+        args?: args_nsq_pb.NSQReadArgs.AsObject,
     }
 }
 
@@ -361,8 +361,8 @@ export class ReadOptsPostgres extends jspb.Message {
 
     hasArgs(): boolean;
     clearArgs(): void;
-    getArgs(): args_postgres_pb.PostgresReadOpts | undefined;
-    setArgs(value?: args_postgres_pb.PostgresReadOpts): ReadOptsPostgres;
+    getArgs(): args_postgres_pb.PostgresReadArgs | undefined;
+    setArgs(value?: args_postgres_pb.PostgresReadArgs): ReadOptsPostgres;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): ReadOptsPostgres.AsObject;
@@ -376,8 +376,8 @@ export class ReadOptsPostgres extends jspb.Message {
 
 export namespace ReadOptsPostgres {
     export type AsObject = {
-        conn?: args_postgres_pb.PostgresConn.AsObject,
-        args?: args_postgres_pb.PostgresReadOpts.AsObject,
+        Conn?: args_postgres_pb.PostgresConn.AsObject,
+        args?: args_postgres_pb.PostgresReadArgs.AsObject,
     }
 }
 
@@ -390,8 +390,8 @@ export class ReadOptsPulsar extends jspb.Message {
 
     hasArgs(): boolean;
     clearArgs(): void;
-    getArgs(): args_pulsar_pb.PulsarReadOpts | undefined;
-    setArgs(value?: args_pulsar_pb.PulsarReadOpts): ReadOptsPulsar;
+    getArgs(): args_pulsar_pb.PulsarReadArgs | undefined;
+    setArgs(value?: args_pulsar_pb.PulsarReadArgs): ReadOptsPulsar;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): ReadOptsPulsar.AsObject;
@@ -405,8 +405,8 @@ export class ReadOptsPulsar extends jspb.Message {
 
 export namespace ReadOptsPulsar {
     export type AsObject = {
-        conn?: args_pulsar_pb.PulsarConn.AsObject,
-        args?: args_pulsar_pb.PulsarReadOpts.AsObject,
+        Conn?: args_pulsar_pb.PulsarConn.AsObject,
+        args?: args_pulsar_pb.PulsarReadArgs.AsObject,
     }
 }
 
@@ -419,8 +419,8 @@ export class ReadOptsRabbit extends jspb.Message {
 
     hasArgs(): boolean;
     clearArgs(): void;
-    getArgs(): args_rabbit_pb.RabbitReadOpts | undefined;
-    setArgs(value?: args_rabbit_pb.RabbitReadOpts): ReadOptsRabbit;
+    getArgs(): args_rabbit_pb.RabbitReadArgs | undefined;
+    setArgs(value?: args_rabbit_pb.RabbitReadArgs): ReadOptsRabbit;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): ReadOptsRabbit.AsObject;
@@ -434,8 +434,8 @@ export class ReadOptsRabbit extends jspb.Message {
 
 export namespace ReadOptsRabbit {
     export type AsObject = {
-        conn?: args_rabbit_pb.RabbitConn.AsObject,
-        args?: args_rabbit_pb.RabbitReadOpts.AsObject,
+        Conn?: args_rabbit_pb.RabbitConn.AsObject,
+        args?: args_rabbit_pb.RabbitReadArgs.AsObject,
     }
 }
 
@@ -448,8 +448,8 @@ export class ReadOptsRabbitStreams extends jspb.Message {
 
     hasArgs(): boolean;
     clearArgs(): void;
-    getArgs(): args_rabbit_streams_pb.RabbitStreamsReadOpts | undefined;
-    setArgs(value?: args_rabbit_streams_pb.RabbitStreamsReadOpts): ReadOptsRabbitStreams;
+    getArgs(): args_rabbit_streams_pb.RabbitStreamsReadArgs | undefined;
+    setArgs(value?: args_rabbit_streams_pb.RabbitStreamsReadArgs): ReadOptsRabbitStreams;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): ReadOptsRabbitStreams.AsObject;
@@ -463,8 +463,8 @@ export class ReadOptsRabbitStreams extends jspb.Message {
 
 export namespace ReadOptsRabbitStreams {
     export type AsObject = {
-        conn?: args_rabbit_streams_pb.RabbitStreamsConn.AsObject,
-        args?: args_rabbit_streams_pb.RabbitStreamsReadOpts.AsObject,
+        Conn?: args_rabbit_streams_pb.RabbitStreamsConn.AsObject,
+        args?: args_rabbit_streams_pb.RabbitStreamsReadArgs.AsObject,
     }
 }
 
@@ -477,8 +477,8 @@ export class ReadOptsRedisPubSub extends jspb.Message {
 
     hasArgs(): boolean;
     clearArgs(): void;
-    getArgs(): args_redis_pubsub_pb.RedisPubSubReadOpts | undefined;
-    setArgs(value?: args_redis_pubsub_pb.RedisPubSubReadOpts): ReadOptsRedisPubSub;
+    getArgs(): args_redis_pubsub_pb.RedisPubSubReadArgs | undefined;
+    setArgs(value?: args_redis_pubsub_pb.RedisPubSubReadArgs): ReadOptsRedisPubSub;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): ReadOptsRedisPubSub.AsObject;
@@ -492,8 +492,8 @@ export class ReadOptsRedisPubSub extends jspb.Message {
 
 export namespace ReadOptsRedisPubSub {
     export type AsObject = {
-        conn?: args_redis_pubsub_pb.RedisPubSubConn.AsObject,
-        args?: args_redis_pubsub_pb.RedisPubSubReadOpts.AsObject,
+        Conn?: args_redis_pubsub_pb.RedisPubSubConn.AsObject,
+        args?: args_redis_pubsub_pb.RedisPubSubReadArgs.AsObject,
     }
 }
 
@@ -506,8 +506,8 @@ export class ReadOptsRedisStreams extends jspb.Message {
 
     hasArgs(): boolean;
     clearArgs(): void;
-    getArgs(): args_redis_streams_pb.RedisStreamsReadOpts | undefined;
-    setArgs(value?: args_redis_streams_pb.RedisStreamsReadOpts): ReadOptsRedisStreams;
+    getArgs(): args_redis_streams_pb.RedisStreamsReadArgs | undefined;
+    setArgs(value?: args_redis_streams_pb.RedisStreamsReadArgs): ReadOptsRedisStreams;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): ReadOptsRedisStreams.AsObject;
@@ -521,8 +521,8 @@ export class ReadOptsRedisStreams extends jspb.Message {
 
 export namespace ReadOptsRedisStreams {
     export type AsObject = {
-        conn?: args_redis_streams_pb.RedisStreamsConn.AsObject,
-        args?: args_redis_streams_pb.RedisStreamsReadOpts.AsObject,
+        Conn?: args_redis_streams_pb.RedisStreamsConn.AsObject,
+        args?: args_redis_streams_pb.RedisStreamsReadArgs.AsObject,
     }
 }
 
@@ -535,8 +535,8 @@ export class ReadOptsAzureEventHub extends jspb.Message {
 
     hasArgs(): boolean;
     clearArgs(): void;
-    getArgs(): args_azure_event_hub_pb.AzureEventHubReadOpts | undefined;
-    setArgs(value?: args_azure_event_hub_pb.AzureEventHubReadOpts): ReadOptsAzureEventHub;
+    getArgs(): args_azure_event_hub_pb.AzureEventHubReadArgs | undefined;
+    setArgs(value?: args_azure_event_hub_pb.AzureEventHubReadArgs): ReadOptsAzureEventHub;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): ReadOptsAzureEventHub.AsObject;
@@ -550,8 +550,8 @@ export class ReadOptsAzureEventHub extends jspb.Message {
 
 export namespace ReadOptsAzureEventHub {
     export type AsObject = {
-        conn?: args_azure_event_hub_pb.AzureEventHubConn.AsObject,
-        args?: args_azure_event_hub_pb.AzureEventHubReadOpts.AsObject,
+        Conn?: args_azure_event_hub_pb.AzureEventHubConn.AsObject,
+        args?: args_azure_event_hub_pb.AzureEventHubReadArgs.AsObject,
     }
 }
 
@@ -564,8 +564,8 @@ export class ReadOptsAzureServiceBus extends jspb.Message {
 
     hasArgs(): boolean;
     clearArgs(): void;
-    getArgs(): args_azure_service_bus_pb.AzureServiceBusReadOpts | undefined;
-    setArgs(value?: args_azure_service_bus_pb.AzureServiceBusReadOpts): ReadOptsAzureServiceBus;
+    getArgs(): args_azure_service_bus_pb.AzureServiceBusReadArgs | undefined;
+    setArgs(value?: args_azure_service_bus_pb.AzureServiceBusReadArgs): ReadOptsAzureServiceBus;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): ReadOptsAzureServiceBus.AsObject;
@@ -579,8 +579,8 @@ export class ReadOptsAzureServiceBus extends jspb.Message {
 
 export namespace ReadOptsAzureServiceBus {
     export type AsObject = {
-        conn?: args_azure_service_bus_pb.AzureServiceBusConn.AsObject,
-        args?: args_azure_service_bus_pb.AzureServiceBusReadOpts.AsObject,
+        Conn?: args_azure_service_bus_pb.AzureServiceBusConn.AsObject,
+        args?: args_azure_service_bus_pb.AzureServiceBusReadArgs.AsObject,
     }
 }
 
@@ -593,8 +593,8 @@ export class ReadOptsMQTT extends jspb.Message {
 
     hasArgs(): boolean;
     clearArgs(): void;
-    getArgs(): args_mqtt_pb.MQTTReadOpts | undefined;
-    setArgs(value?: args_mqtt_pb.MQTTReadOpts): ReadOptsMQTT;
+    getArgs(): args_mqtt_pb.MQTTReadArgs | undefined;
+    setArgs(value?: args_mqtt_pb.MQTTReadArgs): ReadOptsMQTT;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): ReadOptsMQTT.AsObject;
@@ -608,8 +608,8 @@ export class ReadOptsMQTT extends jspb.Message {
 
 export namespace ReadOptsMQTT {
     export type AsObject = {
-        conn?: args_mqtt_pb.MQTTConn.AsObject,
-        args?: args_mqtt_pb.MQTTReadOpts.AsObject,
+        Conn?: args_mqtt_pb.MQTTConn.AsObject,
+        args?: args_mqtt_pb.MQTTReadArgs.AsObject,
     }
 }
 
@@ -622,8 +622,8 @@ export class ReadOptsGCPPubSub extends jspb.Message {
 
     hasArgs(): boolean;
     clearArgs(): void;
-    getArgs(): args_gcp_pubsub_pb.GCPPubSubReadOpts | undefined;
-    setArgs(value?: args_gcp_pubsub_pb.GCPPubSubReadOpts): ReadOptsGCPPubSub;
+    getArgs(): args_gcp_pubsub_pb.GCPPubSubReadArgs | undefined;
+    setArgs(value?: args_gcp_pubsub_pb.GCPPubSubReadArgs): ReadOptsGCPPubSub;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): ReadOptsGCPPubSub.AsObject;
@@ -637,8 +637,8 @@ export class ReadOptsGCPPubSub extends jspb.Message {
 
 export namespace ReadOptsGCPPubSub {
     export type AsObject = {
-        conn?: args_gcp_pubsub_pb.GCPPubSubConn.AsObject,
-        args?: args_gcp_pubsub_pb.GCPPubSubReadOpts.AsObject,
+        Conn?: args_gcp_pubsub_pb.GCPPubSubConn.AsObject,
+        args?: args_gcp_pubsub_pb.GCPPubSubReadArgs.AsObject,
     }
 }
 
@@ -651,8 +651,8 @@ export class ReadOptsKubeMQQueue extends jspb.Message {
 
     hasArgs(): boolean;
     clearArgs(): void;
-    getArgs(): args_kubemq_queue_pb.KubeMQQueueReadOpts | undefined;
-    setArgs(value?: args_kubemq_queue_pb.KubeMQQueueReadOpts): ReadOptsKubeMQQueue;
+    getArgs(): args_kubemq_queue_pb.KubeMQQueueReadArgs | undefined;
+    setArgs(value?: args_kubemq_queue_pb.KubeMQQueueReadArgs): ReadOptsKubeMQQueue;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): ReadOptsKubeMQQueue.AsObject;
@@ -666,7 +666,7 @@ export class ReadOptsKubeMQQueue extends jspb.Message {
 
 export namespace ReadOptsKubeMQQueue {
     export type AsObject = {
-        conn?: args_kubemq_queue_pb.KubeMQQueueConn.AsObject,
-        args?: args_kubemq_queue_pb.KubeMQQueueReadOpts.AsObject,
+        Conn?: args_kubemq_queue_pb.KubeMQQueueConn.AsObject,
+        args?: args_kubemq_queue_pb.KubeMQQueueReadArgs.AsObject,
     }
 }

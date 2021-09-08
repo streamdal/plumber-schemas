@@ -55,31 +55,31 @@ export namespace NatsStreamingConn {
     }
 }
 
-export class NatsStreamingReadOpts extends jspb.Message { 
+export class NatsStreamingReadArgs extends jspb.Message { 
     getChannel(): string;
-    setChannel(value: string): NatsStreamingReadOpts;
+    setChannel(value: string): NatsStreamingReadArgs;
     getDurableName(): string;
-    setDurableName(value: string): NatsStreamingReadOpts;
+    setDurableName(value: string): NatsStreamingReadArgs;
     getReadLastAvailable(): boolean;
-    setReadLastAvailable(value: boolean): NatsStreamingReadOpts;
+    setReadLastAvailable(value: boolean): NatsStreamingReadArgs;
     getReadSequenceNumber(): number;
-    setReadSequenceNumber(value: number): NatsStreamingReadOpts;
+    setReadSequenceNumber(value: number): NatsStreamingReadArgs;
     getReadSince(): string;
-    setReadSince(value: string): NatsStreamingReadOpts;
+    setReadSince(value: string): NatsStreamingReadArgs;
     getReadAll(): boolean;
-    setReadAll(value: boolean): NatsStreamingReadOpts;
+    setReadAll(value: boolean): NatsStreamingReadArgs;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): NatsStreamingReadOpts.AsObject;
-    static toObject(includeInstance: boolean, msg: NatsStreamingReadOpts): NatsStreamingReadOpts.AsObject;
+    toObject(includeInstance?: boolean): NatsStreamingReadArgs.AsObject;
+    static toObject(includeInstance: boolean, msg: NatsStreamingReadArgs): NatsStreamingReadArgs.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: NatsStreamingReadOpts, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): NatsStreamingReadOpts;
-    static deserializeBinaryFromReader(message: NatsStreamingReadOpts, reader: jspb.BinaryReader): NatsStreamingReadOpts;
+    static serializeBinaryToWriter(message: NatsStreamingReadArgs, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): NatsStreamingReadArgs;
+    static deserializeBinaryFromReader(message: NatsStreamingReadArgs, reader: jspb.BinaryReader): NatsStreamingReadArgs;
 }
 
-export namespace NatsStreamingReadOpts {
+export namespace NatsStreamingReadArgs {
     export type AsObject = {
         channel: string,
         durableName: string,
@@ -90,21 +90,21 @@ export namespace NatsStreamingReadOpts {
     }
 }
 
-export class NatsStreamingWriteOpts extends jspb.Message { 
+export class NatsStreamingWriteArgs extends jspb.Message { 
     getChannel(): string;
-    setChannel(value: string): NatsStreamingWriteOpts;
+    setChannel(value: string): NatsStreamingWriteArgs;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): NatsStreamingWriteOpts.AsObject;
-    static toObject(includeInstance: boolean, msg: NatsStreamingWriteOpts): NatsStreamingWriteOpts.AsObject;
+    toObject(includeInstance?: boolean): NatsStreamingWriteArgs.AsObject;
+    static toObject(includeInstance: boolean, msg: NatsStreamingWriteArgs): NatsStreamingWriteArgs.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: NatsStreamingWriteOpts, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): NatsStreamingWriteOpts;
-    static deserializeBinaryFromReader(message: NatsStreamingWriteOpts, reader: jspb.BinaryReader): NatsStreamingWriteOpts;
+    static serializeBinaryToWriter(message: NatsStreamingWriteArgs, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): NatsStreamingWriteArgs;
+    static deserializeBinaryFromReader(message: NatsStreamingWriteArgs, reader: jspb.BinaryReader): NatsStreamingWriteArgs;
 }
 
-export namespace NatsStreamingWriteOpts {
+export namespace NatsStreamingWriteArgs {
     export type AsObject = {
         channel: string,
     }

@@ -9,11 +9,11 @@ message AzureEventHubConn {
   string connection_string = 1;
 }
 
-message AzureEventHubReadOpts {
+message AzureEventHubReadArgs {
   // None
 }
 
-message AzureEventHubWriteOpts {
+message AzureEventHubWriteArgs {
   // @gotags: kong:"help='Send message with this ID'"
   string message_id = 1;
 

@@ -42,7 +42,7 @@ message MQTTConn {
     MQTTTLSOptions tls_options = 6;
 }
 
-message MQTTReadOpts {
+message MQTTReadArgs {
     // @gotags: kong:"help='Topic to read message(s) from',env='PLUMBER_RELAY_MQTT_TOPIC',required"
     string topic = 1;
 
@@ -50,7 +50,7 @@ message MQTTReadOpts {
     uint32 read_timeout_seconds = 2;
 }
 
-message MQTTWriteOpts {
+message MQTTWriteArgs {
     // @gotags: kong:"help='Topic to write message(s) to',required"
     string topic = 1;
 

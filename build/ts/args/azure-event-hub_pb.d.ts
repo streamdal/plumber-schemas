@@ -26,40 +26,40 @@ export namespace AzureEventHubConn {
     }
 }
 
-export class AzureEventHubReadOpts extends jspb.Message { 
+export class AzureEventHubReadArgs extends jspb.Message { 
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): AzureEventHubReadOpts.AsObject;
-    static toObject(includeInstance: boolean, msg: AzureEventHubReadOpts): AzureEventHubReadOpts.AsObject;
+    toObject(includeInstance?: boolean): AzureEventHubReadArgs.AsObject;
+    static toObject(includeInstance: boolean, msg: AzureEventHubReadArgs): AzureEventHubReadArgs.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: AzureEventHubReadOpts, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): AzureEventHubReadOpts;
-    static deserializeBinaryFromReader(message: AzureEventHubReadOpts, reader: jspb.BinaryReader): AzureEventHubReadOpts;
+    static serializeBinaryToWriter(message: AzureEventHubReadArgs, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): AzureEventHubReadArgs;
+    static deserializeBinaryFromReader(message: AzureEventHubReadArgs, reader: jspb.BinaryReader): AzureEventHubReadArgs;
 }
 
-export namespace AzureEventHubReadOpts {
+export namespace AzureEventHubReadArgs {
     export type AsObject = {
     }
 }
 
-export class AzureEventHubWriteOpts extends jspb.Message { 
+export class AzureEventHubWriteArgs extends jspb.Message { 
     getMessageId(): string;
-    setMessageId(value: string): AzureEventHubWriteOpts;
+    setMessageId(value: string): AzureEventHubWriteArgs;
     getPartitionKey(): string;
-    setPartitionKey(value: string): AzureEventHubWriteOpts;
+    setPartitionKey(value: string): AzureEventHubWriteArgs;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): AzureEventHubWriteOpts.AsObject;
-    static toObject(includeInstance: boolean, msg: AzureEventHubWriteOpts): AzureEventHubWriteOpts.AsObject;
+    toObject(includeInstance?: boolean): AzureEventHubWriteArgs.AsObject;
+    static toObject(includeInstance: boolean, msg: AzureEventHubWriteArgs): AzureEventHubWriteArgs.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: AzureEventHubWriteOpts, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): AzureEventHubWriteOpts;
-    static deserializeBinaryFromReader(message: AzureEventHubWriteOpts, reader: jspb.BinaryReader): AzureEventHubWriteOpts;
+    static serializeBinaryToWriter(message: AzureEventHubWriteArgs, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): AzureEventHubWriteArgs;
+    static deserializeBinaryFromReader(message: AzureEventHubWriteArgs, reader: jspb.BinaryReader): AzureEventHubWriteArgs;
 }
 
-export namespace AzureEventHubWriteOpts {
+export namespace AzureEventHubWriteArgs {
     export type AsObject = {
         messageId: string,
         partitionKey: string,

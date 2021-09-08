@@ -56,44 +56,44 @@ export namespace NSQConn {
     }
 }
 
-export class NSQReadOpts extends jspb.Message { 
+export class NSQReadArgs extends jspb.Message { 
     getTopic(): string;
-    setTopic(value: string): NSQReadOpts;
+    setTopic(value: string): NSQReadArgs;
     getChannel(): string;
-    setChannel(value: string): NSQReadOpts;
+    setChannel(value: string): NSQReadArgs;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): NSQReadOpts.AsObject;
-    static toObject(includeInstance: boolean, msg: NSQReadOpts): NSQReadOpts.AsObject;
+    toObject(includeInstance?: boolean): NSQReadArgs.AsObject;
+    static toObject(includeInstance: boolean, msg: NSQReadArgs): NSQReadArgs.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: NSQReadOpts, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): NSQReadOpts;
-    static deserializeBinaryFromReader(message: NSQReadOpts, reader: jspb.BinaryReader): NSQReadOpts;
+    static serializeBinaryToWriter(message: NSQReadArgs, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): NSQReadArgs;
+    static deserializeBinaryFromReader(message: NSQReadArgs, reader: jspb.BinaryReader): NSQReadArgs;
 }
 
-export namespace NSQReadOpts {
+export namespace NSQReadArgs {
     export type AsObject = {
         topic: string,
         channel: string,
     }
 }
 
-export class NSQWriteOpts extends jspb.Message { 
+export class NSQWriteArgs extends jspb.Message { 
     getTopic(): string;
-    setTopic(value: string): NSQWriteOpts;
+    setTopic(value: string): NSQWriteArgs;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): NSQWriteOpts.AsObject;
-    static toObject(includeInstance: boolean, msg: NSQWriteOpts): NSQWriteOpts.AsObject;
+    toObject(includeInstance?: boolean): NSQWriteArgs.AsObject;
+    static toObject(includeInstance: boolean, msg: NSQWriteArgs): NSQWriteArgs.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: NSQWriteOpts, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): NSQWriteOpts;
-    static deserializeBinaryFromReader(message: NSQWriteOpts, reader: jspb.BinaryReader): NSQWriteOpts;
+    static serializeBinaryToWriter(message: NSQWriteArgs, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): NSQWriteArgs;
+    static deserializeBinaryFromReader(message: NSQWriteArgs, reader: jspb.BinaryReader): NSQWriteArgs;
 }
 
-export namespace NSQWriteOpts {
+export namespace NSQWriteArgs {
     export type AsObject = {
         topic: string,
     }

@@ -18,7 +18,7 @@ message AWSSNSConn {
 
 // SNS has no read functionality
 
-message AWSSNSWriteOpts {
+message AWSSNSWriteArgs {
   // @gotags: kong:"help='Topic ARN',required"
   string topic = 1;
 }

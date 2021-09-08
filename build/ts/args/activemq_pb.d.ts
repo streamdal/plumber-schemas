@@ -26,46 +26,46 @@ export namespace ActiveMQConn {
     }
 }
 
-export class ActiveMQReadOpts extends jspb.Message { 
+export class ActiveMQReadArgs extends jspb.Message { 
     getTopic(): string;
-    setTopic(value: string): ActiveMQReadOpts;
+    setTopic(value: string): ActiveMQReadArgs;
     getQueue(): string;
-    setQueue(value: string): ActiveMQReadOpts;
+    setQueue(value: string): ActiveMQReadArgs;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): ActiveMQReadOpts.AsObject;
-    static toObject(includeInstance: boolean, msg: ActiveMQReadOpts): ActiveMQReadOpts.AsObject;
+    toObject(includeInstance?: boolean): ActiveMQReadArgs.AsObject;
+    static toObject(includeInstance: boolean, msg: ActiveMQReadArgs): ActiveMQReadArgs.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: ActiveMQReadOpts, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): ActiveMQReadOpts;
-    static deserializeBinaryFromReader(message: ActiveMQReadOpts, reader: jspb.BinaryReader): ActiveMQReadOpts;
+    static serializeBinaryToWriter(message: ActiveMQReadArgs, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): ActiveMQReadArgs;
+    static deserializeBinaryFromReader(message: ActiveMQReadArgs, reader: jspb.BinaryReader): ActiveMQReadArgs;
 }
 
-export namespace ActiveMQReadOpts {
+export namespace ActiveMQReadArgs {
     export type AsObject = {
         topic: string,
         queue: string,
     }
 }
 
-export class ActiveMQWriteOpts extends jspb.Message { 
+export class ActiveMQWriteArgs extends jspb.Message { 
     getTopic(): string;
-    setTopic(value: string): ActiveMQWriteOpts;
+    setTopic(value: string): ActiveMQWriteArgs;
     getQueue(): string;
-    setQueue(value: string): ActiveMQWriteOpts;
+    setQueue(value: string): ActiveMQWriteArgs;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): ActiveMQWriteOpts.AsObject;
-    static toObject(includeInstance: boolean, msg: ActiveMQWriteOpts): ActiveMQWriteOpts.AsObject;
+    toObject(includeInstance?: boolean): ActiveMQWriteArgs.AsObject;
+    static toObject(includeInstance: boolean, msg: ActiveMQWriteArgs): ActiveMQWriteArgs.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: ActiveMQWriteOpts, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): ActiveMQWriteOpts;
-    static deserializeBinaryFromReader(message: ActiveMQWriteOpts, reader: jspb.BinaryReader): ActiveMQWriteOpts;
+    static serializeBinaryToWriter(message: ActiveMQWriteArgs, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): ActiveMQWriteArgs;
+    static deserializeBinaryFromReader(message: ActiveMQWriteArgs, reader: jspb.BinaryReader): ActiveMQWriteArgs;
 }
 
-export namespace ActiveMQWriteOpts {
+export namespace ActiveMQWriteArgs {
     export type AsObject = {
         topic: string,
         queue: string,

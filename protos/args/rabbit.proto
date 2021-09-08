@@ -15,7 +15,7 @@ message RabbitConn {
   bool insecure_tls = 3;
 }
 
-message RabbitReadOpts {
+message RabbitReadArgs {
   // @gotags: kong:"help='Name of the exchange',env='PLUMBER_RELAY_RABBIT_EXCHANGE',required"
   string exchange_name = 1;
 
@@ -44,7 +44,7 @@ message RabbitReadOpts {
   bool queue_delete = 9;
 }
 
-message RabbitWriteOpts {
+message RabbitWriteArgs {
   // @gotags: kong:"help='Exchange to write message(s) to',required"
   string exchange_name = 1;
 

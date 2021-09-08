@@ -32,50 +32,50 @@ export namespace RedisPubSubConn {
     }
 }
 
-export class RedisPubSubReadOpts extends jspb.Message { 
+export class RedisPubSubReadArgs extends jspb.Message { 
     getDatabase(): number;
-    setDatabase(value: number): RedisPubSubReadOpts;
+    setDatabase(value: number): RedisPubSubReadArgs;
     clearChannelList(): void;
     getChannelList(): Array<string>;
-    setChannelList(value: Array<string>): RedisPubSubReadOpts;
+    setChannelList(value: Array<string>): RedisPubSubReadArgs;
     addChannel(value: string, index?: number): string;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): RedisPubSubReadOpts.AsObject;
-    static toObject(includeInstance: boolean, msg: RedisPubSubReadOpts): RedisPubSubReadOpts.AsObject;
+    toObject(includeInstance?: boolean): RedisPubSubReadArgs.AsObject;
+    static toObject(includeInstance: boolean, msg: RedisPubSubReadArgs): RedisPubSubReadArgs.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: RedisPubSubReadOpts, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): RedisPubSubReadOpts;
-    static deserializeBinaryFromReader(message: RedisPubSubReadOpts, reader: jspb.BinaryReader): RedisPubSubReadOpts;
+    static serializeBinaryToWriter(message: RedisPubSubReadArgs, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): RedisPubSubReadArgs;
+    static deserializeBinaryFromReader(message: RedisPubSubReadArgs, reader: jspb.BinaryReader): RedisPubSubReadArgs;
 }
 
-export namespace RedisPubSubReadOpts {
+export namespace RedisPubSubReadArgs {
     export type AsObject = {
         database: number,
         channelList: Array<string>,
     }
 }
 
-export class RedisPubSubWriteOpts extends jspb.Message { 
+export class RedisPubSubWriteArgs extends jspb.Message { 
     getDatabase(): number;
-    setDatabase(value: number): RedisPubSubWriteOpts;
+    setDatabase(value: number): RedisPubSubWriteArgs;
     clearChannelList(): void;
     getChannelList(): Array<string>;
-    setChannelList(value: Array<string>): RedisPubSubWriteOpts;
+    setChannelList(value: Array<string>): RedisPubSubWriteArgs;
     addChannel(value: string, index?: number): string;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): RedisPubSubWriteOpts.AsObject;
-    static toObject(includeInstance: boolean, msg: RedisPubSubWriteOpts): RedisPubSubWriteOpts.AsObject;
+    toObject(includeInstance?: boolean): RedisPubSubWriteArgs.AsObject;
+    static toObject(includeInstance: boolean, msg: RedisPubSubWriteArgs): RedisPubSubWriteArgs.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: RedisPubSubWriteOpts, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): RedisPubSubWriteOpts;
-    static deserializeBinaryFromReader(message: RedisPubSubWriteOpts, reader: jspb.BinaryReader): RedisPubSubWriteOpts;
+    static serializeBinaryToWriter(message: RedisPubSubWriteArgs, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): RedisPubSubWriteArgs;
+    static deserializeBinaryFromReader(message: RedisPubSubWriteArgs, reader: jspb.BinaryReader): RedisPubSubWriteArgs;
 }
 
-export namespace RedisPubSubWriteOpts {
+export namespace RedisPubSubWriteArgs {
     export type AsObject = {
         database: number,
         channelList: Array<string>,

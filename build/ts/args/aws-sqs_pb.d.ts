@@ -32,31 +32,31 @@ export namespace AWSSQSConn {
     }
 }
 
-export class AWSSQSReadOpts extends jspb.Message { 
+export class AWSSQSReadArgs extends jspb.Message { 
     getQueueName(): string;
-    setQueueName(value: string): AWSSQSReadOpts;
+    setQueueName(value: string): AWSSQSReadArgs;
     getRemoteAccountId(): string;
-    setRemoteAccountId(value: string): AWSSQSReadOpts;
+    setRemoteAccountId(value: string): AWSSQSReadArgs;
     getMaxNumMessages(): number;
-    setMaxNumMessages(value: number): AWSSQSReadOpts;
+    setMaxNumMessages(value: number): AWSSQSReadArgs;
     getReceiveRequestAttemptId(): string;
-    setReceiveRequestAttemptId(value: string): AWSSQSReadOpts;
+    setReceiveRequestAttemptId(value: string): AWSSQSReadArgs;
     getAutoDelete(): boolean;
-    setAutoDelete(value: boolean): AWSSQSReadOpts;
+    setAutoDelete(value: boolean): AWSSQSReadArgs;
     getWaitTimeSeconds(): number;
-    setWaitTimeSeconds(value: number): AWSSQSReadOpts;
+    setWaitTimeSeconds(value: number): AWSSQSReadArgs;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): AWSSQSReadOpts.AsObject;
-    static toObject(includeInstance: boolean, msg: AWSSQSReadOpts): AWSSQSReadOpts.AsObject;
+    toObject(includeInstance?: boolean): AWSSQSReadArgs.AsObject;
+    static toObject(includeInstance: boolean, msg: AWSSQSReadArgs): AWSSQSReadArgs.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: AWSSQSReadOpts, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): AWSSQSReadOpts;
-    static deserializeBinaryFromReader(message: AWSSQSReadOpts, reader: jspb.BinaryReader): AWSSQSReadOpts;
+    static serializeBinaryToWriter(message: AWSSQSReadArgs, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): AWSSQSReadArgs;
+    static deserializeBinaryFromReader(message: AWSSQSReadArgs, reader: jspb.BinaryReader): AWSSQSReadArgs;
 }
 
-export namespace AWSSQSReadOpts {
+export namespace AWSSQSReadArgs {
     export type AsObject = {
         queueName: string,
         remoteAccountId: string,
@@ -67,32 +67,32 @@ export namespace AWSSQSReadOpts {
     }
 }
 
-export class AWSSQSWriteOpts extends jspb.Message { 
+export class AWSSQSWriteArgs extends jspb.Message { 
     getQueueName(): string;
-    setQueueName(value: string): AWSSQSWriteOpts;
+    setQueueName(value: string): AWSSQSWriteArgs;
     getRemoteAccountId(): string;
-    setRemoteAccountId(value: string): AWSSQSWriteOpts;
+    setRemoteAccountId(value: string): AWSSQSWriteArgs;
     getDelaySeconds(): number;
-    setDelaySeconds(value: number): AWSSQSWriteOpts;
+    setDelaySeconds(value: number): AWSSQSWriteArgs;
 
     getAttributesMap(): jspb.Map<string, string>;
     clearAttributesMap(): void;
     getMessageGroupId(): string;
-    setMessageGroupId(value: string): AWSSQSWriteOpts;
+    setMessageGroupId(value: string): AWSSQSWriteArgs;
     getMessageDeduplicationId(): string;
-    setMessageDeduplicationId(value: string): AWSSQSWriteOpts;
+    setMessageDeduplicationId(value: string): AWSSQSWriteArgs;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): AWSSQSWriteOpts.AsObject;
-    static toObject(includeInstance: boolean, msg: AWSSQSWriteOpts): AWSSQSWriteOpts.AsObject;
+    toObject(includeInstance?: boolean): AWSSQSWriteArgs.AsObject;
+    static toObject(includeInstance: boolean, msg: AWSSQSWriteArgs): AWSSQSWriteArgs.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: AWSSQSWriteOpts, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): AWSSQSWriteOpts;
-    static deserializeBinaryFromReader(message: AWSSQSWriteOpts, reader: jspb.BinaryReader): AWSSQSWriteOpts;
+    static serializeBinaryToWriter(message: AWSSQSWriteArgs, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): AWSSQSWriteArgs;
+    static deserializeBinaryFromReader(message: AWSSQSWriteArgs, reader: jspb.BinaryReader): AWSSQSWriteArgs;
 }
 
-export namespace AWSSQSWriteOpts {
+export namespace AWSSQSWriteArgs {
     export type AsObject = {
         queueName: string,
         remoteAccountId: string,
@@ -104,31 +104,31 @@ export namespace AWSSQSWriteOpts {
     }
 }
 
-export class AWSSQSRelayOpts extends jspb.Message { 
+export class AWSSQSRelayArgs extends jspb.Message { 
     getQueueName(): string;
-    setQueueName(value: string): AWSSQSRelayOpts;
+    setQueueName(value: string): AWSSQSRelayArgs;
     getRemoteAccountId(): string;
-    setRemoteAccountId(value: string): AWSSQSRelayOpts;
+    setRemoteAccountId(value: string): AWSSQSRelayArgs;
     getMaxNumMessages(): number;
-    setMaxNumMessages(value: number): AWSSQSRelayOpts;
+    setMaxNumMessages(value: number): AWSSQSRelayArgs;
     getReceiveRequestAttemptId(): string;
-    setReceiveRequestAttemptId(value: string): AWSSQSRelayOpts;
+    setReceiveRequestAttemptId(value: string): AWSSQSRelayArgs;
     getAutoDelete(): boolean;
-    setAutoDelete(value: boolean): AWSSQSRelayOpts;
+    setAutoDelete(value: boolean): AWSSQSRelayArgs;
     getWaitTimeSeconds(): number;
-    setWaitTimeSeconds(value: number): AWSSQSRelayOpts;
+    setWaitTimeSeconds(value: number): AWSSQSRelayArgs;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): AWSSQSRelayOpts.AsObject;
-    static toObject(includeInstance: boolean, msg: AWSSQSRelayOpts): AWSSQSRelayOpts.AsObject;
+    toObject(includeInstance?: boolean): AWSSQSRelayArgs.AsObject;
+    static toObject(includeInstance: boolean, msg: AWSSQSRelayArgs): AWSSQSRelayArgs.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: AWSSQSRelayOpts, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): AWSSQSRelayOpts;
-    static deserializeBinaryFromReader(message: AWSSQSRelayOpts, reader: jspb.BinaryReader): AWSSQSRelayOpts;
+    static serializeBinaryToWriter(message: AWSSQSRelayArgs, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): AWSSQSRelayArgs;
+    static deserializeBinaryFromReader(message: AWSSQSRelayArgs, reader: jspb.BinaryReader): AWSSQSRelayArgs;
 }
 
-export namespace AWSSQSRelayOpts {
+export namespace AWSSQSRelayArgs {
     export type AsObject = {
         queueName: string,
         remoteAccountId: string,

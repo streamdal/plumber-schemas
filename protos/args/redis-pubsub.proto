@@ -15,7 +15,7 @@ message RedisPubSubConn {
   string password = 3;
 }
 
-message RedisPubSubReadOpts {
+message RedisPubSubReadArgs {
   // @gotags: kong:"help='Database (0-16)',env='PLUMBER_RELAY_REDIS_PUBSUB_DATABASE'"
   uint32 database = 1;
 
@@ -23,7 +23,7 @@ message RedisPubSubReadOpts {
   repeated string channel = 2;
 }
 
-message RedisPubSubWriteOpts {
+message RedisPubSubWriteArgs {
   // @gotags: kong:"help='Database (0-16)'"
   uint32 database = 1;
 

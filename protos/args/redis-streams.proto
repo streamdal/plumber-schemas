@@ -31,7 +31,7 @@ message CreateConsumerConfig {
   OffsetStart offset_start = 3;
 }
 
-message RedisStreamsReadOpts {
+message RedisStreamsReadArgs {
   // @gotags: kong:"help='Database',required,default=0,env='PLUMBER_RELAY_REDIS_STREAMS_DATABASE'"
   uint32 database = 1;
 
@@ -51,7 +51,7 @@ message RedisStreamsReadOpts {
   CreateConsumerConfig create_consumer_config = 6;
 }
 
-message RedisStreamsWriteOpts {
+message RedisStreamsWriteArgs {
   // @gotags: kong:"help='What redis ID to use for input data (* = auto-generate)',default='*'"
   string write_id = 1;
 

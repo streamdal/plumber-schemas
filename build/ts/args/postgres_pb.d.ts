@@ -44,23 +44,23 @@ export namespace PostgresConn {
     }
 }
 
-export class PostgresReadOpts extends jspb.Message { 
+export class PostgresReadArgs extends jspb.Message { 
     getReplicationSlotName(): string;
-    setReplicationSlotName(value: string): PostgresReadOpts;
+    setReplicationSlotName(value: string): PostgresReadArgs;
     getPublisherName(): string;
-    setPublisherName(value: string): PostgresReadOpts;
+    setPublisherName(value: string): PostgresReadArgs;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): PostgresReadOpts.AsObject;
-    static toObject(includeInstance: boolean, msg: PostgresReadOpts): PostgresReadOpts.AsObject;
+    toObject(includeInstance?: boolean): PostgresReadArgs.AsObject;
+    static toObject(includeInstance: boolean, msg: PostgresReadArgs): PostgresReadArgs.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: PostgresReadOpts, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): PostgresReadOpts;
-    static deserializeBinaryFromReader(message: PostgresReadOpts, reader: jspb.BinaryReader): PostgresReadOpts;
+    static serializeBinaryToWriter(message: PostgresReadArgs, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): PostgresReadArgs;
+    static deserializeBinaryFromReader(message: PostgresReadArgs, reader: jspb.BinaryReader): PostgresReadArgs;
 }
 
-export namespace PostgresReadOpts {
+export namespace PostgresReadArgs {
     export type AsObject = {
         replicationSlotName: string,
         publisherName: string,

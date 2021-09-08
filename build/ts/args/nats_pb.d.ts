@@ -49,41 +49,41 @@ export namespace NatsConn {
     }
 }
 
-export class NatsReadOpts extends jspb.Message { 
+export class NatsReadArgs extends jspb.Message { 
     getSubject(): string;
-    setSubject(value: string): NatsReadOpts;
+    setSubject(value: string): NatsReadArgs;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): NatsReadOpts.AsObject;
-    static toObject(includeInstance: boolean, msg: NatsReadOpts): NatsReadOpts.AsObject;
+    toObject(includeInstance?: boolean): NatsReadArgs.AsObject;
+    static toObject(includeInstance: boolean, msg: NatsReadArgs): NatsReadArgs.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: NatsReadOpts, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): NatsReadOpts;
-    static deserializeBinaryFromReader(message: NatsReadOpts, reader: jspb.BinaryReader): NatsReadOpts;
+    static serializeBinaryToWriter(message: NatsReadArgs, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): NatsReadArgs;
+    static deserializeBinaryFromReader(message: NatsReadArgs, reader: jspb.BinaryReader): NatsReadArgs;
 }
 
-export namespace NatsReadOpts {
+export namespace NatsReadArgs {
     export type AsObject = {
         subject: string,
     }
 }
 
-export class NatsWriteOpts extends jspb.Message { 
+export class NatsWriteArgs extends jspb.Message { 
     getSubject(): string;
-    setSubject(value: string): NatsWriteOpts;
+    setSubject(value: string): NatsWriteArgs;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): NatsWriteOpts.AsObject;
-    static toObject(includeInstance: boolean, msg: NatsWriteOpts): NatsWriteOpts.AsObject;
+    toObject(includeInstance?: boolean): NatsWriteArgs.AsObject;
+    static toObject(includeInstance: boolean, msg: NatsWriteArgs): NatsWriteArgs.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: NatsWriteOpts, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): NatsWriteOpts;
-    static deserializeBinaryFromReader(message: NatsWriteOpts, reader: jspb.BinaryReader): NatsWriteOpts;
+    static serializeBinaryToWriter(message: NatsWriteArgs, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): NatsWriteArgs;
+    static deserializeBinaryFromReader(message: NatsWriteArgs, reader: jspb.BinaryReader): NatsWriteArgs;
 }
 
-export namespace NatsWriteOpts {
+export namespace NatsWriteArgs {
     export type AsObject = {
         subject: string,
     }

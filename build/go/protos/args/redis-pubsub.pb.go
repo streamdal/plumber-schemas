@@ -78,7 +78,7 @@ func (m *RedisPubSubConn) GetPassword() string {
 	return ""
 }
 
-type RedisPubSubReadOpts struct {
+type RedisPubSubReadArgs struct {
 	// @gotags: kong:"help='Database (0-16)',env='PLUMBER_RELAY_REDIS_PUBSUB_DATABASE'"
 	Database uint32 `protobuf:"varint,1,opt,name=database,proto3" json:"database,omitempty" kong:"help='Database (0-16)',env='PLUMBER_RELAY_REDIS_PUBSUB_DATABASE'"`
 	// @gotags: kong:"help='Comma separated list of channels to read from',env='PLUMBER_RELAY_REDIS_PUBSUB_CHANNELS',required"
@@ -88,46 +88,46 @@ type RedisPubSubReadOpts struct {
 	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *RedisPubSubReadOpts) Reset()         { *m = RedisPubSubReadOpts{} }
-func (m *RedisPubSubReadOpts) String() string { return proto.CompactTextString(m) }
-func (*RedisPubSubReadOpts) ProtoMessage()    {}
-func (*RedisPubSubReadOpts) Descriptor() ([]byte, []int) {
+func (m *RedisPubSubReadArgs) Reset()         { *m = RedisPubSubReadArgs{} }
+func (m *RedisPubSubReadArgs) String() string { return proto.CompactTextString(m) }
+func (*RedisPubSubReadArgs) ProtoMessage()    {}
+func (*RedisPubSubReadArgs) Descriptor() ([]byte, []int) {
 	return fileDescriptor_e501abdf9fae4c9b, []int{1}
 }
 
-func (m *RedisPubSubReadOpts) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_RedisPubSubReadOpts.Unmarshal(m, b)
+func (m *RedisPubSubReadArgs) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_RedisPubSubReadArgs.Unmarshal(m, b)
 }
-func (m *RedisPubSubReadOpts) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_RedisPubSubReadOpts.Marshal(b, m, deterministic)
+func (m *RedisPubSubReadArgs) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_RedisPubSubReadArgs.Marshal(b, m, deterministic)
 }
-func (m *RedisPubSubReadOpts) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_RedisPubSubReadOpts.Merge(m, src)
+func (m *RedisPubSubReadArgs) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_RedisPubSubReadArgs.Merge(m, src)
 }
-func (m *RedisPubSubReadOpts) XXX_Size() int {
-	return xxx_messageInfo_RedisPubSubReadOpts.Size(m)
+func (m *RedisPubSubReadArgs) XXX_Size() int {
+	return xxx_messageInfo_RedisPubSubReadArgs.Size(m)
 }
-func (m *RedisPubSubReadOpts) XXX_DiscardUnknown() {
-	xxx_messageInfo_RedisPubSubReadOpts.DiscardUnknown(m)
+func (m *RedisPubSubReadArgs) XXX_DiscardUnknown() {
+	xxx_messageInfo_RedisPubSubReadArgs.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_RedisPubSubReadOpts proto.InternalMessageInfo
+var xxx_messageInfo_RedisPubSubReadArgs proto.InternalMessageInfo
 
-func (m *RedisPubSubReadOpts) GetDatabase() uint32 {
+func (m *RedisPubSubReadArgs) GetDatabase() uint32 {
 	if m != nil {
 		return m.Database
 	}
 	return 0
 }
 
-func (m *RedisPubSubReadOpts) GetChannel() []string {
+func (m *RedisPubSubReadArgs) GetChannel() []string {
 	if m != nil {
 		return m.Channel
 	}
 	return nil
 }
 
-type RedisPubSubWriteOpts struct {
+type RedisPubSubWriteArgs struct {
 	// @gotags: kong:"help='Database (0-16)'"
 	Database uint32 `protobuf:"varint,1,opt,name=database,proto3" json:"database,omitempty" kong:"help='Database (0-16)'"`
 	// @gotags: kong:"help='Comma separated list of channels to write to',required"
@@ -137,39 +137,39 @@ type RedisPubSubWriteOpts struct {
 	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *RedisPubSubWriteOpts) Reset()         { *m = RedisPubSubWriteOpts{} }
-func (m *RedisPubSubWriteOpts) String() string { return proto.CompactTextString(m) }
-func (*RedisPubSubWriteOpts) ProtoMessage()    {}
-func (*RedisPubSubWriteOpts) Descriptor() ([]byte, []int) {
+func (m *RedisPubSubWriteArgs) Reset()         { *m = RedisPubSubWriteArgs{} }
+func (m *RedisPubSubWriteArgs) String() string { return proto.CompactTextString(m) }
+func (*RedisPubSubWriteArgs) ProtoMessage()    {}
+func (*RedisPubSubWriteArgs) Descriptor() ([]byte, []int) {
 	return fileDescriptor_e501abdf9fae4c9b, []int{2}
 }
 
-func (m *RedisPubSubWriteOpts) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_RedisPubSubWriteOpts.Unmarshal(m, b)
+func (m *RedisPubSubWriteArgs) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_RedisPubSubWriteArgs.Unmarshal(m, b)
 }
-func (m *RedisPubSubWriteOpts) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_RedisPubSubWriteOpts.Marshal(b, m, deterministic)
+func (m *RedisPubSubWriteArgs) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_RedisPubSubWriteArgs.Marshal(b, m, deterministic)
 }
-func (m *RedisPubSubWriteOpts) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_RedisPubSubWriteOpts.Merge(m, src)
+func (m *RedisPubSubWriteArgs) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_RedisPubSubWriteArgs.Merge(m, src)
 }
-func (m *RedisPubSubWriteOpts) XXX_Size() int {
-	return xxx_messageInfo_RedisPubSubWriteOpts.Size(m)
+func (m *RedisPubSubWriteArgs) XXX_Size() int {
+	return xxx_messageInfo_RedisPubSubWriteArgs.Size(m)
 }
-func (m *RedisPubSubWriteOpts) XXX_DiscardUnknown() {
-	xxx_messageInfo_RedisPubSubWriteOpts.DiscardUnknown(m)
+func (m *RedisPubSubWriteArgs) XXX_DiscardUnknown() {
+	xxx_messageInfo_RedisPubSubWriteArgs.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_RedisPubSubWriteOpts proto.InternalMessageInfo
+var xxx_messageInfo_RedisPubSubWriteArgs proto.InternalMessageInfo
 
-func (m *RedisPubSubWriteOpts) GetDatabase() uint32 {
+func (m *RedisPubSubWriteArgs) GetDatabase() uint32 {
 	if m != nil {
 		return m.Database
 	}
 	return 0
 }
 
-func (m *RedisPubSubWriteOpts) GetChannel() []string {
+func (m *RedisPubSubWriteArgs) GetChannel() []string {
 	if m != nil {
 		return m.Channel
 	}
@@ -178,8 +178,8 @@ func (m *RedisPubSubWriteOpts) GetChannel() []string {
 
 func init() {
 	proto.RegisterType((*RedisPubSubConn)(nil), "protos.args.RedisPubSubConn")
-	proto.RegisterType((*RedisPubSubReadOpts)(nil), "protos.args.RedisPubSubReadOpts")
-	proto.RegisterType((*RedisPubSubWriteOpts)(nil), "protos.args.RedisPubSubWriteOpts")
+	proto.RegisterType((*RedisPubSubReadArgs)(nil), "protos.args.RedisPubSubReadArgs")
+	proto.RegisterType((*RedisPubSubWriteArgs)(nil), "protos.args.RedisPubSubWriteArgs")
 }
 
 func init() { proto.RegisterFile("redis-pubsub.proto", fileDescriptor_e501abdf9fae4c9b) }
@@ -188,17 +188,17 @@ var fileDescriptor_e501abdf9fae4c9b = []byte{
 	// 232 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x9c, 0x90, 0xb1, 0x4b, 0x34, 0x31,
 	0x10, 0xc5, 0xb9, 0x3b, 0xf8, 0x3e, 0x8d, 0x88, 0xb0, 0x5a, 0x04, 0xab, 0x63, 0x2b, 0x9b, 0xdb,
-	0x14, 0x56, 0x62, 0xa7, 0xa5, 0x82, 0xb2, 0x16, 0x82, 0xdd, 0x4c, 0x32, 0xec, 0x2e, 0xec, 0x26,
-	0x61, 0x26, 0xc1, 0x7f, 0x5f, 0x92, 0xf3, 0x8e, 0xab, 0xad, 0x86, 0x1f, 0x6f, 0x78, 0xef, 0xf1,
-	0x54, 0xc3, 0xe4, 0x26, 0xd9, 0xc5, 0x8c, 0x92, 0xb1, 0x8b, 0x1c, 0x52, 0x68, 0x2e, 0xea, 0x91,
-	0x0e, 0x78, 0x90, 0xd6, 0xaa, 0xab, 0xbe, 0xbc, 0xbc, 0x67, 0xfc, 0xc8, 0xf8, 0x1c, 0xbc, 0x6f,
-	0xb4, 0xfa, 0x0f, 0xce, 0x31, 0x89, 0xe8, 0xd5, 0x76, 0x75, 0x77, 0xde, 0x1f, 0xb0, 0xb9, 0x55,
-	0x67, 0x59, 0x88, 0x3d, 0x2c, 0xa4, 0xd7, 0x55, 0x3a, 0x72, 0xd1, 0x22, 0x88, 0x7c, 0x07, 0x76,
-	0x7a, 0xb3, 0xd7, 0x0e, 0xdc, 0xbe, 0xa8, 0xeb, 0x93, 0x90, 0x9e, 0xc0, 0xbd, 0xc5, 0x54, 0xed,
-	0x1c, 0x24, 0x40, 0x10, 0xaa, 0x49, 0x97, 0xfd, 0x91, 0x4b, 0x09, 0x3b, 0x82, 0xf7, 0x34, 0xeb,
-	0xf5, 0x76, 0x53, 0x4a, 0xfc, 0x62, 0xfb, 0xaa, 0x6e, 0x4e, 0xcc, 0x3e, 0x79, 0x4a, 0xf4, 0x77,
-	0xb7, 0xa7, 0xc7, 0xaf, 0x87, 0x61, 0x4a, 0x63, 0xc6, 0xce, 0x86, 0xc5, 0x20, 0x24, 0x3b, 0xda,
-	0xc0, 0xd1, 0xc4, 0x39, 0x2f, 0x48, 0xbc, 0x13, 0x3b, 0xd2, 0x02, 0x62, 0x30, 0x4f, 0xb3, 0x33,
-	0x43, 0x30, 0xfb, 0xf1, 0x4c, 0x19, 0x0f, 0xff, 0x55, 0xb8, 0xff, 0x09, 0x00, 0x00, 0xff, 0xff,
-	0x7f, 0xb1, 0x7b, 0xa3, 0x66, 0x01, 0x00, 0x00,
+	0x14, 0x56, 0x62, 0xa5, 0x96, 0x5a, 0xc8, 0x5a, 0x08, 0x76, 0x33, 0xc9, 0xb0, 0xbb, 0xb0, 0x9b,
+	0x84, 0x99, 0x04, 0xff, 0x7d, 0x49, 0xce, 0x3b, 0xae, 0xb6, 0x1a, 0x7e, 0xbc, 0xe1, 0xbd, 0xc7,
+	0x53, 0x0d, 0x93, 0x9b, 0x64, 0x17, 0x33, 0x4a, 0xc6, 0x2e, 0x72, 0x48, 0xa1, 0xb9, 0xa8, 0x47,
+	0x3a, 0xe0, 0x41, 0x5a, 0xab, 0xae, 0xfa, 0xf2, 0xf2, 0x9e, 0xf1, 0x23, 0xe3, 0x4b, 0xf0, 0xbe,
+	0xd1, 0xea, 0x3f, 0x38, 0xc7, 0x24, 0xa2, 0x57, 0xdb, 0xd5, 0xdd, 0x79, 0x7f, 0xc0, 0xe6, 0x56,
+	0x9d, 0x65, 0x21, 0xf6, 0xb0, 0x90, 0x5e, 0x57, 0xe9, 0xc8, 0x45, 0x8b, 0x20, 0xf2, 0x1d, 0xd8,
+	0xe9, 0xcd, 0x5e, 0x3b, 0x70, 0xfb, 0xaa, 0xae, 0x4f, 0x42, 0x7a, 0x02, 0xf7, 0xc4, 0x43, 0xb5,
+	0x73, 0x90, 0x00, 0x41, 0xa8, 0x26, 0x5d, 0xf6, 0x47, 0x2e, 0x25, 0xec, 0x08, 0xde, 0xd3, 0xac,
+	0xd7, 0xdb, 0x4d, 0x29, 0xf1, 0x8b, 0xed, 0x9b, 0xba, 0x39, 0x31, 0xfb, 0xe4, 0x29, 0xd1, 0xdf,
+	0xdd, 0x9e, 0x1f, 0xbf, 0x1e, 0x86, 0x29, 0x8d, 0x19, 0x3b, 0x1b, 0x16, 0x83, 0x90, 0xec, 0x68,
+	0x03, 0x47, 0x13, 0xe7, 0xbc, 0x20, 0xf1, 0x4e, 0xec, 0x48, 0x0b, 0x88, 0xc1, 0x3c, 0xcd, 0xce,
+	0x0c, 0xc1, 0xec, 0xc7, 0x33, 0x65, 0x3c, 0xfc, 0x57, 0xe1, 0xfe, 0x27, 0x00, 0x00, 0xff, 0xff,
+	0xa7, 0xbd, 0x77, 0x1d, 0x66, 0x01, 0x00, 0x00,
 }

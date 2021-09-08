@@ -70,46 +70,46 @@ export namespace MQTTConn {
     }
 }
 
-export class MQTTReadOpts extends jspb.Message { 
+export class MQTTReadArgs extends jspb.Message { 
     getTopic(): string;
-    setTopic(value: string): MQTTReadOpts;
+    setTopic(value: string): MQTTReadArgs;
     getReadTimeoutSeconds(): number;
-    setReadTimeoutSeconds(value: number): MQTTReadOpts;
+    setReadTimeoutSeconds(value: number): MQTTReadArgs;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): MQTTReadOpts.AsObject;
-    static toObject(includeInstance: boolean, msg: MQTTReadOpts): MQTTReadOpts.AsObject;
+    toObject(includeInstance?: boolean): MQTTReadArgs.AsObject;
+    static toObject(includeInstance: boolean, msg: MQTTReadArgs): MQTTReadArgs.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: MQTTReadOpts, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): MQTTReadOpts;
-    static deserializeBinaryFromReader(message: MQTTReadOpts, reader: jspb.BinaryReader): MQTTReadOpts;
+    static serializeBinaryToWriter(message: MQTTReadArgs, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): MQTTReadArgs;
+    static deserializeBinaryFromReader(message: MQTTReadArgs, reader: jspb.BinaryReader): MQTTReadArgs;
 }
 
-export namespace MQTTReadOpts {
+export namespace MQTTReadArgs {
     export type AsObject = {
         topic: string,
         readTimeoutSeconds: number,
     }
 }
 
-export class MQTTWriteOpts extends jspb.Message { 
+export class MQTTWriteArgs extends jspb.Message { 
     getTopic(): string;
-    setTopic(value: string): MQTTWriteOpts;
+    setTopic(value: string): MQTTWriteArgs;
     getWriteTimeoutSeconds(): number;
-    setWriteTimeoutSeconds(value: number): MQTTWriteOpts;
+    setWriteTimeoutSeconds(value: number): MQTTWriteArgs;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): MQTTWriteOpts.AsObject;
-    static toObject(includeInstance: boolean, msg: MQTTWriteOpts): MQTTWriteOpts.AsObject;
+    toObject(includeInstance?: boolean): MQTTWriteArgs.AsObject;
+    static toObject(includeInstance: boolean, msg: MQTTWriteArgs): MQTTWriteArgs.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: MQTTWriteOpts, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): MQTTWriteOpts;
-    static deserializeBinaryFromReader(message: MQTTWriteOpts, reader: jspb.BinaryReader): MQTTWriteOpts;
+    static serializeBinaryToWriter(message: MQTTWriteArgs, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): MQTTWriteArgs;
+    static deserializeBinaryFromReader(message: MQTTWriteArgs, reader: jspb.BinaryReader): MQTTWriteArgs;
 }
 
-export namespace MQTTWriteOpts {
+export namespace MQTTWriteArgs {
     export type AsObject = {
         topic: string,
         writeTimeoutSeconds: number,

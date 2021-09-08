@@ -73,30 +73,30 @@ export namespace RabbitStreamsOffsetOptions {
     }
 }
 
-export class RabbitStreamsReadOpts extends jspb.Message { 
+export class RabbitStreamsReadArgs extends jspb.Message { 
     getStream(): string;
-    setStream(value: string): RabbitStreamsReadOpts;
+    setStream(value: string): RabbitStreamsReadArgs;
     getDeclareStream(): boolean;
-    setDeclareStream(value: boolean): RabbitStreamsReadOpts;
+    setDeclareStream(value: boolean): RabbitStreamsReadArgs;
     getDeclareStreamSize(): string;
-    setDeclareStreamSize(value: string): RabbitStreamsReadOpts;
+    setDeclareStreamSize(value: string): RabbitStreamsReadArgs;
 
     hasOffsetOptions(): boolean;
     clearOffsetOptions(): void;
     getOffsetOptions(): RabbitStreamsOffsetOptions | undefined;
-    setOffsetOptions(value?: RabbitStreamsOffsetOptions): RabbitStreamsReadOpts;
+    setOffsetOptions(value?: RabbitStreamsOffsetOptions): RabbitStreamsReadArgs;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): RabbitStreamsReadOpts.AsObject;
-    static toObject(includeInstance: boolean, msg: RabbitStreamsReadOpts): RabbitStreamsReadOpts.AsObject;
+    toObject(includeInstance?: boolean): RabbitStreamsReadArgs.AsObject;
+    static toObject(includeInstance: boolean, msg: RabbitStreamsReadArgs): RabbitStreamsReadArgs.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: RabbitStreamsReadOpts, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): RabbitStreamsReadOpts;
-    static deserializeBinaryFromReader(message: RabbitStreamsReadOpts, reader: jspb.BinaryReader): RabbitStreamsReadOpts;
+    static serializeBinaryToWriter(message: RabbitStreamsReadArgs, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): RabbitStreamsReadArgs;
+    static deserializeBinaryFromReader(message: RabbitStreamsReadArgs, reader: jspb.BinaryReader): RabbitStreamsReadArgs;
 }
 
-export namespace RabbitStreamsReadOpts {
+export namespace RabbitStreamsReadArgs {
     export type AsObject = {
         stream: string,
         declareStream: boolean,
@@ -105,25 +105,25 @@ export namespace RabbitStreamsReadOpts {
     }
 }
 
-export class RabbitStreamsWriteOpts extends jspb.Message { 
+export class RabbitStreamsWriteArgs extends jspb.Message { 
     getStream(): string;
-    setStream(value: string): RabbitStreamsWriteOpts;
+    setStream(value: string): RabbitStreamsWriteArgs;
     getDeclareStream(): boolean;
-    setDeclareStream(value: boolean): RabbitStreamsWriteOpts;
+    setDeclareStream(value: boolean): RabbitStreamsWriteArgs;
     getDeclareStreamSize(): string;
-    setDeclareStreamSize(value: string): RabbitStreamsWriteOpts;
+    setDeclareStreamSize(value: string): RabbitStreamsWriteArgs;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): RabbitStreamsWriteOpts.AsObject;
-    static toObject(includeInstance: boolean, msg: RabbitStreamsWriteOpts): RabbitStreamsWriteOpts.AsObject;
+    toObject(includeInstance?: boolean): RabbitStreamsWriteArgs.AsObject;
+    static toObject(includeInstance: boolean, msg: RabbitStreamsWriteArgs): RabbitStreamsWriteArgs.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: RabbitStreamsWriteOpts, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): RabbitStreamsWriteOpts;
-    static deserializeBinaryFromReader(message: RabbitStreamsWriteOpts, reader: jspb.BinaryReader): RabbitStreamsWriteOpts;
+    static serializeBinaryToWriter(message: RabbitStreamsWriteArgs, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): RabbitStreamsWriteArgs;
+    static deserializeBinaryFromReader(message: RabbitStreamsWriteArgs, reader: jspb.BinaryReader): RabbitStreamsWriteArgs;
 }
 
-export namespace RabbitStreamsWriteOpts {
+export namespace RabbitStreamsWriteArgs {
     export type AsObject = {
         stream: string,
         declareStream: boolean,

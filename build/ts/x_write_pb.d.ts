@@ -158,8 +158,8 @@ export class WriteOptsKafka extends jspb.Message {
 
     hasArgs(): boolean;
     clearArgs(): void;
-    getArgs(): args_kafka_pb.KafkaWriteOpts | undefined;
-    setArgs(value?: args_kafka_pb.KafkaWriteOpts): WriteOptsKafka;
+    getArgs(): args_kafka_pb.KafkaWriteArgs | undefined;
+    setArgs(value?: args_kafka_pb.KafkaWriteArgs): WriteOptsKafka;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): WriteOptsKafka.AsObject;
@@ -174,7 +174,7 @@ export class WriteOptsKafka extends jspb.Message {
 export namespace WriteOptsKafka {
     export type AsObject = {
         Conn?: args_kafka_pb.KafkaConn.AsObject,
-        args?: args_kafka_pb.KafkaWriteOpts.AsObject,
+        args?: args_kafka_pb.KafkaWriteArgs.AsObject,
     }
 }
 
@@ -187,8 +187,8 @@ export class WriteOptsActiveMQ extends jspb.Message {
 
     hasArgs(): boolean;
     clearArgs(): void;
-    getArgs(): args_activemq_pb.ActiveMQWriteOpts | undefined;
-    setArgs(value?: args_activemq_pb.ActiveMQWriteOpts): WriteOptsActiveMQ;
+    getArgs(): args_activemq_pb.ActiveMQWriteArgs | undefined;
+    setArgs(value?: args_activemq_pb.ActiveMQWriteArgs): WriteOptsActiveMQ;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): WriteOptsActiveMQ.AsObject;
@@ -203,7 +203,7 @@ export class WriteOptsActiveMQ extends jspb.Message {
 export namespace WriteOptsActiveMQ {
     export type AsObject = {
         Conn?: args_activemq_pb.ActiveMQConn.AsObject,
-        args?: args_activemq_pb.ActiveMQWriteOpts.AsObject,
+        args?: args_activemq_pb.ActiveMQWriteArgs.AsObject,
     }
 }
 
@@ -216,8 +216,8 @@ export class WriteOptsAWSSQS extends jspb.Message {
 
     hasArgs(): boolean;
     clearArgs(): void;
-    getArgs(): args_aws_sqs_pb.AWSSQSWriteOpts | undefined;
-    setArgs(value?: args_aws_sqs_pb.AWSSQSWriteOpts): WriteOptsAWSSQS;
+    getArgs(): args_aws_sqs_pb.AWSSQSWriteArgs | undefined;
+    setArgs(value?: args_aws_sqs_pb.AWSSQSWriteArgs): WriteOptsAWSSQS;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): WriteOptsAWSSQS.AsObject;
@@ -232,7 +232,7 @@ export class WriteOptsAWSSQS extends jspb.Message {
 export namespace WriteOptsAWSSQS {
     export type AsObject = {
         Conn?: args_aws_sqs_pb.AWSSQSConn.AsObject,
-        args?: args_aws_sqs_pb.AWSSQSWriteOpts.AsObject,
+        args?: args_aws_sqs_pb.AWSSQSWriteArgs.AsObject,
     }
 }
 
@@ -245,8 +245,8 @@ export class WriteOptsAWSSNS extends jspb.Message {
 
     hasArgs(): boolean;
     clearArgs(): void;
-    getArgs(): args_aws_sns_pb.AWSSNSWriteOpts | undefined;
-    setArgs(value?: args_aws_sns_pb.AWSSNSWriteOpts): WriteOptsAWSSNS;
+    getArgs(): args_aws_sns_pb.AWSSNSWriteArgs | undefined;
+    setArgs(value?: args_aws_sns_pb.AWSSNSWriteArgs): WriteOptsAWSSNS;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): WriteOptsAWSSNS.AsObject;
@@ -261,7 +261,7 @@ export class WriteOptsAWSSNS extends jspb.Message {
 export namespace WriteOptsAWSSNS {
     export type AsObject = {
         Conn?: args_aws_sns_pb.AWSSNSConn.AsObject,
-        args?: args_aws_sns_pb.AWSSNSWriteOpts.AsObject,
+        args?: args_aws_sns_pb.AWSSNSWriteArgs.AsObject,
     }
 }
 
@@ -274,8 +274,8 @@ export class WriteOptsNats extends jspb.Message {
 
     hasArgs(): boolean;
     clearArgs(): void;
-    getArgs(): args_nats_pb.NatsWriteOpts | undefined;
-    setArgs(value?: args_nats_pb.NatsWriteOpts): WriteOptsNats;
+    getArgs(): args_nats_pb.NatsWriteArgs | undefined;
+    setArgs(value?: args_nats_pb.NatsWriteArgs): WriteOptsNats;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): WriteOptsNats.AsObject;
@@ -290,7 +290,7 @@ export class WriteOptsNats extends jspb.Message {
 export namespace WriteOptsNats {
     export type AsObject = {
         Conn?: args_nats_pb.NatsConn.AsObject,
-        args?: args_nats_pb.NatsWriteOpts.AsObject,
+        args?: args_nats_pb.NatsWriteArgs.AsObject,
     }
 }
 
@@ -303,8 +303,8 @@ export class WriteOptsNatsStreaming extends jspb.Message {
 
     hasArgs(): boolean;
     clearArgs(): void;
-    getArgs(): args_nats_streaming_pb.NatsStreamingWriteOpts | undefined;
-    setArgs(value?: args_nats_streaming_pb.NatsStreamingWriteOpts): WriteOptsNatsStreaming;
+    getArgs(): args_nats_streaming_pb.NatsStreamingWriteArgs | undefined;
+    setArgs(value?: args_nats_streaming_pb.NatsStreamingWriteArgs): WriteOptsNatsStreaming;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): WriteOptsNatsStreaming.AsObject;
@@ -319,7 +319,7 @@ export class WriteOptsNatsStreaming extends jspb.Message {
 export namespace WriteOptsNatsStreaming {
     export type AsObject = {
         Conn?: args_nats_streaming_pb.NatsStreamingConn.AsObject,
-        args?: args_nats_streaming_pb.NatsStreamingWriteOpts.AsObject,
+        args?: args_nats_streaming_pb.NatsStreamingWriteArgs.AsObject,
     }
 }
 
@@ -332,8 +332,8 @@ export class WriteOptsNSQ extends jspb.Message {
 
     hasArgs(): boolean;
     clearArgs(): void;
-    getArgs(): args_nsq_pb.NSQWriteOpts | undefined;
-    setArgs(value?: args_nsq_pb.NSQWriteOpts): WriteOptsNSQ;
+    getArgs(): args_nsq_pb.NSQWriteArgs | undefined;
+    setArgs(value?: args_nsq_pb.NSQWriteArgs): WriteOptsNSQ;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): WriteOptsNSQ.AsObject;
@@ -348,7 +348,7 @@ export class WriteOptsNSQ extends jspb.Message {
 export namespace WriteOptsNSQ {
     export type AsObject = {
         Conn?: args_nsq_pb.NSQConn.AsObject,
-        args?: args_nsq_pb.NSQWriteOpts.AsObject,
+        args?: args_nsq_pb.NSQWriteArgs.AsObject,
     }
 }
 
@@ -361,8 +361,8 @@ export class WriteOptsPulsar extends jspb.Message {
 
     hasArgs(): boolean;
     clearArgs(): void;
-    getArgs(): args_pulsar_pb.PulsarWriteOpts | undefined;
-    setArgs(value?: args_pulsar_pb.PulsarWriteOpts): WriteOptsPulsar;
+    getArgs(): args_pulsar_pb.PulsarWriteArgs | undefined;
+    setArgs(value?: args_pulsar_pb.PulsarWriteArgs): WriteOptsPulsar;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): WriteOptsPulsar.AsObject;
@@ -377,7 +377,7 @@ export class WriteOptsPulsar extends jspb.Message {
 export namespace WriteOptsPulsar {
     export type AsObject = {
         Conn?: args_pulsar_pb.PulsarConn.AsObject,
-        args?: args_pulsar_pb.PulsarWriteOpts.AsObject,
+        args?: args_pulsar_pb.PulsarWriteArgs.AsObject,
     }
 }
 
@@ -390,8 +390,8 @@ export class WriteOptsRabbit extends jspb.Message {
 
     hasArgs(): boolean;
     clearArgs(): void;
-    getArgs(): args_rabbit_pb.RabbitWriteOpts | undefined;
-    setArgs(value?: args_rabbit_pb.RabbitWriteOpts): WriteOptsRabbit;
+    getArgs(): args_rabbit_pb.RabbitWriteArgs | undefined;
+    setArgs(value?: args_rabbit_pb.RabbitWriteArgs): WriteOptsRabbit;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): WriteOptsRabbit.AsObject;
@@ -406,7 +406,7 @@ export class WriteOptsRabbit extends jspb.Message {
 export namespace WriteOptsRabbit {
     export type AsObject = {
         Conn?: args_rabbit_pb.RabbitConn.AsObject,
-        args?: args_rabbit_pb.RabbitWriteOpts.AsObject,
+        args?: args_rabbit_pb.RabbitWriteArgs.AsObject,
     }
 }
 
@@ -419,8 +419,8 @@ export class WriteOptsRabbitStreams extends jspb.Message {
 
     hasArgs(): boolean;
     clearArgs(): void;
-    getArgs(): args_rabbit_streams_pb.RabbitStreamsWriteOpts | undefined;
-    setArgs(value?: args_rabbit_streams_pb.RabbitStreamsWriteOpts): WriteOptsRabbitStreams;
+    getArgs(): args_rabbit_streams_pb.RabbitStreamsWriteArgs | undefined;
+    setArgs(value?: args_rabbit_streams_pb.RabbitStreamsWriteArgs): WriteOptsRabbitStreams;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): WriteOptsRabbitStreams.AsObject;
@@ -435,7 +435,7 @@ export class WriteOptsRabbitStreams extends jspb.Message {
 export namespace WriteOptsRabbitStreams {
     export type AsObject = {
         Conn?: args_rabbit_streams_pb.RabbitStreamsConn.AsObject,
-        args?: args_rabbit_streams_pb.RabbitStreamsWriteOpts.AsObject,
+        args?: args_rabbit_streams_pb.RabbitStreamsWriteArgs.AsObject,
     }
 }
 
@@ -448,8 +448,8 @@ export class WriteOptsRedisPubSub extends jspb.Message {
 
     hasArgs(): boolean;
     clearArgs(): void;
-    getArgs(): args_redis_pubsub_pb.RedisPubSubWriteOpts | undefined;
-    setArgs(value?: args_redis_pubsub_pb.RedisPubSubWriteOpts): WriteOptsRedisPubSub;
+    getArgs(): args_redis_pubsub_pb.RedisPubSubWriteArgs | undefined;
+    setArgs(value?: args_redis_pubsub_pb.RedisPubSubWriteArgs): WriteOptsRedisPubSub;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): WriteOptsRedisPubSub.AsObject;
@@ -464,7 +464,7 @@ export class WriteOptsRedisPubSub extends jspb.Message {
 export namespace WriteOptsRedisPubSub {
     export type AsObject = {
         Conn?: args_redis_pubsub_pb.RedisPubSubConn.AsObject,
-        args?: args_redis_pubsub_pb.RedisPubSubWriteOpts.AsObject,
+        args?: args_redis_pubsub_pb.RedisPubSubWriteArgs.AsObject,
     }
 }
 
@@ -477,8 +477,8 @@ export class WriteOptsRedisStreams extends jspb.Message {
 
     hasArgs(): boolean;
     clearArgs(): void;
-    getArgs(): args_redis_streams_pb.RedisStreamsWriteOpts | undefined;
-    setArgs(value?: args_redis_streams_pb.RedisStreamsWriteOpts): WriteOptsRedisStreams;
+    getArgs(): args_redis_streams_pb.RedisStreamsWriteArgs | undefined;
+    setArgs(value?: args_redis_streams_pb.RedisStreamsWriteArgs): WriteOptsRedisStreams;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): WriteOptsRedisStreams.AsObject;
@@ -493,7 +493,7 @@ export class WriteOptsRedisStreams extends jspb.Message {
 export namespace WriteOptsRedisStreams {
     export type AsObject = {
         Conn?: args_redis_streams_pb.RedisStreamsConn.AsObject,
-        args?: args_redis_streams_pb.RedisStreamsWriteOpts.AsObject,
+        args?: args_redis_streams_pb.RedisStreamsWriteArgs.AsObject,
     }
 }
 
@@ -506,8 +506,8 @@ export class WriteOptsAzureEventHub extends jspb.Message {
 
     hasArgs(): boolean;
     clearArgs(): void;
-    getArgs(): args_azure_event_hub_pb.AzureEventHubWriteOpts | undefined;
-    setArgs(value?: args_azure_event_hub_pb.AzureEventHubWriteOpts): WriteOptsAzureEventHub;
+    getArgs(): args_azure_event_hub_pb.AzureEventHubWriteArgs | undefined;
+    setArgs(value?: args_azure_event_hub_pb.AzureEventHubWriteArgs): WriteOptsAzureEventHub;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): WriteOptsAzureEventHub.AsObject;
@@ -522,7 +522,7 @@ export class WriteOptsAzureEventHub extends jspb.Message {
 export namespace WriteOptsAzureEventHub {
     export type AsObject = {
         Conn?: args_azure_event_hub_pb.AzureEventHubConn.AsObject,
-        args?: args_azure_event_hub_pb.AzureEventHubWriteOpts.AsObject,
+        args?: args_azure_event_hub_pb.AzureEventHubWriteArgs.AsObject,
     }
 }
 
@@ -535,8 +535,8 @@ export class WriteOptsAzureServiceBus extends jspb.Message {
 
     hasArgs(): boolean;
     clearArgs(): void;
-    getArgs(): args_azure_service_bus_pb.AzureServiceBusWriteOpts | undefined;
-    setArgs(value?: args_azure_service_bus_pb.AzureServiceBusWriteOpts): WriteOptsAzureServiceBus;
+    getArgs(): args_azure_service_bus_pb.AzureServiceBusWriteArgs | undefined;
+    setArgs(value?: args_azure_service_bus_pb.AzureServiceBusWriteArgs): WriteOptsAzureServiceBus;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): WriteOptsAzureServiceBus.AsObject;
@@ -551,7 +551,7 @@ export class WriteOptsAzureServiceBus extends jspb.Message {
 export namespace WriteOptsAzureServiceBus {
     export type AsObject = {
         Conn?: args_azure_service_bus_pb.AzureServiceBusConn.AsObject,
-        args?: args_azure_service_bus_pb.AzureServiceBusWriteOpts.AsObject,
+        args?: args_azure_service_bus_pb.AzureServiceBusWriteArgs.AsObject,
     }
 }
 
@@ -564,8 +564,8 @@ export class WriteOptsMQTT extends jspb.Message {
 
     hasArgs(): boolean;
     clearArgs(): void;
-    getArgs(): args_mqtt_pb.MQTTWriteOpts | undefined;
-    setArgs(value?: args_mqtt_pb.MQTTWriteOpts): WriteOptsMQTT;
+    getArgs(): args_mqtt_pb.MQTTWriteArgs | undefined;
+    setArgs(value?: args_mqtt_pb.MQTTWriteArgs): WriteOptsMQTT;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): WriteOptsMQTT.AsObject;
@@ -580,7 +580,7 @@ export class WriteOptsMQTT extends jspb.Message {
 export namespace WriteOptsMQTT {
     export type AsObject = {
         Conn?: args_mqtt_pb.MQTTConn.AsObject,
-        args?: args_mqtt_pb.MQTTWriteOpts.AsObject,
+        args?: args_mqtt_pb.MQTTWriteArgs.AsObject,
     }
 }
 
@@ -593,8 +593,8 @@ export class WriteOptsGCPPubSub extends jspb.Message {
 
     hasArgs(): boolean;
     clearArgs(): void;
-    getArgs(): args_gcp_pubsub_pb.GCPPubSubWriteOpts | undefined;
-    setArgs(value?: args_gcp_pubsub_pb.GCPPubSubWriteOpts): WriteOptsGCPPubSub;
+    getArgs(): args_gcp_pubsub_pb.GCPPubSubWriteArgs | undefined;
+    setArgs(value?: args_gcp_pubsub_pb.GCPPubSubWriteArgs): WriteOptsGCPPubSub;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): WriteOptsGCPPubSub.AsObject;
@@ -609,7 +609,7 @@ export class WriteOptsGCPPubSub extends jspb.Message {
 export namespace WriteOptsGCPPubSub {
     export type AsObject = {
         Conn?: args_gcp_pubsub_pb.GCPPubSubConn.AsObject,
-        args?: args_gcp_pubsub_pb.GCPPubSubWriteOpts.AsObject,
+        args?: args_gcp_pubsub_pb.GCPPubSubWriteArgs.AsObject,
     }
 }
 
@@ -622,8 +622,8 @@ export class WriteOptsKubeMQQueue extends jspb.Message {
 
     hasArgs(): boolean;
     clearArgs(): void;
-    getArgs(): args_kubemq_queue_pb.KubeMQQueueWriteOpts | undefined;
-    setArgs(value?: args_kubemq_queue_pb.KubeMQQueueWriteOpts): WriteOptsKubeMQQueue;
+    getArgs(): args_kubemq_queue_pb.KubeMQQueueWriteArgs | undefined;
+    setArgs(value?: args_kubemq_queue_pb.KubeMQQueueWriteArgs): WriteOptsKubeMQQueue;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): WriteOptsKubeMQQueue.AsObject;
@@ -638,6 +638,6 @@ export class WriteOptsKubeMQQueue extends jspb.Message {
 export namespace WriteOptsKubeMQQueue {
     export type AsObject = {
         Conn?: args_kubemq_queue_pb.KubeMQQueueConn.AsObject,
-        args?: args_kubemq_queue_pb.KubeMQQueueWriteOpts.AsObject,
+        args?: args_kubemq_queue_pb.KubeMQQueueWriteArgs.AsObject,
     }
 }

@@ -32,37 +32,37 @@ export namespace RabbitConn {
     }
 }
 
-export class RabbitReadOpts extends jspb.Message { 
+export class RabbitReadArgs extends jspb.Message { 
     getExchangeName(): string;
-    setExchangeName(value: string): RabbitReadOpts;
+    setExchangeName(value: string): RabbitReadArgs;
     getQueueName(): string;
-    setQueueName(value: string): RabbitReadOpts;
+    setQueueName(value: string): RabbitReadArgs;
     getBindingKey(): string;
-    setBindingKey(value: string): RabbitReadOpts;
+    setBindingKey(value: string): RabbitReadArgs;
     getQueueExclusive(): boolean;
-    setQueueExclusive(value: boolean): RabbitReadOpts;
+    setQueueExclusive(value: boolean): RabbitReadArgs;
     getQueueDeclare(): boolean;
-    setQueueDeclare(value: boolean): RabbitReadOpts;
+    setQueueDeclare(value: boolean): RabbitReadArgs;
     getQueueDurable(): boolean;
-    setQueueDurable(value: boolean): RabbitReadOpts;
+    setQueueDurable(value: boolean): RabbitReadArgs;
     getAutoAck(): boolean;
-    setAutoAck(value: boolean): RabbitReadOpts;
+    setAutoAck(value: boolean): RabbitReadArgs;
     getConsumerTag(): string;
-    setConsumerTag(value: string): RabbitReadOpts;
+    setConsumerTag(value: string): RabbitReadArgs;
     getQueueDelete(): boolean;
-    setQueueDelete(value: boolean): RabbitReadOpts;
+    setQueueDelete(value: boolean): RabbitReadArgs;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): RabbitReadOpts.AsObject;
-    static toObject(includeInstance: boolean, msg: RabbitReadOpts): RabbitReadOpts.AsObject;
+    toObject(includeInstance?: boolean): RabbitReadArgs.AsObject;
+    static toObject(includeInstance: boolean, msg: RabbitReadArgs): RabbitReadArgs.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: RabbitReadOpts, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): RabbitReadOpts;
-    static deserializeBinaryFromReader(message: RabbitReadOpts, reader: jspb.BinaryReader): RabbitReadOpts;
+    static serializeBinaryToWriter(message: RabbitReadArgs, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): RabbitReadArgs;
+    static deserializeBinaryFromReader(message: RabbitReadArgs, reader: jspb.BinaryReader): RabbitReadArgs;
 }
 
-export namespace RabbitReadOpts {
+export namespace RabbitReadArgs {
     export type AsObject = {
         exchangeName: string,
         queueName: string,
@@ -76,25 +76,25 @@ export namespace RabbitReadOpts {
     }
 }
 
-export class RabbitWriteOpts extends jspb.Message { 
+export class RabbitWriteArgs extends jspb.Message { 
     getExchangeName(): string;
-    setExchangeName(value: string): RabbitWriteOpts;
+    setExchangeName(value: string): RabbitWriteArgs;
     getRoutingKey(): string;
-    setRoutingKey(value: string): RabbitWriteOpts;
+    setRoutingKey(value: string): RabbitWriteArgs;
     getAppId(): string;
-    setAppId(value: string): RabbitWriteOpts;
+    setAppId(value: string): RabbitWriteArgs;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): RabbitWriteOpts.AsObject;
-    static toObject(includeInstance: boolean, msg: RabbitWriteOpts): RabbitWriteOpts.AsObject;
+    toObject(includeInstance?: boolean): RabbitWriteArgs.AsObject;
+    static toObject(includeInstance: boolean, msg: RabbitWriteArgs): RabbitWriteArgs.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: RabbitWriteOpts, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): RabbitWriteOpts;
-    static deserializeBinaryFromReader(message: RabbitWriteOpts, reader: jspb.BinaryReader): RabbitWriteOpts;
+    static serializeBinaryToWriter(message: RabbitWriteArgs, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): RabbitWriteArgs;
+    static deserializeBinaryFromReader(message: RabbitWriteArgs, reader: jspb.BinaryReader): RabbitWriteArgs;
 }
 
-export namespace RabbitWriteOpts {
+export namespace RabbitWriteArgs {
     export type AsObject = {
         exchangeName: string,
         routingKey: string,

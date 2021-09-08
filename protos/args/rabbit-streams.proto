@@ -41,7 +41,7 @@ message RabbitStreamsOffsetOptions {
   bool next_offset = 5;
 }
 
-message RabbitStreamsReadOpts {
+message RabbitStreamsReadArgs {
   // @gotags: kong:"help='Stream name',required"
   string stream = 1;
 
@@ -56,7 +56,7 @@ message RabbitStreamsReadOpts {
   RabbitStreamsOffsetOptions offset_options = 4;
 }
 
-message RabbitStreamsWriteOpts {
+message RabbitStreamsWriteArgs {
   // @gotags: kong:"help='',required"
   string stream = 1;
 

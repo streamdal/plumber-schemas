@@ -53,41 +53,41 @@ export namespace KafkaConn {
 
 }
 
-export class KafkaReadOpts extends jspb.Message { 
+export class KafkaReadArgs extends jspb.Message { 
     clearTopicsList(): void;
     getTopicsList(): Array<string>;
-    setTopicsList(value: Array<string>): KafkaReadOpts;
+    setTopicsList(value: Array<string>): KafkaReadArgs;
     addTopics(value: string, index?: number): string;
     getReadOffset(): number;
-    setReadOffset(value: number): KafkaReadOpts;
+    setReadOffset(value: number): KafkaReadArgs;
     getUseConsumerGroup(): boolean;
-    setUseConsumerGroup(value: boolean): KafkaReadOpts;
+    setUseConsumerGroup(value: boolean): KafkaReadArgs;
     getConsumerGroupName(): string;
-    setConsumerGroupName(value: string): KafkaReadOpts;
+    setConsumerGroupName(value: string): KafkaReadArgs;
     getMaxWaitSeconds(): number;
-    setMaxWaitSeconds(value: number): KafkaReadOpts;
+    setMaxWaitSeconds(value: number): KafkaReadArgs;
     getMinBytes(): number;
-    setMinBytes(value: number): KafkaReadOpts;
+    setMinBytes(value: number): KafkaReadArgs;
     getMaxBytes(): number;
-    setMaxBytes(value: number): KafkaReadOpts;
+    setMaxBytes(value: number): KafkaReadArgs;
     getCommitIntervalSeconds(): number;
-    setCommitIntervalSeconds(value: number): KafkaReadOpts;
+    setCommitIntervalSeconds(value: number): KafkaReadArgs;
     getRebalanceTimeoutSeconds(): number;
-    setRebalanceTimeoutSeconds(value: number): KafkaReadOpts;
+    setRebalanceTimeoutSeconds(value: number): KafkaReadArgs;
     getQueueCapacity(): number;
-    setQueueCapacity(value: number): KafkaReadOpts;
+    setQueueCapacity(value: number): KafkaReadArgs;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): KafkaReadOpts.AsObject;
-    static toObject(includeInstance: boolean, msg: KafkaReadOpts): KafkaReadOpts.AsObject;
+    toObject(includeInstance?: boolean): KafkaReadArgs.AsObject;
+    static toObject(includeInstance: boolean, msg: KafkaReadArgs): KafkaReadArgs.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: KafkaReadOpts, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): KafkaReadOpts;
-    static deserializeBinaryFromReader(message: KafkaReadOpts, reader: jspb.BinaryReader): KafkaReadOpts;
+    static serializeBinaryToWriter(message: KafkaReadArgs, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): KafkaReadArgs;
+    static deserializeBinaryFromReader(message: KafkaReadArgs, reader: jspb.BinaryReader): KafkaReadArgs;
 }
 
-export namespace KafkaReadOpts {
+export namespace KafkaReadArgs {
     export type AsObject = {
         topicsList: Array<string>,
         readOffset: number,
@@ -102,24 +102,24 @@ export namespace KafkaReadOpts {
     }
 }
 
-export class KafkaWriteOpts extends jspb.Message { 
+export class KafkaWriteArgs extends jspb.Message { 
     getKey(): string;
-    setKey(value: string): KafkaWriteOpts;
+    setKey(value: string): KafkaWriteArgs;
 
     getHeadersMap(): jspb.Map<string, string>;
     clearHeadersMap(): void;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): KafkaWriteOpts.AsObject;
-    static toObject(includeInstance: boolean, msg: KafkaWriteOpts): KafkaWriteOpts.AsObject;
+    toObject(includeInstance?: boolean): KafkaWriteArgs.AsObject;
+    static toObject(includeInstance: boolean, msg: KafkaWriteArgs): KafkaWriteArgs.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: KafkaWriteOpts, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): KafkaWriteOpts;
-    static deserializeBinaryFromReader(message: KafkaWriteOpts, reader: jspb.BinaryReader): KafkaWriteOpts;
+    static serializeBinaryToWriter(message: KafkaWriteArgs, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): KafkaWriteArgs;
+    static deserializeBinaryFromReader(message: KafkaWriteArgs, reader: jspb.BinaryReader): KafkaWriteArgs;
 }
 
-export namespace KafkaWriteOpts {
+export namespace KafkaWriteArgs {
     export type AsObject = {
         key: string,
 
@@ -127,41 +127,41 @@ export namespace KafkaWriteOpts {
     }
 }
 
-export class KafkaRelayOpts extends jspb.Message { 
+export class KafkaRelayArgs extends jspb.Message { 
     clearTopicsList(): void;
     getTopicsList(): Array<string>;
-    setTopicsList(value: Array<string>): KafkaRelayOpts;
+    setTopicsList(value: Array<string>): KafkaRelayArgs;
     addTopics(value: string, index?: number): string;
     getReadOffset(): number;
-    setReadOffset(value: number): KafkaRelayOpts;
+    setReadOffset(value: number): KafkaRelayArgs;
     getUseConsumerGroup(): boolean;
-    setUseConsumerGroup(value: boolean): KafkaRelayOpts;
+    setUseConsumerGroup(value: boolean): KafkaRelayArgs;
     getConsumerGroupName(): string;
-    setConsumerGroupName(value: string): KafkaRelayOpts;
+    setConsumerGroupName(value: string): KafkaRelayArgs;
     getMaxWaitSeconds(): number;
-    setMaxWaitSeconds(value: number): KafkaRelayOpts;
+    setMaxWaitSeconds(value: number): KafkaRelayArgs;
     getMinBytes(): number;
-    setMinBytes(value: number): KafkaRelayOpts;
+    setMinBytes(value: number): KafkaRelayArgs;
     getMaxBytes(): number;
-    setMaxBytes(value: number): KafkaRelayOpts;
+    setMaxBytes(value: number): KafkaRelayArgs;
     getCommitIntervalSeconds(): number;
-    setCommitIntervalSeconds(value: number): KafkaRelayOpts;
+    setCommitIntervalSeconds(value: number): KafkaRelayArgs;
     getRebalanceTimeoutSeconds(): number;
-    setRebalanceTimeoutSeconds(value: number): KafkaRelayOpts;
+    setRebalanceTimeoutSeconds(value: number): KafkaRelayArgs;
     getQueueCapacity(): number;
-    setQueueCapacity(value: number): KafkaRelayOpts;
+    setQueueCapacity(value: number): KafkaRelayArgs;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): KafkaRelayOpts.AsObject;
-    static toObject(includeInstance: boolean, msg: KafkaRelayOpts): KafkaRelayOpts.AsObject;
+    toObject(includeInstance?: boolean): KafkaRelayArgs.AsObject;
+    static toObject(includeInstance: boolean, msg: KafkaRelayArgs): KafkaRelayArgs.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: KafkaRelayOpts, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): KafkaRelayOpts;
-    static deserializeBinaryFromReader(message: KafkaRelayOpts, reader: jspb.BinaryReader): KafkaRelayOpts;
+    static serializeBinaryToWriter(message: KafkaRelayArgs, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): KafkaRelayArgs;
+    static deserializeBinaryFromReader(message: KafkaRelayArgs, reader: jspb.BinaryReader): KafkaRelayArgs;
 }
 
-export namespace KafkaRelayOpts {
+export namespace KafkaRelayArgs {
     export type AsObject = {
         topicsList: Array<string>,
         readOffset: number,

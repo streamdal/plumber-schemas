@@ -32,46 +32,46 @@ export namespace KubeMQQueueConn {
     }
 }
 
-export class KubeMQQueueReadOpts extends jspb.Message { 
+export class KubeMQQueueReadArgs extends jspb.Message { 
     getClientId(): string;
-    setClientId(value: string): KubeMQQueueReadOpts;
+    setClientId(value: string): KubeMQQueueReadArgs;
     getQueueName(): string;
-    setQueueName(value: string): KubeMQQueueReadOpts;
+    setQueueName(value: string): KubeMQQueueReadArgs;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): KubeMQQueueReadOpts.AsObject;
-    static toObject(includeInstance: boolean, msg: KubeMQQueueReadOpts): KubeMQQueueReadOpts.AsObject;
+    toObject(includeInstance?: boolean): KubeMQQueueReadArgs.AsObject;
+    static toObject(includeInstance: boolean, msg: KubeMQQueueReadArgs): KubeMQQueueReadArgs.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: KubeMQQueueReadOpts, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): KubeMQQueueReadOpts;
-    static deserializeBinaryFromReader(message: KubeMQQueueReadOpts, reader: jspb.BinaryReader): KubeMQQueueReadOpts;
+    static serializeBinaryToWriter(message: KubeMQQueueReadArgs, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): KubeMQQueueReadArgs;
+    static deserializeBinaryFromReader(message: KubeMQQueueReadArgs, reader: jspb.BinaryReader): KubeMQQueueReadArgs;
 }
 
-export namespace KubeMQQueueReadOpts {
+export namespace KubeMQQueueReadArgs {
     export type AsObject = {
         clientId: string,
         queueName: string,
     }
 }
 
-export class KubeMQQueueWriteOpts extends jspb.Message { 
+export class KubeMQQueueWriteArgs extends jspb.Message { 
     getClientId(): string;
-    setClientId(value: string): KubeMQQueueWriteOpts;
+    setClientId(value: string): KubeMQQueueWriteArgs;
     getQueueName(): string;
-    setQueueName(value: string): KubeMQQueueWriteOpts;
+    setQueueName(value: string): KubeMQQueueWriteArgs;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): KubeMQQueueWriteOpts.AsObject;
-    static toObject(includeInstance: boolean, msg: KubeMQQueueWriteOpts): KubeMQQueueWriteOpts.AsObject;
+    toObject(includeInstance?: boolean): KubeMQQueueWriteArgs.AsObject;
+    static toObject(includeInstance: boolean, msg: KubeMQQueueWriteArgs): KubeMQQueueWriteArgs.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: KubeMQQueueWriteOpts, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): KubeMQQueueWriteOpts;
-    static deserializeBinaryFromReader(message: KubeMQQueueWriteOpts, reader: jspb.BinaryReader): KubeMQQueueWriteOpts;
+    static serializeBinaryToWriter(message: KubeMQQueueWriteArgs, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): KubeMQQueueWriteArgs;
+    static deserializeBinaryFromReader(message: KubeMQQueueWriteArgs, reader: jspb.BinaryReader): KubeMQQueueWriteArgs;
 }
 
-export namespace KubeMQQueueWriteOpts {
+export namespace KubeMQQueueWriteArgs {
     export type AsObject = {
         clientId: string,
         queueName: string,

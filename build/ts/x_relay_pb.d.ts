@@ -116,8 +116,8 @@ export class RelayOptsKafka extends jspb.Message {
 
     hasArgs(): boolean;
     clearArgs(): void;
-    getArgs(): args_kafka_pb.KafkaRelayOpts | undefined;
-    setArgs(value?: args_kafka_pb.KafkaRelayOpts): RelayOptsKafka;
+    getArgs(): args_kafka_pb.KafkaRelayArgs | undefined;
+    setArgs(value?: args_kafka_pb.KafkaRelayArgs): RelayOptsKafka;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): RelayOptsKafka.AsObject;
@@ -131,8 +131,8 @@ export class RelayOptsKafka extends jspb.Message {
 
 export namespace RelayOptsKafka {
     export type AsObject = {
-        conn?: args_kafka_pb.KafkaConn.AsObject,
-        args?: args_kafka_pb.KafkaRelayOpts.AsObject,
+        Conn?: args_kafka_pb.KafkaConn.AsObject,
+        args?: args_kafka_pb.KafkaRelayArgs.AsObject,
     }
 }
 
@@ -145,8 +145,8 @@ export class RelayOptsAWSSQS extends jspb.Message {
 
     hasArgs(): boolean;
     clearArgs(): void;
-    getArgs(): args_aws_sqs_pb.AWSSQSRelayOpts | undefined;
-    setArgs(value?: args_aws_sqs_pb.AWSSQSRelayOpts): RelayOptsAWSSQS;
+    getArgs(): args_aws_sqs_pb.AWSSQSRelayArgs | undefined;
+    setArgs(value?: args_aws_sqs_pb.AWSSQSRelayArgs): RelayOptsAWSSQS;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): RelayOptsAWSSQS.AsObject;
@@ -160,8 +160,8 @@ export class RelayOptsAWSSQS extends jspb.Message {
 
 export namespace RelayOptsAWSSQS {
     export type AsObject = {
-        conn?: args_aws_sqs_pb.AWSSQSConn.AsObject,
-        args?: args_aws_sqs_pb.AWSSQSRelayOpts.AsObject,
+        Conn?: args_aws_sqs_pb.AWSSQSConn.AsObject,
+        args?: args_aws_sqs_pb.AWSSQSRelayArgs.AsObject,
     }
 }
 
@@ -174,8 +174,8 @@ export class RelayOptsMongo extends jspb.Message {
 
     hasArgs(): boolean;
     clearArgs(): void;
-    getArgs(): args_mongo_pb.MongoReadOpts | undefined;
-    setArgs(value?: args_mongo_pb.MongoReadOpts): RelayOptsMongo;
+    getArgs(): args_mongo_pb.MongoReadArgs | undefined;
+    setArgs(value?: args_mongo_pb.MongoReadArgs): RelayOptsMongo;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): RelayOptsMongo.AsObject;
@@ -189,8 +189,8 @@ export class RelayOptsMongo extends jspb.Message {
 
 export namespace RelayOptsMongo {
     export type AsObject = {
-        conn?: args_mongo_pb.MongoConn.AsObject,
-        args?: args_mongo_pb.MongoReadOpts.AsObject,
+        Conn?: args_mongo_pb.MongoConn.AsObject,
+        args?: args_mongo_pb.MongoReadArgs.AsObject,
     }
 }
 
@@ -203,8 +203,8 @@ export class RelayOptsNSQ extends jspb.Message {
 
     hasArgs(): boolean;
     clearArgs(): void;
-    getArgs(): args_nsq_pb.NSQReadOpts | undefined;
-    setArgs(value?: args_nsq_pb.NSQReadOpts): RelayOptsNSQ;
+    getArgs(): args_nsq_pb.NSQReadArgs | undefined;
+    setArgs(value?: args_nsq_pb.NSQReadArgs): RelayOptsNSQ;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): RelayOptsNSQ.AsObject;
@@ -218,8 +218,8 @@ export class RelayOptsNSQ extends jspb.Message {
 
 export namespace RelayOptsNSQ {
     export type AsObject = {
-        conn?: args_nsq_pb.NSQConn.AsObject,
-        args?: args_nsq_pb.NSQReadOpts.AsObject,
+        Conn?: args_nsq_pb.NSQConn.AsObject,
+        args?: args_nsq_pb.NSQReadArgs.AsObject,
     }
 }
 
@@ -232,8 +232,8 @@ export class RelayOptsPostgres extends jspb.Message {
 
     hasArgs(): boolean;
     clearArgs(): void;
-    getArgs(): args_postgres_pb.PostgresReadOpts | undefined;
-    setArgs(value?: args_postgres_pb.PostgresReadOpts): RelayOptsPostgres;
+    getArgs(): args_postgres_pb.PostgresReadArgs | undefined;
+    setArgs(value?: args_postgres_pb.PostgresReadArgs): RelayOptsPostgres;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): RelayOptsPostgres.AsObject;
@@ -247,8 +247,8 @@ export class RelayOptsPostgres extends jspb.Message {
 
 export namespace RelayOptsPostgres {
     export type AsObject = {
-        conn?: args_postgres_pb.PostgresConn.AsObject,
-        args?: args_postgres_pb.PostgresReadOpts.AsObject,
+        Conn?: args_postgres_pb.PostgresConn.AsObject,
+        args?: args_postgres_pb.PostgresReadArgs.AsObject,
     }
 }
 
@@ -261,8 +261,8 @@ export class RelayOptsRabbit extends jspb.Message {
 
     hasArgs(): boolean;
     clearArgs(): void;
-    getArgs(): args_rabbit_pb.RabbitReadOpts | undefined;
-    setArgs(value?: args_rabbit_pb.RabbitReadOpts): RelayOptsRabbit;
+    getArgs(): args_rabbit_pb.RabbitReadArgs | undefined;
+    setArgs(value?: args_rabbit_pb.RabbitReadArgs): RelayOptsRabbit;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): RelayOptsRabbit.AsObject;
@@ -276,8 +276,8 @@ export class RelayOptsRabbit extends jspb.Message {
 
 export namespace RelayOptsRabbit {
     export type AsObject = {
-        conn?: args_rabbit_pb.RabbitConn.AsObject,
-        args?: args_rabbit_pb.RabbitReadOpts.AsObject,
+        Conn?: args_rabbit_pb.RabbitConn.AsObject,
+        args?: args_rabbit_pb.RabbitReadArgs.AsObject,
     }
 }
 
@@ -290,8 +290,8 @@ export class RelayOptsRedisPubSub extends jspb.Message {
 
     hasArgs(): boolean;
     clearArgs(): void;
-    getArgs(): args_redis_pubsub_pb.RedisPubSubReadOpts | undefined;
-    setArgs(value?: args_redis_pubsub_pb.RedisPubSubReadOpts): RelayOptsRedisPubSub;
+    getArgs(): args_redis_pubsub_pb.RedisPubSubReadArgs | undefined;
+    setArgs(value?: args_redis_pubsub_pb.RedisPubSubReadArgs): RelayOptsRedisPubSub;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): RelayOptsRedisPubSub.AsObject;
@@ -305,8 +305,8 @@ export class RelayOptsRedisPubSub extends jspb.Message {
 
 export namespace RelayOptsRedisPubSub {
     export type AsObject = {
-        conn?: args_redis_pubsub_pb.RedisPubSubConn.AsObject,
-        args?: args_redis_pubsub_pb.RedisPubSubReadOpts.AsObject,
+        Conn?: args_redis_pubsub_pb.RedisPubSubConn.AsObject,
+        args?: args_redis_pubsub_pb.RedisPubSubReadArgs.AsObject,
     }
 }
 
@@ -319,8 +319,8 @@ export class RelayOptsRedisStreams extends jspb.Message {
 
     hasArgs(): boolean;
     clearArgs(): void;
-    getArgs(): args_redis_streams_pb.RedisStreamsReadOpts | undefined;
-    setArgs(value?: args_redis_streams_pb.RedisStreamsReadOpts): RelayOptsRedisStreams;
+    getArgs(): args_redis_streams_pb.RedisStreamsReadArgs | undefined;
+    setArgs(value?: args_redis_streams_pb.RedisStreamsReadArgs): RelayOptsRedisStreams;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): RelayOptsRedisStreams.AsObject;
@@ -334,8 +334,8 @@ export class RelayOptsRedisStreams extends jspb.Message {
 
 export namespace RelayOptsRedisStreams {
     export type AsObject = {
-        conn?: args_redis_streams_pb.RedisStreamsConn.AsObject,
-        args?: args_redis_streams_pb.RedisStreamsReadOpts.AsObject,
+        Conn?: args_redis_streams_pb.RedisStreamsConn.AsObject,
+        args?: args_redis_streams_pb.RedisStreamsReadArgs.AsObject,
     }
 }
 
@@ -348,8 +348,8 @@ export class RelayOptsAzureServiceBus extends jspb.Message {
 
     hasArgs(): boolean;
     clearArgs(): void;
-    getArgs(): args_azure_service_bus_pb.AzureServiceBusReadOpts | undefined;
-    setArgs(value?: args_azure_service_bus_pb.AzureServiceBusReadOpts): RelayOptsAzureServiceBus;
+    getArgs(): args_azure_service_bus_pb.AzureServiceBusReadArgs | undefined;
+    setArgs(value?: args_azure_service_bus_pb.AzureServiceBusReadArgs): RelayOptsAzureServiceBus;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): RelayOptsAzureServiceBus.AsObject;
@@ -363,8 +363,8 @@ export class RelayOptsAzureServiceBus extends jspb.Message {
 
 export namespace RelayOptsAzureServiceBus {
     export type AsObject = {
-        conn?: args_azure_service_bus_pb.AzureServiceBusConn.AsObject,
-        args?: args_azure_service_bus_pb.AzureServiceBusReadOpts.AsObject,
+        Conn?: args_azure_service_bus_pb.AzureServiceBusConn.AsObject,
+        args?: args_azure_service_bus_pb.AzureServiceBusReadArgs.AsObject,
     }
 }
 
@@ -377,8 +377,8 @@ export class RelayOptsMQTT extends jspb.Message {
 
     hasArgs(): boolean;
     clearArgs(): void;
-    getArgs(): args_mqtt_pb.MQTTReadOpts | undefined;
-    setArgs(value?: args_mqtt_pb.MQTTReadOpts): RelayOptsMQTT;
+    getArgs(): args_mqtt_pb.MQTTReadArgs | undefined;
+    setArgs(value?: args_mqtt_pb.MQTTReadArgs): RelayOptsMQTT;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): RelayOptsMQTT.AsObject;
@@ -392,8 +392,8 @@ export class RelayOptsMQTT extends jspb.Message {
 
 export namespace RelayOptsMQTT {
     export type AsObject = {
-        conn?: args_mqtt_pb.MQTTConn.AsObject,
-        args?: args_mqtt_pb.MQTTReadOpts.AsObject,
+        Conn?: args_mqtt_pb.MQTTConn.AsObject,
+        args?: args_mqtt_pb.MQTTReadArgs.AsObject,
     }
 }
 
@@ -406,8 +406,8 @@ export class RelayOptsGCPPubSub extends jspb.Message {
 
     hasArgs(): boolean;
     clearArgs(): void;
-    getArgs(): args_gcp_pubsub_pb.GCPPubSubReadOpts | undefined;
-    setArgs(value?: args_gcp_pubsub_pb.GCPPubSubReadOpts): RelayOptsGCPPubSub;
+    getArgs(): args_gcp_pubsub_pb.GCPPubSubReadArgs | undefined;
+    setArgs(value?: args_gcp_pubsub_pb.GCPPubSubReadArgs): RelayOptsGCPPubSub;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): RelayOptsGCPPubSub.AsObject;
@@ -421,8 +421,8 @@ export class RelayOptsGCPPubSub extends jspb.Message {
 
 export namespace RelayOptsGCPPubSub {
     export type AsObject = {
-        conn?: args_gcp_pubsub_pb.GCPPubSubConn.AsObject,
-        args?: args_gcp_pubsub_pb.GCPPubSubReadOpts.AsObject,
+        Conn?: args_gcp_pubsub_pb.GCPPubSubConn.AsObject,
+        args?: args_gcp_pubsub_pb.GCPPubSubReadArgs.AsObject,
     }
 }
 
@@ -435,8 +435,8 @@ export class RelayOptsKubeMQQueue extends jspb.Message {
 
     hasArgs(): boolean;
     clearArgs(): void;
-    getArgs(): args_kubemq_queue_pb.KubeMQQueueReadOpts | undefined;
-    setArgs(value?: args_kubemq_queue_pb.KubeMQQueueReadOpts): RelayOptsKubeMQQueue;
+    getArgs(): args_kubemq_queue_pb.KubeMQQueueReadArgs | undefined;
+    setArgs(value?: args_kubemq_queue_pb.KubeMQQueueReadArgs): RelayOptsKubeMQQueue;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): RelayOptsKubeMQQueue.AsObject;
@@ -450,7 +450,7 @@ export class RelayOptsKubeMQQueue extends jspb.Message {
 
 export namespace RelayOptsKubeMQQueue {
     export type AsObject = {
-        conn?: args_kubemq_queue_pb.KubeMQQueueConn.AsObject,
-        args?: args_kubemq_queue_pb.KubeMQQueueReadOpts.AsObject,
+        Conn?: args_kubemq_queue_pb.KubeMQQueueConn.AsObject,
+        args?: args_kubemq_queue_pb.KubeMQQueueReadArgs.AsObject,
     }
 }

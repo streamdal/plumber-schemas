@@ -15,7 +15,7 @@ message KubeMQQueueConn {
     string tls_cert_file = 3;
 }
 
-message KubeMQQueueReadOpts {
+message KubeMQQueueReadArgs {
     // @gotags: kong:"help='KubeMQ client ID',env='PLUMBER_RELAY_KUBEMQ_QUEUE_CLIENT_ID',default=plumber"
     string client_id = 2;
 
@@ -23,7 +23,7 @@ message KubeMQQueueReadOpts {
     string queue_name = 3;
 }
 
-message KubeMQQueueWriteOpts {
+message KubeMQQueueWriteArgs {
     // @gotags: kong:"help='KubeMQ client ID',default=plumber"
     string client_id = 1;
 

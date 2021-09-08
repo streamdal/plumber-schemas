@@ -60,7 +60,7 @@ func (m *GCPPubSubConn) GetProjectId() string {
 	return ""
 }
 
-type GCPPubSubReadOpts struct {
+type GCPPubSubReadArgs struct {
 	// @gotags: kong:"help='Subscription ID',env='PLUMBER_RELAY_GCP_SUBSCRIPTION_ID',required"
 	SubscriptionId string `protobuf:"bytes,1,opt,name=subscription_id,json=subscriptionId,proto3" json:"subscription_id,omitempty" kong:"help='Subscription ID',env='PLUMBER_RELAY_GCP_SUBSCRIPTION_ID',required"`
 	// @gotags: kong:"help='Whether to acknowledge message receive',env='PLUMBER_RELAY_GCP_ACK_MESSAGE',default=true"
@@ -70,46 +70,46 @@ type GCPPubSubReadOpts struct {
 	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *GCPPubSubReadOpts) Reset()         { *m = GCPPubSubReadOpts{} }
-func (m *GCPPubSubReadOpts) String() string { return proto.CompactTextString(m) }
-func (*GCPPubSubReadOpts) ProtoMessage()    {}
-func (*GCPPubSubReadOpts) Descriptor() ([]byte, []int) {
+func (m *GCPPubSubReadArgs) Reset()         { *m = GCPPubSubReadArgs{} }
+func (m *GCPPubSubReadArgs) String() string { return proto.CompactTextString(m) }
+func (*GCPPubSubReadArgs) ProtoMessage()    {}
+func (*GCPPubSubReadArgs) Descriptor() ([]byte, []int) {
 	return fileDescriptor_f542299cf89e4b7f, []int{1}
 }
 
-func (m *GCPPubSubReadOpts) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_GCPPubSubReadOpts.Unmarshal(m, b)
+func (m *GCPPubSubReadArgs) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GCPPubSubReadArgs.Unmarshal(m, b)
 }
-func (m *GCPPubSubReadOpts) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_GCPPubSubReadOpts.Marshal(b, m, deterministic)
+func (m *GCPPubSubReadArgs) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GCPPubSubReadArgs.Marshal(b, m, deterministic)
 }
-func (m *GCPPubSubReadOpts) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_GCPPubSubReadOpts.Merge(m, src)
+func (m *GCPPubSubReadArgs) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GCPPubSubReadArgs.Merge(m, src)
 }
-func (m *GCPPubSubReadOpts) XXX_Size() int {
-	return xxx_messageInfo_GCPPubSubReadOpts.Size(m)
+func (m *GCPPubSubReadArgs) XXX_Size() int {
+	return xxx_messageInfo_GCPPubSubReadArgs.Size(m)
 }
-func (m *GCPPubSubReadOpts) XXX_DiscardUnknown() {
-	xxx_messageInfo_GCPPubSubReadOpts.DiscardUnknown(m)
+func (m *GCPPubSubReadArgs) XXX_DiscardUnknown() {
+	xxx_messageInfo_GCPPubSubReadArgs.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_GCPPubSubReadOpts proto.InternalMessageInfo
+var xxx_messageInfo_GCPPubSubReadArgs proto.InternalMessageInfo
 
-func (m *GCPPubSubReadOpts) GetSubscriptionId() string {
+func (m *GCPPubSubReadArgs) GetSubscriptionId() string {
 	if m != nil {
 		return m.SubscriptionId
 	}
 	return ""
 }
 
-func (m *GCPPubSubReadOpts) GetAckMessages() bool {
+func (m *GCPPubSubReadArgs) GetAckMessages() bool {
 	if m != nil {
 		return m.AckMessages
 	}
 	return false
 }
 
-type GCPPubSubWriteOpts struct {
+type GCPPubSubWriteArgs struct {
 	// @gotags: kong:"help='Topic ID to publish message(s) to',required"
 	TopicId              string   `protobuf:"bytes,1,opt,name=topic_id,json=topicId,proto3" json:"topic_id,omitempty" kong:"help='Topic ID to publish message(s) to',required"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
@@ -117,32 +117,32 @@ type GCPPubSubWriteOpts struct {
 	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *GCPPubSubWriteOpts) Reset()         { *m = GCPPubSubWriteOpts{} }
-func (m *GCPPubSubWriteOpts) String() string { return proto.CompactTextString(m) }
-func (*GCPPubSubWriteOpts) ProtoMessage()    {}
-func (*GCPPubSubWriteOpts) Descriptor() ([]byte, []int) {
+func (m *GCPPubSubWriteArgs) Reset()         { *m = GCPPubSubWriteArgs{} }
+func (m *GCPPubSubWriteArgs) String() string { return proto.CompactTextString(m) }
+func (*GCPPubSubWriteArgs) ProtoMessage()    {}
+func (*GCPPubSubWriteArgs) Descriptor() ([]byte, []int) {
 	return fileDescriptor_f542299cf89e4b7f, []int{2}
 }
 
-func (m *GCPPubSubWriteOpts) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_GCPPubSubWriteOpts.Unmarshal(m, b)
+func (m *GCPPubSubWriteArgs) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GCPPubSubWriteArgs.Unmarshal(m, b)
 }
-func (m *GCPPubSubWriteOpts) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_GCPPubSubWriteOpts.Marshal(b, m, deterministic)
+func (m *GCPPubSubWriteArgs) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GCPPubSubWriteArgs.Marshal(b, m, deterministic)
 }
-func (m *GCPPubSubWriteOpts) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_GCPPubSubWriteOpts.Merge(m, src)
+func (m *GCPPubSubWriteArgs) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GCPPubSubWriteArgs.Merge(m, src)
 }
-func (m *GCPPubSubWriteOpts) XXX_Size() int {
-	return xxx_messageInfo_GCPPubSubWriteOpts.Size(m)
+func (m *GCPPubSubWriteArgs) XXX_Size() int {
+	return xxx_messageInfo_GCPPubSubWriteArgs.Size(m)
 }
-func (m *GCPPubSubWriteOpts) XXX_DiscardUnknown() {
-	xxx_messageInfo_GCPPubSubWriteOpts.DiscardUnknown(m)
+func (m *GCPPubSubWriteArgs) XXX_DiscardUnknown() {
+	xxx_messageInfo_GCPPubSubWriteArgs.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_GCPPubSubWriteOpts proto.InternalMessageInfo
+var xxx_messageInfo_GCPPubSubWriteArgs proto.InternalMessageInfo
 
-func (m *GCPPubSubWriteOpts) GetTopicId() string {
+func (m *GCPPubSubWriteArgs) GetTopicId() string {
 	if m != nil {
 		return m.TopicId
 	}
@@ -151,27 +151,27 @@ func (m *GCPPubSubWriteOpts) GetTopicId() string {
 
 func init() {
 	proto.RegisterType((*GCPPubSubConn)(nil), "protos.args.GCPPubSubConn")
-	proto.RegisterType((*GCPPubSubReadOpts)(nil), "protos.args.GCPPubSubReadOpts")
-	proto.RegisterType((*GCPPubSubWriteOpts)(nil), "protos.args.GCPPubSubWriteOpts")
+	proto.RegisterType((*GCPPubSubReadArgs)(nil), "protos.args.GCPPubSubReadArgs")
+	proto.RegisterType((*GCPPubSubWriteArgs)(nil), "protos.args.GCPPubSubWriteArgs")
 }
 
 func init() { proto.RegisterFile("gcp-pubsub.proto", fileDescriptor_f542299cf89e4b7f) }
 
 var fileDescriptor_f542299cf89e4b7f = []byte{
-	// 237 bytes of a gzipped FileDescriptorProto
+	// 238 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x4c, 0x8f, 0xbf, 0x4f, 0xc3, 0x30,
 	0x10, 0x85, 0x15, 0x06, 0x68, 0x5d, 0x7e, 0x7a, 0x2a, 0x03, 0x52, 0xc9, 0x42, 0x97, 0xc6, 0x03,
-	0x13, 0x62, 0xa3, 0x03, 0xca, 0x80, 0xa8, 0xc2, 0x80, 0xc4, 0x12, 0xf9, 0xce, 0x96, 0x63, 0xda,
-	0xc4, 0x27, 0x9f, 0xfd, 0xff, 0x23, 0x42, 0xd5, 0x32, 0x9d, 0xde, 0xa7, 0xbb, 0x7b, 0xfa, 0xc4,
-	0xb5, 0x43, 0x5a, 0x51, 0x06, 0xce, 0x50, 0x51, 0x0c, 0x29, 0xc8, 0xd9, 0x38, 0xb8, 0xd2, 0xd1,
-	0x71, 0x59, 0x89, 0x8b, 0xd7, 0xf5, 0x66, 0x93, 0xe1, 0x23, 0xc3, 0x3a, 0x0c, 0x83, 0xbc, 0x13,
-	0x82, 0x62, 0xf8, 0xb6, 0x98, 0x5a, 0x6f, 0xe6, 0xc5, 0xa2, 0x58, 0x4e, 0x9b, 0xe9, 0x9e, 0xd4,
-	0xa6, 0x6c, 0xc5, 0xcd, 0x61, 0xbf, 0xb1, 0xda, 0xbc, 0x53, 0x62, 0xf9, 0x20, 0xae, 0x38, 0x03,
-	0x63, 0xf4, 0x94, 0x7c, 0x18, 0x8e, 0x87, 0x97, 0xff, 0x71, 0x6d, 0xe4, 0xbd, 0x38, 0xd7, 0xb8,
-	0x6d, 0x7b, 0xcb, 0xac, 0x9d, 0xe5, 0xf9, 0xc9, 0xa2, 0x58, 0x4e, 0x9a, 0x99, 0xc6, 0xed, 0xdb,
-	0x1e, 0x95, 0x4a, 0xc8, 0x43, 0xc1, 0x67, 0xf4, 0xc9, 0x8e, 0x0d, 0xb7, 0x62, 0x92, 0x02, 0x79,
-	0x3c, 0xbe, 0x3e, 0x1b, 0x73, 0x6d, 0x5e, 0x9e, 0xbf, 0x9e, 0x9c, 0x4f, 0x5d, 0x86, 0x0a, 0x43,
-	0xaf, 0x40, 0x27, 0xec, 0x30, 0x44, 0x52, 0xb4, 0xcb, 0x3d, 0xd8, 0xb8, 0x62, 0xec, 0x6c, 0xaf,
-	0x59, 0x41, 0xf6, 0x3b, 0xa3, 0x5c, 0x50, 0x7f, 0xfa, 0xea, 0x57, 0x1f, 0x4e, 0xc7, 0xf0, 0xf8,
-	0x13, 0x00, 0x00, 0xff, 0xff, 0x92, 0xd1, 0xa0, 0x93, 0x26, 0x01, 0x00, 0x00,
+	0x13, 0x62, 0x82, 0x0e, 0x28, 0x03, 0x52, 0x15, 0x06, 0x24, 0x96, 0xc8, 0x77, 0xb6, 0x1c, 0xd3,
+	0x26, 0x67, 0xf9, 0xec, 0xff, 0x1f, 0x11, 0xaa, 0x96, 0xe9, 0xf4, 0x3e, 0xdd, 0xdd, 0xd3, 0x27,
+	0xae, 0x1d, 0x86, 0x55, 0xc8, 0xc0, 0x19, 0xaa, 0x10, 0x29, 0x91, 0x9c, 0x8d, 0x83, 0x2b, 0x1d,
+	0x1d, 0x97, 0x95, 0xb8, 0x78, 0x5b, 0x6f, 0x36, 0x19, 0x3e, 0x32, 0xac, 0x69, 0x18, 0xe4, 0x9d,
+	0x10, 0x21, 0xd2, 0xb7, 0xc5, 0xd4, 0x7a, 0x33, 0x2f, 0x16, 0xc5, 0x72, 0xda, 0x4c, 0xf7, 0xa4,
+	0x36, 0x65, 0x2b, 0x6e, 0x0e, 0xfb, 0x8d, 0xd5, 0xe6, 0x25, 0x3a, 0x96, 0x0f, 0xe2, 0x8a, 0x33,
+	0x30, 0x46, 0x1f, 0x92, 0xa7, 0xe1, 0x78, 0x78, 0xf9, 0x1f, 0xd7, 0x46, 0xde, 0x8b, 0x73, 0x8d,
+	0xdb, 0xb6, 0xb7, 0xcc, 0xda, 0x59, 0x9e, 0x9f, 0x2c, 0x8a, 0xe5, 0xa4, 0x99, 0x69, 0xdc, 0xbe,
+	0xef, 0x51, 0xa9, 0x84, 0x3c, 0x14, 0x7c, 0x46, 0x9f, 0xec, 0xd8, 0x70, 0x2b, 0x26, 0x89, 0x82,
+	0xc7, 0xe3, 0xeb, 0xb3, 0x31, 0xd7, 0xe6, 0xf5, 0xf9, 0xeb, 0xc9, 0xf9, 0xd4, 0x65, 0xa8, 0x90,
+	0x7a, 0x05, 0x3a, 0x61, 0x87, 0x14, 0x83, 0x0a, 0xbb, 0xdc, 0x83, 0x8d, 0x2b, 0xc6, 0xce, 0xf6,
+	0x9a, 0x15, 0x64, 0xbf, 0x33, 0xca, 0x91, 0xfa, 0xd3, 0x57, 0xbf, 0xfa, 0x70, 0x3a, 0x86, 0xc7,
+	0x9f, 0x00, 0x00, 0x00, 0xff, 0xff, 0x32, 0x24, 0xd8, 0x0a, 0x26, 0x01, 0x00, 0x00,
 }

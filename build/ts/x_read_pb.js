@@ -1520,7 +1520,7 @@ proto.protos.ReadOptsKafka.prototype.toObject = function(opt_includeInstance) {
 proto.protos.ReadOptsKafka.toObject = function(includeInstance, msg) {
   var f, obj = {
     conn: (f = msg.getConn()) && args_kafka_pb.KafkaConn.toObject(includeInstance, f),
-    args: (f = msg.getArgs()) && args_kafka_pb.KafkaReadOpts.toObject(includeInstance, f)
+    args: (f = msg.getArgs()) && args_kafka_pb.KafkaReadArgs.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -1563,8 +1563,8 @@ proto.protos.ReadOptsKafka.deserializeBinaryFromReader = function(msg, reader) {
       msg.setConn(value);
       break;
     case 2:
-      var value = new args_kafka_pb.KafkaReadOpts;
-      reader.readMessage(value,args_kafka_pb.KafkaReadOpts.deserializeBinaryFromReader);
+      var value = new args_kafka_pb.KafkaReadArgs;
+      reader.readMessage(value,args_kafka_pb.KafkaReadArgs.deserializeBinaryFromReader);
       msg.setArgs(value);
       break;
     default:
@@ -1609,14 +1609,14 @@ proto.protos.ReadOptsKafka.serializeBinaryToWriter = function(message, writer) {
     writer.writeMessage(
       2,
       f,
-      args_kafka_pb.KafkaReadOpts.serializeBinaryToWriter
+      args_kafka_pb.KafkaReadArgs.serializeBinaryToWriter
     );
   }
 };
 
 
 /**
- * optional args.KafkaConn conn = 1;
+ * optional args.KafkaConn _conn = 1;
  * @return {?proto.protos.args.KafkaConn}
  */
 proto.protos.ReadOptsKafka.prototype.getConn = function() {
@@ -1653,17 +1653,17 @@ proto.protos.ReadOptsKafka.prototype.hasConn = function() {
 
 
 /**
- * optional args.KafkaReadOpts args = 2;
- * @return {?proto.protos.args.KafkaReadOpts}
+ * optional args.KafkaReadArgs args = 2;
+ * @return {?proto.protos.args.KafkaReadArgs}
  */
 proto.protos.ReadOptsKafka.prototype.getArgs = function() {
-  return /** @type{?proto.protos.args.KafkaReadOpts} */ (
-    jspb.Message.getWrapperField(this, args_kafka_pb.KafkaReadOpts, 2));
+  return /** @type{?proto.protos.args.KafkaReadArgs} */ (
+    jspb.Message.getWrapperField(this, args_kafka_pb.KafkaReadArgs, 2));
 };
 
 
 /**
- * @param {?proto.protos.args.KafkaReadOpts|undefined} value
+ * @param {?proto.protos.args.KafkaReadArgs|undefined} value
  * @return {!proto.protos.ReadOptsKafka} returns this
 */
 proto.protos.ReadOptsKafka.prototype.setArgs = function(value) {
@@ -1722,7 +1722,7 @@ proto.protos.ReadOptsActiveMQ.prototype.toObject = function(opt_includeInstance)
 proto.protos.ReadOptsActiveMQ.toObject = function(includeInstance, msg) {
   var f, obj = {
     conn: (f = msg.getConn()) && args_activemq_pb.ActiveMQConn.toObject(includeInstance, f),
-    args: (f = msg.getArgs()) && args_activemq_pb.ActiveMQReadOpts.toObject(includeInstance, f)
+    args: (f = msg.getArgs()) && args_activemq_pb.ActiveMQReadArgs.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -1765,8 +1765,8 @@ proto.protos.ReadOptsActiveMQ.deserializeBinaryFromReader = function(msg, reader
       msg.setConn(value);
       break;
     case 2:
-      var value = new args_activemq_pb.ActiveMQReadOpts;
-      reader.readMessage(value,args_activemq_pb.ActiveMQReadOpts.deserializeBinaryFromReader);
+      var value = new args_activemq_pb.ActiveMQReadArgs;
+      reader.readMessage(value,args_activemq_pb.ActiveMQReadArgs.deserializeBinaryFromReader);
       msg.setArgs(value);
       break;
     default:
@@ -1811,14 +1811,14 @@ proto.protos.ReadOptsActiveMQ.serializeBinaryToWriter = function(message, writer
     writer.writeMessage(
       2,
       f,
-      args_activemq_pb.ActiveMQReadOpts.serializeBinaryToWriter
+      args_activemq_pb.ActiveMQReadArgs.serializeBinaryToWriter
     );
   }
 };
 
 
 /**
- * optional args.ActiveMQConn conn = 1;
+ * optional args.ActiveMQConn _conn = 1;
  * @return {?proto.protos.args.ActiveMQConn}
  */
 proto.protos.ReadOptsActiveMQ.prototype.getConn = function() {
@@ -1855,17 +1855,17 @@ proto.protos.ReadOptsActiveMQ.prototype.hasConn = function() {
 
 
 /**
- * optional args.ActiveMQReadOpts args = 2;
- * @return {?proto.protos.args.ActiveMQReadOpts}
+ * optional args.ActiveMQReadArgs args = 2;
+ * @return {?proto.protos.args.ActiveMQReadArgs}
  */
 proto.protos.ReadOptsActiveMQ.prototype.getArgs = function() {
-  return /** @type{?proto.protos.args.ActiveMQReadOpts} */ (
-    jspb.Message.getWrapperField(this, args_activemq_pb.ActiveMQReadOpts, 2));
+  return /** @type{?proto.protos.args.ActiveMQReadArgs} */ (
+    jspb.Message.getWrapperField(this, args_activemq_pb.ActiveMQReadArgs, 2));
 };
 
 
 /**
- * @param {?proto.protos.args.ActiveMQReadOpts|undefined} value
+ * @param {?proto.protos.args.ActiveMQReadArgs|undefined} value
  * @return {!proto.protos.ReadOptsActiveMQ} returns this
 */
 proto.protos.ReadOptsActiveMQ.prototype.setArgs = function(value) {
@@ -1924,7 +1924,7 @@ proto.protos.ReadOptsAWSSQS.prototype.toObject = function(opt_includeInstance) {
 proto.protos.ReadOptsAWSSQS.toObject = function(includeInstance, msg) {
   var f, obj = {
     conn: (f = msg.getConn()) && args_aws$sqs_pb.AWSSQSConn.toObject(includeInstance, f),
-    args: (f = msg.getArgs()) && args_aws$sqs_pb.AWSSQSReadOpts.toObject(includeInstance, f)
+    args: (f = msg.getArgs()) && args_aws$sqs_pb.AWSSQSReadArgs.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -1967,8 +1967,8 @@ proto.protos.ReadOptsAWSSQS.deserializeBinaryFromReader = function(msg, reader) 
       msg.setConn(value);
       break;
     case 2:
-      var value = new args_aws$sqs_pb.AWSSQSReadOpts;
-      reader.readMessage(value,args_aws$sqs_pb.AWSSQSReadOpts.deserializeBinaryFromReader);
+      var value = new args_aws$sqs_pb.AWSSQSReadArgs;
+      reader.readMessage(value,args_aws$sqs_pb.AWSSQSReadArgs.deserializeBinaryFromReader);
       msg.setArgs(value);
       break;
     default:
@@ -2013,14 +2013,14 @@ proto.protos.ReadOptsAWSSQS.serializeBinaryToWriter = function(message, writer) 
     writer.writeMessage(
       2,
       f,
-      args_aws$sqs_pb.AWSSQSReadOpts.serializeBinaryToWriter
+      args_aws$sqs_pb.AWSSQSReadArgs.serializeBinaryToWriter
     );
   }
 };
 
 
 /**
- * optional args.AWSSQSConn conn = 1;
+ * optional args.AWSSQSConn _conn = 1;
  * @return {?proto.protos.args.AWSSQSConn}
  */
 proto.protos.ReadOptsAWSSQS.prototype.getConn = function() {
@@ -2057,17 +2057,17 @@ proto.protos.ReadOptsAWSSQS.prototype.hasConn = function() {
 
 
 /**
- * optional args.AWSSQSReadOpts args = 2;
- * @return {?proto.protos.args.AWSSQSReadOpts}
+ * optional args.AWSSQSReadArgs args = 2;
+ * @return {?proto.protos.args.AWSSQSReadArgs}
  */
 proto.protos.ReadOptsAWSSQS.prototype.getArgs = function() {
-  return /** @type{?proto.protos.args.AWSSQSReadOpts} */ (
-    jspb.Message.getWrapperField(this, args_aws$sqs_pb.AWSSQSReadOpts, 2));
+  return /** @type{?proto.protos.args.AWSSQSReadArgs} */ (
+    jspb.Message.getWrapperField(this, args_aws$sqs_pb.AWSSQSReadArgs, 2));
 };
 
 
 /**
- * @param {?proto.protos.args.AWSSQSReadOpts|undefined} value
+ * @param {?proto.protos.args.AWSSQSReadArgs|undefined} value
  * @return {!proto.protos.ReadOptsAWSSQS} returns this
 */
 proto.protos.ReadOptsAWSSQS.prototype.setArgs = function(value) {
@@ -2126,7 +2126,7 @@ proto.protos.ReadOptsMongo.prototype.toObject = function(opt_includeInstance) {
 proto.protos.ReadOptsMongo.toObject = function(includeInstance, msg) {
   var f, obj = {
     conn: (f = msg.getConn()) && args_mongo_pb.MongoConn.toObject(includeInstance, f),
-    args: (f = msg.getArgs()) && args_mongo_pb.MongoReadOpts.toObject(includeInstance, f)
+    args: (f = msg.getArgs()) && args_mongo_pb.MongoReadArgs.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -2169,8 +2169,8 @@ proto.protos.ReadOptsMongo.deserializeBinaryFromReader = function(msg, reader) {
       msg.setConn(value);
       break;
     case 2:
-      var value = new args_mongo_pb.MongoReadOpts;
-      reader.readMessage(value,args_mongo_pb.MongoReadOpts.deserializeBinaryFromReader);
+      var value = new args_mongo_pb.MongoReadArgs;
+      reader.readMessage(value,args_mongo_pb.MongoReadArgs.deserializeBinaryFromReader);
       msg.setArgs(value);
       break;
     default:
@@ -2215,14 +2215,14 @@ proto.protos.ReadOptsMongo.serializeBinaryToWriter = function(message, writer) {
     writer.writeMessage(
       2,
       f,
-      args_mongo_pb.MongoReadOpts.serializeBinaryToWriter
+      args_mongo_pb.MongoReadArgs.serializeBinaryToWriter
     );
   }
 };
 
 
 /**
- * optional args.MongoConn conn = 1;
+ * optional args.MongoConn _conn = 1;
  * @return {?proto.protos.args.MongoConn}
  */
 proto.protos.ReadOptsMongo.prototype.getConn = function() {
@@ -2259,17 +2259,17 @@ proto.protos.ReadOptsMongo.prototype.hasConn = function() {
 
 
 /**
- * optional args.MongoReadOpts args = 2;
- * @return {?proto.protos.args.MongoReadOpts}
+ * optional args.MongoReadArgs args = 2;
+ * @return {?proto.protos.args.MongoReadArgs}
  */
 proto.protos.ReadOptsMongo.prototype.getArgs = function() {
-  return /** @type{?proto.protos.args.MongoReadOpts} */ (
-    jspb.Message.getWrapperField(this, args_mongo_pb.MongoReadOpts, 2));
+  return /** @type{?proto.protos.args.MongoReadArgs} */ (
+    jspb.Message.getWrapperField(this, args_mongo_pb.MongoReadArgs, 2));
 };
 
 
 /**
- * @param {?proto.protos.args.MongoReadOpts|undefined} value
+ * @param {?proto.protos.args.MongoReadArgs|undefined} value
  * @return {!proto.protos.ReadOptsMongo} returns this
 */
 proto.protos.ReadOptsMongo.prototype.setArgs = function(value) {
@@ -2328,7 +2328,7 @@ proto.protos.ReadOptsNats.prototype.toObject = function(opt_includeInstance) {
 proto.protos.ReadOptsNats.toObject = function(includeInstance, msg) {
   var f, obj = {
     conn: (f = msg.getConn()) && args_nats_pb.NatsConn.toObject(includeInstance, f),
-    args: (f = msg.getArgs()) && args_nats_pb.NatsReadOpts.toObject(includeInstance, f)
+    args: (f = msg.getArgs()) && args_nats_pb.NatsReadArgs.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -2371,8 +2371,8 @@ proto.protos.ReadOptsNats.deserializeBinaryFromReader = function(msg, reader) {
       msg.setConn(value);
       break;
     case 2:
-      var value = new args_nats_pb.NatsReadOpts;
-      reader.readMessage(value,args_nats_pb.NatsReadOpts.deserializeBinaryFromReader);
+      var value = new args_nats_pb.NatsReadArgs;
+      reader.readMessage(value,args_nats_pb.NatsReadArgs.deserializeBinaryFromReader);
       msg.setArgs(value);
       break;
     default:
@@ -2417,14 +2417,14 @@ proto.protos.ReadOptsNats.serializeBinaryToWriter = function(message, writer) {
     writer.writeMessage(
       2,
       f,
-      args_nats_pb.NatsReadOpts.serializeBinaryToWriter
+      args_nats_pb.NatsReadArgs.serializeBinaryToWriter
     );
   }
 };
 
 
 /**
- * optional args.NatsConn conn = 1;
+ * optional args.NatsConn _conn = 1;
  * @return {?proto.protos.args.NatsConn}
  */
 proto.protos.ReadOptsNats.prototype.getConn = function() {
@@ -2461,17 +2461,17 @@ proto.protos.ReadOptsNats.prototype.hasConn = function() {
 
 
 /**
- * optional args.NatsReadOpts args = 2;
- * @return {?proto.protos.args.NatsReadOpts}
+ * optional args.NatsReadArgs args = 2;
+ * @return {?proto.protos.args.NatsReadArgs}
  */
 proto.protos.ReadOptsNats.prototype.getArgs = function() {
-  return /** @type{?proto.protos.args.NatsReadOpts} */ (
-    jspb.Message.getWrapperField(this, args_nats_pb.NatsReadOpts, 2));
+  return /** @type{?proto.protos.args.NatsReadArgs} */ (
+    jspb.Message.getWrapperField(this, args_nats_pb.NatsReadArgs, 2));
 };
 
 
 /**
- * @param {?proto.protos.args.NatsReadOpts|undefined} value
+ * @param {?proto.protos.args.NatsReadArgs|undefined} value
  * @return {!proto.protos.ReadOptsNats} returns this
 */
 proto.protos.ReadOptsNats.prototype.setArgs = function(value) {
@@ -2530,7 +2530,7 @@ proto.protos.ReadOptsNatsStreaming.prototype.toObject = function(opt_includeInst
 proto.protos.ReadOptsNatsStreaming.toObject = function(includeInstance, msg) {
   var f, obj = {
     conn: (f = msg.getConn()) && args_nats$streaming_pb.NatsStreamingConn.toObject(includeInstance, f),
-    args: (f = msg.getArgs()) && args_nats$streaming_pb.NatsStreamingReadOpts.toObject(includeInstance, f)
+    args: (f = msg.getArgs()) && args_nats$streaming_pb.NatsStreamingReadArgs.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -2573,8 +2573,8 @@ proto.protos.ReadOptsNatsStreaming.deserializeBinaryFromReader = function(msg, r
       msg.setConn(value);
       break;
     case 2:
-      var value = new args_nats$streaming_pb.NatsStreamingReadOpts;
-      reader.readMessage(value,args_nats$streaming_pb.NatsStreamingReadOpts.deserializeBinaryFromReader);
+      var value = new args_nats$streaming_pb.NatsStreamingReadArgs;
+      reader.readMessage(value,args_nats$streaming_pb.NatsStreamingReadArgs.deserializeBinaryFromReader);
       msg.setArgs(value);
       break;
     default:
@@ -2619,14 +2619,14 @@ proto.protos.ReadOptsNatsStreaming.serializeBinaryToWriter = function(message, w
     writer.writeMessage(
       2,
       f,
-      args_nats$streaming_pb.NatsStreamingReadOpts.serializeBinaryToWriter
+      args_nats$streaming_pb.NatsStreamingReadArgs.serializeBinaryToWriter
     );
   }
 };
 
 
 /**
- * optional args.NatsStreamingConn conn = 1;
+ * optional args.NatsStreamingConn _conn = 1;
  * @return {?proto.protos.args.NatsStreamingConn}
  */
 proto.protos.ReadOptsNatsStreaming.prototype.getConn = function() {
@@ -2663,17 +2663,17 @@ proto.protos.ReadOptsNatsStreaming.prototype.hasConn = function() {
 
 
 /**
- * optional args.NatsStreamingReadOpts args = 2;
- * @return {?proto.protos.args.NatsStreamingReadOpts}
+ * optional args.NatsStreamingReadArgs args = 2;
+ * @return {?proto.protos.args.NatsStreamingReadArgs}
  */
 proto.protos.ReadOptsNatsStreaming.prototype.getArgs = function() {
-  return /** @type{?proto.protos.args.NatsStreamingReadOpts} */ (
-    jspb.Message.getWrapperField(this, args_nats$streaming_pb.NatsStreamingReadOpts, 2));
+  return /** @type{?proto.protos.args.NatsStreamingReadArgs} */ (
+    jspb.Message.getWrapperField(this, args_nats$streaming_pb.NatsStreamingReadArgs, 2));
 };
 
 
 /**
- * @param {?proto.protos.args.NatsStreamingReadOpts|undefined} value
+ * @param {?proto.protos.args.NatsStreamingReadArgs|undefined} value
  * @return {!proto.protos.ReadOptsNatsStreaming} returns this
 */
 proto.protos.ReadOptsNatsStreaming.prototype.setArgs = function(value) {
@@ -2732,7 +2732,7 @@ proto.protos.ReadOptsNSQ.prototype.toObject = function(opt_includeInstance) {
 proto.protos.ReadOptsNSQ.toObject = function(includeInstance, msg) {
   var f, obj = {
     conn: (f = msg.getConn()) && args_nsq_pb.NSQConn.toObject(includeInstance, f),
-    args: (f = msg.getArgs()) && args_nsq_pb.NSQReadOpts.toObject(includeInstance, f)
+    args: (f = msg.getArgs()) && args_nsq_pb.NSQReadArgs.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -2775,8 +2775,8 @@ proto.protos.ReadOptsNSQ.deserializeBinaryFromReader = function(msg, reader) {
       msg.setConn(value);
       break;
     case 2:
-      var value = new args_nsq_pb.NSQReadOpts;
-      reader.readMessage(value,args_nsq_pb.NSQReadOpts.deserializeBinaryFromReader);
+      var value = new args_nsq_pb.NSQReadArgs;
+      reader.readMessage(value,args_nsq_pb.NSQReadArgs.deserializeBinaryFromReader);
       msg.setArgs(value);
       break;
     default:
@@ -2821,14 +2821,14 @@ proto.protos.ReadOptsNSQ.serializeBinaryToWriter = function(message, writer) {
     writer.writeMessage(
       2,
       f,
-      args_nsq_pb.NSQReadOpts.serializeBinaryToWriter
+      args_nsq_pb.NSQReadArgs.serializeBinaryToWriter
     );
   }
 };
 
 
 /**
- * optional args.NSQConn conn = 1;
+ * optional args.NSQConn _conn = 1;
  * @return {?proto.protos.args.NSQConn}
  */
 proto.protos.ReadOptsNSQ.prototype.getConn = function() {
@@ -2865,17 +2865,17 @@ proto.protos.ReadOptsNSQ.prototype.hasConn = function() {
 
 
 /**
- * optional args.NSQReadOpts args = 2;
- * @return {?proto.protos.args.NSQReadOpts}
+ * optional args.NSQReadArgs args = 2;
+ * @return {?proto.protos.args.NSQReadArgs}
  */
 proto.protos.ReadOptsNSQ.prototype.getArgs = function() {
-  return /** @type{?proto.protos.args.NSQReadOpts} */ (
-    jspb.Message.getWrapperField(this, args_nsq_pb.NSQReadOpts, 2));
+  return /** @type{?proto.protos.args.NSQReadArgs} */ (
+    jspb.Message.getWrapperField(this, args_nsq_pb.NSQReadArgs, 2));
 };
 
 
 /**
- * @param {?proto.protos.args.NSQReadOpts|undefined} value
+ * @param {?proto.protos.args.NSQReadArgs|undefined} value
  * @return {!proto.protos.ReadOptsNSQ} returns this
 */
 proto.protos.ReadOptsNSQ.prototype.setArgs = function(value) {
@@ -2934,7 +2934,7 @@ proto.protos.ReadOptsPostgres.prototype.toObject = function(opt_includeInstance)
 proto.protos.ReadOptsPostgres.toObject = function(includeInstance, msg) {
   var f, obj = {
     conn: (f = msg.getConn()) && args_postgres_pb.PostgresConn.toObject(includeInstance, f),
-    args: (f = msg.getArgs()) && args_postgres_pb.PostgresReadOpts.toObject(includeInstance, f)
+    args: (f = msg.getArgs()) && args_postgres_pb.PostgresReadArgs.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -2977,8 +2977,8 @@ proto.protos.ReadOptsPostgres.deserializeBinaryFromReader = function(msg, reader
       msg.setConn(value);
       break;
     case 2:
-      var value = new args_postgres_pb.PostgresReadOpts;
-      reader.readMessage(value,args_postgres_pb.PostgresReadOpts.deserializeBinaryFromReader);
+      var value = new args_postgres_pb.PostgresReadArgs;
+      reader.readMessage(value,args_postgres_pb.PostgresReadArgs.deserializeBinaryFromReader);
       msg.setArgs(value);
       break;
     default:
@@ -3023,14 +3023,14 @@ proto.protos.ReadOptsPostgres.serializeBinaryToWriter = function(message, writer
     writer.writeMessage(
       2,
       f,
-      args_postgres_pb.PostgresReadOpts.serializeBinaryToWriter
+      args_postgres_pb.PostgresReadArgs.serializeBinaryToWriter
     );
   }
 };
 
 
 /**
- * optional args.PostgresConn conn = 1;
+ * optional args.PostgresConn _conn = 1;
  * @return {?proto.protos.args.PostgresConn}
  */
 proto.protos.ReadOptsPostgres.prototype.getConn = function() {
@@ -3067,17 +3067,17 @@ proto.protos.ReadOptsPostgres.prototype.hasConn = function() {
 
 
 /**
- * optional args.PostgresReadOpts args = 2;
- * @return {?proto.protos.args.PostgresReadOpts}
+ * optional args.PostgresReadArgs args = 2;
+ * @return {?proto.protos.args.PostgresReadArgs}
  */
 proto.protos.ReadOptsPostgres.prototype.getArgs = function() {
-  return /** @type{?proto.protos.args.PostgresReadOpts} */ (
-    jspb.Message.getWrapperField(this, args_postgres_pb.PostgresReadOpts, 2));
+  return /** @type{?proto.protos.args.PostgresReadArgs} */ (
+    jspb.Message.getWrapperField(this, args_postgres_pb.PostgresReadArgs, 2));
 };
 
 
 /**
- * @param {?proto.protos.args.PostgresReadOpts|undefined} value
+ * @param {?proto.protos.args.PostgresReadArgs|undefined} value
  * @return {!proto.protos.ReadOptsPostgres} returns this
 */
 proto.protos.ReadOptsPostgres.prototype.setArgs = function(value) {
@@ -3136,7 +3136,7 @@ proto.protos.ReadOptsPulsar.prototype.toObject = function(opt_includeInstance) {
 proto.protos.ReadOptsPulsar.toObject = function(includeInstance, msg) {
   var f, obj = {
     conn: (f = msg.getConn()) && args_pulsar_pb.PulsarConn.toObject(includeInstance, f),
-    args: (f = msg.getArgs()) && args_pulsar_pb.PulsarReadOpts.toObject(includeInstance, f)
+    args: (f = msg.getArgs()) && args_pulsar_pb.PulsarReadArgs.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -3179,8 +3179,8 @@ proto.protos.ReadOptsPulsar.deserializeBinaryFromReader = function(msg, reader) 
       msg.setConn(value);
       break;
     case 2:
-      var value = new args_pulsar_pb.PulsarReadOpts;
-      reader.readMessage(value,args_pulsar_pb.PulsarReadOpts.deserializeBinaryFromReader);
+      var value = new args_pulsar_pb.PulsarReadArgs;
+      reader.readMessage(value,args_pulsar_pb.PulsarReadArgs.deserializeBinaryFromReader);
       msg.setArgs(value);
       break;
     default:
@@ -3225,14 +3225,14 @@ proto.protos.ReadOptsPulsar.serializeBinaryToWriter = function(message, writer) 
     writer.writeMessage(
       2,
       f,
-      args_pulsar_pb.PulsarReadOpts.serializeBinaryToWriter
+      args_pulsar_pb.PulsarReadArgs.serializeBinaryToWriter
     );
   }
 };
 
 
 /**
- * optional args.PulsarConn conn = 1;
+ * optional args.PulsarConn _conn = 1;
  * @return {?proto.protos.args.PulsarConn}
  */
 proto.protos.ReadOptsPulsar.prototype.getConn = function() {
@@ -3269,17 +3269,17 @@ proto.protos.ReadOptsPulsar.prototype.hasConn = function() {
 
 
 /**
- * optional args.PulsarReadOpts args = 2;
- * @return {?proto.protos.args.PulsarReadOpts}
+ * optional args.PulsarReadArgs args = 2;
+ * @return {?proto.protos.args.PulsarReadArgs}
  */
 proto.protos.ReadOptsPulsar.prototype.getArgs = function() {
-  return /** @type{?proto.protos.args.PulsarReadOpts} */ (
-    jspb.Message.getWrapperField(this, args_pulsar_pb.PulsarReadOpts, 2));
+  return /** @type{?proto.protos.args.PulsarReadArgs} */ (
+    jspb.Message.getWrapperField(this, args_pulsar_pb.PulsarReadArgs, 2));
 };
 
 
 /**
- * @param {?proto.protos.args.PulsarReadOpts|undefined} value
+ * @param {?proto.protos.args.PulsarReadArgs|undefined} value
  * @return {!proto.protos.ReadOptsPulsar} returns this
 */
 proto.protos.ReadOptsPulsar.prototype.setArgs = function(value) {
@@ -3338,7 +3338,7 @@ proto.protos.ReadOptsRabbit.prototype.toObject = function(opt_includeInstance) {
 proto.protos.ReadOptsRabbit.toObject = function(includeInstance, msg) {
   var f, obj = {
     conn: (f = msg.getConn()) && args_rabbit_pb.RabbitConn.toObject(includeInstance, f),
-    args: (f = msg.getArgs()) && args_rabbit_pb.RabbitReadOpts.toObject(includeInstance, f)
+    args: (f = msg.getArgs()) && args_rabbit_pb.RabbitReadArgs.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -3381,8 +3381,8 @@ proto.protos.ReadOptsRabbit.deserializeBinaryFromReader = function(msg, reader) 
       msg.setConn(value);
       break;
     case 2:
-      var value = new args_rabbit_pb.RabbitReadOpts;
-      reader.readMessage(value,args_rabbit_pb.RabbitReadOpts.deserializeBinaryFromReader);
+      var value = new args_rabbit_pb.RabbitReadArgs;
+      reader.readMessage(value,args_rabbit_pb.RabbitReadArgs.deserializeBinaryFromReader);
       msg.setArgs(value);
       break;
     default:
@@ -3427,14 +3427,14 @@ proto.protos.ReadOptsRabbit.serializeBinaryToWriter = function(message, writer) 
     writer.writeMessage(
       2,
       f,
-      args_rabbit_pb.RabbitReadOpts.serializeBinaryToWriter
+      args_rabbit_pb.RabbitReadArgs.serializeBinaryToWriter
     );
   }
 };
 
 
 /**
- * optional args.RabbitConn conn = 1;
+ * optional args.RabbitConn _conn = 1;
  * @return {?proto.protos.args.RabbitConn}
  */
 proto.protos.ReadOptsRabbit.prototype.getConn = function() {
@@ -3471,17 +3471,17 @@ proto.protos.ReadOptsRabbit.prototype.hasConn = function() {
 
 
 /**
- * optional args.RabbitReadOpts args = 2;
- * @return {?proto.protos.args.RabbitReadOpts}
+ * optional args.RabbitReadArgs args = 2;
+ * @return {?proto.protos.args.RabbitReadArgs}
  */
 proto.protos.ReadOptsRabbit.prototype.getArgs = function() {
-  return /** @type{?proto.protos.args.RabbitReadOpts} */ (
-    jspb.Message.getWrapperField(this, args_rabbit_pb.RabbitReadOpts, 2));
+  return /** @type{?proto.protos.args.RabbitReadArgs} */ (
+    jspb.Message.getWrapperField(this, args_rabbit_pb.RabbitReadArgs, 2));
 };
 
 
 /**
- * @param {?proto.protos.args.RabbitReadOpts|undefined} value
+ * @param {?proto.protos.args.RabbitReadArgs|undefined} value
  * @return {!proto.protos.ReadOptsRabbit} returns this
 */
 proto.protos.ReadOptsRabbit.prototype.setArgs = function(value) {
@@ -3540,7 +3540,7 @@ proto.protos.ReadOptsRabbitStreams.prototype.toObject = function(opt_includeInst
 proto.protos.ReadOptsRabbitStreams.toObject = function(includeInstance, msg) {
   var f, obj = {
     conn: (f = msg.getConn()) && args_rabbit$streams_pb.RabbitStreamsConn.toObject(includeInstance, f),
-    args: (f = msg.getArgs()) && args_rabbit$streams_pb.RabbitStreamsReadOpts.toObject(includeInstance, f)
+    args: (f = msg.getArgs()) && args_rabbit$streams_pb.RabbitStreamsReadArgs.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -3583,8 +3583,8 @@ proto.protos.ReadOptsRabbitStreams.deserializeBinaryFromReader = function(msg, r
       msg.setConn(value);
       break;
     case 2:
-      var value = new args_rabbit$streams_pb.RabbitStreamsReadOpts;
-      reader.readMessage(value,args_rabbit$streams_pb.RabbitStreamsReadOpts.deserializeBinaryFromReader);
+      var value = new args_rabbit$streams_pb.RabbitStreamsReadArgs;
+      reader.readMessage(value,args_rabbit$streams_pb.RabbitStreamsReadArgs.deserializeBinaryFromReader);
       msg.setArgs(value);
       break;
     default:
@@ -3629,14 +3629,14 @@ proto.protos.ReadOptsRabbitStreams.serializeBinaryToWriter = function(message, w
     writer.writeMessage(
       2,
       f,
-      args_rabbit$streams_pb.RabbitStreamsReadOpts.serializeBinaryToWriter
+      args_rabbit$streams_pb.RabbitStreamsReadArgs.serializeBinaryToWriter
     );
   }
 };
 
 
 /**
- * optional args.RabbitStreamsConn conn = 1;
+ * optional args.RabbitStreamsConn _conn = 1;
  * @return {?proto.protos.args.RabbitStreamsConn}
  */
 proto.protos.ReadOptsRabbitStreams.prototype.getConn = function() {
@@ -3673,17 +3673,17 @@ proto.protos.ReadOptsRabbitStreams.prototype.hasConn = function() {
 
 
 /**
- * optional args.RabbitStreamsReadOpts args = 2;
- * @return {?proto.protos.args.RabbitStreamsReadOpts}
+ * optional args.RabbitStreamsReadArgs args = 2;
+ * @return {?proto.protos.args.RabbitStreamsReadArgs}
  */
 proto.protos.ReadOptsRabbitStreams.prototype.getArgs = function() {
-  return /** @type{?proto.protos.args.RabbitStreamsReadOpts} */ (
-    jspb.Message.getWrapperField(this, args_rabbit$streams_pb.RabbitStreamsReadOpts, 2));
+  return /** @type{?proto.protos.args.RabbitStreamsReadArgs} */ (
+    jspb.Message.getWrapperField(this, args_rabbit$streams_pb.RabbitStreamsReadArgs, 2));
 };
 
 
 /**
- * @param {?proto.protos.args.RabbitStreamsReadOpts|undefined} value
+ * @param {?proto.protos.args.RabbitStreamsReadArgs|undefined} value
  * @return {!proto.protos.ReadOptsRabbitStreams} returns this
 */
 proto.protos.ReadOptsRabbitStreams.prototype.setArgs = function(value) {
@@ -3742,7 +3742,7 @@ proto.protos.ReadOptsRedisPubSub.prototype.toObject = function(opt_includeInstan
 proto.protos.ReadOptsRedisPubSub.toObject = function(includeInstance, msg) {
   var f, obj = {
     conn: (f = msg.getConn()) && args_redis$pubsub_pb.RedisPubSubConn.toObject(includeInstance, f),
-    args: (f = msg.getArgs()) && args_redis$pubsub_pb.RedisPubSubReadOpts.toObject(includeInstance, f)
+    args: (f = msg.getArgs()) && args_redis$pubsub_pb.RedisPubSubReadArgs.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -3785,8 +3785,8 @@ proto.protos.ReadOptsRedisPubSub.deserializeBinaryFromReader = function(msg, rea
       msg.setConn(value);
       break;
     case 2:
-      var value = new args_redis$pubsub_pb.RedisPubSubReadOpts;
-      reader.readMessage(value,args_redis$pubsub_pb.RedisPubSubReadOpts.deserializeBinaryFromReader);
+      var value = new args_redis$pubsub_pb.RedisPubSubReadArgs;
+      reader.readMessage(value,args_redis$pubsub_pb.RedisPubSubReadArgs.deserializeBinaryFromReader);
       msg.setArgs(value);
       break;
     default:
@@ -3831,14 +3831,14 @@ proto.protos.ReadOptsRedisPubSub.serializeBinaryToWriter = function(message, wri
     writer.writeMessage(
       2,
       f,
-      args_redis$pubsub_pb.RedisPubSubReadOpts.serializeBinaryToWriter
+      args_redis$pubsub_pb.RedisPubSubReadArgs.serializeBinaryToWriter
     );
   }
 };
 
 
 /**
- * optional args.RedisPubSubConn conn = 1;
+ * optional args.RedisPubSubConn _conn = 1;
  * @return {?proto.protos.args.RedisPubSubConn}
  */
 proto.protos.ReadOptsRedisPubSub.prototype.getConn = function() {
@@ -3875,17 +3875,17 @@ proto.protos.ReadOptsRedisPubSub.prototype.hasConn = function() {
 
 
 /**
- * optional args.RedisPubSubReadOpts args = 2;
- * @return {?proto.protos.args.RedisPubSubReadOpts}
+ * optional args.RedisPubSubReadArgs args = 2;
+ * @return {?proto.protos.args.RedisPubSubReadArgs}
  */
 proto.protos.ReadOptsRedisPubSub.prototype.getArgs = function() {
-  return /** @type{?proto.protos.args.RedisPubSubReadOpts} */ (
-    jspb.Message.getWrapperField(this, args_redis$pubsub_pb.RedisPubSubReadOpts, 2));
+  return /** @type{?proto.protos.args.RedisPubSubReadArgs} */ (
+    jspb.Message.getWrapperField(this, args_redis$pubsub_pb.RedisPubSubReadArgs, 2));
 };
 
 
 /**
- * @param {?proto.protos.args.RedisPubSubReadOpts|undefined} value
+ * @param {?proto.protos.args.RedisPubSubReadArgs|undefined} value
  * @return {!proto.protos.ReadOptsRedisPubSub} returns this
 */
 proto.protos.ReadOptsRedisPubSub.prototype.setArgs = function(value) {
@@ -3944,7 +3944,7 @@ proto.protos.ReadOptsRedisStreams.prototype.toObject = function(opt_includeInsta
 proto.protos.ReadOptsRedisStreams.toObject = function(includeInstance, msg) {
   var f, obj = {
     conn: (f = msg.getConn()) && args_redis$streams_pb.RedisStreamsConn.toObject(includeInstance, f),
-    args: (f = msg.getArgs()) && args_redis$streams_pb.RedisStreamsReadOpts.toObject(includeInstance, f)
+    args: (f = msg.getArgs()) && args_redis$streams_pb.RedisStreamsReadArgs.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -3987,8 +3987,8 @@ proto.protos.ReadOptsRedisStreams.deserializeBinaryFromReader = function(msg, re
       msg.setConn(value);
       break;
     case 2:
-      var value = new args_redis$streams_pb.RedisStreamsReadOpts;
-      reader.readMessage(value,args_redis$streams_pb.RedisStreamsReadOpts.deserializeBinaryFromReader);
+      var value = new args_redis$streams_pb.RedisStreamsReadArgs;
+      reader.readMessage(value,args_redis$streams_pb.RedisStreamsReadArgs.deserializeBinaryFromReader);
       msg.setArgs(value);
       break;
     default:
@@ -4033,14 +4033,14 @@ proto.protos.ReadOptsRedisStreams.serializeBinaryToWriter = function(message, wr
     writer.writeMessage(
       2,
       f,
-      args_redis$streams_pb.RedisStreamsReadOpts.serializeBinaryToWriter
+      args_redis$streams_pb.RedisStreamsReadArgs.serializeBinaryToWriter
     );
   }
 };
 
 
 /**
- * optional args.RedisStreamsConn conn = 1;
+ * optional args.RedisStreamsConn _conn = 1;
  * @return {?proto.protos.args.RedisStreamsConn}
  */
 proto.protos.ReadOptsRedisStreams.prototype.getConn = function() {
@@ -4077,17 +4077,17 @@ proto.protos.ReadOptsRedisStreams.prototype.hasConn = function() {
 
 
 /**
- * optional args.RedisStreamsReadOpts args = 2;
- * @return {?proto.protos.args.RedisStreamsReadOpts}
+ * optional args.RedisStreamsReadArgs args = 2;
+ * @return {?proto.protos.args.RedisStreamsReadArgs}
  */
 proto.protos.ReadOptsRedisStreams.prototype.getArgs = function() {
-  return /** @type{?proto.protos.args.RedisStreamsReadOpts} */ (
-    jspb.Message.getWrapperField(this, args_redis$streams_pb.RedisStreamsReadOpts, 2));
+  return /** @type{?proto.protos.args.RedisStreamsReadArgs} */ (
+    jspb.Message.getWrapperField(this, args_redis$streams_pb.RedisStreamsReadArgs, 2));
 };
 
 
 /**
- * @param {?proto.protos.args.RedisStreamsReadOpts|undefined} value
+ * @param {?proto.protos.args.RedisStreamsReadArgs|undefined} value
  * @return {!proto.protos.ReadOptsRedisStreams} returns this
 */
 proto.protos.ReadOptsRedisStreams.prototype.setArgs = function(value) {
@@ -4146,7 +4146,7 @@ proto.protos.ReadOptsAzureEventHub.prototype.toObject = function(opt_includeInst
 proto.protos.ReadOptsAzureEventHub.toObject = function(includeInstance, msg) {
   var f, obj = {
     conn: (f = msg.getConn()) && args_azure$event$hub_pb.AzureEventHubConn.toObject(includeInstance, f),
-    args: (f = msg.getArgs()) && args_azure$event$hub_pb.AzureEventHubReadOpts.toObject(includeInstance, f)
+    args: (f = msg.getArgs()) && args_azure$event$hub_pb.AzureEventHubReadArgs.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -4189,8 +4189,8 @@ proto.protos.ReadOptsAzureEventHub.deserializeBinaryFromReader = function(msg, r
       msg.setConn(value);
       break;
     case 2:
-      var value = new args_azure$event$hub_pb.AzureEventHubReadOpts;
-      reader.readMessage(value,args_azure$event$hub_pb.AzureEventHubReadOpts.deserializeBinaryFromReader);
+      var value = new args_azure$event$hub_pb.AzureEventHubReadArgs;
+      reader.readMessage(value,args_azure$event$hub_pb.AzureEventHubReadArgs.deserializeBinaryFromReader);
       msg.setArgs(value);
       break;
     default:
@@ -4235,14 +4235,14 @@ proto.protos.ReadOptsAzureEventHub.serializeBinaryToWriter = function(message, w
     writer.writeMessage(
       2,
       f,
-      args_azure$event$hub_pb.AzureEventHubReadOpts.serializeBinaryToWriter
+      args_azure$event$hub_pb.AzureEventHubReadArgs.serializeBinaryToWriter
     );
   }
 };
 
 
 /**
- * optional args.AzureEventHubConn conn = 1;
+ * optional args.AzureEventHubConn _conn = 1;
  * @return {?proto.protos.args.AzureEventHubConn}
  */
 proto.protos.ReadOptsAzureEventHub.prototype.getConn = function() {
@@ -4279,17 +4279,17 @@ proto.protos.ReadOptsAzureEventHub.prototype.hasConn = function() {
 
 
 /**
- * optional args.AzureEventHubReadOpts args = 2;
- * @return {?proto.protos.args.AzureEventHubReadOpts}
+ * optional args.AzureEventHubReadArgs args = 2;
+ * @return {?proto.protos.args.AzureEventHubReadArgs}
  */
 proto.protos.ReadOptsAzureEventHub.prototype.getArgs = function() {
-  return /** @type{?proto.protos.args.AzureEventHubReadOpts} */ (
-    jspb.Message.getWrapperField(this, args_azure$event$hub_pb.AzureEventHubReadOpts, 2));
+  return /** @type{?proto.protos.args.AzureEventHubReadArgs} */ (
+    jspb.Message.getWrapperField(this, args_azure$event$hub_pb.AzureEventHubReadArgs, 2));
 };
 
 
 /**
- * @param {?proto.protos.args.AzureEventHubReadOpts|undefined} value
+ * @param {?proto.protos.args.AzureEventHubReadArgs|undefined} value
  * @return {!proto.protos.ReadOptsAzureEventHub} returns this
 */
 proto.protos.ReadOptsAzureEventHub.prototype.setArgs = function(value) {
@@ -4348,7 +4348,7 @@ proto.protos.ReadOptsAzureServiceBus.prototype.toObject = function(opt_includeIn
 proto.protos.ReadOptsAzureServiceBus.toObject = function(includeInstance, msg) {
   var f, obj = {
     conn: (f = msg.getConn()) && args_azure$service$bus_pb.AzureServiceBusConn.toObject(includeInstance, f),
-    args: (f = msg.getArgs()) && args_azure$service$bus_pb.AzureServiceBusReadOpts.toObject(includeInstance, f)
+    args: (f = msg.getArgs()) && args_azure$service$bus_pb.AzureServiceBusReadArgs.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -4391,8 +4391,8 @@ proto.protos.ReadOptsAzureServiceBus.deserializeBinaryFromReader = function(msg,
       msg.setConn(value);
       break;
     case 2:
-      var value = new args_azure$service$bus_pb.AzureServiceBusReadOpts;
-      reader.readMessage(value,args_azure$service$bus_pb.AzureServiceBusReadOpts.deserializeBinaryFromReader);
+      var value = new args_azure$service$bus_pb.AzureServiceBusReadArgs;
+      reader.readMessage(value,args_azure$service$bus_pb.AzureServiceBusReadArgs.deserializeBinaryFromReader);
       msg.setArgs(value);
       break;
     default:
@@ -4437,14 +4437,14 @@ proto.protos.ReadOptsAzureServiceBus.serializeBinaryToWriter = function(message,
     writer.writeMessage(
       2,
       f,
-      args_azure$service$bus_pb.AzureServiceBusReadOpts.serializeBinaryToWriter
+      args_azure$service$bus_pb.AzureServiceBusReadArgs.serializeBinaryToWriter
     );
   }
 };
 
 
 /**
- * optional args.AzureServiceBusConn conn = 1;
+ * optional args.AzureServiceBusConn _conn = 1;
  * @return {?proto.protos.args.AzureServiceBusConn}
  */
 proto.protos.ReadOptsAzureServiceBus.prototype.getConn = function() {
@@ -4481,17 +4481,17 @@ proto.protos.ReadOptsAzureServiceBus.prototype.hasConn = function() {
 
 
 /**
- * optional args.AzureServiceBusReadOpts args = 2;
- * @return {?proto.protos.args.AzureServiceBusReadOpts}
+ * optional args.AzureServiceBusReadArgs args = 2;
+ * @return {?proto.protos.args.AzureServiceBusReadArgs}
  */
 proto.protos.ReadOptsAzureServiceBus.prototype.getArgs = function() {
-  return /** @type{?proto.protos.args.AzureServiceBusReadOpts} */ (
-    jspb.Message.getWrapperField(this, args_azure$service$bus_pb.AzureServiceBusReadOpts, 2));
+  return /** @type{?proto.protos.args.AzureServiceBusReadArgs} */ (
+    jspb.Message.getWrapperField(this, args_azure$service$bus_pb.AzureServiceBusReadArgs, 2));
 };
 
 
 /**
- * @param {?proto.protos.args.AzureServiceBusReadOpts|undefined} value
+ * @param {?proto.protos.args.AzureServiceBusReadArgs|undefined} value
  * @return {!proto.protos.ReadOptsAzureServiceBus} returns this
 */
 proto.protos.ReadOptsAzureServiceBus.prototype.setArgs = function(value) {
@@ -4550,7 +4550,7 @@ proto.protos.ReadOptsMQTT.prototype.toObject = function(opt_includeInstance) {
 proto.protos.ReadOptsMQTT.toObject = function(includeInstance, msg) {
   var f, obj = {
     conn: (f = msg.getConn()) && args_mqtt_pb.MQTTConn.toObject(includeInstance, f),
-    args: (f = msg.getArgs()) && args_mqtt_pb.MQTTReadOpts.toObject(includeInstance, f)
+    args: (f = msg.getArgs()) && args_mqtt_pb.MQTTReadArgs.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -4593,8 +4593,8 @@ proto.protos.ReadOptsMQTT.deserializeBinaryFromReader = function(msg, reader) {
       msg.setConn(value);
       break;
     case 2:
-      var value = new args_mqtt_pb.MQTTReadOpts;
-      reader.readMessage(value,args_mqtt_pb.MQTTReadOpts.deserializeBinaryFromReader);
+      var value = new args_mqtt_pb.MQTTReadArgs;
+      reader.readMessage(value,args_mqtt_pb.MQTTReadArgs.deserializeBinaryFromReader);
       msg.setArgs(value);
       break;
     default:
@@ -4639,14 +4639,14 @@ proto.protos.ReadOptsMQTT.serializeBinaryToWriter = function(message, writer) {
     writer.writeMessage(
       2,
       f,
-      args_mqtt_pb.MQTTReadOpts.serializeBinaryToWriter
+      args_mqtt_pb.MQTTReadArgs.serializeBinaryToWriter
     );
   }
 };
 
 
 /**
- * optional args.MQTTConn conn = 1;
+ * optional args.MQTTConn _conn = 1;
  * @return {?proto.protos.args.MQTTConn}
  */
 proto.protos.ReadOptsMQTT.prototype.getConn = function() {
@@ -4683,17 +4683,17 @@ proto.protos.ReadOptsMQTT.prototype.hasConn = function() {
 
 
 /**
- * optional args.MQTTReadOpts args = 2;
- * @return {?proto.protos.args.MQTTReadOpts}
+ * optional args.MQTTReadArgs args = 2;
+ * @return {?proto.protos.args.MQTTReadArgs}
  */
 proto.protos.ReadOptsMQTT.prototype.getArgs = function() {
-  return /** @type{?proto.protos.args.MQTTReadOpts} */ (
-    jspb.Message.getWrapperField(this, args_mqtt_pb.MQTTReadOpts, 2));
+  return /** @type{?proto.protos.args.MQTTReadArgs} */ (
+    jspb.Message.getWrapperField(this, args_mqtt_pb.MQTTReadArgs, 2));
 };
 
 
 /**
- * @param {?proto.protos.args.MQTTReadOpts|undefined} value
+ * @param {?proto.protos.args.MQTTReadArgs|undefined} value
  * @return {!proto.protos.ReadOptsMQTT} returns this
 */
 proto.protos.ReadOptsMQTT.prototype.setArgs = function(value) {
@@ -4752,7 +4752,7 @@ proto.protos.ReadOptsGCPPubSub.prototype.toObject = function(opt_includeInstance
 proto.protos.ReadOptsGCPPubSub.toObject = function(includeInstance, msg) {
   var f, obj = {
     conn: (f = msg.getConn()) && args_gcp$pubsub_pb.GCPPubSubConn.toObject(includeInstance, f),
-    args: (f = msg.getArgs()) && args_gcp$pubsub_pb.GCPPubSubReadOpts.toObject(includeInstance, f)
+    args: (f = msg.getArgs()) && args_gcp$pubsub_pb.GCPPubSubReadArgs.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -4795,8 +4795,8 @@ proto.protos.ReadOptsGCPPubSub.deserializeBinaryFromReader = function(msg, reade
       msg.setConn(value);
       break;
     case 2:
-      var value = new args_gcp$pubsub_pb.GCPPubSubReadOpts;
-      reader.readMessage(value,args_gcp$pubsub_pb.GCPPubSubReadOpts.deserializeBinaryFromReader);
+      var value = new args_gcp$pubsub_pb.GCPPubSubReadArgs;
+      reader.readMessage(value,args_gcp$pubsub_pb.GCPPubSubReadArgs.deserializeBinaryFromReader);
       msg.setArgs(value);
       break;
     default:
@@ -4841,14 +4841,14 @@ proto.protos.ReadOptsGCPPubSub.serializeBinaryToWriter = function(message, write
     writer.writeMessage(
       2,
       f,
-      args_gcp$pubsub_pb.GCPPubSubReadOpts.serializeBinaryToWriter
+      args_gcp$pubsub_pb.GCPPubSubReadArgs.serializeBinaryToWriter
     );
   }
 };
 
 
 /**
- * optional args.GCPPubSubConn conn = 1;
+ * optional args.GCPPubSubConn _conn = 1;
  * @return {?proto.protos.args.GCPPubSubConn}
  */
 proto.protos.ReadOptsGCPPubSub.prototype.getConn = function() {
@@ -4885,17 +4885,17 @@ proto.protos.ReadOptsGCPPubSub.prototype.hasConn = function() {
 
 
 /**
- * optional args.GCPPubSubReadOpts args = 2;
- * @return {?proto.protos.args.GCPPubSubReadOpts}
+ * optional args.GCPPubSubReadArgs args = 2;
+ * @return {?proto.protos.args.GCPPubSubReadArgs}
  */
 proto.protos.ReadOptsGCPPubSub.prototype.getArgs = function() {
-  return /** @type{?proto.protos.args.GCPPubSubReadOpts} */ (
-    jspb.Message.getWrapperField(this, args_gcp$pubsub_pb.GCPPubSubReadOpts, 2));
+  return /** @type{?proto.protos.args.GCPPubSubReadArgs} */ (
+    jspb.Message.getWrapperField(this, args_gcp$pubsub_pb.GCPPubSubReadArgs, 2));
 };
 
 
 /**
- * @param {?proto.protos.args.GCPPubSubReadOpts|undefined} value
+ * @param {?proto.protos.args.GCPPubSubReadArgs|undefined} value
  * @return {!proto.protos.ReadOptsGCPPubSub} returns this
 */
 proto.protos.ReadOptsGCPPubSub.prototype.setArgs = function(value) {
@@ -4954,7 +4954,7 @@ proto.protos.ReadOptsKubeMQQueue.prototype.toObject = function(opt_includeInstan
 proto.protos.ReadOptsKubeMQQueue.toObject = function(includeInstance, msg) {
   var f, obj = {
     conn: (f = msg.getConn()) && args_kubemq$queue_pb.KubeMQQueueConn.toObject(includeInstance, f),
-    args: (f = msg.getArgs()) && args_kubemq$queue_pb.KubeMQQueueReadOpts.toObject(includeInstance, f)
+    args: (f = msg.getArgs()) && args_kubemq$queue_pb.KubeMQQueueReadArgs.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -4997,8 +4997,8 @@ proto.protos.ReadOptsKubeMQQueue.deserializeBinaryFromReader = function(msg, rea
       msg.setConn(value);
       break;
     case 2:
-      var value = new args_kubemq$queue_pb.KubeMQQueueReadOpts;
-      reader.readMessage(value,args_kubemq$queue_pb.KubeMQQueueReadOpts.deserializeBinaryFromReader);
+      var value = new args_kubemq$queue_pb.KubeMQQueueReadArgs;
+      reader.readMessage(value,args_kubemq$queue_pb.KubeMQQueueReadArgs.deserializeBinaryFromReader);
       msg.setArgs(value);
       break;
     default:
@@ -5043,14 +5043,14 @@ proto.protos.ReadOptsKubeMQQueue.serializeBinaryToWriter = function(message, wri
     writer.writeMessage(
       2,
       f,
-      args_kubemq$queue_pb.KubeMQQueueReadOpts.serializeBinaryToWriter
+      args_kubemq$queue_pb.KubeMQQueueReadArgs.serializeBinaryToWriter
     );
   }
 };
 
 
 /**
- * optional args.KubeMQQueueConn conn = 1;
+ * optional args.KubeMQQueueConn _conn = 1;
  * @return {?proto.protos.args.KubeMQQueueConn}
  */
 proto.protos.ReadOptsKubeMQQueue.prototype.getConn = function() {
@@ -5087,17 +5087,17 @@ proto.protos.ReadOptsKubeMQQueue.prototype.hasConn = function() {
 
 
 /**
- * optional args.KubeMQQueueReadOpts args = 2;
- * @return {?proto.protos.args.KubeMQQueueReadOpts}
+ * optional args.KubeMQQueueReadArgs args = 2;
+ * @return {?proto.protos.args.KubeMQQueueReadArgs}
  */
 proto.protos.ReadOptsKubeMQQueue.prototype.getArgs = function() {
-  return /** @type{?proto.protos.args.KubeMQQueueReadOpts} */ (
-    jspb.Message.getWrapperField(this, args_kubemq$queue_pb.KubeMQQueueReadOpts, 2));
+  return /** @type{?proto.protos.args.KubeMQQueueReadArgs} */ (
+    jspb.Message.getWrapperField(this, args_kubemq$queue_pb.KubeMQQueueReadArgs, 2));
 };
 
 
 /**
- * @param {?proto.protos.args.KubeMQQueueReadOpts|undefined} value
+ * @param {?proto.protos.args.KubeMQQueueReadArgs|undefined} value
  * @return {!proto.protos.ReadOptsKubeMQQueue} returns this
 */
 proto.protos.ReadOptsKubeMQQueue.prototype.setArgs = function(value) {

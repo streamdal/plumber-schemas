@@ -11,7 +11,7 @@ message AzureServiceBusConn {
   string connection_string = 1;
 }
 
-message AzureServiceBusReadOpts {
+message AzureServiceBusReadArgs {
   // @gotags: kong:"help='Queue name',env='PLUMBER_RELAY_AZURE_QUEUE_NAME',required"
   string queue = 1;
 
@@ -22,7 +22,7 @@ message AzureServiceBusReadOpts {
   string subscription_name = 3;
 }
 
-message AzureServiceBusWriteOpts {
+message AzureServiceBusWriteArgs {
   // @gotags: kong:"help='Queue name',required"
   string queue = 1;
 

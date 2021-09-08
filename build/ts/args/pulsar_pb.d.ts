@@ -42,25 +42,25 @@ export namespace PulsarConn {
     }
 }
 
-export class PulsarReadOpts extends jspb.Message { 
+export class PulsarReadArgs extends jspb.Message { 
     getTopic(): string;
-    setTopic(value: string): PulsarReadOpts;
+    setTopic(value: string): PulsarReadArgs;
     getSubscriptionName(): string;
-    setSubscriptionName(value: string): PulsarReadOpts;
+    setSubscriptionName(value: string): PulsarReadArgs;
     getSubscriptionType(): SubscriptionType;
-    setSubscriptionType(value: SubscriptionType): PulsarReadOpts;
+    setSubscriptionType(value: SubscriptionType): PulsarReadArgs;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): PulsarReadOpts.AsObject;
-    static toObject(includeInstance: boolean, msg: PulsarReadOpts): PulsarReadOpts.AsObject;
+    toObject(includeInstance?: boolean): PulsarReadArgs.AsObject;
+    static toObject(includeInstance: boolean, msg: PulsarReadArgs): PulsarReadArgs.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: PulsarReadOpts, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): PulsarReadOpts;
-    static deserializeBinaryFromReader(message: PulsarReadOpts, reader: jspb.BinaryReader): PulsarReadOpts;
+    static serializeBinaryToWriter(message: PulsarReadArgs, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): PulsarReadArgs;
+    static deserializeBinaryFromReader(message: PulsarReadArgs, reader: jspb.BinaryReader): PulsarReadArgs;
 }
 
-export namespace PulsarReadOpts {
+export namespace PulsarReadArgs {
     export type AsObject = {
         topic: string,
         subscriptionName: string,
@@ -68,21 +68,21 @@ export namespace PulsarReadOpts {
     }
 }
 
-export class PulsarWriteOpts extends jspb.Message { 
+export class PulsarWriteArgs extends jspb.Message { 
     getTopic(): string;
-    setTopic(value: string): PulsarWriteOpts;
+    setTopic(value: string): PulsarWriteArgs;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): PulsarWriteOpts.AsObject;
-    static toObject(includeInstance: boolean, msg: PulsarWriteOpts): PulsarWriteOpts.AsObject;
+    toObject(includeInstance?: boolean): PulsarWriteArgs.AsObject;
+    static toObject(includeInstance: boolean, msg: PulsarWriteArgs): PulsarWriteArgs.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: PulsarWriteOpts, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): PulsarWriteOpts;
-    static deserializeBinaryFromReader(message: PulsarWriteOpts, reader: jspb.BinaryReader): PulsarWriteOpts;
+    static serializeBinaryToWriter(message: PulsarWriteArgs, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): PulsarWriteArgs;
+    static deserializeBinaryFromReader(message: PulsarWriteArgs, reader: jspb.BinaryReader): PulsarWriteArgs;
 }
 
-export namespace PulsarWriteOpts {
+export namespace PulsarWriteArgs {
     export type AsObject = {
         topic: string,
     }

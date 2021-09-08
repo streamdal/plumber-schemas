@@ -26,44 +26,44 @@ export namespace GCPPubSubConn {
     }
 }
 
-export class GCPPubSubReadOpts extends jspb.Message { 
+export class GCPPubSubReadArgs extends jspb.Message { 
     getSubscriptionId(): string;
-    setSubscriptionId(value: string): GCPPubSubReadOpts;
+    setSubscriptionId(value: string): GCPPubSubReadArgs;
     getAckMessages(): boolean;
-    setAckMessages(value: boolean): GCPPubSubReadOpts;
+    setAckMessages(value: boolean): GCPPubSubReadArgs;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): GCPPubSubReadOpts.AsObject;
-    static toObject(includeInstance: boolean, msg: GCPPubSubReadOpts): GCPPubSubReadOpts.AsObject;
+    toObject(includeInstance?: boolean): GCPPubSubReadArgs.AsObject;
+    static toObject(includeInstance: boolean, msg: GCPPubSubReadArgs): GCPPubSubReadArgs.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: GCPPubSubReadOpts, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): GCPPubSubReadOpts;
-    static deserializeBinaryFromReader(message: GCPPubSubReadOpts, reader: jspb.BinaryReader): GCPPubSubReadOpts;
+    static serializeBinaryToWriter(message: GCPPubSubReadArgs, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): GCPPubSubReadArgs;
+    static deserializeBinaryFromReader(message: GCPPubSubReadArgs, reader: jspb.BinaryReader): GCPPubSubReadArgs;
 }
 
-export namespace GCPPubSubReadOpts {
+export namespace GCPPubSubReadArgs {
     export type AsObject = {
         subscriptionId: string,
         ackMessages: boolean,
     }
 }
 
-export class GCPPubSubWriteOpts extends jspb.Message { 
+export class GCPPubSubWriteArgs extends jspb.Message { 
     getTopicId(): string;
-    setTopicId(value: string): GCPPubSubWriteOpts;
+    setTopicId(value: string): GCPPubSubWriteArgs;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): GCPPubSubWriteOpts.AsObject;
-    static toObject(includeInstance: boolean, msg: GCPPubSubWriteOpts): GCPPubSubWriteOpts.AsObject;
+    toObject(includeInstance?: boolean): GCPPubSubWriteArgs.AsObject;
+    static toObject(includeInstance: boolean, msg: GCPPubSubWriteArgs): GCPPubSubWriteArgs.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: GCPPubSubWriteOpts, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): GCPPubSubWriteOpts;
-    static deserializeBinaryFromReader(message: GCPPubSubWriteOpts, reader: jspb.BinaryReader): GCPPubSubWriteOpts;
+    static serializeBinaryToWriter(message: GCPPubSubWriteArgs, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): GCPPubSubWriteArgs;
+    static deserializeBinaryFromReader(message: GCPPubSubWriteArgs, reader: jspb.BinaryReader): GCPPubSubWriteArgs;
 }
 
-export namespace GCPPubSubWriteOpts {
+export namespace GCPPubSubWriteArgs {
     export type AsObject = {
         topicId: string,
     }

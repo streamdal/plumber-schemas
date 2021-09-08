@@ -32,21 +32,21 @@ export namespace AWSSNSConn {
     }
 }
 
-export class AWSSNSWriteOpts extends jspb.Message { 
+export class AWSSNSWriteArgs extends jspb.Message { 
     getTopic(): string;
-    setTopic(value: string): AWSSNSWriteOpts;
+    setTopic(value: string): AWSSNSWriteArgs;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): AWSSNSWriteOpts.AsObject;
-    static toObject(includeInstance: boolean, msg: AWSSNSWriteOpts): AWSSNSWriteOpts.AsObject;
+    toObject(includeInstance?: boolean): AWSSNSWriteArgs.AsObject;
+    static toObject(includeInstance: boolean, msg: AWSSNSWriteArgs): AWSSNSWriteArgs.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: AWSSNSWriteOpts, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): AWSSNSWriteOpts;
-    static deserializeBinaryFromReader(message: AWSSNSWriteOpts, reader: jspb.BinaryReader): AWSSNSWriteOpts;
+    static serializeBinaryToWriter(message: AWSSNSWriteArgs, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): AWSSNSWriteArgs;
+    static deserializeBinaryFromReader(message: AWSSNSWriteArgs, reader: jspb.BinaryReader): AWSSNSWriteArgs;
 }
 
-export namespace AWSSNSWriteOpts {
+export namespace AWSSNSWriteArgs {
     export type AsObject = {
         topic: string,
     }

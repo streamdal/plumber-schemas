@@ -62,84 +62,84 @@ message RelayOpts {
 
 message RelayOptsKafka {
     // @gotags: kong:"embed"
-    args.KafkaConn conn = 1;
+    args.KafkaConn _conn = 1;
     // @gotags: kong:"embed"
-    args.KafkaRelayOpts args = 2;
+    args.KafkaRelayArgs args = 2;
 }
 
 message RelayOptsAWSSQS {
     // @gotags: kong:"embed"
-    args.AWSSQSConn conn = 1;
+    args.AWSSQSConn _conn = 1;
     // @gotags: kong:"embed"
-    args.AWSSQSRelayOpts args = 2;
+    args.AWSSQSRelayArgs args = 2;
 }
 
 message RelayOptsMongo {
     // @gotags: kong:"embed"
-    args.MongoConn conn = 1;
+    args.MongoConn _conn = 1;
     // @gotags: kong:"embed"
-    args.MongoReadOpts args = 2;
+    args.MongoReadArgs args = 2;
 }
 
 message RelayOptsNSQ {
     // @gotags: kong:"embed"
-    args.NSQConn conn = 1;
+    args.NSQConn _conn = 1;
     // @gotags: kong:"embed"
-    args.NSQReadOpts args = 2;
+    args.NSQReadArgs args = 2;
 }
 
 message RelayOptsPostgres {
     // @gotags: kong:"embed"
-    args.PostgresConn conn = 1;
+    args.PostgresConn _conn = 1;
     // @gotags: kong:"embed"
-    args.PostgresReadOpts args = 2;
+    args.PostgresReadArgs args = 2;
 }
 
 message RelayOptsRabbit {
     // @gotags: kong:"embed"
-    args.RabbitConn conn = 1;
+    args.RabbitConn _conn = 1;
     // @gotags: kong:"embed"
-    args.RabbitReadOpts args = 2;
+    args.RabbitReadArgs args = 2;
 }
 
 message RelayOptsRedisPubSub {
     // @gotags: kong:"embed"
-    args.RedisPubSubConn conn = 1;
+    args.RedisPubSubConn _conn = 1;
     // @gotags: kong:"embed"
-    args.RedisPubSubReadOpts args = 2;
+    args.RedisPubSubReadArgs args = 2;
 }
 
 message RelayOptsRedisStreams {
     // @gotags: kong:"embed"
-    args.RedisStreamsConn conn = 1;
+    args.RedisStreamsConn _conn = 1;
     // @gotags: kong:"embed"
-    args.RedisStreamsReadOpts args = 2;
+    args.RedisStreamsReadArgs args = 2;
 }
 
 message RelayOptsAzureServiceBus {
     // @gotags: kong:"embed"
-    args.AzureServiceBusConn conn = 1;
+    args.AzureServiceBusConn _conn = 1;
     // @gotags: kong:"embed"
-    args.AzureServiceBusReadOpts args = 2;
+    args.AzureServiceBusReadArgs args = 2;
 }
 
 message RelayOptsMQTT {
     // @gotags: kong:"embed"
-    args.MQTTConn conn = 1;
+    args.MQTTConn _conn = 1;
     // @gotags: kong:"embed"
-    args.MQTTReadOpts args = 2;
+    args.MQTTReadArgs args = 2;
 }
 
 message RelayOptsGCPPubSub {
     // @gotags: kong:"embed"
-    args.GCPPubSubConn conn = 1;
+    args.GCPPubSubConn _conn = 1;
     // @gotags: kong:"embed"
-    args.GCPPubSubReadOpts args = 2;
+    args.GCPPubSubReadArgs args = 2;
 }
 
 message RelayOptsKubeMQQueue {
     // @gotags: kong:"embed"
-    args.KubeMQQueueConn conn = 1;
+    args.KubeMQQueueConn _conn = 1;
     // @gotags: kong:"embed"
-    args.KubeMQQueueReadOpts args = 2;
+    args.KubeMQQueueReadArgs args = 2;
 }

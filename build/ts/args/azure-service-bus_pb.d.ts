@@ -26,25 +26,25 @@ export namespace AzureServiceBusConn {
     }
 }
 
-export class AzureServiceBusReadOpts extends jspb.Message { 
+export class AzureServiceBusReadArgs extends jspb.Message { 
     getQueue(): string;
-    setQueue(value: string): AzureServiceBusReadOpts;
+    setQueue(value: string): AzureServiceBusReadArgs;
     getTopic(): string;
-    setTopic(value: string): AzureServiceBusReadOpts;
+    setTopic(value: string): AzureServiceBusReadArgs;
     getSubscriptionName(): string;
-    setSubscriptionName(value: string): AzureServiceBusReadOpts;
+    setSubscriptionName(value: string): AzureServiceBusReadArgs;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): AzureServiceBusReadOpts.AsObject;
-    static toObject(includeInstance: boolean, msg: AzureServiceBusReadOpts): AzureServiceBusReadOpts.AsObject;
+    toObject(includeInstance?: boolean): AzureServiceBusReadArgs.AsObject;
+    static toObject(includeInstance: boolean, msg: AzureServiceBusReadArgs): AzureServiceBusReadArgs.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: AzureServiceBusReadOpts, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): AzureServiceBusReadOpts;
-    static deserializeBinaryFromReader(message: AzureServiceBusReadOpts, reader: jspb.BinaryReader): AzureServiceBusReadOpts;
+    static serializeBinaryToWriter(message: AzureServiceBusReadArgs, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): AzureServiceBusReadArgs;
+    static deserializeBinaryFromReader(message: AzureServiceBusReadArgs, reader: jspb.BinaryReader): AzureServiceBusReadArgs;
 }
 
-export namespace AzureServiceBusReadOpts {
+export namespace AzureServiceBusReadArgs {
     export type AsObject = {
         queue: string,
         topic: string,
@@ -52,23 +52,23 @@ export namespace AzureServiceBusReadOpts {
     }
 }
 
-export class AzureServiceBusWriteOpts extends jspb.Message { 
+export class AzureServiceBusWriteArgs extends jspb.Message { 
     getQueue(): string;
-    setQueue(value: string): AzureServiceBusWriteOpts;
+    setQueue(value: string): AzureServiceBusWriteArgs;
     getTopic(): string;
-    setTopic(value: string): AzureServiceBusWriteOpts;
+    setTopic(value: string): AzureServiceBusWriteArgs;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): AzureServiceBusWriteOpts.AsObject;
-    static toObject(includeInstance: boolean, msg: AzureServiceBusWriteOpts): AzureServiceBusWriteOpts.AsObject;
+    toObject(includeInstance?: boolean): AzureServiceBusWriteArgs.AsObject;
+    static toObject(includeInstance: boolean, msg: AzureServiceBusWriteArgs): AzureServiceBusWriteArgs.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: AzureServiceBusWriteOpts, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): AzureServiceBusWriteOpts;
-    static deserializeBinaryFromReader(message: AzureServiceBusWriteOpts, reader: jspb.BinaryReader): AzureServiceBusWriteOpts;
+    static serializeBinaryToWriter(message: AzureServiceBusWriteArgs, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): AzureServiceBusWriteArgs;
+    static deserializeBinaryFromReader(message: AzureServiceBusWriteArgs, reader: jspb.BinaryReader): AzureServiceBusWriteArgs;
 }
 
-export namespace AzureServiceBusWriteOpts {
+export namespace AzureServiceBusWriteArgs {
     export type AsObject = {
         queue: string,
         topic: string,

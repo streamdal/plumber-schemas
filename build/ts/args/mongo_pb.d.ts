@@ -26,25 +26,25 @@ export namespace MongoConn {
     }
 }
 
-export class MongoReadOpts extends jspb.Message { 
+export class MongoReadArgs extends jspb.Message { 
     getDatabase(): string;
-    setDatabase(value: string): MongoReadOpts;
+    setDatabase(value: string): MongoReadArgs;
     getCollection(): string;
-    setCollection(value: string): MongoReadOpts;
+    setCollection(value: string): MongoReadArgs;
     getIncludeFullDocument(): boolean;
-    setIncludeFullDocument(value: boolean): MongoReadOpts;
+    setIncludeFullDocument(value: boolean): MongoReadArgs;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): MongoReadOpts.AsObject;
-    static toObject(includeInstance: boolean, msg: MongoReadOpts): MongoReadOpts.AsObject;
+    toObject(includeInstance?: boolean): MongoReadArgs.AsObject;
+    static toObject(includeInstance: boolean, msg: MongoReadArgs): MongoReadArgs.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: MongoReadOpts, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): MongoReadOpts;
-    static deserializeBinaryFromReader(message: MongoReadOpts, reader: jspb.BinaryReader): MongoReadOpts;
+    static serializeBinaryToWriter(message: MongoReadArgs, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): MongoReadArgs;
+    static deserializeBinaryFromReader(message: MongoReadArgs, reader: jspb.BinaryReader): MongoReadArgs;
 }
 
-export namespace MongoReadOpts {
+export namespace MongoReadArgs {
     export type AsObject = {
         database: string,
         collection: string,

@@ -64,36 +64,36 @@ export namespace CreateConsumerConfig {
 
 }
 
-export class RedisStreamsReadOpts extends jspb.Message { 
+export class RedisStreamsReadArgs extends jspb.Message { 
     getDatabase(): number;
-    setDatabase(value: number): RedisStreamsReadOpts;
+    setDatabase(value: number): RedisStreamsReadArgs;
     clearStreamList(): void;
     getStreamList(): Array<string>;
-    setStreamList(value: Array<string>): RedisStreamsReadOpts;
+    setStreamList(value: Array<string>): RedisStreamsReadArgs;
     addStream(value: string, index?: number): string;
     getConsumerGroup(): string;
-    setConsumerGroup(value: string): RedisStreamsReadOpts;
+    setConsumerGroup(value: string): RedisStreamsReadArgs;
     getConsumerName(): string;
-    setConsumerName(value: string): RedisStreamsReadOpts;
+    setConsumerName(value: string): RedisStreamsReadArgs;
     getCount(): number;
-    setCount(value: number): RedisStreamsReadOpts;
+    setCount(value: number): RedisStreamsReadArgs;
 
     hasCreateConsumerConfig(): boolean;
     clearCreateConsumerConfig(): void;
     getCreateConsumerConfig(): CreateConsumerConfig | undefined;
-    setCreateConsumerConfig(value?: CreateConsumerConfig): RedisStreamsReadOpts;
+    setCreateConsumerConfig(value?: CreateConsumerConfig): RedisStreamsReadArgs;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): RedisStreamsReadOpts.AsObject;
-    static toObject(includeInstance: boolean, msg: RedisStreamsReadOpts): RedisStreamsReadOpts.AsObject;
+    toObject(includeInstance?: boolean): RedisStreamsReadArgs.AsObject;
+    static toObject(includeInstance: boolean, msg: RedisStreamsReadArgs): RedisStreamsReadArgs.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: RedisStreamsReadOpts, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): RedisStreamsReadOpts;
-    static deserializeBinaryFromReader(message: RedisStreamsReadOpts, reader: jspb.BinaryReader): RedisStreamsReadOpts;
+    static serializeBinaryToWriter(message: RedisStreamsReadArgs, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): RedisStreamsReadArgs;
+    static deserializeBinaryFromReader(message: RedisStreamsReadArgs, reader: jspb.BinaryReader): RedisStreamsReadArgs;
 }
 
-export namespace RedisStreamsReadOpts {
+export namespace RedisStreamsReadArgs {
     export type AsObject = {
         database: number,
         streamList: Array<string>,
@@ -104,27 +104,27 @@ export namespace RedisStreamsReadOpts {
     }
 }
 
-export class RedisStreamsWriteOpts extends jspb.Message { 
+export class RedisStreamsWriteArgs extends jspb.Message { 
     getWriteId(): string;
-    setWriteId(value: string): RedisStreamsWriteOpts;
+    setWriteId(value: string): RedisStreamsWriteArgs;
     clearStreamsList(): void;
     getStreamsList(): Array<string>;
-    setStreamsList(value: Array<string>): RedisStreamsWriteOpts;
+    setStreamsList(value: Array<string>): RedisStreamsWriteArgs;
     addStreams(value: string, index?: number): string;
     getKey(): string;
-    setKey(value: string): RedisStreamsWriteOpts;
+    setKey(value: string): RedisStreamsWriteArgs;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): RedisStreamsWriteOpts.AsObject;
-    static toObject(includeInstance: boolean, msg: RedisStreamsWriteOpts): RedisStreamsWriteOpts.AsObject;
+    toObject(includeInstance?: boolean): RedisStreamsWriteArgs.AsObject;
+    static toObject(includeInstance: boolean, msg: RedisStreamsWriteArgs): RedisStreamsWriteArgs.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: RedisStreamsWriteOpts, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): RedisStreamsWriteOpts;
-    static deserializeBinaryFromReader(message: RedisStreamsWriteOpts, reader: jspb.BinaryReader): RedisStreamsWriteOpts;
+    static serializeBinaryToWriter(message: RedisStreamsWriteArgs, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): RedisStreamsWriteArgs;
+    static deserializeBinaryFromReader(message: RedisStreamsWriteArgs, reader: jspb.BinaryReader): RedisStreamsWriteArgs;
 }
 
-export namespace RedisStreamsWriteOpts {
+export namespace RedisStreamsWriteArgs {
     export type AsObject = {
         writeId: string,
         streamsList: Array<string>,
