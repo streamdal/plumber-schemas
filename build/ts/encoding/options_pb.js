@@ -92,10 +92,9 @@ proto.protos.encoding.EncodeOptions.prototype.toObject = function(opt_includeIns
  */
 proto.protos.encoding.EncodeOptions.toObject = function(includeInstance, msg) {
   var f, obj = {
-    type: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    schemaId: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    inputMap: (f = msg.getInputMap()) ? f.toObject(includeInstance, undefined) : [],
-    metadataMap: (f = msg.getMetadataMap()) ? f.toObject(includeInstance, undefined) : []
+    schemaId: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    protobufRootMessage: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    protobufDir: jspb.Message.getFieldWithDefault(msg, 3, "")
   };
 
   if (includeInstance) {
@@ -133,24 +132,16 @@ proto.protos.encoding.EncodeOptions.deserializeBinaryFromReader = function(msg, 
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = /** @type {!proto.protos.encoding.Type} */ (reader.readEnum());
-      msg.setType(value);
-      break;
-    case 2:
       var value = /** @type {string} */ (reader.readString());
       msg.setSchemaId(value);
       break;
-    case 3:
-      var value = msg.getInputMap();
-      reader.readMessage(value, function(message, reader) {
-        jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readString, jspb.BinaryReader.prototype.readString, null, "", "");
-         });
+    case 2:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setProtobufRootMessage(value);
       break;
-    case 4:
-      var value = msg.getMetadataMap();
-      reader.readMessage(value, function(message, reader) {
-        jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readString, jspb.BinaryReader.prototype.readString, null, "", "");
-         });
+    case 3:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setProtobufDir(value);
       break;
     default:
       reader.skipField();
@@ -181,55 +172,36 @@ proto.protos.encoding.EncodeOptions.prototype.serializeBinary = function() {
  */
 proto.protos.encoding.EncodeOptions.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getType();
-  if (f !== 0.0) {
-    writer.writeEnum(
+  f = message.getSchemaId();
+  if (f.length > 0) {
+    writer.writeString(
       1,
       f
     );
   }
-  f = message.getSchemaId();
+  f = message.getProtobufRootMessage();
   if (f.length > 0) {
     writer.writeString(
       2,
       f
     );
   }
-  f = message.getInputMap(true);
-  if (f && f.getLength() > 0) {
-    f.serializeBinary(3, writer, jspb.BinaryWriter.prototype.writeString, jspb.BinaryWriter.prototype.writeString);
+  f = message.getProtobufDir();
+  if (f.length > 0) {
+    writer.writeString(
+      3,
+      f
+    );
   }
-  f = message.getMetadataMap(true);
-  if (f && f.getLength() > 0) {
-    f.serializeBinary(4, writer, jspb.BinaryWriter.prototype.writeString, jspb.BinaryWriter.prototype.writeString);
-  }
 };
 
 
 /**
- * optional Type type = 1;
- * @return {!proto.protos.encoding.Type}
- */
-proto.protos.encoding.EncodeOptions.prototype.getType = function() {
-  return /** @type {!proto.protos.encoding.Type} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
-};
-
-
-/**
- * @param {!proto.protos.encoding.Type} value
- * @return {!proto.protos.encoding.EncodeOptions} returns this
- */
-proto.protos.encoding.EncodeOptions.prototype.setType = function(value) {
-  return jspb.Message.setProto3EnumField(this, 1, value);
-};
-
-
-/**
- * optional string schema_id = 2;
+ * optional string schema_id = 1;
  * @return {string}
  */
 proto.protos.encoding.EncodeOptions.prototype.getSchemaId = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
@@ -238,52 +210,44 @@ proto.protos.encoding.EncodeOptions.prototype.getSchemaId = function() {
  * @return {!proto.protos.encoding.EncodeOptions} returns this
  */
 proto.protos.encoding.EncodeOptions.prototype.setSchemaId = function(value) {
+  return jspb.Message.setProto3StringField(this, 1, value);
+};
+
+
+/**
+ * optional string protobuf_root_message = 2;
+ * @return {string}
+ */
+proto.protos.encoding.EncodeOptions.prototype.getProtobufRootMessage = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.protos.encoding.EncodeOptions} returns this
+ */
+proto.protos.encoding.EncodeOptions.prototype.setProtobufRootMessage = function(value) {
   return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
 /**
- * map<string, string> input = 3;
- * @param {boolean=} opt_noLazyCreate Do not create the map if
- * empty, instead returning `undefined`
- * @return {!jspb.Map<string,string>}
+ * optional string protobuf_dir = 3;
+ * @return {string}
  */
-proto.protos.encoding.EncodeOptions.prototype.getInputMap = function(opt_noLazyCreate) {
-  return /** @type {!jspb.Map<string,string>} */ (
-      jspb.Message.getMapField(this, 3, opt_noLazyCreate,
-      null));
+proto.protos.encoding.EncodeOptions.prototype.getProtobufDir = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
 };
 
 
 /**
- * Clears values from the map. The map will be non-null.
+ * @param {string} value
  * @return {!proto.protos.encoding.EncodeOptions} returns this
  */
-proto.protos.encoding.EncodeOptions.prototype.clearInputMap = function() {
-  this.getInputMap().clear();
-  return this;};
-
-
-/**
- * map<string, string> metadata = 4;
- * @param {boolean=} opt_noLazyCreate Do not create the map if
- * empty, instead returning `undefined`
- * @return {!jspb.Map<string,string>}
- */
-proto.protos.encoding.EncodeOptions.prototype.getMetadataMap = function(opt_noLazyCreate) {
-  return /** @type {!jspb.Map<string,string>} */ (
-      jspb.Message.getMapField(this, 4, opt_noLazyCreate,
-      null));
+proto.protos.encoding.EncodeOptions.prototype.setProtobufDir = function(value) {
+  return jspb.Message.setProto3StringField(this, 3, value);
 };
-
-
-/**
- * Clears values from the map. The map will be non-null.
- * @return {!proto.protos.encoding.EncodeOptions} returns this
- */
-proto.protos.encoding.EncodeOptions.prototype.clearMetadataMap = function() {
-  this.getMetadataMap().clear();
-  return this;};
 
 
 

@@ -18,24 +18,15 @@ enum Type {
 }
 
 message EncodeOptions {
-    // The type of decoder selected determines which Encoding should be used (if any).
-    // NOTE: This type will also determine which metadata k:v's need to be set.
-    // @gotags: kong:"name=encoder,help='How to encode input. NOTE: The type of encoder selected determines which Encoding should be used (if any). Valid TYPEs 1: PLAIN, 2: Protobuf, 3: Avro, 4: Thrift, 5: Flatbuffer',default=1"
-    Type type = 1;
-
-    // Specify an existing stored schema to use instead of specifying a Encoding payload
+    // If specified, plumber will attempt to use a pre-existing schema (and ignore all other encoding params)
     // @gotags: kong:"-"
-    string schema_id = 2;
+    string schema_id = 1;
 
-    // Valid input keys: dir, file, string, github, zip
-    // TODO: Help needs to outline all of the available options here
-    // @gotags: name:"encoder-input"
-    map<string, string> input = 3;
+    // @gotags: kong:"help='Input message(s) should be encoded with this message envelope'"
+    string protobuf_root_message = 2;
 
-    // Valid input keys:
-    // TODO: Help needs to outline all of the available options here
-    // @gotags: name:"encoder-metadata"
-    map<string, string> metadata = 4;
+    // @gotags: kong:"help='Directory which contains protobuf schemas',existingdir"
+    string protobuf_dir = 3;
 }
 
 message DecodeOptions {

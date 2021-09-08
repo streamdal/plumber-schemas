@@ -7,16 +7,12 @@
 import * as jspb from "google-protobuf";
 
 export class EncodeOptions extends jspb.Message { 
-    getType(): Type;
-    setType(value: Type): EncodeOptions;
     getSchemaId(): string;
     setSchemaId(value: string): EncodeOptions;
-
-    getInputMap(): jspb.Map<string, string>;
-    clearInputMap(): void;
-
-    getMetadataMap(): jspb.Map<string, string>;
-    clearMetadataMap(): void;
+    getProtobufRootMessage(): string;
+    setProtobufRootMessage(value: string): EncodeOptions;
+    getProtobufDir(): string;
+    setProtobufDir(value: string): EncodeOptions;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): EncodeOptions.AsObject;
@@ -30,12 +26,9 @@ export class EncodeOptions extends jspb.Message {
 
 export namespace EncodeOptions {
     export type AsObject = {
-        type: Type,
         schemaId: string,
-
-        inputMap: Array<[string, string]>,
-
-        metadataMap: Array<[string, string]>,
+        protobufRootMessage: string,
+        protobufDir: string,
     }
 }
 
