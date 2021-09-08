@@ -8,47 +8,49 @@ package protos.encoding;
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/encoding";
 
-enum Type {
-    TYPE_UNSET      = 0;
-    TYPE_PLAIN      = 1;
-    TYPE_PROTOBUF   = 2;
-    TYPE_AVRO       = 3;
-    TYPE_THRIFT     = 4;
-    TYPE_FLATBUFFER = 5;
+enum EncodeType {
+    ENCODE_TYPE_UNSET  = 0;
+    ENCODE_TYPE_JSONPB = 1;
+}
+
+enum DecodeType {
+    DECODE_TYPE_UNSET      = 0;
+    DECODE_TYPE_JSONPB     = 1;
+    DECODE_TYPE_PROTOBUF   = 2;
+    DECODE_TYPE_AVRO       = 3;
+    DECODE_TYPE_THRIFT     = 4;
+    DECODE_TYPE_FLATBUFFER = 5;
+}
+
+message ProtobufSettings {
+    // @gotags: kong:"help='Input message(s) should be encoded with this message envelope'"
+    string protobuf_root_message = 3;
+
+    // @gotags: kong:"help='Directory which contains protobuf schemas',existingdir"
+    string protobuf_dir = 4;
 }
 
 message EncodeOptions {
-    // If specified, plumber will attempt to use a pre-existing schema (and ignore all other encoding params)
+    // Use an existing schema for encoding (and ignore all other encode settings)
     // @gotags: kong:"-"
     string schema_id = 1;
 
-    // @gotags: kong:"help='Input message(s) should be encoded with this message envelope'"
-    string protobuf_root_message = 2;
+    // TODO: Update kong to be able to use proto/smart enums
+    // @gotags: kong:"help='Input type (0: Unset, 1: JSONPB)',default=0"
+    EncodeType encode_type = 2;
 
-    // @gotags: kong:"help='Directory which contains protobuf schemas',existingdir"
-    string protobuf_dir = 3;
+    // @gotags: kong="embed,group=protobuf"
+    ProtobufSettings protobuf_settings = 3;
 }
 
 message DecodeOptions {
-    // The type of decoder selected determines which Encoding should be used (if any)
-    // NOTE: This type will also determine which metadata k:v's need to be set.
-    // @gotags: kong:"name=decoder,help='How to decode output (valid TYPEs: 1: Plain, 2 = Protobuf, 3 = Avro, 4 = Thrift, 5 = FlatBuffer)',default=1"
-    // TODO: ^ This sucks and needs to be improved. Not sure how yet.
-    Type type = 1;
-
-    // Specify an existing stored schema to use instead of specifying a Encoding payload
+    // Use an existing schema for decoding (and ignore all other decode settings)
     // @gotags: kong:"-"
-    string schema_id = 2;
+    string schema_id = 1;
 
-    // Valid input keys: dir, file, string, github, zip
-    // TODO: Help needs to outline all of the available options here
-    // TODO: This needs to improve as well. Probably new 'map_keys' tag?
-    // @gotags: kong:"name='decoder-input',required"
-    map<string, string> input = 3;
+    // @gotags: kong:"help='Input type (0: Unset, 1: JSONPB, 2: Protobuf, 3: Avro, 4: Thrift, 5: Flatbuffer)',default=0"
+    DecodeType decode_type = 2;
 
-    // Valid input keys:
-    // TODO: Help needs to outline all of the available options here
-    // TODO: Same, needs to be improved? Not sure how.
-    // @gotags: name:"decoder-metadata"
-    map<string, string> metadata = 4;
+    // @gotags: kong="embed,group=protobuf"
+    ProtobufSettings protobuf_settings = 3;
 }

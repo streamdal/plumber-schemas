@@ -9,23 +9,12 @@ import "opts/write.proto";
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
 
-enum WriteInputType {
-    WRITE_INPUT_TYPE_UNSET  = 0;
-    WRITE_INPUT_TYPE_PLAIN  = 1;
-    WRITE_INPUT_TYPE_JSONPB = 2;
-    WRITE_INPUT_TYPE_AVRO   = 3;
-}
-
 message WriteCLIConfig {
     // @gotags: kong:"help='Write data from input file',existingfile,xor=input"
     string input_file = 1;
 
     // @gotags: kong="help='Treat input as JSON array - each array element will be written as a separate message'"
     bool input_as_json_array = 2;
-
-    // TODO: Update kong to be able to use proto/smart enums
-    // @gotags: kong:"help='Input type (1: Plain, 2: JSONPB, 3: Avro)',default=1"
-    WriteInputType input_type = 3;
 }
 
 // WriteConfig is used by both CLI and server to facilitate a write request.
