@@ -25,6 +25,7 @@ var opts_write_pb = require('./opts/write_pb.js');
 goog.object.extend(proto, opts_write_pb);
 goog.exportSymbol('proto.protos.WriteCLIConfig', null, global);
 goog.exportSymbol('proto.protos.WriteConfig', null, global);
+goog.exportSymbol('proto.protos.WriteInputType', null, global);
 goog.exportSymbol('proto.protos.WriteRequest', null, global);
 goog.exportSymbol('proto.protos.WriteResponse', null, global);
 /**
@@ -144,7 +145,8 @@ proto.protos.WriteCLIConfig.prototype.toObject = function(opt_includeInstance) {
 proto.protos.WriteCLIConfig.toObject = function(includeInstance, msg) {
   var f, obj = {
     inputFile: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    inputAsJsonArray: jspb.Message.getBooleanFieldWithDefault(msg, 2, false)
+    inputAsJsonArray: jspb.Message.getBooleanFieldWithDefault(msg, 2, false),
+    inputType: jspb.Message.getFieldWithDefault(msg, 3, 0)
   };
 
   if (includeInstance) {
@@ -189,6 +191,10 @@ proto.protos.WriteCLIConfig.deserializeBinaryFromReader = function(msg, reader) 
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setInputAsJsonArray(value);
       break;
+    case 3:
+      var value = /** @type {!proto.protos.WriteInputType} */ (reader.readEnum());
+      msg.setInputType(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -232,6 +238,13 @@ proto.protos.WriteCLIConfig.serializeBinaryToWriter = function(message, writer) 
       f
     );
   }
+  f = message.getInputType();
+  if (f !== 0.0) {
+    writer.writeEnum(
+      3,
+      f
+    );
+  }
 };
 
 
@@ -268,6 +281,24 @@ proto.protos.WriteCLIConfig.prototype.getInputAsJsonArray = function() {
  */
 proto.protos.WriteCLIConfig.prototype.setInputAsJsonArray = function(value) {
   return jspb.Message.setProto3BooleanField(this, 2, value);
+};
+
+
+/**
+ * optional WriteInputType input_type = 3;
+ * @return {!proto.protos.WriteInputType}
+ */
+proto.protos.WriteCLIConfig.prototype.getInputType = function() {
+  return /** @type {!proto.protos.WriteInputType} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
+};
+
+
+/**
+ * @param {!proto.protos.WriteInputType} value
+ * @return {!proto.protos.WriteCLIConfig} returns this
+ */
+proto.protos.WriteCLIConfig.prototype.setInputType = function(value) {
+  return jspb.Message.setProto3EnumField(this, 3, value);
 };
 
 
@@ -906,5 +937,15 @@ proto.protos.WriteResponse.prototype.hasStatus = function() {
   return jspb.Message.getField(this, 1000) != null;
 };
 
+
+/**
+ * @enum {number}
+ */
+proto.protos.WriteInputType = {
+  WRITE_INPUT_TYPE_UNSET: 0,
+  WRITE_INPUT_TYPE_PLAIN: 1,
+  WRITE_INPUT_TYPE_JSONPB: 2,
+  WRITE_INPUT_TYPE_AVRO: 3
+};
 
 goog.object.extend(exports, proto.protos);

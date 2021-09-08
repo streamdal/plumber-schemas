@@ -15,6 +15,8 @@ export class WriteCLIConfig extends jspb.Message {
     setInputFile(value: string): WriteCLIConfig;
     getInputAsJsonArray(): boolean;
     setInputAsJsonArray(value: boolean): WriteCLIConfig;
+    getInputType(): WriteInputType;
+    setInputType(value: WriteInputType): WriteCLIConfig;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): WriteCLIConfig.AsObject;
@@ -30,6 +32,7 @@ export namespace WriteCLIConfig {
     export type AsObject = {
         inputFile: string,
         inputAsJsonArray: boolean,
+        inputType: WriteInputType,
     }
 }
 
@@ -121,4 +124,11 @@ export namespace WriteResponse {
     export type AsObject = {
         status?: common_status_pb.Status.AsObject,
     }
+}
+
+export enum WriteInputType {
+    WRITE_INPUT_TYPE_UNSET = 0,
+    WRITE_INPUT_TYPE_PLAIN = 1,
+    WRITE_INPUT_TYPE_JSONPB = 2,
+    WRITE_INPUT_TYPE_AVRO = 3,
 }

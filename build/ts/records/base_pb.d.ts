@@ -65,8 +65,6 @@ export namespace ReadRecord {
 export class WriteRecord extends jspb.Message { 
     getInput(): string;
     setInput(value: string): WriteRecord;
-    getInputType(): string;
-    setInputType(value: string): WriteRecord;
 
     getInputMetadataMap(): jspb.Map<string, string>;
     clearInputMetadataMap(): void;
@@ -84,7 +82,6 @@ export class WriteRecord extends jspb.Message {
 export namespace WriteRecord {
     export type AsObject = {
         input: string,
-        inputType: string,
 
         inputMetadataMap: Array<[string, string]>,
     }
@@ -116,11 +113,4 @@ export namespace ErrorRecord {
 
         metadataMap: Array<[string, Uint8Array | string]>,
     }
-}
-
-export enum WriteInputType {
-    WRITE_INPUT_TYPE_UNSET = 0,
-    WRITE_INPUT_TYPE_PLAIN = 1,
-    WRITE_INPUT_TYPE_JSONPB = 2,
-    WRITE_INPUT_TYPE_AVRO = 3,
 }

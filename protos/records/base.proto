@@ -42,14 +42,6 @@ message ReadRecord {
     }
 }
 
-// Not used yet ~ds 09.7.2021
-enum WriteInputType {
-    WRITE_INPUT_TYPE_UNSET  = 0;
-    WRITE_INPUT_TYPE_PLAIN  = 1;
-    WRITE_INPUT_TYPE_JSONPB = 2;
-    WRITE_INPUT_TYPE_AVRO   = 3;
-}
-
 // Used as an arg for write requests (server & cli)
 message WriteRecord {
     // If encoding options are provided, this value will be updated by plumber
@@ -57,12 +49,8 @@ message WriteRecord {
     // @gotags: kong:"help='Input string',name=input,xor=input,default"
     string input = 1;
 
-    // TODO: Update kong to be able to embed proto/smart enums
-    // @gotags: kong:"help='Input type',enum='plain,jsonpb',default=plain"
-    string input_type = 2;
-
     // @gotags: kong:"help='Optional metadata a backend may use (key1:value,key2:value,etc)',name=input-metadata"
-    map<string, string> input_metadata = 3;
+    map<string, string> input_metadata = 2;
 }
 
 // Used for communicating errors that occur during a read, write, relay, etc.
