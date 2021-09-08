@@ -1,12 +1,9 @@
-// x_backends.proto contains the list of all available backends.
-//
-// BackendType is referenced between many structures and should be the primary
-// way to determine if a request is referencing a supported backend.
+// backends.proto contains the list of all supported / available backends.
 syntax = "proto3";
 
-package protos;
+package protos.common;
 
-option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/common";
 
 enum BackendType {
     BACKEND_TYPE_UNSET             = 0;

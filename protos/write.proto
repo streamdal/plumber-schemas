@@ -2,16 +2,19 @@ syntax = "proto3";
 
 package protos;
 
-import "x_write.proto";
 import "common/auth.proto";
 import "common/status.proto";
 import "encoding/options.proto";
+import "opts/write.proto";
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
 
 message WriteCLIConfig {
     // @gotags: kong:"help='Write data from input file',existingfile,xor=input"
     string input_file = 1;
+
+    // @gotags: kong="help='Treat input as JSON array - each array element will be written as a separate message'"
+    bool input_as_json_array = 2;
 }
 
 // WriteConfig is used by both CLI and server to facilitate a write request.
@@ -33,7 +36,7 @@ message WriteConfig {
     // backend & write-specific opts. Desktop can omit conn - it will be
     // auto-filled out in CLI mode.
     // @gotags: kong:"embed"
-    WriteOpts write_opts = 3;
+    opts.Write write_opts = 3;
 
     // Optional; CLI-specific and non-backend-specific options
     // @gotags: kong:"embed"

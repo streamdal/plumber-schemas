@@ -1,4 +1,4 @@
-// source: x_backends.proto
+// source: common/backends.proto
 /**
  * @fileoverview
  * @enhanceable
@@ -15,11 +15,11 @@ var jspb = require('google-protobuf');
 var goog = jspb;
 var global = Function('return this')();
 
-goog.exportSymbol('proto.protos.BackendType', null, global);
+goog.exportSymbol('proto.protos.common.BackendType', null, global);
 /**
  * @enum {number}
  */
-proto.protos.BackendType = {
+proto.protos.common.BackendType = {
   BACKEND_TYPE_UNSET: 0,
   BACKEND_TYPE_KAFKA: 1,
   BACKEND_TYPE_RABBIT: 2,
@@ -42,4 +42,4 @@ proto.protos.BackendType = {
   BACKEND_TYPE_KUBE_MQ: 19
 };
 
-goog.object.extend(exports, proto.protos);
+goog.object.extend(exports, proto.protos.common);

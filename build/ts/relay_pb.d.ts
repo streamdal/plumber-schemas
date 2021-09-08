@@ -5,9 +5,9 @@
 /* eslint-disable */
 
 import * as jspb from "google-protobuf";
-import * as x_relay_pb from "./x_relay_pb";
 import * as common_auth_pb from "./common/auth_pb";
 import * as common_status_pb from "./common/status_pb";
+import * as opts_relay_pb from "./opts/relay_pb";
 
 export class CLIRelayConfig extends jspb.Message { 
     getHttpListenAddress(): string;
@@ -49,8 +49,8 @@ export class RelayConfig extends jspb.Message {
 
     hasRelayOpts(): boolean;
     clearRelayOpts(): void;
-    getRelayOpts(): x_relay_pb.RelayOpts | undefined;
-    setRelayOpts(value?: x_relay_pb.RelayOpts): RelayConfig;
+    getRelayOpts(): opts_relay_pb.Relay | undefined;
+    setRelayOpts(value?: opts_relay_pb.Relay): RelayConfig;
     getRelayId(): string;
     setRelayId(value: string): RelayConfig;
 
@@ -79,7 +79,7 @@ export namespace RelayConfig {
         BatchshGrpcAddress: string,
         BatchshGrpcDisableTls: boolean,
         BatchshGrpcTimeoutSeconds: number,
-        relayOpts?: x_relay_pb.RelayOpts.AsObject,
+        relayOpts?: opts_relay_pb.Relay.AsObject,
         RelayId: string,
         CliConfig?: CLIRelayConfig.AsObject,
     }

@@ -1,11 +1,11 @@
-// x_read.proto defines which backends support reads.
+// read.proto defines which backends support reads.
 //
 // We do not utilize oneof to simplify integration with CLI options. Similarly,
 // we incorporate the connection as part of the args so that _conn can be
 // specified in the correct position on the CLI (ie. after `plumber $action $backend`).
 syntax = "proto3";
 
-package protos;
+package protos.opts;
 
 import "args/activemq.proto";
 import "args/azure-service-bus.proto";
@@ -26,9 +26,9 @@ import "args/rabbit-streams.proto";
 import "args/redis-pubsub.proto";
 import "args/redis-streams.proto";
 
-option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/opts";
 
-message ReadOpts {
+message Read {
     // @gotags: kong:"cmd,help='Apache Kafka'"
     ReadOptsKafka kafka = 100;
 

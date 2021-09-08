@@ -15,12 +15,12 @@ var jspb = require('google-protobuf');
 var goog = jspb;
 var global = Function('return this')();
 
-var x_relay_pb = require('./x_relay_pb.js');
-goog.object.extend(proto, x_relay_pb);
 var common_auth_pb = require('./common/auth_pb.js');
 goog.object.extend(proto, common_auth_pb);
 var common_status_pb = require('./common/status_pb.js');
 goog.object.extend(proto, common_status_pb);
+var opts_relay_pb = require('./opts/relay_pb.js');
+goog.object.extend(proto, opts_relay_pb);
 goog.exportSymbol('proto.protos.CLIRelayConfig', null, global);
 goog.exportSymbol('proto.protos.CreateRelayRequest', null, global);
 goog.exportSymbol('proto.protos.CreateRelayResponse', null, global);
@@ -543,7 +543,7 @@ proto.protos.RelayConfig.toObject = function(includeInstance, msg) {
     batchshGrpcAddress: jspb.Message.getFieldWithDefault(msg, 6, ""),
     batchshGrpcDisableTls: jspb.Message.getBooleanFieldWithDefault(msg, 7, false),
     batchshGrpcTimeoutSeconds: jspb.Message.getFieldWithDefault(msg, 8, 0),
-    relayOpts: (f = msg.getRelayOpts()) && x_relay_pb.RelayOpts.toObject(includeInstance, f),
+    relayOpts: (f = msg.getRelayOpts()) && opts_relay_pb.Relay.toObject(includeInstance, f),
     relayId: jspb.Message.getFieldWithDefault(msg, 10, ""),
     cliConfig: (f = msg.getCliConfig()) && proto.protos.CLIRelayConfig.toObject(includeInstance, f)
   };
@@ -615,8 +615,8 @@ proto.protos.RelayConfig.deserializeBinaryFromReader = function(msg, reader) {
       msg.setBatchshGrpcTimeoutSeconds(value);
       break;
     case 9:
-      var value = new x_relay_pb.RelayOpts;
-      reader.readMessage(value,x_relay_pb.RelayOpts.deserializeBinaryFromReader);
+      var value = new opts_relay_pb.Relay;
+      reader.readMessage(value,opts_relay_pb.Relay.deserializeBinaryFromReader);
       msg.setRelayOpts(value);
       break;
     case 10:
@@ -718,7 +718,7 @@ proto.protos.RelayConfig.serializeBinaryToWriter = function(message, writer) {
     writer.writeMessage(
       9,
       f,
-      x_relay_pb.RelayOpts.serializeBinaryToWriter
+      opts_relay_pb.Relay.serializeBinaryToWriter
     );
   }
   f = message.getRelayId();
@@ -884,17 +884,17 @@ proto.protos.RelayConfig.prototype.setBatchshGrpcTimeoutSeconds = function(value
 
 
 /**
- * optional RelayOpts relay_opts = 9;
- * @return {?proto.protos.RelayOpts}
+ * optional opts.Relay relay_opts = 9;
+ * @return {?proto.protos.opts.Relay}
  */
 proto.protos.RelayConfig.prototype.getRelayOpts = function() {
-  return /** @type{?proto.protos.RelayOpts} */ (
-    jspb.Message.getWrapperField(this, x_relay_pb.RelayOpts, 9));
+  return /** @type{?proto.protos.opts.Relay} */ (
+    jspb.Message.getWrapperField(this, opts_relay_pb.Relay, 9));
 };
 
 
 /**
- * @param {?proto.protos.RelayOpts|undefined} value
+ * @param {?proto.protos.opts.Relay|undefined} value
  * @return {!proto.protos.RelayConfig} returns this
 */
 proto.protos.RelayConfig.prototype.setRelayOpts = function(value) {

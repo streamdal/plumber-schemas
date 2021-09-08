@@ -53,6 +53,7 @@ generate/ts:
     -I=./protos \
     -I=./protos/args \
     -I=./protos/common \
+    -I=./protos/opts \
     -I=./protos/encoding \
     -I=./protos/records \
     protos/*.proto \
@@ -66,6 +67,7 @@ generate/go:
 	mkdir -p build/go/protos/args
 	mkdir -p build/go/protos/common
 	mkdir -p build/go/protos/encoding
+	mkdir -p build/go/protos/opts
 	mkdir -p build/go/protos/records
 
 	docker run --rm -w $(PWD) -v $(PWD):$(PWD) -w${PWD} jaegertracing/protobuf:0.2.0 \
@@ -96,6 +98,14 @@ generate/go:
 	--go_opt=paths=source_relative \
 	protos/encoding/*.proto
 
+	# Because opts imports from base /protos, we have to specify --proto_path=./protos
+	# This means that output location will be _inferred_ as 'build/go/protos/opts'
+	docker run --rm -w $(PWD) -v $(PWD):$(PWD) -w${PWD} jaegertracing/protobuf:0.2.0 \
+	--proto_path=./protos \
+	--go_out=plugins=grpc:build/go/protos \
+	--go_opt=paths=source_relative \
+	protos/opts/*.proto
+
 	docker run --rm -w $(PWD) -v $(PWD):$(PWD) -w${PWD} jaegertracing/protobuf:0.2.0 \
 	--proto_path=./protos \
 	--go_out=plugins=grpc:build/go/protos \
@@ -109,6 +119,7 @@ inject-tags:
 	protoc-go-inject-tag -input="build/go/protos/args/*.pb.go"
 	protoc-go-inject-tag -input="build/go/protos/common/*.pb.go"
 	protoc-go-inject-tag -input="build/go/protos/encoding/*.pb.go"
+	protoc-go-inject-tag -input="build/go/protos/opts/*.pb.go"
 	protoc-go-inject-tag -input="build/go/protos/records/*.pb.go"
 
 .PHONY: clean-go

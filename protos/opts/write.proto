@@ -1,11 +1,11 @@
-// x_relay.proto defines which args support writes.
+// relay.proto defines which args support writes.
 //
 // We do not utilize oneof to simplify integration with CLI options. Similarly,
 // we incorporate the connection as part of the args so that conn can be
 // specified in the correct position on the CLI (ie. after `plumber $action $backend`).
 syntax = "proto3";
 
-package protos;
+package protos.opts;
 
 import "records/base.proto";
 import "args/activemq.proto";
@@ -26,11 +26,11 @@ import "args/rabbit-streams.proto";
 import "args/redis-pubsub.proto";
 import "args/redis-streams.proto";
 
-option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/opts";
 
 // WriteOpts is the structure that backends accept for performing a write.
 // NOTE: _conn is only used by the CLI - desktop does not need to set it.
-message WriteOpts {
+message Write {
     // @gotags: kong:"embed"
     records.WriteRecord record = 1;
 

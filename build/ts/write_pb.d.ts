@@ -5,14 +5,16 @@
 /* eslint-disable */
 
 import * as jspb from "google-protobuf";
-import * as x_write_pb from "./x_write_pb";
 import * as common_auth_pb from "./common/auth_pb";
 import * as common_status_pb from "./common/status_pb";
 import * as encoding_options_pb from "./encoding/options_pb";
+import * as opts_write_pb from "./opts/write_pb";
 
 export class WriteCLIConfig extends jspb.Message { 
     getInputFile(): string;
     setInputFile(value: string): WriteCLIConfig;
+    getInputAsJsonArray(): boolean;
+    setInputAsJsonArray(value: boolean): WriteCLIConfig;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): WriteCLIConfig.AsObject;
@@ -27,6 +29,7 @@ export class WriteCLIConfig extends jspb.Message {
 export namespace WriteCLIConfig {
     export type AsObject = {
         inputFile: string,
+        inputAsJsonArray: boolean,
     }
 }
 
@@ -41,8 +44,8 @@ export class WriteConfig extends jspb.Message {
 
     hasWriteOpts(): boolean;
     clearWriteOpts(): void;
-    getWriteOpts(): x_write_pb.WriteOpts | undefined;
-    setWriteOpts(value?: x_write_pb.WriteOpts): WriteConfig;
+    getWriteOpts(): opts_write_pb.Write | undefined;
+    setWriteOpts(value?: opts_write_pb.Write): WriteConfig;
 
     hasCliConfig(): boolean;
     clearCliConfig(): void;
@@ -63,7 +66,7 @@ export namespace WriteConfig {
     export type AsObject = {
         connectionId: string,
         encodeOptions?: encoding_options_pb.EncodeOptions.AsObject,
-        writeOpts?: x_write_pb.WriteOpts.AsObject,
+        writeOpts?: opts_write_pb.Write.AsObject,
         CliConfig?: WriteCLIConfig.AsObject,
     }
 }

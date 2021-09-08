@@ -15,14 +15,14 @@ var jspb = require('google-protobuf');
 var goog = jspb;
 var global = Function('return this')();
 
-var x_write_pb = require('./x_write_pb.js');
-goog.object.extend(proto, x_write_pb);
 var common_auth_pb = require('./common/auth_pb.js');
 goog.object.extend(proto, common_auth_pb);
 var common_status_pb = require('./common/status_pb.js');
 goog.object.extend(proto, common_status_pb);
 var encoding_options_pb = require('./encoding/options_pb.js');
 goog.object.extend(proto, encoding_options_pb);
+var opts_write_pb = require('./opts/write_pb.js');
+goog.object.extend(proto, opts_write_pb);
 goog.exportSymbol('proto.protos.WriteCLIConfig', null, global);
 goog.exportSymbol('proto.protos.WriteConfig', null, global);
 goog.exportSymbol('proto.protos.WriteRequest', null, global);
@@ -143,7 +143,8 @@ proto.protos.WriteCLIConfig.prototype.toObject = function(opt_includeInstance) {
  */
 proto.protos.WriteCLIConfig.toObject = function(includeInstance, msg) {
   var f, obj = {
-    inputFile: jspb.Message.getFieldWithDefault(msg, 1, "")
+    inputFile: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    inputAsJsonArray: jspb.Message.getBooleanFieldWithDefault(msg, 2, false)
   };
 
   if (includeInstance) {
@@ -184,6 +185,10 @@ proto.protos.WriteCLIConfig.deserializeBinaryFromReader = function(msg, reader) 
       var value = /** @type {string} */ (reader.readString());
       msg.setInputFile(value);
       break;
+    case 2:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setInputAsJsonArray(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -220,6 +225,13 @@ proto.protos.WriteCLIConfig.serializeBinaryToWriter = function(message, writer) 
       f
     );
   }
+  f = message.getInputAsJsonArray();
+  if (f) {
+    writer.writeBool(
+      2,
+      f
+    );
+  }
 };
 
 
@@ -238,6 +250,24 @@ proto.protos.WriteCLIConfig.prototype.getInputFile = function() {
  */
 proto.protos.WriteCLIConfig.prototype.setInputFile = function(value) {
   return jspb.Message.setProto3StringField(this, 1, value);
+};
+
+
+/**
+ * optional bool input_as_json_array = 2;
+ * @return {boolean}
+ */
+proto.protos.WriteCLIConfig.prototype.getInputAsJsonArray = function() {
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 2, false));
+};
+
+
+/**
+ * @param {boolean} value
+ * @return {!proto.protos.WriteCLIConfig} returns this
+ */
+proto.protos.WriteCLIConfig.prototype.setInputAsJsonArray = function(value) {
+  return jspb.Message.setProto3BooleanField(this, 2, value);
 };
 
 
@@ -275,7 +305,7 @@ proto.protos.WriteConfig.toObject = function(includeInstance, msg) {
   var f, obj = {
     connectionId: jspb.Message.getFieldWithDefault(msg, 1, ""),
     encodeOptions: (f = msg.getEncodeOptions()) && encoding_options_pb.EncodeOptions.toObject(includeInstance, f),
-    writeOpts: (f = msg.getWriteOpts()) && x_write_pb.WriteOpts.toObject(includeInstance, f),
+    writeOpts: (f = msg.getWriteOpts()) && opts_write_pb.Write.toObject(includeInstance, f),
     cliConfig: (f = msg.getCliConfig()) && proto.protos.WriteCLIConfig.toObject(includeInstance, f)
   };
 
@@ -323,8 +353,8 @@ proto.protos.WriteConfig.deserializeBinaryFromReader = function(msg, reader) {
       msg.setEncodeOptions(value);
       break;
     case 3:
-      var value = new x_write_pb.WriteOpts;
-      reader.readMessage(value,x_write_pb.WriteOpts.deserializeBinaryFromReader);
+      var value = new opts_write_pb.Write;
+      reader.readMessage(value,opts_write_pb.Write.deserializeBinaryFromReader);
       msg.setWriteOpts(value);
       break;
     case 4:
@@ -381,7 +411,7 @@ proto.protos.WriteConfig.serializeBinaryToWriter = function(message, writer) {
     writer.writeMessage(
       3,
       f,
-      x_write_pb.WriteOpts.serializeBinaryToWriter
+      opts_write_pb.Write.serializeBinaryToWriter
     );
   }
   f = message.getCliConfig();
@@ -451,17 +481,17 @@ proto.protos.WriteConfig.prototype.hasEncodeOptions = function() {
 
 
 /**
- * optional WriteOpts write_opts = 3;
- * @return {?proto.protos.WriteOpts}
+ * optional opts.Write write_opts = 3;
+ * @return {?proto.protos.opts.Write}
  */
 proto.protos.WriteConfig.prototype.getWriteOpts = function() {
-  return /** @type{?proto.protos.WriteOpts} */ (
-    jspb.Message.getWrapperField(this, x_write_pb.WriteOpts, 3));
+  return /** @type{?proto.protos.opts.Write} */ (
+    jspb.Message.getWrapperField(this, opts_write_pb.Write, 3));
 };
 
 
 /**
- * @param {?proto.protos.WriteOpts|undefined} value
+ * @param {?proto.protos.opts.Write|undefined} value
  * @return {!proto.protos.WriteConfig} returns this
 */
 proto.protos.WriteConfig.prototype.setWriteOpts = function(value) {

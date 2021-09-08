@@ -1,132 +1,132 @@
-// package: protos
-// file: x_write.proto
+// package: protos.opts
+// file: opts/write.proto
 
 /* tslint:disable */
 /* eslint-disable */
 
 import * as jspb from "google-protobuf";
-import * as records_base_pb from "./records/base_pb";
-import * as args_activemq_pb from "./args/activemq_pb";
-import * as args_azure_service_bus_pb from "./args/azure-service-bus_pb";
-import * as args_azure_event_hub_pb from "./args/azure-event-hub_pb";
-import * as args_aws_sns_pb from "./args/aws-sns_pb";
-import * as args_aws_sqs_pb from "./args/aws-sqs_pb";
-import * as args_gcp_pubsub_pb from "./args/gcp-pubsub_pb";
-import * as args_kafka_pb from "./args/kafka_pb";
-import * as args_kubemq_queue_pb from "./args/kubemq-queue_pb";
-import * as args_mqtt_pb from "./args/mqtt_pb";
-import * as args_nats_pb from "./args/nats_pb";
-import * as args_nats_streaming_pb from "./args/nats-streaming_pb";
-import * as args_nsq_pb from "./args/nsq_pb";
-import * as args_pulsar_pb from "./args/pulsar_pb";
-import * as args_rabbit_pb from "./args/rabbit_pb";
-import * as args_rabbit_streams_pb from "./args/rabbit-streams_pb";
-import * as args_redis_pubsub_pb from "./args/redis-pubsub_pb";
-import * as args_redis_streams_pb from "./args/redis-streams_pb";
+import * as records_base_pb from "../records/base_pb";
+import * as args_activemq_pb from "../args/activemq_pb";
+import * as args_azure_service_bus_pb from "../args/azure-service-bus_pb";
+import * as args_azure_event_hub_pb from "../args/azure-event-hub_pb";
+import * as args_aws_sns_pb from "../args/aws-sns_pb";
+import * as args_aws_sqs_pb from "../args/aws-sqs_pb";
+import * as args_gcp_pubsub_pb from "../args/gcp-pubsub_pb";
+import * as args_kafka_pb from "../args/kafka_pb";
+import * as args_kubemq_queue_pb from "../args/kubemq-queue_pb";
+import * as args_mqtt_pb from "../args/mqtt_pb";
+import * as args_nats_pb from "../args/nats_pb";
+import * as args_nats_streaming_pb from "../args/nats-streaming_pb";
+import * as args_nsq_pb from "../args/nsq_pb";
+import * as args_pulsar_pb from "../args/pulsar_pb";
+import * as args_rabbit_pb from "../args/rabbit_pb";
+import * as args_rabbit_streams_pb from "../args/rabbit-streams_pb";
+import * as args_redis_pubsub_pb from "../args/redis-pubsub_pb";
+import * as args_redis_streams_pb from "../args/redis-streams_pb";
 
-export class WriteOpts extends jspb.Message { 
+export class Write extends jspb.Message { 
 
     hasRecord(): boolean;
     clearRecord(): void;
     getRecord(): records_base_pb.WriteRecord | undefined;
-    setRecord(value?: records_base_pb.WriteRecord): WriteOpts;
+    setRecord(value?: records_base_pb.WriteRecord): Write;
 
     hasKafka(): boolean;
     clearKafka(): void;
     getKafka(): WriteOptsKafka | undefined;
-    setKafka(value?: WriteOptsKafka): WriteOpts;
+    setKafka(value?: WriteOptsKafka): Write;
 
     hasActivemq(): boolean;
     clearActivemq(): void;
     getActivemq(): WriteOptsActiveMQ | undefined;
-    setActivemq(value?: WriteOptsActiveMQ): WriteOpts;
+    setActivemq(value?: WriteOptsActiveMQ): Write;
 
     hasAwssqs(): boolean;
     clearAwssqs(): void;
     getAwssqs(): WriteOptsAWSSQS | undefined;
-    setAwssqs(value?: WriteOptsAWSSQS): WriteOpts;
+    setAwssqs(value?: WriteOptsAWSSQS): Write;
 
     hasAwssns(): boolean;
     clearAwssns(): void;
     getAwssns(): WriteOptsAWSSNS | undefined;
-    setAwssns(value?: WriteOptsAWSSNS): WriteOpts;
+    setAwssns(value?: WriteOptsAWSSNS): Write;
 
     hasNats(): boolean;
     clearNats(): void;
     getNats(): WriteOptsNats | undefined;
-    setNats(value?: WriteOptsNats): WriteOpts;
+    setNats(value?: WriteOptsNats): Write;
 
     hasNatsStreaming(): boolean;
     clearNatsStreaming(): void;
     getNatsStreaming(): WriteOptsNatsStreaming | undefined;
-    setNatsStreaming(value?: WriteOptsNatsStreaming): WriteOpts;
+    setNatsStreaming(value?: WriteOptsNatsStreaming): Write;
 
     hasNsq(): boolean;
     clearNsq(): void;
     getNsq(): WriteOptsNSQ | undefined;
-    setNsq(value?: WriteOptsNSQ): WriteOpts;
+    setNsq(value?: WriteOptsNSQ): Write;
 
     hasPulsar(): boolean;
     clearPulsar(): void;
     getPulsar(): WriteOptsPulsar | undefined;
-    setPulsar(value?: WriteOptsPulsar): WriteOpts;
+    setPulsar(value?: WriteOptsPulsar): Write;
 
     hasRabbit(): boolean;
     clearRabbit(): void;
     getRabbit(): WriteOptsRabbit | undefined;
-    setRabbit(value?: WriteOptsRabbit): WriteOpts;
+    setRabbit(value?: WriteOptsRabbit): Write;
 
     hasRabbitStreams(): boolean;
     clearRabbitStreams(): void;
     getRabbitStreams(): WriteOptsRabbitStreams | undefined;
-    setRabbitStreams(value?: WriteOptsRabbitStreams): WriteOpts;
+    setRabbitStreams(value?: WriteOptsRabbitStreams): Write;
 
     hasMqtt(): boolean;
     clearMqtt(): void;
     getMqtt(): WriteOptsMQTT | undefined;
-    setMqtt(value?: WriteOptsMQTT): WriteOpts;
+    setMqtt(value?: WriteOptsMQTT): Write;
 
     hasAzureServiceBus(): boolean;
     clearAzureServiceBus(): void;
     getAzureServiceBus(): WriteOptsAzureServiceBus | undefined;
-    setAzureServiceBus(value?: WriteOptsAzureServiceBus): WriteOpts;
+    setAzureServiceBus(value?: WriteOptsAzureServiceBus): Write;
 
     hasAzureEventHub(): boolean;
     clearAzureEventHub(): void;
     getAzureEventHub(): WriteOptsAzureEventHub | undefined;
-    setAzureEventHub(value?: WriteOptsAzureEventHub): WriteOpts;
+    setAzureEventHub(value?: WriteOptsAzureEventHub): Write;
 
     hasGcpPubsub(): boolean;
     clearGcpPubsub(): void;
     getGcpPubsub(): WriteOptsGCPPubSub | undefined;
-    setGcpPubsub(value?: WriteOptsGCPPubSub): WriteOpts;
+    setGcpPubsub(value?: WriteOptsGCPPubSub): Write;
 
     hasKubemqQueue(): boolean;
     clearKubemqQueue(): void;
     getKubemqQueue(): WriteOptsKubeMQQueue | undefined;
-    setKubemqQueue(value?: WriteOptsKubeMQQueue): WriteOpts;
+    setKubemqQueue(value?: WriteOptsKubeMQQueue): Write;
 
     hasRedisPubsub(): boolean;
     clearRedisPubsub(): void;
     getRedisPubsub(): WriteOptsRedisPubSub | undefined;
-    setRedisPubsub(value?: WriteOptsRedisPubSub): WriteOpts;
+    setRedisPubsub(value?: WriteOptsRedisPubSub): Write;
 
     hasRedisStreams(): boolean;
     clearRedisStreams(): void;
     getRedisStreams(): WriteOptsRedisStreams | undefined;
-    setRedisStreams(value?: WriteOptsRedisStreams): WriteOpts;
+    setRedisStreams(value?: WriteOptsRedisStreams): Write;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): WriteOpts.AsObject;
-    static toObject(includeInstance: boolean, msg: WriteOpts): WriteOpts.AsObject;
+    toObject(includeInstance?: boolean): Write.AsObject;
+    static toObject(includeInstance: boolean, msg: Write): Write.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: WriteOpts, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): WriteOpts;
-    static deserializeBinaryFromReader(message: WriteOpts, reader: jspb.BinaryReader): WriteOpts;
+    static serializeBinaryToWriter(message: Write, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): Write;
+    static deserializeBinaryFromReader(message: Write, reader: jspb.BinaryReader): Write;
 }
 
-export namespace WriteOpts {
+export namespace Write {
     export type AsObject = {
         record?: records_base_pb.WriteRecord.AsObject,
         kafka?: WriteOptsKafka.AsObject,

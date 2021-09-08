@@ -1,11 +1,11 @@
-// x_relay.proto defines which args support relays.
+// relay.proto defines which args support relays.
 //
 // We do not utilize oneof to simplify integration with CLI options. Similarly,
 // we incorporate the connection as part of the args so that conn can be
 // specified in the correct position on the CLI (ie. after `plumber $action $backend`).
 syntax = "proto3";
 
-package protos;
+package protos.opts;
 
 import "args/azure-service-bus.proto";
 import "args/aws-sqs.proto";
@@ -20,9 +20,9 @@ import "args/rabbit.proto";
 import "args/redis-pubsub.proto";
 import "args/redis-streams.proto";
 
-option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/opts";
 
-message RelayOpts {
+message Relay {
     // @gotags: kong:"cmd,help='Apache Kafka'"
     RelayOptsKafka kafka = 100;
 

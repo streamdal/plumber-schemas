@@ -1,4 +1,4 @@
-// source: x_write.proto
+// source: opts/read.proto
 /**
  * @fileoverview
  * @enhanceable
@@ -15,60 +15,61 @@ var jspb = require('google-protobuf');
 var goog = jspb;
 var global = Function('return this')();
 
-var records_base_pb = require('./records/base_pb.js');
-goog.object.extend(proto, records_base_pb);
-var args_activemq_pb = require('./args/activemq_pb.js');
+var args_activemq_pb = require('../args/activemq_pb.js');
 goog.object.extend(proto, args_activemq_pb);
-var args_azure$service$bus_pb = require('./args/azure-service-bus_pb.js');
+var args_azure$service$bus_pb = require('../args/azure-service-bus_pb.js');
 goog.object.extend(proto, args_azure$service$bus_pb);
-var args_azure$event$hub_pb = require('./args/azure-event-hub_pb.js');
+var args_azure$event$hub_pb = require('../args/azure-event-hub_pb.js');
 goog.object.extend(proto, args_azure$event$hub_pb);
-var args_aws$sns_pb = require('./args/aws-sns_pb.js');
-goog.object.extend(proto, args_aws$sns_pb);
-var args_aws$sqs_pb = require('./args/aws-sqs_pb.js');
+var args_aws$sqs_pb = require('../args/aws-sqs_pb.js');
 goog.object.extend(proto, args_aws$sqs_pb);
-var args_gcp$pubsub_pb = require('./args/gcp-pubsub_pb.js');
+var args_gcp$pubsub_pb = require('../args/gcp-pubsub_pb.js');
 goog.object.extend(proto, args_gcp$pubsub_pb);
-var args_kafka_pb = require('./args/kafka_pb.js');
+var args_kafka_pb = require('../args/kafka_pb.js');
 goog.object.extend(proto, args_kafka_pb);
-var args_kubemq$queue_pb = require('./args/kubemq-queue_pb.js');
+var args_kubemq$queue_pb = require('../args/kubemq-queue_pb.js');
 goog.object.extend(proto, args_kubemq$queue_pb);
-var args_mqtt_pb = require('./args/mqtt_pb.js');
+var args_mongo_pb = require('../args/mongo_pb.js');
+goog.object.extend(proto, args_mongo_pb);
+var args_mqtt_pb = require('../args/mqtt_pb.js');
 goog.object.extend(proto, args_mqtt_pb);
-var args_nats_pb = require('./args/nats_pb.js');
+var args_nats_pb = require('../args/nats_pb.js');
 goog.object.extend(proto, args_nats_pb);
-var args_nats$streaming_pb = require('./args/nats-streaming_pb.js');
+var args_nats$streaming_pb = require('../args/nats-streaming_pb.js');
 goog.object.extend(proto, args_nats$streaming_pb);
-var args_nsq_pb = require('./args/nsq_pb.js');
+var args_nsq_pb = require('../args/nsq_pb.js');
 goog.object.extend(proto, args_nsq_pb);
-var args_pulsar_pb = require('./args/pulsar_pb.js');
+var args_postgres_pb = require('../args/postgres_pb.js');
+goog.object.extend(proto, args_postgres_pb);
+var args_pulsar_pb = require('../args/pulsar_pb.js');
 goog.object.extend(proto, args_pulsar_pb);
-var args_rabbit_pb = require('./args/rabbit_pb.js');
+var args_rabbit_pb = require('../args/rabbit_pb.js');
 goog.object.extend(proto, args_rabbit_pb);
-var args_rabbit$streams_pb = require('./args/rabbit-streams_pb.js');
+var args_rabbit$streams_pb = require('../args/rabbit-streams_pb.js');
 goog.object.extend(proto, args_rabbit$streams_pb);
-var args_redis$pubsub_pb = require('./args/redis-pubsub_pb.js');
+var args_redis$pubsub_pb = require('../args/redis-pubsub_pb.js');
 goog.object.extend(proto, args_redis$pubsub_pb);
-var args_redis$streams_pb = require('./args/redis-streams_pb.js');
+var args_redis$streams_pb = require('../args/redis-streams_pb.js');
 goog.object.extend(proto, args_redis$streams_pb);
-goog.exportSymbol('proto.protos.WriteOpts', null, global);
-goog.exportSymbol('proto.protos.WriteOptsAWSSNS', null, global);
-goog.exportSymbol('proto.protos.WriteOptsAWSSQS', null, global);
-goog.exportSymbol('proto.protos.WriteOptsActiveMQ', null, global);
-goog.exportSymbol('proto.protos.WriteOptsAzureEventHub', null, global);
-goog.exportSymbol('proto.protos.WriteOptsAzureServiceBus', null, global);
-goog.exportSymbol('proto.protos.WriteOptsGCPPubSub', null, global);
-goog.exportSymbol('proto.protos.WriteOptsKafka', null, global);
-goog.exportSymbol('proto.protos.WriteOptsKubeMQQueue', null, global);
-goog.exportSymbol('proto.protos.WriteOptsMQTT', null, global);
-goog.exportSymbol('proto.protos.WriteOptsNSQ', null, global);
-goog.exportSymbol('proto.protos.WriteOptsNats', null, global);
-goog.exportSymbol('proto.protos.WriteOptsNatsStreaming', null, global);
-goog.exportSymbol('proto.protos.WriteOptsPulsar', null, global);
-goog.exportSymbol('proto.protos.WriteOptsRabbit', null, global);
-goog.exportSymbol('proto.protos.WriteOptsRabbitStreams', null, global);
-goog.exportSymbol('proto.protos.WriteOptsRedisPubSub', null, global);
-goog.exportSymbol('proto.protos.WriteOptsRedisStreams', null, global);
+goog.exportSymbol('proto.protos.opts.Read', null, global);
+goog.exportSymbol('proto.protos.opts.ReadOptsAWSSQS', null, global);
+goog.exportSymbol('proto.protos.opts.ReadOptsActiveMQ', null, global);
+goog.exportSymbol('proto.protos.opts.ReadOptsAzureEventHub', null, global);
+goog.exportSymbol('proto.protos.opts.ReadOptsAzureServiceBus', null, global);
+goog.exportSymbol('proto.protos.opts.ReadOptsGCPPubSub', null, global);
+goog.exportSymbol('proto.protos.opts.ReadOptsKafka', null, global);
+goog.exportSymbol('proto.protos.opts.ReadOptsKubeMQQueue', null, global);
+goog.exportSymbol('proto.protos.opts.ReadOptsMQTT', null, global);
+goog.exportSymbol('proto.protos.opts.ReadOptsMongo', null, global);
+goog.exportSymbol('proto.protos.opts.ReadOptsNSQ', null, global);
+goog.exportSymbol('proto.protos.opts.ReadOptsNats', null, global);
+goog.exportSymbol('proto.protos.opts.ReadOptsNatsStreaming', null, global);
+goog.exportSymbol('proto.protos.opts.ReadOptsPostgres', null, global);
+goog.exportSymbol('proto.protos.opts.ReadOptsPulsar', null, global);
+goog.exportSymbol('proto.protos.opts.ReadOptsRabbit', null, global);
+goog.exportSymbol('proto.protos.opts.ReadOptsRabbitStreams', null, global);
+goog.exportSymbol('proto.protos.opts.ReadOptsRedisPubSub', null, global);
+goog.exportSymbol('proto.protos.opts.ReadOptsRedisStreams', null, global);
 /**
  * Generated by JsPbCodeGenerator.
  * @param {Array=} opt_data Optional initial data array, typically from a
@@ -79,16 +80,16 @@ goog.exportSymbol('proto.protos.WriteOptsRedisStreams', null, global);
  * @extends {jspb.Message}
  * @constructor
  */
-proto.protos.WriteOpts = function(opt_data) {
+proto.protos.opts.Read = function(opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
-goog.inherits(proto.protos.WriteOpts, jspb.Message);
+goog.inherits(proto.protos.opts.Read, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
   /**
    * @public
    * @override
    */
-  proto.protos.WriteOpts.displayName = 'proto.protos.WriteOpts';
+  proto.protos.opts.Read.displayName = 'proto.protos.opts.Read';
 }
 /**
  * Generated by JsPbCodeGenerator.
@@ -100,16 +101,16 @@ if (goog.DEBUG && !COMPILED) {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.protos.WriteOptsKafka = function(opt_data) {
+proto.protos.opts.ReadOptsKafka = function(opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
-goog.inherits(proto.protos.WriteOptsKafka, jspb.Message);
+goog.inherits(proto.protos.opts.ReadOptsKafka, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
   /**
    * @public
    * @override
    */
-  proto.protos.WriteOptsKafka.displayName = 'proto.protos.WriteOptsKafka';
+  proto.protos.opts.ReadOptsKafka.displayName = 'proto.protos.opts.ReadOptsKafka';
 }
 /**
  * Generated by JsPbCodeGenerator.
@@ -121,16 +122,16 @@ if (goog.DEBUG && !COMPILED) {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.protos.WriteOptsActiveMQ = function(opt_data) {
+proto.protos.opts.ReadOptsActiveMQ = function(opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
-goog.inherits(proto.protos.WriteOptsActiveMQ, jspb.Message);
+goog.inherits(proto.protos.opts.ReadOptsActiveMQ, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
   /**
    * @public
    * @override
    */
-  proto.protos.WriteOptsActiveMQ.displayName = 'proto.protos.WriteOptsActiveMQ';
+  proto.protos.opts.ReadOptsActiveMQ.displayName = 'proto.protos.opts.ReadOptsActiveMQ';
 }
 /**
  * Generated by JsPbCodeGenerator.
@@ -142,16 +143,16 @@ if (goog.DEBUG && !COMPILED) {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.protos.WriteOptsAWSSQS = function(opt_data) {
+proto.protos.opts.ReadOptsAWSSQS = function(opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
-goog.inherits(proto.protos.WriteOptsAWSSQS, jspb.Message);
+goog.inherits(proto.protos.opts.ReadOptsAWSSQS, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
   /**
    * @public
    * @override
    */
-  proto.protos.WriteOptsAWSSQS.displayName = 'proto.protos.WriteOptsAWSSQS';
+  proto.protos.opts.ReadOptsAWSSQS.displayName = 'proto.protos.opts.ReadOptsAWSSQS';
 }
 /**
  * Generated by JsPbCodeGenerator.
@@ -163,16 +164,16 @@ if (goog.DEBUG && !COMPILED) {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.protos.WriteOptsAWSSNS = function(opt_data) {
+proto.protos.opts.ReadOptsMongo = function(opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
-goog.inherits(proto.protos.WriteOptsAWSSNS, jspb.Message);
+goog.inherits(proto.protos.opts.ReadOptsMongo, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
   /**
    * @public
    * @override
    */
-  proto.protos.WriteOptsAWSSNS.displayName = 'proto.protos.WriteOptsAWSSNS';
+  proto.protos.opts.ReadOptsMongo.displayName = 'proto.protos.opts.ReadOptsMongo';
 }
 /**
  * Generated by JsPbCodeGenerator.
@@ -184,16 +185,16 @@ if (goog.DEBUG && !COMPILED) {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.protos.WriteOptsNats = function(opt_data) {
+proto.protos.opts.ReadOptsNats = function(opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
-goog.inherits(proto.protos.WriteOptsNats, jspb.Message);
+goog.inherits(proto.protos.opts.ReadOptsNats, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
   /**
    * @public
    * @override
    */
-  proto.protos.WriteOptsNats.displayName = 'proto.protos.WriteOptsNats';
+  proto.protos.opts.ReadOptsNats.displayName = 'proto.protos.opts.ReadOptsNats';
 }
 /**
  * Generated by JsPbCodeGenerator.
@@ -205,16 +206,16 @@ if (goog.DEBUG && !COMPILED) {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.protos.WriteOptsNatsStreaming = function(opt_data) {
+proto.protos.opts.ReadOptsNatsStreaming = function(opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
-goog.inherits(proto.protos.WriteOptsNatsStreaming, jspb.Message);
+goog.inherits(proto.protos.opts.ReadOptsNatsStreaming, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
   /**
    * @public
    * @override
    */
-  proto.protos.WriteOptsNatsStreaming.displayName = 'proto.protos.WriteOptsNatsStreaming';
+  proto.protos.opts.ReadOptsNatsStreaming.displayName = 'proto.protos.opts.ReadOptsNatsStreaming';
 }
 /**
  * Generated by JsPbCodeGenerator.
@@ -226,16 +227,16 @@ if (goog.DEBUG && !COMPILED) {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.protos.WriteOptsNSQ = function(opt_data) {
+proto.protos.opts.ReadOptsNSQ = function(opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
-goog.inherits(proto.protos.WriteOptsNSQ, jspb.Message);
+goog.inherits(proto.protos.opts.ReadOptsNSQ, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
   /**
    * @public
    * @override
    */
-  proto.protos.WriteOptsNSQ.displayName = 'proto.protos.WriteOptsNSQ';
+  proto.protos.opts.ReadOptsNSQ.displayName = 'proto.protos.opts.ReadOptsNSQ';
 }
 /**
  * Generated by JsPbCodeGenerator.
@@ -247,16 +248,16 @@ if (goog.DEBUG && !COMPILED) {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.protos.WriteOptsPulsar = function(opt_data) {
+proto.protos.opts.ReadOptsPostgres = function(opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
-goog.inherits(proto.protos.WriteOptsPulsar, jspb.Message);
+goog.inherits(proto.protos.opts.ReadOptsPostgres, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
   /**
    * @public
    * @override
    */
-  proto.protos.WriteOptsPulsar.displayName = 'proto.protos.WriteOptsPulsar';
+  proto.protos.opts.ReadOptsPostgres.displayName = 'proto.protos.opts.ReadOptsPostgres';
 }
 /**
  * Generated by JsPbCodeGenerator.
@@ -268,16 +269,16 @@ if (goog.DEBUG && !COMPILED) {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.protos.WriteOptsRabbit = function(opt_data) {
+proto.protos.opts.ReadOptsPulsar = function(opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
-goog.inherits(proto.protos.WriteOptsRabbit, jspb.Message);
+goog.inherits(proto.protos.opts.ReadOptsPulsar, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
   /**
    * @public
    * @override
    */
-  proto.protos.WriteOptsRabbit.displayName = 'proto.protos.WriteOptsRabbit';
+  proto.protos.opts.ReadOptsPulsar.displayName = 'proto.protos.opts.ReadOptsPulsar';
 }
 /**
  * Generated by JsPbCodeGenerator.
@@ -289,16 +290,16 @@ if (goog.DEBUG && !COMPILED) {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.protos.WriteOptsRabbitStreams = function(opt_data) {
+proto.protos.opts.ReadOptsRabbit = function(opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
-goog.inherits(proto.protos.WriteOptsRabbitStreams, jspb.Message);
+goog.inherits(proto.protos.opts.ReadOptsRabbit, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
   /**
    * @public
    * @override
    */
-  proto.protos.WriteOptsRabbitStreams.displayName = 'proto.protos.WriteOptsRabbitStreams';
+  proto.protos.opts.ReadOptsRabbit.displayName = 'proto.protos.opts.ReadOptsRabbit';
 }
 /**
  * Generated by JsPbCodeGenerator.
@@ -310,16 +311,16 @@ if (goog.DEBUG && !COMPILED) {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.protos.WriteOptsRedisPubSub = function(opt_data) {
+proto.protos.opts.ReadOptsRabbitStreams = function(opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
-goog.inherits(proto.protos.WriteOptsRedisPubSub, jspb.Message);
+goog.inherits(proto.protos.opts.ReadOptsRabbitStreams, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
   /**
    * @public
    * @override
    */
-  proto.protos.WriteOptsRedisPubSub.displayName = 'proto.protos.WriteOptsRedisPubSub';
+  proto.protos.opts.ReadOptsRabbitStreams.displayName = 'proto.protos.opts.ReadOptsRabbitStreams';
 }
 /**
  * Generated by JsPbCodeGenerator.
@@ -331,16 +332,16 @@ if (goog.DEBUG && !COMPILED) {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.protos.WriteOptsRedisStreams = function(opt_data) {
+proto.protos.opts.ReadOptsRedisPubSub = function(opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
-goog.inherits(proto.protos.WriteOptsRedisStreams, jspb.Message);
+goog.inherits(proto.protos.opts.ReadOptsRedisPubSub, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
   /**
    * @public
    * @override
    */
-  proto.protos.WriteOptsRedisStreams.displayName = 'proto.protos.WriteOptsRedisStreams';
+  proto.protos.opts.ReadOptsRedisPubSub.displayName = 'proto.protos.opts.ReadOptsRedisPubSub';
 }
 /**
  * Generated by JsPbCodeGenerator.
@@ -352,16 +353,16 @@ if (goog.DEBUG && !COMPILED) {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.protos.WriteOptsAzureEventHub = function(opt_data) {
+proto.protos.opts.ReadOptsRedisStreams = function(opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
-goog.inherits(proto.protos.WriteOptsAzureEventHub, jspb.Message);
+goog.inherits(proto.protos.opts.ReadOptsRedisStreams, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
   /**
    * @public
    * @override
    */
-  proto.protos.WriteOptsAzureEventHub.displayName = 'proto.protos.WriteOptsAzureEventHub';
+  proto.protos.opts.ReadOptsRedisStreams.displayName = 'proto.protos.opts.ReadOptsRedisStreams';
 }
 /**
  * Generated by JsPbCodeGenerator.
@@ -373,16 +374,16 @@ if (goog.DEBUG && !COMPILED) {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.protos.WriteOptsAzureServiceBus = function(opt_data) {
+proto.protos.opts.ReadOptsAzureEventHub = function(opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
-goog.inherits(proto.protos.WriteOptsAzureServiceBus, jspb.Message);
+goog.inherits(proto.protos.opts.ReadOptsAzureEventHub, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
   /**
    * @public
    * @override
    */
-  proto.protos.WriteOptsAzureServiceBus.displayName = 'proto.protos.WriteOptsAzureServiceBus';
+  proto.protos.opts.ReadOptsAzureEventHub.displayName = 'proto.protos.opts.ReadOptsAzureEventHub';
 }
 /**
  * Generated by JsPbCodeGenerator.
@@ -394,16 +395,16 @@ if (goog.DEBUG && !COMPILED) {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.protos.WriteOptsMQTT = function(opt_data) {
+proto.protos.opts.ReadOptsAzureServiceBus = function(opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
-goog.inherits(proto.protos.WriteOptsMQTT, jspb.Message);
+goog.inherits(proto.protos.opts.ReadOptsAzureServiceBus, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
   /**
    * @public
    * @override
    */
-  proto.protos.WriteOptsMQTT.displayName = 'proto.protos.WriteOptsMQTT';
+  proto.protos.opts.ReadOptsAzureServiceBus.displayName = 'proto.protos.opts.ReadOptsAzureServiceBus';
 }
 /**
  * Generated by JsPbCodeGenerator.
@@ -415,16 +416,16 @@ if (goog.DEBUG && !COMPILED) {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.protos.WriteOptsGCPPubSub = function(opt_data) {
+proto.protos.opts.ReadOptsMQTT = function(opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
-goog.inherits(proto.protos.WriteOptsGCPPubSub, jspb.Message);
+goog.inherits(proto.protos.opts.ReadOptsMQTT, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
   /**
    * @public
    * @override
    */
-  proto.protos.WriteOptsGCPPubSub.displayName = 'proto.protos.WriteOptsGCPPubSub';
+  proto.protos.opts.ReadOptsMQTT.displayName = 'proto.protos.opts.ReadOptsMQTT';
 }
 /**
  * Generated by JsPbCodeGenerator.
@@ -436,16 +437,37 @@ if (goog.DEBUG && !COMPILED) {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.protos.WriteOptsKubeMQQueue = function(opt_data) {
+proto.protos.opts.ReadOptsGCPPubSub = function(opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
-goog.inherits(proto.protos.WriteOptsKubeMQQueue, jspb.Message);
+goog.inherits(proto.protos.opts.ReadOptsGCPPubSub, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
   /**
    * @public
    * @override
    */
-  proto.protos.WriteOptsKubeMQQueue.displayName = 'proto.protos.WriteOptsKubeMQQueue';
+  proto.protos.opts.ReadOptsGCPPubSub.displayName = 'proto.protos.opts.ReadOptsGCPPubSub';
+}
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.protos.opts.ReadOptsKubeMQQueue = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+};
+goog.inherits(proto.protos.opts.ReadOptsKubeMQQueue, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  /**
+   * @public
+   * @override
+   */
+  proto.protos.opts.ReadOptsKubeMQQueue.displayName = 'proto.protos.opts.ReadOptsKubeMQQueue';
 }
 
 
@@ -463,8 +485,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
  *     http://goto/soy-param-migration
  * @return {!Object}
  */
-proto.protos.WriteOpts.prototype.toObject = function(opt_includeInstance) {
-  return proto.protos.WriteOpts.toObject(opt_includeInstance, this);
+proto.protos.opts.Read.prototype.toObject = function(opt_includeInstance) {
+  return proto.protos.opts.Read.toObject(opt_includeInstance, this);
 };
 
 
@@ -473,30 +495,30 @@ proto.protos.WriteOpts.prototype.toObject = function(opt_includeInstance) {
  * @param {boolean|undefined} includeInstance Deprecated. Whether to include
  *     the JSPB instance for transitional soy proto support:
  *     http://goto/soy-param-migration
- * @param {!proto.protos.WriteOpts} msg The msg instance to transform.
+ * @param {!proto.protos.opts.Read} msg The msg instance to transform.
  * @return {!Object}
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.protos.WriteOpts.toObject = function(includeInstance, msg) {
+proto.protos.opts.Read.toObject = function(includeInstance, msg) {
   var f, obj = {
-    record: (f = msg.getRecord()) && records_base_pb.WriteRecord.toObject(includeInstance, f),
-    kafka: (f = msg.getKafka()) && proto.protos.WriteOptsKafka.toObject(includeInstance, f),
-    activemq: (f = msg.getActivemq()) && proto.protos.WriteOptsActiveMQ.toObject(includeInstance, f),
-    awssqs: (f = msg.getAwssqs()) && proto.protos.WriteOptsAWSSQS.toObject(includeInstance, f),
-    awssns: (f = msg.getAwssns()) && proto.protos.WriteOptsAWSSNS.toObject(includeInstance, f),
-    nats: (f = msg.getNats()) && proto.protos.WriteOptsNats.toObject(includeInstance, f),
-    natsStreaming: (f = msg.getNatsStreaming()) && proto.protos.WriteOptsNatsStreaming.toObject(includeInstance, f),
-    nsq: (f = msg.getNsq()) && proto.protos.WriteOptsNSQ.toObject(includeInstance, f),
-    pulsar: (f = msg.getPulsar()) && proto.protos.WriteOptsPulsar.toObject(includeInstance, f),
-    rabbit: (f = msg.getRabbit()) && proto.protos.WriteOptsRabbit.toObject(includeInstance, f),
-    rabbitStreams: (f = msg.getRabbitStreams()) && proto.protos.WriteOptsRabbitStreams.toObject(includeInstance, f),
-    mqtt: (f = msg.getMqtt()) && proto.protos.WriteOptsMQTT.toObject(includeInstance, f),
-    azureServiceBus: (f = msg.getAzureServiceBus()) && proto.protos.WriteOptsAzureServiceBus.toObject(includeInstance, f),
-    azureEventHub: (f = msg.getAzureEventHub()) && proto.protos.WriteOptsAzureEventHub.toObject(includeInstance, f),
-    gcpPubsub: (f = msg.getGcpPubsub()) && proto.protos.WriteOptsGCPPubSub.toObject(includeInstance, f),
-    kubemqQueue: (f = msg.getKubemqQueue()) && proto.protos.WriteOptsKubeMQQueue.toObject(includeInstance, f),
-    redisPubsub: (f = msg.getRedisPubsub()) && proto.protos.WriteOptsRedisPubSub.toObject(includeInstance, f),
-    redisStreams: (f = msg.getRedisStreams()) && proto.protos.WriteOptsRedisStreams.toObject(includeInstance, f)
+    kafka: (f = msg.getKafka()) && proto.protos.opts.ReadOptsKafka.toObject(includeInstance, f),
+    activemq: (f = msg.getActivemq()) && proto.protos.opts.ReadOptsActiveMQ.toObject(includeInstance, f),
+    awssqs: (f = msg.getAwssqs()) && proto.protos.opts.ReadOptsAWSSQS.toObject(includeInstance, f),
+    mongo: (f = msg.getMongo()) && proto.protos.opts.ReadOptsMongo.toObject(includeInstance, f),
+    nats: (f = msg.getNats()) && proto.protos.opts.ReadOptsNats.toObject(includeInstance, f),
+    natsStreaming: (f = msg.getNatsStreaming()) && proto.protos.opts.ReadOptsNatsStreaming.toObject(includeInstance, f),
+    nsq: (f = msg.getNsq()) && proto.protos.opts.ReadOptsNSQ.toObject(includeInstance, f),
+    pulsar: (f = msg.getPulsar()) && proto.protos.opts.ReadOptsPulsar.toObject(includeInstance, f),
+    rabbit: (f = msg.getRabbit()) && proto.protos.opts.ReadOptsRabbit.toObject(includeInstance, f),
+    rabbitStreams: (f = msg.getRabbitStreams()) && proto.protos.opts.ReadOptsRabbitStreams.toObject(includeInstance, f),
+    mqtt: (f = msg.getMqtt()) && proto.protos.opts.ReadOptsMQTT.toObject(includeInstance, f),
+    azureServiceBus: (f = msg.getAzureServiceBus()) && proto.protos.opts.ReadOptsAzureServiceBus.toObject(includeInstance, f),
+    azureEventHub: (f = msg.getAzureEventHub()) && proto.protos.opts.ReadOptsAzureEventHub.toObject(includeInstance, f),
+    gcpPubsub: (f = msg.getGcpPubsub()) && proto.protos.opts.ReadOptsGCPPubSub.toObject(includeInstance, f),
+    kubemqQueue: (f = msg.getKubemqQueue()) && proto.protos.opts.ReadOptsKubeMQQueue.toObject(includeInstance, f),
+    redisPubsub: (f = msg.getRedisPubsub()) && proto.protos.opts.ReadOptsRedisPubSub.toObject(includeInstance, f),
+    redisStreams: (f = msg.getRedisStreams()) && proto.protos.opts.ReadOptsRedisStreams.toObject(includeInstance, f),
+    postgres: (f = msg.getPostgres()) && proto.protos.opts.ReadOptsPostgres.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -510,118 +532,118 @@ proto.protos.WriteOpts.toObject = function(includeInstance, msg) {
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.protos.WriteOpts}
+ * @return {!proto.protos.opts.Read}
  */
-proto.protos.WriteOpts.deserializeBinary = function(bytes) {
+proto.protos.opts.Read.deserializeBinary = function(bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.protos.WriteOpts;
-  return proto.protos.WriteOpts.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.protos.opts.Read;
+  return proto.protos.opts.Read.deserializeBinaryFromReader(msg, reader);
 };
 
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
  * given reader into the given message object.
- * @param {!proto.protos.WriteOpts} msg The message object to deserialize into.
+ * @param {!proto.protos.opts.Read} msg The message object to deserialize into.
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.protos.WriteOpts}
+ * @return {!proto.protos.opts.Read}
  */
-proto.protos.WriteOpts.deserializeBinaryFromReader = function(msg, reader) {
+proto.protos.opts.Read.deserializeBinaryFromReader = function(msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
     }
     var field = reader.getFieldNumber();
     switch (field) {
-    case 1:
-      var value = new records_base_pb.WriteRecord;
-      reader.readMessage(value,records_base_pb.WriteRecord.deserializeBinaryFromReader);
-      msg.setRecord(value);
-      break;
     case 100:
-      var value = new proto.protos.WriteOptsKafka;
-      reader.readMessage(value,proto.protos.WriteOptsKafka.deserializeBinaryFromReader);
+      var value = new proto.protos.opts.ReadOptsKafka;
+      reader.readMessage(value,proto.protos.opts.ReadOptsKafka.deserializeBinaryFromReader);
       msg.setKafka(value);
       break;
     case 101:
-      var value = new proto.protos.WriteOptsActiveMQ;
-      reader.readMessage(value,proto.protos.WriteOptsActiveMQ.deserializeBinaryFromReader);
+      var value = new proto.protos.opts.ReadOptsActiveMQ;
+      reader.readMessage(value,proto.protos.opts.ReadOptsActiveMQ.deserializeBinaryFromReader);
       msg.setActivemq(value);
       break;
     case 102:
-      var value = new proto.protos.WriteOptsAWSSQS;
-      reader.readMessage(value,proto.protos.WriteOptsAWSSQS.deserializeBinaryFromReader);
+      var value = new proto.protos.opts.ReadOptsAWSSQS;
+      reader.readMessage(value,proto.protos.opts.ReadOptsAWSSQS.deserializeBinaryFromReader);
       msg.setAwssqs(value);
       break;
     case 103:
-      var value = new proto.protos.WriteOptsAWSSNS;
-      reader.readMessage(value,proto.protos.WriteOptsAWSSNS.deserializeBinaryFromReader);
-      msg.setAwssns(value);
+      var value = new proto.protos.opts.ReadOptsMongo;
+      reader.readMessage(value,proto.protos.opts.ReadOptsMongo.deserializeBinaryFromReader);
+      msg.setMongo(value);
       break;
     case 104:
-      var value = new proto.protos.WriteOptsNats;
-      reader.readMessage(value,proto.protos.WriteOptsNats.deserializeBinaryFromReader);
+      var value = new proto.protos.opts.ReadOptsNats;
+      reader.readMessage(value,proto.protos.opts.ReadOptsNats.deserializeBinaryFromReader);
       msg.setNats(value);
       break;
     case 105:
-      var value = new proto.protos.WriteOptsNatsStreaming;
-      reader.readMessage(value,proto.protos.WriteOptsNatsStreaming.deserializeBinaryFromReader);
+      var value = new proto.protos.opts.ReadOptsNatsStreaming;
+      reader.readMessage(value,proto.protos.opts.ReadOptsNatsStreaming.deserializeBinaryFromReader);
       msg.setNatsStreaming(value);
       break;
     case 106:
-      var value = new proto.protos.WriteOptsNSQ;
-      reader.readMessage(value,proto.protos.WriteOptsNSQ.deserializeBinaryFromReader);
+      var value = new proto.protos.opts.ReadOptsNSQ;
+      reader.readMessage(value,proto.protos.opts.ReadOptsNSQ.deserializeBinaryFromReader);
       msg.setNsq(value);
       break;
     case 107:
-      var value = new proto.protos.WriteOptsPulsar;
-      reader.readMessage(value,proto.protos.WriteOptsPulsar.deserializeBinaryFromReader);
+      var value = new proto.protos.opts.ReadOptsPulsar;
+      reader.readMessage(value,proto.protos.opts.ReadOptsPulsar.deserializeBinaryFromReader);
       msg.setPulsar(value);
       break;
     case 108:
-      var value = new proto.protos.WriteOptsRabbit;
-      reader.readMessage(value,proto.protos.WriteOptsRabbit.deserializeBinaryFromReader);
+      var value = new proto.protos.opts.ReadOptsRabbit;
+      reader.readMessage(value,proto.protos.opts.ReadOptsRabbit.deserializeBinaryFromReader);
       msg.setRabbit(value);
       break;
     case 109:
-      var value = new proto.protos.WriteOptsRabbitStreams;
-      reader.readMessage(value,proto.protos.WriteOptsRabbitStreams.deserializeBinaryFromReader);
+      var value = new proto.protos.opts.ReadOptsRabbitStreams;
+      reader.readMessage(value,proto.protos.opts.ReadOptsRabbitStreams.deserializeBinaryFromReader);
       msg.setRabbitStreams(value);
       break;
     case 110:
-      var value = new proto.protos.WriteOptsMQTT;
-      reader.readMessage(value,proto.protos.WriteOptsMQTT.deserializeBinaryFromReader);
+      var value = new proto.protos.opts.ReadOptsMQTT;
+      reader.readMessage(value,proto.protos.opts.ReadOptsMQTT.deserializeBinaryFromReader);
       msg.setMqtt(value);
       break;
     case 111:
-      var value = new proto.protos.WriteOptsAzureServiceBus;
-      reader.readMessage(value,proto.protos.WriteOptsAzureServiceBus.deserializeBinaryFromReader);
+      var value = new proto.protos.opts.ReadOptsAzureServiceBus;
+      reader.readMessage(value,proto.protos.opts.ReadOptsAzureServiceBus.deserializeBinaryFromReader);
       msg.setAzureServiceBus(value);
       break;
     case 112:
-      var value = new proto.protos.WriteOptsAzureEventHub;
-      reader.readMessage(value,proto.protos.WriteOptsAzureEventHub.deserializeBinaryFromReader);
+      var value = new proto.protos.opts.ReadOptsAzureEventHub;
+      reader.readMessage(value,proto.protos.opts.ReadOptsAzureEventHub.deserializeBinaryFromReader);
       msg.setAzureEventHub(value);
       break;
     case 113:
-      var value = new proto.protos.WriteOptsGCPPubSub;
-      reader.readMessage(value,proto.protos.WriteOptsGCPPubSub.deserializeBinaryFromReader);
+      var value = new proto.protos.opts.ReadOptsGCPPubSub;
+      reader.readMessage(value,proto.protos.opts.ReadOptsGCPPubSub.deserializeBinaryFromReader);
       msg.setGcpPubsub(value);
       break;
     case 114:
-      var value = new proto.protos.WriteOptsKubeMQQueue;
-      reader.readMessage(value,proto.protos.WriteOptsKubeMQQueue.deserializeBinaryFromReader);
+      var value = new proto.protos.opts.ReadOptsKubeMQQueue;
+      reader.readMessage(value,proto.protos.opts.ReadOptsKubeMQQueue.deserializeBinaryFromReader);
       msg.setKubemqQueue(value);
       break;
     case 115:
-      var value = new proto.protos.WriteOptsRedisPubSub;
-      reader.readMessage(value,proto.protos.WriteOptsRedisPubSub.deserializeBinaryFromReader);
+      var value = new proto.protos.opts.ReadOptsRedisPubSub;
+      reader.readMessage(value,proto.protos.opts.ReadOptsRedisPubSub.deserializeBinaryFromReader);
       msg.setRedisPubsub(value);
       break;
     case 116:
-      var value = new proto.protos.WriteOptsRedisStreams;
-      reader.readMessage(value,proto.protos.WriteOptsRedisStreams.deserializeBinaryFromReader);
+      var value = new proto.protos.opts.ReadOptsRedisStreams;
+      reader.readMessage(value,proto.protos.opts.ReadOptsRedisStreams.deserializeBinaryFromReader);
       msg.setRedisStreams(value);
+      break;
+    case 117:
+      var value = new proto.protos.opts.ReadOptsPostgres;
+      reader.readMessage(value,proto.protos.opts.ReadOptsPostgres.deserializeBinaryFromReader);
+      msg.setPostgres(value);
       break;
     default:
       reader.skipField();
@@ -636,9 +658,9 @@ proto.protos.WriteOpts.deserializeBinaryFromReader = function(msg, reader) {
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.protos.WriteOpts.prototype.serializeBinary = function() {
+proto.protos.opts.Read.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  proto.protos.WriteOpts.serializeBinaryToWriter(this, writer);
+  proto.protos.opts.Read.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
@@ -646,26 +668,18 @@ proto.protos.WriteOpts.prototype.serializeBinary = function() {
 /**
  * Serializes the given message to binary data (in protobuf wire
  * format), writing to the given BinaryWriter.
- * @param {!proto.protos.WriteOpts} message
+ * @param {!proto.protos.opts.Read} message
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.protos.WriteOpts.serializeBinaryToWriter = function(message, writer) {
+proto.protos.opts.Read.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getRecord();
-  if (f != null) {
-    writer.writeMessage(
-      1,
-      f,
-      records_base_pb.WriteRecord.serializeBinaryToWriter
-    );
-  }
   f = message.getKafka();
   if (f != null) {
     writer.writeMessage(
       100,
       f,
-      proto.protos.WriteOptsKafka.serializeBinaryToWriter
+      proto.protos.opts.ReadOptsKafka.serializeBinaryToWriter
     );
   }
   f = message.getActivemq();
@@ -673,7 +687,7 @@ proto.protos.WriteOpts.serializeBinaryToWriter = function(message, writer) {
     writer.writeMessage(
       101,
       f,
-      proto.protos.WriteOptsActiveMQ.serializeBinaryToWriter
+      proto.protos.opts.ReadOptsActiveMQ.serializeBinaryToWriter
     );
   }
   f = message.getAwssqs();
@@ -681,15 +695,15 @@ proto.protos.WriteOpts.serializeBinaryToWriter = function(message, writer) {
     writer.writeMessage(
       102,
       f,
-      proto.protos.WriteOptsAWSSQS.serializeBinaryToWriter
+      proto.protos.opts.ReadOptsAWSSQS.serializeBinaryToWriter
     );
   }
-  f = message.getAwssns();
+  f = message.getMongo();
   if (f != null) {
     writer.writeMessage(
       103,
       f,
-      proto.protos.WriteOptsAWSSNS.serializeBinaryToWriter
+      proto.protos.opts.ReadOptsMongo.serializeBinaryToWriter
     );
   }
   f = message.getNats();
@@ -697,7 +711,7 @@ proto.protos.WriteOpts.serializeBinaryToWriter = function(message, writer) {
     writer.writeMessage(
       104,
       f,
-      proto.protos.WriteOptsNats.serializeBinaryToWriter
+      proto.protos.opts.ReadOptsNats.serializeBinaryToWriter
     );
   }
   f = message.getNatsStreaming();
@@ -705,7 +719,7 @@ proto.protos.WriteOpts.serializeBinaryToWriter = function(message, writer) {
     writer.writeMessage(
       105,
       f,
-      proto.protos.WriteOptsNatsStreaming.serializeBinaryToWriter
+      proto.protos.opts.ReadOptsNatsStreaming.serializeBinaryToWriter
     );
   }
   f = message.getNsq();
@@ -713,7 +727,7 @@ proto.protos.WriteOpts.serializeBinaryToWriter = function(message, writer) {
     writer.writeMessage(
       106,
       f,
-      proto.protos.WriteOptsNSQ.serializeBinaryToWriter
+      proto.protos.opts.ReadOptsNSQ.serializeBinaryToWriter
     );
   }
   f = message.getPulsar();
@@ -721,7 +735,7 @@ proto.protos.WriteOpts.serializeBinaryToWriter = function(message, writer) {
     writer.writeMessage(
       107,
       f,
-      proto.protos.WriteOptsPulsar.serializeBinaryToWriter
+      proto.protos.opts.ReadOptsPulsar.serializeBinaryToWriter
     );
   }
   f = message.getRabbit();
@@ -729,7 +743,7 @@ proto.protos.WriteOpts.serializeBinaryToWriter = function(message, writer) {
     writer.writeMessage(
       108,
       f,
-      proto.protos.WriteOptsRabbit.serializeBinaryToWriter
+      proto.protos.opts.ReadOptsRabbit.serializeBinaryToWriter
     );
   }
   f = message.getRabbitStreams();
@@ -737,7 +751,7 @@ proto.protos.WriteOpts.serializeBinaryToWriter = function(message, writer) {
     writer.writeMessage(
       109,
       f,
-      proto.protos.WriteOptsRabbitStreams.serializeBinaryToWriter
+      proto.protos.opts.ReadOptsRabbitStreams.serializeBinaryToWriter
     );
   }
   f = message.getMqtt();
@@ -745,7 +759,7 @@ proto.protos.WriteOpts.serializeBinaryToWriter = function(message, writer) {
     writer.writeMessage(
       110,
       f,
-      proto.protos.WriteOptsMQTT.serializeBinaryToWriter
+      proto.protos.opts.ReadOptsMQTT.serializeBinaryToWriter
     );
   }
   f = message.getAzureServiceBus();
@@ -753,7 +767,7 @@ proto.protos.WriteOpts.serializeBinaryToWriter = function(message, writer) {
     writer.writeMessage(
       111,
       f,
-      proto.protos.WriteOptsAzureServiceBus.serializeBinaryToWriter
+      proto.protos.opts.ReadOptsAzureServiceBus.serializeBinaryToWriter
     );
   }
   f = message.getAzureEventHub();
@@ -761,7 +775,7 @@ proto.protos.WriteOpts.serializeBinaryToWriter = function(message, writer) {
     writer.writeMessage(
       112,
       f,
-      proto.protos.WriteOptsAzureEventHub.serializeBinaryToWriter
+      proto.protos.opts.ReadOptsAzureEventHub.serializeBinaryToWriter
     );
   }
   f = message.getGcpPubsub();
@@ -769,7 +783,7 @@ proto.protos.WriteOpts.serializeBinaryToWriter = function(message, writer) {
     writer.writeMessage(
       113,
       f,
-      proto.protos.WriteOptsGCPPubSub.serializeBinaryToWriter
+      proto.protos.opts.ReadOptsGCPPubSub.serializeBinaryToWriter
     );
   }
   f = message.getKubemqQueue();
@@ -777,7 +791,7 @@ proto.protos.WriteOpts.serializeBinaryToWriter = function(message, writer) {
     writer.writeMessage(
       114,
       f,
-      proto.protos.WriteOptsKubeMQQueue.serializeBinaryToWriter
+      proto.protos.opts.ReadOptsKubeMQQueue.serializeBinaryToWriter
     );
   }
   f = message.getRedisPubsub();
@@ -785,7 +799,7 @@ proto.protos.WriteOpts.serializeBinaryToWriter = function(message, writer) {
     writer.writeMessage(
       115,
       f,
-      proto.protos.WriteOptsRedisPubSub.serializeBinaryToWriter
+      proto.protos.opts.ReadOptsRedisPubSub.serializeBinaryToWriter
     );
   }
   f = message.getRedisStreams();
@@ -793,73 +807,44 @@ proto.protos.WriteOpts.serializeBinaryToWriter = function(message, writer) {
     writer.writeMessage(
       116,
       f,
-      proto.protos.WriteOptsRedisStreams.serializeBinaryToWriter
+      proto.protos.opts.ReadOptsRedisStreams.serializeBinaryToWriter
+    );
+  }
+  f = message.getPostgres();
+  if (f != null) {
+    writer.writeMessage(
+      117,
+      f,
+      proto.protos.opts.ReadOptsPostgres.serializeBinaryToWriter
     );
   }
 };
 
 
 /**
- * optional records.WriteRecord record = 1;
- * @return {?proto.protos.records.WriteRecord}
+ * optional ReadOptsKafka kafka = 100;
+ * @return {?proto.protos.opts.ReadOptsKafka}
  */
-proto.protos.WriteOpts.prototype.getRecord = function() {
-  return /** @type{?proto.protos.records.WriteRecord} */ (
-    jspb.Message.getWrapperField(this, records_base_pb.WriteRecord, 1));
+proto.protos.opts.Read.prototype.getKafka = function() {
+  return /** @type{?proto.protos.opts.ReadOptsKafka} */ (
+    jspb.Message.getWrapperField(this, proto.protos.opts.ReadOptsKafka, 100));
 };
 
 
 /**
- * @param {?proto.protos.records.WriteRecord|undefined} value
- * @return {!proto.protos.WriteOpts} returns this
+ * @param {?proto.protos.opts.ReadOptsKafka|undefined} value
+ * @return {!proto.protos.opts.Read} returns this
 */
-proto.protos.WriteOpts.prototype.setRecord = function(value) {
-  return jspb.Message.setWrapperField(this, 1, value);
-};
-
-
-/**
- * Clears the message field making it undefined.
- * @return {!proto.protos.WriteOpts} returns this
- */
-proto.protos.WriteOpts.prototype.clearRecord = function() {
-  return this.setRecord(undefined);
-};
-
-
-/**
- * Returns whether this field is set.
- * @return {boolean}
- */
-proto.protos.WriteOpts.prototype.hasRecord = function() {
-  return jspb.Message.getField(this, 1) != null;
-};
-
-
-/**
- * optional WriteOptsKafka kafka = 100;
- * @return {?proto.protos.WriteOptsKafka}
- */
-proto.protos.WriteOpts.prototype.getKafka = function() {
-  return /** @type{?proto.protos.WriteOptsKafka} */ (
-    jspb.Message.getWrapperField(this, proto.protos.WriteOptsKafka, 100));
-};
-
-
-/**
- * @param {?proto.protos.WriteOptsKafka|undefined} value
- * @return {!proto.protos.WriteOpts} returns this
-*/
-proto.protos.WriteOpts.prototype.setKafka = function(value) {
+proto.protos.opts.Read.prototype.setKafka = function(value) {
   return jspb.Message.setWrapperField(this, 100, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
- * @return {!proto.protos.WriteOpts} returns this
+ * @return {!proto.protos.opts.Read} returns this
  */
-proto.protos.WriteOpts.prototype.clearKafka = function() {
+proto.protos.opts.Read.prototype.clearKafka = function() {
   return this.setKafka(undefined);
 };
 
@@ -868,35 +853,35 @@ proto.protos.WriteOpts.prototype.clearKafka = function() {
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.protos.WriteOpts.prototype.hasKafka = function() {
+proto.protos.opts.Read.prototype.hasKafka = function() {
   return jspb.Message.getField(this, 100) != null;
 };
 
 
 /**
- * optional WriteOptsActiveMQ activemq = 101;
- * @return {?proto.protos.WriteOptsActiveMQ}
+ * optional ReadOptsActiveMQ activemq = 101;
+ * @return {?proto.protos.opts.ReadOptsActiveMQ}
  */
-proto.protos.WriteOpts.prototype.getActivemq = function() {
-  return /** @type{?proto.protos.WriteOptsActiveMQ} */ (
-    jspb.Message.getWrapperField(this, proto.protos.WriteOptsActiveMQ, 101));
+proto.protos.opts.Read.prototype.getActivemq = function() {
+  return /** @type{?proto.protos.opts.ReadOptsActiveMQ} */ (
+    jspb.Message.getWrapperField(this, proto.protos.opts.ReadOptsActiveMQ, 101));
 };
 
 
 /**
- * @param {?proto.protos.WriteOptsActiveMQ|undefined} value
- * @return {!proto.protos.WriteOpts} returns this
+ * @param {?proto.protos.opts.ReadOptsActiveMQ|undefined} value
+ * @return {!proto.protos.opts.Read} returns this
 */
-proto.protos.WriteOpts.prototype.setActivemq = function(value) {
+proto.protos.opts.Read.prototype.setActivemq = function(value) {
   return jspb.Message.setWrapperField(this, 101, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
- * @return {!proto.protos.WriteOpts} returns this
+ * @return {!proto.protos.opts.Read} returns this
  */
-proto.protos.WriteOpts.prototype.clearActivemq = function() {
+proto.protos.opts.Read.prototype.clearActivemq = function() {
   return this.setActivemq(undefined);
 };
 
@@ -905,35 +890,35 @@ proto.protos.WriteOpts.prototype.clearActivemq = function() {
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.protos.WriteOpts.prototype.hasActivemq = function() {
+proto.protos.opts.Read.prototype.hasActivemq = function() {
   return jspb.Message.getField(this, 101) != null;
 };
 
 
 /**
- * optional WriteOptsAWSSQS awssqs = 102;
- * @return {?proto.protos.WriteOptsAWSSQS}
+ * optional ReadOptsAWSSQS awssqs = 102;
+ * @return {?proto.protos.opts.ReadOptsAWSSQS}
  */
-proto.protos.WriteOpts.prototype.getAwssqs = function() {
-  return /** @type{?proto.protos.WriteOptsAWSSQS} */ (
-    jspb.Message.getWrapperField(this, proto.protos.WriteOptsAWSSQS, 102));
+proto.protos.opts.Read.prototype.getAwssqs = function() {
+  return /** @type{?proto.protos.opts.ReadOptsAWSSQS} */ (
+    jspb.Message.getWrapperField(this, proto.protos.opts.ReadOptsAWSSQS, 102));
 };
 
 
 /**
- * @param {?proto.protos.WriteOptsAWSSQS|undefined} value
- * @return {!proto.protos.WriteOpts} returns this
+ * @param {?proto.protos.opts.ReadOptsAWSSQS|undefined} value
+ * @return {!proto.protos.opts.Read} returns this
 */
-proto.protos.WriteOpts.prototype.setAwssqs = function(value) {
+proto.protos.opts.Read.prototype.setAwssqs = function(value) {
   return jspb.Message.setWrapperField(this, 102, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
- * @return {!proto.protos.WriteOpts} returns this
+ * @return {!proto.protos.opts.Read} returns this
  */
-proto.protos.WriteOpts.prototype.clearAwssqs = function() {
+proto.protos.opts.Read.prototype.clearAwssqs = function() {
   return this.setAwssqs(undefined);
 };
 
@@ -942,36 +927,36 @@ proto.protos.WriteOpts.prototype.clearAwssqs = function() {
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.protos.WriteOpts.prototype.hasAwssqs = function() {
+proto.protos.opts.Read.prototype.hasAwssqs = function() {
   return jspb.Message.getField(this, 102) != null;
 };
 
 
 /**
- * optional WriteOptsAWSSNS awssns = 103;
- * @return {?proto.protos.WriteOptsAWSSNS}
+ * optional ReadOptsMongo mongo = 103;
+ * @return {?proto.protos.opts.ReadOptsMongo}
  */
-proto.protos.WriteOpts.prototype.getAwssns = function() {
-  return /** @type{?proto.protos.WriteOptsAWSSNS} */ (
-    jspb.Message.getWrapperField(this, proto.protos.WriteOptsAWSSNS, 103));
+proto.protos.opts.Read.prototype.getMongo = function() {
+  return /** @type{?proto.protos.opts.ReadOptsMongo} */ (
+    jspb.Message.getWrapperField(this, proto.protos.opts.ReadOptsMongo, 103));
 };
 
 
 /**
- * @param {?proto.protos.WriteOptsAWSSNS|undefined} value
- * @return {!proto.protos.WriteOpts} returns this
+ * @param {?proto.protos.opts.ReadOptsMongo|undefined} value
+ * @return {!proto.protos.opts.Read} returns this
 */
-proto.protos.WriteOpts.prototype.setAwssns = function(value) {
+proto.protos.opts.Read.prototype.setMongo = function(value) {
   return jspb.Message.setWrapperField(this, 103, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
- * @return {!proto.protos.WriteOpts} returns this
+ * @return {!proto.protos.opts.Read} returns this
  */
-proto.protos.WriteOpts.prototype.clearAwssns = function() {
-  return this.setAwssns(undefined);
+proto.protos.opts.Read.prototype.clearMongo = function() {
+  return this.setMongo(undefined);
 };
 
 
@@ -979,35 +964,35 @@ proto.protos.WriteOpts.prototype.clearAwssns = function() {
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.protos.WriteOpts.prototype.hasAwssns = function() {
+proto.protos.opts.Read.prototype.hasMongo = function() {
   return jspb.Message.getField(this, 103) != null;
 };
 
 
 /**
- * optional WriteOptsNats nats = 104;
- * @return {?proto.protos.WriteOptsNats}
+ * optional ReadOptsNats nats = 104;
+ * @return {?proto.protos.opts.ReadOptsNats}
  */
-proto.protos.WriteOpts.prototype.getNats = function() {
-  return /** @type{?proto.protos.WriteOptsNats} */ (
-    jspb.Message.getWrapperField(this, proto.protos.WriteOptsNats, 104));
+proto.protos.opts.Read.prototype.getNats = function() {
+  return /** @type{?proto.protos.opts.ReadOptsNats} */ (
+    jspb.Message.getWrapperField(this, proto.protos.opts.ReadOptsNats, 104));
 };
 
 
 /**
- * @param {?proto.protos.WriteOptsNats|undefined} value
- * @return {!proto.protos.WriteOpts} returns this
+ * @param {?proto.protos.opts.ReadOptsNats|undefined} value
+ * @return {!proto.protos.opts.Read} returns this
 */
-proto.protos.WriteOpts.prototype.setNats = function(value) {
+proto.protos.opts.Read.prototype.setNats = function(value) {
   return jspb.Message.setWrapperField(this, 104, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
- * @return {!proto.protos.WriteOpts} returns this
+ * @return {!proto.protos.opts.Read} returns this
  */
-proto.protos.WriteOpts.prototype.clearNats = function() {
+proto.protos.opts.Read.prototype.clearNats = function() {
   return this.setNats(undefined);
 };
 
@@ -1016,35 +1001,35 @@ proto.protos.WriteOpts.prototype.clearNats = function() {
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.protos.WriteOpts.prototype.hasNats = function() {
+proto.protos.opts.Read.prototype.hasNats = function() {
   return jspb.Message.getField(this, 104) != null;
 };
 
 
 /**
- * optional WriteOptsNatsStreaming nats_streaming = 105;
- * @return {?proto.protos.WriteOptsNatsStreaming}
+ * optional ReadOptsNatsStreaming nats_streaming = 105;
+ * @return {?proto.protos.opts.ReadOptsNatsStreaming}
  */
-proto.protos.WriteOpts.prototype.getNatsStreaming = function() {
-  return /** @type{?proto.protos.WriteOptsNatsStreaming} */ (
-    jspb.Message.getWrapperField(this, proto.protos.WriteOptsNatsStreaming, 105));
+proto.protos.opts.Read.prototype.getNatsStreaming = function() {
+  return /** @type{?proto.protos.opts.ReadOptsNatsStreaming} */ (
+    jspb.Message.getWrapperField(this, proto.protos.opts.ReadOptsNatsStreaming, 105));
 };
 
 
 /**
- * @param {?proto.protos.WriteOptsNatsStreaming|undefined} value
- * @return {!proto.protos.WriteOpts} returns this
+ * @param {?proto.protos.opts.ReadOptsNatsStreaming|undefined} value
+ * @return {!proto.protos.opts.Read} returns this
 */
-proto.protos.WriteOpts.prototype.setNatsStreaming = function(value) {
+proto.protos.opts.Read.prototype.setNatsStreaming = function(value) {
   return jspb.Message.setWrapperField(this, 105, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
- * @return {!proto.protos.WriteOpts} returns this
+ * @return {!proto.protos.opts.Read} returns this
  */
-proto.protos.WriteOpts.prototype.clearNatsStreaming = function() {
+proto.protos.opts.Read.prototype.clearNatsStreaming = function() {
   return this.setNatsStreaming(undefined);
 };
 
@@ -1053,35 +1038,35 @@ proto.protos.WriteOpts.prototype.clearNatsStreaming = function() {
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.protos.WriteOpts.prototype.hasNatsStreaming = function() {
+proto.protos.opts.Read.prototype.hasNatsStreaming = function() {
   return jspb.Message.getField(this, 105) != null;
 };
 
 
 /**
- * optional WriteOptsNSQ nsq = 106;
- * @return {?proto.protos.WriteOptsNSQ}
+ * optional ReadOptsNSQ nsq = 106;
+ * @return {?proto.protos.opts.ReadOptsNSQ}
  */
-proto.protos.WriteOpts.prototype.getNsq = function() {
-  return /** @type{?proto.protos.WriteOptsNSQ} */ (
-    jspb.Message.getWrapperField(this, proto.protos.WriteOptsNSQ, 106));
+proto.protos.opts.Read.prototype.getNsq = function() {
+  return /** @type{?proto.protos.opts.ReadOptsNSQ} */ (
+    jspb.Message.getWrapperField(this, proto.protos.opts.ReadOptsNSQ, 106));
 };
 
 
 /**
- * @param {?proto.protos.WriteOptsNSQ|undefined} value
- * @return {!proto.protos.WriteOpts} returns this
+ * @param {?proto.protos.opts.ReadOptsNSQ|undefined} value
+ * @return {!proto.protos.opts.Read} returns this
 */
-proto.protos.WriteOpts.prototype.setNsq = function(value) {
+proto.protos.opts.Read.prototype.setNsq = function(value) {
   return jspb.Message.setWrapperField(this, 106, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
- * @return {!proto.protos.WriteOpts} returns this
+ * @return {!proto.protos.opts.Read} returns this
  */
-proto.protos.WriteOpts.prototype.clearNsq = function() {
+proto.protos.opts.Read.prototype.clearNsq = function() {
   return this.setNsq(undefined);
 };
 
@@ -1090,35 +1075,35 @@ proto.protos.WriteOpts.prototype.clearNsq = function() {
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.protos.WriteOpts.prototype.hasNsq = function() {
+proto.protos.opts.Read.prototype.hasNsq = function() {
   return jspb.Message.getField(this, 106) != null;
 };
 
 
 /**
- * optional WriteOptsPulsar pulsar = 107;
- * @return {?proto.protos.WriteOptsPulsar}
+ * optional ReadOptsPulsar pulsar = 107;
+ * @return {?proto.protos.opts.ReadOptsPulsar}
  */
-proto.protos.WriteOpts.prototype.getPulsar = function() {
-  return /** @type{?proto.protos.WriteOptsPulsar} */ (
-    jspb.Message.getWrapperField(this, proto.protos.WriteOptsPulsar, 107));
+proto.protos.opts.Read.prototype.getPulsar = function() {
+  return /** @type{?proto.protos.opts.ReadOptsPulsar} */ (
+    jspb.Message.getWrapperField(this, proto.protos.opts.ReadOptsPulsar, 107));
 };
 
 
 /**
- * @param {?proto.protos.WriteOptsPulsar|undefined} value
- * @return {!proto.protos.WriteOpts} returns this
+ * @param {?proto.protos.opts.ReadOptsPulsar|undefined} value
+ * @return {!proto.protos.opts.Read} returns this
 */
-proto.protos.WriteOpts.prototype.setPulsar = function(value) {
+proto.protos.opts.Read.prototype.setPulsar = function(value) {
   return jspb.Message.setWrapperField(this, 107, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
- * @return {!proto.protos.WriteOpts} returns this
+ * @return {!proto.protos.opts.Read} returns this
  */
-proto.protos.WriteOpts.prototype.clearPulsar = function() {
+proto.protos.opts.Read.prototype.clearPulsar = function() {
   return this.setPulsar(undefined);
 };
 
@@ -1127,35 +1112,35 @@ proto.protos.WriteOpts.prototype.clearPulsar = function() {
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.protos.WriteOpts.prototype.hasPulsar = function() {
+proto.protos.opts.Read.prototype.hasPulsar = function() {
   return jspb.Message.getField(this, 107) != null;
 };
 
 
 /**
- * optional WriteOptsRabbit rabbit = 108;
- * @return {?proto.protos.WriteOptsRabbit}
+ * optional ReadOptsRabbit rabbit = 108;
+ * @return {?proto.protos.opts.ReadOptsRabbit}
  */
-proto.protos.WriteOpts.prototype.getRabbit = function() {
-  return /** @type{?proto.protos.WriteOptsRabbit} */ (
-    jspb.Message.getWrapperField(this, proto.protos.WriteOptsRabbit, 108));
+proto.protos.opts.Read.prototype.getRabbit = function() {
+  return /** @type{?proto.protos.opts.ReadOptsRabbit} */ (
+    jspb.Message.getWrapperField(this, proto.protos.opts.ReadOptsRabbit, 108));
 };
 
 
 /**
- * @param {?proto.protos.WriteOptsRabbit|undefined} value
- * @return {!proto.protos.WriteOpts} returns this
+ * @param {?proto.protos.opts.ReadOptsRabbit|undefined} value
+ * @return {!proto.protos.opts.Read} returns this
 */
-proto.protos.WriteOpts.prototype.setRabbit = function(value) {
+proto.protos.opts.Read.prototype.setRabbit = function(value) {
   return jspb.Message.setWrapperField(this, 108, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
- * @return {!proto.protos.WriteOpts} returns this
+ * @return {!proto.protos.opts.Read} returns this
  */
-proto.protos.WriteOpts.prototype.clearRabbit = function() {
+proto.protos.opts.Read.prototype.clearRabbit = function() {
   return this.setRabbit(undefined);
 };
 
@@ -1164,35 +1149,35 @@ proto.protos.WriteOpts.prototype.clearRabbit = function() {
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.protos.WriteOpts.prototype.hasRabbit = function() {
+proto.protos.opts.Read.prototype.hasRabbit = function() {
   return jspb.Message.getField(this, 108) != null;
 };
 
 
 /**
- * optional WriteOptsRabbitStreams rabbit_streams = 109;
- * @return {?proto.protos.WriteOptsRabbitStreams}
+ * optional ReadOptsRabbitStreams rabbit_streams = 109;
+ * @return {?proto.protos.opts.ReadOptsRabbitStreams}
  */
-proto.protos.WriteOpts.prototype.getRabbitStreams = function() {
-  return /** @type{?proto.protos.WriteOptsRabbitStreams} */ (
-    jspb.Message.getWrapperField(this, proto.protos.WriteOptsRabbitStreams, 109));
+proto.protos.opts.Read.prototype.getRabbitStreams = function() {
+  return /** @type{?proto.protos.opts.ReadOptsRabbitStreams} */ (
+    jspb.Message.getWrapperField(this, proto.protos.opts.ReadOptsRabbitStreams, 109));
 };
 
 
 /**
- * @param {?proto.protos.WriteOptsRabbitStreams|undefined} value
- * @return {!proto.protos.WriteOpts} returns this
+ * @param {?proto.protos.opts.ReadOptsRabbitStreams|undefined} value
+ * @return {!proto.protos.opts.Read} returns this
 */
-proto.protos.WriteOpts.prototype.setRabbitStreams = function(value) {
+proto.protos.opts.Read.prototype.setRabbitStreams = function(value) {
   return jspb.Message.setWrapperField(this, 109, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
- * @return {!proto.protos.WriteOpts} returns this
+ * @return {!proto.protos.opts.Read} returns this
  */
-proto.protos.WriteOpts.prototype.clearRabbitStreams = function() {
+proto.protos.opts.Read.prototype.clearRabbitStreams = function() {
   return this.setRabbitStreams(undefined);
 };
 
@@ -1201,35 +1186,35 @@ proto.protos.WriteOpts.prototype.clearRabbitStreams = function() {
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.protos.WriteOpts.prototype.hasRabbitStreams = function() {
+proto.protos.opts.Read.prototype.hasRabbitStreams = function() {
   return jspb.Message.getField(this, 109) != null;
 };
 
 
 /**
- * optional WriteOptsMQTT mqtt = 110;
- * @return {?proto.protos.WriteOptsMQTT}
+ * optional ReadOptsMQTT mqtt = 110;
+ * @return {?proto.protos.opts.ReadOptsMQTT}
  */
-proto.protos.WriteOpts.prototype.getMqtt = function() {
-  return /** @type{?proto.protos.WriteOptsMQTT} */ (
-    jspb.Message.getWrapperField(this, proto.protos.WriteOptsMQTT, 110));
+proto.protos.opts.Read.prototype.getMqtt = function() {
+  return /** @type{?proto.protos.opts.ReadOptsMQTT} */ (
+    jspb.Message.getWrapperField(this, proto.protos.opts.ReadOptsMQTT, 110));
 };
 
 
 /**
- * @param {?proto.protos.WriteOptsMQTT|undefined} value
- * @return {!proto.protos.WriteOpts} returns this
+ * @param {?proto.protos.opts.ReadOptsMQTT|undefined} value
+ * @return {!proto.protos.opts.Read} returns this
 */
-proto.protos.WriteOpts.prototype.setMqtt = function(value) {
+proto.protos.opts.Read.prototype.setMqtt = function(value) {
   return jspb.Message.setWrapperField(this, 110, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
- * @return {!proto.protos.WriteOpts} returns this
+ * @return {!proto.protos.opts.Read} returns this
  */
-proto.protos.WriteOpts.prototype.clearMqtt = function() {
+proto.protos.opts.Read.prototype.clearMqtt = function() {
   return this.setMqtt(undefined);
 };
 
@@ -1238,35 +1223,35 @@ proto.protos.WriteOpts.prototype.clearMqtt = function() {
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.protos.WriteOpts.prototype.hasMqtt = function() {
+proto.protos.opts.Read.prototype.hasMqtt = function() {
   return jspb.Message.getField(this, 110) != null;
 };
 
 
 /**
- * optional WriteOptsAzureServiceBus azure_service_bus = 111;
- * @return {?proto.protos.WriteOptsAzureServiceBus}
+ * optional ReadOptsAzureServiceBus azure_service_bus = 111;
+ * @return {?proto.protos.opts.ReadOptsAzureServiceBus}
  */
-proto.protos.WriteOpts.prototype.getAzureServiceBus = function() {
-  return /** @type{?proto.protos.WriteOptsAzureServiceBus} */ (
-    jspb.Message.getWrapperField(this, proto.protos.WriteOptsAzureServiceBus, 111));
+proto.protos.opts.Read.prototype.getAzureServiceBus = function() {
+  return /** @type{?proto.protos.opts.ReadOptsAzureServiceBus} */ (
+    jspb.Message.getWrapperField(this, proto.protos.opts.ReadOptsAzureServiceBus, 111));
 };
 
 
 /**
- * @param {?proto.protos.WriteOptsAzureServiceBus|undefined} value
- * @return {!proto.protos.WriteOpts} returns this
+ * @param {?proto.protos.opts.ReadOptsAzureServiceBus|undefined} value
+ * @return {!proto.protos.opts.Read} returns this
 */
-proto.protos.WriteOpts.prototype.setAzureServiceBus = function(value) {
+proto.protos.opts.Read.prototype.setAzureServiceBus = function(value) {
   return jspb.Message.setWrapperField(this, 111, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
- * @return {!proto.protos.WriteOpts} returns this
+ * @return {!proto.protos.opts.Read} returns this
  */
-proto.protos.WriteOpts.prototype.clearAzureServiceBus = function() {
+proto.protos.opts.Read.prototype.clearAzureServiceBus = function() {
   return this.setAzureServiceBus(undefined);
 };
 
@@ -1275,35 +1260,35 @@ proto.protos.WriteOpts.prototype.clearAzureServiceBus = function() {
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.protos.WriteOpts.prototype.hasAzureServiceBus = function() {
+proto.protos.opts.Read.prototype.hasAzureServiceBus = function() {
   return jspb.Message.getField(this, 111) != null;
 };
 
 
 /**
- * optional WriteOptsAzureEventHub azure_event_hub = 112;
- * @return {?proto.protos.WriteOptsAzureEventHub}
+ * optional ReadOptsAzureEventHub azure_event_hub = 112;
+ * @return {?proto.protos.opts.ReadOptsAzureEventHub}
  */
-proto.protos.WriteOpts.prototype.getAzureEventHub = function() {
-  return /** @type{?proto.protos.WriteOptsAzureEventHub} */ (
-    jspb.Message.getWrapperField(this, proto.protos.WriteOptsAzureEventHub, 112));
+proto.protos.opts.Read.prototype.getAzureEventHub = function() {
+  return /** @type{?proto.protos.opts.ReadOptsAzureEventHub} */ (
+    jspb.Message.getWrapperField(this, proto.protos.opts.ReadOptsAzureEventHub, 112));
 };
 
 
 /**
- * @param {?proto.protos.WriteOptsAzureEventHub|undefined} value
- * @return {!proto.protos.WriteOpts} returns this
+ * @param {?proto.protos.opts.ReadOptsAzureEventHub|undefined} value
+ * @return {!proto.protos.opts.Read} returns this
 */
-proto.protos.WriteOpts.prototype.setAzureEventHub = function(value) {
+proto.protos.opts.Read.prototype.setAzureEventHub = function(value) {
   return jspb.Message.setWrapperField(this, 112, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
- * @return {!proto.protos.WriteOpts} returns this
+ * @return {!proto.protos.opts.Read} returns this
  */
-proto.protos.WriteOpts.prototype.clearAzureEventHub = function() {
+proto.protos.opts.Read.prototype.clearAzureEventHub = function() {
   return this.setAzureEventHub(undefined);
 };
 
@@ -1312,35 +1297,35 @@ proto.protos.WriteOpts.prototype.clearAzureEventHub = function() {
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.protos.WriteOpts.prototype.hasAzureEventHub = function() {
+proto.protos.opts.Read.prototype.hasAzureEventHub = function() {
   return jspb.Message.getField(this, 112) != null;
 };
 
 
 /**
- * optional WriteOptsGCPPubSub gcp_pubsub = 113;
- * @return {?proto.protos.WriteOptsGCPPubSub}
+ * optional ReadOptsGCPPubSub gcp_pubsub = 113;
+ * @return {?proto.protos.opts.ReadOptsGCPPubSub}
  */
-proto.protos.WriteOpts.prototype.getGcpPubsub = function() {
-  return /** @type{?proto.protos.WriteOptsGCPPubSub} */ (
-    jspb.Message.getWrapperField(this, proto.protos.WriteOptsGCPPubSub, 113));
+proto.protos.opts.Read.prototype.getGcpPubsub = function() {
+  return /** @type{?proto.protos.opts.ReadOptsGCPPubSub} */ (
+    jspb.Message.getWrapperField(this, proto.protos.opts.ReadOptsGCPPubSub, 113));
 };
 
 
 /**
- * @param {?proto.protos.WriteOptsGCPPubSub|undefined} value
- * @return {!proto.protos.WriteOpts} returns this
+ * @param {?proto.protos.opts.ReadOptsGCPPubSub|undefined} value
+ * @return {!proto.protos.opts.Read} returns this
 */
-proto.protos.WriteOpts.prototype.setGcpPubsub = function(value) {
+proto.protos.opts.Read.prototype.setGcpPubsub = function(value) {
   return jspb.Message.setWrapperField(this, 113, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
- * @return {!proto.protos.WriteOpts} returns this
+ * @return {!proto.protos.opts.Read} returns this
  */
-proto.protos.WriteOpts.prototype.clearGcpPubsub = function() {
+proto.protos.opts.Read.prototype.clearGcpPubsub = function() {
   return this.setGcpPubsub(undefined);
 };
 
@@ -1349,35 +1334,35 @@ proto.protos.WriteOpts.prototype.clearGcpPubsub = function() {
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.protos.WriteOpts.prototype.hasGcpPubsub = function() {
+proto.protos.opts.Read.prototype.hasGcpPubsub = function() {
   return jspb.Message.getField(this, 113) != null;
 };
 
 
 /**
- * optional WriteOptsKubeMQQueue kubemq_queue = 114;
- * @return {?proto.protos.WriteOptsKubeMQQueue}
+ * optional ReadOptsKubeMQQueue kubemq_queue = 114;
+ * @return {?proto.protos.opts.ReadOptsKubeMQQueue}
  */
-proto.protos.WriteOpts.prototype.getKubemqQueue = function() {
-  return /** @type{?proto.protos.WriteOptsKubeMQQueue} */ (
-    jspb.Message.getWrapperField(this, proto.protos.WriteOptsKubeMQQueue, 114));
+proto.protos.opts.Read.prototype.getKubemqQueue = function() {
+  return /** @type{?proto.protos.opts.ReadOptsKubeMQQueue} */ (
+    jspb.Message.getWrapperField(this, proto.protos.opts.ReadOptsKubeMQQueue, 114));
 };
 
 
 /**
- * @param {?proto.protos.WriteOptsKubeMQQueue|undefined} value
- * @return {!proto.protos.WriteOpts} returns this
+ * @param {?proto.protos.opts.ReadOptsKubeMQQueue|undefined} value
+ * @return {!proto.protos.opts.Read} returns this
 */
-proto.protos.WriteOpts.prototype.setKubemqQueue = function(value) {
+proto.protos.opts.Read.prototype.setKubemqQueue = function(value) {
   return jspb.Message.setWrapperField(this, 114, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
- * @return {!proto.protos.WriteOpts} returns this
+ * @return {!proto.protos.opts.Read} returns this
  */
-proto.protos.WriteOpts.prototype.clearKubemqQueue = function() {
+proto.protos.opts.Read.prototype.clearKubemqQueue = function() {
   return this.setKubemqQueue(undefined);
 };
 
@@ -1386,35 +1371,35 @@ proto.protos.WriteOpts.prototype.clearKubemqQueue = function() {
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.protos.WriteOpts.prototype.hasKubemqQueue = function() {
+proto.protos.opts.Read.prototype.hasKubemqQueue = function() {
   return jspb.Message.getField(this, 114) != null;
 };
 
 
 /**
- * optional WriteOptsRedisPubSub redis_pubsub = 115;
- * @return {?proto.protos.WriteOptsRedisPubSub}
+ * optional ReadOptsRedisPubSub redis_pubsub = 115;
+ * @return {?proto.protos.opts.ReadOptsRedisPubSub}
  */
-proto.protos.WriteOpts.prototype.getRedisPubsub = function() {
-  return /** @type{?proto.protos.WriteOptsRedisPubSub} */ (
-    jspb.Message.getWrapperField(this, proto.protos.WriteOptsRedisPubSub, 115));
+proto.protos.opts.Read.prototype.getRedisPubsub = function() {
+  return /** @type{?proto.protos.opts.ReadOptsRedisPubSub} */ (
+    jspb.Message.getWrapperField(this, proto.protos.opts.ReadOptsRedisPubSub, 115));
 };
 
 
 /**
- * @param {?proto.protos.WriteOptsRedisPubSub|undefined} value
- * @return {!proto.protos.WriteOpts} returns this
+ * @param {?proto.protos.opts.ReadOptsRedisPubSub|undefined} value
+ * @return {!proto.protos.opts.Read} returns this
 */
-proto.protos.WriteOpts.prototype.setRedisPubsub = function(value) {
+proto.protos.opts.Read.prototype.setRedisPubsub = function(value) {
   return jspb.Message.setWrapperField(this, 115, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
- * @return {!proto.protos.WriteOpts} returns this
+ * @return {!proto.protos.opts.Read} returns this
  */
-proto.protos.WriteOpts.prototype.clearRedisPubsub = function() {
+proto.protos.opts.Read.prototype.clearRedisPubsub = function() {
   return this.setRedisPubsub(undefined);
 };
 
@@ -1423,35 +1408,35 @@ proto.protos.WriteOpts.prototype.clearRedisPubsub = function() {
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.protos.WriteOpts.prototype.hasRedisPubsub = function() {
+proto.protos.opts.Read.prototype.hasRedisPubsub = function() {
   return jspb.Message.getField(this, 115) != null;
 };
 
 
 /**
- * optional WriteOptsRedisStreams redis_streams = 116;
- * @return {?proto.protos.WriteOptsRedisStreams}
+ * optional ReadOptsRedisStreams redis_streams = 116;
+ * @return {?proto.protos.opts.ReadOptsRedisStreams}
  */
-proto.protos.WriteOpts.prototype.getRedisStreams = function() {
-  return /** @type{?proto.protos.WriteOptsRedisStreams} */ (
-    jspb.Message.getWrapperField(this, proto.protos.WriteOptsRedisStreams, 116));
+proto.protos.opts.Read.prototype.getRedisStreams = function() {
+  return /** @type{?proto.protos.opts.ReadOptsRedisStreams} */ (
+    jspb.Message.getWrapperField(this, proto.protos.opts.ReadOptsRedisStreams, 116));
 };
 
 
 /**
- * @param {?proto.protos.WriteOptsRedisStreams|undefined} value
- * @return {!proto.protos.WriteOpts} returns this
+ * @param {?proto.protos.opts.ReadOptsRedisStreams|undefined} value
+ * @return {!proto.protos.opts.Read} returns this
 */
-proto.protos.WriteOpts.prototype.setRedisStreams = function(value) {
+proto.protos.opts.Read.prototype.setRedisStreams = function(value) {
   return jspb.Message.setWrapperField(this, 116, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
- * @return {!proto.protos.WriteOpts} returns this
+ * @return {!proto.protos.opts.Read} returns this
  */
-proto.protos.WriteOpts.prototype.clearRedisStreams = function() {
+proto.protos.opts.Read.prototype.clearRedisStreams = function() {
   return this.setRedisStreams(undefined);
 };
 
@@ -1460,8 +1445,45 @@ proto.protos.WriteOpts.prototype.clearRedisStreams = function() {
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.protos.WriteOpts.prototype.hasRedisStreams = function() {
+proto.protos.opts.Read.prototype.hasRedisStreams = function() {
   return jspb.Message.getField(this, 116) != null;
+};
+
+
+/**
+ * optional ReadOptsPostgres postgres = 117;
+ * @return {?proto.protos.opts.ReadOptsPostgres}
+ */
+proto.protos.opts.Read.prototype.getPostgres = function() {
+  return /** @type{?proto.protos.opts.ReadOptsPostgres} */ (
+    jspb.Message.getWrapperField(this, proto.protos.opts.ReadOptsPostgres, 117));
+};
+
+
+/**
+ * @param {?proto.protos.opts.ReadOptsPostgres|undefined} value
+ * @return {!proto.protos.opts.Read} returns this
+*/
+proto.protos.opts.Read.prototype.setPostgres = function(value) {
+  return jspb.Message.setWrapperField(this, 117, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.opts.Read} returns this
+ */
+proto.protos.opts.Read.prototype.clearPostgres = function() {
+  return this.setPostgres(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.opts.Read.prototype.hasPostgres = function() {
+  return jspb.Message.getField(this, 117) != null;
 };
 
 
@@ -1481,8 +1503,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
  *     http://goto/soy-param-migration
  * @return {!Object}
  */
-proto.protos.WriteOptsKafka.prototype.toObject = function(opt_includeInstance) {
-  return proto.protos.WriteOptsKafka.toObject(opt_includeInstance, this);
+proto.protos.opts.ReadOptsKafka.prototype.toObject = function(opt_includeInstance) {
+  return proto.protos.opts.ReadOptsKafka.toObject(opt_includeInstance, this);
 };
 
 
@@ -1491,14 +1513,14 @@ proto.protos.WriteOptsKafka.prototype.toObject = function(opt_includeInstance) {
  * @param {boolean|undefined} includeInstance Deprecated. Whether to include
  *     the JSPB instance for transitional soy proto support:
  *     http://goto/soy-param-migration
- * @param {!proto.protos.WriteOptsKafka} msg The msg instance to transform.
+ * @param {!proto.protos.opts.ReadOptsKafka} msg The msg instance to transform.
  * @return {!Object}
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.protos.WriteOptsKafka.toObject = function(includeInstance, msg) {
+proto.protos.opts.ReadOptsKafka.toObject = function(includeInstance, msg) {
   var f, obj = {
     conn: (f = msg.getConn()) && args_kafka_pb.KafkaConn.toObject(includeInstance, f),
-    args: (f = msg.getArgs()) && args_kafka_pb.KafkaWriteArgs.toObject(includeInstance, f)
+    args: (f = msg.getArgs()) && args_kafka_pb.KafkaReadArgs.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -1512,23 +1534,23 @@ proto.protos.WriteOptsKafka.toObject = function(includeInstance, msg) {
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.protos.WriteOptsKafka}
+ * @return {!proto.protos.opts.ReadOptsKafka}
  */
-proto.protos.WriteOptsKafka.deserializeBinary = function(bytes) {
+proto.protos.opts.ReadOptsKafka.deserializeBinary = function(bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.protos.WriteOptsKafka;
-  return proto.protos.WriteOptsKafka.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.protos.opts.ReadOptsKafka;
+  return proto.protos.opts.ReadOptsKafka.deserializeBinaryFromReader(msg, reader);
 };
 
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
  * given reader into the given message object.
- * @param {!proto.protos.WriteOptsKafka} msg The message object to deserialize into.
+ * @param {!proto.protos.opts.ReadOptsKafka} msg The message object to deserialize into.
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.protos.WriteOptsKafka}
+ * @return {!proto.protos.opts.ReadOptsKafka}
  */
-proto.protos.WriteOptsKafka.deserializeBinaryFromReader = function(msg, reader) {
+proto.protos.opts.ReadOptsKafka.deserializeBinaryFromReader = function(msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
@@ -1541,8 +1563,8 @@ proto.protos.WriteOptsKafka.deserializeBinaryFromReader = function(msg, reader) 
       msg.setConn(value);
       break;
     case 2:
-      var value = new args_kafka_pb.KafkaWriteArgs;
-      reader.readMessage(value,args_kafka_pb.KafkaWriteArgs.deserializeBinaryFromReader);
+      var value = new args_kafka_pb.KafkaReadArgs;
+      reader.readMessage(value,args_kafka_pb.KafkaReadArgs.deserializeBinaryFromReader);
       msg.setArgs(value);
       break;
     default:
@@ -1558,9 +1580,9 @@ proto.protos.WriteOptsKafka.deserializeBinaryFromReader = function(msg, reader) 
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.protos.WriteOptsKafka.prototype.serializeBinary = function() {
+proto.protos.opts.ReadOptsKafka.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  proto.protos.WriteOptsKafka.serializeBinaryToWriter(this, writer);
+  proto.protos.opts.ReadOptsKafka.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
@@ -1568,11 +1590,11 @@ proto.protos.WriteOptsKafka.prototype.serializeBinary = function() {
 /**
  * Serializes the given message to binary data (in protobuf wire
  * format), writing to the given BinaryWriter.
- * @param {!proto.protos.WriteOptsKafka} message
+ * @param {!proto.protos.opts.ReadOptsKafka} message
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.protos.WriteOptsKafka.serializeBinaryToWriter = function(message, writer) {
+proto.protos.opts.ReadOptsKafka.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
   f = message.getConn();
   if (f != null) {
@@ -1587,17 +1609,17 @@ proto.protos.WriteOptsKafka.serializeBinaryToWriter = function(message, writer) 
     writer.writeMessage(
       2,
       f,
-      args_kafka_pb.KafkaWriteArgs.serializeBinaryToWriter
+      args_kafka_pb.KafkaReadArgs.serializeBinaryToWriter
     );
   }
 };
 
 
 /**
- * optional args.KafkaConn _conn = 1;
+ * optional protos.args.KafkaConn _conn = 1;
  * @return {?proto.protos.args.KafkaConn}
  */
-proto.protos.WriteOptsKafka.prototype.getConn = function() {
+proto.protos.opts.ReadOptsKafka.prototype.getConn = function() {
   return /** @type{?proto.protos.args.KafkaConn} */ (
     jspb.Message.getWrapperField(this, args_kafka_pb.KafkaConn, 1));
 };
@@ -1605,18 +1627,18 @@ proto.protos.WriteOptsKafka.prototype.getConn = function() {
 
 /**
  * @param {?proto.protos.args.KafkaConn|undefined} value
- * @return {!proto.protos.WriteOptsKafka} returns this
+ * @return {!proto.protos.opts.ReadOptsKafka} returns this
 */
-proto.protos.WriteOptsKafka.prototype.setConn = function(value) {
+proto.protos.opts.ReadOptsKafka.prototype.setConn = function(value) {
   return jspb.Message.setWrapperField(this, 1, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
- * @return {!proto.protos.WriteOptsKafka} returns this
+ * @return {!proto.protos.opts.ReadOptsKafka} returns this
  */
-proto.protos.WriteOptsKafka.prototype.clearConn = function() {
+proto.protos.opts.ReadOptsKafka.prototype.clearConn = function() {
   return this.setConn(undefined);
 };
 
@@ -1625,35 +1647,35 @@ proto.protos.WriteOptsKafka.prototype.clearConn = function() {
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.protos.WriteOptsKafka.prototype.hasConn = function() {
+proto.protos.opts.ReadOptsKafka.prototype.hasConn = function() {
   return jspb.Message.getField(this, 1) != null;
 };
 
 
 /**
- * optional args.KafkaWriteArgs args = 2;
- * @return {?proto.protos.args.KafkaWriteArgs}
+ * optional protos.args.KafkaReadArgs args = 2;
+ * @return {?proto.protos.args.KafkaReadArgs}
  */
-proto.protos.WriteOptsKafka.prototype.getArgs = function() {
-  return /** @type{?proto.protos.args.KafkaWriteArgs} */ (
-    jspb.Message.getWrapperField(this, args_kafka_pb.KafkaWriteArgs, 2));
+proto.protos.opts.ReadOptsKafka.prototype.getArgs = function() {
+  return /** @type{?proto.protos.args.KafkaReadArgs} */ (
+    jspb.Message.getWrapperField(this, args_kafka_pb.KafkaReadArgs, 2));
 };
 
 
 /**
- * @param {?proto.protos.args.KafkaWriteArgs|undefined} value
- * @return {!proto.protos.WriteOptsKafka} returns this
+ * @param {?proto.protos.args.KafkaReadArgs|undefined} value
+ * @return {!proto.protos.opts.ReadOptsKafka} returns this
 */
-proto.protos.WriteOptsKafka.prototype.setArgs = function(value) {
+proto.protos.opts.ReadOptsKafka.prototype.setArgs = function(value) {
   return jspb.Message.setWrapperField(this, 2, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
- * @return {!proto.protos.WriteOptsKafka} returns this
+ * @return {!proto.protos.opts.ReadOptsKafka} returns this
  */
-proto.protos.WriteOptsKafka.prototype.clearArgs = function() {
+proto.protos.opts.ReadOptsKafka.prototype.clearArgs = function() {
   return this.setArgs(undefined);
 };
 
@@ -1662,7 +1684,7 @@ proto.protos.WriteOptsKafka.prototype.clearArgs = function() {
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.protos.WriteOptsKafka.prototype.hasArgs = function() {
+proto.protos.opts.ReadOptsKafka.prototype.hasArgs = function() {
   return jspb.Message.getField(this, 2) != null;
 };
 
@@ -1683,8 +1705,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
  *     http://goto/soy-param-migration
  * @return {!Object}
  */
-proto.protos.WriteOptsActiveMQ.prototype.toObject = function(opt_includeInstance) {
-  return proto.protos.WriteOptsActiveMQ.toObject(opt_includeInstance, this);
+proto.protos.opts.ReadOptsActiveMQ.prototype.toObject = function(opt_includeInstance) {
+  return proto.protos.opts.ReadOptsActiveMQ.toObject(opt_includeInstance, this);
 };
 
 
@@ -1693,14 +1715,14 @@ proto.protos.WriteOptsActiveMQ.prototype.toObject = function(opt_includeInstance
  * @param {boolean|undefined} includeInstance Deprecated. Whether to include
  *     the JSPB instance for transitional soy proto support:
  *     http://goto/soy-param-migration
- * @param {!proto.protos.WriteOptsActiveMQ} msg The msg instance to transform.
+ * @param {!proto.protos.opts.ReadOptsActiveMQ} msg The msg instance to transform.
  * @return {!Object}
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.protos.WriteOptsActiveMQ.toObject = function(includeInstance, msg) {
+proto.protos.opts.ReadOptsActiveMQ.toObject = function(includeInstance, msg) {
   var f, obj = {
     conn: (f = msg.getConn()) && args_activemq_pb.ActiveMQConn.toObject(includeInstance, f),
-    args: (f = msg.getArgs()) && args_activemq_pb.ActiveMQWriteArgs.toObject(includeInstance, f)
+    args: (f = msg.getArgs()) && args_activemq_pb.ActiveMQReadArgs.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -1714,23 +1736,23 @@ proto.protos.WriteOptsActiveMQ.toObject = function(includeInstance, msg) {
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.protos.WriteOptsActiveMQ}
+ * @return {!proto.protos.opts.ReadOptsActiveMQ}
  */
-proto.protos.WriteOptsActiveMQ.deserializeBinary = function(bytes) {
+proto.protos.opts.ReadOptsActiveMQ.deserializeBinary = function(bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.protos.WriteOptsActiveMQ;
-  return proto.protos.WriteOptsActiveMQ.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.protos.opts.ReadOptsActiveMQ;
+  return proto.protos.opts.ReadOptsActiveMQ.deserializeBinaryFromReader(msg, reader);
 };
 
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
  * given reader into the given message object.
- * @param {!proto.protos.WriteOptsActiveMQ} msg The message object to deserialize into.
+ * @param {!proto.protos.opts.ReadOptsActiveMQ} msg The message object to deserialize into.
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.protos.WriteOptsActiveMQ}
+ * @return {!proto.protos.opts.ReadOptsActiveMQ}
  */
-proto.protos.WriteOptsActiveMQ.deserializeBinaryFromReader = function(msg, reader) {
+proto.protos.opts.ReadOptsActiveMQ.deserializeBinaryFromReader = function(msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
@@ -1743,8 +1765,8 @@ proto.protos.WriteOptsActiveMQ.deserializeBinaryFromReader = function(msg, reade
       msg.setConn(value);
       break;
     case 2:
-      var value = new args_activemq_pb.ActiveMQWriteArgs;
-      reader.readMessage(value,args_activemq_pb.ActiveMQWriteArgs.deserializeBinaryFromReader);
+      var value = new args_activemq_pb.ActiveMQReadArgs;
+      reader.readMessage(value,args_activemq_pb.ActiveMQReadArgs.deserializeBinaryFromReader);
       msg.setArgs(value);
       break;
     default:
@@ -1760,9 +1782,9 @@ proto.protos.WriteOptsActiveMQ.deserializeBinaryFromReader = function(msg, reade
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.protos.WriteOptsActiveMQ.prototype.serializeBinary = function() {
+proto.protos.opts.ReadOptsActiveMQ.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  proto.protos.WriteOptsActiveMQ.serializeBinaryToWriter(this, writer);
+  proto.protos.opts.ReadOptsActiveMQ.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
@@ -1770,11 +1792,11 @@ proto.protos.WriteOptsActiveMQ.prototype.serializeBinary = function() {
 /**
  * Serializes the given message to binary data (in protobuf wire
  * format), writing to the given BinaryWriter.
- * @param {!proto.protos.WriteOptsActiveMQ} message
+ * @param {!proto.protos.opts.ReadOptsActiveMQ} message
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.protos.WriteOptsActiveMQ.serializeBinaryToWriter = function(message, writer) {
+proto.protos.opts.ReadOptsActiveMQ.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
   f = message.getConn();
   if (f != null) {
@@ -1789,17 +1811,17 @@ proto.protos.WriteOptsActiveMQ.serializeBinaryToWriter = function(message, write
     writer.writeMessage(
       2,
       f,
-      args_activemq_pb.ActiveMQWriteArgs.serializeBinaryToWriter
+      args_activemq_pb.ActiveMQReadArgs.serializeBinaryToWriter
     );
   }
 };
 
 
 /**
- * optional args.ActiveMQConn _conn = 1;
+ * optional protos.args.ActiveMQConn _conn = 1;
  * @return {?proto.protos.args.ActiveMQConn}
  */
-proto.protos.WriteOptsActiveMQ.prototype.getConn = function() {
+proto.protos.opts.ReadOptsActiveMQ.prototype.getConn = function() {
   return /** @type{?proto.protos.args.ActiveMQConn} */ (
     jspb.Message.getWrapperField(this, args_activemq_pb.ActiveMQConn, 1));
 };
@@ -1807,18 +1829,18 @@ proto.protos.WriteOptsActiveMQ.prototype.getConn = function() {
 
 /**
  * @param {?proto.protos.args.ActiveMQConn|undefined} value
- * @return {!proto.protos.WriteOptsActiveMQ} returns this
+ * @return {!proto.protos.opts.ReadOptsActiveMQ} returns this
 */
-proto.protos.WriteOptsActiveMQ.prototype.setConn = function(value) {
+proto.protos.opts.ReadOptsActiveMQ.prototype.setConn = function(value) {
   return jspb.Message.setWrapperField(this, 1, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
- * @return {!proto.protos.WriteOptsActiveMQ} returns this
+ * @return {!proto.protos.opts.ReadOptsActiveMQ} returns this
  */
-proto.protos.WriteOptsActiveMQ.prototype.clearConn = function() {
+proto.protos.opts.ReadOptsActiveMQ.prototype.clearConn = function() {
   return this.setConn(undefined);
 };
 
@@ -1827,35 +1849,35 @@ proto.protos.WriteOptsActiveMQ.prototype.clearConn = function() {
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.protos.WriteOptsActiveMQ.prototype.hasConn = function() {
+proto.protos.opts.ReadOptsActiveMQ.prototype.hasConn = function() {
   return jspb.Message.getField(this, 1) != null;
 };
 
 
 /**
- * optional args.ActiveMQWriteArgs args = 2;
- * @return {?proto.protos.args.ActiveMQWriteArgs}
+ * optional protos.args.ActiveMQReadArgs args = 2;
+ * @return {?proto.protos.args.ActiveMQReadArgs}
  */
-proto.protos.WriteOptsActiveMQ.prototype.getArgs = function() {
-  return /** @type{?proto.protos.args.ActiveMQWriteArgs} */ (
-    jspb.Message.getWrapperField(this, args_activemq_pb.ActiveMQWriteArgs, 2));
+proto.protos.opts.ReadOptsActiveMQ.prototype.getArgs = function() {
+  return /** @type{?proto.protos.args.ActiveMQReadArgs} */ (
+    jspb.Message.getWrapperField(this, args_activemq_pb.ActiveMQReadArgs, 2));
 };
 
 
 /**
- * @param {?proto.protos.args.ActiveMQWriteArgs|undefined} value
- * @return {!proto.protos.WriteOptsActiveMQ} returns this
+ * @param {?proto.protos.args.ActiveMQReadArgs|undefined} value
+ * @return {!proto.protos.opts.ReadOptsActiveMQ} returns this
 */
-proto.protos.WriteOptsActiveMQ.prototype.setArgs = function(value) {
+proto.protos.opts.ReadOptsActiveMQ.prototype.setArgs = function(value) {
   return jspb.Message.setWrapperField(this, 2, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
- * @return {!proto.protos.WriteOptsActiveMQ} returns this
+ * @return {!proto.protos.opts.ReadOptsActiveMQ} returns this
  */
-proto.protos.WriteOptsActiveMQ.prototype.clearArgs = function() {
+proto.protos.opts.ReadOptsActiveMQ.prototype.clearArgs = function() {
   return this.setArgs(undefined);
 };
 
@@ -1864,7 +1886,7 @@ proto.protos.WriteOptsActiveMQ.prototype.clearArgs = function() {
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.protos.WriteOptsActiveMQ.prototype.hasArgs = function() {
+proto.protos.opts.ReadOptsActiveMQ.prototype.hasArgs = function() {
   return jspb.Message.getField(this, 2) != null;
 };
 
@@ -1885,8 +1907,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
  *     http://goto/soy-param-migration
  * @return {!Object}
  */
-proto.protos.WriteOptsAWSSQS.prototype.toObject = function(opt_includeInstance) {
-  return proto.protos.WriteOptsAWSSQS.toObject(opt_includeInstance, this);
+proto.protos.opts.ReadOptsAWSSQS.prototype.toObject = function(opt_includeInstance) {
+  return proto.protos.opts.ReadOptsAWSSQS.toObject(opt_includeInstance, this);
 };
 
 
@@ -1895,14 +1917,14 @@ proto.protos.WriteOptsAWSSQS.prototype.toObject = function(opt_includeInstance) 
  * @param {boolean|undefined} includeInstance Deprecated. Whether to include
  *     the JSPB instance for transitional soy proto support:
  *     http://goto/soy-param-migration
- * @param {!proto.protos.WriteOptsAWSSQS} msg The msg instance to transform.
+ * @param {!proto.protos.opts.ReadOptsAWSSQS} msg The msg instance to transform.
  * @return {!Object}
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.protos.WriteOptsAWSSQS.toObject = function(includeInstance, msg) {
+proto.protos.opts.ReadOptsAWSSQS.toObject = function(includeInstance, msg) {
   var f, obj = {
     conn: (f = msg.getConn()) && args_aws$sqs_pb.AWSSQSConn.toObject(includeInstance, f),
-    args: (f = msg.getArgs()) && args_aws$sqs_pb.AWSSQSWriteArgs.toObject(includeInstance, f)
+    args: (f = msg.getArgs()) && args_aws$sqs_pb.AWSSQSReadArgs.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -1916,23 +1938,23 @@ proto.protos.WriteOptsAWSSQS.toObject = function(includeInstance, msg) {
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.protos.WriteOptsAWSSQS}
+ * @return {!proto.protos.opts.ReadOptsAWSSQS}
  */
-proto.protos.WriteOptsAWSSQS.deserializeBinary = function(bytes) {
+proto.protos.opts.ReadOptsAWSSQS.deserializeBinary = function(bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.protos.WriteOptsAWSSQS;
-  return proto.protos.WriteOptsAWSSQS.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.protos.opts.ReadOptsAWSSQS;
+  return proto.protos.opts.ReadOptsAWSSQS.deserializeBinaryFromReader(msg, reader);
 };
 
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
  * given reader into the given message object.
- * @param {!proto.protos.WriteOptsAWSSQS} msg The message object to deserialize into.
+ * @param {!proto.protos.opts.ReadOptsAWSSQS} msg The message object to deserialize into.
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.protos.WriteOptsAWSSQS}
+ * @return {!proto.protos.opts.ReadOptsAWSSQS}
  */
-proto.protos.WriteOptsAWSSQS.deserializeBinaryFromReader = function(msg, reader) {
+proto.protos.opts.ReadOptsAWSSQS.deserializeBinaryFromReader = function(msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
@@ -1945,8 +1967,8 @@ proto.protos.WriteOptsAWSSQS.deserializeBinaryFromReader = function(msg, reader)
       msg.setConn(value);
       break;
     case 2:
-      var value = new args_aws$sqs_pb.AWSSQSWriteArgs;
-      reader.readMessage(value,args_aws$sqs_pb.AWSSQSWriteArgs.deserializeBinaryFromReader);
+      var value = new args_aws$sqs_pb.AWSSQSReadArgs;
+      reader.readMessage(value,args_aws$sqs_pb.AWSSQSReadArgs.deserializeBinaryFromReader);
       msg.setArgs(value);
       break;
     default:
@@ -1962,9 +1984,9 @@ proto.protos.WriteOptsAWSSQS.deserializeBinaryFromReader = function(msg, reader)
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.protos.WriteOptsAWSSQS.prototype.serializeBinary = function() {
+proto.protos.opts.ReadOptsAWSSQS.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  proto.protos.WriteOptsAWSSQS.serializeBinaryToWriter(this, writer);
+  proto.protos.opts.ReadOptsAWSSQS.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
@@ -1972,11 +1994,11 @@ proto.protos.WriteOptsAWSSQS.prototype.serializeBinary = function() {
 /**
  * Serializes the given message to binary data (in protobuf wire
  * format), writing to the given BinaryWriter.
- * @param {!proto.protos.WriteOptsAWSSQS} message
+ * @param {!proto.protos.opts.ReadOptsAWSSQS} message
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.protos.WriteOptsAWSSQS.serializeBinaryToWriter = function(message, writer) {
+proto.protos.opts.ReadOptsAWSSQS.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
   f = message.getConn();
   if (f != null) {
@@ -1991,17 +2013,17 @@ proto.protos.WriteOptsAWSSQS.serializeBinaryToWriter = function(message, writer)
     writer.writeMessage(
       2,
       f,
-      args_aws$sqs_pb.AWSSQSWriteArgs.serializeBinaryToWriter
+      args_aws$sqs_pb.AWSSQSReadArgs.serializeBinaryToWriter
     );
   }
 };
 
 
 /**
- * optional args.AWSSQSConn _conn = 1;
+ * optional protos.args.AWSSQSConn _conn = 1;
  * @return {?proto.protos.args.AWSSQSConn}
  */
-proto.protos.WriteOptsAWSSQS.prototype.getConn = function() {
+proto.protos.opts.ReadOptsAWSSQS.prototype.getConn = function() {
   return /** @type{?proto.protos.args.AWSSQSConn} */ (
     jspb.Message.getWrapperField(this, args_aws$sqs_pb.AWSSQSConn, 1));
 };
@@ -2009,18 +2031,18 @@ proto.protos.WriteOptsAWSSQS.prototype.getConn = function() {
 
 /**
  * @param {?proto.protos.args.AWSSQSConn|undefined} value
- * @return {!proto.protos.WriteOptsAWSSQS} returns this
+ * @return {!proto.protos.opts.ReadOptsAWSSQS} returns this
 */
-proto.protos.WriteOptsAWSSQS.prototype.setConn = function(value) {
+proto.protos.opts.ReadOptsAWSSQS.prototype.setConn = function(value) {
   return jspb.Message.setWrapperField(this, 1, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
- * @return {!proto.protos.WriteOptsAWSSQS} returns this
+ * @return {!proto.protos.opts.ReadOptsAWSSQS} returns this
  */
-proto.protos.WriteOptsAWSSQS.prototype.clearConn = function() {
+proto.protos.opts.ReadOptsAWSSQS.prototype.clearConn = function() {
   return this.setConn(undefined);
 };
 
@@ -2029,35 +2051,35 @@ proto.protos.WriteOptsAWSSQS.prototype.clearConn = function() {
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.protos.WriteOptsAWSSQS.prototype.hasConn = function() {
+proto.protos.opts.ReadOptsAWSSQS.prototype.hasConn = function() {
   return jspb.Message.getField(this, 1) != null;
 };
 
 
 /**
- * optional args.AWSSQSWriteArgs args = 2;
- * @return {?proto.protos.args.AWSSQSWriteArgs}
+ * optional protos.args.AWSSQSReadArgs args = 2;
+ * @return {?proto.protos.args.AWSSQSReadArgs}
  */
-proto.protos.WriteOptsAWSSQS.prototype.getArgs = function() {
-  return /** @type{?proto.protos.args.AWSSQSWriteArgs} */ (
-    jspb.Message.getWrapperField(this, args_aws$sqs_pb.AWSSQSWriteArgs, 2));
+proto.protos.opts.ReadOptsAWSSQS.prototype.getArgs = function() {
+  return /** @type{?proto.protos.args.AWSSQSReadArgs} */ (
+    jspb.Message.getWrapperField(this, args_aws$sqs_pb.AWSSQSReadArgs, 2));
 };
 
 
 /**
- * @param {?proto.protos.args.AWSSQSWriteArgs|undefined} value
- * @return {!proto.protos.WriteOptsAWSSQS} returns this
+ * @param {?proto.protos.args.AWSSQSReadArgs|undefined} value
+ * @return {!proto.protos.opts.ReadOptsAWSSQS} returns this
 */
-proto.protos.WriteOptsAWSSQS.prototype.setArgs = function(value) {
+proto.protos.opts.ReadOptsAWSSQS.prototype.setArgs = function(value) {
   return jspb.Message.setWrapperField(this, 2, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
- * @return {!proto.protos.WriteOptsAWSSQS} returns this
+ * @return {!proto.protos.opts.ReadOptsAWSSQS} returns this
  */
-proto.protos.WriteOptsAWSSQS.prototype.clearArgs = function() {
+proto.protos.opts.ReadOptsAWSSQS.prototype.clearArgs = function() {
   return this.setArgs(undefined);
 };
 
@@ -2066,7 +2088,7 @@ proto.protos.WriteOptsAWSSQS.prototype.clearArgs = function() {
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.protos.WriteOptsAWSSQS.prototype.hasArgs = function() {
+proto.protos.opts.ReadOptsAWSSQS.prototype.hasArgs = function() {
   return jspb.Message.getField(this, 2) != null;
 };
 
@@ -2087,8 +2109,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
  *     http://goto/soy-param-migration
  * @return {!Object}
  */
-proto.protos.WriteOptsAWSSNS.prototype.toObject = function(opt_includeInstance) {
-  return proto.protos.WriteOptsAWSSNS.toObject(opt_includeInstance, this);
+proto.protos.opts.ReadOptsMongo.prototype.toObject = function(opt_includeInstance) {
+  return proto.protos.opts.ReadOptsMongo.toObject(opt_includeInstance, this);
 };
 
 
@@ -2097,14 +2119,14 @@ proto.protos.WriteOptsAWSSNS.prototype.toObject = function(opt_includeInstance) 
  * @param {boolean|undefined} includeInstance Deprecated. Whether to include
  *     the JSPB instance for transitional soy proto support:
  *     http://goto/soy-param-migration
- * @param {!proto.protos.WriteOptsAWSSNS} msg The msg instance to transform.
+ * @param {!proto.protos.opts.ReadOptsMongo} msg The msg instance to transform.
  * @return {!Object}
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.protos.WriteOptsAWSSNS.toObject = function(includeInstance, msg) {
+proto.protos.opts.ReadOptsMongo.toObject = function(includeInstance, msg) {
   var f, obj = {
-    conn: (f = msg.getConn()) && args_aws$sns_pb.AWSSNSConn.toObject(includeInstance, f),
-    args: (f = msg.getArgs()) && args_aws$sns_pb.AWSSNSWriteArgs.toObject(includeInstance, f)
+    conn: (f = msg.getConn()) && args_mongo_pb.MongoConn.toObject(includeInstance, f),
+    args: (f = msg.getArgs()) && args_mongo_pb.MongoReadArgs.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -2118,23 +2140,23 @@ proto.protos.WriteOptsAWSSNS.toObject = function(includeInstance, msg) {
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.protos.WriteOptsAWSSNS}
+ * @return {!proto.protos.opts.ReadOptsMongo}
  */
-proto.protos.WriteOptsAWSSNS.deserializeBinary = function(bytes) {
+proto.protos.opts.ReadOptsMongo.deserializeBinary = function(bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.protos.WriteOptsAWSSNS;
-  return proto.protos.WriteOptsAWSSNS.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.protos.opts.ReadOptsMongo;
+  return proto.protos.opts.ReadOptsMongo.deserializeBinaryFromReader(msg, reader);
 };
 
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
  * given reader into the given message object.
- * @param {!proto.protos.WriteOptsAWSSNS} msg The message object to deserialize into.
+ * @param {!proto.protos.opts.ReadOptsMongo} msg The message object to deserialize into.
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.protos.WriteOptsAWSSNS}
+ * @return {!proto.protos.opts.ReadOptsMongo}
  */
-proto.protos.WriteOptsAWSSNS.deserializeBinaryFromReader = function(msg, reader) {
+proto.protos.opts.ReadOptsMongo.deserializeBinaryFromReader = function(msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
@@ -2142,13 +2164,13 @@ proto.protos.WriteOptsAWSSNS.deserializeBinaryFromReader = function(msg, reader)
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = new args_aws$sns_pb.AWSSNSConn;
-      reader.readMessage(value,args_aws$sns_pb.AWSSNSConn.deserializeBinaryFromReader);
+      var value = new args_mongo_pb.MongoConn;
+      reader.readMessage(value,args_mongo_pb.MongoConn.deserializeBinaryFromReader);
       msg.setConn(value);
       break;
     case 2:
-      var value = new args_aws$sns_pb.AWSSNSWriteArgs;
-      reader.readMessage(value,args_aws$sns_pb.AWSSNSWriteArgs.deserializeBinaryFromReader);
+      var value = new args_mongo_pb.MongoReadArgs;
+      reader.readMessage(value,args_mongo_pb.MongoReadArgs.deserializeBinaryFromReader);
       msg.setArgs(value);
       break;
     default:
@@ -2164,9 +2186,9 @@ proto.protos.WriteOptsAWSSNS.deserializeBinaryFromReader = function(msg, reader)
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.protos.WriteOptsAWSSNS.prototype.serializeBinary = function() {
+proto.protos.opts.ReadOptsMongo.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  proto.protos.WriteOptsAWSSNS.serializeBinaryToWriter(this, writer);
+  proto.protos.opts.ReadOptsMongo.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
@@ -2174,18 +2196,18 @@ proto.protos.WriteOptsAWSSNS.prototype.serializeBinary = function() {
 /**
  * Serializes the given message to binary data (in protobuf wire
  * format), writing to the given BinaryWriter.
- * @param {!proto.protos.WriteOptsAWSSNS} message
+ * @param {!proto.protos.opts.ReadOptsMongo} message
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.protos.WriteOptsAWSSNS.serializeBinaryToWriter = function(message, writer) {
+proto.protos.opts.ReadOptsMongo.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
   f = message.getConn();
   if (f != null) {
     writer.writeMessage(
       1,
       f,
-      args_aws$sns_pb.AWSSNSConn.serializeBinaryToWriter
+      args_mongo_pb.MongoConn.serializeBinaryToWriter
     );
   }
   f = message.getArgs();
@@ -2193,36 +2215,36 @@ proto.protos.WriteOptsAWSSNS.serializeBinaryToWriter = function(message, writer)
     writer.writeMessage(
       2,
       f,
-      args_aws$sns_pb.AWSSNSWriteArgs.serializeBinaryToWriter
+      args_mongo_pb.MongoReadArgs.serializeBinaryToWriter
     );
   }
 };
 
 
 /**
- * optional args.AWSSNSConn _conn = 1;
- * @return {?proto.protos.args.AWSSNSConn}
+ * optional protos.args.MongoConn _conn = 1;
+ * @return {?proto.protos.args.MongoConn}
  */
-proto.protos.WriteOptsAWSSNS.prototype.getConn = function() {
-  return /** @type{?proto.protos.args.AWSSNSConn} */ (
-    jspb.Message.getWrapperField(this, args_aws$sns_pb.AWSSNSConn, 1));
+proto.protos.opts.ReadOptsMongo.prototype.getConn = function() {
+  return /** @type{?proto.protos.args.MongoConn} */ (
+    jspb.Message.getWrapperField(this, args_mongo_pb.MongoConn, 1));
 };
 
 
 /**
- * @param {?proto.protos.args.AWSSNSConn|undefined} value
- * @return {!proto.protos.WriteOptsAWSSNS} returns this
+ * @param {?proto.protos.args.MongoConn|undefined} value
+ * @return {!proto.protos.opts.ReadOptsMongo} returns this
 */
-proto.protos.WriteOptsAWSSNS.prototype.setConn = function(value) {
+proto.protos.opts.ReadOptsMongo.prototype.setConn = function(value) {
   return jspb.Message.setWrapperField(this, 1, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
- * @return {!proto.protos.WriteOptsAWSSNS} returns this
+ * @return {!proto.protos.opts.ReadOptsMongo} returns this
  */
-proto.protos.WriteOptsAWSSNS.prototype.clearConn = function() {
+proto.protos.opts.ReadOptsMongo.prototype.clearConn = function() {
   return this.setConn(undefined);
 };
 
@@ -2231,35 +2253,35 @@ proto.protos.WriteOptsAWSSNS.prototype.clearConn = function() {
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.protos.WriteOptsAWSSNS.prototype.hasConn = function() {
+proto.protos.opts.ReadOptsMongo.prototype.hasConn = function() {
   return jspb.Message.getField(this, 1) != null;
 };
 
 
 /**
- * optional args.AWSSNSWriteArgs args = 2;
- * @return {?proto.protos.args.AWSSNSWriteArgs}
+ * optional protos.args.MongoReadArgs args = 2;
+ * @return {?proto.protos.args.MongoReadArgs}
  */
-proto.protos.WriteOptsAWSSNS.prototype.getArgs = function() {
-  return /** @type{?proto.protos.args.AWSSNSWriteArgs} */ (
-    jspb.Message.getWrapperField(this, args_aws$sns_pb.AWSSNSWriteArgs, 2));
+proto.protos.opts.ReadOptsMongo.prototype.getArgs = function() {
+  return /** @type{?proto.protos.args.MongoReadArgs} */ (
+    jspb.Message.getWrapperField(this, args_mongo_pb.MongoReadArgs, 2));
 };
 
 
 /**
- * @param {?proto.protos.args.AWSSNSWriteArgs|undefined} value
- * @return {!proto.protos.WriteOptsAWSSNS} returns this
+ * @param {?proto.protos.args.MongoReadArgs|undefined} value
+ * @return {!proto.protos.opts.ReadOptsMongo} returns this
 */
-proto.protos.WriteOptsAWSSNS.prototype.setArgs = function(value) {
+proto.protos.opts.ReadOptsMongo.prototype.setArgs = function(value) {
   return jspb.Message.setWrapperField(this, 2, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
- * @return {!proto.protos.WriteOptsAWSSNS} returns this
+ * @return {!proto.protos.opts.ReadOptsMongo} returns this
  */
-proto.protos.WriteOptsAWSSNS.prototype.clearArgs = function() {
+proto.protos.opts.ReadOptsMongo.prototype.clearArgs = function() {
   return this.setArgs(undefined);
 };
 
@@ -2268,7 +2290,7 @@ proto.protos.WriteOptsAWSSNS.prototype.clearArgs = function() {
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.protos.WriteOptsAWSSNS.prototype.hasArgs = function() {
+proto.protos.opts.ReadOptsMongo.prototype.hasArgs = function() {
   return jspb.Message.getField(this, 2) != null;
 };
 
@@ -2289,8 +2311,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
  *     http://goto/soy-param-migration
  * @return {!Object}
  */
-proto.protos.WriteOptsNats.prototype.toObject = function(opt_includeInstance) {
-  return proto.protos.WriteOptsNats.toObject(opt_includeInstance, this);
+proto.protos.opts.ReadOptsNats.prototype.toObject = function(opt_includeInstance) {
+  return proto.protos.opts.ReadOptsNats.toObject(opt_includeInstance, this);
 };
 
 
@@ -2299,14 +2321,14 @@ proto.protos.WriteOptsNats.prototype.toObject = function(opt_includeInstance) {
  * @param {boolean|undefined} includeInstance Deprecated. Whether to include
  *     the JSPB instance for transitional soy proto support:
  *     http://goto/soy-param-migration
- * @param {!proto.protos.WriteOptsNats} msg The msg instance to transform.
+ * @param {!proto.protos.opts.ReadOptsNats} msg The msg instance to transform.
  * @return {!Object}
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.protos.WriteOptsNats.toObject = function(includeInstance, msg) {
+proto.protos.opts.ReadOptsNats.toObject = function(includeInstance, msg) {
   var f, obj = {
     conn: (f = msg.getConn()) && args_nats_pb.NatsConn.toObject(includeInstance, f),
-    args: (f = msg.getArgs()) && args_nats_pb.NatsWriteArgs.toObject(includeInstance, f)
+    args: (f = msg.getArgs()) && args_nats_pb.NatsReadArgs.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -2320,23 +2342,23 @@ proto.protos.WriteOptsNats.toObject = function(includeInstance, msg) {
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.protos.WriteOptsNats}
+ * @return {!proto.protos.opts.ReadOptsNats}
  */
-proto.protos.WriteOptsNats.deserializeBinary = function(bytes) {
+proto.protos.opts.ReadOptsNats.deserializeBinary = function(bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.protos.WriteOptsNats;
-  return proto.protos.WriteOptsNats.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.protos.opts.ReadOptsNats;
+  return proto.protos.opts.ReadOptsNats.deserializeBinaryFromReader(msg, reader);
 };
 
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
  * given reader into the given message object.
- * @param {!proto.protos.WriteOptsNats} msg The message object to deserialize into.
+ * @param {!proto.protos.opts.ReadOptsNats} msg The message object to deserialize into.
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.protos.WriteOptsNats}
+ * @return {!proto.protos.opts.ReadOptsNats}
  */
-proto.protos.WriteOptsNats.deserializeBinaryFromReader = function(msg, reader) {
+proto.protos.opts.ReadOptsNats.deserializeBinaryFromReader = function(msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
@@ -2349,8 +2371,8 @@ proto.protos.WriteOptsNats.deserializeBinaryFromReader = function(msg, reader) {
       msg.setConn(value);
       break;
     case 2:
-      var value = new args_nats_pb.NatsWriteArgs;
-      reader.readMessage(value,args_nats_pb.NatsWriteArgs.deserializeBinaryFromReader);
+      var value = new args_nats_pb.NatsReadArgs;
+      reader.readMessage(value,args_nats_pb.NatsReadArgs.deserializeBinaryFromReader);
       msg.setArgs(value);
       break;
     default:
@@ -2366,9 +2388,9 @@ proto.protos.WriteOptsNats.deserializeBinaryFromReader = function(msg, reader) {
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.protos.WriteOptsNats.prototype.serializeBinary = function() {
+proto.protos.opts.ReadOptsNats.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  proto.protos.WriteOptsNats.serializeBinaryToWriter(this, writer);
+  proto.protos.opts.ReadOptsNats.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
@@ -2376,11 +2398,11 @@ proto.protos.WriteOptsNats.prototype.serializeBinary = function() {
 /**
  * Serializes the given message to binary data (in protobuf wire
  * format), writing to the given BinaryWriter.
- * @param {!proto.protos.WriteOptsNats} message
+ * @param {!proto.protos.opts.ReadOptsNats} message
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.protos.WriteOptsNats.serializeBinaryToWriter = function(message, writer) {
+proto.protos.opts.ReadOptsNats.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
   f = message.getConn();
   if (f != null) {
@@ -2395,17 +2417,17 @@ proto.protos.WriteOptsNats.serializeBinaryToWriter = function(message, writer) {
     writer.writeMessage(
       2,
       f,
-      args_nats_pb.NatsWriteArgs.serializeBinaryToWriter
+      args_nats_pb.NatsReadArgs.serializeBinaryToWriter
     );
   }
 };
 
 
 /**
- * optional args.NatsConn _conn = 1;
+ * optional protos.args.NatsConn _conn = 1;
  * @return {?proto.protos.args.NatsConn}
  */
-proto.protos.WriteOptsNats.prototype.getConn = function() {
+proto.protos.opts.ReadOptsNats.prototype.getConn = function() {
   return /** @type{?proto.protos.args.NatsConn} */ (
     jspb.Message.getWrapperField(this, args_nats_pb.NatsConn, 1));
 };
@@ -2413,18 +2435,18 @@ proto.protos.WriteOptsNats.prototype.getConn = function() {
 
 /**
  * @param {?proto.protos.args.NatsConn|undefined} value
- * @return {!proto.protos.WriteOptsNats} returns this
+ * @return {!proto.protos.opts.ReadOptsNats} returns this
 */
-proto.protos.WriteOptsNats.prototype.setConn = function(value) {
+proto.protos.opts.ReadOptsNats.prototype.setConn = function(value) {
   return jspb.Message.setWrapperField(this, 1, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
- * @return {!proto.protos.WriteOptsNats} returns this
+ * @return {!proto.protos.opts.ReadOptsNats} returns this
  */
-proto.protos.WriteOptsNats.prototype.clearConn = function() {
+proto.protos.opts.ReadOptsNats.prototype.clearConn = function() {
   return this.setConn(undefined);
 };
 
@@ -2433,35 +2455,35 @@ proto.protos.WriteOptsNats.prototype.clearConn = function() {
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.protos.WriteOptsNats.prototype.hasConn = function() {
+proto.protos.opts.ReadOptsNats.prototype.hasConn = function() {
   return jspb.Message.getField(this, 1) != null;
 };
 
 
 /**
- * optional args.NatsWriteArgs args = 2;
- * @return {?proto.protos.args.NatsWriteArgs}
+ * optional protos.args.NatsReadArgs args = 2;
+ * @return {?proto.protos.args.NatsReadArgs}
  */
-proto.protos.WriteOptsNats.prototype.getArgs = function() {
-  return /** @type{?proto.protos.args.NatsWriteArgs} */ (
-    jspb.Message.getWrapperField(this, args_nats_pb.NatsWriteArgs, 2));
+proto.protos.opts.ReadOptsNats.prototype.getArgs = function() {
+  return /** @type{?proto.protos.args.NatsReadArgs} */ (
+    jspb.Message.getWrapperField(this, args_nats_pb.NatsReadArgs, 2));
 };
 
 
 /**
- * @param {?proto.protos.args.NatsWriteArgs|undefined} value
- * @return {!proto.protos.WriteOptsNats} returns this
+ * @param {?proto.protos.args.NatsReadArgs|undefined} value
+ * @return {!proto.protos.opts.ReadOptsNats} returns this
 */
-proto.protos.WriteOptsNats.prototype.setArgs = function(value) {
+proto.protos.opts.ReadOptsNats.prototype.setArgs = function(value) {
   return jspb.Message.setWrapperField(this, 2, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
- * @return {!proto.protos.WriteOptsNats} returns this
+ * @return {!proto.protos.opts.ReadOptsNats} returns this
  */
-proto.protos.WriteOptsNats.prototype.clearArgs = function() {
+proto.protos.opts.ReadOptsNats.prototype.clearArgs = function() {
   return this.setArgs(undefined);
 };
 
@@ -2470,7 +2492,7 @@ proto.protos.WriteOptsNats.prototype.clearArgs = function() {
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.protos.WriteOptsNats.prototype.hasArgs = function() {
+proto.protos.opts.ReadOptsNats.prototype.hasArgs = function() {
   return jspb.Message.getField(this, 2) != null;
 };
 
@@ -2491,8 +2513,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
  *     http://goto/soy-param-migration
  * @return {!Object}
  */
-proto.protos.WriteOptsNatsStreaming.prototype.toObject = function(opt_includeInstance) {
-  return proto.protos.WriteOptsNatsStreaming.toObject(opt_includeInstance, this);
+proto.protos.opts.ReadOptsNatsStreaming.prototype.toObject = function(opt_includeInstance) {
+  return proto.protos.opts.ReadOptsNatsStreaming.toObject(opt_includeInstance, this);
 };
 
 
@@ -2501,14 +2523,14 @@ proto.protos.WriteOptsNatsStreaming.prototype.toObject = function(opt_includeIns
  * @param {boolean|undefined} includeInstance Deprecated. Whether to include
  *     the JSPB instance for transitional soy proto support:
  *     http://goto/soy-param-migration
- * @param {!proto.protos.WriteOptsNatsStreaming} msg The msg instance to transform.
+ * @param {!proto.protos.opts.ReadOptsNatsStreaming} msg The msg instance to transform.
  * @return {!Object}
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.protos.WriteOptsNatsStreaming.toObject = function(includeInstance, msg) {
+proto.protos.opts.ReadOptsNatsStreaming.toObject = function(includeInstance, msg) {
   var f, obj = {
     conn: (f = msg.getConn()) && args_nats$streaming_pb.NatsStreamingConn.toObject(includeInstance, f),
-    args: (f = msg.getArgs()) && args_nats$streaming_pb.NatsStreamingWriteArgs.toObject(includeInstance, f)
+    args: (f = msg.getArgs()) && args_nats$streaming_pb.NatsStreamingReadArgs.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -2522,23 +2544,23 @@ proto.protos.WriteOptsNatsStreaming.toObject = function(includeInstance, msg) {
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.protos.WriteOptsNatsStreaming}
+ * @return {!proto.protos.opts.ReadOptsNatsStreaming}
  */
-proto.protos.WriteOptsNatsStreaming.deserializeBinary = function(bytes) {
+proto.protos.opts.ReadOptsNatsStreaming.deserializeBinary = function(bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.protos.WriteOptsNatsStreaming;
-  return proto.protos.WriteOptsNatsStreaming.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.protos.opts.ReadOptsNatsStreaming;
+  return proto.protos.opts.ReadOptsNatsStreaming.deserializeBinaryFromReader(msg, reader);
 };
 
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
  * given reader into the given message object.
- * @param {!proto.protos.WriteOptsNatsStreaming} msg The message object to deserialize into.
+ * @param {!proto.protos.opts.ReadOptsNatsStreaming} msg The message object to deserialize into.
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.protos.WriteOptsNatsStreaming}
+ * @return {!proto.protos.opts.ReadOptsNatsStreaming}
  */
-proto.protos.WriteOptsNatsStreaming.deserializeBinaryFromReader = function(msg, reader) {
+proto.protos.opts.ReadOptsNatsStreaming.deserializeBinaryFromReader = function(msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
@@ -2551,8 +2573,8 @@ proto.protos.WriteOptsNatsStreaming.deserializeBinaryFromReader = function(msg, 
       msg.setConn(value);
       break;
     case 2:
-      var value = new args_nats$streaming_pb.NatsStreamingWriteArgs;
-      reader.readMessage(value,args_nats$streaming_pb.NatsStreamingWriteArgs.deserializeBinaryFromReader);
+      var value = new args_nats$streaming_pb.NatsStreamingReadArgs;
+      reader.readMessage(value,args_nats$streaming_pb.NatsStreamingReadArgs.deserializeBinaryFromReader);
       msg.setArgs(value);
       break;
     default:
@@ -2568,9 +2590,9 @@ proto.protos.WriteOptsNatsStreaming.deserializeBinaryFromReader = function(msg, 
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.protos.WriteOptsNatsStreaming.prototype.serializeBinary = function() {
+proto.protos.opts.ReadOptsNatsStreaming.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  proto.protos.WriteOptsNatsStreaming.serializeBinaryToWriter(this, writer);
+  proto.protos.opts.ReadOptsNatsStreaming.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
@@ -2578,11 +2600,11 @@ proto.protos.WriteOptsNatsStreaming.prototype.serializeBinary = function() {
 /**
  * Serializes the given message to binary data (in protobuf wire
  * format), writing to the given BinaryWriter.
- * @param {!proto.protos.WriteOptsNatsStreaming} message
+ * @param {!proto.protos.opts.ReadOptsNatsStreaming} message
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.protos.WriteOptsNatsStreaming.serializeBinaryToWriter = function(message, writer) {
+proto.protos.opts.ReadOptsNatsStreaming.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
   f = message.getConn();
   if (f != null) {
@@ -2597,17 +2619,17 @@ proto.protos.WriteOptsNatsStreaming.serializeBinaryToWriter = function(message, 
     writer.writeMessage(
       2,
       f,
-      args_nats$streaming_pb.NatsStreamingWriteArgs.serializeBinaryToWriter
+      args_nats$streaming_pb.NatsStreamingReadArgs.serializeBinaryToWriter
     );
   }
 };
 
 
 /**
- * optional args.NatsStreamingConn _conn = 1;
+ * optional protos.args.NatsStreamingConn _conn = 1;
  * @return {?proto.protos.args.NatsStreamingConn}
  */
-proto.protos.WriteOptsNatsStreaming.prototype.getConn = function() {
+proto.protos.opts.ReadOptsNatsStreaming.prototype.getConn = function() {
   return /** @type{?proto.protos.args.NatsStreamingConn} */ (
     jspb.Message.getWrapperField(this, args_nats$streaming_pb.NatsStreamingConn, 1));
 };
@@ -2615,18 +2637,18 @@ proto.protos.WriteOptsNatsStreaming.prototype.getConn = function() {
 
 /**
  * @param {?proto.protos.args.NatsStreamingConn|undefined} value
- * @return {!proto.protos.WriteOptsNatsStreaming} returns this
+ * @return {!proto.protos.opts.ReadOptsNatsStreaming} returns this
 */
-proto.protos.WriteOptsNatsStreaming.prototype.setConn = function(value) {
+proto.protos.opts.ReadOptsNatsStreaming.prototype.setConn = function(value) {
   return jspb.Message.setWrapperField(this, 1, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
- * @return {!proto.protos.WriteOptsNatsStreaming} returns this
+ * @return {!proto.protos.opts.ReadOptsNatsStreaming} returns this
  */
-proto.protos.WriteOptsNatsStreaming.prototype.clearConn = function() {
+proto.protos.opts.ReadOptsNatsStreaming.prototype.clearConn = function() {
   return this.setConn(undefined);
 };
 
@@ -2635,35 +2657,35 @@ proto.protos.WriteOptsNatsStreaming.prototype.clearConn = function() {
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.protos.WriteOptsNatsStreaming.prototype.hasConn = function() {
+proto.protos.opts.ReadOptsNatsStreaming.prototype.hasConn = function() {
   return jspb.Message.getField(this, 1) != null;
 };
 
 
 /**
- * optional args.NatsStreamingWriteArgs args = 2;
- * @return {?proto.protos.args.NatsStreamingWriteArgs}
+ * optional protos.args.NatsStreamingReadArgs args = 2;
+ * @return {?proto.protos.args.NatsStreamingReadArgs}
  */
-proto.protos.WriteOptsNatsStreaming.prototype.getArgs = function() {
-  return /** @type{?proto.protos.args.NatsStreamingWriteArgs} */ (
-    jspb.Message.getWrapperField(this, args_nats$streaming_pb.NatsStreamingWriteArgs, 2));
+proto.protos.opts.ReadOptsNatsStreaming.prototype.getArgs = function() {
+  return /** @type{?proto.protos.args.NatsStreamingReadArgs} */ (
+    jspb.Message.getWrapperField(this, args_nats$streaming_pb.NatsStreamingReadArgs, 2));
 };
 
 
 /**
- * @param {?proto.protos.args.NatsStreamingWriteArgs|undefined} value
- * @return {!proto.protos.WriteOptsNatsStreaming} returns this
+ * @param {?proto.protos.args.NatsStreamingReadArgs|undefined} value
+ * @return {!proto.protos.opts.ReadOptsNatsStreaming} returns this
 */
-proto.protos.WriteOptsNatsStreaming.prototype.setArgs = function(value) {
+proto.protos.opts.ReadOptsNatsStreaming.prototype.setArgs = function(value) {
   return jspb.Message.setWrapperField(this, 2, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
- * @return {!proto.protos.WriteOptsNatsStreaming} returns this
+ * @return {!proto.protos.opts.ReadOptsNatsStreaming} returns this
  */
-proto.protos.WriteOptsNatsStreaming.prototype.clearArgs = function() {
+proto.protos.opts.ReadOptsNatsStreaming.prototype.clearArgs = function() {
   return this.setArgs(undefined);
 };
 
@@ -2672,7 +2694,7 @@ proto.protos.WriteOptsNatsStreaming.prototype.clearArgs = function() {
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.protos.WriteOptsNatsStreaming.prototype.hasArgs = function() {
+proto.protos.opts.ReadOptsNatsStreaming.prototype.hasArgs = function() {
   return jspb.Message.getField(this, 2) != null;
 };
 
@@ -2693,8 +2715,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
  *     http://goto/soy-param-migration
  * @return {!Object}
  */
-proto.protos.WriteOptsNSQ.prototype.toObject = function(opt_includeInstance) {
-  return proto.protos.WriteOptsNSQ.toObject(opt_includeInstance, this);
+proto.protos.opts.ReadOptsNSQ.prototype.toObject = function(opt_includeInstance) {
+  return proto.protos.opts.ReadOptsNSQ.toObject(opt_includeInstance, this);
 };
 
 
@@ -2703,14 +2725,14 @@ proto.protos.WriteOptsNSQ.prototype.toObject = function(opt_includeInstance) {
  * @param {boolean|undefined} includeInstance Deprecated. Whether to include
  *     the JSPB instance for transitional soy proto support:
  *     http://goto/soy-param-migration
- * @param {!proto.protos.WriteOptsNSQ} msg The msg instance to transform.
+ * @param {!proto.protos.opts.ReadOptsNSQ} msg The msg instance to transform.
  * @return {!Object}
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.protos.WriteOptsNSQ.toObject = function(includeInstance, msg) {
+proto.protos.opts.ReadOptsNSQ.toObject = function(includeInstance, msg) {
   var f, obj = {
     conn: (f = msg.getConn()) && args_nsq_pb.NSQConn.toObject(includeInstance, f),
-    args: (f = msg.getArgs()) && args_nsq_pb.NSQWriteArgs.toObject(includeInstance, f)
+    args: (f = msg.getArgs()) && args_nsq_pb.NSQReadArgs.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -2724,23 +2746,23 @@ proto.protos.WriteOptsNSQ.toObject = function(includeInstance, msg) {
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.protos.WriteOptsNSQ}
+ * @return {!proto.protos.opts.ReadOptsNSQ}
  */
-proto.protos.WriteOptsNSQ.deserializeBinary = function(bytes) {
+proto.protos.opts.ReadOptsNSQ.deserializeBinary = function(bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.protos.WriteOptsNSQ;
-  return proto.protos.WriteOptsNSQ.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.protos.opts.ReadOptsNSQ;
+  return proto.protos.opts.ReadOptsNSQ.deserializeBinaryFromReader(msg, reader);
 };
 
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
  * given reader into the given message object.
- * @param {!proto.protos.WriteOptsNSQ} msg The message object to deserialize into.
+ * @param {!proto.protos.opts.ReadOptsNSQ} msg The message object to deserialize into.
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.protos.WriteOptsNSQ}
+ * @return {!proto.protos.opts.ReadOptsNSQ}
  */
-proto.protos.WriteOptsNSQ.deserializeBinaryFromReader = function(msg, reader) {
+proto.protos.opts.ReadOptsNSQ.deserializeBinaryFromReader = function(msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
@@ -2753,8 +2775,8 @@ proto.protos.WriteOptsNSQ.deserializeBinaryFromReader = function(msg, reader) {
       msg.setConn(value);
       break;
     case 2:
-      var value = new args_nsq_pb.NSQWriteArgs;
-      reader.readMessage(value,args_nsq_pb.NSQWriteArgs.deserializeBinaryFromReader);
+      var value = new args_nsq_pb.NSQReadArgs;
+      reader.readMessage(value,args_nsq_pb.NSQReadArgs.deserializeBinaryFromReader);
       msg.setArgs(value);
       break;
     default:
@@ -2770,9 +2792,9 @@ proto.protos.WriteOptsNSQ.deserializeBinaryFromReader = function(msg, reader) {
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.protos.WriteOptsNSQ.prototype.serializeBinary = function() {
+proto.protos.opts.ReadOptsNSQ.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  proto.protos.WriteOptsNSQ.serializeBinaryToWriter(this, writer);
+  proto.protos.opts.ReadOptsNSQ.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
@@ -2780,11 +2802,11 @@ proto.protos.WriteOptsNSQ.prototype.serializeBinary = function() {
 /**
  * Serializes the given message to binary data (in protobuf wire
  * format), writing to the given BinaryWriter.
- * @param {!proto.protos.WriteOptsNSQ} message
+ * @param {!proto.protos.opts.ReadOptsNSQ} message
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.protos.WriteOptsNSQ.serializeBinaryToWriter = function(message, writer) {
+proto.protos.opts.ReadOptsNSQ.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
   f = message.getConn();
   if (f != null) {
@@ -2799,17 +2821,17 @@ proto.protos.WriteOptsNSQ.serializeBinaryToWriter = function(message, writer) {
     writer.writeMessage(
       2,
       f,
-      args_nsq_pb.NSQWriteArgs.serializeBinaryToWriter
+      args_nsq_pb.NSQReadArgs.serializeBinaryToWriter
     );
   }
 };
 
 
 /**
- * optional args.NSQConn _conn = 1;
+ * optional protos.args.NSQConn _conn = 1;
  * @return {?proto.protos.args.NSQConn}
  */
-proto.protos.WriteOptsNSQ.prototype.getConn = function() {
+proto.protos.opts.ReadOptsNSQ.prototype.getConn = function() {
   return /** @type{?proto.protos.args.NSQConn} */ (
     jspb.Message.getWrapperField(this, args_nsq_pb.NSQConn, 1));
 };
@@ -2817,18 +2839,18 @@ proto.protos.WriteOptsNSQ.prototype.getConn = function() {
 
 /**
  * @param {?proto.protos.args.NSQConn|undefined} value
- * @return {!proto.protos.WriteOptsNSQ} returns this
+ * @return {!proto.protos.opts.ReadOptsNSQ} returns this
 */
-proto.protos.WriteOptsNSQ.prototype.setConn = function(value) {
+proto.protos.opts.ReadOptsNSQ.prototype.setConn = function(value) {
   return jspb.Message.setWrapperField(this, 1, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
- * @return {!proto.protos.WriteOptsNSQ} returns this
+ * @return {!proto.protos.opts.ReadOptsNSQ} returns this
  */
-proto.protos.WriteOptsNSQ.prototype.clearConn = function() {
+proto.protos.opts.ReadOptsNSQ.prototype.clearConn = function() {
   return this.setConn(undefined);
 };
 
@@ -2837,35 +2859,35 @@ proto.protos.WriteOptsNSQ.prototype.clearConn = function() {
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.protos.WriteOptsNSQ.prototype.hasConn = function() {
+proto.protos.opts.ReadOptsNSQ.prototype.hasConn = function() {
   return jspb.Message.getField(this, 1) != null;
 };
 
 
 /**
- * optional args.NSQWriteArgs args = 2;
- * @return {?proto.protos.args.NSQWriteArgs}
+ * optional protos.args.NSQReadArgs args = 2;
+ * @return {?proto.protos.args.NSQReadArgs}
  */
-proto.protos.WriteOptsNSQ.prototype.getArgs = function() {
-  return /** @type{?proto.protos.args.NSQWriteArgs} */ (
-    jspb.Message.getWrapperField(this, args_nsq_pb.NSQWriteArgs, 2));
+proto.protos.opts.ReadOptsNSQ.prototype.getArgs = function() {
+  return /** @type{?proto.protos.args.NSQReadArgs} */ (
+    jspb.Message.getWrapperField(this, args_nsq_pb.NSQReadArgs, 2));
 };
 
 
 /**
- * @param {?proto.protos.args.NSQWriteArgs|undefined} value
- * @return {!proto.protos.WriteOptsNSQ} returns this
+ * @param {?proto.protos.args.NSQReadArgs|undefined} value
+ * @return {!proto.protos.opts.ReadOptsNSQ} returns this
 */
-proto.protos.WriteOptsNSQ.prototype.setArgs = function(value) {
+proto.protos.opts.ReadOptsNSQ.prototype.setArgs = function(value) {
   return jspb.Message.setWrapperField(this, 2, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
- * @return {!proto.protos.WriteOptsNSQ} returns this
+ * @return {!proto.protos.opts.ReadOptsNSQ} returns this
  */
-proto.protos.WriteOptsNSQ.prototype.clearArgs = function() {
+proto.protos.opts.ReadOptsNSQ.prototype.clearArgs = function() {
   return this.setArgs(undefined);
 };
 
@@ -2874,7 +2896,7 @@ proto.protos.WriteOptsNSQ.prototype.clearArgs = function() {
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.protos.WriteOptsNSQ.prototype.hasArgs = function() {
+proto.protos.opts.ReadOptsNSQ.prototype.hasArgs = function() {
   return jspb.Message.getField(this, 2) != null;
 };
 
@@ -2895,8 +2917,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
  *     http://goto/soy-param-migration
  * @return {!Object}
  */
-proto.protos.WriteOptsPulsar.prototype.toObject = function(opt_includeInstance) {
-  return proto.protos.WriteOptsPulsar.toObject(opt_includeInstance, this);
+proto.protos.opts.ReadOptsPostgres.prototype.toObject = function(opt_includeInstance) {
+  return proto.protos.opts.ReadOptsPostgres.toObject(opt_includeInstance, this);
 };
 
 
@@ -2905,14 +2927,14 @@ proto.protos.WriteOptsPulsar.prototype.toObject = function(opt_includeInstance) 
  * @param {boolean|undefined} includeInstance Deprecated. Whether to include
  *     the JSPB instance for transitional soy proto support:
  *     http://goto/soy-param-migration
- * @param {!proto.protos.WriteOptsPulsar} msg The msg instance to transform.
+ * @param {!proto.protos.opts.ReadOptsPostgres} msg The msg instance to transform.
  * @return {!Object}
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.protos.WriteOptsPulsar.toObject = function(includeInstance, msg) {
+proto.protos.opts.ReadOptsPostgres.toObject = function(includeInstance, msg) {
   var f, obj = {
-    conn: (f = msg.getConn()) && args_pulsar_pb.PulsarConn.toObject(includeInstance, f),
-    args: (f = msg.getArgs()) && args_pulsar_pb.PulsarWriteArgs.toObject(includeInstance, f)
+    conn: (f = msg.getConn()) && args_postgres_pb.PostgresConn.toObject(includeInstance, f),
+    args: (f = msg.getArgs()) && args_postgres_pb.PostgresReadArgs.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -2926,23 +2948,23 @@ proto.protos.WriteOptsPulsar.toObject = function(includeInstance, msg) {
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.protos.WriteOptsPulsar}
+ * @return {!proto.protos.opts.ReadOptsPostgres}
  */
-proto.protos.WriteOptsPulsar.deserializeBinary = function(bytes) {
+proto.protos.opts.ReadOptsPostgres.deserializeBinary = function(bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.protos.WriteOptsPulsar;
-  return proto.protos.WriteOptsPulsar.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.protos.opts.ReadOptsPostgres;
+  return proto.protos.opts.ReadOptsPostgres.deserializeBinaryFromReader(msg, reader);
 };
 
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
  * given reader into the given message object.
- * @param {!proto.protos.WriteOptsPulsar} msg The message object to deserialize into.
+ * @param {!proto.protos.opts.ReadOptsPostgres} msg The message object to deserialize into.
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.protos.WriteOptsPulsar}
+ * @return {!proto.protos.opts.ReadOptsPostgres}
  */
-proto.protos.WriteOptsPulsar.deserializeBinaryFromReader = function(msg, reader) {
+proto.protos.opts.ReadOptsPostgres.deserializeBinaryFromReader = function(msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
@@ -2950,13 +2972,13 @@ proto.protos.WriteOptsPulsar.deserializeBinaryFromReader = function(msg, reader)
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = new args_pulsar_pb.PulsarConn;
-      reader.readMessage(value,args_pulsar_pb.PulsarConn.deserializeBinaryFromReader);
+      var value = new args_postgres_pb.PostgresConn;
+      reader.readMessage(value,args_postgres_pb.PostgresConn.deserializeBinaryFromReader);
       msg.setConn(value);
       break;
     case 2:
-      var value = new args_pulsar_pb.PulsarWriteArgs;
-      reader.readMessage(value,args_pulsar_pb.PulsarWriteArgs.deserializeBinaryFromReader);
+      var value = new args_postgres_pb.PostgresReadArgs;
+      reader.readMessage(value,args_postgres_pb.PostgresReadArgs.deserializeBinaryFromReader);
       msg.setArgs(value);
       break;
     default:
@@ -2972,9 +2994,9 @@ proto.protos.WriteOptsPulsar.deserializeBinaryFromReader = function(msg, reader)
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.protos.WriteOptsPulsar.prototype.serializeBinary = function() {
+proto.protos.opts.ReadOptsPostgres.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  proto.protos.WriteOptsPulsar.serializeBinaryToWriter(this, writer);
+  proto.protos.opts.ReadOptsPostgres.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
@@ -2982,11 +3004,213 @@ proto.protos.WriteOptsPulsar.prototype.serializeBinary = function() {
 /**
  * Serializes the given message to binary data (in protobuf wire
  * format), writing to the given BinaryWriter.
- * @param {!proto.protos.WriteOptsPulsar} message
+ * @param {!proto.protos.opts.ReadOptsPostgres} message
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.protos.WriteOptsPulsar.serializeBinaryToWriter = function(message, writer) {
+proto.protos.opts.ReadOptsPostgres.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getConn();
+  if (f != null) {
+    writer.writeMessage(
+      1,
+      f,
+      args_postgres_pb.PostgresConn.serializeBinaryToWriter
+    );
+  }
+  f = message.getArgs();
+  if (f != null) {
+    writer.writeMessage(
+      2,
+      f,
+      args_postgres_pb.PostgresReadArgs.serializeBinaryToWriter
+    );
+  }
+};
+
+
+/**
+ * optional protos.args.PostgresConn _conn = 1;
+ * @return {?proto.protos.args.PostgresConn}
+ */
+proto.protos.opts.ReadOptsPostgres.prototype.getConn = function() {
+  return /** @type{?proto.protos.args.PostgresConn} */ (
+    jspb.Message.getWrapperField(this, args_postgres_pb.PostgresConn, 1));
+};
+
+
+/**
+ * @param {?proto.protos.args.PostgresConn|undefined} value
+ * @return {!proto.protos.opts.ReadOptsPostgres} returns this
+*/
+proto.protos.opts.ReadOptsPostgres.prototype.setConn = function(value) {
+  return jspb.Message.setWrapperField(this, 1, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.opts.ReadOptsPostgres} returns this
+ */
+proto.protos.opts.ReadOptsPostgres.prototype.clearConn = function() {
+  return this.setConn(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.opts.ReadOptsPostgres.prototype.hasConn = function() {
+  return jspb.Message.getField(this, 1) != null;
+};
+
+
+/**
+ * optional protos.args.PostgresReadArgs args = 2;
+ * @return {?proto.protos.args.PostgresReadArgs}
+ */
+proto.protos.opts.ReadOptsPostgres.prototype.getArgs = function() {
+  return /** @type{?proto.protos.args.PostgresReadArgs} */ (
+    jspb.Message.getWrapperField(this, args_postgres_pb.PostgresReadArgs, 2));
+};
+
+
+/**
+ * @param {?proto.protos.args.PostgresReadArgs|undefined} value
+ * @return {!proto.protos.opts.ReadOptsPostgres} returns this
+*/
+proto.protos.opts.ReadOptsPostgres.prototype.setArgs = function(value) {
+  return jspb.Message.setWrapperField(this, 2, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.opts.ReadOptsPostgres} returns this
+ */
+proto.protos.opts.ReadOptsPostgres.prototype.clearArgs = function() {
+  return this.setArgs(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.opts.ReadOptsPostgres.prototype.hasArgs = function() {
+  return jspb.Message.getField(this, 2) != null;
+};
+
+
+
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * Optional fields that are not set will be set to undefined.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+ * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+ *     JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.protos.opts.ReadOptsPulsar.prototype.toObject = function(opt_includeInstance) {
+  return proto.protos.opts.ReadOptsPulsar.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+ *     the JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.protos.opts.ReadOptsPulsar} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.protos.opts.ReadOptsPulsar.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    conn: (f = msg.getConn()) && args_pulsar_pb.PulsarConn.toObject(includeInstance, f),
+    args: (f = msg.getArgs()) && args_pulsar_pb.PulsarReadArgs.toObject(includeInstance, f)
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.protos.opts.ReadOptsPulsar}
+ */
+proto.protos.opts.ReadOptsPulsar.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.protos.opts.ReadOptsPulsar;
+  return proto.protos.opts.ReadOptsPulsar.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.protos.opts.ReadOptsPulsar} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.protos.opts.ReadOptsPulsar}
+ */
+proto.protos.opts.ReadOptsPulsar.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = new args_pulsar_pb.PulsarConn;
+      reader.readMessage(value,args_pulsar_pb.PulsarConn.deserializeBinaryFromReader);
+      msg.setConn(value);
+      break;
+    case 2:
+      var value = new args_pulsar_pb.PulsarReadArgs;
+      reader.readMessage(value,args_pulsar_pb.PulsarReadArgs.deserializeBinaryFromReader);
+      msg.setArgs(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.protos.opts.ReadOptsPulsar.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.protos.opts.ReadOptsPulsar.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.protos.opts.ReadOptsPulsar} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.protos.opts.ReadOptsPulsar.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
   f = message.getConn();
   if (f != null) {
@@ -3001,17 +3225,17 @@ proto.protos.WriteOptsPulsar.serializeBinaryToWriter = function(message, writer)
     writer.writeMessage(
       2,
       f,
-      args_pulsar_pb.PulsarWriteArgs.serializeBinaryToWriter
+      args_pulsar_pb.PulsarReadArgs.serializeBinaryToWriter
     );
   }
 };
 
 
 /**
- * optional args.PulsarConn _conn = 1;
+ * optional protos.args.PulsarConn _conn = 1;
  * @return {?proto.protos.args.PulsarConn}
  */
-proto.protos.WriteOptsPulsar.prototype.getConn = function() {
+proto.protos.opts.ReadOptsPulsar.prototype.getConn = function() {
   return /** @type{?proto.protos.args.PulsarConn} */ (
     jspb.Message.getWrapperField(this, args_pulsar_pb.PulsarConn, 1));
 };
@@ -3019,18 +3243,18 @@ proto.protos.WriteOptsPulsar.prototype.getConn = function() {
 
 /**
  * @param {?proto.protos.args.PulsarConn|undefined} value
- * @return {!proto.protos.WriteOptsPulsar} returns this
+ * @return {!proto.protos.opts.ReadOptsPulsar} returns this
 */
-proto.protos.WriteOptsPulsar.prototype.setConn = function(value) {
+proto.protos.opts.ReadOptsPulsar.prototype.setConn = function(value) {
   return jspb.Message.setWrapperField(this, 1, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
- * @return {!proto.protos.WriteOptsPulsar} returns this
+ * @return {!proto.protos.opts.ReadOptsPulsar} returns this
  */
-proto.protos.WriteOptsPulsar.prototype.clearConn = function() {
+proto.protos.opts.ReadOptsPulsar.prototype.clearConn = function() {
   return this.setConn(undefined);
 };
 
@@ -3039,35 +3263,35 @@ proto.protos.WriteOptsPulsar.prototype.clearConn = function() {
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.protos.WriteOptsPulsar.prototype.hasConn = function() {
+proto.protos.opts.ReadOptsPulsar.prototype.hasConn = function() {
   return jspb.Message.getField(this, 1) != null;
 };
 
 
 /**
- * optional args.PulsarWriteArgs args = 2;
- * @return {?proto.protos.args.PulsarWriteArgs}
+ * optional protos.args.PulsarReadArgs args = 2;
+ * @return {?proto.protos.args.PulsarReadArgs}
  */
-proto.protos.WriteOptsPulsar.prototype.getArgs = function() {
-  return /** @type{?proto.protos.args.PulsarWriteArgs} */ (
-    jspb.Message.getWrapperField(this, args_pulsar_pb.PulsarWriteArgs, 2));
+proto.protos.opts.ReadOptsPulsar.prototype.getArgs = function() {
+  return /** @type{?proto.protos.args.PulsarReadArgs} */ (
+    jspb.Message.getWrapperField(this, args_pulsar_pb.PulsarReadArgs, 2));
 };
 
 
 /**
- * @param {?proto.protos.args.PulsarWriteArgs|undefined} value
- * @return {!proto.protos.WriteOptsPulsar} returns this
+ * @param {?proto.protos.args.PulsarReadArgs|undefined} value
+ * @return {!proto.protos.opts.ReadOptsPulsar} returns this
 */
-proto.protos.WriteOptsPulsar.prototype.setArgs = function(value) {
+proto.protos.opts.ReadOptsPulsar.prototype.setArgs = function(value) {
   return jspb.Message.setWrapperField(this, 2, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
- * @return {!proto.protos.WriteOptsPulsar} returns this
+ * @return {!proto.protos.opts.ReadOptsPulsar} returns this
  */
-proto.protos.WriteOptsPulsar.prototype.clearArgs = function() {
+proto.protos.opts.ReadOptsPulsar.prototype.clearArgs = function() {
   return this.setArgs(undefined);
 };
 
@@ -3076,7 +3300,7 @@ proto.protos.WriteOptsPulsar.prototype.clearArgs = function() {
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.protos.WriteOptsPulsar.prototype.hasArgs = function() {
+proto.protos.opts.ReadOptsPulsar.prototype.hasArgs = function() {
   return jspb.Message.getField(this, 2) != null;
 };
 
@@ -3097,8 +3321,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
  *     http://goto/soy-param-migration
  * @return {!Object}
  */
-proto.protos.WriteOptsRabbit.prototype.toObject = function(opt_includeInstance) {
-  return proto.protos.WriteOptsRabbit.toObject(opt_includeInstance, this);
+proto.protos.opts.ReadOptsRabbit.prototype.toObject = function(opt_includeInstance) {
+  return proto.protos.opts.ReadOptsRabbit.toObject(opt_includeInstance, this);
 };
 
 
@@ -3107,14 +3331,14 @@ proto.protos.WriteOptsRabbit.prototype.toObject = function(opt_includeInstance) 
  * @param {boolean|undefined} includeInstance Deprecated. Whether to include
  *     the JSPB instance for transitional soy proto support:
  *     http://goto/soy-param-migration
- * @param {!proto.protos.WriteOptsRabbit} msg The msg instance to transform.
+ * @param {!proto.protos.opts.ReadOptsRabbit} msg The msg instance to transform.
  * @return {!Object}
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.protos.WriteOptsRabbit.toObject = function(includeInstance, msg) {
+proto.protos.opts.ReadOptsRabbit.toObject = function(includeInstance, msg) {
   var f, obj = {
     conn: (f = msg.getConn()) && args_rabbit_pb.RabbitConn.toObject(includeInstance, f),
-    args: (f = msg.getArgs()) && args_rabbit_pb.RabbitWriteArgs.toObject(includeInstance, f)
+    args: (f = msg.getArgs()) && args_rabbit_pb.RabbitReadArgs.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -3128,23 +3352,23 @@ proto.protos.WriteOptsRabbit.toObject = function(includeInstance, msg) {
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.protos.WriteOptsRabbit}
+ * @return {!proto.protos.opts.ReadOptsRabbit}
  */
-proto.protos.WriteOptsRabbit.deserializeBinary = function(bytes) {
+proto.protos.opts.ReadOptsRabbit.deserializeBinary = function(bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.protos.WriteOptsRabbit;
-  return proto.protos.WriteOptsRabbit.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.protos.opts.ReadOptsRabbit;
+  return proto.protos.opts.ReadOptsRabbit.deserializeBinaryFromReader(msg, reader);
 };
 
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
  * given reader into the given message object.
- * @param {!proto.protos.WriteOptsRabbit} msg The message object to deserialize into.
+ * @param {!proto.protos.opts.ReadOptsRabbit} msg The message object to deserialize into.
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.protos.WriteOptsRabbit}
+ * @return {!proto.protos.opts.ReadOptsRabbit}
  */
-proto.protos.WriteOptsRabbit.deserializeBinaryFromReader = function(msg, reader) {
+proto.protos.opts.ReadOptsRabbit.deserializeBinaryFromReader = function(msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
@@ -3157,8 +3381,8 @@ proto.protos.WriteOptsRabbit.deserializeBinaryFromReader = function(msg, reader)
       msg.setConn(value);
       break;
     case 2:
-      var value = new args_rabbit_pb.RabbitWriteArgs;
-      reader.readMessage(value,args_rabbit_pb.RabbitWriteArgs.deserializeBinaryFromReader);
+      var value = new args_rabbit_pb.RabbitReadArgs;
+      reader.readMessage(value,args_rabbit_pb.RabbitReadArgs.deserializeBinaryFromReader);
       msg.setArgs(value);
       break;
     default:
@@ -3174,9 +3398,9 @@ proto.protos.WriteOptsRabbit.deserializeBinaryFromReader = function(msg, reader)
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.protos.WriteOptsRabbit.prototype.serializeBinary = function() {
+proto.protos.opts.ReadOptsRabbit.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  proto.protos.WriteOptsRabbit.serializeBinaryToWriter(this, writer);
+  proto.protos.opts.ReadOptsRabbit.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
@@ -3184,11 +3408,11 @@ proto.protos.WriteOptsRabbit.prototype.serializeBinary = function() {
 /**
  * Serializes the given message to binary data (in protobuf wire
  * format), writing to the given BinaryWriter.
- * @param {!proto.protos.WriteOptsRabbit} message
+ * @param {!proto.protos.opts.ReadOptsRabbit} message
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.protos.WriteOptsRabbit.serializeBinaryToWriter = function(message, writer) {
+proto.protos.opts.ReadOptsRabbit.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
   f = message.getConn();
   if (f != null) {
@@ -3203,17 +3427,17 @@ proto.protos.WriteOptsRabbit.serializeBinaryToWriter = function(message, writer)
     writer.writeMessage(
       2,
       f,
-      args_rabbit_pb.RabbitWriteArgs.serializeBinaryToWriter
+      args_rabbit_pb.RabbitReadArgs.serializeBinaryToWriter
     );
   }
 };
 
 
 /**
- * optional args.RabbitConn _conn = 1;
+ * optional protos.args.RabbitConn _conn = 1;
  * @return {?proto.protos.args.RabbitConn}
  */
-proto.protos.WriteOptsRabbit.prototype.getConn = function() {
+proto.protos.opts.ReadOptsRabbit.prototype.getConn = function() {
   return /** @type{?proto.protos.args.RabbitConn} */ (
     jspb.Message.getWrapperField(this, args_rabbit_pb.RabbitConn, 1));
 };
@@ -3221,18 +3445,18 @@ proto.protos.WriteOptsRabbit.prototype.getConn = function() {
 
 /**
  * @param {?proto.protos.args.RabbitConn|undefined} value
- * @return {!proto.protos.WriteOptsRabbit} returns this
+ * @return {!proto.protos.opts.ReadOptsRabbit} returns this
 */
-proto.protos.WriteOptsRabbit.prototype.setConn = function(value) {
+proto.protos.opts.ReadOptsRabbit.prototype.setConn = function(value) {
   return jspb.Message.setWrapperField(this, 1, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
- * @return {!proto.protos.WriteOptsRabbit} returns this
+ * @return {!proto.protos.opts.ReadOptsRabbit} returns this
  */
-proto.protos.WriteOptsRabbit.prototype.clearConn = function() {
+proto.protos.opts.ReadOptsRabbit.prototype.clearConn = function() {
   return this.setConn(undefined);
 };
 
@@ -3241,35 +3465,35 @@ proto.protos.WriteOptsRabbit.prototype.clearConn = function() {
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.protos.WriteOptsRabbit.prototype.hasConn = function() {
+proto.protos.opts.ReadOptsRabbit.prototype.hasConn = function() {
   return jspb.Message.getField(this, 1) != null;
 };
 
 
 /**
- * optional args.RabbitWriteArgs args = 2;
- * @return {?proto.protos.args.RabbitWriteArgs}
+ * optional protos.args.RabbitReadArgs args = 2;
+ * @return {?proto.protos.args.RabbitReadArgs}
  */
-proto.protos.WriteOptsRabbit.prototype.getArgs = function() {
-  return /** @type{?proto.protos.args.RabbitWriteArgs} */ (
-    jspb.Message.getWrapperField(this, args_rabbit_pb.RabbitWriteArgs, 2));
+proto.protos.opts.ReadOptsRabbit.prototype.getArgs = function() {
+  return /** @type{?proto.protos.args.RabbitReadArgs} */ (
+    jspb.Message.getWrapperField(this, args_rabbit_pb.RabbitReadArgs, 2));
 };
 
 
 /**
- * @param {?proto.protos.args.RabbitWriteArgs|undefined} value
- * @return {!proto.protos.WriteOptsRabbit} returns this
+ * @param {?proto.protos.args.RabbitReadArgs|undefined} value
+ * @return {!proto.protos.opts.ReadOptsRabbit} returns this
 */
-proto.protos.WriteOptsRabbit.prototype.setArgs = function(value) {
+proto.protos.opts.ReadOptsRabbit.prototype.setArgs = function(value) {
   return jspb.Message.setWrapperField(this, 2, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
- * @return {!proto.protos.WriteOptsRabbit} returns this
+ * @return {!proto.protos.opts.ReadOptsRabbit} returns this
  */
-proto.protos.WriteOptsRabbit.prototype.clearArgs = function() {
+proto.protos.opts.ReadOptsRabbit.prototype.clearArgs = function() {
   return this.setArgs(undefined);
 };
 
@@ -3278,7 +3502,7 @@ proto.protos.WriteOptsRabbit.prototype.clearArgs = function() {
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.protos.WriteOptsRabbit.prototype.hasArgs = function() {
+proto.protos.opts.ReadOptsRabbit.prototype.hasArgs = function() {
   return jspb.Message.getField(this, 2) != null;
 };
 
@@ -3299,8 +3523,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
  *     http://goto/soy-param-migration
  * @return {!Object}
  */
-proto.protos.WriteOptsRabbitStreams.prototype.toObject = function(opt_includeInstance) {
-  return proto.protos.WriteOptsRabbitStreams.toObject(opt_includeInstance, this);
+proto.protos.opts.ReadOptsRabbitStreams.prototype.toObject = function(opt_includeInstance) {
+  return proto.protos.opts.ReadOptsRabbitStreams.toObject(opt_includeInstance, this);
 };
 
 
@@ -3309,14 +3533,14 @@ proto.protos.WriteOptsRabbitStreams.prototype.toObject = function(opt_includeIns
  * @param {boolean|undefined} includeInstance Deprecated. Whether to include
  *     the JSPB instance for transitional soy proto support:
  *     http://goto/soy-param-migration
- * @param {!proto.protos.WriteOptsRabbitStreams} msg The msg instance to transform.
+ * @param {!proto.protos.opts.ReadOptsRabbitStreams} msg The msg instance to transform.
  * @return {!Object}
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.protos.WriteOptsRabbitStreams.toObject = function(includeInstance, msg) {
+proto.protos.opts.ReadOptsRabbitStreams.toObject = function(includeInstance, msg) {
   var f, obj = {
     conn: (f = msg.getConn()) && args_rabbit$streams_pb.RabbitStreamsConn.toObject(includeInstance, f),
-    args: (f = msg.getArgs()) && args_rabbit$streams_pb.RabbitStreamsWriteArgs.toObject(includeInstance, f)
+    args: (f = msg.getArgs()) && args_rabbit$streams_pb.RabbitStreamsReadArgs.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -3330,23 +3554,23 @@ proto.protos.WriteOptsRabbitStreams.toObject = function(includeInstance, msg) {
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.protos.WriteOptsRabbitStreams}
+ * @return {!proto.protos.opts.ReadOptsRabbitStreams}
  */
-proto.protos.WriteOptsRabbitStreams.deserializeBinary = function(bytes) {
+proto.protos.opts.ReadOptsRabbitStreams.deserializeBinary = function(bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.protos.WriteOptsRabbitStreams;
-  return proto.protos.WriteOptsRabbitStreams.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.protos.opts.ReadOptsRabbitStreams;
+  return proto.protos.opts.ReadOptsRabbitStreams.deserializeBinaryFromReader(msg, reader);
 };
 
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
  * given reader into the given message object.
- * @param {!proto.protos.WriteOptsRabbitStreams} msg The message object to deserialize into.
+ * @param {!proto.protos.opts.ReadOptsRabbitStreams} msg The message object to deserialize into.
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.protos.WriteOptsRabbitStreams}
+ * @return {!proto.protos.opts.ReadOptsRabbitStreams}
  */
-proto.protos.WriteOptsRabbitStreams.deserializeBinaryFromReader = function(msg, reader) {
+proto.protos.opts.ReadOptsRabbitStreams.deserializeBinaryFromReader = function(msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
@@ -3359,8 +3583,8 @@ proto.protos.WriteOptsRabbitStreams.deserializeBinaryFromReader = function(msg, 
       msg.setConn(value);
       break;
     case 2:
-      var value = new args_rabbit$streams_pb.RabbitStreamsWriteArgs;
-      reader.readMessage(value,args_rabbit$streams_pb.RabbitStreamsWriteArgs.deserializeBinaryFromReader);
+      var value = new args_rabbit$streams_pb.RabbitStreamsReadArgs;
+      reader.readMessage(value,args_rabbit$streams_pb.RabbitStreamsReadArgs.deserializeBinaryFromReader);
       msg.setArgs(value);
       break;
     default:
@@ -3376,9 +3600,9 @@ proto.protos.WriteOptsRabbitStreams.deserializeBinaryFromReader = function(msg, 
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.protos.WriteOptsRabbitStreams.prototype.serializeBinary = function() {
+proto.protos.opts.ReadOptsRabbitStreams.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  proto.protos.WriteOptsRabbitStreams.serializeBinaryToWriter(this, writer);
+  proto.protos.opts.ReadOptsRabbitStreams.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
@@ -3386,11 +3610,11 @@ proto.protos.WriteOptsRabbitStreams.prototype.serializeBinary = function() {
 /**
  * Serializes the given message to binary data (in protobuf wire
  * format), writing to the given BinaryWriter.
- * @param {!proto.protos.WriteOptsRabbitStreams} message
+ * @param {!proto.protos.opts.ReadOptsRabbitStreams} message
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.protos.WriteOptsRabbitStreams.serializeBinaryToWriter = function(message, writer) {
+proto.protos.opts.ReadOptsRabbitStreams.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
   f = message.getConn();
   if (f != null) {
@@ -3405,17 +3629,17 @@ proto.protos.WriteOptsRabbitStreams.serializeBinaryToWriter = function(message, 
     writer.writeMessage(
       2,
       f,
-      args_rabbit$streams_pb.RabbitStreamsWriteArgs.serializeBinaryToWriter
+      args_rabbit$streams_pb.RabbitStreamsReadArgs.serializeBinaryToWriter
     );
   }
 };
 
 
 /**
- * optional args.RabbitStreamsConn _conn = 1;
+ * optional protos.args.RabbitStreamsConn _conn = 1;
  * @return {?proto.protos.args.RabbitStreamsConn}
  */
-proto.protos.WriteOptsRabbitStreams.prototype.getConn = function() {
+proto.protos.opts.ReadOptsRabbitStreams.prototype.getConn = function() {
   return /** @type{?proto.protos.args.RabbitStreamsConn} */ (
     jspb.Message.getWrapperField(this, args_rabbit$streams_pb.RabbitStreamsConn, 1));
 };
@@ -3423,18 +3647,18 @@ proto.protos.WriteOptsRabbitStreams.prototype.getConn = function() {
 
 /**
  * @param {?proto.protos.args.RabbitStreamsConn|undefined} value
- * @return {!proto.protos.WriteOptsRabbitStreams} returns this
+ * @return {!proto.protos.opts.ReadOptsRabbitStreams} returns this
 */
-proto.protos.WriteOptsRabbitStreams.prototype.setConn = function(value) {
+proto.protos.opts.ReadOptsRabbitStreams.prototype.setConn = function(value) {
   return jspb.Message.setWrapperField(this, 1, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
- * @return {!proto.protos.WriteOptsRabbitStreams} returns this
+ * @return {!proto.protos.opts.ReadOptsRabbitStreams} returns this
  */
-proto.protos.WriteOptsRabbitStreams.prototype.clearConn = function() {
+proto.protos.opts.ReadOptsRabbitStreams.prototype.clearConn = function() {
   return this.setConn(undefined);
 };
 
@@ -3443,35 +3667,35 @@ proto.protos.WriteOptsRabbitStreams.prototype.clearConn = function() {
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.protos.WriteOptsRabbitStreams.prototype.hasConn = function() {
+proto.protos.opts.ReadOptsRabbitStreams.prototype.hasConn = function() {
   return jspb.Message.getField(this, 1) != null;
 };
 
 
 /**
- * optional args.RabbitStreamsWriteArgs args = 2;
- * @return {?proto.protos.args.RabbitStreamsWriteArgs}
+ * optional protos.args.RabbitStreamsReadArgs args = 2;
+ * @return {?proto.protos.args.RabbitStreamsReadArgs}
  */
-proto.protos.WriteOptsRabbitStreams.prototype.getArgs = function() {
-  return /** @type{?proto.protos.args.RabbitStreamsWriteArgs} */ (
-    jspb.Message.getWrapperField(this, args_rabbit$streams_pb.RabbitStreamsWriteArgs, 2));
+proto.protos.opts.ReadOptsRabbitStreams.prototype.getArgs = function() {
+  return /** @type{?proto.protos.args.RabbitStreamsReadArgs} */ (
+    jspb.Message.getWrapperField(this, args_rabbit$streams_pb.RabbitStreamsReadArgs, 2));
 };
 
 
 /**
- * @param {?proto.protos.args.RabbitStreamsWriteArgs|undefined} value
- * @return {!proto.protos.WriteOptsRabbitStreams} returns this
+ * @param {?proto.protos.args.RabbitStreamsReadArgs|undefined} value
+ * @return {!proto.protos.opts.ReadOptsRabbitStreams} returns this
 */
-proto.protos.WriteOptsRabbitStreams.prototype.setArgs = function(value) {
+proto.protos.opts.ReadOptsRabbitStreams.prototype.setArgs = function(value) {
   return jspb.Message.setWrapperField(this, 2, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
- * @return {!proto.protos.WriteOptsRabbitStreams} returns this
+ * @return {!proto.protos.opts.ReadOptsRabbitStreams} returns this
  */
-proto.protos.WriteOptsRabbitStreams.prototype.clearArgs = function() {
+proto.protos.opts.ReadOptsRabbitStreams.prototype.clearArgs = function() {
   return this.setArgs(undefined);
 };
 
@@ -3480,7 +3704,7 @@ proto.protos.WriteOptsRabbitStreams.prototype.clearArgs = function() {
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.protos.WriteOptsRabbitStreams.prototype.hasArgs = function() {
+proto.protos.opts.ReadOptsRabbitStreams.prototype.hasArgs = function() {
   return jspb.Message.getField(this, 2) != null;
 };
 
@@ -3501,8 +3725,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
  *     http://goto/soy-param-migration
  * @return {!Object}
  */
-proto.protos.WriteOptsRedisPubSub.prototype.toObject = function(opt_includeInstance) {
-  return proto.protos.WriteOptsRedisPubSub.toObject(opt_includeInstance, this);
+proto.protos.opts.ReadOptsRedisPubSub.prototype.toObject = function(opt_includeInstance) {
+  return proto.protos.opts.ReadOptsRedisPubSub.toObject(opt_includeInstance, this);
 };
 
 
@@ -3511,14 +3735,14 @@ proto.protos.WriteOptsRedisPubSub.prototype.toObject = function(opt_includeInsta
  * @param {boolean|undefined} includeInstance Deprecated. Whether to include
  *     the JSPB instance for transitional soy proto support:
  *     http://goto/soy-param-migration
- * @param {!proto.protos.WriteOptsRedisPubSub} msg The msg instance to transform.
+ * @param {!proto.protos.opts.ReadOptsRedisPubSub} msg The msg instance to transform.
  * @return {!Object}
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.protos.WriteOptsRedisPubSub.toObject = function(includeInstance, msg) {
+proto.protos.opts.ReadOptsRedisPubSub.toObject = function(includeInstance, msg) {
   var f, obj = {
     conn: (f = msg.getConn()) && args_redis$pubsub_pb.RedisPubSubConn.toObject(includeInstance, f),
-    args: (f = msg.getArgs()) && args_redis$pubsub_pb.RedisPubSubWriteArgs.toObject(includeInstance, f)
+    args: (f = msg.getArgs()) && args_redis$pubsub_pb.RedisPubSubReadArgs.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -3532,23 +3756,23 @@ proto.protos.WriteOptsRedisPubSub.toObject = function(includeInstance, msg) {
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.protos.WriteOptsRedisPubSub}
+ * @return {!proto.protos.opts.ReadOptsRedisPubSub}
  */
-proto.protos.WriteOptsRedisPubSub.deserializeBinary = function(bytes) {
+proto.protos.opts.ReadOptsRedisPubSub.deserializeBinary = function(bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.protos.WriteOptsRedisPubSub;
-  return proto.protos.WriteOptsRedisPubSub.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.protos.opts.ReadOptsRedisPubSub;
+  return proto.protos.opts.ReadOptsRedisPubSub.deserializeBinaryFromReader(msg, reader);
 };
 
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
  * given reader into the given message object.
- * @param {!proto.protos.WriteOptsRedisPubSub} msg The message object to deserialize into.
+ * @param {!proto.protos.opts.ReadOptsRedisPubSub} msg The message object to deserialize into.
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.protos.WriteOptsRedisPubSub}
+ * @return {!proto.protos.opts.ReadOptsRedisPubSub}
  */
-proto.protos.WriteOptsRedisPubSub.deserializeBinaryFromReader = function(msg, reader) {
+proto.protos.opts.ReadOptsRedisPubSub.deserializeBinaryFromReader = function(msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
@@ -3561,8 +3785,8 @@ proto.protos.WriteOptsRedisPubSub.deserializeBinaryFromReader = function(msg, re
       msg.setConn(value);
       break;
     case 2:
-      var value = new args_redis$pubsub_pb.RedisPubSubWriteArgs;
-      reader.readMessage(value,args_redis$pubsub_pb.RedisPubSubWriteArgs.deserializeBinaryFromReader);
+      var value = new args_redis$pubsub_pb.RedisPubSubReadArgs;
+      reader.readMessage(value,args_redis$pubsub_pb.RedisPubSubReadArgs.deserializeBinaryFromReader);
       msg.setArgs(value);
       break;
     default:
@@ -3578,9 +3802,9 @@ proto.protos.WriteOptsRedisPubSub.deserializeBinaryFromReader = function(msg, re
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.protos.WriteOptsRedisPubSub.prototype.serializeBinary = function() {
+proto.protos.opts.ReadOptsRedisPubSub.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  proto.protos.WriteOptsRedisPubSub.serializeBinaryToWriter(this, writer);
+  proto.protos.opts.ReadOptsRedisPubSub.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
@@ -3588,11 +3812,11 @@ proto.protos.WriteOptsRedisPubSub.prototype.serializeBinary = function() {
 /**
  * Serializes the given message to binary data (in protobuf wire
  * format), writing to the given BinaryWriter.
- * @param {!proto.protos.WriteOptsRedisPubSub} message
+ * @param {!proto.protos.opts.ReadOptsRedisPubSub} message
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.protos.WriteOptsRedisPubSub.serializeBinaryToWriter = function(message, writer) {
+proto.protos.opts.ReadOptsRedisPubSub.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
   f = message.getConn();
   if (f != null) {
@@ -3607,17 +3831,17 @@ proto.protos.WriteOptsRedisPubSub.serializeBinaryToWriter = function(message, wr
     writer.writeMessage(
       2,
       f,
-      args_redis$pubsub_pb.RedisPubSubWriteArgs.serializeBinaryToWriter
+      args_redis$pubsub_pb.RedisPubSubReadArgs.serializeBinaryToWriter
     );
   }
 };
 
 
 /**
- * optional args.RedisPubSubConn _conn = 1;
+ * optional protos.args.RedisPubSubConn _conn = 1;
  * @return {?proto.protos.args.RedisPubSubConn}
  */
-proto.protos.WriteOptsRedisPubSub.prototype.getConn = function() {
+proto.protos.opts.ReadOptsRedisPubSub.prototype.getConn = function() {
   return /** @type{?proto.protos.args.RedisPubSubConn} */ (
     jspb.Message.getWrapperField(this, args_redis$pubsub_pb.RedisPubSubConn, 1));
 };
@@ -3625,18 +3849,18 @@ proto.protos.WriteOptsRedisPubSub.prototype.getConn = function() {
 
 /**
  * @param {?proto.protos.args.RedisPubSubConn|undefined} value
- * @return {!proto.protos.WriteOptsRedisPubSub} returns this
+ * @return {!proto.protos.opts.ReadOptsRedisPubSub} returns this
 */
-proto.protos.WriteOptsRedisPubSub.prototype.setConn = function(value) {
+proto.protos.opts.ReadOptsRedisPubSub.prototype.setConn = function(value) {
   return jspb.Message.setWrapperField(this, 1, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
- * @return {!proto.protos.WriteOptsRedisPubSub} returns this
+ * @return {!proto.protos.opts.ReadOptsRedisPubSub} returns this
  */
-proto.protos.WriteOptsRedisPubSub.prototype.clearConn = function() {
+proto.protos.opts.ReadOptsRedisPubSub.prototype.clearConn = function() {
   return this.setConn(undefined);
 };
 
@@ -3645,35 +3869,35 @@ proto.protos.WriteOptsRedisPubSub.prototype.clearConn = function() {
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.protos.WriteOptsRedisPubSub.prototype.hasConn = function() {
+proto.protos.opts.ReadOptsRedisPubSub.prototype.hasConn = function() {
   return jspb.Message.getField(this, 1) != null;
 };
 
 
 /**
- * optional args.RedisPubSubWriteArgs args = 2;
- * @return {?proto.protos.args.RedisPubSubWriteArgs}
+ * optional protos.args.RedisPubSubReadArgs args = 2;
+ * @return {?proto.protos.args.RedisPubSubReadArgs}
  */
-proto.protos.WriteOptsRedisPubSub.prototype.getArgs = function() {
-  return /** @type{?proto.protos.args.RedisPubSubWriteArgs} */ (
-    jspb.Message.getWrapperField(this, args_redis$pubsub_pb.RedisPubSubWriteArgs, 2));
+proto.protos.opts.ReadOptsRedisPubSub.prototype.getArgs = function() {
+  return /** @type{?proto.protos.args.RedisPubSubReadArgs} */ (
+    jspb.Message.getWrapperField(this, args_redis$pubsub_pb.RedisPubSubReadArgs, 2));
 };
 
 
 /**
- * @param {?proto.protos.args.RedisPubSubWriteArgs|undefined} value
- * @return {!proto.protos.WriteOptsRedisPubSub} returns this
+ * @param {?proto.protos.args.RedisPubSubReadArgs|undefined} value
+ * @return {!proto.protos.opts.ReadOptsRedisPubSub} returns this
 */
-proto.protos.WriteOptsRedisPubSub.prototype.setArgs = function(value) {
+proto.protos.opts.ReadOptsRedisPubSub.prototype.setArgs = function(value) {
   return jspb.Message.setWrapperField(this, 2, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
- * @return {!proto.protos.WriteOptsRedisPubSub} returns this
+ * @return {!proto.protos.opts.ReadOptsRedisPubSub} returns this
  */
-proto.protos.WriteOptsRedisPubSub.prototype.clearArgs = function() {
+proto.protos.opts.ReadOptsRedisPubSub.prototype.clearArgs = function() {
   return this.setArgs(undefined);
 };
 
@@ -3682,7 +3906,7 @@ proto.protos.WriteOptsRedisPubSub.prototype.clearArgs = function() {
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.protos.WriteOptsRedisPubSub.prototype.hasArgs = function() {
+proto.protos.opts.ReadOptsRedisPubSub.prototype.hasArgs = function() {
   return jspb.Message.getField(this, 2) != null;
 };
 
@@ -3703,8 +3927,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
  *     http://goto/soy-param-migration
  * @return {!Object}
  */
-proto.protos.WriteOptsRedisStreams.prototype.toObject = function(opt_includeInstance) {
-  return proto.protos.WriteOptsRedisStreams.toObject(opt_includeInstance, this);
+proto.protos.opts.ReadOptsRedisStreams.prototype.toObject = function(opt_includeInstance) {
+  return proto.protos.opts.ReadOptsRedisStreams.toObject(opt_includeInstance, this);
 };
 
 
@@ -3713,14 +3937,14 @@ proto.protos.WriteOptsRedisStreams.prototype.toObject = function(opt_includeInst
  * @param {boolean|undefined} includeInstance Deprecated. Whether to include
  *     the JSPB instance for transitional soy proto support:
  *     http://goto/soy-param-migration
- * @param {!proto.protos.WriteOptsRedisStreams} msg The msg instance to transform.
+ * @param {!proto.protos.opts.ReadOptsRedisStreams} msg The msg instance to transform.
  * @return {!Object}
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.protos.WriteOptsRedisStreams.toObject = function(includeInstance, msg) {
+proto.protos.opts.ReadOptsRedisStreams.toObject = function(includeInstance, msg) {
   var f, obj = {
     conn: (f = msg.getConn()) && args_redis$streams_pb.RedisStreamsConn.toObject(includeInstance, f),
-    args: (f = msg.getArgs()) && args_redis$streams_pb.RedisStreamsWriteArgs.toObject(includeInstance, f)
+    args: (f = msg.getArgs()) && args_redis$streams_pb.RedisStreamsReadArgs.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -3734,23 +3958,23 @@ proto.protos.WriteOptsRedisStreams.toObject = function(includeInstance, msg) {
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.protos.WriteOptsRedisStreams}
+ * @return {!proto.protos.opts.ReadOptsRedisStreams}
  */
-proto.protos.WriteOptsRedisStreams.deserializeBinary = function(bytes) {
+proto.protos.opts.ReadOptsRedisStreams.deserializeBinary = function(bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.protos.WriteOptsRedisStreams;
-  return proto.protos.WriteOptsRedisStreams.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.protos.opts.ReadOptsRedisStreams;
+  return proto.protos.opts.ReadOptsRedisStreams.deserializeBinaryFromReader(msg, reader);
 };
 
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
  * given reader into the given message object.
- * @param {!proto.protos.WriteOptsRedisStreams} msg The message object to deserialize into.
+ * @param {!proto.protos.opts.ReadOptsRedisStreams} msg The message object to deserialize into.
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.protos.WriteOptsRedisStreams}
+ * @return {!proto.protos.opts.ReadOptsRedisStreams}
  */
-proto.protos.WriteOptsRedisStreams.deserializeBinaryFromReader = function(msg, reader) {
+proto.protos.opts.ReadOptsRedisStreams.deserializeBinaryFromReader = function(msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
@@ -3763,8 +3987,8 @@ proto.protos.WriteOptsRedisStreams.deserializeBinaryFromReader = function(msg, r
       msg.setConn(value);
       break;
     case 2:
-      var value = new args_redis$streams_pb.RedisStreamsWriteArgs;
-      reader.readMessage(value,args_redis$streams_pb.RedisStreamsWriteArgs.deserializeBinaryFromReader);
+      var value = new args_redis$streams_pb.RedisStreamsReadArgs;
+      reader.readMessage(value,args_redis$streams_pb.RedisStreamsReadArgs.deserializeBinaryFromReader);
       msg.setArgs(value);
       break;
     default:
@@ -3780,9 +4004,9 @@ proto.protos.WriteOptsRedisStreams.deserializeBinaryFromReader = function(msg, r
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.protos.WriteOptsRedisStreams.prototype.serializeBinary = function() {
+proto.protos.opts.ReadOptsRedisStreams.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  proto.protos.WriteOptsRedisStreams.serializeBinaryToWriter(this, writer);
+  proto.protos.opts.ReadOptsRedisStreams.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
@@ -3790,11 +4014,11 @@ proto.protos.WriteOptsRedisStreams.prototype.serializeBinary = function() {
 /**
  * Serializes the given message to binary data (in protobuf wire
  * format), writing to the given BinaryWriter.
- * @param {!proto.protos.WriteOptsRedisStreams} message
+ * @param {!proto.protos.opts.ReadOptsRedisStreams} message
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.protos.WriteOptsRedisStreams.serializeBinaryToWriter = function(message, writer) {
+proto.protos.opts.ReadOptsRedisStreams.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
   f = message.getConn();
   if (f != null) {
@@ -3809,17 +4033,17 @@ proto.protos.WriteOptsRedisStreams.serializeBinaryToWriter = function(message, w
     writer.writeMessage(
       2,
       f,
-      args_redis$streams_pb.RedisStreamsWriteArgs.serializeBinaryToWriter
+      args_redis$streams_pb.RedisStreamsReadArgs.serializeBinaryToWriter
     );
   }
 };
 
 
 /**
- * optional args.RedisStreamsConn _conn = 1;
+ * optional protos.args.RedisStreamsConn _conn = 1;
  * @return {?proto.protos.args.RedisStreamsConn}
  */
-proto.protos.WriteOptsRedisStreams.prototype.getConn = function() {
+proto.protos.opts.ReadOptsRedisStreams.prototype.getConn = function() {
   return /** @type{?proto.protos.args.RedisStreamsConn} */ (
     jspb.Message.getWrapperField(this, args_redis$streams_pb.RedisStreamsConn, 1));
 };
@@ -3827,18 +4051,18 @@ proto.protos.WriteOptsRedisStreams.prototype.getConn = function() {
 
 /**
  * @param {?proto.protos.args.RedisStreamsConn|undefined} value
- * @return {!proto.protos.WriteOptsRedisStreams} returns this
+ * @return {!proto.protos.opts.ReadOptsRedisStreams} returns this
 */
-proto.protos.WriteOptsRedisStreams.prototype.setConn = function(value) {
+proto.protos.opts.ReadOptsRedisStreams.prototype.setConn = function(value) {
   return jspb.Message.setWrapperField(this, 1, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
- * @return {!proto.protos.WriteOptsRedisStreams} returns this
+ * @return {!proto.protos.opts.ReadOptsRedisStreams} returns this
  */
-proto.protos.WriteOptsRedisStreams.prototype.clearConn = function() {
+proto.protos.opts.ReadOptsRedisStreams.prototype.clearConn = function() {
   return this.setConn(undefined);
 };
 
@@ -3847,35 +4071,35 @@ proto.protos.WriteOptsRedisStreams.prototype.clearConn = function() {
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.protos.WriteOptsRedisStreams.prototype.hasConn = function() {
+proto.protos.opts.ReadOptsRedisStreams.prototype.hasConn = function() {
   return jspb.Message.getField(this, 1) != null;
 };
 
 
 /**
- * optional args.RedisStreamsWriteArgs args = 2;
- * @return {?proto.protos.args.RedisStreamsWriteArgs}
+ * optional protos.args.RedisStreamsReadArgs args = 2;
+ * @return {?proto.protos.args.RedisStreamsReadArgs}
  */
-proto.protos.WriteOptsRedisStreams.prototype.getArgs = function() {
-  return /** @type{?proto.protos.args.RedisStreamsWriteArgs} */ (
-    jspb.Message.getWrapperField(this, args_redis$streams_pb.RedisStreamsWriteArgs, 2));
+proto.protos.opts.ReadOptsRedisStreams.prototype.getArgs = function() {
+  return /** @type{?proto.protos.args.RedisStreamsReadArgs} */ (
+    jspb.Message.getWrapperField(this, args_redis$streams_pb.RedisStreamsReadArgs, 2));
 };
 
 
 /**
- * @param {?proto.protos.args.RedisStreamsWriteArgs|undefined} value
- * @return {!proto.protos.WriteOptsRedisStreams} returns this
+ * @param {?proto.protos.args.RedisStreamsReadArgs|undefined} value
+ * @return {!proto.protos.opts.ReadOptsRedisStreams} returns this
 */
-proto.protos.WriteOptsRedisStreams.prototype.setArgs = function(value) {
+proto.protos.opts.ReadOptsRedisStreams.prototype.setArgs = function(value) {
   return jspb.Message.setWrapperField(this, 2, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
- * @return {!proto.protos.WriteOptsRedisStreams} returns this
+ * @return {!proto.protos.opts.ReadOptsRedisStreams} returns this
  */
-proto.protos.WriteOptsRedisStreams.prototype.clearArgs = function() {
+proto.protos.opts.ReadOptsRedisStreams.prototype.clearArgs = function() {
   return this.setArgs(undefined);
 };
 
@@ -3884,7 +4108,7 @@ proto.protos.WriteOptsRedisStreams.prototype.clearArgs = function() {
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.protos.WriteOptsRedisStreams.prototype.hasArgs = function() {
+proto.protos.opts.ReadOptsRedisStreams.prototype.hasArgs = function() {
   return jspb.Message.getField(this, 2) != null;
 };
 
@@ -3905,8 +4129,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
  *     http://goto/soy-param-migration
  * @return {!Object}
  */
-proto.protos.WriteOptsAzureEventHub.prototype.toObject = function(opt_includeInstance) {
-  return proto.protos.WriteOptsAzureEventHub.toObject(opt_includeInstance, this);
+proto.protos.opts.ReadOptsAzureEventHub.prototype.toObject = function(opt_includeInstance) {
+  return proto.protos.opts.ReadOptsAzureEventHub.toObject(opt_includeInstance, this);
 };
 
 
@@ -3915,14 +4139,14 @@ proto.protos.WriteOptsAzureEventHub.prototype.toObject = function(opt_includeIns
  * @param {boolean|undefined} includeInstance Deprecated. Whether to include
  *     the JSPB instance for transitional soy proto support:
  *     http://goto/soy-param-migration
- * @param {!proto.protos.WriteOptsAzureEventHub} msg The msg instance to transform.
+ * @param {!proto.protos.opts.ReadOptsAzureEventHub} msg The msg instance to transform.
  * @return {!Object}
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.protos.WriteOptsAzureEventHub.toObject = function(includeInstance, msg) {
+proto.protos.opts.ReadOptsAzureEventHub.toObject = function(includeInstance, msg) {
   var f, obj = {
     conn: (f = msg.getConn()) && args_azure$event$hub_pb.AzureEventHubConn.toObject(includeInstance, f),
-    args: (f = msg.getArgs()) && args_azure$event$hub_pb.AzureEventHubWriteArgs.toObject(includeInstance, f)
+    args: (f = msg.getArgs()) && args_azure$event$hub_pb.AzureEventHubReadArgs.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -3936,23 +4160,23 @@ proto.protos.WriteOptsAzureEventHub.toObject = function(includeInstance, msg) {
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.protos.WriteOptsAzureEventHub}
+ * @return {!proto.protos.opts.ReadOptsAzureEventHub}
  */
-proto.protos.WriteOptsAzureEventHub.deserializeBinary = function(bytes) {
+proto.protos.opts.ReadOptsAzureEventHub.deserializeBinary = function(bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.protos.WriteOptsAzureEventHub;
-  return proto.protos.WriteOptsAzureEventHub.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.protos.opts.ReadOptsAzureEventHub;
+  return proto.protos.opts.ReadOptsAzureEventHub.deserializeBinaryFromReader(msg, reader);
 };
 
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
  * given reader into the given message object.
- * @param {!proto.protos.WriteOptsAzureEventHub} msg The message object to deserialize into.
+ * @param {!proto.protos.opts.ReadOptsAzureEventHub} msg The message object to deserialize into.
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.protos.WriteOptsAzureEventHub}
+ * @return {!proto.protos.opts.ReadOptsAzureEventHub}
  */
-proto.protos.WriteOptsAzureEventHub.deserializeBinaryFromReader = function(msg, reader) {
+proto.protos.opts.ReadOptsAzureEventHub.deserializeBinaryFromReader = function(msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
@@ -3965,8 +4189,8 @@ proto.protos.WriteOptsAzureEventHub.deserializeBinaryFromReader = function(msg, 
       msg.setConn(value);
       break;
     case 2:
-      var value = new args_azure$event$hub_pb.AzureEventHubWriteArgs;
-      reader.readMessage(value,args_azure$event$hub_pb.AzureEventHubWriteArgs.deserializeBinaryFromReader);
+      var value = new args_azure$event$hub_pb.AzureEventHubReadArgs;
+      reader.readMessage(value,args_azure$event$hub_pb.AzureEventHubReadArgs.deserializeBinaryFromReader);
       msg.setArgs(value);
       break;
     default:
@@ -3982,9 +4206,9 @@ proto.protos.WriteOptsAzureEventHub.deserializeBinaryFromReader = function(msg, 
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.protos.WriteOptsAzureEventHub.prototype.serializeBinary = function() {
+proto.protos.opts.ReadOptsAzureEventHub.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  proto.protos.WriteOptsAzureEventHub.serializeBinaryToWriter(this, writer);
+  proto.protos.opts.ReadOptsAzureEventHub.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
@@ -3992,11 +4216,11 @@ proto.protos.WriteOptsAzureEventHub.prototype.serializeBinary = function() {
 /**
  * Serializes the given message to binary data (in protobuf wire
  * format), writing to the given BinaryWriter.
- * @param {!proto.protos.WriteOptsAzureEventHub} message
+ * @param {!proto.protos.opts.ReadOptsAzureEventHub} message
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.protos.WriteOptsAzureEventHub.serializeBinaryToWriter = function(message, writer) {
+proto.protos.opts.ReadOptsAzureEventHub.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
   f = message.getConn();
   if (f != null) {
@@ -4011,17 +4235,17 @@ proto.protos.WriteOptsAzureEventHub.serializeBinaryToWriter = function(message, 
     writer.writeMessage(
       2,
       f,
-      args_azure$event$hub_pb.AzureEventHubWriteArgs.serializeBinaryToWriter
+      args_azure$event$hub_pb.AzureEventHubReadArgs.serializeBinaryToWriter
     );
   }
 };
 
 
 /**
- * optional args.AzureEventHubConn _conn = 1;
+ * optional protos.args.AzureEventHubConn _conn = 1;
  * @return {?proto.protos.args.AzureEventHubConn}
  */
-proto.protos.WriteOptsAzureEventHub.prototype.getConn = function() {
+proto.protos.opts.ReadOptsAzureEventHub.prototype.getConn = function() {
   return /** @type{?proto.protos.args.AzureEventHubConn} */ (
     jspb.Message.getWrapperField(this, args_azure$event$hub_pb.AzureEventHubConn, 1));
 };
@@ -4029,18 +4253,18 @@ proto.protos.WriteOptsAzureEventHub.prototype.getConn = function() {
 
 /**
  * @param {?proto.protos.args.AzureEventHubConn|undefined} value
- * @return {!proto.protos.WriteOptsAzureEventHub} returns this
+ * @return {!proto.protos.opts.ReadOptsAzureEventHub} returns this
 */
-proto.protos.WriteOptsAzureEventHub.prototype.setConn = function(value) {
+proto.protos.opts.ReadOptsAzureEventHub.prototype.setConn = function(value) {
   return jspb.Message.setWrapperField(this, 1, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
- * @return {!proto.protos.WriteOptsAzureEventHub} returns this
+ * @return {!proto.protos.opts.ReadOptsAzureEventHub} returns this
  */
-proto.protos.WriteOptsAzureEventHub.prototype.clearConn = function() {
+proto.protos.opts.ReadOptsAzureEventHub.prototype.clearConn = function() {
   return this.setConn(undefined);
 };
 
@@ -4049,35 +4273,35 @@ proto.protos.WriteOptsAzureEventHub.prototype.clearConn = function() {
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.protos.WriteOptsAzureEventHub.prototype.hasConn = function() {
+proto.protos.opts.ReadOptsAzureEventHub.prototype.hasConn = function() {
   return jspb.Message.getField(this, 1) != null;
 };
 
 
 /**
- * optional args.AzureEventHubWriteArgs args = 2;
- * @return {?proto.protos.args.AzureEventHubWriteArgs}
+ * optional protos.args.AzureEventHubReadArgs args = 2;
+ * @return {?proto.protos.args.AzureEventHubReadArgs}
  */
-proto.protos.WriteOptsAzureEventHub.prototype.getArgs = function() {
-  return /** @type{?proto.protos.args.AzureEventHubWriteArgs} */ (
-    jspb.Message.getWrapperField(this, args_azure$event$hub_pb.AzureEventHubWriteArgs, 2));
+proto.protos.opts.ReadOptsAzureEventHub.prototype.getArgs = function() {
+  return /** @type{?proto.protos.args.AzureEventHubReadArgs} */ (
+    jspb.Message.getWrapperField(this, args_azure$event$hub_pb.AzureEventHubReadArgs, 2));
 };
 
 
 /**
- * @param {?proto.protos.args.AzureEventHubWriteArgs|undefined} value
- * @return {!proto.protos.WriteOptsAzureEventHub} returns this
+ * @param {?proto.protos.args.AzureEventHubReadArgs|undefined} value
+ * @return {!proto.protos.opts.ReadOptsAzureEventHub} returns this
 */
-proto.protos.WriteOptsAzureEventHub.prototype.setArgs = function(value) {
+proto.protos.opts.ReadOptsAzureEventHub.prototype.setArgs = function(value) {
   return jspb.Message.setWrapperField(this, 2, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
- * @return {!proto.protos.WriteOptsAzureEventHub} returns this
+ * @return {!proto.protos.opts.ReadOptsAzureEventHub} returns this
  */
-proto.protos.WriteOptsAzureEventHub.prototype.clearArgs = function() {
+proto.protos.opts.ReadOptsAzureEventHub.prototype.clearArgs = function() {
   return this.setArgs(undefined);
 };
 
@@ -4086,7 +4310,7 @@ proto.protos.WriteOptsAzureEventHub.prototype.clearArgs = function() {
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.protos.WriteOptsAzureEventHub.prototype.hasArgs = function() {
+proto.protos.opts.ReadOptsAzureEventHub.prototype.hasArgs = function() {
   return jspb.Message.getField(this, 2) != null;
 };
 
@@ -4107,8 +4331,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
  *     http://goto/soy-param-migration
  * @return {!Object}
  */
-proto.protos.WriteOptsAzureServiceBus.prototype.toObject = function(opt_includeInstance) {
-  return proto.protos.WriteOptsAzureServiceBus.toObject(opt_includeInstance, this);
+proto.protos.opts.ReadOptsAzureServiceBus.prototype.toObject = function(opt_includeInstance) {
+  return proto.protos.opts.ReadOptsAzureServiceBus.toObject(opt_includeInstance, this);
 };
 
 
@@ -4117,14 +4341,14 @@ proto.protos.WriteOptsAzureServiceBus.prototype.toObject = function(opt_includeI
  * @param {boolean|undefined} includeInstance Deprecated. Whether to include
  *     the JSPB instance for transitional soy proto support:
  *     http://goto/soy-param-migration
- * @param {!proto.protos.WriteOptsAzureServiceBus} msg The msg instance to transform.
+ * @param {!proto.protos.opts.ReadOptsAzureServiceBus} msg The msg instance to transform.
  * @return {!Object}
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.protos.WriteOptsAzureServiceBus.toObject = function(includeInstance, msg) {
+proto.protos.opts.ReadOptsAzureServiceBus.toObject = function(includeInstance, msg) {
   var f, obj = {
     conn: (f = msg.getConn()) && args_azure$service$bus_pb.AzureServiceBusConn.toObject(includeInstance, f),
-    args: (f = msg.getArgs()) && args_azure$service$bus_pb.AzureServiceBusWriteArgs.toObject(includeInstance, f)
+    args: (f = msg.getArgs()) && args_azure$service$bus_pb.AzureServiceBusReadArgs.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -4138,23 +4362,23 @@ proto.protos.WriteOptsAzureServiceBus.toObject = function(includeInstance, msg) 
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.protos.WriteOptsAzureServiceBus}
+ * @return {!proto.protos.opts.ReadOptsAzureServiceBus}
  */
-proto.protos.WriteOptsAzureServiceBus.deserializeBinary = function(bytes) {
+proto.protos.opts.ReadOptsAzureServiceBus.deserializeBinary = function(bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.protos.WriteOptsAzureServiceBus;
-  return proto.protos.WriteOptsAzureServiceBus.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.protos.opts.ReadOptsAzureServiceBus;
+  return proto.protos.opts.ReadOptsAzureServiceBus.deserializeBinaryFromReader(msg, reader);
 };
 
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
  * given reader into the given message object.
- * @param {!proto.protos.WriteOptsAzureServiceBus} msg The message object to deserialize into.
+ * @param {!proto.protos.opts.ReadOptsAzureServiceBus} msg The message object to deserialize into.
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.protos.WriteOptsAzureServiceBus}
+ * @return {!proto.protos.opts.ReadOptsAzureServiceBus}
  */
-proto.protos.WriteOptsAzureServiceBus.deserializeBinaryFromReader = function(msg, reader) {
+proto.protos.opts.ReadOptsAzureServiceBus.deserializeBinaryFromReader = function(msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
@@ -4167,8 +4391,8 @@ proto.protos.WriteOptsAzureServiceBus.deserializeBinaryFromReader = function(msg
       msg.setConn(value);
       break;
     case 2:
-      var value = new args_azure$service$bus_pb.AzureServiceBusWriteArgs;
-      reader.readMessage(value,args_azure$service$bus_pb.AzureServiceBusWriteArgs.deserializeBinaryFromReader);
+      var value = new args_azure$service$bus_pb.AzureServiceBusReadArgs;
+      reader.readMessage(value,args_azure$service$bus_pb.AzureServiceBusReadArgs.deserializeBinaryFromReader);
       msg.setArgs(value);
       break;
     default:
@@ -4184,9 +4408,9 @@ proto.protos.WriteOptsAzureServiceBus.deserializeBinaryFromReader = function(msg
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.protos.WriteOptsAzureServiceBus.prototype.serializeBinary = function() {
+proto.protos.opts.ReadOptsAzureServiceBus.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  proto.protos.WriteOptsAzureServiceBus.serializeBinaryToWriter(this, writer);
+  proto.protos.opts.ReadOptsAzureServiceBus.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
@@ -4194,11 +4418,11 @@ proto.protos.WriteOptsAzureServiceBus.prototype.serializeBinary = function() {
 /**
  * Serializes the given message to binary data (in protobuf wire
  * format), writing to the given BinaryWriter.
- * @param {!proto.protos.WriteOptsAzureServiceBus} message
+ * @param {!proto.protos.opts.ReadOptsAzureServiceBus} message
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.protos.WriteOptsAzureServiceBus.serializeBinaryToWriter = function(message, writer) {
+proto.protos.opts.ReadOptsAzureServiceBus.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
   f = message.getConn();
   if (f != null) {
@@ -4213,17 +4437,17 @@ proto.protos.WriteOptsAzureServiceBus.serializeBinaryToWriter = function(message
     writer.writeMessage(
       2,
       f,
-      args_azure$service$bus_pb.AzureServiceBusWriteArgs.serializeBinaryToWriter
+      args_azure$service$bus_pb.AzureServiceBusReadArgs.serializeBinaryToWriter
     );
   }
 };
 
 
 /**
- * optional args.AzureServiceBusConn _conn = 1;
+ * optional protos.args.AzureServiceBusConn _conn = 1;
  * @return {?proto.protos.args.AzureServiceBusConn}
  */
-proto.protos.WriteOptsAzureServiceBus.prototype.getConn = function() {
+proto.protos.opts.ReadOptsAzureServiceBus.prototype.getConn = function() {
   return /** @type{?proto.protos.args.AzureServiceBusConn} */ (
     jspb.Message.getWrapperField(this, args_azure$service$bus_pb.AzureServiceBusConn, 1));
 };
@@ -4231,18 +4455,18 @@ proto.protos.WriteOptsAzureServiceBus.prototype.getConn = function() {
 
 /**
  * @param {?proto.protos.args.AzureServiceBusConn|undefined} value
- * @return {!proto.protos.WriteOptsAzureServiceBus} returns this
+ * @return {!proto.protos.opts.ReadOptsAzureServiceBus} returns this
 */
-proto.protos.WriteOptsAzureServiceBus.prototype.setConn = function(value) {
+proto.protos.opts.ReadOptsAzureServiceBus.prototype.setConn = function(value) {
   return jspb.Message.setWrapperField(this, 1, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
- * @return {!proto.protos.WriteOptsAzureServiceBus} returns this
+ * @return {!proto.protos.opts.ReadOptsAzureServiceBus} returns this
  */
-proto.protos.WriteOptsAzureServiceBus.prototype.clearConn = function() {
+proto.protos.opts.ReadOptsAzureServiceBus.prototype.clearConn = function() {
   return this.setConn(undefined);
 };
 
@@ -4251,35 +4475,35 @@ proto.protos.WriteOptsAzureServiceBus.prototype.clearConn = function() {
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.protos.WriteOptsAzureServiceBus.prototype.hasConn = function() {
+proto.protos.opts.ReadOptsAzureServiceBus.prototype.hasConn = function() {
   return jspb.Message.getField(this, 1) != null;
 };
 
 
 /**
- * optional args.AzureServiceBusWriteArgs args = 2;
- * @return {?proto.protos.args.AzureServiceBusWriteArgs}
+ * optional protos.args.AzureServiceBusReadArgs args = 2;
+ * @return {?proto.protos.args.AzureServiceBusReadArgs}
  */
-proto.protos.WriteOptsAzureServiceBus.prototype.getArgs = function() {
-  return /** @type{?proto.protos.args.AzureServiceBusWriteArgs} */ (
-    jspb.Message.getWrapperField(this, args_azure$service$bus_pb.AzureServiceBusWriteArgs, 2));
+proto.protos.opts.ReadOptsAzureServiceBus.prototype.getArgs = function() {
+  return /** @type{?proto.protos.args.AzureServiceBusReadArgs} */ (
+    jspb.Message.getWrapperField(this, args_azure$service$bus_pb.AzureServiceBusReadArgs, 2));
 };
 
 
 /**
- * @param {?proto.protos.args.AzureServiceBusWriteArgs|undefined} value
- * @return {!proto.protos.WriteOptsAzureServiceBus} returns this
+ * @param {?proto.protos.args.AzureServiceBusReadArgs|undefined} value
+ * @return {!proto.protos.opts.ReadOptsAzureServiceBus} returns this
 */
-proto.protos.WriteOptsAzureServiceBus.prototype.setArgs = function(value) {
+proto.protos.opts.ReadOptsAzureServiceBus.prototype.setArgs = function(value) {
   return jspb.Message.setWrapperField(this, 2, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
- * @return {!proto.protos.WriteOptsAzureServiceBus} returns this
+ * @return {!proto.protos.opts.ReadOptsAzureServiceBus} returns this
  */
-proto.protos.WriteOptsAzureServiceBus.prototype.clearArgs = function() {
+proto.protos.opts.ReadOptsAzureServiceBus.prototype.clearArgs = function() {
   return this.setArgs(undefined);
 };
 
@@ -4288,7 +4512,7 @@ proto.protos.WriteOptsAzureServiceBus.prototype.clearArgs = function() {
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.protos.WriteOptsAzureServiceBus.prototype.hasArgs = function() {
+proto.protos.opts.ReadOptsAzureServiceBus.prototype.hasArgs = function() {
   return jspb.Message.getField(this, 2) != null;
 };
 
@@ -4309,8 +4533,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
  *     http://goto/soy-param-migration
  * @return {!Object}
  */
-proto.protos.WriteOptsMQTT.prototype.toObject = function(opt_includeInstance) {
-  return proto.protos.WriteOptsMQTT.toObject(opt_includeInstance, this);
+proto.protos.opts.ReadOptsMQTT.prototype.toObject = function(opt_includeInstance) {
+  return proto.protos.opts.ReadOptsMQTT.toObject(opt_includeInstance, this);
 };
 
 
@@ -4319,14 +4543,14 @@ proto.protos.WriteOptsMQTT.prototype.toObject = function(opt_includeInstance) {
  * @param {boolean|undefined} includeInstance Deprecated. Whether to include
  *     the JSPB instance for transitional soy proto support:
  *     http://goto/soy-param-migration
- * @param {!proto.protos.WriteOptsMQTT} msg The msg instance to transform.
+ * @param {!proto.protos.opts.ReadOptsMQTT} msg The msg instance to transform.
  * @return {!Object}
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.protos.WriteOptsMQTT.toObject = function(includeInstance, msg) {
+proto.protos.opts.ReadOptsMQTT.toObject = function(includeInstance, msg) {
   var f, obj = {
     conn: (f = msg.getConn()) && args_mqtt_pb.MQTTConn.toObject(includeInstance, f),
-    args: (f = msg.getArgs()) && args_mqtt_pb.MQTTWriteArgs.toObject(includeInstance, f)
+    args: (f = msg.getArgs()) && args_mqtt_pb.MQTTReadArgs.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -4340,23 +4564,23 @@ proto.protos.WriteOptsMQTT.toObject = function(includeInstance, msg) {
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.protos.WriteOptsMQTT}
+ * @return {!proto.protos.opts.ReadOptsMQTT}
  */
-proto.protos.WriteOptsMQTT.deserializeBinary = function(bytes) {
+proto.protos.opts.ReadOptsMQTT.deserializeBinary = function(bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.protos.WriteOptsMQTT;
-  return proto.protos.WriteOptsMQTT.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.protos.opts.ReadOptsMQTT;
+  return proto.protos.opts.ReadOptsMQTT.deserializeBinaryFromReader(msg, reader);
 };
 
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
  * given reader into the given message object.
- * @param {!proto.protos.WriteOptsMQTT} msg The message object to deserialize into.
+ * @param {!proto.protos.opts.ReadOptsMQTT} msg The message object to deserialize into.
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.protos.WriteOptsMQTT}
+ * @return {!proto.protos.opts.ReadOptsMQTT}
  */
-proto.protos.WriteOptsMQTT.deserializeBinaryFromReader = function(msg, reader) {
+proto.protos.opts.ReadOptsMQTT.deserializeBinaryFromReader = function(msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
@@ -4369,8 +4593,8 @@ proto.protos.WriteOptsMQTT.deserializeBinaryFromReader = function(msg, reader) {
       msg.setConn(value);
       break;
     case 2:
-      var value = new args_mqtt_pb.MQTTWriteArgs;
-      reader.readMessage(value,args_mqtt_pb.MQTTWriteArgs.deserializeBinaryFromReader);
+      var value = new args_mqtt_pb.MQTTReadArgs;
+      reader.readMessage(value,args_mqtt_pb.MQTTReadArgs.deserializeBinaryFromReader);
       msg.setArgs(value);
       break;
     default:
@@ -4386,9 +4610,9 @@ proto.protos.WriteOptsMQTT.deserializeBinaryFromReader = function(msg, reader) {
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.protos.WriteOptsMQTT.prototype.serializeBinary = function() {
+proto.protos.opts.ReadOptsMQTT.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  proto.protos.WriteOptsMQTT.serializeBinaryToWriter(this, writer);
+  proto.protos.opts.ReadOptsMQTT.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
@@ -4396,11 +4620,11 @@ proto.protos.WriteOptsMQTT.prototype.serializeBinary = function() {
 /**
  * Serializes the given message to binary data (in protobuf wire
  * format), writing to the given BinaryWriter.
- * @param {!proto.protos.WriteOptsMQTT} message
+ * @param {!proto.protos.opts.ReadOptsMQTT} message
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.protos.WriteOptsMQTT.serializeBinaryToWriter = function(message, writer) {
+proto.protos.opts.ReadOptsMQTT.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
   f = message.getConn();
   if (f != null) {
@@ -4415,17 +4639,17 @@ proto.protos.WriteOptsMQTT.serializeBinaryToWriter = function(message, writer) {
     writer.writeMessage(
       2,
       f,
-      args_mqtt_pb.MQTTWriteArgs.serializeBinaryToWriter
+      args_mqtt_pb.MQTTReadArgs.serializeBinaryToWriter
     );
   }
 };
 
 
 /**
- * optional args.MQTTConn _conn = 1;
+ * optional protos.args.MQTTConn _conn = 1;
  * @return {?proto.protos.args.MQTTConn}
  */
-proto.protos.WriteOptsMQTT.prototype.getConn = function() {
+proto.protos.opts.ReadOptsMQTT.prototype.getConn = function() {
   return /** @type{?proto.protos.args.MQTTConn} */ (
     jspb.Message.getWrapperField(this, args_mqtt_pb.MQTTConn, 1));
 };
@@ -4433,18 +4657,18 @@ proto.protos.WriteOptsMQTT.prototype.getConn = function() {
 
 /**
  * @param {?proto.protos.args.MQTTConn|undefined} value
- * @return {!proto.protos.WriteOptsMQTT} returns this
+ * @return {!proto.protos.opts.ReadOptsMQTT} returns this
 */
-proto.protos.WriteOptsMQTT.prototype.setConn = function(value) {
+proto.protos.opts.ReadOptsMQTT.prototype.setConn = function(value) {
   return jspb.Message.setWrapperField(this, 1, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
- * @return {!proto.protos.WriteOptsMQTT} returns this
+ * @return {!proto.protos.opts.ReadOptsMQTT} returns this
  */
-proto.protos.WriteOptsMQTT.prototype.clearConn = function() {
+proto.protos.opts.ReadOptsMQTT.prototype.clearConn = function() {
   return this.setConn(undefined);
 };
 
@@ -4453,35 +4677,35 @@ proto.protos.WriteOptsMQTT.prototype.clearConn = function() {
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.protos.WriteOptsMQTT.prototype.hasConn = function() {
+proto.protos.opts.ReadOptsMQTT.prototype.hasConn = function() {
   return jspb.Message.getField(this, 1) != null;
 };
 
 
 /**
- * optional args.MQTTWriteArgs args = 2;
- * @return {?proto.protos.args.MQTTWriteArgs}
+ * optional protos.args.MQTTReadArgs args = 2;
+ * @return {?proto.protos.args.MQTTReadArgs}
  */
-proto.protos.WriteOptsMQTT.prototype.getArgs = function() {
-  return /** @type{?proto.protos.args.MQTTWriteArgs} */ (
-    jspb.Message.getWrapperField(this, args_mqtt_pb.MQTTWriteArgs, 2));
+proto.protos.opts.ReadOptsMQTT.prototype.getArgs = function() {
+  return /** @type{?proto.protos.args.MQTTReadArgs} */ (
+    jspb.Message.getWrapperField(this, args_mqtt_pb.MQTTReadArgs, 2));
 };
 
 
 /**
- * @param {?proto.protos.args.MQTTWriteArgs|undefined} value
- * @return {!proto.protos.WriteOptsMQTT} returns this
+ * @param {?proto.protos.args.MQTTReadArgs|undefined} value
+ * @return {!proto.protos.opts.ReadOptsMQTT} returns this
 */
-proto.protos.WriteOptsMQTT.prototype.setArgs = function(value) {
+proto.protos.opts.ReadOptsMQTT.prototype.setArgs = function(value) {
   return jspb.Message.setWrapperField(this, 2, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
- * @return {!proto.protos.WriteOptsMQTT} returns this
+ * @return {!proto.protos.opts.ReadOptsMQTT} returns this
  */
-proto.protos.WriteOptsMQTT.prototype.clearArgs = function() {
+proto.protos.opts.ReadOptsMQTT.prototype.clearArgs = function() {
   return this.setArgs(undefined);
 };
 
@@ -4490,7 +4714,7 @@ proto.protos.WriteOptsMQTT.prototype.clearArgs = function() {
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.protos.WriteOptsMQTT.prototype.hasArgs = function() {
+proto.protos.opts.ReadOptsMQTT.prototype.hasArgs = function() {
   return jspb.Message.getField(this, 2) != null;
 };
 
@@ -4511,8 +4735,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
  *     http://goto/soy-param-migration
  * @return {!Object}
  */
-proto.protos.WriteOptsGCPPubSub.prototype.toObject = function(opt_includeInstance) {
-  return proto.protos.WriteOptsGCPPubSub.toObject(opt_includeInstance, this);
+proto.protos.opts.ReadOptsGCPPubSub.prototype.toObject = function(opt_includeInstance) {
+  return proto.protos.opts.ReadOptsGCPPubSub.toObject(opt_includeInstance, this);
 };
 
 
@@ -4521,14 +4745,14 @@ proto.protos.WriteOptsGCPPubSub.prototype.toObject = function(opt_includeInstanc
  * @param {boolean|undefined} includeInstance Deprecated. Whether to include
  *     the JSPB instance for transitional soy proto support:
  *     http://goto/soy-param-migration
- * @param {!proto.protos.WriteOptsGCPPubSub} msg The msg instance to transform.
+ * @param {!proto.protos.opts.ReadOptsGCPPubSub} msg The msg instance to transform.
  * @return {!Object}
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.protos.WriteOptsGCPPubSub.toObject = function(includeInstance, msg) {
+proto.protos.opts.ReadOptsGCPPubSub.toObject = function(includeInstance, msg) {
   var f, obj = {
     conn: (f = msg.getConn()) && args_gcp$pubsub_pb.GCPPubSubConn.toObject(includeInstance, f),
-    args: (f = msg.getArgs()) && args_gcp$pubsub_pb.GCPPubSubWriteArgs.toObject(includeInstance, f)
+    args: (f = msg.getArgs()) && args_gcp$pubsub_pb.GCPPubSubReadArgs.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -4542,23 +4766,23 @@ proto.protos.WriteOptsGCPPubSub.toObject = function(includeInstance, msg) {
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.protos.WriteOptsGCPPubSub}
+ * @return {!proto.protos.opts.ReadOptsGCPPubSub}
  */
-proto.protos.WriteOptsGCPPubSub.deserializeBinary = function(bytes) {
+proto.protos.opts.ReadOptsGCPPubSub.deserializeBinary = function(bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.protos.WriteOptsGCPPubSub;
-  return proto.protos.WriteOptsGCPPubSub.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.protos.opts.ReadOptsGCPPubSub;
+  return proto.protos.opts.ReadOptsGCPPubSub.deserializeBinaryFromReader(msg, reader);
 };
 
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
  * given reader into the given message object.
- * @param {!proto.protos.WriteOptsGCPPubSub} msg The message object to deserialize into.
+ * @param {!proto.protos.opts.ReadOptsGCPPubSub} msg The message object to deserialize into.
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.protos.WriteOptsGCPPubSub}
+ * @return {!proto.protos.opts.ReadOptsGCPPubSub}
  */
-proto.protos.WriteOptsGCPPubSub.deserializeBinaryFromReader = function(msg, reader) {
+proto.protos.opts.ReadOptsGCPPubSub.deserializeBinaryFromReader = function(msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
@@ -4571,8 +4795,8 @@ proto.protos.WriteOptsGCPPubSub.deserializeBinaryFromReader = function(msg, read
       msg.setConn(value);
       break;
     case 2:
-      var value = new args_gcp$pubsub_pb.GCPPubSubWriteArgs;
-      reader.readMessage(value,args_gcp$pubsub_pb.GCPPubSubWriteArgs.deserializeBinaryFromReader);
+      var value = new args_gcp$pubsub_pb.GCPPubSubReadArgs;
+      reader.readMessage(value,args_gcp$pubsub_pb.GCPPubSubReadArgs.deserializeBinaryFromReader);
       msg.setArgs(value);
       break;
     default:
@@ -4588,9 +4812,9 @@ proto.protos.WriteOptsGCPPubSub.deserializeBinaryFromReader = function(msg, read
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.protos.WriteOptsGCPPubSub.prototype.serializeBinary = function() {
+proto.protos.opts.ReadOptsGCPPubSub.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  proto.protos.WriteOptsGCPPubSub.serializeBinaryToWriter(this, writer);
+  proto.protos.opts.ReadOptsGCPPubSub.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
@@ -4598,11 +4822,11 @@ proto.protos.WriteOptsGCPPubSub.prototype.serializeBinary = function() {
 /**
  * Serializes the given message to binary data (in protobuf wire
  * format), writing to the given BinaryWriter.
- * @param {!proto.protos.WriteOptsGCPPubSub} message
+ * @param {!proto.protos.opts.ReadOptsGCPPubSub} message
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.protos.WriteOptsGCPPubSub.serializeBinaryToWriter = function(message, writer) {
+proto.protos.opts.ReadOptsGCPPubSub.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
   f = message.getConn();
   if (f != null) {
@@ -4617,17 +4841,17 @@ proto.protos.WriteOptsGCPPubSub.serializeBinaryToWriter = function(message, writ
     writer.writeMessage(
       2,
       f,
-      args_gcp$pubsub_pb.GCPPubSubWriteArgs.serializeBinaryToWriter
+      args_gcp$pubsub_pb.GCPPubSubReadArgs.serializeBinaryToWriter
     );
   }
 };
 
 
 /**
- * optional args.GCPPubSubConn _conn = 1;
+ * optional protos.args.GCPPubSubConn _conn = 1;
  * @return {?proto.protos.args.GCPPubSubConn}
  */
-proto.protos.WriteOptsGCPPubSub.prototype.getConn = function() {
+proto.protos.opts.ReadOptsGCPPubSub.prototype.getConn = function() {
   return /** @type{?proto.protos.args.GCPPubSubConn} */ (
     jspb.Message.getWrapperField(this, args_gcp$pubsub_pb.GCPPubSubConn, 1));
 };
@@ -4635,18 +4859,18 @@ proto.protos.WriteOptsGCPPubSub.prototype.getConn = function() {
 
 /**
  * @param {?proto.protos.args.GCPPubSubConn|undefined} value
- * @return {!proto.protos.WriteOptsGCPPubSub} returns this
+ * @return {!proto.protos.opts.ReadOptsGCPPubSub} returns this
 */
-proto.protos.WriteOptsGCPPubSub.prototype.setConn = function(value) {
+proto.protos.opts.ReadOptsGCPPubSub.prototype.setConn = function(value) {
   return jspb.Message.setWrapperField(this, 1, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
- * @return {!proto.protos.WriteOptsGCPPubSub} returns this
+ * @return {!proto.protos.opts.ReadOptsGCPPubSub} returns this
  */
-proto.protos.WriteOptsGCPPubSub.prototype.clearConn = function() {
+proto.protos.opts.ReadOptsGCPPubSub.prototype.clearConn = function() {
   return this.setConn(undefined);
 };
 
@@ -4655,35 +4879,35 @@ proto.protos.WriteOptsGCPPubSub.prototype.clearConn = function() {
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.protos.WriteOptsGCPPubSub.prototype.hasConn = function() {
+proto.protos.opts.ReadOptsGCPPubSub.prototype.hasConn = function() {
   return jspb.Message.getField(this, 1) != null;
 };
 
 
 /**
- * optional args.GCPPubSubWriteArgs args = 2;
- * @return {?proto.protos.args.GCPPubSubWriteArgs}
+ * optional protos.args.GCPPubSubReadArgs args = 2;
+ * @return {?proto.protos.args.GCPPubSubReadArgs}
  */
-proto.protos.WriteOptsGCPPubSub.prototype.getArgs = function() {
-  return /** @type{?proto.protos.args.GCPPubSubWriteArgs} */ (
-    jspb.Message.getWrapperField(this, args_gcp$pubsub_pb.GCPPubSubWriteArgs, 2));
+proto.protos.opts.ReadOptsGCPPubSub.prototype.getArgs = function() {
+  return /** @type{?proto.protos.args.GCPPubSubReadArgs} */ (
+    jspb.Message.getWrapperField(this, args_gcp$pubsub_pb.GCPPubSubReadArgs, 2));
 };
 
 
 /**
- * @param {?proto.protos.args.GCPPubSubWriteArgs|undefined} value
- * @return {!proto.protos.WriteOptsGCPPubSub} returns this
+ * @param {?proto.protos.args.GCPPubSubReadArgs|undefined} value
+ * @return {!proto.protos.opts.ReadOptsGCPPubSub} returns this
 */
-proto.protos.WriteOptsGCPPubSub.prototype.setArgs = function(value) {
+proto.protos.opts.ReadOptsGCPPubSub.prototype.setArgs = function(value) {
   return jspb.Message.setWrapperField(this, 2, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
- * @return {!proto.protos.WriteOptsGCPPubSub} returns this
+ * @return {!proto.protos.opts.ReadOptsGCPPubSub} returns this
  */
-proto.protos.WriteOptsGCPPubSub.prototype.clearArgs = function() {
+proto.protos.opts.ReadOptsGCPPubSub.prototype.clearArgs = function() {
   return this.setArgs(undefined);
 };
 
@@ -4692,7 +4916,7 @@ proto.protos.WriteOptsGCPPubSub.prototype.clearArgs = function() {
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.protos.WriteOptsGCPPubSub.prototype.hasArgs = function() {
+proto.protos.opts.ReadOptsGCPPubSub.prototype.hasArgs = function() {
   return jspb.Message.getField(this, 2) != null;
 };
 
@@ -4713,8 +4937,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
  *     http://goto/soy-param-migration
  * @return {!Object}
  */
-proto.protos.WriteOptsKubeMQQueue.prototype.toObject = function(opt_includeInstance) {
-  return proto.protos.WriteOptsKubeMQQueue.toObject(opt_includeInstance, this);
+proto.protos.opts.ReadOptsKubeMQQueue.prototype.toObject = function(opt_includeInstance) {
+  return proto.protos.opts.ReadOptsKubeMQQueue.toObject(opt_includeInstance, this);
 };
 
 
@@ -4723,14 +4947,14 @@ proto.protos.WriteOptsKubeMQQueue.prototype.toObject = function(opt_includeInsta
  * @param {boolean|undefined} includeInstance Deprecated. Whether to include
  *     the JSPB instance for transitional soy proto support:
  *     http://goto/soy-param-migration
- * @param {!proto.protos.WriteOptsKubeMQQueue} msg The msg instance to transform.
+ * @param {!proto.protos.opts.ReadOptsKubeMQQueue} msg The msg instance to transform.
  * @return {!Object}
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.protos.WriteOptsKubeMQQueue.toObject = function(includeInstance, msg) {
+proto.protos.opts.ReadOptsKubeMQQueue.toObject = function(includeInstance, msg) {
   var f, obj = {
     conn: (f = msg.getConn()) && args_kubemq$queue_pb.KubeMQQueueConn.toObject(includeInstance, f),
-    args: (f = msg.getArgs()) && args_kubemq$queue_pb.KubeMQQueueWriteArgs.toObject(includeInstance, f)
+    args: (f = msg.getArgs()) && args_kubemq$queue_pb.KubeMQQueueReadArgs.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -4744,23 +4968,23 @@ proto.protos.WriteOptsKubeMQQueue.toObject = function(includeInstance, msg) {
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.protos.WriteOptsKubeMQQueue}
+ * @return {!proto.protos.opts.ReadOptsKubeMQQueue}
  */
-proto.protos.WriteOptsKubeMQQueue.deserializeBinary = function(bytes) {
+proto.protos.opts.ReadOptsKubeMQQueue.deserializeBinary = function(bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.protos.WriteOptsKubeMQQueue;
-  return proto.protos.WriteOptsKubeMQQueue.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.protos.opts.ReadOptsKubeMQQueue;
+  return proto.protos.opts.ReadOptsKubeMQQueue.deserializeBinaryFromReader(msg, reader);
 };
 
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
  * given reader into the given message object.
- * @param {!proto.protos.WriteOptsKubeMQQueue} msg The message object to deserialize into.
+ * @param {!proto.protos.opts.ReadOptsKubeMQQueue} msg The message object to deserialize into.
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.protos.WriteOptsKubeMQQueue}
+ * @return {!proto.protos.opts.ReadOptsKubeMQQueue}
  */
-proto.protos.WriteOptsKubeMQQueue.deserializeBinaryFromReader = function(msg, reader) {
+proto.protos.opts.ReadOptsKubeMQQueue.deserializeBinaryFromReader = function(msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
@@ -4773,8 +4997,8 @@ proto.protos.WriteOptsKubeMQQueue.deserializeBinaryFromReader = function(msg, re
       msg.setConn(value);
       break;
     case 2:
-      var value = new args_kubemq$queue_pb.KubeMQQueueWriteArgs;
-      reader.readMessage(value,args_kubemq$queue_pb.KubeMQQueueWriteArgs.deserializeBinaryFromReader);
+      var value = new args_kubemq$queue_pb.KubeMQQueueReadArgs;
+      reader.readMessage(value,args_kubemq$queue_pb.KubeMQQueueReadArgs.deserializeBinaryFromReader);
       msg.setArgs(value);
       break;
     default:
@@ -4790,9 +5014,9 @@ proto.protos.WriteOptsKubeMQQueue.deserializeBinaryFromReader = function(msg, re
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.protos.WriteOptsKubeMQQueue.prototype.serializeBinary = function() {
+proto.protos.opts.ReadOptsKubeMQQueue.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  proto.protos.WriteOptsKubeMQQueue.serializeBinaryToWriter(this, writer);
+  proto.protos.opts.ReadOptsKubeMQQueue.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
@@ -4800,11 +5024,11 @@ proto.protos.WriteOptsKubeMQQueue.prototype.serializeBinary = function() {
 /**
  * Serializes the given message to binary data (in protobuf wire
  * format), writing to the given BinaryWriter.
- * @param {!proto.protos.WriteOptsKubeMQQueue} message
+ * @param {!proto.protos.opts.ReadOptsKubeMQQueue} message
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.protos.WriteOptsKubeMQQueue.serializeBinaryToWriter = function(message, writer) {
+proto.protos.opts.ReadOptsKubeMQQueue.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
   f = message.getConn();
   if (f != null) {
@@ -4819,17 +5043,17 @@ proto.protos.WriteOptsKubeMQQueue.serializeBinaryToWriter = function(message, wr
     writer.writeMessage(
       2,
       f,
-      args_kubemq$queue_pb.KubeMQQueueWriteArgs.serializeBinaryToWriter
+      args_kubemq$queue_pb.KubeMQQueueReadArgs.serializeBinaryToWriter
     );
   }
 };
 
 
 /**
- * optional args.KubeMQQueueConn _conn = 1;
+ * optional protos.args.KubeMQQueueConn _conn = 1;
  * @return {?proto.protos.args.KubeMQQueueConn}
  */
-proto.protos.WriteOptsKubeMQQueue.prototype.getConn = function() {
+proto.protos.opts.ReadOptsKubeMQQueue.prototype.getConn = function() {
   return /** @type{?proto.protos.args.KubeMQQueueConn} */ (
     jspb.Message.getWrapperField(this, args_kubemq$queue_pb.KubeMQQueueConn, 1));
 };
@@ -4837,18 +5061,18 @@ proto.protos.WriteOptsKubeMQQueue.prototype.getConn = function() {
 
 /**
  * @param {?proto.protos.args.KubeMQQueueConn|undefined} value
- * @return {!proto.protos.WriteOptsKubeMQQueue} returns this
+ * @return {!proto.protos.opts.ReadOptsKubeMQQueue} returns this
 */
-proto.protos.WriteOptsKubeMQQueue.prototype.setConn = function(value) {
+proto.protos.opts.ReadOptsKubeMQQueue.prototype.setConn = function(value) {
   return jspb.Message.setWrapperField(this, 1, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
- * @return {!proto.protos.WriteOptsKubeMQQueue} returns this
+ * @return {!proto.protos.opts.ReadOptsKubeMQQueue} returns this
  */
-proto.protos.WriteOptsKubeMQQueue.prototype.clearConn = function() {
+proto.protos.opts.ReadOptsKubeMQQueue.prototype.clearConn = function() {
   return this.setConn(undefined);
 };
 
@@ -4857,35 +5081,35 @@ proto.protos.WriteOptsKubeMQQueue.prototype.clearConn = function() {
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.protos.WriteOptsKubeMQQueue.prototype.hasConn = function() {
+proto.protos.opts.ReadOptsKubeMQQueue.prototype.hasConn = function() {
   return jspb.Message.getField(this, 1) != null;
 };
 
 
 /**
- * optional args.KubeMQQueueWriteArgs args = 2;
- * @return {?proto.protos.args.KubeMQQueueWriteArgs}
+ * optional protos.args.KubeMQQueueReadArgs args = 2;
+ * @return {?proto.protos.args.KubeMQQueueReadArgs}
  */
-proto.protos.WriteOptsKubeMQQueue.prototype.getArgs = function() {
-  return /** @type{?proto.protos.args.KubeMQQueueWriteArgs} */ (
-    jspb.Message.getWrapperField(this, args_kubemq$queue_pb.KubeMQQueueWriteArgs, 2));
+proto.protos.opts.ReadOptsKubeMQQueue.prototype.getArgs = function() {
+  return /** @type{?proto.protos.args.KubeMQQueueReadArgs} */ (
+    jspb.Message.getWrapperField(this, args_kubemq$queue_pb.KubeMQQueueReadArgs, 2));
 };
 
 
 /**
- * @param {?proto.protos.args.KubeMQQueueWriteArgs|undefined} value
- * @return {!proto.protos.WriteOptsKubeMQQueue} returns this
+ * @param {?proto.protos.args.KubeMQQueueReadArgs|undefined} value
+ * @return {!proto.protos.opts.ReadOptsKubeMQQueue} returns this
 */
-proto.protos.WriteOptsKubeMQQueue.prototype.setArgs = function(value) {
+proto.protos.opts.ReadOptsKubeMQQueue.prototype.setArgs = function(value) {
   return jspb.Message.setWrapperField(this, 2, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
- * @return {!proto.protos.WriteOptsKubeMQQueue} returns this
+ * @return {!proto.protos.opts.ReadOptsKubeMQQueue} returns this
  */
-proto.protos.WriteOptsKubeMQQueue.prototype.clearArgs = function() {
+proto.protos.opts.ReadOptsKubeMQQueue.prototype.clearArgs = function() {
   return this.setArgs(undefined);
 };
 
@@ -4894,9 +5118,9 @@ proto.protos.WriteOptsKubeMQQueue.prototype.clearArgs = function() {
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.protos.WriteOptsKubeMQQueue.prototype.hasArgs = function() {
+proto.protos.opts.ReadOptsKubeMQQueue.prototype.hasArgs = function() {
   return jspb.Message.getField(this, 2) != null;
 };
 
 
-goog.object.extend(exports, proto.protos);
+goog.object.extend(exports, proto.protos.opts);

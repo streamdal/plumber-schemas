@@ -1,132 +1,132 @@
-// package: protos
-// file: x_read.proto
+// package: protos.opts
+// file: opts/read.proto
 
 /* tslint:disable */
 /* eslint-disable */
 
 import * as jspb from "google-protobuf";
-import * as args_activemq_pb from "./args/activemq_pb";
-import * as args_azure_service_bus_pb from "./args/azure-service-bus_pb";
-import * as args_azure_event_hub_pb from "./args/azure-event-hub_pb";
-import * as args_aws_sqs_pb from "./args/aws-sqs_pb";
-import * as args_gcp_pubsub_pb from "./args/gcp-pubsub_pb";
-import * as args_kafka_pb from "./args/kafka_pb";
-import * as args_kubemq_queue_pb from "./args/kubemq-queue_pb";
-import * as args_mongo_pb from "./args/mongo_pb";
-import * as args_mqtt_pb from "./args/mqtt_pb";
-import * as args_nats_pb from "./args/nats_pb";
-import * as args_nats_streaming_pb from "./args/nats-streaming_pb";
-import * as args_nsq_pb from "./args/nsq_pb";
-import * as args_postgres_pb from "./args/postgres_pb";
-import * as args_pulsar_pb from "./args/pulsar_pb";
-import * as args_rabbit_pb from "./args/rabbit_pb";
-import * as args_rabbit_streams_pb from "./args/rabbit-streams_pb";
-import * as args_redis_pubsub_pb from "./args/redis-pubsub_pb";
-import * as args_redis_streams_pb from "./args/redis-streams_pb";
+import * as args_activemq_pb from "../args/activemq_pb";
+import * as args_azure_service_bus_pb from "../args/azure-service-bus_pb";
+import * as args_azure_event_hub_pb from "../args/azure-event-hub_pb";
+import * as args_aws_sqs_pb from "../args/aws-sqs_pb";
+import * as args_gcp_pubsub_pb from "../args/gcp-pubsub_pb";
+import * as args_kafka_pb from "../args/kafka_pb";
+import * as args_kubemq_queue_pb from "../args/kubemq-queue_pb";
+import * as args_mongo_pb from "../args/mongo_pb";
+import * as args_mqtt_pb from "../args/mqtt_pb";
+import * as args_nats_pb from "../args/nats_pb";
+import * as args_nats_streaming_pb from "../args/nats-streaming_pb";
+import * as args_nsq_pb from "../args/nsq_pb";
+import * as args_postgres_pb from "../args/postgres_pb";
+import * as args_pulsar_pb from "../args/pulsar_pb";
+import * as args_rabbit_pb from "../args/rabbit_pb";
+import * as args_rabbit_streams_pb from "../args/rabbit-streams_pb";
+import * as args_redis_pubsub_pb from "../args/redis-pubsub_pb";
+import * as args_redis_streams_pb from "../args/redis-streams_pb";
 
-export class ReadOpts extends jspb.Message { 
+export class Read extends jspb.Message { 
 
     hasKafka(): boolean;
     clearKafka(): void;
     getKafka(): ReadOptsKafka | undefined;
-    setKafka(value?: ReadOptsKafka): ReadOpts;
+    setKafka(value?: ReadOptsKafka): Read;
 
     hasActivemq(): boolean;
     clearActivemq(): void;
     getActivemq(): ReadOptsActiveMQ | undefined;
-    setActivemq(value?: ReadOptsActiveMQ): ReadOpts;
+    setActivemq(value?: ReadOptsActiveMQ): Read;
 
     hasAwssqs(): boolean;
     clearAwssqs(): void;
     getAwssqs(): ReadOptsAWSSQS | undefined;
-    setAwssqs(value?: ReadOptsAWSSQS): ReadOpts;
+    setAwssqs(value?: ReadOptsAWSSQS): Read;
 
     hasMongo(): boolean;
     clearMongo(): void;
     getMongo(): ReadOptsMongo | undefined;
-    setMongo(value?: ReadOptsMongo): ReadOpts;
+    setMongo(value?: ReadOptsMongo): Read;
 
     hasNats(): boolean;
     clearNats(): void;
     getNats(): ReadOptsNats | undefined;
-    setNats(value?: ReadOptsNats): ReadOpts;
+    setNats(value?: ReadOptsNats): Read;
 
     hasNatsStreaming(): boolean;
     clearNatsStreaming(): void;
     getNatsStreaming(): ReadOptsNatsStreaming | undefined;
-    setNatsStreaming(value?: ReadOptsNatsStreaming): ReadOpts;
+    setNatsStreaming(value?: ReadOptsNatsStreaming): Read;
 
     hasNsq(): boolean;
     clearNsq(): void;
     getNsq(): ReadOptsNSQ | undefined;
-    setNsq(value?: ReadOptsNSQ): ReadOpts;
+    setNsq(value?: ReadOptsNSQ): Read;
 
     hasPulsar(): boolean;
     clearPulsar(): void;
     getPulsar(): ReadOptsPulsar | undefined;
-    setPulsar(value?: ReadOptsPulsar): ReadOpts;
+    setPulsar(value?: ReadOptsPulsar): Read;
 
     hasRabbit(): boolean;
     clearRabbit(): void;
     getRabbit(): ReadOptsRabbit | undefined;
-    setRabbit(value?: ReadOptsRabbit): ReadOpts;
+    setRabbit(value?: ReadOptsRabbit): Read;
 
     hasRabbitStreams(): boolean;
     clearRabbitStreams(): void;
     getRabbitStreams(): ReadOptsRabbitStreams | undefined;
-    setRabbitStreams(value?: ReadOptsRabbitStreams): ReadOpts;
+    setRabbitStreams(value?: ReadOptsRabbitStreams): Read;
 
     hasMqtt(): boolean;
     clearMqtt(): void;
     getMqtt(): ReadOptsMQTT | undefined;
-    setMqtt(value?: ReadOptsMQTT): ReadOpts;
+    setMqtt(value?: ReadOptsMQTT): Read;
 
     hasAzureServiceBus(): boolean;
     clearAzureServiceBus(): void;
     getAzureServiceBus(): ReadOptsAzureServiceBus | undefined;
-    setAzureServiceBus(value?: ReadOptsAzureServiceBus): ReadOpts;
+    setAzureServiceBus(value?: ReadOptsAzureServiceBus): Read;
 
     hasAzureEventHub(): boolean;
     clearAzureEventHub(): void;
     getAzureEventHub(): ReadOptsAzureEventHub | undefined;
-    setAzureEventHub(value?: ReadOptsAzureEventHub): ReadOpts;
+    setAzureEventHub(value?: ReadOptsAzureEventHub): Read;
 
     hasGcpPubsub(): boolean;
     clearGcpPubsub(): void;
     getGcpPubsub(): ReadOptsGCPPubSub | undefined;
-    setGcpPubsub(value?: ReadOptsGCPPubSub): ReadOpts;
+    setGcpPubsub(value?: ReadOptsGCPPubSub): Read;
 
     hasKubemqQueue(): boolean;
     clearKubemqQueue(): void;
     getKubemqQueue(): ReadOptsKubeMQQueue | undefined;
-    setKubemqQueue(value?: ReadOptsKubeMQQueue): ReadOpts;
+    setKubemqQueue(value?: ReadOptsKubeMQQueue): Read;
 
     hasRedisPubsub(): boolean;
     clearRedisPubsub(): void;
     getRedisPubsub(): ReadOptsRedisPubSub | undefined;
-    setRedisPubsub(value?: ReadOptsRedisPubSub): ReadOpts;
+    setRedisPubsub(value?: ReadOptsRedisPubSub): Read;
 
     hasRedisStreams(): boolean;
     clearRedisStreams(): void;
     getRedisStreams(): ReadOptsRedisStreams | undefined;
-    setRedisStreams(value?: ReadOptsRedisStreams): ReadOpts;
+    setRedisStreams(value?: ReadOptsRedisStreams): Read;
 
     hasPostgres(): boolean;
     clearPostgres(): void;
     getPostgres(): ReadOptsPostgres | undefined;
-    setPostgres(value?: ReadOptsPostgres): ReadOpts;
+    setPostgres(value?: ReadOptsPostgres): Read;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): ReadOpts.AsObject;
-    static toObject(includeInstance: boolean, msg: ReadOpts): ReadOpts.AsObject;
+    toObject(includeInstance?: boolean): Read.AsObject;
+    static toObject(includeInstance: boolean, msg: Read): Read.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: ReadOpts, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): ReadOpts;
-    static deserializeBinaryFromReader(message: ReadOpts, reader: jspb.BinaryReader): ReadOpts;
+    static serializeBinaryToWriter(message: Read, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): Read;
+    static deserializeBinaryFromReader(message: Read, reader: jspb.BinaryReader): Read;
 }
 
-export namespace ReadOpts {
+export namespace Read {
     export type AsObject = {
         kafka?: ReadOptsKafka.AsObject,
         activemq?: ReadOptsActiveMQ.AsObject,

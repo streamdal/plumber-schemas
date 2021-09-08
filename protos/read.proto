@@ -2,11 +2,11 @@ syntax = "proto3";
 
 package protos;
 
-import "x_read.proto";
 import "common/auth.proto";
 import "common/status.proto";
 import "encoding/options.proto";
 import "records/base.proto";
+import "opts/read.proto";
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
 
@@ -68,7 +68,7 @@ message ReadConfig {
     // NOTE: Desktop can leave conn unset - an existing connection will be used
     // by looking up connection_id.
     // @gotags: kong:"embed"
-    ReadOpts read_opts = 6;
+    opts.Read read_opts = 6;
 
     ////////////////////////////////////////////////////////
     ////////////// "Private" fields 1000+ ////////////////

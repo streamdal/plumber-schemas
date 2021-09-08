@@ -15,8 +15,6 @@ var jspb = require('google-protobuf');
 var goog = jspb;
 var global = Function('return this')();
 
-var x_read_pb = require('./x_read_pb.js');
-goog.object.extend(proto, x_read_pb);
 var common_auth_pb = require('./common/auth_pb.js');
 goog.object.extend(proto, common_auth_pb);
 var common_status_pb = require('./common/status_pb.js');
@@ -25,6 +23,8 @@ var encoding_options_pb = require('./encoding/options_pb.js');
 goog.object.extend(proto, encoding_options_pb);
 var records_base_pb = require('./records/base_pb.js');
 goog.object.extend(proto, records_base_pb);
+var opts_read_pb = require('./opts/read_pb.js');
+goog.object.extend(proto, opts_read_pb);
 goog.exportSymbol('proto.protos.ConvertOption', null, global);
 goog.exportSymbol('proto.protos.CreateReadRequest', null, global);
 goog.exportSymbol('proto.protos.CreateReadResponse', null, global);
@@ -831,7 +831,7 @@ proto.protos.ReadConfig.toObject = function(includeInstance, msg) {
     continuous: jspb.Message.getBooleanFieldWithDefault(msg, 3, false),
     sampleOptions: (f = msg.getSampleOptions()) && proto.protos.ReadSampleOptions.toObject(includeInstance, f),
     decodeOptions: (f = msg.getDecodeOptions()) && encoding_options_pb.DecodeOptions.toObject(includeInstance, f),
-    readOpts: (f = msg.getReadOpts()) && x_read_pb.ReadOpts.toObject(includeInstance, f),
+    readOpts: (f = msg.getReadOpts()) && opts_read_pb.Read.toObject(includeInstance, f),
     id: jspb.Message.getFieldWithDefault(msg, 1000, ""),
     active: jspb.Message.getBooleanFieldWithDefault(msg, 1001, false),
     cliConfig: (f = msg.getCliConfig()) && proto.protos.ReadCLIConfig.toObject(includeInstance, f)
@@ -894,8 +894,8 @@ proto.protos.ReadConfig.deserializeBinaryFromReader = function(msg, reader) {
       msg.setDecodeOptions(value);
       break;
     case 6:
-      var value = new x_read_pb.ReadOpts;
-      reader.readMessage(value,x_read_pb.ReadOpts.deserializeBinaryFromReader);
+      var value = new opts_read_pb.Read;
+      reader.readMessage(value,opts_read_pb.Read.deserializeBinaryFromReader);
       msg.setReadOpts(value);
       break;
     case 1000:
@@ -982,7 +982,7 @@ proto.protos.ReadConfig.serializeBinaryToWriter = function(message, writer) {
     writer.writeMessage(
       6,
       f,
-      x_read_pb.ReadOpts.serializeBinaryToWriter
+      opts_read_pb.Read.serializeBinaryToWriter
     );
   }
   f = message.getId();
@@ -1139,17 +1139,17 @@ proto.protos.ReadConfig.prototype.hasDecodeOptions = function() {
 
 
 /**
- * optional ReadOpts read_opts = 6;
- * @return {?proto.protos.ReadOpts}
+ * optional opts.Read read_opts = 6;
+ * @return {?proto.protos.opts.Read}
  */
 proto.protos.ReadConfig.prototype.getReadOpts = function() {
-  return /** @type{?proto.protos.ReadOpts} */ (
-    jspb.Message.getWrapperField(this, x_read_pb.ReadOpts, 6));
+  return /** @type{?proto.protos.opts.Read} */ (
+    jspb.Message.getWrapperField(this, opts_read_pb.Read, 6));
 };
 
 
 /**
- * @param {?proto.protos.ReadOpts|undefined} value
+ * @param {?proto.protos.opts.Read|undefined} value
  * @return {!proto.protos.ReadConfig} returns this
 */
 proto.protos.ReadConfig.prototype.setReadOpts = function(value) {

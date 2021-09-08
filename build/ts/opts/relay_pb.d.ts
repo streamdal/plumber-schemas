@@ -1,96 +1,96 @@
-// package: protos
-// file: x_relay.proto
+// package: protos.opts
+// file: opts/relay.proto
 
 /* tslint:disable */
 /* eslint-disable */
 
 import * as jspb from "google-protobuf";
-import * as args_azure_service_bus_pb from "./args/azure-service-bus_pb";
-import * as args_aws_sqs_pb from "./args/aws-sqs_pb";
-import * as args_gcp_pubsub_pb from "./args/gcp-pubsub_pb";
-import * as args_kafka_pb from "./args/kafka_pb";
-import * as args_kubemq_queue_pb from "./args/kubemq-queue_pb";
-import * as args_mongo_pb from "./args/mongo_pb";
-import * as args_mqtt_pb from "./args/mqtt_pb";
-import * as args_nsq_pb from "./args/nsq_pb";
-import * as args_postgres_pb from "./args/postgres_pb";
-import * as args_rabbit_pb from "./args/rabbit_pb";
-import * as args_redis_pubsub_pb from "./args/redis-pubsub_pb";
-import * as args_redis_streams_pb from "./args/redis-streams_pb";
+import * as args_azure_service_bus_pb from "../args/azure-service-bus_pb";
+import * as args_aws_sqs_pb from "../args/aws-sqs_pb";
+import * as args_gcp_pubsub_pb from "../args/gcp-pubsub_pb";
+import * as args_kafka_pb from "../args/kafka_pb";
+import * as args_kubemq_queue_pb from "../args/kubemq-queue_pb";
+import * as args_mongo_pb from "../args/mongo_pb";
+import * as args_mqtt_pb from "../args/mqtt_pb";
+import * as args_nsq_pb from "../args/nsq_pb";
+import * as args_postgres_pb from "../args/postgres_pb";
+import * as args_rabbit_pb from "../args/rabbit_pb";
+import * as args_redis_pubsub_pb from "../args/redis-pubsub_pb";
+import * as args_redis_streams_pb from "../args/redis-streams_pb";
 
-export class RelayOpts extends jspb.Message { 
+export class Relay extends jspb.Message { 
 
     hasKafka(): boolean;
     clearKafka(): void;
     getKafka(): RelayOptsKafka | undefined;
-    setKafka(value?: RelayOptsKafka): RelayOpts;
+    setKafka(value?: RelayOptsKafka): Relay;
 
     hasAwssqs(): boolean;
     clearAwssqs(): void;
     getAwssqs(): RelayOptsAWSSQS | undefined;
-    setAwssqs(value?: RelayOptsAWSSQS): RelayOpts;
+    setAwssqs(value?: RelayOptsAWSSQS): Relay;
 
     hasMongo(): boolean;
     clearMongo(): void;
     getMongo(): RelayOptsMongo | undefined;
-    setMongo(value?: RelayOptsMongo): RelayOpts;
+    setMongo(value?: RelayOptsMongo): Relay;
 
     hasNsq(): boolean;
     clearNsq(): void;
     getNsq(): RelayOptsNSQ | undefined;
-    setNsq(value?: RelayOptsNSQ): RelayOpts;
+    setNsq(value?: RelayOptsNSQ): Relay;
 
     hasRabbit(): boolean;
     clearRabbit(): void;
     getRabbit(): RelayOptsRabbit | undefined;
-    setRabbit(value?: RelayOptsRabbit): RelayOpts;
+    setRabbit(value?: RelayOptsRabbit): Relay;
 
     hasMqtt(): boolean;
     clearMqtt(): void;
     getMqtt(): RelayOptsMQTT | undefined;
-    setMqtt(value?: RelayOptsMQTT): RelayOpts;
+    setMqtt(value?: RelayOptsMQTT): Relay;
 
     hasAzureServiceBus(): boolean;
     clearAzureServiceBus(): void;
     getAzureServiceBus(): RelayOptsAzureServiceBus | undefined;
-    setAzureServiceBus(value?: RelayOptsAzureServiceBus): RelayOpts;
+    setAzureServiceBus(value?: RelayOptsAzureServiceBus): Relay;
 
     hasGcpPubsub(): boolean;
     clearGcpPubsub(): void;
     getGcpPubsub(): RelayOptsGCPPubSub | undefined;
-    setGcpPubsub(value?: RelayOptsGCPPubSub): RelayOpts;
+    setGcpPubsub(value?: RelayOptsGCPPubSub): Relay;
 
     hasKubemqQueue(): boolean;
     clearKubemqQueue(): void;
     getKubemqQueue(): RelayOptsKubeMQQueue | undefined;
-    setKubemqQueue(value?: RelayOptsKubeMQQueue): RelayOpts;
+    setKubemqQueue(value?: RelayOptsKubeMQQueue): Relay;
 
     hasRedisPubsub(): boolean;
     clearRedisPubsub(): void;
     getRedisPubsub(): RelayOptsRedisPubSub | undefined;
-    setRedisPubsub(value?: RelayOptsRedisPubSub): RelayOpts;
+    setRedisPubsub(value?: RelayOptsRedisPubSub): Relay;
 
     hasRedisStreams(): boolean;
     clearRedisStreams(): void;
     getRedisStreams(): RelayOptsRedisStreams | undefined;
-    setRedisStreams(value?: RelayOptsRedisStreams): RelayOpts;
+    setRedisStreams(value?: RelayOptsRedisStreams): Relay;
 
     hasPostgres(): boolean;
     clearPostgres(): void;
     getPostgres(): RelayOptsPostgres | undefined;
-    setPostgres(value?: RelayOptsPostgres): RelayOpts;
+    setPostgres(value?: RelayOptsPostgres): Relay;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): RelayOpts.AsObject;
-    static toObject(includeInstance: boolean, msg: RelayOpts): RelayOpts.AsObject;
+    toObject(includeInstance?: boolean): Relay.AsObject;
+    static toObject(includeInstance: boolean, msg: Relay): Relay.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: RelayOpts, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): RelayOpts;
-    static deserializeBinaryFromReader(message: RelayOpts, reader: jspb.BinaryReader): RelayOpts;
+    static serializeBinaryToWriter(message: Relay, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): Relay;
+    static deserializeBinaryFromReader(message: Relay, reader: jspb.BinaryReader): Relay;
 }
 
-export namespace RelayOpts {
+export namespace Relay {
     export type AsObject = {
         kafka?: RelayOptsKafka.AsObject,
         awssqs?: RelayOptsAWSSQS.AsObject,

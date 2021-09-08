@@ -5,11 +5,11 @@
 /* eslint-disable */
 
 import * as jspb from "google-protobuf";
-import * as x_read_pb from "./x_read_pb";
 import * as common_auth_pb from "./common/auth_pb";
 import * as common_status_pb from "./common/status_pb";
 import * as encoding_options_pb from "./encoding/options_pb";
 import * as records_base_pb from "./records/base_pb";
+import * as opts_read_pb from "./opts/read_pb";
 
 export class ReadSampleOptions extends jspb.Message { 
     getSampleRate(): number;
@@ -88,8 +88,8 @@ export class ReadConfig extends jspb.Message {
 
     hasReadOpts(): boolean;
     clearReadOpts(): void;
-    getReadOpts(): x_read_pb.ReadOpts | undefined;
-    setReadOpts(value?: x_read_pb.ReadOpts): ReadConfig;
+    getReadOpts(): opts_read_pb.Read | undefined;
+    setReadOpts(value?: opts_read_pb.Read): ReadConfig;
     getId(): string;
     setId(value: string): ReadConfig;
     getActive(): boolean;
@@ -117,7 +117,7 @@ export namespace ReadConfig {
         continuous: boolean,
         sampleOptions?: ReadSampleOptions.AsObject,
         decodeOptions?: encoding_options_pb.DecodeOptions.AsObject,
-        readOpts?: x_read_pb.ReadOpts.AsObject,
+        readOpts?: opts_read_pb.Read.AsObject,
         Id: string,
         Active: boolean,
         CliConfig?: ReadCLIConfig.AsObject,

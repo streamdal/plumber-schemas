@@ -2,9 +2,9 @@ syntax = "proto3";
 
 package protos;
 
-import "x_relay.proto";
 import "common/auth.proto";
 import "common/status.proto";
+import "opts/relay.proto";
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
 
@@ -43,7 +43,7 @@ message RelayConfig {
     // NOTE: Desktop can leave conn unset - an existing connection will be used
     // by looking up connection_id.
     // @gotags: kong:"embed"
-    RelayOpts relay_opts = 9;
+    opts.Relay relay_opts = 9;
 
     // ID of the created relay entry; populated by plumber.
     // @gotags: kong:"-"

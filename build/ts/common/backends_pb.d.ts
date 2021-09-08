@@ -1,5 +1,5 @@
-// package: protos
-// file: x_backends.proto
+// package: protos.common
+// file: common/backends.proto
 
 /* tslint:disable */
 /* eslint-disable */
