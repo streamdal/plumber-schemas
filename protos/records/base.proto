@@ -41,10 +41,8 @@ message Read {
 
     // Set _outside_ the backend; will contain the final value, regardless of
     // whether decoding options were specified for a read.
-    //
-    // NOTE: This is what desktop should be displaying. CLI will call on each
-    // backends' DisplayRead() and DisplayError() methods.
-    bytes _decoded = 99;
+    // _This_ is what both CLI and desktop should display for the payload.
+    bytes payload = 99;
 
     oneof Record {
         records.Kafka kafka = 100;

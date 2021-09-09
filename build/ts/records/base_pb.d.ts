@@ -21,10 +21,10 @@ export class Read extends jspb.Message {
     setRaw(value: Uint8Array | string): Read;
     getReceivedAtUnixTsUtc(): number;
     setReceivedAtUnixTsUtc(value: number): Read;
-    getDecoded(): Uint8Array | string;
-    getDecoded_asU8(): Uint8Array;
-    getDecoded_asB64(): string;
-    setDecoded(value: Uint8Array | string): Read;
+    getPayload(): Uint8Array | string;
+    getPayload_asU8(): Uint8Array;
+    getPayload_asB64(): string;
+    setPayload(value: Uint8Array | string): Read;
 
     hasKafka(): boolean;
     clearKafka(): void;
@@ -51,7 +51,7 @@ export namespace Read {
         metadataMap: Array<[string, Uint8Array | string]>,
         raw: Uint8Array | string,
         receivedAtUnixTsUtc: number,
-        Decoded: Uint8Array | string,
+        payload: Uint8Array | string,
         kafka?: records_kafka_pb.Kafka.AsObject,
     }
 

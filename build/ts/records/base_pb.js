@@ -146,7 +146,7 @@ proto.protos.records.Read.toObject = function(includeInstance, msg) {
     metadataMap: (f = msg.getMetadataMap()) ? f.toObject(includeInstance, undefined) : [],
     raw: msg.getRaw_asB64(),
     receivedAtUnixTsUtc: jspb.Message.getFieldWithDefault(msg, 5, 0),
-    decoded: msg.getDecoded_asB64(),
+    payload: msg.getPayload_asB64(),
     kafka: (f = msg.getKafka()) && records_kafka_pb.Kafka.toObject(includeInstance, f)
   };
 
@@ -208,7 +208,7 @@ proto.protos.records.Read.deserializeBinaryFromReader = function(msg, reader) {
       break;
     case 99:
       var value = /** @type {!Uint8Array} */ (reader.readBytes());
-      msg.setDecoded(value);
+      msg.setPayload(value);
       break;
     case 100:
       var value = new records_kafka_pb.Kafka;
@@ -276,7 +276,7 @@ proto.protos.records.Read.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getDecoded_asU8();
+  f = message.getPayload_asU8();
   if (f.length > 0) {
     writer.writeBytes(
       99,
@@ -413,35 +413,35 @@ proto.protos.records.Read.prototype.setReceivedAtUnixTsUtc = function(value) {
 
 
 /**
- * optional bytes _decoded = 99;
+ * optional bytes payload = 99;
  * @return {!(string|Uint8Array)}
  */
-proto.protos.records.Read.prototype.getDecoded = function() {
+proto.protos.records.Read.prototype.getPayload = function() {
   return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 99, ""));
 };
 
 
 /**
- * optional bytes _decoded = 99;
- * This is a type-conversion wrapper around `getDecoded()`
+ * optional bytes payload = 99;
+ * This is a type-conversion wrapper around `getPayload()`
  * @return {string}
  */
-proto.protos.records.Read.prototype.getDecoded_asB64 = function() {
+proto.protos.records.Read.prototype.getPayload_asB64 = function() {
   return /** @type {string} */ (jspb.Message.bytesAsB64(
-      this.getDecoded()));
+      this.getPayload()));
 };
 
 
 /**
- * optional bytes _decoded = 99;
+ * optional bytes payload = 99;
  * Note that Uint8Array is not supported on all browsers.
  * @see http://caniuse.com/Uint8Array
- * This is a type-conversion wrapper around `getDecoded()`
+ * This is a type-conversion wrapper around `getPayload()`
  * @return {!Uint8Array}
  */
-proto.protos.records.Read.prototype.getDecoded_asU8 = function() {
+proto.protos.records.Read.prototype.getPayload_asU8 = function() {
   return /** @type {!Uint8Array} */ (jspb.Message.bytesAsU8(
-      this.getDecoded()));
+      this.getPayload()));
 };
 
 
@@ -449,7 +449,7 @@ proto.protos.records.Read.prototype.getDecoded_asU8 = function() {
  * @param {!(string|Uint8Array)} value
  * @return {!proto.protos.records.Read} returns this
  */
-proto.protos.records.Read.prototype.setDecoded = function(value) {
+proto.protos.records.Read.prototype.setPayload = function(value) {
   return jspb.Message.setProto3BytesField(this, 99, value);
 };
 
