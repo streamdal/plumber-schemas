@@ -98,8 +98,8 @@ generate/go:
 	--go_opt=paths=source_relative \
 	protos/encoding/*.proto
 
-	# Because opts imports from base /protos, we have to specify --proto_path=./protos
-	# This means that output location will be _inferred_ as 'build/go/protos/opts'
+# Because opts imports from base /protos, we have to specify --proto_path=./protos
+# This means that output location will be _inferred_ as 'build/go/protos/opts'
 	docker run --rm -w $(PWD) -v $(PWD):$(PWD) -w${PWD} jaegertracing/protobuf:0.2.0 \
 	--proto_path=./protos \
 	--go_out=plugins=grpc:build/go/protos \
@@ -111,6 +111,9 @@ generate/go:
 	--go_out=plugins=grpc:build/go/protos \
 	--go_opt=paths=source_relative \
 	protos/records/*.proto
+
+# Perform any extra steps as part of codegen
+	./extra.sh
 
 .PHONY: inject-tags
 inject-tags: description = Inject tags for CLI

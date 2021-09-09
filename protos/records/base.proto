@@ -31,13 +31,9 @@ message Read {
     // entry might have its own timestamp as well).
     int64 received_at_unix_ts_utc = 5;
 
-
-
     //
     // >>> Intentionally leaving this index space for future use <<<
     //
-
-
 
     // Set _outside_ the backend; will contain the final value, regardless of
     // whether decoding options were specified for a read.
