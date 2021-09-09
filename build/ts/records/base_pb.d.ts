@@ -7,43 +7,43 @@
 import * as jspb from "google-protobuf";
 import * as records_kafka_pb from "../records/kafka_pb";
 
-export class ReadRecord extends jspb.Message { 
+export class Read extends jspb.Message { 
     getMessageId(): string;
-    setMessageId(value: string): ReadRecord;
+    setMessageId(value: string): Read;
     getPlumberId(): string;
-    setPlumberId(value: string): ReadRecord;
+    setPlumberId(value: string): Read;
 
     getMetadataMap(): jspb.Map<string, Uint8Array | string>;
     clearMetadataMap(): void;
     getRaw(): Uint8Array | string;
     getRaw_asU8(): Uint8Array;
     getRaw_asB64(): string;
-    setRaw(value: Uint8Array | string): ReadRecord;
+    setRaw(value: Uint8Array | string): Read;
     getReceivedAtUnixTsUtc(): number;
-    setReceivedAtUnixTsUtc(value: number): ReadRecord;
+    setReceivedAtUnixTsUtc(value: number): Read;
     getDecoded(): Uint8Array | string;
     getDecoded_asU8(): Uint8Array;
     getDecoded_asB64(): string;
-    setDecoded(value: Uint8Array | string): ReadRecord;
+    setDecoded(value: Uint8Array | string): Read;
 
     hasKafka(): boolean;
     clearKafka(): void;
     getKafka(): records_kafka_pb.Kafka | undefined;
-    setKafka(value?: records_kafka_pb.Kafka): ReadRecord;
+    setKafka(value?: records_kafka_pb.Kafka): Read;
 
-    getRecordCase(): ReadRecord.RecordCase;
+    getRecordCase(): Read.RecordCase;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): ReadRecord.AsObject;
-    static toObject(includeInstance: boolean, msg: ReadRecord): ReadRecord.AsObject;
+    toObject(includeInstance?: boolean): Read.AsObject;
+    static toObject(includeInstance: boolean, msg: Read): Read.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: ReadRecord, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): ReadRecord;
-    static deserializeBinaryFromReader(message: ReadRecord, reader: jspb.BinaryReader): ReadRecord;
+    static serializeBinaryToWriter(message: Read, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): Read;
+    static deserializeBinaryFromReader(message: Read, reader: jspb.BinaryReader): Read;
 }
 
-export namespace ReadRecord {
+export namespace Read {
     export type AsObject = {
         messageId: string,
         plumberId: string,
@@ -62,24 +62,24 @@ export namespace ReadRecord {
 
 }
 
-export class WriteRecord extends jspb.Message { 
+export class Write extends jspb.Message { 
     getInput(): string;
-    setInput(value: string): WriteRecord;
+    setInput(value: string): Write;
 
     getInputMetadataMap(): jspb.Map<string, string>;
     clearInputMetadataMap(): void;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): WriteRecord.AsObject;
-    static toObject(includeInstance: boolean, msg: WriteRecord): WriteRecord.AsObject;
+    toObject(includeInstance?: boolean): Write.AsObject;
+    static toObject(includeInstance: boolean, msg: Write): Write.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: WriteRecord, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): WriteRecord;
-    static deserializeBinaryFromReader(message: WriteRecord, reader: jspb.BinaryReader): WriteRecord;
+    static serializeBinaryToWriter(message: Write, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): Write;
+    static deserializeBinaryFromReader(message: Write, reader: jspb.BinaryReader): Write;
 }
 
-export namespace WriteRecord {
+export namespace Write {
     export type AsObject = {
         input: string,
 
@@ -87,26 +87,26 @@ export namespace WriteRecord {
     }
 }
 
-export class ErrorRecord extends jspb.Message { 
+export class Error extends jspb.Message { 
     getOccurredAtUnixTsUtc(): number;
-    setOccurredAtUnixTsUtc(value: number): ErrorRecord;
+    setOccurredAtUnixTsUtc(value: number): Error;
     getError(): string;
-    setError(value: string): ErrorRecord;
+    setError(value: string): Error;
 
     getMetadataMap(): jspb.Map<string, Uint8Array | string>;
     clearMetadataMap(): void;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): ErrorRecord.AsObject;
-    static toObject(includeInstance: boolean, msg: ErrorRecord): ErrorRecord.AsObject;
+    toObject(includeInstance?: boolean): Error.AsObject;
+    static toObject(includeInstance: boolean, msg: Error): Error.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: ErrorRecord, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): ErrorRecord;
-    static deserializeBinaryFromReader(message: ErrorRecord, reader: jspb.BinaryReader): ErrorRecord;
+    static serializeBinaryToWriter(message: Error, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): Error;
+    static deserializeBinaryFromReader(message: Error, reader: jspb.BinaryReader): Error;
 }
 
-export namespace ErrorRecord {
+export namespace Error {
     export type AsObject = {
         occurredAtUnixTsUtc: number,
         error: string,

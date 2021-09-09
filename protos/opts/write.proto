@@ -32,7 +32,7 @@ option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/opts";
 // NOTE: _conn is only used by the CLI - desktop does not need to set it.
 message Write {
     // @gotags: kong:"embed"
-    records.WriteRecord record = 1;
+    records.Write record = 1;
 
     // @gotags: kong:"cmd,help='Apache Kafka'"
     WriteOptsKafka kafka = 100;

@@ -2848,7 +2848,7 @@ proto.protos.StartReadResponse.prototype.toObject = function(opt_includeInstance
 proto.protos.StartReadResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
     recordsList: jspb.Message.toObjectList(msg.getRecordsList(),
-    records_base_pb.ReadRecord.toObject, includeInstance),
+    records_base_pb.Read.toObject, includeInstance),
     status: (f = msg.getStatus()) && common_status_pb.Status.toObject(includeInstance, f)
   };
 
@@ -2887,8 +2887,8 @@ proto.protos.StartReadResponse.deserializeBinaryFromReader = function(msg, reade
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = new records_base_pb.ReadRecord;
-      reader.readMessage(value,records_base_pb.ReadRecord.deserializeBinaryFromReader);
+      var value = new records_base_pb.Read;
+      reader.readMessage(value,records_base_pb.Read.deserializeBinaryFromReader);
       msg.addRecords(value);
       break;
     case 1000:
@@ -2930,7 +2930,7 @@ proto.protos.StartReadResponse.serializeBinaryToWriter = function(message, write
     writer.writeRepeatedMessage(
       1,
       f,
-      records_base_pb.ReadRecord.serializeBinaryToWriter
+      records_base_pb.Read.serializeBinaryToWriter
     );
   }
   f = message.getStatus();
@@ -2945,17 +2945,17 @@ proto.protos.StartReadResponse.serializeBinaryToWriter = function(message, write
 
 
 /**
- * repeated records.ReadRecord records = 1;
- * @return {!Array<!proto.protos.records.ReadRecord>}
+ * repeated records.Read records = 1;
+ * @return {!Array<!proto.protos.records.Read>}
  */
 proto.protos.StartReadResponse.prototype.getRecordsList = function() {
-  return /** @type{!Array<!proto.protos.records.ReadRecord>} */ (
-    jspb.Message.getRepeatedWrapperField(this, records_base_pb.ReadRecord, 1));
+  return /** @type{!Array<!proto.protos.records.Read>} */ (
+    jspb.Message.getRepeatedWrapperField(this, records_base_pb.Read, 1));
 };
 
 
 /**
- * @param {!Array<!proto.protos.records.ReadRecord>} value
+ * @param {!Array<!proto.protos.records.Read>} value
  * @return {!proto.protos.StartReadResponse} returns this
 */
 proto.protos.StartReadResponse.prototype.setRecordsList = function(value) {
@@ -2964,12 +2964,12 @@ proto.protos.StartReadResponse.prototype.setRecordsList = function(value) {
 
 
 /**
- * @param {!proto.protos.records.ReadRecord=} opt_value
+ * @param {!proto.protos.records.Read=} opt_value
  * @param {number=} opt_index
- * @return {!proto.protos.records.ReadRecord}
+ * @return {!proto.protos.records.Read}
  */
 proto.protos.StartReadResponse.prototype.addRecords = function(opt_value, opt_index) {
-  return jspb.Message.addToRepeatedWrapperField(this, 1, opt_value, proto.protos.records.ReadRecord, opt_index);
+  return jspb.Message.addToRepeatedWrapperField(this, 1, opt_value, proto.protos.records.Read, opt_index);
 };
 
 

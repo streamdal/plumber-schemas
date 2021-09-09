@@ -28,8 +28,8 @@ export class Write extends jspb.Message {
 
     hasRecord(): boolean;
     clearRecord(): void;
-    getRecord(): records_base_pb.WriteRecord | undefined;
-    setRecord(value?: records_base_pb.WriteRecord): Write;
+    getRecord(): records_base_pb.Write | undefined;
+    setRecord(value?: records_base_pb.Write): Write;
 
     hasKafka(): boolean;
     clearKafka(): void;
@@ -128,7 +128,7 @@ export class Write extends jspb.Message {
 
 export namespace Write {
     export type AsObject = {
-        record?: records_base_pb.WriteRecord.AsObject,
+        record?: records_base_pb.Write.AsObject,
         kafka?: WriteOptsKafka.AsObject,
         activemq?: WriteOptsActiveMQ.AsObject,
         awssqs?: WriteOptsAWSSQS.AsObject,

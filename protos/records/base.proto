@@ -8,7 +8,7 @@ import "records/kafka.proto";
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/records";
 
 // Returned for read requests (server & cli)
-message ReadRecord {
+message Read {
     // Unique id automatically created by plumber
     string message_id = 1;
 
@@ -31,10 +31,19 @@ message ReadRecord {
     // entry might have its own timestamp as well).
     int64 received_at_unix_ts_utc = 5;
 
+
+
+    //
     // >>> Intentionally leaving this index space for future use <<<
+    //
+
+
 
     // Set _outside_ the backend; will contain the final value, regardless of
     // whether decoding options were specified for a read.
+    //
+    // NOTE: This is what desktop should be displaying. CLI will call on each
+    // backends' DisplayRead() and DisplayError() methods.
     bytes _decoded = 99;
 
     oneof Record {
@@ -43,7 +52,7 @@ message ReadRecord {
 }
 
 // Used as an arg for write requests (server & cli)
-message WriteRecord {
+message Write {
     // If encoding options are provided, this value will be updated by plumber
     // to contain the encoded payload _before_ passing it to the backend.
     // @gotags: kong:"help='Input string',name=input,xor=input,default"
@@ -54,7 +63,7 @@ message WriteRecord {
 }
 
 // Used for communicating errors that occur during a read, write, relay, etc.
-message ErrorRecord {
+message Error {
     int64 occurred_at_unix_ts_utc = 1;
     string error = 2;
     map<string, bytes> metadata = 3;

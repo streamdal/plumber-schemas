@@ -479,7 +479,7 @@ proto.protos.opts.Write.prototype.toObject = function(opt_includeInstance) {
  */
 proto.protos.opts.Write.toObject = function(includeInstance, msg) {
   var f, obj = {
-    record: (f = msg.getRecord()) && records_base_pb.WriteRecord.toObject(includeInstance, f),
+    record: (f = msg.getRecord()) && records_base_pb.Write.toObject(includeInstance, f),
     kafka: (f = msg.getKafka()) && proto.protos.opts.WriteOptsKafka.toObject(includeInstance, f),
     activemq: (f = msg.getActivemq()) && proto.protos.opts.WriteOptsActiveMQ.toObject(includeInstance, f),
     awssqs: (f = msg.getAwssqs()) && proto.protos.opts.WriteOptsAWSSQS.toObject(includeInstance, f),
@@ -534,8 +534,8 @@ proto.protos.opts.Write.deserializeBinaryFromReader = function(msg, reader) {
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = new records_base_pb.WriteRecord;
-      reader.readMessage(value,records_base_pb.WriteRecord.deserializeBinaryFromReader);
+      var value = new records_base_pb.Write;
+      reader.readMessage(value,records_base_pb.Write.deserializeBinaryFromReader);
       msg.setRecord(value);
       break;
     case 100:
@@ -657,7 +657,7 @@ proto.protos.opts.Write.serializeBinaryToWriter = function(message, writer) {
     writer.writeMessage(
       1,
       f,
-      records_base_pb.WriteRecord.serializeBinaryToWriter
+      records_base_pb.Write.serializeBinaryToWriter
     );
   }
   f = message.getKafka();
@@ -800,17 +800,17 @@ proto.protos.opts.Write.serializeBinaryToWriter = function(message, writer) {
 
 
 /**
- * optional protos.records.WriteRecord record = 1;
- * @return {?proto.protos.records.WriteRecord}
+ * optional protos.records.Write record = 1;
+ * @return {?proto.protos.records.Write}
  */
 proto.protos.opts.Write.prototype.getRecord = function() {
-  return /** @type{?proto.protos.records.WriteRecord} */ (
-    jspb.Message.getWrapperField(this, records_base_pb.WriteRecord, 1));
+  return /** @type{?proto.protos.records.Write} */ (
+    jspb.Message.getWrapperField(this, records_base_pb.Write, 1));
 };
 
 
 /**
- * @param {?proto.protos.records.WriteRecord|undefined} value
+ * @param {?proto.protos.records.Write|undefined} value
  * @return {!proto.protos.opts.Write} returns this
 */
 proto.protos.opts.Write.prototype.setRecord = function(value) {
