@@ -8,12 +8,13 @@ import "records/kafka.proto";
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/records";
 
 // Returned for read requests (server & cli)
-message Read {
+message ReadRecord {
     // Unique id automatically created by plumber
     string message_id = 1;
 
-    // Identifies which plumber instance received the event
-    string plumber_id = 2;
+    // Plumber counts the number of messages it reads; this number represents
+    // the message number (useful for CLI).
+    int64 num = 3;
 
     // Metadata may contain properties that cannot be found in the Raw message.
     // For example: read lag in Kafka.
@@ -22,14 +23,11 @@ message Read {
     // number that plumber assigns to each message it receives. This is used
     // with read via CLI functionality to allow the user to quickly discern
     // whether this is message #1 or #500, etc.
-    map<string, bytes> metadata = 3;
+    map<string, string> metadata = 4;
 
-    // Original backend message (encoded with gob, ie. *skafka.Message, etc.)
-    bytes raw = 4;
-
-    // UTC unix timestamp of when plumber received the message (a backend record
-    // entry might have its own timestamp as well).
-    int64 received_at_unix_ts_utc = 5;
+    // UTC unix timestamp of when plumber received the message; a backend record
+    // entry might have its own timestamp as well. This should be seconds.
+    int64 received_at_unix_ts_utc = 6;
 
     //
     // >>> Intentionally leaving this index space for future use <<<
@@ -43,10 +41,21 @@ message Read {
     oneof Record {
         records.Kafka kafka = 100;
     }
+
+    // --------------------------------------------------------------------- //
+    //                          PRIVATE FIELDS (1000+)                       //
+    // --------------------------------------------------------------------- //
+
+    // Original backend message (encoded with gob, ie. *skafka.Message, etc.).
+    // In most cases, you should use the oneof record instead of the raw message.
+    bytes _raw = 1000;
+
+    // Identifies which plumber instance received the event (set outside the backend)
+    string _plumber_id = 1001;
 }
 
 // Used as an arg for write requests (server & cli)
-message Write {
+message WriteRecord {
     // If encoding options are provided, this value will be updated by plumber
     // to contain the encoded payload _before_ passing it to the backend.
     // @gotags: kong:"help='Input string',name=input,xor=input,default"
@@ -57,7 +66,7 @@ message Write {
 }
 
 // Used for communicating errors that occur during a read, write, relay, etc.
-message Error {
+message ErrorRecord {
     int64 occurred_at_unix_ts_utc = 1;
     string error = 2;
     map<string, bytes> metadata = 3;

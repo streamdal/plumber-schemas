@@ -1,14 +1,14 @@
-// package: protos
-// file: cli.proto
+// package: protos.opts
+// file: opts/cli.proto
 
 /* tslint:disable */
 /* eslint-disable */
 
 import * as jspb from "google-protobuf";
-import * as opts_read_pb from "./opts/read_pb";
-import * as opts_write_pb from "./opts/write_pb";
-import * as opts_relay_pb from "./opts/relay_pb";
-import * as opts_server_pb from "./opts/server_pb";
+import * as opts_read_pb from "../opts/read_pb";
+import * as opts_write_pb from "../opts/write_pb";
+import * as opts_relay_pb from "../opts/relay_pb";
+import * as opts_server_pb from "../opts/server_pb";
 
 export class GlobalCLIOptions extends jspb.Message { 
     getDebug(): boolean;

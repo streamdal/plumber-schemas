@@ -2,4 +2,4 @@
 
 package records
 
-type IsRead_Record = isRead_Record
+type IsReadRecord_Record = isReadRecord_Record

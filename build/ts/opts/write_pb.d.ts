@@ -54,8 +54,8 @@ export class WriteOptions extends jspb.Message {
 
     hasRecord(): boolean;
     clearRecord(): void;
-    getRecord(): records_base_pb.Write | undefined;
-    setRecord(value?: records_base_pb.Write): WriteOptions;
+    getRecord(): records_base_pb.WriteRecord | undefined;
+    setRecord(value?: records_base_pb.WriteRecord): WriteOptions;
 
     hasEncodeOptions(): boolean;
     clearEncodeOptions(): void;
@@ -165,7 +165,7 @@ export class WriteOptions extends jspb.Message {
 export namespace WriteOptions {
     export type AsObject = {
         connectionId: string,
-        record?: records_base_pb.Write.AsObject,
+        record?: records_base_pb.WriteRecord.AsObject,
         encodeOptions?: encoding_options_pb.EncodeOptions.AsObject,
         CliOptions?: WriteCLIOptions.AsObject,
         kafka?: WriteGroupKafkaOptions.AsObject,

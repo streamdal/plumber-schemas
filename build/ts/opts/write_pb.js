@@ -664,7 +664,7 @@ proto.protos.opts.WriteOptions.prototype.toObject = function(opt_includeInstance
 proto.protos.opts.WriteOptions.toObject = function(includeInstance, msg) {
   var f, obj = {
     connectionId: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    record: (f = msg.getRecord()) && records_base_pb.Write.toObject(includeInstance, f),
+    record: (f = msg.getRecord()) && records_base_pb.WriteRecord.toObject(includeInstance, f),
     encodeOptions: (f = msg.getEncodeOptions()) && encoding_options_pb.EncodeOptions.toObject(includeInstance, f),
     cliOptions: (f = msg.getCliOptions()) && proto.protos.opts.WriteCLIOptions.toObject(includeInstance, f),
     kafka: (f = msg.getKafka()) && proto.protos.opts.WriteGroupKafkaOptions.toObject(includeInstance, f),
@@ -725,8 +725,8 @@ proto.protos.opts.WriteOptions.deserializeBinaryFromReader = function(msg, reade
       msg.setConnectionId(value);
       break;
     case 2:
-      var value = new records_base_pb.Write;
-      reader.readMessage(value,records_base_pb.Write.deserializeBinaryFromReader);
+      var value = new records_base_pb.WriteRecord;
+      reader.readMessage(value,records_base_pb.WriteRecord.deserializeBinaryFromReader);
       msg.setRecord(value);
       break;
     case 3:
@@ -865,7 +865,7 @@ proto.protos.opts.WriteOptions.serializeBinaryToWriter = function(message, write
     writer.writeMessage(
       2,
       f,
-      records_base_pb.Write.serializeBinaryToWriter
+      records_base_pb.WriteRecord.serializeBinaryToWriter
     );
   }
   f = message.getEncodeOptions();
@@ -1042,17 +1042,17 @@ proto.protos.opts.WriteOptions.prototype.setConnectionId = function(value) {
 
 
 /**
- * optional protos.records.Write record = 2;
- * @return {?proto.protos.records.Write}
+ * optional protos.records.WriteRecord record = 2;
+ * @return {?proto.protos.records.WriteRecord}
  */
 proto.protos.opts.WriteOptions.prototype.getRecord = function() {
-  return /** @type{?proto.protos.records.Write} */ (
-    jspb.Message.getWrapperField(this, records_base_pb.Write, 2));
+  return /** @type{?proto.protos.records.WriteRecord} */ (
+    jspb.Message.getWrapperField(this, records_base_pb.WriteRecord, 2));
 };
 
 
 /**
- * @param {?proto.protos.records.Write|undefined} value
+ * @param {?proto.protos.records.WriteRecord|undefined} value
  * @return {!proto.protos.opts.WriteOptions} returns this
 */
 proto.protos.opts.WriteOptions.prototype.setRecord = function(value) {

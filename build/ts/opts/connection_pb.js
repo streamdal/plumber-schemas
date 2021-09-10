@@ -66,7 +66,7 @@ goog.exportSymbol('proto.protos.opts.ConnectionOptions.ConnCase', null, global);
  * @constructor
  */
 proto.protos.opts.ConnectionOptions = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, proto.protos.opts.ConnectionOptions.oneofGroups_);
+  jspb.Message.initialize(this, opt_data, 0, 500, null, proto.protos.opts.ConnectionOptions.oneofGroups_);
 };
 goog.inherits(proto.protos.opts.ConnectionOptions, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
@@ -153,7 +153,6 @@ proto.protos.opts.ConnectionOptions.toObject = function(includeInstance, msg) {
   var f, obj = {
     name: jspb.Message.getFieldWithDefault(msg, 1, ""),
     notes: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    id: jspb.Message.getFieldWithDefault(msg, 3, ""),
     kafka: (f = msg.getKafka()) && args_kafka_pb.KafkaConn.toObject(includeInstance, f),
     activeMq: (f = msg.getActiveMq()) && args_activemq_pb.ActiveMQConn.toObject(includeInstance, f),
     awssqs: (f = msg.getAwssqs()) && args_aws$sqs_pb.AWSSQSConn.toObject(includeInstance, f),
@@ -172,7 +171,8 @@ proto.protos.opts.ConnectionOptions.toObject = function(includeInstance, msg) {
     azureServiceBus: (f = msg.getAzureServiceBus()) && args_azure$service$bus_pb.AzureServiceBusConn.toObject(includeInstance, f),
     mqtt: (f = msg.getMqtt()) && args_mqtt_pb.MQTTConn.toObject(includeInstance, f),
     kubemqQueue: (f = msg.getKubemqQueue()) && args_kubemq$queue_pb.KubeMQQueueConn.toObject(includeInstance, f),
-    gcpPubsub: (f = msg.getGcpPubsub()) && args_gcp$pubsub_pb.GCPPubSubConn.toObject(includeInstance, f)
+    gcpPubsub: (f = msg.getGcpPubsub()) && args_gcp$pubsub_pb.GCPPubSubConn.toObject(includeInstance, f),
+    id: jspb.Message.getFieldWithDefault(msg, 1000, "")
   };
 
   if (includeInstance) {
@@ -216,10 +216,6 @@ proto.protos.opts.ConnectionOptions.deserializeBinaryFromReader = function(msg, 
     case 2:
       var value = /** @type {string} */ (reader.readString());
       msg.setNotes(value);
-      break;
-    case 3:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setId(value);
       break;
     case 100:
       var value = new args_kafka_pb.KafkaConn;
@@ -316,6 +312,10 @@ proto.protos.opts.ConnectionOptions.deserializeBinaryFromReader = function(msg, 
       reader.readMessage(value,args_gcp$pubsub_pb.GCPPubSubConn.deserializeBinaryFromReader);
       msg.setGcpPubsub(value);
       break;
+    case 1000:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setId(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -356,13 +356,6 @@ proto.protos.opts.ConnectionOptions.serializeBinaryToWriter = function(message, 
   if (f.length > 0) {
     writer.writeString(
       2,
-      f
-    );
-  }
-  f = message.getId();
-  if (f.length > 0) {
-    writer.writeString(
-      3,
       f
     );
   }
@@ -518,6 +511,13 @@ proto.protos.opts.ConnectionOptions.serializeBinaryToWriter = function(message, 
       args_gcp$pubsub_pb.GCPPubSubConn.serializeBinaryToWriter
     );
   }
+  f = message.getId();
+  if (f.length > 0) {
+    writer.writeString(
+      1000,
+      f
+    );
+  }
 };
 
 
@@ -554,24 +554,6 @@ proto.protos.opts.ConnectionOptions.prototype.getNotes = function() {
  */
 proto.protos.opts.ConnectionOptions.prototype.setNotes = function(value) {
   return jspb.Message.setProto3StringField(this, 2, value);
-};
-
-
-/**
- * optional string _id = 3;
- * @return {string}
- */
-proto.protos.opts.ConnectionOptions.prototype.getId = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
-};
-
-
-/**
- * @param {string} value
- * @return {!proto.protos.opts.ConnectionOptions} returns this
- */
-proto.protos.opts.ConnectionOptions.prototype.setId = function(value) {
-  return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
@@ -1275,6 +1257,24 @@ proto.protos.opts.ConnectionOptions.prototype.clearGcpPubsub = function() {
  */
 proto.protos.opts.ConnectionOptions.prototype.hasGcpPubsub = function() {
   return jspb.Message.getField(this, 118) != null;
+};
+
+
+/**
+ * optional string _id = 1000;
+ * @return {string}
+ */
+proto.protos.opts.ConnectionOptions.prototype.getId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1000, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.protos.opts.ConnectionOptions} returns this
+ */
+proto.protos.opts.ConnectionOptions.prototype.setId = function(value) {
+  return jspb.Message.setProto3StringField(this, 1000, value);
 };
 
 

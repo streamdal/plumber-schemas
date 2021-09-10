@@ -40,7 +40,7 @@ message WriteOptions {
     string connection_id = 1;
 
     // @gotags: kong:"embed"
-    records.Write record = 2;
+    records.WriteRecord record = 2;
 
     // @gotags: kong:"embed"
     encoding.EncodeOptions encode_options = 3;

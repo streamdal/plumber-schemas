@@ -33,9 +33,6 @@ message ConnectionOptions {
     // Any notes associated with this connection (stored plumber-server side)
     string notes = 2;
 
-    // Used internally by plumber
-    string _id = 3;
-
     oneof conn {
         args.KafkaConn kafka = 100;
         args.ActiveMQConn active_mq = 101;
@@ -57,4 +54,11 @@ message ConnectionOptions {
         args.KubeMQQueueConn kubemq_queue = 117;
         args.GCPPubSubConn gcp_pubsub = 118;
     }
+
+    // --------------------------------------------------------------------- //
+    //                          PRIVATE FIELDS (1000+)                       //
+    // --------------------------------------------------------------------- //
+
+    // Used internally by plumber
+    string _id = 1000;
 }

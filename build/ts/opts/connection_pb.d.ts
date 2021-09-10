@@ -30,8 +30,6 @@ export class ConnectionOptions extends jspb.Message {
     setName(value: string): ConnectionOptions;
     getNotes(): string;
     setNotes(value: string): ConnectionOptions;
-    getId(): string;
-    setId(value: string): ConnectionOptions;
 
     hasKafka(): boolean;
     clearKafka(): void;
@@ -127,6 +125,8 @@ export class ConnectionOptions extends jspb.Message {
     clearGcpPubsub(): void;
     getGcpPubsub(): args_gcp_pubsub_pb.GCPPubSubConn | undefined;
     setGcpPubsub(value?: args_gcp_pubsub_pb.GCPPubSubConn): ConnectionOptions;
+    getId(): string;
+    setId(value: string): ConnectionOptions;
 
     getConnCase(): ConnectionOptions.ConnCase;
 
@@ -144,7 +144,6 @@ export namespace ConnectionOptions {
     export type AsObject = {
         name: string,
         notes: string,
-        Id: string,
         kafka?: args_kafka_pb.KafkaConn.AsObject,
         activeMq?: args_activemq_pb.ActiveMQConn.AsObject,
         awssqs?: args_aws_sqs_pb.AWSSQSConn.AsObject,
@@ -164,6 +163,7 @@ export namespace ConnectionOptions {
         mqtt?: args_mqtt_pb.MQTTConn.AsObject,
         kubemqQueue?: args_kubemq_queue_pb.KubeMQQueueConn.AsObject,
         gcpPubsub?: args_gcp_pubsub_pb.GCPPubSubConn.AsObject,
+        Id: string,
     }
 
     export enum ConnCase {

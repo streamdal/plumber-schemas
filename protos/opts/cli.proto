@@ -1,13 +1,13 @@
 syntax = "proto3";
 
-package protos;
+package protos.opts;
 
 import "opts/read.proto";
 import "opts/write.proto";
 import "opts/relay.proto";
 import "opts/server.proto";
 
-option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/opts";
 
 message GlobalCLIOptions {
     // @gotags: kong:"help='Enable debug output',short=d"
@@ -19,18 +19,18 @@ message GlobalCLIOptions {
     // @gotags: kong:"help='Display plumber version'"
     bool version = 3;
 
-    /////////////////////////////////////////////
-    //////// Used internally by the app /////////
-    /////////////////////////////////////////////
+    // --------------------------------------------------------------------- //
+    //                          PRIVATE FIELDS (1000+)                       //
+    // --------------------------------------------------------------------- //
 
     // @gotags: kong:"-"
-    string _full_command = 4;
+    string _full_command = 1000;
 
     // @gotags: kong:"-"
-    string _action = 5;
+    string _action = 1001;
 
     // @gotags: kong:"-"
-    string _backend = 6;
+    string _backend = 1002;
 }
 
 // CLI options in plumber are derived 100% from the protobuf schemas.
@@ -41,7 +41,7 @@ message GlobalCLIOptions {
 // For more info, check README_CLI.md
 message CLIOptions {
     // @gotags: kong:"embed"
-    GlobalCLIOptions global = 1;
+    opts.GlobalCLIOptions global = 1;
 
     // @gotags: kong:"cmd,help='Read message(s) from messaging system'"
     opts.ReadOptions read = 2;

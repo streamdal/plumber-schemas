@@ -240,9 +240,9 @@ export namespace StartReadRequest {
 
 export class StartReadResponse extends jspb.Message { 
     clearRecordsList(): void;
-    getRecordsList(): Array<records_base_pb.Read>;
-    setRecordsList(value: Array<records_base_pb.Read>): StartReadResponse;
-    addRecords(value?: records_base_pb.Read, index?: number): records_base_pb.Read;
+    getRecordsList(): Array<records_base_pb.ReadRecord>;
+    setRecordsList(value: Array<records_base_pb.ReadRecord>): StartReadResponse;
+    addRecords(value?: records_base_pb.ReadRecord, index?: number): records_base_pb.ReadRecord;
 
     hasStatus(): boolean;
     clearStatus(): void;
@@ -261,7 +261,7 @@ export class StartReadResponse extends jspb.Message {
 
 export namespace StartReadResponse {
     export type AsObject = {
-        recordsList: Array<records_base_pb.Read.AsObject>,
+        recordsList: Array<records_base_pb.ReadRecord.AsObject>,
         status?: common_status_pb.Status.AsObject,
     }
 }
