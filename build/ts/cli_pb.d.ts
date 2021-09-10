@@ -5,10 +5,10 @@
 /* eslint-disable */
 
 import * as jspb from "google-protobuf";
-import * as read_pb from "./read_pb";
-import * as write_pb from "./write_pb";
-import * as relay_pb from "./relay_pb";
-import * as server_pb from "./server_pb";
+import * as opts_read_pb from "./opts/read_pb";
+import * as opts_write_pb from "./opts/write_pb";
+import * as opts_relay_pb from "./opts/relay_pb";
+import * as opts_server_pb from "./opts/server_pb";
 
 export class GlobalCLIOptions extends jspb.Message { 
     getDebug(): boolean;
@@ -54,23 +54,23 @@ export class CLIOptions extends jspb.Message {
 
     hasRead(): boolean;
     clearRead(): void;
-    getRead(): read_pb.ReadConfig | undefined;
-    setRead(value?: read_pb.ReadConfig): CLIOptions;
+    getRead(): opts_read_pb.ReadOptions | undefined;
+    setRead(value?: opts_read_pb.ReadOptions): CLIOptions;
 
     hasWrite(): boolean;
     clearWrite(): void;
-    getWrite(): write_pb.WriteConfig | undefined;
-    setWrite(value?: write_pb.WriteConfig): CLIOptions;
+    getWrite(): opts_write_pb.WriteOptions | undefined;
+    setWrite(value?: opts_write_pb.WriteOptions): CLIOptions;
 
     hasRelay(): boolean;
     clearRelay(): void;
-    getRelay(): relay_pb.RelayConfig | undefined;
-    setRelay(value?: relay_pb.RelayConfig): CLIOptions;
+    getRelay(): opts_relay_pb.RelayOptions | undefined;
+    setRelay(value?: opts_relay_pb.RelayOptions): CLIOptions;
 
     hasServer(): boolean;
     clearServer(): void;
-    getServer(): server_pb.ServerConfig | undefined;
-    setServer(value?: server_pb.ServerConfig): CLIOptions;
+    getServer(): opts_server_pb.ServerOptions | undefined;
+    setServer(value?: opts_server_pb.ServerOptions): CLIOptions;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): CLIOptions.AsObject;
@@ -85,9 +85,9 @@ export class CLIOptions extends jspb.Message {
 export namespace CLIOptions {
     export type AsObject = {
         global?: GlobalCLIOptions.AsObject,
-        read?: read_pb.ReadConfig.AsObject,
-        write?: write_pb.WriteConfig.AsObject,
-        relay?: relay_pb.RelayConfig.AsObject,
-        server?: server_pb.ServerConfig.AsObject,
+        read?: opts_read_pb.ReadOptions.AsObject,
+        write?: opts_write_pb.WriteOptions.AsObject,
+        relay?: opts_relay_pb.RelayOptions.AsObject,
+        server?: opts_server_pb.ServerOptions.AsObject,
     }
 }

@@ -4,95 +4,16 @@ package protos;
 
 import "common/auth.proto";
 import "common/status.proto";
-import "encoding/options.proto";
 import "records/base.proto";
 import "opts/read.proto";
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
 
-message ReadSampleOptions {
-    // @gotags: kong:"help='How many events to fetch during a sample interval',default=100"
-    uint32 sample_rate = 1;
-
-    // @gotags: kong:"help='Sample interval seconds',enum:'1,60',default=60"
-     uint32 sample_interval_seconds = 2;
-}
-
-enum ConvertOption {
-    CONVERT_OPTION_UNSET  = 0;
-    CONVERT_OPTION_BASE64 = 1;
-    CONVERT_OPTION_GZIP   = 2;
-}
-
-message ReadCLIConfig {
-    // @gotags: kong:"help='Display consumer offset stats during read'"
-    bool display_offset_stats = 1;
-
-    // @gotags: kong:"help='Convert output before it is printed to STDOUT (1 = base64, 2 = gzip)',enum"
-    repeated ConvertOption convert_output = 2;
-
-    // @gotags: kong:"help='Display more verbose information during reads (varies by backend)'"
-    bool verbose_output = 3;
-
-    // @gotags: kong:"group=stats,help='Display periodic read stats'"
-    bool stats_enable = 4;
-
-    // @gotags: kong:"group=stats,help='How often to print stats',default=5"
-    int32 stats_report_interval_sec = 5;
-}
-
-message ReadConfig {
-    // Required; friendly name for the read
-    // @gotags: kong:"-"
-    string name = 1;
-
-    // Required for desktop; ignored in CLI.
-    // @gotags: kong:"-"
-    string connection_id = 2;
-
-    // Required; specify if a read is continuous or not (default: false)
-    // @gotags: short:"f" default: "false"
-    bool continuous = 3;
-
-    // Optional; specify if reading should utilize sampling
-    // @gotags: kong:"embed,group=sampling"
-    ReadSampleOptions sample_options = 4;
-
-    // Optional; decode_options specify how to decode the _value_ in a message.
-    // If left unset, plumber will still populate records.ReadRecord.Decoded
-    // with the (untouched) value.
-    // @gotags: kong:"embed,group=decode"
-    encoding.DecodeOptions decode_options = 5;
-
-    // Any extra opts that can differ between reads (topics, read offset, etc.).
-    // NOTE: Desktop can leave conn unset - an existing connection will be used
-    // by looking up connection_id.
-    // @gotags: kong:"embed"
-    opts.Read read_opts = 6;
-
-    ////////////////////////////////////////////////////////
-    ////////////// "Private" fields 1000+ ////////////////
-    ////////////////////////////////////////////////////////
-
-    // Automatically set by plumber when a new read is created
-    // @gotags: kong:"-"
-    string _id = 1000;
-
-    // Used by plumber to set read state
-    // @gotags: kong:"-"
-    bool _active = 1001;
-
-    // Contains options/fields specific to the CLI
-    // @gotags: kong:"embed"
-    ReadCLIConfig _cli_config = 1002;
-}
-
-
 message CreateReadRequest {
     // Every gRPC request must have a valid auth config
     common.Auth auth = 9999;
 
-    ReadConfig config = 1;
+    opts.ReadOptions read = 1;
 }
 
 message CreateReadResponse {
@@ -164,7 +85,7 @@ message GetAllReadsRequest {
 }
 
 message GetAllReadsResponse {
-    repeated ReadConfig read = 1;
+    repeated opts.ReadOptions read = 1;
 
     common.Status status = 1000;
 }

@@ -113,7 +113,7 @@ generate/go:
 	protos/records/*.proto
 
 # Perform any extra steps as part of codegen
-	./extra.sh
+	go run generate-type-aliases.go
 
 .PHONY: inject-tags
 inject-tags: description = Inject tags for CLI

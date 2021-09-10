@@ -7,69 +7,7 @@
 import * as jspb from "google-protobuf";
 import * as common_auth_pb from "./common/auth_pb";
 import * as common_status_pb from "./common/status_pb";
-import * as encoding_options_pb from "./encoding/options_pb";
 import * as opts_write_pb from "./opts/write_pb";
-
-export class WriteCLIConfig extends jspb.Message { 
-    getInputFile(): string;
-    setInputFile(value: string): WriteCLIConfig;
-    getInputAsJsonArray(): boolean;
-    setInputAsJsonArray(value: boolean): WriteCLIConfig;
-
-    serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): WriteCLIConfig.AsObject;
-    static toObject(includeInstance: boolean, msg: WriteCLIConfig): WriteCLIConfig.AsObject;
-    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: WriteCLIConfig, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): WriteCLIConfig;
-    static deserializeBinaryFromReader(message: WriteCLIConfig, reader: jspb.BinaryReader): WriteCLIConfig;
-}
-
-export namespace WriteCLIConfig {
-    export type AsObject = {
-        inputFile: string,
-        inputAsJsonArray: boolean,
-    }
-}
-
-export class WriteConfig extends jspb.Message { 
-    getConnectionId(): string;
-    setConnectionId(value: string): WriteConfig;
-
-    hasEncodeOptions(): boolean;
-    clearEncodeOptions(): void;
-    getEncodeOptions(): encoding_options_pb.EncodeOptions | undefined;
-    setEncodeOptions(value?: encoding_options_pb.EncodeOptions): WriteConfig;
-
-    hasWriteOpts(): boolean;
-    clearWriteOpts(): void;
-    getWriteOpts(): opts_write_pb.Write | undefined;
-    setWriteOpts(value?: opts_write_pb.Write): WriteConfig;
-
-    hasCliConfig(): boolean;
-    clearCliConfig(): void;
-    getCliConfig(): WriteCLIConfig | undefined;
-    setCliConfig(value?: WriteCLIConfig): WriteConfig;
-
-    serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): WriteConfig.AsObject;
-    static toObject(includeInstance: boolean, msg: WriteConfig): WriteConfig.AsObject;
-    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: WriteConfig, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): WriteConfig;
-    static deserializeBinaryFromReader(message: WriteConfig, reader: jspb.BinaryReader): WriteConfig;
-}
-
-export namespace WriteConfig {
-    export type AsObject = {
-        connectionId: string,
-        encodeOptions?: encoding_options_pb.EncodeOptions.AsObject,
-        writeOpts?: opts_write_pb.Write.AsObject,
-        CliConfig?: WriteCLIConfig.AsObject,
-    }
-}
 
 export class WriteRequest extends jspb.Message { 
 
@@ -78,10 +16,10 @@ export class WriteRequest extends jspb.Message {
     getAuth(): common_auth_pb.Auth | undefined;
     setAuth(value?: common_auth_pb.Auth): WriteRequest;
 
-    hasConfig(): boolean;
-    clearConfig(): void;
-    getConfig(): WriteConfig | undefined;
-    setConfig(value?: WriteConfig): WriteRequest;
+    hasOpts(): boolean;
+    clearOpts(): void;
+    getOpts(): opts_write_pb.WriteOptions | undefined;
+    setOpts(value?: opts_write_pb.WriteOptions): WriteRequest;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): WriteRequest.AsObject;
@@ -96,7 +34,7 @@ export class WriteRequest extends jspb.Message {
 export namespace WriteRequest {
     export type AsObject = {
         auth?: common_auth_pb.Auth.AsObject,
-        config?: WriteConfig.AsObject,
+        opts?: opts_write_pb.WriteOptions.AsObject,
     }
 }
 

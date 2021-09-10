@@ -103,7 +103,7 @@ service PlumberServer {
 
     rpc DeleteService(DeleteServiceRequest) returns (DeleteServiceResponse);
 
-    rpc GetServerConfig(GetServerConfigRequest) returns (GetServerConfigResponse);
+    rpc GetServerOptions(GetServerOptionsRequest) returns (GetServerOptionsResponse);
 
     // GetGithubEvents connects to github-app backend and returns a stream of events pushed from github
     rpc GetGithubEvents(GetGithubEventsRequest) returns (stream GithubEvent);

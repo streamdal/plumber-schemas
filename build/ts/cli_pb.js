@@ -15,14 +15,14 @@ var jspb = require('google-protobuf');
 var goog = jspb;
 var global = Function('return this')();
 
-var read_pb = require('./read_pb.js');
-goog.object.extend(proto, read_pb);
-var write_pb = require('./write_pb.js');
-goog.object.extend(proto, write_pb);
-var relay_pb = require('./relay_pb.js');
-goog.object.extend(proto, relay_pb);
-var server_pb = require('./server_pb.js');
-goog.object.extend(proto, server_pb);
+var opts_read_pb = require('./opts/read_pb.js');
+goog.object.extend(proto, opts_read_pb);
+var opts_write_pb = require('./opts/write_pb.js');
+goog.object.extend(proto, opts_write_pb);
+var opts_relay_pb = require('./opts/relay_pb.js');
+goog.object.extend(proto, opts_relay_pb);
+var opts_server_pb = require('./opts/server_pb.js');
+goog.object.extend(proto, opts_server_pb);
 goog.exportSymbol('proto.protos.CLIOptions', null, global);
 goog.exportSymbol('proto.protos.GlobalCLIOptions', null, global);
 /**
@@ -380,10 +380,10 @@ proto.protos.CLIOptions.prototype.toObject = function(opt_includeInstance) {
 proto.protos.CLIOptions.toObject = function(includeInstance, msg) {
   var f, obj = {
     global: (f = msg.getGlobal()) && proto.protos.GlobalCLIOptions.toObject(includeInstance, f),
-    read: (f = msg.getRead()) && read_pb.ReadConfig.toObject(includeInstance, f),
-    write: (f = msg.getWrite()) && write_pb.WriteConfig.toObject(includeInstance, f),
-    relay: (f = msg.getRelay()) && relay_pb.RelayConfig.toObject(includeInstance, f),
-    server: (f = msg.getServer()) && server_pb.ServerConfig.toObject(includeInstance, f)
+    read: (f = msg.getRead()) && opts_read_pb.ReadOptions.toObject(includeInstance, f),
+    write: (f = msg.getWrite()) && opts_write_pb.WriteOptions.toObject(includeInstance, f),
+    relay: (f = msg.getRelay()) && opts_relay_pb.RelayOptions.toObject(includeInstance, f),
+    server: (f = msg.getServer()) && opts_server_pb.ServerOptions.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -426,23 +426,23 @@ proto.protos.CLIOptions.deserializeBinaryFromReader = function(msg, reader) {
       msg.setGlobal(value);
       break;
     case 2:
-      var value = new read_pb.ReadConfig;
-      reader.readMessage(value,read_pb.ReadConfig.deserializeBinaryFromReader);
+      var value = new opts_read_pb.ReadOptions;
+      reader.readMessage(value,opts_read_pb.ReadOptions.deserializeBinaryFromReader);
       msg.setRead(value);
       break;
     case 3:
-      var value = new write_pb.WriteConfig;
-      reader.readMessage(value,write_pb.WriteConfig.deserializeBinaryFromReader);
+      var value = new opts_write_pb.WriteOptions;
+      reader.readMessage(value,opts_write_pb.WriteOptions.deserializeBinaryFromReader);
       msg.setWrite(value);
       break;
     case 4:
-      var value = new relay_pb.RelayConfig;
-      reader.readMessage(value,relay_pb.RelayConfig.deserializeBinaryFromReader);
+      var value = new opts_relay_pb.RelayOptions;
+      reader.readMessage(value,opts_relay_pb.RelayOptions.deserializeBinaryFromReader);
       msg.setRelay(value);
       break;
     case 5:
-      var value = new server_pb.ServerConfig;
-      reader.readMessage(value,server_pb.ServerConfig.deserializeBinaryFromReader);
+      var value = new opts_server_pb.ServerOptions;
+      reader.readMessage(value,opts_server_pb.ServerOptions.deserializeBinaryFromReader);
       msg.setServer(value);
       break;
     default:
@@ -487,7 +487,7 @@ proto.protos.CLIOptions.serializeBinaryToWriter = function(message, writer) {
     writer.writeMessage(
       2,
       f,
-      read_pb.ReadConfig.serializeBinaryToWriter
+      opts_read_pb.ReadOptions.serializeBinaryToWriter
     );
   }
   f = message.getWrite();
@@ -495,7 +495,7 @@ proto.protos.CLIOptions.serializeBinaryToWriter = function(message, writer) {
     writer.writeMessage(
       3,
       f,
-      write_pb.WriteConfig.serializeBinaryToWriter
+      opts_write_pb.WriteOptions.serializeBinaryToWriter
     );
   }
   f = message.getRelay();
@@ -503,7 +503,7 @@ proto.protos.CLIOptions.serializeBinaryToWriter = function(message, writer) {
     writer.writeMessage(
       4,
       f,
-      relay_pb.RelayConfig.serializeBinaryToWriter
+      opts_relay_pb.RelayOptions.serializeBinaryToWriter
     );
   }
   f = message.getServer();
@@ -511,7 +511,7 @@ proto.protos.CLIOptions.serializeBinaryToWriter = function(message, writer) {
     writer.writeMessage(
       5,
       f,
-      server_pb.ServerConfig.serializeBinaryToWriter
+      opts_server_pb.ServerOptions.serializeBinaryToWriter
     );
   }
 };
@@ -555,17 +555,17 @@ proto.protos.CLIOptions.prototype.hasGlobal = function() {
 
 
 /**
- * optional ReadConfig read = 2;
- * @return {?proto.protos.ReadConfig}
+ * optional opts.ReadOptions read = 2;
+ * @return {?proto.protos.opts.ReadOptions}
  */
 proto.protos.CLIOptions.prototype.getRead = function() {
-  return /** @type{?proto.protos.ReadConfig} */ (
-    jspb.Message.getWrapperField(this, read_pb.ReadConfig, 2));
+  return /** @type{?proto.protos.opts.ReadOptions} */ (
+    jspb.Message.getWrapperField(this, opts_read_pb.ReadOptions, 2));
 };
 
 
 /**
- * @param {?proto.protos.ReadConfig|undefined} value
+ * @param {?proto.protos.opts.ReadOptions|undefined} value
  * @return {!proto.protos.CLIOptions} returns this
 */
 proto.protos.CLIOptions.prototype.setRead = function(value) {
@@ -592,17 +592,17 @@ proto.protos.CLIOptions.prototype.hasRead = function() {
 
 
 /**
- * optional WriteConfig write = 3;
- * @return {?proto.protos.WriteConfig}
+ * optional opts.WriteOptions write = 3;
+ * @return {?proto.protos.opts.WriteOptions}
  */
 proto.protos.CLIOptions.prototype.getWrite = function() {
-  return /** @type{?proto.protos.WriteConfig} */ (
-    jspb.Message.getWrapperField(this, write_pb.WriteConfig, 3));
+  return /** @type{?proto.protos.opts.WriteOptions} */ (
+    jspb.Message.getWrapperField(this, opts_write_pb.WriteOptions, 3));
 };
 
 
 /**
- * @param {?proto.protos.WriteConfig|undefined} value
+ * @param {?proto.protos.opts.WriteOptions|undefined} value
  * @return {!proto.protos.CLIOptions} returns this
 */
 proto.protos.CLIOptions.prototype.setWrite = function(value) {
@@ -629,17 +629,17 @@ proto.protos.CLIOptions.prototype.hasWrite = function() {
 
 
 /**
- * optional RelayConfig relay = 4;
- * @return {?proto.protos.RelayConfig}
+ * optional opts.RelayOptions relay = 4;
+ * @return {?proto.protos.opts.RelayOptions}
  */
 proto.protos.CLIOptions.prototype.getRelay = function() {
-  return /** @type{?proto.protos.RelayConfig} */ (
-    jspb.Message.getWrapperField(this, relay_pb.RelayConfig, 4));
+  return /** @type{?proto.protos.opts.RelayOptions} */ (
+    jspb.Message.getWrapperField(this, opts_relay_pb.RelayOptions, 4));
 };
 
 
 /**
- * @param {?proto.protos.RelayConfig|undefined} value
+ * @param {?proto.protos.opts.RelayOptions|undefined} value
  * @return {!proto.protos.CLIOptions} returns this
 */
 proto.protos.CLIOptions.prototype.setRelay = function(value) {
@@ -666,17 +666,17 @@ proto.protos.CLIOptions.prototype.hasRelay = function() {
 
 
 /**
- * optional ServerConfig server = 5;
- * @return {?proto.protos.ServerConfig}
+ * optional opts.ServerOptions server = 5;
+ * @return {?proto.protos.opts.ServerOptions}
  */
 proto.protos.CLIOptions.prototype.getServer = function() {
-  return /** @type{?proto.protos.ServerConfig} */ (
-    jspb.Message.getWrapperField(this, server_pb.ServerConfig, 5));
+  return /** @type{?proto.protos.opts.ServerOptions} */ (
+    jspb.Message.getWrapperField(this, opts_server_pb.ServerOptions, 5));
 };
 
 
 /**
- * @param {?proto.protos.ServerConfig|undefined} value
+ * @param {?proto.protos.opts.ServerOptions|undefined} value
  * @return {!proto.protos.CLIOptions} returns this
 */
 proto.protos.CLIOptions.prototype.setServer = function(value) {

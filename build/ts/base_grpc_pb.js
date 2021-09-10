@@ -375,26 +375,26 @@ function deserialize_protos_GetSchemaResponse(buffer_arg) {
   return schema_pb.GetSchemaResponse.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
-function serialize_protos_GetServerConfigRequest(arg) {
-  if (!(arg instanceof server_pb.GetServerConfigRequest)) {
-    throw new Error('Expected argument of type protos.GetServerConfigRequest');
+function serialize_protos_GetServerOptionsRequest(arg) {
+  if (!(arg instanceof server_pb.GetServerOptionsRequest)) {
+    throw new Error('Expected argument of type protos.GetServerOptionsRequest');
   }
   return Buffer.from(arg.serializeBinary());
 }
 
-function deserialize_protos_GetServerConfigRequest(buffer_arg) {
-  return server_pb.GetServerConfigRequest.deserializeBinary(new Uint8Array(buffer_arg));
+function deserialize_protos_GetServerOptionsRequest(buffer_arg) {
+  return server_pb.GetServerOptionsRequest.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
-function serialize_protos_GetServerConfigResponse(arg) {
-  if (!(arg instanceof server_pb.GetServerConfigResponse)) {
-    throw new Error('Expected argument of type protos.GetServerConfigResponse');
+function serialize_protos_GetServerOptionsResponse(arg) {
+  if (!(arg instanceof server_pb.GetServerOptionsResponse)) {
+    throw new Error('Expected argument of type protos.GetServerOptionsResponse');
   }
   return Buffer.from(arg.serializeBinary());
 }
 
-function deserialize_protos_GetServerConfigResponse(buffer_arg) {
-  return server_pb.GetServerConfigResponse.deserializeBinary(new Uint8Array(buffer_arg));
+function deserialize_protos_GetServerOptionsResponse(buffer_arg) {
+  return server_pb.GetServerOptionsResponse.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
 function serialize_protos_GetServiceRequest(arg) {
@@ -1138,16 +1138,16 @@ deleteSchema: {
     responseSerialize: serialize_protos_DeleteServiceResponse,
     responseDeserialize: deserialize_protos_DeleteServiceResponse,
   },
-  getServerConfig: {
-    path: '/protos.PlumberServer/GetServerConfig',
+  getServerOptions: {
+    path: '/protos.PlumberServer/GetServerOptions',
     requestStream: false,
     responseStream: false,
-    requestType: server_pb.GetServerConfigRequest,
-    responseType: server_pb.GetServerConfigResponse,
-    requestSerialize: serialize_protos_GetServerConfigRequest,
-    requestDeserialize: deserialize_protos_GetServerConfigRequest,
-    responseSerialize: serialize_protos_GetServerConfigResponse,
-    responseDeserialize: deserialize_protos_GetServerConfigResponse,
+    requestType: server_pb.GetServerOptionsRequest,
+    responseType: server_pb.GetServerOptionsResponse,
+    requestSerialize: serialize_protos_GetServerOptionsRequest,
+    requestDeserialize: deserialize_protos_GetServerOptionsRequest,
+    responseSerialize: serialize_protos_GetServerOptionsResponse,
+    responseDeserialize: deserialize_protos_GetServerOptionsResponse,
   },
   // GetGithubEvents connects to github-app backend and returns a stream of events pushed from github
 getGithubEvents: {

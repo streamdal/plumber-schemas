@@ -24,618 +24,650 @@ import * as args_rabbit_streams_pb from "../args/rabbit-streams_pb";
 import * as args_redis_pubsub_pb from "../args/redis-pubsub_pb";
 import * as args_redis_streams_pb from "../args/redis-streams_pb";
 
-export class Write extends jspb.Message { 
+export class WriteCLIOptions extends jspb.Message { 
+    getInputFile(): string;
+    setInputFile(value: string): WriteCLIOptions;
+    getInputAsJsonArray(): boolean;
+    setInputAsJsonArray(value: boolean): WriteCLIOptions;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): WriteCLIOptions.AsObject;
+    static toObject(includeInstance: boolean, msg: WriteCLIOptions): WriteCLIOptions.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: WriteCLIOptions, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): WriteCLIOptions;
+    static deserializeBinaryFromReader(message: WriteCLIOptions, reader: jspb.BinaryReader): WriteCLIOptions;
+}
+
+export namespace WriteCLIOptions {
+    export type AsObject = {
+        inputFile: string,
+        inputAsJsonArray: boolean,
+    }
+}
+
+export class WriteOptions extends jspb.Message { 
+    getConnectionId(): string;
+    setConnectionId(value: string): WriteOptions;
 
     hasRecord(): boolean;
     clearRecord(): void;
     getRecord(): records_base_pb.Write | undefined;
-    setRecord(value?: records_base_pb.Write): Write;
+    setRecord(value?: records_base_pb.Write): WriteOptions;
+
+    hasCliOptions(): boolean;
+    clearCliOptions(): void;
+    getCliOptions(): WriteCLIOptions | undefined;
+    setCliOptions(value?: WriteCLIOptions): WriteOptions;
 
     hasKafka(): boolean;
     clearKafka(): void;
-    getKafka(): WriteOptsKafka | undefined;
-    setKafka(value?: WriteOptsKafka): Write;
+    getKafka(): WriteGroupKafkaOptions | undefined;
+    setKafka(value?: WriteGroupKafkaOptions): WriteOptions;
 
     hasActivemq(): boolean;
     clearActivemq(): void;
-    getActivemq(): WriteOptsActiveMQ | undefined;
-    setActivemq(value?: WriteOptsActiveMQ): Write;
+    getActivemq(): WriteGroupActiveMQOptions | undefined;
+    setActivemq(value?: WriteGroupActiveMQOptions): WriteOptions;
 
     hasAwssqs(): boolean;
     clearAwssqs(): void;
-    getAwssqs(): WriteOptsAWSSQS | undefined;
-    setAwssqs(value?: WriteOptsAWSSQS): Write;
+    getAwssqs(): WriteGroupAWSSQSOptions | undefined;
+    setAwssqs(value?: WriteGroupAWSSQSOptions): WriteOptions;
 
     hasAwssns(): boolean;
     clearAwssns(): void;
-    getAwssns(): WriteOptsAWSSNS | undefined;
-    setAwssns(value?: WriteOptsAWSSNS): Write;
+    getAwssns(): WriteGroupAWSSNSOptions | undefined;
+    setAwssns(value?: WriteGroupAWSSNSOptions): WriteOptions;
 
     hasNats(): boolean;
     clearNats(): void;
-    getNats(): WriteOptsNats | undefined;
-    setNats(value?: WriteOptsNats): Write;
+    getNats(): WriteGroupNatsOptions | undefined;
+    setNats(value?: WriteGroupNatsOptions): WriteOptions;
 
     hasNatsStreaming(): boolean;
     clearNatsStreaming(): void;
-    getNatsStreaming(): WriteOptsNatsStreaming | undefined;
-    setNatsStreaming(value?: WriteOptsNatsStreaming): Write;
+    getNatsStreaming(): WriteGroupNatsStreamingOptions | undefined;
+    setNatsStreaming(value?: WriteGroupNatsStreamingOptions): WriteOptions;
 
     hasNsq(): boolean;
     clearNsq(): void;
-    getNsq(): WriteOptsNSQ | undefined;
-    setNsq(value?: WriteOptsNSQ): Write;
+    getNsq(): WriteGroupNSQOptions | undefined;
+    setNsq(value?: WriteGroupNSQOptions): WriteOptions;
 
     hasPulsar(): boolean;
     clearPulsar(): void;
-    getPulsar(): WriteOptsPulsar | undefined;
-    setPulsar(value?: WriteOptsPulsar): Write;
+    getPulsar(): WriteGroupPulsarOptions | undefined;
+    setPulsar(value?: WriteGroupPulsarOptions): WriteOptions;
 
     hasRabbit(): boolean;
     clearRabbit(): void;
-    getRabbit(): WriteOptsRabbit | undefined;
-    setRabbit(value?: WriteOptsRabbit): Write;
+    getRabbit(): WriteGroupRabbitOptions | undefined;
+    setRabbit(value?: WriteGroupRabbitOptions): WriteOptions;
 
     hasRabbitStreams(): boolean;
     clearRabbitStreams(): void;
-    getRabbitStreams(): WriteOptsRabbitStreams | undefined;
-    setRabbitStreams(value?: WriteOptsRabbitStreams): Write;
+    getRabbitStreams(): WriteGroupRabbitStreamsOptions | undefined;
+    setRabbitStreams(value?: WriteGroupRabbitStreamsOptions): WriteOptions;
 
     hasMqtt(): boolean;
     clearMqtt(): void;
-    getMqtt(): WriteOptsMQTT | undefined;
-    setMqtt(value?: WriteOptsMQTT): Write;
+    getMqtt(): WriteGroupMQTTOptions | undefined;
+    setMqtt(value?: WriteGroupMQTTOptions): WriteOptions;
 
     hasAzureServiceBus(): boolean;
     clearAzureServiceBus(): void;
-    getAzureServiceBus(): WriteOptsAzureServiceBus | undefined;
-    setAzureServiceBus(value?: WriteOptsAzureServiceBus): Write;
+    getAzureServiceBus(): WriteGroupAzureServiceBusOptions | undefined;
+    setAzureServiceBus(value?: WriteGroupAzureServiceBusOptions): WriteOptions;
 
     hasAzureEventHub(): boolean;
     clearAzureEventHub(): void;
-    getAzureEventHub(): WriteOptsAzureEventHub | undefined;
-    setAzureEventHub(value?: WriteOptsAzureEventHub): Write;
+    getAzureEventHub(): WriteGroupAzureEventHubOptions | undefined;
+    setAzureEventHub(value?: WriteGroupAzureEventHubOptions): WriteOptions;
 
     hasGcpPubsub(): boolean;
     clearGcpPubsub(): void;
-    getGcpPubsub(): WriteOptsGCPPubSub | undefined;
-    setGcpPubsub(value?: WriteOptsGCPPubSub): Write;
+    getGcpPubsub(): WriteGroupGCPPubSubOptions | undefined;
+    setGcpPubsub(value?: WriteGroupGCPPubSubOptions): WriteOptions;
 
     hasKubemqQueue(): boolean;
     clearKubemqQueue(): void;
-    getKubemqQueue(): WriteOptsKubeMQQueue | undefined;
-    setKubemqQueue(value?: WriteOptsKubeMQQueue): Write;
+    getKubemqQueue(): WriteGroupKubeMQQueueOptions | undefined;
+    setKubemqQueue(value?: WriteGroupKubeMQQueueOptions): WriteOptions;
 
     hasRedisPubsub(): boolean;
     clearRedisPubsub(): void;
-    getRedisPubsub(): WriteOptsRedisPubSub | undefined;
-    setRedisPubsub(value?: WriteOptsRedisPubSub): Write;
+    getRedisPubsub(): WriteGroupRedisPubSubOptions | undefined;
+    setRedisPubsub(value?: WriteGroupRedisPubSubOptions): WriteOptions;
 
     hasRedisStreams(): boolean;
     clearRedisStreams(): void;
-    getRedisStreams(): WriteOptsRedisStreams | undefined;
-    setRedisStreams(value?: WriteOptsRedisStreams): Write;
+    getRedisStreams(): WriteGroupRedisStreamsOptions | undefined;
+    setRedisStreams(value?: WriteGroupRedisStreamsOptions): WriteOptions;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): Write.AsObject;
-    static toObject(includeInstance: boolean, msg: Write): Write.AsObject;
+    toObject(includeInstance?: boolean): WriteOptions.AsObject;
+    static toObject(includeInstance: boolean, msg: WriteOptions): WriteOptions.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: Write, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): Write;
-    static deserializeBinaryFromReader(message: Write, reader: jspb.BinaryReader): Write;
+    static serializeBinaryToWriter(message: WriteOptions, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): WriteOptions;
+    static deserializeBinaryFromReader(message: WriteOptions, reader: jspb.BinaryReader): WriteOptions;
 }
 
-export namespace Write {
+export namespace WriteOptions {
     export type AsObject = {
+        connectionId: string,
         record?: records_base_pb.Write.AsObject,
-        kafka?: WriteOptsKafka.AsObject,
-        activemq?: WriteOptsActiveMQ.AsObject,
-        awssqs?: WriteOptsAWSSQS.AsObject,
-        awssns?: WriteOptsAWSSNS.AsObject,
-        nats?: WriteOptsNats.AsObject,
-        natsStreaming?: WriteOptsNatsStreaming.AsObject,
-        nsq?: WriteOptsNSQ.AsObject,
-        pulsar?: WriteOptsPulsar.AsObject,
-        rabbit?: WriteOptsRabbit.AsObject,
-        rabbitStreams?: WriteOptsRabbitStreams.AsObject,
-        mqtt?: WriteOptsMQTT.AsObject,
-        azureServiceBus?: WriteOptsAzureServiceBus.AsObject,
-        azureEventHub?: WriteOptsAzureEventHub.AsObject,
-        gcpPubsub?: WriteOptsGCPPubSub.AsObject,
-        kubemqQueue?: WriteOptsKubeMQQueue.AsObject,
-        redisPubsub?: WriteOptsRedisPubSub.AsObject,
-        redisStreams?: WriteOptsRedisStreams.AsObject,
+        CliOptions?: WriteCLIOptions.AsObject,
+        kafka?: WriteGroupKafkaOptions.AsObject,
+        activemq?: WriteGroupActiveMQOptions.AsObject,
+        awssqs?: WriteGroupAWSSQSOptions.AsObject,
+        awssns?: WriteGroupAWSSNSOptions.AsObject,
+        nats?: WriteGroupNatsOptions.AsObject,
+        natsStreaming?: WriteGroupNatsStreamingOptions.AsObject,
+        nsq?: WriteGroupNSQOptions.AsObject,
+        pulsar?: WriteGroupPulsarOptions.AsObject,
+        rabbit?: WriteGroupRabbitOptions.AsObject,
+        rabbitStreams?: WriteGroupRabbitStreamsOptions.AsObject,
+        mqtt?: WriteGroupMQTTOptions.AsObject,
+        azureServiceBus?: WriteGroupAzureServiceBusOptions.AsObject,
+        azureEventHub?: WriteGroupAzureEventHubOptions.AsObject,
+        gcpPubsub?: WriteGroupGCPPubSubOptions.AsObject,
+        kubemqQueue?: WriteGroupKubeMQQueueOptions.AsObject,
+        redisPubsub?: WriteGroupRedisPubSubOptions.AsObject,
+        redisStreams?: WriteGroupRedisStreamsOptions.AsObject,
     }
 }
 
-export class WriteOptsKafka extends jspb.Message { 
+export class WriteGroupKafkaOptions extends jspb.Message { 
 
     hasConn(): boolean;
     clearConn(): void;
     getConn(): args_kafka_pb.KafkaConn | undefined;
-    setConn(value?: args_kafka_pb.KafkaConn): WriteOptsKafka;
+    setConn(value?: args_kafka_pb.KafkaConn): WriteGroupKafkaOptions;
 
     hasArgs(): boolean;
     clearArgs(): void;
     getArgs(): args_kafka_pb.KafkaWriteArgs | undefined;
-    setArgs(value?: args_kafka_pb.KafkaWriteArgs): WriteOptsKafka;
+    setArgs(value?: args_kafka_pb.KafkaWriteArgs): WriteGroupKafkaOptions;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): WriteOptsKafka.AsObject;
-    static toObject(includeInstance: boolean, msg: WriteOptsKafka): WriteOptsKafka.AsObject;
+    toObject(includeInstance?: boolean): WriteGroupKafkaOptions.AsObject;
+    static toObject(includeInstance: boolean, msg: WriteGroupKafkaOptions): WriteGroupKafkaOptions.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: WriteOptsKafka, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): WriteOptsKafka;
-    static deserializeBinaryFromReader(message: WriteOptsKafka, reader: jspb.BinaryReader): WriteOptsKafka;
+    static serializeBinaryToWriter(message: WriteGroupKafkaOptions, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): WriteGroupKafkaOptions;
+    static deserializeBinaryFromReader(message: WriteGroupKafkaOptions, reader: jspb.BinaryReader): WriteGroupKafkaOptions;
 }
 
-export namespace WriteOptsKafka {
+export namespace WriteGroupKafkaOptions {
     export type AsObject = {
         Conn?: args_kafka_pb.KafkaConn.AsObject,
         args?: args_kafka_pb.KafkaWriteArgs.AsObject,
     }
 }
 
-export class WriteOptsActiveMQ extends jspb.Message { 
+export class WriteGroupActiveMQOptions extends jspb.Message { 
 
     hasConn(): boolean;
     clearConn(): void;
     getConn(): args_activemq_pb.ActiveMQConn | undefined;
-    setConn(value?: args_activemq_pb.ActiveMQConn): WriteOptsActiveMQ;
+    setConn(value?: args_activemq_pb.ActiveMQConn): WriteGroupActiveMQOptions;
 
     hasArgs(): boolean;
     clearArgs(): void;
     getArgs(): args_activemq_pb.ActiveMQWriteArgs | undefined;
-    setArgs(value?: args_activemq_pb.ActiveMQWriteArgs): WriteOptsActiveMQ;
+    setArgs(value?: args_activemq_pb.ActiveMQWriteArgs): WriteGroupActiveMQOptions;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): WriteOptsActiveMQ.AsObject;
-    static toObject(includeInstance: boolean, msg: WriteOptsActiveMQ): WriteOptsActiveMQ.AsObject;
+    toObject(includeInstance?: boolean): WriteGroupActiveMQOptions.AsObject;
+    static toObject(includeInstance: boolean, msg: WriteGroupActiveMQOptions): WriteGroupActiveMQOptions.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: WriteOptsActiveMQ, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): WriteOptsActiveMQ;
-    static deserializeBinaryFromReader(message: WriteOptsActiveMQ, reader: jspb.BinaryReader): WriteOptsActiveMQ;
+    static serializeBinaryToWriter(message: WriteGroupActiveMQOptions, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): WriteGroupActiveMQOptions;
+    static deserializeBinaryFromReader(message: WriteGroupActiveMQOptions, reader: jspb.BinaryReader): WriteGroupActiveMQOptions;
 }
 
-export namespace WriteOptsActiveMQ {
+export namespace WriteGroupActiveMQOptions {
     export type AsObject = {
         Conn?: args_activemq_pb.ActiveMQConn.AsObject,
         args?: args_activemq_pb.ActiveMQWriteArgs.AsObject,
     }
 }
 
-export class WriteOptsAWSSQS extends jspb.Message { 
+export class WriteGroupAWSSQSOptions extends jspb.Message { 
 
     hasConn(): boolean;
     clearConn(): void;
     getConn(): args_aws_sqs_pb.AWSSQSConn | undefined;
-    setConn(value?: args_aws_sqs_pb.AWSSQSConn): WriteOptsAWSSQS;
+    setConn(value?: args_aws_sqs_pb.AWSSQSConn): WriteGroupAWSSQSOptions;
 
     hasArgs(): boolean;
     clearArgs(): void;
     getArgs(): args_aws_sqs_pb.AWSSQSWriteArgs | undefined;
-    setArgs(value?: args_aws_sqs_pb.AWSSQSWriteArgs): WriteOptsAWSSQS;
+    setArgs(value?: args_aws_sqs_pb.AWSSQSWriteArgs): WriteGroupAWSSQSOptions;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): WriteOptsAWSSQS.AsObject;
-    static toObject(includeInstance: boolean, msg: WriteOptsAWSSQS): WriteOptsAWSSQS.AsObject;
+    toObject(includeInstance?: boolean): WriteGroupAWSSQSOptions.AsObject;
+    static toObject(includeInstance: boolean, msg: WriteGroupAWSSQSOptions): WriteGroupAWSSQSOptions.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: WriteOptsAWSSQS, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): WriteOptsAWSSQS;
-    static deserializeBinaryFromReader(message: WriteOptsAWSSQS, reader: jspb.BinaryReader): WriteOptsAWSSQS;
+    static serializeBinaryToWriter(message: WriteGroupAWSSQSOptions, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): WriteGroupAWSSQSOptions;
+    static deserializeBinaryFromReader(message: WriteGroupAWSSQSOptions, reader: jspb.BinaryReader): WriteGroupAWSSQSOptions;
 }
 
-export namespace WriteOptsAWSSQS {
+export namespace WriteGroupAWSSQSOptions {
     export type AsObject = {
         Conn?: args_aws_sqs_pb.AWSSQSConn.AsObject,
         args?: args_aws_sqs_pb.AWSSQSWriteArgs.AsObject,
     }
 }
 
-export class WriteOptsAWSSNS extends jspb.Message { 
+export class WriteGroupAWSSNSOptions extends jspb.Message { 
 
     hasConn(): boolean;
     clearConn(): void;
     getConn(): args_aws_sns_pb.AWSSNSConn | undefined;
-    setConn(value?: args_aws_sns_pb.AWSSNSConn): WriteOptsAWSSNS;
+    setConn(value?: args_aws_sns_pb.AWSSNSConn): WriteGroupAWSSNSOptions;
 
     hasArgs(): boolean;
     clearArgs(): void;
     getArgs(): args_aws_sns_pb.AWSSNSWriteArgs | undefined;
-    setArgs(value?: args_aws_sns_pb.AWSSNSWriteArgs): WriteOptsAWSSNS;
+    setArgs(value?: args_aws_sns_pb.AWSSNSWriteArgs): WriteGroupAWSSNSOptions;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): WriteOptsAWSSNS.AsObject;
-    static toObject(includeInstance: boolean, msg: WriteOptsAWSSNS): WriteOptsAWSSNS.AsObject;
+    toObject(includeInstance?: boolean): WriteGroupAWSSNSOptions.AsObject;
+    static toObject(includeInstance: boolean, msg: WriteGroupAWSSNSOptions): WriteGroupAWSSNSOptions.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: WriteOptsAWSSNS, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): WriteOptsAWSSNS;
-    static deserializeBinaryFromReader(message: WriteOptsAWSSNS, reader: jspb.BinaryReader): WriteOptsAWSSNS;
+    static serializeBinaryToWriter(message: WriteGroupAWSSNSOptions, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): WriteGroupAWSSNSOptions;
+    static deserializeBinaryFromReader(message: WriteGroupAWSSNSOptions, reader: jspb.BinaryReader): WriteGroupAWSSNSOptions;
 }
 
-export namespace WriteOptsAWSSNS {
+export namespace WriteGroupAWSSNSOptions {
     export type AsObject = {
         Conn?: args_aws_sns_pb.AWSSNSConn.AsObject,
         args?: args_aws_sns_pb.AWSSNSWriteArgs.AsObject,
     }
 }
 
-export class WriteOptsNats extends jspb.Message { 
+export class WriteGroupNatsOptions extends jspb.Message { 
 
     hasConn(): boolean;
     clearConn(): void;
     getConn(): args_nats_pb.NatsConn | undefined;
-    setConn(value?: args_nats_pb.NatsConn): WriteOptsNats;
+    setConn(value?: args_nats_pb.NatsConn): WriteGroupNatsOptions;
 
     hasArgs(): boolean;
     clearArgs(): void;
     getArgs(): args_nats_pb.NatsWriteArgs | undefined;
-    setArgs(value?: args_nats_pb.NatsWriteArgs): WriteOptsNats;
+    setArgs(value?: args_nats_pb.NatsWriteArgs): WriteGroupNatsOptions;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): WriteOptsNats.AsObject;
-    static toObject(includeInstance: boolean, msg: WriteOptsNats): WriteOptsNats.AsObject;
+    toObject(includeInstance?: boolean): WriteGroupNatsOptions.AsObject;
+    static toObject(includeInstance: boolean, msg: WriteGroupNatsOptions): WriteGroupNatsOptions.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: WriteOptsNats, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): WriteOptsNats;
-    static deserializeBinaryFromReader(message: WriteOptsNats, reader: jspb.BinaryReader): WriteOptsNats;
+    static serializeBinaryToWriter(message: WriteGroupNatsOptions, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): WriteGroupNatsOptions;
+    static deserializeBinaryFromReader(message: WriteGroupNatsOptions, reader: jspb.BinaryReader): WriteGroupNatsOptions;
 }
 
-export namespace WriteOptsNats {
+export namespace WriteGroupNatsOptions {
     export type AsObject = {
         Conn?: args_nats_pb.NatsConn.AsObject,
         args?: args_nats_pb.NatsWriteArgs.AsObject,
     }
 }
 
-export class WriteOptsNatsStreaming extends jspb.Message { 
+export class WriteGroupNatsStreamingOptions extends jspb.Message { 
 
     hasConn(): boolean;
     clearConn(): void;
     getConn(): args_nats_streaming_pb.NatsStreamingConn | undefined;
-    setConn(value?: args_nats_streaming_pb.NatsStreamingConn): WriteOptsNatsStreaming;
+    setConn(value?: args_nats_streaming_pb.NatsStreamingConn): WriteGroupNatsStreamingOptions;
 
     hasArgs(): boolean;
     clearArgs(): void;
     getArgs(): args_nats_streaming_pb.NatsStreamingWriteArgs | undefined;
-    setArgs(value?: args_nats_streaming_pb.NatsStreamingWriteArgs): WriteOptsNatsStreaming;
+    setArgs(value?: args_nats_streaming_pb.NatsStreamingWriteArgs): WriteGroupNatsStreamingOptions;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): WriteOptsNatsStreaming.AsObject;
-    static toObject(includeInstance: boolean, msg: WriteOptsNatsStreaming): WriteOptsNatsStreaming.AsObject;
+    toObject(includeInstance?: boolean): WriteGroupNatsStreamingOptions.AsObject;
+    static toObject(includeInstance: boolean, msg: WriteGroupNatsStreamingOptions): WriteGroupNatsStreamingOptions.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: WriteOptsNatsStreaming, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): WriteOptsNatsStreaming;
-    static deserializeBinaryFromReader(message: WriteOptsNatsStreaming, reader: jspb.BinaryReader): WriteOptsNatsStreaming;
+    static serializeBinaryToWriter(message: WriteGroupNatsStreamingOptions, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): WriteGroupNatsStreamingOptions;
+    static deserializeBinaryFromReader(message: WriteGroupNatsStreamingOptions, reader: jspb.BinaryReader): WriteGroupNatsStreamingOptions;
 }
 
-export namespace WriteOptsNatsStreaming {
+export namespace WriteGroupNatsStreamingOptions {
     export type AsObject = {
         Conn?: args_nats_streaming_pb.NatsStreamingConn.AsObject,
         args?: args_nats_streaming_pb.NatsStreamingWriteArgs.AsObject,
     }
 }
 
-export class WriteOptsNSQ extends jspb.Message { 
+export class WriteGroupNSQOptions extends jspb.Message { 
 
     hasConn(): boolean;
     clearConn(): void;
     getConn(): args_nsq_pb.NSQConn | undefined;
-    setConn(value?: args_nsq_pb.NSQConn): WriteOptsNSQ;
+    setConn(value?: args_nsq_pb.NSQConn): WriteGroupNSQOptions;
 
     hasArgs(): boolean;
     clearArgs(): void;
     getArgs(): args_nsq_pb.NSQWriteArgs | undefined;
-    setArgs(value?: args_nsq_pb.NSQWriteArgs): WriteOptsNSQ;
+    setArgs(value?: args_nsq_pb.NSQWriteArgs): WriteGroupNSQOptions;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): WriteOptsNSQ.AsObject;
-    static toObject(includeInstance: boolean, msg: WriteOptsNSQ): WriteOptsNSQ.AsObject;
+    toObject(includeInstance?: boolean): WriteGroupNSQOptions.AsObject;
+    static toObject(includeInstance: boolean, msg: WriteGroupNSQOptions): WriteGroupNSQOptions.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: WriteOptsNSQ, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): WriteOptsNSQ;
-    static deserializeBinaryFromReader(message: WriteOptsNSQ, reader: jspb.BinaryReader): WriteOptsNSQ;
+    static serializeBinaryToWriter(message: WriteGroupNSQOptions, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): WriteGroupNSQOptions;
+    static deserializeBinaryFromReader(message: WriteGroupNSQOptions, reader: jspb.BinaryReader): WriteGroupNSQOptions;
 }
 
-export namespace WriteOptsNSQ {
+export namespace WriteGroupNSQOptions {
     export type AsObject = {
         Conn?: args_nsq_pb.NSQConn.AsObject,
         args?: args_nsq_pb.NSQWriteArgs.AsObject,
     }
 }
 
-export class WriteOptsPulsar extends jspb.Message { 
+export class WriteGroupPulsarOptions extends jspb.Message { 
 
     hasConn(): boolean;
     clearConn(): void;
     getConn(): args_pulsar_pb.PulsarConn | undefined;
-    setConn(value?: args_pulsar_pb.PulsarConn): WriteOptsPulsar;
+    setConn(value?: args_pulsar_pb.PulsarConn): WriteGroupPulsarOptions;
 
     hasArgs(): boolean;
     clearArgs(): void;
     getArgs(): args_pulsar_pb.PulsarWriteArgs | undefined;
-    setArgs(value?: args_pulsar_pb.PulsarWriteArgs): WriteOptsPulsar;
+    setArgs(value?: args_pulsar_pb.PulsarWriteArgs): WriteGroupPulsarOptions;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): WriteOptsPulsar.AsObject;
-    static toObject(includeInstance: boolean, msg: WriteOptsPulsar): WriteOptsPulsar.AsObject;
+    toObject(includeInstance?: boolean): WriteGroupPulsarOptions.AsObject;
+    static toObject(includeInstance: boolean, msg: WriteGroupPulsarOptions): WriteGroupPulsarOptions.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: WriteOptsPulsar, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): WriteOptsPulsar;
-    static deserializeBinaryFromReader(message: WriteOptsPulsar, reader: jspb.BinaryReader): WriteOptsPulsar;
+    static serializeBinaryToWriter(message: WriteGroupPulsarOptions, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): WriteGroupPulsarOptions;
+    static deserializeBinaryFromReader(message: WriteGroupPulsarOptions, reader: jspb.BinaryReader): WriteGroupPulsarOptions;
 }
 
-export namespace WriteOptsPulsar {
+export namespace WriteGroupPulsarOptions {
     export type AsObject = {
         Conn?: args_pulsar_pb.PulsarConn.AsObject,
         args?: args_pulsar_pb.PulsarWriteArgs.AsObject,
     }
 }
 
-export class WriteOptsRabbit extends jspb.Message { 
+export class WriteGroupRabbitOptions extends jspb.Message { 
 
     hasConn(): boolean;
     clearConn(): void;
     getConn(): args_rabbit_pb.RabbitConn | undefined;
-    setConn(value?: args_rabbit_pb.RabbitConn): WriteOptsRabbit;
+    setConn(value?: args_rabbit_pb.RabbitConn): WriteGroupRabbitOptions;
 
     hasArgs(): boolean;
     clearArgs(): void;
     getArgs(): args_rabbit_pb.RabbitWriteArgs | undefined;
-    setArgs(value?: args_rabbit_pb.RabbitWriteArgs): WriteOptsRabbit;
+    setArgs(value?: args_rabbit_pb.RabbitWriteArgs): WriteGroupRabbitOptions;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): WriteOptsRabbit.AsObject;
-    static toObject(includeInstance: boolean, msg: WriteOptsRabbit): WriteOptsRabbit.AsObject;
+    toObject(includeInstance?: boolean): WriteGroupRabbitOptions.AsObject;
+    static toObject(includeInstance: boolean, msg: WriteGroupRabbitOptions): WriteGroupRabbitOptions.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: WriteOptsRabbit, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): WriteOptsRabbit;
-    static deserializeBinaryFromReader(message: WriteOptsRabbit, reader: jspb.BinaryReader): WriteOptsRabbit;
+    static serializeBinaryToWriter(message: WriteGroupRabbitOptions, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): WriteGroupRabbitOptions;
+    static deserializeBinaryFromReader(message: WriteGroupRabbitOptions, reader: jspb.BinaryReader): WriteGroupRabbitOptions;
 }
 
-export namespace WriteOptsRabbit {
+export namespace WriteGroupRabbitOptions {
     export type AsObject = {
         Conn?: args_rabbit_pb.RabbitConn.AsObject,
         args?: args_rabbit_pb.RabbitWriteArgs.AsObject,
     }
 }
 
-export class WriteOptsRabbitStreams extends jspb.Message { 
+export class WriteGroupRabbitStreamsOptions extends jspb.Message { 
 
     hasConn(): boolean;
     clearConn(): void;
     getConn(): args_rabbit_streams_pb.RabbitStreamsConn | undefined;
-    setConn(value?: args_rabbit_streams_pb.RabbitStreamsConn): WriteOptsRabbitStreams;
+    setConn(value?: args_rabbit_streams_pb.RabbitStreamsConn): WriteGroupRabbitStreamsOptions;
 
     hasArgs(): boolean;
     clearArgs(): void;
     getArgs(): args_rabbit_streams_pb.RabbitStreamsWriteArgs | undefined;
-    setArgs(value?: args_rabbit_streams_pb.RabbitStreamsWriteArgs): WriteOptsRabbitStreams;
+    setArgs(value?: args_rabbit_streams_pb.RabbitStreamsWriteArgs): WriteGroupRabbitStreamsOptions;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): WriteOptsRabbitStreams.AsObject;
-    static toObject(includeInstance: boolean, msg: WriteOptsRabbitStreams): WriteOptsRabbitStreams.AsObject;
+    toObject(includeInstance?: boolean): WriteGroupRabbitStreamsOptions.AsObject;
+    static toObject(includeInstance: boolean, msg: WriteGroupRabbitStreamsOptions): WriteGroupRabbitStreamsOptions.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: WriteOptsRabbitStreams, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): WriteOptsRabbitStreams;
-    static deserializeBinaryFromReader(message: WriteOptsRabbitStreams, reader: jspb.BinaryReader): WriteOptsRabbitStreams;
+    static serializeBinaryToWriter(message: WriteGroupRabbitStreamsOptions, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): WriteGroupRabbitStreamsOptions;
+    static deserializeBinaryFromReader(message: WriteGroupRabbitStreamsOptions, reader: jspb.BinaryReader): WriteGroupRabbitStreamsOptions;
 }
 
-export namespace WriteOptsRabbitStreams {
+export namespace WriteGroupRabbitStreamsOptions {
     export type AsObject = {
         Conn?: args_rabbit_streams_pb.RabbitStreamsConn.AsObject,
         args?: args_rabbit_streams_pb.RabbitStreamsWriteArgs.AsObject,
     }
 }
 
-export class WriteOptsRedisPubSub extends jspb.Message { 
+export class WriteGroupRedisPubSubOptions extends jspb.Message { 
 
     hasConn(): boolean;
     clearConn(): void;
     getConn(): args_redis_pubsub_pb.RedisPubSubConn | undefined;
-    setConn(value?: args_redis_pubsub_pb.RedisPubSubConn): WriteOptsRedisPubSub;
+    setConn(value?: args_redis_pubsub_pb.RedisPubSubConn): WriteGroupRedisPubSubOptions;
 
     hasArgs(): boolean;
     clearArgs(): void;
     getArgs(): args_redis_pubsub_pb.RedisPubSubWriteArgs | undefined;
-    setArgs(value?: args_redis_pubsub_pb.RedisPubSubWriteArgs): WriteOptsRedisPubSub;
+    setArgs(value?: args_redis_pubsub_pb.RedisPubSubWriteArgs): WriteGroupRedisPubSubOptions;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): WriteOptsRedisPubSub.AsObject;
-    static toObject(includeInstance: boolean, msg: WriteOptsRedisPubSub): WriteOptsRedisPubSub.AsObject;
+    toObject(includeInstance?: boolean): WriteGroupRedisPubSubOptions.AsObject;
+    static toObject(includeInstance: boolean, msg: WriteGroupRedisPubSubOptions): WriteGroupRedisPubSubOptions.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: WriteOptsRedisPubSub, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): WriteOptsRedisPubSub;
-    static deserializeBinaryFromReader(message: WriteOptsRedisPubSub, reader: jspb.BinaryReader): WriteOptsRedisPubSub;
+    static serializeBinaryToWriter(message: WriteGroupRedisPubSubOptions, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): WriteGroupRedisPubSubOptions;
+    static deserializeBinaryFromReader(message: WriteGroupRedisPubSubOptions, reader: jspb.BinaryReader): WriteGroupRedisPubSubOptions;
 }
 
-export namespace WriteOptsRedisPubSub {
+export namespace WriteGroupRedisPubSubOptions {
     export type AsObject = {
         Conn?: args_redis_pubsub_pb.RedisPubSubConn.AsObject,
         args?: args_redis_pubsub_pb.RedisPubSubWriteArgs.AsObject,
     }
 }
 
-export class WriteOptsRedisStreams extends jspb.Message { 
+export class WriteGroupRedisStreamsOptions extends jspb.Message { 
 
     hasConn(): boolean;
     clearConn(): void;
     getConn(): args_redis_streams_pb.RedisStreamsConn | undefined;
-    setConn(value?: args_redis_streams_pb.RedisStreamsConn): WriteOptsRedisStreams;
+    setConn(value?: args_redis_streams_pb.RedisStreamsConn): WriteGroupRedisStreamsOptions;
 
     hasArgs(): boolean;
     clearArgs(): void;
     getArgs(): args_redis_streams_pb.RedisStreamsWriteArgs | undefined;
-    setArgs(value?: args_redis_streams_pb.RedisStreamsWriteArgs): WriteOptsRedisStreams;
+    setArgs(value?: args_redis_streams_pb.RedisStreamsWriteArgs): WriteGroupRedisStreamsOptions;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): WriteOptsRedisStreams.AsObject;
-    static toObject(includeInstance: boolean, msg: WriteOptsRedisStreams): WriteOptsRedisStreams.AsObject;
+    toObject(includeInstance?: boolean): WriteGroupRedisStreamsOptions.AsObject;
+    static toObject(includeInstance: boolean, msg: WriteGroupRedisStreamsOptions): WriteGroupRedisStreamsOptions.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: WriteOptsRedisStreams, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): WriteOptsRedisStreams;
-    static deserializeBinaryFromReader(message: WriteOptsRedisStreams, reader: jspb.BinaryReader): WriteOptsRedisStreams;
+    static serializeBinaryToWriter(message: WriteGroupRedisStreamsOptions, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): WriteGroupRedisStreamsOptions;
+    static deserializeBinaryFromReader(message: WriteGroupRedisStreamsOptions, reader: jspb.BinaryReader): WriteGroupRedisStreamsOptions;
 }
 
-export namespace WriteOptsRedisStreams {
+export namespace WriteGroupRedisStreamsOptions {
     export type AsObject = {
         Conn?: args_redis_streams_pb.RedisStreamsConn.AsObject,
         args?: args_redis_streams_pb.RedisStreamsWriteArgs.AsObject,
     }
 }
 
-export class WriteOptsAzureEventHub extends jspb.Message { 
+export class WriteGroupAzureEventHubOptions extends jspb.Message { 
 
     hasConn(): boolean;
     clearConn(): void;
     getConn(): args_azure_event_hub_pb.AzureEventHubConn | undefined;
-    setConn(value?: args_azure_event_hub_pb.AzureEventHubConn): WriteOptsAzureEventHub;
+    setConn(value?: args_azure_event_hub_pb.AzureEventHubConn): WriteGroupAzureEventHubOptions;
 
     hasArgs(): boolean;
     clearArgs(): void;
     getArgs(): args_azure_event_hub_pb.AzureEventHubWriteArgs | undefined;
-    setArgs(value?: args_azure_event_hub_pb.AzureEventHubWriteArgs): WriteOptsAzureEventHub;
+    setArgs(value?: args_azure_event_hub_pb.AzureEventHubWriteArgs): WriteGroupAzureEventHubOptions;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): WriteOptsAzureEventHub.AsObject;
-    static toObject(includeInstance: boolean, msg: WriteOptsAzureEventHub): WriteOptsAzureEventHub.AsObject;
+    toObject(includeInstance?: boolean): WriteGroupAzureEventHubOptions.AsObject;
+    static toObject(includeInstance: boolean, msg: WriteGroupAzureEventHubOptions): WriteGroupAzureEventHubOptions.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: WriteOptsAzureEventHub, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): WriteOptsAzureEventHub;
-    static deserializeBinaryFromReader(message: WriteOptsAzureEventHub, reader: jspb.BinaryReader): WriteOptsAzureEventHub;
+    static serializeBinaryToWriter(message: WriteGroupAzureEventHubOptions, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): WriteGroupAzureEventHubOptions;
+    static deserializeBinaryFromReader(message: WriteGroupAzureEventHubOptions, reader: jspb.BinaryReader): WriteGroupAzureEventHubOptions;
 }
 
-export namespace WriteOptsAzureEventHub {
+export namespace WriteGroupAzureEventHubOptions {
     export type AsObject = {
         Conn?: args_azure_event_hub_pb.AzureEventHubConn.AsObject,
         args?: args_azure_event_hub_pb.AzureEventHubWriteArgs.AsObject,
     }
 }
 
-export class WriteOptsAzureServiceBus extends jspb.Message { 
+export class WriteGroupAzureServiceBusOptions extends jspb.Message { 
 
     hasConn(): boolean;
     clearConn(): void;
     getConn(): args_azure_service_bus_pb.AzureServiceBusConn | undefined;
-    setConn(value?: args_azure_service_bus_pb.AzureServiceBusConn): WriteOptsAzureServiceBus;
+    setConn(value?: args_azure_service_bus_pb.AzureServiceBusConn): WriteGroupAzureServiceBusOptions;
 
     hasArgs(): boolean;
     clearArgs(): void;
     getArgs(): args_azure_service_bus_pb.AzureServiceBusWriteArgs | undefined;
-    setArgs(value?: args_azure_service_bus_pb.AzureServiceBusWriteArgs): WriteOptsAzureServiceBus;
+    setArgs(value?: args_azure_service_bus_pb.AzureServiceBusWriteArgs): WriteGroupAzureServiceBusOptions;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): WriteOptsAzureServiceBus.AsObject;
-    static toObject(includeInstance: boolean, msg: WriteOptsAzureServiceBus): WriteOptsAzureServiceBus.AsObject;
+    toObject(includeInstance?: boolean): WriteGroupAzureServiceBusOptions.AsObject;
+    static toObject(includeInstance: boolean, msg: WriteGroupAzureServiceBusOptions): WriteGroupAzureServiceBusOptions.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: WriteOptsAzureServiceBus, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): WriteOptsAzureServiceBus;
-    static deserializeBinaryFromReader(message: WriteOptsAzureServiceBus, reader: jspb.BinaryReader): WriteOptsAzureServiceBus;
+    static serializeBinaryToWriter(message: WriteGroupAzureServiceBusOptions, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): WriteGroupAzureServiceBusOptions;
+    static deserializeBinaryFromReader(message: WriteGroupAzureServiceBusOptions, reader: jspb.BinaryReader): WriteGroupAzureServiceBusOptions;
 }
 
-export namespace WriteOptsAzureServiceBus {
+export namespace WriteGroupAzureServiceBusOptions {
     export type AsObject = {
         Conn?: args_azure_service_bus_pb.AzureServiceBusConn.AsObject,
         args?: args_azure_service_bus_pb.AzureServiceBusWriteArgs.AsObject,
     }
 }
 
-export class WriteOptsMQTT extends jspb.Message { 
+export class WriteGroupMQTTOptions extends jspb.Message { 
 
     hasConn(): boolean;
     clearConn(): void;
     getConn(): args_mqtt_pb.MQTTConn | undefined;
-    setConn(value?: args_mqtt_pb.MQTTConn): WriteOptsMQTT;
+    setConn(value?: args_mqtt_pb.MQTTConn): WriteGroupMQTTOptions;
 
     hasArgs(): boolean;
     clearArgs(): void;
     getArgs(): args_mqtt_pb.MQTTWriteArgs | undefined;
-    setArgs(value?: args_mqtt_pb.MQTTWriteArgs): WriteOptsMQTT;
+    setArgs(value?: args_mqtt_pb.MQTTWriteArgs): WriteGroupMQTTOptions;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): WriteOptsMQTT.AsObject;
-    static toObject(includeInstance: boolean, msg: WriteOptsMQTT): WriteOptsMQTT.AsObject;
+    toObject(includeInstance?: boolean): WriteGroupMQTTOptions.AsObject;
+    static toObject(includeInstance: boolean, msg: WriteGroupMQTTOptions): WriteGroupMQTTOptions.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: WriteOptsMQTT, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): WriteOptsMQTT;
-    static deserializeBinaryFromReader(message: WriteOptsMQTT, reader: jspb.BinaryReader): WriteOptsMQTT;
+    static serializeBinaryToWriter(message: WriteGroupMQTTOptions, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): WriteGroupMQTTOptions;
+    static deserializeBinaryFromReader(message: WriteGroupMQTTOptions, reader: jspb.BinaryReader): WriteGroupMQTTOptions;
 }
 
-export namespace WriteOptsMQTT {
+export namespace WriteGroupMQTTOptions {
     export type AsObject = {
         Conn?: args_mqtt_pb.MQTTConn.AsObject,
         args?: args_mqtt_pb.MQTTWriteArgs.AsObject,
     }
 }
 
-export class WriteOptsGCPPubSub extends jspb.Message { 
+export class WriteGroupGCPPubSubOptions extends jspb.Message { 
 
     hasConn(): boolean;
     clearConn(): void;
     getConn(): args_gcp_pubsub_pb.GCPPubSubConn | undefined;
-    setConn(value?: args_gcp_pubsub_pb.GCPPubSubConn): WriteOptsGCPPubSub;
+    setConn(value?: args_gcp_pubsub_pb.GCPPubSubConn): WriteGroupGCPPubSubOptions;
 
     hasArgs(): boolean;
     clearArgs(): void;
     getArgs(): args_gcp_pubsub_pb.GCPPubSubWriteArgs | undefined;
-    setArgs(value?: args_gcp_pubsub_pb.GCPPubSubWriteArgs): WriteOptsGCPPubSub;
+    setArgs(value?: args_gcp_pubsub_pb.GCPPubSubWriteArgs): WriteGroupGCPPubSubOptions;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): WriteOptsGCPPubSub.AsObject;
-    static toObject(includeInstance: boolean, msg: WriteOptsGCPPubSub): WriteOptsGCPPubSub.AsObject;
+    toObject(includeInstance?: boolean): WriteGroupGCPPubSubOptions.AsObject;
+    static toObject(includeInstance: boolean, msg: WriteGroupGCPPubSubOptions): WriteGroupGCPPubSubOptions.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: WriteOptsGCPPubSub, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): WriteOptsGCPPubSub;
-    static deserializeBinaryFromReader(message: WriteOptsGCPPubSub, reader: jspb.BinaryReader): WriteOptsGCPPubSub;
+    static serializeBinaryToWriter(message: WriteGroupGCPPubSubOptions, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): WriteGroupGCPPubSubOptions;
+    static deserializeBinaryFromReader(message: WriteGroupGCPPubSubOptions, reader: jspb.BinaryReader): WriteGroupGCPPubSubOptions;
 }
 
-export namespace WriteOptsGCPPubSub {
+export namespace WriteGroupGCPPubSubOptions {
     export type AsObject = {
         Conn?: args_gcp_pubsub_pb.GCPPubSubConn.AsObject,
         args?: args_gcp_pubsub_pb.GCPPubSubWriteArgs.AsObject,
     }
 }
 
-export class WriteOptsKubeMQQueue extends jspb.Message { 
+export class WriteGroupKubeMQQueueOptions extends jspb.Message { 
 
     hasConn(): boolean;
     clearConn(): void;
     getConn(): args_kubemq_queue_pb.KubeMQQueueConn | undefined;
-    setConn(value?: args_kubemq_queue_pb.KubeMQQueueConn): WriteOptsKubeMQQueue;
+    setConn(value?: args_kubemq_queue_pb.KubeMQQueueConn): WriteGroupKubeMQQueueOptions;
 
     hasArgs(): boolean;
     clearArgs(): void;
     getArgs(): args_kubemq_queue_pb.KubeMQQueueWriteArgs | undefined;
-    setArgs(value?: args_kubemq_queue_pb.KubeMQQueueWriteArgs): WriteOptsKubeMQQueue;
+    setArgs(value?: args_kubemq_queue_pb.KubeMQQueueWriteArgs): WriteGroupKubeMQQueueOptions;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): WriteOptsKubeMQQueue.AsObject;
-    static toObject(includeInstance: boolean, msg: WriteOptsKubeMQQueue): WriteOptsKubeMQQueue.AsObject;
+    toObject(includeInstance?: boolean): WriteGroupKubeMQQueueOptions.AsObject;
+    static toObject(includeInstance: boolean, msg: WriteGroupKubeMQQueueOptions): WriteGroupKubeMQQueueOptions.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: WriteOptsKubeMQQueue, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): WriteOptsKubeMQQueue;
-    static deserializeBinaryFromReader(message: WriteOptsKubeMQQueue, reader: jspb.BinaryReader): WriteOptsKubeMQQueue;
+    static serializeBinaryToWriter(message: WriteGroupKubeMQQueueOptions, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): WriteGroupKubeMQQueueOptions;
+    static deserializeBinaryFromReader(message: WriteGroupKubeMQQueueOptions, reader: jspb.BinaryReader): WriteGroupKubeMQQueueOptions;
 }
 
-export namespace WriteOptsKubeMQQueue {
+export namespace WriteGroupKubeMQQueueOptions {
     export type AsObject = {
         Conn?: args_kubemq_queue_pb.KubeMQQueueConn.AsObject,
         args?: args_kubemq_queue_pb.KubeMQQueueWriteArgs.AsObject,

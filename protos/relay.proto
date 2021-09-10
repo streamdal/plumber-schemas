@@ -8,51 +8,6 @@ import "opts/relay.proto";
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
 
-message CLIRelayConfig {
-    // @gotags: kong:"help='What address to bind the built-in HTTP server to',default='http://localhost:9191'"
-    string http_listen_address = 1;
-}
-
-message RelayConfig {
-    // @gotags: kong:"help='Secret collection token',name=token,required"
-    string collection_token = 1;
-
-    // @gotags: kong:"help='How many messages to send in a single batch',default=1000"
-    int32 batch_size = 2;
-
-    // @gotags: kong:"help='How many times plumber will try re-sending a batch',default=3"
-    int32 batch_max_retry = 3;
-
-    // Required for desktop; ignored in CLI.
-    // @gotags: kong:"-"
-    string connection_id = 4;
-
-    // @gotags: kong:"name='How many workers to launch per relay',default=10"
-    int32 num_workers = 5;
-
-    // @gotags: kong:"help='Alternative collector to relay events to',name='grpc-address',default='grpc-collector.batch.sh:9000'"
-    string _batchsh_grpc_address = 6;
-
-    // @gotags: kong:"help='Whether to use TLS with collector',name=grpc-disable-tls,default=true"
-    bool _batchsh_grpc_disable_tls = 7;
-
-    // @gotags: kong:"help='How long to wait before giving up talking to the gRPC collector',name='grpc-timeout-seconds'"
-    int32 _batchsh_grpc_timeout_seconds = 8;
-
-    // Any extra opts that can differ between relays (same as reads).
-    // NOTE: Desktop can leave conn unset - an existing connection will be used
-    // by looking up connection_id.
-    // @gotags: kong:"embed"
-    opts.Relay relay_opts = 9;
-
-    // ID of the created relay entry; populated by plumber.
-    // @gotags: kong:"-"
-    string _relay_id = 10;
-
-    // @gotags: kong:"embed"
-    CLIRelayConfig _cli_config = 11;
-}
-
 message GetAllRelaysRequest {
     // Every gRPC request must have a valid auth config
     common.Auth auth = 9999;
@@ -62,7 +17,7 @@ message GetAllRelaysResponse {
     common.Status status = 1000;
 
     // Will be set as empty []Relay if no relays are configured
-    repeated RelayConfig configs = 1;
+    repeated opts.RelayOptions opts = 1;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -78,7 +33,7 @@ message GetRelayResponse {
     common.Status status = 1000;
 
     // Set only if status is OK
-    RelayConfig config = 1;
+    opts.RelayOptions opts = 1;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -87,7 +42,7 @@ message CreateRelayRequest {
     // Every gRPC request must have a valid auth config
     common.Auth auth = 9999;
 
-    RelayConfig config = 1;
+    opts.RelayOptions opts = 1;
 }
 
 message CreateRelayResponse {
@@ -106,7 +61,7 @@ message UpdateRelayRequest {
 
     string relay_id = 1;
 
-    RelayConfig config = 2;
+    opts.RelayOptions opts = 2;
 }
 
 message UpdateRelayResponse {

@@ -7,122 +7,8 @@
 import * as jspb from "google-protobuf";
 import * as common_auth_pb from "./common/auth_pb";
 import * as common_status_pb from "./common/status_pb";
-import * as encoding_options_pb from "./encoding/options_pb";
 import * as records_base_pb from "./records/base_pb";
 import * as opts_read_pb from "./opts/read_pb";
-
-export class ReadSampleOptions extends jspb.Message { 
-    getSampleRate(): number;
-    setSampleRate(value: number): ReadSampleOptions;
-    getSampleIntervalSeconds(): number;
-    setSampleIntervalSeconds(value: number): ReadSampleOptions;
-
-    serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): ReadSampleOptions.AsObject;
-    static toObject(includeInstance: boolean, msg: ReadSampleOptions): ReadSampleOptions.AsObject;
-    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: ReadSampleOptions, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): ReadSampleOptions;
-    static deserializeBinaryFromReader(message: ReadSampleOptions, reader: jspb.BinaryReader): ReadSampleOptions;
-}
-
-export namespace ReadSampleOptions {
-    export type AsObject = {
-        sampleRate: number,
-        sampleIntervalSeconds: number,
-    }
-}
-
-export class ReadCLIConfig extends jspb.Message { 
-    getDisplayOffsetStats(): boolean;
-    setDisplayOffsetStats(value: boolean): ReadCLIConfig;
-    clearConvertOutputList(): void;
-    getConvertOutputList(): Array<ConvertOption>;
-    setConvertOutputList(value: Array<ConvertOption>): ReadCLIConfig;
-    addConvertOutput(value: ConvertOption, index?: number): ConvertOption;
-    getVerboseOutput(): boolean;
-    setVerboseOutput(value: boolean): ReadCLIConfig;
-    getStatsEnable(): boolean;
-    setStatsEnable(value: boolean): ReadCLIConfig;
-    getStatsReportIntervalSec(): number;
-    setStatsReportIntervalSec(value: number): ReadCLIConfig;
-
-    serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): ReadCLIConfig.AsObject;
-    static toObject(includeInstance: boolean, msg: ReadCLIConfig): ReadCLIConfig.AsObject;
-    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: ReadCLIConfig, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): ReadCLIConfig;
-    static deserializeBinaryFromReader(message: ReadCLIConfig, reader: jspb.BinaryReader): ReadCLIConfig;
-}
-
-export namespace ReadCLIConfig {
-    export type AsObject = {
-        displayOffsetStats: boolean,
-        convertOutputList: Array<ConvertOption>,
-        verboseOutput: boolean,
-        statsEnable: boolean,
-        statsReportIntervalSec: number,
-    }
-}
-
-export class ReadConfig extends jspb.Message { 
-    getName(): string;
-    setName(value: string): ReadConfig;
-    getConnectionId(): string;
-    setConnectionId(value: string): ReadConfig;
-    getContinuous(): boolean;
-    setContinuous(value: boolean): ReadConfig;
-
-    hasSampleOptions(): boolean;
-    clearSampleOptions(): void;
-    getSampleOptions(): ReadSampleOptions | undefined;
-    setSampleOptions(value?: ReadSampleOptions): ReadConfig;
-
-    hasDecodeOptions(): boolean;
-    clearDecodeOptions(): void;
-    getDecodeOptions(): encoding_options_pb.DecodeOptions | undefined;
-    setDecodeOptions(value?: encoding_options_pb.DecodeOptions): ReadConfig;
-
-    hasReadOpts(): boolean;
-    clearReadOpts(): void;
-    getReadOpts(): opts_read_pb.Read | undefined;
-    setReadOpts(value?: opts_read_pb.Read): ReadConfig;
-    getId(): string;
-    setId(value: string): ReadConfig;
-    getActive(): boolean;
-    setActive(value: boolean): ReadConfig;
-
-    hasCliConfig(): boolean;
-    clearCliConfig(): void;
-    getCliConfig(): ReadCLIConfig | undefined;
-    setCliConfig(value?: ReadCLIConfig): ReadConfig;
-
-    serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): ReadConfig.AsObject;
-    static toObject(includeInstance: boolean, msg: ReadConfig): ReadConfig.AsObject;
-    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: ReadConfig, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): ReadConfig;
-    static deserializeBinaryFromReader(message: ReadConfig, reader: jspb.BinaryReader): ReadConfig;
-}
-
-export namespace ReadConfig {
-    export type AsObject = {
-        name: string,
-        connectionId: string,
-        continuous: boolean,
-        sampleOptions?: ReadSampleOptions.AsObject,
-        decodeOptions?: encoding_options_pb.DecodeOptions.AsObject,
-        readOpts?: opts_read_pb.Read.AsObject,
-        Id: string,
-        Active: boolean,
-        CliConfig?: ReadCLIConfig.AsObject,
-    }
-}
 
 export class CreateReadRequest extends jspb.Message { 
 
@@ -131,10 +17,10 @@ export class CreateReadRequest extends jspb.Message {
     getAuth(): common_auth_pb.Auth | undefined;
     setAuth(value?: common_auth_pb.Auth): CreateReadRequest;
 
-    hasConfig(): boolean;
-    clearConfig(): void;
-    getConfig(): ReadConfig | undefined;
-    setConfig(value?: ReadConfig): CreateReadRequest;
+    hasRead(): boolean;
+    clearRead(): void;
+    getRead(): opts_read_pb.ReadOptions | undefined;
+    setRead(value?: opts_read_pb.ReadOptions): CreateReadRequest;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): CreateReadRequest.AsObject;
@@ -149,7 +35,7 @@ export class CreateReadRequest extends jspb.Message {
 export namespace CreateReadRequest {
     export type AsObject = {
         auth?: common_auth_pb.Auth.AsObject,
-        config?: ReadConfig.AsObject,
+        read?: opts_read_pb.ReadOptions.AsObject,
     }
 }
 
@@ -405,9 +291,9 @@ export namespace GetAllReadsRequest {
 
 export class GetAllReadsResponse extends jspb.Message { 
     clearReadList(): void;
-    getReadList(): Array<ReadConfig>;
-    setReadList(value: Array<ReadConfig>): GetAllReadsResponse;
-    addRead(value?: ReadConfig, index?: number): ReadConfig;
+    getReadList(): Array<opts_read_pb.ReadOptions>;
+    setReadList(value: Array<opts_read_pb.ReadOptions>): GetAllReadsResponse;
+    addRead(value?: opts_read_pb.ReadOptions, index?: number): opts_read_pb.ReadOptions;
 
     hasStatus(): boolean;
     clearStatus(): void;
@@ -426,13 +312,7 @@ export class GetAllReadsResponse extends jspb.Message {
 
 export namespace GetAllReadsResponse {
     export type AsObject = {
-        readList: Array<ReadConfig.AsObject>,
+        readList: Array<opts_read_pb.ReadOptions.AsObject>,
         status?: common_status_pb.Status.AsObject,
     }
-}
-
-export enum ConvertOption {
-    CONVERT_OPTION_UNSET = 0,
-    CONVERT_OPTION_BASE64 = 1,
-    CONVERT_OPTION_GZIP = 2,
 }

@@ -4,50 +4,15 @@ package protos;
 
 import "common/auth.proto";
 import "common/status.proto";
-import "encoding/options.proto";
 import "opts/write.proto";
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
-
-message WriteCLIConfig {
-    // @gotags: kong:"help='Write data from input file',existingfile,xor=input"
-    string input_file = 1;
-
-    // @gotags: kong="help='Treat input as JSON array - each array element will be written as a separate message'"
-    bool input_as_json_array = 2;
-}
-
-// WriteConfig is used by both CLI and server to facilitate a write request.
-// It is the responsibility of the handler (CLI or server) to read EncodeOptions,
-// CLI config, etc. and update the *WriteOpts accordingly. Ie. If CLI passes
-// a file, the CLI handler should read the file and set it in *WriteOpts.WriteRecord.
-message WriteConfig {
-    // Required for desktop; ignored in CLI.
-    // @gotags: kong:"-"
-    string connection_id = 1;
-
-    // Specifying encoding options will cause the _value_ of the record to get
-    // encoded and set in WriteRecord.encoded.
-    // @gotags: kong:"embed,group=encode"
-    encoding.EncodeOptions encode_options = 2;
-
-    // This will be passed directly to the backend to perform the write.
-    // The opts must include the actual payload that should be written, any
-    // backend & write-specific opts. Desktop can omit conn - it will be
-    // auto-filled out in CLI mode.
-    // @gotags: kong:"embed"
-    opts.Write write_opts = 3;
-
-    // Optional; CLI-specific and non-backend-specific options
-    // @gotags: kong:"embed"
-    WriteCLIConfig _cli_config = 4;
-}
 
 message WriteRequest {
     // Every gRPC request must have a valid auth config
     common.Auth auth = 9999;
 
-    WriteConfig config = 1;
+    opts.WriteOptions opts = 1;
 }
 
 message WriteResponse {

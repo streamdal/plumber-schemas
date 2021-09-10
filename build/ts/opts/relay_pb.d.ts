@@ -18,437 +18,490 @@ import * as args_rabbit_pb from "../args/rabbit_pb";
 import * as args_redis_pubsub_pb from "../args/redis-pubsub_pb";
 import * as args_redis_streams_pb from "../args/redis-streams_pb";
 
-export class Relay extends jspb.Message { 
-
-    hasKafka(): boolean;
-    clearKafka(): void;
-    getKafka(): RelayOptsKafka | undefined;
-    setKafka(value?: RelayOptsKafka): Relay;
-
-    hasAwssqs(): boolean;
-    clearAwssqs(): void;
-    getAwssqs(): RelayOptsAWSSQS | undefined;
-    setAwssqs(value?: RelayOptsAWSSQS): Relay;
-
-    hasMongo(): boolean;
-    clearMongo(): void;
-    getMongo(): RelayOptsMongo | undefined;
-    setMongo(value?: RelayOptsMongo): Relay;
-
-    hasNsq(): boolean;
-    clearNsq(): void;
-    getNsq(): RelayOptsNSQ | undefined;
-    setNsq(value?: RelayOptsNSQ): Relay;
-
-    hasRabbit(): boolean;
-    clearRabbit(): void;
-    getRabbit(): RelayOptsRabbit | undefined;
-    setRabbit(value?: RelayOptsRabbit): Relay;
-
-    hasMqtt(): boolean;
-    clearMqtt(): void;
-    getMqtt(): RelayOptsMQTT | undefined;
-    setMqtt(value?: RelayOptsMQTT): Relay;
-
-    hasAzureServiceBus(): boolean;
-    clearAzureServiceBus(): void;
-    getAzureServiceBus(): RelayOptsAzureServiceBus | undefined;
-    setAzureServiceBus(value?: RelayOptsAzureServiceBus): Relay;
-
-    hasGcpPubsub(): boolean;
-    clearGcpPubsub(): void;
-    getGcpPubsub(): RelayOptsGCPPubSub | undefined;
-    setGcpPubsub(value?: RelayOptsGCPPubSub): Relay;
-
-    hasKubemqQueue(): boolean;
-    clearKubemqQueue(): void;
-    getKubemqQueue(): RelayOptsKubeMQQueue | undefined;
-    setKubemqQueue(value?: RelayOptsKubeMQQueue): Relay;
-
-    hasRedisPubsub(): boolean;
-    clearRedisPubsub(): void;
-    getRedisPubsub(): RelayOptsRedisPubSub | undefined;
-    setRedisPubsub(value?: RelayOptsRedisPubSub): Relay;
-
-    hasRedisStreams(): boolean;
-    clearRedisStreams(): void;
-    getRedisStreams(): RelayOptsRedisStreams | undefined;
-    setRedisStreams(value?: RelayOptsRedisStreams): Relay;
-
-    hasPostgres(): boolean;
-    clearPostgres(): void;
-    getPostgres(): RelayOptsPostgres | undefined;
-    setPostgres(value?: RelayOptsPostgres): Relay;
+export class RelayCLIOptions extends jspb.Message { 
+    getHttpListenAddress(): string;
+    setHttpListenAddress(value: string): RelayCLIOptions;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): Relay.AsObject;
-    static toObject(includeInstance: boolean, msg: Relay): Relay.AsObject;
+    toObject(includeInstance?: boolean): RelayCLIOptions.AsObject;
+    static toObject(includeInstance: boolean, msg: RelayCLIOptions): RelayCLIOptions.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: Relay, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): Relay;
-    static deserializeBinaryFromReader(message: Relay, reader: jspb.BinaryReader): Relay;
+    static serializeBinaryToWriter(message: RelayCLIOptions, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): RelayCLIOptions;
+    static deserializeBinaryFromReader(message: RelayCLIOptions, reader: jspb.BinaryReader): RelayCLIOptions;
 }
 
-export namespace Relay {
+export namespace RelayCLIOptions {
     export type AsObject = {
-        kafka?: RelayOptsKafka.AsObject,
-        awssqs?: RelayOptsAWSSQS.AsObject,
-        mongo?: RelayOptsMongo.AsObject,
-        nsq?: RelayOptsNSQ.AsObject,
-        rabbit?: RelayOptsRabbit.AsObject,
-        mqtt?: RelayOptsMQTT.AsObject,
-        azureServiceBus?: RelayOptsAzureServiceBus.AsObject,
-        gcpPubsub?: RelayOptsGCPPubSub.AsObject,
-        kubemqQueue?: RelayOptsKubeMQQueue.AsObject,
-        redisPubsub?: RelayOptsRedisPubSub.AsObject,
-        redisStreams?: RelayOptsRedisStreams.AsObject,
-        postgres?: RelayOptsPostgres.AsObject,
+        httpListenAddress: string,
     }
 }
 
-export class RelayOptsKafka extends jspb.Message { 
+export class RelayOptions extends jspb.Message { 
+    getCollectionToken(): string;
+    setCollectionToken(value: string): RelayOptions;
+    getBatchSize(): number;
+    setBatchSize(value: number): RelayOptions;
+    getBatchMaxRetry(): number;
+    setBatchMaxRetry(value: number): RelayOptions;
+    getConnectionId(): string;
+    setConnectionId(value: string): RelayOptions;
+    getNumWorkers(): number;
+    setNumWorkers(value: number): RelayOptions;
+    getBatchshGrpcAddress(): string;
+    setBatchshGrpcAddress(value: string): RelayOptions;
+    getBatchshGrpcDisableTls(): boolean;
+    setBatchshGrpcDisableTls(value: boolean): RelayOptions;
+    getBatchshGrpcTimeoutSeconds(): number;
+    setBatchshGrpcTimeoutSeconds(value: number): RelayOptions;
+    getRelayId(): string;
+    setRelayId(value: string): RelayOptions;
+
+    hasCliOptions(): boolean;
+    clearCliOptions(): void;
+    getCliOptions(): RelayCLIOptions | undefined;
+    setCliOptions(value?: RelayCLIOptions): RelayOptions;
+
+    hasKafka(): boolean;
+    clearKafka(): void;
+    getKafka(): RelayGroupKafkaOptions | undefined;
+    setKafka(value?: RelayGroupKafkaOptions): RelayOptions;
+
+    hasAwssqs(): boolean;
+    clearAwssqs(): void;
+    getAwssqs(): RelayGroupAWSSQSOptions | undefined;
+    setAwssqs(value?: RelayGroupAWSSQSOptions): RelayOptions;
+
+    hasMongo(): boolean;
+    clearMongo(): void;
+    getMongo(): RelayGroupMongoOptions | undefined;
+    setMongo(value?: RelayGroupMongoOptions): RelayOptions;
+
+    hasNsq(): boolean;
+    clearNsq(): void;
+    getNsq(): RelayGroupNSQOptions | undefined;
+    setNsq(value?: RelayGroupNSQOptions): RelayOptions;
+
+    hasRabbit(): boolean;
+    clearRabbit(): void;
+    getRabbit(): RelayGroupRabbitOptions | undefined;
+    setRabbit(value?: RelayGroupRabbitOptions): RelayOptions;
+
+    hasMqtt(): boolean;
+    clearMqtt(): void;
+    getMqtt(): RelayGroupMQTTOptions | undefined;
+    setMqtt(value?: RelayGroupMQTTOptions): RelayOptions;
+
+    hasAzureServiceBus(): boolean;
+    clearAzureServiceBus(): void;
+    getAzureServiceBus(): RelayGroupAzureServiceBusOptions | undefined;
+    setAzureServiceBus(value?: RelayGroupAzureServiceBusOptions): RelayOptions;
+
+    hasGcpPubsub(): boolean;
+    clearGcpPubsub(): void;
+    getGcpPubsub(): RelayGroupGCPPubSubOptions | undefined;
+    setGcpPubsub(value?: RelayGroupGCPPubSubOptions): RelayOptions;
+
+    hasKubemqQueue(): boolean;
+    clearKubemqQueue(): void;
+    getKubemqQueue(): RelayGroupKubeMQQueueOptions | undefined;
+    setKubemqQueue(value?: RelayGroupKubeMQQueueOptions): RelayOptions;
+
+    hasRedisPubsub(): boolean;
+    clearRedisPubsub(): void;
+    getRedisPubsub(): RelayGroupRedisPubSubOptions | undefined;
+    setRedisPubsub(value?: RelayGroupRedisPubSubOptions): RelayOptions;
+
+    hasRedisStreams(): boolean;
+    clearRedisStreams(): void;
+    getRedisStreams(): RelayGroupRedisStreamsOptions | undefined;
+    setRedisStreams(value?: RelayGroupRedisStreamsOptions): RelayOptions;
+
+    hasPostgres(): boolean;
+    clearPostgres(): void;
+    getPostgres(): RelayGroupPostgresOptions | undefined;
+    setPostgres(value?: RelayGroupPostgresOptions): RelayOptions;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): RelayOptions.AsObject;
+    static toObject(includeInstance: boolean, msg: RelayOptions): RelayOptions.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: RelayOptions, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): RelayOptions;
+    static deserializeBinaryFromReader(message: RelayOptions, reader: jspb.BinaryReader): RelayOptions;
+}
+
+export namespace RelayOptions {
+    export type AsObject = {
+        collectionToken: string,
+        batchSize: number,
+        batchMaxRetry: number,
+        connectionId: string,
+        numWorkers: number,
+        BatchshGrpcAddress: string,
+        BatchshGrpcDisableTls: boolean,
+        BatchshGrpcTimeoutSeconds: number,
+        RelayId: string,
+        CliOptions?: RelayCLIOptions.AsObject,
+        kafka?: RelayGroupKafkaOptions.AsObject,
+        awssqs?: RelayGroupAWSSQSOptions.AsObject,
+        mongo?: RelayGroupMongoOptions.AsObject,
+        nsq?: RelayGroupNSQOptions.AsObject,
+        rabbit?: RelayGroupRabbitOptions.AsObject,
+        mqtt?: RelayGroupMQTTOptions.AsObject,
+        azureServiceBus?: RelayGroupAzureServiceBusOptions.AsObject,
+        gcpPubsub?: RelayGroupGCPPubSubOptions.AsObject,
+        kubemqQueue?: RelayGroupKubeMQQueueOptions.AsObject,
+        redisPubsub?: RelayGroupRedisPubSubOptions.AsObject,
+        redisStreams?: RelayGroupRedisStreamsOptions.AsObject,
+        postgres?: RelayGroupPostgresOptions.AsObject,
+    }
+}
+
+export class RelayGroupKafkaOptions extends jspb.Message { 
 
     hasConn(): boolean;
     clearConn(): void;
     getConn(): args_kafka_pb.KafkaConn | undefined;
-    setConn(value?: args_kafka_pb.KafkaConn): RelayOptsKafka;
+    setConn(value?: args_kafka_pb.KafkaConn): RelayGroupKafkaOptions;
 
     hasArgs(): boolean;
     clearArgs(): void;
     getArgs(): args_kafka_pb.KafkaRelayArgs | undefined;
-    setArgs(value?: args_kafka_pb.KafkaRelayArgs): RelayOptsKafka;
+    setArgs(value?: args_kafka_pb.KafkaRelayArgs): RelayGroupKafkaOptions;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): RelayOptsKafka.AsObject;
-    static toObject(includeInstance: boolean, msg: RelayOptsKafka): RelayOptsKafka.AsObject;
+    toObject(includeInstance?: boolean): RelayGroupKafkaOptions.AsObject;
+    static toObject(includeInstance: boolean, msg: RelayGroupKafkaOptions): RelayGroupKafkaOptions.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: RelayOptsKafka, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): RelayOptsKafka;
-    static deserializeBinaryFromReader(message: RelayOptsKafka, reader: jspb.BinaryReader): RelayOptsKafka;
+    static serializeBinaryToWriter(message: RelayGroupKafkaOptions, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): RelayGroupKafkaOptions;
+    static deserializeBinaryFromReader(message: RelayGroupKafkaOptions, reader: jspb.BinaryReader): RelayGroupKafkaOptions;
 }
 
-export namespace RelayOptsKafka {
+export namespace RelayGroupKafkaOptions {
     export type AsObject = {
         Conn?: args_kafka_pb.KafkaConn.AsObject,
         args?: args_kafka_pb.KafkaRelayArgs.AsObject,
     }
 }
 
-export class RelayOptsAWSSQS extends jspb.Message { 
+export class RelayGroupAWSSQSOptions extends jspb.Message { 
 
     hasConn(): boolean;
     clearConn(): void;
     getConn(): args_aws_sqs_pb.AWSSQSConn | undefined;
-    setConn(value?: args_aws_sqs_pb.AWSSQSConn): RelayOptsAWSSQS;
+    setConn(value?: args_aws_sqs_pb.AWSSQSConn): RelayGroupAWSSQSOptions;
 
     hasArgs(): boolean;
     clearArgs(): void;
     getArgs(): args_aws_sqs_pb.AWSSQSRelayArgs | undefined;
-    setArgs(value?: args_aws_sqs_pb.AWSSQSRelayArgs): RelayOptsAWSSQS;
+    setArgs(value?: args_aws_sqs_pb.AWSSQSRelayArgs): RelayGroupAWSSQSOptions;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): RelayOptsAWSSQS.AsObject;
-    static toObject(includeInstance: boolean, msg: RelayOptsAWSSQS): RelayOptsAWSSQS.AsObject;
+    toObject(includeInstance?: boolean): RelayGroupAWSSQSOptions.AsObject;
+    static toObject(includeInstance: boolean, msg: RelayGroupAWSSQSOptions): RelayGroupAWSSQSOptions.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: RelayOptsAWSSQS, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): RelayOptsAWSSQS;
-    static deserializeBinaryFromReader(message: RelayOptsAWSSQS, reader: jspb.BinaryReader): RelayOptsAWSSQS;
+    static serializeBinaryToWriter(message: RelayGroupAWSSQSOptions, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): RelayGroupAWSSQSOptions;
+    static deserializeBinaryFromReader(message: RelayGroupAWSSQSOptions, reader: jspb.BinaryReader): RelayGroupAWSSQSOptions;
 }
 
-export namespace RelayOptsAWSSQS {
+export namespace RelayGroupAWSSQSOptions {
     export type AsObject = {
         Conn?: args_aws_sqs_pb.AWSSQSConn.AsObject,
         args?: args_aws_sqs_pb.AWSSQSRelayArgs.AsObject,
     }
 }
 
-export class RelayOptsMongo extends jspb.Message { 
+export class RelayGroupMongoOptions extends jspb.Message { 
 
     hasConn(): boolean;
     clearConn(): void;
     getConn(): args_mongo_pb.MongoConn | undefined;
-    setConn(value?: args_mongo_pb.MongoConn): RelayOptsMongo;
+    setConn(value?: args_mongo_pb.MongoConn): RelayGroupMongoOptions;
 
     hasArgs(): boolean;
     clearArgs(): void;
     getArgs(): args_mongo_pb.MongoReadArgs | undefined;
-    setArgs(value?: args_mongo_pb.MongoReadArgs): RelayOptsMongo;
+    setArgs(value?: args_mongo_pb.MongoReadArgs): RelayGroupMongoOptions;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): RelayOptsMongo.AsObject;
-    static toObject(includeInstance: boolean, msg: RelayOptsMongo): RelayOptsMongo.AsObject;
+    toObject(includeInstance?: boolean): RelayGroupMongoOptions.AsObject;
+    static toObject(includeInstance: boolean, msg: RelayGroupMongoOptions): RelayGroupMongoOptions.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: RelayOptsMongo, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): RelayOptsMongo;
-    static deserializeBinaryFromReader(message: RelayOptsMongo, reader: jspb.BinaryReader): RelayOptsMongo;
+    static serializeBinaryToWriter(message: RelayGroupMongoOptions, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): RelayGroupMongoOptions;
+    static deserializeBinaryFromReader(message: RelayGroupMongoOptions, reader: jspb.BinaryReader): RelayGroupMongoOptions;
 }
 
-export namespace RelayOptsMongo {
+export namespace RelayGroupMongoOptions {
     export type AsObject = {
         Conn?: args_mongo_pb.MongoConn.AsObject,
         args?: args_mongo_pb.MongoReadArgs.AsObject,
     }
 }
 
-export class RelayOptsNSQ extends jspb.Message { 
+export class RelayGroupNSQOptions extends jspb.Message { 
 
     hasConn(): boolean;
     clearConn(): void;
     getConn(): args_nsq_pb.NSQConn | undefined;
-    setConn(value?: args_nsq_pb.NSQConn): RelayOptsNSQ;
+    setConn(value?: args_nsq_pb.NSQConn): RelayGroupNSQOptions;
 
     hasArgs(): boolean;
     clearArgs(): void;
     getArgs(): args_nsq_pb.NSQReadArgs | undefined;
-    setArgs(value?: args_nsq_pb.NSQReadArgs): RelayOptsNSQ;
+    setArgs(value?: args_nsq_pb.NSQReadArgs): RelayGroupNSQOptions;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): RelayOptsNSQ.AsObject;
-    static toObject(includeInstance: boolean, msg: RelayOptsNSQ): RelayOptsNSQ.AsObject;
+    toObject(includeInstance?: boolean): RelayGroupNSQOptions.AsObject;
+    static toObject(includeInstance: boolean, msg: RelayGroupNSQOptions): RelayGroupNSQOptions.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: RelayOptsNSQ, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): RelayOptsNSQ;
-    static deserializeBinaryFromReader(message: RelayOptsNSQ, reader: jspb.BinaryReader): RelayOptsNSQ;
+    static serializeBinaryToWriter(message: RelayGroupNSQOptions, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): RelayGroupNSQOptions;
+    static deserializeBinaryFromReader(message: RelayGroupNSQOptions, reader: jspb.BinaryReader): RelayGroupNSQOptions;
 }
 
-export namespace RelayOptsNSQ {
+export namespace RelayGroupNSQOptions {
     export type AsObject = {
         Conn?: args_nsq_pb.NSQConn.AsObject,
         args?: args_nsq_pb.NSQReadArgs.AsObject,
     }
 }
 
-export class RelayOptsPostgres extends jspb.Message { 
+export class RelayGroupPostgresOptions extends jspb.Message { 
 
     hasConn(): boolean;
     clearConn(): void;
     getConn(): args_postgres_pb.PostgresConn | undefined;
-    setConn(value?: args_postgres_pb.PostgresConn): RelayOptsPostgres;
+    setConn(value?: args_postgres_pb.PostgresConn): RelayGroupPostgresOptions;
 
     hasArgs(): boolean;
     clearArgs(): void;
     getArgs(): args_postgres_pb.PostgresReadArgs | undefined;
-    setArgs(value?: args_postgres_pb.PostgresReadArgs): RelayOptsPostgres;
+    setArgs(value?: args_postgres_pb.PostgresReadArgs): RelayGroupPostgresOptions;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): RelayOptsPostgres.AsObject;
-    static toObject(includeInstance: boolean, msg: RelayOptsPostgres): RelayOptsPostgres.AsObject;
+    toObject(includeInstance?: boolean): RelayGroupPostgresOptions.AsObject;
+    static toObject(includeInstance: boolean, msg: RelayGroupPostgresOptions): RelayGroupPostgresOptions.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: RelayOptsPostgres, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): RelayOptsPostgres;
-    static deserializeBinaryFromReader(message: RelayOptsPostgres, reader: jspb.BinaryReader): RelayOptsPostgres;
+    static serializeBinaryToWriter(message: RelayGroupPostgresOptions, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): RelayGroupPostgresOptions;
+    static deserializeBinaryFromReader(message: RelayGroupPostgresOptions, reader: jspb.BinaryReader): RelayGroupPostgresOptions;
 }
 
-export namespace RelayOptsPostgres {
+export namespace RelayGroupPostgresOptions {
     export type AsObject = {
         Conn?: args_postgres_pb.PostgresConn.AsObject,
         args?: args_postgres_pb.PostgresReadArgs.AsObject,
     }
 }
 
-export class RelayOptsRabbit extends jspb.Message { 
+export class RelayGroupRabbitOptions extends jspb.Message { 
 
     hasConn(): boolean;
     clearConn(): void;
     getConn(): args_rabbit_pb.RabbitConn | undefined;
-    setConn(value?: args_rabbit_pb.RabbitConn): RelayOptsRabbit;
+    setConn(value?: args_rabbit_pb.RabbitConn): RelayGroupRabbitOptions;
 
     hasArgs(): boolean;
     clearArgs(): void;
     getArgs(): args_rabbit_pb.RabbitReadArgs | undefined;
-    setArgs(value?: args_rabbit_pb.RabbitReadArgs): RelayOptsRabbit;
+    setArgs(value?: args_rabbit_pb.RabbitReadArgs): RelayGroupRabbitOptions;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): RelayOptsRabbit.AsObject;
-    static toObject(includeInstance: boolean, msg: RelayOptsRabbit): RelayOptsRabbit.AsObject;
+    toObject(includeInstance?: boolean): RelayGroupRabbitOptions.AsObject;
+    static toObject(includeInstance: boolean, msg: RelayGroupRabbitOptions): RelayGroupRabbitOptions.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: RelayOptsRabbit, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): RelayOptsRabbit;
-    static deserializeBinaryFromReader(message: RelayOptsRabbit, reader: jspb.BinaryReader): RelayOptsRabbit;
+    static serializeBinaryToWriter(message: RelayGroupRabbitOptions, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): RelayGroupRabbitOptions;
+    static deserializeBinaryFromReader(message: RelayGroupRabbitOptions, reader: jspb.BinaryReader): RelayGroupRabbitOptions;
 }
 
-export namespace RelayOptsRabbit {
+export namespace RelayGroupRabbitOptions {
     export type AsObject = {
         Conn?: args_rabbit_pb.RabbitConn.AsObject,
         args?: args_rabbit_pb.RabbitReadArgs.AsObject,
     }
 }
 
-export class RelayOptsRedisPubSub extends jspb.Message { 
+export class RelayGroupRedisPubSubOptions extends jspb.Message { 
 
     hasConn(): boolean;
     clearConn(): void;
     getConn(): args_redis_pubsub_pb.RedisPubSubConn | undefined;
-    setConn(value?: args_redis_pubsub_pb.RedisPubSubConn): RelayOptsRedisPubSub;
+    setConn(value?: args_redis_pubsub_pb.RedisPubSubConn): RelayGroupRedisPubSubOptions;
 
     hasArgs(): boolean;
     clearArgs(): void;
     getArgs(): args_redis_pubsub_pb.RedisPubSubReadArgs | undefined;
-    setArgs(value?: args_redis_pubsub_pb.RedisPubSubReadArgs): RelayOptsRedisPubSub;
+    setArgs(value?: args_redis_pubsub_pb.RedisPubSubReadArgs): RelayGroupRedisPubSubOptions;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): RelayOptsRedisPubSub.AsObject;
-    static toObject(includeInstance: boolean, msg: RelayOptsRedisPubSub): RelayOptsRedisPubSub.AsObject;
+    toObject(includeInstance?: boolean): RelayGroupRedisPubSubOptions.AsObject;
+    static toObject(includeInstance: boolean, msg: RelayGroupRedisPubSubOptions): RelayGroupRedisPubSubOptions.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: RelayOptsRedisPubSub, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): RelayOptsRedisPubSub;
-    static deserializeBinaryFromReader(message: RelayOptsRedisPubSub, reader: jspb.BinaryReader): RelayOptsRedisPubSub;
+    static serializeBinaryToWriter(message: RelayGroupRedisPubSubOptions, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): RelayGroupRedisPubSubOptions;
+    static deserializeBinaryFromReader(message: RelayGroupRedisPubSubOptions, reader: jspb.BinaryReader): RelayGroupRedisPubSubOptions;
 }
 
-export namespace RelayOptsRedisPubSub {
+export namespace RelayGroupRedisPubSubOptions {
     export type AsObject = {
         Conn?: args_redis_pubsub_pb.RedisPubSubConn.AsObject,
         args?: args_redis_pubsub_pb.RedisPubSubReadArgs.AsObject,
     }
 }
 
-export class RelayOptsRedisStreams extends jspb.Message { 
+export class RelayGroupRedisStreamsOptions extends jspb.Message { 
 
     hasConn(): boolean;
     clearConn(): void;
     getConn(): args_redis_streams_pb.RedisStreamsConn | undefined;
-    setConn(value?: args_redis_streams_pb.RedisStreamsConn): RelayOptsRedisStreams;
+    setConn(value?: args_redis_streams_pb.RedisStreamsConn): RelayGroupRedisStreamsOptions;
 
     hasArgs(): boolean;
     clearArgs(): void;
     getArgs(): args_redis_streams_pb.RedisStreamsReadArgs | undefined;
-    setArgs(value?: args_redis_streams_pb.RedisStreamsReadArgs): RelayOptsRedisStreams;
+    setArgs(value?: args_redis_streams_pb.RedisStreamsReadArgs): RelayGroupRedisStreamsOptions;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): RelayOptsRedisStreams.AsObject;
-    static toObject(includeInstance: boolean, msg: RelayOptsRedisStreams): RelayOptsRedisStreams.AsObject;
+    toObject(includeInstance?: boolean): RelayGroupRedisStreamsOptions.AsObject;
+    static toObject(includeInstance: boolean, msg: RelayGroupRedisStreamsOptions): RelayGroupRedisStreamsOptions.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: RelayOptsRedisStreams, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): RelayOptsRedisStreams;
-    static deserializeBinaryFromReader(message: RelayOptsRedisStreams, reader: jspb.BinaryReader): RelayOptsRedisStreams;
+    static serializeBinaryToWriter(message: RelayGroupRedisStreamsOptions, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): RelayGroupRedisStreamsOptions;
+    static deserializeBinaryFromReader(message: RelayGroupRedisStreamsOptions, reader: jspb.BinaryReader): RelayGroupRedisStreamsOptions;
 }
 
-export namespace RelayOptsRedisStreams {
+export namespace RelayGroupRedisStreamsOptions {
     export type AsObject = {
         Conn?: args_redis_streams_pb.RedisStreamsConn.AsObject,
         args?: args_redis_streams_pb.RedisStreamsReadArgs.AsObject,
     }
 }
 
-export class RelayOptsAzureServiceBus extends jspb.Message { 
+export class RelayGroupAzureServiceBusOptions extends jspb.Message { 
 
     hasConn(): boolean;
     clearConn(): void;
     getConn(): args_azure_service_bus_pb.AzureServiceBusConn | undefined;
-    setConn(value?: args_azure_service_bus_pb.AzureServiceBusConn): RelayOptsAzureServiceBus;
+    setConn(value?: args_azure_service_bus_pb.AzureServiceBusConn): RelayGroupAzureServiceBusOptions;
 
     hasArgs(): boolean;
     clearArgs(): void;
     getArgs(): args_azure_service_bus_pb.AzureServiceBusReadArgs | undefined;
-    setArgs(value?: args_azure_service_bus_pb.AzureServiceBusReadArgs): RelayOptsAzureServiceBus;
+    setArgs(value?: args_azure_service_bus_pb.AzureServiceBusReadArgs): RelayGroupAzureServiceBusOptions;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): RelayOptsAzureServiceBus.AsObject;
-    static toObject(includeInstance: boolean, msg: RelayOptsAzureServiceBus): RelayOptsAzureServiceBus.AsObject;
+    toObject(includeInstance?: boolean): RelayGroupAzureServiceBusOptions.AsObject;
+    static toObject(includeInstance: boolean, msg: RelayGroupAzureServiceBusOptions): RelayGroupAzureServiceBusOptions.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: RelayOptsAzureServiceBus, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): RelayOptsAzureServiceBus;
-    static deserializeBinaryFromReader(message: RelayOptsAzureServiceBus, reader: jspb.BinaryReader): RelayOptsAzureServiceBus;
+    static serializeBinaryToWriter(message: RelayGroupAzureServiceBusOptions, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): RelayGroupAzureServiceBusOptions;
+    static deserializeBinaryFromReader(message: RelayGroupAzureServiceBusOptions, reader: jspb.BinaryReader): RelayGroupAzureServiceBusOptions;
 }
 
-export namespace RelayOptsAzureServiceBus {
+export namespace RelayGroupAzureServiceBusOptions {
     export type AsObject = {
         Conn?: args_azure_service_bus_pb.AzureServiceBusConn.AsObject,
         args?: args_azure_service_bus_pb.AzureServiceBusReadArgs.AsObject,
     }
 }
 
-export class RelayOptsMQTT extends jspb.Message { 
+export class RelayGroupMQTTOptions extends jspb.Message { 
 
     hasConn(): boolean;
     clearConn(): void;
     getConn(): args_mqtt_pb.MQTTConn | undefined;
-    setConn(value?: args_mqtt_pb.MQTTConn): RelayOptsMQTT;
+    setConn(value?: args_mqtt_pb.MQTTConn): RelayGroupMQTTOptions;
 
     hasArgs(): boolean;
     clearArgs(): void;
     getArgs(): args_mqtt_pb.MQTTReadArgs | undefined;
-    setArgs(value?: args_mqtt_pb.MQTTReadArgs): RelayOptsMQTT;
+    setArgs(value?: args_mqtt_pb.MQTTReadArgs): RelayGroupMQTTOptions;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): RelayOptsMQTT.AsObject;
-    static toObject(includeInstance: boolean, msg: RelayOptsMQTT): RelayOptsMQTT.AsObject;
+    toObject(includeInstance?: boolean): RelayGroupMQTTOptions.AsObject;
+    static toObject(includeInstance: boolean, msg: RelayGroupMQTTOptions): RelayGroupMQTTOptions.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: RelayOptsMQTT, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): RelayOptsMQTT;
-    static deserializeBinaryFromReader(message: RelayOptsMQTT, reader: jspb.BinaryReader): RelayOptsMQTT;
+    static serializeBinaryToWriter(message: RelayGroupMQTTOptions, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): RelayGroupMQTTOptions;
+    static deserializeBinaryFromReader(message: RelayGroupMQTTOptions, reader: jspb.BinaryReader): RelayGroupMQTTOptions;
 }
 
-export namespace RelayOptsMQTT {
+export namespace RelayGroupMQTTOptions {
     export type AsObject = {
         Conn?: args_mqtt_pb.MQTTConn.AsObject,
         args?: args_mqtt_pb.MQTTReadArgs.AsObject,
     }
 }
 
-export class RelayOptsGCPPubSub extends jspb.Message { 
+export class RelayGroupGCPPubSubOptions extends jspb.Message { 
 
     hasConn(): boolean;
     clearConn(): void;
     getConn(): args_gcp_pubsub_pb.GCPPubSubConn | undefined;
-    setConn(value?: args_gcp_pubsub_pb.GCPPubSubConn): RelayOptsGCPPubSub;
+    setConn(value?: args_gcp_pubsub_pb.GCPPubSubConn): RelayGroupGCPPubSubOptions;
 
     hasArgs(): boolean;
     clearArgs(): void;
     getArgs(): args_gcp_pubsub_pb.GCPPubSubReadArgs | undefined;
-    setArgs(value?: args_gcp_pubsub_pb.GCPPubSubReadArgs): RelayOptsGCPPubSub;
+    setArgs(value?: args_gcp_pubsub_pb.GCPPubSubReadArgs): RelayGroupGCPPubSubOptions;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): RelayOptsGCPPubSub.AsObject;
-    static toObject(includeInstance: boolean, msg: RelayOptsGCPPubSub): RelayOptsGCPPubSub.AsObject;
+    toObject(includeInstance?: boolean): RelayGroupGCPPubSubOptions.AsObject;
+    static toObject(includeInstance: boolean, msg: RelayGroupGCPPubSubOptions): RelayGroupGCPPubSubOptions.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: RelayOptsGCPPubSub, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): RelayOptsGCPPubSub;
-    static deserializeBinaryFromReader(message: RelayOptsGCPPubSub, reader: jspb.BinaryReader): RelayOptsGCPPubSub;
+    static serializeBinaryToWriter(message: RelayGroupGCPPubSubOptions, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): RelayGroupGCPPubSubOptions;
+    static deserializeBinaryFromReader(message: RelayGroupGCPPubSubOptions, reader: jspb.BinaryReader): RelayGroupGCPPubSubOptions;
 }
 
-export namespace RelayOptsGCPPubSub {
+export namespace RelayGroupGCPPubSubOptions {
     export type AsObject = {
         Conn?: args_gcp_pubsub_pb.GCPPubSubConn.AsObject,
         args?: args_gcp_pubsub_pb.GCPPubSubReadArgs.AsObject,
     }
 }
 
-export class RelayOptsKubeMQQueue extends jspb.Message { 
+export class RelayGroupKubeMQQueueOptions extends jspb.Message { 
 
     hasConn(): boolean;
     clearConn(): void;
     getConn(): args_kubemq_queue_pb.KubeMQQueueConn | undefined;
-    setConn(value?: args_kubemq_queue_pb.KubeMQQueueConn): RelayOptsKubeMQQueue;
+    setConn(value?: args_kubemq_queue_pb.KubeMQQueueConn): RelayGroupKubeMQQueueOptions;
 
     hasArgs(): boolean;
     clearArgs(): void;
     getArgs(): args_kubemq_queue_pb.KubeMQQueueReadArgs | undefined;
-    setArgs(value?: args_kubemq_queue_pb.KubeMQQueueReadArgs): RelayOptsKubeMQQueue;
+    setArgs(value?: args_kubemq_queue_pb.KubeMQQueueReadArgs): RelayGroupKubeMQQueueOptions;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): RelayOptsKubeMQQueue.AsObject;
-    static toObject(includeInstance: boolean, msg: RelayOptsKubeMQQueue): RelayOptsKubeMQQueue.AsObject;
+    toObject(includeInstance?: boolean): RelayGroupKubeMQQueueOptions.AsObject;
+    static toObject(includeInstance: boolean, msg: RelayGroupKubeMQQueueOptions): RelayGroupKubeMQQueueOptions.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: RelayOptsKubeMQQueue, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): RelayOptsKubeMQQueue;
-    static deserializeBinaryFromReader(message: RelayOptsKubeMQQueue, reader: jspb.BinaryReader): RelayOptsKubeMQQueue;
+    static serializeBinaryToWriter(message: RelayGroupKubeMQQueueOptions, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): RelayGroupKubeMQQueueOptions;
+    static deserializeBinaryFromReader(message: RelayGroupKubeMQQueueOptions, reader: jspb.BinaryReader): RelayGroupKubeMQQueueOptions;
 }
 
-export namespace RelayOptsKubeMQQueue {
+export namespace RelayGroupKubeMQQueueOptions {
     export type AsObject = {
         Conn?: args_kubemq_queue_pb.KubeMQQueueConn.AsObject,
         args?: args_kubemq_queue_pb.KubeMQQueueReadArgs.AsObject,

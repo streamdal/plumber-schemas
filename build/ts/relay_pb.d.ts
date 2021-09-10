@@ -9,82 +9,6 @@ import * as common_auth_pb from "./common/auth_pb";
 import * as common_status_pb from "./common/status_pb";
 import * as opts_relay_pb from "./opts/relay_pb";
 
-export class CLIRelayConfig extends jspb.Message { 
-    getHttpListenAddress(): string;
-    setHttpListenAddress(value: string): CLIRelayConfig;
-
-    serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): CLIRelayConfig.AsObject;
-    static toObject(includeInstance: boolean, msg: CLIRelayConfig): CLIRelayConfig.AsObject;
-    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: CLIRelayConfig, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): CLIRelayConfig;
-    static deserializeBinaryFromReader(message: CLIRelayConfig, reader: jspb.BinaryReader): CLIRelayConfig;
-}
-
-export namespace CLIRelayConfig {
-    export type AsObject = {
-        httpListenAddress: string,
-    }
-}
-
-export class RelayConfig extends jspb.Message { 
-    getCollectionToken(): string;
-    setCollectionToken(value: string): RelayConfig;
-    getBatchSize(): number;
-    setBatchSize(value: number): RelayConfig;
-    getBatchMaxRetry(): number;
-    setBatchMaxRetry(value: number): RelayConfig;
-    getConnectionId(): string;
-    setConnectionId(value: string): RelayConfig;
-    getNumWorkers(): number;
-    setNumWorkers(value: number): RelayConfig;
-    getBatchshGrpcAddress(): string;
-    setBatchshGrpcAddress(value: string): RelayConfig;
-    getBatchshGrpcDisableTls(): boolean;
-    setBatchshGrpcDisableTls(value: boolean): RelayConfig;
-    getBatchshGrpcTimeoutSeconds(): number;
-    setBatchshGrpcTimeoutSeconds(value: number): RelayConfig;
-
-    hasRelayOpts(): boolean;
-    clearRelayOpts(): void;
-    getRelayOpts(): opts_relay_pb.Relay | undefined;
-    setRelayOpts(value?: opts_relay_pb.Relay): RelayConfig;
-    getRelayId(): string;
-    setRelayId(value: string): RelayConfig;
-
-    hasCliConfig(): boolean;
-    clearCliConfig(): void;
-    getCliConfig(): CLIRelayConfig | undefined;
-    setCliConfig(value?: CLIRelayConfig): RelayConfig;
-
-    serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): RelayConfig.AsObject;
-    static toObject(includeInstance: boolean, msg: RelayConfig): RelayConfig.AsObject;
-    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: RelayConfig, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): RelayConfig;
-    static deserializeBinaryFromReader(message: RelayConfig, reader: jspb.BinaryReader): RelayConfig;
-}
-
-export namespace RelayConfig {
-    export type AsObject = {
-        collectionToken: string,
-        batchSize: number,
-        batchMaxRetry: number,
-        connectionId: string,
-        numWorkers: number,
-        BatchshGrpcAddress: string,
-        BatchshGrpcDisableTls: boolean,
-        BatchshGrpcTimeoutSeconds: number,
-        relayOpts?: opts_relay_pb.Relay.AsObject,
-        RelayId: string,
-        CliConfig?: CLIRelayConfig.AsObject,
-    }
-}
-
 export class GetAllRelaysRequest extends jspb.Message { 
 
     hasAuth(): boolean;
@@ -114,10 +38,10 @@ export class GetAllRelaysResponse extends jspb.Message {
     clearStatus(): void;
     getStatus(): common_status_pb.Status | undefined;
     setStatus(value?: common_status_pb.Status): GetAllRelaysResponse;
-    clearConfigsList(): void;
-    getConfigsList(): Array<RelayConfig>;
-    setConfigsList(value: Array<RelayConfig>): GetAllRelaysResponse;
-    addConfigs(value?: RelayConfig, index?: number): RelayConfig;
+    clearOptsList(): void;
+    getOptsList(): Array<opts_relay_pb.RelayOptions>;
+    setOptsList(value: Array<opts_relay_pb.RelayOptions>): GetAllRelaysResponse;
+    addOpts(value?: opts_relay_pb.RelayOptions, index?: number): opts_relay_pb.RelayOptions;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): GetAllRelaysResponse.AsObject;
@@ -132,7 +56,7 @@ export class GetAllRelaysResponse extends jspb.Message {
 export namespace GetAllRelaysResponse {
     export type AsObject = {
         status?: common_status_pb.Status.AsObject,
-        configsList: Array<RelayConfig.AsObject>,
+        optsList: Array<opts_relay_pb.RelayOptions.AsObject>,
     }
 }
 
@@ -169,10 +93,10 @@ export class GetRelayResponse extends jspb.Message {
     getStatus(): common_status_pb.Status | undefined;
     setStatus(value?: common_status_pb.Status): GetRelayResponse;
 
-    hasConfig(): boolean;
-    clearConfig(): void;
-    getConfig(): RelayConfig | undefined;
-    setConfig(value?: RelayConfig): GetRelayResponse;
+    hasOpts(): boolean;
+    clearOpts(): void;
+    getOpts(): opts_relay_pb.RelayOptions | undefined;
+    setOpts(value?: opts_relay_pb.RelayOptions): GetRelayResponse;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): GetRelayResponse.AsObject;
@@ -187,7 +111,7 @@ export class GetRelayResponse extends jspb.Message {
 export namespace GetRelayResponse {
     export type AsObject = {
         status?: common_status_pb.Status.AsObject,
-        config?: RelayConfig.AsObject,
+        opts?: opts_relay_pb.RelayOptions.AsObject,
     }
 }
 
@@ -198,10 +122,10 @@ export class CreateRelayRequest extends jspb.Message {
     getAuth(): common_auth_pb.Auth | undefined;
     setAuth(value?: common_auth_pb.Auth): CreateRelayRequest;
 
-    hasConfig(): boolean;
-    clearConfig(): void;
-    getConfig(): RelayConfig | undefined;
-    setConfig(value?: RelayConfig): CreateRelayRequest;
+    hasOpts(): boolean;
+    clearOpts(): void;
+    getOpts(): opts_relay_pb.RelayOptions | undefined;
+    setOpts(value?: opts_relay_pb.RelayOptions): CreateRelayRequest;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): CreateRelayRequest.AsObject;
@@ -216,7 +140,7 @@ export class CreateRelayRequest extends jspb.Message {
 export namespace CreateRelayRequest {
     export type AsObject = {
         auth?: common_auth_pb.Auth.AsObject,
-        config?: RelayConfig.AsObject,
+        opts?: opts_relay_pb.RelayOptions.AsObject,
     }
 }
 
@@ -255,10 +179,10 @@ export class UpdateRelayRequest extends jspb.Message {
     getRelayId(): string;
     setRelayId(value: string): UpdateRelayRequest;
 
-    hasConfig(): boolean;
-    clearConfig(): void;
-    getConfig(): RelayConfig | undefined;
-    setConfig(value?: RelayConfig): UpdateRelayRequest;
+    hasOpts(): boolean;
+    clearOpts(): void;
+    getOpts(): opts_relay_pb.RelayOptions | undefined;
+    setOpts(value?: opts_relay_pb.RelayOptions): UpdateRelayRequest;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): UpdateRelayRequest.AsObject;
@@ -274,7 +198,7 @@ export namespace UpdateRelayRequest {
     export type AsObject = {
         auth?: common_auth_pb.Auth.AsObject,
         relayId: string,
-        config?: RelayConfig.AsObject,
+        opts?: opts_relay_pb.RelayOptions.AsObject,
     }
 }
 
