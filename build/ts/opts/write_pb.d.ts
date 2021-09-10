@@ -23,6 +23,7 @@ import * as args_rabbit_pb from "../args/rabbit_pb";
 import * as args_rabbit_streams_pb from "../args/rabbit-streams_pb";
 import * as args_redis_pubsub_pb from "../args/redis-pubsub_pb";
 import * as args_redis_streams_pb from "../args/redis-streams_pb";
+import * as encoding_options_pb from "../encoding/options_pb";
 
 export class WriteCLIOptions extends jspb.Message { 
     getInputFile(): string;
@@ -55,6 +56,11 @@ export class WriteOptions extends jspb.Message {
     clearRecord(): void;
     getRecord(): records_base_pb.Write | undefined;
     setRecord(value?: records_base_pb.Write): WriteOptions;
+
+    hasEncodeOptions(): boolean;
+    clearEncodeOptions(): void;
+    getEncodeOptions(): encoding_options_pb.EncodeOptions | undefined;
+    setEncodeOptions(value?: encoding_options_pb.EncodeOptions): WriteOptions;
 
     hasCliOptions(): boolean;
     clearCliOptions(): void;
@@ -160,6 +166,7 @@ export namespace WriteOptions {
     export type AsObject = {
         connectionId: string,
         record?: records_base_pb.Write.AsObject,
+        encodeOptions?: encoding_options_pb.EncodeOptions.AsObject,
         CliOptions?: WriteCLIOptions.AsObject,
         kafka?: WriteGroupKafkaOptions.AsObject,
         activemq?: WriteGroupActiveMQOptions.AsObject,

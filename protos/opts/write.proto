@@ -20,6 +20,7 @@ import "args/rabbit.proto";
 import "args/rabbit-streams.proto";
 import "args/redis-pubsub.proto";
 import "args/redis-streams.proto";
+import "encoding/options.proto";
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/opts";
 
@@ -40,6 +41,9 @@ message WriteOptions {
 
     // @gotags: kong:"embed"
     records.Write record = 2;
+
+    // @gotags: kong:"embed"
+    encoding.EncodeOptions encode_options = 3;
 
     // --------------------------------------------------------------------- //
     //                          PRIVATE FIELDS (1000+)                       //

@@ -51,6 +51,8 @@ var args_redis$pubsub_pb = require('../args/redis-pubsub_pb.js');
 goog.object.extend(proto, args_redis$pubsub_pb);
 var args_redis$streams_pb = require('../args/redis-streams_pb.js');
 goog.object.extend(proto, args_redis$streams_pb);
+var encoding_options_pb = require('../encoding/options_pb.js');
+goog.object.extend(proto, encoding_options_pb);
 goog.exportSymbol('proto.protos.opts.WriteCLIOptions', null, global);
 goog.exportSymbol('proto.protos.opts.WriteGroupAWSSNSOptions', null, global);
 goog.exportSymbol('proto.protos.opts.WriteGroupAWSSQSOptions', null, global);
@@ -663,6 +665,7 @@ proto.protos.opts.WriteOptions.toObject = function(includeInstance, msg) {
   var f, obj = {
     connectionId: jspb.Message.getFieldWithDefault(msg, 1, ""),
     record: (f = msg.getRecord()) && records_base_pb.Write.toObject(includeInstance, f),
+    encodeOptions: (f = msg.getEncodeOptions()) && encoding_options_pb.EncodeOptions.toObject(includeInstance, f),
     cliOptions: (f = msg.getCliOptions()) && proto.protos.opts.WriteCLIOptions.toObject(includeInstance, f),
     kafka: (f = msg.getKafka()) && proto.protos.opts.WriteGroupKafkaOptions.toObject(includeInstance, f),
     activemq: (f = msg.getActivemq()) && proto.protos.opts.WriteGroupActiveMQOptions.toObject(includeInstance, f),
@@ -725,6 +728,11 @@ proto.protos.opts.WriteOptions.deserializeBinaryFromReader = function(msg, reade
       var value = new records_base_pb.Write;
       reader.readMessage(value,records_base_pb.Write.deserializeBinaryFromReader);
       msg.setRecord(value);
+      break;
+    case 3:
+      var value = new encoding_options_pb.EncodeOptions;
+      reader.readMessage(value,encoding_options_pb.EncodeOptions.deserializeBinaryFromReader);
+      msg.setEncodeOptions(value);
       break;
     case 1000:
       var value = new proto.protos.opts.WriteCLIOptions;
@@ -858,6 +866,14 @@ proto.protos.opts.WriteOptions.serializeBinaryToWriter = function(message, write
       2,
       f,
       records_base_pb.Write.serializeBinaryToWriter
+    );
+  }
+  f = message.getEncodeOptions();
+  if (f != null) {
+    writer.writeMessage(
+      3,
+      f,
+      encoding_options_pb.EncodeOptions.serializeBinaryToWriter
     );
   }
   f = message.getCliOptions();
@@ -1059,6 +1075,43 @@ proto.protos.opts.WriteOptions.prototype.clearRecord = function() {
  */
 proto.protos.opts.WriteOptions.prototype.hasRecord = function() {
   return jspb.Message.getField(this, 2) != null;
+};
+
+
+/**
+ * optional protos.encoding.EncodeOptions encode_options = 3;
+ * @return {?proto.protos.encoding.EncodeOptions}
+ */
+proto.protos.opts.WriteOptions.prototype.getEncodeOptions = function() {
+  return /** @type{?proto.protos.encoding.EncodeOptions} */ (
+    jspb.Message.getWrapperField(this, encoding_options_pb.EncodeOptions, 3));
+};
+
+
+/**
+ * @param {?proto.protos.encoding.EncodeOptions|undefined} value
+ * @return {!proto.protos.opts.WriteOptions} returns this
+*/
+proto.protos.opts.WriteOptions.prototype.setEncodeOptions = function(value) {
+  return jspb.Message.setWrapperField(this, 3, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.opts.WriteOptions} returns this
+ */
+proto.protos.opts.WriteOptions.prototype.clearEncodeOptions = function() {
+  return this.setEncodeOptions(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.opts.WriteOptions.prototype.hasEncodeOptions = function() {
+  return jspb.Message.getField(this, 3) != null;
 };
 
 
