@@ -73,7 +73,7 @@ if (goog.DEBUG && !COMPILED) {
  * @constructor
  */
 proto.protos.args.KafkaWriteArgs = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.protos.args.KafkaWriteArgs.repeatedFields_, null);
 };
 goog.inherits(proto.protos.args.KafkaWriteArgs, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
@@ -966,6 +966,13 @@ proto.protos.args.KafkaReadArgs.prototype.setLagConsumerGroup = function(value) 
 
 
 
+/**
+ * List of repeated fields within this message type.
+ * @private {!Array<number>}
+ * @const
+ */
+proto.protos.args.KafkaWriteArgs.repeatedFields_ = [3];
+
 
 
 if (jspb.Message.GENERATE_TO_OBJECT) {
@@ -998,7 +1005,8 @@ proto.protos.args.KafkaWriteArgs.prototype.toObject = function(opt_includeInstan
 proto.protos.args.KafkaWriteArgs.toObject = function(includeInstance, msg) {
   var f, obj = {
     key: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    headersMap: (f = msg.getHeadersMap()) ? f.toObject(includeInstance, undefined) : []
+    headersMap: (f = msg.getHeadersMap()) ? f.toObject(includeInstance, undefined) : [],
+    topicsList: (f = jspb.Message.getRepeatedField(msg, 3)) == null ? undefined : f
   };
 
   if (includeInstance) {
@@ -1045,6 +1053,10 @@ proto.protos.args.KafkaWriteArgs.deserializeBinaryFromReader = function(msg, rea
         jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readString, jspb.BinaryReader.prototype.readString, null, "", "");
          });
       break;
+    case 3:
+      var value = /** @type {string} */ (reader.readString());
+      msg.addTopics(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -1084,6 +1096,13 @@ proto.protos.args.KafkaWriteArgs.serializeBinaryToWriter = function(message, wri
   f = message.getHeadersMap(true);
   if (f && f.getLength() > 0) {
     f.serializeBinary(2, writer, jspb.BinaryWriter.prototype.writeString, jspb.BinaryWriter.prototype.writeString);
+  }
+  f = message.getTopicsList();
+  if (f.length > 0) {
+    writer.writeRepeatedString(
+      3,
+      f
+    );
   }
 };
 
@@ -1126,6 +1145,43 @@ proto.protos.args.KafkaWriteArgs.prototype.getHeadersMap = function(opt_noLazyCr
 proto.protos.args.KafkaWriteArgs.prototype.clearHeadersMap = function() {
   this.getHeadersMap().clear();
   return this;};
+
+
+/**
+ * repeated string topics = 3;
+ * @return {!Array<string>}
+ */
+proto.protos.args.KafkaWriteArgs.prototype.getTopicsList = function() {
+  return /** @type {!Array<string>} */ (jspb.Message.getRepeatedField(this, 3));
+};
+
+
+/**
+ * @param {!Array<string>} value
+ * @return {!proto.protos.args.KafkaWriteArgs} returns this
+ */
+proto.protos.args.KafkaWriteArgs.prototype.setTopicsList = function(value) {
+  return jspb.Message.setField(this, 3, value || []);
+};
+
+
+/**
+ * @param {string} value
+ * @param {number=} opt_index
+ * @return {!proto.protos.args.KafkaWriteArgs} returns this
+ */
+proto.protos.args.KafkaWriteArgs.prototype.addTopics = function(value, opt_index) {
+  return jspb.Message.addToRepeatedField(this, 3, value, opt_index);
+};
+
+
+/**
+ * Clears the list making it empty but non-null.
+ * @return {!proto.protos.args.KafkaWriteArgs} returns this
+ */
+proto.protos.args.KafkaWriteArgs.prototype.clearTopicsList = function() {
+  return this.setTopicsList([]);
+};
 
 
 

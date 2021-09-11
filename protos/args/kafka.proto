@@ -35,7 +35,7 @@ message KafkaConn {
 }
 
 message KafkaReadArgs {
-    // @gotags: kong:"help='Topic(s) to read, write or get lag stats for',required"
+    // @gotags: kong:"help='Topic(s) to read from',required"
     repeated string topics = 1;
 
     // @gotags: kong:"help='Specify what offset the consumer should read from (only works if --use-consumer-group is false)',default=0"
@@ -81,6 +81,9 @@ message KafkaWriteArgs {
 
     // @gotags: kong:"help='Add one or more headers (optional; repeat flags to specify multiple)'"
     map<string, string> headers = 2;
+
+    // @gotags: kong:"help='Topic(s) to write to',required"
+    repeated string topics = 3;
 }
 
 message KafkaRelayArgs {

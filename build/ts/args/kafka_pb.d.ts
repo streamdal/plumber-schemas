@@ -117,6 +117,10 @@ export class KafkaWriteArgs extends jspb.Message {
 
     getHeadersMap(): jspb.Map<string, string>;
     clearHeadersMap(): void;
+    clearTopicsList(): void;
+    getTopicsList(): Array<string>;
+    setTopicsList(value: Array<string>): KafkaWriteArgs;
+    addTopics(value: string, index?: number): string;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): KafkaWriteArgs.AsObject;
@@ -133,6 +137,7 @@ export namespace KafkaWriteArgs {
         key: string,
 
         headersMap: Array<[string, string]>,
+        topicsList: Array<string>,
     }
 }
 
