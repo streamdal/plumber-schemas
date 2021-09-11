@@ -41,6 +41,8 @@ export class EncodeOptions extends jspb.Message {
     clearProtobufSettings(): void;
     getProtobufSettings(): ProtobufSettings | undefined;
     setProtobufSettings(value?: ProtobufSettings): EncodeOptions;
+    getAvroSchemaFile(): string;
+    setAvroSchemaFile(value: string): EncodeOptions;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): EncodeOptions.AsObject;
@@ -57,6 +59,7 @@ export namespace EncodeOptions {
         schemaId: string,
         encodeType: EncodeType,
         protobufSettings?: ProtobufSettings.AsObject,
+        avroSchemaFile: string,
     }
 }
 
@@ -92,6 +95,7 @@ export namespace DecodeOptions {
 export enum EncodeType {
     ENCODE_TYPE_UNSET = 0,
     ENCODE_TYPE_JSONPB = 1,
+    ENCODE_TYPE_AVRO = 2,
 }
 
 export enum DecodeType {

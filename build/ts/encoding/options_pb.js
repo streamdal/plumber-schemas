@@ -303,7 +303,8 @@ proto.protos.encoding.EncodeOptions.toObject = function(includeInstance, msg) {
   var f, obj = {
     schemaId: jspb.Message.getFieldWithDefault(msg, 1, ""),
     encodeType: jspb.Message.getFieldWithDefault(msg, 2, 0),
-    protobufSettings: (f = msg.getProtobufSettings()) && proto.protos.encoding.ProtobufSettings.toObject(includeInstance, f)
+    protobufSettings: (f = msg.getProtobufSettings()) && proto.protos.encoding.ProtobufSettings.toObject(includeInstance, f),
+    avroSchemaFile: jspb.Message.getFieldWithDefault(msg, 4, "")
   };
 
   if (includeInstance) {
@@ -352,6 +353,10 @@ proto.protos.encoding.EncodeOptions.deserializeBinaryFromReader = function(msg, 
       var value = new proto.protos.encoding.ProtobufSettings;
       reader.readMessage(value,proto.protos.encoding.ProtobufSettings.deserializeBinaryFromReader);
       msg.setProtobufSettings(value);
+      break;
+    case 4:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setAvroSchemaFile(value);
       break;
     default:
       reader.skipField();
@@ -402,6 +407,13 @@ proto.protos.encoding.EncodeOptions.serializeBinaryToWriter = function(message, 
       3,
       f,
       proto.protos.encoding.ProtobufSettings.serializeBinaryToWriter
+    );
+  }
+  f = message.getAvroSchemaFile();
+  if (f.length > 0) {
+    writer.writeString(
+      4,
+      f
     );
   }
 };
@@ -477,6 +489,24 @@ proto.protos.encoding.EncodeOptions.prototype.clearProtobufSettings = function()
  */
 proto.protos.encoding.EncodeOptions.prototype.hasProtobufSettings = function() {
   return jspb.Message.getField(this, 3) != null;
+};
+
+
+/**
+ * optional string avro_schema_file = 4;
+ * @return {string}
+ */
+proto.protos.encoding.EncodeOptions.prototype.getAvroSchemaFile = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.protos.encoding.EncodeOptions} returns this
+ */
+proto.protos.encoding.EncodeOptions.prototype.setAvroSchemaFile = function(value) {
+  return jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
@@ -696,7 +726,8 @@ proto.protos.encoding.DecodeOptions.prototype.hasProtobufSettings = function() {
  */
 proto.protos.encoding.EncodeType = {
   ENCODE_TYPE_UNSET: 0,
-  ENCODE_TYPE_JSONPB: 1
+  ENCODE_TYPE_JSONPB: 1,
+  ENCODE_TYPE_AVRO: 2
 };
 
 /**

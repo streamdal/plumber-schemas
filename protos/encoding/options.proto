@@ -11,6 +11,7 @@ option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/encodi
 enum EncodeType {
     ENCODE_TYPE_UNSET  = 0;
     ENCODE_TYPE_JSONPB = 1;
+    ENCODE_TYPE_AVRO   = 2;
 }
 
 enum DecodeType {
@@ -41,6 +42,9 @@ message EncodeOptions {
 
     // @gotags: kong="embed,group=protobuf"
     ProtobufSettings protobuf_settings = 3;
+
+    // @gotags: kong="help='If encode-type is set to avro, must specify avro schema file',existingfile"
+    string avro_schema_file = 4;
 }
 
 message DecodeOptions {
