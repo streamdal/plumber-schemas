@@ -26,8 +26,6 @@ import * as args_redis_pubsub_pb from "../args/redis-pubsub_pb";
 import * as args_redis_streams_pb from "../args/redis-streams_pb";
 
 export class ReadCLIOptions extends jspb.Message { 
-    getDisplayOffsetStats(): boolean;
-    setDisplayOffsetStats(value: boolean): ReadCLIOptions;
     clearConvertOutputList(): void;
     getConvertOutputList(): Array<ConvertOption>;
     setConvertOutputList(value: Array<ConvertOption>): ReadCLIOptions;
@@ -51,7 +49,6 @@ export class ReadCLIOptions extends jspb.Message {
 
 export namespace ReadCLIOptions {
     export type AsObject = {
-        displayOffsetStats: boolean,
         convertOutputList: Array<ConvertOption>,
         verboseOutput: boolean,
         statsEnable: boolean,

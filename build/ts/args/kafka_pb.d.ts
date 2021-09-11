@@ -76,6 +76,12 @@ export class KafkaReadArgs extends jspb.Message {
     setRebalanceTimeoutSeconds(value: number): KafkaReadArgs;
     getQueueCapacity(): number;
     setQueueCapacity(value: number): KafkaReadArgs;
+    getIncludeOffsetInfo(): boolean;
+    setIncludeOffsetInfo(value: boolean): KafkaReadArgs;
+    getLag(): boolean;
+    setLag(value: boolean): KafkaReadArgs;
+    getLagConsumerGroup(): string;
+    setLagConsumerGroup(value: string): KafkaReadArgs;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): KafkaReadArgs.AsObject;
@@ -99,6 +105,9 @@ export namespace KafkaReadArgs {
         commitIntervalSeconds: number,
         rebalanceTimeoutSeconds: number,
         queueCapacity: number,
+        includeOffsetInfo: boolean,
+        lag: boolean,
+        lagConsumerGroup: string,
     }
 }
 
@@ -173,25 +182,5 @@ export namespace KafkaRelayArgs {
         commitIntervalSeconds: number,
         rebalanceTimeoutSeconds: number,
         queueCapacity: number,
-    }
-}
-
-export class KafkaLagArgs extends jspb.Message { 
-    getGroupId(): string;
-    setGroupId(value: string): KafkaLagArgs;
-
-    serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): KafkaLagArgs.AsObject;
-    static toObject(includeInstance: boolean, msg: KafkaLagArgs): KafkaLagArgs.AsObject;
-    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: KafkaLagArgs, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): KafkaLagArgs;
-    static deserializeBinaryFromReader(message: KafkaLagArgs, reader: jspb.BinaryReader): KafkaLagArgs;
-}
-
-export namespace KafkaLagArgs {
-    export type AsObject = {
-        groupId: string,
     }
 }

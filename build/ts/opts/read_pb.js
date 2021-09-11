@@ -522,7 +522,7 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<number>}
  * @const
  */
-proto.protos.opts.ReadCLIOptions.repeatedFields_ = [2];
+proto.protos.opts.ReadCLIOptions.repeatedFields_ = [1];
 
 
 
@@ -555,11 +555,10 @@ proto.protos.opts.ReadCLIOptions.prototype.toObject = function(opt_includeInstan
  */
 proto.protos.opts.ReadCLIOptions.toObject = function(includeInstance, msg) {
   var f, obj = {
-    displayOffsetStats: jspb.Message.getBooleanFieldWithDefault(msg, 1, false),
-    convertOutputList: (f = jspb.Message.getRepeatedField(msg, 2)) == null ? undefined : f,
-    verboseOutput: jspb.Message.getBooleanFieldWithDefault(msg, 3, false),
-    statsEnable: jspb.Message.getBooleanFieldWithDefault(msg, 4, false),
-    statsReportIntervalSec: jspb.Message.getFieldWithDefault(msg, 5, 0)
+    convertOutputList: (f = jspb.Message.getRepeatedField(msg, 1)) == null ? undefined : f,
+    verboseOutput: jspb.Message.getBooleanFieldWithDefault(msg, 2, false),
+    statsEnable: jspb.Message.getBooleanFieldWithDefault(msg, 3, false),
+    statsReportIntervalSec: jspb.Message.getFieldWithDefault(msg, 4, 0)
   };
 
   if (includeInstance) {
@@ -597,24 +596,20 @@ proto.protos.opts.ReadCLIOptions.deserializeBinaryFromReader = function(msg, rea
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = /** @type {boolean} */ (reader.readBool());
-      msg.setDisplayOffsetStats(value);
-      break;
-    case 2:
       var values = /** @type {!Array<!proto.protos.opts.ConvertOption>} */ (reader.isDelimited() ? reader.readPackedEnum() : [reader.readEnum()]);
       for (var i = 0; i < values.length; i++) {
         msg.addConvertOutput(values[i]);
       }
       break;
-    case 3:
+    case 2:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setVerboseOutput(value);
       break;
-    case 4:
+    case 3:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setStatsEnable(value);
       break;
-    case 5:
+    case 4:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setStatsReportIntervalSec(value);
       break;
@@ -647,38 +642,31 @@ proto.protos.opts.ReadCLIOptions.prototype.serializeBinary = function() {
  */
 proto.protos.opts.ReadCLIOptions.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getDisplayOffsetStats();
-  if (f) {
-    writer.writeBool(
-      1,
-      f
-    );
-  }
   f = message.getConvertOutputList();
   if (f.length > 0) {
     writer.writePackedEnum(
-      2,
+      1,
       f
     );
   }
   f = message.getVerboseOutput();
   if (f) {
     writer.writeBool(
-      3,
+      2,
       f
     );
   }
   f = message.getStatsEnable();
   if (f) {
     writer.writeBool(
-      4,
+      3,
       f
     );
   }
   f = message.getStatsReportIntervalSec();
   if (f !== 0) {
     writer.writeInt32(
-      5,
+      4,
       f
     );
   }
@@ -686,29 +674,11 @@ proto.protos.opts.ReadCLIOptions.serializeBinaryToWriter = function(message, wri
 
 
 /**
- * optional bool display_offset_stats = 1;
- * @return {boolean}
- */
-proto.protos.opts.ReadCLIOptions.prototype.getDisplayOffsetStats = function() {
-  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 1, false));
-};
-
-
-/**
- * @param {boolean} value
- * @return {!proto.protos.opts.ReadCLIOptions} returns this
- */
-proto.protos.opts.ReadCLIOptions.prototype.setDisplayOffsetStats = function(value) {
-  return jspb.Message.setProto3BooleanField(this, 1, value);
-};
-
-
-/**
- * repeated ConvertOption convert_output = 2;
+ * repeated ConvertOption convert_output = 1;
  * @return {!Array<!proto.protos.opts.ConvertOption>}
  */
 proto.protos.opts.ReadCLIOptions.prototype.getConvertOutputList = function() {
-  return /** @type {!Array<!proto.protos.opts.ConvertOption>} */ (jspb.Message.getRepeatedField(this, 2));
+  return /** @type {!Array<!proto.protos.opts.ConvertOption>} */ (jspb.Message.getRepeatedField(this, 1));
 };
 
 
@@ -717,7 +687,7 @@ proto.protos.opts.ReadCLIOptions.prototype.getConvertOutputList = function() {
  * @return {!proto.protos.opts.ReadCLIOptions} returns this
  */
 proto.protos.opts.ReadCLIOptions.prototype.setConvertOutputList = function(value) {
-  return jspb.Message.setField(this, 2, value || []);
+  return jspb.Message.setField(this, 1, value || []);
 };
 
 
@@ -727,7 +697,7 @@ proto.protos.opts.ReadCLIOptions.prototype.setConvertOutputList = function(value
  * @return {!proto.protos.opts.ReadCLIOptions} returns this
  */
 proto.protos.opts.ReadCLIOptions.prototype.addConvertOutput = function(value, opt_index) {
-  return jspb.Message.addToRepeatedField(this, 2, value, opt_index);
+  return jspb.Message.addToRepeatedField(this, 1, value, opt_index);
 };
 
 
@@ -741,11 +711,11 @@ proto.protos.opts.ReadCLIOptions.prototype.clearConvertOutputList = function() {
 
 
 /**
- * optional bool verbose_output = 3;
+ * optional bool verbose_output = 2;
  * @return {boolean}
  */
 proto.protos.opts.ReadCLIOptions.prototype.getVerboseOutput = function() {
-  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 3, false));
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 2, false));
 };
 
 
@@ -754,16 +724,16 @@ proto.protos.opts.ReadCLIOptions.prototype.getVerboseOutput = function() {
  * @return {!proto.protos.opts.ReadCLIOptions} returns this
  */
 proto.protos.opts.ReadCLIOptions.prototype.setVerboseOutput = function(value) {
-  return jspb.Message.setProto3BooleanField(this, 3, value);
+  return jspb.Message.setProto3BooleanField(this, 2, value);
 };
 
 
 /**
- * optional bool stats_enable = 4;
+ * optional bool stats_enable = 3;
  * @return {boolean}
  */
 proto.protos.opts.ReadCLIOptions.prototype.getStatsEnable = function() {
-  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 4, false));
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 3, false));
 };
 
 
@@ -772,16 +742,16 @@ proto.protos.opts.ReadCLIOptions.prototype.getStatsEnable = function() {
  * @return {!proto.protos.opts.ReadCLIOptions} returns this
  */
 proto.protos.opts.ReadCLIOptions.prototype.setStatsEnable = function(value) {
-  return jspb.Message.setProto3BooleanField(this, 4, value);
+  return jspb.Message.setProto3BooleanField(this, 3, value);
 };
 
 
 /**
- * optional int32 stats_report_interval_sec = 5;
+ * optional int32 stats_report_interval_sec = 4;
  * @return {number}
  */
 proto.protos.opts.ReadCLIOptions.prototype.getStatsReportIntervalSec = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
 };
 
 
@@ -790,7 +760,7 @@ proto.protos.opts.ReadCLIOptions.prototype.getStatsReportIntervalSec = function(
  * @return {!proto.protos.opts.ReadCLIOptions} returns this
  */
 proto.protos.opts.ReadCLIOptions.prototype.setStatsReportIntervalSec = function(value) {
-  return jspb.Message.setProto3IntField(this, 5, value);
+  return jspb.Message.setProto3IntField(this, 4, value);
 };
 
 
