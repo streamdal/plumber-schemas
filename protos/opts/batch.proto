@@ -1,0 +1,162 @@
+syntax = "proto3";
+
+package protos.opts;
+
+import "opts/write.proto";
+
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/opts";
+
+message BatchOptions {
+    // @gotags: kong:"embed,cmd,help='Login to the Batch platform'"
+    BatchLoginOptions login = 1; // DONE
+
+    // @gotags: kong:"embed,cmd,help='Login to Batch'"
+    BatchLogoutOptions logout = 2; // DONE
+
+    // @gotags: kong:"embed,cmd,help='List Batch resources'"
+    BatchListOptions list = 3; // DONE
+
+    // @gotags: kong:"embed,cmd,help='Create operations'"
+    BatchCreateOptions create = 4;
+
+    // @gotags: kong:"embed,cmd,help='Search operations'"
+    BatchSearchOptions search = 5;
+
+    // @gotags: kong:"embed,cmd,help='Archive a resource'"
+    BatchArchiveOptions archive = 6;
+}
+
+message BatchLoginOptions {
+    // None
+}
+
+message BatchLogoutOptions {
+    // None
+}
+
+message BatchArchiveOptions {
+    // @gotags: kong:"embed,cmd,help='Archive a replay'"
+    BatchArchiveReplayOptions replay = 1;
+}
+
+message BatchArchiveReplayOptions {
+    // @gotags: kong:"help='Replay ID to archive',required"
+    string replay_id = 1;
+}
+
+enum BatchOutputType {
+    TABLE = 0;
+    JSON  = 1;
+}
+
+message BatchListOptions {
+    // @gotags: kong:"help='How to output results (0: table, 1: JSON)',default=0"
+    BatchOutputType output_type = 1;
+
+    // @gotags: kong:"cmd,help='List all collections'"
+    bool collection = 2;
+
+    // @gotags: kong:"cmd,help='List all destinations'"
+    bool destination = 3;
+
+    // @gotags: kong:"cmd,help='List all replays'"
+    bool replay = 4;
+
+    // @gotags: kong:"cmd,help='List all schemas'"
+    bool schema = 5;
+}
+
+message BatchCreateOptions {
+    // @gotags: kong:"embed,cmd,help='Create a collection'"
+    BatchCreateCollectionOptions collection = 1;
+
+    // @gotags: kong:"embed,cmd,help='Create a replay'"
+    BatchCreateReplayOptions replay = 2;
+
+    // @gotags: kong:"embed,cmd,help='Create a destination'"
+    BatchCreateDestinationOptions destination = 3;
+}
+
+message BatchSearchOptions {
+    // @gotags: kong:"help='Query to perform',default='*'"
+    string query = 1;
+
+    // @gotags: kong:"help='Collection id to query',required"
+    string collection_id = 2;
+
+    // @gotags: kong:"help='How many results to display',default=25"
+    int32 page_size = 3;
+}
+
+message BatchCreateCollectionOptions {
+    // @gotags: kong:"help='Friendly name for the collection',required"
+    string name = 1;
+
+    // @gotags: kong:"help='Schema the collection will use (can be obtained running `plumber batch list schema`',required"
+    string schema_id = 2;
+
+    // @gotags: kong:"help='Optional notes for the collection'"
+    string notes = 3;
+}
+
+enum BatchReplayType {
+    SINGLE     = 0;
+    CONTINUOUS = 1;
+}
+
+message BatchCreateReplayOptions {
+    // @gotags: kong:"help='Friendly name to assign to the replay',required"
+    string name = 1;
+
+    // @gotags: kong:"help='One-time or continuous replay (default: one-time; 0: ONE_TIME, 1: CONTINUOUS)',default=0"
+    BatchReplayType type = 2;
+
+    // @gotags: kong:"help='Notes to attach to the replay'"
+    string notes = 3;
+
+    // @gotags: kong:"help='Collection ID to replay from',required"
+    string collection_id = 4;
+
+    // @gotags: kong:"help='Destination ID to replay to',required"
+    string destination_id = 5;
+
+    // @gotags: kong:"help='Search query',default='*'"
+    string query = 6;
+
+    // @gotags: kong:"help='Where to begin search (RFC3339 timestamp)',required"
+    string from_timestamp = 7;
+
+    // @gotags: kong:"help='Where to end search (RFC3339 timestamp)',required"
+    string to_timestamp = 8;
+}
+
+message BatchCreateDestinationOptions {
+    // @gotags: kong:"help='Friendly name to assign to the destination',required"
+    string name = 1;
+
+    // @gotags: kong:"help='Any notes to include with the destination'"
+    string notes = 2;
+
+    // @gotags: kong:"cmd,help='Apache Kafka'"
+    opts.WriteGroupKafkaOptions kafka = 100;
+
+    // @gotags: kong:"cmd,help='RabbitMQ'"
+    opts.WriteGroupRabbitOptions rabbit = 101;
+
+    // @gotags: kong:"cmd,help='KubeMQ Queue'"
+    opts.WriteGroupKubeMQQueueOptions kubemq_queue = 102;
+
+    // @gotags: kong:"cmd,help='AWS Simple Queue System'"
+    WriteGroupAWSSQSOptions awssqs = 103;
+
+    // @gotags: kong:"cmd,help='HTTP Destination (POST)'"
+    HTTPDestination http = 104;
+}
+
+message HTTPDestination {
+    // @gotags: kong:"help='Full URL to HTTP server (ex: https://example.com/some/path)',required"
+    string url = 1;
+
+    // @gotags: kong:"help='Optional map of headers to pass on replay (--headers key1:value1,key2:value2..)'"
+    map<string, string> headers = 2;
+}

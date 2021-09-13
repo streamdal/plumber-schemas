@@ -23,6 +23,10 @@ var opts_relay_pb = require('../opts/relay_pb.js');
 goog.object.extend(proto, opts_relay_pb);
 var opts_server_pb = require('../opts/server_pb.js');
 goog.object.extend(proto, opts_server_pb);
+var opts_batch_pb = require('../opts/batch_pb.js');
+goog.object.extend(proto, opts_batch_pb);
+var opts_dynamic_pb = require('../opts/dynamic_pb.js');
+goog.object.extend(proto, opts_dynamic_pb);
 goog.exportSymbol('proto.protos.opts.CLIOptions', null, global);
 goog.exportSymbol('proto.protos.opts.GlobalCLIOptions', null, global);
 /**
@@ -383,6 +387,8 @@ proto.protos.opts.CLIOptions.toObject = function(includeInstance, msg) {
     read: (f = msg.getRead()) && opts_read_pb.ReadOptions.toObject(includeInstance, f),
     write: (f = msg.getWrite()) && opts_write_pb.WriteOptions.toObject(includeInstance, f),
     relay: (f = msg.getRelay()) && opts_relay_pb.RelayOptions.toObject(includeInstance, f),
+    dynamic: (f = msg.getDynamic()) && opts_dynamic_pb.DynamicOptions.toObject(includeInstance, f),
+    batch: (f = msg.getBatch()) && opts_batch_pb.BatchOptions.toObject(includeInstance, f),
     server: (f = msg.getServer()) && opts_server_pb.ServerOptions.toObject(includeInstance, f)
   };
 
@@ -441,6 +447,16 @@ proto.protos.opts.CLIOptions.deserializeBinaryFromReader = function(msg, reader)
       msg.setRelay(value);
       break;
     case 5:
+      var value = new opts_dynamic_pb.DynamicOptions;
+      reader.readMessage(value,opts_dynamic_pb.DynamicOptions.deserializeBinaryFromReader);
+      msg.setDynamic(value);
+      break;
+    case 6:
+      var value = new opts_batch_pb.BatchOptions;
+      reader.readMessage(value,opts_batch_pb.BatchOptions.deserializeBinaryFromReader);
+      msg.setBatch(value);
+      break;
+    case 7:
       var value = new opts_server_pb.ServerOptions;
       reader.readMessage(value,opts_server_pb.ServerOptions.deserializeBinaryFromReader);
       msg.setServer(value);
@@ -506,10 +522,26 @@ proto.protos.opts.CLIOptions.serializeBinaryToWriter = function(message, writer)
       opts_relay_pb.RelayOptions.serializeBinaryToWriter
     );
   }
-  f = message.getServer();
+  f = message.getDynamic();
   if (f != null) {
     writer.writeMessage(
       5,
+      f,
+      opts_dynamic_pb.DynamicOptions.serializeBinaryToWriter
+    );
+  }
+  f = message.getBatch();
+  if (f != null) {
+    writer.writeMessage(
+      6,
+      f,
+      opts_batch_pb.BatchOptions.serializeBinaryToWriter
+    );
+  }
+  f = message.getServer();
+  if (f != null) {
+    writer.writeMessage(
+      7,
       f,
       opts_server_pb.ServerOptions.serializeBinaryToWriter
     );
@@ -666,12 +698,86 @@ proto.protos.opts.CLIOptions.prototype.hasRelay = function() {
 
 
 /**
- * optional ServerOptions server = 5;
+ * optional DynamicOptions dynamic = 5;
+ * @return {?proto.protos.opts.DynamicOptions}
+ */
+proto.protos.opts.CLIOptions.prototype.getDynamic = function() {
+  return /** @type{?proto.protos.opts.DynamicOptions} */ (
+    jspb.Message.getWrapperField(this, opts_dynamic_pb.DynamicOptions, 5));
+};
+
+
+/**
+ * @param {?proto.protos.opts.DynamicOptions|undefined} value
+ * @return {!proto.protos.opts.CLIOptions} returns this
+*/
+proto.protos.opts.CLIOptions.prototype.setDynamic = function(value) {
+  return jspb.Message.setWrapperField(this, 5, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.opts.CLIOptions} returns this
+ */
+proto.protos.opts.CLIOptions.prototype.clearDynamic = function() {
+  return this.setDynamic(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.opts.CLIOptions.prototype.hasDynamic = function() {
+  return jspb.Message.getField(this, 5) != null;
+};
+
+
+/**
+ * optional BatchOptions batch = 6;
+ * @return {?proto.protos.opts.BatchOptions}
+ */
+proto.protos.opts.CLIOptions.prototype.getBatch = function() {
+  return /** @type{?proto.protos.opts.BatchOptions} */ (
+    jspb.Message.getWrapperField(this, opts_batch_pb.BatchOptions, 6));
+};
+
+
+/**
+ * @param {?proto.protos.opts.BatchOptions|undefined} value
+ * @return {!proto.protos.opts.CLIOptions} returns this
+*/
+proto.protos.opts.CLIOptions.prototype.setBatch = function(value) {
+  return jspb.Message.setWrapperField(this, 6, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.opts.CLIOptions} returns this
+ */
+proto.protos.opts.CLIOptions.prototype.clearBatch = function() {
+  return this.setBatch(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.opts.CLIOptions.prototype.hasBatch = function() {
+  return jspb.Message.getField(this, 6) != null;
+};
+
+
+/**
+ * optional ServerOptions server = 7;
  * @return {?proto.protos.opts.ServerOptions}
  */
 proto.protos.opts.CLIOptions.prototype.getServer = function() {
   return /** @type{?proto.protos.opts.ServerOptions} */ (
-    jspb.Message.getWrapperField(this, opts_server_pb.ServerOptions, 5));
+    jspb.Message.getWrapperField(this, opts_server_pb.ServerOptions, 7));
 };
 
 
@@ -680,7 +786,7 @@ proto.protos.opts.CLIOptions.prototype.getServer = function() {
  * @return {!proto.protos.opts.CLIOptions} returns this
 */
 proto.protos.opts.CLIOptions.prototype.setServer = function(value) {
-  return jspb.Message.setWrapperField(this, 5, value);
+  return jspb.Message.setWrapperField(this, 7, value);
 };
 
 
@@ -698,7 +804,7 @@ proto.protos.opts.CLIOptions.prototype.clearServer = function() {
  * @return {boolean}
  */
 proto.protos.opts.CLIOptions.prototype.hasServer = function() {
-  return jspb.Message.getField(this, 5) != null;
+  return jspb.Message.getField(this, 7) != null;
 };
 
 

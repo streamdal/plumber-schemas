@@ -9,6 +9,8 @@ import * as opts_read_pb from "../opts/read_pb";
 import * as opts_write_pb from "../opts/write_pb";
 import * as opts_relay_pb from "../opts/relay_pb";
 import * as opts_server_pb from "../opts/server_pb";
+import * as opts_batch_pb from "../opts/batch_pb";
+import * as opts_dynamic_pb from "../opts/dynamic_pb";
 
 export class GlobalCLIOptions extends jspb.Message { 
     getDebug(): boolean;
@@ -67,6 +69,16 @@ export class CLIOptions extends jspb.Message {
     getRelay(): opts_relay_pb.RelayOptions | undefined;
     setRelay(value?: opts_relay_pb.RelayOptions): CLIOptions;
 
+    hasDynamic(): boolean;
+    clearDynamic(): void;
+    getDynamic(): opts_dynamic_pb.DynamicOptions | undefined;
+    setDynamic(value?: opts_dynamic_pb.DynamicOptions): CLIOptions;
+
+    hasBatch(): boolean;
+    clearBatch(): void;
+    getBatch(): opts_batch_pb.BatchOptions | undefined;
+    setBatch(value?: opts_batch_pb.BatchOptions): CLIOptions;
+
     hasServer(): boolean;
     clearServer(): void;
     getServer(): opts_server_pb.ServerOptions | undefined;
@@ -88,6 +100,8 @@ export namespace CLIOptions {
         read?: opts_read_pb.ReadOptions.AsObject,
         write?: opts_write_pb.WriteOptions.AsObject,
         relay?: opts_relay_pb.RelayOptions.AsObject,
+        dynamic?: opts_dynamic_pb.DynamicOptions.AsObject,
+        batch?: opts_batch_pb.BatchOptions.AsObject,
         server?: opts_server_pb.ServerOptions.AsObject,
     }
 }
