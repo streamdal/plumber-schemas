@@ -87,8 +87,10 @@ message BatchSearchOptions {
     // @gotags: kong:"help='Collection id to query',required"
     string collection_id = 2;
 
-    // @gotags: kong:"help='How many results to display',default=25"
-    int32 page_size = 3;
+    // @gotags: kong:"help='Which page to display',default=1"
+    int32 page = 3;
+
+    // TODO: Should be able to override default pagesize
 }
 
 message BatchCreateCollectionOptions {
@@ -139,6 +141,10 @@ message BatchCreateDestinationOptions {
 
     // @gotags: kong:"help='Any notes to include with the destination'"
     string notes = 2;
+
+    // Used internally by CLI
+    // @gotags: kong:"-"
+    string _api_destination_type = 1000;
 
     // @gotags: kong:"cmd,help='Apache Kafka'"
     opts.WriteGroupKafkaOptions kafka = 100;

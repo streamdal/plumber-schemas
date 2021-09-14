@@ -212,8 +212,8 @@ export class BatchSearchOptions extends jspb.Message {
     setQuery(value: string): BatchSearchOptions;
     getCollectionId(): string;
     setCollectionId(value: string): BatchSearchOptions;
-    getPageSize(): number;
-    setPageSize(value: number): BatchSearchOptions;
+    getPage(): number;
+    setPage(value: number): BatchSearchOptions;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): BatchSearchOptions.AsObject;
@@ -229,7 +229,7 @@ export namespace BatchSearchOptions {
     export type AsObject = {
         query: string,
         collectionId: string,
-        pageSize: number,
+        page: number,
     }
 }
 
@@ -305,6 +305,8 @@ export class BatchCreateDestinationOptions extends jspb.Message {
     setName(value: string): BatchCreateDestinationOptions;
     getNotes(): string;
     setNotes(value: string): BatchCreateDestinationOptions;
+    getApiDestinationType(): string;
+    setApiDestinationType(value: string): BatchCreateDestinationOptions;
 
     hasKafka(): boolean;
     clearKafka(): void;
@@ -345,6 +347,7 @@ export namespace BatchCreateDestinationOptions {
     export type AsObject = {
         name: string,
         notes: string,
+        ApiDestinationType: string,
         kafka?: opts_write_pb.WriteGroupKafkaOptions.AsObject,
         rabbit?: opts_write_pb.WriteGroupRabbitOptions.AsObject,
         kubemqQueue?: opts_write_pb.WriteGroupKubeMQQueueOptions.AsObject,

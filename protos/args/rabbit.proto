@@ -53,4 +53,16 @@ message RabbitWriteArgs {
 
   // @gotags: kong:"help='Fills message properties $app_id with this value',default=plumber"
   string app_id = 3;
+
+  // @gotags: kong:"help='The type of exchange we are working with',enum='direct,topic,headers,fanout',default=topic,group=exchange"
+  string exchange_type = 4;
+
+  // @gotags: kong:"help='Whether to declare an exchange (if it does not exist)',group=exchange"
+  bool exchange_declare = 5;
+
+  // @gotags: kong:"help='Whether to make a declared exchange durable',group=exchange"
+  bool exchange_durable = 6;
+
+  // @gotags: kong:"help='Whether to auto-delete the exchange (after writes)',group=exchange"
+  bool exchange_auto_delete = 7;
 }

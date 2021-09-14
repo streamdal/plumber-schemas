@@ -675,7 +675,11 @@ proto.protos.args.RabbitWriteArgs.toObject = function(includeInstance, msg) {
   var f, obj = {
     exchangeName: jspb.Message.getFieldWithDefault(msg, 1, ""),
     routingKey: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    appId: jspb.Message.getFieldWithDefault(msg, 3, "")
+    appId: jspb.Message.getFieldWithDefault(msg, 3, ""),
+    exchangeType: jspb.Message.getFieldWithDefault(msg, 4, ""),
+    exchangeDeclare: jspb.Message.getBooleanFieldWithDefault(msg, 5, false),
+    exchangeDurable: jspb.Message.getBooleanFieldWithDefault(msg, 6, false),
+    exchangeAutoDelete: jspb.Message.getBooleanFieldWithDefault(msg, 7, false)
   };
 
   if (includeInstance) {
@@ -724,6 +728,22 @@ proto.protos.args.RabbitWriteArgs.deserializeBinaryFromReader = function(msg, re
       var value = /** @type {string} */ (reader.readString());
       msg.setAppId(value);
       break;
+    case 4:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setExchangeType(value);
+      break;
+    case 5:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setExchangeDeclare(value);
+      break;
+    case 6:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setExchangeDurable(value);
+      break;
+    case 7:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setExchangeAutoDelete(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -771,6 +791,34 @@ proto.protos.args.RabbitWriteArgs.serializeBinaryToWriter = function(message, wr
   if (f.length > 0) {
     writer.writeString(
       3,
+      f
+    );
+  }
+  f = message.getExchangeType();
+  if (f.length > 0) {
+    writer.writeString(
+      4,
+      f
+    );
+  }
+  f = message.getExchangeDeclare();
+  if (f) {
+    writer.writeBool(
+      5,
+      f
+    );
+  }
+  f = message.getExchangeDurable();
+  if (f) {
+    writer.writeBool(
+      6,
+      f
+    );
+  }
+  f = message.getExchangeAutoDelete();
+  if (f) {
+    writer.writeBool(
+      7,
       f
     );
   }
@@ -828,6 +876,78 @@ proto.protos.args.RabbitWriteArgs.prototype.getAppId = function() {
  */
 proto.protos.args.RabbitWriteArgs.prototype.setAppId = function(value) {
   return jspb.Message.setProto3StringField(this, 3, value);
+};
+
+
+/**
+ * optional string exchange_type = 4;
+ * @return {string}
+ */
+proto.protos.args.RabbitWriteArgs.prototype.getExchangeType = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.protos.args.RabbitWriteArgs} returns this
+ */
+proto.protos.args.RabbitWriteArgs.prototype.setExchangeType = function(value) {
+  return jspb.Message.setProto3StringField(this, 4, value);
+};
+
+
+/**
+ * optional bool exchange_declare = 5;
+ * @return {boolean}
+ */
+proto.protos.args.RabbitWriteArgs.prototype.getExchangeDeclare = function() {
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 5, false));
+};
+
+
+/**
+ * @param {boolean} value
+ * @return {!proto.protos.args.RabbitWriteArgs} returns this
+ */
+proto.protos.args.RabbitWriteArgs.prototype.setExchangeDeclare = function(value) {
+  return jspb.Message.setProto3BooleanField(this, 5, value);
+};
+
+
+/**
+ * optional bool exchange_durable = 6;
+ * @return {boolean}
+ */
+proto.protos.args.RabbitWriteArgs.prototype.getExchangeDurable = function() {
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 6, false));
+};
+
+
+/**
+ * @param {boolean} value
+ * @return {!proto.protos.args.RabbitWriteArgs} returns this
+ */
+proto.protos.args.RabbitWriteArgs.prototype.setExchangeDurable = function(value) {
+  return jspb.Message.setProto3BooleanField(this, 6, value);
+};
+
+
+/**
+ * optional bool exchange_auto_delete = 7;
+ * @return {boolean}
+ */
+proto.protos.args.RabbitWriteArgs.prototype.getExchangeAutoDelete = function() {
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 7, false));
+};
+
+
+/**
+ * @param {boolean} value
+ * @return {!proto.protos.args.RabbitWriteArgs} returns this
+ */
+proto.protos.args.RabbitWriteArgs.prototype.setExchangeAutoDelete = function(value) {
+  return jspb.Message.setProto3BooleanField(this, 7, value);
 };
 
 

@@ -83,6 +83,14 @@ export class RabbitWriteArgs extends jspb.Message {
     setRoutingKey(value: string): RabbitWriteArgs;
     getAppId(): string;
     setAppId(value: string): RabbitWriteArgs;
+    getExchangeType(): string;
+    setExchangeType(value: string): RabbitWriteArgs;
+    getExchangeDeclare(): boolean;
+    setExchangeDeclare(value: boolean): RabbitWriteArgs;
+    getExchangeDurable(): boolean;
+    setExchangeDurable(value: boolean): RabbitWriteArgs;
+    getExchangeAutoDelete(): boolean;
+    setExchangeAutoDelete(value: boolean): RabbitWriteArgs;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): RabbitWriteArgs.AsObject;
@@ -99,5 +107,9 @@ export namespace RabbitWriteArgs {
         exchangeName: string,
         routingKey: string,
         appId: string,
+        exchangeType: string,
+        exchangeDeclare: boolean,
+        exchangeDurable: boolean,
+        exchangeAutoDelete: boolean,
     }
 }

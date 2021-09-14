@@ -252,7 +252,7 @@ if (goog.DEBUG && !COMPILED) {
  * @constructor
  */
 proto.protos.opts.BatchCreateDestinationOptions = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+  jspb.Message.initialize(this, opt_data, 0, 500, null, null);
 };
 goog.inherits(proto.protos.opts.BatchCreateDestinationOptions, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
@@ -1739,7 +1739,7 @@ proto.protos.opts.BatchSearchOptions.toObject = function(includeInstance, msg) {
   var f, obj = {
     query: jspb.Message.getFieldWithDefault(msg, 1, ""),
     collectionId: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    pageSize: jspb.Message.getFieldWithDefault(msg, 3, 0)
+    page: jspb.Message.getFieldWithDefault(msg, 3, 0)
   };
 
   if (includeInstance) {
@@ -1786,7 +1786,7 @@ proto.protos.opts.BatchSearchOptions.deserializeBinaryFromReader = function(msg,
       break;
     case 3:
       var value = /** @type {number} */ (reader.readInt32());
-      msg.setPageSize(value);
+      msg.setPage(value);
       break;
     default:
       reader.skipField();
@@ -1831,7 +1831,7 @@ proto.protos.opts.BatchSearchOptions.serializeBinaryToWriter = function(message,
       f
     );
   }
-  f = message.getPageSize();
+  f = message.getPage();
   if (f !== 0) {
     writer.writeInt32(
       3,
@@ -1878,10 +1878,10 @@ proto.protos.opts.BatchSearchOptions.prototype.setCollectionId = function(value)
 
 
 /**
- * optional int32 page_size = 3;
+ * optional int32 page = 3;
  * @return {number}
  */
-proto.protos.opts.BatchSearchOptions.prototype.getPageSize = function() {
+proto.protos.opts.BatchSearchOptions.prototype.getPage = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
 };
 
@@ -1890,7 +1890,7 @@ proto.protos.opts.BatchSearchOptions.prototype.getPageSize = function() {
  * @param {number} value
  * @return {!proto.protos.opts.BatchSearchOptions} returns this
  */
-proto.protos.opts.BatchSearchOptions.prototype.setPageSize = function(value) {
+proto.protos.opts.BatchSearchOptions.prototype.setPage = function(value) {
   return jspb.Message.setProto3IntField(this, 3, value);
 };
 
@@ -2459,6 +2459,7 @@ proto.protos.opts.BatchCreateDestinationOptions.toObject = function(includeInsta
   var f, obj = {
     name: jspb.Message.getFieldWithDefault(msg, 1, ""),
     notes: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    apiDestinationType: jspb.Message.getFieldWithDefault(msg, 1000, ""),
     kafka: (f = msg.getKafka()) && opts_write_pb.WriteGroupKafkaOptions.toObject(includeInstance, f),
     rabbit: (f = msg.getRabbit()) && opts_write_pb.WriteGroupRabbitOptions.toObject(includeInstance, f),
     kubemqQueue: (f = msg.getKubemqQueue()) && opts_write_pb.WriteGroupKubeMQQueueOptions.toObject(includeInstance, f),
@@ -2507,6 +2508,10 @@ proto.protos.opts.BatchCreateDestinationOptions.deserializeBinaryFromReader = fu
     case 2:
       var value = /** @type {string} */ (reader.readString());
       msg.setNotes(value);
+      break;
+    case 1000:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setApiDestinationType(value);
       break;
     case 100:
       var value = new opts_write_pb.WriteGroupKafkaOptions;
@@ -2573,6 +2578,13 @@ proto.protos.opts.BatchCreateDestinationOptions.serializeBinaryToWriter = functi
   if (f.length > 0) {
     writer.writeString(
       2,
+      f
+    );
+  }
+  f = message.getApiDestinationType();
+  if (f.length > 0) {
+    writer.writeString(
+      1000,
       f
     );
   }
@@ -2652,6 +2664,24 @@ proto.protos.opts.BatchCreateDestinationOptions.prototype.getNotes = function() 
  */
 proto.protos.opts.BatchCreateDestinationOptions.prototype.setNotes = function(value) {
   return jspb.Message.setProto3StringField(this, 2, value);
+};
+
+
+/**
+ * optional string _api_destination_type = 1000;
+ * @return {string}
+ */
+proto.protos.opts.BatchCreateDestinationOptions.prototype.getApiDestinationType = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1000, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.protos.opts.BatchCreateDestinationOptions} returns this
+ */
+proto.protos.opts.BatchCreateDestinationOptions.prototype.setApiDestinationType = function(value) {
+  return jspb.Message.setProto3StringField(this, 1000, value);
 };
 
 
