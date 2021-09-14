@@ -455,8 +455,8 @@ proto.protos.opts.DynamicOptions.toObject = function(includeInstance, msg) {
   var f, obj = {
     apiToken: jspb.Message.getFieldWithDefault(msg, 1, ""),
     grpcAddress: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    grpcTimeoutSeconds: jspb.Message.getFieldWithDefault(msg, 3, ""),
-    grpcInsecureTls: jspb.Message.getBooleanFieldWithDefault(msg, 4, false),
+    grpcTimeoutSeconds: jspb.Message.getFieldWithDefault(msg, 3, 0),
+    grpcInsecure: jspb.Message.getBooleanFieldWithDefault(msg, 4, false),
     kafka: (f = msg.getKafka()) && proto.protos.opts.DynamicGroupKafkaOptions.toObject(includeInstance, f),
     activemq: (f = msg.getActivemq()) && proto.protos.opts.DynamicGroupActiveMQOptions.toObject(includeInstance, f),
     awssqs: (f = msg.getAwssqs()) && proto.protos.opts.DynamicGroupAWSSQSOptions.toObject(includeInstance, f),
@@ -517,12 +517,12 @@ proto.protos.opts.DynamicOptions.deserializeBinaryFromReader = function(msg, rea
       msg.setGrpcAddress(value);
       break;
     case 3:
-      var value = /** @type {string} */ (reader.readString());
+      var value = /** @type {number} */ (reader.readUint32());
       msg.setGrpcTimeoutSeconds(value);
       break;
     case 4:
       var value = /** @type {boolean} */ (reader.readBool());
-      msg.setGrpcInsecureTls(value);
+      msg.setGrpcInsecure(value);
       break;
     case 100:
       var value = new proto.protos.opts.DynamicGroupKafkaOptions;
@@ -643,13 +643,13 @@ proto.protos.opts.DynamicOptions.serializeBinaryToWriter = function(message, wri
     );
   }
   f = message.getGrpcTimeoutSeconds();
-  if (f.length > 0) {
-    writer.writeString(
+  if (f !== 0) {
+    writer.writeUint32(
       3,
       f
     );
   }
-  f = message.getGrpcInsecureTls();
+  f = message.getGrpcInsecure();
   if (f) {
     writer.writeBool(
       4,
@@ -816,28 +816,28 @@ proto.protos.opts.DynamicOptions.prototype.setGrpcAddress = function(value) {
 
 
 /**
- * optional string _grpc_timeout_seconds = 3;
- * @return {string}
+ * optional uint32 _grpc_timeout_seconds = 3;
+ * @return {number}
  */
 proto.protos.opts.DynamicOptions.prototype.getGrpcTimeoutSeconds = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
 };
 
 
 /**
- * @param {string} value
+ * @param {number} value
  * @return {!proto.protos.opts.DynamicOptions} returns this
  */
 proto.protos.opts.DynamicOptions.prototype.setGrpcTimeoutSeconds = function(value) {
-  return jspb.Message.setProto3StringField(this, 3, value);
+  return jspb.Message.setProto3IntField(this, 3, value);
 };
 
 
 /**
- * optional bool _grpc_insecure_tls = 4;
+ * optional bool _grpc_insecure = 4;
  * @return {boolean}
  */
-proto.protos.opts.DynamicOptions.prototype.getGrpcInsecureTls = function() {
+proto.protos.opts.DynamicOptions.prototype.getGrpcInsecure = function() {
   return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 4, false));
 };
 
@@ -846,7 +846,7 @@ proto.protos.opts.DynamicOptions.prototype.getGrpcInsecureTls = function() {
  * @param {boolean} value
  * @return {!proto.protos.opts.DynamicOptions} returns this
  */
-proto.protos.opts.DynamicOptions.prototype.setGrpcInsecureTls = function(value) {
+proto.protos.opts.DynamicOptions.prototype.setGrpcInsecure = function(value) {
   return jspb.Message.setProto3BooleanField(this, 4, value);
 };
 

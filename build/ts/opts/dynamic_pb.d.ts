@@ -27,10 +27,10 @@ export class DynamicOptions extends jspb.Message {
     setApiToken(value: string): DynamicOptions;
     getGrpcAddress(): string;
     setGrpcAddress(value: string): DynamicOptions;
-    getGrpcTimeoutSeconds(): string;
-    setGrpcTimeoutSeconds(value: string): DynamicOptions;
-    getGrpcInsecureTls(): boolean;
-    setGrpcInsecureTls(value: boolean): DynamicOptions;
+    getGrpcTimeoutSeconds(): number;
+    setGrpcTimeoutSeconds(value: number): DynamicOptions;
+    getGrpcInsecure(): boolean;
+    setGrpcInsecure(value: boolean): DynamicOptions;
 
     hasKafka(): boolean;
     clearKafka(): void;
@@ -121,8 +121,8 @@ export namespace DynamicOptions {
     export type AsObject = {
         apiToken: string,
         GrpcAddress: string,
-        GrpcTimeoutSeconds: string,
-        GrpcInsecureTls: boolean,
+        GrpcTimeoutSeconds: number,
+        GrpcInsecure: boolean,
         kafka?: DynamicGroupKafkaOptions.AsObject,
         activemq?: DynamicGroupActiveMQOptions.AsObject,
         awssqs?: DynamicGroupAWSSQSOptions.AsObject,

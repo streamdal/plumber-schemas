@@ -7,23 +7,29 @@ import "opts/write.proto";
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/opts";
 
 message BatchOptions {
+    // @gotags: kong:"help='How to output results (0: table, 1: JSON)',default=0"
+    BatchOutputType output_type = 1;
+
+    // @gotags: kong:"help='Alternative URL to use for Batch API',default='https://api.batch.sh'"
+    string api_url = 2;
+
     // @gotags: kong:"embed,cmd,help='Login to the Batch platform'"
-    BatchLoginOptions login = 1; // DONE
+    BatchLoginOptions login = 3; // DONE
 
     // @gotags: kong:"embed,cmd,help='Login to Batch'"
-    BatchLogoutOptions logout = 2; // DONE
+    BatchLogoutOptions logout = 4; // DONE
 
     // @gotags: kong:"embed,cmd,help='List Batch resources'"
-    BatchListOptions list = 3; // DONE
+    BatchListOptions list = 5; // DONE
 
     // @gotags: kong:"embed,cmd,help='Create operations'"
-    BatchCreateOptions create = 4;
+    BatchCreateOptions create = 6;
 
     // @gotags: kong:"embed,cmd,help='Search operations'"
-    BatchSearchOptions search = 5;
+    BatchSearchOptions search = 7;
 
     // @gotags: kong:"embed,cmd,help='Archive a resource'"
-    BatchArchiveOptions archive = 6;
+    BatchArchiveOptions archive = 8;
 }
 
 message BatchLoginOptions {
@@ -50,20 +56,17 @@ enum BatchOutputType {
 }
 
 message BatchListOptions {
-    // @gotags: kong:"help='How to output results (0: table, 1: JSON)',default=0"
-    BatchOutputType output_type = 1;
-
     // @gotags: kong:"cmd,help='List all collections'"
-    bool collection = 2;
+    bool collection = 1;
 
     // @gotags: kong:"cmd,help='List all destinations'"
-    bool destination = 3;
+    bool destination = 2;
 
     // @gotags: kong:"cmd,help='List all replays'"
-    bool replay = 4;
+    bool replay = 3;
 
     // @gotags: kong:"cmd,help='List all schemas'"
-    bool schema = 5;
+    bool schema = 4;
 }
 
 message BatchCreateOptions {
@@ -92,7 +95,7 @@ message BatchCreateCollectionOptions {
     // @gotags: kong:"help='Friendly name for the collection',required"
     string name = 1;
 
-    // @gotags: kong:"help='Schema the collection will use (can be obtained running `plumber batch list schema`',required"
+    // @gotags: kong:"help='Schema the collection will use (can be obtained running _plumber batch list schema_)',required"
     string schema_id = 2;
 
     // @gotags: kong:"help='Optional notes for the collection'"

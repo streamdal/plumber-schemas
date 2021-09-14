@@ -30,6 +30,10 @@ export class WriteCLIOptions extends jspb.Message {
     setInputFile(value: string): WriteCLIOptions;
     getInputAsJsonArray(): boolean;
     setInputAsJsonArray(value: boolean): WriteCLIOptions;
+    clearInputStdinList(): void;
+    getInputStdinList(): Array<string>;
+    setInputStdinList(value: Array<string>): WriteCLIOptions;
+    addInputStdin(value: string, index?: number): string;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): WriteCLIOptions.AsObject;
@@ -45,6 +49,7 @@ export namespace WriteCLIOptions {
     export type AsObject = {
         inputFile: string,
         inputAsJsonArray: boolean,
+        inputStdinList: Array<string>,
     }
 }
 

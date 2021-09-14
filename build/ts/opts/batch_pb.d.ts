@@ -8,6 +8,10 @@ import * as jspb from "google-protobuf";
 import * as opts_write_pb from "../opts/write_pb";
 
 export class BatchOptions extends jspb.Message { 
+    getOutputType(): BatchOutputType;
+    setOutputType(value: BatchOutputType): BatchOptions;
+    getApiUrl(): string;
+    setApiUrl(value: string): BatchOptions;
 
     hasLogin(): boolean;
     clearLogin(): void;
@@ -51,6 +55,8 @@ export class BatchOptions extends jspb.Message {
 
 export namespace BatchOptions {
     export type AsObject = {
+        outputType: BatchOutputType,
+        apiUrl: string,
         login?: BatchLoginOptions.AsObject,
         logout?: BatchLogoutOptions.AsObject,
         list?: BatchListOptions.AsObject,
@@ -138,8 +144,6 @@ export namespace BatchArchiveReplayOptions {
 }
 
 export class BatchListOptions extends jspb.Message { 
-    getOutputType(): BatchOutputType;
-    setOutputType(value: BatchOutputType): BatchListOptions;
     getCollection(): boolean;
     setCollection(value: boolean): BatchListOptions;
     getDestination(): boolean;
@@ -161,7 +165,6 @@ export class BatchListOptions extends jspb.Message {
 
 export namespace BatchListOptions {
     export type AsObject = {
-        outputType: BatchOutputType,
         collection: boolean,
         destination: boolean,
         replay: boolean,

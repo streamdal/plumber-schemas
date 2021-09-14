@@ -37,13 +37,13 @@ message EncodeOptions {
     string schema_id = 1;
 
     // TODO: Update kong to be able to use proto/smart enums
-    // @gotags: kong:"help='Input type (0: Unset, 1: JSONPB)',default=0"
+    // @gotags: kong:"help='Encode type (0: Unset, 1: JSONPB)',default=0"
     EncodeType encode_type = 2;
 
-    // @gotags: kong="embed,group=protobuf"
+    // @gotags: kong:"embed,group=protobuf"
     ProtobufSettings protobuf_settings = 3;
 
-    // @gotags: kong="help='If encode-type is set to avro, must specify avro schema file',existingfile"
+    // @gotags: kong:"help='If encode-type is set to avro, must specify avro schema file',existingfile"
     string avro_schema_file = 4;
 }
 
@@ -52,9 +52,9 @@ message DecodeOptions {
     // @gotags: kong:"-"
     string schema_id = 1;
 
-    // @gotags: kong:"help='Input type (0: Unset, 1: JSONPB, 2: Protobuf, 3: Avro, 4: Thrift, 5: Flatbuffer)',default=0"
+    // @gotags: kong:"help='Decode type (0: Unset, 1: JSONPB, 2: Protobuf, 3: Avro, 4: Thrift, 5: Flatbuffer)',default=0"
     DecodeType decode_type = 2;
 
-    // @gotags: kong="embed,group=protobuf"
+    // @gotags: kong:"embed,group=protobuf"
     ProtobufSettings protobuf_settings = 3;
 }

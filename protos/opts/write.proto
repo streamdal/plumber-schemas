@@ -28,8 +28,11 @@ message WriteCLIOptions {
     // @gotags: kong:"help='Write data from input file',existingfile,xor=input"
     string input_file = 1;
 
-    // @gotags: kong="help='Treat input as JSON array - each array element will be written as a separate message'"
+    // @gotags: kong:"help='Treat input as JSON array - each array element will be written as a separate message'"
     bool input_as_json_array = 2;
+
+    // @gotags: kong:"-"
+    repeated string input_stdin = 3;
 }
 
 // Write is the structure that backends accept for facilitating a write.

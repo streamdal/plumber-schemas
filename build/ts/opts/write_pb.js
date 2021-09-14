@@ -83,7 +83,7 @@ goog.exportSymbol('proto.protos.opts.WriteOptions', null, global);
  * @constructor
  */
 proto.protos.opts.WriteCLIOptions = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.protos.opts.WriteCLIOptions.repeatedFields_, null);
 };
 goog.inherits(proto.protos.opts.WriteCLIOptions, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
@@ -472,6 +472,13 @@ if (goog.DEBUG && !COMPILED) {
   proto.protos.opts.WriteGroupKubeMQQueueOptions.displayName = 'proto.protos.opts.WriteGroupKubeMQQueueOptions';
 }
 
+/**
+ * List of repeated fields within this message type.
+ * @private {!Array<number>}
+ * @const
+ */
+proto.protos.opts.WriteCLIOptions.repeatedFields_ = [3];
+
 
 
 if (jspb.Message.GENERATE_TO_OBJECT) {
@@ -504,7 +511,8 @@ proto.protos.opts.WriteCLIOptions.prototype.toObject = function(opt_includeInsta
 proto.protos.opts.WriteCLIOptions.toObject = function(includeInstance, msg) {
   var f, obj = {
     inputFile: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    inputAsJsonArray: jspb.Message.getBooleanFieldWithDefault(msg, 2, false)
+    inputAsJsonArray: jspb.Message.getBooleanFieldWithDefault(msg, 2, false),
+    inputStdinList: (f = jspb.Message.getRepeatedField(msg, 3)) == null ? undefined : f
   };
 
   if (includeInstance) {
@@ -549,6 +557,10 @@ proto.protos.opts.WriteCLIOptions.deserializeBinaryFromReader = function(msg, re
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setInputAsJsonArray(value);
       break;
+    case 3:
+      var value = /** @type {string} */ (reader.readString());
+      msg.addInputStdin(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -592,6 +604,13 @@ proto.protos.opts.WriteCLIOptions.serializeBinaryToWriter = function(message, wr
       f
     );
   }
+  f = message.getInputStdinList();
+  if (f.length > 0) {
+    writer.writeRepeatedString(
+      3,
+      f
+    );
+  }
 };
 
 
@@ -628,6 +647,43 @@ proto.protos.opts.WriteCLIOptions.prototype.getInputAsJsonArray = function() {
  */
 proto.protos.opts.WriteCLIOptions.prototype.setInputAsJsonArray = function(value) {
   return jspb.Message.setProto3BooleanField(this, 2, value);
+};
+
+
+/**
+ * repeated string input_stdin = 3;
+ * @return {!Array<string>}
+ */
+proto.protos.opts.WriteCLIOptions.prototype.getInputStdinList = function() {
+  return /** @type {!Array<string>} */ (jspb.Message.getRepeatedField(this, 3));
+};
+
+
+/**
+ * @param {!Array<string>} value
+ * @return {!proto.protos.opts.WriteCLIOptions} returns this
+ */
+proto.protos.opts.WriteCLIOptions.prototype.setInputStdinList = function(value) {
+  return jspb.Message.setField(this, 3, value || []);
+};
+
+
+/**
+ * @param {string} value
+ * @param {number=} opt_index
+ * @return {!proto.protos.opts.WriteCLIOptions} returns this
+ */
+proto.protos.opts.WriteCLIOptions.prototype.addInputStdin = function(value, opt_index) {
+  return jspb.Message.addToRepeatedField(this, 3, value, opt_index);
+};
+
+
+/**
+ * Clears the list making it empty but non-null.
+ * @return {!proto.protos.opts.WriteCLIOptions} returns this
+ */
+proto.protos.opts.WriteCLIOptions.prototype.clearInputStdinList = function() {
+  return this.setInputStdinList([]);
 };
 
 

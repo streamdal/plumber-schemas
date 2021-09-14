@@ -315,6 +315,8 @@ proto.protos.opts.BatchOptions.prototype.toObject = function(opt_includeInstance
  */
 proto.protos.opts.BatchOptions.toObject = function(includeInstance, msg) {
   var f, obj = {
+    outputType: jspb.Message.getFieldWithDefault(msg, 1, 0),
+    apiUrl: jspb.Message.getFieldWithDefault(msg, 2, ""),
     login: (f = msg.getLogin()) && proto.protos.opts.BatchLoginOptions.toObject(includeInstance, f),
     logout: (f = msg.getLogout()) && proto.protos.opts.BatchLogoutOptions.toObject(includeInstance, f),
     list: (f = msg.getList()) && proto.protos.opts.BatchListOptions.toObject(includeInstance, f),
@@ -358,31 +360,39 @@ proto.protos.opts.BatchOptions.deserializeBinaryFromReader = function(msg, reade
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
+      var value = /** @type {!proto.protos.opts.BatchOutputType} */ (reader.readEnum());
+      msg.setOutputType(value);
+      break;
+    case 2:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setApiUrl(value);
+      break;
+    case 3:
       var value = new proto.protos.opts.BatchLoginOptions;
       reader.readMessage(value,proto.protos.opts.BatchLoginOptions.deserializeBinaryFromReader);
       msg.setLogin(value);
       break;
-    case 2:
+    case 4:
       var value = new proto.protos.opts.BatchLogoutOptions;
       reader.readMessage(value,proto.protos.opts.BatchLogoutOptions.deserializeBinaryFromReader);
       msg.setLogout(value);
       break;
-    case 3:
+    case 5:
       var value = new proto.protos.opts.BatchListOptions;
       reader.readMessage(value,proto.protos.opts.BatchListOptions.deserializeBinaryFromReader);
       msg.setList(value);
       break;
-    case 4:
+    case 6:
       var value = new proto.protos.opts.BatchCreateOptions;
       reader.readMessage(value,proto.protos.opts.BatchCreateOptions.deserializeBinaryFromReader);
       msg.setCreate(value);
       break;
-    case 5:
+    case 7:
       var value = new proto.protos.opts.BatchSearchOptions;
       reader.readMessage(value,proto.protos.opts.BatchSearchOptions.deserializeBinaryFromReader);
       msg.setSearch(value);
       break;
-    case 6:
+    case 8:
       var value = new proto.protos.opts.BatchArchiveOptions;
       reader.readMessage(value,proto.protos.opts.BatchArchiveOptions.deserializeBinaryFromReader);
       msg.setArchive(value);
@@ -416,10 +426,24 @@ proto.protos.opts.BatchOptions.prototype.serializeBinary = function() {
  */
 proto.protos.opts.BatchOptions.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
+  f = message.getOutputType();
+  if (f !== 0.0) {
+    writer.writeEnum(
+      1,
+      f
+    );
+  }
+  f = message.getApiUrl();
+  if (f.length > 0) {
+    writer.writeString(
+      2,
+      f
+    );
+  }
   f = message.getLogin();
   if (f != null) {
     writer.writeMessage(
-      1,
+      3,
       f,
       proto.protos.opts.BatchLoginOptions.serializeBinaryToWriter
     );
@@ -427,7 +451,7 @@ proto.protos.opts.BatchOptions.serializeBinaryToWriter = function(message, write
   f = message.getLogout();
   if (f != null) {
     writer.writeMessage(
-      2,
+      4,
       f,
       proto.protos.opts.BatchLogoutOptions.serializeBinaryToWriter
     );
@@ -435,7 +459,7 @@ proto.protos.opts.BatchOptions.serializeBinaryToWriter = function(message, write
   f = message.getList();
   if (f != null) {
     writer.writeMessage(
-      3,
+      5,
       f,
       proto.protos.opts.BatchListOptions.serializeBinaryToWriter
     );
@@ -443,7 +467,7 @@ proto.protos.opts.BatchOptions.serializeBinaryToWriter = function(message, write
   f = message.getCreate();
   if (f != null) {
     writer.writeMessage(
-      4,
+      6,
       f,
       proto.protos.opts.BatchCreateOptions.serializeBinaryToWriter
     );
@@ -451,7 +475,7 @@ proto.protos.opts.BatchOptions.serializeBinaryToWriter = function(message, write
   f = message.getSearch();
   if (f != null) {
     writer.writeMessage(
-      5,
+      7,
       f,
       proto.protos.opts.BatchSearchOptions.serializeBinaryToWriter
     );
@@ -459,7 +483,7 @@ proto.protos.opts.BatchOptions.serializeBinaryToWriter = function(message, write
   f = message.getArchive();
   if (f != null) {
     writer.writeMessage(
-      6,
+      8,
       f,
       proto.protos.opts.BatchArchiveOptions.serializeBinaryToWriter
     );
@@ -468,12 +492,48 @@ proto.protos.opts.BatchOptions.serializeBinaryToWriter = function(message, write
 
 
 /**
- * optional BatchLoginOptions login = 1;
+ * optional BatchOutputType output_type = 1;
+ * @return {!proto.protos.opts.BatchOutputType}
+ */
+proto.protos.opts.BatchOptions.prototype.getOutputType = function() {
+  return /** @type {!proto.protos.opts.BatchOutputType} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
+};
+
+
+/**
+ * @param {!proto.protos.opts.BatchOutputType} value
+ * @return {!proto.protos.opts.BatchOptions} returns this
+ */
+proto.protos.opts.BatchOptions.prototype.setOutputType = function(value) {
+  return jspb.Message.setProto3EnumField(this, 1, value);
+};
+
+
+/**
+ * optional string api_url = 2;
+ * @return {string}
+ */
+proto.protos.opts.BatchOptions.prototype.getApiUrl = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.protos.opts.BatchOptions} returns this
+ */
+proto.protos.opts.BatchOptions.prototype.setApiUrl = function(value) {
+  return jspb.Message.setProto3StringField(this, 2, value);
+};
+
+
+/**
+ * optional BatchLoginOptions login = 3;
  * @return {?proto.protos.opts.BatchLoginOptions}
  */
 proto.protos.opts.BatchOptions.prototype.getLogin = function() {
   return /** @type{?proto.protos.opts.BatchLoginOptions} */ (
-    jspb.Message.getWrapperField(this, proto.protos.opts.BatchLoginOptions, 1));
+    jspb.Message.getWrapperField(this, proto.protos.opts.BatchLoginOptions, 3));
 };
 
 
@@ -482,7 +542,7 @@ proto.protos.opts.BatchOptions.prototype.getLogin = function() {
  * @return {!proto.protos.opts.BatchOptions} returns this
 */
 proto.protos.opts.BatchOptions.prototype.setLogin = function(value) {
-  return jspb.Message.setWrapperField(this, 1, value);
+  return jspb.Message.setWrapperField(this, 3, value);
 };
 
 
@@ -500,17 +560,17 @@ proto.protos.opts.BatchOptions.prototype.clearLogin = function() {
  * @return {boolean}
  */
 proto.protos.opts.BatchOptions.prototype.hasLogin = function() {
-  return jspb.Message.getField(this, 1) != null;
+  return jspb.Message.getField(this, 3) != null;
 };
 
 
 /**
- * optional BatchLogoutOptions logout = 2;
+ * optional BatchLogoutOptions logout = 4;
  * @return {?proto.protos.opts.BatchLogoutOptions}
  */
 proto.protos.opts.BatchOptions.prototype.getLogout = function() {
   return /** @type{?proto.protos.opts.BatchLogoutOptions} */ (
-    jspb.Message.getWrapperField(this, proto.protos.opts.BatchLogoutOptions, 2));
+    jspb.Message.getWrapperField(this, proto.protos.opts.BatchLogoutOptions, 4));
 };
 
 
@@ -519,7 +579,7 @@ proto.protos.opts.BatchOptions.prototype.getLogout = function() {
  * @return {!proto.protos.opts.BatchOptions} returns this
 */
 proto.protos.opts.BatchOptions.prototype.setLogout = function(value) {
-  return jspb.Message.setWrapperField(this, 2, value);
+  return jspb.Message.setWrapperField(this, 4, value);
 };
 
 
@@ -537,17 +597,17 @@ proto.protos.opts.BatchOptions.prototype.clearLogout = function() {
  * @return {boolean}
  */
 proto.protos.opts.BatchOptions.prototype.hasLogout = function() {
-  return jspb.Message.getField(this, 2) != null;
+  return jspb.Message.getField(this, 4) != null;
 };
 
 
 /**
- * optional BatchListOptions list = 3;
+ * optional BatchListOptions list = 5;
  * @return {?proto.protos.opts.BatchListOptions}
  */
 proto.protos.opts.BatchOptions.prototype.getList = function() {
   return /** @type{?proto.protos.opts.BatchListOptions} */ (
-    jspb.Message.getWrapperField(this, proto.protos.opts.BatchListOptions, 3));
+    jspb.Message.getWrapperField(this, proto.protos.opts.BatchListOptions, 5));
 };
 
 
@@ -556,7 +616,7 @@ proto.protos.opts.BatchOptions.prototype.getList = function() {
  * @return {!proto.protos.opts.BatchOptions} returns this
 */
 proto.protos.opts.BatchOptions.prototype.setList = function(value) {
-  return jspb.Message.setWrapperField(this, 3, value);
+  return jspb.Message.setWrapperField(this, 5, value);
 };
 
 
@@ -574,17 +634,17 @@ proto.protos.opts.BatchOptions.prototype.clearList = function() {
  * @return {boolean}
  */
 proto.protos.opts.BatchOptions.prototype.hasList = function() {
-  return jspb.Message.getField(this, 3) != null;
+  return jspb.Message.getField(this, 5) != null;
 };
 
 
 /**
- * optional BatchCreateOptions create = 4;
+ * optional BatchCreateOptions create = 6;
  * @return {?proto.protos.opts.BatchCreateOptions}
  */
 proto.protos.opts.BatchOptions.prototype.getCreate = function() {
   return /** @type{?proto.protos.opts.BatchCreateOptions} */ (
-    jspb.Message.getWrapperField(this, proto.protos.opts.BatchCreateOptions, 4));
+    jspb.Message.getWrapperField(this, proto.protos.opts.BatchCreateOptions, 6));
 };
 
 
@@ -593,7 +653,7 @@ proto.protos.opts.BatchOptions.prototype.getCreate = function() {
  * @return {!proto.protos.opts.BatchOptions} returns this
 */
 proto.protos.opts.BatchOptions.prototype.setCreate = function(value) {
-  return jspb.Message.setWrapperField(this, 4, value);
+  return jspb.Message.setWrapperField(this, 6, value);
 };
 
 
@@ -611,17 +671,17 @@ proto.protos.opts.BatchOptions.prototype.clearCreate = function() {
  * @return {boolean}
  */
 proto.protos.opts.BatchOptions.prototype.hasCreate = function() {
-  return jspb.Message.getField(this, 4) != null;
+  return jspb.Message.getField(this, 6) != null;
 };
 
 
 /**
- * optional BatchSearchOptions search = 5;
+ * optional BatchSearchOptions search = 7;
  * @return {?proto.protos.opts.BatchSearchOptions}
  */
 proto.protos.opts.BatchOptions.prototype.getSearch = function() {
   return /** @type{?proto.protos.opts.BatchSearchOptions} */ (
-    jspb.Message.getWrapperField(this, proto.protos.opts.BatchSearchOptions, 5));
+    jspb.Message.getWrapperField(this, proto.protos.opts.BatchSearchOptions, 7));
 };
 
 
@@ -630,7 +690,7 @@ proto.protos.opts.BatchOptions.prototype.getSearch = function() {
  * @return {!proto.protos.opts.BatchOptions} returns this
 */
 proto.protos.opts.BatchOptions.prototype.setSearch = function(value) {
-  return jspb.Message.setWrapperField(this, 5, value);
+  return jspb.Message.setWrapperField(this, 7, value);
 };
 
 
@@ -648,17 +708,17 @@ proto.protos.opts.BatchOptions.prototype.clearSearch = function() {
  * @return {boolean}
  */
 proto.protos.opts.BatchOptions.prototype.hasSearch = function() {
-  return jspb.Message.getField(this, 5) != null;
+  return jspb.Message.getField(this, 7) != null;
 };
 
 
 /**
- * optional BatchArchiveOptions archive = 6;
+ * optional BatchArchiveOptions archive = 8;
  * @return {?proto.protos.opts.BatchArchiveOptions}
  */
 proto.protos.opts.BatchOptions.prototype.getArchive = function() {
   return /** @type{?proto.protos.opts.BatchArchiveOptions} */ (
-    jspb.Message.getWrapperField(this, proto.protos.opts.BatchArchiveOptions, 6));
+    jspb.Message.getWrapperField(this, proto.protos.opts.BatchArchiveOptions, 8));
 };
 
 
@@ -667,7 +727,7 @@ proto.protos.opts.BatchOptions.prototype.getArchive = function() {
  * @return {!proto.protos.opts.BatchOptions} returns this
 */
 proto.protos.opts.BatchOptions.prototype.setArchive = function(value) {
-  return jspb.Message.setWrapperField(this, 6, value);
+  return jspb.Message.setWrapperField(this, 8, value);
 };
 
 
@@ -685,7 +745,7 @@ proto.protos.opts.BatchOptions.prototype.clearArchive = function() {
  * @return {boolean}
  */
 proto.protos.opts.BatchOptions.prototype.hasArchive = function() {
-  return jspb.Message.getField(this, 6) != null;
+  return jspb.Message.getField(this, 8) != null;
 };
 
 
@@ -1204,11 +1264,10 @@ proto.protos.opts.BatchListOptions.prototype.toObject = function(opt_includeInst
  */
 proto.protos.opts.BatchListOptions.toObject = function(includeInstance, msg) {
   var f, obj = {
-    outputType: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    collection: jspb.Message.getBooleanFieldWithDefault(msg, 2, false),
-    destination: jspb.Message.getBooleanFieldWithDefault(msg, 3, false),
-    replay: jspb.Message.getBooleanFieldWithDefault(msg, 4, false),
-    schema: jspb.Message.getBooleanFieldWithDefault(msg, 5, false)
+    collection: jspb.Message.getBooleanFieldWithDefault(msg, 1, false),
+    destination: jspb.Message.getBooleanFieldWithDefault(msg, 2, false),
+    replay: jspb.Message.getBooleanFieldWithDefault(msg, 3, false),
+    schema: jspb.Message.getBooleanFieldWithDefault(msg, 4, false)
   };
 
   if (includeInstance) {
@@ -1246,22 +1305,18 @@ proto.protos.opts.BatchListOptions.deserializeBinaryFromReader = function(msg, r
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = /** @type {!proto.protos.opts.BatchOutputType} */ (reader.readEnum());
-      msg.setOutputType(value);
-      break;
-    case 2:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setCollection(value);
       break;
-    case 3:
+    case 2:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setDestination(value);
       break;
-    case 4:
+    case 3:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setReplay(value);
       break;
-    case 5:
+    case 4:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setSchema(value);
       break;
@@ -1294,38 +1349,31 @@ proto.protos.opts.BatchListOptions.prototype.serializeBinary = function() {
  */
 proto.protos.opts.BatchListOptions.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getOutputType();
-  if (f !== 0.0) {
-    writer.writeEnum(
-      1,
-      f
-    );
-  }
   f = message.getCollection();
   if (f) {
     writer.writeBool(
-      2,
+      1,
       f
     );
   }
   f = message.getDestination();
   if (f) {
     writer.writeBool(
-      3,
+      2,
       f
     );
   }
   f = message.getReplay();
   if (f) {
     writer.writeBool(
-      4,
+      3,
       f
     );
   }
   f = message.getSchema();
   if (f) {
     writer.writeBool(
-      5,
+      4,
       f
     );
   }
@@ -1333,29 +1381,11 @@ proto.protos.opts.BatchListOptions.serializeBinaryToWriter = function(message, w
 
 
 /**
- * optional BatchOutputType output_type = 1;
- * @return {!proto.protos.opts.BatchOutputType}
- */
-proto.protos.opts.BatchListOptions.prototype.getOutputType = function() {
-  return /** @type {!proto.protos.opts.BatchOutputType} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
-};
-
-
-/**
- * @param {!proto.protos.opts.BatchOutputType} value
- * @return {!proto.protos.opts.BatchListOptions} returns this
- */
-proto.protos.opts.BatchListOptions.prototype.setOutputType = function(value) {
-  return jspb.Message.setProto3EnumField(this, 1, value);
-};
-
-
-/**
- * optional bool collection = 2;
+ * optional bool collection = 1;
  * @return {boolean}
  */
 proto.protos.opts.BatchListOptions.prototype.getCollection = function() {
-  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 2, false));
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 1, false));
 };
 
 
@@ -1364,16 +1394,16 @@ proto.protos.opts.BatchListOptions.prototype.getCollection = function() {
  * @return {!proto.protos.opts.BatchListOptions} returns this
  */
 proto.protos.opts.BatchListOptions.prototype.setCollection = function(value) {
-  return jspb.Message.setProto3BooleanField(this, 2, value);
+  return jspb.Message.setProto3BooleanField(this, 1, value);
 };
 
 
 /**
- * optional bool destination = 3;
+ * optional bool destination = 2;
  * @return {boolean}
  */
 proto.protos.opts.BatchListOptions.prototype.getDestination = function() {
-  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 3, false));
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 2, false));
 };
 
 
@@ -1382,16 +1412,16 @@ proto.protos.opts.BatchListOptions.prototype.getDestination = function() {
  * @return {!proto.protos.opts.BatchListOptions} returns this
  */
 proto.protos.opts.BatchListOptions.prototype.setDestination = function(value) {
-  return jspb.Message.setProto3BooleanField(this, 3, value);
+  return jspb.Message.setProto3BooleanField(this, 2, value);
 };
 
 
 /**
- * optional bool replay = 4;
+ * optional bool replay = 3;
  * @return {boolean}
  */
 proto.protos.opts.BatchListOptions.prototype.getReplay = function() {
-  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 4, false));
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 3, false));
 };
 
 
@@ -1400,16 +1430,16 @@ proto.protos.opts.BatchListOptions.prototype.getReplay = function() {
  * @return {!proto.protos.opts.BatchListOptions} returns this
  */
 proto.protos.opts.BatchListOptions.prototype.setReplay = function(value) {
-  return jspb.Message.setProto3BooleanField(this, 4, value);
+  return jspb.Message.setProto3BooleanField(this, 3, value);
 };
 
 
 /**
- * optional bool schema = 5;
+ * optional bool schema = 4;
  * @return {boolean}
  */
 proto.protos.opts.BatchListOptions.prototype.getSchema = function() {
-  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 5, false));
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 4, false));
 };
 
 
@@ -1418,7 +1448,7 @@ proto.protos.opts.BatchListOptions.prototype.getSchema = function() {
  * @return {!proto.protos.opts.BatchListOptions} returns this
  */
 proto.protos.opts.BatchListOptions.prototype.setSchema = function(value) {
-  return jspb.Message.setProto3BooleanField(this, 5, value);
+  return jspb.Message.setProto3BooleanField(this, 4, value);
 };
 
 
