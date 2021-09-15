@@ -106,8 +106,11 @@ export class DecodeOptions extends jspb.Message {
     clearProtobufSettings(): void;
     getProtobufSettings(): ProtobufSettings | undefined;
     setProtobufSettings(value?: ProtobufSettings): DecodeOptions;
-    getAvroSchemaFile(): string;
-    setAvroSchemaFile(value: string): DecodeOptions;
+
+    hasAvroSettings(): boolean;
+    clearAvroSettings(): void;
+    getAvroSettings(): AvroSettings | undefined;
+    setAvroSettings(value?: AvroSettings): DecodeOptions;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): DecodeOptions.AsObject;
@@ -124,7 +127,7 @@ export namespace DecodeOptions {
         schemaId: string,
         decodeType: DecodeType,
         protobufSettings?: ProtobufSettings.AsObject,
-        avroSchemaFile: string,
+        avroSettings?: AvroSettings.AsObject,
     }
 }
 

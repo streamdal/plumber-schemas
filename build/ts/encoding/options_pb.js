@@ -826,7 +826,7 @@ proto.protos.encoding.DecodeOptions.toObject = function(includeInstance, msg) {
     schemaId: jspb.Message.getFieldWithDefault(msg, 1, ""),
     decodeType: jspb.Message.getFieldWithDefault(msg, 2, 0),
     protobufSettings: (f = msg.getProtobufSettings()) && proto.protos.encoding.ProtobufSettings.toObject(includeInstance, f),
-    avroSchemaFile: jspb.Message.getFieldWithDefault(msg, 4, "")
+    avroSettings: (f = msg.getAvroSettings()) && proto.protos.encoding.AvroSettings.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -877,8 +877,9 @@ proto.protos.encoding.DecodeOptions.deserializeBinaryFromReader = function(msg, 
       msg.setProtobufSettings(value);
       break;
     case 4:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setAvroSchemaFile(value);
+      var value = new proto.protos.encoding.AvroSettings;
+      reader.readMessage(value,proto.protos.encoding.AvroSettings.deserializeBinaryFromReader);
+      msg.setAvroSettings(value);
       break;
     default:
       reader.skipField();
@@ -931,11 +932,12 @@ proto.protos.encoding.DecodeOptions.serializeBinaryToWriter = function(message, 
       proto.protos.encoding.ProtobufSettings.serializeBinaryToWriter
     );
   }
-  f = message.getAvroSchemaFile();
-  if (f.length > 0) {
-    writer.writeString(
+  f = message.getAvroSettings();
+  if (f != null) {
+    writer.writeMessage(
       4,
-      f
+      f,
+      proto.protos.encoding.AvroSettings.serializeBinaryToWriter
     );
   }
 };
@@ -1015,20 +1017,39 @@ proto.protos.encoding.DecodeOptions.prototype.hasProtobufSettings = function() {
 
 
 /**
- * optional string avro_schema_file = 4;
- * @return {string}
+ * optional AvroSettings avro_settings = 4;
+ * @return {?proto.protos.encoding.AvroSettings}
  */
-proto.protos.encoding.DecodeOptions.prototype.getAvroSchemaFile = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
+proto.protos.encoding.DecodeOptions.prototype.getAvroSettings = function() {
+  return /** @type{?proto.protos.encoding.AvroSettings} */ (
+    jspb.Message.getWrapperField(this, proto.protos.encoding.AvroSettings, 4));
 };
 
 
 /**
- * @param {string} value
+ * @param {?proto.protos.encoding.AvroSettings|undefined} value
+ * @return {!proto.protos.encoding.DecodeOptions} returns this
+*/
+proto.protos.encoding.DecodeOptions.prototype.setAvroSettings = function(value) {
+  return jspb.Message.setWrapperField(this, 4, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
  * @return {!proto.protos.encoding.DecodeOptions} returns this
  */
-proto.protos.encoding.DecodeOptions.prototype.setAvroSchemaFile = function(value) {
-  return jspb.Message.setProto3StringField(this, 4, value);
+proto.protos.encoding.DecodeOptions.prototype.clearAvroSettings = function() {
+  return this.setAvroSettings(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.encoding.DecodeOptions.prototype.hasAvroSettings = function() {
+  return jspb.Message.getField(this, 4) != null;
 };
 
 

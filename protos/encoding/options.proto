@@ -73,6 +73,6 @@ message DecodeOptions {
     // @gotags: kong:"embed,group=protobuf"
     ProtobufSettings protobuf_settings = 3;
 
-    // @gotags: kong:"help='If decode-type is set to avro, must specify avro schema file',existingfile"
-    string avro_schema_file = 4;
+    // @gotags: kong:"embed,group=avro"
+    AvroSettings avro_settings = 4;
 }
