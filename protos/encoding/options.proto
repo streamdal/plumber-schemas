@@ -27,12 +27,23 @@ message ProtobufSettings {
     // @gotags: kong:"help='Input message(s) should be encoded with this message envelope'"
     string protobuf_root_message = 1;
 
+    // Desktop/server should not use this.
     // @gotags: kong:"help='One or more directories which contains protobuf schemas',existingdir"
     repeated string protobuf_dirs = 2;
 
-    // Used by server
+    // Used by server/desktop
     // @gotags: kong:"-"
     bytes archive = 3;
+}
+
+message AvroSettings {
+    // Used by CLI; desktop should not set/use this.
+    // @gotags: kong:"help='If encode-type is set to avro, must specify avro schema file',existingfile"
+    string avro_schema_file = 1;
+
+    // Used by desktop; CLI should not set/use this.
+    // @gotags: kong:"-"
+    bytes schema = 2;
 }
 
 message EncodeOptions {
@@ -47,8 +58,8 @@ message EncodeOptions {
     // @gotags: kong:"embed,group=protobuf"
     ProtobufSettings protobuf_settings = 3;
 
-    // @gotags: kong:"help='If encode-type is set to avro, must specify avro schema file',existingfile"
-    string avro_schema_file = 4;
+    // @gotags: kong:"embed,group=avro"
+    AvroSettings avro_settings = 4;
 }
 
 message DecodeOptions {

@@ -36,6 +36,31 @@ export namespace ProtobufSettings {
     }
 }
 
+export class AvroSettings extends jspb.Message { 
+    getAvroSchemaFile(): string;
+    setAvroSchemaFile(value: string): AvroSettings;
+    getSchema(): Uint8Array | string;
+    getSchema_asU8(): Uint8Array;
+    getSchema_asB64(): string;
+    setSchema(value: Uint8Array | string): AvroSettings;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): AvroSettings.AsObject;
+    static toObject(includeInstance: boolean, msg: AvroSettings): AvroSettings.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: AvroSettings, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): AvroSettings;
+    static deserializeBinaryFromReader(message: AvroSettings, reader: jspb.BinaryReader): AvroSettings;
+}
+
+export namespace AvroSettings {
+    export type AsObject = {
+        avroSchemaFile: string,
+        schema: Uint8Array | string,
+    }
+}
+
 export class EncodeOptions extends jspb.Message { 
     getSchemaId(): string;
     setSchemaId(value: string): EncodeOptions;
@@ -46,8 +71,11 @@ export class EncodeOptions extends jspb.Message {
     clearProtobufSettings(): void;
     getProtobufSettings(): ProtobufSettings | undefined;
     setProtobufSettings(value?: ProtobufSettings): EncodeOptions;
-    getAvroSchemaFile(): string;
-    setAvroSchemaFile(value: string): EncodeOptions;
+
+    hasAvroSettings(): boolean;
+    clearAvroSettings(): void;
+    getAvroSettings(): AvroSettings | undefined;
+    setAvroSettings(value?: AvroSettings): EncodeOptions;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): EncodeOptions.AsObject;
@@ -64,7 +92,7 @@ export namespace EncodeOptions {
         schemaId: string,
         encodeType: EncodeType,
         protobufSettings?: ProtobufSettings.AsObject,
-        avroSchemaFile: string,
+        avroSettings?: AvroSettings.AsObject,
     }
 }
 
