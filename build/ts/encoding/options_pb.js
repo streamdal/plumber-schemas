@@ -89,7 +89,7 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<number>}
  * @const
  */
-proto.protos.encoding.ProtobufSettings.repeatedFields_ = [4];
+proto.protos.encoding.ProtobufSettings.repeatedFields_ = [2];
 
 
 
@@ -122,8 +122,9 @@ proto.protos.encoding.ProtobufSettings.prototype.toObject = function(opt_include
  */
 proto.protos.encoding.ProtobufSettings.toObject = function(includeInstance, msg) {
   var f, obj = {
-    protobufRootMessage: jspb.Message.getFieldWithDefault(msg, 3, ""),
-    protobufDirsList: (f = jspb.Message.getRepeatedField(msg, 4)) == null ? undefined : f
+    protobufRootMessage: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    protobufDirsList: (f = jspb.Message.getRepeatedField(msg, 2)) == null ? undefined : f,
+    archive: msg.getArchive_asB64()
   };
 
   if (includeInstance) {
@@ -160,13 +161,17 @@ proto.protos.encoding.ProtobufSettings.deserializeBinaryFromReader = function(ms
     }
     var field = reader.getFieldNumber();
     switch (field) {
-    case 3:
+    case 1:
       var value = /** @type {string} */ (reader.readString());
       msg.setProtobufRootMessage(value);
       break;
-    case 4:
+    case 2:
       var value = /** @type {string} */ (reader.readString());
       msg.addProtobufDirs(value);
+      break;
+    case 3:
+      var value = /** @type {!Uint8Array} */ (reader.readBytes());
+      msg.setArchive(value);
       break;
     default:
       reader.skipField();
@@ -200,14 +205,21 @@ proto.protos.encoding.ProtobufSettings.serializeBinaryToWriter = function(messag
   f = message.getProtobufRootMessage();
   if (f.length > 0) {
     writer.writeString(
-      3,
+      1,
       f
     );
   }
   f = message.getProtobufDirsList();
   if (f.length > 0) {
     writer.writeRepeatedString(
-      4,
+      2,
+      f
+    );
+  }
+  f = message.getArchive_asU8();
+  if (f.length > 0) {
+    writer.writeBytes(
+      3,
       f
     );
   }
@@ -215,11 +227,11 @@ proto.protos.encoding.ProtobufSettings.serializeBinaryToWriter = function(messag
 
 
 /**
- * optional string protobuf_root_message = 3;
+ * optional string protobuf_root_message = 1;
  * @return {string}
  */
 proto.protos.encoding.ProtobufSettings.prototype.getProtobufRootMessage = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
@@ -228,16 +240,16 @@ proto.protos.encoding.ProtobufSettings.prototype.getProtobufRootMessage = functi
  * @return {!proto.protos.encoding.ProtobufSettings} returns this
  */
 proto.protos.encoding.ProtobufSettings.prototype.setProtobufRootMessage = function(value) {
-  return jspb.Message.setProto3StringField(this, 3, value);
+  return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
 /**
- * repeated string protobuf_dirs = 4;
+ * repeated string protobuf_dirs = 2;
  * @return {!Array<string>}
  */
 proto.protos.encoding.ProtobufSettings.prototype.getProtobufDirsList = function() {
-  return /** @type {!Array<string>} */ (jspb.Message.getRepeatedField(this, 4));
+  return /** @type {!Array<string>} */ (jspb.Message.getRepeatedField(this, 2));
 };
 
 
@@ -246,7 +258,7 @@ proto.protos.encoding.ProtobufSettings.prototype.getProtobufDirsList = function(
  * @return {!proto.protos.encoding.ProtobufSettings} returns this
  */
 proto.protos.encoding.ProtobufSettings.prototype.setProtobufDirsList = function(value) {
-  return jspb.Message.setField(this, 4, value || []);
+  return jspb.Message.setField(this, 2, value || []);
 };
 
 
@@ -256,7 +268,7 @@ proto.protos.encoding.ProtobufSettings.prototype.setProtobufDirsList = function(
  * @return {!proto.protos.encoding.ProtobufSettings} returns this
  */
 proto.protos.encoding.ProtobufSettings.prototype.addProtobufDirs = function(value, opt_index) {
-  return jspb.Message.addToRepeatedField(this, 4, value, opt_index);
+  return jspb.Message.addToRepeatedField(this, 2, value, opt_index);
 };
 
 
@@ -266,6 +278,48 @@ proto.protos.encoding.ProtobufSettings.prototype.addProtobufDirs = function(valu
  */
 proto.protos.encoding.ProtobufSettings.prototype.clearProtobufDirsList = function() {
   return this.setProtobufDirsList([]);
+};
+
+
+/**
+ * optional bytes archive = 3;
+ * @return {!(string|Uint8Array)}
+ */
+proto.protos.encoding.ProtobufSettings.prototype.getArchive = function() {
+  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
+};
+
+
+/**
+ * optional bytes archive = 3;
+ * This is a type-conversion wrapper around `getArchive()`
+ * @return {string}
+ */
+proto.protos.encoding.ProtobufSettings.prototype.getArchive_asB64 = function() {
+  return /** @type {string} */ (jspb.Message.bytesAsB64(
+      this.getArchive()));
+};
+
+
+/**
+ * optional bytes archive = 3;
+ * Note that Uint8Array is not supported on all browsers.
+ * @see http://caniuse.com/Uint8Array
+ * This is a type-conversion wrapper around `getArchive()`
+ * @return {!Uint8Array}
+ */
+proto.protos.encoding.ProtobufSettings.prototype.getArchive_asU8 = function() {
+  return /** @type {!Uint8Array} */ (jspb.Message.bytesAsU8(
+      this.getArchive()));
+};
+
+
+/**
+ * @param {!(string|Uint8Array)} value
+ * @return {!proto.protos.encoding.ProtobufSettings} returns this
+ */
+proto.protos.encoding.ProtobufSettings.prototype.setArchive = function(value) {
+  return jspb.Message.setProto3BytesField(this, 3, value);
 };
 
 
@@ -544,7 +598,8 @@ proto.protos.encoding.DecodeOptions.toObject = function(includeInstance, msg) {
   var f, obj = {
     schemaId: jspb.Message.getFieldWithDefault(msg, 1, ""),
     decodeType: jspb.Message.getFieldWithDefault(msg, 2, 0),
-    protobufSettings: (f = msg.getProtobufSettings()) && proto.protos.encoding.ProtobufSettings.toObject(includeInstance, f)
+    protobufSettings: (f = msg.getProtobufSettings()) && proto.protos.encoding.ProtobufSettings.toObject(includeInstance, f),
+    avroSchemaFile: jspb.Message.getFieldWithDefault(msg, 4, "")
   };
 
   if (includeInstance) {
@@ -593,6 +648,10 @@ proto.protos.encoding.DecodeOptions.deserializeBinaryFromReader = function(msg, 
       var value = new proto.protos.encoding.ProtobufSettings;
       reader.readMessage(value,proto.protos.encoding.ProtobufSettings.deserializeBinaryFromReader);
       msg.setProtobufSettings(value);
+      break;
+    case 4:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setAvroSchemaFile(value);
       break;
     default:
       reader.skipField();
@@ -643,6 +702,13 @@ proto.protos.encoding.DecodeOptions.serializeBinaryToWriter = function(message, 
       3,
       f,
       proto.protos.encoding.ProtobufSettings.serializeBinaryToWriter
+    );
+  }
+  f = message.getAvroSchemaFile();
+  if (f.length > 0) {
+    writer.writeString(
+      4,
+      f
     );
   }
 };
@@ -718,6 +784,24 @@ proto.protos.encoding.DecodeOptions.prototype.clearProtobufSettings = function()
  */
 proto.protos.encoding.DecodeOptions.prototype.hasProtobufSettings = function() {
   return jspb.Message.getField(this, 3) != null;
+};
+
+
+/**
+ * optional string avro_schema_file = 4;
+ * @return {string}
+ */
+proto.protos.encoding.DecodeOptions.prototype.getAvroSchemaFile = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.protos.encoding.DecodeOptions} returns this
+ */
+proto.protos.encoding.DecodeOptions.prototype.setAvroSchemaFile = function(value) {
+  return jspb.Message.setProto3StringField(this, 4, value);
 };
 
 

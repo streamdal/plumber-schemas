@@ -25,10 +25,14 @@ enum DecodeType {
 
 message ProtobufSettings {
     // @gotags: kong:"help='Input message(s) should be encoded with this message envelope'"
-    string protobuf_root_message = 3;
+    string protobuf_root_message = 1;
 
     // @gotags: kong:"help='One or more directories which contains protobuf schemas',existingdir"
-    repeated string protobuf_dirs = 4;
+    repeated string protobuf_dirs = 2;
+
+    // Used by server
+    // @gotags: kong:"-"
+    bytes archive = 3;
 }
 
 message EncodeOptions {
@@ -37,7 +41,7 @@ message EncodeOptions {
     string schema_id = 1;
 
     // TODO: Update kong to be able to use proto/smart enums
-    // @gotags: kong:"help='Encode type (0: Unset, 1: JSONPB)',default=0"
+    // @gotags: kong:"help='Encode type (0: Unset, 1: JSONPB, 2: Avro)',default=0"
     EncodeType encode_type = 2;
 
     // @gotags: kong:"embed,group=protobuf"
@@ -57,4 +61,7 @@ message DecodeOptions {
 
     // @gotags: kong:"embed,group=protobuf"
     ProtobufSettings protobuf_settings = 3;
+
+    // @gotags: kong:"help='If decode-type is set to avro, must specify avro schema file',existingfile"
+    string avro_schema_file = 4;
 }

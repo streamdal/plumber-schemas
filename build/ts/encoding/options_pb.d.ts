@@ -13,6 +13,10 @@ export class ProtobufSettings extends jspb.Message {
     getProtobufDirsList(): Array<string>;
     setProtobufDirsList(value: Array<string>): ProtobufSettings;
     addProtobufDirs(value: string, index?: number): string;
+    getArchive(): Uint8Array | string;
+    getArchive_asU8(): Uint8Array;
+    getArchive_asB64(): string;
+    setArchive(value: Uint8Array | string): ProtobufSettings;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): ProtobufSettings.AsObject;
@@ -28,6 +32,7 @@ export namespace ProtobufSettings {
     export type AsObject = {
         protobufRootMessage: string,
         protobufDirsList: Array<string>,
+        archive: Uint8Array | string,
     }
 }
 
@@ -73,6 +78,8 @@ export class DecodeOptions extends jspb.Message {
     clearProtobufSettings(): void;
     getProtobufSettings(): ProtobufSettings | undefined;
     setProtobufSettings(value?: ProtobufSettings): DecodeOptions;
+    getAvroSchemaFile(): string;
+    setAvroSchemaFile(value: string): DecodeOptions;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): DecodeOptions.AsObject;
@@ -89,6 +96,7 @@ export namespace DecodeOptions {
         schemaId: string,
         decodeType: DecodeType,
         protobufSettings?: ProtobufSettings.AsObject,
+        avroSchemaFile: string,
     }
 }
 
