@@ -86,7 +86,7 @@ goog.exportSymbol('proto.protos.opts.ReadSampleOptions', null, global);
  * @constructor
  */
 proto.protos.opts.ReadCLIOptions = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, proto.protos.opts.ReadCLIOptions.repeatedFields_, null);
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
 goog.inherits(proto.protos.opts.ReadCLIOptions, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
@@ -517,13 +517,6 @@ if (goog.DEBUG && !COMPILED) {
   proto.protos.opts.ReadGroupKubeMQQueueOptions.displayName = 'proto.protos.opts.ReadGroupKubeMQQueueOptions';
 }
 
-/**
- * List of repeated fields within this message type.
- * @private {!Array<number>}
- * @const
- */
-proto.protos.opts.ReadCLIOptions.repeatedFields_ = [1];
-
 
 
 if (jspb.Message.GENERATE_TO_OBJECT) {
@@ -555,10 +548,10 @@ proto.protos.opts.ReadCLIOptions.prototype.toObject = function(opt_includeInstan
  */
 proto.protos.opts.ReadCLIOptions.toObject = function(includeInstance, msg) {
   var f, obj = {
-    convertOutputList: (f = jspb.Message.getRepeatedField(msg, 1)) == null ? undefined : f,
-    verboseOutput: jspb.Message.getBooleanFieldWithDefault(msg, 2, false),
-    statsEnable: jspb.Message.getBooleanFieldWithDefault(msg, 3, false),
-    statsReportIntervalSec: jspb.Message.getFieldWithDefault(msg, 4, 0)
+    verboseOutput: jspb.Message.getBooleanFieldWithDefault(msg, 1, false),
+    statsEnable: jspb.Message.getBooleanFieldWithDefault(msg, 2, false),
+    statsReportIntervalSec: jspb.Message.getFieldWithDefault(msg, 3, 0),
+    pretty: jspb.Message.getBooleanFieldWithDefault(msg, 4, false)
   };
 
   if (includeInstance) {
@@ -596,22 +589,20 @@ proto.protos.opts.ReadCLIOptions.deserializeBinaryFromReader = function(msg, rea
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var values = /** @type {!Array<!proto.protos.opts.ConvertOption>} */ (reader.isDelimited() ? reader.readPackedEnum() : [reader.readEnum()]);
-      for (var i = 0; i < values.length; i++) {
-        msg.addConvertOutput(values[i]);
-      }
-      break;
-    case 2:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setVerboseOutput(value);
       break;
-    case 3:
+    case 2:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setStatsEnable(value);
       break;
-    case 4:
+    case 3:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setStatsReportIntervalSec(value);
+      break;
+    case 4:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setPretty(value);
       break;
     default:
       reader.skipField();
@@ -642,30 +633,30 @@ proto.protos.opts.ReadCLIOptions.prototype.serializeBinary = function() {
  */
 proto.protos.opts.ReadCLIOptions.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getConvertOutputList();
-  if (f.length > 0) {
-    writer.writePackedEnum(
-      1,
-      f
-    );
-  }
   f = message.getVerboseOutput();
   if (f) {
     writer.writeBool(
-      2,
+      1,
       f
     );
   }
   f = message.getStatsEnable();
   if (f) {
     writer.writeBool(
-      3,
+      2,
       f
     );
   }
   f = message.getStatsReportIntervalSec();
   if (f !== 0) {
     writer.writeInt32(
+      3,
+      f
+    );
+  }
+  f = message.getPretty();
+  if (f) {
+    writer.writeBool(
       4,
       f
     );
@@ -674,48 +665,11 @@ proto.protos.opts.ReadCLIOptions.serializeBinaryToWriter = function(message, wri
 
 
 /**
- * repeated ConvertOption convert_output = 1;
- * @return {!Array<!proto.protos.opts.ConvertOption>}
- */
-proto.protos.opts.ReadCLIOptions.prototype.getConvertOutputList = function() {
-  return /** @type {!Array<!proto.protos.opts.ConvertOption>} */ (jspb.Message.getRepeatedField(this, 1));
-};
-
-
-/**
- * @param {!Array<!proto.protos.opts.ConvertOption>} value
- * @return {!proto.protos.opts.ReadCLIOptions} returns this
- */
-proto.protos.opts.ReadCLIOptions.prototype.setConvertOutputList = function(value) {
-  return jspb.Message.setField(this, 1, value || []);
-};
-
-
-/**
- * @param {!proto.protos.opts.ConvertOption} value
- * @param {number=} opt_index
- * @return {!proto.protos.opts.ReadCLIOptions} returns this
- */
-proto.protos.opts.ReadCLIOptions.prototype.addConvertOutput = function(value, opt_index) {
-  return jspb.Message.addToRepeatedField(this, 1, value, opt_index);
-};
-
-
-/**
- * Clears the list making it empty but non-null.
- * @return {!proto.protos.opts.ReadCLIOptions} returns this
- */
-proto.protos.opts.ReadCLIOptions.prototype.clearConvertOutputList = function() {
-  return this.setConvertOutputList([]);
-};
-
-
-/**
- * optional bool verbose_output = 2;
+ * optional bool verbose_output = 1;
  * @return {boolean}
  */
 proto.protos.opts.ReadCLIOptions.prototype.getVerboseOutput = function() {
-  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 2, false));
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 1, false));
 };
 
 
@@ -724,16 +678,16 @@ proto.protos.opts.ReadCLIOptions.prototype.getVerboseOutput = function() {
  * @return {!proto.protos.opts.ReadCLIOptions} returns this
  */
 proto.protos.opts.ReadCLIOptions.prototype.setVerboseOutput = function(value) {
-  return jspb.Message.setProto3BooleanField(this, 2, value);
+  return jspb.Message.setProto3BooleanField(this, 1, value);
 };
 
 
 /**
- * optional bool stats_enable = 3;
+ * optional bool stats_enable = 2;
  * @return {boolean}
  */
 proto.protos.opts.ReadCLIOptions.prototype.getStatsEnable = function() {
-  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 3, false));
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 2, false));
 };
 
 
@@ -742,16 +696,16 @@ proto.protos.opts.ReadCLIOptions.prototype.getStatsEnable = function() {
  * @return {!proto.protos.opts.ReadCLIOptions} returns this
  */
 proto.protos.opts.ReadCLIOptions.prototype.setStatsEnable = function(value) {
-  return jspb.Message.setProto3BooleanField(this, 3, value);
+  return jspb.Message.setProto3BooleanField(this, 2, value);
 };
 
 
 /**
- * optional int32 stats_report_interval_sec = 4;
+ * optional int32 stats_report_interval_sec = 3;
  * @return {number}
  */
 proto.protos.opts.ReadCLIOptions.prototype.getStatsReportIntervalSec = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
 };
 
 
@@ -760,7 +714,25 @@ proto.protos.opts.ReadCLIOptions.prototype.getStatsReportIntervalSec = function(
  * @return {!proto.protos.opts.ReadCLIOptions} returns this
  */
 proto.protos.opts.ReadCLIOptions.prototype.setStatsReportIntervalSec = function(value) {
-  return jspb.Message.setProto3IntField(this, 4, value);
+  return jspb.Message.setProto3IntField(this, 3, value);
+};
+
+
+/**
+ * optional bool pretty = 4;
+ * @return {boolean}
+ */
+proto.protos.opts.ReadCLIOptions.prototype.getPretty = function() {
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 4, false));
+};
+
+
+/**
+ * @param {boolean} value
+ * @return {!proto.protos.opts.ReadCLIOptions} returns this
+ */
+proto.protos.opts.ReadCLIOptions.prototype.setPretty = function(value) {
+  return jspb.Message.setProto3BooleanField(this, 4, value);
 };
 
 
@@ -961,6 +933,7 @@ proto.protos.opts.ReadOptions.toObject = function(includeInstance, msg) {
     continuous: jspb.Message.getBooleanFieldWithDefault(msg, 3, false),
     sampleOptions: (f = msg.getSampleOptions()) && proto.protos.opts.ReadSampleOptions.toObject(includeInstance, f),
     decodeOptions: (f = msg.getDecodeOptions()) && encoding_options_pb.DecodeOptions.toObject(includeInstance, f),
+    convertOutput: jspb.Message.getFieldWithDefault(msg, 6, 0),
     id: jspb.Message.getFieldWithDefault(msg, 1000, ""),
     active: jspb.Message.getBooleanFieldWithDefault(msg, 1001, false),
     cliOptions: (f = msg.getCliOptions()) && proto.protos.opts.ReadCLIOptions.toObject(includeInstance, f),
@@ -1039,6 +1012,10 @@ proto.protos.opts.ReadOptions.deserializeBinaryFromReader = function(msg, reader
       var value = new encoding_options_pb.DecodeOptions;
       reader.readMessage(value,encoding_options_pb.DecodeOptions.deserializeBinaryFromReader);
       msg.setDecodeOptions(value);
+      break;
+    case 6:
+      var value = /** @type {!proto.protos.opts.ConvertOption} */ (reader.readEnum());
+      msg.setConvertOutput(value);
       break;
     case 1000:
       var value = /** @type {string} */ (reader.readString());
@@ -1207,6 +1184,13 @@ proto.protos.opts.ReadOptions.serializeBinaryToWriter = function(message, writer
       5,
       f,
       encoding_options_pb.DecodeOptions.serializeBinaryToWriter
+    );
+  }
+  f = message.getConvertOutput();
+  if (f !== 0.0) {
+    writer.writeEnum(
+      6,
+      f
     );
   }
   f = message.getId();
@@ -1503,6 +1487,24 @@ proto.protos.opts.ReadOptions.prototype.clearDecodeOptions = function() {
  */
 proto.protos.opts.ReadOptions.prototype.hasDecodeOptions = function() {
   return jspb.Message.getField(this, 5) != null;
+};
+
+
+/**
+ * optional ConvertOption convert_output = 6;
+ * @return {!proto.protos.opts.ConvertOption}
+ */
+proto.protos.opts.ReadOptions.prototype.getConvertOutput = function() {
+  return /** @type {!proto.protos.opts.ConvertOption} */ (jspb.Message.getFieldWithDefault(this, 6, 0));
+};
+
+
+/**
+ * @param {!proto.protos.opts.ConvertOption} value
+ * @return {!proto.protos.opts.ReadOptions} returns this
+ */
+proto.protos.opts.ReadOptions.prototype.setConvertOutput = function(value) {
+  return jspb.Message.setProto3EnumField(this, 6, value);
 };
 
 

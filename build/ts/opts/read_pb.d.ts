@@ -26,16 +26,14 @@ import * as args_redis_pubsub_pb from "../args/redis-pubsub_pb";
 import * as args_redis_streams_pb from "../args/redis-streams_pb";
 
 export class ReadCLIOptions extends jspb.Message { 
-    clearConvertOutputList(): void;
-    getConvertOutputList(): Array<ConvertOption>;
-    setConvertOutputList(value: Array<ConvertOption>): ReadCLIOptions;
-    addConvertOutput(value: ConvertOption, index?: number): ConvertOption;
     getVerboseOutput(): boolean;
     setVerboseOutput(value: boolean): ReadCLIOptions;
     getStatsEnable(): boolean;
     setStatsEnable(value: boolean): ReadCLIOptions;
     getStatsReportIntervalSec(): number;
     setStatsReportIntervalSec(value: number): ReadCLIOptions;
+    getPretty(): boolean;
+    setPretty(value: boolean): ReadCLIOptions;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): ReadCLIOptions.AsObject;
@@ -49,10 +47,10 @@ export class ReadCLIOptions extends jspb.Message {
 
 export namespace ReadCLIOptions {
     export type AsObject = {
-        convertOutputList: Array<ConvertOption>,
         verboseOutput: boolean,
         statsEnable: boolean,
         statsReportIntervalSec: number,
+        pretty: boolean,
     }
 }
 
@@ -96,6 +94,8 @@ export class ReadOptions extends jspb.Message {
     clearDecodeOptions(): void;
     getDecodeOptions(): encoding_options_pb.DecodeOptions | undefined;
     setDecodeOptions(value?: encoding_options_pb.DecodeOptions): ReadOptions;
+    getConvertOutput(): ConvertOption;
+    setConvertOutput(value: ConvertOption): ReadOptions;
     getId(): string;
     setId(value: string): ReadOptions;
     getActive(): boolean;
@@ -213,6 +213,7 @@ export namespace ReadOptions {
         continuous: boolean,
         sampleOptions?: ReadSampleOptions.AsObject,
         decodeOptions?: encoding_options_pb.DecodeOptions.AsObject,
+        convertOutput: ConvertOption,
         Id: string,
         Active: boolean,
         CliOptions?: ReadCLIOptions.AsObject,

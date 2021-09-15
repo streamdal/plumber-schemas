@@ -31,17 +31,17 @@ enum ConvertOption {
 }
 
 message ReadCLIOptions {
-    // @gotags: kong:"help='Convert output before it is printed to STDOUT (1 = base64, 2 = gzip)',enum"
-    repeated ConvertOption convert_output = 1;
-
     // @gotags: kong:"help='Display more verbose information during reads (varies by backend)'"
-    bool verbose_output = 2;
+    bool verbose_output = 1;
 
     // @gotags: kong:"group=stats,help='Display periodic read stats'"
-    bool stats_enable = 3;
+    bool stats_enable = 2;
 
     // @gotags: kong:"group=stats,help='How often to print stats',default=5"
-    int32 stats_report_interval_sec = 4;
+    int32 stats_report_interval_sec = 3;
+
+    // @gotags: kong:"help='Provide pretty output'"
+    bool pretty = 4;
 }
 
 message ReadSampleOptions {
@@ -75,6 +75,9 @@ message ReadOptions {
     // with the (untouched) value.
     // @gotags: kong:"embed,group=decode"
     encoding.DecodeOptions decode_options = 5;
+
+    // @gotags: kong:"help='Convert output before it is printed to STDOUT (1 = base64, 2 = gzip)',enum"
+    ConvertOption convert_output = 6;
 
     // --------------------------------------------------------------------- //
     //                          PRIVATE FIELDS (1000+)                       //
