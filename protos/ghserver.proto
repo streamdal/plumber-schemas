@@ -22,6 +22,9 @@ message GithubEvent {
     INSTALL_DELETED = 4;
     PULL_CREATED = 5;
     PULL_MERGED = 6;
+
+    // The plumber server has issued a new JWT token that needs to be stored in etcd
+    NEW_JWT_TOKEN = 7;
   }
 
   Type type = 1;
@@ -33,16 +36,14 @@ message GithubEvent {
     InstallDeleted install_deleted = 103;
     PullRequestCreated pr_created = 104;
     PullRequestMerged pr_merged = 105;
+    NewJwtToken new_jwt_token = 106;
   }
 }
 
 // Sent by plumber, received by github-service
 message ConnectAuthRequest {
-  // Batch API token
+  // JWT token returned during install process
   string api_token = 1;
-
-  // Plumber Cluster ID
-  string cluster_id = 2;
 }
 
 // AuthResponse is sent by github-service and received by plumber GithubServer.Connect()
@@ -89,4 +90,8 @@ message InstallUpdated {
 message InstallDeleted {
   int64 install_id = 1;
   int64 account_id = 2;
+}
+
+message NewJwtToken {
+  string token = 1;
 }

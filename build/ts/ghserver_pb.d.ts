@@ -40,6 +40,11 @@ export class GithubEvent extends jspb.Message {
     getPrMerged(): PullRequestMerged | undefined;
     setPrMerged(value?: PullRequestMerged): GithubEvent;
 
+    hasNewJwtToken(): boolean;
+    clearNewJwtToken(): void;
+    getNewJwtToken(): NewJwtToken | undefined;
+    setNewJwtToken(value?: NewJwtToken): GithubEvent;
+
     getPayloadCase(): GithubEvent.PayloadCase;
 
     serializeBinary(): Uint8Array;
@@ -61,6 +66,7 @@ export namespace GithubEvent {
         installDeleted?: InstallDeleted.AsObject,
         prCreated?: PullRequestCreated.AsObject,
         prMerged?: PullRequestMerged.AsObject,
+        newJwtToken?: NewJwtToken.AsObject,
     }
 
     export enum Type {
@@ -71,6 +77,7 @@ export namespace GithubEvent {
     INSTALL_DELETED = 4,
     PULL_CREATED = 5,
     PULL_MERGED = 6,
+    NEW_JWT_TOKEN = 7,
     }
 
 
@@ -82,6 +89,7 @@ export namespace GithubEvent {
         INSTALL_DELETED = 103,
         PR_CREATED = 104,
         PR_MERGED = 105,
+        NEW_JWT_TOKEN = 106,
     }
 
 }
@@ -89,8 +97,6 @@ export namespace GithubEvent {
 export class ConnectAuthRequest extends jspb.Message { 
     getApiToken(): string;
     setApiToken(value: string): ConnectAuthRequest;
-    getClusterId(): string;
-    setClusterId(value: string): ConnectAuthRequest;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): ConnectAuthRequest.AsObject;
@@ -105,7 +111,6 @@ export class ConnectAuthRequest extends jspb.Message {
 export namespace ConnectAuthRequest {
     export type AsObject = {
         apiToken: string,
-        clusterId: string,
     }
 }
 
@@ -259,5 +264,25 @@ export namespace InstallDeleted {
     export type AsObject = {
         installId: number,
         accountId: number,
+    }
+}
+
+export class NewJwtToken extends jspb.Message { 
+    getToken(): string;
+    setToken(value: string): NewJwtToken;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): NewJwtToken.AsObject;
+    static toObject(includeInstance: boolean, msg: NewJwtToken): NewJwtToken.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: NewJwtToken, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): NewJwtToken;
+    static deserializeBinaryFromReader(message: NewJwtToken, reader: jspb.BinaryReader): NewJwtToken;
+}
+
+export namespace NewJwtToken {
+    export type AsObject = {
+        token: string,
     }
 }
