@@ -23,6 +23,9 @@ setup/darwin:
 	# protoc for ts
 	npm install grpc_tools_node_protoc_ts --save-dev
 
+	# protoc-go-inject-tag
+	go get github.com/favadi/protoc-go-inject-tag
+
 .PHONY: setup/linux
 setup/linux: description = Install protobuf tooling for linux
 setup/linux:
@@ -35,6 +38,9 @@ setup/linux:
 
 	# Go plugin used by the protocol compiler
 	go get -u github.com/golang/protobuf/protoc-gen-go
+
+	# protoc-go-inject-tag
+	go get github.com/favadi/protoc-go-inject-tag
 
 .PHONY: generate/all
 generate/all: description = Compile protos for all languages
