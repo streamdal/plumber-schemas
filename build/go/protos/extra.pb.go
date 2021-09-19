@@ -2,7 +2,7 @@
 
 package protos
 
-type IsSchema_Encodings = isSchema_Encodings
-type IsImportGithubRequest_Encodings = isImportGithubRequest_Encodings
-type IsImportLocalRequest_Encodings = isImportLocalRequest_Encodings
+type IsSchema_Settings = isSchema_Settings
+type IsImportGithubRequest_Settings = isImportGithubRequest_Settings
+type IsImportLocalRequest_Settings = isImportLocalRequest_Settings
 type IsGithubEvent_Payload = isGithubEvent_Payload

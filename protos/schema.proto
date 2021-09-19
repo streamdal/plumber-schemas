@@ -21,7 +21,7 @@ message Schema {
     map<string,string> files = 4;
 
     // The 'type' will determine which one of these _should_ be filled out
-    oneof encodings {
+    oneof settings {
         encoding.ProtobufSettings protobuf_settings = 100;
         encoding.AvroSettings avro_settings = 101;
     }
@@ -63,7 +63,7 @@ message ImportGithubRequest {
 
     string github_url = 3;
 
-    oneof encodings {
+    oneof settings {
         encoding.ProtobufSettings protobuf_settings = 100;
         encoding.AvroSettings avro_settings = 101;
     }
@@ -85,7 +85,7 @@ message ImportLocalRequest {
 
     bytes zip_archive = 3;
 
-    oneof encodings {
+    oneof settings {
         encoding.ProtobufSettings protobuf_settings = 100;
         encoding.AvroSettings avro_settings = 101;
     }

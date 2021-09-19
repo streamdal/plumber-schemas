@@ -30,7 +30,7 @@ export class Schema extends jspb.Message {
     getAvroSettings(): encoding_options_pb.AvroSettings | undefined;
     setAvroSettings(value?: encoding_options_pb.AvroSettings): Schema;
 
-    getEncodingsCase(): Schema.EncodingsCase;
+    getSettingsCase(): Schema.SettingsCase;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): Schema.AsObject;
@@ -53,8 +53,8 @@ export namespace Schema {
         avroSettings?: encoding_options_pb.AvroSettings.AsObject,
     }
 
-    export enum EncodingsCase {
-        ENCODINGS_NOT_SET = 0,
+    export enum SettingsCase {
+        SETTINGS_NOT_SET = 0,
         PROTOBUF_SETTINGS = 100,
         AVRO_SETTINGS = 101,
     }
@@ -178,7 +178,7 @@ export class ImportGithubRequest extends jspb.Message {
     getAvroSettings(): encoding_options_pb.AvroSettings | undefined;
     setAvroSettings(value?: encoding_options_pb.AvroSettings): ImportGithubRequest;
 
-    getEncodingsCase(): ImportGithubRequest.EncodingsCase;
+    getSettingsCase(): ImportGithubRequest.SettingsCase;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): ImportGithubRequest.AsObject;
@@ -200,8 +200,8 @@ export namespace ImportGithubRequest {
         avroSettings?: encoding_options_pb.AvroSettings.AsObject,
     }
 
-    export enum EncodingsCase {
-        ENCODINGS_NOT_SET = 0,
+    export enum SettingsCase {
+        SETTINGS_NOT_SET = 0,
         PROTOBUF_SETTINGS = 100,
         AVRO_SETTINGS = 101,
     }
@@ -259,7 +259,7 @@ export class ImportLocalRequest extends jspb.Message {
     getAvroSettings(): encoding_options_pb.AvroSettings | undefined;
     setAvroSettings(value?: encoding_options_pb.AvroSettings): ImportLocalRequest;
 
-    getEncodingsCase(): ImportLocalRequest.EncodingsCase;
+    getSettingsCase(): ImportLocalRequest.SettingsCase;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): ImportLocalRequest.AsObject;
@@ -281,8 +281,8 @@ export namespace ImportLocalRequest {
         avroSettings?: encoding_options_pb.AvroSettings.AsObject,
     }
 
-    export enum EncodingsCase {
-        ENCODINGS_NOT_SET = 0,
+    export enum SettingsCase {
+        SETTINGS_NOT_SET = 0,
         PROTOBUF_SETTINGS = 100,
         AVRO_SETTINGS = 101,
     }
