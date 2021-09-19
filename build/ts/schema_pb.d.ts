@@ -14,8 +14,8 @@ export class Schema extends jspb.Message {
     setId(value: string): Schema;
     getName(): string;
     setName(value: string): Schema;
-    getType(): encoding_options_pb.DecodeType;
-    setType(value: encoding_options_pb.DecodeType): Schema;
+    getType(): SchemaType;
+    setType(value: SchemaType): Schema;
 
     getFilesMap(): jspb.Map<string, string>;
     clearFilesMap(): void;
@@ -46,7 +46,7 @@ export namespace Schema {
     export type AsObject = {
         id: string,
         name: string,
-        type: encoding_options_pb.DecodeType,
+        type: SchemaType,
 
         filesMap: Array<[string, string]>,
         protobufSettings?: encoding_options_pb.ProtobufSettings.AsObject,
@@ -163,8 +163,8 @@ export class ImportGithubRequest extends jspb.Message {
     setAuth(value?: common_auth_pb.Auth): ImportGithubRequest;
     getName(): string;
     setName(value: string): ImportGithubRequest;
-    getType(): encoding_options_pb.DecodeType;
-    setType(value: encoding_options_pb.DecodeType): ImportGithubRequest;
+    getType(): SchemaType;
+    setType(value: SchemaType): ImportGithubRequest;
     getGithubUrl(): string;
     setGithubUrl(value: string): ImportGithubRequest;
 
@@ -194,7 +194,7 @@ export namespace ImportGithubRequest {
     export type AsObject = {
         auth?: common_auth_pb.Auth.AsObject,
         name: string,
-        type: encoding_options_pb.DecodeType,
+        type: SchemaType,
         githubUrl: string,
         protobufSettings?: encoding_options_pb.ProtobufSettings.AsObject,
         avroSettings?: encoding_options_pb.AvroSettings.AsObject,
@@ -242,8 +242,8 @@ export class ImportLocalRequest extends jspb.Message {
     setAuth(value?: common_auth_pb.Auth): ImportLocalRequest;
     getName(): string;
     setName(value: string): ImportLocalRequest;
-    getType(): encoding_options_pb.EncodeType;
-    setType(value: encoding_options_pb.EncodeType): ImportLocalRequest;
+    getType(): SchemaType;
+    setType(value: SchemaType): ImportLocalRequest;
     getZipArchive(): Uint8Array | string;
     getZipArchive_asU8(): Uint8Array;
     getZipArchive_asB64(): string;
@@ -275,7 +275,7 @@ export namespace ImportLocalRequest {
     export type AsObject = {
         auth?: common_auth_pb.Auth.AsObject,
         name: string,
-        type: encoding_options_pb.EncodeType,
+        type: SchemaType,
         zipArchive: Uint8Array | string,
         protobufSettings?: encoding_options_pb.ProtobufSettings.AsObject,
         avroSettings?: encoding_options_pb.AvroSettings.AsObject,
@@ -362,4 +362,10 @@ export namespace DeleteSchemaResponse {
     export type AsObject = {
         status?: common_status_pb.Status.AsObject,
     }
+}
+
+export enum SchemaType {
+    SCHEMA_TYPE_UNSET = 0,
+    SCHEMA_TYPE_PROTOBUF = 1,
+    SCHEMA_TYPE_AVRO = 2,
 }

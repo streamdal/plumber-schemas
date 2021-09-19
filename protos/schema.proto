@@ -15,10 +15,7 @@ message Schema {
     // Friendly name for the schema
     string name = 2;
 
-    // It really should be called "Encoding" but that means different things
-    // between Desktop and CLI, so we just roll with DecodeType as it has the
-    // options we want.
-    encoding.DecodeType type = 3;
+    SchemaType type = 3;
 
     // @mark what's this used for?
     map<string,string> files = 4;
@@ -28,6 +25,12 @@ message Schema {
         encoding.ProtobufSettings protobuf_settings = 100;
         encoding.AvroSettings avro_settings = 101;
     }
+}
+
+enum SchemaType {
+    SCHEMA_TYPE_UNSET = 0;
+    SCHEMA_TYPE_PROTOBUF = 1;
+    SCHEMA_TYPE_AVRO = 2;
 }
 
 message GetSchemaRequest {
@@ -56,7 +59,7 @@ message ImportGithubRequest {
 
     string name = 1;
 
-    encoding.DecodeType type = 2;
+    SchemaType type = 2;
 
     string github_url = 3;
 
@@ -78,7 +81,7 @@ message ImportLocalRequest {
 
     string name = 1;
 
-    encoding.EncodeType type = 2;
+    SchemaType type = 2;
 
     bytes zip_archive = 3;
 
