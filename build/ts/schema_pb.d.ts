@@ -14,17 +14,23 @@ export class Schema extends jspb.Message {
     setId(value: string): Schema;
     getName(): string;
     setName(value: string): Schema;
-    getType(): encoding_options_pb.EncodeType;
-    setType(value: encoding_options_pb.EncodeType): Schema;
+    getType(): encoding_options_pb.DecodeType;
+    setType(value: encoding_options_pb.DecodeType): Schema;
 
     getFilesMap(): jspb.Map<string, string>;
     clearFilesMap(): void;
-    getRootType(): string;
-    setRootType(value: string): Schema;
-    getMessageDescriptor(): Uint8Array | string;
-    getMessageDescriptor_asU8(): Uint8Array;
-    getMessageDescriptor_asB64(): string;
-    setMessageDescriptor(value: Uint8Array | string): Schema;
+
+    hasProtobufSettings(): boolean;
+    clearProtobufSettings(): void;
+    getProtobufSettings(): encoding_options_pb.ProtobufSettings | undefined;
+    setProtobufSettings(value?: encoding_options_pb.ProtobufSettings): Schema;
+
+    hasAvroSettings(): boolean;
+    clearAvroSettings(): void;
+    getAvroSettings(): encoding_options_pb.AvroSettings | undefined;
+    setAvroSettings(value?: encoding_options_pb.AvroSettings): Schema;
+
+    getEncodingsCase(): Schema.EncodingsCase;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): Schema.AsObject;
@@ -40,12 +46,19 @@ export namespace Schema {
     export type AsObject = {
         id: string,
         name: string,
-        type: encoding_options_pb.EncodeType,
+        type: encoding_options_pb.DecodeType,
 
         filesMap: Array<[string, string]>,
-        rootType: string,
-        messageDescriptor: Uint8Array | string,
+        protobufSettings?: encoding_options_pb.ProtobufSettings.AsObject,
+        avroSettings?: encoding_options_pb.AvroSettings.AsObject,
     }
+
+    export enum EncodingsCase {
+        ENCODINGS_NOT_SET = 0,
+        PROTOBUF_SETTINGS = 100,
+        AVRO_SETTINGS = 101,
+    }
+
 }
 
 export class GetSchemaRequest extends jspb.Message { 
@@ -150,14 +163,22 @@ export class ImportGithubRequest extends jspb.Message {
     setAuth(value?: common_auth_pb.Auth): ImportGithubRequest;
     getName(): string;
     setName(value: string): ImportGithubRequest;
-    getType(): encoding_options_pb.EncodeType;
-    setType(value: encoding_options_pb.EncodeType): ImportGithubRequest;
+    getType(): encoding_options_pb.DecodeType;
+    setType(value: encoding_options_pb.DecodeType): ImportGithubRequest;
     getGithubUrl(): string;
     setGithubUrl(value: string): ImportGithubRequest;
-    getRootType(): string;
-    setRootType(value: string): ImportGithubRequest;
-    getRootDir(): string;
-    setRootDir(value: string): ImportGithubRequest;
+
+    hasProtobufSettings(): boolean;
+    clearProtobufSettings(): void;
+    getProtobufSettings(): encoding_options_pb.ProtobufSettings | undefined;
+    setProtobufSettings(value?: encoding_options_pb.ProtobufSettings): ImportGithubRequest;
+
+    hasAvroSettings(): boolean;
+    clearAvroSettings(): void;
+    getAvroSettings(): encoding_options_pb.AvroSettings | undefined;
+    setAvroSettings(value?: encoding_options_pb.AvroSettings): ImportGithubRequest;
+
+    getEncodingsCase(): ImportGithubRequest.EncodingsCase;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): ImportGithubRequest.AsObject;
@@ -173,11 +194,18 @@ export namespace ImportGithubRequest {
     export type AsObject = {
         auth?: common_auth_pb.Auth.AsObject,
         name: string,
-        type: encoding_options_pb.EncodeType,
+        type: encoding_options_pb.DecodeType,
         githubUrl: string,
-        rootType: string,
-        rootDir: string,
+        protobufSettings?: encoding_options_pb.ProtobufSettings.AsObject,
+        avroSettings?: encoding_options_pb.AvroSettings.AsObject,
     }
+
+    export enum EncodingsCase {
+        ENCODINGS_NOT_SET = 0,
+        PROTOBUF_SETTINGS = 100,
+        AVRO_SETTINGS = 101,
+    }
+
 }
 
 export class ImportGithubResponse extends jspb.Message { 
@@ -220,8 +248,18 @@ export class ImportLocalRequest extends jspb.Message {
     getZipArchive_asU8(): Uint8Array;
     getZipArchive_asB64(): string;
     setZipArchive(value: Uint8Array | string): ImportLocalRequest;
-    getRootType(): string;
-    setRootType(value: string): ImportLocalRequest;
+
+    hasProtobufSettings(): boolean;
+    clearProtobufSettings(): void;
+    getProtobufSettings(): encoding_options_pb.ProtobufSettings | undefined;
+    setProtobufSettings(value?: encoding_options_pb.ProtobufSettings): ImportLocalRequest;
+
+    hasAvroSettings(): boolean;
+    clearAvroSettings(): void;
+    getAvroSettings(): encoding_options_pb.AvroSettings | undefined;
+    setAvroSettings(value?: encoding_options_pb.AvroSettings): ImportLocalRequest;
+
+    getEncodingsCase(): ImportLocalRequest.EncodingsCase;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): ImportLocalRequest.AsObject;
@@ -239,8 +277,16 @@ export namespace ImportLocalRequest {
         name: string,
         type: encoding_options_pb.EncodeType,
         zipArchive: Uint8Array | string,
-        rootType: string,
+        protobufSettings?: encoding_options_pb.ProtobufSettings.AsObject,
+        avroSettings?: encoding_options_pb.AvroSettings.AsObject,
     }
+
+    export enum EncodingsCase {
+        ENCODINGS_NOT_SET = 0,
+        PROTOBUF_SETTINGS = 100,
+        AVRO_SETTINGS = 101,
+    }
+
 }
 
 export class ImportLocalResponse extends jspb.Message { 

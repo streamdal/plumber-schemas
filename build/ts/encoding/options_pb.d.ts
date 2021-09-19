@@ -13,10 +13,16 @@ export class ProtobufSettings extends jspb.Message {
     getProtobufDirsList(): Array<string>;
     setProtobufDirsList(value: Array<string>): ProtobufSettings;
     addProtobufDirs(value: string, index?: number): string;
+    getProtobufRootDir(): string;
+    setProtobufRootDir(value: string): ProtobufSettings;
     getArchive(): Uint8Array | string;
     getArchive_asU8(): Uint8Array;
     getArchive_asB64(): string;
     setArchive(value: Uint8Array | string): ProtobufSettings;
+    getMessageDescriptor(): Uint8Array | string;
+    getMessageDescriptor_asU8(): Uint8Array;
+    getMessageDescriptor_asB64(): string;
+    setMessageDescriptor(value: Uint8Array | string): ProtobufSettings;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): ProtobufSettings.AsObject;
@@ -32,7 +38,9 @@ export namespace ProtobufSettings {
     export type AsObject = {
         protobufRootMessage: string,
         protobufDirsList: Array<string>,
+        ProtobufRootDir: string,
         archive: Uint8Array | string,
+        MessageDescriptor: Uint8Array | string,
     }
 }
 

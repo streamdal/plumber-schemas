@@ -16,7 +16,7 @@ enum EncodeType {
 
 enum DecodeType {
     DECODE_TYPE_UNSET      = 0;
-    DECODE_TYPE_JSONPB     = 1;
+    DECODE_TYPE_JSONPB     = 1; // Not sure why this is here; I doubt we'll ever have someone writing jsonpb to the bus? ~ds 09.18.21
     DECODE_TYPE_PROTOBUF   = 2;
     DECODE_TYPE_AVRO       = 3;
     DECODE_TYPE_THRIFT     = 4;
@@ -31,9 +31,19 @@ message ProtobufSettings {
     // @gotags: kong:"help='One or more directories which contains protobuf schemas',existingdir"
     repeated string protobuf_dirs = 2;
 
+    // Directory where protos are stored (used for github import)
+    // @gotags: kong:"-"
+    string _protobuf_root_dir = 3;
+
+    // TODO: This should probably be removed since archive should probably be
+    // exposed at a higher level than inside each of the settings. ~ds 09.18.21
     // Used by server/desktop
     // @gotags: kong:"-"
-    bytes archive = 3;
+    bytes archive = 4;
+
+    // Used internally by the server
+    // @gotags: kong:"-"
+    bytes _message_descriptor = 5;
 }
 
 message AvroSettings {

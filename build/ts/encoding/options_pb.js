@@ -146,7 +146,9 @@ proto.protos.encoding.ProtobufSettings.toObject = function(includeInstance, msg)
   var f, obj = {
     protobufRootMessage: jspb.Message.getFieldWithDefault(msg, 1, ""),
     protobufDirsList: (f = jspb.Message.getRepeatedField(msg, 2)) == null ? undefined : f,
-    archive: msg.getArchive_asB64()
+    protobufRootDir: jspb.Message.getFieldWithDefault(msg, 3, ""),
+    archive: msg.getArchive_asB64(),
+    messageDescriptor: msg.getMessageDescriptor_asB64()
   };
 
   if (includeInstance) {
@@ -192,8 +194,16 @@ proto.protos.encoding.ProtobufSettings.deserializeBinaryFromReader = function(ms
       msg.addProtobufDirs(value);
       break;
     case 3:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setProtobufRootDir(value);
+      break;
+    case 4:
       var value = /** @type {!Uint8Array} */ (reader.readBytes());
       msg.setArchive(value);
+      break;
+    case 5:
+      var value = /** @type {!Uint8Array} */ (reader.readBytes());
+      msg.setMessageDescriptor(value);
       break;
     default:
       reader.skipField();
@@ -238,10 +248,24 @@ proto.protos.encoding.ProtobufSettings.serializeBinaryToWriter = function(messag
       f
     );
   }
+  f = message.getProtobufRootDir();
+  if (f.length > 0) {
+    writer.writeString(
+      3,
+      f
+    );
+  }
   f = message.getArchive_asU8();
   if (f.length > 0) {
     writer.writeBytes(
-      3,
+      4,
+      f
+    );
+  }
+  f = message.getMessageDescriptor_asU8();
+  if (f.length > 0) {
+    writer.writeBytes(
+      5,
       f
     );
   }
@@ -304,16 +328,34 @@ proto.protos.encoding.ProtobufSettings.prototype.clearProtobufDirsList = functio
 
 
 /**
- * optional bytes archive = 3;
- * @return {!(string|Uint8Array)}
+ * optional string _protobuf_root_dir = 3;
+ * @return {string}
  */
-proto.protos.encoding.ProtobufSettings.prototype.getArchive = function() {
-  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
+proto.protos.encoding.ProtobufSettings.prototype.getProtobufRootDir = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
 };
 
 
 /**
- * optional bytes archive = 3;
+ * @param {string} value
+ * @return {!proto.protos.encoding.ProtobufSettings} returns this
+ */
+proto.protos.encoding.ProtobufSettings.prototype.setProtobufRootDir = function(value) {
+  return jspb.Message.setProto3StringField(this, 3, value);
+};
+
+
+/**
+ * optional bytes archive = 4;
+ * @return {!(string|Uint8Array)}
+ */
+proto.protos.encoding.ProtobufSettings.prototype.getArchive = function() {
+  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
+};
+
+
+/**
+ * optional bytes archive = 4;
  * This is a type-conversion wrapper around `getArchive()`
  * @return {string}
  */
@@ -324,7 +366,7 @@ proto.protos.encoding.ProtobufSettings.prototype.getArchive_asB64 = function() {
 
 
 /**
- * optional bytes archive = 3;
+ * optional bytes archive = 4;
  * Note that Uint8Array is not supported on all browsers.
  * @see http://caniuse.com/Uint8Array
  * This is a type-conversion wrapper around `getArchive()`
@@ -341,7 +383,49 @@ proto.protos.encoding.ProtobufSettings.prototype.getArchive_asU8 = function() {
  * @return {!proto.protos.encoding.ProtobufSettings} returns this
  */
 proto.protos.encoding.ProtobufSettings.prototype.setArchive = function(value) {
-  return jspb.Message.setProto3BytesField(this, 3, value);
+  return jspb.Message.setProto3BytesField(this, 4, value);
+};
+
+
+/**
+ * optional bytes _message_descriptor = 5;
+ * @return {!(string|Uint8Array)}
+ */
+proto.protos.encoding.ProtobufSettings.prototype.getMessageDescriptor = function() {
+  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 5, ""));
+};
+
+
+/**
+ * optional bytes _message_descriptor = 5;
+ * This is a type-conversion wrapper around `getMessageDescriptor()`
+ * @return {string}
+ */
+proto.protos.encoding.ProtobufSettings.prototype.getMessageDescriptor_asB64 = function() {
+  return /** @type {string} */ (jspb.Message.bytesAsB64(
+      this.getMessageDescriptor()));
+};
+
+
+/**
+ * optional bytes _message_descriptor = 5;
+ * Note that Uint8Array is not supported on all browsers.
+ * @see http://caniuse.com/Uint8Array
+ * This is a type-conversion wrapper around `getMessageDescriptor()`
+ * @return {!Uint8Array}
+ */
+proto.protos.encoding.ProtobufSettings.prototype.getMessageDescriptor_asU8 = function() {
+  return /** @type {!Uint8Array} */ (jspb.Message.bytesAsU8(
+      this.getMessageDescriptor()));
+};
+
+
+/**
+ * @param {!(string|Uint8Array)} value
+ * @return {!proto.protos.encoding.ProtobufSettings} returns this
+ */
+proto.protos.encoding.ProtobufSettings.prototype.setMessageDescriptor = function(value) {
+  return jspb.Message.setProto3BytesField(this, 5, value);
 };
 
 

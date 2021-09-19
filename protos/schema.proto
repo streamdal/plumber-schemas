@@ -9,20 +9,25 @@ import "common/auth.proto";
 import "common/status.proto";
 
 message Schema {
+    // ID to identify this schema by
     string id = 1;
 
+    // Friendly name for the schema
     string name = 2;
 
-    // This will probably have to change ~ds 09.08.21
-    encoding.EncodeType type = 3;
+    // It really should be called "Encoding" but that means different things
+    // between Desktop and CLI, so we just roll with DecodeType as it has the
+    // options we want.
+    encoding.DecodeType type = 3;
 
+    // @mark what's this used for?
     map<string,string> files = 4;
 
-    // Protobuf only, root message name
-    string root_type = 5;
-
-    // Protobuf only, root message descriptor
-    bytes message_descriptor = 6;
+    // The 'type' will determine which one of these _should_ be filled out
+    oneof encodings {
+        encoding.ProtobufSettings protobuf_settings = 100;
+        encoding.AvroSettings avro_settings = 101;
+    }
 }
 
 message GetSchemaRequest {
@@ -51,15 +56,14 @@ message ImportGithubRequest {
 
     string name = 1;
 
-    encoding.EncodeType type = 2;
+    encoding.DecodeType type = 2;
 
     string github_url = 3;
 
-    // Protobuf only, root message name
-    string root_type = 4;
-
-    // Directory inside github repo where protos are stored
-    string root_dir = 5;
+    oneof encodings {
+        encoding.ProtobufSettings protobuf_settings = 100;
+        encoding.AvroSettings avro_settings = 101;
+    }
 }
 
 message ImportGithubResponse {
@@ -78,8 +82,10 @@ message ImportLocalRequest {
 
     bytes zip_archive = 3;
 
-    // Protobuf only, root message name
-    string root_type = 4;
+    oneof encodings {
+        encoding.ProtobufSettings protobuf_settings = 100;
+        encoding.AvroSettings avro_settings = 101;
+    }
 }
 
 message ImportLocalResponse {
