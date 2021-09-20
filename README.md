@@ -30,3 +30,18 @@ If you want to modify/add/remove cmds/args/flags, you will want to:
 6. Open PR, review, merge
 
 The `build` workflow will automatically create a tag for the last commit.
+
+# Globally unique filenames
+
+It is important that filenames are _globally_ unique. This is because of a
+namespace issue: https://github.com/golang/protobuf/issues/1122
+
+Due to the above and the fact that plumber uses two sets of schemas 
+(`batchcorp/plumber-schemas` and `batchcorp/collector-schemas`), there is a
+high chance for naming collisions.
+
+To avoid potential issues - use a `ps_$pkgName_` prefix for all filenames.
+
+## Example namespace conflict
+
+![namespace_conflict.png](assets/namespace_conflict.png)

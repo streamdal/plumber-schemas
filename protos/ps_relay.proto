@@ -1,0 +1,110 @@
+syntax = "proto3";
+
+package protos;
+
+import "common/ps_common_auth.proto";
+import "common/ps_common_status.proto";
+import "opts/ps_opts_relay.proto";
+
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
+
+message GetAllRelaysRequest {
+    // Every gRPC request must have a valid auth config
+    common.Auth auth = 9999;
+}
+
+message GetAllRelaysResponse {
+    common.Status status = 1000;
+
+    // Will be set as empty []Relay if no relays are configured
+    repeated opts.RelayOptions opts = 1;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+message GetRelayRequest {
+    // Every gRPC request must have a valid auth config
+    common.Auth auth = 9999;
+
+    string relay_id = 1;
+}
+
+message GetRelayResponse {
+    common.Status status = 1000;
+
+    // Set only if status is OK
+    opts.RelayOptions opts = 1;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+message CreateRelayRequest {
+    // Every gRPC request must have a valid auth config
+    common.Auth auth = 9999;
+
+    opts.RelayOptions opts = 1;
+}
+
+message CreateRelayResponse {
+    common.Status status = 1000;
+
+    // ID of the created relay entry
+    string relay_id = 1;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+// WARNING: Any in-progress relay will be interrupted/restarted
+message UpdateRelayRequest {
+    // Every gRPC request must have a valid auth config
+    common.Auth auth = 9999;
+
+    string relay_id = 1;
+
+    opts.RelayOptions opts = 2;
+}
+
+message UpdateRelayResponse {
+    common.Status status = 1000;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+// Resume a paused relay
+message ResumeRelayRequest {
+    // Every gRPC request must have a valid auth config
+    common.Auth auth = 9999;
+
+    string relay_id = 1;
+}
+
+message ResumeRelayResponse {
+    common.Status status = 1000;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+// Temporarily stop/pause a relay
+message StopRelayRequest {
+    // Every gRPC request must have a valid auth config
+    common.Auth auth = 9999;
+
+    string relay_id = 1;
+}
+
+message StopRelayResponse {
+    common.Status status = 1000;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+message DeleteRelayRequest {
+    // Every gRPC request must have a valid auth config
+    common.Auth auth = 9999;
+
+    string relay_id = 1;
+}
+
+message DeleteRelayResponse {
+    common.Status status = 1000;
+}

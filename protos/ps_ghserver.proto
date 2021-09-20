@@ -1,0 +1,97 @@
+// @mark: we should explain the difference between ps_ghserver.proto and ps_github.proto
+syntax = "proto3";
+
+package protos;
+
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
+
+service GithubServer {
+  rpc Connect(ConnectAuthRequest) returns (stream GithubEvent);
+}
+
+// GithubEvent is sent by batchcorp/github-service and received by Plumber instances to be acted upon
+// It is also sent to the frontend to be acted upon
+// See the following URL for reference to events we are receiving from github
+// https://docs.github.com/en/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#
+message GithubEvent {
+  enum Type {
+    UNSET = 0;
+    AUTH_RESPONSE = 1;
+    INSTALL_CREATED = 2;
+    INSTALL_UPDATED = 3;
+    INSTALL_DELETED = 4;
+    PULL_CREATED = 5;
+    PULL_MERGED = 6;
+
+    // The plumber server has issued a new JWT token that needs to be stored in etcd
+    NEW_JWT_TOKEN = 7;
+  }
+
+  Type type = 1;
+
+  oneof payload {
+    AuthResponse auth_response = 100;
+    InstallCreated install_created = 101;
+    InstallUpdated install_updated = 102;
+    InstallDeleted install_deleted = 103;
+    PullRequestCreated pr_created = 104;
+    PullRequestMerged pr_merged = 105;
+    NewJwtToken new_jwt_token = 106;
+  }
+}
+
+// Sent by plumber, received by github-service
+message ConnectAuthRequest {
+  // JWT token returned during install process
+  string api_token = 1;
+}
+
+// AuthResponse is sent by github-service and received by plumber GithubServer.Connect()
+message AuthResponse {
+  bool authorized = 1;
+  string message = 2;
+}
+
+// Sent by github-service and received by plumber
+// Sent by plumber, received by UI
+message PullRequestCreated {
+  string owner = 1;
+  string repo = 2;
+  int32 number = 3;
+  string url = 4;
+  string description = 5;
+}
+
+// Sent by github-service and received by plumber
+// Sent by plumber, received by UI
+message PullRequestMerged {
+  string owner = 1;
+  string repo = 2;
+  int32 number = 3;
+  string url = 4;
+}
+
+// Sent by github-service and received by plumber
+// Sent by plumber, received by UI
+message InstallCreated {
+  int64 install_id = 1;
+  int64 account_id = 2;
+}
+
+// Sent by github-service and received by plumber
+// Sent by plumber, received by UI
+message InstallUpdated {
+  int64 install_id = 1;
+  int64 account_id = 2;
+}
+
+// Sent by github-service and received by plumber
+// Sent by plumber, received by UI
+message InstallDeleted {
+  int64 install_id = 1;
+  int64 account_id = 2;
+}
+
+message NewJwtToken {
+  string token = 1;
+}

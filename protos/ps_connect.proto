@@ -1,0 +1,86 @@
+syntax = "proto3";
+
+package protos;
+
+import "common/ps_common_auth.proto";
+import "common/ps_common_status.proto";
+import "opts/ps_opts_connection.proto";
+
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
+
+message GetAllConnectionsRequest {
+    // Every gRPC request must have a valid auth config
+    common.Auth auth = 9999;
+}
+
+message GetAllConnectionsResponse {
+    repeated opts.ConnectionOptions options = 1;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+message GetConnectionRequest {
+    // Every gRPC request must have a valid auth config
+    common.Auth auth = 9999;
+
+    string connection_id = 1;
+}
+
+message GetConnectionResponse {
+    opts.ConnectionOptions options = 1;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+message CreateConnectionRequest {
+    // Every gRPC request must have a valid auth config
+    common.Auth auth = 9999;
+
+    opts.ConnectionOptions options = 1;
+}
+
+message CreateConnectionResponse {
+    // Set with uuid that represents connection if create is successful
+    string connection_id = 1;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+message TestConnectionRequest {
+    // Every gRPC request must have a valid auth config
+    common.Auth auth = 9999;
+
+    opts.ConnectionOptions options = 1;
+}
+
+message TestConnectionResponse {
+    common.Status status = 1000;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+message UpdateConnectionRequest {
+    // Every gRPC request must have a valid auth config
+    common.Auth auth = 9999;
+
+    string connection_id = 1;
+
+    opts.ConnectionOptions options = 2;
+}
+
+message UpdateConnectionResponse {
+    common.Status status = 1000;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+message DeleteConnectionRequest {
+    // Every gRPC request must have a valid auth config
+    common.Auth auth = 9999;
+
+    string connection_id = 1;
+}
+
+message DeleteConnectionResponse {
+    common.Status status = 1000;
+}

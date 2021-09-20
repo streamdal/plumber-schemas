@@ -1,0 +1,213 @@
+syntax = "proto3";
+
+package protos.opts;
+
+import "args/ps_args_activemq.proto";
+import "args/ps_args_azure_service_bus.proto";
+import "args/ps_args_azure_event_hub.proto";
+import "args/ps_args_aws_sqs.proto";
+import "args/ps_args_aws_sns.proto";
+import "args/ps_args_gcp_pubsub.proto";
+import "args/ps_args_kafka.proto";
+import "args/ps_args_kubemq_queue.proto";
+import "args/ps_args_mqtt.proto";
+import "args/ps_args_nats.proto";
+import "args/ps_args_nats_streaming.proto";
+import "args/ps_args_nsq.proto";
+import "args/ps_args_rabbit.proto";
+import "args/ps_args_rabbit_streams.proto";
+import "args/ps_args_redis_pubsub.proto";
+import "args/ps_args_redis_streams.proto";
+
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/opts";
+
+message DynamicOptions {
+    // @gotags: kong:"help='API token to use for dynamic destination (Create here: https://console.batch.sh/account/security)',required"
+    string api_token = 1;
+
+    // @gotags: kong:"help='Dynamic destination collector address',default='dproxy.batch.sh:443'"
+    string _grpc_address = 2;
+
+    // @gotags: kong:"help='Dynamic destination collector initial connection timeout',default=5"
+    uint32 _grpc_timeout_seconds = 3;
+
+    // @gotags: kong:"help='Use gRPC insecure mode when talking to Batch'"
+    bool _grpc_insecure = 4;
+
+    // --------------------------------------------------------------------- //
+    //                       SUPPORTED BACKENDS (100-999)                    //
+    // --------------------------------------------------------------------- //
+
+    // @gotags: kong:"cmd,help='Apache Kafka'"
+    DynamicGroupKafkaOptions kafka = 100;
+
+    // @gotags: kong:"cmd,help='Apache ActiveMQ'"
+    DynamicGroupActiveMQOptions activemq = 101;
+
+    // @gotags: kong:"cmd,help='AWS Simple Queue System'"
+    DynamicGroupAWSSQSOptions awssqs = 102;
+
+    // @gotags: kong:"cmd,help='AWS Simple Notification System'"
+    DynamicGroupAWSSNSOptions awssns = 103;
+
+    // @gotags: kong:"cmd,help='NATS'"
+    DynamicGroupNatsOptions nats = 104;
+
+    // @gotags: kong:"cmd,help='NATS Streaming'"
+    DynamicGroupNatsStreamingOptions nats_streaming = 105;
+
+    // @gotags: kong:"cmd,help='NSQ'"
+    DynamicGroupNSQOptions nsq = 106;
+
+    // @gotags: kong:"cmd,help='RabbitMQ'"
+    DynamicGroupRabbitOptions rabbit = 107;
+
+    // @gotags: kong:"cmd,help='MQTT'"
+    DynamicGroupMQTTOptions mqtt = 108;
+
+    // @gotags: kong:"cmd,help='Azure Service Bus'"
+    DynamicGroupAzureServiceBusOptions azure_service_bus = 109;
+
+    // @gotags: kong:"cmd,help='Azure Event Hub'"
+    DynamicGroupAzureEventHubOptions azure_event_hub = 110;
+
+    // @gotags: kong:"cmd,help='Google Cloud Platform Pub/Sub'"
+    DynamicGroupGCPPubSubOptions gcp_pubsub = 111;
+
+    // @gotags: kong:"cmd,help='KubeMQ Queue'"
+    DynamicGroupKubeMQQueueOptions kubemq_queue = 112;
+
+    // @gotags: kong:"cmd,help='Redis PubSub'"
+    DynamicGroupRedisPubSubOptions redis_pubsub = 113;
+
+    // @gotags: kong:"cmd,help='Redis Streams'"
+    DynamicGroupRedisStreamsOptions redis_streams = 114;
+}
+
+message DynamicGroupKafkaOptions {
+    // @gotags: kong:"embed"
+    args.KafkaConn _conn = 1;
+
+    // @gotags: kong:"embed"
+    args.KafkaWriteArgs args = 2;
+}
+
+message DynamicGroupActiveMQOptions {
+    // @gotags: kong:"embed"
+    args.ActiveMQConn _conn = 1;
+
+    // @gotags: kong:"embed"
+    args.ActiveMQWriteArgs args = 2;
+}
+
+message DynamicGroupAWSSQSOptions {
+    // @gotags: kong:"embed"
+    args.AWSSQSConn _conn = 1;
+
+    // @gotags: kong:"embed"
+    args.AWSSQSWriteArgs args = 2;
+}
+
+message DynamicGroupAWSSNSOptions {
+    // @gotags: kong:"embed"
+    args.AWSSNSConn _conn = 1;
+
+    // @gotags: kong:"embed"
+    args.AWSSNSWriteArgs args = 2;
+}
+
+message DynamicGroupNatsOptions {
+    // @gotags: kong:"embed"
+    args.NatsConn _conn = 1;
+
+    // @gotags: kong:"embed"
+    args.NatsWriteArgs args = 2;
+}
+
+message DynamicGroupNatsStreamingOptions {
+    // @gotags: kong:"embed"
+    args.NatsStreamingConn _conn = 1;
+
+    // @gotags: kong:"embed"
+    args.NatsStreamingWriteArgs args = 2;
+}
+
+message DynamicGroupNSQOptions {
+    // @gotags: kong:"embed"
+    args.NSQConn _conn = 1;
+
+    // @gotags: kong:"embed"
+    args.NSQWriteArgs args = 2;
+}
+
+message DynamicGroupRabbitOptions {
+    // @gotags: kong:"embed"
+    args.RabbitConn _conn = 1;
+
+    // @gotags: kong:"embed"
+    args.RabbitWriteArgs args = 2;
+}
+
+message DynamicGroupRabbitStreamsOptions {
+    // @gotags: kong:"embed"
+    args.RabbitStreamsConn _conn = 1;
+
+    // @gotags: kong:"embed"
+    args.RabbitStreamsWriteArgs args = 2;
+}
+
+message DynamicGroupRedisPubSubOptions {
+    // @gotags: kong:"embed"
+    args.RedisPubSubConn _conn = 1;
+
+    // @gotags: kong:"embed"
+    args.RedisPubSubWriteArgs args = 2;
+}
+
+message DynamicGroupRedisStreamsOptions {
+    // @gotags: kong:"embed"
+    args.RedisStreamsConn _conn = 1;
+
+    // @gotags: kong:"embed"
+    args.RedisStreamsWriteArgs args = 2;
+}
+
+message DynamicGroupAzureEventHubOptions {
+    // @gotags: kong:"embed"
+    args.AzureEventHubConn _conn = 1;
+
+    // @gotags: kong:"embed"
+    args.AzureEventHubWriteArgs args = 2;
+}
+
+message DynamicGroupAzureServiceBusOptions {
+    // @gotags: kong:"embed"{
+    args.AzureServiceBusConn _conn = 1;
+
+    // @gotags: kong:"embed"
+    args.AzureServiceBusWriteArgs args = 2;
+}
+
+message DynamicGroupMQTTOptions {
+    // @gotags: kong:"embed"
+    args.MQTTConn _conn = 1;
+
+    // @gotags: kong:"embed"
+    args.MQTTWriteArgs args = 2;
+}
+
+message DynamicGroupGCPPubSubOptions {
+    // @gotags: kong:"embed"
+    args.GCPPubSubConn _conn = 1;
+
+    // @gotags: kong:"embed"
+    args.GCPPubSubWriteArgs args = 2;
+}
+
+message DynamicGroupKubeMQQueueOptions {
+    // @gotags: kong:"embed"
+    args.KubeMQQueueConn _conn = 1;
+
+    // @gotags: kong:"embed"
+    args.KubeMQQueueWriteArgs args = 2;
+}

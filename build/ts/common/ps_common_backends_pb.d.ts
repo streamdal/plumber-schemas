@@ -1,0 +1,30 @@
+// package: protos.common
+// file: common/ps_common_backends.proto
+
+/* tslint:disable */
+/* eslint-disable */
+
+import * as jspb from "google-protobuf";
+
+export enum BackendType {
+    BACKEND_TYPE_UNSET = 0,
+    BACKEND_TYPE_KAFKA = 1,
+    BACKEND_TYPE_RABBIT = 2,
+    BACKEND_TYPE_RABBIT_STREAMS = 3,
+    BACKEND_TYPE_NSQ = 4,
+    BACKEND_TYPE_NATS = 5,
+    BACKEND_TYPE_NATS_STREAMING = 6,
+    BACKEND_TYPE_GCP_PUBSUB = 7,
+    BACKEND_TYPE_AZURE_SERVICE_BUS = 8,
+    BACKEND_TYPE_AZURE_EVENT_HUB = 9,
+    BACKEND_TYPE_AWS_SQS = 10,
+    BACKEND_TYPE_AWS_SNS = 11,
+    BACKEND_TYPE_REDIS_PUBSUB = 12,
+    BACKEND_TYPE_REDIS_STREAMS = 13,
+    BACKEND_TYPE_ACTIVEMQ = 14,
+    BACKEND_TYPE_PULSAR = 15,
+    BACKEND_TYPE_MQTT = 16,
+    BACKEND_TYPE_POSTGRES_CDC = 17,
+    BACKEND_TYPE_MONGODB_CDC = 18,
+    BACKEND_TYPE_KUBE_MQ = 19,
+}

@@ -1,0 +1,110 @@
+syntax = "proto3";
+
+package protos;
+
+import "ps_connect.proto";
+import "ps_read.proto";
+import "ps_write.proto";
+import "ps_relay.proto";
+import "ps_github.proto";
+import "ps_schema.proto";
+import "ps_service.proto";
+import "ps_server.proto";
+import "ps_ghserver.proto";
+
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
+
+service PlumberServer {
+    // List configured/known connections
+    rpc GetAllConnections (GetAllConnectionsRequest) returns (GetAllConnectionsResponse);
+
+    // Fetch a specific connection by ID
+    rpc GetConnection(GetConnectionRequest) returns (GetConnectionResponse);
+
+    // Create a connection in plumber
+    rpc CreateConnection(CreateConnectionRequest) returns (CreateConnectionResponse);
+
+    // Test a connection before saving its configuration
+    rpc TestConnection(TestConnectionRequest) returns (TestConnectionResponse);
+
+    // Any active connections will be restarted
+    rpc UpdateConnection(UpdateConnectionRequest) returns (UpdateConnectionResponse);
+
+    // If there are any active connections, delete will cause them to get closed
+    rpc DeleteConnection(DeleteConnectionRequest) returns (DeleteConnectionResponse);
+
+    // Start reading data from a connection
+    rpc CreateRead(CreateReadRequest) returns (CreateReadResponse);
+
+    // Streams messages received off of a read
+    rpc StartRead(StartReadRequest) returns (stream StartReadResponse);
+
+    // List all reads that have been created
+    rpc GetAllReads(GetAllReadsRequest) returns (GetAllReadsResponse);
+
+    // Stop reading data from a connection
+    rpc StopRead(StopReadRequest) returns (StopReadResponse);
+
+    // Resume reading data from an existing read
+    rpc ResumeRead(ResumeReadRequest) returns (ResumeReadResponse);
+
+    // Resume reading data from an existing read
+    rpc DeleteRead(DeleteReadRequest) returns (DeleteReadResponse);
+
+    // Write data to a connection
+    rpc Write(WriteRequest) returns (WriteResponse);
+
+    // Create a data relay from plumber server to the Batch platform
+    rpc CreateRelay(CreateRelayRequest) returns (CreateRelayResponse);
+
+    // Update a relay (such as API token) - relay will be interrupted!
+    rpc UpdateRelay(UpdateRelayRequest) returns (UpdateRelayResponse);
+
+    rpc ResumeRelay(ResumeRelayRequest) returns (ResumeRelayResponse);
+
+    rpc StopRelay(StopRelayRequest) returns (StopRelayResponse);
+
+    rpc GetAllRelays(GetAllRelaysRequest) returns (GetAllRelaysResponse);
+
+    // Delete an existing relay
+    rpc DeleteRelay(DeleteRelayRequest) returns (DeleteRelayResponse);
+
+    // Begins github authorization process
+    rpc StartGithubAuth(StartGithubAuthRequest) returns (StartGithubAuthResponse);
+
+    // Starts a poll of the github authorization status
+    rpc PollGithubAuth(PollGithubAuthRequest) returns (stream PollGithubAuthResponse);
+
+    // Determines if we have authorized plumber with github
+    rpc IsGithubAuth(IsGithubAuthRequest) returns (IsGithubAuthResponse);
+
+    // Retrieve a single schema
+    rpc GetSchema(GetSchemaRequest) returns (GetSchemaResponse);
+
+    // Retrieve all schemas
+    rpc GetAllSchemas(GetAllSchemasRequest) returns (GetAllSchemasResponse);
+
+    // Import a schema from github
+    rpc ImportGithub(ImportGithubRequest) returns (ImportGithubResponse);
+
+    // Import a schema from the local file system
+    rpc ImportLocal(ImportLocalRequest) returns (ImportLocalResponse);
+
+    // Delete a schema
+    rpc DeleteSchema(DeleteSchemaRequest) returns (DeleteSchemaResponse);
+
+    rpc GetService(GetServiceRequest) returns (GetServiceResponse);
+
+    rpc GetAllServices(GetAllServicesRequest) returns (GetAllServicesResponse);
+
+    rpc CreateService(CreateServiceRequest) returns (CreateServiceResponse);
+
+    rpc UpdateService(UpdateServiceRequest) returns (UpdateServiceResponse);
+
+    rpc DeleteService(DeleteServiceRequest) returns (DeleteServiceResponse);
+
+    rpc GetServerOptions(GetServerOptionsRequest) returns (GetServerOptionsResponse);
+
+    // GetGithubEvents connects to github-app backend and returns a stream of events pushed from github
+    rpc GetGithubEvents(GetGithubEventsRequest) returns (stream GithubEvent);
+}

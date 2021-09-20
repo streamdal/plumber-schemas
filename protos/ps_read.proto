@@ -1,0 +1,91 @@
+syntax = "proto3";
+
+package protos;
+
+import "common/ps_common_auth.proto";
+import "common/ps_common_status.proto";
+import "records/ps_records_base.proto";
+import "opts/ps_opts_read.proto";
+
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
+
+message CreateReadRequest {
+    // Every gRPC request must have a valid auth config
+    common.Auth auth = 9999;
+
+    opts.ReadOptions read = 1;
+}
+
+message CreateReadResponse {
+    common.Status status = 1000;
+
+    // Assigned and returned by plumber-server to identify a successful read request
+    string read_id = 1;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+message StopReadRequest {
+    // Every gRPC request must have a valid auth config
+    common.Auth auth = 9999;
+
+    string read_id = 1;
+}
+
+message StopReadResponse {
+    common.Status status = 1000;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+message ResumeReadRequest {
+    // Every gRPC request must have a valid auth config
+    common.Auth auth = 9999;
+
+    string read_id = 1;
+}
+
+message ResumeReadResponse {
+    common.Status status = 1000;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+message DeleteReadRequest {
+    // Every gRPC request must have a valid auth config
+    common.Auth auth = 9999;
+
+    string read_id = 1;
+}
+
+message DeleteReadResponse {
+    common.Status status = 1000;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+message StartReadRequest {
+    // Every gRPC request must have a valid auth config
+    common.Auth auth = 9999;
+
+    string read_id = 1;
+}
+
+message StartReadResponse {
+    repeated records.ReadRecord records = 1;
+
+    common.Status status = 1000;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+message GetAllReadsRequest {
+    // Every gRPC request must have a valid auth config
+    common.Auth auth = 9999;
+}
+
+message GetAllReadsResponse {
+    repeated opts.ReadOptions read = 1;
+
+    common.Status status = 1000;
+}
