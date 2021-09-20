@@ -1,5 +1,5 @@
 // package: protos.opts
-// file: opts/ps_write.proto
+// file: opts/ps_opts_write.proto
 
 /* tslint:disable */
 /* eslint-disable */

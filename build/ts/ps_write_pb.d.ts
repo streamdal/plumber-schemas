@@ -7,7 +7,7 @@
 import * as jspb from "google-protobuf";
 import * as common_ps_common_auth_pb from "./common/ps_common_auth_pb";
 import * as common_ps_common_status_pb from "./common/ps_common_status_pb";
-import * as opts_ps_write_pb from "./opts/ps_write_pb";
+import * as opts_ps_opts_write_pb from "./opts/ps_opts_write_pb";
 
 export class WriteRequest extends jspb.Message { 
 
@@ -18,8 +18,8 @@ export class WriteRequest extends jspb.Message {
 
     hasOpts(): boolean;
     clearOpts(): void;
-    getOpts(): opts_ps_write_pb.WriteOptions | undefined;
-    setOpts(value?: opts_ps_write_pb.WriteOptions): WriteRequest;
+    getOpts(): opts_ps_opts_write_pb.WriteOptions | undefined;
+    setOpts(value?: opts_ps_opts_write_pb.WriteOptions): WriteRequest;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): WriteRequest.AsObject;
@@ -34,7 +34,7 @@ export class WriteRequest extends jspb.Message {
 export namespace WriteRequest {
     export type AsObject = {
         auth?: common_ps_common_auth_pb.Auth.AsObject,
-        opts?: opts_ps_write_pb.WriteOptions.AsObject,
+        opts?: opts_ps_opts_write_pb.WriteOptions.AsObject,
     }
 }
 

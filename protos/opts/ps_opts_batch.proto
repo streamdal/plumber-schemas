@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package protos.opts;
 
-import "opts/ps_write.proto";
+import "opts/ps_opts_write.proto";
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/opts";
 
@@ -13,22 +13,22 @@ message BatchOptions {
     // @gotags: kong:"help='Alternative URL to use for Batch API',default='https://api.batch.sh'"
     string api_url = 2;
 
-    // @gotags: kong:"embed,cmd,help='Login to the Batch platform'"
-    BatchLoginOptions login = 3; // DONE
+    // @gotags: kong:"cmd,help='Login to the Batch platform'"
+    BatchLoginOptions login = 3;
 
-    // @gotags: kong:"embed,cmd,help='Login to Batch'"
-    BatchLogoutOptions logout = 4; // DONE
+    // @gotags: kong:"cmd,help='Login to Batch'"
+    BatchLogoutOptions logout = 4;
 
-    // @gotags: kong:"embed,cmd,help='List Batch resources'"
-    BatchListOptions list = 5; // DONE
+    // @gotags: kong:"cmd,help='List Batch resources'"
+    BatchListOptions list = 5;
 
-    // @gotags: kong:"embed,cmd,help='Create operations'"
+    // @gotags: kong:"cmd,help='Create operations'"
     BatchCreateOptions create = 6;
 
-    // @gotags: kong:"embed,cmd,help='Search operations'"
+    // @gotags: kong:"cmd,help='Search operations'"
     BatchSearchOptions search = 7;
 
-    // @gotags: kong:"embed,cmd,help='Archive a resource'"
+    // @gotags: kong:"cmd,help='Archive a resource'"
     BatchArchiveOptions archive = 8;
 }
 
@@ -70,13 +70,13 @@ message BatchListOptions {
 }
 
 message BatchCreateOptions {
-    // @gotags: kong:"embed,cmd,help='Create a collection'"
+    // @gotags: kong:"cmd,help='Create a collection'"
     BatchCreateCollectionOptions collection = 1;
 
-    // @gotags: kong:"embed,cmd,help='Create a replay'"
+    // @gotags: kong:"cmd,help='Create a replay'"
     BatchCreateReplayOptions replay = 2;
 
-    // @gotags: kong:"embed,cmd,help='Create a destination'"
+    // @gotags: kong:"cmd,help='Create a destination'"
     BatchCreateDestinationOptions destination = 3;
 }
 

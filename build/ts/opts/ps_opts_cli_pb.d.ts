@@ -6,7 +6,7 @@
 
 import * as jspb from "google-protobuf";
 import * as opts_ps_opts_read_pb from "../opts/ps_opts_read_pb";
-import * as opts_ps_write_pb from "../opts/ps_write_pb";
+import * as opts_ps_opts_write_pb from "../opts/ps_opts_write_pb";
 import * as opts_ps_opts_relay_pb from "../opts/ps_opts_relay_pb";
 import * as opts_ps_opts_server_pb from "../opts/ps_opts_server_pb";
 import * as opts_ps_opts_batch_pb from "../opts/ps_opts_batch_pb";
@@ -61,8 +61,8 @@ export class CLIOptions extends jspb.Message {
 
     hasWrite(): boolean;
     clearWrite(): void;
-    getWrite(): opts_ps_write_pb.WriteOptions | undefined;
-    setWrite(value?: opts_ps_write_pb.WriteOptions): CLIOptions;
+    getWrite(): opts_ps_opts_write_pb.WriteOptions | undefined;
+    setWrite(value?: opts_ps_opts_write_pb.WriteOptions): CLIOptions;
 
     hasRelay(): boolean;
     clearRelay(): void;
@@ -98,7 +98,7 @@ export namespace CLIOptions {
     export type AsObject = {
         global?: GlobalCLIOptions.AsObject,
         read?: opts_ps_opts_read_pb.ReadOptions.AsObject,
-        write?: opts_ps_write_pb.WriteOptions.AsObject,
+        write?: opts_ps_opts_write_pb.WriteOptions.AsObject,
         relay?: opts_ps_opts_relay_pb.RelayOptions.AsObject,
         dynamic?: opts_ps_opts_dynamic_pb.DynamicOptions.AsObject,
         batch?: opts_ps_opts_batch_pb.BatchOptions.AsObject,

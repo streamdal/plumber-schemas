@@ -15,8 +15,8 @@ var jspb = require('google-protobuf');
 var goog = jspb;
 var global = Function('return this')();
 
-var opts_ps_write_pb = require('../opts/ps_write_pb.js');
-goog.object.extend(proto, opts_ps_write_pb);
+var opts_ps_opts_write_pb = require('../opts/ps_opts_write_pb.js');
+goog.object.extend(proto, opts_ps_opts_write_pb);
 goog.exportSymbol('proto.protos.opts.BatchArchiveOptions', null, global);
 goog.exportSymbol('proto.protos.opts.BatchArchiveReplayOptions', null, global);
 goog.exportSymbol('proto.protos.opts.BatchCreateCollectionOptions', null, global);
@@ -2460,10 +2460,10 @@ proto.protos.opts.BatchCreateDestinationOptions.toObject = function(includeInsta
     name: jspb.Message.getFieldWithDefault(msg, 1, ""),
     notes: jspb.Message.getFieldWithDefault(msg, 2, ""),
     apiDestinationType: jspb.Message.getFieldWithDefault(msg, 1000, ""),
-    kafka: (f = msg.getKafka()) && opts_ps_write_pb.WriteGroupKafkaOptions.toObject(includeInstance, f),
-    rabbit: (f = msg.getRabbit()) && opts_ps_write_pb.WriteGroupRabbitOptions.toObject(includeInstance, f),
-    kubemqQueue: (f = msg.getKubemqQueue()) && opts_ps_write_pb.WriteGroupKubeMQQueueOptions.toObject(includeInstance, f),
-    awssqs: (f = msg.getAwssqs()) && opts_ps_write_pb.WriteGroupAWSSQSOptions.toObject(includeInstance, f),
+    kafka: (f = msg.getKafka()) && opts_ps_opts_write_pb.WriteGroupKafkaOptions.toObject(includeInstance, f),
+    rabbit: (f = msg.getRabbit()) && opts_ps_opts_write_pb.WriteGroupRabbitOptions.toObject(includeInstance, f),
+    kubemqQueue: (f = msg.getKubemqQueue()) && opts_ps_opts_write_pb.WriteGroupKubeMQQueueOptions.toObject(includeInstance, f),
+    awssqs: (f = msg.getAwssqs()) && opts_ps_opts_write_pb.WriteGroupAWSSQSOptions.toObject(includeInstance, f),
     http: (f = msg.getHttp()) && proto.protos.opts.HTTPDestination.toObject(includeInstance, f)
   };
 
@@ -2514,23 +2514,23 @@ proto.protos.opts.BatchCreateDestinationOptions.deserializeBinaryFromReader = fu
       msg.setApiDestinationType(value);
       break;
     case 100:
-      var value = new opts_ps_write_pb.WriteGroupKafkaOptions;
-      reader.readMessage(value,opts_ps_write_pb.WriteGroupKafkaOptions.deserializeBinaryFromReader);
+      var value = new opts_ps_opts_write_pb.WriteGroupKafkaOptions;
+      reader.readMessage(value,opts_ps_opts_write_pb.WriteGroupKafkaOptions.deserializeBinaryFromReader);
       msg.setKafka(value);
       break;
     case 101:
-      var value = new opts_ps_write_pb.WriteGroupRabbitOptions;
-      reader.readMessage(value,opts_ps_write_pb.WriteGroupRabbitOptions.deserializeBinaryFromReader);
+      var value = new opts_ps_opts_write_pb.WriteGroupRabbitOptions;
+      reader.readMessage(value,opts_ps_opts_write_pb.WriteGroupRabbitOptions.deserializeBinaryFromReader);
       msg.setRabbit(value);
       break;
     case 102:
-      var value = new opts_ps_write_pb.WriteGroupKubeMQQueueOptions;
-      reader.readMessage(value,opts_ps_write_pb.WriteGroupKubeMQQueueOptions.deserializeBinaryFromReader);
+      var value = new opts_ps_opts_write_pb.WriteGroupKubeMQQueueOptions;
+      reader.readMessage(value,opts_ps_opts_write_pb.WriteGroupKubeMQQueueOptions.deserializeBinaryFromReader);
       msg.setKubemqQueue(value);
       break;
     case 103:
-      var value = new opts_ps_write_pb.WriteGroupAWSSQSOptions;
-      reader.readMessage(value,opts_ps_write_pb.WriteGroupAWSSQSOptions.deserializeBinaryFromReader);
+      var value = new opts_ps_opts_write_pb.WriteGroupAWSSQSOptions;
+      reader.readMessage(value,opts_ps_opts_write_pb.WriteGroupAWSSQSOptions.deserializeBinaryFromReader);
       msg.setAwssqs(value);
       break;
     case 104:
@@ -2593,7 +2593,7 @@ proto.protos.opts.BatchCreateDestinationOptions.serializeBinaryToWriter = functi
     writer.writeMessage(
       100,
       f,
-      opts_ps_write_pb.WriteGroupKafkaOptions.serializeBinaryToWriter
+      opts_ps_opts_write_pb.WriteGroupKafkaOptions.serializeBinaryToWriter
     );
   }
   f = message.getRabbit();
@@ -2601,7 +2601,7 @@ proto.protos.opts.BatchCreateDestinationOptions.serializeBinaryToWriter = functi
     writer.writeMessage(
       101,
       f,
-      opts_ps_write_pb.WriteGroupRabbitOptions.serializeBinaryToWriter
+      opts_ps_opts_write_pb.WriteGroupRabbitOptions.serializeBinaryToWriter
     );
   }
   f = message.getKubemqQueue();
@@ -2609,7 +2609,7 @@ proto.protos.opts.BatchCreateDestinationOptions.serializeBinaryToWriter = functi
     writer.writeMessage(
       102,
       f,
-      opts_ps_write_pb.WriteGroupKubeMQQueueOptions.serializeBinaryToWriter
+      opts_ps_opts_write_pb.WriteGroupKubeMQQueueOptions.serializeBinaryToWriter
     );
   }
   f = message.getAwssqs();
@@ -2617,7 +2617,7 @@ proto.protos.opts.BatchCreateDestinationOptions.serializeBinaryToWriter = functi
     writer.writeMessage(
       103,
       f,
-      opts_ps_write_pb.WriteGroupAWSSQSOptions.serializeBinaryToWriter
+      opts_ps_opts_write_pb.WriteGroupAWSSQSOptions.serializeBinaryToWriter
     );
   }
   f = message.getHttp();
@@ -2691,7 +2691,7 @@ proto.protos.opts.BatchCreateDestinationOptions.prototype.setApiDestinationType 
  */
 proto.protos.opts.BatchCreateDestinationOptions.prototype.getKafka = function() {
   return /** @type{?proto.protos.opts.WriteGroupKafkaOptions} */ (
-    jspb.Message.getWrapperField(this, opts_ps_write_pb.WriteGroupKafkaOptions, 100));
+    jspb.Message.getWrapperField(this, opts_ps_opts_write_pb.WriteGroupKafkaOptions, 100));
 };
 
 
@@ -2728,7 +2728,7 @@ proto.protos.opts.BatchCreateDestinationOptions.prototype.hasKafka = function() 
  */
 proto.protos.opts.BatchCreateDestinationOptions.prototype.getRabbit = function() {
   return /** @type{?proto.protos.opts.WriteGroupRabbitOptions} */ (
-    jspb.Message.getWrapperField(this, opts_ps_write_pb.WriteGroupRabbitOptions, 101));
+    jspb.Message.getWrapperField(this, opts_ps_opts_write_pb.WriteGroupRabbitOptions, 101));
 };
 
 
@@ -2765,7 +2765,7 @@ proto.protos.opts.BatchCreateDestinationOptions.prototype.hasRabbit = function()
  */
 proto.protos.opts.BatchCreateDestinationOptions.prototype.getKubemqQueue = function() {
   return /** @type{?proto.protos.opts.WriteGroupKubeMQQueueOptions} */ (
-    jspb.Message.getWrapperField(this, opts_ps_write_pb.WriteGroupKubeMQQueueOptions, 102));
+    jspb.Message.getWrapperField(this, opts_ps_opts_write_pb.WriteGroupKubeMQQueueOptions, 102));
 };
 
 
@@ -2802,7 +2802,7 @@ proto.protos.opts.BatchCreateDestinationOptions.prototype.hasKubemqQueue = funct
  */
 proto.protos.opts.BatchCreateDestinationOptions.prototype.getAwssqs = function() {
   return /** @type{?proto.protos.opts.WriteGroupAWSSQSOptions} */ (
-    jspb.Message.getWrapperField(this, opts_ps_write_pb.WriteGroupAWSSQSOptions, 103));
+    jspb.Message.getWrapperField(this, opts_ps_opts_write_pb.WriteGroupAWSSQSOptions, 103));
 };
 
 

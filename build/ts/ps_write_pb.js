@@ -19,8 +19,8 @@ var common_ps_common_auth_pb = require('./common/ps_common_auth_pb.js');
 goog.object.extend(proto, common_ps_common_auth_pb);
 var common_ps_common_status_pb = require('./common/ps_common_status_pb.js');
 goog.object.extend(proto, common_ps_common_status_pb);
-var opts_ps_write_pb = require('./opts/ps_write_pb.js');
-goog.object.extend(proto, opts_ps_write_pb);
+var opts_ps_opts_write_pb = require('./opts/ps_opts_write_pb.js');
+goog.object.extend(proto, opts_ps_opts_write_pb);
 goog.exportSymbol('proto.protos.WriteRequest', null, global);
 goog.exportSymbol('proto.protos.WriteResponse', null, global);
 /**
@@ -98,7 +98,7 @@ proto.protos.WriteRequest.prototype.toObject = function(opt_includeInstance) {
 proto.protos.WriteRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
     auth: (f = msg.getAuth()) && common_ps_common_auth_pb.Auth.toObject(includeInstance, f),
-    opts: (f = msg.getOpts()) && opts_ps_write_pb.WriteOptions.toObject(includeInstance, f)
+    opts: (f = msg.getOpts()) && opts_ps_opts_write_pb.WriteOptions.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -141,8 +141,8 @@ proto.protos.WriteRequest.deserializeBinaryFromReader = function(msg, reader) {
       msg.setAuth(value);
       break;
     case 1:
-      var value = new opts_ps_write_pb.WriteOptions;
-      reader.readMessage(value,opts_ps_write_pb.WriteOptions.deserializeBinaryFromReader);
+      var value = new opts_ps_opts_write_pb.WriteOptions;
+      reader.readMessage(value,opts_ps_opts_write_pb.WriteOptions.deserializeBinaryFromReader);
       msg.setOpts(value);
       break;
     default:
@@ -187,7 +187,7 @@ proto.protos.WriteRequest.serializeBinaryToWriter = function(message, writer) {
     writer.writeMessage(
       1,
       f,
-      opts_ps_write_pb.WriteOptions.serializeBinaryToWriter
+      opts_ps_opts_write_pb.WriteOptions.serializeBinaryToWriter
     );
   }
 };
@@ -236,7 +236,7 @@ proto.protos.WriteRequest.prototype.hasAuth = function() {
  */
 proto.protos.WriteRequest.prototype.getOpts = function() {
   return /** @type{?proto.protos.opts.WriteOptions} */ (
-    jspb.Message.getWrapperField(this, opts_ps_write_pb.WriteOptions, 1));
+    jspb.Message.getWrapperField(this, opts_ps_opts_write_pb.WriteOptions, 1));
 };
 
 

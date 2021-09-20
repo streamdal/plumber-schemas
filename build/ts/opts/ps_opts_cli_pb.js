@@ -17,8 +17,8 @@ var global = Function('return this')();
 
 var opts_ps_opts_read_pb = require('../opts/ps_opts_read_pb.js');
 goog.object.extend(proto, opts_ps_opts_read_pb);
-var opts_ps_write_pb = require('../opts/ps_write_pb.js');
-goog.object.extend(proto, opts_ps_write_pb);
+var opts_ps_opts_write_pb = require('../opts/ps_opts_write_pb.js');
+goog.object.extend(proto, opts_ps_opts_write_pb);
 var opts_ps_opts_relay_pb = require('../opts/ps_opts_relay_pb.js');
 goog.object.extend(proto, opts_ps_opts_relay_pb);
 var opts_ps_opts_server_pb = require('../opts/ps_opts_server_pb.js');
@@ -385,7 +385,7 @@ proto.protos.opts.CLIOptions.toObject = function(includeInstance, msg) {
   var f, obj = {
     global: (f = msg.getGlobal()) && proto.protos.opts.GlobalCLIOptions.toObject(includeInstance, f),
     read: (f = msg.getRead()) && opts_ps_opts_read_pb.ReadOptions.toObject(includeInstance, f),
-    write: (f = msg.getWrite()) && opts_ps_write_pb.WriteOptions.toObject(includeInstance, f),
+    write: (f = msg.getWrite()) && opts_ps_opts_write_pb.WriteOptions.toObject(includeInstance, f),
     relay: (f = msg.getRelay()) && opts_ps_opts_relay_pb.RelayOptions.toObject(includeInstance, f),
     dynamic: (f = msg.getDynamic()) && opts_ps_opts_dynamic_pb.DynamicOptions.toObject(includeInstance, f),
     batch: (f = msg.getBatch()) && opts_ps_opts_batch_pb.BatchOptions.toObject(includeInstance, f),
@@ -437,8 +437,8 @@ proto.protos.opts.CLIOptions.deserializeBinaryFromReader = function(msg, reader)
       msg.setRead(value);
       break;
     case 3:
-      var value = new opts_ps_write_pb.WriteOptions;
-      reader.readMessage(value,opts_ps_write_pb.WriteOptions.deserializeBinaryFromReader);
+      var value = new opts_ps_opts_write_pb.WriteOptions;
+      reader.readMessage(value,opts_ps_opts_write_pb.WriteOptions.deserializeBinaryFromReader);
       msg.setWrite(value);
       break;
     case 4:
@@ -511,7 +511,7 @@ proto.protos.opts.CLIOptions.serializeBinaryToWriter = function(message, writer)
     writer.writeMessage(
       3,
       f,
-      opts_ps_write_pb.WriteOptions.serializeBinaryToWriter
+      opts_ps_opts_write_pb.WriteOptions.serializeBinaryToWriter
     );
   }
   f = message.getRelay();
@@ -629,7 +629,7 @@ proto.protos.opts.CLIOptions.prototype.hasRead = function() {
  */
 proto.protos.opts.CLIOptions.prototype.getWrite = function() {
   return /** @type{?proto.protos.opts.WriteOptions} */ (
-    jspb.Message.getWrapperField(this, opts_ps_write_pb.WriteOptions, 3));
+    jspb.Message.getWrapperField(this, opts_ps_opts_write_pb.WriteOptions, 3));
 };
 
 

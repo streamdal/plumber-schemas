@@ -3,7 +3,7 @@ syntax = "proto3";
 package protos.opts;
 
 import "opts/ps_opts_read.proto";
-import "opts/ps_write.proto";
+import "opts/ps_opts_write.proto";
 import "opts/ps_opts_relay.proto";
 import "opts/ps_opts_server.proto";
 import "opts/ps_opts_batch.proto";
@@ -60,6 +60,6 @@ message CLIOptions {
     // @gotags: kong:"cmd,help='Control Batch resources via the public API'"
     opts.BatchOptions batch = 6;
 
-     // @gotags: kong:"cmd,group=server,help='Run plumber in server mode'"
+     // @gotags: kong:"cmd,help='Run plumber in server mode'"
     opts.ServerOptions server = 7;
 }

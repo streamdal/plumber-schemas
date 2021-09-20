@@ -5,7 +5,7 @@
 /* eslint-disable */
 
 import * as jspb from "google-protobuf";
-import * as opts_ps_write_pb from "../opts/ps_write_pb";
+import * as opts_ps_opts_write_pb from "../opts/ps_opts_write_pb";
 
 export class BatchOptions extends jspb.Message { 
     getOutputType(): BatchOutputType;
@@ -310,23 +310,23 @@ export class BatchCreateDestinationOptions extends jspb.Message {
 
     hasKafka(): boolean;
     clearKafka(): void;
-    getKafka(): opts_ps_write_pb.WriteGroupKafkaOptions | undefined;
-    setKafka(value?: opts_ps_write_pb.WriteGroupKafkaOptions): BatchCreateDestinationOptions;
+    getKafka(): opts_ps_opts_write_pb.WriteGroupKafkaOptions | undefined;
+    setKafka(value?: opts_ps_opts_write_pb.WriteGroupKafkaOptions): BatchCreateDestinationOptions;
 
     hasRabbit(): boolean;
     clearRabbit(): void;
-    getRabbit(): opts_ps_write_pb.WriteGroupRabbitOptions | undefined;
-    setRabbit(value?: opts_ps_write_pb.WriteGroupRabbitOptions): BatchCreateDestinationOptions;
+    getRabbit(): opts_ps_opts_write_pb.WriteGroupRabbitOptions | undefined;
+    setRabbit(value?: opts_ps_opts_write_pb.WriteGroupRabbitOptions): BatchCreateDestinationOptions;
 
     hasKubemqQueue(): boolean;
     clearKubemqQueue(): void;
-    getKubemqQueue(): opts_ps_write_pb.WriteGroupKubeMQQueueOptions | undefined;
-    setKubemqQueue(value?: opts_ps_write_pb.WriteGroupKubeMQQueueOptions): BatchCreateDestinationOptions;
+    getKubemqQueue(): opts_ps_opts_write_pb.WriteGroupKubeMQQueueOptions | undefined;
+    setKubemqQueue(value?: opts_ps_opts_write_pb.WriteGroupKubeMQQueueOptions): BatchCreateDestinationOptions;
 
     hasAwssqs(): boolean;
     clearAwssqs(): void;
-    getAwssqs(): opts_ps_write_pb.WriteGroupAWSSQSOptions | undefined;
-    setAwssqs(value?: opts_ps_write_pb.WriteGroupAWSSQSOptions): BatchCreateDestinationOptions;
+    getAwssqs(): opts_ps_opts_write_pb.WriteGroupAWSSQSOptions | undefined;
+    setAwssqs(value?: opts_ps_opts_write_pb.WriteGroupAWSSQSOptions): BatchCreateDestinationOptions;
 
     hasHttp(): boolean;
     clearHttp(): void;
@@ -348,10 +348,10 @@ export namespace BatchCreateDestinationOptions {
         name: string,
         notes: string,
         ApiDestinationType: string,
-        kafka?: opts_ps_write_pb.WriteGroupKafkaOptions.AsObject,
-        rabbit?: opts_ps_write_pb.WriteGroupRabbitOptions.AsObject,
-        kubemqQueue?: opts_ps_write_pb.WriteGroupKubeMQQueueOptions.AsObject,
-        awssqs?: opts_ps_write_pb.WriteGroupAWSSQSOptions.AsObject,
+        kafka?: opts_ps_opts_write_pb.WriteGroupKafkaOptions.AsObject,
+        rabbit?: opts_ps_opts_write_pb.WriteGroupRabbitOptions.AsObject,
+        kubemqQueue?: opts_ps_opts_write_pb.WriteGroupKubeMQQueueOptions.AsObject,
+        awssqs?: opts_ps_opts_write_pb.WriteGroupAWSSQSOptions.AsObject,
         http?: HTTPDestination.AsObject,
     }
 }

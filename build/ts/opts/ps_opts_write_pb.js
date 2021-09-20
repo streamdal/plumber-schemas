@@ -1,4 +1,4 @@
-// source: opts/ps_write.proto
+// source: opts/ps_opts_write.proto
 /**
  * @fileoverview
  * @enhanceable
