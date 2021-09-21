@@ -5,37 +5,37 @@ package protos.opts;
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/opts";
 
 message ServerOptions {
-    // @gotags: kong:"help='Unique ID that identifies this plumber node',env='PLUMBER_SERVER_NODE_ID',required"
+    // @gotags: kong:"default=plumber1,help='Unique ID that identifies this plumber node',env='PLUMBER_SERVER_NODE_ID',required"
     string node_id = 1;
 
-    // @gotags: kong:"help='ID of the plumber cluster (has to be the same across all nodes)',env='PLUMBER_SERVER_CLUSTER_ID',required"
+    // @gotags: kong:"default=aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa,help='ID of the plumber cluster (has to be the same across all nodes)',env='PLUMBER_SERVER_CLUSTER_ID',required"
     string cluster_id = 2;
 
     // @gotags: kong:"help='Host:port that the gRPC server will bind to',env='PLUMBER_SERVER_GRPC_LISTEN_ADDRESS',default=127.0.0.1:9000"
     string grpc_listen_address = 3;
 
-    // @gotags: kong:"help='All gRPC requests require this auth token to be set',env='PLUMBER_SERVER_AUTH_TOKEN',required"
+    // @gotags: kong:"default=batchcorp,help='All gRPC requests require this auth token to be set',env='PLUMBER_SERVER_AUTH_TOKEN',required"
     string auth_token = 4;
 
     // --------------------------------------------------------------------- //
     //                          EMBEDDED ETCD SETTINGS                       //
     // --------------------------------------------------------------------- //
 
-    // @gotags: kong:"help='InitialCluster should contain comma separated list of key=value pairs of host:port entries for ALL peers in the cluster. (Example: server1=http://192.168.1.10:2380,server2=http://192.168.1.11:2380,server3=http://192.168.1.12:2380). IMPORTANT! The list should include the address of _this_ instance.',env='PLUMBER_SERVER_INITIAL_CLUSTER',required"
+    // @gotags: kong:"default=plumber1=http://127.0.0.1:2380,help='InitialCluster should contain comma separated list of key=value pairs of host:port entries for ALL peers in the cluster. (Example: server1=http://192.168.1.10:2380,server2=http://192.168.1.11:2380,server3=http://192.168.1.12:2380). IMPORTANT! The list should include the address of _this_ instance.',env='PLUMBER_SERVER_INITIAL_CLUSTER',required"
     string initial_cluster = 5;
 
-    // @gotags: kong:"help='Address of _this_ plumber instance etcd server interface. Example: http://local-ip:2380',env='PLUMBER_SERVER_ADVERTISE_PEER_URL'"
+    // @gotags: kong:"default=http://127.0.0.1:2380,help='Address of _this_ plumber instance etcd server interface. Example: http://local-ip:2380',env='PLUMBER_SERVER_ADVERTISE_PEER_URL'"
     string advertise_peer_url = 6;
 
-    // @gotags: kong:"help='Address of _this_ plumber instance etcd client interface. Example: http://local-ip:2379',env='PLUMBER_SERVER_ADVERTISE_CLIENT_URL',required"
+    // @gotags: kong:"default=http://127.0.0.1:2379,help='Address of _this_ plumber instance etcd client interface. Example: http://local-ip:2379',env='PLUMBER_SERVER_ADVERTISE_CLIENT_URL',required"
     string advertise_client_url = 7;
 
-    // @gotags: kong:"help='Address that _this_ plumber instance etcd server should listen on. Example: http://local-ip:2380',env='PLUMBER_SERVER_LISTENER_PEER_URL'"
+    // @gotags: kong:"default=http://127.0.0.1:2380,help='Address that _this_ plumber instance etcd server should listen on. Example: http://local-ip:2380',env='PLUMBER_SERVER_LISTENER_PEER_URL'"
     string listener_peer_url = 8;
 
-    // @gotags: kong:"help='Address that _this_ plumber instance etcd client should listen on. Example: http://local-ip:2379',env='PLUMBER_SERVER_LISTENER_CLIENT_URL'"
+    // @gotags: kong:"default=http://127.0.0.1:2379,help='Address that _this_ plumber instance etcd client should listen on. Example: http://local-ip:2379',env='PLUMBER_SERVER_LISTENER_CLIENT_URL'"
     string listener_client_url = 9;
 
-    // @gotags: kong:"help='Secret token that ALL cluster members should use/share. If this token does not match on one of the plumber instances, this node will NOT be able to join the cluster.',env='PLUMBER_SERVER_PEER_TOKEN'"
+    // @gotags: kong:"default=secret,help='Secret token that ALL cluster members should use/share. If this token does not match on one of the plumber instances, this node will NOT be able to join the cluster.',env='PLUMBER_SERVER_PEER_TOKEN'"
     string peer_token = 10;
 }
