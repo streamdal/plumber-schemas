@@ -119,11 +119,14 @@ generate/go:
 	protos/records/*.proto
 
 # Perform any extra steps as part of codegen
+	# Running code generation tasks
 	go run generate-type-aliases.go
+	go run generate-conn-opts-func.go
 
 .PHONY: inject-tags
 inject-tags: description = Inject tags for CLI
 inject-tags:
+	# Injecting tags into *.pb.go files...
 	protoc-go-inject-tag -input="build/go/protos/*.pb.go"
 	protoc-go-inject-tag -input="build/go/protos/args/*.pb.go"
 	protoc-go-inject-tag -input="build/go/protos/common/*.pb.go"
