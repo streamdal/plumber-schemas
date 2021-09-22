@@ -10,11 +10,9 @@ import * as ps_connect_pb from "./ps_connect_pb";
 import * as ps_read_pb from "./ps_read_pb";
 import * as ps_write_pb from "./ps_write_pb";
 import * as ps_relay_pb from "./ps_relay_pb";
-import * as ps_github_pb from "./ps_github_pb";
 import * as ps_schema_pb from "./ps_schema_pb";
 import * as ps_service_pb from "./ps_service_pb";
 import * as ps_server_pb from "./ps_server_pb";
-import * as ps_ghserver_pb from "./ps_ghserver_pb";
 
 interface IPlumberServerService extends grpc.ServiceDefinition<grpc.UntypedServiceImplementation> {
     getAllConnections: IPlumberServerService_IGetAllConnections;
@@ -36,9 +34,6 @@ interface IPlumberServerService extends grpc.ServiceDefinition<grpc.UntypedServi
     stopRelay: IPlumberServerService_IStopRelay;
     getAllRelays: IPlumberServerService_IGetAllRelays;
     deleteRelay: IPlumberServerService_IDeleteRelay;
-    startGithubAuth: IPlumberServerService_IStartGithubAuth;
-    pollGithubAuth: IPlumberServerService_IPollGithubAuth;
-    isGithubAuth: IPlumberServerService_IIsGithubAuth;
     getSchema: IPlumberServerService_IGetSchema;
     getAllSchemas: IPlumberServerService_IGetAllSchemas;
     importGithub: IPlumberServerService_IImportGithub;
@@ -50,7 +45,6 @@ interface IPlumberServerService extends grpc.ServiceDefinition<grpc.UntypedServi
     updateService: IPlumberServerService_IUpdateService;
     deleteService: IPlumberServerService_IDeleteService;
     getServerOptions: IPlumberServerService_IGetServerOptions;
-    getGithubEvents: IPlumberServerService_IGetGithubEvents;
 }
 
 interface IPlumberServerService_IGetAllConnections extends grpc.MethodDefinition<ps_connect_pb.GetAllConnectionsRequest, ps_connect_pb.GetAllConnectionsResponse> {
@@ -224,33 +218,6 @@ interface IPlumberServerService_IDeleteRelay extends grpc.MethodDefinition<ps_re
     responseSerialize: grpc.serialize<ps_relay_pb.DeleteRelayResponse>;
     responseDeserialize: grpc.deserialize<ps_relay_pb.DeleteRelayResponse>;
 }
-interface IPlumberServerService_IStartGithubAuth extends grpc.MethodDefinition<ps_github_pb.StartGithubAuthRequest, ps_github_pb.StartGithubAuthResponse> {
-    path: "/protos.PlumberServer/StartGithubAuth";
-    requestStream: false;
-    responseStream: false;
-    requestSerialize: grpc.serialize<ps_github_pb.StartGithubAuthRequest>;
-    requestDeserialize: grpc.deserialize<ps_github_pb.StartGithubAuthRequest>;
-    responseSerialize: grpc.serialize<ps_github_pb.StartGithubAuthResponse>;
-    responseDeserialize: grpc.deserialize<ps_github_pb.StartGithubAuthResponse>;
-}
-interface IPlumberServerService_IPollGithubAuth extends grpc.MethodDefinition<ps_github_pb.PollGithubAuthRequest, ps_github_pb.PollGithubAuthResponse> {
-    path: "/protos.PlumberServer/PollGithubAuth";
-    requestStream: false;
-    responseStream: true;
-    requestSerialize: grpc.serialize<ps_github_pb.PollGithubAuthRequest>;
-    requestDeserialize: grpc.deserialize<ps_github_pb.PollGithubAuthRequest>;
-    responseSerialize: grpc.serialize<ps_github_pb.PollGithubAuthResponse>;
-    responseDeserialize: grpc.deserialize<ps_github_pb.PollGithubAuthResponse>;
-}
-interface IPlumberServerService_IIsGithubAuth extends grpc.MethodDefinition<ps_github_pb.IsGithubAuthRequest, ps_github_pb.IsGithubAuthResponse> {
-    path: "/protos.PlumberServer/IsGithubAuth";
-    requestStream: false;
-    responseStream: false;
-    requestSerialize: grpc.serialize<ps_github_pb.IsGithubAuthRequest>;
-    requestDeserialize: grpc.deserialize<ps_github_pb.IsGithubAuthRequest>;
-    responseSerialize: grpc.serialize<ps_github_pb.IsGithubAuthResponse>;
-    responseDeserialize: grpc.deserialize<ps_github_pb.IsGithubAuthResponse>;
-}
 interface IPlumberServerService_IGetSchema extends grpc.MethodDefinition<ps_schema_pb.GetSchemaRequest, ps_schema_pb.GetSchemaResponse> {
     path: "/protos.PlumberServer/GetSchema";
     requestStream: false;
@@ -350,15 +317,6 @@ interface IPlumberServerService_IGetServerOptions extends grpc.MethodDefinition<
     responseSerialize: grpc.serialize<ps_server_pb.GetServerOptionsResponse>;
     responseDeserialize: grpc.deserialize<ps_server_pb.GetServerOptionsResponse>;
 }
-interface IPlumberServerService_IGetGithubEvents extends grpc.MethodDefinition<ps_github_pb.GetGithubEventsRequest, ps_ghserver_pb.GithubEvent> {
-    path: "/protos.PlumberServer/GetGithubEvents";
-    requestStream: false;
-    responseStream: true;
-    requestSerialize: grpc.serialize<ps_github_pb.GetGithubEventsRequest>;
-    requestDeserialize: grpc.deserialize<ps_github_pb.GetGithubEventsRequest>;
-    responseSerialize: grpc.serialize<ps_ghserver_pb.GithubEvent>;
-    responseDeserialize: grpc.deserialize<ps_ghserver_pb.GithubEvent>;
-}
 
 export const PlumberServerService: IPlumberServerService;
 
@@ -382,9 +340,6 @@ export interface IPlumberServerServer extends grpc.UntypedServiceImplementation 
     stopRelay: grpc.handleUnaryCall<ps_relay_pb.StopRelayRequest, ps_relay_pb.StopRelayResponse>;
     getAllRelays: grpc.handleUnaryCall<ps_relay_pb.GetAllRelaysRequest, ps_relay_pb.GetAllRelaysResponse>;
     deleteRelay: grpc.handleUnaryCall<ps_relay_pb.DeleteRelayRequest, ps_relay_pb.DeleteRelayResponse>;
-    startGithubAuth: grpc.handleUnaryCall<ps_github_pb.StartGithubAuthRequest, ps_github_pb.StartGithubAuthResponse>;
-    pollGithubAuth: grpc.handleServerStreamingCall<ps_github_pb.PollGithubAuthRequest, ps_github_pb.PollGithubAuthResponse>;
-    isGithubAuth: grpc.handleUnaryCall<ps_github_pb.IsGithubAuthRequest, ps_github_pb.IsGithubAuthResponse>;
     getSchema: grpc.handleUnaryCall<ps_schema_pb.GetSchemaRequest, ps_schema_pb.GetSchemaResponse>;
     getAllSchemas: grpc.handleUnaryCall<ps_schema_pb.GetAllSchemasRequest, ps_schema_pb.GetAllSchemasResponse>;
     importGithub: grpc.handleUnaryCall<ps_schema_pb.ImportGithubRequest, ps_schema_pb.ImportGithubResponse>;
@@ -396,7 +351,6 @@ export interface IPlumberServerServer extends grpc.UntypedServiceImplementation 
     updateService: grpc.handleUnaryCall<ps_service_pb.UpdateServiceRequest, ps_service_pb.UpdateServiceResponse>;
     deleteService: grpc.handleUnaryCall<ps_service_pb.DeleteServiceRequest, ps_service_pb.DeleteServiceResponse>;
     getServerOptions: grpc.handleUnaryCall<ps_server_pb.GetServerOptionsRequest, ps_server_pb.GetServerOptionsResponse>;
-    getGithubEvents: grpc.handleServerStreamingCall<ps_github_pb.GetGithubEventsRequest, ps_ghserver_pb.GithubEvent>;
 }
 
 export interface IPlumberServerClient {
@@ -456,14 +410,6 @@ export interface IPlumberServerClient {
     deleteRelay(request: ps_relay_pb.DeleteRelayRequest, callback: (error: grpc.ServiceError | null, response: ps_relay_pb.DeleteRelayResponse) => void): grpc.ClientUnaryCall;
     deleteRelay(request: ps_relay_pb.DeleteRelayRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: ps_relay_pb.DeleteRelayResponse) => void): grpc.ClientUnaryCall;
     deleteRelay(request: ps_relay_pb.DeleteRelayRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: ps_relay_pb.DeleteRelayResponse) => void): grpc.ClientUnaryCall;
-    startGithubAuth(request: ps_github_pb.StartGithubAuthRequest, callback: (error: grpc.ServiceError | null, response: ps_github_pb.StartGithubAuthResponse) => void): grpc.ClientUnaryCall;
-    startGithubAuth(request: ps_github_pb.StartGithubAuthRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: ps_github_pb.StartGithubAuthResponse) => void): grpc.ClientUnaryCall;
-    startGithubAuth(request: ps_github_pb.StartGithubAuthRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: ps_github_pb.StartGithubAuthResponse) => void): grpc.ClientUnaryCall;
-    pollGithubAuth(request: ps_github_pb.PollGithubAuthRequest, options?: Partial<grpc.CallOptions>): grpc.ClientReadableStream<ps_github_pb.PollGithubAuthResponse>;
-    pollGithubAuth(request: ps_github_pb.PollGithubAuthRequest, metadata?: grpc.Metadata, options?: Partial<grpc.CallOptions>): grpc.ClientReadableStream<ps_github_pb.PollGithubAuthResponse>;
-    isGithubAuth(request: ps_github_pb.IsGithubAuthRequest, callback: (error: grpc.ServiceError | null, response: ps_github_pb.IsGithubAuthResponse) => void): grpc.ClientUnaryCall;
-    isGithubAuth(request: ps_github_pb.IsGithubAuthRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: ps_github_pb.IsGithubAuthResponse) => void): grpc.ClientUnaryCall;
-    isGithubAuth(request: ps_github_pb.IsGithubAuthRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: ps_github_pb.IsGithubAuthResponse) => void): grpc.ClientUnaryCall;
     getSchema(request: ps_schema_pb.GetSchemaRequest, callback: (error: grpc.ServiceError | null, response: ps_schema_pb.GetSchemaResponse) => void): grpc.ClientUnaryCall;
     getSchema(request: ps_schema_pb.GetSchemaRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: ps_schema_pb.GetSchemaResponse) => void): grpc.ClientUnaryCall;
     getSchema(request: ps_schema_pb.GetSchemaRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: ps_schema_pb.GetSchemaResponse) => void): grpc.ClientUnaryCall;
@@ -497,8 +443,6 @@ export interface IPlumberServerClient {
     getServerOptions(request: ps_server_pb.GetServerOptionsRequest, callback: (error: grpc.ServiceError | null, response: ps_server_pb.GetServerOptionsResponse) => void): grpc.ClientUnaryCall;
     getServerOptions(request: ps_server_pb.GetServerOptionsRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: ps_server_pb.GetServerOptionsResponse) => void): grpc.ClientUnaryCall;
     getServerOptions(request: ps_server_pb.GetServerOptionsRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: ps_server_pb.GetServerOptionsResponse) => void): grpc.ClientUnaryCall;
-    getGithubEvents(request: ps_github_pb.GetGithubEventsRequest, options?: Partial<grpc.CallOptions>): grpc.ClientReadableStream<ps_ghserver_pb.GithubEvent>;
-    getGithubEvents(request: ps_github_pb.GetGithubEventsRequest, metadata?: grpc.Metadata, options?: Partial<grpc.CallOptions>): grpc.ClientReadableStream<ps_ghserver_pb.GithubEvent>;
 }
 
 export class PlumberServerClient extends grpc.Client implements IPlumberServerClient {
@@ -559,14 +503,6 @@ export class PlumberServerClient extends grpc.Client implements IPlumberServerCl
     public deleteRelay(request: ps_relay_pb.DeleteRelayRequest, callback: (error: grpc.ServiceError | null, response: ps_relay_pb.DeleteRelayResponse) => void): grpc.ClientUnaryCall;
     public deleteRelay(request: ps_relay_pb.DeleteRelayRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: ps_relay_pb.DeleteRelayResponse) => void): grpc.ClientUnaryCall;
     public deleteRelay(request: ps_relay_pb.DeleteRelayRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: ps_relay_pb.DeleteRelayResponse) => void): grpc.ClientUnaryCall;
-    public startGithubAuth(request: ps_github_pb.StartGithubAuthRequest, callback: (error: grpc.ServiceError | null, response: ps_github_pb.StartGithubAuthResponse) => void): grpc.ClientUnaryCall;
-    public startGithubAuth(request: ps_github_pb.StartGithubAuthRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: ps_github_pb.StartGithubAuthResponse) => void): grpc.ClientUnaryCall;
-    public startGithubAuth(request: ps_github_pb.StartGithubAuthRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: ps_github_pb.StartGithubAuthResponse) => void): grpc.ClientUnaryCall;
-    public pollGithubAuth(request: ps_github_pb.PollGithubAuthRequest, options?: Partial<grpc.CallOptions>): grpc.ClientReadableStream<ps_github_pb.PollGithubAuthResponse>;
-    public pollGithubAuth(request: ps_github_pb.PollGithubAuthRequest, metadata?: grpc.Metadata, options?: Partial<grpc.CallOptions>): grpc.ClientReadableStream<ps_github_pb.PollGithubAuthResponse>;
-    public isGithubAuth(request: ps_github_pb.IsGithubAuthRequest, callback: (error: grpc.ServiceError | null, response: ps_github_pb.IsGithubAuthResponse) => void): grpc.ClientUnaryCall;
-    public isGithubAuth(request: ps_github_pb.IsGithubAuthRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: ps_github_pb.IsGithubAuthResponse) => void): grpc.ClientUnaryCall;
-    public isGithubAuth(request: ps_github_pb.IsGithubAuthRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: ps_github_pb.IsGithubAuthResponse) => void): grpc.ClientUnaryCall;
     public getSchema(request: ps_schema_pb.GetSchemaRequest, callback: (error: grpc.ServiceError | null, response: ps_schema_pb.GetSchemaResponse) => void): grpc.ClientUnaryCall;
     public getSchema(request: ps_schema_pb.GetSchemaRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: ps_schema_pb.GetSchemaResponse) => void): grpc.ClientUnaryCall;
     public getSchema(request: ps_schema_pb.GetSchemaRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: ps_schema_pb.GetSchemaResponse) => void): grpc.ClientUnaryCall;
@@ -600,6 +536,4 @@ export class PlumberServerClient extends grpc.Client implements IPlumberServerCl
     public getServerOptions(request: ps_server_pb.GetServerOptionsRequest, callback: (error: grpc.ServiceError | null, response: ps_server_pb.GetServerOptionsResponse) => void): grpc.ClientUnaryCall;
     public getServerOptions(request: ps_server_pb.GetServerOptionsRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: ps_server_pb.GetServerOptionsResponse) => void): grpc.ClientUnaryCall;
     public getServerOptions(request: ps_server_pb.GetServerOptionsRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: ps_server_pb.GetServerOptionsResponse) => void): grpc.ClientUnaryCall;
-    public getGithubEvents(request: ps_github_pb.GetGithubEventsRequest, options?: Partial<grpc.CallOptions>): grpc.ClientReadableStream<ps_ghserver_pb.GithubEvent>;
-    public getGithubEvents(request: ps_github_pb.GetGithubEventsRequest, metadata?: grpc.Metadata, options?: Partial<grpc.CallOptions>): grpc.ClientReadableStream<ps_ghserver_pb.GithubEvent>;
 }

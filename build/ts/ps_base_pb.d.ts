@@ -9,8 +9,6 @@ import * as ps_connect_pb from "./ps_connect_pb";
 import * as ps_read_pb from "./ps_read_pb";
 import * as ps_write_pb from "./ps_write_pb";
 import * as ps_relay_pb from "./ps_relay_pb";
-import * as ps_github_pb from "./ps_github_pb";
 import * as ps_schema_pb from "./ps_schema_pb";
 import * as ps_service_pb from "./ps_service_pb";
 import * as ps_server_pb from "./ps_server_pb";
-import * as ps_ghserver_pb from "./ps_ghserver_pb";

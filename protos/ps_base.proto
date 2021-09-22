@@ -6,11 +6,9 @@ import "ps_connect.proto";
 import "ps_read.proto";
 import "ps_write.proto";
 import "ps_relay.proto";
-import "ps_github.proto";
 import "ps_schema.proto";
 import "ps_service.proto";
 import "ps_server.proto";
-import "ps_ghserver.proto";
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
 
@@ -69,15 +67,6 @@ service PlumberServer {
     // Delete an existing relay
     rpc DeleteRelay(DeleteRelayRequest) returns (DeleteRelayResponse);
 
-    // Begins github authorization process
-    rpc StartGithubAuth(StartGithubAuthRequest) returns (StartGithubAuthResponse);
-
-    // Starts a poll of the github authorization status
-    rpc PollGithubAuth(PollGithubAuthRequest) returns (stream PollGithubAuthResponse);
-
-    // Determines if we have authorized plumber with github
-    rpc IsGithubAuth(IsGithubAuthRequest) returns (IsGithubAuthResponse);
-
     // Retrieve a single schema
     rpc GetSchema(GetSchemaRequest) returns (GetSchemaResponse);
 
@@ -104,7 +93,4 @@ service PlumberServer {
     rpc DeleteService(DeleteServiceRequest) returns (DeleteServiceResponse);
 
     rpc GetServerOptions(GetServerOptionsRequest) returns (GetServerOptionsResponse);
-
-    // GetGithubEvents connects to github-app backend and returns a stream of events pushed from github
-    rpc GetGithubEvents(GetGithubEventsRequest) returns (stream GithubEvent);
 }
