@@ -16,11 +16,10 @@ enum EncodeType {
 
 enum DecodeType {
     DECODE_TYPE_UNSET      = 0;
-    DECODE_TYPE_JSONPB     = 1; // Not sure why this is here; I doubt we'll ever have someone writing jsonpb to the bus? ~ds 09.18.21
-    DECODE_TYPE_PROTOBUF   = 2;
-    DECODE_TYPE_AVRO       = 3;
-    DECODE_TYPE_THRIFT     = 4;
-    DECODE_TYPE_FLATBUFFER = 5;
+    DECODE_TYPE_PROTOBUF   = 1;
+    DECODE_TYPE_AVRO       = 2;
+    DECODE_TYPE_THRIFT     = 3;
+    DECODE_TYPE_FLATBUFFER = 4;
 }
 
 message ProtobufSettings {
@@ -77,7 +76,7 @@ message DecodeOptions {
     // @gotags: kong:"-"
     string schema_id = 1;
 
-    // @gotags: kong:"help='Decode type (0: Unset, 1: JSONPB, 2: Protobuf, 3: Avro, 4: Thrift, 5: Flatbuffer)',default=0"
+    // @gotags: kong:"help='Decode type (0: Unset, 1: Protobuf, 2: Avro, 3: Thrift, 4: Flatbuffer)',default=0"
     DecodeType decode_type = 2;
 
     // @gotags: kong:"embed,group=protobuf"

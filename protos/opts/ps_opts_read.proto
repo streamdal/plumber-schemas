@@ -63,7 +63,7 @@ message ReadOptions {
     string connection_id = 2;
 
     // Required; specify if a read is continuous or not (default: false)
-    // @gotags: short:"f" default: "false"
+    // @gotags: kong:"help='Follow/read continuously',short=f"
     bool continuous = 3;
 
     // Optional; specify if reading should utilize sampling

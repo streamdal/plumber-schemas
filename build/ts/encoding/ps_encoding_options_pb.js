@@ -1151,11 +1151,10 @@ proto.protos.encoding.EncodeType = {
  */
 proto.protos.encoding.DecodeType = {
   DECODE_TYPE_UNSET: 0,
-  DECODE_TYPE_JSONPB: 1,
-  DECODE_TYPE_PROTOBUF: 2,
-  DECODE_TYPE_AVRO: 3,
-  DECODE_TYPE_THRIFT: 4,
-  DECODE_TYPE_FLATBUFFER: 5
+  DECODE_TYPE_PROTOBUF: 1,
+  DECODE_TYPE_AVRO: 2,
+  DECODE_TYPE_THRIFT: 3,
+  DECODE_TYPE_FLATBUFFER: 4
 };
 
 goog.object.extend(exports, proto.protos.encoding);
