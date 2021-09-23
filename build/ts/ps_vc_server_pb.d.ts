@@ -1,19 +1,112 @@
 // package: protos
-// file: ps_ghserver.proto
+// file: ps_vc_server.proto
 
 /* tslint:disable */
 /* eslint-disable */
 
 import * as jspb from "google-protobuf";
 
-export class GithubEvent extends jspb.Message { 
-    getType(): GithubEvent.Type;
-    setType(value: GithubEvent.Type): GithubEvent;
+export class VCEvent extends jspb.Message { 
+    getType(): VCEvent.Type;
+    setType(value: VCEvent.Type): VCEvent;
 
     hasAuthResponse(): boolean;
     clearAuthResponse(): void;
     getAuthResponse(): AuthResponse | undefined;
-    setAuthResponse(value?: AuthResponse): GithubEvent;
+    setAuthResponse(value?: AuthResponse): VCEvent;
+
+    hasGithubEvent(): boolean;
+    clearGithubEvent(): void;
+    getGithubEvent(): GithubEvent | undefined;
+    setGithubEvent(value?: GithubEvent): VCEvent;
+
+    hasGitlabEvent(): boolean;
+    clearGitlabEvent(): void;
+    getGitlabEvent(): GitlabEvent | undefined;
+    setGitlabEvent(value?: GitlabEvent): VCEvent;
+
+    hasBitbucketEvent(): boolean;
+    clearBitbucketEvent(): void;
+    getBitbucketEvent(): BitbucketEvent | undefined;
+    setBitbucketEvent(value?: BitbucketEvent): VCEvent;
+
+    getVcEventCase(): VCEvent.VcEventCase;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): VCEvent.AsObject;
+    static toObject(includeInstance: boolean, msg: VCEvent): VCEvent.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: VCEvent, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): VCEvent;
+    static deserializeBinaryFromReader(message: VCEvent, reader: jspb.BinaryReader): VCEvent;
+}
+
+export namespace VCEvent {
+    export type AsObject = {
+        type: VCEvent.Type,
+        authResponse?: AuthResponse.AsObject,
+        githubEvent?: GithubEvent.AsObject,
+        gitlabEvent?: GitlabEvent.AsObject,
+        bitbucketEvent?: BitbucketEvent.AsObject,
+    }
+
+    export enum Type {
+    UNSET = 0,
+    AUTH_RESPONSE = 1,
+    GITHUB = 2,
+    GITLAB = 3,
+    BITBUCKET = 4,
+    }
+
+
+    export enum VcEventCase {
+        VC_EVENT_NOT_SET = 0,
+        AUTH_RESPONSE = 100,
+        GITHUB_EVENT = 101,
+        GITLAB_EVENT = 102,
+        BITBUCKET_EVENT = 103,
+    }
+
+}
+
+export class GitlabEvent extends jspb.Message { 
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): GitlabEvent.AsObject;
+    static toObject(includeInstance: boolean, msg: GitlabEvent): GitlabEvent.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: GitlabEvent, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): GitlabEvent;
+    static deserializeBinaryFromReader(message: GitlabEvent, reader: jspb.BinaryReader): GitlabEvent;
+}
+
+export namespace GitlabEvent {
+    export type AsObject = {
+    }
+}
+
+export class BitbucketEvent extends jspb.Message { 
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): BitbucketEvent.AsObject;
+    static toObject(includeInstance: boolean, msg: BitbucketEvent): BitbucketEvent.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: BitbucketEvent, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): BitbucketEvent;
+    static deserializeBinaryFromReader(message: BitbucketEvent, reader: jspb.BinaryReader): BitbucketEvent;
+}
+
+export namespace BitbucketEvent {
+    export type AsObject = {
+    }
+}
+
+export class GithubEvent extends jspb.Message { 
+    getType(): GithubEvent.Type;
+    setType(value: GithubEvent.Type): GithubEvent;
 
     hasInstallCreated(): boolean;
     clearInstallCreated(): void;
@@ -60,7 +153,6 @@ export class GithubEvent extends jspb.Message {
 export namespace GithubEvent {
     export type AsObject = {
         type: GithubEvent.Type,
-        authResponse?: AuthResponse.AsObject,
         installCreated?: InstallCreated.AsObject,
         installUpdated?: InstallUpdated.AsObject,
         installDeleted?: InstallDeleted.AsObject,
@@ -71,7 +163,6 @@ export namespace GithubEvent {
 
     export enum Type {
     UNSET = 0,
-    AUTH_RESPONSE = 1,
     INSTALL_CREATED = 2,
     INSTALL_UPDATED = 3,
     INSTALL_DELETED = 4,
@@ -83,13 +174,12 @@ export namespace GithubEvent {
 
     export enum PayloadCase {
         PAYLOAD_NOT_SET = 0,
-        AUTH_RESPONSE = 100,
-        INSTALL_CREATED = 101,
-        INSTALL_UPDATED = 102,
-        INSTALL_DELETED = 103,
-        PR_CREATED = 104,
-        PR_MERGED = 105,
-        NEW_JWT_TOKEN = 106,
+        INSTALL_CREATED = 100,
+        INSTALL_UPDATED = 101,
+        INSTALL_DELETED = 102,
+        PR_CREATED = 103,
+        PR_MERGED = 104,
+        NEW_JWT_TOKEN = 105,
     }
 
 }

@@ -9,6 +9,8 @@ import "ps_relay.proto";
 import "ps_schema.proto";
 import "ps_service.proto";
 import "ps_server.proto";
+import "ps_vc_server.proto";
+import "ps_vc_client.proto";
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
 
@@ -93,4 +95,9 @@ service PlumberServer {
     rpc DeleteService(DeleteServiceRequest) returns (DeleteServiceResponse);
 
     rpc GetServerOptions(GetServerOptionsRequest) returns (GetServerOptionsResponse);
+
+    rpc SetServerOptions(SetServerOptionsRequest) returns (SetServerOptionsResponse);
+
+    // GetVCEvents connects to vc-service backend and returns a stream of events pushed from github/bitbucket/etc
+    rpc GetVCEvents(GetVCEventsRequest) returns (stream VCEvent);
 }

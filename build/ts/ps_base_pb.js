@@ -29,3 +29,7 @@ var ps_service_pb = require('./ps_service_pb.js');
 goog.object.extend(proto, ps_service_pb);
 var ps_server_pb = require('./ps_server_pb.js');
 goog.object.extend(proto, ps_server_pb);
+var ps_vc_server_pb = require('./ps_vc_server_pb.js');
+goog.object.extend(proto, ps_vc_server_pb);
+var ps_vc_client_pb = require('./ps_vc_client_pb.js');
+goog.object.extend(proto, ps_vc_client_pb);

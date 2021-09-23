@@ -27,6 +27,12 @@ export class ServerOptions extends jspb.Message {
     setListenerClientUrl(value: string): ServerOptions;
     getPeerToken(): string;
     setPeerToken(value: string): ServerOptions;
+    getVcserviceGrpcAddress(): string;
+    setVcserviceGrpcAddress(value: string): ServerOptions;
+    getVcserviceGrpcTimeoutSeconds(): number;
+    setVcserviceGrpcTimeoutSeconds(value: number): ServerOptions;
+    getVcserviceGrpcInsecure(): boolean;
+    setVcserviceGrpcInsecure(value: boolean): ServerOptions;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): ServerOptions.AsObject;
@@ -50,5 +56,8 @@ export namespace ServerOptions {
         listenerPeerUrl: string,
         listenerClientUrl: string,
         peerToken: string,
+        vcserviceGrpcAddress: string,
+        vcserviceGrpcTimeoutSeconds: number,
+        vcserviceGrpcInsecure: boolean,
     }
 }
