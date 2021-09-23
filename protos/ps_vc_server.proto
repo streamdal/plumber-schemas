@@ -15,9 +15,10 @@ message VCEvent {
   enum Type {
     UNSET = 0;
     AUTH_RESPONSE = 1;
-    GITHUB = 2;
-    GITLAB = 3;
-    BITBUCKET = 4;
+    NEW_JWT_TOKEN = 2; // The plumber server has issued a new JWT token that needs to be stored in etcd
+    GITHUB = 3;
+    GITLAB = 4;
+    BITBUCKET = 5;
   }
 
   Type type = 1;
@@ -27,6 +28,7 @@ message VCEvent {
     GithubEvent github_event = 101;
     GitlabEvent gitlab_event = 102;
     BitbucketEvent bitbucket_event = 103;
+    NewJwtToken new_jwt_token = 104;
   }
 }
 
@@ -49,9 +51,6 @@ message GithubEvent {
     INSTALL_DELETED = 4;
     PULL_CREATED = 5;
     PULL_MERGED = 6;
-
-    // The plumber server has issued a new JWT token that needs to be stored in etcd
-    NEW_JWT_TOKEN = 7;
   }
 
   Type type = 1;
@@ -62,7 +61,6 @@ message GithubEvent {
     InstallDeleted install_deleted = 102;
     PullRequestCreated pr_created = 103;
     PullRequestMerged pr_merged = 104;
-    NewJwtToken new_jwt_token = 105;
   }
 }
 

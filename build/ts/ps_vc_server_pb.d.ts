@@ -30,6 +30,11 @@ export class VCEvent extends jspb.Message {
     getBitbucketEvent(): BitbucketEvent | undefined;
     setBitbucketEvent(value?: BitbucketEvent): VCEvent;
 
+    hasNewJwtToken(): boolean;
+    clearNewJwtToken(): void;
+    getNewJwtToken(): NewJwtToken | undefined;
+    setNewJwtToken(value?: NewJwtToken): VCEvent;
+
     getVcEventCase(): VCEvent.VcEventCase;
 
     serializeBinary(): Uint8Array;
@@ -49,14 +54,16 @@ export namespace VCEvent {
         githubEvent?: GithubEvent.AsObject,
         gitlabEvent?: GitlabEvent.AsObject,
         bitbucketEvent?: BitbucketEvent.AsObject,
+        newJwtToken?: NewJwtToken.AsObject,
     }
 
     export enum Type {
     UNSET = 0,
     AUTH_RESPONSE = 1,
-    GITHUB = 2,
-    GITLAB = 3,
-    BITBUCKET = 4,
+    NEW_JWT_TOKEN = 2,
+    GITHUB = 3,
+    GITLAB = 4,
+    BITBUCKET = 5,
     }
 
 
@@ -66,6 +73,7 @@ export namespace VCEvent {
         GITHUB_EVENT = 101,
         GITLAB_EVENT = 102,
         BITBUCKET_EVENT = 103,
+        NEW_JWT_TOKEN = 104,
     }
 
 }
@@ -133,11 +141,6 @@ export class GithubEvent extends jspb.Message {
     getPrMerged(): PullRequestMerged | undefined;
     setPrMerged(value?: PullRequestMerged): GithubEvent;
 
-    hasNewJwtToken(): boolean;
-    clearNewJwtToken(): void;
-    getNewJwtToken(): NewJwtToken | undefined;
-    setNewJwtToken(value?: NewJwtToken): GithubEvent;
-
     getPayloadCase(): GithubEvent.PayloadCase;
 
     serializeBinary(): Uint8Array;
@@ -158,7 +161,6 @@ export namespace GithubEvent {
         installDeleted?: InstallDeleted.AsObject,
         prCreated?: PullRequestCreated.AsObject,
         prMerged?: PullRequestMerged.AsObject,
-        newJwtToken?: NewJwtToken.AsObject,
     }
 
     export enum Type {
@@ -168,7 +170,6 @@ export namespace GithubEvent {
     INSTALL_DELETED = 4,
     PULL_CREATED = 5,
     PULL_MERGED = 6,
-    NEW_JWT_TOKEN = 7,
     }
 
 
@@ -179,7 +180,6 @@ export namespace GithubEvent {
         INSTALL_DELETED = 102,
         PR_CREATED = 103,
         PR_MERGED = 104,
-        NEW_JWT_TOKEN = 105,
     }
 
 }

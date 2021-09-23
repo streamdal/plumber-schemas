@@ -292,7 +292,7 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<!Array<number>>}
  * @const
  */
-proto.protos.VCEvent.oneofGroups_ = [[100,101,102,103]];
+proto.protos.VCEvent.oneofGroups_ = [[100,101,102,103,104]];
 
 /**
  * @enum {number}
@@ -302,7 +302,8 @@ proto.protos.VCEvent.VcEventCase = {
   AUTH_RESPONSE: 100,
   GITHUB_EVENT: 101,
   GITLAB_EVENT: 102,
-  BITBUCKET_EVENT: 103
+  BITBUCKET_EVENT: 103,
+  NEW_JWT_TOKEN: 104
 };
 
 /**
@@ -347,7 +348,8 @@ proto.protos.VCEvent.toObject = function(includeInstance, msg) {
     authResponse: (f = msg.getAuthResponse()) && proto.protos.AuthResponse.toObject(includeInstance, f),
     githubEvent: (f = msg.getGithubEvent()) && proto.protos.GithubEvent.toObject(includeInstance, f),
     gitlabEvent: (f = msg.getGitlabEvent()) && proto.protos.GitlabEvent.toObject(includeInstance, f),
-    bitbucketEvent: (f = msg.getBitbucketEvent()) && proto.protos.BitbucketEvent.toObject(includeInstance, f)
+    bitbucketEvent: (f = msg.getBitbucketEvent()) && proto.protos.BitbucketEvent.toObject(includeInstance, f),
+    newJwtToken: (f = msg.getNewJwtToken()) && proto.protos.NewJwtToken.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -407,6 +409,11 @@ proto.protos.VCEvent.deserializeBinaryFromReader = function(msg, reader) {
       var value = new proto.protos.BitbucketEvent;
       reader.readMessage(value,proto.protos.BitbucketEvent.deserializeBinaryFromReader);
       msg.setBitbucketEvent(value);
+      break;
+    case 104:
+      var value = new proto.protos.NewJwtToken;
+      reader.readMessage(value,proto.protos.NewJwtToken.deserializeBinaryFromReader);
+      msg.setNewJwtToken(value);
       break;
     default:
       reader.skipField();
@@ -476,6 +483,14 @@ proto.protos.VCEvent.serializeBinaryToWriter = function(message, writer) {
       proto.protos.BitbucketEvent.serializeBinaryToWriter
     );
   }
+  f = message.getNewJwtToken();
+  if (f != null) {
+    writer.writeMessage(
+      104,
+      f,
+      proto.protos.NewJwtToken.serializeBinaryToWriter
+    );
+  }
 };
 
 
@@ -485,9 +500,10 @@ proto.protos.VCEvent.serializeBinaryToWriter = function(message, writer) {
 proto.protos.VCEvent.Type = {
   UNSET: 0,
   AUTH_RESPONSE: 1,
-  GITHUB: 2,
-  GITLAB: 3,
-  BITBUCKET: 4
+  NEW_JWT_TOKEN: 2,
+  GITHUB: 3,
+  GITLAB: 4,
+  BITBUCKET: 5
 };
 
 /**
@@ -653,6 +669,43 @@ proto.protos.VCEvent.prototype.clearBitbucketEvent = function() {
  */
 proto.protos.VCEvent.prototype.hasBitbucketEvent = function() {
   return jspb.Message.getField(this, 103) != null;
+};
+
+
+/**
+ * optional NewJwtToken new_jwt_token = 104;
+ * @return {?proto.protos.NewJwtToken}
+ */
+proto.protos.VCEvent.prototype.getNewJwtToken = function() {
+  return /** @type{?proto.protos.NewJwtToken} */ (
+    jspb.Message.getWrapperField(this, proto.protos.NewJwtToken, 104));
+};
+
+
+/**
+ * @param {?proto.protos.NewJwtToken|undefined} value
+ * @return {!proto.protos.VCEvent} returns this
+*/
+proto.protos.VCEvent.prototype.setNewJwtToken = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 104, proto.protos.VCEvent.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.protos.VCEvent} returns this
+ */
+proto.protos.VCEvent.prototype.clearNewJwtToken = function() {
+  return this.setNewJwtToken(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.protos.VCEvent.prototype.hasNewJwtToken = function() {
+  return jspb.Message.getField(this, 104) != null;
 };
 
 
@@ -867,7 +920,7 @@ proto.protos.BitbucketEvent.serializeBinaryToWriter = function(message, writer) 
  * @private {!Array<!Array<number>>}
  * @const
  */
-proto.protos.GithubEvent.oneofGroups_ = [[100,101,102,103,104,105]];
+proto.protos.GithubEvent.oneofGroups_ = [[100,101,102,103,104]];
 
 /**
  * @enum {number}
@@ -878,8 +931,7 @@ proto.protos.GithubEvent.PayloadCase = {
   INSTALL_UPDATED: 101,
   INSTALL_DELETED: 102,
   PR_CREATED: 103,
-  PR_MERGED: 104,
-  NEW_JWT_TOKEN: 105
+  PR_MERGED: 104
 };
 
 /**
@@ -925,8 +977,7 @@ proto.protos.GithubEvent.toObject = function(includeInstance, msg) {
     installUpdated: (f = msg.getInstallUpdated()) && proto.protos.InstallUpdated.toObject(includeInstance, f),
     installDeleted: (f = msg.getInstallDeleted()) && proto.protos.InstallDeleted.toObject(includeInstance, f),
     prCreated: (f = msg.getPrCreated()) && proto.protos.PullRequestCreated.toObject(includeInstance, f),
-    prMerged: (f = msg.getPrMerged()) && proto.protos.PullRequestMerged.toObject(includeInstance, f),
-    newJwtToken: (f = msg.getNewJwtToken()) && proto.protos.NewJwtToken.toObject(includeInstance, f)
+    prMerged: (f = msg.getPrMerged()) && proto.protos.PullRequestMerged.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -991,11 +1042,6 @@ proto.protos.GithubEvent.deserializeBinaryFromReader = function(msg, reader) {
       var value = new proto.protos.PullRequestMerged;
       reader.readMessage(value,proto.protos.PullRequestMerged.deserializeBinaryFromReader);
       msg.setPrMerged(value);
-      break;
-    case 105:
-      var value = new proto.protos.NewJwtToken;
-      reader.readMessage(value,proto.protos.NewJwtToken.deserializeBinaryFromReader);
-      msg.setNewJwtToken(value);
       break;
     default:
       reader.skipField();
@@ -1073,14 +1119,6 @@ proto.protos.GithubEvent.serializeBinaryToWriter = function(message, writer) {
       proto.protos.PullRequestMerged.serializeBinaryToWriter
     );
   }
-  f = message.getNewJwtToken();
-  if (f != null) {
-    writer.writeMessage(
-      105,
-      f,
-      proto.protos.NewJwtToken.serializeBinaryToWriter
-    );
-  }
 };
 
 
@@ -1093,8 +1131,7 @@ proto.protos.GithubEvent.Type = {
   INSTALL_UPDATED: 3,
   INSTALL_DELETED: 4,
   PULL_CREATED: 5,
-  PULL_MERGED: 6,
-  NEW_JWT_TOKEN: 7
+  PULL_MERGED: 6
 };
 
 /**
@@ -1297,43 +1334,6 @@ proto.protos.GithubEvent.prototype.clearPrMerged = function() {
  */
 proto.protos.GithubEvent.prototype.hasPrMerged = function() {
   return jspb.Message.getField(this, 104) != null;
-};
-
-
-/**
- * optional NewJwtToken new_jwt_token = 105;
- * @return {?proto.protos.NewJwtToken}
- */
-proto.protos.GithubEvent.prototype.getNewJwtToken = function() {
-  return /** @type{?proto.protos.NewJwtToken} */ (
-    jspb.Message.getWrapperField(this, proto.protos.NewJwtToken, 105));
-};
-
-
-/**
- * @param {?proto.protos.NewJwtToken|undefined} value
- * @return {!proto.protos.GithubEvent} returns this
-*/
-proto.protos.GithubEvent.prototype.setNewJwtToken = function(value) {
-  return jspb.Message.setOneofWrapperField(this, 105, proto.protos.GithubEvent.oneofGroups_[0], value);
-};
-
-
-/**
- * Clears the message field making it undefined.
- * @return {!proto.protos.GithubEvent} returns this
- */
-proto.protos.GithubEvent.prototype.clearNewJwtToken = function() {
-  return this.setNewJwtToken(undefined);
-};
-
-
-/**
- * Returns whether this field is set.
- * @return {boolean}
- */
-proto.protos.GithubEvent.prototype.hasNewJwtToken = function() {
-  return jspb.Message.getField(this, 105) != null;
 };
 
 
