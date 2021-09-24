@@ -12,3 +12,5 @@ import * as ps_relay_pb from "./ps_relay_pb";
 import * as ps_schema_pb from "./ps_schema_pb";
 import * as ps_service_pb from "./ps_service_pb";
 import * as ps_server_pb from "./ps_server_pb";
+import * as ps_vc_server_pb from "./ps_vc_server_pb";
+import * as ps_vc_client_pb from "./ps_vc_client_pb";

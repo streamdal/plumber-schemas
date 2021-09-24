@@ -78,7 +78,10 @@ proto.protos.opts.ServerOptions.toObject = function(includeInstance, msg) {
     advertiseClientUrl: jspb.Message.getFieldWithDefault(msg, 7, ""),
     listenerPeerUrl: jspb.Message.getFieldWithDefault(msg, 8, ""),
     listenerClientUrl: jspb.Message.getFieldWithDefault(msg, 9, ""),
-    peerToken: jspb.Message.getFieldWithDefault(msg, 10, "")
+    peerToken: jspb.Message.getFieldWithDefault(msg, 10, ""),
+    vcserviceGrpcAddress: jspb.Message.getFieldWithDefault(msg, 11, ""),
+    vcserviceGrpcTimeoutSeconds: jspb.Message.getFieldWithDefault(msg, 12, 0),
+    vcserviceGrpcInsecure: jspb.Message.getBooleanFieldWithDefault(msg, 13, false)
   };
 
   if (includeInstance) {
@@ -154,6 +157,18 @@ proto.protos.opts.ServerOptions.deserializeBinaryFromReader = function(msg, read
     case 10:
       var value = /** @type {string} */ (reader.readString());
       msg.setPeerToken(value);
+      break;
+    case 11:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setVcserviceGrpcAddress(value);
+      break;
+    case 12:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setVcserviceGrpcTimeoutSeconds(value);
+      break;
+    case 13:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setVcserviceGrpcInsecure(value);
       break;
     default:
       reader.skipField();
@@ -251,6 +266,27 @@ proto.protos.opts.ServerOptions.serializeBinaryToWriter = function(message, writ
   if (f.length > 0) {
     writer.writeString(
       10,
+      f
+    );
+  }
+  f = message.getVcserviceGrpcAddress();
+  if (f.length > 0) {
+    writer.writeString(
+      11,
+      f
+    );
+  }
+  f = message.getVcserviceGrpcTimeoutSeconds();
+  if (f !== 0) {
+    writer.writeUint32(
+      12,
+      f
+    );
+  }
+  f = message.getVcserviceGrpcInsecure();
+  if (f) {
+    writer.writeBool(
+      13,
       f
     );
   }
@@ -434,6 +470,60 @@ proto.protos.opts.ServerOptions.prototype.getPeerToken = function() {
  */
 proto.protos.opts.ServerOptions.prototype.setPeerToken = function(value) {
   return jspb.Message.setProto3StringField(this, 10, value);
+};
+
+
+/**
+ * optional string vcservice_grpc_address = 11;
+ * @return {string}
+ */
+proto.protos.opts.ServerOptions.prototype.getVcserviceGrpcAddress = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 11, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.protos.opts.ServerOptions} returns this
+ */
+proto.protos.opts.ServerOptions.prototype.setVcserviceGrpcAddress = function(value) {
+  return jspb.Message.setProto3StringField(this, 11, value);
+};
+
+
+/**
+ * optional uint32 vcservice_grpc_timeout_seconds = 12;
+ * @return {number}
+ */
+proto.protos.opts.ServerOptions.prototype.getVcserviceGrpcTimeoutSeconds = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 12, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.protos.opts.ServerOptions} returns this
+ */
+proto.protos.opts.ServerOptions.prototype.setVcserviceGrpcTimeoutSeconds = function(value) {
+  return jspb.Message.setProto3IntField(this, 12, value);
+};
+
+
+/**
+ * optional bool vcservice_grpc_insecure = 13;
+ * @return {boolean}
+ */
+proto.protos.opts.ServerOptions.prototype.getVcserviceGrpcInsecure = function() {
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 13, false));
+};
+
+
+/**
+ * @param {boolean} value
+ * @return {!proto.protos.opts.ServerOptions} returns this
+ */
+proto.protos.opts.ServerOptions.prototype.setVcserviceGrpcInsecure = function(value) {
+  return jspb.Message.setProto3BooleanField(this, 13, value);
 };
 
 

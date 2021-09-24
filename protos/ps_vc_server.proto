@@ -1,42 +1,66 @@
-// @mark: we should explain the difference between ps_ghserver.proto and ps_github.proto
+// ps_vc_server.proto defines the server for Vc-service to serve, and plumber to consume
 syntax = "proto3";
 
 package protos;
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
 
-service GithubServer {
-  rpc Connect(ConnectAuthRequest) returns (stream GithubEvent);
+service VCService {
+  rpc Connect(ConnectAuthRequest) returns (stream VCEvent);
 }
 
-// GithubEvent is sent by batchcorp/github-service and received by Plumber instances to be acted upon
+// VCEvent is sent by batchcorp/vc-service and received by Plumber instances to be acted upon
 // It is also sent to the frontend to be acted upon
+message VCEvent {
+  enum Type {
+    UNSET = 0;
+    AUTH_RESPONSE = 1;
+    NEW_JWT_TOKEN = 2; // The plumber server has issued a new JWT token that needs to be stored in etcd
+    GITHUB = 3;
+    GITLAB = 4;
+    BITBUCKET = 5;
+  }
+
+  Type type = 1;
+
+  oneof vc_event {
+    AuthResponse auth_response = 100;
+    GithubEvent github_event = 101;
+    GitlabEvent gitlab_event = 102;
+    BitbucketEvent bitbucket_event = 103;
+    NewJwtToken new_jwt_token = 104;
+  }
+}
+
+message GitlabEvent {
+  // TODO
+}
+
+message BitbucketEvent {
+  // TODO
+}
+
 // See the following URL for reference to events we are receiving from github
 // https://docs.github.com/en/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#
 message GithubEvent {
   enum Type {
     UNSET = 0;
-    AUTH_RESPONSE = 1;
+
     INSTALL_CREATED = 2;
     INSTALL_UPDATED = 3;
     INSTALL_DELETED = 4;
     PULL_CREATED = 5;
     PULL_MERGED = 6;
-
-    // The plumber server has issued a new JWT token that needs to be stored in etcd
-    NEW_JWT_TOKEN = 7;
   }
 
   Type type = 1;
 
   oneof payload {
-    AuthResponse auth_response = 100;
-    InstallCreated install_created = 101;
-    InstallUpdated install_updated = 102;
-    InstallDeleted install_deleted = 103;
-    PullRequestCreated pr_created = 104;
-    PullRequestMerged pr_merged = 105;
-    NewJwtToken new_jwt_token = 106;
+    InstallCreated install_created = 100;
+    InstallUpdated install_updated = 101;
+    InstallDeleted install_deleted = 102;
+    PullRequestCreated pr_created = 103;
+    PullRequestMerged pr_merged = 104;
   }
 }
 
@@ -46,7 +70,7 @@ message ConnectAuthRequest {
   string api_token = 1;
 }
 
-// AuthResponse is sent by github-service and received by plumber GithubServer.Connect()
+// AuthResponse is sent by github-service and received by plumber VCServiceServer.Connect()
 message AuthResponse {
   bool authorized = 1;
   string message = 2;

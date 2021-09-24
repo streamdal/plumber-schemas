@@ -13,6 +13,8 @@ import * as ps_relay_pb from "./ps_relay_pb";
 import * as ps_schema_pb from "./ps_schema_pb";
 import * as ps_service_pb from "./ps_service_pb";
 import * as ps_server_pb from "./ps_server_pb";
+import * as ps_vc_server_pb from "./ps_vc_server_pb";
+import * as ps_vc_client_pb from "./ps_vc_client_pb";
 
 interface IPlumberServerService extends grpc.ServiceDefinition<grpc.UntypedServiceImplementation> {
     getAllConnections: IPlumberServerService_IGetAllConnections;
@@ -45,6 +47,8 @@ interface IPlumberServerService extends grpc.ServiceDefinition<grpc.UntypedServi
     updateService: IPlumberServerService_IUpdateService;
     deleteService: IPlumberServerService_IDeleteService;
     getServerOptions: IPlumberServerService_IGetServerOptions;
+    setServerOptions: IPlumberServerService_ISetServerOptions;
+    getVCEvents: IPlumberServerService_IGetVCEvents;
 }
 
 interface IPlumberServerService_IGetAllConnections extends grpc.MethodDefinition<ps_connect_pb.GetAllConnectionsRequest, ps_connect_pb.GetAllConnectionsResponse> {
@@ -317,6 +321,24 @@ interface IPlumberServerService_IGetServerOptions extends grpc.MethodDefinition<
     responseSerialize: grpc.serialize<ps_server_pb.GetServerOptionsResponse>;
     responseDeserialize: grpc.deserialize<ps_server_pb.GetServerOptionsResponse>;
 }
+interface IPlumberServerService_ISetServerOptions extends grpc.MethodDefinition<ps_server_pb.SetServerOptionsRequest, ps_server_pb.SetServerOptionsResponse> {
+    path: "/protos.PlumberServer/SetServerOptions";
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<ps_server_pb.SetServerOptionsRequest>;
+    requestDeserialize: grpc.deserialize<ps_server_pb.SetServerOptionsRequest>;
+    responseSerialize: grpc.serialize<ps_server_pb.SetServerOptionsResponse>;
+    responseDeserialize: grpc.deserialize<ps_server_pb.SetServerOptionsResponse>;
+}
+interface IPlumberServerService_IGetVCEvents extends grpc.MethodDefinition<ps_vc_client_pb.GetVCEventsRequest, ps_vc_server_pb.VCEvent> {
+    path: "/protos.PlumberServer/GetVCEvents";
+    requestStream: false;
+    responseStream: true;
+    requestSerialize: grpc.serialize<ps_vc_client_pb.GetVCEventsRequest>;
+    requestDeserialize: grpc.deserialize<ps_vc_client_pb.GetVCEventsRequest>;
+    responseSerialize: grpc.serialize<ps_vc_server_pb.VCEvent>;
+    responseDeserialize: grpc.deserialize<ps_vc_server_pb.VCEvent>;
+}
 
 export const PlumberServerService: IPlumberServerService;
 
@@ -351,6 +373,8 @@ export interface IPlumberServerServer extends grpc.UntypedServiceImplementation 
     updateService: grpc.handleUnaryCall<ps_service_pb.UpdateServiceRequest, ps_service_pb.UpdateServiceResponse>;
     deleteService: grpc.handleUnaryCall<ps_service_pb.DeleteServiceRequest, ps_service_pb.DeleteServiceResponse>;
     getServerOptions: grpc.handleUnaryCall<ps_server_pb.GetServerOptionsRequest, ps_server_pb.GetServerOptionsResponse>;
+    setServerOptions: grpc.handleUnaryCall<ps_server_pb.SetServerOptionsRequest, ps_server_pb.SetServerOptionsResponse>;
+    getVCEvents: grpc.handleServerStreamingCall<ps_vc_client_pb.GetVCEventsRequest, ps_vc_server_pb.VCEvent>;
 }
 
 export interface IPlumberServerClient {
@@ -443,6 +467,11 @@ export interface IPlumberServerClient {
     getServerOptions(request: ps_server_pb.GetServerOptionsRequest, callback: (error: grpc.ServiceError | null, response: ps_server_pb.GetServerOptionsResponse) => void): grpc.ClientUnaryCall;
     getServerOptions(request: ps_server_pb.GetServerOptionsRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: ps_server_pb.GetServerOptionsResponse) => void): grpc.ClientUnaryCall;
     getServerOptions(request: ps_server_pb.GetServerOptionsRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: ps_server_pb.GetServerOptionsResponse) => void): grpc.ClientUnaryCall;
+    setServerOptions(request: ps_server_pb.SetServerOptionsRequest, callback: (error: grpc.ServiceError | null, response: ps_server_pb.SetServerOptionsResponse) => void): grpc.ClientUnaryCall;
+    setServerOptions(request: ps_server_pb.SetServerOptionsRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: ps_server_pb.SetServerOptionsResponse) => void): grpc.ClientUnaryCall;
+    setServerOptions(request: ps_server_pb.SetServerOptionsRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: ps_server_pb.SetServerOptionsResponse) => void): grpc.ClientUnaryCall;
+    getVCEvents(request: ps_vc_client_pb.GetVCEventsRequest, options?: Partial<grpc.CallOptions>): grpc.ClientReadableStream<ps_vc_server_pb.VCEvent>;
+    getVCEvents(request: ps_vc_client_pb.GetVCEventsRequest, metadata?: grpc.Metadata, options?: Partial<grpc.CallOptions>): grpc.ClientReadableStream<ps_vc_server_pb.VCEvent>;
 }
 
 export class PlumberServerClient extends grpc.Client implements IPlumberServerClient {
@@ -536,4 +565,9 @@ export class PlumberServerClient extends grpc.Client implements IPlumberServerCl
     public getServerOptions(request: ps_server_pb.GetServerOptionsRequest, callback: (error: grpc.ServiceError | null, response: ps_server_pb.GetServerOptionsResponse) => void): grpc.ClientUnaryCall;
     public getServerOptions(request: ps_server_pb.GetServerOptionsRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: ps_server_pb.GetServerOptionsResponse) => void): grpc.ClientUnaryCall;
     public getServerOptions(request: ps_server_pb.GetServerOptionsRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: ps_server_pb.GetServerOptionsResponse) => void): grpc.ClientUnaryCall;
+    public setServerOptions(request: ps_server_pb.SetServerOptionsRequest, callback: (error: grpc.ServiceError | null, response: ps_server_pb.SetServerOptionsResponse) => void): grpc.ClientUnaryCall;
+    public setServerOptions(request: ps_server_pb.SetServerOptionsRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: ps_server_pb.SetServerOptionsResponse) => void): grpc.ClientUnaryCall;
+    public setServerOptions(request: ps_server_pb.SetServerOptionsRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: ps_server_pb.SetServerOptionsResponse) => void): grpc.ClientUnaryCall;
+    public getVCEvents(request: ps_vc_client_pb.GetVCEventsRequest, options?: Partial<grpc.CallOptions>): grpc.ClientReadableStream<ps_vc_server_pb.VCEvent>;
+    public getVCEvents(request: ps_vc_client_pb.GetVCEventsRequest, metadata?: grpc.Metadata, options?: Partial<grpc.CallOptions>): grpc.ClientReadableStream<ps_vc_server_pb.VCEvent>;
 }

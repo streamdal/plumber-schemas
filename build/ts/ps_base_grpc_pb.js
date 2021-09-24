@@ -9,6 +9,8 @@ var ps_relay_pb = require('./ps_relay_pb.js');
 var ps_schema_pb = require('./ps_schema_pb.js');
 var ps_service_pb = require('./ps_service_pb.js');
 var ps_server_pb = require('./ps_server_pb.js');
+var ps_vc_server_pb = require('./ps_vc_server_pb.js');
+var ps_vc_client_pb = require('./ps_vc_client_pb.js');
 
 function serialize_protos_CreateConnectionRequest(arg) {
   if (!(arg instanceof ps_connect_pb.CreateConnectionRequest)) {
@@ -406,6 +408,17 @@ function deserialize_protos_GetServiceResponse(buffer_arg) {
   return ps_service_pb.GetServiceResponse.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
+function serialize_protos_GetVCEventsRequest(arg) {
+  if (!(arg instanceof ps_vc_client_pb.GetVCEventsRequest)) {
+    throw new Error('Expected argument of type protos.GetVCEventsRequest');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_protos_GetVCEventsRequest(buffer_arg) {
+  return ps_vc_client_pb.GetVCEventsRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
 function serialize_protos_ImportGithubRequest(arg) {
   if (!(arg instanceof ps_schema_pb.ImportGithubRequest)) {
     throw new Error('Expected argument of type protos.ImportGithubRequest');
@@ -492,6 +505,28 @@ function serialize_protos_ResumeRelayResponse(arg) {
 
 function deserialize_protos_ResumeRelayResponse(buffer_arg) {
   return ps_relay_pb.ResumeRelayResponse.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_protos_SetServerOptionsRequest(arg) {
+  if (!(arg instanceof ps_server_pb.SetServerOptionsRequest)) {
+    throw new Error('Expected argument of type protos.SetServerOptionsRequest');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_protos_SetServerOptionsRequest(buffer_arg) {
+  return ps_server_pb.SetServerOptionsRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_protos_SetServerOptionsResponse(arg) {
+  if (!(arg instanceof ps_server_pb.SetServerOptionsResponse)) {
+    throw new Error('Expected argument of type protos.SetServerOptionsResponse');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_protos_SetServerOptionsResponse(buffer_arg) {
+  return ps_server_pb.SetServerOptionsResponse.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
 function serialize_protos_StartReadRequest(arg) {
@@ -646,6 +681,17 @@ function serialize_protos_UpdateServiceResponse(arg) {
 
 function deserialize_protos_UpdateServiceResponse(buffer_arg) {
   return ps_service_pb.UpdateServiceResponse.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_protos_VCEvent(arg) {
+  if (!(arg instanceof ps_vc_server_pb.VCEvent)) {
+    throw new Error('Expected argument of type protos.VCEvent');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_protos_VCEvent(buffer_arg) {
+  return ps_vc_server_pb.VCEvent.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
 function serialize_protos_WriteRequest(arg) {
@@ -1022,6 +1068,29 @@ deleteSchema: {
     requestDeserialize: deserialize_protos_GetServerOptionsRequest,
     responseSerialize: serialize_protos_GetServerOptionsResponse,
     responseDeserialize: deserialize_protos_GetServerOptionsResponse,
+  },
+  setServerOptions: {
+    path: '/protos.PlumberServer/SetServerOptions',
+    requestStream: false,
+    responseStream: false,
+    requestType: ps_server_pb.SetServerOptionsRequest,
+    responseType: ps_server_pb.SetServerOptionsResponse,
+    requestSerialize: serialize_protos_SetServerOptionsRequest,
+    requestDeserialize: deserialize_protos_SetServerOptionsRequest,
+    responseSerialize: serialize_protos_SetServerOptionsResponse,
+    responseDeserialize: deserialize_protos_SetServerOptionsResponse,
+  },
+  // GetVCEvents connects to vc-service backend and returns a stream of events pushed from github/bitbucket/etc
+getVCEvents: {
+    path: '/protos.PlumberServer/GetVCEvents',
+    requestStream: false,
+    responseStream: true,
+    requestType: ps_vc_client_pb.GetVCEventsRequest,
+    responseType: ps_vc_server_pb.VCEvent,
+    requestSerialize: serialize_protos_GetVCEventsRequest,
+    requestDeserialize: deserialize_protos_GetVCEventsRequest,
+    responseSerialize: serialize_protos_VCEvent,
+    responseDeserialize: deserialize_protos_VCEvent,
   },
 };
 
