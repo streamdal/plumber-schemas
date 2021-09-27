@@ -50,20 +50,19 @@ generate/all: generate/ts generate/go inject-tags
 generate/ts: description = Compile TypeScript Interfaces for UI
 generate/ts: clean-ts
 generate/ts:
-	mkdir -p build/ts
-	yarn run grpc_tools_node_protoc \
-    --plugin=protoc-gen-ts=./node_modules/.bin/protoc-gen-ts \
-    --ts_out=grpc_js:${TS_DEST} \
-    --js_out=import_style=commonjs,binary:${TS_DEST} \
-    --grpc_out=grpc_js:${TS_DEST} \
-    -I=./protos \
-    -I=./protos/args \
-    -I=./protos/common \
-    -I=./protos/opts \
-    -I=./protos/encoding \
-    -I=./protos/records \
-    protos/*.proto \
-    protos/**/*.proto
+	mkdir -p build/ts 
+	./node_modules/.bin/pbjs \
+	-t static-module \
+	-w es6 \
+	-p ./protos \
+	-p ./protos/args \
+	-p ./protos/common \
+	-p ./protos/opts \
+	-p ./protos/encoding \
+	-p ./protos/records \
+	-o ./build/ts/plumber-schemas.js \
+	./protos/**/*.proto
+	./node_modules/.bin/pbts -o ./build/ts/plumber-schemas.d.ts ./build/ts/plumber-schemas.js
 
 .PHONY: generate/go
 generate/go: description = Compile protobuf schemas for Go
