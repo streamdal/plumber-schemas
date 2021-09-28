@@ -53,7 +53,7 @@ generate/ts:
 	mkdir -p build/ts 
 	./node_modules/.bin/pbjs \
 	-t static-module \
-	-w es6 \
+	-w commonjs \
 	-p ./protos \
 	-p ./protos/args \
 	-p ./protos/common \
