@@ -23,7 +23,7 @@ message KafkaConn {
     // @gotags: kong:"help='Allow insecure TLS usage',env=PLUMBER_RELAY_KAFKA_INSECURE_TLS"
     bool insecure_tls = 4;
 
-    // @gotags: kong:"help='SASL authentication type (0 - none, 1 - plain, 2 - scram)',env=PLUMBER_RELAY_KAFKA_SASL_TYPE,default=2"
+    // @gotags: kong:"help='SASL authentication type (options: none, plain, scram)',env=PLUMBER_RELAY_KAFKA_SASL_TYPE,type=pbenum,pbenum_lowercase,default=none"
     SASLType sasl_type = 5;
 
     // @gotags: kong:"help='SASL Username',env=PLUMBER_RELAY_KAFKA_USERNAME"
