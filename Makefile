@@ -52,7 +52,7 @@ generate/ts: clean-ts
 generate/ts:
 	mkdir -p build/ts 
 	./node_modules/.bin/pbjs \
-	-t static-module \
+	-t static \
 	-w es6 \
 	-p ./protos \
 	-p ./protos/args \

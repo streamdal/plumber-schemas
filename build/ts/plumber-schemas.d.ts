@@ -16725,4 +16725,8371 @@ export namespace protos {
             public toJSON(): { [k: string]: any };
         }
     }
+
+    /** Represents a PlumberServer */
+    class PlumberServer extends $protobuf.rpc.Service {
+
+        /**
+         * Constructs a new PlumberServer service.
+         * @param rpcImpl RPC implementation
+         * @param [requestDelimited=false] Whether requests are length-delimited
+         * @param [responseDelimited=false] Whether responses are length-delimited
+         */
+        constructor(rpcImpl: $protobuf.RPCImpl, requestDelimited?: boolean, responseDelimited?: boolean);
+
+        /**
+         * Creates new PlumberServer service using the specified rpc implementation.
+         * @param rpcImpl RPC implementation
+         * @param [requestDelimited=false] Whether requests are length-delimited
+         * @param [responseDelimited=false] Whether responses are length-delimited
+         * @returns RPC service. Useful where requests and/or responses are streamed.
+         */
+        public static create(rpcImpl: $protobuf.RPCImpl, requestDelimited?: boolean, responseDelimited?: boolean): PlumberServer;
+
+        /**
+         * Calls GetAllConnections.
+         * @param request GetAllConnectionsRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and GetAllConnectionsResponse
+         */
+        public getAllConnections(request: protos.IGetAllConnectionsRequest, callback: protos.PlumberServer.GetAllConnectionsCallback): void;
+
+        /**
+         * Calls GetAllConnections.
+         * @param request GetAllConnectionsRequest message or plain object
+         * @returns Promise
+         */
+        public getAllConnections(request: protos.IGetAllConnectionsRequest): Promise<protos.GetAllConnectionsResponse>;
+
+        /**
+         * Calls GetConnection.
+         * @param request GetConnectionRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and GetConnectionResponse
+         */
+        public getConnection(request: protos.IGetConnectionRequest, callback: protos.PlumberServer.GetConnectionCallback): void;
+
+        /**
+         * Calls GetConnection.
+         * @param request GetConnectionRequest message or plain object
+         * @returns Promise
+         */
+        public getConnection(request: protos.IGetConnectionRequest): Promise<protos.GetConnectionResponse>;
+
+        /**
+         * Calls CreateConnection.
+         * @param request CreateConnectionRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and CreateConnectionResponse
+         */
+        public createConnection(request: protos.ICreateConnectionRequest, callback: protos.PlumberServer.CreateConnectionCallback): void;
+
+        /**
+         * Calls CreateConnection.
+         * @param request CreateConnectionRequest message or plain object
+         * @returns Promise
+         */
+        public createConnection(request: protos.ICreateConnectionRequest): Promise<protos.CreateConnectionResponse>;
+
+        /**
+         * Calls TestConnection.
+         * @param request TestConnectionRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and TestConnectionResponse
+         */
+        public testConnection(request: protos.ITestConnectionRequest, callback: protos.PlumberServer.TestConnectionCallback): void;
+
+        /**
+         * Calls TestConnection.
+         * @param request TestConnectionRequest message or plain object
+         * @returns Promise
+         */
+        public testConnection(request: protos.ITestConnectionRequest): Promise<protos.TestConnectionResponse>;
+
+        /**
+         * Calls UpdateConnection.
+         * @param request UpdateConnectionRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and UpdateConnectionResponse
+         */
+        public updateConnection(request: protos.IUpdateConnectionRequest, callback: protos.PlumberServer.UpdateConnectionCallback): void;
+
+        /**
+         * Calls UpdateConnection.
+         * @param request UpdateConnectionRequest message or plain object
+         * @returns Promise
+         */
+        public updateConnection(request: protos.IUpdateConnectionRequest): Promise<protos.UpdateConnectionResponse>;
+
+        /**
+         * Calls DeleteConnection.
+         * @param request DeleteConnectionRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and DeleteConnectionResponse
+         */
+        public deleteConnection(request: protos.IDeleteConnectionRequest, callback: protos.PlumberServer.DeleteConnectionCallback): void;
+
+        /**
+         * Calls DeleteConnection.
+         * @param request DeleteConnectionRequest message or plain object
+         * @returns Promise
+         */
+        public deleteConnection(request: protos.IDeleteConnectionRequest): Promise<protos.DeleteConnectionResponse>;
+
+        /**
+         * Calls CreateRead.
+         * @param request CreateReadRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and CreateReadResponse
+         */
+        public createRead(request: protos.ICreateReadRequest, callback: protos.PlumberServer.CreateReadCallback): void;
+
+        /**
+         * Calls CreateRead.
+         * @param request CreateReadRequest message or plain object
+         * @returns Promise
+         */
+        public createRead(request: protos.ICreateReadRequest): Promise<protos.CreateReadResponse>;
+
+        /**
+         * Calls StartRead.
+         * @param request StartReadRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and StartReadResponse
+         */
+        public startRead(request: protos.IStartReadRequest, callback: protos.PlumberServer.StartReadCallback): void;
+
+        /**
+         * Calls StartRead.
+         * @param request StartReadRequest message or plain object
+         * @returns Promise
+         */
+        public startRead(request: protos.IStartReadRequest): Promise<protos.StartReadResponse>;
+
+        /**
+         * Calls GetAllReads.
+         * @param request GetAllReadsRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and GetAllReadsResponse
+         */
+        public getAllReads(request: protos.IGetAllReadsRequest, callback: protos.PlumberServer.GetAllReadsCallback): void;
+
+        /**
+         * Calls GetAllReads.
+         * @param request GetAllReadsRequest message or plain object
+         * @returns Promise
+         */
+        public getAllReads(request: protos.IGetAllReadsRequest): Promise<protos.GetAllReadsResponse>;
+
+        /**
+         * Calls StopRead.
+         * @param request StopReadRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and StopReadResponse
+         */
+        public stopRead(request: protos.IStopReadRequest, callback: protos.PlumberServer.StopReadCallback): void;
+
+        /**
+         * Calls StopRead.
+         * @param request StopReadRequest message or plain object
+         * @returns Promise
+         */
+        public stopRead(request: protos.IStopReadRequest): Promise<protos.StopReadResponse>;
+
+        /**
+         * Calls ResumeRead.
+         * @param request ResumeReadRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and ResumeReadResponse
+         */
+        public resumeRead(request: protos.IResumeReadRequest, callback: protos.PlumberServer.ResumeReadCallback): void;
+
+        /**
+         * Calls ResumeRead.
+         * @param request ResumeReadRequest message or plain object
+         * @returns Promise
+         */
+        public resumeRead(request: protos.IResumeReadRequest): Promise<protos.ResumeReadResponse>;
+
+        /**
+         * Calls DeleteRead.
+         * @param request DeleteReadRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and DeleteReadResponse
+         */
+        public deleteRead(request: protos.IDeleteReadRequest, callback: protos.PlumberServer.DeleteReadCallback): void;
+
+        /**
+         * Calls DeleteRead.
+         * @param request DeleteReadRequest message or plain object
+         * @returns Promise
+         */
+        public deleteRead(request: protos.IDeleteReadRequest): Promise<protos.DeleteReadResponse>;
+
+        /**
+         * Calls Write.
+         * @param request WriteRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and WriteResponse
+         */
+        public write(request: protos.IWriteRequest, callback: protos.PlumberServer.WriteCallback): void;
+
+        /**
+         * Calls Write.
+         * @param request WriteRequest message or plain object
+         * @returns Promise
+         */
+        public write(request: protos.IWriteRequest): Promise<protos.WriteResponse>;
+
+        /**
+         * Calls CreateRelay.
+         * @param request CreateRelayRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and CreateRelayResponse
+         */
+        public createRelay(request: protos.ICreateRelayRequest, callback: protos.PlumberServer.CreateRelayCallback): void;
+
+        /**
+         * Calls CreateRelay.
+         * @param request CreateRelayRequest message or plain object
+         * @returns Promise
+         */
+        public createRelay(request: protos.ICreateRelayRequest): Promise<protos.CreateRelayResponse>;
+
+        /**
+         * Calls UpdateRelay.
+         * @param request UpdateRelayRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and UpdateRelayResponse
+         */
+        public updateRelay(request: protos.IUpdateRelayRequest, callback: protos.PlumberServer.UpdateRelayCallback): void;
+
+        /**
+         * Calls UpdateRelay.
+         * @param request UpdateRelayRequest message or plain object
+         * @returns Promise
+         */
+        public updateRelay(request: protos.IUpdateRelayRequest): Promise<protos.UpdateRelayResponse>;
+
+        /**
+         * Calls ResumeRelay.
+         * @param request ResumeRelayRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and ResumeRelayResponse
+         */
+        public resumeRelay(request: protos.IResumeRelayRequest, callback: protos.PlumberServer.ResumeRelayCallback): void;
+
+        /**
+         * Calls ResumeRelay.
+         * @param request ResumeRelayRequest message or plain object
+         * @returns Promise
+         */
+        public resumeRelay(request: protos.IResumeRelayRequest): Promise<protos.ResumeRelayResponse>;
+
+        /**
+         * Calls StopRelay.
+         * @param request StopRelayRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and StopRelayResponse
+         */
+        public stopRelay(request: protos.IStopRelayRequest, callback: protos.PlumberServer.StopRelayCallback): void;
+
+        /**
+         * Calls StopRelay.
+         * @param request StopRelayRequest message or plain object
+         * @returns Promise
+         */
+        public stopRelay(request: protos.IStopRelayRequest): Promise<protos.StopRelayResponse>;
+
+        /**
+         * Calls GetAllRelays.
+         * @param request GetAllRelaysRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and GetAllRelaysResponse
+         */
+        public getAllRelays(request: protos.IGetAllRelaysRequest, callback: protos.PlumberServer.GetAllRelaysCallback): void;
+
+        /**
+         * Calls GetAllRelays.
+         * @param request GetAllRelaysRequest message or plain object
+         * @returns Promise
+         */
+        public getAllRelays(request: protos.IGetAllRelaysRequest): Promise<protos.GetAllRelaysResponse>;
+
+        /**
+         * Calls DeleteRelay.
+         * @param request DeleteRelayRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and DeleteRelayResponse
+         */
+        public deleteRelay(request: protos.IDeleteRelayRequest, callback: protos.PlumberServer.DeleteRelayCallback): void;
+
+        /**
+         * Calls DeleteRelay.
+         * @param request DeleteRelayRequest message or plain object
+         * @returns Promise
+         */
+        public deleteRelay(request: protos.IDeleteRelayRequest): Promise<protos.DeleteRelayResponse>;
+
+        /**
+         * Calls GetSchema.
+         * @param request GetSchemaRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and GetSchemaResponse
+         */
+        public getSchema(request: protos.IGetSchemaRequest, callback: protos.PlumberServer.GetSchemaCallback): void;
+
+        /**
+         * Calls GetSchema.
+         * @param request GetSchemaRequest message or plain object
+         * @returns Promise
+         */
+        public getSchema(request: protos.IGetSchemaRequest): Promise<protos.GetSchemaResponse>;
+
+        /**
+         * Calls GetAllSchemas.
+         * @param request GetAllSchemasRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and GetAllSchemasResponse
+         */
+        public getAllSchemas(request: protos.IGetAllSchemasRequest, callback: protos.PlumberServer.GetAllSchemasCallback): void;
+
+        /**
+         * Calls GetAllSchemas.
+         * @param request GetAllSchemasRequest message or plain object
+         * @returns Promise
+         */
+        public getAllSchemas(request: protos.IGetAllSchemasRequest): Promise<protos.GetAllSchemasResponse>;
+
+        /**
+         * Calls ImportGithub.
+         * @param request ImportGithubRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and ImportGithubResponse
+         */
+        public importGithub(request: protos.IImportGithubRequest, callback: protos.PlumberServer.ImportGithubCallback): void;
+
+        /**
+         * Calls ImportGithub.
+         * @param request ImportGithubRequest message or plain object
+         * @returns Promise
+         */
+        public importGithub(request: protos.IImportGithubRequest): Promise<protos.ImportGithubResponse>;
+
+        /**
+         * Calls ImportLocal.
+         * @param request ImportLocalRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and ImportLocalResponse
+         */
+        public importLocal(request: protos.IImportLocalRequest, callback: protos.PlumberServer.ImportLocalCallback): void;
+
+        /**
+         * Calls ImportLocal.
+         * @param request ImportLocalRequest message or plain object
+         * @returns Promise
+         */
+        public importLocal(request: protos.IImportLocalRequest): Promise<protos.ImportLocalResponse>;
+
+        /**
+         * Calls DeleteSchema.
+         * @param request DeleteSchemaRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and DeleteSchemaResponse
+         */
+        public deleteSchema(request: protos.IDeleteSchemaRequest, callback: protos.PlumberServer.DeleteSchemaCallback): void;
+
+        /**
+         * Calls DeleteSchema.
+         * @param request DeleteSchemaRequest message or plain object
+         * @returns Promise
+         */
+        public deleteSchema(request: protos.IDeleteSchemaRequest): Promise<protos.DeleteSchemaResponse>;
+
+        /**
+         * Calls GetService.
+         * @param request GetServiceRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and GetServiceResponse
+         */
+        public getService(request: protos.IGetServiceRequest, callback: protos.PlumberServer.GetServiceCallback): void;
+
+        /**
+         * Calls GetService.
+         * @param request GetServiceRequest message or plain object
+         * @returns Promise
+         */
+        public getService(request: protos.IGetServiceRequest): Promise<protos.GetServiceResponse>;
+
+        /**
+         * Calls GetAllServices.
+         * @param request GetAllServicesRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and GetAllServicesResponse
+         */
+        public getAllServices(request: protos.IGetAllServicesRequest, callback: protos.PlumberServer.GetAllServicesCallback): void;
+
+        /**
+         * Calls GetAllServices.
+         * @param request GetAllServicesRequest message or plain object
+         * @returns Promise
+         */
+        public getAllServices(request: protos.IGetAllServicesRequest): Promise<protos.GetAllServicesResponse>;
+
+        /**
+         * Calls CreateService.
+         * @param request CreateServiceRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and CreateServiceResponse
+         */
+        public createService(request: protos.ICreateServiceRequest, callback: protos.PlumberServer.CreateServiceCallback): void;
+
+        /**
+         * Calls CreateService.
+         * @param request CreateServiceRequest message or plain object
+         * @returns Promise
+         */
+        public createService(request: protos.ICreateServiceRequest): Promise<protos.CreateServiceResponse>;
+
+        /**
+         * Calls UpdateService.
+         * @param request UpdateServiceRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and UpdateServiceResponse
+         */
+        public updateService(request: protos.IUpdateServiceRequest, callback: protos.PlumberServer.UpdateServiceCallback): void;
+
+        /**
+         * Calls UpdateService.
+         * @param request UpdateServiceRequest message or plain object
+         * @returns Promise
+         */
+        public updateService(request: protos.IUpdateServiceRequest): Promise<protos.UpdateServiceResponse>;
+
+        /**
+         * Calls DeleteService.
+         * @param request DeleteServiceRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and DeleteServiceResponse
+         */
+        public deleteService(request: protos.IDeleteServiceRequest, callback: protos.PlumberServer.DeleteServiceCallback): void;
+
+        /**
+         * Calls DeleteService.
+         * @param request DeleteServiceRequest message or plain object
+         * @returns Promise
+         */
+        public deleteService(request: protos.IDeleteServiceRequest): Promise<protos.DeleteServiceResponse>;
+
+        /**
+         * Calls GetServerOptions.
+         * @param request GetServerOptionsRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and GetServerOptionsResponse
+         */
+        public getServerOptions(request: protos.IGetServerOptionsRequest, callback: protos.PlumberServer.GetServerOptionsCallback): void;
+
+        /**
+         * Calls GetServerOptions.
+         * @param request GetServerOptionsRequest message or plain object
+         * @returns Promise
+         */
+        public getServerOptions(request: protos.IGetServerOptionsRequest): Promise<protos.GetServerOptionsResponse>;
+
+        /**
+         * Calls SetServerOptions.
+         * @param request SetServerOptionsRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and SetServerOptionsResponse
+         */
+        public setServerOptions(request: protos.ISetServerOptionsRequest, callback: protos.PlumberServer.SetServerOptionsCallback): void;
+
+        /**
+         * Calls SetServerOptions.
+         * @param request SetServerOptionsRequest message or plain object
+         * @returns Promise
+         */
+        public setServerOptions(request: protos.ISetServerOptionsRequest): Promise<protos.SetServerOptionsResponse>;
+
+        /**
+         * Calls GetVCEvents.
+         * @param request GetVCEventsRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and VCEvent
+         */
+        public getVCEvents(request: protos.IGetVCEventsRequest, callback: protos.PlumberServer.GetVCEventsCallback): void;
+
+        /**
+         * Calls GetVCEvents.
+         * @param request GetVCEventsRequest message or plain object
+         * @returns Promise
+         */
+        public getVCEvents(request: protos.IGetVCEventsRequest): Promise<protos.VCEvent>;
+    }
+
+    namespace PlumberServer {
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#getAllConnections}.
+         * @param error Error, if any
+         * @param [response] GetAllConnectionsResponse
+         */
+        type GetAllConnectionsCallback = (error: (Error|null), response?: protos.GetAllConnectionsResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#getConnection}.
+         * @param error Error, if any
+         * @param [response] GetConnectionResponse
+         */
+        type GetConnectionCallback = (error: (Error|null), response?: protos.GetConnectionResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#createConnection}.
+         * @param error Error, if any
+         * @param [response] CreateConnectionResponse
+         */
+        type CreateConnectionCallback = (error: (Error|null), response?: protos.CreateConnectionResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#testConnection}.
+         * @param error Error, if any
+         * @param [response] TestConnectionResponse
+         */
+        type TestConnectionCallback = (error: (Error|null), response?: protos.TestConnectionResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#updateConnection}.
+         * @param error Error, if any
+         * @param [response] UpdateConnectionResponse
+         */
+        type UpdateConnectionCallback = (error: (Error|null), response?: protos.UpdateConnectionResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#deleteConnection}.
+         * @param error Error, if any
+         * @param [response] DeleteConnectionResponse
+         */
+        type DeleteConnectionCallback = (error: (Error|null), response?: protos.DeleteConnectionResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#createRead}.
+         * @param error Error, if any
+         * @param [response] CreateReadResponse
+         */
+        type CreateReadCallback = (error: (Error|null), response?: protos.CreateReadResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#startRead}.
+         * @param error Error, if any
+         * @param [response] StartReadResponse
+         */
+        type StartReadCallback = (error: (Error|null), response?: protos.StartReadResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#getAllReads}.
+         * @param error Error, if any
+         * @param [response] GetAllReadsResponse
+         */
+        type GetAllReadsCallback = (error: (Error|null), response?: protos.GetAllReadsResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#stopRead}.
+         * @param error Error, if any
+         * @param [response] StopReadResponse
+         */
+        type StopReadCallback = (error: (Error|null), response?: protos.StopReadResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#resumeRead}.
+         * @param error Error, if any
+         * @param [response] ResumeReadResponse
+         */
+        type ResumeReadCallback = (error: (Error|null), response?: protos.ResumeReadResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#deleteRead}.
+         * @param error Error, if any
+         * @param [response] DeleteReadResponse
+         */
+        type DeleteReadCallback = (error: (Error|null), response?: protos.DeleteReadResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#write}.
+         * @param error Error, if any
+         * @param [response] WriteResponse
+         */
+        type WriteCallback = (error: (Error|null), response?: protos.WriteResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#createRelay}.
+         * @param error Error, if any
+         * @param [response] CreateRelayResponse
+         */
+        type CreateRelayCallback = (error: (Error|null), response?: protos.CreateRelayResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#updateRelay}.
+         * @param error Error, if any
+         * @param [response] UpdateRelayResponse
+         */
+        type UpdateRelayCallback = (error: (Error|null), response?: protos.UpdateRelayResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#resumeRelay}.
+         * @param error Error, if any
+         * @param [response] ResumeRelayResponse
+         */
+        type ResumeRelayCallback = (error: (Error|null), response?: protos.ResumeRelayResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#stopRelay}.
+         * @param error Error, if any
+         * @param [response] StopRelayResponse
+         */
+        type StopRelayCallback = (error: (Error|null), response?: protos.StopRelayResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#getAllRelays}.
+         * @param error Error, if any
+         * @param [response] GetAllRelaysResponse
+         */
+        type GetAllRelaysCallback = (error: (Error|null), response?: protos.GetAllRelaysResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#deleteRelay}.
+         * @param error Error, if any
+         * @param [response] DeleteRelayResponse
+         */
+        type DeleteRelayCallback = (error: (Error|null), response?: protos.DeleteRelayResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#getSchema}.
+         * @param error Error, if any
+         * @param [response] GetSchemaResponse
+         */
+        type GetSchemaCallback = (error: (Error|null), response?: protos.GetSchemaResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#getAllSchemas}.
+         * @param error Error, if any
+         * @param [response] GetAllSchemasResponse
+         */
+        type GetAllSchemasCallback = (error: (Error|null), response?: protos.GetAllSchemasResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#importGithub}.
+         * @param error Error, if any
+         * @param [response] ImportGithubResponse
+         */
+        type ImportGithubCallback = (error: (Error|null), response?: protos.ImportGithubResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#importLocal}.
+         * @param error Error, if any
+         * @param [response] ImportLocalResponse
+         */
+        type ImportLocalCallback = (error: (Error|null), response?: protos.ImportLocalResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#deleteSchema}.
+         * @param error Error, if any
+         * @param [response] DeleteSchemaResponse
+         */
+        type DeleteSchemaCallback = (error: (Error|null), response?: protos.DeleteSchemaResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#getService}.
+         * @param error Error, if any
+         * @param [response] GetServiceResponse
+         */
+        type GetServiceCallback = (error: (Error|null), response?: protos.GetServiceResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#getAllServices}.
+         * @param error Error, if any
+         * @param [response] GetAllServicesResponse
+         */
+        type GetAllServicesCallback = (error: (Error|null), response?: protos.GetAllServicesResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#createService}.
+         * @param error Error, if any
+         * @param [response] CreateServiceResponse
+         */
+        type CreateServiceCallback = (error: (Error|null), response?: protos.CreateServiceResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#updateService}.
+         * @param error Error, if any
+         * @param [response] UpdateServiceResponse
+         */
+        type UpdateServiceCallback = (error: (Error|null), response?: protos.UpdateServiceResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#deleteService}.
+         * @param error Error, if any
+         * @param [response] DeleteServiceResponse
+         */
+        type DeleteServiceCallback = (error: (Error|null), response?: protos.DeleteServiceResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#getServerOptions}.
+         * @param error Error, if any
+         * @param [response] GetServerOptionsResponse
+         */
+        type GetServerOptionsCallback = (error: (Error|null), response?: protos.GetServerOptionsResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#setServerOptions}.
+         * @param error Error, if any
+         * @param [response] SetServerOptionsResponse
+         */
+        type SetServerOptionsCallback = (error: (Error|null), response?: protos.SetServerOptionsResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#getVCEvents}.
+         * @param error Error, if any
+         * @param [response] VCEvent
+         */
+        type GetVCEventsCallback = (error: (Error|null), response?: protos.VCEvent) => void;
+    }
+
+    /** Properties of a GetAllConnectionsRequest. */
+    interface IGetAllConnectionsRequest {
+
+        /** GetAllConnectionsRequest auth */
+        auth?: (protos.common.IAuth|null);
+    }
+
+    /** Represents a GetAllConnectionsRequest. */
+    class GetAllConnectionsRequest implements IGetAllConnectionsRequest {
+
+        /**
+         * Constructs a new GetAllConnectionsRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IGetAllConnectionsRequest);
+
+        /** GetAllConnectionsRequest auth. */
+        public auth?: (protos.common.IAuth|null);
+
+        /**
+         * Creates a new GetAllConnectionsRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns GetAllConnectionsRequest instance
+         */
+        public static create(properties?: protos.IGetAllConnectionsRequest): protos.GetAllConnectionsRequest;
+
+        /**
+         * Encodes the specified GetAllConnectionsRequest message. Does not implicitly {@link protos.GetAllConnectionsRequest.verify|verify} messages.
+         * @param message GetAllConnectionsRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IGetAllConnectionsRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified GetAllConnectionsRequest message, length delimited. Does not implicitly {@link protos.GetAllConnectionsRequest.verify|verify} messages.
+         * @param message GetAllConnectionsRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IGetAllConnectionsRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a GetAllConnectionsRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns GetAllConnectionsRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.GetAllConnectionsRequest;
+
+        /**
+         * Decodes a GetAllConnectionsRequest message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns GetAllConnectionsRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.GetAllConnectionsRequest;
+
+        /**
+         * Verifies a GetAllConnectionsRequest message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a GetAllConnectionsRequest message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns GetAllConnectionsRequest
+         */
+        public static fromObject(object: { [k: string]: any }): protos.GetAllConnectionsRequest;
+
+        /**
+         * Creates a plain object from a GetAllConnectionsRequest message. Also converts values to other types if specified.
+         * @param message GetAllConnectionsRequest
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.GetAllConnectionsRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this GetAllConnectionsRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a GetAllConnectionsResponse. */
+    interface IGetAllConnectionsResponse {
+
+        /** GetAllConnectionsResponse options */
+        options?: (protos.opts.IConnectionOptions[]|null);
+    }
+
+    /** Represents a GetAllConnectionsResponse. */
+    class GetAllConnectionsResponse implements IGetAllConnectionsResponse {
+
+        /**
+         * Constructs a new GetAllConnectionsResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IGetAllConnectionsResponse);
+
+        /** GetAllConnectionsResponse options. */
+        public options: protos.opts.IConnectionOptions[];
+
+        /**
+         * Creates a new GetAllConnectionsResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns GetAllConnectionsResponse instance
+         */
+        public static create(properties?: protos.IGetAllConnectionsResponse): protos.GetAllConnectionsResponse;
+
+        /**
+         * Encodes the specified GetAllConnectionsResponse message. Does not implicitly {@link protos.GetAllConnectionsResponse.verify|verify} messages.
+         * @param message GetAllConnectionsResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IGetAllConnectionsResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified GetAllConnectionsResponse message, length delimited. Does not implicitly {@link protos.GetAllConnectionsResponse.verify|verify} messages.
+         * @param message GetAllConnectionsResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IGetAllConnectionsResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a GetAllConnectionsResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns GetAllConnectionsResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.GetAllConnectionsResponse;
+
+        /**
+         * Decodes a GetAllConnectionsResponse message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns GetAllConnectionsResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.GetAllConnectionsResponse;
+
+        /**
+         * Verifies a GetAllConnectionsResponse message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a GetAllConnectionsResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns GetAllConnectionsResponse
+         */
+        public static fromObject(object: { [k: string]: any }): protos.GetAllConnectionsResponse;
+
+        /**
+         * Creates a plain object from a GetAllConnectionsResponse message. Also converts values to other types if specified.
+         * @param message GetAllConnectionsResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.GetAllConnectionsResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this GetAllConnectionsResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a GetConnectionRequest. */
+    interface IGetConnectionRequest {
+
+        /** GetConnectionRequest auth */
+        auth?: (protos.common.IAuth|null);
+
+        /** GetConnectionRequest connectionId */
+        connectionId?: (string|null);
+    }
+
+    /** Represents a GetConnectionRequest. */
+    class GetConnectionRequest implements IGetConnectionRequest {
+
+        /**
+         * Constructs a new GetConnectionRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IGetConnectionRequest);
+
+        /** GetConnectionRequest auth. */
+        public auth?: (protos.common.IAuth|null);
+
+        /** GetConnectionRequest connectionId. */
+        public connectionId: string;
+
+        /**
+         * Creates a new GetConnectionRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns GetConnectionRequest instance
+         */
+        public static create(properties?: protos.IGetConnectionRequest): protos.GetConnectionRequest;
+
+        /**
+         * Encodes the specified GetConnectionRequest message. Does not implicitly {@link protos.GetConnectionRequest.verify|verify} messages.
+         * @param message GetConnectionRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IGetConnectionRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified GetConnectionRequest message, length delimited. Does not implicitly {@link protos.GetConnectionRequest.verify|verify} messages.
+         * @param message GetConnectionRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IGetConnectionRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a GetConnectionRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns GetConnectionRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.GetConnectionRequest;
+
+        /**
+         * Decodes a GetConnectionRequest message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns GetConnectionRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.GetConnectionRequest;
+
+        /**
+         * Verifies a GetConnectionRequest message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a GetConnectionRequest message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns GetConnectionRequest
+         */
+        public static fromObject(object: { [k: string]: any }): protos.GetConnectionRequest;
+
+        /**
+         * Creates a plain object from a GetConnectionRequest message. Also converts values to other types if specified.
+         * @param message GetConnectionRequest
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.GetConnectionRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this GetConnectionRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a GetConnectionResponse. */
+    interface IGetConnectionResponse {
+
+        /** GetConnectionResponse options */
+        options?: (protos.opts.IConnectionOptions|null);
+    }
+
+    /** Represents a GetConnectionResponse. */
+    class GetConnectionResponse implements IGetConnectionResponse {
+
+        /**
+         * Constructs a new GetConnectionResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IGetConnectionResponse);
+
+        /** GetConnectionResponse options. */
+        public options?: (protos.opts.IConnectionOptions|null);
+
+        /**
+         * Creates a new GetConnectionResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns GetConnectionResponse instance
+         */
+        public static create(properties?: protos.IGetConnectionResponse): protos.GetConnectionResponse;
+
+        /**
+         * Encodes the specified GetConnectionResponse message. Does not implicitly {@link protos.GetConnectionResponse.verify|verify} messages.
+         * @param message GetConnectionResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IGetConnectionResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified GetConnectionResponse message, length delimited. Does not implicitly {@link protos.GetConnectionResponse.verify|verify} messages.
+         * @param message GetConnectionResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IGetConnectionResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a GetConnectionResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns GetConnectionResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.GetConnectionResponse;
+
+        /**
+         * Decodes a GetConnectionResponse message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns GetConnectionResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.GetConnectionResponse;
+
+        /**
+         * Verifies a GetConnectionResponse message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a GetConnectionResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns GetConnectionResponse
+         */
+        public static fromObject(object: { [k: string]: any }): protos.GetConnectionResponse;
+
+        /**
+         * Creates a plain object from a GetConnectionResponse message. Also converts values to other types if specified.
+         * @param message GetConnectionResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.GetConnectionResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this GetConnectionResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a CreateConnectionRequest. */
+    interface ICreateConnectionRequest {
+
+        /** CreateConnectionRequest auth */
+        auth?: (protos.common.IAuth|null);
+
+        /** CreateConnectionRequest options */
+        options?: (protos.opts.IConnectionOptions|null);
+    }
+
+    /** Represents a CreateConnectionRequest. */
+    class CreateConnectionRequest implements ICreateConnectionRequest {
+
+        /**
+         * Constructs a new CreateConnectionRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.ICreateConnectionRequest);
+
+        /** CreateConnectionRequest auth. */
+        public auth?: (protos.common.IAuth|null);
+
+        /** CreateConnectionRequest options. */
+        public options?: (protos.opts.IConnectionOptions|null);
+
+        /**
+         * Creates a new CreateConnectionRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns CreateConnectionRequest instance
+         */
+        public static create(properties?: protos.ICreateConnectionRequest): protos.CreateConnectionRequest;
+
+        /**
+         * Encodes the specified CreateConnectionRequest message. Does not implicitly {@link protos.CreateConnectionRequest.verify|verify} messages.
+         * @param message CreateConnectionRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.ICreateConnectionRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified CreateConnectionRequest message, length delimited. Does not implicitly {@link protos.CreateConnectionRequest.verify|verify} messages.
+         * @param message CreateConnectionRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.ICreateConnectionRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a CreateConnectionRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns CreateConnectionRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.CreateConnectionRequest;
+
+        /**
+         * Decodes a CreateConnectionRequest message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns CreateConnectionRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.CreateConnectionRequest;
+
+        /**
+         * Verifies a CreateConnectionRequest message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a CreateConnectionRequest message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns CreateConnectionRequest
+         */
+        public static fromObject(object: { [k: string]: any }): protos.CreateConnectionRequest;
+
+        /**
+         * Creates a plain object from a CreateConnectionRequest message. Also converts values to other types if specified.
+         * @param message CreateConnectionRequest
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.CreateConnectionRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this CreateConnectionRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a CreateConnectionResponse. */
+    interface ICreateConnectionResponse {
+
+        /** CreateConnectionResponse connectionId */
+        connectionId?: (string|null);
+    }
+
+    /** Represents a CreateConnectionResponse. */
+    class CreateConnectionResponse implements ICreateConnectionResponse {
+
+        /**
+         * Constructs a new CreateConnectionResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.ICreateConnectionResponse);
+
+        /** CreateConnectionResponse connectionId. */
+        public connectionId: string;
+
+        /**
+         * Creates a new CreateConnectionResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns CreateConnectionResponse instance
+         */
+        public static create(properties?: protos.ICreateConnectionResponse): protos.CreateConnectionResponse;
+
+        /**
+         * Encodes the specified CreateConnectionResponse message. Does not implicitly {@link protos.CreateConnectionResponse.verify|verify} messages.
+         * @param message CreateConnectionResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.ICreateConnectionResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified CreateConnectionResponse message, length delimited. Does not implicitly {@link protos.CreateConnectionResponse.verify|verify} messages.
+         * @param message CreateConnectionResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.ICreateConnectionResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a CreateConnectionResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns CreateConnectionResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.CreateConnectionResponse;
+
+        /**
+         * Decodes a CreateConnectionResponse message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns CreateConnectionResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.CreateConnectionResponse;
+
+        /**
+         * Verifies a CreateConnectionResponse message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a CreateConnectionResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns CreateConnectionResponse
+         */
+        public static fromObject(object: { [k: string]: any }): protos.CreateConnectionResponse;
+
+        /**
+         * Creates a plain object from a CreateConnectionResponse message. Also converts values to other types if specified.
+         * @param message CreateConnectionResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.CreateConnectionResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this CreateConnectionResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a TestConnectionRequest. */
+    interface ITestConnectionRequest {
+
+        /** TestConnectionRequest auth */
+        auth?: (protos.common.IAuth|null);
+
+        /** TestConnectionRequest options */
+        options?: (protos.opts.IConnectionOptions|null);
+    }
+
+    /** Represents a TestConnectionRequest. */
+    class TestConnectionRequest implements ITestConnectionRequest {
+
+        /**
+         * Constructs a new TestConnectionRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.ITestConnectionRequest);
+
+        /** TestConnectionRequest auth. */
+        public auth?: (protos.common.IAuth|null);
+
+        /** TestConnectionRequest options. */
+        public options?: (protos.opts.IConnectionOptions|null);
+
+        /**
+         * Creates a new TestConnectionRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns TestConnectionRequest instance
+         */
+        public static create(properties?: protos.ITestConnectionRequest): protos.TestConnectionRequest;
+
+        /**
+         * Encodes the specified TestConnectionRequest message. Does not implicitly {@link protos.TestConnectionRequest.verify|verify} messages.
+         * @param message TestConnectionRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.ITestConnectionRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified TestConnectionRequest message, length delimited. Does not implicitly {@link protos.TestConnectionRequest.verify|verify} messages.
+         * @param message TestConnectionRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.ITestConnectionRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a TestConnectionRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns TestConnectionRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.TestConnectionRequest;
+
+        /**
+         * Decodes a TestConnectionRequest message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns TestConnectionRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.TestConnectionRequest;
+
+        /**
+         * Verifies a TestConnectionRequest message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a TestConnectionRequest message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns TestConnectionRequest
+         */
+        public static fromObject(object: { [k: string]: any }): protos.TestConnectionRequest;
+
+        /**
+         * Creates a plain object from a TestConnectionRequest message. Also converts values to other types if specified.
+         * @param message TestConnectionRequest
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.TestConnectionRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this TestConnectionRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a TestConnectionResponse. */
+    interface ITestConnectionResponse {
+
+        /** TestConnectionResponse status */
+        status?: (protos.common.IStatus|null);
+    }
+
+    /** Represents a TestConnectionResponse. */
+    class TestConnectionResponse implements ITestConnectionResponse {
+
+        /**
+         * Constructs a new TestConnectionResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.ITestConnectionResponse);
+
+        /** TestConnectionResponse status. */
+        public status?: (protos.common.IStatus|null);
+
+        /**
+         * Creates a new TestConnectionResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns TestConnectionResponse instance
+         */
+        public static create(properties?: protos.ITestConnectionResponse): protos.TestConnectionResponse;
+
+        /**
+         * Encodes the specified TestConnectionResponse message. Does not implicitly {@link protos.TestConnectionResponse.verify|verify} messages.
+         * @param message TestConnectionResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.ITestConnectionResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified TestConnectionResponse message, length delimited. Does not implicitly {@link protos.TestConnectionResponse.verify|verify} messages.
+         * @param message TestConnectionResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.ITestConnectionResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a TestConnectionResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns TestConnectionResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.TestConnectionResponse;
+
+        /**
+         * Decodes a TestConnectionResponse message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns TestConnectionResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.TestConnectionResponse;
+
+        /**
+         * Verifies a TestConnectionResponse message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a TestConnectionResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns TestConnectionResponse
+         */
+        public static fromObject(object: { [k: string]: any }): protos.TestConnectionResponse;
+
+        /**
+         * Creates a plain object from a TestConnectionResponse message. Also converts values to other types if specified.
+         * @param message TestConnectionResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.TestConnectionResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this TestConnectionResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of an UpdateConnectionRequest. */
+    interface IUpdateConnectionRequest {
+
+        /** UpdateConnectionRequest auth */
+        auth?: (protos.common.IAuth|null);
+
+        /** UpdateConnectionRequest connectionId */
+        connectionId?: (string|null);
+
+        /** UpdateConnectionRequest options */
+        options?: (protos.opts.IConnectionOptions|null);
+    }
+
+    /** Represents an UpdateConnectionRequest. */
+    class UpdateConnectionRequest implements IUpdateConnectionRequest {
+
+        /**
+         * Constructs a new UpdateConnectionRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IUpdateConnectionRequest);
+
+        /** UpdateConnectionRequest auth. */
+        public auth?: (protos.common.IAuth|null);
+
+        /** UpdateConnectionRequest connectionId. */
+        public connectionId: string;
+
+        /** UpdateConnectionRequest options. */
+        public options?: (protos.opts.IConnectionOptions|null);
+
+        /**
+         * Creates a new UpdateConnectionRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns UpdateConnectionRequest instance
+         */
+        public static create(properties?: protos.IUpdateConnectionRequest): protos.UpdateConnectionRequest;
+
+        /**
+         * Encodes the specified UpdateConnectionRequest message. Does not implicitly {@link protos.UpdateConnectionRequest.verify|verify} messages.
+         * @param message UpdateConnectionRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IUpdateConnectionRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified UpdateConnectionRequest message, length delimited. Does not implicitly {@link protos.UpdateConnectionRequest.verify|verify} messages.
+         * @param message UpdateConnectionRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IUpdateConnectionRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes an UpdateConnectionRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns UpdateConnectionRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.UpdateConnectionRequest;
+
+        /**
+         * Decodes an UpdateConnectionRequest message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns UpdateConnectionRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.UpdateConnectionRequest;
+
+        /**
+         * Verifies an UpdateConnectionRequest message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates an UpdateConnectionRequest message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns UpdateConnectionRequest
+         */
+        public static fromObject(object: { [k: string]: any }): protos.UpdateConnectionRequest;
+
+        /**
+         * Creates a plain object from an UpdateConnectionRequest message. Also converts values to other types if specified.
+         * @param message UpdateConnectionRequest
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.UpdateConnectionRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this UpdateConnectionRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of an UpdateConnectionResponse. */
+    interface IUpdateConnectionResponse {
+
+        /** UpdateConnectionResponse status */
+        status?: (protos.common.IStatus|null);
+    }
+
+    /** Represents an UpdateConnectionResponse. */
+    class UpdateConnectionResponse implements IUpdateConnectionResponse {
+
+        /**
+         * Constructs a new UpdateConnectionResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IUpdateConnectionResponse);
+
+        /** UpdateConnectionResponse status. */
+        public status?: (protos.common.IStatus|null);
+
+        /**
+         * Creates a new UpdateConnectionResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns UpdateConnectionResponse instance
+         */
+        public static create(properties?: protos.IUpdateConnectionResponse): protos.UpdateConnectionResponse;
+
+        /**
+         * Encodes the specified UpdateConnectionResponse message. Does not implicitly {@link protos.UpdateConnectionResponse.verify|verify} messages.
+         * @param message UpdateConnectionResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IUpdateConnectionResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified UpdateConnectionResponse message, length delimited. Does not implicitly {@link protos.UpdateConnectionResponse.verify|verify} messages.
+         * @param message UpdateConnectionResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IUpdateConnectionResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes an UpdateConnectionResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns UpdateConnectionResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.UpdateConnectionResponse;
+
+        /**
+         * Decodes an UpdateConnectionResponse message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns UpdateConnectionResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.UpdateConnectionResponse;
+
+        /**
+         * Verifies an UpdateConnectionResponse message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates an UpdateConnectionResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns UpdateConnectionResponse
+         */
+        public static fromObject(object: { [k: string]: any }): protos.UpdateConnectionResponse;
+
+        /**
+         * Creates a plain object from an UpdateConnectionResponse message. Also converts values to other types if specified.
+         * @param message UpdateConnectionResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.UpdateConnectionResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this UpdateConnectionResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a DeleteConnectionRequest. */
+    interface IDeleteConnectionRequest {
+
+        /** DeleteConnectionRequest auth */
+        auth?: (protos.common.IAuth|null);
+
+        /** DeleteConnectionRequest connectionId */
+        connectionId?: (string|null);
+    }
+
+    /** Represents a DeleteConnectionRequest. */
+    class DeleteConnectionRequest implements IDeleteConnectionRequest {
+
+        /**
+         * Constructs a new DeleteConnectionRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IDeleteConnectionRequest);
+
+        /** DeleteConnectionRequest auth. */
+        public auth?: (protos.common.IAuth|null);
+
+        /** DeleteConnectionRequest connectionId. */
+        public connectionId: string;
+
+        /**
+         * Creates a new DeleteConnectionRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns DeleteConnectionRequest instance
+         */
+        public static create(properties?: protos.IDeleteConnectionRequest): protos.DeleteConnectionRequest;
+
+        /**
+         * Encodes the specified DeleteConnectionRequest message. Does not implicitly {@link protos.DeleteConnectionRequest.verify|verify} messages.
+         * @param message DeleteConnectionRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IDeleteConnectionRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified DeleteConnectionRequest message, length delimited. Does not implicitly {@link protos.DeleteConnectionRequest.verify|verify} messages.
+         * @param message DeleteConnectionRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IDeleteConnectionRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a DeleteConnectionRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns DeleteConnectionRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.DeleteConnectionRequest;
+
+        /**
+         * Decodes a DeleteConnectionRequest message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns DeleteConnectionRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.DeleteConnectionRequest;
+
+        /**
+         * Verifies a DeleteConnectionRequest message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a DeleteConnectionRequest message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns DeleteConnectionRequest
+         */
+        public static fromObject(object: { [k: string]: any }): protos.DeleteConnectionRequest;
+
+        /**
+         * Creates a plain object from a DeleteConnectionRequest message. Also converts values to other types if specified.
+         * @param message DeleteConnectionRequest
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.DeleteConnectionRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this DeleteConnectionRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a DeleteConnectionResponse. */
+    interface IDeleteConnectionResponse {
+
+        /** DeleteConnectionResponse status */
+        status?: (protos.common.IStatus|null);
+    }
+
+    /** Represents a DeleteConnectionResponse. */
+    class DeleteConnectionResponse implements IDeleteConnectionResponse {
+
+        /**
+         * Constructs a new DeleteConnectionResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IDeleteConnectionResponse);
+
+        /** DeleteConnectionResponse status. */
+        public status?: (protos.common.IStatus|null);
+
+        /**
+         * Creates a new DeleteConnectionResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns DeleteConnectionResponse instance
+         */
+        public static create(properties?: protos.IDeleteConnectionResponse): protos.DeleteConnectionResponse;
+
+        /**
+         * Encodes the specified DeleteConnectionResponse message. Does not implicitly {@link protos.DeleteConnectionResponse.verify|verify} messages.
+         * @param message DeleteConnectionResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IDeleteConnectionResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified DeleteConnectionResponse message, length delimited. Does not implicitly {@link protos.DeleteConnectionResponse.verify|verify} messages.
+         * @param message DeleteConnectionResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IDeleteConnectionResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a DeleteConnectionResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns DeleteConnectionResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.DeleteConnectionResponse;
+
+        /**
+         * Decodes a DeleteConnectionResponse message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns DeleteConnectionResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.DeleteConnectionResponse;
+
+        /**
+         * Verifies a DeleteConnectionResponse message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a DeleteConnectionResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns DeleteConnectionResponse
+         */
+        public static fromObject(object: { [k: string]: any }): protos.DeleteConnectionResponse;
+
+        /**
+         * Creates a plain object from a DeleteConnectionResponse message. Also converts values to other types if specified.
+         * @param message DeleteConnectionResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.DeleteConnectionResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this DeleteConnectionResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a CreateReadRequest. */
+    interface ICreateReadRequest {
+
+        /** CreateReadRequest auth */
+        auth?: (protos.common.IAuth|null);
+
+        /** CreateReadRequest read */
+        read?: (protos.opts.IReadOptions|null);
+    }
+
+    /** Represents a CreateReadRequest. */
+    class CreateReadRequest implements ICreateReadRequest {
+
+        /**
+         * Constructs a new CreateReadRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.ICreateReadRequest);
+
+        /** CreateReadRequest auth. */
+        public auth?: (protos.common.IAuth|null);
+
+        /** CreateReadRequest read. */
+        public read?: (protos.opts.IReadOptions|null);
+
+        /**
+         * Creates a new CreateReadRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns CreateReadRequest instance
+         */
+        public static create(properties?: protos.ICreateReadRequest): protos.CreateReadRequest;
+
+        /**
+         * Encodes the specified CreateReadRequest message. Does not implicitly {@link protos.CreateReadRequest.verify|verify} messages.
+         * @param message CreateReadRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.ICreateReadRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified CreateReadRequest message, length delimited. Does not implicitly {@link protos.CreateReadRequest.verify|verify} messages.
+         * @param message CreateReadRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.ICreateReadRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a CreateReadRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns CreateReadRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.CreateReadRequest;
+
+        /**
+         * Decodes a CreateReadRequest message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns CreateReadRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.CreateReadRequest;
+
+        /**
+         * Verifies a CreateReadRequest message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a CreateReadRequest message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns CreateReadRequest
+         */
+        public static fromObject(object: { [k: string]: any }): protos.CreateReadRequest;
+
+        /**
+         * Creates a plain object from a CreateReadRequest message. Also converts values to other types if specified.
+         * @param message CreateReadRequest
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.CreateReadRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this CreateReadRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a CreateReadResponse. */
+    interface ICreateReadResponse {
+
+        /** CreateReadResponse status */
+        status?: (protos.common.IStatus|null);
+
+        /** CreateReadResponse readId */
+        readId?: (string|null);
+    }
+
+    /** Represents a CreateReadResponse. */
+    class CreateReadResponse implements ICreateReadResponse {
+
+        /**
+         * Constructs a new CreateReadResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.ICreateReadResponse);
+
+        /** CreateReadResponse status. */
+        public status?: (protos.common.IStatus|null);
+
+        /** CreateReadResponse readId. */
+        public readId: string;
+
+        /**
+         * Creates a new CreateReadResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns CreateReadResponse instance
+         */
+        public static create(properties?: protos.ICreateReadResponse): protos.CreateReadResponse;
+
+        /**
+         * Encodes the specified CreateReadResponse message. Does not implicitly {@link protos.CreateReadResponse.verify|verify} messages.
+         * @param message CreateReadResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.ICreateReadResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified CreateReadResponse message, length delimited. Does not implicitly {@link protos.CreateReadResponse.verify|verify} messages.
+         * @param message CreateReadResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.ICreateReadResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a CreateReadResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns CreateReadResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.CreateReadResponse;
+
+        /**
+         * Decodes a CreateReadResponse message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns CreateReadResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.CreateReadResponse;
+
+        /**
+         * Verifies a CreateReadResponse message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a CreateReadResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns CreateReadResponse
+         */
+        public static fromObject(object: { [k: string]: any }): protos.CreateReadResponse;
+
+        /**
+         * Creates a plain object from a CreateReadResponse message. Also converts values to other types if specified.
+         * @param message CreateReadResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.CreateReadResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this CreateReadResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a StopReadRequest. */
+    interface IStopReadRequest {
+
+        /** StopReadRequest auth */
+        auth?: (protos.common.IAuth|null);
+
+        /** StopReadRequest readId */
+        readId?: (string|null);
+    }
+
+    /** Represents a StopReadRequest. */
+    class StopReadRequest implements IStopReadRequest {
+
+        /**
+         * Constructs a new StopReadRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IStopReadRequest);
+
+        /** StopReadRequest auth. */
+        public auth?: (protos.common.IAuth|null);
+
+        /** StopReadRequest readId. */
+        public readId: string;
+
+        /**
+         * Creates a new StopReadRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns StopReadRequest instance
+         */
+        public static create(properties?: protos.IStopReadRequest): protos.StopReadRequest;
+
+        /**
+         * Encodes the specified StopReadRequest message. Does not implicitly {@link protos.StopReadRequest.verify|verify} messages.
+         * @param message StopReadRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IStopReadRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified StopReadRequest message, length delimited. Does not implicitly {@link protos.StopReadRequest.verify|verify} messages.
+         * @param message StopReadRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IStopReadRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a StopReadRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns StopReadRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.StopReadRequest;
+
+        /**
+         * Decodes a StopReadRequest message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns StopReadRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.StopReadRequest;
+
+        /**
+         * Verifies a StopReadRequest message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a StopReadRequest message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns StopReadRequest
+         */
+        public static fromObject(object: { [k: string]: any }): protos.StopReadRequest;
+
+        /**
+         * Creates a plain object from a StopReadRequest message. Also converts values to other types if specified.
+         * @param message StopReadRequest
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.StopReadRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this StopReadRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a StopReadResponse. */
+    interface IStopReadResponse {
+
+        /** StopReadResponse status */
+        status?: (protos.common.IStatus|null);
+    }
+
+    /** Represents a StopReadResponse. */
+    class StopReadResponse implements IStopReadResponse {
+
+        /**
+         * Constructs a new StopReadResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IStopReadResponse);
+
+        /** StopReadResponse status. */
+        public status?: (protos.common.IStatus|null);
+
+        /**
+         * Creates a new StopReadResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns StopReadResponse instance
+         */
+        public static create(properties?: protos.IStopReadResponse): protos.StopReadResponse;
+
+        /**
+         * Encodes the specified StopReadResponse message. Does not implicitly {@link protos.StopReadResponse.verify|verify} messages.
+         * @param message StopReadResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IStopReadResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified StopReadResponse message, length delimited. Does not implicitly {@link protos.StopReadResponse.verify|verify} messages.
+         * @param message StopReadResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IStopReadResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a StopReadResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns StopReadResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.StopReadResponse;
+
+        /**
+         * Decodes a StopReadResponse message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns StopReadResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.StopReadResponse;
+
+        /**
+         * Verifies a StopReadResponse message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a StopReadResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns StopReadResponse
+         */
+        public static fromObject(object: { [k: string]: any }): protos.StopReadResponse;
+
+        /**
+         * Creates a plain object from a StopReadResponse message. Also converts values to other types if specified.
+         * @param message StopReadResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.StopReadResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this StopReadResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a ResumeReadRequest. */
+    interface IResumeReadRequest {
+
+        /** ResumeReadRequest auth */
+        auth?: (protos.common.IAuth|null);
+
+        /** ResumeReadRequest readId */
+        readId?: (string|null);
+    }
+
+    /** Represents a ResumeReadRequest. */
+    class ResumeReadRequest implements IResumeReadRequest {
+
+        /**
+         * Constructs a new ResumeReadRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IResumeReadRequest);
+
+        /** ResumeReadRequest auth. */
+        public auth?: (protos.common.IAuth|null);
+
+        /** ResumeReadRequest readId. */
+        public readId: string;
+
+        /**
+         * Creates a new ResumeReadRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns ResumeReadRequest instance
+         */
+        public static create(properties?: protos.IResumeReadRequest): protos.ResumeReadRequest;
+
+        /**
+         * Encodes the specified ResumeReadRequest message. Does not implicitly {@link protos.ResumeReadRequest.verify|verify} messages.
+         * @param message ResumeReadRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IResumeReadRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified ResumeReadRequest message, length delimited. Does not implicitly {@link protos.ResumeReadRequest.verify|verify} messages.
+         * @param message ResumeReadRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IResumeReadRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a ResumeReadRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns ResumeReadRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.ResumeReadRequest;
+
+        /**
+         * Decodes a ResumeReadRequest message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns ResumeReadRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.ResumeReadRequest;
+
+        /**
+         * Verifies a ResumeReadRequest message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a ResumeReadRequest message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns ResumeReadRequest
+         */
+        public static fromObject(object: { [k: string]: any }): protos.ResumeReadRequest;
+
+        /**
+         * Creates a plain object from a ResumeReadRequest message. Also converts values to other types if specified.
+         * @param message ResumeReadRequest
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.ResumeReadRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this ResumeReadRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a ResumeReadResponse. */
+    interface IResumeReadResponse {
+
+        /** ResumeReadResponse status */
+        status?: (protos.common.IStatus|null);
+    }
+
+    /** Represents a ResumeReadResponse. */
+    class ResumeReadResponse implements IResumeReadResponse {
+
+        /**
+         * Constructs a new ResumeReadResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IResumeReadResponse);
+
+        /** ResumeReadResponse status. */
+        public status?: (protos.common.IStatus|null);
+
+        /**
+         * Creates a new ResumeReadResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns ResumeReadResponse instance
+         */
+        public static create(properties?: protos.IResumeReadResponse): protos.ResumeReadResponse;
+
+        /**
+         * Encodes the specified ResumeReadResponse message. Does not implicitly {@link protos.ResumeReadResponse.verify|verify} messages.
+         * @param message ResumeReadResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IResumeReadResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified ResumeReadResponse message, length delimited. Does not implicitly {@link protos.ResumeReadResponse.verify|verify} messages.
+         * @param message ResumeReadResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IResumeReadResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a ResumeReadResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns ResumeReadResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.ResumeReadResponse;
+
+        /**
+         * Decodes a ResumeReadResponse message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns ResumeReadResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.ResumeReadResponse;
+
+        /**
+         * Verifies a ResumeReadResponse message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a ResumeReadResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns ResumeReadResponse
+         */
+        public static fromObject(object: { [k: string]: any }): protos.ResumeReadResponse;
+
+        /**
+         * Creates a plain object from a ResumeReadResponse message. Also converts values to other types if specified.
+         * @param message ResumeReadResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.ResumeReadResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this ResumeReadResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a DeleteReadRequest. */
+    interface IDeleteReadRequest {
+
+        /** DeleteReadRequest auth */
+        auth?: (protos.common.IAuth|null);
+
+        /** DeleteReadRequest readId */
+        readId?: (string|null);
+    }
+
+    /** Represents a DeleteReadRequest. */
+    class DeleteReadRequest implements IDeleteReadRequest {
+
+        /**
+         * Constructs a new DeleteReadRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IDeleteReadRequest);
+
+        /** DeleteReadRequest auth. */
+        public auth?: (protos.common.IAuth|null);
+
+        /** DeleteReadRequest readId. */
+        public readId: string;
+
+        /**
+         * Creates a new DeleteReadRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns DeleteReadRequest instance
+         */
+        public static create(properties?: protos.IDeleteReadRequest): protos.DeleteReadRequest;
+
+        /**
+         * Encodes the specified DeleteReadRequest message. Does not implicitly {@link protos.DeleteReadRequest.verify|verify} messages.
+         * @param message DeleteReadRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IDeleteReadRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified DeleteReadRequest message, length delimited. Does not implicitly {@link protos.DeleteReadRequest.verify|verify} messages.
+         * @param message DeleteReadRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IDeleteReadRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a DeleteReadRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns DeleteReadRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.DeleteReadRequest;
+
+        /**
+         * Decodes a DeleteReadRequest message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns DeleteReadRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.DeleteReadRequest;
+
+        /**
+         * Verifies a DeleteReadRequest message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a DeleteReadRequest message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns DeleteReadRequest
+         */
+        public static fromObject(object: { [k: string]: any }): protos.DeleteReadRequest;
+
+        /**
+         * Creates a plain object from a DeleteReadRequest message. Also converts values to other types if specified.
+         * @param message DeleteReadRequest
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.DeleteReadRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this DeleteReadRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a DeleteReadResponse. */
+    interface IDeleteReadResponse {
+
+        /** DeleteReadResponse status */
+        status?: (protos.common.IStatus|null);
+    }
+
+    /** Represents a DeleteReadResponse. */
+    class DeleteReadResponse implements IDeleteReadResponse {
+
+        /**
+         * Constructs a new DeleteReadResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IDeleteReadResponse);
+
+        /** DeleteReadResponse status. */
+        public status?: (protos.common.IStatus|null);
+
+        /**
+         * Creates a new DeleteReadResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns DeleteReadResponse instance
+         */
+        public static create(properties?: protos.IDeleteReadResponse): protos.DeleteReadResponse;
+
+        /**
+         * Encodes the specified DeleteReadResponse message. Does not implicitly {@link protos.DeleteReadResponse.verify|verify} messages.
+         * @param message DeleteReadResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IDeleteReadResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified DeleteReadResponse message, length delimited. Does not implicitly {@link protos.DeleteReadResponse.verify|verify} messages.
+         * @param message DeleteReadResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IDeleteReadResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a DeleteReadResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns DeleteReadResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.DeleteReadResponse;
+
+        /**
+         * Decodes a DeleteReadResponse message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns DeleteReadResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.DeleteReadResponse;
+
+        /**
+         * Verifies a DeleteReadResponse message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a DeleteReadResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns DeleteReadResponse
+         */
+        public static fromObject(object: { [k: string]: any }): protos.DeleteReadResponse;
+
+        /**
+         * Creates a plain object from a DeleteReadResponse message. Also converts values to other types if specified.
+         * @param message DeleteReadResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.DeleteReadResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this DeleteReadResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a StartReadRequest. */
+    interface IStartReadRequest {
+
+        /** StartReadRequest auth */
+        auth?: (protos.common.IAuth|null);
+
+        /** StartReadRequest readId */
+        readId?: (string|null);
+    }
+
+    /** Represents a StartReadRequest. */
+    class StartReadRequest implements IStartReadRequest {
+
+        /**
+         * Constructs a new StartReadRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IStartReadRequest);
+
+        /** StartReadRequest auth. */
+        public auth?: (protos.common.IAuth|null);
+
+        /** StartReadRequest readId. */
+        public readId: string;
+
+        /**
+         * Creates a new StartReadRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns StartReadRequest instance
+         */
+        public static create(properties?: protos.IStartReadRequest): protos.StartReadRequest;
+
+        /**
+         * Encodes the specified StartReadRequest message. Does not implicitly {@link protos.StartReadRequest.verify|verify} messages.
+         * @param message StartReadRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IStartReadRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified StartReadRequest message, length delimited. Does not implicitly {@link protos.StartReadRequest.verify|verify} messages.
+         * @param message StartReadRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IStartReadRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a StartReadRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns StartReadRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.StartReadRequest;
+
+        /**
+         * Decodes a StartReadRequest message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns StartReadRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.StartReadRequest;
+
+        /**
+         * Verifies a StartReadRequest message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a StartReadRequest message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns StartReadRequest
+         */
+        public static fromObject(object: { [k: string]: any }): protos.StartReadRequest;
+
+        /**
+         * Creates a plain object from a StartReadRequest message. Also converts values to other types if specified.
+         * @param message StartReadRequest
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.StartReadRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this StartReadRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a StartReadResponse. */
+    interface IStartReadResponse {
+
+        /** StartReadResponse records */
+        records?: (protos.records.IReadRecord[]|null);
+
+        /** StartReadResponse status */
+        status?: (protos.common.IStatus|null);
+    }
+
+    /** Represents a StartReadResponse. */
+    class StartReadResponse implements IStartReadResponse {
+
+        /**
+         * Constructs a new StartReadResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IStartReadResponse);
+
+        /** StartReadResponse records. */
+        public records: protos.records.IReadRecord[];
+
+        /** StartReadResponse status. */
+        public status?: (protos.common.IStatus|null);
+
+        /**
+         * Creates a new StartReadResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns StartReadResponse instance
+         */
+        public static create(properties?: protos.IStartReadResponse): protos.StartReadResponse;
+
+        /**
+         * Encodes the specified StartReadResponse message. Does not implicitly {@link protos.StartReadResponse.verify|verify} messages.
+         * @param message StartReadResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IStartReadResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified StartReadResponse message, length delimited. Does not implicitly {@link protos.StartReadResponse.verify|verify} messages.
+         * @param message StartReadResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IStartReadResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a StartReadResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns StartReadResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.StartReadResponse;
+
+        /**
+         * Decodes a StartReadResponse message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns StartReadResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.StartReadResponse;
+
+        /**
+         * Verifies a StartReadResponse message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a StartReadResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns StartReadResponse
+         */
+        public static fromObject(object: { [k: string]: any }): protos.StartReadResponse;
+
+        /**
+         * Creates a plain object from a StartReadResponse message. Also converts values to other types if specified.
+         * @param message StartReadResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.StartReadResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this StartReadResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a GetAllReadsRequest. */
+    interface IGetAllReadsRequest {
+
+        /** GetAllReadsRequest auth */
+        auth?: (protos.common.IAuth|null);
+    }
+
+    /** Represents a GetAllReadsRequest. */
+    class GetAllReadsRequest implements IGetAllReadsRequest {
+
+        /**
+         * Constructs a new GetAllReadsRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IGetAllReadsRequest);
+
+        /** GetAllReadsRequest auth. */
+        public auth?: (protos.common.IAuth|null);
+
+        /**
+         * Creates a new GetAllReadsRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns GetAllReadsRequest instance
+         */
+        public static create(properties?: protos.IGetAllReadsRequest): protos.GetAllReadsRequest;
+
+        /**
+         * Encodes the specified GetAllReadsRequest message. Does not implicitly {@link protos.GetAllReadsRequest.verify|verify} messages.
+         * @param message GetAllReadsRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IGetAllReadsRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified GetAllReadsRequest message, length delimited. Does not implicitly {@link protos.GetAllReadsRequest.verify|verify} messages.
+         * @param message GetAllReadsRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IGetAllReadsRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a GetAllReadsRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns GetAllReadsRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.GetAllReadsRequest;
+
+        /**
+         * Decodes a GetAllReadsRequest message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns GetAllReadsRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.GetAllReadsRequest;
+
+        /**
+         * Verifies a GetAllReadsRequest message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a GetAllReadsRequest message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns GetAllReadsRequest
+         */
+        public static fromObject(object: { [k: string]: any }): protos.GetAllReadsRequest;
+
+        /**
+         * Creates a plain object from a GetAllReadsRequest message. Also converts values to other types if specified.
+         * @param message GetAllReadsRequest
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.GetAllReadsRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this GetAllReadsRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a GetAllReadsResponse. */
+    interface IGetAllReadsResponse {
+
+        /** GetAllReadsResponse read */
+        read?: (protos.opts.IReadOptions[]|null);
+
+        /** GetAllReadsResponse status */
+        status?: (protos.common.IStatus|null);
+    }
+
+    /** Represents a GetAllReadsResponse. */
+    class GetAllReadsResponse implements IGetAllReadsResponse {
+
+        /**
+         * Constructs a new GetAllReadsResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IGetAllReadsResponse);
+
+        /** GetAllReadsResponse read. */
+        public read: protos.opts.IReadOptions[];
+
+        /** GetAllReadsResponse status. */
+        public status?: (protos.common.IStatus|null);
+
+        /**
+         * Creates a new GetAllReadsResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns GetAllReadsResponse instance
+         */
+        public static create(properties?: protos.IGetAllReadsResponse): protos.GetAllReadsResponse;
+
+        /**
+         * Encodes the specified GetAllReadsResponse message. Does not implicitly {@link protos.GetAllReadsResponse.verify|verify} messages.
+         * @param message GetAllReadsResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IGetAllReadsResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified GetAllReadsResponse message, length delimited. Does not implicitly {@link protos.GetAllReadsResponse.verify|verify} messages.
+         * @param message GetAllReadsResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IGetAllReadsResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a GetAllReadsResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns GetAllReadsResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.GetAllReadsResponse;
+
+        /**
+         * Decodes a GetAllReadsResponse message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns GetAllReadsResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.GetAllReadsResponse;
+
+        /**
+         * Verifies a GetAllReadsResponse message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a GetAllReadsResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns GetAllReadsResponse
+         */
+        public static fromObject(object: { [k: string]: any }): protos.GetAllReadsResponse;
+
+        /**
+         * Creates a plain object from a GetAllReadsResponse message. Also converts values to other types if specified.
+         * @param message GetAllReadsResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.GetAllReadsResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this GetAllReadsResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a WriteRequest. */
+    interface IWriteRequest {
+
+        /** WriteRequest auth */
+        auth?: (protos.common.IAuth|null);
+
+        /** WriteRequest opts */
+        opts?: (protos.opts.IWriteOptions|null);
+    }
+
+    /** Represents a WriteRequest. */
+    class WriteRequest implements IWriteRequest {
+
+        /**
+         * Constructs a new WriteRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IWriteRequest);
+
+        /** WriteRequest auth. */
+        public auth?: (protos.common.IAuth|null);
+
+        /** WriteRequest opts. */
+        public opts?: (protos.opts.IWriteOptions|null);
+
+        /**
+         * Creates a new WriteRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns WriteRequest instance
+         */
+        public static create(properties?: protos.IWriteRequest): protos.WriteRequest;
+
+        /**
+         * Encodes the specified WriteRequest message. Does not implicitly {@link protos.WriteRequest.verify|verify} messages.
+         * @param message WriteRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IWriteRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified WriteRequest message, length delimited. Does not implicitly {@link protos.WriteRequest.verify|verify} messages.
+         * @param message WriteRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IWriteRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a WriteRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns WriteRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.WriteRequest;
+
+        /**
+         * Decodes a WriteRequest message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns WriteRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.WriteRequest;
+
+        /**
+         * Verifies a WriteRequest message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a WriteRequest message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns WriteRequest
+         */
+        public static fromObject(object: { [k: string]: any }): protos.WriteRequest;
+
+        /**
+         * Creates a plain object from a WriteRequest message. Also converts values to other types if specified.
+         * @param message WriteRequest
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.WriteRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this WriteRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a WriteResponse. */
+    interface IWriteResponse {
+
+        /** WriteResponse status */
+        status?: (protos.common.IStatus|null);
+    }
+
+    /** Represents a WriteResponse. */
+    class WriteResponse implements IWriteResponse {
+
+        /**
+         * Constructs a new WriteResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IWriteResponse);
+
+        /** WriteResponse status. */
+        public status?: (protos.common.IStatus|null);
+
+        /**
+         * Creates a new WriteResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns WriteResponse instance
+         */
+        public static create(properties?: protos.IWriteResponse): protos.WriteResponse;
+
+        /**
+         * Encodes the specified WriteResponse message. Does not implicitly {@link protos.WriteResponse.verify|verify} messages.
+         * @param message WriteResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IWriteResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified WriteResponse message, length delimited. Does not implicitly {@link protos.WriteResponse.verify|verify} messages.
+         * @param message WriteResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IWriteResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a WriteResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns WriteResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.WriteResponse;
+
+        /**
+         * Decodes a WriteResponse message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns WriteResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.WriteResponse;
+
+        /**
+         * Verifies a WriteResponse message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a WriteResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns WriteResponse
+         */
+        public static fromObject(object: { [k: string]: any }): protos.WriteResponse;
+
+        /**
+         * Creates a plain object from a WriteResponse message. Also converts values to other types if specified.
+         * @param message WriteResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.WriteResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this WriteResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a GetAllRelaysRequest. */
+    interface IGetAllRelaysRequest {
+
+        /** GetAllRelaysRequest auth */
+        auth?: (protos.common.IAuth|null);
+    }
+
+    /** Represents a GetAllRelaysRequest. */
+    class GetAllRelaysRequest implements IGetAllRelaysRequest {
+
+        /**
+         * Constructs a new GetAllRelaysRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IGetAllRelaysRequest);
+
+        /** GetAllRelaysRequest auth. */
+        public auth?: (protos.common.IAuth|null);
+
+        /**
+         * Creates a new GetAllRelaysRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns GetAllRelaysRequest instance
+         */
+        public static create(properties?: protos.IGetAllRelaysRequest): protos.GetAllRelaysRequest;
+
+        /**
+         * Encodes the specified GetAllRelaysRequest message. Does not implicitly {@link protos.GetAllRelaysRequest.verify|verify} messages.
+         * @param message GetAllRelaysRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IGetAllRelaysRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified GetAllRelaysRequest message, length delimited. Does not implicitly {@link protos.GetAllRelaysRequest.verify|verify} messages.
+         * @param message GetAllRelaysRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IGetAllRelaysRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a GetAllRelaysRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns GetAllRelaysRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.GetAllRelaysRequest;
+
+        /**
+         * Decodes a GetAllRelaysRequest message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns GetAllRelaysRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.GetAllRelaysRequest;
+
+        /**
+         * Verifies a GetAllRelaysRequest message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a GetAllRelaysRequest message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns GetAllRelaysRequest
+         */
+        public static fromObject(object: { [k: string]: any }): protos.GetAllRelaysRequest;
+
+        /**
+         * Creates a plain object from a GetAllRelaysRequest message. Also converts values to other types if specified.
+         * @param message GetAllRelaysRequest
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.GetAllRelaysRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this GetAllRelaysRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a GetAllRelaysResponse. */
+    interface IGetAllRelaysResponse {
+
+        /** GetAllRelaysResponse status */
+        status?: (protos.common.IStatus|null);
+
+        /** GetAllRelaysResponse opts */
+        opts?: (protos.opts.IRelayOptions[]|null);
+    }
+
+    /** Represents a GetAllRelaysResponse. */
+    class GetAllRelaysResponse implements IGetAllRelaysResponse {
+
+        /**
+         * Constructs a new GetAllRelaysResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IGetAllRelaysResponse);
+
+        /** GetAllRelaysResponse status. */
+        public status?: (protos.common.IStatus|null);
+
+        /** GetAllRelaysResponse opts. */
+        public opts: protos.opts.IRelayOptions[];
+
+        /**
+         * Creates a new GetAllRelaysResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns GetAllRelaysResponse instance
+         */
+        public static create(properties?: protos.IGetAllRelaysResponse): protos.GetAllRelaysResponse;
+
+        /**
+         * Encodes the specified GetAllRelaysResponse message. Does not implicitly {@link protos.GetAllRelaysResponse.verify|verify} messages.
+         * @param message GetAllRelaysResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IGetAllRelaysResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified GetAllRelaysResponse message, length delimited. Does not implicitly {@link protos.GetAllRelaysResponse.verify|verify} messages.
+         * @param message GetAllRelaysResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IGetAllRelaysResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a GetAllRelaysResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns GetAllRelaysResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.GetAllRelaysResponse;
+
+        /**
+         * Decodes a GetAllRelaysResponse message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns GetAllRelaysResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.GetAllRelaysResponse;
+
+        /**
+         * Verifies a GetAllRelaysResponse message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a GetAllRelaysResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns GetAllRelaysResponse
+         */
+        public static fromObject(object: { [k: string]: any }): protos.GetAllRelaysResponse;
+
+        /**
+         * Creates a plain object from a GetAllRelaysResponse message. Also converts values to other types if specified.
+         * @param message GetAllRelaysResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.GetAllRelaysResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this GetAllRelaysResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a GetRelayRequest. */
+    interface IGetRelayRequest {
+
+        /** GetRelayRequest auth */
+        auth?: (protos.common.IAuth|null);
+
+        /** GetRelayRequest relayId */
+        relayId?: (string|null);
+    }
+
+    /** Represents a GetRelayRequest. */
+    class GetRelayRequest implements IGetRelayRequest {
+
+        /**
+         * Constructs a new GetRelayRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IGetRelayRequest);
+
+        /** GetRelayRequest auth. */
+        public auth?: (protos.common.IAuth|null);
+
+        /** GetRelayRequest relayId. */
+        public relayId: string;
+
+        /**
+         * Creates a new GetRelayRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns GetRelayRequest instance
+         */
+        public static create(properties?: protos.IGetRelayRequest): protos.GetRelayRequest;
+
+        /**
+         * Encodes the specified GetRelayRequest message. Does not implicitly {@link protos.GetRelayRequest.verify|verify} messages.
+         * @param message GetRelayRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IGetRelayRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified GetRelayRequest message, length delimited. Does not implicitly {@link protos.GetRelayRequest.verify|verify} messages.
+         * @param message GetRelayRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IGetRelayRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a GetRelayRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns GetRelayRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.GetRelayRequest;
+
+        /**
+         * Decodes a GetRelayRequest message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns GetRelayRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.GetRelayRequest;
+
+        /**
+         * Verifies a GetRelayRequest message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a GetRelayRequest message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns GetRelayRequest
+         */
+        public static fromObject(object: { [k: string]: any }): protos.GetRelayRequest;
+
+        /**
+         * Creates a plain object from a GetRelayRequest message. Also converts values to other types if specified.
+         * @param message GetRelayRequest
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.GetRelayRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this GetRelayRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a GetRelayResponse. */
+    interface IGetRelayResponse {
+
+        /** GetRelayResponse status */
+        status?: (protos.common.IStatus|null);
+
+        /** GetRelayResponse opts */
+        opts?: (protos.opts.IRelayOptions|null);
+    }
+
+    /** Represents a GetRelayResponse. */
+    class GetRelayResponse implements IGetRelayResponse {
+
+        /**
+         * Constructs a new GetRelayResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IGetRelayResponse);
+
+        /** GetRelayResponse status. */
+        public status?: (protos.common.IStatus|null);
+
+        /** GetRelayResponse opts. */
+        public opts?: (protos.opts.IRelayOptions|null);
+
+        /**
+         * Creates a new GetRelayResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns GetRelayResponse instance
+         */
+        public static create(properties?: protos.IGetRelayResponse): protos.GetRelayResponse;
+
+        /**
+         * Encodes the specified GetRelayResponse message. Does not implicitly {@link protos.GetRelayResponse.verify|verify} messages.
+         * @param message GetRelayResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IGetRelayResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified GetRelayResponse message, length delimited. Does not implicitly {@link protos.GetRelayResponse.verify|verify} messages.
+         * @param message GetRelayResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IGetRelayResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a GetRelayResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns GetRelayResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.GetRelayResponse;
+
+        /**
+         * Decodes a GetRelayResponse message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns GetRelayResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.GetRelayResponse;
+
+        /**
+         * Verifies a GetRelayResponse message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a GetRelayResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns GetRelayResponse
+         */
+        public static fromObject(object: { [k: string]: any }): protos.GetRelayResponse;
+
+        /**
+         * Creates a plain object from a GetRelayResponse message. Also converts values to other types if specified.
+         * @param message GetRelayResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.GetRelayResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this GetRelayResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a CreateRelayRequest. */
+    interface ICreateRelayRequest {
+
+        /** CreateRelayRequest auth */
+        auth?: (protos.common.IAuth|null);
+
+        /** CreateRelayRequest opts */
+        opts?: (protos.opts.IRelayOptions|null);
+    }
+
+    /** Represents a CreateRelayRequest. */
+    class CreateRelayRequest implements ICreateRelayRequest {
+
+        /**
+         * Constructs a new CreateRelayRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.ICreateRelayRequest);
+
+        /** CreateRelayRequest auth. */
+        public auth?: (protos.common.IAuth|null);
+
+        /** CreateRelayRequest opts. */
+        public opts?: (protos.opts.IRelayOptions|null);
+
+        /**
+         * Creates a new CreateRelayRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns CreateRelayRequest instance
+         */
+        public static create(properties?: protos.ICreateRelayRequest): protos.CreateRelayRequest;
+
+        /**
+         * Encodes the specified CreateRelayRequest message. Does not implicitly {@link protos.CreateRelayRequest.verify|verify} messages.
+         * @param message CreateRelayRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.ICreateRelayRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified CreateRelayRequest message, length delimited. Does not implicitly {@link protos.CreateRelayRequest.verify|verify} messages.
+         * @param message CreateRelayRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.ICreateRelayRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a CreateRelayRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns CreateRelayRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.CreateRelayRequest;
+
+        /**
+         * Decodes a CreateRelayRequest message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns CreateRelayRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.CreateRelayRequest;
+
+        /**
+         * Verifies a CreateRelayRequest message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a CreateRelayRequest message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns CreateRelayRequest
+         */
+        public static fromObject(object: { [k: string]: any }): protos.CreateRelayRequest;
+
+        /**
+         * Creates a plain object from a CreateRelayRequest message. Also converts values to other types if specified.
+         * @param message CreateRelayRequest
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.CreateRelayRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this CreateRelayRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a CreateRelayResponse. */
+    interface ICreateRelayResponse {
+
+        /** CreateRelayResponse status */
+        status?: (protos.common.IStatus|null);
+
+        /** CreateRelayResponse relayId */
+        relayId?: (string|null);
+    }
+
+    /** Represents a CreateRelayResponse. */
+    class CreateRelayResponse implements ICreateRelayResponse {
+
+        /**
+         * Constructs a new CreateRelayResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.ICreateRelayResponse);
+
+        /** CreateRelayResponse status. */
+        public status?: (protos.common.IStatus|null);
+
+        /** CreateRelayResponse relayId. */
+        public relayId: string;
+
+        /**
+         * Creates a new CreateRelayResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns CreateRelayResponse instance
+         */
+        public static create(properties?: protos.ICreateRelayResponse): protos.CreateRelayResponse;
+
+        /**
+         * Encodes the specified CreateRelayResponse message. Does not implicitly {@link protos.CreateRelayResponse.verify|verify} messages.
+         * @param message CreateRelayResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.ICreateRelayResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified CreateRelayResponse message, length delimited. Does not implicitly {@link protos.CreateRelayResponse.verify|verify} messages.
+         * @param message CreateRelayResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.ICreateRelayResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a CreateRelayResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns CreateRelayResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.CreateRelayResponse;
+
+        /**
+         * Decodes a CreateRelayResponse message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns CreateRelayResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.CreateRelayResponse;
+
+        /**
+         * Verifies a CreateRelayResponse message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a CreateRelayResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns CreateRelayResponse
+         */
+        public static fromObject(object: { [k: string]: any }): protos.CreateRelayResponse;
+
+        /**
+         * Creates a plain object from a CreateRelayResponse message. Also converts values to other types if specified.
+         * @param message CreateRelayResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.CreateRelayResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this CreateRelayResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of an UpdateRelayRequest. */
+    interface IUpdateRelayRequest {
+
+        /** UpdateRelayRequest auth */
+        auth?: (protos.common.IAuth|null);
+
+        /** UpdateRelayRequest relayId */
+        relayId?: (string|null);
+
+        /** UpdateRelayRequest opts */
+        opts?: (protos.opts.IRelayOptions|null);
+    }
+
+    /** Represents an UpdateRelayRequest. */
+    class UpdateRelayRequest implements IUpdateRelayRequest {
+
+        /**
+         * Constructs a new UpdateRelayRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IUpdateRelayRequest);
+
+        /** UpdateRelayRequest auth. */
+        public auth?: (protos.common.IAuth|null);
+
+        /** UpdateRelayRequest relayId. */
+        public relayId: string;
+
+        /** UpdateRelayRequest opts. */
+        public opts?: (protos.opts.IRelayOptions|null);
+
+        /**
+         * Creates a new UpdateRelayRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns UpdateRelayRequest instance
+         */
+        public static create(properties?: protos.IUpdateRelayRequest): protos.UpdateRelayRequest;
+
+        /**
+         * Encodes the specified UpdateRelayRequest message. Does not implicitly {@link protos.UpdateRelayRequest.verify|verify} messages.
+         * @param message UpdateRelayRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IUpdateRelayRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified UpdateRelayRequest message, length delimited. Does not implicitly {@link protos.UpdateRelayRequest.verify|verify} messages.
+         * @param message UpdateRelayRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IUpdateRelayRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes an UpdateRelayRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns UpdateRelayRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.UpdateRelayRequest;
+
+        /**
+         * Decodes an UpdateRelayRequest message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns UpdateRelayRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.UpdateRelayRequest;
+
+        /**
+         * Verifies an UpdateRelayRequest message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates an UpdateRelayRequest message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns UpdateRelayRequest
+         */
+        public static fromObject(object: { [k: string]: any }): protos.UpdateRelayRequest;
+
+        /**
+         * Creates a plain object from an UpdateRelayRequest message. Also converts values to other types if specified.
+         * @param message UpdateRelayRequest
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.UpdateRelayRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this UpdateRelayRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of an UpdateRelayResponse. */
+    interface IUpdateRelayResponse {
+
+        /** UpdateRelayResponse status */
+        status?: (protos.common.IStatus|null);
+    }
+
+    /** Represents an UpdateRelayResponse. */
+    class UpdateRelayResponse implements IUpdateRelayResponse {
+
+        /**
+         * Constructs a new UpdateRelayResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IUpdateRelayResponse);
+
+        /** UpdateRelayResponse status. */
+        public status?: (protos.common.IStatus|null);
+
+        /**
+         * Creates a new UpdateRelayResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns UpdateRelayResponse instance
+         */
+        public static create(properties?: protos.IUpdateRelayResponse): protos.UpdateRelayResponse;
+
+        /**
+         * Encodes the specified UpdateRelayResponse message. Does not implicitly {@link protos.UpdateRelayResponse.verify|verify} messages.
+         * @param message UpdateRelayResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IUpdateRelayResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified UpdateRelayResponse message, length delimited. Does not implicitly {@link protos.UpdateRelayResponse.verify|verify} messages.
+         * @param message UpdateRelayResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IUpdateRelayResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes an UpdateRelayResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns UpdateRelayResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.UpdateRelayResponse;
+
+        /**
+         * Decodes an UpdateRelayResponse message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns UpdateRelayResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.UpdateRelayResponse;
+
+        /**
+         * Verifies an UpdateRelayResponse message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates an UpdateRelayResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns UpdateRelayResponse
+         */
+        public static fromObject(object: { [k: string]: any }): protos.UpdateRelayResponse;
+
+        /**
+         * Creates a plain object from an UpdateRelayResponse message. Also converts values to other types if specified.
+         * @param message UpdateRelayResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.UpdateRelayResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this UpdateRelayResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a ResumeRelayRequest. */
+    interface IResumeRelayRequest {
+
+        /** ResumeRelayRequest auth */
+        auth?: (protos.common.IAuth|null);
+
+        /** ResumeRelayRequest relayId */
+        relayId?: (string|null);
+    }
+
+    /** Represents a ResumeRelayRequest. */
+    class ResumeRelayRequest implements IResumeRelayRequest {
+
+        /**
+         * Constructs a new ResumeRelayRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IResumeRelayRequest);
+
+        /** ResumeRelayRequest auth. */
+        public auth?: (protos.common.IAuth|null);
+
+        /** ResumeRelayRequest relayId. */
+        public relayId: string;
+
+        /**
+         * Creates a new ResumeRelayRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns ResumeRelayRequest instance
+         */
+        public static create(properties?: protos.IResumeRelayRequest): protos.ResumeRelayRequest;
+
+        /**
+         * Encodes the specified ResumeRelayRequest message. Does not implicitly {@link protos.ResumeRelayRequest.verify|verify} messages.
+         * @param message ResumeRelayRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IResumeRelayRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified ResumeRelayRequest message, length delimited. Does not implicitly {@link protos.ResumeRelayRequest.verify|verify} messages.
+         * @param message ResumeRelayRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IResumeRelayRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a ResumeRelayRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns ResumeRelayRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.ResumeRelayRequest;
+
+        /**
+         * Decodes a ResumeRelayRequest message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns ResumeRelayRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.ResumeRelayRequest;
+
+        /**
+         * Verifies a ResumeRelayRequest message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a ResumeRelayRequest message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns ResumeRelayRequest
+         */
+        public static fromObject(object: { [k: string]: any }): protos.ResumeRelayRequest;
+
+        /**
+         * Creates a plain object from a ResumeRelayRequest message. Also converts values to other types if specified.
+         * @param message ResumeRelayRequest
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.ResumeRelayRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this ResumeRelayRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a ResumeRelayResponse. */
+    interface IResumeRelayResponse {
+
+        /** ResumeRelayResponse status */
+        status?: (protos.common.IStatus|null);
+    }
+
+    /** Represents a ResumeRelayResponse. */
+    class ResumeRelayResponse implements IResumeRelayResponse {
+
+        /**
+         * Constructs a new ResumeRelayResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IResumeRelayResponse);
+
+        /** ResumeRelayResponse status. */
+        public status?: (protos.common.IStatus|null);
+
+        /**
+         * Creates a new ResumeRelayResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns ResumeRelayResponse instance
+         */
+        public static create(properties?: protos.IResumeRelayResponse): protos.ResumeRelayResponse;
+
+        /**
+         * Encodes the specified ResumeRelayResponse message. Does not implicitly {@link protos.ResumeRelayResponse.verify|verify} messages.
+         * @param message ResumeRelayResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IResumeRelayResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified ResumeRelayResponse message, length delimited. Does not implicitly {@link protos.ResumeRelayResponse.verify|verify} messages.
+         * @param message ResumeRelayResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IResumeRelayResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a ResumeRelayResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns ResumeRelayResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.ResumeRelayResponse;
+
+        /**
+         * Decodes a ResumeRelayResponse message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns ResumeRelayResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.ResumeRelayResponse;
+
+        /**
+         * Verifies a ResumeRelayResponse message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a ResumeRelayResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns ResumeRelayResponse
+         */
+        public static fromObject(object: { [k: string]: any }): protos.ResumeRelayResponse;
+
+        /**
+         * Creates a plain object from a ResumeRelayResponse message. Also converts values to other types if specified.
+         * @param message ResumeRelayResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.ResumeRelayResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this ResumeRelayResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a StopRelayRequest. */
+    interface IStopRelayRequest {
+
+        /** StopRelayRequest auth */
+        auth?: (protos.common.IAuth|null);
+
+        /** StopRelayRequest relayId */
+        relayId?: (string|null);
+    }
+
+    /** Represents a StopRelayRequest. */
+    class StopRelayRequest implements IStopRelayRequest {
+
+        /**
+         * Constructs a new StopRelayRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IStopRelayRequest);
+
+        /** StopRelayRequest auth. */
+        public auth?: (protos.common.IAuth|null);
+
+        /** StopRelayRequest relayId. */
+        public relayId: string;
+
+        /**
+         * Creates a new StopRelayRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns StopRelayRequest instance
+         */
+        public static create(properties?: protos.IStopRelayRequest): protos.StopRelayRequest;
+
+        /**
+         * Encodes the specified StopRelayRequest message. Does not implicitly {@link protos.StopRelayRequest.verify|verify} messages.
+         * @param message StopRelayRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IStopRelayRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified StopRelayRequest message, length delimited. Does not implicitly {@link protos.StopRelayRequest.verify|verify} messages.
+         * @param message StopRelayRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IStopRelayRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a StopRelayRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns StopRelayRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.StopRelayRequest;
+
+        /**
+         * Decodes a StopRelayRequest message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns StopRelayRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.StopRelayRequest;
+
+        /**
+         * Verifies a StopRelayRequest message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a StopRelayRequest message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns StopRelayRequest
+         */
+        public static fromObject(object: { [k: string]: any }): protos.StopRelayRequest;
+
+        /**
+         * Creates a plain object from a StopRelayRequest message. Also converts values to other types if specified.
+         * @param message StopRelayRequest
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.StopRelayRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this StopRelayRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a StopRelayResponse. */
+    interface IStopRelayResponse {
+
+        /** StopRelayResponse status */
+        status?: (protos.common.IStatus|null);
+    }
+
+    /** Represents a StopRelayResponse. */
+    class StopRelayResponse implements IStopRelayResponse {
+
+        /**
+         * Constructs a new StopRelayResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IStopRelayResponse);
+
+        /** StopRelayResponse status. */
+        public status?: (protos.common.IStatus|null);
+
+        /**
+         * Creates a new StopRelayResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns StopRelayResponse instance
+         */
+        public static create(properties?: protos.IStopRelayResponse): protos.StopRelayResponse;
+
+        /**
+         * Encodes the specified StopRelayResponse message. Does not implicitly {@link protos.StopRelayResponse.verify|verify} messages.
+         * @param message StopRelayResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IStopRelayResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified StopRelayResponse message, length delimited. Does not implicitly {@link protos.StopRelayResponse.verify|verify} messages.
+         * @param message StopRelayResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IStopRelayResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a StopRelayResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns StopRelayResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.StopRelayResponse;
+
+        /**
+         * Decodes a StopRelayResponse message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns StopRelayResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.StopRelayResponse;
+
+        /**
+         * Verifies a StopRelayResponse message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a StopRelayResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns StopRelayResponse
+         */
+        public static fromObject(object: { [k: string]: any }): protos.StopRelayResponse;
+
+        /**
+         * Creates a plain object from a StopRelayResponse message. Also converts values to other types if specified.
+         * @param message StopRelayResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.StopRelayResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this StopRelayResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a DeleteRelayRequest. */
+    interface IDeleteRelayRequest {
+
+        /** DeleteRelayRequest auth */
+        auth?: (protos.common.IAuth|null);
+
+        /** DeleteRelayRequest relayId */
+        relayId?: (string|null);
+    }
+
+    /** Represents a DeleteRelayRequest. */
+    class DeleteRelayRequest implements IDeleteRelayRequest {
+
+        /**
+         * Constructs a new DeleteRelayRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IDeleteRelayRequest);
+
+        /** DeleteRelayRequest auth. */
+        public auth?: (protos.common.IAuth|null);
+
+        /** DeleteRelayRequest relayId. */
+        public relayId: string;
+
+        /**
+         * Creates a new DeleteRelayRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns DeleteRelayRequest instance
+         */
+        public static create(properties?: protos.IDeleteRelayRequest): protos.DeleteRelayRequest;
+
+        /**
+         * Encodes the specified DeleteRelayRequest message. Does not implicitly {@link protos.DeleteRelayRequest.verify|verify} messages.
+         * @param message DeleteRelayRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IDeleteRelayRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified DeleteRelayRequest message, length delimited. Does not implicitly {@link protos.DeleteRelayRequest.verify|verify} messages.
+         * @param message DeleteRelayRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IDeleteRelayRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a DeleteRelayRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns DeleteRelayRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.DeleteRelayRequest;
+
+        /**
+         * Decodes a DeleteRelayRequest message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns DeleteRelayRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.DeleteRelayRequest;
+
+        /**
+         * Verifies a DeleteRelayRequest message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a DeleteRelayRequest message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns DeleteRelayRequest
+         */
+        public static fromObject(object: { [k: string]: any }): protos.DeleteRelayRequest;
+
+        /**
+         * Creates a plain object from a DeleteRelayRequest message. Also converts values to other types if specified.
+         * @param message DeleteRelayRequest
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.DeleteRelayRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this DeleteRelayRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a DeleteRelayResponse. */
+    interface IDeleteRelayResponse {
+
+        /** DeleteRelayResponse status */
+        status?: (protos.common.IStatus|null);
+    }
+
+    /** Represents a DeleteRelayResponse. */
+    class DeleteRelayResponse implements IDeleteRelayResponse {
+
+        /**
+         * Constructs a new DeleteRelayResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IDeleteRelayResponse);
+
+        /** DeleteRelayResponse status. */
+        public status?: (protos.common.IStatus|null);
+
+        /**
+         * Creates a new DeleteRelayResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns DeleteRelayResponse instance
+         */
+        public static create(properties?: protos.IDeleteRelayResponse): protos.DeleteRelayResponse;
+
+        /**
+         * Encodes the specified DeleteRelayResponse message. Does not implicitly {@link protos.DeleteRelayResponse.verify|verify} messages.
+         * @param message DeleteRelayResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IDeleteRelayResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified DeleteRelayResponse message, length delimited. Does not implicitly {@link protos.DeleteRelayResponse.verify|verify} messages.
+         * @param message DeleteRelayResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IDeleteRelayResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a DeleteRelayResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns DeleteRelayResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.DeleteRelayResponse;
+
+        /**
+         * Decodes a DeleteRelayResponse message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns DeleteRelayResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.DeleteRelayResponse;
+
+        /**
+         * Verifies a DeleteRelayResponse message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a DeleteRelayResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns DeleteRelayResponse
+         */
+        public static fromObject(object: { [k: string]: any }): protos.DeleteRelayResponse;
+
+        /**
+         * Creates a plain object from a DeleteRelayResponse message. Also converts values to other types if specified.
+         * @param message DeleteRelayResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.DeleteRelayResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this DeleteRelayResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a Schema. */
+    interface ISchema {
+
+        /** Schema id */
+        id?: (string|null);
+
+        /** Schema name */
+        name?: (string|null);
+
+        /** Schema type */
+        type?: (protos.SchemaType|null);
+
+        /** Schema files */
+        files?: ({ [k: string]: string }|null);
+
+        /** Schema protobufSettings */
+        protobufSettings?: (protos.encoding.IProtobufSettings|null);
+
+        /** Schema avroSettings */
+        avroSettings?: (protos.encoding.IAvroSettings|null);
+    }
+
+    /** Represents a Schema. */
+    class Schema implements ISchema {
+
+        /**
+         * Constructs a new Schema.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.ISchema);
+
+        /** Schema id. */
+        public id: string;
+
+        /** Schema name. */
+        public name: string;
+
+        /** Schema type. */
+        public type: protos.SchemaType;
+
+        /** Schema files. */
+        public files: { [k: string]: string };
+
+        /** Schema protobufSettings. */
+        public protobufSettings?: (protos.encoding.IProtobufSettings|null);
+
+        /** Schema avroSettings. */
+        public avroSettings?: (protos.encoding.IAvroSettings|null);
+
+        /** Schema settings. */
+        public settings?: ("protobufSettings"|"avroSettings");
+
+        /**
+         * Creates a new Schema instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns Schema instance
+         */
+        public static create(properties?: protos.ISchema): protos.Schema;
+
+        /**
+         * Encodes the specified Schema message. Does not implicitly {@link protos.Schema.verify|verify} messages.
+         * @param message Schema message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.ISchema, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified Schema message, length delimited. Does not implicitly {@link protos.Schema.verify|verify} messages.
+         * @param message Schema message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.ISchema, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a Schema message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns Schema
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.Schema;
+
+        /**
+         * Decodes a Schema message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns Schema
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.Schema;
+
+        /**
+         * Verifies a Schema message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a Schema message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns Schema
+         */
+        public static fromObject(object: { [k: string]: any }): protos.Schema;
+
+        /**
+         * Creates a plain object from a Schema message. Also converts values to other types if specified.
+         * @param message Schema
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.Schema, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this Schema to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** SchemaType enum. */
+    enum SchemaType {
+        SCHEMA_TYPE_UNSET = 0,
+        SCHEMA_TYPE_PROTOBUF = 1,
+        SCHEMA_TYPE_AVRO = 2
+    }
+
+    /** Properties of a GetSchemaRequest. */
+    interface IGetSchemaRequest {
+
+        /** GetSchemaRequest auth */
+        auth?: (protos.common.IAuth|null);
+
+        /** GetSchemaRequest id */
+        id?: (string|null);
+    }
+
+    /** Represents a GetSchemaRequest. */
+    class GetSchemaRequest implements IGetSchemaRequest {
+
+        /**
+         * Constructs a new GetSchemaRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IGetSchemaRequest);
+
+        /** GetSchemaRequest auth. */
+        public auth?: (protos.common.IAuth|null);
+
+        /** GetSchemaRequest id. */
+        public id: string;
+
+        /**
+         * Creates a new GetSchemaRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns GetSchemaRequest instance
+         */
+        public static create(properties?: protos.IGetSchemaRequest): protos.GetSchemaRequest;
+
+        /**
+         * Encodes the specified GetSchemaRequest message. Does not implicitly {@link protos.GetSchemaRequest.verify|verify} messages.
+         * @param message GetSchemaRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IGetSchemaRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified GetSchemaRequest message, length delimited. Does not implicitly {@link protos.GetSchemaRequest.verify|verify} messages.
+         * @param message GetSchemaRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IGetSchemaRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a GetSchemaRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns GetSchemaRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.GetSchemaRequest;
+
+        /**
+         * Decodes a GetSchemaRequest message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns GetSchemaRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.GetSchemaRequest;
+
+        /**
+         * Verifies a GetSchemaRequest message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a GetSchemaRequest message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns GetSchemaRequest
+         */
+        public static fromObject(object: { [k: string]: any }): protos.GetSchemaRequest;
+
+        /**
+         * Creates a plain object from a GetSchemaRequest message. Also converts values to other types if specified.
+         * @param message GetSchemaRequest
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.GetSchemaRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this GetSchemaRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a GetSchemaResponse. */
+    interface IGetSchemaResponse {
+
+        /** GetSchemaResponse schema */
+        schema?: (protos.ISchema|null);
+    }
+
+    /** Represents a GetSchemaResponse. */
+    class GetSchemaResponse implements IGetSchemaResponse {
+
+        /**
+         * Constructs a new GetSchemaResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IGetSchemaResponse);
+
+        /** GetSchemaResponse schema. */
+        public schema?: (protos.ISchema|null);
+
+        /**
+         * Creates a new GetSchemaResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns GetSchemaResponse instance
+         */
+        public static create(properties?: protos.IGetSchemaResponse): protos.GetSchemaResponse;
+
+        /**
+         * Encodes the specified GetSchemaResponse message. Does not implicitly {@link protos.GetSchemaResponse.verify|verify} messages.
+         * @param message GetSchemaResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IGetSchemaResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified GetSchemaResponse message, length delimited. Does not implicitly {@link protos.GetSchemaResponse.verify|verify} messages.
+         * @param message GetSchemaResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IGetSchemaResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a GetSchemaResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns GetSchemaResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.GetSchemaResponse;
+
+        /**
+         * Decodes a GetSchemaResponse message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns GetSchemaResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.GetSchemaResponse;
+
+        /**
+         * Verifies a GetSchemaResponse message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a GetSchemaResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns GetSchemaResponse
+         */
+        public static fromObject(object: { [k: string]: any }): protos.GetSchemaResponse;
+
+        /**
+         * Creates a plain object from a GetSchemaResponse message. Also converts values to other types if specified.
+         * @param message GetSchemaResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.GetSchemaResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this GetSchemaResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a GetAllSchemasRequest. */
+    interface IGetAllSchemasRequest {
+
+        /** GetAllSchemasRequest auth */
+        auth?: (protos.common.IAuth|null);
+    }
+
+    /** Represents a GetAllSchemasRequest. */
+    class GetAllSchemasRequest implements IGetAllSchemasRequest {
+
+        /**
+         * Constructs a new GetAllSchemasRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IGetAllSchemasRequest);
+
+        /** GetAllSchemasRequest auth. */
+        public auth?: (protos.common.IAuth|null);
+
+        /**
+         * Creates a new GetAllSchemasRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns GetAllSchemasRequest instance
+         */
+        public static create(properties?: protos.IGetAllSchemasRequest): protos.GetAllSchemasRequest;
+
+        /**
+         * Encodes the specified GetAllSchemasRequest message. Does not implicitly {@link protos.GetAllSchemasRequest.verify|verify} messages.
+         * @param message GetAllSchemasRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IGetAllSchemasRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified GetAllSchemasRequest message, length delimited. Does not implicitly {@link protos.GetAllSchemasRequest.verify|verify} messages.
+         * @param message GetAllSchemasRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IGetAllSchemasRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a GetAllSchemasRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns GetAllSchemasRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.GetAllSchemasRequest;
+
+        /**
+         * Decodes a GetAllSchemasRequest message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns GetAllSchemasRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.GetAllSchemasRequest;
+
+        /**
+         * Verifies a GetAllSchemasRequest message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a GetAllSchemasRequest message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns GetAllSchemasRequest
+         */
+        public static fromObject(object: { [k: string]: any }): protos.GetAllSchemasRequest;
+
+        /**
+         * Creates a plain object from a GetAllSchemasRequest message. Also converts values to other types if specified.
+         * @param message GetAllSchemasRequest
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.GetAllSchemasRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this GetAllSchemasRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a GetAllSchemasResponse. */
+    interface IGetAllSchemasResponse {
+
+        /** GetAllSchemasResponse schema */
+        schema?: (protos.ISchema[]|null);
+    }
+
+    /** Represents a GetAllSchemasResponse. */
+    class GetAllSchemasResponse implements IGetAllSchemasResponse {
+
+        /**
+         * Constructs a new GetAllSchemasResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IGetAllSchemasResponse);
+
+        /** GetAllSchemasResponse schema. */
+        public schema: protos.ISchema[];
+
+        /**
+         * Creates a new GetAllSchemasResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns GetAllSchemasResponse instance
+         */
+        public static create(properties?: protos.IGetAllSchemasResponse): protos.GetAllSchemasResponse;
+
+        /**
+         * Encodes the specified GetAllSchemasResponse message. Does not implicitly {@link protos.GetAllSchemasResponse.verify|verify} messages.
+         * @param message GetAllSchemasResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IGetAllSchemasResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified GetAllSchemasResponse message, length delimited. Does not implicitly {@link protos.GetAllSchemasResponse.verify|verify} messages.
+         * @param message GetAllSchemasResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IGetAllSchemasResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a GetAllSchemasResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns GetAllSchemasResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.GetAllSchemasResponse;
+
+        /**
+         * Decodes a GetAllSchemasResponse message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns GetAllSchemasResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.GetAllSchemasResponse;
+
+        /**
+         * Verifies a GetAllSchemasResponse message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a GetAllSchemasResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns GetAllSchemasResponse
+         */
+        public static fromObject(object: { [k: string]: any }): protos.GetAllSchemasResponse;
+
+        /**
+         * Creates a plain object from a GetAllSchemasResponse message. Also converts values to other types if specified.
+         * @param message GetAllSchemasResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.GetAllSchemasResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this GetAllSchemasResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of an ImportGithubRequest. */
+    interface IImportGithubRequest {
+
+        /** ImportGithubRequest auth */
+        auth?: (protos.common.IAuth|null);
+
+        /** ImportGithubRequest name */
+        name?: (string|null);
+
+        /** ImportGithubRequest type */
+        type?: (protos.SchemaType|null);
+
+        /** ImportGithubRequest githubUrl */
+        githubUrl?: (string|null);
+
+        /** ImportGithubRequest protobufSettings */
+        protobufSettings?: (protos.encoding.IProtobufSettings|null);
+
+        /** ImportGithubRequest avroSettings */
+        avroSettings?: (protos.encoding.IAvroSettings|null);
+    }
+
+    /** Represents an ImportGithubRequest. */
+    class ImportGithubRequest implements IImportGithubRequest {
+
+        /**
+         * Constructs a new ImportGithubRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IImportGithubRequest);
+
+        /** ImportGithubRequest auth. */
+        public auth?: (protos.common.IAuth|null);
+
+        /** ImportGithubRequest name. */
+        public name: string;
+
+        /** ImportGithubRequest type. */
+        public type: protos.SchemaType;
+
+        /** ImportGithubRequest githubUrl. */
+        public githubUrl: string;
+
+        /** ImportGithubRequest protobufSettings. */
+        public protobufSettings?: (protos.encoding.IProtobufSettings|null);
+
+        /** ImportGithubRequest avroSettings. */
+        public avroSettings?: (protos.encoding.IAvroSettings|null);
+
+        /** ImportGithubRequest settings. */
+        public settings?: ("protobufSettings"|"avroSettings");
+
+        /**
+         * Creates a new ImportGithubRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns ImportGithubRequest instance
+         */
+        public static create(properties?: protos.IImportGithubRequest): protos.ImportGithubRequest;
+
+        /**
+         * Encodes the specified ImportGithubRequest message. Does not implicitly {@link protos.ImportGithubRequest.verify|verify} messages.
+         * @param message ImportGithubRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IImportGithubRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified ImportGithubRequest message, length delimited. Does not implicitly {@link protos.ImportGithubRequest.verify|verify} messages.
+         * @param message ImportGithubRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IImportGithubRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes an ImportGithubRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns ImportGithubRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.ImportGithubRequest;
+
+        /**
+         * Decodes an ImportGithubRequest message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns ImportGithubRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.ImportGithubRequest;
+
+        /**
+         * Verifies an ImportGithubRequest message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates an ImportGithubRequest message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns ImportGithubRequest
+         */
+        public static fromObject(object: { [k: string]: any }): protos.ImportGithubRequest;
+
+        /**
+         * Creates a plain object from an ImportGithubRequest message. Also converts values to other types if specified.
+         * @param message ImportGithubRequest
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.ImportGithubRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this ImportGithubRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of an ImportGithubResponse. */
+    interface IImportGithubResponse {
+
+        /** ImportGithubResponse status */
+        status?: (protos.common.IStatus|null);
+
+        /** ImportGithubResponse id */
+        id?: (string|null);
+    }
+
+    /** Represents an ImportGithubResponse. */
+    class ImportGithubResponse implements IImportGithubResponse {
+
+        /**
+         * Constructs a new ImportGithubResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IImportGithubResponse);
+
+        /** ImportGithubResponse status. */
+        public status?: (protos.common.IStatus|null);
+
+        /** ImportGithubResponse id. */
+        public id: string;
+
+        /**
+         * Creates a new ImportGithubResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns ImportGithubResponse instance
+         */
+        public static create(properties?: protos.IImportGithubResponse): protos.ImportGithubResponse;
+
+        /**
+         * Encodes the specified ImportGithubResponse message. Does not implicitly {@link protos.ImportGithubResponse.verify|verify} messages.
+         * @param message ImportGithubResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IImportGithubResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified ImportGithubResponse message, length delimited. Does not implicitly {@link protos.ImportGithubResponse.verify|verify} messages.
+         * @param message ImportGithubResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IImportGithubResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes an ImportGithubResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns ImportGithubResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.ImportGithubResponse;
+
+        /**
+         * Decodes an ImportGithubResponse message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns ImportGithubResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.ImportGithubResponse;
+
+        /**
+         * Verifies an ImportGithubResponse message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates an ImportGithubResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns ImportGithubResponse
+         */
+        public static fromObject(object: { [k: string]: any }): protos.ImportGithubResponse;
+
+        /**
+         * Creates a plain object from an ImportGithubResponse message. Also converts values to other types if specified.
+         * @param message ImportGithubResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.ImportGithubResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this ImportGithubResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of an ImportLocalRequest. */
+    interface IImportLocalRequest {
+
+        /** ImportLocalRequest auth */
+        auth?: (protos.common.IAuth|null);
+
+        /** ImportLocalRequest name */
+        name?: (string|null);
+
+        /** ImportLocalRequest type */
+        type?: (protos.SchemaType|null);
+
+        /** ImportLocalRequest zipArchive */
+        zipArchive?: (Uint8Array|null);
+
+        /** ImportLocalRequest protobufSettings */
+        protobufSettings?: (protos.encoding.IProtobufSettings|null);
+
+        /** ImportLocalRequest avroSettings */
+        avroSettings?: (protos.encoding.IAvroSettings|null);
+    }
+
+    /** Represents an ImportLocalRequest. */
+    class ImportLocalRequest implements IImportLocalRequest {
+
+        /**
+         * Constructs a new ImportLocalRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IImportLocalRequest);
+
+        /** ImportLocalRequest auth. */
+        public auth?: (protos.common.IAuth|null);
+
+        /** ImportLocalRequest name. */
+        public name: string;
+
+        /** ImportLocalRequest type. */
+        public type: protos.SchemaType;
+
+        /** ImportLocalRequest zipArchive. */
+        public zipArchive: Uint8Array;
+
+        /** ImportLocalRequest protobufSettings. */
+        public protobufSettings?: (protos.encoding.IProtobufSettings|null);
+
+        /** ImportLocalRequest avroSettings. */
+        public avroSettings?: (protos.encoding.IAvroSettings|null);
+
+        /** ImportLocalRequest settings. */
+        public settings?: ("protobufSettings"|"avroSettings");
+
+        /**
+         * Creates a new ImportLocalRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns ImportLocalRequest instance
+         */
+        public static create(properties?: protos.IImportLocalRequest): protos.ImportLocalRequest;
+
+        /**
+         * Encodes the specified ImportLocalRequest message. Does not implicitly {@link protos.ImportLocalRequest.verify|verify} messages.
+         * @param message ImportLocalRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IImportLocalRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified ImportLocalRequest message, length delimited. Does not implicitly {@link protos.ImportLocalRequest.verify|verify} messages.
+         * @param message ImportLocalRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IImportLocalRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes an ImportLocalRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns ImportLocalRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.ImportLocalRequest;
+
+        /**
+         * Decodes an ImportLocalRequest message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns ImportLocalRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.ImportLocalRequest;
+
+        /**
+         * Verifies an ImportLocalRequest message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates an ImportLocalRequest message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns ImportLocalRequest
+         */
+        public static fromObject(object: { [k: string]: any }): protos.ImportLocalRequest;
+
+        /**
+         * Creates a plain object from an ImportLocalRequest message. Also converts values to other types if specified.
+         * @param message ImportLocalRequest
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.ImportLocalRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this ImportLocalRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of an ImportLocalResponse. */
+    interface IImportLocalResponse {
+
+        /** ImportLocalResponse status */
+        status?: (protos.common.IStatus|null);
+
+        /** ImportLocalResponse id */
+        id?: (string|null);
+    }
+
+    /** Represents an ImportLocalResponse. */
+    class ImportLocalResponse implements IImportLocalResponse {
+
+        /**
+         * Constructs a new ImportLocalResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IImportLocalResponse);
+
+        /** ImportLocalResponse status. */
+        public status?: (protos.common.IStatus|null);
+
+        /** ImportLocalResponse id. */
+        public id: string;
+
+        /**
+         * Creates a new ImportLocalResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns ImportLocalResponse instance
+         */
+        public static create(properties?: protos.IImportLocalResponse): protos.ImportLocalResponse;
+
+        /**
+         * Encodes the specified ImportLocalResponse message. Does not implicitly {@link protos.ImportLocalResponse.verify|verify} messages.
+         * @param message ImportLocalResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IImportLocalResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified ImportLocalResponse message, length delimited. Does not implicitly {@link protos.ImportLocalResponse.verify|verify} messages.
+         * @param message ImportLocalResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IImportLocalResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes an ImportLocalResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns ImportLocalResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.ImportLocalResponse;
+
+        /**
+         * Decodes an ImportLocalResponse message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns ImportLocalResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.ImportLocalResponse;
+
+        /**
+         * Verifies an ImportLocalResponse message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates an ImportLocalResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns ImportLocalResponse
+         */
+        public static fromObject(object: { [k: string]: any }): protos.ImportLocalResponse;
+
+        /**
+         * Creates a plain object from an ImportLocalResponse message. Also converts values to other types if specified.
+         * @param message ImportLocalResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.ImportLocalResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this ImportLocalResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a DeleteSchemaRequest. */
+    interface IDeleteSchemaRequest {
+
+        /** DeleteSchemaRequest auth */
+        auth?: (protos.common.IAuth|null);
+
+        /** DeleteSchemaRequest id */
+        id?: (string|null);
+    }
+
+    /** Represents a DeleteSchemaRequest. */
+    class DeleteSchemaRequest implements IDeleteSchemaRequest {
+
+        /**
+         * Constructs a new DeleteSchemaRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IDeleteSchemaRequest);
+
+        /** DeleteSchemaRequest auth. */
+        public auth?: (protos.common.IAuth|null);
+
+        /** DeleteSchemaRequest id. */
+        public id: string;
+
+        /**
+         * Creates a new DeleteSchemaRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns DeleteSchemaRequest instance
+         */
+        public static create(properties?: protos.IDeleteSchemaRequest): protos.DeleteSchemaRequest;
+
+        /**
+         * Encodes the specified DeleteSchemaRequest message. Does not implicitly {@link protos.DeleteSchemaRequest.verify|verify} messages.
+         * @param message DeleteSchemaRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IDeleteSchemaRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified DeleteSchemaRequest message, length delimited. Does not implicitly {@link protos.DeleteSchemaRequest.verify|verify} messages.
+         * @param message DeleteSchemaRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IDeleteSchemaRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a DeleteSchemaRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns DeleteSchemaRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.DeleteSchemaRequest;
+
+        /**
+         * Decodes a DeleteSchemaRequest message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns DeleteSchemaRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.DeleteSchemaRequest;
+
+        /**
+         * Verifies a DeleteSchemaRequest message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a DeleteSchemaRequest message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns DeleteSchemaRequest
+         */
+        public static fromObject(object: { [k: string]: any }): protos.DeleteSchemaRequest;
+
+        /**
+         * Creates a plain object from a DeleteSchemaRequest message. Also converts values to other types if specified.
+         * @param message DeleteSchemaRequest
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.DeleteSchemaRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this DeleteSchemaRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a DeleteSchemaResponse. */
+    interface IDeleteSchemaResponse {
+
+        /** DeleteSchemaResponse status */
+        status?: (protos.common.IStatus|null);
+    }
+
+    /** Represents a DeleteSchemaResponse. */
+    class DeleteSchemaResponse implements IDeleteSchemaResponse {
+
+        /**
+         * Constructs a new DeleteSchemaResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IDeleteSchemaResponse);
+
+        /** DeleteSchemaResponse status. */
+        public status?: (protos.common.IStatus|null);
+
+        /**
+         * Creates a new DeleteSchemaResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns DeleteSchemaResponse instance
+         */
+        public static create(properties?: protos.IDeleteSchemaResponse): protos.DeleteSchemaResponse;
+
+        /**
+         * Encodes the specified DeleteSchemaResponse message. Does not implicitly {@link protos.DeleteSchemaResponse.verify|verify} messages.
+         * @param message DeleteSchemaResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IDeleteSchemaResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified DeleteSchemaResponse message, length delimited. Does not implicitly {@link protos.DeleteSchemaResponse.verify|verify} messages.
+         * @param message DeleteSchemaResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IDeleteSchemaResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a DeleteSchemaResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns DeleteSchemaResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.DeleteSchemaResponse;
+
+        /**
+         * Decodes a DeleteSchemaResponse message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns DeleteSchemaResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.DeleteSchemaResponse;
+
+        /**
+         * Verifies a DeleteSchemaResponse message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a DeleteSchemaResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns DeleteSchemaResponse
+         */
+        public static fromObject(object: { [k: string]: any }): protos.DeleteSchemaResponse;
+
+        /**
+         * Creates a plain object from a DeleteSchemaResponse message. Also converts values to other types if specified.
+         * @param message DeleteSchemaResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.DeleteSchemaResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this DeleteSchemaResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a Service. */
+    interface IService {
+
+        /** Service id */
+        id?: (string|null);
+
+        /** Service name */
+        name?: (string|null);
+
+        /** Service repoUrl */
+        repoUrl?: (string|null);
+
+        /** Service notes */
+        notes?: (string|null);
+
+        /** Service ownerId */
+        ownerId?: (string|null);
+
+        /** Service usedSchemas */
+        usedSchemas?: (string[]|null);
+    }
+
+    /** Represents a Service. */
+    class Service implements IService {
+
+        /**
+         * Constructs a new Service.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IService);
+
+        /** Service id. */
+        public id: string;
+
+        /** Service name. */
+        public name: string;
+
+        /** Service repoUrl. */
+        public repoUrl: string;
+
+        /** Service notes. */
+        public notes: string;
+
+        /** Service ownerId. */
+        public ownerId: string;
+
+        /** Service usedSchemas. */
+        public usedSchemas: string[];
+
+        /**
+         * Creates a new Service instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns Service instance
+         */
+        public static create(properties?: protos.IService): protos.Service;
+
+        /**
+         * Encodes the specified Service message. Does not implicitly {@link protos.Service.verify|verify} messages.
+         * @param message Service message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IService, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified Service message, length delimited. Does not implicitly {@link protos.Service.verify|verify} messages.
+         * @param message Service message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IService, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a Service message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns Service
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.Service;
+
+        /**
+         * Decodes a Service message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns Service
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.Service;
+
+        /**
+         * Verifies a Service message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a Service message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns Service
+         */
+        public static fromObject(object: { [k: string]: any }): protos.Service;
+
+        /**
+         * Creates a plain object from a Service message. Also converts values to other types if specified.
+         * @param message Service
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.Service, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this Service to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a GetServiceRequest. */
+    interface IGetServiceRequest {
+
+        /** GetServiceRequest auth */
+        auth?: (protos.common.IAuth|null);
+
+        /** GetServiceRequest id */
+        id?: (string|null);
+    }
+
+    /** Represents a GetServiceRequest. */
+    class GetServiceRequest implements IGetServiceRequest {
+
+        /**
+         * Constructs a new GetServiceRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IGetServiceRequest);
+
+        /** GetServiceRequest auth. */
+        public auth?: (protos.common.IAuth|null);
+
+        /** GetServiceRequest id. */
+        public id: string;
+
+        /**
+         * Creates a new GetServiceRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns GetServiceRequest instance
+         */
+        public static create(properties?: protos.IGetServiceRequest): protos.GetServiceRequest;
+
+        /**
+         * Encodes the specified GetServiceRequest message. Does not implicitly {@link protos.GetServiceRequest.verify|verify} messages.
+         * @param message GetServiceRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IGetServiceRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified GetServiceRequest message, length delimited. Does not implicitly {@link protos.GetServiceRequest.verify|verify} messages.
+         * @param message GetServiceRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IGetServiceRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a GetServiceRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns GetServiceRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.GetServiceRequest;
+
+        /**
+         * Decodes a GetServiceRequest message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns GetServiceRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.GetServiceRequest;
+
+        /**
+         * Verifies a GetServiceRequest message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a GetServiceRequest message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns GetServiceRequest
+         */
+        public static fromObject(object: { [k: string]: any }): protos.GetServiceRequest;
+
+        /**
+         * Creates a plain object from a GetServiceRequest message. Also converts values to other types if specified.
+         * @param message GetServiceRequest
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.GetServiceRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this GetServiceRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a GetServiceResponse. */
+    interface IGetServiceResponse {
+
+        /** GetServiceResponse service */
+        service?: (protos.IService|null);
+
+        /** GetServiceResponse status */
+        status?: (protos.common.IStatus|null);
+    }
+
+    /** Represents a GetServiceResponse. */
+    class GetServiceResponse implements IGetServiceResponse {
+
+        /**
+         * Constructs a new GetServiceResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IGetServiceResponse);
+
+        /** GetServiceResponse service. */
+        public service?: (protos.IService|null);
+
+        /** GetServiceResponse status. */
+        public status?: (protos.common.IStatus|null);
+
+        /**
+         * Creates a new GetServiceResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns GetServiceResponse instance
+         */
+        public static create(properties?: protos.IGetServiceResponse): protos.GetServiceResponse;
+
+        /**
+         * Encodes the specified GetServiceResponse message. Does not implicitly {@link protos.GetServiceResponse.verify|verify} messages.
+         * @param message GetServiceResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IGetServiceResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified GetServiceResponse message, length delimited. Does not implicitly {@link protos.GetServiceResponse.verify|verify} messages.
+         * @param message GetServiceResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IGetServiceResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a GetServiceResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns GetServiceResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.GetServiceResponse;
+
+        /**
+         * Decodes a GetServiceResponse message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns GetServiceResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.GetServiceResponse;
+
+        /**
+         * Verifies a GetServiceResponse message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a GetServiceResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns GetServiceResponse
+         */
+        public static fromObject(object: { [k: string]: any }): protos.GetServiceResponse;
+
+        /**
+         * Creates a plain object from a GetServiceResponse message. Also converts values to other types if specified.
+         * @param message GetServiceResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.GetServiceResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this GetServiceResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a GetAllServicesRequest. */
+    interface IGetAllServicesRequest {
+
+        /** GetAllServicesRequest auth */
+        auth?: (protos.common.IAuth|null);
+    }
+
+    /** Represents a GetAllServicesRequest. */
+    class GetAllServicesRequest implements IGetAllServicesRequest {
+
+        /**
+         * Constructs a new GetAllServicesRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IGetAllServicesRequest);
+
+        /** GetAllServicesRequest auth. */
+        public auth?: (protos.common.IAuth|null);
+
+        /**
+         * Creates a new GetAllServicesRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns GetAllServicesRequest instance
+         */
+        public static create(properties?: protos.IGetAllServicesRequest): protos.GetAllServicesRequest;
+
+        /**
+         * Encodes the specified GetAllServicesRequest message. Does not implicitly {@link protos.GetAllServicesRequest.verify|verify} messages.
+         * @param message GetAllServicesRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IGetAllServicesRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified GetAllServicesRequest message, length delimited. Does not implicitly {@link protos.GetAllServicesRequest.verify|verify} messages.
+         * @param message GetAllServicesRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IGetAllServicesRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a GetAllServicesRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns GetAllServicesRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.GetAllServicesRequest;
+
+        /**
+         * Decodes a GetAllServicesRequest message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns GetAllServicesRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.GetAllServicesRequest;
+
+        /**
+         * Verifies a GetAllServicesRequest message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a GetAllServicesRequest message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns GetAllServicesRequest
+         */
+        public static fromObject(object: { [k: string]: any }): protos.GetAllServicesRequest;
+
+        /**
+         * Creates a plain object from a GetAllServicesRequest message. Also converts values to other types if specified.
+         * @param message GetAllServicesRequest
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.GetAllServicesRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this GetAllServicesRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a GetAllServicesResponse. */
+    interface IGetAllServicesResponse {
+
+        /** GetAllServicesResponse services */
+        services?: (protos.IService[]|null);
+
+        /** GetAllServicesResponse status */
+        status?: (protos.common.IStatus|null);
+    }
+
+    /** Represents a GetAllServicesResponse. */
+    class GetAllServicesResponse implements IGetAllServicesResponse {
+
+        /**
+         * Constructs a new GetAllServicesResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IGetAllServicesResponse);
+
+        /** GetAllServicesResponse services. */
+        public services: protos.IService[];
+
+        /** GetAllServicesResponse status. */
+        public status?: (protos.common.IStatus|null);
+
+        /**
+         * Creates a new GetAllServicesResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns GetAllServicesResponse instance
+         */
+        public static create(properties?: protos.IGetAllServicesResponse): protos.GetAllServicesResponse;
+
+        /**
+         * Encodes the specified GetAllServicesResponse message. Does not implicitly {@link protos.GetAllServicesResponse.verify|verify} messages.
+         * @param message GetAllServicesResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IGetAllServicesResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified GetAllServicesResponse message, length delimited. Does not implicitly {@link protos.GetAllServicesResponse.verify|verify} messages.
+         * @param message GetAllServicesResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IGetAllServicesResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a GetAllServicesResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns GetAllServicesResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.GetAllServicesResponse;
+
+        /**
+         * Decodes a GetAllServicesResponse message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns GetAllServicesResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.GetAllServicesResponse;
+
+        /**
+         * Verifies a GetAllServicesResponse message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a GetAllServicesResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns GetAllServicesResponse
+         */
+        public static fromObject(object: { [k: string]: any }): protos.GetAllServicesResponse;
+
+        /**
+         * Creates a plain object from a GetAllServicesResponse message. Also converts values to other types if specified.
+         * @param message GetAllServicesResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.GetAllServicesResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this GetAllServicesResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a CreateServiceRequest. */
+    interface ICreateServiceRequest {
+
+        /** CreateServiceRequest auth */
+        auth?: (protos.common.IAuth|null);
+
+        /** CreateServiceRequest service */
+        service?: (protos.IService|null);
+    }
+
+    /** Represents a CreateServiceRequest. */
+    class CreateServiceRequest implements ICreateServiceRequest {
+
+        /**
+         * Constructs a new CreateServiceRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.ICreateServiceRequest);
+
+        /** CreateServiceRequest auth. */
+        public auth?: (protos.common.IAuth|null);
+
+        /** CreateServiceRequest service. */
+        public service?: (protos.IService|null);
+
+        /**
+         * Creates a new CreateServiceRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns CreateServiceRequest instance
+         */
+        public static create(properties?: protos.ICreateServiceRequest): protos.CreateServiceRequest;
+
+        /**
+         * Encodes the specified CreateServiceRequest message. Does not implicitly {@link protos.CreateServiceRequest.verify|verify} messages.
+         * @param message CreateServiceRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.ICreateServiceRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified CreateServiceRequest message, length delimited. Does not implicitly {@link protos.CreateServiceRequest.verify|verify} messages.
+         * @param message CreateServiceRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.ICreateServiceRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a CreateServiceRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns CreateServiceRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.CreateServiceRequest;
+
+        /**
+         * Decodes a CreateServiceRequest message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns CreateServiceRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.CreateServiceRequest;
+
+        /**
+         * Verifies a CreateServiceRequest message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a CreateServiceRequest message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns CreateServiceRequest
+         */
+        public static fromObject(object: { [k: string]: any }): protos.CreateServiceRequest;
+
+        /**
+         * Creates a plain object from a CreateServiceRequest message. Also converts values to other types if specified.
+         * @param message CreateServiceRequest
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.CreateServiceRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this CreateServiceRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a CreateServiceResponse. */
+    interface ICreateServiceResponse {
+
+        /** CreateServiceResponse service */
+        service?: (protos.IService|null);
+
+        /** CreateServiceResponse status */
+        status?: (protos.common.IStatus|null);
+    }
+
+    /** Represents a CreateServiceResponse. */
+    class CreateServiceResponse implements ICreateServiceResponse {
+
+        /**
+         * Constructs a new CreateServiceResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.ICreateServiceResponse);
+
+        /** CreateServiceResponse service. */
+        public service?: (protos.IService|null);
+
+        /** CreateServiceResponse status. */
+        public status?: (protos.common.IStatus|null);
+
+        /**
+         * Creates a new CreateServiceResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns CreateServiceResponse instance
+         */
+        public static create(properties?: protos.ICreateServiceResponse): protos.CreateServiceResponse;
+
+        /**
+         * Encodes the specified CreateServiceResponse message. Does not implicitly {@link protos.CreateServiceResponse.verify|verify} messages.
+         * @param message CreateServiceResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.ICreateServiceResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified CreateServiceResponse message, length delimited. Does not implicitly {@link protos.CreateServiceResponse.verify|verify} messages.
+         * @param message CreateServiceResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.ICreateServiceResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a CreateServiceResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns CreateServiceResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.CreateServiceResponse;
+
+        /**
+         * Decodes a CreateServiceResponse message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns CreateServiceResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.CreateServiceResponse;
+
+        /**
+         * Verifies a CreateServiceResponse message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a CreateServiceResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns CreateServiceResponse
+         */
+        public static fromObject(object: { [k: string]: any }): protos.CreateServiceResponse;
+
+        /**
+         * Creates a plain object from a CreateServiceResponse message. Also converts values to other types if specified.
+         * @param message CreateServiceResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.CreateServiceResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this CreateServiceResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of an UpdateServiceRequest. */
+    interface IUpdateServiceRequest {
+
+        /** UpdateServiceRequest auth */
+        auth?: (protos.common.IAuth|null);
+
+        /** UpdateServiceRequest service */
+        service?: (protos.IService|null);
+    }
+
+    /** Represents an UpdateServiceRequest. */
+    class UpdateServiceRequest implements IUpdateServiceRequest {
+
+        /**
+         * Constructs a new UpdateServiceRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IUpdateServiceRequest);
+
+        /** UpdateServiceRequest auth. */
+        public auth?: (protos.common.IAuth|null);
+
+        /** UpdateServiceRequest service. */
+        public service?: (protos.IService|null);
+
+        /**
+         * Creates a new UpdateServiceRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns UpdateServiceRequest instance
+         */
+        public static create(properties?: protos.IUpdateServiceRequest): protos.UpdateServiceRequest;
+
+        /**
+         * Encodes the specified UpdateServiceRequest message. Does not implicitly {@link protos.UpdateServiceRequest.verify|verify} messages.
+         * @param message UpdateServiceRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IUpdateServiceRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified UpdateServiceRequest message, length delimited. Does not implicitly {@link protos.UpdateServiceRequest.verify|verify} messages.
+         * @param message UpdateServiceRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IUpdateServiceRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes an UpdateServiceRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns UpdateServiceRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.UpdateServiceRequest;
+
+        /**
+         * Decodes an UpdateServiceRequest message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns UpdateServiceRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.UpdateServiceRequest;
+
+        /**
+         * Verifies an UpdateServiceRequest message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates an UpdateServiceRequest message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns UpdateServiceRequest
+         */
+        public static fromObject(object: { [k: string]: any }): protos.UpdateServiceRequest;
+
+        /**
+         * Creates a plain object from an UpdateServiceRequest message. Also converts values to other types if specified.
+         * @param message UpdateServiceRequest
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.UpdateServiceRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this UpdateServiceRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of an UpdateServiceResponse. */
+    interface IUpdateServiceResponse {
+
+        /** UpdateServiceResponse service */
+        service?: (protos.IService|null);
+
+        /** UpdateServiceResponse status */
+        status?: (protos.common.IStatus|null);
+    }
+
+    /** Represents an UpdateServiceResponse. */
+    class UpdateServiceResponse implements IUpdateServiceResponse {
+
+        /**
+         * Constructs a new UpdateServiceResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IUpdateServiceResponse);
+
+        /** UpdateServiceResponse service. */
+        public service?: (protos.IService|null);
+
+        /** UpdateServiceResponse status. */
+        public status?: (protos.common.IStatus|null);
+
+        /**
+         * Creates a new UpdateServiceResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns UpdateServiceResponse instance
+         */
+        public static create(properties?: protos.IUpdateServiceResponse): protos.UpdateServiceResponse;
+
+        /**
+         * Encodes the specified UpdateServiceResponse message. Does not implicitly {@link protos.UpdateServiceResponse.verify|verify} messages.
+         * @param message UpdateServiceResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IUpdateServiceResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified UpdateServiceResponse message, length delimited. Does not implicitly {@link protos.UpdateServiceResponse.verify|verify} messages.
+         * @param message UpdateServiceResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IUpdateServiceResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes an UpdateServiceResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns UpdateServiceResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.UpdateServiceResponse;
+
+        /**
+         * Decodes an UpdateServiceResponse message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns UpdateServiceResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.UpdateServiceResponse;
+
+        /**
+         * Verifies an UpdateServiceResponse message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates an UpdateServiceResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns UpdateServiceResponse
+         */
+        public static fromObject(object: { [k: string]: any }): protos.UpdateServiceResponse;
+
+        /**
+         * Creates a plain object from an UpdateServiceResponse message. Also converts values to other types if specified.
+         * @param message UpdateServiceResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.UpdateServiceResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this UpdateServiceResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a DeleteServiceRequest. */
+    interface IDeleteServiceRequest {
+
+        /** DeleteServiceRequest id */
+        id?: (string|null);
+
+        /** DeleteServiceRequest auth */
+        auth?: (protos.common.IAuth|null);
+    }
+
+    /** Represents a DeleteServiceRequest. */
+    class DeleteServiceRequest implements IDeleteServiceRequest {
+
+        /**
+         * Constructs a new DeleteServiceRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IDeleteServiceRequest);
+
+        /** DeleteServiceRequest id. */
+        public id: string;
+
+        /** DeleteServiceRequest auth. */
+        public auth?: (protos.common.IAuth|null);
+
+        /**
+         * Creates a new DeleteServiceRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns DeleteServiceRequest instance
+         */
+        public static create(properties?: protos.IDeleteServiceRequest): protos.DeleteServiceRequest;
+
+        /**
+         * Encodes the specified DeleteServiceRequest message. Does not implicitly {@link protos.DeleteServiceRequest.verify|verify} messages.
+         * @param message DeleteServiceRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IDeleteServiceRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified DeleteServiceRequest message, length delimited. Does not implicitly {@link protos.DeleteServiceRequest.verify|verify} messages.
+         * @param message DeleteServiceRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IDeleteServiceRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a DeleteServiceRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns DeleteServiceRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.DeleteServiceRequest;
+
+        /**
+         * Decodes a DeleteServiceRequest message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns DeleteServiceRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.DeleteServiceRequest;
+
+        /**
+         * Verifies a DeleteServiceRequest message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a DeleteServiceRequest message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns DeleteServiceRequest
+         */
+        public static fromObject(object: { [k: string]: any }): protos.DeleteServiceRequest;
+
+        /**
+         * Creates a plain object from a DeleteServiceRequest message. Also converts values to other types if specified.
+         * @param message DeleteServiceRequest
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.DeleteServiceRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this DeleteServiceRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a DeleteServiceResponse. */
+    interface IDeleteServiceResponse {
+
+        /** DeleteServiceResponse status */
+        status?: (protos.common.IStatus|null);
+    }
+
+    /** Represents a DeleteServiceResponse. */
+    class DeleteServiceResponse implements IDeleteServiceResponse {
+
+        /**
+         * Constructs a new DeleteServiceResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IDeleteServiceResponse);
+
+        /** DeleteServiceResponse status. */
+        public status?: (protos.common.IStatus|null);
+
+        /**
+         * Creates a new DeleteServiceResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns DeleteServiceResponse instance
+         */
+        public static create(properties?: protos.IDeleteServiceResponse): protos.DeleteServiceResponse;
+
+        /**
+         * Encodes the specified DeleteServiceResponse message. Does not implicitly {@link protos.DeleteServiceResponse.verify|verify} messages.
+         * @param message DeleteServiceResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IDeleteServiceResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified DeleteServiceResponse message, length delimited. Does not implicitly {@link protos.DeleteServiceResponse.verify|verify} messages.
+         * @param message DeleteServiceResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IDeleteServiceResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a DeleteServiceResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns DeleteServiceResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.DeleteServiceResponse;
+
+        /**
+         * Decodes a DeleteServiceResponse message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns DeleteServiceResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.DeleteServiceResponse;
+
+        /**
+         * Verifies a DeleteServiceResponse message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a DeleteServiceResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns DeleteServiceResponse
+         */
+        public static fromObject(object: { [k: string]: any }): protos.DeleteServiceResponse;
+
+        /**
+         * Creates a plain object from a DeleteServiceResponse message. Also converts values to other types if specified.
+         * @param message DeleteServiceResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.DeleteServiceResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this DeleteServiceResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a GetServerOptionsRequest. */
+    interface IGetServerOptionsRequest {
+
+        /** GetServerOptionsRequest auth */
+        auth?: (protos.common.IAuth|null);
+    }
+
+    /** Represents a GetServerOptionsRequest. */
+    class GetServerOptionsRequest implements IGetServerOptionsRequest {
+
+        /**
+         * Constructs a new GetServerOptionsRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IGetServerOptionsRequest);
+
+        /** GetServerOptionsRequest auth. */
+        public auth?: (protos.common.IAuth|null);
+
+        /**
+         * Creates a new GetServerOptionsRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns GetServerOptionsRequest instance
+         */
+        public static create(properties?: protos.IGetServerOptionsRequest): protos.GetServerOptionsRequest;
+
+        /**
+         * Encodes the specified GetServerOptionsRequest message. Does not implicitly {@link protos.GetServerOptionsRequest.verify|verify} messages.
+         * @param message GetServerOptionsRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IGetServerOptionsRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified GetServerOptionsRequest message, length delimited. Does not implicitly {@link protos.GetServerOptionsRequest.verify|verify} messages.
+         * @param message GetServerOptionsRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IGetServerOptionsRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a GetServerOptionsRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns GetServerOptionsRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.GetServerOptionsRequest;
+
+        /**
+         * Decodes a GetServerOptionsRequest message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns GetServerOptionsRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.GetServerOptionsRequest;
+
+        /**
+         * Verifies a GetServerOptionsRequest message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a GetServerOptionsRequest message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns GetServerOptionsRequest
+         */
+        public static fromObject(object: { [k: string]: any }): protos.GetServerOptionsRequest;
+
+        /**
+         * Creates a plain object from a GetServerOptionsRequest message. Also converts values to other types if specified.
+         * @param message GetServerOptionsRequest
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.GetServerOptionsRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this GetServerOptionsRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a GetServerOptionsResponse. */
+    interface IGetServerOptionsResponse {
+
+        /** GetServerOptionsResponse serverOptions */
+        serverOptions?: (protos.opts.IServerOptions|null);
+    }
+
+    /** Represents a GetServerOptionsResponse. */
+    class GetServerOptionsResponse implements IGetServerOptionsResponse {
+
+        /**
+         * Constructs a new GetServerOptionsResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IGetServerOptionsResponse);
+
+        /** GetServerOptionsResponse serverOptions. */
+        public serverOptions?: (protos.opts.IServerOptions|null);
+
+        /**
+         * Creates a new GetServerOptionsResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns GetServerOptionsResponse instance
+         */
+        public static create(properties?: protos.IGetServerOptionsResponse): protos.GetServerOptionsResponse;
+
+        /**
+         * Encodes the specified GetServerOptionsResponse message. Does not implicitly {@link protos.GetServerOptionsResponse.verify|verify} messages.
+         * @param message GetServerOptionsResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IGetServerOptionsResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified GetServerOptionsResponse message, length delimited. Does not implicitly {@link protos.GetServerOptionsResponse.verify|verify} messages.
+         * @param message GetServerOptionsResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IGetServerOptionsResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a GetServerOptionsResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns GetServerOptionsResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.GetServerOptionsResponse;
+
+        /**
+         * Decodes a GetServerOptionsResponse message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns GetServerOptionsResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.GetServerOptionsResponse;
+
+        /**
+         * Verifies a GetServerOptionsResponse message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a GetServerOptionsResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns GetServerOptionsResponse
+         */
+        public static fromObject(object: { [k: string]: any }): protos.GetServerOptionsResponse;
+
+        /**
+         * Creates a plain object from a GetServerOptionsResponse message. Also converts values to other types if specified.
+         * @param message GetServerOptionsResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.GetServerOptionsResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this GetServerOptionsResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a SetServerOptionsRequest. */
+    interface ISetServerOptionsRequest {
+
+        /** SetServerOptionsRequest auth */
+        auth?: (protos.common.IAuth|null);
+
+        /** SetServerOptionsRequest vcserviceToken */
+        vcserviceToken?: (string|null);
+    }
+
+    /** Represents a SetServerOptionsRequest. */
+    class SetServerOptionsRequest implements ISetServerOptionsRequest {
+
+        /**
+         * Constructs a new SetServerOptionsRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.ISetServerOptionsRequest);
+
+        /** SetServerOptionsRequest auth. */
+        public auth?: (protos.common.IAuth|null);
+
+        /** SetServerOptionsRequest vcserviceToken. */
+        public vcserviceToken: string;
+
+        /**
+         * Creates a new SetServerOptionsRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns SetServerOptionsRequest instance
+         */
+        public static create(properties?: protos.ISetServerOptionsRequest): protos.SetServerOptionsRequest;
+
+        /**
+         * Encodes the specified SetServerOptionsRequest message. Does not implicitly {@link protos.SetServerOptionsRequest.verify|verify} messages.
+         * @param message SetServerOptionsRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.ISetServerOptionsRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified SetServerOptionsRequest message, length delimited. Does not implicitly {@link protos.SetServerOptionsRequest.verify|verify} messages.
+         * @param message SetServerOptionsRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.ISetServerOptionsRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a SetServerOptionsRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns SetServerOptionsRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.SetServerOptionsRequest;
+
+        /**
+         * Decodes a SetServerOptionsRequest message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns SetServerOptionsRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.SetServerOptionsRequest;
+
+        /**
+         * Verifies a SetServerOptionsRequest message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a SetServerOptionsRequest message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns SetServerOptionsRequest
+         */
+        public static fromObject(object: { [k: string]: any }): protos.SetServerOptionsRequest;
+
+        /**
+         * Creates a plain object from a SetServerOptionsRequest message. Also converts values to other types if specified.
+         * @param message SetServerOptionsRequest
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.SetServerOptionsRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this SetServerOptionsRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a SetServerOptionsResponse. */
+    interface ISetServerOptionsResponse {
+
+        /** SetServerOptionsResponse serverOptions */
+        serverOptions?: (protos.opts.IServerOptions|null);
+
+        /** SetServerOptionsResponse status */
+        status?: (protos.common.IStatus|null);
+    }
+
+    /** Represents a SetServerOptionsResponse. */
+    class SetServerOptionsResponse implements ISetServerOptionsResponse {
+
+        /**
+         * Constructs a new SetServerOptionsResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.ISetServerOptionsResponse);
+
+        /** SetServerOptionsResponse serverOptions. */
+        public serverOptions?: (protos.opts.IServerOptions|null);
+
+        /** SetServerOptionsResponse status. */
+        public status?: (protos.common.IStatus|null);
+
+        /**
+         * Creates a new SetServerOptionsResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns SetServerOptionsResponse instance
+         */
+        public static create(properties?: protos.ISetServerOptionsResponse): protos.SetServerOptionsResponse;
+
+        /**
+         * Encodes the specified SetServerOptionsResponse message. Does not implicitly {@link protos.SetServerOptionsResponse.verify|verify} messages.
+         * @param message SetServerOptionsResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.ISetServerOptionsResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified SetServerOptionsResponse message, length delimited. Does not implicitly {@link protos.SetServerOptionsResponse.verify|verify} messages.
+         * @param message SetServerOptionsResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.ISetServerOptionsResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a SetServerOptionsResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns SetServerOptionsResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.SetServerOptionsResponse;
+
+        /**
+         * Decodes a SetServerOptionsResponse message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns SetServerOptionsResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.SetServerOptionsResponse;
+
+        /**
+         * Verifies a SetServerOptionsResponse message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a SetServerOptionsResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns SetServerOptionsResponse
+         */
+        public static fromObject(object: { [k: string]: any }): protos.SetServerOptionsResponse;
+
+        /**
+         * Creates a plain object from a SetServerOptionsResponse message. Also converts values to other types if specified.
+         * @param message SetServerOptionsResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.SetServerOptionsResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this SetServerOptionsResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Represents a VCService */
+    class VCService extends $protobuf.rpc.Service {
+
+        /**
+         * Constructs a new VCService service.
+         * @param rpcImpl RPC implementation
+         * @param [requestDelimited=false] Whether requests are length-delimited
+         * @param [responseDelimited=false] Whether responses are length-delimited
+         */
+        constructor(rpcImpl: $protobuf.RPCImpl, requestDelimited?: boolean, responseDelimited?: boolean);
+
+        /**
+         * Creates new VCService service using the specified rpc implementation.
+         * @param rpcImpl RPC implementation
+         * @param [requestDelimited=false] Whether requests are length-delimited
+         * @param [responseDelimited=false] Whether responses are length-delimited
+         * @returns RPC service. Useful where requests and/or responses are streamed.
+         */
+        public static create(rpcImpl: $protobuf.RPCImpl, requestDelimited?: boolean, responseDelimited?: boolean): VCService;
+
+        /**
+         * Calls Connect.
+         * @param request ConnectAuthRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and VCEvent
+         */
+        public connect(request: protos.IConnectAuthRequest, callback: protos.VCService.ConnectCallback): void;
+
+        /**
+         * Calls Connect.
+         * @param request ConnectAuthRequest message or plain object
+         * @returns Promise
+         */
+        public connect(request: protos.IConnectAuthRequest): Promise<protos.VCEvent>;
+    }
+
+    namespace VCService {
+
+        /**
+         * Callback as used by {@link protos.VCService#connect}.
+         * @param error Error, if any
+         * @param [response] VCEvent
+         */
+        type ConnectCallback = (error: (Error|null), response?: protos.VCEvent) => void;
+    }
+
+    /** Properties of a VCEvent. */
+    interface IVCEvent {
+
+        /** VCEvent type */
+        type?: (protos.VCEvent.Type|null);
+
+        /** VCEvent authResponse */
+        authResponse?: (protos.IAuthResponse|null);
+
+        /** VCEvent githubEvent */
+        githubEvent?: (protos.IGithubEvent|null);
+
+        /** VCEvent gitlabEvent */
+        gitlabEvent?: (protos.IGitlabEvent|null);
+
+        /** VCEvent bitbucketEvent */
+        bitbucketEvent?: (protos.IBitbucketEvent|null);
+
+        /** VCEvent newJwtToken */
+        newJwtToken?: (protos.INewJwtToken|null);
+    }
+
+    /** Represents a VCEvent. */
+    class VCEvent implements IVCEvent {
+
+        /**
+         * Constructs a new VCEvent.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IVCEvent);
+
+        /** VCEvent type. */
+        public type: protos.VCEvent.Type;
+
+        /** VCEvent authResponse. */
+        public authResponse?: (protos.IAuthResponse|null);
+
+        /** VCEvent githubEvent. */
+        public githubEvent?: (protos.IGithubEvent|null);
+
+        /** VCEvent gitlabEvent. */
+        public gitlabEvent?: (protos.IGitlabEvent|null);
+
+        /** VCEvent bitbucketEvent. */
+        public bitbucketEvent?: (protos.IBitbucketEvent|null);
+
+        /** VCEvent newJwtToken. */
+        public newJwtToken?: (protos.INewJwtToken|null);
+
+        /** VCEvent vcEvent. */
+        public vcEvent?: ("authResponse"|"githubEvent"|"gitlabEvent"|"bitbucketEvent"|"newJwtToken");
+
+        /**
+         * Creates a new VCEvent instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns VCEvent instance
+         */
+        public static create(properties?: protos.IVCEvent): protos.VCEvent;
+
+        /**
+         * Encodes the specified VCEvent message. Does not implicitly {@link protos.VCEvent.verify|verify} messages.
+         * @param message VCEvent message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IVCEvent, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified VCEvent message, length delimited. Does not implicitly {@link protos.VCEvent.verify|verify} messages.
+         * @param message VCEvent message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IVCEvent, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a VCEvent message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns VCEvent
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.VCEvent;
+
+        /**
+         * Decodes a VCEvent message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns VCEvent
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.VCEvent;
+
+        /**
+         * Verifies a VCEvent message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a VCEvent message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns VCEvent
+         */
+        public static fromObject(object: { [k: string]: any }): protos.VCEvent;
+
+        /**
+         * Creates a plain object from a VCEvent message. Also converts values to other types if specified.
+         * @param message VCEvent
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.VCEvent, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this VCEvent to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    namespace VCEvent {
+
+        /** Type enum. */
+        enum Type {
+            UNSET = 0,
+            AUTH_RESPONSE = 1,
+            NEW_JWT_TOKEN = 2,
+            GITHUB = 3,
+            GITLAB = 4,
+            BITBUCKET = 5
+        }
+    }
+
+    /** Properties of a GitlabEvent. */
+    interface IGitlabEvent {
+    }
+
+    /** Represents a GitlabEvent. */
+    class GitlabEvent implements IGitlabEvent {
+
+        /**
+         * Constructs a new GitlabEvent.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IGitlabEvent);
+
+        /**
+         * Creates a new GitlabEvent instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns GitlabEvent instance
+         */
+        public static create(properties?: protos.IGitlabEvent): protos.GitlabEvent;
+
+        /**
+         * Encodes the specified GitlabEvent message. Does not implicitly {@link protos.GitlabEvent.verify|verify} messages.
+         * @param message GitlabEvent message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IGitlabEvent, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified GitlabEvent message, length delimited. Does not implicitly {@link protos.GitlabEvent.verify|verify} messages.
+         * @param message GitlabEvent message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IGitlabEvent, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a GitlabEvent message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns GitlabEvent
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.GitlabEvent;
+
+        /**
+         * Decodes a GitlabEvent message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns GitlabEvent
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.GitlabEvent;
+
+        /**
+         * Verifies a GitlabEvent message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a GitlabEvent message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns GitlabEvent
+         */
+        public static fromObject(object: { [k: string]: any }): protos.GitlabEvent;
+
+        /**
+         * Creates a plain object from a GitlabEvent message. Also converts values to other types if specified.
+         * @param message GitlabEvent
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.GitlabEvent, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this GitlabEvent to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a BitbucketEvent. */
+    interface IBitbucketEvent {
+    }
+
+    /** Represents a BitbucketEvent. */
+    class BitbucketEvent implements IBitbucketEvent {
+
+        /**
+         * Constructs a new BitbucketEvent.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IBitbucketEvent);
+
+        /**
+         * Creates a new BitbucketEvent instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns BitbucketEvent instance
+         */
+        public static create(properties?: protos.IBitbucketEvent): protos.BitbucketEvent;
+
+        /**
+         * Encodes the specified BitbucketEvent message. Does not implicitly {@link protos.BitbucketEvent.verify|verify} messages.
+         * @param message BitbucketEvent message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IBitbucketEvent, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified BitbucketEvent message, length delimited. Does not implicitly {@link protos.BitbucketEvent.verify|verify} messages.
+         * @param message BitbucketEvent message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IBitbucketEvent, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a BitbucketEvent message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns BitbucketEvent
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.BitbucketEvent;
+
+        /**
+         * Decodes a BitbucketEvent message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns BitbucketEvent
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.BitbucketEvent;
+
+        /**
+         * Verifies a BitbucketEvent message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a BitbucketEvent message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns BitbucketEvent
+         */
+        public static fromObject(object: { [k: string]: any }): protos.BitbucketEvent;
+
+        /**
+         * Creates a plain object from a BitbucketEvent message. Also converts values to other types if specified.
+         * @param message BitbucketEvent
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.BitbucketEvent, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this BitbucketEvent to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a GithubEvent. */
+    interface IGithubEvent {
+
+        /** GithubEvent type */
+        type?: (protos.GithubEvent.Type|null);
+
+        /** GithubEvent installCreated */
+        installCreated?: (protos.IInstallCreated|null);
+
+        /** GithubEvent installUpdated */
+        installUpdated?: (protos.IInstallUpdated|null);
+
+        /** GithubEvent installDeleted */
+        installDeleted?: (protos.IInstallDeleted|null);
+
+        /** GithubEvent prCreated */
+        prCreated?: (protos.IPullRequestCreated|null);
+
+        /** GithubEvent prMerged */
+        prMerged?: (protos.IPullRequestMerged|null);
+    }
+
+    /** Represents a GithubEvent. */
+    class GithubEvent implements IGithubEvent {
+
+        /**
+         * Constructs a new GithubEvent.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IGithubEvent);
+
+        /** GithubEvent type. */
+        public type: protos.GithubEvent.Type;
+
+        /** GithubEvent installCreated. */
+        public installCreated?: (protos.IInstallCreated|null);
+
+        /** GithubEvent installUpdated. */
+        public installUpdated?: (protos.IInstallUpdated|null);
+
+        /** GithubEvent installDeleted. */
+        public installDeleted?: (protos.IInstallDeleted|null);
+
+        /** GithubEvent prCreated. */
+        public prCreated?: (protos.IPullRequestCreated|null);
+
+        /** GithubEvent prMerged. */
+        public prMerged?: (protos.IPullRequestMerged|null);
+
+        /** GithubEvent payload. */
+        public payload?: ("installCreated"|"installUpdated"|"installDeleted"|"prCreated"|"prMerged");
+
+        /**
+         * Creates a new GithubEvent instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns GithubEvent instance
+         */
+        public static create(properties?: protos.IGithubEvent): protos.GithubEvent;
+
+        /**
+         * Encodes the specified GithubEvent message. Does not implicitly {@link protos.GithubEvent.verify|verify} messages.
+         * @param message GithubEvent message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IGithubEvent, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified GithubEvent message, length delimited. Does not implicitly {@link protos.GithubEvent.verify|verify} messages.
+         * @param message GithubEvent message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IGithubEvent, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a GithubEvent message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns GithubEvent
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.GithubEvent;
+
+        /**
+         * Decodes a GithubEvent message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns GithubEvent
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.GithubEvent;
+
+        /**
+         * Verifies a GithubEvent message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a GithubEvent message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns GithubEvent
+         */
+        public static fromObject(object: { [k: string]: any }): protos.GithubEvent;
+
+        /**
+         * Creates a plain object from a GithubEvent message. Also converts values to other types if specified.
+         * @param message GithubEvent
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.GithubEvent, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this GithubEvent to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    namespace GithubEvent {
+
+        /** Type enum. */
+        enum Type {
+            UNSET = 0,
+            INSTALL_CREATED = 2,
+            INSTALL_UPDATED = 3,
+            INSTALL_DELETED = 4,
+            PULL_CREATED = 5,
+            PULL_MERGED = 6
+        }
+    }
+
+    /** Properties of a ConnectAuthRequest. */
+    interface IConnectAuthRequest {
+
+        /** ConnectAuthRequest apiToken */
+        apiToken?: (string|null);
+    }
+
+    /** Represents a ConnectAuthRequest. */
+    class ConnectAuthRequest implements IConnectAuthRequest {
+
+        /**
+         * Constructs a new ConnectAuthRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IConnectAuthRequest);
+
+        /** ConnectAuthRequest apiToken. */
+        public apiToken: string;
+
+        /**
+         * Creates a new ConnectAuthRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns ConnectAuthRequest instance
+         */
+        public static create(properties?: protos.IConnectAuthRequest): protos.ConnectAuthRequest;
+
+        /**
+         * Encodes the specified ConnectAuthRequest message. Does not implicitly {@link protos.ConnectAuthRequest.verify|verify} messages.
+         * @param message ConnectAuthRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IConnectAuthRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified ConnectAuthRequest message, length delimited. Does not implicitly {@link protos.ConnectAuthRequest.verify|verify} messages.
+         * @param message ConnectAuthRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IConnectAuthRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a ConnectAuthRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns ConnectAuthRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.ConnectAuthRequest;
+
+        /**
+         * Decodes a ConnectAuthRequest message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns ConnectAuthRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.ConnectAuthRequest;
+
+        /**
+         * Verifies a ConnectAuthRequest message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a ConnectAuthRequest message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns ConnectAuthRequest
+         */
+        public static fromObject(object: { [k: string]: any }): protos.ConnectAuthRequest;
+
+        /**
+         * Creates a plain object from a ConnectAuthRequest message. Also converts values to other types if specified.
+         * @param message ConnectAuthRequest
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.ConnectAuthRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this ConnectAuthRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of an AuthResponse. */
+    interface IAuthResponse {
+
+        /** AuthResponse authorized */
+        authorized?: (boolean|null);
+
+        /** AuthResponse message */
+        message?: (string|null);
+    }
+
+    /** Represents an AuthResponse. */
+    class AuthResponse implements IAuthResponse {
+
+        /**
+         * Constructs a new AuthResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IAuthResponse);
+
+        /** AuthResponse authorized. */
+        public authorized: boolean;
+
+        /** AuthResponse message. */
+        public message: string;
+
+        /**
+         * Creates a new AuthResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns AuthResponse instance
+         */
+        public static create(properties?: protos.IAuthResponse): protos.AuthResponse;
+
+        /**
+         * Encodes the specified AuthResponse message. Does not implicitly {@link protos.AuthResponse.verify|verify} messages.
+         * @param message AuthResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IAuthResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified AuthResponse message, length delimited. Does not implicitly {@link protos.AuthResponse.verify|verify} messages.
+         * @param message AuthResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IAuthResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes an AuthResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns AuthResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.AuthResponse;
+
+        /**
+         * Decodes an AuthResponse message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns AuthResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.AuthResponse;
+
+        /**
+         * Verifies an AuthResponse message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates an AuthResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns AuthResponse
+         */
+        public static fromObject(object: { [k: string]: any }): protos.AuthResponse;
+
+        /**
+         * Creates a plain object from an AuthResponse message. Also converts values to other types if specified.
+         * @param message AuthResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.AuthResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this AuthResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a PullRequestCreated. */
+    interface IPullRequestCreated {
+
+        /** PullRequestCreated owner */
+        owner?: (string|null);
+
+        /** PullRequestCreated repo */
+        repo?: (string|null);
+
+        /** PullRequestCreated number */
+        number?: (number|null);
+
+        /** PullRequestCreated url */
+        url?: (string|null);
+
+        /** PullRequestCreated description */
+        description?: (string|null);
+    }
+
+    /** Represents a PullRequestCreated. */
+    class PullRequestCreated implements IPullRequestCreated {
+
+        /**
+         * Constructs a new PullRequestCreated.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IPullRequestCreated);
+
+        /** PullRequestCreated owner. */
+        public owner: string;
+
+        /** PullRequestCreated repo. */
+        public repo: string;
+
+        /** PullRequestCreated number. */
+        public number: number;
+
+        /** PullRequestCreated url. */
+        public url: string;
+
+        /** PullRequestCreated description. */
+        public description: string;
+
+        /**
+         * Creates a new PullRequestCreated instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns PullRequestCreated instance
+         */
+        public static create(properties?: protos.IPullRequestCreated): protos.PullRequestCreated;
+
+        /**
+         * Encodes the specified PullRequestCreated message. Does not implicitly {@link protos.PullRequestCreated.verify|verify} messages.
+         * @param message PullRequestCreated message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IPullRequestCreated, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified PullRequestCreated message, length delimited. Does not implicitly {@link protos.PullRequestCreated.verify|verify} messages.
+         * @param message PullRequestCreated message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IPullRequestCreated, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a PullRequestCreated message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns PullRequestCreated
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.PullRequestCreated;
+
+        /**
+         * Decodes a PullRequestCreated message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns PullRequestCreated
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.PullRequestCreated;
+
+        /**
+         * Verifies a PullRequestCreated message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a PullRequestCreated message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns PullRequestCreated
+         */
+        public static fromObject(object: { [k: string]: any }): protos.PullRequestCreated;
+
+        /**
+         * Creates a plain object from a PullRequestCreated message. Also converts values to other types if specified.
+         * @param message PullRequestCreated
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.PullRequestCreated, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this PullRequestCreated to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a PullRequestMerged. */
+    interface IPullRequestMerged {
+
+        /** PullRequestMerged owner */
+        owner?: (string|null);
+
+        /** PullRequestMerged repo */
+        repo?: (string|null);
+
+        /** PullRequestMerged number */
+        number?: (number|null);
+
+        /** PullRequestMerged url */
+        url?: (string|null);
+    }
+
+    /** Represents a PullRequestMerged. */
+    class PullRequestMerged implements IPullRequestMerged {
+
+        /**
+         * Constructs a new PullRequestMerged.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IPullRequestMerged);
+
+        /** PullRequestMerged owner. */
+        public owner: string;
+
+        /** PullRequestMerged repo. */
+        public repo: string;
+
+        /** PullRequestMerged number. */
+        public number: number;
+
+        /** PullRequestMerged url. */
+        public url: string;
+
+        /**
+         * Creates a new PullRequestMerged instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns PullRequestMerged instance
+         */
+        public static create(properties?: protos.IPullRequestMerged): protos.PullRequestMerged;
+
+        /**
+         * Encodes the specified PullRequestMerged message. Does not implicitly {@link protos.PullRequestMerged.verify|verify} messages.
+         * @param message PullRequestMerged message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IPullRequestMerged, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified PullRequestMerged message, length delimited. Does not implicitly {@link protos.PullRequestMerged.verify|verify} messages.
+         * @param message PullRequestMerged message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IPullRequestMerged, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a PullRequestMerged message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns PullRequestMerged
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.PullRequestMerged;
+
+        /**
+         * Decodes a PullRequestMerged message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns PullRequestMerged
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.PullRequestMerged;
+
+        /**
+         * Verifies a PullRequestMerged message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a PullRequestMerged message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns PullRequestMerged
+         */
+        public static fromObject(object: { [k: string]: any }): protos.PullRequestMerged;
+
+        /**
+         * Creates a plain object from a PullRequestMerged message. Also converts values to other types if specified.
+         * @param message PullRequestMerged
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.PullRequestMerged, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this PullRequestMerged to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of an InstallCreated. */
+    interface IInstallCreated {
+
+        /** InstallCreated installId */
+        installId?: (number|Long|null);
+
+        /** InstallCreated accountId */
+        accountId?: (number|Long|null);
+    }
+
+    /** Represents an InstallCreated. */
+    class InstallCreated implements IInstallCreated {
+
+        /**
+         * Constructs a new InstallCreated.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IInstallCreated);
+
+        /** InstallCreated installId. */
+        public installId: (number|Long);
+
+        /** InstallCreated accountId. */
+        public accountId: (number|Long);
+
+        /**
+         * Creates a new InstallCreated instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns InstallCreated instance
+         */
+        public static create(properties?: protos.IInstallCreated): protos.InstallCreated;
+
+        /**
+         * Encodes the specified InstallCreated message. Does not implicitly {@link protos.InstallCreated.verify|verify} messages.
+         * @param message InstallCreated message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IInstallCreated, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified InstallCreated message, length delimited. Does not implicitly {@link protos.InstallCreated.verify|verify} messages.
+         * @param message InstallCreated message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IInstallCreated, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes an InstallCreated message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns InstallCreated
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.InstallCreated;
+
+        /**
+         * Decodes an InstallCreated message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns InstallCreated
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.InstallCreated;
+
+        /**
+         * Verifies an InstallCreated message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates an InstallCreated message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns InstallCreated
+         */
+        public static fromObject(object: { [k: string]: any }): protos.InstallCreated;
+
+        /**
+         * Creates a plain object from an InstallCreated message. Also converts values to other types if specified.
+         * @param message InstallCreated
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.InstallCreated, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this InstallCreated to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of an InstallUpdated. */
+    interface IInstallUpdated {
+
+        /** InstallUpdated installId */
+        installId?: (number|Long|null);
+
+        /** InstallUpdated accountId */
+        accountId?: (number|Long|null);
+    }
+
+    /** Represents an InstallUpdated. */
+    class InstallUpdated implements IInstallUpdated {
+
+        /**
+         * Constructs a new InstallUpdated.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IInstallUpdated);
+
+        /** InstallUpdated installId. */
+        public installId: (number|Long);
+
+        /** InstallUpdated accountId. */
+        public accountId: (number|Long);
+
+        /**
+         * Creates a new InstallUpdated instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns InstallUpdated instance
+         */
+        public static create(properties?: protos.IInstallUpdated): protos.InstallUpdated;
+
+        /**
+         * Encodes the specified InstallUpdated message. Does not implicitly {@link protos.InstallUpdated.verify|verify} messages.
+         * @param message InstallUpdated message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IInstallUpdated, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified InstallUpdated message, length delimited. Does not implicitly {@link protos.InstallUpdated.verify|verify} messages.
+         * @param message InstallUpdated message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IInstallUpdated, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes an InstallUpdated message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns InstallUpdated
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.InstallUpdated;
+
+        /**
+         * Decodes an InstallUpdated message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns InstallUpdated
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.InstallUpdated;
+
+        /**
+         * Verifies an InstallUpdated message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates an InstallUpdated message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns InstallUpdated
+         */
+        public static fromObject(object: { [k: string]: any }): protos.InstallUpdated;
+
+        /**
+         * Creates a plain object from an InstallUpdated message. Also converts values to other types if specified.
+         * @param message InstallUpdated
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.InstallUpdated, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this InstallUpdated to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of an InstallDeleted. */
+    interface IInstallDeleted {
+
+        /** InstallDeleted installId */
+        installId?: (number|Long|null);
+
+        /** InstallDeleted accountId */
+        accountId?: (number|Long|null);
+    }
+
+    /** Represents an InstallDeleted. */
+    class InstallDeleted implements IInstallDeleted {
+
+        /**
+         * Constructs a new InstallDeleted.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IInstallDeleted);
+
+        /** InstallDeleted installId. */
+        public installId: (number|Long);
+
+        /** InstallDeleted accountId. */
+        public accountId: (number|Long);
+
+        /**
+         * Creates a new InstallDeleted instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns InstallDeleted instance
+         */
+        public static create(properties?: protos.IInstallDeleted): protos.InstallDeleted;
+
+        /**
+         * Encodes the specified InstallDeleted message. Does not implicitly {@link protos.InstallDeleted.verify|verify} messages.
+         * @param message InstallDeleted message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IInstallDeleted, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified InstallDeleted message, length delimited. Does not implicitly {@link protos.InstallDeleted.verify|verify} messages.
+         * @param message InstallDeleted message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IInstallDeleted, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes an InstallDeleted message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns InstallDeleted
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.InstallDeleted;
+
+        /**
+         * Decodes an InstallDeleted message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns InstallDeleted
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.InstallDeleted;
+
+        /**
+         * Verifies an InstallDeleted message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates an InstallDeleted message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns InstallDeleted
+         */
+        public static fromObject(object: { [k: string]: any }): protos.InstallDeleted;
+
+        /**
+         * Creates a plain object from an InstallDeleted message. Also converts values to other types if specified.
+         * @param message InstallDeleted
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.InstallDeleted, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this InstallDeleted to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a NewJwtToken. */
+    interface INewJwtToken {
+
+        /** NewJwtToken token */
+        token?: (string|null);
+    }
+
+    /** Represents a NewJwtToken. */
+    class NewJwtToken implements INewJwtToken {
+
+        /**
+         * Constructs a new NewJwtToken.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.INewJwtToken);
+
+        /** NewJwtToken token. */
+        public token: string;
+
+        /**
+         * Creates a new NewJwtToken instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns NewJwtToken instance
+         */
+        public static create(properties?: protos.INewJwtToken): protos.NewJwtToken;
+
+        /**
+         * Encodes the specified NewJwtToken message. Does not implicitly {@link protos.NewJwtToken.verify|verify} messages.
+         * @param message NewJwtToken message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.INewJwtToken, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified NewJwtToken message, length delimited. Does not implicitly {@link protos.NewJwtToken.verify|verify} messages.
+         * @param message NewJwtToken message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.INewJwtToken, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a NewJwtToken message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns NewJwtToken
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.NewJwtToken;
+
+        /**
+         * Decodes a NewJwtToken message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns NewJwtToken
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.NewJwtToken;
+
+        /**
+         * Verifies a NewJwtToken message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a NewJwtToken message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns NewJwtToken
+         */
+        public static fromObject(object: { [k: string]: any }): protos.NewJwtToken;
+
+        /**
+         * Creates a plain object from a NewJwtToken message. Also converts values to other types if specified.
+         * @param message NewJwtToken
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.NewJwtToken, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this NewJwtToken to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a GetVCEventsRequest. */
+    interface IGetVCEventsRequest {
+
+        /** GetVCEventsRequest auth */
+        auth?: (protos.common.IAuth|null);
+    }
+
+    /** Represents a GetVCEventsRequest. */
+    class GetVCEventsRequest implements IGetVCEventsRequest {
+
+        /**
+         * Constructs a new GetVCEventsRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IGetVCEventsRequest);
+
+        /** GetVCEventsRequest auth. */
+        public auth?: (protos.common.IAuth|null);
+
+        /**
+         * Creates a new GetVCEventsRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns GetVCEventsRequest instance
+         */
+        public static create(properties?: protos.IGetVCEventsRequest): protos.GetVCEventsRequest;
+
+        /**
+         * Encodes the specified GetVCEventsRequest message. Does not implicitly {@link protos.GetVCEventsRequest.verify|verify} messages.
+         * @param message GetVCEventsRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IGetVCEventsRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified GetVCEventsRequest message, length delimited. Does not implicitly {@link protos.GetVCEventsRequest.verify|verify} messages.
+         * @param message GetVCEventsRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IGetVCEventsRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a GetVCEventsRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns GetVCEventsRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.GetVCEventsRequest;
+
+        /**
+         * Decodes a GetVCEventsRequest message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns GetVCEventsRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.GetVCEventsRequest;
+
+        /**
+         * Verifies a GetVCEventsRequest message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a GetVCEventsRequest message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns GetVCEventsRequest
+         */
+        public static fromObject(object: { [k: string]: any }): protos.GetVCEventsRequest;
+
+        /**
+         * Creates a plain object from a GetVCEventsRequest message. Also converts values to other types if specified.
+         * @param message GetVCEventsRequest
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.GetVCEventsRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this GetVCEventsRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
 }
