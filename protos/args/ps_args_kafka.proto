@@ -4,13 +4,13 @@ package protos.args;
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/args";
 
-message KafkaConn {
-    enum SASLType {
-        NONE = 0;
-        PLAIN = 1;
-        SCRAM = 2;
-    }
+enum SASLType {
+    NONE = 0;
+    PLAIN = 1;
+    SCRAM = 2;
+}
 
+message KafkaConn {
     // @gotags: kong:"help='Kafka broker address (you may specify this flag multiple times',env=PLUMBER_RELAY_KAFKA_ADDRESS,default='localhost:9092',required"
     repeated string address = 1;
 

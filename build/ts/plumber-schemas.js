@@ -3983,6 +3983,22 @@ export const protos = $root.protos = (() => {
             return GCPPubSubWriteArgs;
         })();
 
+        /**
+         * SASLType enum.
+         * @name protos.args.SASLType
+         * @enum {number}
+         * @property {number} NONE=0 NONE value
+         * @property {number} PLAIN=1 PLAIN value
+         * @property {number} SCRAM=2 SCRAM value
+         */
+        args.SASLType = (function() {
+            const valuesById = {}, values = Object.create(valuesById);
+            values[valuesById[0] = "NONE"] = 0;
+            values[valuesById[1] = "PLAIN"] = 1;
+            values[valuesById[2] = "SCRAM"] = 2;
+            return values;
+        })();
+
         args.KafkaConn = (function() {
 
             /**
@@ -3993,7 +4009,7 @@ export const protos = $root.protos = (() => {
              * @property {number|null} [timeoutSeconds] KafkaConn timeoutSeconds
              * @property {boolean|null} [useTls] KafkaConn useTls
              * @property {boolean|null} [insecureTls] KafkaConn insecureTls
-             * @property {protos.args.KafkaConn.SASLType|null} [saslType] KafkaConn saslType
+             * @property {protos.args.SASLType|null} [saslType] KafkaConn saslType
              * @property {string|null} [saslUsername] KafkaConn saslUsername
              * @property {string|null} [saslPassword] KafkaConn saslPassword
              */
@@ -4048,7 +4064,7 @@ export const protos = $root.protos = (() => {
 
             /**
              * KafkaConn saslType.
-             * @member {protos.args.KafkaConn.SASLType} saslType
+             * @member {protos.args.SASLType} saslType
              * @memberof protos.args.KafkaConn
              * @instance
              */
@@ -4316,7 +4332,7 @@ export const protos = $root.protos = (() => {
                 if (message.insecureTls != null && message.hasOwnProperty("insecureTls"))
                     object.insecureTls = message.insecureTls;
                 if (message.saslType != null && message.hasOwnProperty("saslType"))
-                    object.saslType = options.enums === String ? $root.protos.args.KafkaConn.SASLType[message.saslType] : message.saslType;
+                    object.saslType = options.enums === String ? $root.protos.args.SASLType[message.saslType] : message.saslType;
                 if (message.saslUsername != null && message.hasOwnProperty("saslUsername"))
                     object.saslUsername = message.saslUsername;
                 if (message.saslPassword != null && message.hasOwnProperty("saslPassword"))
@@ -4334,22 +4350,6 @@ export const protos = $root.protos = (() => {
             KafkaConn.prototype.toJSON = function toJSON() {
                 return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
             };
-
-            /**
-             * SASLType enum.
-             * @name protos.args.KafkaConn.SASLType
-             * @enum {number}
-             * @property {number} NONE=0 NONE value
-             * @property {number} PLAIN=1 PLAIN value
-             * @property {number} SCRAM=2 SCRAM value
-             */
-            KafkaConn.SASLType = (function() {
-                const valuesById = {}, values = Object.create(valuesById);
-                values[valuesById[0] = "NONE"] = 0;
-                values[valuesById[1] = "PLAIN"] = 1;
-                values[valuesById[2] = "SCRAM"] = 2;
-                return values;
-            })();
 
             return KafkaConn;
         })();
@@ -6888,7 +6888,7 @@ export const protos = $root.protos = (() => {
              * @property {string|null} [address] MQTTConn address
              * @property {number|null} [connTimeoutSeconds] MQTTConn connTimeoutSeconds
              * @property {string|null} [clientId] MQTTConn clientId
-             * @property {number|null} [qosLevel] MQTTConn qosLevel
+             * @property {protos.args.MQTTQoSLevel|null} [qosLevel] MQTTConn qosLevel
              * @property {protos.args.IMQTTTLSOptions|null} [tlsOptions] MQTTConn tlsOptions
              */
 
@@ -6933,7 +6933,7 @@ export const protos = $root.protos = (() => {
 
             /**
              * MQTTConn qosLevel.
-             * @member {number} qosLevel
+             * @member {protos.args.MQTTQoSLevel} qosLevel
              * @memberof protos.args.MQTTConn
              * @instance
              */
@@ -6978,7 +6978,7 @@ export const protos = $root.protos = (() => {
                 if (message.clientId != null && Object.hasOwnProperty.call(message, "clientId"))
                     writer.uint32(/* id 4, wireType 2 =*/34).string(message.clientId);
                 if (message.qosLevel != null && Object.hasOwnProperty.call(message, "qosLevel"))
-                    writer.uint32(/* id 5, wireType 0 =*/40).uint32(message.qosLevel);
+                    writer.uint32(/* id 5, wireType 0 =*/40).int32(message.qosLevel);
                 if (message.tlsOptions != null && Object.hasOwnProperty.call(message, "tlsOptions"))
                     $root.protos.args.MQTTTLSOptions.encode(message.tlsOptions, writer.uint32(/* id 6, wireType 2 =*/50).fork()).ldelim();
                 return writer;
@@ -7025,7 +7025,7 @@ export const protos = $root.protos = (() => {
                         message.clientId = reader.string();
                         break;
                     case 5:
-                        message.qosLevel = reader.uint32();
+                        message.qosLevel = reader.int32();
                         break;
                     case 6:
                         message.tlsOptions = $root.protos.args.MQTTTLSOptions.decode(reader, reader.uint32());
@@ -7075,8 +7075,14 @@ export const protos = $root.protos = (() => {
                     if (!$util.isString(message.clientId))
                         return "clientId: string expected";
                 if (message.qosLevel != null && message.hasOwnProperty("qosLevel"))
-                    if (!$util.isInteger(message.qosLevel))
-                        return "qosLevel: integer expected";
+                    switch (message.qosLevel) {
+                    default:
+                        return "qosLevel: enum value expected";
+                    case 0:
+                    case 1:
+                    case 2:
+                        break;
+                    }
                 if (message.tlsOptions != null && message.hasOwnProperty("tlsOptions")) {
                     let error = $root.protos.args.MQTTTLSOptions.verify(message.tlsOptions);
                     if (error)
@@ -7103,8 +7109,20 @@ export const protos = $root.protos = (() => {
                     message.connTimeoutSeconds = object.connTimeoutSeconds >>> 0;
                 if (object.clientId != null)
                     message.clientId = String(object.clientId);
-                if (object.qosLevel != null)
-                    message.qosLevel = object.qosLevel >>> 0;
+                switch (object.qosLevel) {
+                case "MQTT_QOS_LEVEL_AT_MOST_ONCE":
+                case 0:
+                    message.qosLevel = 0;
+                    break;
+                case "MQTT_QOS_LEVEL_AT_LEAST_ONCE":
+                case 1:
+                    message.qosLevel = 1;
+                    break;
+                case "MQTT_QOS_LEVEL_EXACTLY_ONCE":
+                case 2:
+                    message.qosLevel = 2;
+                    break;
+                }
                 if (object.tlsOptions != null) {
                     if (typeof object.tlsOptions !== "object")
                         throw TypeError(".protos.args.MQTTConn.tlsOptions: object expected");
@@ -7130,7 +7148,7 @@ export const protos = $root.protos = (() => {
                     object.address = "";
                     object.connTimeoutSeconds = 0;
                     object.clientId = "";
-                    object.qosLevel = 0;
+                    object.qosLevel = options.enums === String ? "MQTT_QOS_LEVEL_AT_MOST_ONCE" : 0;
                     object.tlsOptions = null;
                 }
                 if (message.address != null && message.hasOwnProperty("address"))
@@ -7140,7 +7158,7 @@ export const protos = $root.protos = (() => {
                 if (message.clientId != null && message.hasOwnProperty("clientId"))
                     object.clientId = message.clientId;
                 if (message.qosLevel != null && message.hasOwnProperty("qosLevel"))
-                    object.qosLevel = message.qosLevel;
+                    object.qosLevel = options.enums === String ? $root.protos.args.MQTTQoSLevel[message.qosLevel] : message.qosLevel;
                 if (message.tlsOptions != null && message.hasOwnProperty("tlsOptions"))
                     object.tlsOptions = $root.protos.args.MQTTTLSOptions.toObject(message.tlsOptions, options);
                 return object;
@@ -13916,6 +13934,20 @@ export const protos = $root.protos = (() => {
             return RedisPubSubWriteArgs;
         })();
 
+        /**
+         * OffsetStart enum.
+         * @name protos.args.OffsetStart
+         * @enum {number}
+         * @property {number} Latest=0 Latest value
+         * @property {number} Oldest=1 Oldest value
+         */
+        args.OffsetStart = (function() {
+            const valuesById = {}, values = Object.create(valuesById);
+            values[valuesById[0] = "Latest"] = 0;
+            values[valuesById[1] = "Oldest"] = 1;
+            return values;
+        })();
+
         args.RedisStreamsConn = (function() {
 
             /**
@@ -14156,7 +14188,7 @@ export const protos = $root.protos = (() => {
              * @interface ICreateConsumerConfig
              * @property {boolean|null} [createStreams] CreateConsumerConfig createStreams
              * @property {boolean|null} [recreateConsumerGroup] CreateConsumerConfig recreateConsumerGroup
-             * @property {protos.args.CreateConsumerConfig.OffsetStart|null} [offsetStart] CreateConsumerConfig offsetStart
+             * @property {protos.args.OffsetStart|null} [offsetStart] CreateConsumerConfig offsetStart
              */
 
             /**
@@ -14192,7 +14224,7 @@ export const protos = $root.protos = (() => {
 
             /**
              * CreateConsumerConfig offsetStart.
-             * @member {protos.args.CreateConsumerConfig.OffsetStart} offsetStart
+             * @member {protos.args.OffsetStart} offsetStart
              * @memberof protos.args.CreateConsumerConfig
              * @instance
              */
@@ -14375,7 +14407,7 @@ export const protos = $root.protos = (() => {
                 if (message.recreateConsumerGroup != null && message.hasOwnProperty("recreateConsumerGroup"))
                     object.recreateConsumerGroup = message.recreateConsumerGroup;
                 if (message.offsetStart != null && message.hasOwnProperty("offsetStart"))
-                    object.offsetStart = options.enums === String ? $root.protos.args.CreateConsumerConfig.OffsetStart[message.offsetStart] : message.offsetStart;
+                    object.offsetStart = options.enums === String ? $root.protos.args.OffsetStart[message.offsetStart] : message.offsetStart;
                 return object;
             };
 
@@ -14389,20 +14421,6 @@ export const protos = $root.protos = (() => {
             CreateConsumerConfig.prototype.toJSON = function toJSON() {
                 return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
             };
-
-            /**
-             * OffsetStart enum.
-             * @name protos.args.CreateConsumerConfig.OffsetStart
-             * @enum {number}
-             * @property {number} Latest=0 Latest value
-             * @property {number} Oldest=1 Oldest value
-             */
-            CreateConsumerConfig.OffsetStart = (function() {
-                const valuesById = {}, values = Object.create(valuesById);
-                values[valuesById[0] = "Latest"] = 0;
-                values[valuesById[1] = "Oldest"] = 1;
-                return values;
-            })();
 
             return CreateConsumerConfig;
         })();
@@ -16753,6 +16771,34 @@ export const protos = $root.protos = (() => {
          */
         const opts = {};
 
+        /**
+         * BatchOutputType enum.
+         * @name protos.opts.BatchOutputType
+         * @enum {number}
+         * @property {number} TABLE=0 TABLE value
+         * @property {number} JSON=1 JSON value
+         */
+        opts.BatchOutputType = (function() {
+            const valuesById = {}, values = Object.create(valuesById);
+            values[valuesById[0] = "TABLE"] = 0;
+            values[valuesById[1] = "JSON"] = 1;
+            return values;
+        })();
+
+        /**
+         * BatchReplayType enum.
+         * @name protos.opts.BatchReplayType
+         * @enum {number}
+         * @property {number} SINGLE=0 SINGLE value
+         * @property {number} CONTINUOUS=1 CONTINUOUS value
+         */
+        opts.BatchReplayType = (function() {
+            const valuesById = {}, values = Object.create(valuesById);
+            values[valuesById[0] = "SINGLE"] = 0;
+            values[valuesById[1] = "CONTINUOUS"] = 1;
+            return values;
+        })();
+
         opts.BatchOptions = (function() {
 
             /**
@@ -17837,20 +17883,6 @@ export const protos = $root.protos = (() => {
             return BatchArchiveReplayOptions;
         })();
 
-        /**
-         * BatchOutputType enum.
-         * @name protos.opts.BatchOutputType
-         * @enum {number}
-         * @property {number} TABLE=0 TABLE value
-         * @property {number} JSON=1 JSON value
-         */
-        opts.BatchOutputType = (function() {
-            const valuesById = {}, values = Object.create(valuesById);
-            values[valuesById[0] = "TABLE"] = 0;
-            values[valuesById[1] = "JSON"] = 1;
-            return values;
-        })();
-
         opts.BatchListOptions = (function() {
 
             /**
@@ -18814,20 +18846,6 @@ export const protos = $root.protos = (() => {
             };
 
             return BatchCreateCollectionOptions;
-        })();
-
-        /**
-         * BatchReplayType enum.
-         * @name protos.opts.BatchReplayType
-         * @enum {number}
-         * @property {number} SINGLE=0 SINGLE value
-         * @property {number} CONTINUOUS=1 CONTINUOUS value
-         */
-        opts.BatchReplayType = (function() {
-            const valuesById = {}, values = Object.create(valuesById);
-            values[valuesById[0] = "SINGLE"] = 0;
-            values[valuesById[1] = "CONTINUOUS"] = 1;
-            return values;
         })();
 
         opts.BatchCreateReplayOptions = (function() {

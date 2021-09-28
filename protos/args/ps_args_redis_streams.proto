@@ -4,6 +4,11 @@ package protos.args;
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/args";
 
+enum OffsetStart {
+  Latest = 0;
+  Oldest = 1;
+}
+
 message RedisStreamsConn {
   // @gotags: kong:"help='Address of redis server',default=localhost:6379,required,env='PLUMBER_RELAY_REDIS_STREAMS_ADDRESS'"
   string address = 1;
@@ -16,11 +21,6 @@ message RedisStreamsConn {
 }
 
 message CreateConsumerConfig {
-  enum OffsetStart {
-    Latest = 0;
-    Oldest = 1;
-  }
-
   // @gotags: kong:"help='Create the streams if creating a new consumer group',env='PLUMBER_RELAY_REDIS_STREAMS_CREATE_STREAMS'"
   bool create_streams = 1;
 

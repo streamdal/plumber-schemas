@@ -1775,6 +1775,13 @@ export namespace protos {
             public toJSON(): { [k: string]: any };
         }
 
+        /** SASLType enum. */
+        enum SASLType {
+            NONE = 0,
+            PLAIN = 1,
+            SCRAM = 2
+        }
+
         /** Properties of a KafkaConn. */
         interface IKafkaConn {
 
@@ -1791,7 +1798,7 @@ export namespace protos {
             insecureTls?: (boolean|null);
 
             /** KafkaConn saslType */
-            saslType?: (protos.args.KafkaConn.SASLType|null);
+            saslType?: (protos.args.SASLType|null);
 
             /** KafkaConn saslUsername */
             saslUsername?: (string|null);
@@ -1822,7 +1829,7 @@ export namespace protos {
             public insecureTls: boolean;
 
             /** KafkaConn saslType. */
-            public saslType: protos.args.KafkaConn.SASLType;
+            public saslType: protos.args.SASLType;
 
             /** KafkaConn saslUsername. */
             public saslUsername: string;
@@ -1899,16 +1906,6 @@ export namespace protos {
              * @returns JSON object
              */
             public toJSON(): { [k: string]: any };
-        }
-
-        namespace KafkaConn {
-
-            /** SASLType enum. */
-            enum SASLType {
-                NONE = 0,
-                PLAIN = 1,
-                SCRAM = 2
-            }
         }
 
         /** Properties of a KafkaReadArgs. */
@@ -2933,7 +2930,7 @@ export namespace protos {
             clientId?: (string|null);
 
             /** MQTTConn qosLevel */
-            qosLevel?: (number|null);
+            qosLevel?: (protos.args.MQTTQoSLevel|null);
 
             /** MQTTConn tlsOptions */
             tlsOptions?: (protos.args.IMQTTTLSOptions|null);
@@ -2958,7 +2955,7 @@ export namespace protos {
             public clientId: string;
 
             /** MQTTConn qosLevel. */
-            public qosLevel: number;
+            public qosLevel: protos.args.MQTTQoSLevel;
 
             /** MQTTConn tlsOptions. */
             public tlsOptions?: (protos.args.IMQTTTLSOptions|null);
@@ -5832,6 +5829,12 @@ export namespace protos {
             public toJSON(): { [k: string]: any };
         }
 
+        /** OffsetStart enum. */
+        enum OffsetStart {
+            Latest = 0,
+            Oldest = 1
+        }
+
         /** Properties of a RedisStreamsConn. */
         interface IRedisStreamsConn {
 
@@ -5944,7 +5947,7 @@ export namespace protos {
             recreateConsumerGroup?: (boolean|null);
 
             /** CreateConsumerConfig offsetStart */
-            offsetStart?: (protos.args.CreateConsumerConfig.OffsetStart|null);
+            offsetStart?: (protos.args.OffsetStart|null);
         }
 
         /** Represents a CreateConsumerConfig. */
@@ -5963,7 +5966,7 @@ export namespace protos {
             public recreateConsumerGroup: boolean;
 
             /** CreateConsumerConfig offsetStart. */
-            public offsetStart: protos.args.CreateConsumerConfig.OffsetStart;
+            public offsetStart: protos.args.OffsetStart;
 
             /**
              * Creates a new CreateConsumerConfig instance using the specified properties.
@@ -6034,15 +6037,6 @@ export namespace protos {
              * @returns JSON object
              */
             public toJSON(): { [k: string]: any };
-        }
-
-        namespace CreateConsumerConfig {
-
-            /** OffsetStart enum. */
-            enum OffsetStart {
-                Latest = 0,
-                Oldest = 1
-            }
         }
 
         /** Properties of a RedisStreamsReadArgs. */
@@ -6958,6 +6952,18 @@ export namespace protos {
     /** Namespace opts. */
     namespace opts {
 
+        /** BatchOutputType enum. */
+        enum BatchOutputType {
+            TABLE = 0,
+            JSON = 1
+        }
+
+        /** BatchReplayType enum. */
+        enum BatchReplayType {
+            SINGLE = 0,
+            CONTINUOUS = 1
+        }
+
         /** Properties of a BatchOptions. */
         interface IBatchOptions {
 
@@ -7438,12 +7444,6 @@ export namespace protos {
             public toJSON(): { [k: string]: any };
         }
 
-        /** BatchOutputType enum. */
-        enum BatchOutputType {
-            TABLE = 0,
-            JSON = 1
-        }
-
         /** Properties of a BatchListOptions. */
         interface IBatchListOptions {
 
@@ -7856,12 +7856,6 @@ export namespace protos {
              * @returns JSON object
              */
             public toJSON(): { [k: string]: any };
-        }
-
-        /** BatchReplayType enum. */
-        enum BatchReplayType {
-            SINGLE = 0,
-            CONTINUOUS = 1
         }
 
         /** Properties of a BatchCreateReplayOptions. */
