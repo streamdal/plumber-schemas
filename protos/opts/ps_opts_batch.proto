@@ -6,8 +6,18 @@ import "opts/ps_opts_write.proto";
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/opts";
 
+enum BatchOutputType {
+    TABLE = 0;
+    JSON  = 1;
+}
+
+enum BatchReplayType {
+    SINGLE     = 0;
+    CONTINUOUS = 1;
+}
+
 message BatchOptions {
-    // @gotags: kong:"help='How to output results (0: table, 1: JSON)',default=0"
+    // @gotags: kong:"help='How to output results (options: table, json)',default=table,type=pbenum,pbenum_lowercase"
     BatchOutputType output_type = 1;
 
     // @gotags: kong:"help='Alternative URL to use for Batch API',default='https://api.batch.sh'"
@@ -48,11 +58,6 @@ message BatchArchiveOptions {
 message BatchArchiveReplayOptions {
     // @gotags: kong:"help='Replay ID to archive',required"
     string replay_id = 1;
-}
-
-enum BatchOutputType {
-    TABLE = 0;
-    JSON  = 1;
 }
 
 message BatchListOptions {
@@ -104,16 +109,11 @@ message BatchCreateCollectionOptions {
     string notes = 3;
 }
 
-enum BatchReplayType {
-    SINGLE     = 0;
-    CONTINUOUS = 1;
-}
-
 message BatchCreateReplayOptions {
     // @gotags: kong:"help='Friendly name to assign to the replay',required"
     string name = 1;
 
-    // @gotags: kong:"help='One-time or continuous replay (default: one-time; 0: ONE_TIME, 1: CONTINUOUS)',default=0"
+    // @gotags: kong:"help='One-time/single or continuous replay (options: single, continuous)',type=pbenum,pbenum_lowercase,default=single"
     BatchReplayType type = 2;
 
     // @gotags: kong:"help='Notes to attach to the replay'"

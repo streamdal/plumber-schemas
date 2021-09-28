@@ -4,7 +4,6 @@ package protos.args;
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/args";
 
-// TODO: This needs to be used by CLI
 enum MQTTQoSLevel {
     MQTT_QOS_LEVEL_AT_MOST_ONCE  = 0;
     MQTT_QOS_LEVEL_AT_LEAST_ONCE = 1;
@@ -35,8 +34,8 @@ message MQTTConn {
     // @gotags: kong:"help='Client id presented to MQTT broker',env='PLUMBER_RELAY_MQTT_CLIENT_ID',default=plumber"
     string client_id = 4;
 
-    // @gotags: kong:"help='QoS level to use for pub/sub (0: at most once, 1: at least once, 2: exactly once)',enum='0,1,2',env=PLUMBER_RELAY_MQTT_QOS,default=0"
-    uint32 qos_level = 5;
+    // @gotags: kong:"help='QoS level to use for pub/sub (options: at_most_once, at_least_once, exactly_once)',env=PLUMBER_RELAY_MQTT_QOS,type=pbenum,pbenum_strip_prefix=MQTT_QOS_LEVEL_,pbenum_lowercase,default=at_most_once"
+    MQTTQoSLevel qos_level = 5;
 
     // @gotags: kong:"embed"
     MQTTTLSOptions tls_options = 6;

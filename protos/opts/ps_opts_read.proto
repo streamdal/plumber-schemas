@@ -76,7 +76,7 @@ message ReadOptions {
     // @gotags: kong:"embed,group=decode"
     encoding.DecodeOptions decode_options = 5;
 
-    // @gotags: kong:"help='Convert output before it is printed to STDOUT (1 = base64, 2 = gzip)',enum"
+    // @gotags: kong:"help='Convert output before it is printed to STDOUT (options: unset, base64, gzip)',type=pbenum,pbenum_strip_prefix=CONVERT_OPTION_,pbenum_lowercase,default=unset"
     ConvertOption convert_output = 6;
 
     // --------------------------------------------------------------------- //
