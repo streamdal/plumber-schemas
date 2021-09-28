@@ -52,7 +52,7 @@ generate/ts: clean-ts
 generate/ts:
 	mkdir -p build/ts 
 	./node_modules/.bin/pbjs \
-	-t static \
+	-t static-module \
 	-w es6 \
 	-p ./protos \
 	-p ./protos/args \
@@ -61,6 +61,7 @@ generate/ts:
 	-p ./protos/encoding \
 	-p ./protos/records \
 	-o ./build/ts/plumber-schemas.js \
+	./protos/*.proto \
 	./protos/**/*.proto
 	./node_modules/.bin/pbts -o ./build/ts/plumber-schemas.d.ts ./build/ts/plumber-schemas.js
 
