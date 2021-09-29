@@ -46,11 +46,14 @@ message GithubEvent {
   enum Type {
     UNSET = 0;
 
-    INSTALL_CREATED = 2;
-    INSTALL_UPDATED = 3;
-    INSTALL_DELETED = 4;
-    PULL_CREATED = 5;
-    PULL_MERGED = 6;
+    INSTALL_CREATED = 1;
+    INSTALL_UPDATED = 2;
+    INSTALL_DELETED = 3;
+    PULL_CREATED = 4;
+    PULL_MERGED = 5;
+    ISSUE_CREATED = 6;
+    ISSUE_REOPENED = 7;
+    ISSUE_CLOSED = 8;
   }
 
   Type type = 1;
@@ -61,6 +64,9 @@ message GithubEvent {
     InstallDeleted install_deleted = 102;
     PullRequestCreated pr_created = 103;
     PullRequestMerged pr_merged = 104;
+    IssueCreated issue_created = 105;
+    IssueReopened issue_reopened = 106;
+    IssueClosed issue_closed = 107;
   }
 }
 
@@ -118,4 +124,28 @@ message InstallDeleted {
 
 message NewJwtToken {
   string token = 1;
+}
+
+message IssueCreated {
+  string owner = 1;
+  string repo = 2;
+  int32 number = 3;
+  string url = 4;
+  string description = 5;
+}
+
+message IssueReopened {
+  string owner = 1;
+  string repo = 2;
+  int32 number = 3;
+  string url = 4;
+  string description = 5;
+}
+
+message IssueClosed {
+  string owner = 1;
+  string repo = 2;
+  int32 number = 3;
+  string url = 4;
+  string description = 5;
 }
