@@ -57507,6 +57507,9 @@ $root.protos = (function() {
          * @property {protos.IInstallDeleted|null} [installDeleted] GithubEvent installDeleted
          * @property {protos.IPullRequestCreated|null} [prCreated] GithubEvent prCreated
          * @property {protos.IPullRequestMerged|null} [prMerged] GithubEvent prMerged
+         * @property {protos.IIssueCreated|null} [issueCreated] GithubEvent issueCreated
+         * @property {protos.IIssueReopened|null} [issueReopened] GithubEvent issueReopened
+         * @property {protos.IIssueClosed|null} [issueClosed] GithubEvent issueClosed
          */
 
         /**
@@ -57572,17 +57575,41 @@ $root.protos = (function() {
          */
         GithubEvent.prototype.prMerged = null;
 
+        /**
+         * GithubEvent issueCreated.
+         * @member {protos.IIssueCreated|null|undefined} issueCreated
+         * @memberof protos.GithubEvent
+         * @instance
+         */
+        GithubEvent.prototype.issueCreated = null;
+
+        /**
+         * GithubEvent issueReopened.
+         * @member {protos.IIssueReopened|null|undefined} issueReopened
+         * @memberof protos.GithubEvent
+         * @instance
+         */
+        GithubEvent.prototype.issueReopened = null;
+
+        /**
+         * GithubEvent issueClosed.
+         * @member {protos.IIssueClosed|null|undefined} issueClosed
+         * @memberof protos.GithubEvent
+         * @instance
+         */
+        GithubEvent.prototype.issueClosed = null;
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
         /**
          * GithubEvent payload.
-         * @member {"installCreated"|"installUpdated"|"installDeleted"|"prCreated"|"prMerged"|undefined} payload
+         * @member {"installCreated"|"installUpdated"|"installDeleted"|"prCreated"|"prMerged"|"issueCreated"|"issueReopened"|"issueClosed"|undefined} payload
          * @memberof protos.GithubEvent
          * @instance
          */
         Object.defineProperty(GithubEvent.prototype, "payload", {
-            get: $util.oneOfGetter($oneOfFields = ["installCreated", "installUpdated", "installDeleted", "prCreated", "prMerged"]),
+            get: $util.oneOfGetter($oneOfFields = ["installCreated", "installUpdated", "installDeleted", "prCreated", "prMerged", "issueCreated", "issueReopened", "issueClosed"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
@@ -57622,6 +57649,12 @@ $root.protos = (function() {
                 $root.protos.PullRequestCreated.encode(message.prCreated, writer.uint32(/* id 103, wireType 2 =*/826).fork()).ldelim();
             if (message.prMerged != null && Object.hasOwnProperty.call(message, "prMerged"))
                 $root.protos.PullRequestMerged.encode(message.prMerged, writer.uint32(/* id 104, wireType 2 =*/834).fork()).ldelim();
+            if (message.issueCreated != null && Object.hasOwnProperty.call(message, "issueCreated"))
+                $root.protos.IssueCreated.encode(message.issueCreated, writer.uint32(/* id 105, wireType 2 =*/842).fork()).ldelim();
+            if (message.issueReopened != null && Object.hasOwnProperty.call(message, "issueReopened"))
+                $root.protos.IssueReopened.encode(message.issueReopened, writer.uint32(/* id 106, wireType 2 =*/850).fork()).ldelim();
+            if (message.issueClosed != null && Object.hasOwnProperty.call(message, "issueClosed"))
+                $root.protos.IssueClosed.encode(message.issueClosed, writer.uint32(/* id 107, wireType 2 =*/858).fork()).ldelim();
             return writer;
         };
 
@@ -57674,6 +57707,15 @@ $root.protos = (function() {
                 case 104:
                     message.prMerged = $root.protos.PullRequestMerged.decode(reader, reader.uint32());
                     break;
+                case 105:
+                    message.issueCreated = $root.protos.IssueCreated.decode(reader, reader.uint32());
+                    break;
+                case 106:
+                    message.issueReopened = $root.protos.IssueReopened.decode(reader, reader.uint32());
+                    break;
+                case 107:
+                    message.issueClosed = $root.protos.IssueClosed.decode(reader, reader.uint32());
+                    break;
                 default:
                     reader.skipType(tag & 7);
                     break;
@@ -57715,11 +57757,14 @@ $root.protos = (function() {
                 default:
                     return "type: enum value expected";
                 case 0:
+                case 1:
                 case 2:
                 case 3:
                 case 4:
                 case 5:
                 case 6:
+                case 7:
+                case 8:
                     break;
                 }
             if (message.installCreated != null && message.hasOwnProperty("installCreated")) {
@@ -57770,6 +57815,36 @@ $root.protos = (function() {
                         return "prMerged." + error;
                 }
             }
+            if (message.issueCreated != null && message.hasOwnProperty("issueCreated")) {
+                if (properties.payload === 1)
+                    return "payload: multiple values";
+                properties.payload = 1;
+                {
+                    var error = $root.protos.IssueCreated.verify(message.issueCreated);
+                    if (error)
+                        return "issueCreated." + error;
+                }
+            }
+            if (message.issueReopened != null && message.hasOwnProperty("issueReopened")) {
+                if (properties.payload === 1)
+                    return "payload: multiple values";
+                properties.payload = 1;
+                {
+                    var error = $root.protos.IssueReopened.verify(message.issueReopened);
+                    if (error)
+                        return "issueReopened." + error;
+                }
+            }
+            if (message.issueClosed != null && message.hasOwnProperty("issueClosed")) {
+                if (properties.payload === 1)
+                    return "payload: multiple values";
+                properties.payload = 1;
+                {
+                    var error = $root.protos.IssueClosed.verify(message.issueClosed);
+                    if (error)
+                        return "issueClosed." + error;
+                }
+            }
             return null;
         };
 
@@ -57791,24 +57866,36 @@ $root.protos = (function() {
                 message.type = 0;
                 break;
             case "INSTALL_CREATED":
+            case 1:
+                message.type = 1;
+                break;
+            case "INSTALL_UPDATED":
             case 2:
                 message.type = 2;
                 break;
-            case "INSTALL_UPDATED":
+            case "INSTALL_DELETED":
             case 3:
                 message.type = 3;
                 break;
-            case "INSTALL_DELETED":
+            case "PULL_CREATED":
             case 4:
                 message.type = 4;
                 break;
-            case "PULL_CREATED":
+            case "PULL_MERGED":
             case 5:
                 message.type = 5;
                 break;
-            case "PULL_MERGED":
+            case "ISSUE_CREATED":
             case 6:
                 message.type = 6;
+                break;
+            case "ISSUE_REOPENED":
+            case 7:
+                message.type = 7;
+                break;
+            case "ISSUE_CLOSED":
+            case 8:
+                message.type = 8;
                 break;
             }
             if (object.installCreated != null) {
@@ -57835,6 +57922,21 @@ $root.protos = (function() {
                 if (typeof object.prMerged !== "object")
                     throw TypeError(".protos.GithubEvent.prMerged: object expected");
                 message.prMerged = $root.protos.PullRequestMerged.fromObject(object.prMerged);
+            }
+            if (object.issueCreated != null) {
+                if (typeof object.issueCreated !== "object")
+                    throw TypeError(".protos.GithubEvent.issueCreated: object expected");
+                message.issueCreated = $root.protos.IssueCreated.fromObject(object.issueCreated);
+            }
+            if (object.issueReopened != null) {
+                if (typeof object.issueReopened !== "object")
+                    throw TypeError(".protos.GithubEvent.issueReopened: object expected");
+                message.issueReopened = $root.protos.IssueReopened.fromObject(object.issueReopened);
+            }
+            if (object.issueClosed != null) {
+                if (typeof object.issueClosed !== "object")
+                    throw TypeError(".protos.GithubEvent.issueClosed: object expected");
+                message.issueClosed = $root.protos.IssueClosed.fromObject(object.issueClosed);
             }
             return message;
         };
@@ -57881,6 +57983,21 @@ $root.protos = (function() {
                 if (options.oneofs)
                     object.payload = "prMerged";
             }
+            if (message.issueCreated != null && message.hasOwnProperty("issueCreated")) {
+                object.issueCreated = $root.protos.IssueCreated.toObject(message.issueCreated, options);
+                if (options.oneofs)
+                    object.payload = "issueCreated";
+            }
+            if (message.issueReopened != null && message.hasOwnProperty("issueReopened")) {
+                object.issueReopened = $root.protos.IssueReopened.toObject(message.issueReopened, options);
+                if (options.oneofs)
+                    object.payload = "issueReopened";
+            }
+            if (message.issueClosed != null && message.hasOwnProperty("issueClosed")) {
+                object.issueClosed = $root.protos.IssueClosed.toObject(message.issueClosed, options);
+                if (options.oneofs)
+                    object.payload = "issueClosed";
+            }
             return object;
         };
 
@@ -57900,20 +58017,26 @@ $root.protos = (function() {
          * @name protos.GithubEvent.Type
          * @enum {number}
          * @property {number} UNSET=0 UNSET value
-         * @property {number} INSTALL_CREATED=2 INSTALL_CREATED value
-         * @property {number} INSTALL_UPDATED=3 INSTALL_UPDATED value
-         * @property {number} INSTALL_DELETED=4 INSTALL_DELETED value
-         * @property {number} PULL_CREATED=5 PULL_CREATED value
-         * @property {number} PULL_MERGED=6 PULL_MERGED value
+         * @property {number} INSTALL_CREATED=1 INSTALL_CREATED value
+         * @property {number} INSTALL_UPDATED=2 INSTALL_UPDATED value
+         * @property {number} INSTALL_DELETED=3 INSTALL_DELETED value
+         * @property {number} PULL_CREATED=4 PULL_CREATED value
+         * @property {number} PULL_MERGED=5 PULL_MERGED value
+         * @property {number} ISSUE_CREATED=6 ISSUE_CREATED value
+         * @property {number} ISSUE_REOPENED=7 ISSUE_REOPENED value
+         * @property {number} ISSUE_CLOSED=8 ISSUE_CLOSED value
          */
         GithubEvent.Type = (function() {
             var valuesById = {}, values = Object.create(valuesById);
             values[valuesById[0] = "UNSET"] = 0;
-            values[valuesById[2] = "INSTALL_CREATED"] = 2;
-            values[valuesById[3] = "INSTALL_UPDATED"] = 3;
-            values[valuesById[4] = "INSTALL_DELETED"] = 4;
-            values[valuesById[5] = "PULL_CREATED"] = 5;
-            values[valuesById[6] = "PULL_MERGED"] = 6;
+            values[valuesById[1] = "INSTALL_CREATED"] = 1;
+            values[valuesById[2] = "INSTALL_UPDATED"] = 2;
+            values[valuesById[3] = "INSTALL_DELETED"] = 3;
+            values[valuesById[4] = "PULL_CREATED"] = 4;
+            values[valuesById[5] = "PULL_MERGED"] = 5;
+            values[valuesById[6] = "ISSUE_CREATED"] = 6;
+            values[valuesById[7] = "ISSUE_REOPENED"] = 7;
+            values[valuesById[8] = "ISSUE_CLOSED"] = 8;
             return values;
         })();
 
@@ -59746,6 +59869,834 @@ $root.protos = (function() {
         };
 
         return NewJwtToken;
+    })();
+
+    protos.IssueCreated = (function() {
+
+        /**
+         * Properties of an IssueCreated.
+         * @memberof protos
+         * @interface IIssueCreated
+         * @property {string|null} [owner] IssueCreated owner
+         * @property {string|null} [repo] IssueCreated repo
+         * @property {number|null} [number] IssueCreated number
+         * @property {string|null} [url] IssueCreated url
+         * @property {string|null} [description] IssueCreated description
+         */
+
+        /**
+         * Constructs a new IssueCreated.
+         * @memberof protos
+         * @classdesc Represents an IssueCreated.
+         * @implements IIssueCreated
+         * @constructor
+         * @param {protos.IIssueCreated=} [properties] Properties to set
+         */
+        function IssueCreated(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * IssueCreated owner.
+         * @member {string} owner
+         * @memberof protos.IssueCreated
+         * @instance
+         */
+        IssueCreated.prototype.owner = "";
+
+        /**
+         * IssueCreated repo.
+         * @member {string} repo
+         * @memberof protos.IssueCreated
+         * @instance
+         */
+        IssueCreated.prototype.repo = "";
+
+        /**
+         * IssueCreated number.
+         * @member {number} number
+         * @memberof protos.IssueCreated
+         * @instance
+         */
+        IssueCreated.prototype.number = 0;
+
+        /**
+         * IssueCreated url.
+         * @member {string} url
+         * @memberof protos.IssueCreated
+         * @instance
+         */
+        IssueCreated.prototype.url = "";
+
+        /**
+         * IssueCreated description.
+         * @member {string} description
+         * @memberof protos.IssueCreated
+         * @instance
+         */
+        IssueCreated.prototype.description = "";
+
+        /**
+         * Creates a new IssueCreated instance using the specified properties.
+         * @function create
+         * @memberof protos.IssueCreated
+         * @static
+         * @param {protos.IIssueCreated=} [properties] Properties to set
+         * @returns {protos.IssueCreated} IssueCreated instance
+         */
+        IssueCreated.create = function create(properties) {
+            return new IssueCreated(properties);
+        };
+
+        /**
+         * Encodes the specified IssueCreated message. Does not implicitly {@link protos.IssueCreated.verify|verify} messages.
+         * @function encode
+         * @memberof protos.IssueCreated
+         * @static
+         * @param {protos.IIssueCreated} message IssueCreated message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        IssueCreated.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.owner != null && Object.hasOwnProperty.call(message, "owner"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.owner);
+            if (message.repo != null && Object.hasOwnProperty.call(message, "repo"))
+                writer.uint32(/* id 2, wireType 2 =*/18).string(message.repo);
+            if (message.number != null && Object.hasOwnProperty.call(message, "number"))
+                writer.uint32(/* id 3, wireType 0 =*/24).int32(message.number);
+            if (message.url != null && Object.hasOwnProperty.call(message, "url"))
+                writer.uint32(/* id 4, wireType 2 =*/34).string(message.url);
+            if (message.description != null && Object.hasOwnProperty.call(message, "description"))
+                writer.uint32(/* id 5, wireType 2 =*/42).string(message.description);
+            return writer;
+        };
+
+        /**
+         * Encodes the specified IssueCreated message, length delimited. Does not implicitly {@link protos.IssueCreated.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.IssueCreated
+         * @static
+         * @param {protos.IIssueCreated} message IssueCreated message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        IssueCreated.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes an IssueCreated message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.IssueCreated
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.IssueCreated} IssueCreated
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        IssueCreated.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.IssueCreated();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.owner = reader.string();
+                    break;
+                case 2:
+                    message.repo = reader.string();
+                    break;
+                case 3:
+                    message.number = reader.int32();
+                    break;
+                case 4:
+                    message.url = reader.string();
+                    break;
+                case 5:
+                    message.description = reader.string();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes an IssueCreated message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.IssueCreated
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.IssueCreated} IssueCreated
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        IssueCreated.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies an IssueCreated message.
+         * @function verify
+         * @memberof protos.IssueCreated
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        IssueCreated.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.owner != null && message.hasOwnProperty("owner"))
+                if (!$util.isString(message.owner))
+                    return "owner: string expected";
+            if (message.repo != null && message.hasOwnProperty("repo"))
+                if (!$util.isString(message.repo))
+                    return "repo: string expected";
+            if (message.number != null && message.hasOwnProperty("number"))
+                if (!$util.isInteger(message.number))
+                    return "number: integer expected";
+            if (message.url != null && message.hasOwnProperty("url"))
+                if (!$util.isString(message.url))
+                    return "url: string expected";
+            if (message.description != null && message.hasOwnProperty("description"))
+                if (!$util.isString(message.description))
+                    return "description: string expected";
+            return null;
+        };
+
+        /**
+         * Creates an IssueCreated message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.IssueCreated
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.IssueCreated} IssueCreated
+         */
+        IssueCreated.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.IssueCreated)
+                return object;
+            var message = new $root.protos.IssueCreated();
+            if (object.owner != null)
+                message.owner = String(object.owner);
+            if (object.repo != null)
+                message.repo = String(object.repo);
+            if (object.number != null)
+                message.number = object.number | 0;
+            if (object.url != null)
+                message.url = String(object.url);
+            if (object.description != null)
+                message.description = String(object.description);
+            return message;
+        };
+
+        /**
+         * Creates a plain object from an IssueCreated message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.IssueCreated
+         * @static
+         * @param {protos.IssueCreated} message IssueCreated
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        IssueCreated.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.owner = "";
+                object.repo = "";
+                object.number = 0;
+                object.url = "";
+                object.description = "";
+            }
+            if (message.owner != null && message.hasOwnProperty("owner"))
+                object.owner = message.owner;
+            if (message.repo != null && message.hasOwnProperty("repo"))
+                object.repo = message.repo;
+            if (message.number != null && message.hasOwnProperty("number"))
+                object.number = message.number;
+            if (message.url != null && message.hasOwnProperty("url"))
+                object.url = message.url;
+            if (message.description != null && message.hasOwnProperty("description"))
+                object.description = message.description;
+            return object;
+        };
+
+        /**
+         * Converts this IssueCreated to JSON.
+         * @function toJSON
+         * @memberof protos.IssueCreated
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        IssueCreated.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return IssueCreated;
+    })();
+
+    protos.IssueReopened = (function() {
+
+        /**
+         * Properties of an IssueReopened.
+         * @memberof protos
+         * @interface IIssueReopened
+         * @property {string|null} [owner] IssueReopened owner
+         * @property {string|null} [repo] IssueReopened repo
+         * @property {number|null} [number] IssueReopened number
+         * @property {string|null} [url] IssueReopened url
+         * @property {string|null} [description] IssueReopened description
+         */
+
+        /**
+         * Constructs a new IssueReopened.
+         * @memberof protos
+         * @classdesc Represents an IssueReopened.
+         * @implements IIssueReopened
+         * @constructor
+         * @param {protos.IIssueReopened=} [properties] Properties to set
+         */
+        function IssueReopened(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * IssueReopened owner.
+         * @member {string} owner
+         * @memberof protos.IssueReopened
+         * @instance
+         */
+        IssueReopened.prototype.owner = "";
+
+        /**
+         * IssueReopened repo.
+         * @member {string} repo
+         * @memberof protos.IssueReopened
+         * @instance
+         */
+        IssueReopened.prototype.repo = "";
+
+        /**
+         * IssueReopened number.
+         * @member {number} number
+         * @memberof protos.IssueReopened
+         * @instance
+         */
+        IssueReopened.prototype.number = 0;
+
+        /**
+         * IssueReopened url.
+         * @member {string} url
+         * @memberof protos.IssueReopened
+         * @instance
+         */
+        IssueReopened.prototype.url = "";
+
+        /**
+         * IssueReopened description.
+         * @member {string} description
+         * @memberof protos.IssueReopened
+         * @instance
+         */
+        IssueReopened.prototype.description = "";
+
+        /**
+         * Creates a new IssueReopened instance using the specified properties.
+         * @function create
+         * @memberof protos.IssueReopened
+         * @static
+         * @param {protos.IIssueReopened=} [properties] Properties to set
+         * @returns {protos.IssueReopened} IssueReopened instance
+         */
+        IssueReopened.create = function create(properties) {
+            return new IssueReopened(properties);
+        };
+
+        /**
+         * Encodes the specified IssueReopened message. Does not implicitly {@link protos.IssueReopened.verify|verify} messages.
+         * @function encode
+         * @memberof protos.IssueReopened
+         * @static
+         * @param {protos.IIssueReopened} message IssueReopened message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        IssueReopened.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.owner != null && Object.hasOwnProperty.call(message, "owner"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.owner);
+            if (message.repo != null && Object.hasOwnProperty.call(message, "repo"))
+                writer.uint32(/* id 2, wireType 2 =*/18).string(message.repo);
+            if (message.number != null && Object.hasOwnProperty.call(message, "number"))
+                writer.uint32(/* id 3, wireType 0 =*/24).int32(message.number);
+            if (message.url != null && Object.hasOwnProperty.call(message, "url"))
+                writer.uint32(/* id 4, wireType 2 =*/34).string(message.url);
+            if (message.description != null && Object.hasOwnProperty.call(message, "description"))
+                writer.uint32(/* id 5, wireType 2 =*/42).string(message.description);
+            return writer;
+        };
+
+        /**
+         * Encodes the specified IssueReopened message, length delimited. Does not implicitly {@link protos.IssueReopened.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.IssueReopened
+         * @static
+         * @param {protos.IIssueReopened} message IssueReopened message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        IssueReopened.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes an IssueReopened message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.IssueReopened
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.IssueReopened} IssueReopened
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        IssueReopened.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.IssueReopened();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.owner = reader.string();
+                    break;
+                case 2:
+                    message.repo = reader.string();
+                    break;
+                case 3:
+                    message.number = reader.int32();
+                    break;
+                case 4:
+                    message.url = reader.string();
+                    break;
+                case 5:
+                    message.description = reader.string();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes an IssueReopened message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.IssueReopened
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.IssueReopened} IssueReopened
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        IssueReopened.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies an IssueReopened message.
+         * @function verify
+         * @memberof protos.IssueReopened
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        IssueReopened.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.owner != null && message.hasOwnProperty("owner"))
+                if (!$util.isString(message.owner))
+                    return "owner: string expected";
+            if (message.repo != null && message.hasOwnProperty("repo"))
+                if (!$util.isString(message.repo))
+                    return "repo: string expected";
+            if (message.number != null && message.hasOwnProperty("number"))
+                if (!$util.isInteger(message.number))
+                    return "number: integer expected";
+            if (message.url != null && message.hasOwnProperty("url"))
+                if (!$util.isString(message.url))
+                    return "url: string expected";
+            if (message.description != null && message.hasOwnProperty("description"))
+                if (!$util.isString(message.description))
+                    return "description: string expected";
+            return null;
+        };
+
+        /**
+         * Creates an IssueReopened message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.IssueReopened
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.IssueReopened} IssueReopened
+         */
+        IssueReopened.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.IssueReopened)
+                return object;
+            var message = new $root.protos.IssueReopened();
+            if (object.owner != null)
+                message.owner = String(object.owner);
+            if (object.repo != null)
+                message.repo = String(object.repo);
+            if (object.number != null)
+                message.number = object.number | 0;
+            if (object.url != null)
+                message.url = String(object.url);
+            if (object.description != null)
+                message.description = String(object.description);
+            return message;
+        };
+
+        /**
+         * Creates a plain object from an IssueReopened message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.IssueReopened
+         * @static
+         * @param {protos.IssueReopened} message IssueReopened
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        IssueReopened.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.owner = "";
+                object.repo = "";
+                object.number = 0;
+                object.url = "";
+                object.description = "";
+            }
+            if (message.owner != null && message.hasOwnProperty("owner"))
+                object.owner = message.owner;
+            if (message.repo != null && message.hasOwnProperty("repo"))
+                object.repo = message.repo;
+            if (message.number != null && message.hasOwnProperty("number"))
+                object.number = message.number;
+            if (message.url != null && message.hasOwnProperty("url"))
+                object.url = message.url;
+            if (message.description != null && message.hasOwnProperty("description"))
+                object.description = message.description;
+            return object;
+        };
+
+        /**
+         * Converts this IssueReopened to JSON.
+         * @function toJSON
+         * @memberof protos.IssueReopened
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        IssueReopened.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return IssueReopened;
+    })();
+
+    protos.IssueClosed = (function() {
+
+        /**
+         * Properties of an IssueClosed.
+         * @memberof protos
+         * @interface IIssueClosed
+         * @property {string|null} [owner] IssueClosed owner
+         * @property {string|null} [repo] IssueClosed repo
+         * @property {number|null} [number] IssueClosed number
+         * @property {string|null} [url] IssueClosed url
+         * @property {string|null} [description] IssueClosed description
+         */
+
+        /**
+         * Constructs a new IssueClosed.
+         * @memberof protos
+         * @classdesc Represents an IssueClosed.
+         * @implements IIssueClosed
+         * @constructor
+         * @param {protos.IIssueClosed=} [properties] Properties to set
+         */
+        function IssueClosed(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * IssueClosed owner.
+         * @member {string} owner
+         * @memberof protos.IssueClosed
+         * @instance
+         */
+        IssueClosed.prototype.owner = "";
+
+        /**
+         * IssueClosed repo.
+         * @member {string} repo
+         * @memberof protos.IssueClosed
+         * @instance
+         */
+        IssueClosed.prototype.repo = "";
+
+        /**
+         * IssueClosed number.
+         * @member {number} number
+         * @memberof protos.IssueClosed
+         * @instance
+         */
+        IssueClosed.prototype.number = 0;
+
+        /**
+         * IssueClosed url.
+         * @member {string} url
+         * @memberof protos.IssueClosed
+         * @instance
+         */
+        IssueClosed.prototype.url = "";
+
+        /**
+         * IssueClosed description.
+         * @member {string} description
+         * @memberof protos.IssueClosed
+         * @instance
+         */
+        IssueClosed.prototype.description = "";
+
+        /**
+         * Creates a new IssueClosed instance using the specified properties.
+         * @function create
+         * @memberof protos.IssueClosed
+         * @static
+         * @param {protos.IIssueClosed=} [properties] Properties to set
+         * @returns {protos.IssueClosed} IssueClosed instance
+         */
+        IssueClosed.create = function create(properties) {
+            return new IssueClosed(properties);
+        };
+
+        /**
+         * Encodes the specified IssueClosed message. Does not implicitly {@link protos.IssueClosed.verify|verify} messages.
+         * @function encode
+         * @memberof protos.IssueClosed
+         * @static
+         * @param {protos.IIssueClosed} message IssueClosed message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        IssueClosed.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.owner != null && Object.hasOwnProperty.call(message, "owner"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.owner);
+            if (message.repo != null && Object.hasOwnProperty.call(message, "repo"))
+                writer.uint32(/* id 2, wireType 2 =*/18).string(message.repo);
+            if (message.number != null && Object.hasOwnProperty.call(message, "number"))
+                writer.uint32(/* id 3, wireType 0 =*/24).int32(message.number);
+            if (message.url != null && Object.hasOwnProperty.call(message, "url"))
+                writer.uint32(/* id 4, wireType 2 =*/34).string(message.url);
+            if (message.description != null && Object.hasOwnProperty.call(message, "description"))
+                writer.uint32(/* id 5, wireType 2 =*/42).string(message.description);
+            return writer;
+        };
+
+        /**
+         * Encodes the specified IssueClosed message, length delimited. Does not implicitly {@link protos.IssueClosed.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.IssueClosed
+         * @static
+         * @param {protos.IIssueClosed} message IssueClosed message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        IssueClosed.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes an IssueClosed message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.IssueClosed
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.IssueClosed} IssueClosed
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        IssueClosed.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.IssueClosed();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.owner = reader.string();
+                    break;
+                case 2:
+                    message.repo = reader.string();
+                    break;
+                case 3:
+                    message.number = reader.int32();
+                    break;
+                case 4:
+                    message.url = reader.string();
+                    break;
+                case 5:
+                    message.description = reader.string();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes an IssueClosed message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.IssueClosed
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.IssueClosed} IssueClosed
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        IssueClosed.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies an IssueClosed message.
+         * @function verify
+         * @memberof protos.IssueClosed
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        IssueClosed.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.owner != null && message.hasOwnProperty("owner"))
+                if (!$util.isString(message.owner))
+                    return "owner: string expected";
+            if (message.repo != null && message.hasOwnProperty("repo"))
+                if (!$util.isString(message.repo))
+                    return "repo: string expected";
+            if (message.number != null && message.hasOwnProperty("number"))
+                if (!$util.isInteger(message.number))
+                    return "number: integer expected";
+            if (message.url != null && message.hasOwnProperty("url"))
+                if (!$util.isString(message.url))
+                    return "url: string expected";
+            if (message.description != null && message.hasOwnProperty("description"))
+                if (!$util.isString(message.description))
+                    return "description: string expected";
+            return null;
+        };
+
+        /**
+         * Creates an IssueClosed message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.IssueClosed
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.IssueClosed} IssueClosed
+         */
+        IssueClosed.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.IssueClosed)
+                return object;
+            var message = new $root.protos.IssueClosed();
+            if (object.owner != null)
+                message.owner = String(object.owner);
+            if (object.repo != null)
+                message.repo = String(object.repo);
+            if (object.number != null)
+                message.number = object.number | 0;
+            if (object.url != null)
+                message.url = String(object.url);
+            if (object.description != null)
+                message.description = String(object.description);
+            return message;
+        };
+
+        /**
+         * Creates a plain object from an IssueClosed message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.IssueClosed
+         * @static
+         * @param {protos.IssueClosed} message IssueClosed
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        IssueClosed.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.owner = "";
+                object.repo = "";
+                object.number = 0;
+                object.url = "";
+                object.description = "";
+            }
+            if (message.owner != null && message.hasOwnProperty("owner"))
+                object.owner = message.owner;
+            if (message.repo != null && message.hasOwnProperty("repo"))
+                object.repo = message.repo;
+            if (message.number != null && message.hasOwnProperty("number"))
+                object.number = message.number;
+            if (message.url != null && message.hasOwnProperty("url"))
+                object.url = message.url;
+            if (message.description != null && message.hasOwnProperty("description"))
+                object.description = message.description;
+            return object;
+        };
+
+        /**
+         * Converts this IssueClosed to JSON.
+         * @function toJSON
+         * @memberof protos.IssueClosed
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        IssueClosed.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return IssueClosed;
     })();
 
     protos.GetVCEventsRequest = (function() {
