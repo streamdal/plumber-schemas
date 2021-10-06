@@ -52,6 +52,11 @@ message ReadSampleOptions {
     uint32 sample_interval_seconds = 2;
 }
 
+message ReadFilterOptions {
+    // @gotags: kong:"-"
+    string query = 1;
+}
+
 // Relay is the structure that backends accept for facilitating a relay.
 message ReadOptions {
     // Required; friendly name for the read
@@ -78,6 +83,9 @@ message ReadOptions {
 
     // @gotags: kong:"help='Convert output before it is printed to STDOUT (options: unset, base64, gzip)',type=pbenum,pbenum_strip_prefix=CONVERT_OPTION_,pbenum_lowercase,default=unset"
     ConvertOption convert_output = 6;
+
+    // @gotags: kong:"-"
+    ReadFilterOptions read_filter = 7;
 
     // --------------------------------------------------------------------- //
     //                          PRIVATE FIELDS (1000+)                       //
