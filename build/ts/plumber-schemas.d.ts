@@ -429,6 +429,62 @@ export namespace protos {
         public deleteService(request: protos.IDeleteServiceRequest): Promise<protos.DeleteServiceResponse>;
 
         /**
+         * Calls LinkSchemaToService.
+         * @param request LinkSchemaToServiceRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and LinkSchemaToServiceResponse
+         */
+        public linkSchemaToService(request: protos.ILinkSchemaToServiceRequest, callback: protos.PlumberServer.LinkSchemaToServiceCallback): void;
+
+        /**
+         * Calls LinkSchemaToService.
+         * @param request LinkSchemaToServiceRequest message or plain object
+         * @returns Promise
+         */
+        public linkSchemaToService(request: protos.ILinkSchemaToServiceRequest): Promise<protos.LinkSchemaToServiceResponse>;
+
+        /**
+         * Calls UnlinkSchemaFromService.
+         * @param request UnlinkSchemaFromServiceRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and UnlinkSchemaFromServiceResponse
+         */
+        public unlinkSchemaFromService(request: protos.IUnlinkSchemaFromServiceRequest, callback: protos.PlumberServer.UnlinkSchemaFromServiceCallback): void;
+
+        /**
+         * Calls UnlinkSchemaFromService.
+         * @param request UnlinkSchemaFromServiceRequest message or plain object
+         * @returns Promise
+         */
+        public unlinkSchemaFromService(request: protos.IUnlinkSchemaFromServiceRequest): Promise<protos.UnlinkSchemaFromServiceResponse>;
+
+        /**
+         * Calls LinkRepoToService.
+         * @param request LinkRepoToServiceRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and LinkRepoToServiceResponse
+         */
+        public linkRepoToService(request: protos.ILinkRepoToServiceRequest, callback: protos.PlumberServer.LinkRepoToServiceCallback): void;
+
+        /**
+         * Calls LinkRepoToService.
+         * @param request LinkRepoToServiceRequest message or plain object
+         * @returns Promise
+         */
+        public linkRepoToService(request: protos.ILinkRepoToServiceRequest): Promise<protos.LinkRepoToServiceResponse>;
+
+        /**
+         * Calls UnlinkRepoFromService.
+         * @param request UnlinkRepoFromServiceRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and UnlinkRepoFromServiceResponse
+         */
+        public unlinkRepoFromService(request: protos.IUnlinkRepoFromServiceRequest, callback: protos.PlumberServer.UnlinkRepoFromServiceCallback): void;
+
+        /**
+         * Calls UnlinkRepoFromService.
+         * @param request UnlinkRepoFromServiceRequest message or plain object
+         * @returns Promise
+         */
+        public unlinkRepoFromService(request: protos.IUnlinkRepoFromServiceRequest): Promise<protos.UnlinkRepoFromServiceResponse>;
+
+        /**
          * Calls GetServerOptions.
          * @param request GetServerOptionsRequest message or plain object
          * @param callback Node-style callback called with the error, if any, and GetServerOptionsResponse
@@ -675,6 +731,34 @@ export namespace protos {
          * @param [response] DeleteServiceResponse
          */
         type DeleteServiceCallback = (error: (Error|null), response?: protos.DeleteServiceResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#linkSchemaToService}.
+         * @param error Error, if any
+         * @param [response] LinkSchemaToServiceResponse
+         */
+        type LinkSchemaToServiceCallback = (error: (Error|null), response?: protos.LinkSchemaToServiceResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#unlinkSchemaFromService}.
+         * @param error Error, if any
+         * @param [response] UnlinkSchemaFromServiceResponse
+         */
+        type UnlinkSchemaFromServiceCallback = (error: (Error|null), response?: protos.UnlinkSchemaFromServiceResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#linkRepoToService}.
+         * @param error Error, if any
+         * @param [response] LinkRepoToServiceResponse
+         */
+        type LinkRepoToServiceCallback = (error: (Error|null), response?: protos.LinkRepoToServiceResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#unlinkRepoFromService}.
+         * @param error Error, if any
+         * @param [response] UnlinkRepoFromServiceResponse
+         */
+        type UnlinkRepoFromServiceCallback = (error: (Error|null), response?: protos.UnlinkRepoFromServiceResponse) => void;
 
         /**
          * Callback as used by {@link protos.PlumberServer#getServerOptions}.
@@ -22301,8 +22385,8 @@ export namespace protos {
         /** Service name */
         name?: (string|null);
 
-        /** Service repoUrl */
-        repoUrl?: (string|null);
+        /** Service repositories */
+        repositories?: (protos.IRepository[]|null);
 
         /** Service notes */
         notes?: (string|null);
@@ -22329,8 +22413,8 @@ export namespace protos {
         /** Service name. */
         public name: string;
 
-        /** Service repoUrl. */
-        public repoUrl: string;
+        /** Service repositories. */
+        public repositories: protos.IRepository[];
 
         /** Service notes. */
         public notes: string;
@@ -22410,6 +22494,125 @@ export namespace protos {
          * @returns JSON object
          */
         public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a Repository. */
+    interface IRepository {
+
+        /** Repository _id */
+        _id?: (string|null);
+
+        /** Repository type */
+        type?: (protos.Repository.Type|null);
+
+        /** Repository organization */
+        organization?: (string|null);
+
+        /** Repository name */
+        name?: (string|null);
+    }
+
+    /** Represents a Repository. */
+    class Repository implements IRepository {
+
+        /**
+         * Constructs a new Repository.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IRepository);
+
+        /** Repository _id. */
+        public _id: string;
+
+        /** Repository type. */
+        public type: protos.Repository.Type;
+
+        /** Repository organization. */
+        public organization: string;
+
+        /** Repository name. */
+        public name: string;
+
+        /**
+         * Creates a new Repository instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns Repository instance
+         */
+        public static create(properties?: protos.IRepository): protos.Repository;
+
+        /**
+         * Encodes the specified Repository message. Does not implicitly {@link protos.Repository.verify|verify} messages.
+         * @param message Repository message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IRepository, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified Repository message, length delimited. Does not implicitly {@link protos.Repository.verify|verify} messages.
+         * @param message Repository message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IRepository, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a Repository message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns Repository
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.Repository;
+
+        /**
+         * Decodes a Repository message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns Repository
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.Repository;
+
+        /**
+         * Verifies a Repository message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a Repository message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns Repository
+         */
+        public static fromObject(object: { [k: string]: any }): protos.Repository;
+
+        /**
+         * Creates a plain object from a Repository message. Also converts values to other types if specified.
+         * @param message Repository
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.Repository, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this Repository to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    namespace Repository {
+
+        /** Type enum. */
+        enum Type {
+            UNSET = 0,
+            GITHUB = 1,
+            GITLAB = 2,
+            BITBUCKET = 3
+        }
     }
 
     /** Properties of a GetServiceRequest. */
@@ -23355,6 +23558,774 @@ export namespace protos {
 
         /**
          * Converts this DeleteServiceResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a LinkSchemaToServiceRequest. */
+    interface ILinkSchemaToServiceRequest {
+
+        /** LinkSchemaToServiceRequest auth */
+        auth?: (protos.common.IAuth|null);
+
+        /** LinkSchemaToServiceRequest serviceId */
+        serviceId?: (string|null);
+
+        /** LinkSchemaToServiceRequest schemaId */
+        schemaId?: (string|null);
+    }
+
+    /** Represents a LinkSchemaToServiceRequest. */
+    class LinkSchemaToServiceRequest implements ILinkSchemaToServiceRequest {
+
+        /**
+         * Constructs a new LinkSchemaToServiceRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.ILinkSchemaToServiceRequest);
+
+        /** LinkSchemaToServiceRequest auth. */
+        public auth?: (protos.common.IAuth|null);
+
+        /** LinkSchemaToServiceRequest serviceId. */
+        public serviceId: string;
+
+        /** LinkSchemaToServiceRequest schemaId. */
+        public schemaId: string;
+
+        /**
+         * Creates a new LinkSchemaToServiceRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns LinkSchemaToServiceRequest instance
+         */
+        public static create(properties?: protos.ILinkSchemaToServiceRequest): protos.LinkSchemaToServiceRequest;
+
+        /**
+         * Encodes the specified LinkSchemaToServiceRequest message. Does not implicitly {@link protos.LinkSchemaToServiceRequest.verify|verify} messages.
+         * @param message LinkSchemaToServiceRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.ILinkSchemaToServiceRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified LinkSchemaToServiceRequest message, length delimited. Does not implicitly {@link protos.LinkSchemaToServiceRequest.verify|verify} messages.
+         * @param message LinkSchemaToServiceRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.ILinkSchemaToServiceRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a LinkSchemaToServiceRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns LinkSchemaToServiceRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.LinkSchemaToServiceRequest;
+
+        /**
+         * Decodes a LinkSchemaToServiceRequest message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns LinkSchemaToServiceRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.LinkSchemaToServiceRequest;
+
+        /**
+         * Verifies a LinkSchemaToServiceRequest message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a LinkSchemaToServiceRequest message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns LinkSchemaToServiceRequest
+         */
+        public static fromObject(object: { [k: string]: any }): protos.LinkSchemaToServiceRequest;
+
+        /**
+         * Creates a plain object from a LinkSchemaToServiceRequest message. Also converts values to other types if specified.
+         * @param message LinkSchemaToServiceRequest
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.LinkSchemaToServiceRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this LinkSchemaToServiceRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a LinkSchemaToServiceResponse. */
+    interface ILinkSchemaToServiceResponse {
+
+        /** LinkSchemaToServiceResponse status */
+        status?: (protos.common.IStatus|null);
+    }
+
+    /** Represents a LinkSchemaToServiceResponse. */
+    class LinkSchemaToServiceResponse implements ILinkSchemaToServiceResponse {
+
+        /**
+         * Constructs a new LinkSchemaToServiceResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.ILinkSchemaToServiceResponse);
+
+        /** LinkSchemaToServiceResponse status. */
+        public status?: (protos.common.IStatus|null);
+
+        /**
+         * Creates a new LinkSchemaToServiceResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns LinkSchemaToServiceResponse instance
+         */
+        public static create(properties?: protos.ILinkSchemaToServiceResponse): protos.LinkSchemaToServiceResponse;
+
+        /**
+         * Encodes the specified LinkSchemaToServiceResponse message. Does not implicitly {@link protos.LinkSchemaToServiceResponse.verify|verify} messages.
+         * @param message LinkSchemaToServiceResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.ILinkSchemaToServiceResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified LinkSchemaToServiceResponse message, length delimited. Does not implicitly {@link protos.LinkSchemaToServiceResponse.verify|verify} messages.
+         * @param message LinkSchemaToServiceResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.ILinkSchemaToServiceResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a LinkSchemaToServiceResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns LinkSchemaToServiceResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.LinkSchemaToServiceResponse;
+
+        /**
+         * Decodes a LinkSchemaToServiceResponse message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns LinkSchemaToServiceResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.LinkSchemaToServiceResponse;
+
+        /**
+         * Verifies a LinkSchemaToServiceResponse message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a LinkSchemaToServiceResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns LinkSchemaToServiceResponse
+         */
+        public static fromObject(object: { [k: string]: any }): protos.LinkSchemaToServiceResponse;
+
+        /**
+         * Creates a plain object from a LinkSchemaToServiceResponse message. Also converts values to other types if specified.
+         * @param message LinkSchemaToServiceResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.LinkSchemaToServiceResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this LinkSchemaToServiceResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of an UnlinkSchemaFromServiceRequest. */
+    interface IUnlinkSchemaFromServiceRequest {
+
+        /** UnlinkSchemaFromServiceRequest auth */
+        auth?: (protos.common.IAuth|null);
+
+        /** UnlinkSchemaFromServiceRequest serviceId */
+        serviceId?: (string|null);
+
+        /** UnlinkSchemaFromServiceRequest schemaId */
+        schemaId?: (string|null);
+    }
+
+    /** Represents an UnlinkSchemaFromServiceRequest. */
+    class UnlinkSchemaFromServiceRequest implements IUnlinkSchemaFromServiceRequest {
+
+        /**
+         * Constructs a new UnlinkSchemaFromServiceRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IUnlinkSchemaFromServiceRequest);
+
+        /** UnlinkSchemaFromServiceRequest auth. */
+        public auth?: (protos.common.IAuth|null);
+
+        /** UnlinkSchemaFromServiceRequest serviceId. */
+        public serviceId: string;
+
+        /** UnlinkSchemaFromServiceRequest schemaId. */
+        public schemaId: string;
+
+        /**
+         * Creates a new UnlinkSchemaFromServiceRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns UnlinkSchemaFromServiceRequest instance
+         */
+        public static create(properties?: protos.IUnlinkSchemaFromServiceRequest): protos.UnlinkSchemaFromServiceRequest;
+
+        /**
+         * Encodes the specified UnlinkSchemaFromServiceRequest message. Does not implicitly {@link protos.UnlinkSchemaFromServiceRequest.verify|verify} messages.
+         * @param message UnlinkSchemaFromServiceRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IUnlinkSchemaFromServiceRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified UnlinkSchemaFromServiceRequest message, length delimited. Does not implicitly {@link protos.UnlinkSchemaFromServiceRequest.verify|verify} messages.
+         * @param message UnlinkSchemaFromServiceRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IUnlinkSchemaFromServiceRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes an UnlinkSchemaFromServiceRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns UnlinkSchemaFromServiceRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.UnlinkSchemaFromServiceRequest;
+
+        /**
+         * Decodes an UnlinkSchemaFromServiceRequest message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns UnlinkSchemaFromServiceRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.UnlinkSchemaFromServiceRequest;
+
+        /**
+         * Verifies an UnlinkSchemaFromServiceRequest message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates an UnlinkSchemaFromServiceRequest message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns UnlinkSchemaFromServiceRequest
+         */
+        public static fromObject(object: { [k: string]: any }): protos.UnlinkSchemaFromServiceRequest;
+
+        /**
+         * Creates a plain object from an UnlinkSchemaFromServiceRequest message. Also converts values to other types if specified.
+         * @param message UnlinkSchemaFromServiceRequest
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.UnlinkSchemaFromServiceRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this UnlinkSchemaFromServiceRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of an UnlinkSchemaFromServiceResponse. */
+    interface IUnlinkSchemaFromServiceResponse {
+
+        /** UnlinkSchemaFromServiceResponse status */
+        status?: (protos.common.IStatus|null);
+    }
+
+    /** Represents an UnlinkSchemaFromServiceResponse. */
+    class UnlinkSchemaFromServiceResponse implements IUnlinkSchemaFromServiceResponse {
+
+        /**
+         * Constructs a new UnlinkSchemaFromServiceResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IUnlinkSchemaFromServiceResponse);
+
+        /** UnlinkSchemaFromServiceResponse status. */
+        public status?: (protos.common.IStatus|null);
+
+        /**
+         * Creates a new UnlinkSchemaFromServiceResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns UnlinkSchemaFromServiceResponse instance
+         */
+        public static create(properties?: protos.IUnlinkSchemaFromServiceResponse): protos.UnlinkSchemaFromServiceResponse;
+
+        /**
+         * Encodes the specified UnlinkSchemaFromServiceResponse message. Does not implicitly {@link protos.UnlinkSchemaFromServiceResponse.verify|verify} messages.
+         * @param message UnlinkSchemaFromServiceResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IUnlinkSchemaFromServiceResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified UnlinkSchemaFromServiceResponse message, length delimited. Does not implicitly {@link protos.UnlinkSchemaFromServiceResponse.verify|verify} messages.
+         * @param message UnlinkSchemaFromServiceResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IUnlinkSchemaFromServiceResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes an UnlinkSchemaFromServiceResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns UnlinkSchemaFromServiceResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.UnlinkSchemaFromServiceResponse;
+
+        /**
+         * Decodes an UnlinkSchemaFromServiceResponse message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns UnlinkSchemaFromServiceResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.UnlinkSchemaFromServiceResponse;
+
+        /**
+         * Verifies an UnlinkSchemaFromServiceResponse message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates an UnlinkSchemaFromServiceResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns UnlinkSchemaFromServiceResponse
+         */
+        public static fromObject(object: { [k: string]: any }): protos.UnlinkSchemaFromServiceResponse;
+
+        /**
+         * Creates a plain object from an UnlinkSchemaFromServiceResponse message. Also converts values to other types if specified.
+         * @param message UnlinkSchemaFromServiceResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.UnlinkSchemaFromServiceResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this UnlinkSchemaFromServiceResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a LinkRepoToServiceRequest. */
+    interface ILinkRepoToServiceRequest {
+
+        /** LinkRepoToServiceRequest auth */
+        auth?: (protos.common.IAuth|null);
+
+        /** LinkRepoToServiceRequest serviceId */
+        serviceId?: (string|null);
+
+        /** LinkRepoToServiceRequest repoUrl */
+        repoUrl?: (string|null);
+    }
+
+    /** Represents a LinkRepoToServiceRequest. */
+    class LinkRepoToServiceRequest implements ILinkRepoToServiceRequest {
+
+        /**
+         * Constructs a new LinkRepoToServiceRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.ILinkRepoToServiceRequest);
+
+        /** LinkRepoToServiceRequest auth. */
+        public auth?: (protos.common.IAuth|null);
+
+        /** LinkRepoToServiceRequest serviceId. */
+        public serviceId: string;
+
+        /** LinkRepoToServiceRequest repoUrl. */
+        public repoUrl: string;
+
+        /**
+         * Creates a new LinkRepoToServiceRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns LinkRepoToServiceRequest instance
+         */
+        public static create(properties?: protos.ILinkRepoToServiceRequest): protos.LinkRepoToServiceRequest;
+
+        /**
+         * Encodes the specified LinkRepoToServiceRequest message. Does not implicitly {@link protos.LinkRepoToServiceRequest.verify|verify} messages.
+         * @param message LinkRepoToServiceRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.ILinkRepoToServiceRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified LinkRepoToServiceRequest message, length delimited. Does not implicitly {@link protos.LinkRepoToServiceRequest.verify|verify} messages.
+         * @param message LinkRepoToServiceRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.ILinkRepoToServiceRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a LinkRepoToServiceRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns LinkRepoToServiceRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.LinkRepoToServiceRequest;
+
+        /**
+         * Decodes a LinkRepoToServiceRequest message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns LinkRepoToServiceRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.LinkRepoToServiceRequest;
+
+        /**
+         * Verifies a LinkRepoToServiceRequest message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a LinkRepoToServiceRequest message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns LinkRepoToServiceRequest
+         */
+        public static fromObject(object: { [k: string]: any }): protos.LinkRepoToServiceRequest;
+
+        /**
+         * Creates a plain object from a LinkRepoToServiceRequest message. Also converts values to other types if specified.
+         * @param message LinkRepoToServiceRequest
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.LinkRepoToServiceRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this LinkRepoToServiceRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a LinkRepoToServiceResponse. */
+    interface ILinkRepoToServiceResponse {
+
+        /** LinkRepoToServiceResponse status */
+        status?: (protos.common.IStatus|null);
+    }
+
+    /** Represents a LinkRepoToServiceResponse. */
+    class LinkRepoToServiceResponse implements ILinkRepoToServiceResponse {
+
+        /**
+         * Constructs a new LinkRepoToServiceResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.ILinkRepoToServiceResponse);
+
+        /** LinkRepoToServiceResponse status. */
+        public status?: (protos.common.IStatus|null);
+
+        /**
+         * Creates a new LinkRepoToServiceResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns LinkRepoToServiceResponse instance
+         */
+        public static create(properties?: protos.ILinkRepoToServiceResponse): protos.LinkRepoToServiceResponse;
+
+        /**
+         * Encodes the specified LinkRepoToServiceResponse message. Does not implicitly {@link protos.LinkRepoToServiceResponse.verify|verify} messages.
+         * @param message LinkRepoToServiceResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.ILinkRepoToServiceResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified LinkRepoToServiceResponse message, length delimited. Does not implicitly {@link protos.LinkRepoToServiceResponse.verify|verify} messages.
+         * @param message LinkRepoToServiceResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.ILinkRepoToServiceResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a LinkRepoToServiceResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns LinkRepoToServiceResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.LinkRepoToServiceResponse;
+
+        /**
+         * Decodes a LinkRepoToServiceResponse message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns LinkRepoToServiceResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.LinkRepoToServiceResponse;
+
+        /**
+         * Verifies a LinkRepoToServiceResponse message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a LinkRepoToServiceResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns LinkRepoToServiceResponse
+         */
+        public static fromObject(object: { [k: string]: any }): protos.LinkRepoToServiceResponse;
+
+        /**
+         * Creates a plain object from a LinkRepoToServiceResponse message. Also converts values to other types if specified.
+         * @param message LinkRepoToServiceResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.LinkRepoToServiceResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this LinkRepoToServiceResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of an UnlinkRepoFromServiceRequest. */
+    interface IUnlinkRepoFromServiceRequest {
+
+        /** UnlinkRepoFromServiceRequest auth */
+        auth?: (protos.common.IAuth|null);
+
+        /** UnlinkRepoFromServiceRequest serviceId */
+        serviceId?: (string|null);
+
+        /** UnlinkRepoFromServiceRequest repoId */
+        repoId?: (string|null);
+    }
+
+    /** Represents an UnlinkRepoFromServiceRequest. */
+    class UnlinkRepoFromServiceRequest implements IUnlinkRepoFromServiceRequest {
+
+        /**
+         * Constructs a new UnlinkRepoFromServiceRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IUnlinkRepoFromServiceRequest);
+
+        /** UnlinkRepoFromServiceRequest auth. */
+        public auth?: (protos.common.IAuth|null);
+
+        /** UnlinkRepoFromServiceRequest serviceId. */
+        public serviceId: string;
+
+        /** UnlinkRepoFromServiceRequest repoId. */
+        public repoId: string;
+
+        /**
+         * Creates a new UnlinkRepoFromServiceRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns UnlinkRepoFromServiceRequest instance
+         */
+        public static create(properties?: protos.IUnlinkRepoFromServiceRequest): protos.UnlinkRepoFromServiceRequest;
+
+        /**
+         * Encodes the specified UnlinkRepoFromServiceRequest message. Does not implicitly {@link protos.UnlinkRepoFromServiceRequest.verify|verify} messages.
+         * @param message UnlinkRepoFromServiceRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IUnlinkRepoFromServiceRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified UnlinkRepoFromServiceRequest message, length delimited. Does not implicitly {@link protos.UnlinkRepoFromServiceRequest.verify|verify} messages.
+         * @param message UnlinkRepoFromServiceRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IUnlinkRepoFromServiceRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes an UnlinkRepoFromServiceRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns UnlinkRepoFromServiceRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.UnlinkRepoFromServiceRequest;
+
+        /**
+         * Decodes an UnlinkRepoFromServiceRequest message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns UnlinkRepoFromServiceRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.UnlinkRepoFromServiceRequest;
+
+        /**
+         * Verifies an UnlinkRepoFromServiceRequest message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates an UnlinkRepoFromServiceRequest message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns UnlinkRepoFromServiceRequest
+         */
+        public static fromObject(object: { [k: string]: any }): protos.UnlinkRepoFromServiceRequest;
+
+        /**
+         * Creates a plain object from an UnlinkRepoFromServiceRequest message. Also converts values to other types if specified.
+         * @param message UnlinkRepoFromServiceRequest
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.UnlinkRepoFromServiceRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this UnlinkRepoFromServiceRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of an UnlinkRepoFromServiceResponse. */
+    interface IUnlinkRepoFromServiceResponse {
+
+        /** UnlinkRepoFromServiceResponse status */
+        status?: (protos.common.IStatus|null);
+    }
+
+    /** Represents an UnlinkRepoFromServiceResponse. */
+    class UnlinkRepoFromServiceResponse implements IUnlinkRepoFromServiceResponse {
+
+        /**
+         * Constructs a new UnlinkRepoFromServiceResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IUnlinkRepoFromServiceResponse);
+
+        /** UnlinkRepoFromServiceResponse status. */
+        public status?: (protos.common.IStatus|null);
+
+        /**
+         * Creates a new UnlinkRepoFromServiceResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns UnlinkRepoFromServiceResponse instance
+         */
+        public static create(properties?: protos.IUnlinkRepoFromServiceResponse): protos.UnlinkRepoFromServiceResponse;
+
+        /**
+         * Encodes the specified UnlinkRepoFromServiceResponse message. Does not implicitly {@link protos.UnlinkRepoFromServiceResponse.verify|verify} messages.
+         * @param message UnlinkRepoFromServiceResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IUnlinkRepoFromServiceResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified UnlinkRepoFromServiceResponse message, length delimited. Does not implicitly {@link protos.UnlinkRepoFromServiceResponse.verify|verify} messages.
+         * @param message UnlinkRepoFromServiceResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IUnlinkRepoFromServiceResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes an UnlinkRepoFromServiceResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns UnlinkRepoFromServiceResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.UnlinkRepoFromServiceResponse;
+
+        /**
+         * Decodes an UnlinkRepoFromServiceResponse message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns UnlinkRepoFromServiceResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.UnlinkRepoFromServiceResponse;
+
+        /**
+         * Verifies an UnlinkRepoFromServiceResponse message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates an UnlinkRepoFromServiceResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns UnlinkRepoFromServiceResponse
+         */
+        public static fromObject(object: { [k: string]: any }): protos.UnlinkRepoFromServiceResponse;
+
+        /**
+         * Creates a plain object from an UnlinkRepoFromServiceResponse message. Also converts values to other types if specified.
+         * @param message UnlinkRepoFromServiceResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.UnlinkRepoFromServiceResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this UnlinkRepoFromServiceResponse to JSON.
          * @returns JSON object
          */
         public toJSON(): { [k: string]: any };

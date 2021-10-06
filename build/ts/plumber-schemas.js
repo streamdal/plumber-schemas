@@ -1008,6 +1008,138 @@ $root.protos = (function() {
          */
 
         /**
+         * Callback as used by {@link protos.PlumberServer#linkSchemaToService}.
+         * @memberof protos.PlumberServer
+         * @typedef LinkSchemaToServiceCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.LinkSchemaToServiceResponse} [response] LinkSchemaToServiceResponse
+         */
+
+        /**
+         * Calls LinkSchemaToService.
+         * @function linkSchemaToService
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.ILinkSchemaToServiceRequest} request LinkSchemaToServiceRequest message or plain object
+         * @param {protos.PlumberServer.LinkSchemaToServiceCallback} callback Node-style callback called with the error, if any, and LinkSchemaToServiceResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(PlumberServer.prototype.linkSchemaToService = function linkSchemaToService(request, callback) {
+            return this.rpcCall(linkSchemaToService, $root.protos.LinkSchemaToServiceRequest, $root.protos.LinkSchemaToServiceResponse, request, callback);
+        }, "name", { value: "LinkSchemaToService" });
+
+        /**
+         * Calls LinkSchemaToService.
+         * @function linkSchemaToService
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.ILinkSchemaToServiceRequest} request LinkSchemaToServiceRequest message or plain object
+         * @returns {Promise<protos.LinkSchemaToServiceResponse>} Promise
+         * @variation 2
+         */
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#unlinkSchemaFromService}.
+         * @memberof protos.PlumberServer
+         * @typedef UnlinkSchemaFromServiceCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.UnlinkSchemaFromServiceResponse} [response] UnlinkSchemaFromServiceResponse
+         */
+
+        /**
+         * Calls UnlinkSchemaFromService.
+         * @function unlinkSchemaFromService
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IUnlinkSchemaFromServiceRequest} request UnlinkSchemaFromServiceRequest message or plain object
+         * @param {protos.PlumberServer.UnlinkSchemaFromServiceCallback} callback Node-style callback called with the error, if any, and UnlinkSchemaFromServiceResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(PlumberServer.prototype.unlinkSchemaFromService = function unlinkSchemaFromService(request, callback) {
+            return this.rpcCall(unlinkSchemaFromService, $root.protos.UnlinkSchemaFromServiceRequest, $root.protos.UnlinkSchemaFromServiceResponse, request, callback);
+        }, "name", { value: "UnlinkSchemaFromService" });
+
+        /**
+         * Calls UnlinkSchemaFromService.
+         * @function unlinkSchemaFromService
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IUnlinkSchemaFromServiceRequest} request UnlinkSchemaFromServiceRequest message or plain object
+         * @returns {Promise<protos.UnlinkSchemaFromServiceResponse>} Promise
+         * @variation 2
+         */
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#linkRepoToService}.
+         * @memberof protos.PlumberServer
+         * @typedef LinkRepoToServiceCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.LinkRepoToServiceResponse} [response] LinkRepoToServiceResponse
+         */
+
+        /**
+         * Calls LinkRepoToService.
+         * @function linkRepoToService
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.ILinkRepoToServiceRequest} request LinkRepoToServiceRequest message or plain object
+         * @param {protos.PlumberServer.LinkRepoToServiceCallback} callback Node-style callback called with the error, if any, and LinkRepoToServiceResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(PlumberServer.prototype.linkRepoToService = function linkRepoToService(request, callback) {
+            return this.rpcCall(linkRepoToService, $root.protos.LinkRepoToServiceRequest, $root.protos.LinkRepoToServiceResponse, request, callback);
+        }, "name", { value: "LinkRepoToService" });
+
+        /**
+         * Calls LinkRepoToService.
+         * @function linkRepoToService
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.ILinkRepoToServiceRequest} request LinkRepoToServiceRequest message or plain object
+         * @returns {Promise<protos.LinkRepoToServiceResponse>} Promise
+         * @variation 2
+         */
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#unlinkRepoFromService}.
+         * @memberof protos.PlumberServer
+         * @typedef UnlinkRepoFromServiceCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.UnlinkRepoFromServiceResponse} [response] UnlinkRepoFromServiceResponse
+         */
+
+        /**
+         * Calls UnlinkRepoFromService.
+         * @function unlinkRepoFromService
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IUnlinkRepoFromServiceRequest} request UnlinkRepoFromServiceRequest message or plain object
+         * @param {protos.PlumberServer.UnlinkRepoFromServiceCallback} callback Node-style callback called with the error, if any, and UnlinkRepoFromServiceResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(PlumberServer.prototype.unlinkRepoFromService = function unlinkRepoFromService(request, callback) {
+            return this.rpcCall(unlinkRepoFromService, $root.protos.UnlinkRepoFromServiceRequest, $root.protos.UnlinkRepoFromServiceResponse, request, callback);
+        }, "name", { value: "UnlinkRepoFromService" });
+
+        /**
+         * Calls UnlinkRepoFromService.
+         * @function unlinkRepoFromService
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IUnlinkRepoFromServiceRequest} request UnlinkRepoFromServiceRequest message or plain object
+         * @returns {Promise<protos.UnlinkRepoFromServiceResponse>} Promise
+         * @variation 2
+         */
+
+        /**
          * Callback as used by {@link protos.PlumberServer#getServerOptions}.
          * @memberof protos.PlumberServer
          * @typedef GetServerOptionsCallback
@@ -53406,7 +53538,7 @@ $root.protos = (function() {
          * @interface IService
          * @property {string|null} [id] Service id
          * @property {string|null} [name] Service name
-         * @property {string|null} [repoUrl] Service repoUrl
+         * @property {Array.<protos.IRepository>|null} [repositories] Service repositories
          * @property {string|null} [notes] Service notes
          * @property {string|null} [ownerId] Service ownerId
          * @property {Array.<string>|null} [usedSchemas] Service usedSchemas
@@ -53421,6 +53553,7 @@ $root.protos = (function() {
          * @param {protos.IService=} [properties] Properties to set
          */
         function Service(properties) {
+            this.repositories = [];
             this.usedSchemas = [];
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
@@ -53445,12 +53578,12 @@ $root.protos = (function() {
         Service.prototype.name = "";
 
         /**
-         * Service repoUrl.
-         * @member {string} repoUrl
+         * Service repositories.
+         * @member {Array.<protos.IRepository>} repositories
          * @memberof protos.Service
          * @instance
          */
-        Service.prototype.repoUrl = "";
+        Service.prototype.repositories = $util.emptyArray;
 
         /**
          * Service notes.
@@ -53504,8 +53637,9 @@ $root.protos = (function() {
                 writer.uint32(/* id 1, wireType 2 =*/10).string(message.id);
             if (message.name != null && Object.hasOwnProperty.call(message, "name"))
                 writer.uint32(/* id 2, wireType 2 =*/18).string(message.name);
-            if (message.repoUrl != null && Object.hasOwnProperty.call(message, "repoUrl"))
-                writer.uint32(/* id 3, wireType 2 =*/26).string(message.repoUrl);
+            if (message.repositories != null && message.repositories.length)
+                for (var i = 0; i < message.repositories.length; ++i)
+                    $root.protos.Repository.encode(message.repositories[i], writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
             if (message.notes != null && Object.hasOwnProperty.call(message, "notes"))
                 writer.uint32(/* id 4, wireType 2 =*/34).string(message.notes);
             if (message.ownerId != null && Object.hasOwnProperty.call(message, "ownerId"))
@@ -53554,7 +53688,9 @@ $root.protos = (function() {
                     message.name = reader.string();
                     break;
                 case 3:
-                    message.repoUrl = reader.string();
+                    if (!(message.repositories && message.repositories.length))
+                        message.repositories = [];
+                    message.repositories.push($root.protos.Repository.decode(reader, reader.uint32()));
                     break;
                 case 4:
                     message.notes = reader.string();
@@ -53608,9 +53744,15 @@ $root.protos = (function() {
             if (message.name != null && message.hasOwnProperty("name"))
                 if (!$util.isString(message.name))
                     return "name: string expected";
-            if (message.repoUrl != null && message.hasOwnProperty("repoUrl"))
-                if (!$util.isString(message.repoUrl))
-                    return "repoUrl: string expected";
+            if (message.repositories != null && message.hasOwnProperty("repositories")) {
+                if (!Array.isArray(message.repositories))
+                    return "repositories: array expected";
+                for (var i = 0; i < message.repositories.length; ++i) {
+                    var error = $root.protos.Repository.verify(message.repositories[i]);
+                    if (error)
+                        return "repositories." + error;
+                }
+            }
             if (message.notes != null && message.hasOwnProperty("notes"))
                 if (!$util.isString(message.notes))
                     return "notes: string expected";
@@ -53643,8 +53785,16 @@ $root.protos = (function() {
                 message.id = String(object.id);
             if (object.name != null)
                 message.name = String(object.name);
-            if (object.repoUrl != null)
-                message.repoUrl = String(object.repoUrl);
+            if (object.repositories) {
+                if (!Array.isArray(object.repositories))
+                    throw TypeError(".protos.Service.repositories: array expected");
+                message.repositories = [];
+                for (var i = 0; i < object.repositories.length; ++i) {
+                    if (typeof object.repositories[i] !== "object")
+                        throw TypeError(".protos.Service.repositories: object expected");
+                    message.repositories[i] = $root.protos.Repository.fromObject(object.repositories[i]);
+                }
+            }
             if (object.notes != null)
                 message.notes = String(object.notes);
             if (object.ownerId != null)
@@ -53672,12 +53822,13 @@ $root.protos = (function() {
             if (!options)
                 options = {};
             var object = {};
-            if (options.arrays || options.defaults)
+            if (options.arrays || options.defaults) {
+                object.repositories = [];
                 object.usedSchemas = [];
+            }
             if (options.defaults) {
                 object.id = "";
                 object.name = "";
-                object.repoUrl = "";
                 object.notes = "";
                 object.ownerId = "";
             }
@@ -53685,8 +53836,11 @@ $root.protos = (function() {
                 object.id = message.id;
             if (message.name != null && message.hasOwnProperty("name"))
                 object.name = message.name;
-            if (message.repoUrl != null && message.hasOwnProperty("repoUrl"))
-                object.repoUrl = message.repoUrl;
+            if (message.repositories && message.repositories.length) {
+                object.repositories = [];
+                for (var j = 0; j < message.repositories.length; ++j)
+                    object.repositories[j] = $root.protos.Repository.toObject(message.repositories[j], options);
+            }
             if (message.notes != null && message.hasOwnProperty("notes"))
                 object.notes = message.notes;
             if (message.ownerId != null && message.hasOwnProperty("ownerId"))
@@ -53711,6 +53865,301 @@ $root.protos = (function() {
         };
 
         return Service;
+    })();
+
+    protos.Repository = (function() {
+
+        /**
+         * Properties of a Repository.
+         * @memberof protos
+         * @interface IRepository
+         * @property {string|null} [_id] Repository _id
+         * @property {protos.Repository.Type|null} [type] Repository type
+         * @property {string|null} [organization] Repository organization
+         * @property {string|null} [name] Repository name
+         */
+
+        /**
+         * Constructs a new Repository.
+         * @memberof protos
+         * @classdesc Represents a Repository.
+         * @implements IRepository
+         * @constructor
+         * @param {protos.IRepository=} [properties] Properties to set
+         */
+        function Repository(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * Repository _id.
+         * @member {string} _id
+         * @memberof protos.Repository
+         * @instance
+         */
+        Repository.prototype._id = "";
+
+        /**
+         * Repository type.
+         * @member {protos.Repository.Type} type
+         * @memberof protos.Repository
+         * @instance
+         */
+        Repository.prototype.type = 0;
+
+        /**
+         * Repository organization.
+         * @member {string} organization
+         * @memberof protos.Repository
+         * @instance
+         */
+        Repository.prototype.organization = "";
+
+        /**
+         * Repository name.
+         * @member {string} name
+         * @memberof protos.Repository
+         * @instance
+         */
+        Repository.prototype.name = "";
+
+        /**
+         * Creates a new Repository instance using the specified properties.
+         * @function create
+         * @memberof protos.Repository
+         * @static
+         * @param {protos.IRepository=} [properties] Properties to set
+         * @returns {protos.Repository} Repository instance
+         */
+        Repository.create = function create(properties) {
+            return new Repository(properties);
+        };
+
+        /**
+         * Encodes the specified Repository message. Does not implicitly {@link protos.Repository.verify|verify} messages.
+         * @function encode
+         * @memberof protos.Repository
+         * @static
+         * @param {protos.IRepository} message Repository message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        Repository.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message._id != null && Object.hasOwnProperty.call(message, "_id"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message._id);
+            if (message.type != null && Object.hasOwnProperty.call(message, "type"))
+                writer.uint32(/* id 2, wireType 0 =*/16).int32(message.type);
+            if (message.organization != null && Object.hasOwnProperty.call(message, "organization"))
+                writer.uint32(/* id 3, wireType 2 =*/26).string(message.organization);
+            if (message.name != null && Object.hasOwnProperty.call(message, "name"))
+                writer.uint32(/* id 4, wireType 2 =*/34).string(message.name);
+            return writer;
+        };
+
+        /**
+         * Encodes the specified Repository message, length delimited. Does not implicitly {@link protos.Repository.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.Repository
+         * @static
+         * @param {protos.IRepository} message Repository message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        Repository.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a Repository message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.Repository
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.Repository} Repository
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        Repository.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.Repository();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message._id = reader.string();
+                    break;
+                case 2:
+                    message.type = reader.int32();
+                    break;
+                case 3:
+                    message.organization = reader.string();
+                    break;
+                case 4:
+                    message.name = reader.string();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a Repository message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.Repository
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.Repository} Repository
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        Repository.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a Repository message.
+         * @function verify
+         * @memberof protos.Repository
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        Repository.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message._id != null && message.hasOwnProperty("_id"))
+                if (!$util.isString(message._id))
+                    return "_id: string expected";
+            if (message.type != null && message.hasOwnProperty("type"))
+                switch (message.type) {
+                default:
+                    return "type: enum value expected";
+                case 0:
+                case 1:
+                case 2:
+                case 3:
+                    break;
+                }
+            if (message.organization != null && message.hasOwnProperty("organization"))
+                if (!$util.isString(message.organization))
+                    return "organization: string expected";
+            if (message.name != null && message.hasOwnProperty("name"))
+                if (!$util.isString(message.name))
+                    return "name: string expected";
+            return null;
+        };
+
+        /**
+         * Creates a Repository message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.Repository
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.Repository} Repository
+         */
+        Repository.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.Repository)
+                return object;
+            var message = new $root.protos.Repository();
+            if (object._id != null)
+                message._id = String(object._id);
+            switch (object.type) {
+            case "UNSET":
+            case 0:
+                message.type = 0;
+                break;
+            case "GITHUB":
+            case 1:
+                message.type = 1;
+                break;
+            case "GITLAB":
+            case 2:
+                message.type = 2;
+                break;
+            case "BITBUCKET":
+            case 3:
+                message.type = 3;
+                break;
+            }
+            if (object.organization != null)
+                message.organization = String(object.organization);
+            if (object.name != null)
+                message.name = String(object.name);
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a Repository message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.Repository
+         * @static
+         * @param {protos.Repository} message Repository
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        Repository.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object._id = "";
+                object.type = options.enums === String ? "UNSET" : 0;
+                object.organization = "";
+                object.name = "";
+            }
+            if (message._id != null && message.hasOwnProperty("_id"))
+                object._id = message._id;
+            if (message.type != null && message.hasOwnProperty("type"))
+                object.type = options.enums === String ? $root.protos.Repository.Type[message.type] : message.type;
+            if (message.organization != null && message.hasOwnProperty("organization"))
+                object.organization = message.organization;
+            if (message.name != null && message.hasOwnProperty("name"))
+                object.name = message.name;
+            return object;
+        };
+
+        /**
+         * Converts this Repository to JSON.
+         * @function toJSON
+         * @memberof protos.Repository
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        Repository.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        /**
+         * Type enum.
+         * @name protos.Repository.Type
+         * @enum {number}
+         * @property {number} UNSET=0 UNSET value
+         * @property {number} GITHUB=1 GITHUB value
+         * @property {number} GITLAB=2 GITLAB value
+         * @property {number} BITBUCKET=3 BITBUCKET value
+         */
+        Repository.Type = (function() {
+            var valuesById = {}, values = Object.create(valuesById);
+            values[valuesById[0] = "UNSET"] = 0;
+            values[valuesById[1] = "GITHUB"] = 1;
+            values[valuesById[2] = "GITLAB"] = 2;
+            values[valuesById[3] = "BITBUCKET"] = 3;
+            return values;
+        })();
+
+        return Repository;
     })();
 
     protos.GetServiceRequest = (function() {
@@ -55861,6 +56310,1722 @@ $root.protos = (function() {
         };
 
         return DeleteServiceResponse;
+    })();
+
+    protos.LinkSchemaToServiceRequest = (function() {
+
+        /**
+         * Properties of a LinkSchemaToServiceRequest.
+         * @memberof protos
+         * @interface ILinkSchemaToServiceRequest
+         * @property {protos.common.IAuth|null} [auth] LinkSchemaToServiceRequest auth
+         * @property {string|null} [serviceId] LinkSchemaToServiceRequest serviceId
+         * @property {string|null} [schemaId] LinkSchemaToServiceRequest schemaId
+         */
+
+        /**
+         * Constructs a new LinkSchemaToServiceRequest.
+         * @memberof protos
+         * @classdesc Represents a LinkSchemaToServiceRequest.
+         * @implements ILinkSchemaToServiceRequest
+         * @constructor
+         * @param {protos.ILinkSchemaToServiceRequest=} [properties] Properties to set
+         */
+        function LinkSchemaToServiceRequest(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * LinkSchemaToServiceRequest auth.
+         * @member {protos.common.IAuth|null|undefined} auth
+         * @memberof protos.LinkSchemaToServiceRequest
+         * @instance
+         */
+        LinkSchemaToServiceRequest.prototype.auth = null;
+
+        /**
+         * LinkSchemaToServiceRequest serviceId.
+         * @member {string} serviceId
+         * @memberof protos.LinkSchemaToServiceRequest
+         * @instance
+         */
+        LinkSchemaToServiceRequest.prototype.serviceId = "";
+
+        /**
+         * LinkSchemaToServiceRequest schemaId.
+         * @member {string} schemaId
+         * @memberof protos.LinkSchemaToServiceRequest
+         * @instance
+         */
+        LinkSchemaToServiceRequest.prototype.schemaId = "";
+
+        /**
+         * Creates a new LinkSchemaToServiceRequest instance using the specified properties.
+         * @function create
+         * @memberof protos.LinkSchemaToServiceRequest
+         * @static
+         * @param {protos.ILinkSchemaToServiceRequest=} [properties] Properties to set
+         * @returns {protos.LinkSchemaToServiceRequest} LinkSchemaToServiceRequest instance
+         */
+        LinkSchemaToServiceRequest.create = function create(properties) {
+            return new LinkSchemaToServiceRequest(properties);
+        };
+
+        /**
+         * Encodes the specified LinkSchemaToServiceRequest message. Does not implicitly {@link protos.LinkSchemaToServiceRequest.verify|verify} messages.
+         * @function encode
+         * @memberof protos.LinkSchemaToServiceRequest
+         * @static
+         * @param {protos.ILinkSchemaToServiceRequest} message LinkSchemaToServiceRequest message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        LinkSchemaToServiceRequest.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.serviceId != null && Object.hasOwnProperty.call(message, "serviceId"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.serviceId);
+            if (message.schemaId != null && Object.hasOwnProperty.call(message, "schemaId"))
+                writer.uint32(/* id 2, wireType 2 =*/18).string(message.schemaId);
+            if (message.auth != null && Object.hasOwnProperty.call(message, "auth"))
+                $root.protos.common.Auth.encode(message.auth, writer.uint32(/* id 9999, wireType 2 =*/79994).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Encodes the specified LinkSchemaToServiceRequest message, length delimited. Does not implicitly {@link protos.LinkSchemaToServiceRequest.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.LinkSchemaToServiceRequest
+         * @static
+         * @param {protos.ILinkSchemaToServiceRequest} message LinkSchemaToServiceRequest message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        LinkSchemaToServiceRequest.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a LinkSchemaToServiceRequest message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.LinkSchemaToServiceRequest
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.LinkSchemaToServiceRequest} LinkSchemaToServiceRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        LinkSchemaToServiceRequest.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.LinkSchemaToServiceRequest();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 9999:
+                    message.auth = $root.protos.common.Auth.decode(reader, reader.uint32());
+                    break;
+                case 1:
+                    message.serviceId = reader.string();
+                    break;
+                case 2:
+                    message.schemaId = reader.string();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a LinkSchemaToServiceRequest message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.LinkSchemaToServiceRequest
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.LinkSchemaToServiceRequest} LinkSchemaToServiceRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        LinkSchemaToServiceRequest.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a LinkSchemaToServiceRequest message.
+         * @function verify
+         * @memberof protos.LinkSchemaToServiceRequest
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        LinkSchemaToServiceRequest.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.auth != null && message.hasOwnProperty("auth")) {
+                var error = $root.protos.common.Auth.verify(message.auth);
+                if (error)
+                    return "auth." + error;
+            }
+            if (message.serviceId != null && message.hasOwnProperty("serviceId"))
+                if (!$util.isString(message.serviceId))
+                    return "serviceId: string expected";
+            if (message.schemaId != null && message.hasOwnProperty("schemaId"))
+                if (!$util.isString(message.schemaId))
+                    return "schemaId: string expected";
+            return null;
+        };
+
+        /**
+         * Creates a LinkSchemaToServiceRequest message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.LinkSchemaToServiceRequest
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.LinkSchemaToServiceRequest} LinkSchemaToServiceRequest
+         */
+        LinkSchemaToServiceRequest.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.LinkSchemaToServiceRequest)
+                return object;
+            var message = new $root.protos.LinkSchemaToServiceRequest();
+            if (object.auth != null) {
+                if (typeof object.auth !== "object")
+                    throw TypeError(".protos.LinkSchemaToServiceRequest.auth: object expected");
+                message.auth = $root.protos.common.Auth.fromObject(object.auth);
+            }
+            if (object.serviceId != null)
+                message.serviceId = String(object.serviceId);
+            if (object.schemaId != null)
+                message.schemaId = String(object.schemaId);
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a LinkSchemaToServiceRequest message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.LinkSchemaToServiceRequest
+         * @static
+         * @param {protos.LinkSchemaToServiceRequest} message LinkSchemaToServiceRequest
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        LinkSchemaToServiceRequest.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.serviceId = "";
+                object.schemaId = "";
+                object.auth = null;
+            }
+            if (message.serviceId != null && message.hasOwnProperty("serviceId"))
+                object.serviceId = message.serviceId;
+            if (message.schemaId != null && message.hasOwnProperty("schemaId"))
+                object.schemaId = message.schemaId;
+            if (message.auth != null && message.hasOwnProperty("auth"))
+                object.auth = $root.protos.common.Auth.toObject(message.auth, options);
+            return object;
+        };
+
+        /**
+         * Converts this LinkSchemaToServiceRequest to JSON.
+         * @function toJSON
+         * @memberof protos.LinkSchemaToServiceRequest
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        LinkSchemaToServiceRequest.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return LinkSchemaToServiceRequest;
+    })();
+
+    protos.LinkSchemaToServiceResponse = (function() {
+
+        /**
+         * Properties of a LinkSchemaToServiceResponse.
+         * @memberof protos
+         * @interface ILinkSchemaToServiceResponse
+         * @property {protos.common.IStatus|null} [status] LinkSchemaToServiceResponse status
+         */
+
+        /**
+         * Constructs a new LinkSchemaToServiceResponse.
+         * @memberof protos
+         * @classdesc Represents a LinkSchemaToServiceResponse.
+         * @implements ILinkSchemaToServiceResponse
+         * @constructor
+         * @param {protos.ILinkSchemaToServiceResponse=} [properties] Properties to set
+         */
+        function LinkSchemaToServiceResponse(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * LinkSchemaToServiceResponse status.
+         * @member {protos.common.IStatus|null|undefined} status
+         * @memberof protos.LinkSchemaToServiceResponse
+         * @instance
+         */
+        LinkSchemaToServiceResponse.prototype.status = null;
+
+        /**
+         * Creates a new LinkSchemaToServiceResponse instance using the specified properties.
+         * @function create
+         * @memberof protos.LinkSchemaToServiceResponse
+         * @static
+         * @param {protos.ILinkSchemaToServiceResponse=} [properties] Properties to set
+         * @returns {protos.LinkSchemaToServiceResponse} LinkSchemaToServiceResponse instance
+         */
+        LinkSchemaToServiceResponse.create = function create(properties) {
+            return new LinkSchemaToServiceResponse(properties);
+        };
+
+        /**
+         * Encodes the specified LinkSchemaToServiceResponse message. Does not implicitly {@link protos.LinkSchemaToServiceResponse.verify|verify} messages.
+         * @function encode
+         * @memberof protos.LinkSchemaToServiceResponse
+         * @static
+         * @param {protos.ILinkSchemaToServiceResponse} message LinkSchemaToServiceResponse message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        LinkSchemaToServiceResponse.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.status != null && Object.hasOwnProperty.call(message, "status"))
+                $root.protos.common.Status.encode(message.status, writer.uint32(/* id 1000, wireType 2 =*/8002).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Encodes the specified LinkSchemaToServiceResponse message, length delimited. Does not implicitly {@link protos.LinkSchemaToServiceResponse.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.LinkSchemaToServiceResponse
+         * @static
+         * @param {protos.ILinkSchemaToServiceResponse} message LinkSchemaToServiceResponse message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        LinkSchemaToServiceResponse.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a LinkSchemaToServiceResponse message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.LinkSchemaToServiceResponse
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.LinkSchemaToServiceResponse} LinkSchemaToServiceResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        LinkSchemaToServiceResponse.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.LinkSchemaToServiceResponse();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1000:
+                    message.status = $root.protos.common.Status.decode(reader, reader.uint32());
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a LinkSchemaToServiceResponse message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.LinkSchemaToServiceResponse
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.LinkSchemaToServiceResponse} LinkSchemaToServiceResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        LinkSchemaToServiceResponse.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a LinkSchemaToServiceResponse message.
+         * @function verify
+         * @memberof protos.LinkSchemaToServiceResponse
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        LinkSchemaToServiceResponse.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.status != null && message.hasOwnProperty("status")) {
+                var error = $root.protos.common.Status.verify(message.status);
+                if (error)
+                    return "status." + error;
+            }
+            return null;
+        };
+
+        /**
+         * Creates a LinkSchemaToServiceResponse message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.LinkSchemaToServiceResponse
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.LinkSchemaToServiceResponse} LinkSchemaToServiceResponse
+         */
+        LinkSchemaToServiceResponse.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.LinkSchemaToServiceResponse)
+                return object;
+            var message = new $root.protos.LinkSchemaToServiceResponse();
+            if (object.status != null) {
+                if (typeof object.status !== "object")
+                    throw TypeError(".protos.LinkSchemaToServiceResponse.status: object expected");
+                message.status = $root.protos.common.Status.fromObject(object.status);
+            }
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a LinkSchemaToServiceResponse message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.LinkSchemaToServiceResponse
+         * @static
+         * @param {protos.LinkSchemaToServiceResponse} message LinkSchemaToServiceResponse
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        LinkSchemaToServiceResponse.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults)
+                object.status = null;
+            if (message.status != null && message.hasOwnProperty("status"))
+                object.status = $root.protos.common.Status.toObject(message.status, options);
+            return object;
+        };
+
+        /**
+         * Converts this LinkSchemaToServiceResponse to JSON.
+         * @function toJSON
+         * @memberof protos.LinkSchemaToServiceResponse
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        LinkSchemaToServiceResponse.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return LinkSchemaToServiceResponse;
+    })();
+
+    protos.UnlinkSchemaFromServiceRequest = (function() {
+
+        /**
+         * Properties of an UnlinkSchemaFromServiceRequest.
+         * @memberof protos
+         * @interface IUnlinkSchemaFromServiceRequest
+         * @property {protos.common.IAuth|null} [auth] UnlinkSchemaFromServiceRequest auth
+         * @property {string|null} [serviceId] UnlinkSchemaFromServiceRequest serviceId
+         * @property {string|null} [schemaId] UnlinkSchemaFromServiceRequest schemaId
+         */
+
+        /**
+         * Constructs a new UnlinkSchemaFromServiceRequest.
+         * @memberof protos
+         * @classdesc Represents an UnlinkSchemaFromServiceRequest.
+         * @implements IUnlinkSchemaFromServiceRequest
+         * @constructor
+         * @param {protos.IUnlinkSchemaFromServiceRequest=} [properties] Properties to set
+         */
+        function UnlinkSchemaFromServiceRequest(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * UnlinkSchemaFromServiceRequest auth.
+         * @member {protos.common.IAuth|null|undefined} auth
+         * @memberof protos.UnlinkSchemaFromServiceRequest
+         * @instance
+         */
+        UnlinkSchemaFromServiceRequest.prototype.auth = null;
+
+        /**
+         * UnlinkSchemaFromServiceRequest serviceId.
+         * @member {string} serviceId
+         * @memberof protos.UnlinkSchemaFromServiceRequest
+         * @instance
+         */
+        UnlinkSchemaFromServiceRequest.prototype.serviceId = "";
+
+        /**
+         * UnlinkSchemaFromServiceRequest schemaId.
+         * @member {string} schemaId
+         * @memberof protos.UnlinkSchemaFromServiceRequest
+         * @instance
+         */
+        UnlinkSchemaFromServiceRequest.prototype.schemaId = "";
+
+        /**
+         * Creates a new UnlinkSchemaFromServiceRequest instance using the specified properties.
+         * @function create
+         * @memberof protos.UnlinkSchemaFromServiceRequest
+         * @static
+         * @param {protos.IUnlinkSchemaFromServiceRequest=} [properties] Properties to set
+         * @returns {protos.UnlinkSchemaFromServiceRequest} UnlinkSchemaFromServiceRequest instance
+         */
+        UnlinkSchemaFromServiceRequest.create = function create(properties) {
+            return new UnlinkSchemaFromServiceRequest(properties);
+        };
+
+        /**
+         * Encodes the specified UnlinkSchemaFromServiceRequest message. Does not implicitly {@link protos.UnlinkSchemaFromServiceRequest.verify|verify} messages.
+         * @function encode
+         * @memberof protos.UnlinkSchemaFromServiceRequest
+         * @static
+         * @param {protos.IUnlinkSchemaFromServiceRequest} message UnlinkSchemaFromServiceRequest message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        UnlinkSchemaFromServiceRequest.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.serviceId != null && Object.hasOwnProperty.call(message, "serviceId"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.serviceId);
+            if (message.schemaId != null && Object.hasOwnProperty.call(message, "schemaId"))
+                writer.uint32(/* id 2, wireType 2 =*/18).string(message.schemaId);
+            if (message.auth != null && Object.hasOwnProperty.call(message, "auth"))
+                $root.protos.common.Auth.encode(message.auth, writer.uint32(/* id 9999, wireType 2 =*/79994).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Encodes the specified UnlinkSchemaFromServiceRequest message, length delimited. Does not implicitly {@link protos.UnlinkSchemaFromServiceRequest.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.UnlinkSchemaFromServiceRequest
+         * @static
+         * @param {protos.IUnlinkSchemaFromServiceRequest} message UnlinkSchemaFromServiceRequest message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        UnlinkSchemaFromServiceRequest.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes an UnlinkSchemaFromServiceRequest message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.UnlinkSchemaFromServiceRequest
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.UnlinkSchemaFromServiceRequest} UnlinkSchemaFromServiceRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        UnlinkSchemaFromServiceRequest.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.UnlinkSchemaFromServiceRequest();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 9999:
+                    message.auth = $root.protos.common.Auth.decode(reader, reader.uint32());
+                    break;
+                case 1:
+                    message.serviceId = reader.string();
+                    break;
+                case 2:
+                    message.schemaId = reader.string();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes an UnlinkSchemaFromServiceRequest message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.UnlinkSchemaFromServiceRequest
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.UnlinkSchemaFromServiceRequest} UnlinkSchemaFromServiceRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        UnlinkSchemaFromServiceRequest.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies an UnlinkSchemaFromServiceRequest message.
+         * @function verify
+         * @memberof protos.UnlinkSchemaFromServiceRequest
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        UnlinkSchemaFromServiceRequest.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.auth != null && message.hasOwnProperty("auth")) {
+                var error = $root.protos.common.Auth.verify(message.auth);
+                if (error)
+                    return "auth." + error;
+            }
+            if (message.serviceId != null && message.hasOwnProperty("serviceId"))
+                if (!$util.isString(message.serviceId))
+                    return "serviceId: string expected";
+            if (message.schemaId != null && message.hasOwnProperty("schemaId"))
+                if (!$util.isString(message.schemaId))
+                    return "schemaId: string expected";
+            return null;
+        };
+
+        /**
+         * Creates an UnlinkSchemaFromServiceRequest message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.UnlinkSchemaFromServiceRequest
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.UnlinkSchemaFromServiceRequest} UnlinkSchemaFromServiceRequest
+         */
+        UnlinkSchemaFromServiceRequest.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.UnlinkSchemaFromServiceRequest)
+                return object;
+            var message = new $root.protos.UnlinkSchemaFromServiceRequest();
+            if (object.auth != null) {
+                if (typeof object.auth !== "object")
+                    throw TypeError(".protos.UnlinkSchemaFromServiceRequest.auth: object expected");
+                message.auth = $root.protos.common.Auth.fromObject(object.auth);
+            }
+            if (object.serviceId != null)
+                message.serviceId = String(object.serviceId);
+            if (object.schemaId != null)
+                message.schemaId = String(object.schemaId);
+            return message;
+        };
+
+        /**
+         * Creates a plain object from an UnlinkSchemaFromServiceRequest message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.UnlinkSchemaFromServiceRequest
+         * @static
+         * @param {protos.UnlinkSchemaFromServiceRequest} message UnlinkSchemaFromServiceRequest
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        UnlinkSchemaFromServiceRequest.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.serviceId = "";
+                object.schemaId = "";
+                object.auth = null;
+            }
+            if (message.serviceId != null && message.hasOwnProperty("serviceId"))
+                object.serviceId = message.serviceId;
+            if (message.schemaId != null && message.hasOwnProperty("schemaId"))
+                object.schemaId = message.schemaId;
+            if (message.auth != null && message.hasOwnProperty("auth"))
+                object.auth = $root.protos.common.Auth.toObject(message.auth, options);
+            return object;
+        };
+
+        /**
+         * Converts this UnlinkSchemaFromServiceRequest to JSON.
+         * @function toJSON
+         * @memberof protos.UnlinkSchemaFromServiceRequest
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        UnlinkSchemaFromServiceRequest.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return UnlinkSchemaFromServiceRequest;
+    })();
+
+    protos.UnlinkSchemaFromServiceResponse = (function() {
+
+        /**
+         * Properties of an UnlinkSchemaFromServiceResponse.
+         * @memberof protos
+         * @interface IUnlinkSchemaFromServiceResponse
+         * @property {protos.common.IStatus|null} [status] UnlinkSchemaFromServiceResponse status
+         */
+
+        /**
+         * Constructs a new UnlinkSchemaFromServiceResponse.
+         * @memberof protos
+         * @classdesc Represents an UnlinkSchemaFromServiceResponse.
+         * @implements IUnlinkSchemaFromServiceResponse
+         * @constructor
+         * @param {protos.IUnlinkSchemaFromServiceResponse=} [properties] Properties to set
+         */
+        function UnlinkSchemaFromServiceResponse(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * UnlinkSchemaFromServiceResponse status.
+         * @member {protos.common.IStatus|null|undefined} status
+         * @memberof protos.UnlinkSchemaFromServiceResponse
+         * @instance
+         */
+        UnlinkSchemaFromServiceResponse.prototype.status = null;
+
+        /**
+         * Creates a new UnlinkSchemaFromServiceResponse instance using the specified properties.
+         * @function create
+         * @memberof protos.UnlinkSchemaFromServiceResponse
+         * @static
+         * @param {protos.IUnlinkSchemaFromServiceResponse=} [properties] Properties to set
+         * @returns {protos.UnlinkSchemaFromServiceResponse} UnlinkSchemaFromServiceResponse instance
+         */
+        UnlinkSchemaFromServiceResponse.create = function create(properties) {
+            return new UnlinkSchemaFromServiceResponse(properties);
+        };
+
+        /**
+         * Encodes the specified UnlinkSchemaFromServiceResponse message. Does not implicitly {@link protos.UnlinkSchemaFromServiceResponse.verify|verify} messages.
+         * @function encode
+         * @memberof protos.UnlinkSchemaFromServiceResponse
+         * @static
+         * @param {protos.IUnlinkSchemaFromServiceResponse} message UnlinkSchemaFromServiceResponse message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        UnlinkSchemaFromServiceResponse.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.status != null && Object.hasOwnProperty.call(message, "status"))
+                $root.protos.common.Status.encode(message.status, writer.uint32(/* id 1000, wireType 2 =*/8002).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Encodes the specified UnlinkSchemaFromServiceResponse message, length delimited. Does not implicitly {@link protos.UnlinkSchemaFromServiceResponse.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.UnlinkSchemaFromServiceResponse
+         * @static
+         * @param {protos.IUnlinkSchemaFromServiceResponse} message UnlinkSchemaFromServiceResponse message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        UnlinkSchemaFromServiceResponse.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes an UnlinkSchemaFromServiceResponse message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.UnlinkSchemaFromServiceResponse
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.UnlinkSchemaFromServiceResponse} UnlinkSchemaFromServiceResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        UnlinkSchemaFromServiceResponse.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.UnlinkSchemaFromServiceResponse();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1000:
+                    message.status = $root.protos.common.Status.decode(reader, reader.uint32());
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes an UnlinkSchemaFromServiceResponse message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.UnlinkSchemaFromServiceResponse
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.UnlinkSchemaFromServiceResponse} UnlinkSchemaFromServiceResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        UnlinkSchemaFromServiceResponse.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies an UnlinkSchemaFromServiceResponse message.
+         * @function verify
+         * @memberof protos.UnlinkSchemaFromServiceResponse
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        UnlinkSchemaFromServiceResponse.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.status != null && message.hasOwnProperty("status")) {
+                var error = $root.protos.common.Status.verify(message.status);
+                if (error)
+                    return "status." + error;
+            }
+            return null;
+        };
+
+        /**
+         * Creates an UnlinkSchemaFromServiceResponse message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.UnlinkSchemaFromServiceResponse
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.UnlinkSchemaFromServiceResponse} UnlinkSchemaFromServiceResponse
+         */
+        UnlinkSchemaFromServiceResponse.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.UnlinkSchemaFromServiceResponse)
+                return object;
+            var message = new $root.protos.UnlinkSchemaFromServiceResponse();
+            if (object.status != null) {
+                if (typeof object.status !== "object")
+                    throw TypeError(".protos.UnlinkSchemaFromServiceResponse.status: object expected");
+                message.status = $root.protos.common.Status.fromObject(object.status);
+            }
+            return message;
+        };
+
+        /**
+         * Creates a plain object from an UnlinkSchemaFromServiceResponse message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.UnlinkSchemaFromServiceResponse
+         * @static
+         * @param {protos.UnlinkSchemaFromServiceResponse} message UnlinkSchemaFromServiceResponse
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        UnlinkSchemaFromServiceResponse.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults)
+                object.status = null;
+            if (message.status != null && message.hasOwnProperty("status"))
+                object.status = $root.protos.common.Status.toObject(message.status, options);
+            return object;
+        };
+
+        /**
+         * Converts this UnlinkSchemaFromServiceResponse to JSON.
+         * @function toJSON
+         * @memberof protos.UnlinkSchemaFromServiceResponse
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        UnlinkSchemaFromServiceResponse.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return UnlinkSchemaFromServiceResponse;
+    })();
+
+    protos.LinkRepoToServiceRequest = (function() {
+
+        /**
+         * Properties of a LinkRepoToServiceRequest.
+         * @memberof protos
+         * @interface ILinkRepoToServiceRequest
+         * @property {protos.common.IAuth|null} [auth] LinkRepoToServiceRequest auth
+         * @property {string|null} [serviceId] LinkRepoToServiceRequest serviceId
+         * @property {string|null} [repoUrl] LinkRepoToServiceRequest repoUrl
+         */
+
+        /**
+         * Constructs a new LinkRepoToServiceRequest.
+         * @memberof protos
+         * @classdesc Represents a LinkRepoToServiceRequest.
+         * @implements ILinkRepoToServiceRequest
+         * @constructor
+         * @param {protos.ILinkRepoToServiceRequest=} [properties] Properties to set
+         */
+        function LinkRepoToServiceRequest(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * LinkRepoToServiceRequest auth.
+         * @member {protos.common.IAuth|null|undefined} auth
+         * @memberof protos.LinkRepoToServiceRequest
+         * @instance
+         */
+        LinkRepoToServiceRequest.prototype.auth = null;
+
+        /**
+         * LinkRepoToServiceRequest serviceId.
+         * @member {string} serviceId
+         * @memberof protos.LinkRepoToServiceRequest
+         * @instance
+         */
+        LinkRepoToServiceRequest.prototype.serviceId = "";
+
+        /**
+         * LinkRepoToServiceRequest repoUrl.
+         * @member {string} repoUrl
+         * @memberof protos.LinkRepoToServiceRequest
+         * @instance
+         */
+        LinkRepoToServiceRequest.prototype.repoUrl = "";
+
+        /**
+         * Creates a new LinkRepoToServiceRequest instance using the specified properties.
+         * @function create
+         * @memberof protos.LinkRepoToServiceRequest
+         * @static
+         * @param {protos.ILinkRepoToServiceRequest=} [properties] Properties to set
+         * @returns {protos.LinkRepoToServiceRequest} LinkRepoToServiceRequest instance
+         */
+        LinkRepoToServiceRequest.create = function create(properties) {
+            return new LinkRepoToServiceRequest(properties);
+        };
+
+        /**
+         * Encodes the specified LinkRepoToServiceRequest message. Does not implicitly {@link protos.LinkRepoToServiceRequest.verify|verify} messages.
+         * @function encode
+         * @memberof protos.LinkRepoToServiceRequest
+         * @static
+         * @param {protos.ILinkRepoToServiceRequest} message LinkRepoToServiceRequest message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        LinkRepoToServiceRequest.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.serviceId != null && Object.hasOwnProperty.call(message, "serviceId"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.serviceId);
+            if (message.repoUrl != null && Object.hasOwnProperty.call(message, "repoUrl"))
+                writer.uint32(/* id 2, wireType 2 =*/18).string(message.repoUrl);
+            if (message.auth != null && Object.hasOwnProperty.call(message, "auth"))
+                $root.protos.common.Auth.encode(message.auth, writer.uint32(/* id 9999, wireType 2 =*/79994).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Encodes the specified LinkRepoToServiceRequest message, length delimited. Does not implicitly {@link protos.LinkRepoToServiceRequest.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.LinkRepoToServiceRequest
+         * @static
+         * @param {protos.ILinkRepoToServiceRequest} message LinkRepoToServiceRequest message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        LinkRepoToServiceRequest.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a LinkRepoToServiceRequest message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.LinkRepoToServiceRequest
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.LinkRepoToServiceRequest} LinkRepoToServiceRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        LinkRepoToServiceRequest.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.LinkRepoToServiceRequest();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 9999:
+                    message.auth = $root.protos.common.Auth.decode(reader, reader.uint32());
+                    break;
+                case 1:
+                    message.serviceId = reader.string();
+                    break;
+                case 2:
+                    message.repoUrl = reader.string();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a LinkRepoToServiceRequest message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.LinkRepoToServiceRequest
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.LinkRepoToServiceRequest} LinkRepoToServiceRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        LinkRepoToServiceRequest.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a LinkRepoToServiceRequest message.
+         * @function verify
+         * @memberof protos.LinkRepoToServiceRequest
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        LinkRepoToServiceRequest.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.auth != null && message.hasOwnProperty("auth")) {
+                var error = $root.protos.common.Auth.verify(message.auth);
+                if (error)
+                    return "auth." + error;
+            }
+            if (message.serviceId != null && message.hasOwnProperty("serviceId"))
+                if (!$util.isString(message.serviceId))
+                    return "serviceId: string expected";
+            if (message.repoUrl != null && message.hasOwnProperty("repoUrl"))
+                if (!$util.isString(message.repoUrl))
+                    return "repoUrl: string expected";
+            return null;
+        };
+
+        /**
+         * Creates a LinkRepoToServiceRequest message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.LinkRepoToServiceRequest
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.LinkRepoToServiceRequest} LinkRepoToServiceRequest
+         */
+        LinkRepoToServiceRequest.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.LinkRepoToServiceRequest)
+                return object;
+            var message = new $root.protos.LinkRepoToServiceRequest();
+            if (object.auth != null) {
+                if (typeof object.auth !== "object")
+                    throw TypeError(".protos.LinkRepoToServiceRequest.auth: object expected");
+                message.auth = $root.protos.common.Auth.fromObject(object.auth);
+            }
+            if (object.serviceId != null)
+                message.serviceId = String(object.serviceId);
+            if (object.repoUrl != null)
+                message.repoUrl = String(object.repoUrl);
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a LinkRepoToServiceRequest message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.LinkRepoToServiceRequest
+         * @static
+         * @param {protos.LinkRepoToServiceRequest} message LinkRepoToServiceRequest
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        LinkRepoToServiceRequest.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.serviceId = "";
+                object.repoUrl = "";
+                object.auth = null;
+            }
+            if (message.serviceId != null && message.hasOwnProperty("serviceId"))
+                object.serviceId = message.serviceId;
+            if (message.repoUrl != null && message.hasOwnProperty("repoUrl"))
+                object.repoUrl = message.repoUrl;
+            if (message.auth != null && message.hasOwnProperty("auth"))
+                object.auth = $root.protos.common.Auth.toObject(message.auth, options);
+            return object;
+        };
+
+        /**
+         * Converts this LinkRepoToServiceRequest to JSON.
+         * @function toJSON
+         * @memberof protos.LinkRepoToServiceRequest
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        LinkRepoToServiceRequest.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return LinkRepoToServiceRequest;
+    })();
+
+    protos.LinkRepoToServiceResponse = (function() {
+
+        /**
+         * Properties of a LinkRepoToServiceResponse.
+         * @memberof protos
+         * @interface ILinkRepoToServiceResponse
+         * @property {protos.common.IStatus|null} [status] LinkRepoToServiceResponse status
+         */
+
+        /**
+         * Constructs a new LinkRepoToServiceResponse.
+         * @memberof protos
+         * @classdesc Represents a LinkRepoToServiceResponse.
+         * @implements ILinkRepoToServiceResponse
+         * @constructor
+         * @param {protos.ILinkRepoToServiceResponse=} [properties] Properties to set
+         */
+        function LinkRepoToServiceResponse(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * LinkRepoToServiceResponse status.
+         * @member {protos.common.IStatus|null|undefined} status
+         * @memberof protos.LinkRepoToServiceResponse
+         * @instance
+         */
+        LinkRepoToServiceResponse.prototype.status = null;
+
+        /**
+         * Creates a new LinkRepoToServiceResponse instance using the specified properties.
+         * @function create
+         * @memberof protos.LinkRepoToServiceResponse
+         * @static
+         * @param {protos.ILinkRepoToServiceResponse=} [properties] Properties to set
+         * @returns {protos.LinkRepoToServiceResponse} LinkRepoToServiceResponse instance
+         */
+        LinkRepoToServiceResponse.create = function create(properties) {
+            return new LinkRepoToServiceResponse(properties);
+        };
+
+        /**
+         * Encodes the specified LinkRepoToServiceResponse message. Does not implicitly {@link protos.LinkRepoToServiceResponse.verify|verify} messages.
+         * @function encode
+         * @memberof protos.LinkRepoToServiceResponse
+         * @static
+         * @param {protos.ILinkRepoToServiceResponse} message LinkRepoToServiceResponse message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        LinkRepoToServiceResponse.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.status != null && Object.hasOwnProperty.call(message, "status"))
+                $root.protos.common.Status.encode(message.status, writer.uint32(/* id 1000, wireType 2 =*/8002).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Encodes the specified LinkRepoToServiceResponse message, length delimited. Does not implicitly {@link protos.LinkRepoToServiceResponse.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.LinkRepoToServiceResponse
+         * @static
+         * @param {protos.ILinkRepoToServiceResponse} message LinkRepoToServiceResponse message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        LinkRepoToServiceResponse.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a LinkRepoToServiceResponse message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.LinkRepoToServiceResponse
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.LinkRepoToServiceResponse} LinkRepoToServiceResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        LinkRepoToServiceResponse.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.LinkRepoToServiceResponse();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1000:
+                    message.status = $root.protos.common.Status.decode(reader, reader.uint32());
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a LinkRepoToServiceResponse message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.LinkRepoToServiceResponse
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.LinkRepoToServiceResponse} LinkRepoToServiceResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        LinkRepoToServiceResponse.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a LinkRepoToServiceResponse message.
+         * @function verify
+         * @memberof protos.LinkRepoToServiceResponse
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        LinkRepoToServiceResponse.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.status != null && message.hasOwnProperty("status")) {
+                var error = $root.protos.common.Status.verify(message.status);
+                if (error)
+                    return "status." + error;
+            }
+            return null;
+        };
+
+        /**
+         * Creates a LinkRepoToServiceResponse message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.LinkRepoToServiceResponse
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.LinkRepoToServiceResponse} LinkRepoToServiceResponse
+         */
+        LinkRepoToServiceResponse.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.LinkRepoToServiceResponse)
+                return object;
+            var message = new $root.protos.LinkRepoToServiceResponse();
+            if (object.status != null) {
+                if (typeof object.status !== "object")
+                    throw TypeError(".protos.LinkRepoToServiceResponse.status: object expected");
+                message.status = $root.protos.common.Status.fromObject(object.status);
+            }
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a LinkRepoToServiceResponse message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.LinkRepoToServiceResponse
+         * @static
+         * @param {protos.LinkRepoToServiceResponse} message LinkRepoToServiceResponse
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        LinkRepoToServiceResponse.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults)
+                object.status = null;
+            if (message.status != null && message.hasOwnProperty("status"))
+                object.status = $root.protos.common.Status.toObject(message.status, options);
+            return object;
+        };
+
+        /**
+         * Converts this LinkRepoToServiceResponse to JSON.
+         * @function toJSON
+         * @memberof protos.LinkRepoToServiceResponse
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        LinkRepoToServiceResponse.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return LinkRepoToServiceResponse;
+    })();
+
+    protos.UnlinkRepoFromServiceRequest = (function() {
+
+        /**
+         * Properties of an UnlinkRepoFromServiceRequest.
+         * @memberof protos
+         * @interface IUnlinkRepoFromServiceRequest
+         * @property {protos.common.IAuth|null} [auth] UnlinkRepoFromServiceRequest auth
+         * @property {string|null} [serviceId] UnlinkRepoFromServiceRequest serviceId
+         * @property {string|null} [repoId] UnlinkRepoFromServiceRequest repoId
+         */
+
+        /**
+         * Constructs a new UnlinkRepoFromServiceRequest.
+         * @memberof protos
+         * @classdesc Represents an UnlinkRepoFromServiceRequest.
+         * @implements IUnlinkRepoFromServiceRequest
+         * @constructor
+         * @param {protos.IUnlinkRepoFromServiceRequest=} [properties] Properties to set
+         */
+        function UnlinkRepoFromServiceRequest(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * UnlinkRepoFromServiceRequest auth.
+         * @member {protos.common.IAuth|null|undefined} auth
+         * @memberof protos.UnlinkRepoFromServiceRequest
+         * @instance
+         */
+        UnlinkRepoFromServiceRequest.prototype.auth = null;
+
+        /**
+         * UnlinkRepoFromServiceRequest serviceId.
+         * @member {string} serviceId
+         * @memberof protos.UnlinkRepoFromServiceRequest
+         * @instance
+         */
+        UnlinkRepoFromServiceRequest.prototype.serviceId = "";
+
+        /**
+         * UnlinkRepoFromServiceRequest repoId.
+         * @member {string} repoId
+         * @memberof protos.UnlinkRepoFromServiceRequest
+         * @instance
+         */
+        UnlinkRepoFromServiceRequest.prototype.repoId = "";
+
+        /**
+         * Creates a new UnlinkRepoFromServiceRequest instance using the specified properties.
+         * @function create
+         * @memberof protos.UnlinkRepoFromServiceRequest
+         * @static
+         * @param {protos.IUnlinkRepoFromServiceRequest=} [properties] Properties to set
+         * @returns {protos.UnlinkRepoFromServiceRequest} UnlinkRepoFromServiceRequest instance
+         */
+        UnlinkRepoFromServiceRequest.create = function create(properties) {
+            return new UnlinkRepoFromServiceRequest(properties);
+        };
+
+        /**
+         * Encodes the specified UnlinkRepoFromServiceRequest message. Does not implicitly {@link protos.UnlinkRepoFromServiceRequest.verify|verify} messages.
+         * @function encode
+         * @memberof protos.UnlinkRepoFromServiceRequest
+         * @static
+         * @param {protos.IUnlinkRepoFromServiceRequest} message UnlinkRepoFromServiceRequest message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        UnlinkRepoFromServiceRequest.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.serviceId != null && Object.hasOwnProperty.call(message, "serviceId"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.serviceId);
+            if (message.repoId != null && Object.hasOwnProperty.call(message, "repoId"))
+                writer.uint32(/* id 2, wireType 2 =*/18).string(message.repoId);
+            if (message.auth != null && Object.hasOwnProperty.call(message, "auth"))
+                $root.protos.common.Auth.encode(message.auth, writer.uint32(/* id 9999, wireType 2 =*/79994).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Encodes the specified UnlinkRepoFromServiceRequest message, length delimited. Does not implicitly {@link protos.UnlinkRepoFromServiceRequest.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.UnlinkRepoFromServiceRequest
+         * @static
+         * @param {protos.IUnlinkRepoFromServiceRequest} message UnlinkRepoFromServiceRequest message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        UnlinkRepoFromServiceRequest.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes an UnlinkRepoFromServiceRequest message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.UnlinkRepoFromServiceRequest
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.UnlinkRepoFromServiceRequest} UnlinkRepoFromServiceRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        UnlinkRepoFromServiceRequest.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.UnlinkRepoFromServiceRequest();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 9999:
+                    message.auth = $root.protos.common.Auth.decode(reader, reader.uint32());
+                    break;
+                case 1:
+                    message.serviceId = reader.string();
+                    break;
+                case 2:
+                    message.repoId = reader.string();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes an UnlinkRepoFromServiceRequest message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.UnlinkRepoFromServiceRequest
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.UnlinkRepoFromServiceRequest} UnlinkRepoFromServiceRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        UnlinkRepoFromServiceRequest.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies an UnlinkRepoFromServiceRequest message.
+         * @function verify
+         * @memberof protos.UnlinkRepoFromServiceRequest
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        UnlinkRepoFromServiceRequest.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.auth != null && message.hasOwnProperty("auth")) {
+                var error = $root.protos.common.Auth.verify(message.auth);
+                if (error)
+                    return "auth." + error;
+            }
+            if (message.serviceId != null && message.hasOwnProperty("serviceId"))
+                if (!$util.isString(message.serviceId))
+                    return "serviceId: string expected";
+            if (message.repoId != null && message.hasOwnProperty("repoId"))
+                if (!$util.isString(message.repoId))
+                    return "repoId: string expected";
+            return null;
+        };
+
+        /**
+         * Creates an UnlinkRepoFromServiceRequest message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.UnlinkRepoFromServiceRequest
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.UnlinkRepoFromServiceRequest} UnlinkRepoFromServiceRequest
+         */
+        UnlinkRepoFromServiceRequest.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.UnlinkRepoFromServiceRequest)
+                return object;
+            var message = new $root.protos.UnlinkRepoFromServiceRequest();
+            if (object.auth != null) {
+                if (typeof object.auth !== "object")
+                    throw TypeError(".protos.UnlinkRepoFromServiceRequest.auth: object expected");
+                message.auth = $root.protos.common.Auth.fromObject(object.auth);
+            }
+            if (object.serviceId != null)
+                message.serviceId = String(object.serviceId);
+            if (object.repoId != null)
+                message.repoId = String(object.repoId);
+            return message;
+        };
+
+        /**
+         * Creates a plain object from an UnlinkRepoFromServiceRequest message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.UnlinkRepoFromServiceRequest
+         * @static
+         * @param {protos.UnlinkRepoFromServiceRequest} message UnlinkRepoFromServiceRequest
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        UnlinkRepoFromServiceRequest.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.serviceId = "";
+                object.repoId = "";
+                object.auth = null;
+            }
+            if (message.serviceId != null && message.hasOwnProperty("serviceId"))
+                object.serviceId = message.serviceId;
+            if (message.repoId != null && message.hasOwnProperty("repoId"))
+                object.repoId = message.repoId;
+            if (message.auth != null && message.hasOwnProperty("auth"))
+                object.auth = $root.protos.common.Auth.toObject(message.auth, options);
+            return object;
+        };
+
+        /**
+         * Converts this UnlinkRepoFromServiceRequest to JSON.
+         * @function toJSON
+         * @memberof protos.UnlinkRepoFromServiceRequest
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        UnlinkRepoFromServiceRequest.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return UnlinkRepoFromServiceRequest;
+    })();
+
+    protos.UnlinkRepoFromServiceResponse = (function() {
+
+        /**
+         * Properties of an UnlinkRepoFromServiceResponse.
+         * @memberof protos
+         * @interface IUnlinkRepoFromServiceResponse
+         * @property {protos.common.IStatus|null} [status] UnlinkRepoFromServiceResponse status
+         */
+
+        /**
+         * Constructs a new UnlinkRepoFromServiceResponse.
+         * @memberof protos
+         * @classdesc Represents an UnlinkRepoFromServiceResponse.
+         * @implements IUnlinkRepoFromServiceResponse
+         * @constructor
+         * @param {protos.IUnlinkRepoFromServiceResponse=} [properties] Properties to set
+         */
+        function UnlinkRepoFromServiceResponse(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * UnlinkRepoFromServiceResponse status.
+         * @member {protos.common.IStatus|null|undefined} status
+         * @memberof protos.UnlinkRepoFromServiceResponse
+         * @instance
+         */
+        UnlinkRepoFromServiceResponse.prototype.status = null;
+
+        /**
+         * Creates a new UnlinkRepoFromServiceResponse instance using the specified properties.
+         * @function create
+         * @memberof protos.UnlinkRepoFromServiceResponse
+         * @static
+         * @param {protos.IUnlinkRepoFromServiceResponse=} [properties] Properties to set
+         * @returns {protos.UnlinkRepoFromServiceResponse} UnlinkRepoFromServiceResponse instance
+         */
+        UnlinkRepoFromServiceResponse.create = function create(properties) {
+            return new UnlinkRepoFromServiceResponse(properties);
+        };
+
+        /**
+         * Encodes the specified UnlinkRepoFromServiceResponse message. Does not implicitly {@link protos.UnlinkRepoFromServiceResponse.verify|verify} messages.
+         * @function encode
+         * @memberof protos.UnlinkRepoFromServiceResponse
+         * @static
+         * @param {protos.IUnlinkRepoFromServiceResponse} message UnlinkRepoFromServiceResponse message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        UnlinkRepoFromServiceResponse.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.status != null && Object.hasOwnProperty.call(message, "status"))
+                $root.protos.common.Status.encode(message.status, writer.uint32(/* id 1000, wireType 2 =*/8002).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Encodes the specified UnlinkRepoFromServiceResponse message, length delimited. Does not implicitly {@link protos.UnlinkRepoFromServiceResponse.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.UnlinkRepoFromServiceResponse
+         * @static
+         * @param {protos.IUnlinkRepoFromServiceResponse} message UnlinkRepoFromServiceResponse message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        UnlinkRepoFromServiceResponse.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes an UnlinkRepoFromServiceResponse message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.UnlinkRepoFromServiceResponse
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.UnlinkRepoFromServiceResponse} UnlinkRepoFromServiceResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        UnlinkRepoFromServiceResponse.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.UnlinkRepoFromServiceResponse();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1000:
+                    message.status = $root.protos.common.Status.decode(reader, reader.uint32());
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes an UnlinkRepoFromServiceResponse message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.UnlinkRepoFromServiceResponse
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.UnlinkRepoFromServiceResponse} UnlinkRepoFromServiceResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        UnlinkRepoFromServiceResponse.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies an UnlinkRepoFromServiceResponse message.
+         * @function verify
+         * @memberof protos.UnlinkRepoFromServiceResponse
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        UnlinkRepoFromServiceResponse.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.status != null && message.hasOwnProperty("status")) {
+                var error = $root.protos.common.Status.verify(message.status);
+                if (error)
+                    return "status." + error;
+            }
+            return null;
+        };
+
+        /**
+         * Creates an UnlinkRepoFromServiceResponse message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.UnlinkRepoFromServiceResponse
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.UnlinkRepoFromServiceResponse} UnlinkRepoFromServiceResponse
+         */
+        UnlinkRepoFromServiceResponse.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.UnlinkRepoFromServiceResponse)
+                return object;
+            var message = new $root.protos.UnlinkRepoFromServiceResponse();
+            if (object.status != null) {
+                if (typeof object.status !== "object")
+                    throw TypeError(".protos.UnlinkRepoFromServiceResponse.status: object expected");
+                message.status = $root.protos.common.Status.fromObject(object.status);
+            }
+            return message;
+        };
+
+        /**
+         * Creates a plain object from an UnlinkRepoFromServiceResponse message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.UnlinkRepoFromServiceResponse
+         * @static
+         * @param {protos.UnlinkRepoFromServiceResponse} message UnlinkRepoFromServiceResponse
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        UnlinkRepoFromServiceResponse.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults)
+                object.status = null;
+            if (message.status != null && message.hasOwnProperty("status"))
+                object.status = $root.protos.common.Status.toObject(message.status, options);
+            return object;
+        };
+
+        /**
+         * Converts this UnlinkRepoFromServiceResponse to JSON.
+         * @function toJSON
+         * @memberof protos.UnlinkRepoFromServiceResponse
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        UnlinkRepoFromServiceResponse.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return UnlinkRepoFromServiceResponse;
     })();
 
     protos.GetServerOptionsRequest = (function() {

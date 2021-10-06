@@ -94,6 +94,14 @@ service PlumberServer {
 
     rpc DeleteService(DeleteServiceRequest) returns (DeleteServiceResponse);
 
+    rpc LinkSchemaToService(LinkSchemaToServiceRequest) returns (LinkSchemaToServiceResponse);
+
+    rpc UnlinkSchemaFromService(UnlinkSchemaFromServiceRequest) returns (UnlinkSchemaFromServiceResponse);
+
+    rpc LinkRepoToService(LinkRepoToServiceRequest) returns (LinkRepoToServiceResponse);
+
+    rpc UnlinkRepoFromService(UnlinkRepoFromServiceRequest) returns (UnlinkRepoFromServiceResponse);
+
     rpc GetServerOptions(GetServerOptionsRequest) returns (GetServerOptionsResponse);
 
     rpc SetServerOptions(SetServerOptionsRequest) returns (SetServerOptionsResponse);

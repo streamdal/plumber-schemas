@@ -12,13 +12,30 @@ message Service {
 
   string name = 2;
 
-  string repo_url = 3;
+  repeated Repository repositories = 3;
 
   string notes = 4;
 
   string owner_id = 5;
 
   repeated string used_schemas = 6;
+}
+
+message Repository {
+  enum Type {
+    UNSET = 0;
+    GITHUB = 1;
+    GITLAB = 2;
+    BITBUCKET = 3;
+  }
+
+  string _id = 1;
+
+  Type type = 2;
+
+  string organization = 3;
+
+  string name = 4;
 }
 
 message GetServiceRequest {
@@ -74,5 +91,53 @@ message DeleteServiceRequest {
 }
 
 message DeleteServiceResponse {
+  common.Status status = 1000;
+}
+
+message LinkSchemaToServiceRequest {
+  common.Auth auth = 9999;
+
+  string service_id = 1;
+
+  string schema_id = 2;
+}
+
+message LinkSchemaToServiceResponse {
+  common.Status status = 1000;
+}
+
+message UnlinkSchemaFromServiceRequest {
+  common.Auth auth = 9999;
+
+  string service_id = 1;
+
+  string schema_id = 2;
+}
+
+message UnlinkSchemaFromServiceResponse {
+  common.Status status = 1000;
+}
+
+message LinkRepoToServiceRequest {
+  common.Auth auth = 9999;
+
+  string service_id = 1;
+
+  string repo_url = 2;
+}
+
+message LinkRepoToServiceResponse {
+  common.Status status = 1000;
+}
+
+message UnlinkRepoFromServiceRequest {
+  common.Auth auth = 9999;
+
+  string service_id = 1;
+
+  string repo_id = 2;
+}
+
+message UnlinkRepoFromServiceResponse {
   common.Status status = 1000;
 }
