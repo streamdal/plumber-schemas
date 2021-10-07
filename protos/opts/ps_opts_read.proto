@@ -85,7 +85,7 @@ message ReadOptions {
     ConvertOption convert_output = 6;
 
     // @gotags: kong:"-"
-    ReadFilterOptions read_filter = 7;
+    ReadFilterOptions filter = 7;
 
     // --------------------------------------------------------------------- //
     //                          PRIVATE FIELDS (1000+)                       //
