@@ -2599,8 +2599,8 @@ export namespace protos {
             /** ReadOptions convertOutput */
             convertOutput?: (protos.opts.ConvertOption|null);
 
-            /** ReadOptions readFilter */
-            readFilter?: (protos.opts.IReadFilterOptions|null);
+            /** ReadOptions filter */
+            filter?: (protos.opts.IReadFilterOptions|null);
 
             /** ReadOptions _id */
             _id?: (string|null);
@@ -2693,8 +2693,8 @@ export namespace protos {
             /** ReadOptions convertOutput. */
             public convertOutput: protos.opts.ConvertOption;
 
-            /** ReadOptions readFilter. */
-            public readFilter?: (protos.opts.IReadFilterOptions|null);
+            /** ReadOptions filter. */
+            public filter?: (protos.opts.IReadFilterOptions|null);
 
             /** ReadOptions _id. */
             public _id: string;

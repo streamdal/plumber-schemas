@@ -5768,7 +5768,7 @@ $root.protos = (function() {
              * @property {protos.opts.IReadSampleOptions|null} [sampleOptions] ReadOptions sampleOptions
              * @property {protos.encoding.IDecodeOptions|null} [decodeOptions] ReadOptions decodeOptions
              * @property {protos.opts.ConvertOption|null} [convertOutput] ReadOptions convertOutput
-             * @property {protos.opts.IReadFilterOptions|null} [readFilter] ReadOptions readFilter
+             * @property {protos.opts.IReadFilterOptions|null} [filter] ReadOptions filter
              * @property {string|null} [_id] ReadOptions _id
              * @property {boolean|null} [_active] ReadOptions _active
              * @property {protos.opts.IReadCLIOptions|null} [_cliOptions] ReadOptions _cliOptions
@@ -5856,12 +5856,12 @@ $root.protos = (function() {
             ReadOptions.prototype.convertOutput = 0;
 
             /**
-             * ReadOptions readFilter.
-             * @member {protos.opts.IReadFilterOptions|null|undefined} readFilter
+             * ReadOptions filter.
+             * @member {protos.opts.IReadFilterOptions|null|undefined} filter
              * @memberof protos.opts.ReadOptions
              * @instance
              */
-            ReadOptions.prototype.readFilter = null;
+            ReadOptions.prototype.filter = null;
 
             /**
              * ReadOptions _id.
@@ -6067,8 +6067,8 @@ $root.protos = (function() {
                     $root.protos.encoding.DecodeOptions.encode(message.decodeOptions, writer.uint32(/* id 5, wireType 2 =*/42).fork()).ldelim();
                 if (message.convertOutput != null && Object.hasOwnProperty.call(message, "convertOutput"))
                     writer.uint32(/* id 6, wireType 0 =*/48).int32(message.convertOutput);
-                if (message.readFilter != null && Object.hasOwnProperty.call(message, "readFilter"))
-                    $root.protos.opts.ReadFilterOptions.encode(message.readFilter, writer.uint32(/* id 7, wireType 2 =*/58).fork()).ldelim();
+                if (message.filter != null && Object.hasOwnProperty.call(message, "filter"))
+                    $root.protos.opts.ReadFilterOptions.encode(message.filter, writer.uint32(/* id 7, wireType 2 =*/58).fork()).ldelim();
                 if (message.kafka != null && Object.hasOwnProperty.call(message, "kafka"))
                     $root.protos.opts.ReadGroupKafkaOptions.encode(message.kafka, writer.uint32(/* id 100, wireType 2 =*/802).fork()).ldelim();
                 if (message.activemq != null && Object.hasOwnProperty.call(message, "activemq"))
@@ -6164,7 +6164,7 @@ $root.protos = (function() {
                         message.convertOutput = reader.int32();
                         break;
                     case 7:
-                        message.readFilter = $root.protos.opts.ReadFilterOptions.decode(reader, reader.uint32());
+                        message.filter = $root.protos.opts.ReadFilterOptions.decode(reader, reader.uint32());
                         break;
                     case 1000:
                         message._id = reader.string();
@@ -6292,10 +6292,10 @@ $root.protos = (function() {
                     case 2:
                         break;
                     }
-                if (message.readFilter != null && message.hasOwnProperty("readFilter")) {
-                    var error = $root.protos.opts.ReadFilterOptions.verify(message.readFilter);
+                if (message.filter != null && message.hasOwnProperty("filter")) {
+                    var error = $root.protos.opts.ReadFilterOptions.verify(message.filter);
                     if (error)
-                        return "readFilter." + error;
+                        return "filter." + error;
                 }
                 if (message._id != null && message.hasOwnProperty("_id"))
                     if (!$util.isString(message._id))
@@ -6443,10 +6443,10 @@ $root.protos = (function() {
                     message.convertOutput = 2;
                     break;
                 }
-                if (object.readFilter != null) {
-                    if (typeof object.readFilter !== "object")
-                        throw TypeError(".protos.opts.ReadOptions.readFilter: object expected");
-                    message.readFilter = $root.protos.opts.ReadFilterOptions.fromObject(object.readFilter);
+                if (object.filter != null) {
+                    if (typeof object.filter !== "object")
+                        throw TypeError(".protos.opts.ReadOptions.filter: object expected");
+                    message.filter = $root.protos.opts.ReadFilterOptions.fromObject(object.filter);
                 }
                 if (object._id != null)
                     message._id = String(object._id);
@@ -6570,7 +6570,7 @@ $root.protos = (function() {
                     object.sampleOptions = null;
                     object.decodeOptions = null;
                     object.convertOutput = options.enums === String ? "CONVERT_OPTION_UNSET" : 0;
-                    object.readFilter = null;
+                    object.filter = null;
                     object.kafka = null;
                     object.activemq = null;
                     object.awssqs = null;
@@ -6605,8 +6605,8 @@ $root.protos = (function() {
                     object.decodeOptions = $root.protos.encoding.DecodeOptions.toObject(message.decodeOptions, options);
                 if (message.convertOutput != null && message.hasOwnProperty("convertOutput"))
                     object.convertOutput = options.enums === String ? $root.protos.opts.ConvertOption[message.convertOutput] : message.convertOutput;
-                if (message.readFilter != null && message.hasOwnProperty("readFilter"))
-                    object.readFilter = $root.protos.opts.ReadFilterOptions.toObject(message.readFilter, options);
+                if (message.filter != null && message.hasOwnProperty("filter"))
+                    object.filter = $root.protos.opts.ReadFilterOptions.toObject(message.filter, options);
                 if (message.kafka != null && message.hasOwnProperty("kafka"))
                     object.kafka = $root.protos.opts.ReadGroupKafkaOptions.toObject(message.kafka, options);
                 if (message.activemq != null && message.hasOwnProperty("activemq"))
