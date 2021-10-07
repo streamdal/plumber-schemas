@@ -5569,6 +5569,193 @@ $root.protos = (function() {
             return ReadSampleOptions;
         })();
 
+        opts.ReadFilterOptions = (function() {
+
+            /**
+             * Properties of a ReadFilterOptions.
+             * @memberof protos.opts
+             * @interface IReadFilterOptions
+             * @property {string|null} [query] ReadFilterOptions query
+             */
+
+            /**
+             * Constructs a new ReadFilterOptions.
+             * @memberof protos.opts
+             * @classdesc Represents a ReadFilterOptions.
+             * @implements IReadFilterOptions
+             * @constructor
+             * @param {protos.opts.IReadFilterOptions=} [properties] Properties to set
+             */
+            function ReadFilterOptions(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * ReadFilterOptions query.
+             * @member {string} query
+             * @memberof protos.opts.ReadFilterOptions
+             * @instance
+             */
+            ReadFilterOptions.prototype.query = "";
+
+            /**
+             * Creates a new ReadFilterOptions instance using the specified properties.
+             * @function create
+             * @memberof protos.opts.ReadFilterOptions
+             * @static
+             * @param {protos.opts.IReadFilterOptions=} [properties] Properties to set
+             * @returns {protos.opts.ReadFilterOptions} ReadFilterOptions instance
+             */
+            ReadFilterOptions.create = function create(properties) {
+                return new ReadFilterOptions(properties);
+            };
+
+            /**
+             * Encodes the specified ReadFilterOptions message. Does not implicitly {@link protos.opts.ReadFilterOptions.verify|verify} messages.
+             * @function encode
+             * @memberof protos.opts.ReadFilterOptions
+             * @static
+             * @param {protos.opts.IReadFilterOptions} message ReadFilterOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            ReadFilterOptions.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.query != null && Object.hasOwnProperty.call(message, "query"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.query);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified ReadFilterOptions message, length delimited. Does not implicitly {@link protos.opts.ReadFilterOptions.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.opts.ReadFilterOptions
+             * @static
+             * @param {protos.opts.IReadFilterOptions} message ReadFilterOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            ReadFilterOptions.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a ReadFilterOptions message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.opts.ReadFilterOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.opts.ReadFilterOptions} ReadFilterOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            ReadFilterOptions.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.ReadFilterOptions();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.query = reader.string();
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a ReadFilterOptions message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.opts.ReadFilterOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.opts.ReadFilterOptions} ReadFilterOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            ReadFilterOptions.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a ReadFilterOptions message.
+             * @function verify
+             * @memberof protos.opts.ReadFilterOptions
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            ReadFilterOptions.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.query != null && message.hasOwnProperty("query"))
+                    if (!$util.isString(message.query))
+                        return "query: string expected";
+                return null;
+            };
+
+            /**
+             * Creates a ReadFilterOptions message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.opts.ReadFilterOptions
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.opts.ReadFilterOptions} ReadFilterOptions
+             */
+            ReadFilterOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.ReadFilterOptions)
+                    return object;
+                var message = new $root.protos.opts.ReadFilterOptions();
+                if (object.query != null)
+                    message.query = String(object.query);
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a ReadFilterOptions message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.opts.ReadFilterOptions
+             * @static
+             * @param {protos.opts.ReadFilterOptions} message ReadFilterOptions
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            ReadFilterOptions.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults)
+                    object.query = "";
+                if (message.query != null && message.hasOwnProperty("query"))
+                    object.query = message.query;
+                return object;
+            };
+
+            /**
+             * Converts this ReadFilterOptions to JSON.
+             * @function toJSON
+             * @memberof protos.opts.ReadFilterOptions
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            ReadFilterOptions.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return ReadFilterOptions;
+        })();
+
         opts.ReadOptions = (function() {
 
             /**
@@ -5581,6 +5768,7 @@ $root.protos = (function() {
              * @property {protos.opts.IReadSampleOptions|null} [sampleOptions] ReadOptions sampleOptions
              * @property {protos.encoding.IDecodeOptions|null} [decodeOptions] ReadOptions decodeOptions
              * @property {protos.opts.ConvertOption|null} [convertOutput] ReadOptions convertOutput
+             * @property {protos.opts.IReadFilterOptions|null} [filter] ReadOptions filter
              * @property {string|null} [_id] ReadOptions _id
              * @property {boolean|null} [_active] ReadOptions _active
              * @property {protos.opts.IReadCLIOptions|null} [_cliOptions] ReadOptions _cliOptions
@@ -5666,6 +5854,14 @@ $root.protos = (function() {
              * @instance
              */
             ReadOptions.prototype.convertOutput = 0;
+
+            /**
+             * ReadOptions filter.
+             * @member {protos.opts.IReadFilterOptions|null|undefined} filter
+             * @memberof protos.opts.ReadOptions
+             * @instance
+             */
+            ReadOptions.prototype.filter = null;
 
             /**
              * ReadOptions _id.
@@ -5871,6 +6067,8 @@ $root.protos = (function() {
                     $root.protos.encoding.DecodeOptions.encode(message.decodeOptions, writer.uint32(/* id 5, wireType 2 =*/42).fork()).ldelim();
                 if (message.convertOutput != null && Object.hasOwnProperty.call(message, "convertOutput"))
                     writer.uint32(/* id 6, wireType 0 =*/48).int32(message.convertOutput);
+                if (message.filter != null && Object.hasOwnProperty.call(message, "filter"))
+                    $root.protos.opts.ReadFilterOptions.encode(message.filter, writer.uint32(/* id 7, wireType 2 =*/58).fork()).ldelim();
                 if (message.kafka != null && Object.hasOwnProperty.call(message, "kafka"))
                     $root.protos.opts.ReadGroupKafkaOptions.encode(message.kafka, writer.uint32(/* id 100, wireType 2 =*/802).fork()).ldelim();
                 if (message.activemq != null && Object.hasOwnProperty.call(message, "activemq"))
@@ -5964,6 +6162,9 @@ $root.protos = (function() {
                         break;
                     case 6:
                         message.convertOutput = reader.int32();
+                        break;
+                    case 7:
+                        message.filter = $root.protos.opts.ReadFilterOptions.decode(reader, reader.uint32());
                         break;
                     case 1000:
                         message._id = reader.string();
@@ -6091,6 +6292,11 @@ $root.protos = (function() {
                     case 2:
                         break;
                     }
+                if (message.filter != null && message.hasOwnProperty("filter")) {
+                    var error = $root.protos.opts.ReadFilterOptions.verify(message.filter);
+                    if (error)
+                        return "filter." + error;
+                }
                 if (message._id != null && message.hasOwnProperty("_id"))
                     if (!$util.isString(message._id))
                         return "_id: string expected";
@@ -6237,6 +6443,11 @@ $root.protos = (function() {
                     message.convertOutput = 2;
                     break;
                 }
+                if (object.filter != null) {
+                    if (typeof object.filter !== "object")
+                        throw TypeError(".protos.opts.ReadOptions.filter: object expected");
+                    message.filter = $root.protos.opts.ReadFilterOptions.fromObject(object.filter);
+                }
                 if (object._id != null)
                     message._id = String(object._id);
                 if (object._active != null)
@@ -6359,6 +6570,7 @@ $root.protos = (function() {
                     object.sampleOptions = null;
                     object.decodeOptions = null;
                     object.convertOutput = options.enums === String ? "CONVERT_OPTION_UNSET" : 0;
+                    object.filter = null;
                     object.kafka = null;
                     object.activemq = null;
                     object.awssqs = null;
@@ -6393,6 +6605,8 @@ $root.protos = (function() {
                     object.decodeOptions = $root.protos.encoding.DecodeOptions.toObject(message.decodeOptions, options);
                 if (message.convertOutput != null && message.hasOwnProperty("convertOutput"))
                     object.convertOutput = options.enums === String ? $root.protos.opts.ConvertOption[message.convertOutput] : message.convertOutput;
+                if (message.filter != null && message.hasOwnProperty("filter"))
+                    object.filter = $root.protos.opts.ReadFilterOptions.toObject(message.filter, options);
                 if (message.kafka != null && message.hasOwnProperty("kafka"))
                     object.kafka = $root.protos.opts.ReadGroupKafkaOptions.toObject(message.kafka, options);
                 if (message.activemq != null && message.hasOwnProperty("activemq"))
