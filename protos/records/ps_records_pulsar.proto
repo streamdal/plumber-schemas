@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package protos.records;
+
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/records";
+
+message Pulsar {
+    string id = 1;
+    string key = 2;
+    string topic = 3;
+    map<string,string> properties = 4;
+    uint32 redelivery_count = 5;
+    string event_time = 6;
+    bool is_replicated = 7;
+    string ordering_key = 8;
+    string producer_name = 9;
+    string publish_time = 10;
+    int64 timestamp = 11;
+    bytes value = 12;
+}

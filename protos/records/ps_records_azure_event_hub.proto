@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package protos.records;
+
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/records";
+
+message AzureEventHub {
+    string id = 1;
+    map<string,string> system_properties = 2;
+    int64 timestamp = 3;
+    bytes value = 4;
+}

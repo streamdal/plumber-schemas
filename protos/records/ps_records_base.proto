@@ -4,6 +4,24 @@ syntax = "proto3";
 package protos.records;
 
 import "records/ps_records_kafka.proto";
+import "records/ps_records_rabbit.proto";
+import "records/ps_records_activemq.proto";
+import "records/ps_records_aws_sqs.proto";
+import "records/ps_records_azure_event_hub.proto";
+import "records/ps_records_azure_service_bus.proto";
+import "records/ps_records_gcp_pubsub.proto";
+import "records/ps_records_kubemq.proto";
+import "records/ps_records_mongo.proto";
+import "records/ps_records_mqtt.proto";
+import "records/ps_records_nats.proto";
+import "records/ps_records_nats_streaming.proto";
+import "records/ps_records_nsq.proto";
+import "records/ps_records_postgres.proto";
+import "records/ps_records_pulsar.proto";
+import "records/ps_records_rabbit_streams.proto";
+import "records/ps_records_redis_pubsub.proto";
+import "records/ps_records_redis_streams.proto";
+
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/records";
 
@@ -40,6 +58,23 @@ message ReadRecord {
 
     oneof Record {
         records.Kafka kafka = 100;
+        records.Rabbit rabbit = 101;
+        records.ActiveMQ activemq = 102;
+        records.AWSSQS awssqs = 103;
+        records.AzureEventHub azure_event_hub = 104;
+        records.AzureServiceBus azure_service_bus = 105;
+        records.GCPPubSub gcp_pubsub = 106;
+        records.KubeMQ kubemq = 107;
+        records.Mongo mongo = 108;
+        records.MQTT mqtt = 109;
+        records.Nats nats = 110;
+        records.NatsStreaming nats_streaming = 111;
+        records.NSQ nsq = 112;
+        records.Postgres postgres = 113;
+        records.Pulsar pulsar = 114;
+        records.RabbitStreams rabbit_streams = 115;
+        records.RedisPubsub redis_pubsub = 116;
+        records.RedisStreams redis_streams = 117;
     }
 
     // --------------------------------------------------------------------- //
