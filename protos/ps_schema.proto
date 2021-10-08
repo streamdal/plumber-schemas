@@ -24,6 +24,7 @@ message Schema {
     oneof settings {
         encoding.ProtobufSettings protobuf_settings = 100;
         encoding.AvroSettings avro_settings = 101;
+        encoding.JSONSchemaSettings json_schema_settings = 102;
     }
 }
 
@@ -31,6 +32,7 @@ enum SchemaType {
     SCHEMA_TYPE_UNSET = 0;
     SCHEMA_TYPE_PROTOBUF = 1;
     SCHEMA_TYPE_AVRO = 2;
+    SCHEMA_TYPE_JSONSCHEMA = 3;
 }
 
 message GetSchemaRequest {
@@ -66,6 +68,7 @@ message ImportGithubRequest {
     oneof settings {
         encoding.ProtobufSettings protobuf_settings = 100;
         encoding.AvroSettings avro_settings = 101;
+        encoding.JSONSchemaSettings json_schema_settings = 102;
     }
 }
 
@@ -83,11 +86,14 @@ message ImportLocalRequest {
 
     SchemaType type = 2;
 
-    bytes zip_archive = 3;
+    bytes file_contents = 3;
+
+    string file_name = 4;
 
     oneof settings {
         encoding.ProtobufSettings protobuf_settings = 100;
         encoding.AvroSettings avro_settings = 101;
+        encoding.JSONSchemaSettings json_schema_settings = 102;
     }
 }
 

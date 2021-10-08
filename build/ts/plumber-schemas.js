@@ -47028,6 +47028,202 @@ $root.protos = (function() {
             return AvroSettings;
         })();
 
+        encoding.JSONSchemaSettings = (function() {
+
+            /**
+             * Properties of a JSONSchemaSettings.
+             * @memberof protos.encoding
+             * @interface IJSONSchemaSettings
+             * @property {Uint8Array|null} [schema] JSONSchemaSettings schema
+             */
+
+            /**
+             * Constructs a new JSONSchemaSettings.
+             * @memberof protos.encoding
+             * @classdesc Represents a JSONSchemaSettings.
+             * @implements IJSONSchemaSettings
+             * @constructor
+             * @param {protos.encoding.IJSONSchemaSettings=} [properties] Properties to set
+             */
+            function JSONSchemaSettings(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * JSONSchemaSettings schema.
+             * @member {Uint8Array} schema
+             * @memberof protos.encoding.JSONSchemaSettings
+             * @instance
+             */
+            JSONSchemaSettings.prototype.schema = $util.newBuffer([]);
+
+            /**
+             * Creates a new JSONSchemaSettings instance using the specified properties.
+             * @function create
+             * @memberof protos.encoding.JSONSchemaSettings
+             * @static
+             * @param {protos.encoding.IJSONSchemaSettings=} [properties] Properties to set
+             * @returns {protos.encoding.JSONSchemaSettings} JSONSchemaSettings instance
+             */
+            JSONSchemaSettings.create = function create(properties) {
+                return new JSONSchemaSettings(properties);
+            };
+
+            /**
+             * Encodes the specified JSONSchemaSettings message. Does not implicitly {@link protos.encoding.JSONSchemaSettings.verify|verify} messages.
+             * @function encode
+             * @memberof protos.encoding.JSONSchemaSettings
+             * @static
+             * @param {protos.encoding.IJSONSchemaSettings} message JSONSchemaSettings message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            JSONSchemaSettings.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.schema != null && Object.hasOwnProperty.call(message, "schema"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).bytes(message.schema);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified JSONSchemaSettings message, length delimited. Does not implicitly {@link protos.encoding.JSONSchemaSettings.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.encoding.JSONSchemaSettings
+             * @static
+             * @param {protos.encoding.IJSONSchemaSettings} message JSONSchemaSettings message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            JSONSchemaSettings.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a JSONSchemaSettings message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.encoding.JSONSchemaSettings
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.encoding.JSONSchemaSettings} JSONSchemaSettings
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            JSONSchemaSettings.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.encoding.JSONSchemaSettings();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.schema = reader.bytes();
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a JSONSchemaSettings message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.encoding.JSONSchemaSettings
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.encoding.JSONSchemaSettings} JSONSchemaSettings
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            JSONSchemaSettings.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a JSONSchemaSettings message.
+             * @function verify
+             * @memberof protos.encoding.JSONSchemaSettings
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            JSONSchemaSettings.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.schema != null && message.hasOwnProperty("schema"))
+                    if (!(message.schema && typeof message.schema.length === "number" || $util.isString(message.schema)))
+                        return "schema: buffer expected";
+                return null;
+            };
+
+            /**
+             * Creates a JSONSchemaSettings message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.encoding.JSONSchemaSettings
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.encoding.JSONSchemaSettings} JSONSchemaSettings
+             */
+            JSONSchemaSettings.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.encoding.JSONSchemaSettings)
+                    return object;
+                var message = new $root.protos.encoding.JSONSchemaSettings();
+                if (object.schema != null)
+                    if (typeof object.schema === "string")
+                        $util.base64.decode(object.schema, message.schema = $util.newBuffer($util.base64.length(object.schema)), 0);
+                    else if (object.schema.length)
+                        message.schema = object.schema;
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a JSONSchemaSettings message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.encoding.JSONSchemaSettings
+             * @static
+             * @param {protos.encoding.JSONSchemaSettings} message JSONSchemaSettings
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            JSONSchemaSettings.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults)
+                    if (options.bytes === String)
+                        object.schema = "";
+                    else {
+                        object.schema = [];
+                        if (options.bytes !== Array)
+                            object.schema = $util.newBuffer(object.schema);
+                    }
+                if (message.schema != null && message.hasOwnProperty("schema"))
+                    object.schema = options.bytes === String ? $util.base64.encode(message.schema, 0, message.schema.length) : options.bytes === Array ? Array.prototype.slice.call(message.schema) : message.schema;
+                return object;
+            };
+
+            /**
+             * Converts this JSONSchemaSettings to JSON.
+             * @function toJSON
+             * @memberof protos.encoding.JSONSchemaSettings
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            JSONSchemaSettings.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return JSONSchemaSettings;
+        })();
+
         encoding.EncodeOptions = (function() {
 
             /**
@@ -50982,6 +51178,7 @@ $root.protos = (function() {
          * @property {Object.<string,string>|null} [files] Schema files
          * @property {protos.encoding.IProtobufSettings|null} [protobufSettings] Schema protobufSettings
          * @property {protos.encoding.IAvroSettings|null} [avroSettings] Schema avroSettings
+         * @property {protos.encoding.IJSONSchemaSettings|null} [jsonSchemaSettings] Schema jsonSchemaSettings
          */
 
         /**
@@ -51048,17 +51245,25 @@ $root.protos = (function() {
          */
         Schema.prototype.avroSettings = null;
 
+        /**
+         * Schema jsonSchemaSettings.
+         * @member {protos.encoding.IJSONSchemaSettings|null|undefined} jsonSchemaSettings
+         * @memberof protos.Schema
+         * @instance
+         */
+        Schema.prototype.jsonSchemaSettings = null;
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
         /**
          * Schema settings.
-         * @member {"protobufSettings"|"avroSettings"|undefined} settings
+         * @member {"protobufSettings"|"avroSettings"|"jsonSchemaSettings"|undefined} settings
          * @memberof protos.Schema
          * @instance
          */
         Object.defineProperty(Schema.prototype, "settings", {
-            get: $util.oneOfGetter($oneOfFields = ["protobufSettings", "avroSettings"]),
+            get: $util.oneOfGetter($oneOfFields = ["protobufSettings", "avroSettings", "jsonSchemaSettings"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
@@ -51099,6 +51304,8 @@ $root.protos = (function() {
                 $root.protos.encoding.ProtobufSettings.encode(message.protobufSettings, writer.uint32(/* id 100, wireType 2 =*/802).fork()).ldelim();
             if (message.avroSettings != null && Object.hasOwnProperty.call(message, "avroSettings"))
                 $root.protos.encoding.AvroSettings.encode(message.avroSettings, writer.uint32(/* id 101, wireType 2 =*/810).fork()).ldelim();
+            if (message.jsonSchemaSettings != null && Object.hasOwnProperty.call(message, "jsonSchemaSettings"))
+                $root.protos.encoding.JSONSchemaSettings.encode(message.jsonSchemaSettings, writer.uint32(/* id 102, wireType 2 =*/818).fork()).ldelim();
             return writer;
         };
 
@@ -51170,6 +51377,9 @@ $root.protos = (function() {
                 case 101:
                     message.avroSettings = $root.protos.encoding.AvroSettings.decode(reader, reader.uint32());
                     break;
+                case 102:
+                    message.jsonSchemaSettings = $root.protos.encoding.JSONSchemaSettings.decode(reader, reader.uint32());
+                    break;
                 default:
                     reader.skipType(tag & 7);
                     break;
@@ -51219,6 +51429,7 @@ $root.protos = (function() {
                 case 0:
                 case 1:
                 case 2:
+                case 3:
                     break;
                 }
             if (message.files != null && message.hasOwnProperty("files")) {
@@ -51245,6 +51456,16 @@ $root.protos = (function() {
                     var error = $root.protos.encoding.AvroSettings.verify(message.avroSettings);
                     if (error)
                         return "avroSettings." + error;
+                }
+            }
+            if (message.jsonSchemaSettings != null && message.hasOwnProperty("jsonSchemaSettings")) {
+                if (properties.settings === 1)
+                    return "settings: multiple values";
+                properties.settings = 1;
+                {
+                    var error = $root.protos.encoding.JSONSchemaSettings.verify(message.jsonSchemaSettings);
+                    if (error)
+                        return "jsonSchemaSettings." + error;
                 }
             }
             return null;
@@ -51279,6 +51500,10 @@ $root.protos = (function() {
             case 2:
                 message.type = 2;
                 break;
+            case "SCHEMA_TYPE_JSONSCHEMA":
+            case 3:
+                message.type = 3;
+                break;
             }
             if (object.files) {
                 if (typeof object.files !== "object")
@@ -51296,6 +51521,11 @@ $root.protos = (function() {
                 if (typeof object.avroSettings !== "object")
                     throw TypeError(".protos.Schema.avroSettings: object expected");
                 message.avroSettings = $root.protos.encoding.AvroSettings.fromObject(object.avroSettings);
+            }
+            if (object.jsonSchemaSettings != null) {
+                if (typeof object.jsonSchemaSettings !== "object")
+                    throw TypeError(".protos.Schema.jsonSchemaSettings: object expected");
+                message.jsonSchemaSettings = $root.protos.encoding.JSONSchemaSettings.fromObject(object.jsonSchemaSettings);
             }
             return message;
         };
@@ -51342,6 +51572,11 @@ $root.protos = (function() {
                 if (options.oneofs)
                     object.settings = "avroSettings";
             }
+            if (message.jsonSchemaSettings != null && message.hasOwnProperty("jsonSchemaSettings")) {
+                object.jsonSchemaSettings = $root.protos.encoding.JSONSchemaSettings.toObject(message.jsonSchemaSettings, options);
+                if (options.oneofs)
+                    object.settings = "jsonSchemaSettings";
+            }
             return object;
         };
 
@@ -51366,12 +51601,14 @@ $root.protos = (function() {
      * @property {number} SCHEMA_TYPE_UNSET=0 SCHEMA_TYPE_UNSET value
      * @property {number} SCHEMA_TYPE_PROTOBUF=1 SCHEMA_TYPE_PROTOBUF value
      * @property {number} SCHEMA_TYPE_AVRO=2 SCHEMA_TYPE_AVRO value
+     * @property {number} SCHEMA_TYPE_JSONSCHEMA=3 SCHEMA_TYPE_JSONSCHEMA value
      */
     protos.SchemaType = (function() {
         var valuesById = {}, values = Object.create(valuesById);
         values[valuesById[0] = "SCHEMA_TYPE_UNSET"] = 0;
         values[valuesById[1] = "SCHEMA_TYPE_PROTOBUF"] = 1;
         values[valuesById[2] = "SCHEMA_TYPE_AVRO"] = 2;
+        values[valuesById[3] = "SCHEMA_TYPE_JSONSCHEMA"] = 3;
         return values;
     })();
 
@@ -52194,6 +52431,7 @@ $root.protos = (function() {
          * @property {string|null} [githubUrl] ImportGithubRequest githubUrl
          * @property {protos.encoding.IProtobufSettings|null} [protobufSettings] ImportGithubRequest protobufSettings
          * @property {protos.encoding.IAvroSettings|null} [avroSettings] ImportGithubRequest avroSettings
+         * @property {protos.encoding.IJSONSchemaSettings|null} [jsonSchemaSettings] ImportGithubRequest jsonSchemaSettings
          */
 
         /**
@@ -52259,17 +52497,25 @@ $root.protos = (function() {
          */
         ImportGithubRequest.prototype.avroSettings = null;
 
+        /**
+         * ImportGithubRequest jsonSchemaSettings.
+         * @member {protos.encoding.IJSONSchemaSettings|null|undefined} jsonSchemaSettings
+         * @memberof protos.ImportGithubRequest
+         * @instance
+         */
+        ImportGithubRequest.prototype.jsonSchemaSettings = null;
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
         /**
          * ImportGithubRequest settings.
-         * @member {"protobufSettings"|"avroSettings"|undefined} settings
+         * @member {"protobufSettings"|"avroSettings"|"jsonSchemaSettings"|undefined} settings
          * @memberof protos.ImportGithubRequest
          * @instance
          */
         Object.defineProperty(ImportGithubRequest.prototype, "settings", {
-            get: $util.oneOfGetter($oneOfFields = ["protobufSettings", "avroSettings"]),
+            get: $util.oneOfGetter($oneOfFields = ["protobufSettings", "avroSettings", "jsonSchemaSettings"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
@@ -52307,6 +52553,8 @@ $root.protos = (function() {
                 $root.protos.encoding.ProtobufSettings.encode(message.protobufSettings, writer.uint32(/* id 100, wireType 2 =*/802).fork()).ldelim();
             if (message.avroSettings != null && Object.hasOwnProperty.call(message, "avroSettings"))
                 $root.protos.encoding.AvroSettings.encode(message.avroSettings, writer.uint32(/* id 101, wireType 2 =*/810).fork()).ldelim();
+            if (message.jsonSchemaSettings != null && Object.hasOwnProperty.call(message, "jsonSchemaSettings"))
+                $root.protos.encoding.JSONSchemaSettings.encode(message.jsonSchemaSettings, writer.uint32(/* id 102, wireType 2 =*/818).fork()).ldelim();
             if (message.auth != null && Object.hasOwnProperty.call(message, "auth"))
                 $root.protos.common.Auth.encode(message.auth, writer.uint32(/* id 9999, wireType 2 =*/79994).fork()).ldelim();
             return writer;
@@ -52361,6 +52609,9 @@ $root.protos = (function() {
                 case 101:
                     message.avroSettings = $root.protos.encoding.AvroSettings.decode(reader, reader.uint32());
                     break;
+                case 102:
+                    message.jsonSchemaSettings = $root.protos.encoding.JSONSchemaSettings.decode(reader, reader.uint32());
+                    break;
                 default:
                     reader.skipType(tag & 7);
                     break;
@@ -52412,6 +52663,7 @@ $root.protos = (function() {
                 case 0:
                 case 1:
                 case 2:
+                case 3:
                     break;
                 }
             if (message.githubUrl != null && message.hasOwnProperty("githubUrl"))
@@ -52433,6 +52685,16 @@ $root.protos = (function() {
                     var error = $root.protos.encoding.AvroSettings.verify(message.avroSettings);
                     if (error)
                         return "avroSettings." + error;
+                }
+            }
+            if (message.jsonSchemaSettings != null && message.hasOwnProperty("jsonSchemaSettings")) {
+                if (properties.settings === 1)
+                    return "settings: multiple values";
+                properties.settings = 1;
+                {
+                    var error = $root.protos.encoding.JSONSchemaSettings.verify(message.jsonSchemaSettings);
+                    if (error)
+                        return "jsonSchemaSettings." + error;
                 }
             }
             return null;
@@ -52470,6 +52732,10 @@ $root.protos = (function() {
             case 2:
                 message.type = 2;
                 break;
+            case "SCHEMA_TYPE_JSONSCHEMA":
+            case 3:
+                message.type = 3;
+                break;
             }
             if (object.githubUrl != null)
                 message.githubUrl = String(object.githubUrl);
@@ -52482,6 +52748,11 @@ $root.protos = (function() {
                 if (typeof object.avroSettings !== "object")
                     throw TypeError(".protos.ImportGithubRequest.avroSettings: object expected");
                 message.avroSettings = $root.protos.encoding.AvroSettings.fromObject(object.avroSettings);
+            }
+            if (object.jsonSchemaSettings != null) {
+                if (typeof object.jsonSchemaSettings !== "object")
+                    throw TypeError(".protos.ImportGithubRequest.jsonSchemaSettings: object expected");
+                message.jsonSchemaSettings = $root.protos.encoding.JSONSchemaSettings.fromObject(object.jsonSchemaSettings);
             }
             return message;
         };
@@ -52520,6 +52791,11 @@ $root.protos = (function() {
                 object.avroSettings = $root.protos.encoding.AvroSettings.toObject(message.avroSettings, options);
                 if (options.oneofs)
                     object.settings = "avroSettings";
+            }
+            if (message.jsonSchemaSettings != null && message.hasOwnProperty("jsonSchemaSettings")) {
+                object.jsonSchemaSettings = $root.protos.encoding.JSONSchemaSettings.toObject(message.jsonSchemaSettings, options);
+                if (options.oneofs)
+                    object.settings = "jsonSchemaSettings";
             }
             if (message.auth != null && message.hasOwnProperty("auth"))
                 object.auth = $root.protos.common.Auth.toObject(message.auth, options);
@@ -52764,9 +53040,11 @@ $root.protos = (function() {
          * @property {protos.common.IAuth|null} [auth] ImportLocalRequest auth
          * @property {string|null} [name] ImportLocalRequest name
          * @property {protos.SchemaType|null} [type] ImportLocalRequest type
-         * @property {Uint8Array|null} [zipArchive] ImportLocalRequest zipArchive
+         * @property {Uint8Array|null} [fileContents] ImportLocalRequest fileContents
+         * @property {string|null} [fileName] ImportLocalRequest fileName
          * @property {protos.encoding.IProtobufSettings|null} [protobufSettings] ImportLocalRequest protobufSettings
          * @property {protos.encoding.IAvroSettings|null} [avroSettings] ImportLocalRequest avroSettings
+         * @property {protos.encoding.IJSONSchemaSettings|null} [jsonSchemaSettings] ImportLocalRequest jsonSchemaSettings
          */
 
         /**
@@ -52809,12 +53087,20 @@ $root.protos = (function() {
         ImportLocalRequest.prototype.type = 0;
 
         /**
-         * ImportLocalRequest zipArchive.
-         * @member {Uint8Array} zipArchive
+         * ImportLocalRequest fileContents.
+         * @member {Uint8Array} fileContents
          * @memberof protos.ImportLocalRequest
          * @instance
          */
-        ImportLocalRequest.prototype.zipArchive = $util.newBuffer([]);
+        ImportLocalRequest.prototype.fileContents = $util.newBuffer([]);
+
+        /**
+         * ImportLocalRequest fileName.
+         * @member {string} fileName
+         * @memberof protos.ImportLocalRequest
+         * @instance
+         */
+        ImportLocalRequest.prototype.fileName = "";
 
         /**
          * ImportLocalRequest protobufSettings.
@@ -52832,17 +53118,25 @@ $root.protos = (function() {
          */
         ImportLocalRequest.prototype.avroSettings = null;
 
+        /**
+         * ImportLocalRequest jsonSchemaSettings.
+         * @member {protos.encoding.IJSONSchemaSettings|null|undefined} jsonSchemaSettings
+         * @memberof protos.ImportLocalRequest
+         * @instance
+         */
+        ImportLocalRequest.prototype.jsonSchemaSettings = null;
+
         // OneOf field names bound to virtual getters and setters
         var $oneOfFields;
 
         /**
          * ImportLocalRequest settings.
-         * @member {"protobufSettings"|"avroSettings"|undefined} settings
+         * @member {"protobufSettings"|"avroSettings"|"jsonSchemaSettings"|undefined} settings
          * @memberof protos.ImportLocalRequest
          * @instance
          */
         Object.defineProperty(ImportLocalRequest.prototype, "settings", {
-            get: $util.oneOfGetter($oneOfFields = ["protobufSettings", "avroSettings"]),
+            get: $util.oneOfGetter($oneOfFields = ["protobufSettings", "avroSettings", "jsonSchemaSettings"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
@@ -52874,12 +53168,16 @@ $root.protos = (function() {
                 writer.uint32(/* id 1, wireType 2 =*/10).string(message.name);
             if (message.type != null && Object.hasOwnProperty.call(message, "type"))
                 writer.uint32(/* id 2, wireType 0 =*/16).int32(message.type);
-            if (message.zipArchive != null && Object.hasOwnProperty.call(message, "zipArchive"))
-                writer.uint32(/* id 3, wireType 2 =*/26).bytes(message.zipArchive);
+            if (message.fileContents != null && Object.hasOwnProperty.call(message, "fileContents"))
+                writer.uint32(/* id 3, wireType 2 =*/26).bytes(message.fileContents);
+            if (message.fileName != null && Object.hasOwnProperty.call(message, "fileName"))
+                writer.uint32(/* id 4, wireType 2 =*/34).string(message.fileName);
             if (message.protobufSettings != null && Object.hasOwnProperty.call(message, "protobufSettings"))
                 $root.protos.encoding.ProtobufSettings.encode(message.protobufSettings, writer.uint32(/* id 100, wireType 2 =*/802).fork()).ldelim();
             if (message.avroSettings != null && Object.hasOwnProperty.call(message, "avroSettings"))
                 $root.protos.encoding.AvroSettings.encode(message.avroSettings, writer.uint32(/* id 101, wireType 2 =*/810).fork()).ldelim();
+            if (message.jsonSchemaSettings != null && Object.hasOwnProperty.call(message, "jsonSchemaSettings"))
+                $root.protos.encoding.JSONSchemaSettings.encode(message.jsonSchemaSettings, writer.uint32(/* id 102, wireType 2 =*/818).fork()).ldelim();
             if (message.auth != null && Object.hasOwnProperty.call(message, "auth"))
                 $root.protos.common.Auth.encode(message.auth, writer.uint32(/* id 9999, wireType 2 =*/79994).fork()).ldelim();
             return writer;
@@ -52926,13 +53224,19 @@ $root.protos = (function() {
                     message.type = reader.int32();
                     break;
                 case 3:
-                    message.zipArchive = reader.bytes();
+                    message.fileContents = reader.bytes();
+                    break;
+                case 4:
+                    message.fileName = reader.string();
                     break;
                 case 100:
                     message.protobufSettings = $root.protos.encoding.ProtobufSettings.decode(reader, reader.uint32());
                     break;
                 case 101:
                     message.avroSettings = $root.protos.encoding.AvroSettings.decode(reader, reader.uint32());
+                    break;
+                case 102:
+                    message.jsonSchemaSettings = $root.protos.encoding.JSONSchemaSettings.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -52985,11 +53289,15 @@ $root.protos = (function() {
                 case 0:
                 case 1:
                 case 2:
+                case 3:
                     break;
                 }
-            if (message.zipArchive != null && message.hasOwnProperty("zipArchive"))
-                if (!(message.zipArchive && typeof message.zipArchive.length === "number" || $util.isString(message.zipArchive)))
-                    return "zipArchive: buffer expected";
+            if (message.fileContents != null && message.hasOwnProperty("fileContents"))
+                if (!(message.fileContents && typeof message.fileContents.length === "number" || $util.isString(message.fileContents)))
+                    return "fileContents: buffer expected";
+            if (message.fileName != null && message.hasOwnProperty("fileName"))
+                if (!$util.isString(message.fileName))
+                    return "fileName: string expected";
             if (message.protobufSettings != null && message.hasOwnProperty("protobufSettings")) {
                 properties.settings = 1;
                 {
@@ -53006,6 +53314,16 @@ $root.protos = (function() {
                     var error = $root.protos.encoding.AvroSettings.verify(message.avroSettings);
                     if (error)
                         return "avroSettings." + error;
+                }
+            }
+            if (message.jsonSchemaSettings != null && message.hasOwnProperty("jsonSchemaSettings")) {
+                if (properties.settings === 1)
+                    return "settings: multiple values";
+                properties.settings = 1;
+                {
+                    var error = $root.protos.encoding.JSONSchemaSettings.verify(message.jsonSchemaSettings);
+                    if (error)
+                        return "jsonSchemaSettings." + error;
                 }
             }
             return null;
@@ -53043,12 +53361,18 @@ $root.protos = (function() {
             case 2:
                 message.type = 2;
                 break;
+            case "SCHEMA_TYPE_JSONSCHEMA":
+            case 3:
+                message.type = 3;
+                break;
             }
-            if (object.zipArchive != null)
-                if (typeof object.zipArchive === "string")
-                    $util.base64.decode(object.zipArchive, message.zipArchive = $util.newBuffer($util.base64.length(object.zipArchive)), 0);
-                else if (object.zipArchive.length)
-                    message.zipArchive = object.zipArchive;
+            if (object.fileContents != null)
+                if (typeof object.fileContents === "string")
+                    $util.base64.decode(object.fileContents, message.fileContents = $util.newBuffer($util.base64.length(object.fileContents)), 0);
+                else if (object.fileContents.length)
+                    message.fileContents = object.fileContents;
+            if (object.fileName != null)
+                message.fileName = String(object.fileName);
             if (object.protobufSettings != null) {
                 if (typeof object.protobufSettings !== "object")
                     throw TypeError(".protos.ImportLocalRequest.protobufSettings: object expected");
@@ -53058,6 +53382,11 @@ $root.protos = (function() {
                 if (typeof object.avroSettings !== "object")
                     throw TypeError(".protos.ImportLocalRequest.avroSettings: object expected");
                 message.avroSettings = $root.protos.encoding.AvroSettings.fromObject(object.avroSettings);
+            }
+            if (object.jsonSchemaSettings != null) {
+                if (typeof object.jsonSchemaSettings !== "object")
+                    throw TypeError(".protos.ImportLocalRequest.jsonSchemaSettings: object expected");
+                message.jsonSchemaSettings = $root.protos.encoding.JSONSchemaSettings.fromObject(object.jsonSchemaSettings);
             }
             return message;
         };
@@ -53079,20 +53408,23 @@ $root.protos = (function() {
                 object.name = "";
                 object.type = options.enums === String ? "SCHEMA_TYPE_UNSET" : 0;
                 if (options.bytes === String)
-                    object.zipArchive = "";
+                    object.fileContents = "";
                 else {
-                    object.zipArchive = [];
+                    object.fileContents = [];
                     if (options.bytes !== Array)
-                        object.zipArchive = $util.newBuffer(object.zipArchive);
+                        object.fileContents = $util.newBuffer(object.fileContents);
                 }
+                object.fileName = "";
                 object.auth = null;
             }
             if (message.name != null && message.hasOwnProperty("name"))
                 object.name = message.name;
             if (message.type != null && message.hasOwnProperty("type"))
                 object.type = options.enums === String ? $root.protos.SchemaType[message.type] : message.type;
-            if (message.zipArchive != null && message.hasOwnProperty("zipArchive"))
-                object.zipArchive = options.bytes === String ? $util.base64.encode(message.zipArchive, 0, message.zipArchive.length) : options.bytes === Array ? Array.prototype.slice.call(message.zipArchive) : message.zipArchive;
+            if (message.fileContents != null && message.hasOwnProperty("fileContents"))
+                object.fileContents = options.bytes === String ? $util.base64.encode(message.fileContents, 0, message.fileContents.length) : options.bytes === Array ? Array.prototype.slice.call(message.fileContents) : message.fileContents;
+            if (message.fileName != null && message.hasOwnProperty("fileName"))
+                object.fileName = message.fileName;
             if (message.protobufSettings != null && message.hasOwnProperty("protobufSettings")) {
                 object.protobufSettings = $root.protos.encoding.ProtobufSettings.toObject(message.protobufSettings, options);
                 if (options.oneofs)
@@ -53102,6 +53434,11 @@ $root.protos = (function() {
                 object.avroSettings = $root.protos.encoding.AvroSettings.toObject(message.avroSettings, options);
                 if (options.oneofs)
                     object.settings = "avroSettings";
+            }
+            if (message.jsonSchemaSettings != null && message.hasOwnProperty("jsonSchemaSettings")) {
+                object.jsonSchemaSettings = $root.protos.encoding.JSONSchemaSettings.toObject(message.jsonSchemaSettings, options);
+                if (options.oneofs)
+                    object.settings = "jsonSchemaSettings";
             }
             if (message.auth != null && message.hasOwnProperty("auth"))
                 object.auth = $root.protos.common.Auth.toObject(message.auth, options);
