@@ -44885,6 +44885,23 @@ $root.protos = (function() {
              * @property {number|Long|null} [receivedAtUnixTsUtc] ReadRecord receivedAtUnixTsUtc
              * @property {Uint8Array|null} [payload] ReadRecord payload
              * @property {protos.records.IKafka|null} [kafka] ReadRecord kafka
+             * @property {protos.records.IRabbit|null} [rabbit] ReadRecord rabbit
+             * @property {protos.records.IActiveMQ|null} [activemq] ReadRecord activemq
+             * @property {protos.records.IAWSSQS|null} [awssqs] ReadRecord awssqs
+             * @property {protos.records.IAzureEventHub|null} [azureEventHub] ReadRecord azureEventHub
+             * @property {protos.records.IAzureServiceBus|null} [azureServiceBus] ReadRecord azureServiceBus
+             * @property {protos.records.IGCPPubSub|null} [gcpPubsub] ReadRecord gcpPubsub
+             * @property {protos.records.IKubeMQ|null} [kubemq] ReadRecord kubemq
+             * @property {protos.records.IMongo|null} [mongo] ReadRecord mongo
+             * @property {protos.records.IMQTT|null} [mqtt] ReadRecord mqtt
+             * @property {protos.records.INats|null} [nats] ReadRecord nats
+             * @property {protos.records.INatsStreaming|null} [natsStreaming] ReadRecord natsStreaming
+             * @property {protos.records.INSQ|null} [nsq] ReadRecord nsq
+             * @property {protos.records.IPostgres|null} [postgres] ReadRecord postgres
+             * @property {protos.records.IPulsar|null} [pulsar] ReadRecord pulsar
+             * @property {protos.records.IRabbitStreams|null} [rabbitStreams] ReadRecord rabbitStreams
+             * @property {protos.records.IRedisPubsub|null} [redisPubsub] ReadRecord redisPubsub
+             * @property {protos.records.IRedisStreams|null} [redisStreams] ReadRecord redisStreams
              * @property {Uint8Array|null} [_raw] ReadRecord _raw
              * @property {string|null} [_plumberId] ReadRecord _plumberId
              */
@@ -44954,6 +44971,142 @@ $root.protos = (function() {
             ReadRecord.prototype.kafka = null;
 
             /**
+             * ReadRecord rabbit.
+             * @member {protos.records.IRabbit|null|undefined} rabbit
+             * @memberof protos.records.ReadRecord
+             * @instance
+             */
+            ReadRecord.prototype.rabbit = null;
+
+            /**
+             * ReadRecord activemq.
+             * @member {protos.records.IActiveMQ|null|undefined} activemq
+             * @memberof protos.records.ReadRecord
+             * @instance
+             */
+            ReadRecord.prototype.activemq = null;
+
+            /**
+             * ReadRecord awssqs.
+             * @member {protos.records.IAWSSQS|null|undefined} awssqs
+             * @memberof protos.records.ReadRecord
+             * @instance
+             */
+            ReadRecord.prototype.awssqs = null;
+
+            /**
+             * ReadRecord azureEventHub.
+             * @member {protos.records.IAzureEventHub|null|undefined} azureEventHub
+             * @memberof protos.records.ReadRecord
+             * @instance
+             */
+            ReadRecord.prototype.azureEventHub = null;
+
+            /**
+             * ReadRecord azureServiceBus.
+             * @member {protos.records.IAzureServiceBus|null|undefined} azureServiceBus
+             * @memberof protos.records.ReadRecord
+             * @instance
+             */
+            ReadRecord.prototype.azureServiceBus = null;
+
+            /**
+             * ReadRecord gcpPubsub.
+             * @member {protos.records.IGCPPubSub|null|undefined} gcpPubsub
+             * @memberof protos.records.ReadRecord
+             * @instance
+             */
+            ReadRecord.prototype.gcpPubsub = null;
+
+            /**
+             * ReadRecord kubemq.
+             * @member {protos.records.IKubeMQ|null|undefined} kubemq
+             * @memberof protos.records.ReadRecord
+             * @instance
+             */
+            ReadRecord.prototype.kubemq = null;
+
+            /**
+             * ReadRecord mongo.
+             * @member {protos.records.IMongo|null|undefined} mongo
+             * @memberof protos.records.ReadRecord
+             * @instance
+             */
+            ReadRecord.prototype.mongo = null;
+
+            /**
+             * ReadRecord mqtt.
+             * @member {protos.records.IMQTT|null|undefined} mqtt
+             * @memberof protos.records.ReadRecord
+             * @instance
+             */
+            ReadRecord.prototype.mqtt = null;
+
+            /**
+             * ReadRecord nats.
+             * @member {protos.records.INats|null|undefined} nats
+             * @memberof protos.records.ReadRecord
+             * @instance
+             */
+            ReadRecord.prototype.nats = null;
+
+            /**
+             * ReadRecord natsStreaming.
+             * @member {protos.records.INatsStreaming|null|undefined} natsStreaming
+             * @memberof protos.records.ReadRecord
+             * @instance
+             */
+            ReadRecord.prototype.natsStreaming = null;
+
+            /**
+             * ReadRecord nsq.
+             * @member {protos.records.INSQ|null|undefined} nsq
+             * @memberof protos.records.ReadRecord
+             * @instance
+             */
+            ReadRecord.prototype.nsq = null;
+
+            /**
+             * ReadRecord postgres.
+             * @member {protos.records.IPostgres|null|undefined} postgres
+             * @memberof protos.records.ReadRecord
+             * @instance
+             */
+            ReadRecord.prototype.postgres = null;
+
+            /**
+             * ReadRecord pulsar.
+             * @member {protos.records.IPulsar|null|undefined} pulsar
+             * @memberof protos.records.ReadRecord
+             * @instance
+             */
+            ReadRecord.prototype.pulsar = null;
+
+            /**
+             * ReadRecord rabbitStreams.
+             * @member {protos.records.IRabbitStreams|null|undefined} rabbitStreams
+             * @memberof protos.records.ReadRecord
+             * @instance
+             */
+            ReadRecord.prototype.rabbitStreams = null;
+
+            /**
+             * ReadRecord redisPubsub.
+             * @member {protos.records.IRedisPubsub|null|undefined} redisPubsub
+             * @memberof protos.records.ReadRecord
+             * @instance
+             */
+            ReadRecord.prototype.redisPubsub = null;
+
+            /**
+             * ReadRecord redisStreams.
+             * @member {protos.records.IRedisStreams|null|undefined} redisStreams
+             * @memberof protos.records.ReadRecord
+             * @instance
+             */
+            ReadRecord.prototype.redisStreams = null;
+
+            /**
              * ReadRecord _raw.
              * @member {Uint8Array} _raw
              * @memberof protos.records.ReadRecord
@@ -44974,12 +45127,12 @@ $root.protos = (function() {
 
             /**
              * ReadRecord Record.
-             * @member {"kafka"|undefined} Record
+             * @member {"kafka"|"rabbit"|"activemq"|"awssqs"|"azureEventHub"|"azureServiceBus"|"gcpPubsub"|"kubemq"|"mongo"|"mqtt"|"nats"|"natsStreaming"|"nsq"|"postgres"|"pulsar"|"rabbitStreams"|"redisPubsub"|"redisStreams"|undefined} Record
              * @memberof protos.records.ReadRecord
              * @instance
              */
             Object.defineProperty(ReadRecord.prototype, "Record", {
-                get: $util.oneOfGetter($oneOfFields = ["kafka"]),
+                get: $util.oneOfGetter($oneOfFields = ["kafka", "rabbit", "activemq", "awssqs", "azureEventHub", "azureServiceBus", "gcpPubsub", "kubemq", "mongo", "mqtt", "nats", "natsStreaming", "nsq", "postgres", "pulsar", "rabbitStreams", "redisPubsub", "redisStreams"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
@@ -45020,6 +45173,40 @@ $root.protos = (function() {
                     writer.uint32(/* id 99, wireType 2 =*/794).bytes(message.payload);
                 if (message.kafka != null && Object.hasOwnProperty.call(message, "kafka"))
                     $root.protos.records.Kafka.encode(message.kafka, writer.uint32(/* id 100, wireType 2 =*/802).fork()).ldelim();
+                if (message.rabbit != null && Object.hasOwnProperty.call(message, "rabbit"))
+                    $root.protos.records.Rabbit.encode(message.rabbit, writer.uint32(/* id 101, wireType 2 =*/810).fork()).ldelim();
+                if (message.activemq != null && Object.hasOwnProperty.call(message, "activemq"))
+                    $root.protos.records.ActiveMQ.encode(message.activemq, writer.uint32(/* id 102, wireType 2 =*/818).fork()).ldelim();
+                if (message.awssqs != null && Object.hasOwnProperty.call(message, "awssqs"))
+                    $root.protos.records.AWSSQS.encode(message.awssqs, writer.uint32(/* id 103, wireType 2 =*/826).fork()).ldelim();
+                if (message.azureEventHub != null && Object.hasOwnProperty.call(message, "azureEventHub"))
+                    $root.protos.records.AzureEventHub.encode(message.azureEventHub, writer.uint32(/* id 104, wireType 2 =*/834).fork()).ldelim();
+                if (message.azureServiceBus != null && Object.hasOwnProperty.call(message, "azureServiceBus"))
+                    $root.protos.records.AzureServiceBus.encode(message.azureServiceBus, writer.uint32(/* id 105, wireType 2 =*/842).fork()).ldelim();
+                if (message.gcpPubsub != null && Object.hasOwnProperty.call(message, "gcpPubsub"))
+                    $root.protos.records.GCPPubSub.encode(message.gcpPubsub, writer.uint32(/* id 106, wireType 2 =*/850).fork()).ldelim();
+                if (message.kubemq != null && Object.hasOwnProperty.call(message, "kubemq"))
+                    $root.protos.records.KubeMQ.encode(message.kubemq, writer.uint32(/* id 107, wireType 2 =*/858).fork()).ldelim();
+                if (message.mongo != null && Object.hasOwnProperty.call(message, "mongo"))
+                    $root.protos.records.Mongo.encode(message.mongo, writer.uint32(/* id 108, wireType 2 =*/866).fork()).ldelim();
+                if (message.mqtt != null && Object.hasOwnProperty.call(message, "mqtt"))
+                    $root.protos.records.MQTT.encode(message.mqtt, writer.uint32(/* id 109, wireType 2 =*/874).fork()).ldelim();
+                if (message.nats != null && Object.hasOwnProperty.call(message, "nats"))
+                    $root.protos.records.Nats.encode(message.nats, writer.uint32(/* id 110, wireType 2 =*/882).fork()).ldelim();
+                if (message.natsStreaming != null && Object.hasOwnProperty.call(message, "natsStreaming"))
+                    $root.protos.records.NatsStreaming.encode(message.natsStreaming, writer.uint32(/* id 111, wireType 2 =*/890).fork()).ldelim();
+                if (message.nsq != null && Object.hasOwnProperty.call(message, "nsq"))
+                    $root.protos.records.NSQ.encode(message.nsq, writer.uint32(/* id 112, wireType 2 =*/898).fork()).ldelim();
+                if (message.postgres != null && Object.hasOwnProperty.call(message, "postgres"))
+                    $root.protos.records.Postgres.encode(message.postgres, writer.uint32(/* id 113, wireType 2 =*/906).fork()).ldelim();
+                if (message.pulsar != null && Object.hasOwnProperty.call(message, "pulsar"))
+                    $root.protos.records.Pulsar.encode(message.pulsar, writer.uint32(/* id 114, wireType 2 =*/914).fork()).ldelim();
+                if (message.rabbitStreams != null && Object.hasOwnProperty.call(message, "rabbitStreams"))
+                    $root.protos.records.RabbitStreams.encode(message.rabbitStreams, writer.uint32(/* id 115, wireType 2 =*/922).fork()).ldelim();
+                if (message.redisPubsub != null && Object.hasOwnProperty.call(message, "redisPubsub"))
+                    $root.protos.records.RedisPubsub.encode(message.redisPubsub, writer.uint32(/* id 116, wireType 2 =*/930).fork()).ldelim();
+                if (message.redisStreams != null && Object.hasOwnProperty.call(message, "redisStreams"))
+                    $root.protos.records.RedisStreams.encode(message.redisStreams, writer.uint32(/* id 117, wireType 2 =*/938).fork()).ldelim();
                 if (message._raw != null && Object.hasOwnProperty.call(message, "_raw"))
                     writer.uint32(/* id 1000, wireType 2 =*/8002).bytes(message._raw);
                 if (message._plumberId != null && Object.hasOwnProperty.call(message, "_plumberId"))
@@ -45095,6 +45282,57 @@ $root.protos = (function() {
                     case 100:
                         message.kafka = $root.protos.records.Kafka.decode(reader, reader.uint32());
                         break;
+                    case 101:
+                        message.rabbit = $root.protos.records.Rabbit.decode(reader, reader.uint32());
+                        break;
+                    case 102:
+                        message.activemq = $root.protos.records.ActiveMQ.decode(reader, reader.uint32());
+                        break;
+                    case 103:
+                        message.awssqs = $root.protos.records.AWSSQS.decode(reader, reader.uint32());
+                        break;
+                    case 104:
+                        message.azureEventHub = $root.protos.records.AzureEventHub.decode(reader, reader.uint32());
+                        break;
+                    case 105:
+                        message.azureServiceBus = $root.protos.records.AzureServiceBus.decode(reader, reader.uint32());
+                        break;
+                    case 106:
+                        message.gcpPubsub = $root.protos.records.GCPPubSub.decode(reader, reader.uint32());
+                        break;
+                    case 107:
+                        message.kubemq = $root.protos.records.KubeMQ.decode(reader, reader.uint32());
+                        break;
+                    case 108:
+                        message.mongo = $root.protos.records.Mongo.decode(reader, reader.uint32());
+                        break;
+                    case 109:
+                        message.mqtt = $root.protos.records.MQTT.decode(reader, reader.uint32());
+                        break;
+                    case 110:
+                        message.nats = $root.protos.records.Nats.decode(reader, reader.uint32());
+                        break;
+                    case 111:
+                        message.natsStreaming = $root.protos.records.NatsStreaming.decode(reader, reader.uint32());
+                        break;
+                    case 112:
+                        message.nsq = $root.protos.records.NSQ.decode(reader, reader.uint32());
+                        break;
+                    case 113:
+                        message.postgres = $root.protos.records.Postgres.decode(reader, reader.uint32());
+                        break;
+                    case 114:
+                        message.pulsar = $root.protos.records.Pulsar.decode(reader, reader.uint32());
+                        break;
+                    case 115:
+                        message.rabbitStreams = $root.protos.records.RabbitStreams.decode(reader, reader.uint32());
+                        break;
+                    case 116:
+                        message.redisPubsub = $root.protos.records.RedisPubsub.decode(reader, reader.uint32());
+                        break;
+                    case 117:
+                        message.redisStreams = $root.protos.records.RedisStreams.decode(reader, reader.uint32());
+                        break;
                     case 1000:
                         message._raw = reader.bytes();
                         break;
@@ -45165,6 +45403,176 @@ $root.protos = (function() {
                             return "kafka." + error;
                     }
                 }
+                if (message.rabbit != null && message.hasOwnProperty("rabbit")) {
+                    if (properties.Record === 1)
+                        return "Record: multiple values";
+                    properties.Record = 1;
+                    {
+                        var error = $root.protos.records.Rabbit.verify(message.rabbit);
+                        if (error)
+                            return "rabbit." + error;
+                    }
+                }
+                if (message.activemq != null && message.hasOwnProperty("activemq")) {
+                    if (properties.Record === 1)
+                        return "Record: multiple values";
+                    properties.Record = 1;
+                    {
+                        var error = $root.protos.records.ActiveMQ.verify(message.activemq);
+                        if (error)
+                            return "activemq." + error;
+                    }
+                }
+                if (message.awssqs != null && message.hasOwnProperty("awssqs")) {
+                    if (properties.Record === 1)
+                        return "Record: multiple values";
+                    properties.Record = 1;
+                    {
+                        var error = $root.protos.records.AWSSQS.verify(message.awssqs);
+                        if (error)
+                            return "awssqs." + error;
+                    }
+                }
+                if (message.azureEventHub != null && message.hasOwnProperty("azureEventHub")) {
+                    if (properties.Record === 1)
+                        return "Record: multiple values";
+                    properties.Record = 1;
+                    {
+                        var error = $root.protos.records.AzureEventHub.verify(message.azureEventHub);
+                        if (error)
+                            return "azureEventHub." + error;
+                    }
+                }
+                if (message.azureServiceBus != null && message.hasOwnProperty("azureServiceBus")) {
+                    if (properties.Record === 1)
+                        return "Record: multiple values";
+                    properties.Record = 1;
+                    {
+                        var error = $root.protos.records.AzureServiceBus.verify(message.azureServiceBus);
+                        if (error)
+                            return "azureServiceBus." + error;
+                    }
+                }
+                if (message.gcpPubsub != null && message.hasOwnProperty("gcpPubsub")) {
+                    if (properties.Record === 1)
+                        return "Record: multiple values";
+                    properties.Record = 1;
+                    {
+                        var error = $root.protos.records.GCPPubSub.verify(message.gcpPubsub);
+                        if (error)
+                            return "gcpPubsub." + error;
+                    }
+                }
+                if (message.kubemq != null && message.hasOwnProperty("kubemq")) {
+                    if (properties.Record === 1)
+                        return "Record: multiple values";
+                    properties.Record = 1;
+                    {
+                        var error = $root.protos.records.KubeMQ.verify(message.kubemq);
+                        if (error)
+                            return "kubemq." + error;
+                    }
+                }
+                if (message.mongo != null && message.hasOwnProperty("mongo")) {
+                    if (properties.Record === 1)
+                        return "Record: multiple values";
+                    properties.Record = 1;
+                    {
+                        var error = $root.protos.records.Mongo.verify(message.mongo);
+                        if (error)
+                            return "mongo." + error;
+                    }
+                }
+                if (message.mqtt != null && message.hasOwnProperty("mqtt")) {
+                    if (properties.Record === 1)
+                        return "Record: multiple values";
+                    properties.Record = 1;
+                    {
+                        var error = $root.protos.records.MQTT.verify(message.mqtt);
+                        if (error)
+                            return "mqtt." + error;
+                    }
+                }
+                if (message.nats != null && message.hasOwnProperty("nats")) {
+                    if (properties.Record === 1)
+                        return "Record: multiple values";
+                    properties.Record = 1;
+                    {
+                        var error = $root.protos.records.Nats.verify(message.nats);
+                        if (error)
+                            return "nats." + error;
+                    }
+                }
+                if (message.natsStreaming != null && message.hasOwnProperty("natsStreaming")) {
+                    if (properties.Record === 1)
+                        return "Record: multiple values";
+                    properties.Record = 1;
+                    {
+                        var error = $root.protos.records.NatsStreaming.verify(message.natsStreaming);
+                        if (error)
+                            return "natsStreaming." + error;
+                    }
+                }
+                if (message.nsq != null && message.hasOwnProperty("nsq")) {
+                    if (properties.Record === 1)
+                        return "Record: multiple values";
+                    properties.Record = 1;
+                    {
+                        var error = $root.protos.records.NSQ.verify(message.nsq);
+                        if (error)
+                            return "nsq." + error;
+                    }
+                }
+                if (message.postgres != null && message.hasOwnProperty("postgres")) {
+                    if (properties.Record === 1)
+                        return "Record: multiple values";
+                    properties.Record = 1;
+                    {
+                        var error = $root.protos.records.Postgres.verify(message.postgres);
+                        if (error)
+                            return "postgres." + error;
+                    }
+                }
+                if (message.pulsar != null && message.hasOwnProperty("pulsar")) {
+                    if (properties.Record === 1)
+                        return "Record: multiple values";
+                    properties.Record = 1;
+                    {
+                        var error = $root.protos.records.Pulsar.verify(message.pulsar);
+                        if (error)
+                            return "pulsar." + error;
+                    }
+                }
+                if (message.rabbitStreams != null && message.hasOwnProperty("rabbitStreams")) {
+                    if (properties.Record === 1)
+                        return "Record: multiple values";
+                    properties.Record = 1;
+                    {
+                        var error = $root.protos.records.RabbitStreams.verify(message.rabbitStreams);
+                        if (error)
+                            return "rabbitStreams." + error;
+                    }
+                }
+                if (message.redisPubsub != null && message.hasOwnProperty("redisPubsub")) {
+                    if (properties.Record === 1)
+                        return "Record: multiple values";
+                    properties.Record = 1;
+                    {
+                        var error = $root.protos.records.RedisPubsub.verify(message.redisPubsub);
+                        if (error)
+                            return "redisPubsub." + error;
+                    }
+                }
+                if (message.redisStreams != null && message.hasOwnProperty("redisStreams")) {
+                    if (properties.Record === 1)
+                        return "Record: multiple values";
+                    properties.Record = 1;
+                    {
+                        var error = $root.protos.records.RedisStreams.verify(message.redisStreams);
+                        if (error)
+                            return "redisStreams." + error;
+                    }
+                }
                 if (message._raw != null && message.hasOwnProperty("_raw"))
                     if (!(message._raw && typeof message._raw.length === "number" || $util.isString(message._raw)))
                         return "_raw: buffer expected";
@@ -45222,6 +45630,91 @@ $root.protos = (function() {
                     if (typeof object.kafka !== "object")
                         throw TypeError(".protos.records.ReadRecord.kafka: object expected");
                     message.kafka = $root.protos.records.Kafka.fromObject(object.kafka);
+                }
+                if (object.rabbit != null) {
+                    if (typeof object.rabbit !== "object")
+                        throw TypeError(".protos.records.ReadRecord.rabbit: object expected");
+                    message.rabbit = $root.protos.records.Rabbit.fromObject(object.rabbit);
+                }
+                if (object.activemq != null) {
+                    if (typeof object.activemq !== "object")
+                        throw TypeError(".protos.records.ReadRecord.activemq: object expected");
+                    message.activemq = $root.protos.records.ActiveMQ.fromObject(object.activemq);
+                }
+                if (object.awssqs != null) {
+                    if (typeof object.awssqs !== "object")
+                        throw TypeError(".protos.records.ReadRecord.awssqs: object expected");
+                    message.awssqs = $root.protos.records.AWSSQS.fromObject(object.awssqs);
+                }
+                if (object.azureEventHub != null) {
+                    if (typeof object.azureEventHub !== "object")
+                        throw TypeError(".protos.records.ReadRecord.azureEventHub: object expected");
+                    message.azureEventHub = $root.protos.records.AzureEventHub.fromObject(object.azureEventHub);
+                }
+                if (object.azureServiceBus != null) {
+                    if (typeof object.azureServiceBus !== "object")
+                        throw TypeError(".protos.records.ReadRecord.azureServiceBus: object expected");
+                    message.azureServiceBus = $root.protos.records.AzureServiceBus.fromObject(object.azureServiceBus);
+                }
+                if (object.gcpPubsub != null) {
+                    if (typeof object.gcpPubsub !== "object")
+                        throw TypeError(".protos.records.ReadRecord.gcpPubsub: object expected");
+                    message.gcpPubsub = $root.protos.records.GCPPubSub.fromObject(object.gcpPubsub);
+                }
+                if (object.kubemq != null) {
+                    if (typeof object.kubemq !== "object")
+                        throw TypeError(".protos.records.ReadRecord.kubemq: object expected");
+                    message.kubemq = $root.protos.records.KubeMQ.fromObject(object.kubemq);
+                }
+                if (object.mongo != null) {
+                    if (typeof object.mongo !== "object")
+                        throw TypeError(".protos.records.ReadRecord.mongo: object expected");
+                    message.mongo = $root.protos.records.Mongo.fromObject(object.mongo);
+                }
+                if (object.mqtt != null) {
+                    if (typeof object.mqtt !== "object")
+                        throw TypeError(".protos.records.ReadRecord.mqtt: object expected");
+                    message.mqtt = $root.protos.records.MQTT.fromObject(object.mqtt);
+                }
+                if (object.nats != null) {
+                    if (typeof object.nats !== "object")
+                        throw TypeError(".protos.records.ReadRecord.nats: object expected");
+                    message.nats = $root.protos.records.Nats.fromObject(object.nats);
+                }
+                if (object.natsStreaming != null) {
+                    if (typeof object.natsStreaming !== "object")
+                        throw TypeError(".protos.records.ReadRecord.natsStreaming: object expected");
+                    message.natsStreaming = $root.protos.records.NatsStreaming.fromObject(object.natsStreaming);
+                }
+                if (object.nsq != null) {
+                    if (typeof object.nsq !== "object")
+                        throw TypeError(".protos.records.ReadRecord.nsq: object expected");
+                    message.nsq = $root.protos.records.NSQ.fromObject(object.nsq);
+                }
+                if (object.postgres != null) {
+                    if (typeof object.postgres !== "object")
+                        throw TypeError(".protos.records.ReadRecord.postgres: object expected");
+                    message.postgres = $root.protos.records.Postgres.fromObject(object.postgres);
+                }
+                if (object.pulsar != null) {
+                    if (typeof object.pulsar !== "object")
+                        throw TypeError(".protos.records.ReadRecord.pulsar: object expected");
+                    message.pulsar = $root.protos.records.Pulsar.fromObject(object.pulsar);
+                }
+                if (object.rabbitStreams != null) {
+                    if (typeof object.rabbitStreams !== "object")
+                        throw TypeError(".protos.records.ReadRecord.rabbitStreams: object expected");
+                    message.rabbitStreams = $root.protos.records.RabbitStreams.fromObject(object.rabbitStreams);
+                }
+                if (object.redisPubsub != null) {
+                    if (typeof object.redisPubsub !== "object")
+                        throw TypeError(".protos.records.ReadRecord.redisPubsub: object expected");
+                    message.redisPubsub = $root.protos.records.RedisPubsub.fromObject(object.redisPubsub);
+                }
+                if (object.redisStreams != null) {
+                    if (typeof object.redisStreams !== "object")
+                        throw TypeError(".protos.records.ReadRecord.redisStreams: object expected");
+                    message.redisStreams = $root.protos.records.RedisStreams.fromObject(object.redisStreams);
                 }
                 if (object._raw != null)
                     if (typeof object._raw === "string")
@@ -45300,6 +45793,91 @@ $root.protos = (function() {
                     object.kafka = $root.protos.records.Kafka.toObject(message.kafka, options);
                     if (options.oneofs)
                         object.Record = "kafka";
+                }
+                if (message.rabbit != null && message.hasOwnProperty("rabbit")) {
+                    object.rabbit = $root.protos.records.Rabbit.toObject(message.rabbit, options);
+                    if (options.oneofs)
+                        object.Record = "rabbit";
+                }
+                if (message.activemq != null && message.hasOwnProperty("activemq")) {
+                    object.activemq = $root.protos.records.ActiveMQ.toObject(message.activemq, options);
+                    if (options.oneofs)
+                        object.Record = "activemq";
+                }
+                if (message.awssqs != null && message.hasOwnProperty("awssqs")) {
+                    object.awssqs = $root.protos.records.AWSSQS.toObject(message.awssqs, options);
+                    if (options.oneofs)
+                        object.Record = "awssqs";
+                }
+                if (message.azureEventHub != null && message.hasOwnProperty("azureEventHub")) {
+                    object.azureEventHub = $root.protos.records.AzureEventHub.toObject(message.azureEventHub, options);
+                    if (options.oneofs)
+                        object.Record = "azureEventHub";
+                }
+                if (message.azureServiceBus != null && message.hasOwnProperty("azureServiceBus")) {
+                    object.azureServiceBus = $root.protos.records.AzureServiceBus.toObject(message.azureServiceBus, options);
+                    if (options.oneofs)
+                        object.Record = "azureServiceBus";
+                }
+                if (message.gcpPubsub != null && message.hasOwnProperty("gcpPubsub")) {
+                    object.gcpPubsub = $root.protos.records.GCPPubSub.toObject(message.gcpPubsub, options);
+                    if (options.oneofs)
+                        object.Record = "gcpPubsub";
+                }
+                if (message.kubemq != null && message.hasOwnProperty("kubemq")) {
+                    object.kubemq = $root.protos.records.KubeMQ.toObject(message.kubemq, options);
+                    if (options.oneofs)
+                        object.Record = "kubemq";
+                }
+                if (message.mongo != null && message.hasOwnProperty("mongo")) {
+                    object.mongo = $root.protos.records.Mongo.toObject(message.mongo, options);
+                    if (options.oneofs)
+                        object.Record = "mongo";
+                }
+                if (message.mqtt != null && message.hasOwnProperty("mqtt")) {
+                    object.mqtt = $root.protos.records.MQTT.toObject(message.mqtt, options);
+                    if (options.oneofs)
+                        object.Record = "mqtt";
+                }
+                if (message.nats != null && message.hasOwnProperty("nats")) {
+                    object.nats = $root.protos.records.Nats.toObject(message.nats, options);
+                    if (options.oneofs)
+                        object.Record = "nats";
+                }
+                if (message.natsStreaming != null && message.hasOwnProperty("natsStreaming")) {
+                    object.natsStreaming = $root.protos.records.NatsStreaming.toObject(message.natsStreaming, options);
+                    if (options.oneofs)
+                        object.Record = "natsStreaming";
+                }
+                if (message.nsq != null && message.hasOwnProperty("nsq")) {
+                    object.nsq = $root.protos.records.NSQ.toObject(message.nsq, options);
+                    if (options.oneofs)
+                        object.Record = "nsq";
+                }
+                if (message.postgres != null && message.hasOwnProperty("postgres")) {
+                    object.postgres = $root.protos.records.Postgres.toObject(message.postgres, options);
+                    if (options.oneofs)
+                        object.Record = "postgres";
+                }
+                if (message.pulsar != null && message.hasOwnProperty("pulsar")) {
+                    object.pulsar = $root.protos.records.Pulsar.toObject(message.pulsar, options);
+                    if (options.oneofs)
+                        object.Record = "pulsar";
+                }
+                if (message.rabbitStreams != null && message.hasOwnProperty("rabbitStreams")) {
+                    object.rabbitStreams = $root.protos.records.RabbitStreams.toObject(message.rabbitStreams, options);
+                    if (options.oneofs)
+                        object.Record = "rabbitStreams";
+                }
+                if (message.redisPubsub != null && message.hasOwnProperty("redisPubsub")) {
+                    object.redisPubsub = $root.protos.records.RedisPubsub.toObject(message.redisPubsub, options);
+                    if (options.oneofs)
+                        object.Record = "redisPubsub";
+                }
+                if (message.redisStreams != null && message.hasOwnProperty("redisStreams")) {
+                    object.redisStreams = $root.protos.records.RedisStreams.toObject(message.redisStreams, options);
+                    if (options.oneofs)
+                        object.Record = "redisStreams";
                 }
                 if (message._raw != null && message.hasOwnProperty("_raw"))
                     object._raw = options.bytes === String ? $util.base64.encode(message._raw, 0, message._raw.length) : options.bytes === Array ? Array.prototype.slice.call(message._raw) : message._raw;
@@ -46448,6 +47026,7219 @@ $root.protos = (function() {
             };
 
             return Kafka;
+        })();
+
+        records.RabbitHeader = (function() {
+
+            /**
+             * Properties of a RabbitHeader.
+             * @memberof protos.records
+             * @interface IRabbitHeader
+             * @property {string|null} [key] RabbitHeader key
+             * @property {string|null} [value] RabbitHeader value
+             */
+
+            /**
+             * Constructs a new RabbitHeader.
+             * @memberof protos.records
+             * @classdesc Represents a RabbitHeader.
+             * @implements IRabbitHeader
+             * @constructor
+             * @param {protos.records.IRabbitHeader=} [properties] Properties to set
+             */
+            function RabbitHeader(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * RabbitHeader key.
+             * @member {string} key
+             * @memberof protos.records.RabbitHeader
+             * @instance
+             */
+            RabbitHeader.prototype.key = "";
+
+            /**
+             * RabbitHeader value.
+             * @member {string} value
+             * @memberof protos.records.RabbitHeader
+             * @instance
+             */
+            RabbitHeader.prototype.value = "";
+
+            /**
+             * Creates a new RabbitHeader instance using the specified properties.
+             * @function create
+             * @memberof protos.records.RabbitHeader
+             * @static
+             * @param {protos.records.IRabbitHeader=} [properties] Properties to set
+             * @returns {protos.records.RabbitHeader} RabbitHeader instance
+             */
+            RabbitHeader.create = function create(properties) {
+                return new RabbitHeader(properties);
+            };
+
+            /**
+             * Encodes the specified RabbitHeader message. Does not implicitly {@link protos.records.RabbitHeader.verify|verify} messages.
+             * @function encode
+             * @memberof protos.records.RabbitHeader
+             * @static
+             * @param {protos.records.IRabbitHeader} message RabbitHeader message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            RabbitHeader.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.key != null && Object.hasOwnProperty.call(message, "key"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.key);
+                if (message.value != null && Object.hasOwnProperty.call(message, "value"))
+                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.value);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified RabbitHeader message, length delimited. Does not implicitly {@link protos.records.RabbitHeader.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.records.RabbitHeader
+             * @static
+             * @param {protos.records.IRabbitHeader} message RabbitHeader message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            RabbitHeader.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a RabbitHeader message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.records.RabbitHeader
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.records.RabbitHeader} RabbitHeader
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            RabbitHeader.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.records.RabbitHeader();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.key = reader.string();
+                        break;
+                    case 2:
+                        message.value = reader.string();
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a RabbitHeader message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.records.RabbitHeader
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.records.RabbitHeader} RabbitHeader
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            RabbitHeader.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a RabbitHeader message.
+             * @function verify
+             * @memberof protos.records.RabbitHeader
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            RabbitHeader.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.key != null && message.hasOwnProperty("key"))
+                    if (!$util.isString(message.key))
+                        return "key: string expected";
+                if (message.value != null && message.hasOwnProperty("value"))
+                    if (!$util.isString(message.value))
+                        return "value: string expected";
+                return null;
+            };
+
+            /**
+             * Creates a RabbitHeader message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.records.RabbitHeader
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.records.RabbitHeader} RabbitHeader
+             */
+            RabbitHeader.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.records.RabbitHeader)
+                    return object;
+                var message = new $root.protos.records.RabbitHeader();
+                if (object.key != null)
+                    message.key = String(object.key);
+                if (object.value != null)
+                    message.value = String(object.value);
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a RabbitHeader message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.records.RabbitHeader
+             * @static
+             * @param {protos.records.RabbitHeader} message RabbitHeader
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            RabbitHeader.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    object.key = "";
+                    object.value = "";
+                }
+                if (message.key != null && message.hasOwnProperty("key"))
+                    object.key = message.key;
+                if (message.value != null && message.hasOwnProperty("value"))
+                    object.value = message.value;
+                return object;
+            };
+
+            /**
+             * Converts this RabbitHeader to JSON.
+             * @function toJSON
+             * @memberof protos.records.RabbitHeader
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            RabbitHeader.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return RabbitHeader;
+        })();
+
+        records.Rabbit = (function() {
+
+            /**
+             * Properties of a Rabbit.
+             * @memberof protos.records
+             * @interface IRabbit
+             * @property {Uint8Array|null} [body] Rabbit body
+             * @property {number|Long|null} [timestamp] Rabbit timestamp
+             * @property {string|null} [type] Rabbit type
+             * @property {string|null} [exchange] Rabbit exchange
+             * @property {string|null} [routingKey] Rabbit routingKey
+             * @property {string|null} [contentType] Rabbit contentType
+             * @property {string|null} [contentEncoding] Rabbit contentEncoding
+             * @property {number|null} [priority] Rabbit priority
+             * @property {string|null} [expiration] Rabbit expiration
+             * @property {string|null} [messageId] Rabbit messageId
+             * @property {string|null} [userId] Rabbit userId
+             * @property {string|null} [appId] Rabbit appId
+             * @property {string|null} [replyTo] Rabbit replyTo
+             * @property {string|null} [correlationId] Rabbit correlationId
+             * @property {Array.<protos.records.IRabbitHeader>|null} [headers] Rabbit headers
+             */
+
+            /**
+             * Constructs a new Rabbit.
+             * @memberof protos.records
+             * @classdesc Represents a Rabbit.
+             * @implements IRabbit
+             * @constructor
+             * @param {protos.records.IRabbit=} [properties] Properties to set
+             */
+            function Rabbit(properties) {
+                this.headers = [];
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * Rabbit body.
+             * @member {Uint8Array} body
+             * @memberof protos.records.Rabbit
+             * @instance
+             */
+            Rabbit.prototype.body = $util.newBuffer([]);
+
+            /**
+             * Rabbit timestamp.
+             * @member {number|Long} timestamp
+             * @memberof protos.records.Rabbit
+             * @instance
+             */
+            Rabbit.prototype.timestamp = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
+
+            /**
+             * Rabbit type.
+             * @member {string} type
+             * @memberof protos.records.Rabbit
+             * @instance
+             */
+            Rabbit.prototype.type = "";
+
+            /**
+             * Rabbit exchange.
+             * @member {string} exchange
+             * @memberof protos.records.Rabbit
+             * @instance
+             */
+            Rabbit.prototype.exchange = "";
+
+            /**
+             * Rabbit routingKey.
+             * @member {string} routingKey
+             * @memberof protos.records.Rabbit
+             * @instance
+             */
+            Rabbit.prototype.routingKey = "";
+
+            /**
+             * Rabbit contentType.
+             * @member {string} contentType
+             * @memberof protos.records.Rabbit
+             * @instance
+             */
+            Rabbit.prototype.contentType = "";
+
+            /**
+             * Rabbit contentEncoding.
+             * @member {string} contentEncoding
+             * @memberof protos.records.Rabbit
+             * @instance
+             */
+            Rabbit.prototype.contentEncoding = "";
+
+            /**
+             * Rabbit priority.
+             * @member {number} priority
+             * @memberof protos.records.Rabbit
+             * @instance
+             */
+            Rabbit.prototype.priority = 0;
+
+            /**
+             * Rabbit expiration.
+             * @member {string} expiration
+             * @memberof protos.records.Rabbit
+             * @instance
+             */
+            Rabbit.prototype.expiration = "";
+
+            /**
+             * Rabbit messageId.
+             * @member {string} messageId
+             * @memberof protos.records.Rabbit
+             * @instance
+             */
+            Rabbit.prototype.messageId = "";
+
+            /**
+             * Rabbit userId.
+             * @member {string} userId
+             * @memberof protos.records.Rabbit
+             * @instance
+             */
+            Rabbit.prototype.userId = "";
+
+            /**
+             * Rabbit appId.
+             * @member {string} appId
+             * @memberof protos.records.Rabbit
+             * @instance
+             */
+            Rabbit.prototype.appId = "";
+
+            /**
+             * Rabbit replyTo.
+             * @member {string} replyTo
+             * @memberof protos.records.Rabbit
+             * @instance
+             */
+            Rabbit.prototype.replyTo = "";
+
+            /**
+             * Rabbit correlationId.
+             * @member {string} correlationId
+             * @memberof protos.records.Rabbit
+             * @instance
+             */
+            Rabbit.prototype.correlationId = "";
+
+            /**
+             * Rabbit headers.
+             * @member {Array.<protos.records.IRabbitHeader>} headers
+             * @memberof protos.records.Rabbit
+             * @instance
+             */
+            Rabbit.prototype.headers = $util.emptyArray;
+
+            /**
+             * Creates a new Rabbit instance using the specified properties.
+             * @function create
+             * @memberof protos.records.Rabbit
+             * @static
+             * @param {protos.records.IRabbit=} [properties] Properties to set
+             * @returns {protos.records.Rabbit} Rabbit instance
+             */
+            Rabbit.create = function create(properties) {
+                return new Rabbit(properties);
+            };
+
+            /**
+             * Encodes the specified Rabbit message. Does not implicitly {@link protos.records.Rabbit.verify|verify} messages.
+             * @function encode
+             * @memberof protos.records.Rabbit
+             * @static
+             * @param {protos.records.IRabbit} message Rabbit message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            Rabbit.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.body != null && Object.hasOwnProperty.call(message, "body"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).bytes(message.body);
+                if (message.timestamp != null && Object.hasOwnProperty.call(message, "timestamp"))
+                    writer.uint32(/* id 2, wireType 0 =*/16).int64(message.timestamp);
+                if (message.type != null && Object.hasOwnProperty.call(message, "type"))
+                    writer.uint32(/* id 3, wireType 2 =*/26).string(message.type);
+                if (message.exchange != null && Object.hasOwnProperty.call(message, "exchange"))
+                    writer.uint32(/* id 4, wireType 2 =*/34).string(message.exchange);
+                if (message.routingKey != null && Object.hasOwnProperty.call(message, "routingKey"))
+                    writer.uint32(/* id 5, wireType 2 =*/42).string(message.routingKey);
+                if (message.contentType != null && Object.hasOwnProperty.call(message, "contentType"))
+                    writer.uint32(/* id 6, wireType 2 =*/50).string(message.contentType);
+                if (message.contentEncoding != null && Object.hasOwnProperty.call(message, "contentEncoding"))
+                    writer.uint32(/* id 7, wireType 2 =*/58).string(message.contentEncoding);
+                if (message.priority != null && Object.hasOwnProperty.call(message, "priority"))
+                    writer.uint32(/* id 8, wireType 0 =*/64).int32(message.priority);
+                if (message.expiration != null && Object.hasOwnProperty.call(message, "expiration"))
+                    writer.uint32(/* id 9, wireType 2 =*/74).string(message.expiration);
+                if (message.messageId != null && Object.hasOwnProperty.call(message, "messageId"))
+                    writer.uint32(/* id 10, wireType 2 =*/82).string(message.messageId);
+                if (message.userId != null && Object.hasOwnProperty.call(message, "userId"))
+                    writer.uint32(/* id 11, wireType 2 =*/90).string(message.userId);
+                if (message.appId != null && Object.hasOwnProperty.call(message, "appId"))
+                    writer.uint32(/* id 12, wireType 2 =*/98).string(message.appId);
+                if (message.replyTo != null && Object.hasOwnProperty.call(message, "replyTo"))
+                    writer.uint32(/* id 13, wireType 2 =*/106).string(message.replyTo);
+                if (message.correlationId != null && Object.hasOwnProperty.call(message, "correlationId"))
+                    writer.uint32(/* id 14, wireType 2 =*/114).string(message.correlationId);
+                if (message.headers != null && message.headers.length)
+                    for (var i = 0; i < message.headers.length; ++i)
+                        $root.protos.records.RabbitHeader.encode(message.headers[i], writer.uint32(/* id 15, wireType 2 =*/122).fork()).ldelim();
+                return writer;
+            };
+
+            /**
+             * Encodes the specified Rabbit message, length delimited. Does not implicitly {@link protos.records.Rabbit.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.records.Rabbit
+             * @static
+             * @param {protos.records.IRabbit} message Rabbit message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            Rabbit.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a Rabbit message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.records.Rabbit
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.records.Rabbit} Rabbit
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            Rabbit.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.records.Rabbit();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.body = reader.bytes();
+                        break;
+                    case 2:
+                        message.timestamp = reader.int64();
+                        break;
+                    case 3:
+                        message.type = reader.string();
+                        break;
+                    case 4:
+                        message.exchange = reader.string();
+                        break;
+                    case 5:
+                        message.routingKey = reader.string();
+                        break;
+                    case 6:
+                        message.contentType = reader.string();
+                        break;
+                    case 7:
+                        message.contentEncoding = reader.string();
+                        break;
+                    case 8:
+                        message.priority = reader.int32();
+                        break;
+                    case 9:
+                        message.expiration = reader.string();
+                        break;
+                    case 10:
+                        message.messageId = reader.string();
+                        break;
+                    case 11:
+                        message.userId = reader.string();
+                        break;
+                    case 12:
+                        message.appId = reader.string();
+                        break;
+                    case 13:
+                        message.replyTo = reader.string();
+                        break;
+                    case 14:
+                        message.correlationId = reader.string();
+                        break;
+                    case 15:
+                        if (!(message.headers && message.headers.length))
+                            message.headers = [];
+                        message.headers.push($root.protos.records.RabbitHeader.decode(reader, reader.uint32()));
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a Rabbit message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.records.Rabbit
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.records.Rabbit} Rabbit
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            Rabbit.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a Rabbit message.
+             * @function verify
+             * @memberof protos.records.Rabbit
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            Rabbit.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.body != null && message.hasOwnProperty("body"))
+                    if (!(message.body && typeof message.body.length === "number" || $util.isString(message.body)))
+                        return "body: buffer expected";
+                if (message.timestamp != null && message.hasOwnProperty("timestamp"))
+                    if (!$util.isInteger(message.timestamp) && !(message.timestamp && $util.isInteger(message.timestamp.low) && $util.isInteger(message.timestamp.high)))
+                        return "timestamp: integer|Long expected";
+                if (message.type != null && message.hasOwnProperty("type"))
+                    if (!$util.isString(message.type))
+                        return "type: string expected";
+                if (message.exchange != null && message.hasOwnProperty("exchange"))
+                    if (!$util.isString(message.exchange))
+                        return "exchange: string expected";
+                if (message.routingKey != null && message.hasOwnProperty("routingKey"))
+                    if (!$util.isString(message.routingKey))
+                        return "routingKey: string expected";
+                if (message.contentType != null && message.hasOwnProperty("contentType"))
+                    if (!$util.isString(message.contentType))
+                        return "contentType: string expected";
+                if (message.contentEncoding != null && message.hasOwnProperty("contentEncoding"))
+                    if (!$util.isString(message.contentEncoding))
+                        return "contentEncoding: string expected";
+                if (message.priority != null && message.hasOwnProperty("priority"))
+                    if (!$util.isInteger(message.priority))
+                        return "priority: integer expected";
+                if (message.expiration != null && message.hasOwnProperty("expiration"))
+                    if (!$util.isString(message.expiration))
+                        return "expiration: string expected";
+                if (message.messageId != null && message.hasOwnProperty("messageId"))
+                    if (!$util.isString(message.messageId))
+                        return "messageId: string expected";
+                if (message.userId != null && message.hasOwnProperty("userId"))
+                    if (!$util.isString(message.userId))
+                        return "userId: string expected";
+                if (message.appId != null && message.hasOwnProperty("appId"))
+                    if (!$util.isString(message.appId))
+                        return "appId: string expected";
+                if (message.replyTo != null && message.hasOwnProperty("replyTo"))
+                    if (!$util.isString(message.replyTo))
+                        return "replyTo: string expected";
+                if (message.correlationId != null && message.hasOwnProperty("correlationId"))
+                    if (!$util.isString(message.correlationId))
+                        return "correlationId: string expected";
+                if (message.headers != null && message.hasOwnProperty("headers")) {
+                    if (!Array.isArray(message.headers))
+                        return "headers: array expected";
+                    for (var i = 0; i < message.headers.length; ++i) {
+                        var error = $root.protos.records.RabbitHeader.verify(message.headers[i]);
+                        if (error)
+                            return "headers." + error;
+                    }
+                }
+                return null;
+            };
+
+            /**
+             * Creates a Rabbit message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.records.Rabbit
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.records.Rabbit} Rabbit
+             */
+            Rabbit.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.records.Rabbit)
+                    return object;
+                var message = new $root.protos.records.Rabbit();
+                if (object.body != null)
+                    if (typeof object.body === "string")
+                        $util.base64.decode(object.body, message.body = $util.newBuffer($util.base64.length(object.body)), 0);
+                    else if (object.body.length)
+                        message.body = object.body;
+                if (object.timestamp != null)
+                    if ($util.Long)
+                        (message.timestamp = $util.Long.fromValue(object.timestamp)).unsigned = false;
+                    else if (typeof object.timestamp === "string")
+                        message.timestamp = parseInt(object.timestamp, 10);
+                    else if (typeof object.timestamp === "number")
+                        message.timestamp = object.timestamp;
+                    else if (typeof object.timestamp === "object")
+                        message.timestamp = new $util.LongBits(object.timestamp.low >>> 0, object.timestamp.high >>> 0).toNumber();
+                if (object.type != null)
+                    message.type = String(object.type);
+                if (object.exchange != null)
+                    message.exchange = String(object.exchange);
+                if (object.routingKey != null)
+                    message.routingKey = String(object.routingKey);
+                if (object.contentType != null)
+                    message.contentType = String(object.contentType);
+                if (object.contentEncoding != null)
+                    message.contentEncoding = String(object.contentEncoding);
+                if (object.priority != null)
+                    message.priority = object.priority | 0;
+                if (object.expiration != null)
+                    message.expiration = String(object.expiration);
+                if (object.messageId != null)
+                    message.messageId = String(object.messageId);
+                if (object.userId != null)
+                    message.userId = String(object.userId);
+                if (object.appId != null)
+                    message.appId = String(object.appId);
+                if (object.replyTo != null)
+                    message.replyTo = String(object.replyTo);
+                if (object.correlationId != null)
+                    message.correlationId = String(object.correlationId);
+                if (object.headers) {
+                    if (!Array.isArray(object.headers))
+                        throw TypeError(".protos.records.Rabbit.headers: array expected");
+                    message.headers = [];
+                    for (var i = 0; i < object.headers.length; ++i) {
+                        if (typeof object.headers[i] !== "object")
+                            throw TypeError(".protos.records.Rabbit.headers: object expected");
+                        message.headers[i] = $root.protos.records.RabbitHeader.fromObject(object.headers[i]);
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a Rabbit message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.records.Rabbit
+             * @static
+             * @param {protos.records.Rabbit} message Rabbit
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            Rabbit.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.arrays || options.defaults)
+                    object.headers = [];
+                if (options.defaults) {
+                    if (options.bytes === String)
+                        object.body = "";
+                    else {
+                        object.body = [];
+                        if (options.bytes !== Array)
+                            object.body = $util.newBuffer(object.body);
+                    }
+                    if ($util.Long) {
+                        var long = new $util.Long(0, 0, false);
+                        object.timestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                    } else
+                        object.timestamp = options.longs === String ? "0" : 0;
+                    object.type = "";
+                    object.exchange = "";
+                    object.routingKey = "";
+                    object.contentType = "";
+                    object.contentEncoding = "";
+                    object.priority = 0;
+                    object.expiration = "";
+                    object.messageId = "";
+                    object.userId = "";
+                    object.appId = "";
+                    object.replyTo = "";
+                    object.correlationId = "";
+                }
+                if (message.body != null && message.hasOwnProperty("body"))
+                    object.body = options.bytes === String ? $util.base64.encode(message.body, 0, message.body.length) : options.bytes === Array ? Array.prototype.slice.call(message.body) : message.body;
+                if (message.timestamp != null && message.hasOwnProperty("timestamp"))
+                    if (typeof message.timestamp === "number")
+                        object.timestamp = options.longs === String ? String(message.timestamp) : message.timestamp;
+                    else
+                        object.timestamp = options.longs === String ? $util.Long.prototype.toString.call(message.timestamp) : options.longs === Number ? new $util.LongBits(message.timestamp.low >>> 0, message.timestamp.high >>> 0).toNumber() : message.timestamp;
+                if (message.type != null && message.hasOwnProperty("type"))
+                    object.type = message.type;
+                if (message.exchange != null && message.hasOwnProperty("exchange"))
+                    object.exchange = message.exchange;
+                if (message.routingKey != null && message.hasOwnProperty("routingKey"))
+                    object.routingKey = message.routingKey;
+                if (message.contentType != null && message.hasOwnProperty("contentType"))
+                    object.contentType = message.contentType;
+                if (message.contentEncoding != null && message.hasOwnProperty("contentEncoding"))
+                    object.contentEncoding = message.contentEncoding;
+                if (message.priority != null && message.hasOwnProperty("priority"))
+                    object.priority = message.priority;
+                if (message.expiration != null && message.hasOwnProperty("expiration"))
+                    object.expiration = message.expiration;
+                if (message.messageId != null && message.hasOwnProperty("messageId"))
+                    object.messageId = message.messageId;
+                if (message.userId != null && message.hasOwnProperty("userId"))
+                    object.userId = message.userId;
+                if (message.appId != null && message.hasOwnProperty("appId"))
+                    object.appId = message.appId;
+                if (message.replyTo != null && message.hasOwnProperty("replyTo"))
+                    object.replyTo = message.replyTo;
+                if (message.correlationId != null && message.hasOwnProperty("correlationId"))
+                    object.correlationId = message.correlationId;
+                if (message.headers && message.headers.length) {
+                    object.headers = [];
+                    for (var j = 0; j < message.headers.length; ++j)
+                        object.headers[j] = $root.protos.records.RabbitHeader.toObject(message.headers[j], options);
+                }
+                return object;
+            };
+
+            /**
+             * Converts this Rabbit to JSON.
+             * @function toJSON
+             * @memberof protos.records.Rabbit
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            Rabbit.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return Rabbit;
+        })();
+
+        records.ActiveMQ = (function() {
+
+            /**
+             * Properties of an ActiveMQ.
+             * @memberof protos.records
+             * @interface IActiveMQ
+             * @property {string|null} [destination] ActiveMQ destination
+             * @property {string|null} [contentType] ActiveMQ contentType
+             * @property {string|null} [subscriptionId] ActiveMQ subscriptionId
+             * @property {number|Long|null} [timestamp] ActiveMQ timestamp
+             * @property {Uint8Array|null} [value] ActiveMQ value
+             */
+
+            /**
+             * Constructs a new ActiveMQ.
+             * @memberof protos.records
+             * @classdesc Represents an ActiveMQ.
+             * @implements IActiveMQ
+             * @constructor
+             * @param {protos.records.IActiveMQ=} [properties] Properties to set
+             */
+            function ActiveMQ(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * ActiveMQ destination.
+             * @member {string} destination
+             * @memberof protos.records.ActiveMQ
+             * @instance
+             */
+            ActiveMQ.prototype.destination = "";
+
+            /**
+             * ActiveMQ contentType.
+             * @member {string} contentType
+             * @memberof protos.records.ActiveMQ
+             * @instance
+             */
+            ActiveMQ.prototype.contentType = "";
+
+            /**
+             * ActiveMQ subscriptionId.
+             * @member {string} subscriptionId
+             * @memberof protos.records.ActiveMQ
+             * @instance
+             */
+            ActiveMQ.prototype.subscriptionId = "";
+
+            /**
+             * ActiveMQ timestamp.
+             * @member {number|Long} timestamp
+             * @memberof protos.records.ActiveMQ
+             * @instance
+             */
+            ActiveMQ.prototype.timestamp = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
+
+            /**
+             * ActiveMQ value.
+             * @member {Uint8Array} value
+             * @memberof protos.records.ActiveMQ
+             * @instance
+             */
+            ActiveMQ.prototype.value = $util.newBuffer([]);
+
+            /**
+             * Creates a new ActiveMQ instance using the specified properties.
+             * @function create
+             * @memberof protos.records.ActiveMQ
+             * @static
+             * @param {protos.records.IActiveMQ=} [properties] Properties to set
+             * @returns {protos.records.ActiveMQ} ActiveMQ instance
+             */
+            ActiveMQ.create = function create(properties) {
+                return new ActiveMQ(properties);
+            };
+
+            /**
+             * Encodes the specified ActiveMQ message. Does not implicitly {@link protos.records.ActiveMQ.verify|verify} messages.
+             * @function encode
+             * @memberof protos.records.ActiveMQ
+             * @static
+             * @param {protos.records.IActiveMQ} message ActiveMQ message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            ActiveMQ.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.destination != null && Object.hasOwnProperty.call(message, "destination"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.destination);
+                if (message.contentType != null && Object.hasOwnProperty.call(message, "contentType"))
+                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.contentType);
+                if (message.subscriptionId != null && Object.hasOwnProperty.call(message, "subscriptionId"))
+                    writer.uint32(/* id 3, wireType 2 =*/26).string(message.subscriptionId);
+                if (message.timestamp != null && Object.hasOwnProperty.call(message, "timestamp"))
+                    writer.uint32(/* id 4, wireType 0 =*/32).int64(message.timestamp);
+                if (message.value != null && Object.hasOwnProperty.call(message, "value"))
+                    writer.uint32(/* id 5, wireType 2 =*/42).bytes(message.value);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified ActiveMQ message, length delimited. Does not implicitly {@link protos.records.ActiveMQ.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.records.ActiveMQ
+             * @static
+             * @param {protos.records.IActiveMQ} message ActiveMQ message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            ActiveMQ.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes an ActiveMQ message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.records.ActiveMQ
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.records.ActiveMQ} ActiveMQ
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            ActiveMQ.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.records.ActiveMQ();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.destination = reader.string();
+                        break;
+                    case 2:
+                        message.contentType = reader.string();
+                        break;
+                    case 3:
+                        message.subscriptionId = reader.string();
+                        break;
+                    case 4:
+                        message.timestamp = reader.int64();
+                        break;
+                    case 5:
+                        message.value = reader.bytes();
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes an ActiveMQ message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.records.ActiveMQ
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.records.ActiveMQ} ActiveMQ
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            ActiveMQ.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies an ActiveMQ message.
+             * @function verify
+             * @memberof protos.records.ActiveMQ
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            ActiveMQ.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.destination != null && message.hasOwnProperty("destination"))
+                    if (!$util.isString(message.destination))
+                        return "destination: string expected";
+                if (message.contentType != null && message.hasOwnProperty("contentType"))
+                    if (!$util.isString(message.contentType))
+                        return "contentType: string expected";
+                if (message.subscriptionId != null && message.hasOwnProperty("subscriptionId"))
+                    if (!$util.isString(message.subscriptionId))
+                        return "subscriptionId: string expected";
+                if (message.timestamp != null && message.hasOwnProperty("timestamp"))
+                    if (!$util.isInteger(message.timestamp) && !(message.timestamp && $util.isInteger(message.timestamp.low) && $util.isInteger(message.timestamp.high)))
+                        return "timestamp: integer|Long expected";
+                if (message.value != null && message.hasOwnProperty("value"))
+                    if (!(message.value && typeof message.value.length === "number" || $util.isString(message.value)))
+                        return "value: buffer expected";
+                return null;
+            };
+
+            /**
+             * Creates an ActiveMQ message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.records.ActiveMQ
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.records.ActiveMQ} ActiveMQ
+             */
+            ActiveMQ.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.records.ActiveMQ)
+                    return object;
+                var message = new $root.protos.records.ActiveMQ();
+                if (object.destination != null)
+                    message.destination = String(object.destination);
+                if (object.contentType != null)
+                    message.contentType = String(object.contentType);
+                if (object.subscriptionId != null)
+                    message.subscriptionId = String(object.subscriptionId);
+                if (object.timestamp != null)
+                    if ($util.Long)
+                        (message.timestamp = $util.Long.fromValue(object.timestamp)).unsigned = false;
+                    else if (typeof object.timestamp === "string")
+                        message.timestamp = parseInt(object.timestamp, 10);
+                    else if (typeof object.timestamp === "number")
+                        message.timestamp = object.timestamp;
+                    else if (typeof object.timestamp === "object")
+                        message.timestamp = new $util.LongBits(object.timestamp.low >>> 0, object.timestamp.high >>> 0).toNumber();
+                if (object.value != null)
+                    if (typeof object.value === "string")
+                        $util.base64.decode(object.value, message.value = $util.newBuffer($util.base64.length(object.value)), 0);
+                    else if (object.value.length)
+                        message.value = object.value;
+                return message;
+            };
+
+            /**
+             * Creates a plain object from an ActiveMQ message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.records.ActiveMQ
+             * @static
+             * @param {protos.records.ActiveMQ} message ActiveMQ
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            ActiveMQ.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    object.destination = "";
+                    object.contentType = "";
+                    object.subscriptionId = "";
+                    if ($util.Long) {
+                        var long = new $util.Long(0, 0, false);
+                        object.timestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                    } else
+                        object.timestamp = options.longs === String ? "0" : 0;
+                    if (options.bytes === String)
+                        object.value = "";
+                    else {
+                        object.value = [];
+                        if (options.bytes !== Array)
+                            object.value = $util.newBuffer(object.value);
+                    }
+                }
+                if (message.destination != null && message.hasOwnProperty("destination"))
+                    object.destination = message.destination;
+                if (message.contentType != null && message.hasOwnProperty("contentType"))
+                    object.contentType = message.contentType;
+                if (message.subscriptionId != null && message.hasOwnProperty("subscriptionId"))
+                    object.subscriptionId = message.subscriptionId;
+                if (message.timestamp != null && message.hasOwnProperty("timestamp"))
+                    if (typeof message.timestamp === "number")
+                        object.timestamp = options.longs === String ? String(message.timestamp) : message.timestamp;
+                    else
+                        object.timestamp = options.longs === String ? $util.Long.prototype.toString.call(message.timestamp) : options.longs === Number ? new $util.LongBits(message.timestamp.low >>> 0, message.timestamp.high >>> 0).toNumber() : message.timestamp;
+                if (message.value != null && message.hasOwnProperty("value"))
+                    object.value = options.bytes === String ? $util.base64.encode(message.value, 0, message.value.length) : options.bytes === Array ? Array.prototype.slice.call(message.value) : message.value;
+                return object;
+            };
+
+            /**
+             * Converts this ActiveMQ to JSON.
+             * @function toJSON
+             * @memberof protos.records.ActiveMQ
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            ActiveMQ.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return ActiveMQ;
+        })();
+
+        records.AWSSQS = (function() {
+
+            /**
+             * Properties of a AWSSQS.
+             * @memberof protos.records
+             * @interface IAWSSQS
+             * @property {string|null} [id] AWSSQS id
+             * @property {number|Long|null} [timestamp] AWSSQS timestamp
+             * @property {string|null} [recipientHandle] AWSSQS recipientHandle
+             * @property {Object.<string,string>|null} [attributes] AWSSQS attributes
+             * @property {Uint8Array|null} [value] AWSSQS value
+             */
+
+            /**
+             * Constructs a new AWSSQS.
+             * @memberof protos.records
+             * @classdesc Represents a AWSSQS.
+             * @implements IAWSSQS
+             * @constructor
+             * @param {protos.records.IAWSSQS=} [properties] Properties to set
+             */
+            function AWSSQS(properties) {
+                this.attributes = {};
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * AWSSQS id.
+             * @member {string} id
+             * @memberof protos.records.AWSSQS
+             * @instance
+             */
+            AWSSQS.prototype.id = "";
+
+            /**
+             * AWSSQS timestamp.
+             * @member {number|Long} timestamp
+             * @memberof protos.records.AWSSQS
+             * @instance
+             */
+            AWSSQS.prototype.timestamp = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
+
+            /**
+             * AWSSQS recipientHandle.
+             * @member {string} recipientHandle
+             * @memberof protos.records.AWSSQS
+             * @instance
+             */
+            AWSSQS.prototype.recipientHandle = "";
+
+            /**
+             * AWSSQS attributes.
+             * @member {Object.<string,string>} attributes
+             * @memberof protos.records.AWSSQS
+             * @instance
+             */
+            AWSSQS.prototype.attributes = $util.emptyObject;
+
+            /**
+             * AWSSQS value.
+             * @member {Uint8Array} value
+             * @memberof protos.records.AWSSQS
+             * @instance
+             */
+            AWSSQS.prototype.value = $util.newBuffer([]);
+
+            /**
+             * Creates a new AWSSQS instance using the specified properties.
+             * @function create
+             * @memberof protos.records.AWSSQS
+             * @static
+             * @param {protos.records.IAWSSQS=} [properties] Properties to set
+             * @returns {protos.records.AWSSQS} AWSSQS instance
+             */
+            AWSSQS.create = function create(properties) {
+                return new AWSSQS(properties);
+            };
+
+            /**
+             * Encodes the specified AWSSQS message. Does not implicitly {@link protos.records.AWSSQS.verify|verify} messages.
+             * @function encode
+             * @memberof protos.records.AWSSQS
+             * @static
+             * @param {protos.records.IAWSSQS} message AWSSQS message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            AWSSQS.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.id != null && Object.hasOwnProperty.call(message, "id"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.id);
+                if (message.timestamp != null && Object.hasOwnProperty.call(message, "timestamp"))
+                    writer.uint32(/* id 2, wireType 0 =*/16).int64(message.timestamp);
+                if (message.recipientHandle != null && Object.hasOwnProperty.call(message, "recipientHandle"))
+                    writer.uint32(/* id 3, wireType 2 =*/26).string(message.recipientHandle);
+                if (message.attributes != null && Object.hasOwnProperty.call(message, "attributes"))
+                    for (var keys = Object.keys(message.attributes), i = 0; i < keys.length; ++i)
+                        writer.uint32(/* id 4, wireType 2 =*/34).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]).uint32(/* id 2, wireType 2 =*/18).string(message.attributes[keys[i]]).ldelim();
+                if (message.value != null && Object.hasOwnProperty.call(message, "value"))
+                    writer.uint32(/* id 5, wireType 2 =*/42).bytes(message.value);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified AWSSQS message, length delimited. Does not implicitly {@link protos.records.AWSSQS.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.records.AWSSQS
+             * @static
+             * @param {protos.records.IAWSSQS} message AWSSQS message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            AWSSQS.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a AWSSQS message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.records.AWSSQS
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.records.AWSSQS} AWSSQS
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            AWSSQS.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.records.AWSSQS(), key, value;
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.id = reader.string();
+                        break;
+                    case 2:
+                        message.timestamp = reader.int64();
+                        break;
+                    case 3:
+                        message.recipientHandle = reader.string();
+                        break;
+                    case 4:
+                        if (message.attributes === $util.emptyObject)
+                            message.attributes = {};
+                        var end2 = reader.uint32() + reader.pos;
+                        key = "";
+                        value = "";
+                        while (reader.pos < end2) {
+                            var tag2 = reader.uint32();
+                            switch (tag2 >>> 3) {
+                            case 1:
+                                key = reader.string();
+                                break;
+                            case 2:
+                                value = reader.string();
+                                break;
+                            default:
+                                reader.skipType(tag2 & 7);
+                                break;
+                            }
+                        }
+                        message.attributes[key] = value;
+                        break;
+                    case 5:
+                        message.value = reader.bytes();
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a AWSSQS message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.records.AWSSQS
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.records.AWSSQS} AWSSQS
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            AWSSQS.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a AWSSQS message.
+             * @function verify
+             * @memberof protos.records.AWSSQS
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            AWSSQS.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.id != null && message.hasOwnProperty("id"))
+                    if (!$util.isString(message.id))
+                        return "id: string expected";
+                if (message.timestamp != null && message.hasOwnProperty("timestamp"))
+                    if (!$util.isInteger(message.timestamp) && !(message.timestamp && $util.isInteger(message.timestamp.low) && $util.isInteger(message.timestamp.high)))
+                        return "timestamp: integer|Long expected";
+                if (message.recipientHandle != null && message.hasOwnProperty("recipientHandle"))
+                    if (!$util.isString(message.recipientHandle))
+                        return "recipientHandle: string expected";
+                if (message.attributes != null && message.hasOwnProperty("attributes")) {
+                    if (!$util.isObject(message.attributes))
+                        return "attributes: object expected";
+                    var key = Object.keys(message.attributes);
+                    for (var i = 0; i < key.length; ++i)
+                        if (!$util.isString(message.attributes[key[i]]))
+                            return "attributes: string{k:string} expected";
+                }
+                if (message.value != null && message.hasOwnProperty("value"))
+                    if (!(message.value && typeof message.value.length === "number" || $util.isString(message.value)))
+                        return "value: buffer expected";
+                return null;
+            };
+
+            /**
+             * Creates a AWSSQS message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.records.AWSSQS
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.records.AWSSQS} AWSSQS
+             */
+            AWSSQS.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.records.AWSSQS)
+                    return object;
+                var message = new $root.protos.records.AWSSQS();
+                if (object.id != null)
+                    message.id = String(object.id);
+                if (object.timestamp != null)
+                    if ($util.Long)
+                        (message.timestamp = $util.Long.fromValue(object.timestamp)).unsigned = false;
+                    else if (typeof object.timestamp === "string")
+                        message.timestamp = parseInt(object.timestamp, 10);
+                    else if (typeof object.timestamp === "number")
+                        message.timestamp = object.timestamp;
+                    else if (typeof object.timestamp === "object")
+                        message.timestamp = new $util.LongBits(object.timestamp.low >>> 0, object.timestamp.high >>> 0).toNumber();
+                if (object.recipientHandle != null)
+                    message.recipientHandle = String(object.recipientHandle);
+                if (object.attributes) {
+                    if (typeof object.attributes !== "object")
+                        throw TypeError(".protos.records.AWSSQS.attributes: object expected");
+                    message.attributes = {};
+                    for (var keys = Object.keys(object.attributes), i = 0; i < keys.length; ++i)
+                        message.attributes[keys[i]] = String(object.attributes[keys[i]]);
+                }
+                if (object.value != null)
+                    if (typeof object.value === "string")
+                        $util.base64.decode(object.value, message.value = $util.newBuffer($util.base64.length(object.value)), 0);
+                    else if (object.value.length)
+                        message.value = object.value;
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a AWSSQS message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.records.AWSSQS
+             * @static
+             * @param {protos.records.AWSSQS} message AWSSQS
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            AWSSQS.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.objects || options.defaults)
+                    object.attributes = {};
+                if (options.defaults) {
+                    object.id = "";
+                    if ($util.Long) {
+                        var long = new $util.Long(0, 0, false);
+                        object.timestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                    } else
+                        object.timestamp = options.longs === String ? "0" : 0;
+                    object.recipientHandle = "";
+                    if (options.bytes === String)
+                        object.value = "";
+                    else {
+                        object.value = [];
+                        if (options.bytes !== Array)
+                            object.value = $util.newBuffer(object.value);
+                    }
+                }
+                if (message.id != null && message.hasOwnProperty("id"))
+                    object.id = message.id;
+                if (message.timestamp != null && message.hasOwnProperty("timestamp"))
+                    if (typeof message.timestamp === "number")
+                        object.timestamp = options.longs === String ? String(message.timestamp) : message.timestamp;
+                    else
+                        object.timestamp = options.longs === String ? $util.Long.prototype.toString.call(message.timestamp) : options.longs === Number ? new $util.LongBits(message.timestamp.low >>> 0, message.timestamp.high >>> 0).toNumber() : message.timestamp;
+                if (message.recipientHandle != null && message.hasOwnProperty("recipientHandle"))
+                    object.recipientHandle = message.recipientHandle;
+                var keys2;
+                if (message.attributes && (keys2 = Object.keys(message.attributes)).length) {
+                    object.attributes = {};
+                    for (var j = 0; j < keys2.length; ++j)
+                        object.attributes[keys2[j]] = message.attributes[keys2[j]];
+                }
+                if (message.value != null && message.hasOwnProperty("value"))
+                    object.value = options.bytes === String ? $util.base64.encode(message.value, 0, message.value.length) : options.bytes === Array ? Array.prototype.slice.call(message.value) : message.value;
+                return object;
+            };
+
+            /**
+             * Converts this AWSSQS to JSON.
+             * @function toJSON
+             * @memberof protos.records.AWSSQS
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            AWSSQS.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return AWSSQS;
+        })();
+
+        records.AzureEventHub = (function() {
+
+            /**
+             * Properties of an AzureEventHub.
+             * @memberof protos.records
+             * @interface IAzureEventHub
+             * @property {string|null} [id] AzureEventHub id
+             * @property {Object.<string,string>|null} [systemProperties] AzureEventHub systemProperties
+             * @property {number|Long|null} [timestamp] AzureEventHub timestamp
+             * @property {Uint8Array|null} [value] AzureEventHub value
+             */
+
+            /**
+             * Constructs a new AzureEventHub.
+             * @memberof protos.records
+             * @classdesc Represents an AzureEventHub.
+             * @implements IAzureEventHub
+             * @constructor
+             * @param {protos.records.IAzureEventHub=} [properties] Properties to set
+             */
+            function AzureEventHub(properties) {
+                this.systemProperties = {};
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * AzureEventHub id.
+             * @member {string} id
+             * @memberof protos.records.AzureEventHub
+             * @instance
+             */
+            AzureEventHub.prototype.id = "";
+
+            /**
+             * AzureEventHub systemProperties.
+             * @member {Object.<string,string>} systemProperties
+             * @memberof protos.records.AzureEventHub
+             * @instance
+             */
+            AzureEventHub.prototype.systemProperties = $util.emptyObject;
+
+            /**
+             * AzureEventHub timestamp.
+             * @member {number|Long} timestamp
+             * @memberof protos.records.AzureEventHub
+             * @instance
+             */
+            AzureEventHub.prototype.timestamp = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
+
+            /**
+             * AzureEventHub value.
+             * @member {Uint8Array} value
+             * @memberof protos.records.AzureEventHub
+             * @instance
+             */
+            AzureEventHub.prototype.value = $util.newBuffer([]);
+
+            /**
+             * Creates a new AzureEventHub instance using the specified properties.
+             * @function create
+             * @memberof protos.records.AzureEventHub
+             * @static
+             * @param {protos.records.IAzureEventHub=} [properties] Properties to set
+             * @returns {protos.records.AzureEventHub} AzureEventHub instance
+             */
+            AzureEventHub.create = function create(properties) {
+                return new AzureEventHub(properties);
+            };
+
+            /**
+             * Encodes the specified AzureEventHub message. Does not implicitly {@link protos.records.AzureEventHub.verify|verify} messages.
+             * @function encode
+             * @memberof protos.records.AzureEventHub
+             * @static
+             * @param {protos.records.IAzureEventHub} message AzureEventHub message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            AzureEventHub.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.id != null && Object.hasOwnProperty.call(message, "id"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.id);
+                if (message.systemProperties != null && Object.hasOwnProperty.call(message, "systemProperties"))
+                    for (var keys = Object.keys(message.systemProperties), i = 0; i < keys.length; ++i)
+                        writer.uint32(/* id 2, wireType 2 =*/18).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]).uint32(/* id 2, wireType 2 =*/18).string(message.systemProperties[keys[i]]).ldelim();
+                if (message.timestamp != null && Object.hasOwnProperty.call(message, "timestamp"))
+                    writer.uint32(/* id 3, wireType 0 =*/24).int64(message.timestamp);
+                if (message.value != null && Object.hasOwnProperty.call(message, "value"))
+                    writer.uint32(/* id 4, wireType 2 =*/34).bytes(message.value);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified AzureEventHub message, length delimited. Does not implicitly {@link protos.records.AzureEventHub.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.records.AzureEventHub
+             * @static
+             * @param {protos.records.IAzureEventHub} message AzureEventHub message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            AzureEventHub.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes an AzureEventHub message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.records.AzureEventHub
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.records.AzureEventHub} AzureEventHub
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            AzureEventHub.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.records.AzureEventHub(), key, value;
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.id = reader.string();
+                        break;
+                    case 2:
+                        if (message.systemProperties === $util.emptyObject)
+                            message.systemProperties = {};
+                        var end2 = reader.uint32() + reader.pos;
+                        key = "";
+                        value = "";
+                        while (reader.pos < end2) {
+                            var tag2 = reader.uint32();
+                            switch (tag2 >>> 3) {
+                            case 1:
+                                key = reader.string();
+                                break;
+                            case 2:
+                                value = reader.string();
+                                break;
+                            default:
+                                reader.skipType(tag2 & 7);
+                                break;
+                            }
+                        }
+                        message.systemProperties[key] = value;
+                        break;
+                    case 3:
+                        message.timestamp = reader.int64();
+                        break;
+                    case 4:
+                        message.value = reader.bytes();
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes an AzureEventHub message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.records.AzureEventHub
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.records.AzureEventHub} AzureEventHub
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            AzureEventHub.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies an AzureEventHub message.
+             * @function verify
+             * @memberof protos.records.AzureEventHub
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            AzureEventHub.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.id != null && message.hasOwnProperty("id"))
+                    if (!$util.isString(message.id))
+                        return "id: string expected";
+                if (message.systemProperties != null && message.hasOwnProperty("systemProperties")) {
+                    if (!$util.isObject(message.systemProperties))
+                        return "systemProperties: object expected";
+                    var key = Object.keys(message.systemProperties);
+                    for (var i = 0; i < key.length; ++i)
+                        if (!$util.isString(message.systemProperties[key[i]]))
+                            return "systemProperties: string{k:string} expected";
+                }
+                if (message.timestamp != null && message.hasOwnProperty("timestamp"))
+                    if (!$util.isInteger(message.timestamp) && !(message.timestamp && $util.isInteger(message.timestamp.low) && $util.isInteger(message.timestamp.high)))
+                        return "timestamp: integer|Long expected";
+                if (message.value != null && message.hasOwnProperty("value"))
+                    if (!(message.value && typeof message.value.length === "number" || $util.isString(message.value)))
+                        return "value: buffer expected";
+                return null;
+            };
+
+            /**
+             * Creates an AzureEventHub message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.records.AzureEventHub
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.records.AzureEventHub} AzureEventHub
+             */
+            AzureEventHub.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.records.AzureEventHub)
+                    return object;
+                var message = new $root.protos.records.AzureEventHub();
+                if (object.id != null)
+                    message.id = String(object.id);
+                if (object.systemProperties) {
+                    if (typeof object.systemProperties !== "object")
+                        throw TypeError(".protos.records.AzureEventHub.systemProperties: object expected");
+                    message.systemProperties = {};
+                    for (var keys = Object.keys(object.systemProperties), i = 0; i < keys.length; ++i)
+                        message.systemProperties[keys[i]] = String(object.systemProperties[keys[i]]);
+                }
+                if (object.timestamp != null)
+                    if ($util.Long)
+                        (message.timestamp = $util.Long.fromValue(object.timestamp)).unsigned = false;
+                    else if (typeof object.timestamp === "string")
+                        message.timestamp = parseInt(object.timestamp, 10);
+                    else if (typeof object.timestamp === "number")
+                        message.timestamp = object.timestamp;
+                    else if (typeof object.timestamp === "object")
+                        message.timestamp = new $util.LongBits(object.timestamp.low >>> 0, object.timestamp.high >>> 0).toNumber();
+                if (object.value != null)
+                    if (typeof object.value === "string")
+                        $util.base64.decode(object.value, message.value = $util.newBuffer($util.base64.length(object.value)), 0);
+                    else if (object.value.length)
+                        message.value = object.value;
+                return message;
+            };
+
+            /**
+             * Creates a plain object from an AzureEventHub message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.records.AzureEventHub
+             * @static
+             * @param {protos.records.AzureEventHub} message AzureEventHub
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            AzureEventHub.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.objects || options.defaults)
+                    object.systemProperties = {};
+                if (options.defaults) {
+                    object.id = "";
+                    if ($util.Long) {
+                        var long = new $util.Long(0, 0, false);
+                        object.timestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                    } else
+                        object.timestamp = options.longs === String ? "0" : 0;
+                    if (options.bytes === String)
+                        object.value = "";
+                    else {
+                        object.value = [];
+                        if (options.bytes !== Array)
+                            object.value = $util.newBuffer(object.value);
+                    }
+                }
+                if (message.id != null && message.hasOwnProperty("id"))
+                    object.id = message.id;
+                var keys2;
+                if (message.systemProperties && (keys2 = Object.keys(message.systemProperties)).length) {
+                    object.systemProperties = {};
+                    for (var j = 0; j < keys2.length; ++j)
+                        object.systemProperties[keys2[j]] = message.systemProperties[keys2[j]];
+                }
+                if (message.timestamp != null && message.hasOwnProperty("timestamp"))
+                    if (typeof message.timestamp === "number")
+                        object.timestamp = options.longs === String ? String(message.timestamp) : message.timestamp;
+                    else
+                        object.timestamp = options.longs === String ? $util.Long.prototype.toString.call(message.timestamp) : options.longs === Number ? new $util.LongBits(message.timestamp.low >>> 0, message.timestamp.high >>> 0).toNumber() : message.timestamp;
+                if (message.value != null && message.hasOwnProperty("value"))
+                    object.value = options.bytes === String ? $util.base64.encode(message.value, 0, message.value.length) : options.bytes === Array ? Array.prototype.slice.call(message.value) : message.value;
+                return object;
+            };
+
+            /**
+             * Converts this AzureEventHub to JSON.
+             * @function toJSON
+             * @memberof protos.records.AzureEventHub
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            AzureEventHub.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return AzureEventHub;
+        })();
+
+        records.AzureServiceBus = (function() {
+
+            /**
+             * Properties of an AzureServiceBus.
+             * @memberof protos.records
+             * @interface IAzureServiceBus
+             * @property {string|null} [contentType] AzureServiceBus contentType
+             * @property {string|null} [correlationId] AzureServiceBus correlationId
+             * @property {Uint8Array|null} [value] AzureServiceBus value
+             * @property {number|null} [deliveryCount] AzureServiceBus deliveryCount
+             * @property {string|null} [sessionId] AzureServiceBus sessionId
+             * @property {number|null} [groupSequence] AzureServiceBus groupSequence
+             * @property {string|null} [id] AzureServiceBus id
+             * @property {string|null} [label] AzureServiceBus label
+             * @property {string|null} [replyTo] AzureServiceBus replyTo
+             * @property {string|null} [replyToGroupId] AzureServiceBus replyToGroupId
+             * @property {string|null} [to] AzureServiceBus to
+             * @property {number|Long|null} [ttl] AzureServiceBus ttl
+             * @property {string|null} [lockToken] AzureServiceBus lockToken
+             * @property {protos.records.IAzureSystemProperties|null} [systemProperties] AzureServiceBus systemProperties
+             * @property {Object.<string,string>|null} [userProperties] AzureServiceBus userProperties
+             * @property {number|null} [format] AzureServiceBus format
+             */
+
+            /**
+             * Constructs a new AzureServiceBus.
+             * @memberof protos.records
+             * @classdesc Represents an AzureServiceBus.
+             * @implements IAzureServiceBus
+             * @constructor
+             * @param {protos.records.IAzureServiceBus=} [properties] Properties to set
+             */
+            function AzureServiceBus(properties) {
+                this.userProperties = {};
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * AzureServiceBus contentType.
+             * @member {string} contentType
+             * @memberof protos.records.AzureServiceBus
+             * @instance
+             */
+            AzureServiceBus.prototype.contentType = "";
+
+            /**
+             * AzureServiceBus correlationId.
+             * @member {string} correlationId
+             * @memberof protos.records.AzureServiceBus
+             * @instance
+             */
+            AzureServiceBus.prototype.correlationId = "";
+
+            /**
+             * AzureServiceBus value.
+             * @member {Uint8Array} value
+             * @memberof protos.records.AzureServiceBus
+             * @instance
+             */
+            AzureServiceBus.prototype.value = $util.newBuffer([]);
+
+            /**
+             * AzureServiceBus deliveryCount.
+             * @member {number} deliveryCount
+             * @memberof protos.records.AzureServiceBus
+             * @instance
+             */
+            AzureServiceBus.prototype.deliveryCount = 0;
+
+            /**
+             * AzureServiceBus sessionId.
+             * @member {string} sessionId
+             * @memberof protos.records.AzureServiceBus
+             * @instance
+             */
+            AzureServiceBus.prototype.sessionId = "";
+
+            /**
+             * AzureServiceBus groupSequence.
+             * @member {number} groupSequence
+             * @memberof protos.records.AzureServiceBus
+             * @instance
+             */
+            AzureServiceBus.prototype.groupSequence = 0;
+
+            /**
+             * AzureServiceBus id.
+             * @member {string} id
+             * @memberof protos.records.AzureServiceBus
+             * @instance
+             */
+            AzureServiceBus.prototype.id = "";
+
+            /**
+             * AzureServiceBus label.
+             * @member {string} label
+             * @memberof protos.records.AzureServiceBus
+             * @instance
+             */
+            AzureServiceBus.prototype.label = "";
+
+            /**
+             * AzureServiceBus replyTo.
+             * @member {string} replyTo
+             * @memberof protos.records.AzureServiceBus
+             * @instance
+             */
+            AzureServiceBus.prototype.replyTo = "";
+
+            /**
+             * AzureServiceBus replyToGroupId.
+             * @member {string} replyToGroupId
+             * @memberof protos.records.AzureServiceBus
+             * @instance
+             */
+            AzureServiceBus.prototype.replyToGroupId = "";
+
+            /**
+             * AzureServiceBus to.
+             * @member {string} to
+             * @memberof protos.records.AzureServiceBus
+             * @instance
+             */
+            AzureServiceBus.prototype.to = "";
+
+            /**
+             * AzureServiceBus ttl.
+             * @member {number|Long} ttl
+             * @memberof protos.records.AzureServiceBus
+             * @instance
+             */
+            AzureServiceBus.prototype.ttl = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
+
+            /**
+             * AzureServiceBus lockToken.
+             * @member {string} lockToken
+             * @memberof protos.records.AzureServiceBus
+             * @instance
+             */
+            AzureServiceBus.prototype.lockToken = "";
+
+            /**
+             * AzureServiceBus systemProperties.
+             * @member {protos.records.IAzureSystemProperties|null|undefined} systemProperties
+             * @memberof protos.records.AzureServiceBus
+             * @instance
+             */
+            AzureServiceBus.prototype.systemProperties = null;
+
+            /**
+             * AzureServiceBus userProperties.
+             * @member {Object.<string,string>} userProperties
+             * @memberof protos.records.AzureServiceBus
+             * @instance
+             */
+            AzureServiceBus.prototype.userProperties = $util.emptyObject;
+
+            /**
+             * AzureServiceBus format.
+             * @member {number} format
+             * @memberof protos.records.AzureServiceBus
+             * @instance
+             */
+            AzureServiceBus.prototype.format = 0;
+
+            /**
+             * Creates a new AzureServiceBus instance using the specified properties.
+             * @function create
+             * @memberof protos.records.AzureServiceBus
+             * @static
+             * @param {protos.records.IAzureServiceBus=} [properties] Properties to set
+             * @returns {protos.records.AzureServiceBus} AzureServiceBus instance
+             */
+            AzureServiceBus.create = function create(properties) {
+                return new AzureServiceBus(properties);
+            };
+
+            /**
+             * Encodes the specified AzureServiceBus message. Does not implicitly {@link protos.records.AzureServiceBus.verify|verify} messages.
+             * @function encode
+             * @memberof protos.records.AzureServiceBus
+             * @static
+             * @param {protos.records.IAzureServiceBus} message AzureServiceBus message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            AzureServiceBus.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.contentType != null && Object.hasOwnProperty.call(message, "contentType"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.contentType);
+                if (message.correlationId != null && Object.hasOwnProperty.call(message, "correlationId"))
+                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.correlationId);
+                if (message.value != null && Object.hasOwnProperty.call(message, "value"))
+                    writer.uint32(/* id 3, wireType 2 =*/26).bytes(message.value);
+                if (message.deliveryCount != null && Object.hasOwnProperty.call(message, "deliveryCount"))
+                    writer.uint32(/* id 4, wireType 0 =*/32).uint32(message.deliveryCount);
+                if (message.sessionId != null && Object.hasOwnProperty.call(message, "sessionId"))
+                    writer.uint32(/* id 5, wireType 2 =*/42).string(message.sessionId);
+                if (message.groupSequence != null && Object.hasOwnProperty.call(message, "groupSequence"))
+                    writer.uint32(/* id 6, wireType 0 =*/48).uint32(message.groupSequence);
+                if (message.id != null && Object.hasOwnProperty.call(message, "id"))
+                    writer.uint32(/* id 7, wireType 2 =*/58).string(message.id);
+                if (message.label != null && Object.hasOwnProperty.call(message, "label"))
+                    writer.uint32(/* id 8, wireType 2 =*/66).string(message.label);
+                if (message.replyTo != null && Object.hasOwnProperty.call(message, "replyTo"))
+                    writer.uint32(/* id 9, wireType 2 =*/74).string(message.replyTo);
+                if (message.replyToGroupId != null && Object.hasOwnProperty.call(message, "replyToGroupId"))
+                    writer.uint32(/* id 10, wireType 2 =*/82).string(message.replyToGroupId);
+                if (message.to != null && Object.hasOwnProperty.call(message, "to"))
+                    writer.uint32(/* id 11, wireType 2 =*/90).string(message.to);
+                if (message.ttl != null && Object.hasOwnProperty.call(message, "ttl"))
+                    writer.uint32(/* id 12, wireType 0 =*/96).int64(message.ttl);
+                if (message.lockToken != null && Object.hasOwnProperty.call(message, "lockToken"))
+                    writer.uint32(/* id 13, wireType 2 =*/106).string(message.lockToken);
+                if (message.systemProperties != null && Object.hasOwnProperty.call(message, "systemProperties"))
+                    $root.protos.records.AzureSystemProperties.encode(message.systemProperties, writer.uint32(/* id 14, wireType 2 =*/114).fork()).ldelim();
+                if (message.userProperties != null && Object.hasOwnProperty.call(message, "userProperties"))
+                    for (var keys = Object.keys(message.userProperties), i = 0; i < keys.length; ++i)
+                        writer.uint32(/* id 15, wireType 2 =*/122).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]).uint32(/* id 2, wireType 2 =*/18).string(message.userProperties[keys[i]]).ldelim();
+                if (message.format != null && Object.hasOwnProperty.call(message, "format"))
+                    writer.uint32(/* id 16, wireType 0 =*/128).uint32(message.format);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified AzureServiceBus message, length delimited. Does not implicitly {@link protos.records.AzureServiceBus.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.records.AzureServiceBus
+             * @static
+             * @param {protos.records.IAzureServiceBus} message AzureServiceBus message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            AzureServiceBus.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes an AzureServiceBus message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.records.AzureServiceBus
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.records.AzureServiceBus} AzureServiceBus
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            AzureServiceBus.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.records.AzureServiceBus(), key, value;
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.contentType = reader.string();
+                        break;
+                    case 2:
+                        message.correlationId = reader.string();
+                        break;
+                    case 3:
+                        message.value = reader.bytes();
+                        break;
+                    case 4:
+                        message.deliveryCount = reader.uint32();
+                        break;
+                    case 5:
+                        message.sessionId = reader.string();
+                        break;
+                    case 6:
+                        message.groupSequence = reader.uint32();
+                        break;
+                    case 7:
+                        message.id = reader.string();
+                        break;
+                    case 8:
+                        message.label = reader.string();
+                        break;
+                    case 9:
+                        message.replyTo = reader.string();
+                        break;
+                    case 10:
+                        message.replyToGroupId = reader.string();
+                        break;
+                    case 11:
+                        message.to = reader.string();
+                        break;
+                    case 12:
+                        message.ttl = reader.int64();
+                        break;
+                    case 13:
+                        message.lockToken = reader.string();
+                        break;
+                    case 14:
+                        message.systemProperties = $root.protos.records.AzureSystemProperties.decode(reader, reader.uint32());
+                        break;
+                    case 15:
+                        if (message.userProperties === $util.emptyObject)
+                            message.userProperties = {};
+                        var end2 = reader.uint32() + reader.pos;
+                        key = "";
+                        value = "";
+                        while (reader.pos < end2) {
+                            var tag2 = reader.uint32();
+                            switch (tag2 >>> 3) {
+                            case 1:
+                                key = reader.string();
+                                break;
+                            case 2:
+                                value = reader.string();
+                                break;
+                            default:
+                                reader.skipType(tag2 & 7);
+                                break;
+                            }
+                        }
+                        message.userProperties[key] = value;
+                        break;
+                    case 16:
+                        message.format = reader.uint32();
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes an AzureServiceBus message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.records.AzureServiceBus
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.records.AzureServiceBus} AzureServiceBus
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            AzureServiceBus.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies an AzureServiceBus message.
+             * @function verify
+             * @memberof protos.records.AzureServiceBus
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            AzureServiceBus.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.contentType != null && message.hasOwnProperty("contentType"))
+                    if (!$util.isString(message.contentType))
+                        return "contentType: string expected";
+                if (message.correlationId != null && message.hasOwnProperty("correlationId"))
+                    if (!$util.isString(message.correlationId))
+                        return "correlationId: string expected";
+                if (message.value != null && message.hasOwnProperty("value"))
+                    if (!(message.value && typeof message.value.length === "number" || $util.isString(message.value)))
+                        return "value: buffer expected";
+                if (message.deliveryCount != null && message.hasOwnProperty("deliveryCount"))
+                    if (!$util.isInteger(message.deliveryCount))
+                        return "deliveryCount: integer expected";
+                if (message.sessionId != null && message.hasOwnProperty("sessionId"))
+                    if (!$util.isString(message.sessionId))
+                        return "sessionId: string expected";
+                if (message.groupSequence != null && message.hasOwnProperty("groupSequence"))
+                    if (!$util.isInteger(message.groupSequence))
+                        return "groupSequence: integer expected";
+                if (message.id != null && message.hasOwnProperty("id"))
+                    if (!$util.isString(message.id))
+                        return "id: string expected";
+                if (message.label != null && message.hasOwnProperty("label"))
+                    if (!$util.isString(message.label))
+                        return "label: string expected";
+                if (message.replyTo != null && message.hasOwnProperty("replyTo"))
+                    if (!$util.isString(message.replyTo))
+                        return "replyTo: string expected";
+                if (message.replyToGroupId != null && message.hasOwnProperty("replyToGroupId"))
+                    if (!$util.isString(message.replyToGroupId))
+                        return "replyToGroupId: string expected";
+                if (message.to != null && message.hasOwnProperty("to"))
+                    if (!$util.isString(message.to))
+                        return "to: string expected";
+                if (message.ttl != null && message.hasOwnProperty("ttl"))
+                    if (!$util.isInteger(message.ttl) && !(message.ttl && $util.isInteger(message.ttl.low) && $util.isInteger(message.ttl.high)))
+                        return "ttl: integer|Long expected";
+                if (message.lockToken != null && message.hasOwnProperty("lockToken"))
+                    if (!$util.isString(message.lockToken))
+                        return "lockToken: string expected";
+                if (message.systemProperties != null && message.hasOwnProperty("systemProperties")) {
+                    var error = $root.protos.records.AzureSystemProperties.verify(message.systemProperties);
+                    if (error)
+                        return "systemProperties." + error;
+                }
+                if (message.userProperties != null && message.hasOwnProperty("userProperties")) {
+                    if (!$util.isObject(message.userProperties))
+                        return "userProperties: object expected";
+                    var key = Object.keys(message.userProperties);
+                    for (var i = 0; i < key.length; ++i)
+                        if (!$util.isString(message.userProperties[key[i]]))
+                            return "userProperties: string{k:string} expected";
+                }
+                if (message.format != null && message.hasOwnProperty("format"))
+                    if (!$util.isInteger(message.format))
+                        return "format: integer expected";
+                return null;
+            };
+
+            /**
+             * Creates an AzureServiceBus message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.records.AzureServiceBus
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.records.AzureServiceBus} AzureServiceBus
+             */
+            AzureServiceBus.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.records.AzureServiceBus)
+                    return object;
+                var message = new $root.protos.records.AzureServiceBus();
+                if (object.contentType != null)
+                    message.contentType = String(object.contentType);
+                if (object.correlationId != null)
+                    message.correlationId = String(object.correlationId);
+                if (object.value != null)
+                    if (typeof object.value === "string")
+                        $util.base64.decode(object.value, message.value = $util.newBuffer($util.base64.length(object.value)), 0);
+                    else if (object.value.length)
+                        message.value = object.value;
+                if (object.deliveryCount != null)
+                    message.deliveryCount = object.deliveryCount >>> 0;
+                if (object.sessionId != null)
+                    message.sessionId = String(object.sessionId);
+                if (object.groupSequence != null)
+                    message.groupSequence = object.groupSequence >>> 0;
+                if (object.id != null)
+                    message.id = String(object.id);
+                if (object.label != null)
+                    message.label = String(object.label);
+                if (object.replyTo != null)
+                    message.replyTo = String(object.replyTo);
+                if (object.replyToGroupId != null)
+                    message.replyToGroupId = String(object.replyToGroupId);
+                if (object.to != null)
+                    message.to = String(object.to);
+                if (object.ttl != null)
+                    if ($util.Long)
+                        (message.ttl = $util.Long.fromValue(object.ttl)).unsigned = false;
+                    else if (typeof object.ttl === "string")
+                        message.ttl = parseInt(object.ttl, 10);
+                    else if (typeof object.ttl === "number")
+                        message.ttl = object.ttl;
+                    else if (typeof object.ttl === "object")
+                        message.ttl = new $util.LongBits(object.ttl.low >>> 0, object.ttl.high >>> 0).toNumber();
+                if (object.lockToken != null)
+                    message.lockToken = String(object.lockToken);
+                if (object.systemProperties != null) {
+                    if (typeof object.systemProperties !== "object")
+                        throw TypeError(".protos.records.AzureServiceBus.systemProperties: object expected");
+                    message.systemProperties = $root.protos.records.AzureSystemProperties.fromObject(object.systemProperties);
+                }
+                if (object.userProperties) {
+                    if (typeof object.userProperties !== "object")
+                        throw TypeError(".protos.records.AzureServiceBus.userProperties: object expected");
+                    message.userProperties = {};
+                    for (var keys = Object.keys(object.userProperties), i = 0; i < keys.length; ++i)
+                        message.userProperties[keys[i]] = String(object.userProperties[keys[i]]);
+                }
+                if (object.format != null)
+                    message.format = object.format >>> 0;
+                return message;
+            };
+
+            /**
+             * Creates a plain object from an AzureServiceBus message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.records.AzureServiceBus
+             * @static
+             * @param {protos.records.AzureServiceBus} message AzureServiceBus
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            AzureServiceBus.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.objects || options.defaults)
+                    object.userProperties = {};
+                if (options.defaults) {
+                    object.contentType = "";
+                    object.correlationId = "";
+                    if (options.bytes === String)
+                        object.value = "";
+                    else {
+                        object.value = [];
+                        if (options.bytes !== Array)
+                            object.value = $util.newBuffer(object.value);
+                    }
+                    object.deliveryCount = 0;
+                    object.sessionId = "";
+                    object.groupSequence = 0;
+                    object.id = "";
+                    object.label = "";
+                    object.replyTo = "";
+                    object.replyToGroupId = "";
+                    object.to = "";
+                    if ($util.Long) {
+                        var long = new $util.Long(0, 0, false);
+                        object.ttl = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                    } else
+                        object.ttl = options.longs === String ? "0" : 0;
+                    object.lockToken = "";
+                    object.systemProperties = null;
+                    object.format = 0;
+                }
+                if (message.contentType != null && message.hasOwnProperty("contentType"))
+                    object.contentType = message.contentType;
+                if (message.correlationId != null && message.hasOwnProperty("correlationId"))
+                    object.correlationId = message.correlationId;
+                if (message.value != null && message.hasOwnProperty("value"))
+                    object.value = options.bytes === String ? $util.base64.encode(message.value, 0, message.value.length) : options.bytes === Array ? Array.prototype.slice.call(message.value) : message.value;
+                if (message.deliveryCount != null && message.hasOwnProperty("deliveryCount"))
+                    object.deliveryCount = message.deliveryCount;
+                if (message.sessionId != null && message.hasOwnProperty("sessionId"))
+                    object.sessionId = message.sessionId;
+                if (message.groupSequence != null && message.hasOwnProperty("groupSequence"))
+                    object.groupSequence = message.groupSequence;
+                if (message.id != null && message.hasOwnProperty("id"))
+                    object.id = message.id;
+                if (message.label != null && message.hasOwnProperty("label"))
+                    object.label = message.label;
+                if (message.replyTo != null && message.hasOwnProperty("replyTo"))
+                    object.replyTo = message.replyTo;
+                if (message.replyToGroupId != null && message.hasOwnProperty("replyToGroupId"))
+                    object.replyToGroupId = message.replyToGroupId;
+                if (message.to != null && message.hasOwnProperty("to"))
+                    object.to = message.to;
+                if (message.ttl != null && message.hasOwnProperty("ttl"))
+                    if (typeof message.ttl === "number")
+                        object.ttl = options.longs === String ? String(message.ttl) : message.ttl;
+                    else
+                        object.ttl = options.longs === String ? $util.Long.prototype.toString.call(message.ttl) : options.longs === Number ? new $util.LongBits(message.ttl.low >>> 0, message.ttl.high >>> 0).toNumber() : message.ttl;
+                if (message.lockToken != null && message.hasOwnProperty("lockToken"))
+                    object.lockToken = message.lockToken;
+                if (message.systemProperties != null && message.hasOwnProperty("systemProperties"))
+                    object.systemProperties = $root.protos.records.AzureSystemProperties.toObject(message.systemProperties, options);
+                var keys2;
+                if (message.userProperties && (keys2 = Object.keys(message.userProperties)).length) {
+                    object.userProperties = {};
+                    for (var j = 0; j < keys2.length; ++j)
+                        object.userProperties[keys2[j]] = message.userProperties[keys2[j]];
+                }
+                if (message.format != null && message.hasOwnProperty("format"))
+                    object.format = message.format;
+                return object;
+            };
+
+            /**
+             * Converts this AzureServiceBus to JSON.
+             * @function toJSON
+             * @memberof protos.records.AzureServiceBus
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            AzureServiceBus.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return AzureServiceBus;
+        })();
+
+        records.AzureSystemProperties = (function() {
+
+            /**
+             * Properties of an AzureSystemProperties.
+             * @memberof protos.records
+             * @interface IAzureSystemProperties
+             * @property {number|Long|null} [lockedUntil] AzureSystemProperties lockedUntil
+             * @property {number|Long|null} [sequenceNumber] AzureSystemProperties sequenceNumber
+             * @property {number|null} [partitionId] AzureSystemProperties partitionId
+             * @property {string|null} [partitionKey] AzureSystemProperties partitionKey
+             * @property {number|Long|null} [enqueuedTime] AzureSystemProperties enqueuedTime
+             * @property {string|null} [deadLetterSource] AzureSystemProperties deadLetterSource
+             * @property {number|Long|null} [scheduledEnqueueTime] AzureSystemProperties scheduledEnqueueTime
+             * @property {number|Long|null} [enqueuedSequenceNumber] AzureSystemProperties enqueuedSequenceNumber
+             * @property {string|null} [viaPartitionKey] AzureSystemProperties viaPartitionKey
+             * @property {Object.<string,string>|null} [annotations] AzureSystemProperties annotations
+             */
+
+            /**
+             * Constructs a new AzureSystemProperties.
+             * @memberof protos.records
+             * @classdesc Represents an AzureSystemProperties.
+             * @implements IAzureSystemProperties
+             * @constructor
+             * @param {protos.records.IAzureSystemProperties=} [properties] Properties to set
+             */
+            function AzureSystemProperties(properties) {
+                this.annotations = {};
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * AzureSystemProperties lockedUntil.
+             * @member {number|Long} lockedUntil
+             * @memberof protos.records.AzureSystemProperties
+             * @instance
+             */
+            AzureSystemProperties.prototype.lockedUntil = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
+
+            /**
+             * AzureSystemProperties sequenceNumber.
+             * @member {number|Long} sequenceNumber
+             * @memberof protos.records.AzureSystemProperties
+             * @instance
+             */
+            AzureSystemProperties.prototype.sequenceNumber = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
+
+            /**
+             * AzureSystemProperties partitionId.
+             * @member {number} partitionId
+             * @memberof protos.records.AzureSystemProperties
+             * @instance
+             */
+            AzureSystemProperties.prototype.partitionId = 0;
+
+            /**
+             * AzureSystemProperties partitionKey.
+             * @member {string} partitionKey
+             * @memberof protos.records.AzureSystemProperties
+             * @instance
+             */
+            AzureSystemProperties.prototype.partitionKey = "";
+
+            /**
+             * AzureSystemProperties enqueuedTime.
+             * @member {number|Long} enqueuedTime
+             * @memberof protos.records.AzureSystemProperties
+             * @instance
+             */
+            AzureSystemProperties.prototype.enqueuedTime = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
+
+            /**
+             * AzureSystemProperties deadLetterSource.
+             * @member {string} deadLetterSource
+             * @memberof protos.records.AzureSystemProperties
+             * @instance
+             */
+            AzureSystemProperties.prototype.deadLetterSource = "";
+
+            /**
+             * AzureSystemProperties scheduledEnqueueTime.
+             * @member {number|Long} scheduledEnqueueTime
+             * @memberof protos.records.AzureSystemProperties
+             * @instance
+             */
+            AzureSystemProperties.prototype.scheduledEnqueueTime = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
+
+            /**
+             * AzureSystemProperties enqueuedSequenceNumber.
+             * @member {number|Long} enqueuedSequenceNumber
+             * @memberof protos.records.AzureSystemProperties
+             * @instance
+             */
+            AzureSystemProperties.prototype.enqueuedSequenceNumber = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
+
+            /**
+             * AzureSystemProperties viaPartitionKey.
+             * @member {string} viaPartitionKey
+             * @memberof protos.records.AzureSystemProperties
+             * @instance
+             */
+            AzureSystemProperties.prototype.viaPartitionKey = "";
+
+            /**
+             * AzureSystemProperties annotations.
+             * @member {Object.<string,string>} annotations
+             * @memberof protos.records.AzureSystemProperties
+             * @instance
+             */
+            AzureSystemProperties.prototype.annotations = $util.emptyObject;
+
+            /**
+             * Creates a new AzureSystemProperties instance using the specified properties.
+             * @function create
+             * @memberof protos.records.AzureSystemProperties
+             * @static
+             * @param {protos.records.IAzureSystemProperties=} [properties] Properties to set
+             * @returns {protos.records.AzureSystemProperties} AzureSystemProperties instance
+             */
+            AzureSystemProperties.create = function create(properties) {
+                return new AzureSystemProperties(properties);
+            };
+
+            /**
+             * Encodes the specified AzureSystemProperties message. Does not implicitly {@link protos.records.AzureSystemProperties.verify|verify} messages.
+             * @function encode
+             * @memberof protos.records.AzureSystemProperties
+             * @static
+             * @param {protos.records.IAzureSystemProperties} message AzureSystemProperties message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            AzureSystemProperties.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.lockedUntil != null && Object.hasOwnProperty.call(message, "lockedUntil"))
+                    writer.uint32(/* id 1, wireType 0 =*/8).int64(message.lockedUntil);
+                if (message.sequenceNumber != null && Object.hasOwnProperty.call(message, "sequenceNumber"))
+                    writer.uint32(/* id 2, wireType 0 =*/16).int64(message.sequenceNumber);
+                if (message.partitionId != null && Object.hasOwnProperty.call(message, "partitionId"))
+                    writer.uint32(/* id 3, wireType 0 =*/24).int32(message.partitionId);
+                if (message.partitionKey != null && Object.hasOwnProperty.call(message, "partitionKey"))
+                    writer.uint32(/* id 4, wireType 2 =*/34).string(message.partitionKey);
+                if (message.enqueuedTime != null && Object.hasOwnProperty.call(message, "enqueuedTime"))
+                    writer.uint32(/* id 5, wireType 0 =*/40).int64(message.enqueuedTime);
+                if (message.deadLetterSource != null && Object.hasOwnProperty.call(message, "deadLetterSource"))
+                    writer.uint32(/* id 6, wireType 2 =*/50).string(message.deadLetterSource);
+                if (message.scheduledEnqueueTime != null && Object.hasOwnProperty.call(message, "scheduledEnqueueTime"))
+                    writer.uint32(/* id 7, wireType 0 =*/56).int64(message.scheduledEnqueueTime);
+                if (message.enqueuedSequenceNumber != null && Object.hasOwnProperty.call(message, "enqueuedSequenceNumber"))
+                    writer.uint32(/* id 8, wireType 0 =*/64).int64(message.enqueuedSequenceNumber);
+                if (message.viaPartitionKey != null && Object.hasOwnProperty.call(message, "viaPartitionKey"))
+                    writer.uint32(/* id 9, wireType 2 =*/74).string(message.viaPartitionKey);
+                if (message.annotations != null && Object.hasOwnProperty.call(message, "annotations"))
+                    for (var keys = Object.keys(message.annotations), i = 0; i < keys.length; ++i)
+                        writer.uint32(/* id 10, wireType 2 =*/82).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]).uint32(/* id 2, wireType 2 =*/18).string(message.annotations[keys[i]]).ldelim();
+                return writer;
+            };
+
+            /**
+             * Encodes the specified AzureSystemProperties message, length delimited. Does not implicitly {@link protos.records.AzureSystemProperties.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.records.AzureSystemProperties
+             * @static
+             * @param {protos.records.IAzureSystemProperties} message AzureSystemProperties message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            AzureSystemProperties.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes an AzureSystemProperties message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.records.AzureSystemProperties
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.records.AzureSystemProperties} AzureSystemProperties
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            AzureSystemProperties.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.records.AzureSystemProperties(), key, value;
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.lockedUntil = reader.int64();
+                        break;
+                    case 2:
+                        message.sequenceNumber = reader.int64();
+                        break;
+                    case 3:
+                        message.partitionId = reader.int32();
+                        break;
+                    case 4:
+                        message.partitionKey = reader.string();
+                        break;
+                    case 5:
+                        message.enqueuedTime = reader.int64();
+                        break;
+                    case 6:
+                        message.deadLetterSource = reader.string();
+                        break;
+                    case 7:
+                        message.scheduledEnqueueTime = reader.int64();
+                        break;
+                    case 8:
+                        message.enqueuedSequenceNumber = reader.int64();
+                        break;
+                    case 9:
+                        message.viaPartitionKey = reader.string();
+                        break;
+                    case 10:
+                        if (message.annotations === $util.emptyObject)
+                            message.annotations = {};
+                        var end2 = reader.uint32() + reader.pos;
+                        key = "";
+                        value = "";
+                        while (reader.pos < end2) {
+                            var tag2 = reader.uint32();
+                            switch (tag2 >>> 3) {
+                            case 1:
+                                key = reader.string();
+                                break;
+                            case 2:
+                                value = reader.string();
+                                break;
+                            default:
+                                reader.skipType(tag2 & 7);
+                                break;
+                            }
+                        }
+                        message.annotations[key] = value;
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes an AzureSystemProperties message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.records.AzureSystemProperties
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.records.AzureSystemProperties} AzureSystemProperties
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            AzureSystemProperties.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies an AzureSystemProperties message.
+             * @function verify
+             * @memberof protos.records.AzureSystemProperties
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            AzureSystemProperties.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.lockedUntil != null && message.hasOwnProperty("lockedUntil"))
+                    if (!$util.isInteger(message.lockedUntil) && !(message.lockedUntil && $util.isInteger(message.lockedUntil.low) && $util.isInteger(message.lockedUntil.high)))
+                        return "lockedUntil: integer|Long expected";
+                if (message.sequenceNumber != null && message.hasOwnProperty("sequenceNumber"))
+                    if (!$util.isInteger(message.sequenceNumber) && !(message.sequenceNumber && $util.isInteger(message.sequenceNumber.low) && $util.isInteger(message.sequenceNumber.high)))
+                        return "sequenceNumber: integer|Long expected";
+                if (message.partitionId != null && message.hasOwnProperty("partitionId"))
+                    if (!$util.isInteger(message.partitionId))
+                        return "partitionId: integer expected";
+                if (message.partitionKey != null && message.hasOwnProperty("partitionKey"))
+                    if (!$util.isString(message.partitionKey))
+                        return "partitionKey: string expected";
+                if (message.enqueuedTime != null && message.hasOwnProperty("enqueuedTime"))
+                    if (!$util.isInteger(message.enqueuedTime) && !(message.enqueuedTime && $util.isInteger(message.enqueuedTime.low) && $util.isInteger(message.enqueuedTime.high)))
+                        return "enqueuedTime: integer|Long expected";
+                if (message.deadLetterSource != null && message.hasOwnProperty("deadLetterSource"))
+                    if (!$util.isString(message.deadLetterSource))
+                        return "deadLetterSource: string expected";
+                if (message.scheduledEnqueueTime != null && message.hasOwnProperty("scheduledEnqueueTime"))
+                    if (!$util.isInteger(message.scheduledEnqueueTime) && !(message.scheduledEnqueueTime && $util.isInteger(message.scheduledEnqueueTime.low) && $util.isInteger(message.scheduledEnqueueTime.high)))
+                        return "scheduledEnqueueTime: integer|Long expected";
+                if (message.enqueuedSequenceNumber != null && message.hasOwnProperty("enqueuedSequenceNumber"))
+                    if (!$util.isInteger(message.enqueuedSequenceNumber) && !(message.enqueuedSequenceNumber && $util.isInteger(message.enqueuedSequenceNumber.low) && $util.isInteger(message.enqueuedSequenceNumber.high)))
+                        return "enqueuedSequenceNumber: integer|Long expected";
+                if (message.viaPartitionKey != null && message.hasOwnProperty("viaPartitionKey"))
+                    if (!$util.isString(message.viaPartitionKey))
+                        return "viaPartitionKey: string expected";
+                if (message.annotations != null && message.hasOwnProperty("annotations")) {
+                    if (!$util.isObject(message.annotations))
+                        return "annotations: object expected";
+                    var key = Object.keys(message.annotations);
+                    for (var i = 0; i < key.length; ++i)
+                        if (!$util.isString(message.annotations[key[i]]))
+                            return "annotations: string{k:string} expected";
+                }
+                return null;
+            };
+
+            /**
+             * Creates an AzureSystemProperties message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.records.AzureSystemProperties
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.records.AzureSystemProperties} AzureSystemProperties
+             */
+            AzureSystemProperties.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.records.AzureSystemProperties)
+                    return object;
+                var message = new $root.protos.records.AzureSystemProperties();
+                if (object.lockedUntil != null)
+                    if ($util.Long)
+                        (message.lockedUntil = $util.Long.fromValue(object.lockedUntil)).unsigned = false;
+                    else if (typeof object.lockedUntil === "string")
+                        message.lockedUntil = parseInt(object.lockedUntil, 10);
+                    else if (typeof object.lockedUntil === "number")
+                        message.lockedUntil = object.lockedUntil;
+                    else if (typeof object.lockedUntil === "object")
+                        message.lockedUntil = new $util.LongBits(object.lockedUntil.low >>> 0, object.lockedUntil.high >>> 0).toNumber();
+                if (object.sequenceNumber != null)
+                    if ($util.Long)
+                        (message.sequenceNumber = $util.Long.fromValue(object.sequenceNumber)).unsigned = false;
+                    else if (typeof object.sequenceNumber === "string")
+                        message.sequenceNumber = parseInt(object.sequenceNumber, 10);
+                    else if (typeof object.sequenceNumber === "number")
+                        message.sequenceNumber = object.sequenceNumber;
+                    else if (typeof object.sequenceNumber === "object")
+                        message.sequenceNumber = new $util.LongBits(object.sequenceNumber.low >>> 0, object.sequenceNumber.high >>> 0).toNumber();
+                if (object.partitionId != null)
+                    message.partitionId = object.partitionId | 0;
+                if (object.partitionKey != null)
+                    message.partitionKey = String(object.partitionKey);
+                if (object.enqueuedTime != null)
+                    if ($util.Long)
+                        (message.enqueuedTime = $util.Long.fromValue(object.enqueuedTime)).unsigned = false;
+                    else if (typeof object.enqueuedTime === "string")
+                        message.enqueuedTime = parseInt(object.enqueuedTime, 10);
+                    else if (typeof object.enqueuedTime === "number")
+                        message.enqueuedTime = object.enqueuedTime;
+                    else if (typeof object.enqueuedTime === "object")
+                        message.enqueuedTime = new $util.LongBits(object.enqueuedTime.low >>> 0, object.enqueuedTime.high >>> 0).toNumber();
+                if (object.deadLetterSource != null)
+                    message.deadLetterSource = String(object.deadLetterSource);
+                if (object.scheduledEnqueueTime != null)
+                    if ($util.Long)
+                        (message.scheduledEnqueueTime = $util.Long.fromValue(object.scheduledEnqueueTime)).unsigned = false;
+                    else if (typeof object.scheduledEnqueueTime === "string")
+                        message.scheduledEnqueueTime = parseInt(object.scheduledEnqueueTime, 10);
+                    else if (typeof object.scheduledEnqueueTime === "number")
+                        message.scheduledEnqueueTime = object.scheduledEnqueueTime;
+                    else if (typeof object.scheduledEnqueueTime === "object")
+                        message.scheduledEnqueueTime = new $util.LongBits(object.scheduledEnqueueTime.low >>> 0, object.scheduledEnqueueTime.high >>> 0).toNumber();
+                if (object.enqueuedSequenceNumber != null)
+                    if ($util.Long)
+                        (message.enqueuedSequenceNumber = $util.Long.fromValue(object.enqueuedSequenceNumber)).unsigned = false;
+                    else if (typeof object.enqueuedSequenceNumber === "string")
+                        message.enqueuedSequenceNumber = parseInt(object.enqueuedSequenceNumber, 10);
+                    else if (typeof object.enqueuedSequenceNumber === "number")
+                        message.enqueuedSequenceNumber = object.enqueuedSequenceNumber;
+                    else if (typeof object.enqueuedSequenceNumber === "object")
+                        message.enqueuedSequenceNumber = new $util.LongBits(object.enqueuedSequenceNumber.low >>> 0, object.enqueuedSequenceNumber.high >>> 0).toNumber();
+                if (object.viaPartitionKey != null)
+                    message.viaPartitionKey = String(object.viaPartitionKey);
+                if (object.annotations) {
+                    if (typeof object.annotations !== "object")
+                        throw TypeError(".protos.records.AzureSystemProperties.annotations: object expected");
+                    message.annotations = {};
+                    for (var keys = Object.keys(object.annotations), i = 0; i < keys.length; ++i)
+                        message.annotations[keys[i]] = String(object.annotations[keys[i]]);
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from an AzureSystemProperties message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.records.AzureSystemProperties
+             * @static
+             * @param {protos.records.AzureSystemProperties} message AzureSystemProperties
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            AzureSystemProperties.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.objects || options.defaults)
+                    object.annotations = {};
+                if (options.defaults) {
+                    if ($util.Long) {
+                        var long = new $util.Long(0, 0, false);
+                        object.lockedUntil = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                    } else
+                        object.lockedUntil = options.longs === String ? "0" : 0;
+                    if ($util.Long) {
+                        var long = new $util.Long(0, 0, false);
+                        object.sequenceNumber = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                    } else
+                        object.sequenceNumber = options.longs === String ? "0" : 0;
+                    object.partitionId = 0;
+                    object.partitionKey = "";
+                    if ($util.Long) {
+                        var long = new $util.Long(0, 0, false);
+                        object.enqueuedTime = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                    } else
+                        object.enqueuedTime = options.longs === String ? "0" : 0;
+                    object.deadLetterSource = "";
+                    if ($util.Long) {
+                        var long = new $util.Long(0, 0, false);
+                        object.scheduledEnqueueTime = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                    } else
+                        object.scheduledEnqueueTime = options.longs === String ? "0" : 0;
+                    if ($util.Long) {
+                        var long = new $util.Long(0, 0, false);
+                        object.enqueuedSequenceNumber = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                    } else
+                        object.enqueuedSequenceNumber = options.longs === String ? "0" : 0;
+                    object.viaPartitionKey = "";
+                }
+                if (message.lockedUntil != null && message.hasOwnProperty("lockedUntil"))
+                    if (typeof message.lockedUntil === "number")
+                        object.lockedUntil = options.longs === String ? String(message.lockedUntil) : message.lockedUntil;
+                    else
+                        object.lockedUntil = options.longs === String ? $util.Long.prototype.toString.call(message.lockedUntil) : options.longs === Number ? new $util.LongBits(message.lockedUntil.low >>> 0, message.lockedUntil.high >>> 0).toNumber() : message.lockedUntil;
+                if (message.sequenceNumber != null && message.hasOwnProperty("sequenceNumber"))
+                    if (typeof message.sequenceNumber === "number")
+                        object.sequenceNumber = options.longs === String ? String(message.sequenceNumber) : message.sequenceNumber;
+                    else
+                        object.sequenceNumber = options.longs === String ? $util.Long.prototype.toString.call(message.sequenceNumber) : options.longs === Number ? new $util.LongBits(message.sequenceNumber.low >>> 0, message.sequenceNumber.high >>> 0).toNumber() : message.sequenceNumber;
+                if (message.partitionId != null && message.hasOwnProperty("partitionId"))
+                    object.partitionId = message.partitionId;
+                if (message.partitionKey != null && message.hasOwnProperty("partitionKey"))
+                    object.partitionKey = message.partitionKey;
+                if (message.enqueuedTime != null && message.hasOwnProperty("enqueuedTime"))
+                    if (typeof message.enqueuedTime === "number")
+                        object.enqueuedTime = options.longs === String ? String(message.enqueuedTime) : message.enqueuedTime;
+                    else
+                        object.enqueuedTime = options.longs === String ? $util.Long.prototype.toString.call(message.enqueuedTime) : options.longs === Number ? new $util.LongBits(message.enqueuedTime.low >>> 0, message.enqueuedTime.high >>> 0).toNumber() : message.enqueuedTime;
+                if (message.deadLetterSource != null && message.hasOwnProperty("deadLetterSource"))
+                    object.deadLetterSource = message.deadLetterSource;
+                if (message.scheduledEnqueueTime != null && message.hasOwnProperty("scheduledEnqueueTime"))
+                    if (typeof message.scheduledEnqueueTime === "number")
+                        object.scheduledEnqueueTime = options.longs === String ? String(message.scheduledEnqueueTime) : message.scheduledEnqueueTime;
+                    else
+                        object.scheduledEnqueueTime = options.longs === String ? $util.Long.prototype.toString.call(message.scheduledEnqueueTime) : options.longs === Number ? new $util.LongBits(message.scheduledEnqueueTime.low >>> 0, message.scheduledEnqueueTime.high >>> 0).toNumber() : message.scheduledEnqueueTime;
+                if (message.enqueuedSequenceNumber != null && message.hasOwnProperty("enqueuedSequenceNumber"))
+                    if (typeof message.enqueuedSequenceNumber === "number")
+                        object.enqueuedSequenceNumber = options.longs === String ? String(message.enqueuedSequenceNumber) : message.enqueuedSequenceNumber;
+                    else
+                        object.enqueuedSequenceNumber = options.longs === String ? $util.Long.prototype.toString.call(message.enqueuedSequenceNumber) : options.longs === Number ? new $util.LongBits(message.enqueuedSequenceNumber.low >>> 0, message.enqueuedSequenceNumber.high >>> 0).toNumber() : message.enqueuedSequenceNumber;
+                if (message.viaPartitionKey != null && message.hasOwnProperty("viaPartitionKey"))
+                    object.viaPartitionKey = message.viaPartitionKey;
+                var keys2;
+                if (message.annotations && (keys2 = Object.keys(message.annotations)).length) {
+                    object.annotations = {};
+                    for (var j = 0; j < keys2.length; ++j)
+                        object.annotations[keys2[j]] = message.annotations[keys2[j]];
+                }
+                return object;
+            };
+
+            /**
+             * Converts this AzureSystemProperties to JSON.
+             * @function toJSON
+             * @memberof protos.records.AzureSystemProperties
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            AzureSystemProperties.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return AzureSystemProperties;
+        })();
+
+        records.GCPPubSub = (function() {
+
+            /**
+             * Properties of a GCPPubSub.
+             * @memberof protos.records
+             * @interface IGCPPubSub
+             * @property {string|null} [id] GCPPubSub id
+             * @property {Uint8Array|null} [value] GCPPubSub value
+             * @property {Object.<string,string>|null} [attributes] GCPPubSub attributes
+             * @property {number|Long|null} [publishTime] GCPPubSub publishTime
+             * @property {number|null} [deliveryAttempt] GCPPubSub deliveryAttempt
+             * @property {string|null} [orderingKey] GCPPubSub orderingKey
+             */
+
+            /**
+             * Constructs a new GCPPubSub.
+             * @memberof protos.records
+             * @classdesc Represents a GCPPubSub.
+             * @implements IGCPPubSub
+             * @constructor
+             * @param {protos.records.IGCPPubSub=} [properties] Properties to set
+             */
+            function GCPPubSub(properties) {
+                this.attributes = {};
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * GCPPubSub id.
+             * @member {string} id
+             * @memberof protos.records.GCPPubSub
+             * @instance
+             */
+            GCPPubSub.prototype.id = "";
+
+            /**
+             * GCPPubSub value.
+             * @member {Uint8Array} value
+             * @memberof protos.records.GCPPubSub
+             * @instance
+             */
+            GCPPubSub.prototype.value = $util.newBuffer([]);
+
+            /**
+             * GCPPubSub attributes.
+             * @member {Object.<string,string>} attributes
+             * @memberof protos.records.GCPPubSub
+             * @instance
+             */
+            GCPPubSub.prototype.attributes = $util.emptyObject;
+
+            /**
+             * GCPPubSub publishTime.
+             * @member {number|Long} publishTime
+             * @memberof protos.records.GCPPubSub
+             * @instance
+             */
+            GCPPubSub.prototype.publishTime = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
+
+            /**
+             * GCPPubSub deliveryAttempt.
+             * @member {number} deliveryAttempt
+             * @memberof protos.records.GCPPubSub
+             * @instance
+             */
+            GCPPubSub.prototype.deliveryAttempt = 0;
+
+            /**
+             * GCPPubSub orderingKey.
+             * @member {string} orderingKey
+             * @memberof protos.records.GCPPubSub
+             * @instance
+             */
+            GCPPubSub.prototype.orderingKey = "";
+
+            /**
+             * Creates a new GCPPubSub instance using the specified properties.
+             * @function create
+             * @memberof protos.records.GCPPubSub
+             * @static
+             * @param {protos.records.IGCPPubSub=} [properties] Properties to set
+             * @returns {protos.records.GCPPubSub} GCPPubSub instance
+             */
+            GCPPubSub.create = function create(properties) {
+                return new GCPPubSub(properties);
+            };
+
+            /**
+             * Encodes the specified GCPPubSub message. Does not implicitly {@link protos.records.GCPPubSub.verify|verify} messages.
+             * @function encode
+             * @memberof protos.records.GCPPubSub
+             * @static
+             * @param {protos.records.IGCPPubSub} message GCPPubSub message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            GCPPubSub.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.id != null && Object.hasOwnProperty.call(message, "id"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.id);
+                if (message.value != null && Object.hasOwnProperty.call(message, "value"))
+                    writer.uint32(/* id 2, wireType 2 =*/18).bytes(message.value);
+                if (message.attributes != null && Object.hasOwnProperty.call(message, "attributes"))
+                    for (var keys = Object.keys(message.attributes), i = 0; i < keys.length; ++i)
+                        writer.uint32(/* id 3, wireType 2 =*/26).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]).uint32(/* id 2, wireType 2 =*/18).string(message.attributes[keys[i]]).ldelim();
+                if (message.publishTime != null && Object.hasOwnProperty.call(message, "publishTime"))
+                    writer.uint32(/* id 4, wireType 0 =*/32).int64(message.publishTime);
+                if (message.deliveryAttempt != null && Object.hasOwnProperty.call(message, "deliveryAttempt"))
+                    writer.uint32(/* id 5, wireType 0 =*/40).int32(message.deliveryAttempt);
+                if (message.orderingKey != null && Object.hasOwnProperty.call(message, "orderingKey"))
+                    writer.uint32(/* id 6, wireType 2 =*/50).string(message.orderingKey);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified GCPPubSub message, length delimited. Does not implicitly {@link protos.records.GCPPubSub.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.records.GCPPubSub
+             * @static
+             * @param {protos.records.IGCPPubSub} message GCPPubSub message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            GCPPubSub.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a GCPPubSub message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.records.GCPPubSub
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.records.GCPPubSub} GCPPubSub
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            GCPPubSub.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.records.GCPPubSub(), key, value;
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.id = reader.string();
+                        break;
+                    case 2:
+                        message.value = reader.bytes();
+                        break;
+                    case 3:
+                        if (message.attributes === $util.emptyObject)
+                            message.attributes = {};
+                        var end2 = reader.uint32() + reader.pos;
+                        key = "";
+                        value = "";
+                        while (reader.pos < end2) {
+                            var tag2 = reader.uint32();
+                            switch (tag2 >>> 3) {
+                            case 1:
+                                key = reader.string();
+                                break;
+                            case 2:
+                                value = reader.string();
+                                break;
+                            default:
+                                reader.skipType(tag2 & 7);
+                                break;
+                            }
+                        }
+                        message.attributes[key] = value;
+                        break;
+                    case 4:
+                        message.publishTime = reader.int64();
+                        break;
+                    case 5:
+                        message.deliveryAttempt = reader.int32();
+                        break;
+                    case 6:
+                        message.orderingKey = reader.string();
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a GCPPubSub message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.records.GCPPubSub
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.records.GCPPubSub} GCPPubSub
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            GCPPubSub.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a GCPPubSub message.
+             * @function verify
+             * @memberof protos.records.GCPPubSub
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            GCPPubSub.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.id != null && message.hasOwnProperty("id"))
+                    if (!$util.isString(message.id))
+                        return "id: string expected";
+                if (message.value != null && message.hasOwnProperty("value"))
+                    if (!(message.value && typeof message.value.length === "number" || $util.isString(message.value)))
+                        return "value: buffer expected";
+                if (message.attributes != null && message.hasOwnProperty("attributes")) {
+                    if (!$util.isObject(message.attributes))
+                        return "attributes: object expected";
+                    var key = Object.keys(message.attributes);
+                    for (var i = 0; i < key.length; ++i)
+                        if (!$util.isString(message.attributes[key[i]]))
+                            return "attributes: string{k:string} expected";
+                }
+                if (message.publishTime != null && message.hasOwnProperty("publishTime"))
+                    if (!$util.isInteger(message.publishTime) && !(message.publishTime && $util.isInteger(message.publishTime.low) && $util.isInteger(message.publishTime.high)))
+                        return "publishTime: integer|Long expected";
+                if (message.deliveryAttempt != null && message.hasOwnProperty("deliveryAttempt"))
+                    if (!$util.isInteger(message.deliveryAttempt))
+                        return "deliveryAttempt: integer expected";
+                if (message.orderingKey != null && message.hasOwnProperty("orderingKey"))
+                    if (!$util.isString(message.orderingKey))
+                        return "orderingKey: string expected";
+                return null;
+            };
+
+            /**
+             * Creates a GCPPubSub message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.records.GCPPubSub
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.records.GCPPubSub} GCPPubSub
+             */
+            GCPPubSub.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.records.GCPPubSub)
+                    return object;
+                var message = new $root.protos.records.GCPPubSub();
+                if (object.id != null)
+                    message.id = String(object.id);
+                if (object.value != null)
+                    if (typeof object.value === "string")
+                        $util.base64.decode(object.value, message.value = $util.newBuffer($util.base64.length(object.value)), 0);
+                    else if (object.value.length)
+                        message.value = object.value;
+                if (object.attributes) {
+                    if (typeof object.attributes !== "object")
+                        throw TypeError(".protos.records.GCPPubSub.attributes: object expected");
+                    message.attributes = {};
+                    for (var keys = Object.keys(object.attributes), i = 0; i < keys.length; ++i)
+                        message.attributes[keys[i]] = String(object.attributes[keys[i]]);
+                }
+                if (object.publishTime != null)
+                    if ($util.Long)
+                        (message.publishTime = $util.Long.fromValue(object.publishTime)).unsigned = false;
+                    else if (typeof object.publishTime === "string")
+                        message.publishTime = parseInt(object.publishTime, 10);
+                    else if (typeof object.publishTime === "number")
+                        message.publishTime = object.publishTime;
+                    else if (typeof object.publishTime === "object")
+                        message.publishTime = new $util.LongBits(object.publishTime.low >>> 0, object.publishTime.high >>> 0).toNumber();
+                if (object.deliveryAttempt != null)
+                    message.deliveryAttempt = object.deliveryAttempt | 0;
+                if (object.orderingKey != null)
+                    message.orderingKey = String(object.orderingKey);
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a GCPPubSub message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.records.GCPPubSub
+             * @static
+             * @param {protos.records.GCPPubSub} message GCPPubSub
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            GCPPubSub.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.objects || options.defaults)
+                    object.attributes = {};
+                if (options.defaults) {
+                    object.id = "";
+                    if (options.bytes === String)
+                        object.value = "";
+                    else {
+                        object.value = [];
+                        if (options.bytes !== Array)
+                            object.value = $util.newBuffer(object.value);
+                    }
+                    if ($util.Long) {
+                        var long = new $util.Long(0, 0, false);
+                        object.publishTime = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                    } else
+                        object.publishTime = options.longs === String ? "0" : 0;
+                    object.deliveryAttempt = 0;
+                    object.orderingKey = "";
+                }
+                if (message.id != null && message.hasOwnProperty("id"))
+                    object.id = message.id;
+                if (message.value != null && message.hasOwnProperty("value"))
+                    object.value = options.bytes === String ? $util.base64.encode(message.value, 0, message.value.length) : options.bytes === Array ? Array.prototype.slice.call(message.value) : message.value;
+                var keys2;
+                if (message.attributes && (keys2 = Object.keys(message.attributes)).length) {
+                    object.attributes = {};
+                    for (var j = 0; j < keys2.length; ++j)
+                        object.attributes[keys2[j]] = message.attributes[keys2[j]];
+                }
+                if (message.publishTime != null && message.hasOwnProperty("publishTime"))
+                    if (typeof message.publishTime === "number")
+                        object.publishTime = options.longs === String ? String(message.publishTime) : message.publishTime;
+                    else
+                        object.publishTime = options.longs === String ? $util.Long.prototype.toString.call(message.publishTime) : options.longs === Number ? new $util.LongBits(message.publishTime.low >>> 0, message.publishTime.high >>> 0).toNumber() : message.publishTime;
+                if (message.deliveryAttempt != null && message.hasOwnProperty("deliveryAttempt"))
+                    object.deliveryAttempt = message.deliveryAttempt;
+                if (message.orderingKey != null && message.hasOwnProperty("orderingKey"))
+                    object.orderingKey = message.orderingKey;
+                return object;
+            };
+
+            /**
+             * Converts this GCPPubSub to JSON.
+             * @function toJSON
+             * @memberof protos.records.GCPPubSub
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            GCPPubSub.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return GCPPubSub;
+        })();
+
+        records.KubeMQ = (function() {
+
+            /**
+             * Properties of a KubeMQ.
+             * @memberof protos.records
+             * @interface IKubeMQ
+             * @property {string|null} [id] KubeMQ id
+             * @property {string|null} [clientId] KubeMQ clientId
+             * @property {string|null} [channel] KubeMQ channel
+             * @property {Uint8Array|null} [value] KubeMQ value
+             * @property {number|Long|null} [timestamp] KubeMQ timestamp
+             * @property {number|Long|null} [sequence] KubeMQ sequence
+             */
+
+            /**
+             * Constructs a new KubeMQ.
+             * @memberof protos.records
+             * @classdesc Represents a KubeMQ.
+             * @implements IKubeMQ
+             * @constructor
+             * @param {protos.records.IKubeMQ=} [properties] Properties to set
+             */
+            function KubeMQ(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * KubeMQ id.
+             * @member {string} id
+             * @memberof protos.records.KubeMQ
+             * @instance
+             */
+            KubeMQ.prototype.id = "";
+
+            /**
+             * KubeMQ clientId.
+             * @member {string} clientId
+             * @memberof protos.records.KubeMQ
+             * @instance
+             */
+            KubeMQ.prototype.clientId = "";
+
+            /**
+             * KubeMQ channel.
+             * @member {string} channel
+             * @memberof protos.records.KubeMQ
+             * @instance
+             */
+            KubeMQ.prototype.channel = "";
+
+            /**
+             * KubeMQ value.
+             * @member {Uint8Array} value
+             * @memberof protos.records.KubeMQ
+             * @instance
+             */
+            KubeMQ.prototype.value = $util.newBuffer([]);
+
+            /**
+             * KubeMQ timestamp.
+             * @member {number|Long} timestamp
+             * @memberof protos.records.KubeMQ
+             * @instance
+             */
+            KubeMQ.prototype.timestamp = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
+
+            /**
+             * KubeMQ sequence.
+             * @member {number|Long} sequence
+             * @memberof protos.records.KubeMQ
+             * @instance
+             */
+            KubeMQ.prototype.sequence = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
+
+            /**
+             * Creates a new KubeMQ instance using the specified properties.
+             * @function create
+             * @memberof protos.records.KubeMQ
+             * @static
+             * @param {protos.records.IKubeMQ=} [properties] Properties to set
+             * @returns {protos.records.KubeMQ} KubeMQ instance
+             */
+            KubeMQ.create = function create(properties) {
+                return new KubeMQ(properties);
+            };
+
+            /**
+             * Encodes the specified KubeMQ message. Does not implicitly {@link protos.records.KubeMQ.verify|verify} messages.
+             * @function encode
+             * @memberof protos.records.KubeMQ
+             * @static
+             * @param {protos.records.IKubeMQ} message KubeMQ message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            KubeMQ.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.id != null && Object.hasOwnProperty.call(message, "id"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.id);
+                if (message.clientId != null && Object.hasOwnProperty.call(message, "clientId"))
+                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.clientId);
+                if (message.channel != null && Object.hasOwnProperty.call(message, "channel"))
+                    writer.uint32(/* id 3, wireType 2 =*/26).string(message.channel);
+                if (message.value != null && Object.hasOwnProperty.call(message, "value"))
+                    writer.uint32(/* id 4, wireType 2 =*/34).bytes(message.value);
+                if (message.timestamp != null && Object.hasOwnProperty.call(message, "timestamp"))
+                    writer.uint32(/* id 5, wireType 0 =*/40).int64(message.timestamp);
+                if (message.sequence != null && Object.hasOwnProperty.call(message, "sequence"))
+                    writer.uint32(/* id 6, wireType 0 =*/48).int64(message.sequence);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified KubeMQ message, length delimited. Does not implicitly {@link protos.records.KubeMQ.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.records.KubeMQ
+             * @static
+             * @param {protos.records.IKubeMQ} message KubeMQ message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            KubeMQ.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a KubeMQ message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.records.KubeMQ
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.records.KubeMQ} KubeMQ
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            KubeMQ.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.records.KubeMQ();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.id = reader.string();
+                        break;
+                    case 2:
+                        message.clientId = reader.string();
+                        break;
+                    case 3:
+                        message.channel = reader.string();
+                        break;
+                    case 4:
+                        message.value = reader.bytes();
+                        break;
+                    case 5:
+                        message.timestamp = reader.int64();
+                        break;
+                    case 6:
+                        message.sequence = reader.int64();
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a KubeMQ message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.records.KubeMQ
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.records.KubeMQ} KubeMQ
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            KubeMQ.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a KubeMQ message.
+             * @function verify
+             * @memberof protos.records.KubeMQ
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            KubeMQ.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.id != null && message.hasOwnProperty("id"))
+                    if (!$util.isString(message.id))
+                        return "id: string expected";
+                if (message.clientId != null && message.hasOwnProperty("clientId"))
+                    if (!$util.isString(message.clientId))
+                        return "clientId: string expected";
+                if (message.channel != null && message.hasOwnProperty("channel"))
+                    if (!$util.isString(message.channel))
+                        return "channel: string expected";
+                if (message.value != null && message.hasOwnProperty("value"))
+                    if (!(message.value && typeof message.value.length === "number" || $util.isString(message.value)))
+                        return "value: buffer expected";
+                if (message.timestamp != null && message.hasOwnProperty("timestamp"))
+                    if (!$util.isInteger(message.timestamp) && !(message.timestamp && $util.isInteger(message.timestamp.low) && $util.isInteger(message.timestamp.high)))
+                        return "timestamp: integer|Long expected";
+                if (message.sequence != null && message.hasOwnProperty("sequence"))
+                    if (!$util.isInteger(message.sequence) && !(message.sequence && $util.isInteger(message.sequence.low) && $util.isInteger(message.sequence.high)))
+                        return "sequence: integer|Long expected";
+                return null;
+            };
+
+            /**
+             * Creates a KubeMQ message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.records.KubeMQ
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.records.KubeMQ} KubeMQ
+             */
+            KubeMQ.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.records.KubeMQ)
+                    return object;
+                var message = new $root.protos.records.KubeMQ();
+                if (object.id != null)
+                    message.id = String(object.id);
+                if (object.clientId != null)
+                    message.clientId = String(object.clientId);
+                if (object.channel != null)
+                    message.channel = String(object.channel);
+                if (object.value != null)
+                    if (typeof object.value === "string")
+                        $util.base64.decode(object.value, message.value = $util.newBuffer($util.base64.length(object.value)), 0);
+                    else if (object.value.length)
+                        message.value = object.value;
+                if (object.timestamp != null)
+                    if ($util.Long)
+                        (message.timestamp = $util.Long.fromValue(object.timestamp)).unsigned = false;
+                    else if (typeof object.timestamp === "string")
+                        message.timestamp = parseInt(object.timestamp, 10);
+                    else if (typeof object.timestamp === "number")
+                        message.timestamp = object.timestamp;
+                    else if (typeof object.timestamp === "object")
+                        message.timestamp = new $util.LongBits(object.timestamp.low >>> 0, object.timestamp.high >>> 0).toNumber();
+                if (object.sequence != null)
+                    if ($util.Long)
+                        (message.sequence = $util.Long.fromValue(object.sequence)).unsigned = false;
+                    else if (typeof object.sequence === "string")
+                        message.sequence = parseInt(object.sequence, 10);
+                    else if (typeof object.sequence === "number")
+                        message.sequence = object.sequence;
+                    else if (typeof object.sequence === "object")
+                        message.sequence = new $util.LongBits(object.sequence.low >>> 0, object.sequence.high >>> 0).toNumber();
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a KubeMQ message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.records.KubeMQ
+             * @static
+             * @param {protos.records.KubeMQ} message KubeMQ
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            KubeMQ.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    object.id = "";
+                    object.clientId = "";
+                    object.channel = "";
+                    if (options.bytes === String)
+                        object.value = "";
+                    else {
+                        object.value = [];
+                        if (options.bytes !== Array)
+                            object.value = $util.newBuffer(object.value);
+                    }
+                    if ($util.Long) {
+                        var long = new $util.Long(0, 0, false);
+                        object.timestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                    } else
+                        object.timestamp = options.longs === String ? "0" : 0;
+                    if ($util.Long) {
+                        var long = new $util.Long(0, 0, false);
+                        object.sequence = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                    } else
+                        object.sequence = options.longs === String ? "0" : 0;
+                }
+                if (message.id != null && message.hasOwnProperty("id"))
+                    object.id = message.id;
+                if (message.clientId != null && message.hasOwnProperty("clientId"))
+                    object.clientId = message.clientId;
+                if (message.channel != null && message.hasOwnProperty("channel"))
+                    object.channel = message.channel;
+                if (message.value != null && message.hasOwnProperty("value"))
+                    object.value = options.bytes === String ? $util.base64.encode(message.value, 0, message.value.length) : options.bytes === Array ? Array.prototype.slice.call(message.value) : message.value;
+                if (message.timestamp != null && message.hasOwnProperty("timestamp"))
+                    if (typeof message.timestamp === "number")
+                        object.timestamp = options.longs === String ? String(message.timestamp) : message.timestamp;
+                    else
+                        object.timestamp = options.longs === String ? $util.Long.prototype.toString.call(message.timestamp) : options.longs === Number ? new $util.LongBits(message.timestamp.low >>> 0, message.timestamp.high >>> 0).toNumber() : message.timestamp;
+                if (message.sequence != null && message.hasOwnProperty("sequence"))
+                    if (typeof message.sequence === "number")
+                        object.sequence = options.longs === String ? String(message.sequence) : message.sequence;
+                    else
+                        object.sequence = options.longs === String ? $util.Long.prototype.toString.call(message.sequence) : options.longs === Number ? new $util.LongBits(message.sequence.low >>> 0, message.sequence.high >>> 0).toNumber() : message.sequence;
+                return object;
+            };
+
+            /**
+             * Converts this KubeMQ to JSON.
+             * @function toJSON
+             * @memberof protos.records.KubeMQ
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            KubeMQ.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return KubeMQ;
+        })();
+
+        records.Mongo = (function() {
+
+            /**
+             * Properties of a Mongo.
+             * @memberof protos.records
+             * @interface IMongo
+             * @property {Uint8Array|null} [value] Mongo value
+             * @property {number|Long|null} [timestamp] Mongo timestamp
+             */
+
+            /**
+             * Constructs a new Mongo.
+             * @memberof protos.records
+             * @classdesc Represents a Mongo.
+             * @implements IMongo
+             * @constructor
+             * @param {protos.records.IMongo=} [properties] Properties to set
+             */
+            function Mongo(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * Mongo value.
+             * @member {Uint8Array} value
+             * @memberof protos.records.Mongo
+             * @instance
+             */
+            Mongo.prototype.value = $util.newBuffer([]);
+
+            /**
+             * Mongo timestamp.
+             * @member {number|Long} timestamp
+             * @memberof protos.records.Mongo
+             * @instance
+             */
+            Mongo.prototype.timestamp = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
+
+            /**
+             * Creates a new Mongo instance using the specified properties.
+             * @function create
+             * @memberof protos.records.Mongo
+             * @static
+             * @param {protos.records.IMongo=} [properties] Properties to set
+             * @returns {protos.records.Mongo} Mongo instance
+             */
+            Mongo.create = function create(properties) {
+                return new Mongo(properties);
+            };
+
+            /**
+             * Encodes the specified Mongo message. Does not implicitly {@link protos.records.Mongo.verify|verify} messages.
+             * @function encode
+             * @memberof protos.records.Mongo
+             * @static
+             * @param {protos.records.IMongo} message Mongo message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            Mongo.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.value != null && Object.hasOwnProperty.call(message, "value"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).bytes(message.value);
+                if (message.timestamp != null && Object.hasOwnProperty.call(message, "timestamp"))
+                    writer.uint32(/* id 2, wireType 0 =*/16).int64(message.timestamp);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified Mongo message, length delimited. Does not implicitly {@link protos.records.Mongo.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.records.Mongo
+             * @static
+             * @param {protos.records.IMongo} message Mongo message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            Mongo.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a Mongo message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.records.Mongo
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.records.Mongo} Mongo
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            Mongo.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.records.Mongo();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.value = reader.bytes();
+                        break;
+                    case 2:
+                        message.timestamp = reader.int64();
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a Mongo message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.records.Mongo
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.records.Mongo} Mongo
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            Mongo.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a Mongo message.
+             * @function verify
+             * @memberof protos.records.Mongo
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            Mongo.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.value != null && message.hasOwnProperty("value"))
+                    if (!(message.value && typeof message.value.length === "number" || $util.isString(message.value)))
+                        return "value: buffer expected";
+                if (message.timestamp != null && message.hasOwnProperty("timestamp"))
+                    if (!$util.isInteger(message.timestamp) && !(message.timestamp && $util.isInteger(message.timestamp.low) && $util.isInteger(message.timestamp.high)))
+                        return "timestamp: integer|Long expected";
+                return null;
+            };
+
+            /**
+             * Creates a Mongo message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.records.Mongo
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.records.Mongo} Mongo
+             */
+            Mongo.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.records.Mongo)
+                    return object;
+                var message = new $root.protos.records.Mongo();
+                if (object.value != null)
+                    if (typeof object.value === "string")
+                        $util.base64.decode(object.value, message.value = $util.newBuffer($util.base64.length(object.value)), 0);
+                    else if (object.value.length)
+                        message.value = object.value;
+                if (object.timestamp != null)
+                    if ($util.Long)
+                        (message.timestamp = $util.Long.fromValue(object.timestamp)).unsigned = false;
+                    else if (typeof object.timestamp === "string")
+                        message.timestamp = parseInt(object.timestamp, 10);
+                    else if (typeof object.timestamp === "number")
+                        message.timestamp = object.timestamp;
+                    else if (typeof object.timestamp === "object")
+                        message.timestamp = new $util.LongBits(object.timestamp.low >>> 0, object.timestamp.high >>> 0).toNumber();
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a Mongo message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.records.Mongo
+             * @static
+             * @param {protos.records.Mongo} message Mongo
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            Mongo.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    if (options.bytes === String)
+                        object.value = "";
+                    else {
+                        object.value = [];
+                        if (options.bytes !== Array)
+                            object.value = $util.newBuffer(object.value);
+                    }
+                    if ($util.Long) {
+                        var long = new $util.Long(0, 0, false);
+                        object.timestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                    } else
+                        object.timestamp = options.longs === String ? "0" : 0;
+                }
+                if (message.value != null && message.hasOwnProperty("value"))
+                    object.value = options.bytes === String ? $util.base64.encode(message.value, 0, message.value.length) : options.bytes === Array ? Array.prototype.slice.call(message.value) : message.value;
+                if (message.timestamp != null && message.hasOwnProperty("timestamp"))
+                    if (typeof message.timestamp === "number")
+                        object.timestamp = options.longs === String ? String(message.timestamp) : message.timestamp;
+                    else
+                        object.timestamp = options.longs === String ? $util.Long.prototype.toString.call(message.timestamp) : options.longs === Number ? new $util.LongBits(message.timestamp.low >>> 0, message.timestamp.high >>> 0).toNumber() : message.timestamp;
+                return object;
+            };
+
+            /**
+             * Converts this Mongo to JSON.
+             * @function toJSON
+             * @memberof protos.records.Mongo
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            Mongo.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return Mongo;
+        })();
+
+        records.MQTT = (function() {
+
+            /**
+             * Properties of a MQTT.
+             * @memberof protos.records
+             * @interface IMQTT
+             * @property {number|null} [id] MQTT id
+             * @property {string|null} [topic] MQTT topic
+             * @property {Uint8Array|null} [value] MQTT value
+             * @property {boolean|null} [duplicate] MQTT duplicate
+             * @property {boolean|null} [retained] MQTT retained
+             * @property {number|null} [qos] MQTT qos
+             * @property {number|Long|null} [timestamp] MQTT timestamp
+             */
+
+            /**
+             * Constructs a new MQTT.
+             * @memberof protos.records
+             * @classdesc Represents a MQTT.
+             * @implements IMQTT
+             * @constructor
+             * @param {protos.records.IMQTT=} [properties] Properties to set
+             */
+            function MQTT(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * MQTT id.
+             * @member {number} id
+             * @memberof protos.records.MQTT
+             * @instance
+             */
+            MQTT.prototype.id = 0;
+
+            /**
+             * MQTT topic.
+             * @member {string} topic
+             * @memberof protos.records.MQTT
+             * @instance
+             */
+            MQTT.prototype.topic = "";
+
+            /**
+             * MQTT value.
+             * @member {Uint8Array} value
+             * @memberof protos.records.MQTT
+             * @instance
+             */
+            MQTT.prototype.value = $util.newBuffer([]);
+
+            /**
+             * MQTT duplicate.
+             * @member {boolean} duplicate
+             * @memberof protos.records.MQTT
+             * @instance
+             */
+            MQTT.prototype.duplicate = false;
+
+            /**
+             * MQTT retained.
+             * @member {boolean} retained
+             * @memberof protos.records.MQTT
+             * @instance
+             */
+            MQTT.prototype.retained = false;
+
+            /**
+             * MQTT qos.
+             * @member {number} qos
+             * @memberof protos.records.MQTT
+             * @instance
+             */
+            MQTT.prototype.qos = 0;
+
+            /**
+             * MQTT timestamp.
+             * @member {number|Long} timestamp
+             * @memberof protos.records.MQTT
+             * @instance
+             */
+            MQTT.prototype.timestamp = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
+
+            /**
+             * Creates a new MQTT instance using the specified properties.
+             * @function create
+             * @memberof protos.records.MQTT
+             * @static
+             * @param {protos.records.IMQTT=} [properties] Properties to set
+             * @returns {protos.records.MQTT} MQTT instance
+             */
+            MQTT.create = function create(properties) {
+                return new MQTT(properties);
+            };
+
+            /**
+             * Encodes the specified MQTT message. Does not implicitly {@link protos.records.MQTT.verify|verify} messages.
+             * @function encode
+             * @memberof protos.records.MQTT
+             * @static
+             * @param {protos.records.IMQTT} message MQTT message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            MQTT.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.id != null && Object.hasOwnProperty.call(message, "id"))
+                    writer.uint32(/* id 1, wireType 0 =*/8).uint32(message.id);
+                if (message.topic != null && Object.hasOwnProperty.call(message, "topic"))
+                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.topic);
+                if (message.value != null && Object.hasOwnProperty.call(message, "value"))
+                    writer.uint32(/* id 3, wireType 2 =*/26).bytes(message.value);
+                if (message.duplicate != null && Object.hasOwnProperty.call(message, "duplicate"))
+                    writer.uint32(/* id 4, wireType 0 =*/32).bool(message.duplicate);
+                if (message.retained != null && Object.hasOwnProperty.call(message, "retained"))
+                    writer.uint32(/* id 5, wireType 0 =*/40).bool(message.retained);
+                if (message.qos != null && Object.hasOwnProperty.call(message, "qos"))
+                    writer.uint32(/* id 6, wireType 0 =*/48).uint32(message.qos);
+                if (message.timestamp != null && Object.hasOwnProperty.call(message, "timestamp"))
+                    writer.uint32(/* id 7, wireType 0 =*/56).int64(message.timestamp);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified MQTT message, length delimited. Does not implicitly {@link protos.records.MQTT.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.records.MQTT
+             * @static
+             * @param {protos.records.IMQTT} message MQTT message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            MQTT.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a MQTT message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.records.MQTT
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.records.MQTT} MQTT
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            MQTT.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.records.MQTT();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.id = reader.uint32();
+                        break;
+                    case 2:
+                        message.topic = reader.string();
+                        break;
+                    case 3:
+                        message.value = reader.bytes();
+                        break;
+                    case 4:
+                        message.duplicate = reader.bool();
+                        break;
+                    case 5:
+                        message.retained = reader.bool();
+                        break;
+                    case 6:
+                        message.qos = reader.uint32();
+                        break;
+                    case 7:
+                        message.timestamp = reader.int64();
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a MQTT message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.records.MQTT
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.records.MQTT} MQTT
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            MQTT.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a MQTT message.
+             * @function verify
+             * @memberof protos.records.MQTT
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            MQTT.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.id != null && message.hasOwnProperty("id"))
+                    if (!$util.isInteger(message.id))
+                        return "id: integer expected";
+                if (message.topic != null && message.hasOwnProperty("topic"))
+                    if (!$util.isString(message.topic))
+                        return "topic: string expected";
+                if (message.value != null && message.hasOwnProperty("value"))
+                    if (!(message.value && typeof message.value.length === "number" || $util.isString(message.value)))
+                        return "value: buffer expected";
+                if (message.duplicate != null && message.hasOwnProperty("duplicate"))
+                    if (typeof message.duplicate !== "boolean")
+                        return "duplicate: boolean expected";
+                if (message.retained != null && message.hasOwnProperty("retained"))
+                    if (typeof message.retained !== "boolean")
+                        return "retained: boolean expected";
+                if (message.qos != null && message.hasOwnProperty("qos"))
+                    if (!$util.isInteger(message.qos))
+                        return "qos: integer expected";
+                if (message.timestamp != null && message.hasOwnProperty("timestamp"))
+                    if (!$util.isInteger(message.timestamp) && !(message.timestamp && $util.isInteger(message.timestamp.low) && $util.isInteger(message.timestamp.high)))
+                        return "timestamp: integer|Long expected";
+                return null;
+            };
+
+            /**
+             * Creates a MQTT message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.records.MQTT
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.records.MQTT} MQTT
+             */
+            MQTT.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.records.MQTT)
+                    return object;
+                var message = new $root.protos.records.MQTT();
+                if (object.id != null)
+                    message.id = object.id >>> 0;
+                if (object.topic != null)
+                    message.topic = String(object.topic);
+                if (object.value != null)
+                    if (typeof object.value === "string")
+                        $util.base64.decode(object.value, message.value = $util.newBuffer($util.base64.length(object.value)), 0);
+                    else if (object.value.length)
+                        message.value = object.value;
+                if (object.duplicate != null)
+                    message.duplicate = Boolean(object.duplicate);
+                if (object.retained != null)
+                    message.retained = Boolean(object.retained);
+                if (object.qos != null)
+                    message.qos = object.qos >>> 0;
+                if (object.timestamp != null)
+                    if ($util.Long)
+                        (message.timestamp = $util.Long.fromValue(object.timestamp)).unsigned = false;
+                    else if (typeof object.timestamp === "string")
+                        message.timestamp = parseInt(object.timestamp, 10);
+                    else if (typeof object.timestamp === "number")
+                        message.timestamp = object.timestamp;
+                    else if (typeof object.timestamp === "object")
+                        message.timestamp = new $util.LongBits(object.timestamp.low >>> 0, object.timestamp.high >>> 0).toNumber();
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a MQTT message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.records.MQTT
+             * @static
+             * @param {protos.records.MQTT} message MQTT
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            MQTT.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    object.id = 0;
+                    object.topic = "";
+                    if (options.bytes === String)
+                        object.value = "";
+                    else {
+                        object.value = [];
+                        if (options.bytes !== Array)
+                            object.value = $util.newBuffer(object.value);
+                    }
+                    object.duplicate = false;
+                    object.retained = false;
+                    object.qos = 0;
+                    if ($util.Long) {
+                        var long = new $util.Long(0, 0, false);
+                        object.timestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                    } else
+                        object.timestamp = options.longs === String ? "0" : 0;
+                }
+                if (message.id != null && message.hasOwnProperty("id"))
+                    object.id = message.id;
+                if (message.topic != null && message.hasOwnProperty("topic"))
+                    object.topic = message.topic;
+                if (message.value != null && message.hasOwnProperty("value"))
+                    object.value = options.bytes === String ? $util.base64.encode(message.value, 0, message.value.length) : options.bytes === Array ? Array.prototype.slice.call(message.value) : message.value;
+                if (message.duplicate != null && message.hasOwnProperty("duplicate"))
+                    object.duplicate = message.duplicate;
+                if (message.retained != null && message.hasOwnProperty("retained"))
+                    object.retained = message.retained;
+                if (message.qos != null && message.hasOwnProperty("qos"))
+                    object.qos = message.qos;
+                if (message.timestamp != null && message.hasOwnProperty("timestamp"))
+                    if (typeof message.timestamp === "number")
+                        object.timestamp = options.longs === String ? String(message.timestamp) : message.timestamp;
+                    else
+                        object.timestamp = options.longs === String ? $util.Long.prototype.toString.call(message.timestamp) : options.longs === Number ? new $util.LongBits(message.timestamp.low >>> 0, message.timestamp.high >>> 0).toNumber() : message.timestamp;
+                return object;
+            };
+
+            /**
+             * Converts this MQTT to JSON.
+             * @function toJSON
+             * @memberof protos.records.MQTT
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            MQTT.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return MQTT;
+        })();
+
+        records.Nats = (function() {
+
+            /**
+             * Properties of a Nats.
+             * @memberof protos.records
+             * @interface INats
+             * @property {string|null} [subject] Nats subject
+             * @property {string|null} [replay] Nats replay
+             * @property {string|null} [queue] Nats queue
+             * @property {Uint8Array|null} [value] Nats value
+             */
+
+            /**
+             * Constructs a new Nats.
+             * @memberof protos.records
+             * @classdesc Represents a Nats.
+             * @implements INats
+             * @constructor
+             * @param {protos.records.INats=} [properties] Properties to set
+             */
+            function Nats(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * Nats subject.
+             * @member {string} subject
+             * @memberof protos.records.Nats
+             * @instance
+             */
+            Nats.prototype.subject = "";
+
+            /**
+             * Nats replay.
+             * @member {string} replay
+             * @memberof protos.records.Nats
+             * @instance
+             */
+            Nats.prototype.replay = "";
+
+            /**
+             * Nats queue.
+             * @member {string} queue
+             * @memberof protos.records.Nats
+             * @instance
+             */
+            Nats.prototype.queue = "";
+
+            /**
+             * Nats value.
+             * @member {Uint8Array} value
+             * @memberof protos.records.Nats
+             * @instance
+             */
+            Nats.prototype.value = $util.newBuffer([]);
+
+            /**
+             * Creates a new Nats instance using the specified properties.
+             * @function create
+             * @memberof protos.records.Nats
+             * @static
+             * @param {protos.records.INats=} [properties] Properties to set
+             * @returns {protos.records.Nats} Nats instance
+             */
+            Nats.create = function create(properties) {
+                return new Nats(properties);
+            };
+
+            /**
+             * Encodes the specified Nats message. Does not implicitly {@link protos.records.Nats.verify|verify} messages.
+             * @function encode
+             * @memberof protos.records.Nats
+             * @static
+             * @param {protos.records.INats} message Nats message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            Nats.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.subject != null && Object.hasOwnProperty.call(message, "subject"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.subject);
+                if (message.replay != null && Object.hasOwnProperty.call(message, "replay"))
+                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.replay);
+                if (message.queue != null && Object.hasOwnProperty.call(message, "queue"))
+                    writer.uint32(/* id 4, wireType 2 =*/34).string(message.queue);
+                if (message.value != null && Object.hasOwnProperty.call(message, "value"))
+                    writer.uint32(/* id 5, wireType 2 =*/42).bytes(message.value);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified Nats message, length delimited. Does not implicitly {@link protos.records.Nats.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.records.Nats
+             * @static
+             * @param {protos.records.INats} message Nats message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            Nats.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a Nats message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.records.Nats
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.records.Nats} Nats
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            Nats.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.records.Nats();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.subject = reader.string();
+                        break;
+                    case 2:
+                        message.replay = reader.string();
+                        break;
+                    case 4:
+                        message.queue = reader.string();
+                        break;
+                    case 5:
+                        message.value = reader.bytes();
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a Nats message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.records.Nats
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.records.Nats} Nats
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            Nats.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a Nats message.
+             * @function verify
+             * @memberof protos.records.Nats
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            Nats.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.subject != null && message.hasOwnProperty("subject"))
+                    if (!$util.isString(message.subject))
+                        return "subject: string expected";
+                if (message.replay != null && message.hasOwnProperty("replay"))
+                    if (!$util.isString(message.replay))
+                        return "replay: string expected";
+                if (message.queue != null && message.hasOwnProperty("queue"))
+                    if (!$util.isString(message.queue))
+                        return "queue: string expected";
+                if (message.value != null && message.hasOwnProperty("value"))
+                    if (!(message.value && typeof message.value.length === "number" || $util.isString(message.value)))
+                        return "value: buffer expected";
+                return null;
+            };
+
+            /**
+             * Creates a Nats message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.records.Nats
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.records.Nats} Nats
+             */
+            Nats.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.records.Nats)
+                    return object;
+                var message = new $root.protos.records.Nats();
+                if (object.subject != null)
+                    message.subject = String(object.subject);
+                if (object.replay != null)
+                    message.replay = String(object.replay);
+                if (object.queue != null)
+                    message.queue = String(object.queue);
+                if (object.value != null)
+                    if (typeof object.value === "string")
+                        $util.base64.decode(object.value, message.value = $util.newBuffer($util.base64.length(object.value)), 0);
+                    else if (object.value.length)
+                        message.value = object.value;
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a Nats message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.records.Nats
+             * @static
+             * @param {protos.records.Nats} message Nats
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            Nats.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    object.subject = "";
+                    object.replay = "";
+                    object.queue = "";
+                    if (options.bytes === String)
+                        object.value = "";
+                    else {
+                        object.value = [];
+                        if (options.bytes !== Array)
+                            object.value = $util.newBuffer(object.value);
+                    }
+                }
+                if (message.subject != null && message.hasOwnProperty("subject"))
+                    object.subject = message.subject;
+                if (message.replay != null && message.hasOwnProperty("replay"))
+                    object.replay = message.replay;
+                if (message.queue != null && message.hasOwnProperty("queue"))
+                    object.queue = message.queue;
+                if (message.value != null && message.hasOwnProperty("value"))
+                    object.value = options.bytes === String ? $util.base64.encode(message.value, 0, message.value.length) : options.bytes === Array ? Array.prototype.slice.call(message.value) : message.value;
+                return object;
+            };
+
+            /**
+             * Converts this Nats to JSON.
+             * @function toJSON
+             * @memberof protos.records.Nats
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            Nats.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return Nats;
+        })();
+
+        records.NatsStreaming = (function() {
+
+            /**
+             * Properties of a NatsStreaming.
+             * @memberof protos.records
+             * @interface INatsStreaming
+             * @property {Object.<string,string>|null} [metadata] NatsStreaming metadata
+             * @property {Uint8Array|null} [value] NatsStreaming value
+             * @property {number|Long|null} [timestamp] NatsStreaming timestamp
+             */
+
+            /**
+             * Constructs a new NatsStreaming.
+             * @memberof protos.records
+             * @classdesc Represents a NatsStreaming.
+             * @implements INatsStreaming
+             * @constructor
+             * @param {protos.records.INatsStreaming=} [properties] Properties to set
+             */
+            function NatsStreaming(properties) {
+                this.metadata = {};
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * NatsStreaming metadata.
+             * @member {Object.<string,string>} metadata
+             * @memberof protos.records.NatsStreaming
+             * @instance
+             */
+            NatsStreaming.prototype.metadata = $util.emptyObject;
+
+            /**
+             * NatsStreaming value.
+             * @member {Uint8Array} value
+             * @memberof protos.records.NatsStreaming
+             * @instance
+             */
+            NatsStreaming.prototype.value = $util.newBuffer([]);
+
+            /**
+             * NatsStreaming timestamp.
+             * @member {number|Long} timestamp
+             * @memberof protos.records.NatsStreaming
+             * @instance
+             */
+            NatsStreaming.prototype.timestamp = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
+
+            /**
+             * Creates a new NatsStreaming instance using the specified properties.
+             * @function create
+             * @memberof protos.records.NatsStreaming
+             * @static
+             * @param {protos.records.INatsStreaming=} [properties] Properties to set
+             * @returns {protos.records.NatsStreaming} NatsStreaming instance
+             */
+            NatsStreaming.create = function create(properties) {
+                return new NatsStreaming(properties);
+            };
+
+            /**
+             * Encodes the specified NatsStreaming message. Does not implicitly {@link protos.records.NatsStreaming.verify|verify} messages.
+             * @function encode
+             * @memberof protos.records.NatsStreaming
+             * @static
+             * @param {protos.records.INatsStreaming} message NatsStreaming message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            NatsStreaming.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.metadata != null && Object.hasOwnProperty.call(message, "metadata"))
+                    for (var keys = Object.keys(message.metadata), i = 0; i < keys.length; ++i)
+                        writer.uint32(/* id 1, wireType 2 =*/10).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]).uint32(/* id 2, wireType 2 =*/18).string(message.metadata[keys[i]]).ldelim();
+                if (message.value != null && Object.hasOwnProperty.call(message, "value"))
+                    writer.uint32(/* id 2, wireType 2 =*/18).bytes(message.value);
+                if (message.timestamp != null && Object.hasOwnProperty.call(message, "timestamp"))
+                    writer.uint32(/* id 3, wireType 0 =*/24).int64(message.timestamp);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified NatsStreaming message, length delimited. Does not implicitly {@link protos.records.NatsStreaming.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.records.NatsStreaming
+             * @static
+             * @param {protos.records.INatsStreaming} message NatsStreaming message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            NatsStreaming.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a NatsStreaming message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.records.NatsStreaming
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.records.NatsStreaming} NatsStreaming
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            NatsStreaming.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.records.NatsStreaming(), key, value;
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        if (message.metadata === $util.emptyObject)
+                            message.metadata = {};
+                        var end2 = reader.uint32() + reader.pos;
+                        key = "";
+                        value = "";
+                        while (reader.pos < end2) {
+                            var tag2 = reader.uint32();
+                            switch (tag2 >>> 3) {
+                            case 1:
+                                key = reader.string();
+                                break;
+                            case 2:
+                                value = reader.string();
+                                break;
+                            default:
+                                reader.skipType(tag2 & 7);
+                                break;
+                            }
+                        }
+                        message.metadata[key] = value;
+                        break;
+                    case 2:
+                        message.value = reader.bytes();
+                        break;
+                    case 3:
+                        message.timestamp = reader.int64();
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a NatsStreaming message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.records.NatsStreaming
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.records.NatsStreaming} NatsStreaming
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            NatsStreaming.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a NatsStreaming message.
+             * @function verify
+             * @memberof protos.records.NatsStreaming
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            NatsStreaming.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.metadata != null && message.hasOwnProperty("metadata")) {
+                    if (!$util.isObject(message.metadata))
+                        return "metadata: object expected";
+                    var key = Object.keys(message.metadata);
+                    for (var i = 0; i < key.length; ++i)
+                        if (!$util.isString(message.metadata[key[i]]))
+                            return "metadata: string{k:string} expected";
+                }
+                if (message.value != null && message.hasOwnProperty("value"))
+                    if (!(message.value && typeof message.value.length === "number" || $util.isString(message.value)))
+                        return "value: buffer expected";
+                if (message.timestamp != null && message.hasOwnProperty("timestamp"))
+                    if (!$util.isInteger(message.timestamp) && !(message.timestamp && $util.isInteger(message.timestamp.low) && $util.isInteger(message.timestamp.high)))
+                        return "timestamp: integer|Long expected";
+                return null;
+            };
+
+            /**
+             * Creates a NatsStreaming message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.records.NatsStreaming
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.records.NatsStreaming} NatsStreaming
+             */
+            NatsStreaming.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.records.NatsStreaming)
+                    return object;
+                var message = new $root.protos.records.NatsStreaming();
+                if (object.metadata) {
+                    if (typeof object.metadata !== "object")
+                        throw TypeError(".protos.records.NatsStreaming.metadata: object expected");
+                    message.metadata = {};
+                    for (var keys = Object.keys(object.metadata), i = 0; i < keys.length; ++i)
+                        message.metadata[keys[i]] = String(object.metadata[keys[i]]);
+                }
+                if (object.value != null)
+                    if (typeof object.value === "string")
+                        $util.base64.decode(object.value, message.value = $util.newBuffer($util.base64.length(object.value)), 0);
+                    else if (object.value.length)
+                        message.value = object.value;
+                if (object.timestamp != null)
+                    if ($util.Long)
+                        (message.timestamp = $util.Long.fromValue(object.timestamp)).unsigned = false;
+                    else if (typeof object.timestamp === "string")
+                        message.timestamp = parseInt(object.timestamp, 10);
+                    else if (typeof object.timestamp === "number")
+                        message.timestamp = object.timestamp;
+                    else if (typeof object.timestamp === "object")
+                        message.timestamp = new $util.LongBits(object.timestamp.low >>> 0, object.timestamp.high >>> 0).toNumber();
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a NatsStreaming message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.records.NatsStreaming
+             * @static
+             * @param {protos.records.NatsStreaming} message NatsStreaming
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            NatsStreaming.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.objects || options.defaults)
+                    object.metadata = {};
+                if (options.defaults) {
+                    if (options.bytes === String)
+                        object.value = "";
+                    else {
+                        object.value = [];
+                        if (options.bytes !== Array)
+                            object.value = $util.newBuffer(object.value);
+                    }
+                    if ($util.Long) {
+                        var long = new $util.Long(0, 0, false);
+                        object.timestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                    } else
+                        object.timestamp = options.longs === String ? "0" : 0;
+                }
+                var keys2;
+                if (message.metadata && (keys2 = Object.keys(message.metadata)).length) {
+                    object.metadata = {};
+                    for (var j = 0; j < keys2.length; ++j)
+                        object.metadata[keys2[j]] = message.metadata[keys2[j]];
+                }
+                if (message.value != null && message.hasOwnProperty("value"))
+                    object.value = options.bytes === String ? $util.base64.encode(message.value, 0, message.value.length) : options.bytes === Array ? Array.prototype.slice.call(message.value) : message.value;
+                if (message.timestamp != null && message.hasOwnProperty("timestamp"))
+                    if (typeof message.timestamp === "number")
+                        object.timestamp = options.longs === String ? String(message.timestamp) : message.timestamp;
+                    else
+                        object.timestamp = options.longs === String ? $util.Long.prototype.toString.call(message.timestamp) : options.longs === Number ? new $util.LongBits(message.timestamp.low >>> 0, message.timestamp.high >>> 0).toNumber() : message.timestamp;
+                return object;
+            };
+
+            /**
+             * Converts this NatsStreaming to JSON.
+             * @function toJSON
+             * @memberof protos.records.NatsStreaming
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            NatsStreaming.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return NatsStreaming;
+        })();
+
+        records.NSQ = (function() {
+
+            /**
+             * Properties of a NSQ.
+             * @memberof protos.records
+             * @interface INSQ
+             * @property {string|null} [id] NSQ id
+             * @property {string|null} [topic] NSQ topic
+             * @property {string|null} [channel] NSQ channel
+             * @property {number|null} [attempts] NSQ attempts
+             * @property {string|null} [nsqdAddress] NSQ nsqdAddress
+             * @property {Uint8Array|null} [value] NSQ value
+             * @property {number|Long|null} [timestamp] NSQ timestamp
+             */
+
+            /**
+             * Constructs a new NSQ.
+             * @memberof protos.records
+             * @classdesc Represents a NSQ.
+             * @implements INSQ
+             * @constructor
+             * @param {protos.records.INSQ=} [properties] Properties to set
+             */
+            function NSQ(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * NSQ id.
+             * @member {string} id
+             * @memberof protos.records.NSQ
+             * @instance
+             */
+            NSQ.prototype.id = "";
+
+            /**
+             * NSQ topic.
+             * @member {string} topic
+             * @memberof protos.records.NSQ
+             * @instance
+             */
+            NSQ.prototype.topic = "";
+
+            /**
+             * NSQ channel.
+             * @member {string} channel
+             * @memberof protos.records.NSQ
+             * @instance
+             */
+            NSQ.prototype.channel = "";
+
+            /**
+             * NSQ attempts.
+             * @member {number} attempts
+             * @memberof protos.records.NSQ
+             * @instance
+             */
+            NSQ.prototype.attempts = 0;
+
+            /**
+             * NSQ nsqdAddress.
+             * @member {string} nsqdAddress
+             * @memberof protos.records.NSQ
+             * @instance
+             */
+            NSQ.prototype.nsqdAddress = "";
+
+            /**
+             * NSQ value.
+             * @member {Uint8Array} value
+             * @memberof protos.records.NSQ
+             * @instance
+             */
+            NSQ.prototype.value = $util.newBuffer([]);
+
+            /**
+             * NSQ timestamp.
+             * @member {number|Long} timestamp
+             * @memberof protos.records.NSQ
+             * @instance
+             */
+            NSQ.prototype.timestamp = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
+
+            /**
+             * Creates a new NSQ instance using the specified properties.
+             * @function create
+             * @memberof protos.records.NSQ
+             * @static
+             * @param {protos.records.INSQ=} [properties] Properties to set
+             * @returns {protos.records.NSQ} NSQ instance
+             */
+            NSQ.create = function create(properties) {
+                return new NSQ(properties);
+            };
+
+            /**
+             * Encodes the specified NSQ message. Does not implicitly {@link protos.records.NSQ.verify|verify} messages.
+             * @function encode
+             * @memberof protos.records.NSQ
+             * @static
+             * @param {protos.records.INSQ} message NSQ message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            NSQ.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.id != null && Object.hasOwnProperty.call(message, "id"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.id);
+                if (message.topic != null && Object.hasOwnProperty.call(message, "topic"))
+                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.topic);
+                if (message.channel != null && Object.hasOwnProperty.call(message, "channel"))
+                    writer.uint32(/* id 3, wireType 2 =*/26).string(message.channel);
+                if (message.attempts != null && Object.hasOwnProperty.call(message, "attempts"))
+                    writer.uint32(/* id 4, wireType 0 =*/32).int32(message.attempts);
+                if (message.nsqdAddress != null && Object.hasOwnProperty.call(message, "nsqdAddress"))
+                    writer.uint32(/* id 5, wireType 2 =*/42).string(message.nsqdAddress);
+                if (message.value != null && Object.hasOwnProperty.call(message, "value"))
+                    writer.uint32(/* id 6, wireType 2 =*/50).bytes(message.value);
+                if (message.timestamp != null && Object.hasOwnProperty.call(message, "timestamp"))
+                    writer.uint32(/* id 7, wireType 0 =*/56).int64(message.timestamp);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified NSQ message, length delimited. Does not implicitly {@link protos.records.NSQ.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.records.NSQ
+             * @static
+             * @param {protos.records.INSQ} message NSQ message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            NSQ.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a NSQ message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.records.NSQ
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.records.NSQ} NSQ
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            NSQ.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.records.NSQ();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.id = reader.string();
+                        break;
+                    case 2:
+                        message.topic = reader.string();
+                        break;
+                    case 3:
+                        message.channel = reader.string();
+                        break;
+                    case 4:
+                        message.attempts = reader.int32();
+                        break;
+                    case 5:
+                        message.nsqdAddress = reader.string();
+                        break;
+                    case 6:
+                        message.value = reader.bytes();
+                        break;
+                    case 7:
+                        message.timestamp = reader.int64();
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a NSQ message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.records.NSQ
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.records.NSQ} NSQ
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            NSQ.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a NSQ message.
+             * @function verify
+             * @memberof protos.records.NSQ
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            NSQ.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.id != null && message.hasOwnProperty("id"))
+                    if (!$util.isString(message.id))
+                        return "id: string expected";
+                if (message.topic != null && message.hasOwnProperty("topic"))
+                    if (!$util.isString(message.topic))
+                        return "topic: string expected";
+                if (message.channel != null && message.hasOwnProperty("channel"))
+                    if (!$util.isString(message.channel))
+                        return "channel: string expected";
+                if (message.attempts != null && message.hasOwnProperty("attempts"))
+                    if (!$util.isInteger(message.attempts))
+                        return "attempts: integer expected";
+                if (message.nsqdAddress != null && message.hasOwnProperty("nsqdAddress"))
+                    if (!$util.isString(message.nsqdAddress))
+                        return "nsqdAddress: string expected";
+                if (message.value != null && message.hasOwnProperty("value"))
+                    if (!(message.value && typeof message.value.length === "number" || $util.isString(message.value)))
+                        return "value: buffer expected";
+                if (message.timestamp != null && message.hasOwnProperty("timestamp"))
+                    if (!$util.isInteger(message.timestamp) && !(message.timestamp && $util.isInteger(message.timestamp.low) && $util.isInteger(message.timestamp.high)))
+                        return "timestamp: integer|Long expected";
+                return null;
+            };
+
+            /**
+             * Creates a NSQ message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.records.NSQ
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.records.NSQ} NSQ
+             */
+            NSQ.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.records.NSQ)
+                    return object;
+                var message = new $root.protos.records.NSQ();
+                if (object.id != null)
+                    message.id = String(object.id);
+                if (object.topic != null)
+                    message.topic = String(object.topic);
+                if (object.channel != null)
+                    message.channel = String(object.channel);
+                if (object.attempts != null)
+                    message.attempts = object.attempts | 0;
+                if (object.nsqdAddress != null)
+                    message.nsqdAddress = String(object.nsqdAddress);
+                if (object.value != null)
+                    if (typeof object.value === "string")
+                        $util.base64.decode(object.value, message.value = $util.newBuffer($util.base64.length(object.value)), 0);
+                    else if (object.value.length)
+                        message.value = object.value;
+                if (object.timestamp != null)
+                    if ($util.Long)
+                        (message.timestamp = $util.Long.fromValue(object.timestamp)).unsigned = false;
+                    else if (typeof object.timestamp === "string")
+                        message.timestamp = parseInt(object.timestamp, 10);
+                    else if (typeof object.timestamp === "number")
+                        message.timestamp = object.timestamp;
+                    else if (typeof object.timestamp === "object")
+                        message.timestamp = new $util.LongBits(object.timestamp.low >>> 0, object.timestamp.high >>> 0).toNumber();
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a NSQ message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.records.NSQ
+             * @static
+             * @param {protos.records.NSQ} message NSQ
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            NSQ.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    object.id = "";
+                    object.topic = "";
+                    object.channel = "";
+                    object.attempts = 0;
+                    object.nsqdAddress = "";
+                    if (options.bytes === String)
+                        object.value = "";
+                    else {
+                        object.value = [];
+                        if (options.bytes !== Array)
+                            object.value = $util.newBuffer(object.value);
+                    }
+                    if ($util.Long) {
+                        var long = new $util.Long(0, 0, false);
+                        object.timestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                    } else
+                        object.timestamp = options.longs === String ? "0" : 0;
+                }
+                if (message.id != null && message.hasOwnProperty("id"))
+                    object.id = message.id;
+                if (message.topic != null && message.hasOwnProperty("topic"))
+                    object.topic = message.topic;
+                if (message.channel != null && message.hasOwnProperty("channel"))
+                    object.channel = message.channel;
+                if (message.attempts != null && message.hasOwnProperty("attempts"))
+                    object.attempts = message.attempts;
+                if (message.nsqdAddress != null && message.hasOwnProperty("nsqdAddress"))
+                    object.nsqdAddress = message.nsqdAddress;
+                if (message.value != null && message.hasOwnProperty("value"))
+                    object.value = options.bytes === String ? $util.base64.encode(message.value, 0, message.value.length) : options.bytes === Array ? Array.prototype.slice.call(message.value) : message.value;
+                if (message.timestamp != null && message.hasOwnProperty("timestamp"))
+                    if (typeof message.timestamp === "number")
+                        object.timestamp = options.longs === String ? String(message.timestamp) : message.timestamp;
+                    else
+                        object.timestamp = options.longs === String ? $util.Long.prototype.toString.call(message.timestamp) : options.longs === Number ? new $util.LongBits(message.timestamp.low >>> 0, message.timestamp.high >>> 0).toNumber() : message.timestamp;
+                return object;
+            };
+
+            /**
+             * Converts this NSQ to JSON.
+             * @function toJSON
+             * @memberof protos.records.NSQ
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            NSQ.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return NSQ;
+        })();
+
+        records.Postgres = (function() {
+
+            /**
+             * Properties of a Postgres.
+             * @memberof protos.records
+             * @interface IPostgres
+             * @property {Object.<string,string>|null} [metadata] Postgres metadata
+             * @property {number|Long|null} [timestamp] Postgres timestamp
+             * @property {Uint8Array|null} [value] Postgres value
+             */
+
+            /**
+             * Constructs a new Postgres.
+             * @memberof protos.records
+             * @classdesc Represents a Postgres.
+             * @implements IPostgres
+             * @constructor
+             * @param {protos.records.IPostgres=} [properties] Properties to set
+             */
+            function Postgres(properties) {
+                this.metadata = {};
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * Postgres metadata.
+             * @member {Object.<string,string>} metadata
+             * @memberof protos.records.Postgres
+             * @instance
+             */
+            Postgres.prototype.metadata = $util.emptyObject;
+
+            /**
+             * Postgres timestamp.
+             * @member {number|Long} timestamp
+             * @memberof protos.records.Postgres
+             * @instance
+             */
+            Postgres.prototype.timestamp = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
+
+            /**
+             * Postgres value.
+             * @member {Uint8Array} value
+             * @memberof protos.records.Postgres
+             * @instance
+             */
+            Postgres.prototype.value = $util.newBuffer([]);
+
+            /**
+             * Creates a new Postgres instance using the specified properties.
+             * @function create
+             * @memberof protos.records.Postgres
+             * @static
+             * @param {protos.records.IPostgres=} [properties] Properties to set
+             * @returns {protos.records.Postgres} Postgres instance
+             */
+            Postgres.create = function create(properties) {
+                return new Postgres(properties);
+            };
+
+            /**
+             * Encodes the specified Postgres message. Does not implicitly {@link protos.records.Postgres.verify|verify} messages.
+             * @function encode
+             * @memberof protos.records.Postgres
+             * @static
+             * @param {protos.records.IPostgres} message Postgres message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            Postgres.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.metadata != null && Object.hasOwnProperty.call(message, "metadata"))
+                    for (var keys = Object.keys(message.metadata), i = 0; i < keys.length; ++i)
+                        writer.uint32(/* id 1, wireType 2 =*/10).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]).uint32(/* id 2, wireType 2 =*/18).string(message.metadata[keys[i]]).ldelim();
+                if (message.timestamp != null && Object.hasOwnProperty.call(message, "timestamp"))
+                    writer.uint32(/* id 2, wireType 0 =*/16).int64(message.timestamp);
+                if (message.value != null && Object.hasOwnProperty.call(message, "value"))
+                    writer.uint32(/* id 3, wireType 2 =*/26).bytes(message.value);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified Postgres message, length delimited. Does not implicitly {@link protos.records.Postgres.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.records.Postgres
+             * @static
+             * @param {protos.records.IPostgres} message Postgres message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            Postgres.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a Postgres message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.records.Postgres
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.records.Postgres} Postgres
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            Postgres.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.records.Postgres(), key, value;
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        if (message.metadata === $util.emptyObject)
+                            message.metadata = {};
+                        var end2 = reader.uint32() + reader.pos;
+                        key = "";
+                        value = "";
+                        while (reader.pos < end2) {
+                            var tag2 = reader.uint32();
+                            switch (tag2 >>> 3) {
+                            case 1:
+                                key = reader.string();
+                                break;
+                            case 2:
+                                value = reader.string();
+                                break;
+                            default:
+                                reader.skipType(tag2 & 7);
+                                break;
+                            }
+                        }
+                        message.metadata[key] = value;
+                        break;
+                    case 2:
+                        message.timestamp = reader.int64();
+                        break;
+                    case 3:
+                        message.value = reader.bytes();
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a Postgres message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.records.Postgres
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.records.Postgres} Postgres
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            Postgres.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a Postgres message.
+             * @function verify
+             * @memberof protos.records.Postgres
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            Postgres.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.metadata != null && message.hasOwnProperty("metadata")) {
+                    if (!$util.isObject(message.metadata))
+                        return "metadata: object expected";
+                    var key = Object.keys(message.metadata);
+                    for (var i = 0; i < key.length; ++i)
+                        if (!$util.isString(message.metadata[key[i]]))
+                            return "metadata: string{k:string} expected";
+                }
+                if (message.timestamp != null && message.hasOwnProperty("timestamp"))
+                    if (!$util.isInteger(message.timestamp) && !(message.timestamp && $util.isInteger(message.timestamp.low) && $util.isInteger(message.timestamp.high)))
+                        return "timestamp: integer|Long expected";
+                if (message.value != null && message.hasOwnProperty("value"))
+                    if (!(message.value && typeof message.value.length === "number" || $util.isString(message.value)))
+                        return "value: buffer expected";
+                return null;
+            };
+
+            /**
+             * Creates a Postgres message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.records.Postgres
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.records.Postgres} Postgres
+             */
+            Postgres.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.records.Postgres)
+                    return object;
+                var message = new $root.protos.records.Postgres();
+                if (object.metadata) {
+                    if (typeof object.metadata !== "object")
+                        throw TypeError(".protos.records.Postgres.metadata: object expected");
+                    message.metadata = {};
+                    for (var keys = Object.keys(object.metadata), i = 0; i < keys.length; ++i)
+                        message.metadata[keys[i]] = String(object.metadata[keys[i]]);
+                }
+                if (object.timestamp != null)
+                    if ($util.Long)
+                        (message.timestamp = $util.Long.fromValue(object.timestamp)).unsigned = false;
+                    else if (typeof object.timestamp === "string")
+                        message.timestamp = parseInt(object.timestamp, 10);
+                    else if (typeof object.timestamp === "number")
+                        message.timestamp = object.timestamp;
+                    else if (typeof object.timestamp === "object")
+                        message.timestamp = new $util.LongBits(object.timestamp.low >>> 0, object.timestamp.high >>> 0).toNumber();
+                if (object.value != null)
+                    if (typeof object.value === "string")
+                        $util.base64.decode(object.value, message.value = $util.newBuffer($util.base64.length(object.value)), 0);
+                    else if (object.value.length)
+                        message.value = object.value;
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a Postgres message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.records.Postgres
+             * @static
+             * @param {protos.records.Postgres} message Postgres
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            Postgres.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.objects || options.defaults)
+                    object.metadata = {};
+                if (options.defaults) {
+                    if ($util.Long) {
+                        var long = new $util.Long(0, 0, false);
+                        object.timestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                    } else
+                        object.timestamp = options.longs === String ? "0" : 0;
+                    if (options.bytes === String)
+                        object.value = "";
+                    else {
+                        object.value = [];
+                        if (options.bytes !== Array)
+                            object.value = $util.newBuffer(object.value);
+                    }
+                }
+                var keys2;
+                if (message.metadata && (keys2 = Object.keys(message.metadata)).length) {
+                    object.metadata = {};
+                    for (var j = 0; j < keys2.length; ++j)
+                        object.metadata[keys2[j]] = message.metadata[keys2[j]];
+                }
+                if (message.timestamp != null && message.hasOwnProperty("timestamp"))
+                    if (typeof message.timestamp === "number")
+                        object.timestamp = options.longs === String ? String(message.timestamp) : message.timestamp;
+                    else
+                        object.timestamp = options.longs === String ? $util.Long.prototype.toString.call(message.timestamp) : options.longs === Number ? new $util.LongBits(message.timestamp.low >>> 0, message.timestamp.high >>> 0).toNumber() : message.timestamp;
+                if (message.value != null && message.hasOwnProperty("value"))
+                    object.value = options.bytes === String ? $util.base64.encode(message.value, 0, message.value.length) : options.bytes === Array ? Array.prototype.slice.call(message.value) : message.value;
+                return object;
+            };
+
+            /**
+             * Converts this Postgres to JSON.
+             * @function toJSON
+             * @memberof protos.records.Postgres
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            Postgres.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return Postgres;
+        })();
+
+        records.Pulsar = (function() {
+
+            /**
+             * Properties of a Pulsar.
+             * @memberof protos.records
+             * @interface IPulsar
+             * @property {string|null} [id] Pulsar id
+             * @property {string|null} [key] Pulsar key
+             * @property {string|null} [topic] Pulsar topic
+             * @property {Object.<string,string>|null} [properties] Pulsar properties
+             * @property {number|null} [redeliveryCount] Pulsar redeliveryCount
+             * @property {string|null} [eventTime] Pulsar eventTime
+             * @property {boolean|null} [isReplicated] Pulsar isReplicated
+             * @property {string|null} [orderingKey] Pulsar orderingKey
+             * @property {string|null} [producerName] Pulsar producerName
+             * @property {string|null} [publishTime] Pulsar publishTime
+             * @property {number|Long|null} [timestamp] Pulsar timestamp
+             * @property {Uint8Array|null} [value] Pulsar value
+             */
+
+            /**
+             * Constructs a new Pulsar.
+             * @memberof protos.records
+             * @classdesc Represents a Pulsar.
+             * @implements IPulsar
+             * @constructor
+             * @param {protos.records.IPulsar=} [properties] Properties to set
+             */
+            function Pulsar(properties) {
+                this.properties = {};
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * Pulsar id.
+             * @member {string} id
+             * @memberof protos.records.Pulsar
+             * @instance
+             */
+            Pulsar.prototype.id = "";
+
+            /**
+             * Pulsar key.
+             * @member {string} key
+             * @memberof protos.records.Pulsar
+             * @instance
+             */
+            Pulsar.prototype.key = "";
+
+            /**
+             * Pulsar topic.
+             * @member {string} topic
+             * @memberof protos.records.Pulsar
+             * @instance
+             */
+            Pulsar.prototype.topic = "";
+
+            /**
+             * Pulsar properties.
+             * @member {Object.<string,string>} properties
+             * @memberof protos.records.Pulsar
+             * @instance
+             */
+            Pulsar.prototype.properties = $util.emptyObject;
+
+            /**
+             * Pulsar redeliveryCount.
+             * @member {number} redeliveryCount
+             * @memberof protos.records.Pulsar
+             * @instance
+             */
+            Pulsar.prototype.redeliveryCount = 0;
+
+            /**
+             * Pulsar eventTime.
+             * @member {string} eventTime
+             * @memberof protos.records.Pulsar
+             * @instance
+             */
+            Pulsar.prototype.eventTime = "";
+
+            /**
+             * Pulsar isReplicated.
+             * @member {boolean} isReplicated
+             * @memberof protos.records.Pulsar
+             * @instance
+             */
+            Pulsar.prototype.isReplicated = false;
+
+            /**
+             * Pulsar orderingKey.
+             * @member {string} orderingKey
+             * @memberof protos.records.Pulsar
+             * @instance
+             */
+            Pulsar.prototype.orderingKey = "";
+
+            /**
+             * Pulsar producerName.
+             * @member {string} producerName
+             * @memberof protos.records.Pulsar
+             * @instance
+             */
+            Pulsar.prototype.producerName = "";
+
+            /**
+             * Pulsar publishTime.
+             * @member {string} publishTime
+             * @memberof protos.records.Pulsar
+             * @instance
+             */
+            Pulsar.prototype.publishTime = "";
+
+            /**
+             * Pulsar timestamp.
+             * @member {number|Long} timestamp
+             * @memberof protos.records.Pulsar
+             * @instance
+             */
+            Pulsar.prototype.timestamp = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
+
+            /**
+             * Pulsar value.
+             * @member {Uint8Array} value
+             * @memberof protos.records.Pulsar
+             * @instance
+             */
+            Pulsar.prototype.value = $util.newBuffer([]);
+
+            /**
+             * Creates a new Pulsar instance using the specified properties.
+             * @function create
+             * @memberof protos.records.Pulsar
+             * @static
+             * @param {protos.records.IPulsar=} [properties] Properties to set
+             * @returns {protos.records.Pulsar} Pulsar instance
+             */
+            Pulsar.create = function create(properties) {
+                return new Pulsar(properties);
+            };
+
+            /**
+             * Encodes the specified Pulsar message. Does not implicitly {@link protos.records.Pulsar.verify|verify} messages.
+             * @function encode
+             * @memberof protos.records.Pulsar
+             * @static
+             * @param {protos.records.IPulsar} message Pulsar message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            Pulsar.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.id != null && Object.hasOwnProperty.call(message, "id"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.id);
+                if (message.key != null && Object.hasOwnProperty.call(message, "key"))
+                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.key);
+                if (message.topic != null && Object.hasOwnProperty.call(message, "topic"))
+                    writer.uint32(/* id 3, wireType 2 =*/26).string(message.topic);
+                if (message.properties != null && Object.hasOwnProperty.call(message, "properties"))
+                    for (var keys = Object.keys(message.properties), i = 0; i < keys.length; ++i)
+                        writer.uint32(/* id 4, wireType 2 =*/34).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]).uint32(/* id 2, wireType 2 =*/18).string(message.properties[keys[i]]).ldelim();
+                if (message.redeliveryCount != null && Object.hasOwnProperty.call(message, "redeliveryCount"))
+                    writer.uint32(/* id 5, wireType 0 =*/40).uint32(message.redeliveryCount);
+                if (message.eventTime != null && Object.hasOwnProperty.call(message, "eventTime"))
+                    writer.uint32(/* id 6, wireType 2 =*/50).string(message.eventTime);
+                if (message.isReplicated != null && Object.hasOwnProperty.call(message, "isReplicated"))
+                    writer.uint32(/* id 7, wireType 0 =*/56).bool(message.isReplicated);
+                if (message.orderingKey != null && Object.hasOwnProperty.call(message, "orderingKey"))
+                    writer.uint32(/* id 8, wireType 2 =*/66).string(message.orderingKey);
+                if (message.producerName != null && Object.hasOwnProperty.call(message, "producerName"))
+                    writer.uint32(/* id 9, wireType 2 =*/74).string(message.producerName);
+                if (message.publishTime != null && Object.hasOwnProperty.call(message, "publishTime"))
+                    writer.uint32(/* id 10, wireType 2 =*/82).string(message.publishTime);
+                if (message.timestamp != null && Object.hasOwnProperty.call(message, "timestamp"))
+                    writer.uint32(/* id 11, wireType 0 =*/88).int64(message.timestamp);
+                if (message.value != null && Object.hasOwnProperty.call(message, "value"))
+                    writer.uint32(/* id 12, wireType 2 =*/98).bytes(message.value);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified Pulsar message, length delimited. Does not implicitly {@link protos.records.Pulsar.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.records.Pulsar
+             * @static
+             * @param {protos.records.IPulsar} message Pulsar message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            Pulsar.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a Pulsar message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.records.Pulsar
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.records.Pulsar} Pulsar
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            Pulsar.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.records.Pulsar(), key, value;
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.id = reader.string();
+                        break;
+                    case 2:
+                        message.key = reader.string();
+                        break;
+                    case 3:
+                        message.topic = reader.string();
+                        break;
+                    case 4:
+                        if (message.properties === $util.emptyObject)
+                            message.properties = {};
+                        var end2 = reader.uint32() + reader.pos;
+                        key = "";
+                        value = "";
+                        while (reader.pos < end2) {
+                            var tag2 = reader.uint32();
+                            switch (tag2 >>> 3) {
+                            case 1:
+                                key = reader.string();
+                                break;
+                            case 2:
+                                value = reader.string();
+                                break;
+                            default:
+                                reader.skipType(tag2 & 7);
+                                break;
+                            }
+                        }
+                        message.properties[key] = value;
+                        break;
+                    case 5:
+                        message.redeliveryCount = reader.uint32();
+                        break;
+                    case 6:
+                        message.eventTime = reader.string();
+                        break;
+                    case 7:
+                        message.isReplicated = reader.bool();
+                        break;
+                    case 8:
+                        message.orderingKey = reader.string();
+                        break;
+                    case 9:
+                        message.producerName = reader.string();
+                        break;
+                    case 10:
+                        message.publishTime = reader.string();
+                        break;
+                    case 11:
+                        message.timestamp = reader.int64();
+                        break;
+                    case 12:
+                        message.value = reader.bytes();
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a Pulsar message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.records.Pulsar
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.records.Pulsar} Pulsar
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            Pulsar.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a Pulsar message.
+             * @function verify
+             * @memberof protos.records.Pulsar
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            Pulsar.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.id != null && message.hasOwnProperty("id"))
+                    if (!$util.isString(message.id))
+                        return "id: string expected";
+                if (message.key != null && message.hasOwnProperty("key"))
+                    if (!$util.isString(message.key))
+                        return "key: string expected";
+                if (message.topic != null && message.hasOwnProperty("topic"))
+                    if (!$util.isString(message.topic))
+                        return "topic: string expected";
+                if (message.properties != null && message.hasOwnProperty("properties")) {
+                    if (!$util.isObject(message.properties))
+                        return "properties: object expected";
+                    var key = Object.keys(message.properties);
+                    for (var i = 0; i < key.length; ++i)
+                        if (!$util.isString(message.properties[key[i]]))
+                            return "properties: string{k:string} expected";
+                }
+                if (message.redeliveryCount != null && message.hasOwnProperty("redeliveryCount"))
+                    if (!$util.isInteger(message.redeliveryCount))
+                        return "redeliveryCount: integer expected";
+                if (message.eventTime != null && message.hasOwnProperty("eventTime"))
+                    if (!$util.isString(message.eventTime))
+                        return "eventTime: string expected";
+                if (message.isReplicated != null && message.hasOwnProperty("isReplicated"))
+                    if (typeof message.isReplicated !== "boolean")
+                        return "isReplicated: boolean expected";
+                if (message.orderingKey != null && message.hasOwnProperty("orderingKey"))
+                    if (!$util.isString(message.orderingKey))
+                        return "orderingKey: string expected";
+                if (message.producerName != null && message.hasOwnProperty("producerName"))
+                    if (!$util.isString(message.producerName))
+                        return "producerName: string expected";
+                if (message.publishTime != null && message.hasOwnProperty("publishTime"))
+                    if (!$util.isString(message.publishTime))
+                        return "publishTime: string expected";
+                if (message.timestamp != null && message.hasOwnProperty("timestamp"))
+                    if (!$util.isInteger(message.timestamp) && !(message.timestamp && $util.isInteger(message.timestamp.low) && $util.isInteger(message.timestamp.high)))
+                        return "timestamp: integer|Long expected";
+                if (message.value != null && message.hasOwnProperty("value"))
+                    if (!(message.value && typeof message.value.length === "number" || $util.isString(message.value)))
+                        return "value: buffer expected";
+                return null;
+            };
+
+            /**
+             * Creates a Pulsar message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.records.Pulsar
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.records.Pulsar} Pulsar
+             */
+            Pulsar.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.records.Pulsar)
+                    return object;
+                var message = new $root.protos.records.Pulsar();
+                if (object.id != null)
+                    message.id = String(object.id);
+                if (object.key != null)
+                    message.key = String(object.key);
+                if (object.topic != null)
+                    message.topic = String(object.topic);
+                if (object.properties) {
+                    if (typeof object.properties !== "object")
+                        throw TypeError(".protos.records.Pulsar.properties: object expected");
+                    message.properties = {};
+                    for (var keys = Object.keys(object.properties), i = 0; i < keys.length; ++i)
+                        message.properties[keys[i]] = String(object.properties[keys[i]]);
+                }
+                if (object.redeliveryCount != null)
+                    message.redeliveryCount = object.redeliveryCount >>> 0;
+                if (object.eventTime != null)
+                    message.eventTime = String(object.eventTime);
+                if (object.isReplicated != null)
+                    message.isReplicated = Boolean(object.isReplicated);
+                if (object.orderingKey != null)
+                    message.orderingKey = String(object.orderingKey);
+                if (object.producerName != null)
+                    message.producerName = String(object.producerName);
+                if (object.publishTime != null)
+                    message.publishTime = String(object.publishTime);
+                if (object.timestamp != null)
+                    if ($util.Long)
+                        (message.timestamp = $util.Long.fromValue(object.timestamp)).unsigned = false;
+                    else if (typeof object.timestamp === "string")
+                        message.timestamp = parseInt(object.timestamp, 10);
+                    else if (typeof object.timestamp === "number")
+                        message.timestamp = object.timestamp;
+                    else if (typeof object.timestamp === "object")
+                        message.timestamp = new $util.LongBits(object.timestamp.low >>> 0, object.timestamp.high >>> 0).toNumber();
+                if (object.value != null)
+                    if (typeof object.value === "string")
+                        $util.base64.decode(object.value, message.value = $util.newBuffer($util.base64.length(object.value)), 0);
+                    else if (object.value.length)
+                        message.value = object.value;
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a Pulsar message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.records.Pulsar
+             * @static
+             * @param {protos.records.Pulsar} message Pulsar
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            Pulsar.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.objects || options.defaults)
+                    object.properties = {};
+                if (options.defaults) {
+                    object.id = "";
+                    object.key = "";
+                    object.topic = "";
+                    object.redeliveryCount = 0;
+                    object.eventTime = "";
+                    object.isReplicated = false;
+                    object.orderingKey = "";
+                    object.producerName = "";
+                    object.publishTime = "";
+                    if ($util.Long) {
+                        var long = new $util.Long(0, 0, false);
+                        object.timestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                    } else
+                        object.timestamp = options.longs === String ? "0" : 0;
+                    if (options.bytes === String)
+                        object.value = "";
+                    else {
+                        object.value = [];
+                        if (options.bytes !== Array)
+                            object.value = $util.newBuffer(object.value);
+                    }
+                }
+                if (message.id != null && message.hasOwnProperty("id"))
+                    object.id = message.id;
+                if (message.key != null && message.hasOwnProperty("key"))
+                    object.key = message.key;
+                if (message.topic != null && message.hasOwnProperty("topic"))
+                    object.topic = message.topic;
+                var keys2;
+                if (message.properties && (keys2 = Object.keys(message.properties)).length) {
+                    object.properties = {};
+                    for (var j = 0; j < keys2.length; ++j)
+                        object.properties[keys2[j]] = message.properties[keys2[j]];
+                }
+                if (message.redeliveryCount != null && message.hasOwnProperty("redeliveryCount"))
+                    object.redeliveryCount = message.redeliveryCount;
+                if (message.eventTime != null && message.hasOwnProperty("eventTime"))
+                    object.eventTime = message.eventTime;
+                if (message.isReplicated != null && message.hasOwnProperty("isReplicated"))
+                    object.isReplicated = message.isReplicated;
+                if (message.orderingKey != null && message.hasOwnProperty("orderingKey"))
+                    object.orderingKey = message.orderingKey;
+                if (message.producerName != null && message.hasOwnProperty("producerName"))
+                    object.producerName = message.producerName;
+                if (message.publishTime != null && message.hasOwnProperty("publishTime"))
+                    object.publishTime = message.publishTime;
+                if (message.timestamp != null && message.hasOwnProperty("timestamp"))
+                    if (typeof message.timestamp === "number")
+                        object.timestamp = options.longs === String ? String(message.timestamp) : message.timestamp;
+                    else
+                        object.timestamp = options.longs === String ? $util.Long.prototype.toString.call(message.timestamp) : options.longs === Number ? new $util.LongBits(message.timestamp.low >>> 0, message.timestamp.high >>> 0).toNumber() : message.timestamp;
+                if (message.value != null && message.hasOwnProperty("value"))
+                    object.value = options.bytes === String ? $util.base64.encode(message.value, 0, message.value.length) : options.bytes === Array ? Array.prototype.slice.call(message.value) : message.value;
+                return object;
+            };
+
+            /**
+             * Converts this Pulsar to JSON.
+             * @function toJSON
+             * @memberof protos.records.Pulsar
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            Pulsar.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return Pulsar;
+        })();
+
+        records.RabbitStreams = (function() {
+
+            /**
+             * Properties of a RabbitStreams.
+             * @memberof protos.records
+             * @interface IRabbitStreams
+             * @property {string|null} [deliveryTag] RabbitStreams deliveryTag
+             * @property {number|null} [format] RabbitStreams format
+             * @property {protos.records.IRabbitStreamsHeader|null} [header] RabbitStreams header
+             * @property {Object.<string,string>|null} [deliveryAnnotations] RabbitStreams deliveryAnnotations
+             * @property {Object.<string,string>|null} [footer] RabbitStreams footer
+             * @property {boolean|null} [sendSettled] RabbitStreams sendSettled
+             * @property {string|null} [streamName] RabbitStreams streamName
+             * @property {number|Long|null} [timestamp] RabbitStreams timestamp
+             * @property {Uint8Array|null} [value] RabbitStreams value
+             */
+
+            /**
+             * Constructs a new RabbitStreams.
+             * @memberof protos.records
+             * @classdesc Represents a RabbitStreams.
+             * @implements IRabbitStreams
+             * @constructor
+             * @param {protos.records.IRabbitStreams=} [properties] Properties to set
+             */
+            function RabbitStreams(properties) {
+                this.deliveryAnnotations = {};
+                this.footer = {};
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * RabbitStreams deliveryTag.
+             * @member {string} deliveryTag
+             * @memberof protos.records.RabbitStreams
+             * @instance
+             */
+            RabbitStreams.prototype.deliveryTag = "";
+
+            /**
+             * RabbitStreams format.
+             * @member {number} format
+             * @memberof protos.records.RabbitStreams
+             * @instance
+             */
+            RabbitStreams.prototype.format = 0;
+
+            /**
+             * RabbitStreams header.
+             * @member {protos.records.IRabbitStreamsHeader|null|undefined} header
+             * @memberof protos.records.RabbitStreams
+             * @instance
+             */
+            RabbitStreams.prototype.header = null;
+
+            /**
+             * RabbitStreams deliveryAnnotations.
+             * @member {Object.<string,string>} deliveryAnnotations
+             * @memberof protos.records.RabbitStreams
+             * @instance
+             */
+            RabbitStreams.prototype.deliveryAnnotations = $util.emptyObject;
+
+            /**
+             * RabbitStreams footer.
+             * @member {Object.<string,string>} footer
+             * @memberof protos.records.RabbitStreams
+             * @instance
+             */
+            RabbitStreams.prototype.footer = $util.emptyObject;
+
+            /**
+             * RabbitStreams sendSettled.
+             * @member {boolean} sendSettled
+             * @memberof protos.records.RabbitStreams
+             * @instance
+             */
+            RabbitStreams.prototype.sendSettled = false;
+
+            /**
+             * RabbitStreams streamName.
+             * @member {string} streamName
+             * @memberof protos.records.RabbitStreams
+             * @instance
+             */
+            RabbitStreams.prototype.streamName = "";
+
+            /**
+             * RabbitStreams timestamp.
+             * @member {number|Long} timestamp
+             * @memberof protos.records.RabbitStreams
+             * @instance
+             */
+            RabbitStreams.prototype.timestamp = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
+
+            /**
+             * RabbitStreams value.
+             * @member {Uint8Array} value
+             * @memberof protos.records.RabbitStreams
+             * @instance
+             */
+            RabbitStreams.prototype.value = $util.newBuffer([]);
+
+            /**
+             * Creates a new RabbitStreams instance using the specified properties.
+             * @function create
+             * @memberof protos.records.RabbitStreams
+             * @static
+             * @param {protos.records.IRabbitStreams=} [properties] Properties to set
+             * @returns {protos.records.RabbitStreams} RabbitStreams instance
+             */
+            RabbitStreams.create = function create(properties) {
+                return new RabbitStreams(properties);
+            };
+
+            /**
+             * Encodes the specified RabbitStreams message. Does not implicitly {@link protos.records.RabbitStreams.verify|verify} messages.
+             * @function encode
+             * @memberof protos.records.RabbitStreams
+             * @static
+             * @param {protos.records.IRabbitStreams} message RabbitStreams message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            RabbitStreams.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.deliveryTag != null && Object.hasOwnProperty.call(message, "deliveryTag"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.deliveryTag);
+                if (message.format != null && Object.hasOwnProperty.call(message, "format"))
+                    writer.uint32(/* id 2, wireType 0 =*/16).uint32(message.format);
+                if (message.header != null && Object.hasOwnProperty.call(message, "header"))
+                    $root.protos.records.RabbitStreamsHeader.encode(message.header, writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
+                if (message.deliveryAnnotations != null && Object.hasOwnProperty.call(message, "deliveryAnnotations"))
+                    for (var keys = Object.keys(message.deliveryAnnotations), i = 0; i < keys.length; ++i)
+                        writer.uint32(/* id 4, wireType 2 =*/34).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]).uint32(/* id 2, wireType 2 =*/18).string(message.deliveryAnnotations[keys[i]]).ldelim();
+                if (message.footer != null && Object.hasOwnProperty.call(message, "footer"))
+                    for (var keys = Object.keys(message.footer), i = 0; i < keys.length; ++i)
+                        writer.uint32(/* id 5, wireType 2 =*/42).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]).uint32(/* id 2, wireType 2 =*/18).string(message.footer[keys[i]]).ldelim();
+                if (message.sendSettled != null && Object.hasOwnProperty.call(message, "sendSettled"))
+                    writer.uint32(/* id 6, wireType 0 =*/48).bool(message.sendSettled);
+                if (message.streamName != null && Object.hasOwnProperty.call(message, "streamName"))
+                    writer.uint32(/* id 7, wireType 2 =*/58).string(message.streamName);
+                if (message.timestamp != null && Object.hasOwnProperty.call(message, "timestamp"))
+                    writer.uint32(/* id 8, wireType 0 =*/64).int64(message.timestamp);
+                if (message.value != null && Object.hasOwnProperty.call(message, "value"))
+                    writer.uint32(/* id 9, wireType 2 =*/74).bytes(message.value);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified RabbitStreams message, length delimited. Does not implicitly {@link protos.records.RabbitStreams.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.records.RabbitStreams
+             * @static
+             * @param {protos.records.IRabbitStreams} message RabbitStreams message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            RabbitStreams.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a RabbitStreams message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.records.RabbitStreams
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.records.RabbitStreams} RabbitStreams
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            RabbitStreams.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.records.RabbitStreams(), key, value;
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.deliveryTag = reader.string();
+                        break;
+                    case 2:
+                        message.format = reader.uint32();
+                        break;
+                    case 3:
+                        message.header = $root.protos.records.RabbitStreamsHeader.decode(reader, reader.uint32());
+                        break;
+                    case 4:
+                        if (message.deliveryAnnotations === $util.emptyObject)
+                            message.deliveryAnnotations = {};
+                        var end2 = reader.uint32() + reader.pos;
+                        key = "";
+                        value = "";
+                        while (reader.pos < end2) {
+                            var tag2 = reader.uint32();
+                            switch (tag2 >>> 3) {
+                            case 1:
+                                key = reader.string();
+                                break;
+                            case 2:
+                                value = reader.string();
+                                break;
+                            default:
+                                reader.skipType(tag2 & 7);
+                                break;
+                            }
+                        }
+                        message.deliveryAnnotations[key] = value;
+                        break;
+                    case 5:
+                        if (message.footer === $util.emptyObject)
+                            message.footer = {};
+                        var end2 = reader.uint32() + reader.pos;
+                        key = "";
+                        value = "";
+                        while (reader.pos < end2) {
+                            var tag2 = reader.uint32();
+                            switch (tag2 >>> 3) {
+                            case 1:
+                                key = reader.string();
+                                break;
+                            case 2:
+                                value = reader.string();
+                                break;
+                            default:
+                                reader.skipType(tag2 & 7);
+                                break;
+                            }
+                        }
+                        message.footer[key] = value;
+                        break;
+                    case 6:
+                        message.sendSettled = reader.bool();
+                        break;
+                    case 7:
+                        message.streamName = reader.string();
+                        break;
+                    case 8:
+                        message.timestamp = reader.int64();
+                        break;
+                    case 9:
+                        message.value = reader.bytes();
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a RabbitStreams message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.records.RabbitStreams
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.records.RabbitStreams} RabbitStreams
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            RabbitStreams.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a RabbitStreams message.
+             * @function verify
+             * @memberof protos.records.RabbitStreams
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            RabbitStreams.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.deliveryTag != null && message.hasOwnProperty("deliveryTag"))
+                    if (!$util.isString(message.deliveryTag))
+                        return "deliveryTag: string expected";
+                if (message.format != null && message.hasOwnProperty("format"))
+                    if (!$util.isInteger(message.format))
+                        return "format: integer expected";
+                if (message.header != null && message.hasOwnProperty("header")) {
+                    var error = $root.protos.records.RabbitStreamsHeader.verify(message.header);
+                    if (error)
+                        return "header." + error;
+                }
+                if (message.deliveryAnnotations != null && message.hasOwnProperty("deliveryAnnotations")) {
+                    if (!$util.isObject(message.deliveryAnnotations))
+                        return "deliveryAnnotations: object expected";
+                    var key = Object.keys(message.deliveryAnnotations);
+                    for (var i = 0; i < key.length; ++i)
+                        if (!$util.isString(message.deliveryAnnotations[key[i]]))
+                            return "deliveryAnnotations: string{k:string} expected";
+                }
+                if (message.footer != null && message.hasOwnProperty("footer")) {
+                    if (!$util.isObject(message.footer))
+                        return "footer: object expected";
+                    var key = Object.keys(message.footer);
+                    for (var i = 0; i < key.length; ++i)
+                        if (!$util.isString(message.footer[key[i]]))
+                            return "footer: string{k:string} expected";
+                }
+                if (message.sendSettled != null && message.hasOwnProperty("sendSettled"))
+                    if (typeof message.sendSettled !== "boolean")
+                        return "sendSettled: boolean expected";
+                if (message.streamName != null && message.hasOwnProperty("streamName"))
+                    if (!$util.isString(message.streamName))
+                        return "streamName: string expected";
+                if (message.timestamp != null && message.hasOwnProperty("timestamp"))
+                    if (!$util.isInteger(message.timestamp) && !(message.timestamp && $util.isInteger(message.timestamp.low) && $util.isInteger(message.timestamp.high)))
+                        return "timestamp: integer|Long expected";
+                if (message.value != null && message.hasOwnProperty("value"))
+                    if (!(message.value && typeof message.value.length === "number" || $util.isString(message.value)))
+                        return "value: buffer expected";
+                return null;
+            };
+
+            /**
+             * Creates a RabbitStreams message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.records.RabbitStreams
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.records.RabbitStreams} RabbitStreams
+             */
+            RabbitStreams.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.records.RabbitStreams)
+                    return object;
+                var message = new $root.protos.records.RabbitStreams();
+                if (object.deliveryTag != null)
+                    message.deliveryTag = String(object.deliveryTag);
+                if (object.format != null)
+                    message.format = object.format >>> 0;
+                if (object.header != null) {
+                    if (typeof object.header !== "object")
+                        throw TypeError(".protos.records.RabbitStreams.header: object expected");
+                    message.header = $root.protos.records.RabbitStreamsHeader.fromObject(object.header);
+                }
+                if (object.deliveryAnnotations) {
+                    if (typeof object.deliveryAnnotations !== "object")
+                        throw TypeError(".protos.records.RabbitStreams.deliveryAnnotations: object expected");
+                    message.deliveryAnnotations = {};
+                    for (var keys = Object.keys(object.deliveryAnnotations), i = 0; i < keys.length; ++i)
+                        message.deliveryAnnotations[keys[i]] = String(object.deliveryAnnotations[keys[i]]);
+                }
+                if (object.footer) {
+                    if (typeof object.footer !== "object")
+                        throw TypeError(".protos.records.RabbitStreams.footer: object expected");
+                    message.footer = {};
+                    for (var keys = Object.keys(object.footer), i = 0; i < keys.length; ++i)
+                        message.footer[keys[i]] = String(object.footer[keys[i]]);
+                }
+                if (object.sendSettled != null)
+                    message.sendSettled = Boolean(object.sendSettled);
+                if (object.streamName != null)
+                    message.streamName = String(object.streamName);
+                if (object.timestamp != null)
+                    if ($util.Long)
+                        (message.timestamp = $util.Long.fromValue(object.timestamp)).unsigned = false;
+                    else if (typeof object.timestamp === "string")
+                        message.timestamp = parseInt(object.timestamp, 10);
+                    else if (typeof object.timestamp === "number")
+                        message.timestamp = object.timestamp;
+                    else if (typeof object.timestamp === "object")
+                        message.timestamp = new $util.LongBits(object.timestamp.low >>> 0, object.timestamp.high >>> 0).toNumber();
+                if (object.value != null)
+                    if (typeof object.value === "string")
+                        $util.base64.decode(object.value, message.value = $util.newBuffer($util.base64.length(object.value)), 0);
+                    else if (object.value.length)
+                        message.value = object.value;
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a RabbitStreams message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.records.RabbitStreams
+             * @static
+             * @param {protos.records.RabbitStreams} message RabbitStreams
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            RabbitStreams.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.objects || options.defaults) {
+                    object.deliveryAnnotations = {};
+                    object.footer = {};
+                }
+                if (options.defaults) {
+                    object.deliveryTag = "";
+                    object.format = 0;
+                    object.header = null;
+                    object.sendSettled = false;
+                    object.streamName = "";
+                    if ($util.Long) {
+                        var long = new $util.Long(0, 0, false);
+                        object.timestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                    } else
+                        object.timestamp = options.longs === String ? "0" : 0;
+                    if (options.bytes === String)
+                        object.value = "";
+                    else {
+                        object.value = [];
+                        if (options.bytes !== Array)
+                            object.value = $util.newBuffer(object.value);
+                    }
+                }
+                if (message.deliveryTag != null && message.hasOwnProperty("deliveryTag"))
+                    object.deliveryTag = message.deliveryTag;
+                if (message.format != null && message.hasOwnProperty("format"))
+                    object.format = message.format;
+                if (message.header != null && message.hasOwnProperty("header"))
+                    object.header = $root.protos.records.RabbitStreamsHeader.toObject(message.header, options);
+                var keys2;
+                if (message.deliveryAnnotations && (keys2 = Object.keys(message.deliveryAnnotations)).length) {
+                    object.deliveryAnnotations = {};
+                    for (var j = 0; j < keys2.length; ++j)
+                        object.deliveryAnnotations[keys2[j]] = message.deliveryAnnotations[keys2[j]];
+                }
+                if (message.footer && (keys2 = Object.keys(message.footer)).length) {
+                    object.footer = {};
+                    for (var j = 0; j < keys2.length; ++j)
+                        object.footer[keys2[j]] = message.footer[keys2[j]];
+                }
+                if (message.sendSettled != null && message.hasOwnProperty("sendSettled"))
+                    object.sendSettled = message.sendSettled;
+                if (message.streamName != null && message.hasOwnProperty("streamName"))
+                    object.streamName = message.streamName;
+                if (message.timestamp != null && message.hasOwnProperty("timestamp"))
+                    if (typeof message.timestamp === "number")
+                        object.timestamp = options.longs === String ? String(message.timestamp) : message.timestamp;
+                    else
+                        object.timestamp = options.longs === String ? $util.Long.prototype.toString.call(message.timestamp) : options.longs === Number ? new $util.LongBits(message.timestamp.low >>> 0, message.timestamp.high >>> 0).toNumber() : message.timestamp;
+                if (message.value != null && message.hasOwnProperty("value"))
+                    object.value = options.bytes === String ? $util.base64.encode(message.value, 0, message.value.length) : options.bytes === Array ? Array.prototype.slice.call(message.value) : message.value;
+                return object;
+            };
+
+            /**
+             * Converts this RabbitStreams to JSON.
+             * @function toJSON
+             * @memberof protos.records.RabbitStreams
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            RabbitStreams.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return RabbitStreams;
+        })();
+
+        records.RabbitStreamsHeader = (function() {
+
+            /**
+             * Properties of a RabbitStreamsHeader.
+             * @memberof protos.records
+             * @interface IRabbitStreamsHeader
+             * @property {string|null} [messageId] RabbitStreamsHeader messageId
+             * @property {string|null} [userId] RabbitStreamsHeader userId
+             * @property {string|null} [to] RabbitStreamsHeader to
+             * @property {string|null} [subject] RabbitStreamsHeader subject
+             * @property {string|null} [replayTo] RabbitStreamsHeader replayTo
+             * @property {string|null} [correlationId] RabbitStreamsHeader correlationId
+             * @property {string|null} [contentType] RabbitStreamsHeader contentType
+             * @property {string|null} [contentEncoding] RabbitStreamsHeader contentEncoding
+             * @property {string|null} [absoluteExpiryTime] RabbitStreamsHeader absoluteExpiryTime
+             * @property {string|null} [creationTime] RabbitStreamsHeader creationTime
+             * @property {string|null} [groupId] RabbitStreamsHeader groupId
+             * @property {number|null} [groupSequence] RabbitStreamsHeader groupSequence
+             * @property {string|null} [replayToGroupId] RabbitStreamsHeader replayToGroupId
+             */
+
+            /**
+             * Constructs a new RabbitStreamsHeader.
+             * @memberof protos.records
+             * @classdesc Represents a RabbitStreamsHeader.
+             * @implements IRabbitStreamsHeader
+             * @constructor
+             * @param {protos.records.IRabbitStreamsHeader=} [properties] Properties to set
+             */
+            function RabbitStreamsHeader(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * RabbitStreamsHeader messageId.
+             * @member {string} messageId
+             * @memberof protos.records.RabbitStreamsHeader
+             * @instance
+             */
+            RabbitStreamsHeader.prototype.messageId = "";
+
+            /**
+             * RabbitStreamsHeader userId.
+             * @member {string} userId
+             * @memberof protos.records.RabbitStreamsHeader
+             * @instance
+             */
+            RabbitStreamsHeader.prototype.userId = "";
+
+            /**
+             * RabbitStreamsHeader to.
+             * @member {string} to
+             * @memberof protos.records.RabbitStreamsHeader
+             * @instance
+             */
+            RabbitStreamsHeader.prototype.to = "";
+
+            /**
+             * RabbitStreamsHeader subject.
+             * @member {string} subject
+             * @memberof protos.records.RabbitStreamsHeader
+             * @instance
+             */
+            RabbitStreamsHeader.prototype.subject = "";
+
+            /**
+             * RabbitStreamsHeader replayTo.
+             * @member {string} replayTo
+             * @memberof protos.records.RabbitStreamsHeader
+             * @instance
+             */
+            RabbitStreamsHeader.prototype.replayTo = "";
+
+            /**
+             * RabbitStreamsHeader correlationId.
+             * @member {string} correlationId
+             * @memberof protos.records.RabbitStreamsHeader
+             * @instance
+             */
+            RabbitStreamsHeader.prototype.correlationId = "";
+
+            /**
+             * RabbitStreamsHeader contentType.
+             * @member {string} contentType
+             * @memberof protos.records.RabbitStreamsHeader
+             * @instance
+             */
+            RabbitStreamsHeader.prototype.contentType = "";
+
+            /**
+             * RabbitStreamsHeader contentEncoding.
+             * @member {string} contentEncoding
+             * @memberof protos.records.RabbitStreamsHeader
+             * @instance
+             */
+            RabbitStreamsHeader.prototype.contentEncoding = "";
+
+            /**
+             * RabbitStreamsHeader absoluteExpiryTime.
+             * @member {string} absoluteExpiryTime
+             * @memberof protos.records.RabbitStreamsHeader
+             * @instance
+             */
+            RabbitStreamsHeader.prototype.absoluteExpiryTime = "";
+
+            /**
+             * RabbitStreamsHeader creationTime.
+             * @member {string} creationTime
+             * @memberof protos.records.RabbitStreamsHeader
+             * @instance
+             */
+            RabbitStreamsHeader.prototype.creationTime = "";
+
+            /**
+             * RabbitStreamsHeader groupId.
+             * @member {string} groupId
+             * @memberof protos.records.RabbitStreamsHeader
+             * @instance
+             */
+            RabbitStreamsHeader.prototype.groupId = "";
+
+            /**
+             * RabbitStreamsHeader groupSequence.
+             * @member {number} groupSequence
+             * @memberof protos.records.RabbitStreamsHeader
+             * @instance
+             */
+            RabbitStreamsHeader.prototype.groupSequence = 0;
+
+            /**
+             * RabbitStreamsHeader replayToGroupId.
+             * @member {string} replayToGroupId
+             * @memberof protos.records.RabbitStreamsHeader
+             * @instance
+             */
+            RabbitStreamsHeader.prototype.replayToGroupId = "";
+
+            /**
+             * Creates a new RabbitStreamsHeader instance using the specified properties.
+             * @function create
+             * @memberof protos.records.RabbitStreamsHeader
+             * @static
+             * @param {protos.records.IRabbitStreamsHeader=} [properties] Properties to set
+             * @returns {protos.records.RabbitStreamsHeader} RabbitStreamsHeader instance
+             */
+            RabbitStreamsHeader.create = function create(properties) {
+                return new RabbitStreamsHeader(properties);
+            };
+
+            /**
+             * Encodes the specified RabbitStreamsHeader message. Does not implicitly {@link protos.records.RabbitStreamsHeader.verify|verify} messages.
+             * @function encode
+             * @memberof protos.records.RabbitStreamsHeader
+             * @static
+             * @param {protos.records.IRabbitStreamsHeader} message RabbitStreamsHeader message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            RabbitStreamsHeader.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.messageId != null && Object.hasOwnProperty.call(message, "messageId"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.messageId);
+                if (message.userId != null && Object.hasOwnProperty.call(message, "userId"))
+                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.userId);
+                if (message.to != null && Object.hasOwnProperty.call(message, "to"))
+                    writer.uint32(/* id 3, wireType 2 =*/26).string(message.to);
+                if (message.subject != null && Object.hasOwnProperty.call(message, "subject"))
+                    writer.uint32(/* id 4, wireType 2 =*/34).string(message.subject);
+                if (message.replayTo != null && Object.hasOwnProperty.call(message, "replayTo"))
+                    writer.uint32(/* id 5, wireType 2 =*/42).string(message.replayTo);
+                if (message.correlationId != null && Object.hasOwnProperty.call(message, "correlationId"))
+                    writer.uint32(/* id 6, wireType 2 =*/50).string(message.correlationId);
+                if (message.contentType != null && Object.hasOwnProperty.call(message, "contentType"))
+                    writer.uint32(/* id 7, wireType 2 =*/58).string(message.contentType);
+                if (message.contentEncoding != null && Object.hasOwnProperty.call(message, "contentEncoding"))
+                    writer.uint32(/* id 8, wireType 2 =*/66).string(message.contentEncoding);
+                if (message.absoluteExpiryTime != null && Object.hasOwnProperty.call(message, "absoluteExpiryTime"))
+                    writer.uint32(/* id 9, wireType 2 =*/74).string(message.absoluteExpiryTime);
+                if (message.creationTime != null && Object.hasOwnProperty.call(message, "creationTime"))
+                    writer.uint32(/* id 10, wireType 2 =*/82).string(message.creationTime);
+                if (message.groupId != null && Object.hasOwnProperty.call(message, "groupId"))
+                    writer.uint32(/* id 11, wireType 2 =*/90).string(message.groupId);
+                if (message.groupSequence != null && Object.hasOwnProperty.call(message, "groupSequence"))
+                    writer.uint32(/* id 12, wireType 0 =*/96).uint32(message.groupSequence);
+                if (message.replayToGroupId != null && Object.hasOwnProperty.call(message, "replayToGroupId"))
+                    writer.uint32(/* id 13, wireType 2 =*/106).string(message.replayToGroupId);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified RabbitStreamsHeader message, length delimited. Does not implicitly {@link protos.records.RabbitStreamsHeader.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.records.RabbitStreamsHeader
+             * @static
+             * @param {protos.records.IRabbitStreamsHeader} message RabbitStreamsHeader message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            RabbitStreamsHeader.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a RabbitStreamsHeader message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.records.RabbitStreamsHeader
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.records.RabbitStreamsHeader} RabbitStreamsHeader
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            RabbitStreamsHeader.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.records.RabbitStreamsHeader();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.messageId = reader.string();
+                        break;
+                    case 2:
+                        message.userId = reader.string();
+                        break;
+                    case 3:
+                        message.to = reader.string();
+                        break;
+                    case 4:
+                        message.subject = reader.string();
+                        break;
+                    case 5:
+                        message.replayTo = reader.string();
+                        break;
+                    case 6:
+                        message.correlationId = reader.string();
+                        break;
+                    case 7:
+                        message.contentType = reader.string();
+                        break;
+                    case 8:
+                        message.contentEncoding = reader.string();
+                        break;
+                    case 9:
+                        message.absoluteExpiryTime = reader.string();
+                        break;
+                    case 10:
+                        message.creationTime = reader.string();
+                        break;
+                    case 11:
+                        message.groupId = reader.string();
+                        break;
+                    case 12:
+                        message.groupSequence = reader.uint32();
+                        break;
+                    case 13:
+                        message.replayToGroupId = reader.string();
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a RabbitStreamsHeader message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.records.RabbitStreamsHeader
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.records.RabbitStreamsHeader} RabbitStreamsHeader
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            RabbitStreamsHeader.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a RabbitStreamsHeader message.
+             * @function verify
+             * @memberof protos.records.RabbitStreamsHeader
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            RabbitStreamsHeader.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.messageId != null && message.hasOwnProperty("messageId"))
+                    if (!$util.isString(message.messageId))
+                        return "messageId: string expected";
+                if (message.userId != null && message.hasOwnProperty("userId"))
+                    if (!$util.isString(message.userId))
+                        return "userId: string expected";
+                if (message.to != null && message.hasOwnProperty("to"))
+                    if (!$util.isString(message.to))
+                        return "to: string expected";
+                if (message.subject != null && message.hasOwnProperty("subject"))
+                    if (!$util.isString(message.subject))
+                        return "subject: string expected";
+                if (message.replayTo != null && message.hasOwnProperty("replayTo"))
+                    if (!$util.isString(message.replayTo))
+                        return "replayTo: string expected";
+                if (message.correlationId != null && message.hasOwnProperty("correlationId"))
+                    if (!$util.isString(message.correlationId))
+                        return "correlationId: string expected";
+                if (message.contentType != null && message.hasOwnProperty("contentType"))
+                    if (!$util.isString(message.contentType))
+                        return "contentType: string expected";
+                if (message.contentEncoding != null && message.hasOwnProperty("contentEncoding"))
+                    if (!$util.isString(message.contentEncoding))
+                        return "contentEncoding: string expected";
+                if (message.absoluteExpiryTime != null && message.hasOwnProperty("absoluteExpiryTime"))
+                    if (!$util.isString(message.absoluteExpiryTime))
+                        return "absoluteExpiryTime: string expected";
+                if (message.creationTime != null && message.hasOwnProperty("creationTime"))
+                    if (!$util.isString(message.creationTime))
+                        return "creationTime: string expected";
+                if (message.groupId != null && message.hasOwnProperty("groupId"))
+                    if (!$util.isString(message.groupId))
+                        return "groupId: string expected";
+                if (message.groupSequence != null && message.hasOwnProperty("groupSequence"))
+                    if (!$util.isInteger(message.groupSequence))
+                        return "groupSequence: integer expected";
+                if (message.replayToGroupId != null && message.hasOwnProperty("replayToGroupId"))
+                    if (!$util.isString(message.replayToGroupId))
+                        return "replayToGroupId: string expected";
+                return null;
+            };
+
+            /**
+             * Creates a RabbitStreamsHeader message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.records.RabbitStreamsHeader
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.records.RabbitStreamsHeader} RabbitStreamsHeader
+             */
+            RabbitStreamsHeader.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.records.RabbitStreamsHeader)
+                    return object;
+                var message = new $root.protos.records.RabbitStreamsHeader();
+                if (object.messageId != null)
+                    message.messageId = String(object.messageId);
+                if (object.userId != null)
+                    message.userId = String(object.userId);
+                if (object.to != null)
+                    message.to = String(object.to);
+                if (object.subject != null)
+                    message.subject = String(object.subject);
+                if (object.replayTo != null)
+                    message.replayTo = String(object.replayTo);
+                if (object.correlationId != null)
+                    message.correlationId = String(object.correlationId);
+                if (object.contentType != null)
+                    message.contentType = String(object.contentType);
+                if (object.contentEncoding != null)
+                    message.contentEncoding = String(object.contentEncoding);
+                if (object.absoluteExpiryTime != null)
+                    message.absoluteExpiryTime = String(object.absoluteExpiryTime);
+                if (object.creationTime != null)
+                    message.creationTime = String(object.creationTime);
+                if (object.groupId != null)
+                    message.groupId = String(object.groupId);
+                if (object.groupSequence != null)
+                    message.groupSequence = object.groupSequence >>> 0;
+                if (object.replayToGroupId != null)
+                    message.replayToGroupId = String(object.replayToGroupId);
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a RabbitStreamsHeader message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.records.RabbitStreamsHeader
+             * @static
+             * @param {protos.records.RabbitStreamsHeader} message RabbitStreamsHeader
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            RabbitStreamsHeader.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    object.messageId = "";
+                    object.userId = "";
+                    object.to = "";
+                    object.subject = "";
+                    object.replayTo = "";
+                    object.correlationId = "";
+                    object.contentType = "";
+                    object.contentEncoding = "";
+                    object.absoluteExpiryTime = "";
+                    object.creationTime = "";
+                    object.groupId = "";
+                    object.groupSequence = 0;
+                    object.replayToGroupId = "";
+                }
+                if (message.messageId != null && message.hasOwnProperty("messageId"))
+                    object.messageId = message.messageId;
+                if (message.userId != null && message.hasOwnProperty("userId"))
+                    object.userId = message.userId;
+                if (message.to != null && message.hasOwnProperty("to"))
+                    object.to = message.to;
+                if (message.subject != null && message.hasOwnProperty("subject"))
+                    object.subject = message.subject;
+                if (message.replayTo != null && message.hasOwnProperty("replayTo"))
+                    object.replayTo = message.replayTo;
+                if (message.correlationId != null && message.hasOwnProperty("correlationId"))
+                    object.correlationId = message.correlationId;
+                if (message.contentType != null && message.hasOwnProperty("contentType"))
+                    object.contentType = message.contentType;
+                if (message.contentEncoding != null && message.hasOwnProperty("contentEncoding"))
+                    object.contentEncoding = message.contentEncoding;
+                if (message.absoluteExpiryTime != null && message.hasOwnProperty("absoluteExpiryTime"))
+                    object.absoluteExpiryTime = message.absoluteExpiryTime;
+                if (message.creationTime != null && message.hasOwnProperty("creationTime"))
+                    object.creationTime = message.creationTime;
+                if (message.groupId != null && message.hasOwnProperty("groupId"))
+                    object.groupId = message.groupId;
+                if (message.groupSequence != null && message.hasOwnProperty("groupSequence"))
+                    object.groupSequence = message.groupSequence;
+                if (message.replayToGroupId != null && message.hasOwnProperty("replayToGroupId"))
+                    object.replayToGroupId = message.replayToGroupId;
+                return object;
+            };
+
+            /**
+             * Converts this RabbitStreamsHeader to JSON.
+             * @function toJSON
+             * @memberof protos.records.RabbitStreamsHeader
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            RabbitStreamsHeader.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return RabbitStreamsHeader;
+        })();
+
+        records.RedisPubsub = (function() {
+
+            /**
+             * Properties of a RedisPubsub.
+             * @memberof protos.records
+             * @interface IRedisPubsub
+             * @property {Object.<string,string>|null} [metadata] RedisPubsub metadata
+             * @property {Uint8Array|null} [value] RedisPubsub value
+             * @property {number|Long|null} [timestamp] RedisPubsub timestamp
+             */
+
+            /**
+             * Constructs a new RedisPubsub.
+             * @memberof protos.records
+             * @classdesc Represents a RedisPubsub.
+             * @implements IRedisPubsub
+             * @constructor
+             * @param {protos.records.IRedisPubsub=} [properties] Properties to set
+             */
+            function RedisPubsub(properties) {
+                this.metadata = {};
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * RedisPubsub metadata.
+             * @member {Object.<string,string>} metadata
+             * @memberof protos.records.RedisPubsub
+             * @instance
+             */
+            RedisPubsub.prototype.metadata = $util.emptyObject;
+
+            /**
+             * RedisPubsub value.
+             * @member {Uint8Array} value
+             * @memberof protos.records.RedisPubsub
+             * @instance
+             */
+            RedisPubsub.prototype.value = $util.newBuffer([]);
+
+            /**
+             * RedisPubsub timestamp.
+             * @member {number|Long} timestamp
+             * @memberof protos.records.RedisPubsub
+             * @instance
+             */
+            RedisPubsub.prototype.timestamp = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
+
+            /**
+             * Creates a new RedisPubsub instance using the specified properties.
+             * @function create
+             * @memberof protos.records.RedisPubsub
+             * @static
+             * @param {protos.records.IRedisPubsub=} [properties] Properties to set
+             * @returns {protos.records.RedisPubsub} RedisPubsub instance
+             */
+            RedisPubsub.create = function create(properties) {
+                return new RedisPubsub(properties);
+            };
+
+            /**
+             * Encodes the specified RedisPubsub message. Does not implicitly {@link protos.records.RedisPubsub.verify|verify} messages.
+             * @function encode
+             * @memberof protos.records.RedisPubsub
+             * @static
+             * @param {protos.records.IRedisPubsub} message RedisPubsub message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            RedisPubsub.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.metadata != null && Object.hasOwnProperty.call(message, "metadata"))
+                    for (var keys = Object.keys(message.metadata), i = 0; i < keys.length; ++i)
+                        writer.uint32(/* id 1, wireType 2 =*/10).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]).uint32(/* id 2, wireType 2 =*/18).string(message.metadata[keys[i]]).ldelim();
+                if (message.value != null && Object.hasOwnProperty.call(message, "value"))
+                    writer.uint32(/* id 2, wireType 2 =*/18).bytes(message.value);
+                if (message.timestamp != null && Object.hasOwnProperty.call(message, "timestamp"))
+                    writer.uint32(/* id 3, wireType 0 =*/24).int64(message.timestamp);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified RedisPubsub message, length delimited. Does not implicitly {@link protos.records.RedisPubsub.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.records.RedisPubsub
+             * @static
+             * @param {protos.records.IRedisPubsub} message RedisPubsub message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            RedisPubsub.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a RedisPubsub message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.records.RedisPubsub
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.records.RedisPubsub} RedisPubsub
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            RedisPubsub.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.records.RedisPubsub(), key, value;
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        if (message.metadata === $util.emptyObject)
+                            message.metadata = {};
+                        var end2 = reader.uint32() + reader.pos;
+                        key = "";
+                        value = "";
+                        while (reader.pos < end2) {
+                            var tag2 = reader.uint32();
+                            switch (tag2 >>> 3) {
+                            case 1:
+                                key = reader.string();
+                                break;
+                            case 2:
+                                value = reader.string();
+                                break;
+                            default:
+                                reader.skipType(tag2 & 7);
+                                break;
+                            }
+                        }
+                        message.metadata[key] = value;
+                        break;
+                    case 2:
+                        message.value = reader.bytes();
+                        break;
+                    case 3:
+                        message.timestamp = reader.int64();
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a RedisPubsub message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.records.RedisPubsub
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.records.RedisPubsub} RedisPubsub
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            RedisPubsub.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a RedisPubsub message.
+             * @function verify
+             * @memberof protos.records.RedisPubsub
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            RedisPubsub.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.metadata != null && message.hasOwnProperty("metadata")) {
+                    if (!$util.isObject(message.metadata))
+                        return "metadata: object expected";
+                    var key = Object.keys(message.metadata);
+                    for (var i = 0; i < key.length; ++i)
+                        if (!$util.isString(message.metadata[key[i]]))
+                            return "metadata: string{k:string} expected";
+                }
+                if (message.value != null && message.hasOwnProperty("value"))
+                    if (!(message.value && typeof message.value.length === "number" || $util.isString(message.value)))
+                        return "value: buffer expected";
+                if (message.timestamp != null && message.hasOwnProperty("timestamp"))
+                    if (!$util.isInteger(message.timestamp) && !(message.timestamp && $util.isInteger(message.timestamp.low) && $util.isInteger(message.timestamp.high)))
+                        return "timestamp: integer|Long expected";
+                return null;
+            };
+
+            /**
+             * Creates a RedisPubsub message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.records.RedisPubsub
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.records.RedisPubsub} RedisPubsub
+             */
+            RedisPubsub.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.records.RedisPubsub)
+                    return object;
+                var message = new $root.protos.records.RedisPubsub();
+                if (object.metadata) {
+                    if (typeof object.metadata !== "object")
+                        throw TypeError(".protos.records.RedisPubsub.metadata: object expected");
+                    message.metadata = {};
+                    for (var keys = Object.keys(object.metadata), i = 0; i < keys.length; ++i)
+                        message.metadata[keys[i]] = String(object.metadata[keys[i]]);
+                }
+                if (object.value != null)
+                    if (typeof object.value === "string")
+                        $util.base64.decode(object.value, message.value = $util.newBuffer($util.base64.length(object.value)), 0);
+                    else if (object.value.length)
+                        message.value = object.value;
+                if (object.timestamp != null)
+                    if ($util.Long)
+                        (message.timestamp = $util.Long.fromValue(object.timestamp)).unsigned = false;
+                    else if (typeof object.timestamp === "string")
+                        message.timestamp = parseInt(object.timestamp, 10);
+                    else if (typeof object.timestamp === "number")
+                        message.timestamp = object.timestamp;
+                    else if (typeof object.timestamp === "object")
+                        message.timestamp = new $util.LongBits(object.timestamp.low >>> 0, object.timestamp.high >>> 0).toNumber();
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a RedisPubsub message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.records.RedisPubsub
+             * @static
+             * @param {protos.records.RedisPubsub} message RedisPubsub
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            RedisPubsub.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.objects || options.defaults)
+                    object.metadata = {};
+                if (options.defaults) {
+                    if (options.bytes === String)
+                        object.value = "";
+                    else {
+                        object.value = [];
+                        if (options.bytes !== Array)
+                            object.value = $util.newBuffer(object.value);
+                    }
+                    if ($util.Long) {
+                        var long = new $util.Long(0, 0, false);
+                        object.timestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                    } else
+                        object.timestamp = options.longs === String ? "0" : 0;
+                }
+                var keys2;
+                if (message.metadata && (keys2 = Object.keys(message.metadata)).length) {
+                    object.metadata = {};
+                    for (var j = 0; j < keys2.length; ++j)
+                        object.metadata[keys2[j]] = message.metadata[keys2[j]];
+                }
+                if (message.value != null && message.hasOwnProperty("value"))
+                    object.value = options.bytes === String ? $util.base64.encode(message.value, 0, message.value.length) : options.bytes === Array ? Array.prototype.slice.call(message.value) : message.value;
+                if (message.timestamp != null && message.hasOwnProperty("timestamp"))
+                    if (typeof message.timestamp === "number")
+                        object.timestamp = options.longs === String ? String(message.timestamp) : message.timestamp;
+                    else
+                        object.timestamp = options.longs === String ? $util.Long.prototype.toString.call(message.timestamp) : options.longs === Number ? new $util.LongBits(message.timestamp.low >>> 0, message.timestamp.high >>> 0).toNumber() : message.timestamp;
+                return object;
+            };
+
+            /**
+             * Converts this RedisPubsub to JSON.
+             * @function toJSON
+             * @memberof protos.records.RedisPubsub
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            RedisPubsub.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return RedisPubsub;
+        })();
+
+        records.RedisStreams = (function() {
+
+            /**
+             * Properties of a RedisStreams.
+             * @memberof protos.records
+             * @interface IRedisStreams
+             * @property {string|null} [id] RedisStreams id
+             * @property {string|null} [key] RedisStreams key
+             * @property {string|null} [value] RedisStreams value
+             * @property {string|null} [stream] RedisStreams stream
+             * @property {number|Long|null} [timestamp] RedisStreams timestamp
+             */
+
+            /**
+             * Constructs a new RedisStreams.
+             * @memberof protos.records
+             * @classdesc Represents a RedisStreams.
+             * @implements IRedisStreams
+             * @constructor
+             * @param {protos.records.IRedisStreams=} [properties] Properties to set
+             */
+            function RedisStreams(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * RedisStreams id.
+             * @member {string} id
+             * @memberof protos.records.RedisStreams
+             * @instance
+             */
+            RedisStreams.prototype.id = "";
+
+            /**
+             * RedisStreams key.
+             * @member {string} key
+             * @memberof protos.records.RedisStreams
+             * @instance
+             */
+            RedisStreams.prototype.key = "";
+
+            /**
+             * RedisStreams value.
+             * @member {string} value
+             * @memberof protos.records.RedisStreams
+             * @instance
+             */
+            RedisStreams.prototype.value = "";
+
+            /**
+             * RedisStreams stream.
+             * @member {string} stream
+             * @memberof protos.records.RedisStreams
+             * @instance
+             */
+            RedisStreams.prototype.stream = "";
+
+            /**
+             * RedisStreams timestamp.
+             * @member {number|Long} timestamp
+             * @memberof protos.records.RedisStreams
+             * @instance
+             */
+            RedisStreams.prototype.timestamp = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
+
+            /**
+             * Creates a new RedisStreams instance using the specified properties.
+             * @function create
+             * @memberof protos.records.RedisStreams
+             * @static
+             * @param {protos.records.IRedisStreams=} [properties] Properties to set
+             * @returns {protos.records.RedisStreams} RedisStreams instance
+             */
+            RedisStreams.create = function create(properties) {
+                return new RedisStreams(properties);
+            };
+
+            /**
+             * Encodes the specified RedisStreams message. Does not implicitly {@link protos.records.RedisStreams.verify|verify} messages.
+             * @function encode
+             * @memberof protos.records.RedisStreams
+             * @static
+             * @param {protos.records.IRedisStreams} message RedisStreams message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            RedisStreams.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.id != null && Object.hasOwnProperty.call(message, "id"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.id);
+                if (message.key != null && Object.hasOwnProperty.call(message, "key"))
+                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.key);
+                if (message.value != null && Object.hasOwnProperty.call(message, "value"))
+                    writer.uint32(/* id 3, wireType 2 =*/26).string(message.value);
+                if (message.stream != null && Object.hasOwnProperty.call(message, "stream"))
+                    writer.uint32(/* id 4, wireType 2 =*/34).string(message.stream);
+                if (message.timestamp != null && Object.hasOwnProperty.call(message, "timestamp"))
+                    writer.uint32(/* id 5, wireType 0 =*/40).int64(message.timestamp);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified RedisStreams message, length delimited. Does not implicitly {@link protos.records.RedisStreams.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.records.RedisStreams
+             * @static
+             * @param {protos.records.IRedisStreams} message RedisStreams message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            RedisStreams.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a RedisStreams message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.records.RedisStreams
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.records.RedisStreams} RedisStreams
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            RedisStreams.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.records.RedisStreams();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.id = reader.string();
+                        break;
+                    case 2:
+                        message.key = reader.string();
+                        break;
+                    case 3:
+                        message.value = reader.string();
+                        break;
+                    case 4:
+                        message.stream = reader.string();
+                        break;
+                    case 5:
+                        message.timestamp = reader.int64();
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a RedisStreams message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.records.RedisStreams
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.records.RedisStreams} RedisStreams
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            RedisStreams.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a RedisStreams message.
+             * @function verify
+             * @memberof protos.records.RedisStreams
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            RedisStreams.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.id != null && message.hasOwnProperty("id"))
+                    if (!$util.isString(message.id))
+                        return "id: string expected";
+                if (message.key != null && message.hasOwnProperty("key"))
+                    if (!$util.isString(message.key))
+                        return "key: string expected";
+                if (message.value != null && message.hasOwnProperty("value"))
+                    if (!$util.isString(message.value))
+                        return "value: string expected";
+                if (message.stream != null && message.hasOwnProperty("stream"))
+                    if (!$util.isString(message.stream))
+                        return "stream: string expected";
+                if (message.timestamp != null && message.hasOwnProperty("timestamp"))
+                    if (!$util.isInteger(message.timestamp) && !(message.timestamp && $util.isInteger(message.timestamp.low) && $util.isInteger(message.timestamp.high)))
+                        return "timestamp: integer|Long expected";
+                return null;
+            };
+
+            /**
+             * Creates a RedisStreams message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.records.RedisStreams
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.records.RedisStreams} RedisStreams
+             */
+            RedisStreams.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.records.RedisStreams)
+                    return object;
+                var message = new $root.protos.records.RedisStreams();
+                if (object.id != null)
+                    message.id = String(object.id);
+                if (object.key != null)
+                    message.key = String(object.key);
+                if (object.value != null)
+                    message.value = String(object.value);
+                if (object.stream != null)
+                    message.stream = String(object.stream);
+                if (object.timestamp != null)
+                    if ($util.Long)
+                        (message.timestamp = $util.Long.fromValue(object.timestamp)).unsigned = false;
+                    else if (typeof object.timestamp === "string")
+                        message.timestamp = parseInt(object.timestamp, 10);
+                    else if (typeof object.timestamp === "number")
+                        message.timestamp = object.timestamp;
+                    else if (typeof object.timestamp === "object")
+                        message.timestamp = new $util.LongBits(object.timestamp.low >>> 0, object.timestamp.high >>> 0).toNumber();
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a RedisStreams message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.records.RedisStreams
+             * @static
+             * @param {protos.records.RedisStreams} message RedisStreams
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            RedisStreams.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    object.id = "";
+                    object.key = "";
+                    object.value = "";
+                    object.stream = "";
+                    if ($util.Long) {
+                        var long = new $util.Long(0, 0, false);
+                        object.timestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                    } else
+                        object.timestamp = options.longs === String ? "0" : 0;
+                }
+                if (message.id != null && message.hasOwnProperty("id"))
+                    object.id = message.id;
+                if (message.key != null && message.hasOwnProperty("key"))
+                    object.key = message.key;
+                if (message.value != null && message.hasOwnProperty("value"))
+                    object.value = message.value;
+                if (message.stream != null && message.hasOwnProperty("stream"))
+                    object.stream = message.stream;
+                if (message.timestamp != null && message.hasOwnProperty("timestamp"))
+                    if (typeof message.timestamp === "number")
+                        object.timestamp = options.longs === String ? String(message.timestamp) : message.timestamp;
+                    else
+                        object.timestamp = options.longs === String ? $util.Long.prototype.toString.call(message.timestamp) : options.longs === Number ? new $util.LongBits(message.timestamp.low >>> 0, message.timestamp.high >>> 0).toNumber() : message.timestamp;
+                return object;
+            };
+
+            /**
+             * Converts this RedisStreams to JSON.
+             * @function toJSON
+             * @memberof protos.records.RedisStreams
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            RedisStreams.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return RedisStreams;
         })();
 
         return records;

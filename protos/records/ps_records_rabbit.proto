@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package protos.records;
+
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/records";
+
+message RabbitHeader {
+    string key = 1;
+    string value = 2;
+}
+
+message Rabbit {
+    bytes body = 1;
+    int64 timestamp = 2;
+    string type = 3;
+    string exchange = 4;
+    string routing_key = 5;
+    string content_type = 6;
+    string content_encoding = 7;
+    int32 priority = 8;
+    string expiration = 9;
+    string message_id = 10;
+    string user_id = 11;
+    string app_id = 12;
+    string reply_to = 13;
+    string correlation_id = 14;
+    repeated RabbitHeader headers = 15;
+}

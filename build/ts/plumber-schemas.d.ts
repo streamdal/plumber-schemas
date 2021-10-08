@@ -18865,6 +18865,57 @@ export namespace protos {
             /** ReadRecord kafka */
             kafka?: (protos.records.IKafka|null);
 
+            /** ReadRecord rabbit */
+            rabbit?: (protos.records.IRabbit|null);
+
+            /** ReadRecord activemq */
+            activemq?: (protos.records.IActiveMQ|null);
+
+            /** ReadRecord awssqs */
+            awssqs?: (protos.records.IAWSSQS|null);
+
+            /** ReadRecord azureEventHub */
+            azureEventHub?: (protos.records.IAzureEventHub|null);
+
+            /** ReadRecord azureServiceBus */
+            azureServiceBus?: (protos.records.IAzureServiceBus|null);
+
+            /** ReadRecord gcpPubsub */
+            gcpPubsub?: (protos.records.IGCPPubSub|null);
+
+            /** ReadRecord kubemq */
+            kubemq?: (protos.records.IKubeMQ|null);
+
+            /** ReadRecord mongo */
+            mongo?: (protos.records.IMongo|null);
+
+            /** ReadRecord mqtt */
+            mqtt?: (protos.records.IMQTT|null);
+
+            /** ReadRecord nats */
+            nats?: (protos.records.INats|null);
+
+            /** ReadRecord natsStreaming */
+            natsStreaming?: (protos.records.INatsStreaming|null);
+
+            /** ReadRecord nsq */
+            nsq?: (protos.records.INSQ|null);
+
+            /** ReadRecord postgres */
+            postgres?: (protos.records.IPostgres|null);
+
+            /** ReadRecord pulsar */
+            pulsar?: (protos.records.IPulsar|null);
+
+            /** ReadRecord rabbitStreams */
+            rabbitStreams?: (protos.records.IRabbitStreams|null);
+
+            /** ReadRecord redisPubsub */
+            redisPubsub?: (protos.records.IRedisPubsub|null);
+
+            /** ReadRecord redisStreams */
+            redisStreams?: (protos.records.IRedisStreams|null);
+
             /** ReadRecord _raw */
             _raw?: (Uint8Array|null);
 
@@ -18899,6 +18950,57 @@ export namespace protos {
             /** ReadRecord kafka. */
             public kafka?: (protos.records.IKafka|null);
 
+            /** ReadRecord rabbit. */
+            public rabbit?: (protos.records.IRabbit|null);
+
+            /** ReadRecord activemq. */
+            public activemq?: (protos.records.IActiveMQ|null);
+
+            /** ReadRecord awssqs. */
+            public awssqs?: (protos.records.IAWSSQS|null);
+
+            /** ReadRecord azureEventHub. */
+            public azureEventHub?: (protos.records.IAzureEventHub|null);
+
+            /** ReadRecord azureServiceBus. */
+            public azureServiceBus?: (protos.records.IAzureServiceBus|null);
+
+            /** ReadRecord gcpPubsub. */
+            public gcpPubsub?: (protos.records.IGCPPubSub|null);
+
+            /** ReadRecord kubemq. */
+            public kubemq?: (protos.records.IKubeMQ|null);
+
+            /** ReadRecord mongo. */
+            public mongo?: (protos.records.IMongo|null);
+
+            /** ReadRecord mqtt. */
+            public mqtt?: (protos.records.IMQTT|null);
+
+            /** ReadRecord nats. */
+            public nats?: (protos.records.INats|null);
+
+            /** ReadRecord natsStreaming. */
+            public natsStreaming?: (protos.records.INatsStreaming|null);
+
+            /** ReadRecord nsq. */
+            public nsq?: (protos.records.INSQ|null);
+
+            /** ReadRecord postgres. */
+            public postgres?: (protos.records.IPostgres|null);
+
+            /** ReadRecord pulsar. */
+            public pulsar?: (protos.records.IPulsar|null);
+
+            /** ReadRecord rabbitStreams. */
+            public rabbitStreams?: (protos.records.IRabbitStreams|null);
+
+            /** ReadRecord redisPubsub. */
+            public redisPubsub?: (protos.records.IRedisPubsub|null);
+
+            /** ReadRecord redisStreams. */
+            public redisStreams?: (protos.records.IRedisStreams|null);
+
             /** ReadRecord _raw. */
             public _raw: Uint8Array;
 
@@ -18906,7 +19008,7 @@ export namespace protos {
             public _plumberId: string;
 
             /** ReadRecord Record. */
-            public Record?: "kafka";
+            public Record?: ("kafka"|"rabbit"|"activemq"|"awssqs"|"azureEventHub"|"azureServiceBus"|"gcpPubsub"|"kubemq"|"mongo"|"mqtt"|"nats"|"natsStreaming"|"nsq"|"postgres"|"pulsar"|"rabbitStreams"|"redisPubsub"|"redisStreams");
 
             /**
              * Creates a new ReadRecord instance using the specified properties.
@@ -19394,6 +19496,2508 @@ export namespace protos {
 
             /**
              * Converts this Kafka to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a RabbitHeader. */
+        interface IRabbitHeader {
+
+            /** RabbitHeader key */
+            key?: (string|null);
+
+            /** RabbitHeader value */
+            value?: (string|null);
+        }
+
+        /** Represents a RabbitHeader. */
+        class RabbitHeader implements IRabbitHeader {
+
+            /**
+             * Constructs a new RabbitHeader.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.records.IRabbitHeader);
+
+            /** RabbitHeader key. */
+            public key: string;
+
+            /** RabbitHeader value. */
+            public value: string;
+
+            /**
+             * Creates a new RabbitHeader instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns RabbitHeader instance
+             */
+            public static create(properties?: protos.records.IRabbitHeader): protos.records.RabbitHeader;
+
+            /**
+             * Encodes the specified RabbitHeader message. Does not implicitly {@link protos.records.RabbitHeader.verify|verify} messages.
+             * @param message RabbitHeader message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.records.IRabbitHeader, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified RabbitHeader message, length delimited. Does not implicitly {@link protos.records.RabbitHeader.verify|verify} messages.
+             * @param message RabbitHeader message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.records.IRabbitHeader, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a RabbitHeader message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns RabbitHeader
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.records.RabbitHeader;
+
+            /**
+             * Decodes a RabbitHeader message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns RabbitHeader
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.records.RabbitHeader;
+
+            /**
+             * Verifies a RabbitHeader message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a RabbitHeader message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns RabbitHeader
+             */
+            public static fromObject(object: { [k: string]: any }): protos.records.RabbitHeader;
+
+            /**
+             * Creates a plain object from a RabbitHeader message. Also converts values to other types if specified.
+             * @param message RabbitHeader
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.records.RabbitHeader, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this RabbitHeader to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a Rabbit. */
+        interface IRabbit {
+
+            /** Rabbit body */
+            body?: (Uint8Array|null);
+
+            /** Rabbit timestamp */
+            timestamp?: (number|Long|null);
+
+            /** Rabbit type */
+            type?: (string|null);
+
+            /** Rabbit exchange */
+            exchange?: (string|null);
+
+            /** Rabbit routingKey */
+            routingKey?: (string|null);
+
+            /** Rabbit contentType */
+            contentType?: (string|null);
+
+            /** Rabbit contentEncoding */
+            contentEncoding?: (string|null);
+
+            /** Rabbit priority */
+            priority?: (number|null);
+
+            /** Rabbit expiration */
+            expiration?: (string|null);
+
+            /** Rabbit messageId */
+            messageId?: (string|null);
+
+            /** Rabbit userId */
+            userId?: (string|null);
+
+            /** Rabbit appId */
+            appId?: (string|null);
+
+            /** Rabbit replyTo */
+            replyTo?: (string|null);
+
+            /** Rabbit correlationId */
+            correlationId?: (string|null);
+
+            /** Rabbit headers */
+            headers?: (protos.records.IRabbitHeader[]|null);
+        }
+
+        /** Represents a Rabbit. */
+        class Rabbit implements IRabbit {
+
+            /**
+             * Constructs a new Rabbit.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.records.IRabbit);
+
+            /** Rabbit body. */
+            public body: Uint8Array;
+
+            /** Rabbit timestamp. */
+            public timestamp: (number|Long);
+
+            /** Rabbit type. */
+            public type: string;
+
+            /** Rabbit exchange. */
+            public exchange: string;
+
+            /** Rabbit routingKey. */
+            public routingKey: string;
+
+            /** Rabbit contentType. */
+            public contentType: string;
+
+            /** Rabbit contentEncoding. */
+            public contentEncoding: string;
+
+            /** Rabbit priority. */
+            public priority: number;
+
+            /** Rabbit expiration. */
+            public expiration: string;
+
+            /** Rabbit messageId. */
+            public messageId: string;
+
+            /** Rabbit userId. */
+            public userId: string;
+
+            /** Rabbit appId. */
+            public appId: string;
+
+            /** Rabbit replyTo. */
+            public replyTo: string;
+
+            /** Rabbit correlationId. */
+            public correlationId: string;
+
+            /** Rabbit headers. */
+            public headers: protos.records.IRabbitHeader[];
+
+            /**
+             * Creates a new Rabbit instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns Rabbit instance
+             */
+            public static create(properties?: protos.records.IRabbit): protos.records.Rabbit;
+
+            /**
+             * Encodes the specified Rabbit message. Does not implicitly {@link protos.records.Rabbit.verify|verify} messages.
+             * @param message Rabbit message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.records.IRabbit, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified Rabbit message, length delimited. Does not implicitly {@link protos.records.Rabbit.verify|verify} messages.
+             * @param message Rabbit message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.records.IRabbit, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a Rabbit message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns Rabbit
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.records.Rabbit;
+
+            /**
+             * Decodes a Rabbit message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns Rabbit
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.records.Rabbit;
+
+            /**
+             * Verifies a Rabbit message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a Rabbit message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns Rabbit
+             */
+            public static fromObject(object: { [k: string]: any }): protos.records.Rabbit;
+
+            /**
+             * Creates a plain object from a Rabbit message. Also converts values to other types if specified.
+             * @param message Rabbit
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.records.Rabbit, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this Rabbit to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of an ActiveMQ. */
+        interface IActiveMQ {
+
+            /** ActiveMQ destination */
+            destination?: (string|null);
+
+            /** ActiveMQ contentType */
+            contentType?: (string|null);
+
+            /** ActiveMQ subscriptionId */
+            subscriptionId?: (string|null);
+
+            /** ActiveMQ timestamp */
+            timestamp?: (number|Long|null);
+
+            /** ActiveMQ value */
+            value?: (Uint8Array|null);
+        }
+
+        /** Represents an ActiveMQ. */
+        class ActiveMQ implements IActiveMQ {
+
+            /**
+             * Constructs a new ActiveMQ.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.records.IActiveMQ);
+
+            /** ActiveMQ destination. */
+            public destination: string;
+
+            /** ActiveMQ contentType. */
+            public contentType: string;
+
+            /** ActiveMQ subscriptionId. */
+            public subscriptionId: string;
+
+            /** ActiveMQ timestamp. */
+            public timestamp: (number|Long);
+
+            /** ActiveMQ value. */
+            public value: Uint8Array;
+
+            /**
+             * Creates a new ActiveMQ instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns ActiveMQ instance
+             */
+            public static create(properties?: protos.records.IActiveMQ): protos.records.ActiveMQ;
+
+            /**
+             * Encodes the specified ActiveMQ message. Does not implicitly {@link protos.records.ActiveMQ.verify|verify} messages.
+             * @param message ActiveMQ message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.records.IActiveMQ, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified ActiveMQ message, length delimited. Does not implicitly {@link protos.records.ActiveMQ.verify|verify} messages.
+             * @param message ActiveMQ message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.records.IActiveMQ, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes an ActiveMQ message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns ActiveMQ
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.records.ActiveMQ;
+
+            /**
+             * Decodes an ActiveMQ message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns ActiveMQ
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.records.ActiveMQ;
+
+            /**
+             * Verifies an ActiveMQ message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates an ActiveMQ message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns ActiveMQ
+             */
+            public static fromObject(object: { [k: string]: any }): protos.records.ActiveMQ;
+
+            /**
+             * Creates a plain object from an ActiveMQ message. Also converts values to other types if specified.
+             * @param message ActiveMQ
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.records.ActiveMQ, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this ActiveMQ to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a AWSSQS. */
+        interface IAWSSQS {
+
+            /** AWSSQS id */
+            id?: (string|null);
+
+            /** AWSSQS timestamp */
+            timestamp?: (number|Long|null);
+
+            /** AWSSQS recipientHandle */
+            recipientHandle?: (string|null);
+
+            /** AWSSQS attributes */
+            attributes?: ({ [k: string]: string }|null);
+
+            /** AWSSQS value */
+            value?: (Uint8Array|null);
+        }
+
+        /** Represents a AWSSQS. */
+        class AWSSQS implements IAWSSQS {
+
+            /**
+             * Constructs a new AWSSQS.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.records.IAWSSQS);
+
+            /** AWSSQS id. */
+            public id: string;
+
+            /** AWSSQS timestamp. */
+            public timestamp: (number|Long);
+
+            /** AWSSQS recipientHandle. */
+            public recipientHandle: string;
+
+            /** AWSSQS attributes. */
+            public attributes: { [k: string]: string };
+
+            /** AWSSQS value. */
+            public value: Uint8Array;
+
+            /**
+             * Creates a new AWSSQS instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns AWSSQS instance
+             */
+            public static create(properties?: protos.records.IAWSSQS): protos.records.AWSSQS;
+
+            /**
+             * Encodes the specified AWSSQS message. Does not implicitly {@link protos.records.AWSSQS.verify|verify} messages.
+             * @param message AWSSQS message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.records.IAWSSQS, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified AWSSQS message, length delimited. Does not implicitly {@link protos.records.AWSSQS.verify|verify} messages.
+             * @param message AWSSQS message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.records.IAWSSQS, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a AWSSQS message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns AWSSQS
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.records.AWSSQS;
+
+            /**
+             * Decodes a AWSSQS message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns AWSSQS
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.records.AWSSQS;
+
+            /**
+             * Verifies a AWSSQS message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a AWSSQS message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns AWSSQS
+             */
+            public static fromObject(object: { [k: string]: any }): protos.records.AWSSQS;
+
+            /**
+             * Creates a plain object from a AWSSQS message. Also converts values to other types if specified.
+             * @param message AWSSQS
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.records.AWSSQS, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this AWSSQS to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of an AzureEventHub. */
+        interface IAzureEventHub {
+
+            /** AzureEventHub id */
+            id?: (string|null);
+
+            /** AzureEventHub systemProperties */
+            systemProperties?: ({ [k: string]: string }|null);
+
+            /** AzureEventHub timestamp */
+            timestamp?: (number|Long|null);
+
+            /** AzureEventHub value */
+            value?: (Uint8Array|null);
+        }
+
+        /** Represents an AzureEventHub. */
+        class AzureEventHub implements IAzureEventHub {
+
+            /**
+             * Constructs a new AzureEventHub.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.records.IAzureEventHub);
+
+            /** AzureEventHub id. */
+            public id: string;
+
+            /** AzureEventHub systemProperties. */
+            public systemProperties: { [k: string]: string };
+
+            /** AzureEventHub timestamp. */
+            public timestamp: (number|Long);
+
+            /** AzureEventHub value. */
+            public value: Uint8Array;
+
+            /**
+             * Creates a new AzureEventHub instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns AzureEventHub instance
+             */
+            public static create(properties?: protos.records.IAzureEventHub): protos.records.AzureEventHub;
+
+            /**
+             * Encodes the specified AzureEventHub message. Does not implicitly {@link protos.records.AzureEventHub.verify|verify} messages.
+             * @param message AzureEventHub message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.records.IAzureEventHub, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified AzureEventHub message, length delimited. Does not implicitly {@link protos.records.AzureEventHub.verify|verify} messages.
+             * @param message AzureEventHub message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.records.IAzureEventHub, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes an AzureEventHub message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns AzureEventHub
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.records.AzureEventHub;
+
+            /**
+             * Decodes an AzureEventHub message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns AzureEventHub
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.records.AzureEventHub;
+
+            /**
+             * Verifies an AzureEventHub message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates an AzureEventHub message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns AzureEventHub
+             */
+            public static fromObject(object: { [k: string]: any }): protos.records.AzureEventHub;
+
+            /**
+             * Creates a plain object from an AzureEventHub message. Also converts values to other types if specified.
+             * @param message AzureEventHub
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.records.AzureEventHub, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this AzureEventHub to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of an AzureServiceBus. */
+        interface IAzureServiceBus {
+
+            /** AzureServiceBus contentType */
+            contentType?: (string|null);
+
+            /** AzureServiceBus correlationId */
+            correlationId?: (string|null);
+
+            /** AzureServiceBus value */
+            value?: (Uint8Array|null);
+
+            /** AzureServiceBus deliveryCount */
+            deliveryCount?: (number|null);
+
+            /** AzureServiceBus sessionId */
+            sessionId?: (string|null);
+
+            /** AzureServiceBus groupSequence */
+            groupSequence?: (number|null);
+
+            /** AzureServiceBus id */
+            id?: (string|null);
+
+            /** AzureServiceBus label */
+            label?: (string|null);
+
+            /** AzureServiceBus replyTo */
+            replyTo?: (string|null);
+
+            /** AzureServiceBus replyToGroupId */
+            replyToGroupId?: (string|null);
+
+            /** AzureServiceBus to */
+            to?: (string|null);
+
+            /** AzureServiceBus ttl */
+            ttl?: (number|Long|null);
+
+            /** AzureServiceBus lockToken */
+            lockToken?: (string|null);
+
+            /** AzureServiceBus systemProperties */
+            systemProperties?: (protos.records.IAzureSystemProperties|null);
+
+            /** AzureServiceBus userProperties */
+            userProperties?: ({ [k: string]: string }|null);
+
+            /** AzureServiceBus format */
+            format?: (number|null);
+        }
+
+        /** Represents an AzureServiceBus. */
+        class AzureServiceBus implements IAzureServiceBus {
+
+            /**
+             * Constructs a new AzureServiceBus.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.records.IAzureServiceBus);
+
+            /** AzureServiceBus contentType. */
+            public contentType: string;
+
+            /** AzureServiceBus correlationId. */
+            public correlationId: string;
+
+            /** AzureServiceBus value. */
+            public value: Uint8Array;
+
+            /** AzureServiceBus deliveryCount. */
+            public deliveryCount: number;
+
+            /** AzureServiceBus sessionId. */
+            public sessionId: string;
+
+            /** AzureServiceBus groupSequence. */
+            public groupSequence: number;
+
+            /** AzureServiceBus id. */
+            public id: string;
+
+            /** AzureServiceBus label. */
+            public label: string;
+
+            /** AzureServiceBus replyTo. */
+            public replyTo: string;
+
+            /** AzureServiceBus replyToGroupId. */
+            public replyToGroupId: string;
+
+            /** AzureServiceBus to. */
+            public to: string;
+
+            /** AzureServiceBus ttl. */
+            public ttl: (number|Long);
+
+            /** AzureServiceBus lockToken. */
+            public lockToken: string;
+
+            /** AzureServiceBus systemProperties. */
+            public systemProperties?: (protos.records.IAzureSystemProperties|null);
+
+            /** AzureServiceBus userProperties. */
+            public userProperties: { [k: string]: string };
+
+            /** AzureServiceBus format. */
+            public format: number;
+
+            /**
+             * Creates a new AzureServiceBus instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns AzureServiceBus instance
+             */
+            public static create(properties?: protos.records.IAzureServiceBus): protos.records.AzureServiceBus;
+
+            /**
+             * Encodes the specified AzureServiceBus message. Does not implicitly {@link protos.records.AzureServiceBus.verify|verify} messages.
+             * @param message AzureServiceBus message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.records.IAzureServiceBus, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified AzureServiceBus message, length delimited. Does not implicitly {@link protos.records.AzureServiceBus.verify|verify} messages.
+             * @param message AzureServiceBus message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.records.IAzureServiceBus, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes an AzureServiceBus message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns AzureServiceBus
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.records.AzureServiceBus;
+
+            /**
+             * Decodes an AzureServiceBus message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns AzureServiceBus
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.records.AzureServiceBus;
+
+            /**
+             * Verifies an AzureServiceBus message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates an AzureServiceBus message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns AzureServiceBus
+             */
+            public static fromObject(object: { [k: string]: any }): protos.records.AzureServiceBus;
+
+            /**
+             * Creates a plain object from an AzureServiceBus message. Also converts values to other types if specified.
+             * @param message AzureServiceBus
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.records.AzureServiceBus, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this AzureServiceBus to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of an AzureSystemProperties. */
+        interface IAzureSystemProperties {
+
+            /** AzureSystemProperties lockedUntil */
+            lockedUntil?: (number|Long|null);
+
+            /** AzureSystemProperties sequenceNumber */
+            sequenceNumber?: (number|Long|null);
+
+            /** AzureSystemProperties partitionId */
+            partitionId?: (number|null);
+
+            /** AzureSystemProperties partitionKey */
+            partitionKey?: (string|null);
+
+            /** AzureSystemProperties enqueuedTime */
+            enqueuedTime?: (number|Long|null);
+
+            /** AzureSystemProperties deadLetterSource */
+            deadLetterSource?: (string|null);
+
+            /** AzureSystemProperties scheduledEnqueueTime */
+            scheduledEnqueueTime?: (number|Long|null);
+
+            /** AzureSystemProperties enqueuedSequenceNumber */
+            enqueuedSequenceNumber?: (number|Long|null);
+
+            /** AzureSystemProperties viaPartitionKey */
+            viaPartitionKey?: (string|null);
+
+            /** AzureSystemProperties annotations */
+            annotations?: ({ [k: string]: string }|null);
+        }
+
+        /** Represents an AzureSystemProperties. */
+        class AzureSystemProperties implements IAzureSystemProperties {
+
+            /**
+             * Constructs a new AzureSystemProperties.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.records.IAzureSystemProperties);
+
+            /** AzureSystemProperties lockedUntil. */
+            public lockedUntil: (number|Long);
+
+            /** AzureSystemProperties sequenceNumber. */
+            public sequenceNumber: (number|Long);
+
+            /** AzureSystemProperties partitionId. */
+            public partitionId: number;
+
+            /** AzureSystemProperties partitionKey. */
+            public partitionKey: string;
+
+            /** AzureSystemProperties enqueuedTime. */
+            public enqueuedTime: (number|Long);
+
+            /** AzureSystemProperties deadLetterSource. */
+            public deadLetterSource: string;
+
+            /** AzureSystemProperties scheduledEnqueueTime. */
+            public scheduledEnqueueTime: (number|Long);
+
+            /** AzureSystemProperties enqueuedSequenceNumber. */
+            public enqueuedSequenceNumber: (number|Long);
+
+            /** AzureSystemProperties viaPartitionKey. */
+            public viaPartitionKey: string;
+
+            /** AzureSystemProperties annotations. */
+            public annotations: { [k: string]: string };
+
+            /**
+             * Creates a new AzureSystemProperties instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns AzureSystemProperties instance
+             */
+            public static create(properties?: protos.records.IAzureSystemProperties): protos.records.AzureSystemProperties;
+
+            /**
+             * Encodes the specified AzureSystemProperties message. Does not implicitly {@link protos.records.AzureSystemProperties.verify|verify} messages.
+             * @param message AzureSystemProperties message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.records.IAzureSystemProperties, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified AzureSystemProperties message, length delimited. Does not implicitly {@link protos.records.AzureSystemProperties.verify|verify} messages.
+             * @param message AzureSystemProperties message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.records.IAzureSystemProperties, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes an AzureSystemProperties message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns AzureSystemProperties
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.records.AzureSystemProperties;
+
+            /**
+             * Decodes an AzureSystemProperties message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns AzureSystemProperties
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.records.AzureSystemProperties;
+
+            /**
+             * Verifies an AzureSystemProperties message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates an AzureSystemProperties message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns AzureSystemProperties
+             */
+            public static fromObject(object: { [k: string]: any }): protos.records.AzureSystemProperties;
+
+            /**
+             * Creates a plain object from an AzureSystemProperties message. Also converts values to other types if specified.
+             * @param message AzureSystemProperties
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.records.AzureSystemProperties, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this AzureSystemProperties to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a GCPPubSub. */
+        interface IGCPPubSub {
+
+            /** GCPPubSub id */
+            id?: (string|null);
+
+            /** GCPPubSub value */
+            value?: (Uint8Array|null);
+
+            /** GCPPubSub attributes */
+            attributes?: ({ [k: string]: string }|null);
+
+            /** GCPPubSub publishTime */
+            publishTime?: (number|Long|null);
+
+            /** GCPPubSub deliveryAttempt */
+            deliveryAttempt?: (number|null);
+
+            /** GCPPubSub orderingKey */
+            orderingKey?: (string|null);
+        }
+
+        /** Represents a GCPPubSub. */
+        class GCPPubSub implements IGCPPubSub {
+
+            /**
+             * Constructs a new GCPPubSub.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.records.IGCPPubSub);
+
+            /** GCPPubSub id. */
+            public id: string;
+
+            /** GCPPubSub value. */
+            public value: Uint8Array;
+
+            /** GCPPubSub attributes. */
+            public attributes: { [k: string]: string };
+
+            /** GCPPubSub publishTime. */
+            public publishTime: (number|Long);
+
+            /** GCPPubSub deliveryAttempt. */
+            public deliveryAttempt: number;
+
+            /** GCPPubSub orderingKey. */
+            public orderingKey: string;
+
+            /**
+             * Creates a new GCPPubSub instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns GCPPubSub instance
+             */
+            public static create(properties?: protos.records.IGCPPubSub): protos.records.GCPPubSub;
+
+            /**
+             * Encodes the specified GCPPubSub message. Does not implicitly {@link protos.records.GCPPubSub.verify|verify} messages.
+             * @param message GCPPubSub message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.records.IGCPPubSub, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified GCPPubSub message, length delimited. Does not implicitly {@link protos.records.GCPPubSub.verify|verify} messages.
+             * @param message GCPPubSub message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.records.IGCPPubSub, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a GCPPubSub message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns GCPPubSub
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.records.GCPPubSub;
+
+            /**
+             * Decodes a GCPPubSub message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns GCPPubSub
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.records.GCPPubSub;
+
+            /**
+             * Verifies a GCPPubSub message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a GCPPubSub message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns GCPPubSub
+             */
+            public static fromObject(object: { [k: string]: any }): protos.records.GCPPubSub;
+
+            /**
+             * Creates a plain object from a GCPPubSub message. Also converts values to other types if specified.
+             * @param message GCPPubSub
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.records.GCPPubSub, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this GCPPubSub to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a KubeMQ. */
+        interface IKubeMQ {
+
+            /** KubeMQ id */
+            id?: (string|null);
+
+            /** KubeMQ clientId */
+            clientId?: (string|null);
+
+            /** KubeMQ channel */
+            channel?: (string|null);
+
+            /** KubeMQ value */
+            value?: (Uint8Array|null);
+
+            /** KubeMQ timestamp */
+            timestamp?: (number|Long|null);
+
+            /** KubeMQ sequence */
+            sequence?: (number|Long|null);
+        }
+
+        /** Represents a KubeMQ. */
+        class KubeMQ implements IKubeMQ {
+
+            /**
+             * Constructs a new KubeMQ.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.records.IKubeMQ);
+
+            /** KubeMQ id. */
+            public id: string;
+
+            /** KubeMQ clientId. */
+            public clientId: string;
+
+            /** KubeMQ channel. */
+            public channel: string;
+
+            /** KubeMQ value. */
+            public value: Uint8Array;
+
+            /** KubeMQ timestamp. */
+            public timestamp: (number|Long);
+
+            /** KubeMQ sequence. */
+            public sequence: (number|Long);
+
+            /**
+             * Creates a new KubeMQ instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns KubeMQ instance
+             */
+            public static create(properties?: protos.records.IKubeMQ): protos.records.KubeMQ;
+
+            /**
+             * Encodes the specified KubeMQ message. Does not implicitly {@link protos.records.KubeMQ.verify|verify} messages.
+             * @param message KubeMQ message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.records.IKubeMQ, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified KubeMQ message, length delimited. Does not implicitly {@link protos.records.KubeMQ.verify|verify} messages.
+             * @param message KubeMQ message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.records.IKubeMQ, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a KubeMQ message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns KubeMQ
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.records.KubeMQ;
+
+            /**
+             * Decodes a KubeMQ message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns KubeMQ
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.records.KubeMQ;
+
+            /**
+             * Verifies a KubeMQ message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a KubeMQ message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns KubeMQ
+             */
+            public static fromObject(object: { [k: string]: any }): protos.records.KubeMQ;
+
+            /**
+             * Creates a plain object from a KubeMQ message. Also converts values to other types if specified.
+             * @param message KubeMQ
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.records.KubeMQ, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this KubeMQ to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a Mongo. */
+        interface IMongo {
+
+            /** Mongo value */
+            value?: (Uint8Array|null);
+
+            /** Mongo timestamp */
+            timestamp?: (number|Long|null);
+        }
+
+        /** Represents a Mongo. */
+        class Mongo implements IMongo {
+
+            /**
+             * Constructs a new Mongo.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.records.IMongo);
+
+            /** Mongo value. */
+            public value: Uint8Array;
+
+            /** Mongo timestamp. */
+            public timestamp: (number|Long);
+
+            /**
+             * Creates a new Mongo instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns Mongo instance
+             */
+            public static create(properties?: protos.records.IMongo): protos.records.Mongo;
+
+            /**
+             * Encodes the specified Mongo message. Does not implicitly {@link protos.records.Mongo.verify|verify} messages.
+             * @param message Mongo message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.records.IMongo, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified Mongo message, length delimited. Does not implicitly {@link protos.records.Mongo.verify|verify} messages.
+             * @param message Mongo message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.records.IMongo, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a Mongo message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns Mongo
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.records.Mongo;
+
+            /**
+             * Decodes a Mongo message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns Mongo
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.records.Mongo;
+
+            /**
+             * Verifies a Mongo message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a Mongo message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns Mongo
+             */
+            public static fromObject(object: { [k: string]: any }): protos.records.Mongo;
+
+            /**
+             * Creates a plain object from a Mongo message. Also converts values to other types if specified.
+             * @param message Mongo
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.records.Mongo, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this Mongo to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a MQTT. */
+        interface IMQTT {
+
+            /** MQTT id */
+            id?: (number|null);
+
+            /** MQTT topic */
+            topic?: (string|null);
+
+            /** MQTT value */
+            value?: (Uint8Array|null);
+
+            /** MQTT duplicate */
+            duplicate?: (boolean|null);
+
+            /** MQTT retained */
+            retained?: (boolean|null);
+
+            /** MQTT qos */
+            qos?: (number|null);
+
+            /** MQTT timestamp */
+            timestamp?: (number|Long|null);
+        }
+
+        /** Represents a MQTT. */
+        class MQTT implements IMQTT {
+
+            /**
+             * Constructs a new MQTT.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.records.IMQTT);
+
+            /** MQTT id. */
+            public id: number;
+
+            /** MQTT topic. */
+            public topic: string;
+
+            /** MQTT value. */
+            public value: Uint8Array;
+
+            /** MQTT duplicate. */
+            public duplicate: boolean;
+
+            /** MQTT retained. */
+            public retained: boolean;
+
+            /** MQTT qos. */
+            public qos: number;
+
+            /** MQTT timestamp. */
+            public timestamp: (number|Long);
+
+            /**
+             * Creates a new MQTT instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns MQTT instance
+             */
+            public static create(properties?: protos.records.IMQTT): protos.records.MQTT;
+
+            /**
+             * Encodes the specified MQTT message. Does not implicitly {@link protos.records.MQTT.verify|verify} messages.
+             * @param message MQTT message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.records.IMQTT, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified MQTT message, length delimited. Does not implicitly {@link protos.records.MQTT.verify|verify} messages.
+             * @param message MQTT message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.records.IMQTT, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a MQTT message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns MQTT
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.records.MQTT;
+
+            /**
+             * Decodes a MQTT message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns MQTT
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.records.MQTT;
+
+            /**
+             * Verifies a MQTT message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a MQTT message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns MQTT
+             */
+            public static fromObject(object: { [k: string]: any }): protos.records.MQTT;
+
+            /**
+             * Creates a plain object from a MQTT message. Also converts values to other types if specified.
+             * @param message MQTT
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.records.MQTT, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this MQTT to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a Nats. */
+        interface INats {
+
+            /** Nats subject */
+            subject?: (string|null);
+
+            /** Nats replay */
+            replay?: (string|null);
+
+            /** Nats queue */
+            queue?: (string|null);
+
+            /** Nats value */
+            value?: (Uint8Array|null);
+        }
+
+        /** Represents a Nats. */
+        class Nats implements INats {
+
+            /**
+             * Constructs a new Nats.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.records.INats);
+
+            /** Nats subject. */
+            public subject: string;
+
+            /** Nats replay. */
+            public replay: string;
+
+            /** Nats queue. */
+            public queue: string;
+
+            /** Nats value. */
+            public value: Uint8Array;
+
+            /**
+             * Creates a new Nats instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns Nats instance
+             */
+            public static create(properties?: protos.records.INats): protos.records.Nats;
+
+            /**
+             * Encodes the specified Nats message. Does not implicitly {@link protos.records.Nats.verify|verify} messages.
+             * @param message Nats message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.records.INats, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified Nats message, length delimited. Does not implicitly {@link protos.records.Nats.verify|verify} messages.
+             * @param message Nats message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.records.INats, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a Nats message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns Nats
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.records.Nats;
+
+            /**
+             * Decodes a Nats message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns Nats
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.records.Nats;
+
+            /**
+             * Verifies a Nats message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a Nats message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns Nats
+             */
+            public static fromObject(object: { [k: string]: any }): protos.records.Nats;
+
+            /**
+             * Creates a plain object from a Nats message. Also converts values to other types if specified.
+             * @param message Nats
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.records.Nats, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this Nats to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a NatsStreaming. */
+        interface INatsStreaming {
+
+            /** NatsStreaming metadata */
+            metadata?: ({ [k: string]: string }|null);
+
+            /** NatsStreaming value */
+            value?: (Uint8Array|null);
+
+            /** NatsStreaming timestamp */
+            timestamp?: (number|Long|null);
+        }
+
+        /** Represents a NatsStreaming. */
+        class NatsStreaming implements INatsStreaming {
+
+            /**
+             * Constructs a new NatsStreaming.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.records.INatsStreaming);
+
+            /** NatsStreaming metadata. */
+            public metadata: { [k: string]: string };
+
+            /** NatsStreaming value. */
+            public value: Uint8Array;
+
+            /** NatsStreaming timestamp. */
+            public timestamp: (number|Long);
+
+            /**
+             * Creates a new NatsStreaming instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns NatsStreaming instance
+             */
+            public static create(properties?: protos.records.INatsStreaming): protos.records.NatsStreaming;
+
+            /**
+             * Encodes the specified NatsStreaming message. Does not implicitly {@link protos.records.NatsStreaming.verify|verify} messages.
+             * @param message NatsStreaming message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.records.INatsStreaming, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified NatsStreaming message, length delimited. Does not implicitly {@link protos.records.NatsStreaming.verify|verify} messages.
+             * @param message NatsStreaming message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.records.INatsStreaming, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a NatsStreaming message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns NatsStreaming
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.records.NatsStreaming;
+
+            /**
+             * Decodes a NatsStreaming message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns NatsStreaming
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.records.NatsStreaming;
+
+            /**
+             * Verifies a NatsStreaming message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a NatsStreaming message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns NatsStreaming
+             */
+            public static fromObject(object: { [k: string]: any }): protos.records.NatsStreaming;
+
+            /**
+             * Creates a plain object from a NatsStreaming message. Also converts values to other types if specified.
+             * @param message NatsStreaming
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.records.NatsStreaming, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this NatsStreaming to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a NSQ. */
+        interface INSQ {
+
+            /** NSQ id */
+            id?: (string|null);
+
+            /** NSQ topic */
+            topic?: (string|null);
+
+            /** NSQ channel */
+            channel?: (string|null);
+
+            /** NSQ attempts */
+            attempts?: (number|null);
+
+            /** NSQ nsqdAddress */
+            nsqdAddress?: (string|null);
+
+            /** NSQ value */
+            value?: (Uint8Array|null);
+
+            /** NSQ timestamp */
+            timestamp?: (number|Long|null);
+        }
+
+        /** Represents a NSQ. */
+        class NSQ implements INSQ {
+
+            /**
+             * Constructs a new NSQ.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.records.INSQ);
+
+            /** NSQ id. */
+            public id: string;
+
+            /** NSQ topic. */
+            public topic: string;
+
+            /** NSQ channel. */
+            public channel: string;
+
+            /** NSQ attempts. */
+            public attempts: number;
+
+            /** NSQ nsqdAddress. */
+            public nsqdAddress: string;
+
+            /** NSQ value. */
+            public value: Uint8Array;
+
+            /** NSQ timestamp. */
+            public timestamp: (number|Long);
+
+            /**
+             * Creates a new NSQ instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns NSQ instance
+             */
+            public static create(properties?: protos.records.INSQ): protos.records.NSQ;
+
+            /**
+             * Encodes the specified NSQ message. Does not implicitly {@link protos.records.NSQ.verify|verify} messages.
+             * @param message NSQ message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.records.INSQ, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified NSQ message, length delimited. Does not implicitly {@link protos.records.NSQ.verify|verify} messages.
+             * @param message NSQ message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.records.INSQ, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a NSQ message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns NSQ
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.records.NSQ;
+
+            /**
+             * Decodes a NSQ message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns NSQ
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.records.NSQ;
+
+            /**
+             * Verifies a NSQ message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a NSQ message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns NSQ
+             */
+            public static fromObject(object: { [k: string]: any }): protos.records.NSQ;
+
+            /**
+             * Creates a plain object from a NSQ message. Also converts values to other types if specified.
+             * @param message NSQ
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.records.NSQ, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this NSQ to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a Postgres. */
+        interface IPostgres {
+
+            /** Postgres metadata */
+            metadata?: ({ [k: string]: string }|null);
+
+            /** Postgres timestamp */
+            timestamp?: (number|Long|null);
+
+            /** Postgres value */
+            value?: (Uint8Array|null);
+        }
+
+        /** Represents a Postgres. */
+        class Postgres implements IPostgres {
+
+            /**
+             * Constructs a new Postgres.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.records.IPostgres);
+
+            /** Postgres metadata. */
+            public metadata: { [k: string]: string };
+
+            /** Postgres timestamp. */
+            public timestamp: (number|Long);
+
+            /** Postgres value. */
+            public value: Uint8Array;
+
+            /**
+             * Creates a new Postgres instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns Postgres instance
+             */
+            public static create(properties?: protos.records.IPostgres): protos.records.Postgres;
+
+            /**
+             * Encodes the specified Postgres message. Does not implicitly {@link protos.records.Postgres.verify|verify} messages.
+             * @param message Postgres message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.records.IPostgres, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified Postgres message, length delimited. Does not implicitly {@link protos.records.Postgres.verify|verify} messages.
+             * @param message Postgres message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.records.IPostgres, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a Postgres message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns Postgres
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.records.Postgres;
+
+            /**
+             * Decodes a Postgres message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns Postgres
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.records.Postgres;
+
+            /**
+             * Verifies a Postgres message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a Postgres message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns Postgres
+             */
+            public static fromObject(object: { [k: string]: any }): protos.records.Postgres;
+
+            /**
+             * Creates a plain object from a Postgres message. Also converts values to other types if specified.
+             * @param message Postgres
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.records.Postgres, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this Postgres to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a Pulsar. */
+        interface IPulsar {
+
+            /** Pulsar id */
+            id?: (string|null);
+
+            /** Pulsar key */
+            key?: (string|null);
+
+            /** Pulsar topic */
+            topic?: (string|null);
+
+            /** Pulsar properties */
+            properties?: ({ [k: string]: string }|null);
+
+            /** Pulsar redeliveryCount */
+            redeliveryCount?: (number|null);
+
+            /** Pulsar eventTime */
+            eventTime?: (string|null);
+
+            /** Pulsar isReplicated */
+            isReplicated?: (boolean|null);
+
+            /** Pulsar orderingKey */
+            orderingKey?: (string|null);
+
+            /** Pulsar producerName */
+            producerName?: (string|null);
+
+            /** Pulsar publishTime */
+            publishTime?: (string|null);
+
+            /** Pulsar timestamp */
+            timestamp?: (number|Long|null);
+
+            /** Pulsar value */
+            value?: (Uint8Array|null);
+        }
+
+        /** Represents a Pulsar. */
+        class Pulsar implements IPulsar {
+
+            /**
+             * Constructs a new Pulsar.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.records.IPulsar);
+
+            /** Pulsar id. */
+            public id: string;
+
+            /** Pulsar key. */
+            public key: string;
+
+            /** Pulsar topic. */
+            public topic: string;
+
+            /** Pulsar properties. */
+            public properties: { [k: string]: string };
+
+            /** Pulsar redeliveryCount. */
+            public redeliveryCount: number;
+
+            /** Pulsar eventTime. */
+            public eventTime: string;
+
+            /** Pulsar isReplicated. */
+            public isReplicated: boolean;
+
+            /** Pulsar orderingKey. */
+            public orderingKey: string;
+
+            /** Pulsar producerName. */
+            public producerName: string;
+
+            /** Pulsar publishTime. */
+            public publishTime: string;
+
+            /** Pulsar timestamp. */
+            public timestamp: (number|Long);
+
+            /** Pulsar value. */
+            public value: Uint8Array;
+
+            /**
+             * Creates a new Pulsar instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns Pulsar instance
+             */
+            public static create(properties?: protos.records.IPulsar): protos.records.Pulsar;
+
+            /**
+             * Encodes the specified Pulsar message. Does not implicitly {@link protos.records.Pulsar.verify|verify} messages.
+             * @param message Pulsar message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.records.IPulsar, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified Pulsar message, length delimited. Does not implicitly {@link protos.records.Pulsar.verify|verify} messages.
+             * @param message Pulsar message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.records.IPulsar, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a Pulsar message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns Pulsar
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.records.Pulsar;
+
+            /**
+             * Decodes a Pulsar message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns Pulsar
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.records.Pulsar;
+
+            /**
+             * Verifies a Pulsar message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a Pulsar message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns Pulsar
+             */
+            public static fromObject(object: { [k: string]: any }): protos.records.Pulsar;
+
+            /**
+             * Creates a plain object from a Pulsar message. Also converts values to other types if specified.
+             * @param message Pulsar
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.records.Pulsar, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this Pulsar to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a RabbitStreams. */
+        interface IRabbitStreams {
+
+            /** RabbitStreams deliveryTag */
+            deliveryTag?: (string|null);
+
+            /** RabbitStreams format */
+            format?: (number|null);
+
+            /** RabbitStreams header */
+            header?: (protos.records.IRabbitStreamsHeader|null);
+
+            /** RabbitStreams deliveryAnnotations */
+            deliveryAnnotations?: ({ [k: string]: string }|null);
+
+            /** RabbitStreams footer */
+            footer?: ({ [k: string]: string }|null);
+
+            /** RabbitStreams sendSettled */
+            sendSettled?: (boolean|null);
+
+            /** RabbitStreams streamName */
+            streamName?: (string|null);
+
+            /** RabbitStreams timestamp */
+            timestamp?: (number|Long|null);
+
+            /** RabbitStreams value */
+            value?: (Uint8Array|null);
+        }
+
+        /** Represents a RabbitStreams. */
+        class RabbitStreams implements IRabbitStreams {
+
+            /**
+             * Constructs a new RabbitStreams.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.records.IRabbitStreams);
+
+            /** RabbitStreams deliveryTag. */
+            public deliveryTag: string;
+
+            /** RabbitStreams format. */
+            public format: number;
+
+            /** RabbitStreams header. */
+            public header?: (protos.records.IRabbitStreamsHeader|null);
+
+            /** RabbitStreams deliveryAnnotations. */
+            public deliveryAnnotations: { [k: string]: string };
+
+            /** RabbitStreams footer. */
+            public footer: { [k: string]: string };
+
+            /** RabbitStreams sendSettled. */
+            public sendSettled: boolean;
+
+            /** RabbitStreams streamName. */
+            public streamName: string;
+
+            /** RabbitStreams timestamp. */
+            public timestamp: (number|Long);
+
+            /** RabbitStreams value. */
+            public value: Uint8Array;
+
+            /**
+             * Creates a new RabbitStreams instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns RabbitStreams instance
+             */
+            public static create(properties?: protos.records.IRabbitStreams): protos.records.RabbitStreams;
+
+            /**
+             * Encodes the specified RabbitStreams message. Does not implicitly {@link protos.records.RabbitStreams.verify|verify} messages.
+             * @param message RabbitStreams message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.records.IRabbitStreams, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified RabbitStreams message, length delimited. Does not implicitly {@link protos.records.RabbitStreams.verify|verify} messages.
+             * @param message RabbitStreams message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.records.IRabbitStreams, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a RabbitStreams message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns RabbitStreams
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.records.RabbitStreams;
+
+            /**
+             * Decodes a RabbitStreams message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns RabbitStreams
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.records.RabbitStreams;
+
+            /**
+             * Verifies a RabbitStreams message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a RabbitStreams message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns RabbitStreams
+             */
+            public static fromObject(object: { [k: string]: any }): protos.records.RabbitStreams;
+
+            /**
+             * Creates a plain object from a RabbitStreams message. Also converts values to other types if specified.
+             * @param message RabbitStreams
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.records.RabbitStreams, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this RabbitStreams to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a RabbitStreamsHeader. */
+        interface IRabbitStreamsHeader {
+
+            /** RabbitStreamsHeader messageId */
+            messageId?: (string|null);
+
+            /** RabbitStreamsHeader userId */
+            userId?: (string|null);
+
+            /** RabbitStreamsHeader to */
+            to?: (string|null);
+
+            /** RabbitStreamsHeader subject */
+            subject?: (string|null);
+
+            /** RabbitStreamsHeader replayTo */
+            replayTo?: (string|null);
+
+            /** RabbitStreamsHeader correlationId */
+            correlationId?: (string|null);
+
+            /** RabbitStreamsHeader contentType */
+            contentType?: (string|null);
+
+            /** RabbitStreamsHeader contentEncoding */
+            contentEncoding?: (string|null);
+
+            /** RabbitStreamsHeader absoluteExpiryTime */
+            absoluteExpiryTime?: (string|null);
+
+            /** RabbitStreamsHeader creationTime */
+            creationTime?: (string|null);
+
+            /** RabbitStreamsHeader groupId */
+            groupId?: (string|null);
+
+            /** RabbitStreamsHeader groupSequence */
+            groupSequence?: (number|null);
+
+            /** RabbitStreamsHeader replayToGroupId */
+            replayToGroupId?: (string|null);
+        }
+
+        /** Represents a RabbitStreamsHeader. */
+        class RabbitStreamsHeader implements IRabbitStreamsHeader {
+
+            /**
+             * Constructs a new RabbitStreamsHeader.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.records.IRabbitStreamsHeader);
+
+            /** RabbitStreamsHeader messageId. */
+            public messageId: string;
+
+            /** RabbitStreamsHeader userId. */
+            public userId: string;
+
+            /** RabbitStreamsHeader to. */
+            public to: string;
+
+            /** RabbitStreamsHeader subject. */
+            public subject: string;
+
+            /** RabbitStreamsHeader replayTo. */
+            public replayTo: string;
+
+            /** RabbitStreamsHeader correlationId. */
+            public correlationId: string;
+
+            /** RabbitStreamsHeader contentType. */
+            public contentType: string;
+
+            /** RabbitStreamsHeader contentEncoding. */
+            public contentEncoding: string;
+
+            /** RabbitStreamsHeader absoluteExpiryTime. */
+            public absoluteExpiryTime: string;
+
+            /** RabbitStreamsHeader creationTime. */
+            public creationTime: string;
+
+            /** RabbitStreamsHeader groupId. */
+            public groupId: string;
+
+            /** RabbitStreamsHeader groupSequence. */
+            public groupSequence: number;
+
+            /** RabbitStreamsHeader replayToGroupId. */
+            public replayToGroupId: string;
+
+            /**
+             * Creates a new RabbitStreamsHeader instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns RabbitStreamsHeader instance
+             */
+            public static create(properties?: protos.records.IRabbitStreamsHeader): protos.records.RabbitStreamsHeader;
+
+            /**
+             * Encodes the specified RabbitStreamsHeader message. Does not implicitly {@link protos.records.RabbitStreamsHeader.verify|verify} messages.
+             * @param message RabbitStreamsHeader message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.records.IRabbitStreamsHeader, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified RabbitStreamsHeader message, length delimited. Does not implicitly {@link protos.records.RabbitStreamsHeader.verify|verify} messages.
+             * @param message RabbitStreamsHeader message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.records.IRabbitStreamsHeader, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a RabbitStreamsHeader message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns RabbitStreamsHeader
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.records.RabbitStreamsHeader;
+
+            /**
+             * Decodes a RabbitStreamsHeader message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns RabbitStreamsHeader
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.records.RabbitStreamsHeader;
+
+            /**
+             * Verifies a RabbitStreamsHeader message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a RabbitStreamsHeader message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns RabbitStreamsHeader
+             */
+            public static fromObject(object: { [k: string]: any }): protos.records.RabbitStreamsHeader;
+
+            /**
+             * Creates a plain object from a RabbitStreamsHeader message. Also converts values to other types if specified.
+             * @param message RabbitStreamsHeader
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.records.RabbitStreamsHeader, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this RabbitStreamsHeader to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a RedisPubsub. */
+        interface IRedisPubsub {
+
+            /** RedisPubsub metadata */
+            metadata?: ({ [k: string]: string }|null);
+
+            /** RedisPubsub value */
+            value?: (Uint8Array|null);
+
+            /** RedisPubsub timestamp */
+            timestamp?: (number|Long|null);
+        }
+
+        /** Represents a RedisPubsub. */
+        class RedisPubsub implements IRedisPubsub {
+
+            /**
+             * Constructs a new RedisPubsub.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.records.IRedisPubsub);
+
+            /** RedisPubsub metadata. */
+            public metadata: { [k: string]: string };
+
+            /** RedisPubsub value. */
+            public value: Uint8Array;
+
+            /** RedisPubsub timestamp. */
+            public timestamp: (number|Long);
+
+            /**
+             * Creates a new RedisPubsub instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns RedisPubsub instance
+             */
+            public static create(properties?: protos.records.IRedisPubsub): protos.records.RedisPubsub;
+
+            /**
+             * Encodes the specified RedisPubsub message. Does not implicitly {@link protos.records.RedisPubsub.verify|verify} messages.
+             * @param message RedisPubsub message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.records.IRedisPubsub, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified RedisPubsub message, length delimited. Does not implicitly {@link protos.records.RedisPubsub.verify|verify} messages.
+             * @param message RedisPubsub message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.records.IRedisPubsub, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a RedisPubsub message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns RedisPubsub
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.records.RedisPubsub;
+
+            /**
+             * Decodes a RedisPubsub message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns RedisPubsub
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.records.RedisPubsub;
+
+            /**
+             * Verifies a RedisPubsub message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a RedisPubsub message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns RedisPubsub
+             */
+            public static fromObject(object: { [k: string]: any }): protos.records.RedisPubsub;
+
+            /**
+             * Creates a plain object from a RedisPubsub message. Also converts values to other types if specified.
+             * @param message RedisPubsub
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.records.RedisPubsub, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this RedisPubsub to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a RedisStreams. */
+        interface IRedisStreams {
+
+            /** RedisStreams id */
+            id?: (string|null);
+
+            /** RedisStreams key */
+            key?: (string|null);
+
+            /** RedisStreams value */
+            value?: (string|null);
+
+            /** RedisStreams stream */
+            stream?: (string|null);
+
+            /** RedisStreams timestamp */
+            timestamp?: (number|Long|null);
+        }
+
+        /** Represents a RedisStreams. */
+        class RedisStreams implements IRedisStreams {
+
+            /**
+             * Constructs a new RedisStreams.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.records.IRedisStreams);
+
+            /** RedisStreams id. */
+            public id: string;
+
+            /** RedisStreams key. */
+            public key: string;
+
+            /** RedisStreams value. */
+            public value: string;
+
+            /** RedisStreams stream. */
+            public stream: string;
+
+            /** RedisStreams timestamp. */
+            public timestamp: (number|Long);
+
+            /**
+             * Creates a new RedisStreams instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns RedisStreams instance
+             */
+            public static create(properties?: protos.records.IRedisStreams): protos.records.RedisStreams;
+
+            /**
+             * Encodes the specified RedisStreams message. Does not implicitly {@link protos.records.RedisStreams.verify|verify} messages.
+             * @param message RedisStreams message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.records.IRedisStreams, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified RedisStreams message, length delimited. Does not implicitly {@link protos.records.RedisStreams.verify|verify} messages.
+             * @param message RedisStreams message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.records.IRedisStreams, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a RedisStreams message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns RedisStreams
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.records.RedisStreams;
+
+            /**
+             * Decodes a RedisStreams message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns RedisStreams
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.records.RedisStreams;
+
+            /**
+             * Verifies a RedisStreams message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a RedisStreams message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns RedisStreams
+             */
+            public static fromObject(object: { [k: string]: any }): protos.records.RedisStreams;
+
+            /**
+             * Creates a plain object from a RedisStreams message. Also converts values to other types if specified.
+             * @param message RedisStreams
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.records.RedisStreams, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this RedisStreams to JSON.
              * @returns JSON object
              */
             public toJSON(): { [k: string]: any };

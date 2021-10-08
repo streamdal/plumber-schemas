@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package protos.records;
+
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/records";
+
+message RabbitStreams {
+    string delivery_tag = 1;
+    uint32 format = 2;
+    RabbitStreamsHeader header = 3;
+    map<string,string> delivery_annotations = 4;
+    map<string,string> footer = 5;
+    bool send_settled = 6;
+    string stream_name = 7;
+    int64 timestamp = 8;
+    bytes value = 9;
+}
+
+message RabbitStreamsHeader {
+    string message_id = 1;
+    string user_id = 2;
+    string to = 3;
+    string subject = 4;
+    string replay_to = 5;
+    string correlation_id = 6;
+    string content_type = 7;
+    string content_encoding = 8;
+    string absolute_expiry_time = 9;
+    string creation_time = 10;
+    string group_id = 11;
+    uint32 group_sequence = 12;
+    string replay_to_group_id = 13;
+}
