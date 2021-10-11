@@ -6,7 +6,5 @@ option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/record
 
 message Nats {
     string subject = 1;
-    string replay = 2;
-    string queue = 4;
-    bytes value = 5;
+    bytes value = 2;
 }

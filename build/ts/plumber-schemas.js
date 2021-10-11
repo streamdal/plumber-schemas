@@ -51075,8 +51075,6 @@ $root.protos = (function() {
              * @memberof protos.records
              * @interface INats
              * @property {string|null} [subject] Nats subject
-             * @property {string|null} [replay] Nats replay
-             * @property {string|null} [queue] Nats queue
              * @property {Uint8Array|null} [value] Nats value
              */
 
@@ -51102,22 +51100,6 @@ $root.protos = (function() {
              * @instance
              */
             Nats.prototype.subject = "";
-
-            /**
-             * Nats replay.
-             * @member {string} replay
-             * @memberof protos.records.Nats
-             * @instance
-             */
-            Nats.prototype.replay = "";
-
-            /**
-             * Nats queue.
-             * @member {string} queue
-             * @memberof protos.records.Nats
-             * @instance
-             */
-            Nats.prototype.queue = "";
 
             /**
              * Nats value.
@@ -51153,12 +51135,8 @@ $root.protos = (function() {
                     writer = $Writer.create();
                 if (message.subject != null && Object.hasOwnProperty.call(message, "subject"))
                     writer.uint32(/* id 1, wireType 2 =*/10).string(message.subject);
-                if (message.replay != null && Object.hasOwnProperty.call(message, "replay"))
-                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.replay);
-                if (message.queue != null && Object.hasOwnProperty.call(message, "queue"))
-                    writer.uint32(/* id 4, wireType 2 =*/34).string(message.queue);
                 if (message.value != null && Object.hasOwnProperty.call(message, "value"))
-                    writer.uint32(/* id 5, wireType 2 =*/42).bytes(message.value);
+                    writer.uint32(/* id 2, wireType 2 =*/18).bytes(message.value);
                 return writer;
             };
 
@@ -51197,12 +51175,6 @@ $root.protos = (function() {
                         message.subject = reader.string();
                         break;
                     case 2:
-                        message.replay = reader.string();
-                        break;
-                    case 4:
-                        message.queue = reader.string();
-                        break;
-                    case 5:
                         message.value = reader.bytes();
                         break;
                     default:
@@ -51243,12 +51215,6 @@ $root.protos = (function() {
                 if (message.subject != null && message.hasOwnProperty("subject"))
                     if (!$util.isString(message.subject))
                         return "subject: string expected";
-                if (message.replay != null && message.hasOwnProperty("replay"))
-                    if (!$util.isString(message.replay))
-                        return "replay: string expected";
-                if (message.queue != null && message.hasOwnProperty("queue"))
-                    if (!$util.isString(message.queue))
-                        return "queue: string expected";
                 if (message.value != null && message.hasOwnProperty("value"))
                     if (!(message.value && typeof message.value.length === "number" || $util.isString(message.value)))
                         return "value: buffer expected";
@@ -51269,10 +51235,6 @@ $root.protos = (function() {
                 var message = new $root.protos.records.Nats();
                 if (object.subject != null)
                     message.subject = String(object.subject);
-                if (object.replay != null)
-                    message.replay = String(object.replay);
-                if (object.queue != null)
-                    message.queue = String(object.queue);
                 if (object.value != null)
                     if (typeof object.value === "string")
                         $util.base64.decode(object.value, message.value = $util.newBuffer($util.base64.length(object.value)), 0);
@@ -51296,8 +51258,6 @@ $root.protos = (function() {
                 var object = {};
                 if (options.defaults) {
                     object.subject = "";
-                    object.replay = "";
-                    object.queue = "";
                     if (options.bytes === String)
                         object.value = "";
                     else {
@@ -51308,10 +51268,6 @@ $root.protos = (function() {
                 }
                 if (message.subject != null && message.hasOwnProperty("subject"))
                     object.subject = message.subject;
-                if (message.replay != null && message.hasOwnProperty("replay"))
-                    object.replay = message.replay;
-                if (message.queue != null && message.hasOwnProperty("queue"))
-                    object.queue = message.queue;
                 if (message.value != null && message.hasOwnProperty("value"))
                     object.value = options.bytes === String ? $util.base64.encode(message.value, 0, message.value.length) : options.bytes === Array ? Array.prototype.slice.call(message.value) : message.value;
                 return object;

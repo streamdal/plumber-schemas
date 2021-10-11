@@ -20899,12 +20899,6 @@ export namespace protos {
             /** Nats subject */
             subject?: (string|null);
 
-            /** Nats replay */
-            replay?: (string|null);
-
-            /** Nats queue */
-            queue?: (string|null);
-
             /** Nats value */
             value?: (Uint8Array|null);
         }
@@ -20920,12 +20914,6 @@ export namespace protos {
 
             /** Nats subject. */
             public subject: string;
-
-            /** Nats replay. */
-            public replay: string;
-
-            /** Nats queue. */
-            public queue: string;
 
             /** Nats value. */
             public value: Uint8Array;
