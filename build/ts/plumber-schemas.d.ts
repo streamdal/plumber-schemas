@@ -22221,6 +22221,96 @@ export namespace protos {
             public toJSON(): { [k: string]: any };
         }
 
+        /** Properties of a JSONSchemaSettings. */
+        interface IJSONSchemaSettings {
+
+            /** JSONSchemaSettings schema */
+            schema?: (Uint8Array|null);
+        }
+
+        /** Represents a JSONSchemaSettings. */
+        class JSONSchemaSettings implements IJSONSchemaSettings {
+
+            /**
+             * Constructs a new JSONSchemaSettings.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.encoding.IJSONSchemaSettings);
+
+            /** JSONSchemaSettings schema. */
+            public schema: Uint8Array;
+
+            /**
+             * Creates a new JSONSchemaSettings instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns JSONSchemaSettings instance
+             */
+            public static create(properties?: protos.encoding.IJSONSchemaSettings): protos.encoding.JSONSchemaSettings;
+
+            /**
+             * Encodes the specified JSONSchemaSettings message. Does not implicitly {@link protos.encoding.JSONSchemaSettings.verify|verify} messages.
+             * @param message JSONSchemaSettings message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.encoding.IJSONSchemaSettings, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified JSONSchemaSettings message, length delimited. Does not implicitly {@link protos.encoding.JSONSchemaSettings.verify|verify} messages.
+             * @param message JSONSchemaSettings message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.encoding.IJSONSchemaSettings, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a JSONSchemaSettings message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns JSONSchemaSettings
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.encoding.JSONSchemaSettings;
+
+            /**
+             * Decodes a JSONSchemaSettings message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns JSONSchemaSettings
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.encoding.JSONSchemaSettings;
+
+            /**
+             * Verifies a JSONSchemaSettings message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a JSONSchemaSettings message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns JSONSchemaSettings
+             */
+            public static fromObject(object: { [k: string]: any }): protos.encoding.JSONSchemaSettings;
+
+            /**
+             * Creates a plain object from a JSONSchemaSettings message. Also converts values to other types if specified.
+             * @param message JSONSchemaSettings
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.encoding.JSONSchemaSettings, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this JSONSchemaSettings to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
         /** Properties of an EncodeOptions. */
         interface IEncodeOptions {
 
@@ -23964,6 +24054,9 @@ export namespace protos {
 
         /** Schema avroSettings */
         avroSettings?: (protos.encoding.IAvroSettings|null);
+
+        /** Schema jsonSchemaSettings */
+        jsonSchemaSettings?: (protos.encoding.IJSONSchemaSettings|null);
     }
 
     /** Represents a Schema. */
@@ -23993,8 +24086,11 @@ export namespace protos {
         /** Schema avroSettings. */
         public avroSettings?: (protos.encoding.IAvroSettings|null);
 
+        /** Schema jsonSchemaSettings. */
+        public jsonSchemaSettings?: (protos.encoding.IJSONSchemaSettings|null);
+
         /** Schema settings. */
-        public settings?: ("protobufSettings"|"avroSettings");
+        public settings?: ("protobufSettings"|"avroSettings"|"jsonSchemaSettings");
 
         /**
          * Creates a new Schema instance using the specified properties.
@@ -24071,7 +24167,8 @@ export namespace protos {
     enum SchemaType {
         SCHEMA_TYPE_UNSET = 0,
         SCHEMA_TYPE_PROTOBUF = 1,
-        SCHEMA_TYPE_AVRO = 2
+        SCHEMA_TYPE_AVRO = 2,
+        SCHEMA_TYPE_JSONSCHEMA = 3
     }
 
     /** Properties of a GetSchemaRequest. */
@@ -24460,6 +24557,9 @@ export namespace protos {
 
         /** ImportGithubRequest avroSettings */
         avroSettings?: (protos.encoding.IAvroSettings|null);
+
+        /** ImportGithubRequest jsonSchemaSettings */
+        jsonSchemaSettings?: (protos.encoding.IJSONSchemaSettings|null);
     }
 
     /** Represents an ImportGithubRequest. */
@@ -24489,8 +24589,11 @@ export namespace protos {
         /** ImportGithubRequest avroSettings. */
         public avroSettings?: (protos.encoding.IAvroSettings|null);
 
+        /** ImportGithubRequest jsonSchemaSettings. */
+        public jsonSchemaSettings?: (protos.encoding.IJSONSchemaSettings|null);
+
         /** ImportGithubRequest settings. */
-        public settings?: ("protobufSettings"|"avroSettings");
+        public settings?: ("protobufSettings"|"avroSettings"|"jsonSchemaSettings");
 
         /**
          * Creates a new ImportGithubRequest instance using the specified properties.
@@ -24671,14 +24774,20 @@ export namespace protos {
         /** ImportLocalRequest type */
         type?: (protos.SchemaType|null);
 
-        /** ImportLocalRequest zipArchive */
-        zipArchive?: (Uint8Array|null);
+        /** ImportLocalRequest fileContents */
+        fileContents?: (Uint8Array|null);
+
+        /** ImportLocalRequest fileName */
+        fileName?: (string|null);
 
         /** ImportLocalRequest protobufSettings */
         protobufSettings?: (protos.encoding.IProtobufSettings|null);
 
         /** ImportLocalRequest avroSettings */
         avroSettings?: (protos.encoding.IAvroSettings|null);
+
+        /** ImportLocalRequest jsonSchemaSettings */
+        jsonSchemaSettings?: (protos.encoding.IJSONSchemaSettings|null);
     }
 
     /** Represents an ImportLocalRequest. */
@@ -24699,8 +24808,11 @@ export namespace protos {
         /** ImportLocalRequest type. */
         public type: protos.SchemaType;
 
-        /** ImportLocalRequest zipArchive. */
-        public zipArchive: Uint8Array;
+        /** ImportLocalRequest fileContents. */
+        public fileContents: Uint8Array;
+
+        /** ImportLocalRequest fileName. */
+        public fileName: string;
 
         /** ImportLocalRequest protobufSettings. */
         public protobufSettings?: (protos.encoding.IProtobufSettings|null);
@@ -24708,8 +24820,11 @@ export namespace protos {
         /** ImportLocalRequest avroSettings. */
         public avroSettings?: (protos.encoding.IAvroSettings|null);
 
+        /** ImportLocalRequest jsonSchemaSettings. */
+        public jsonSchemaSettings?: (protos.encoding.IJSONSchemaSettings|null);
+
         /** ImportLocalRequest settings. */
-        public settings?: ("protobufSettings"|"avroSettings");
+        public settings?: ("protobufSettings"|"avroSettings"|"jsonSchemaSettings");
 
         /**
          * Creates a new ImportLocalRequest instance using the specified properties.

@@ -55,6 +55,12 @@ message AvroSettings {
     bytes schema = 2;
 }
 
+message JSONSchemaSettings {
+    // Used by desktop; CLI should not set/use this.
+    // @gotags: kong:"-"
+    bytes schema = 1;
+}
+
 message EncodeOptions {
     // Use an existing schema for encoding (and ignore all other encode settings)
     // @gotags: kong:"-"
