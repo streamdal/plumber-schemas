@@ -75,6 +75,9 @@ service PlumberServer {
     // Retrieve all schemas
     rpc GetAllSchemas(GetAllSchemasRequest) returns (GetAllSchemasResponse);
 
+    // Edit an existing schema
+    rpc UpdateSchema(UpdateSchemaRequest) returns (UpdateSchemaResponse);
+
     // Import a schema from github
     rpc ImportGithub(ImportGithubRequest) returns (ImportGithubResponse);
 

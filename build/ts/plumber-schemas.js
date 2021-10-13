@@ -744,6 +744,39 @@ $root.protos = (function() {
          */
 
         /**
+         * Callback as used by {@link protos.PlumberServer#updateSchema}.
+         * @memberof protos.PlumberServer
+         * @typedef UpdateSchemaCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.UpdateSchemaResponse} [response] UpdateSchemaResponse
+         */
+
+        /**
+         * Calls UpdateSchema.
+         * @function updateSchema
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IUpdateSchemaRequest} request UpdateSchemaRequest message or plain object
+         * @param {protos.PlumberServer.UpdateSchemaCallback} callback Node-style callback called with the error, if any, and UpdateSchemaResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(PlumberServer.prototype.updateSchema = function updateSchema(request, callback) {
+            return this.rpcCall(updateSchema, $root.protos.UpdateSchemaRequest, $root.protos.UpdateSchemaResponse, request, callback);
+        }, "name", { value: "UpdateSchema" });
+
+        /**
+         * Calls UpdateSchema.
+         * @function updateSchema
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IUpdateSchemaRequest} request UpdateSchemaRequest message or plain object
+         * @returns {Promise<protos.UpdateSchemaResponse>} Promise
+         * @variation 2
+         */
+
+        /**
          * Callback as used by {@link protos.PlumberServer#importGithub}.
          * @memberof protos.PlumberServer
          * @typedef ImportGithubCallback
@@ -58923,6 +58956,8 @@ $root.protos = (function() {
          * @property {string|null} [name] Schema name
          * @property {protos.SchemaType|null} [type] Schema type
          * @property {Object.<string,string>|null} [files] Schema files
+         * @property {string|null} [ownerId] Schema ownerId
+         * @property {string|null} [notes] Schema notes
          * @property {protos.encoding.IProtobufSettings|null} [protobufSettings] Schema protobufSettings
          * @property {protos.encoding.IAvroSettings|null} [avroSettings] Schema avroSettings
          * @property {protos.encoding.IJSONSchemaSettings|null} [jsonSchemaSettings] Schema jsonSchemaSettings
@@ -58975,6 +59010,22 @@ $root.protos = (function() {
          * @instance
          */
         Schema.prototype.files = $util.emptyObject;
+
+        /**
+         * Schema ownerId.
+         * @member {string} ownerId
+         * @memberof protos.Schema
+         * @instance
+         */
+        Schema.prototype.ownerId = "";
+
+        /**
+         * Schema notes.
+         * @member {string} notes
+         * @memberof protos.Schema
+         * @instance
+         */
+        Schema.prototype.notes = "";
 
         /**
          * Schema protobufSettings.
@@ -59047,6 +59098,10 @@ $root.protos = (function() {
             if (message.files != null && Object.hasOwnProperty.call(message, "files"))
                 for (var keys = Object.keys(message.files), i = 0; i < keys.length; ++i)
                     writer.uint32(/* id 4, wireType 2 =*/34).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]).uint32(/* id 2, wireType 2 =*/18).string(message.files[keys[i]]).ldelim();
+            if (message.ownerId != null && Object.hasOwnProperty.call(message, "ownerId"))
+                writer.uint32(/* id 5, wireType 2 =*/42).string(message.ownerId);
+            if (message.notes != null && Object.hasOwnProperty.call(message, "notes"))
+                writer.uint32(/* id 6, wireType 2 =*/50).string(message.notes);
             if (message.protobufSettings != null && Object.hasOwnProperty.call(message, "protobufSettings"))
                 $root.protos.encoding.ProtobufSettings.encode(message.protobufSettings, writer.uint32(/* id 100, wireType 2 =*/802).fork()).ldelim();
             if (message.avroSettings != null && Object.hasOwnProperty.call(message, "avroSettings"))
@@ -59118,6 +59173,12 @@ $root.protos = (function() {
                     }
                     message.files[key] = value;
                     break;
+                case 5:
+                    message.ownerId = reader.string();
+                    break;
+                case 6:
+                    message.notes = reader.string();
+                    break;
                 case 100:
                     message.protobufSettings = $root.protos.encoding.ProtobufSettings.decode(reader, reader.uint32());
                     break;
@@ -59187,6 +59248,12 @@ $root.protos = (function() {
                     if (!$util.isString(message.files[key[i]]))
                         return "files: string{k:string} expected";
             }
+            if (message.ownerId != null && message.hasOwnProperty("ownerId"))
+                if (!$util.isString(message.ownerId))
+                    return "ownerId: string expected";
+            if (message.notes != null && message.hasOwnProperty("notes"))
+                if (!$util.isString(message.notes))
+                    return "notes: string expected";
             if (message.protobufSettings != null && message.hasOwnProperty("protobufSettings")) {
                 properties.settings = 1;
                 {
@@ -59259,6 +59326,10 @@ $root.protos = (function() {
                 for (var keys = Object.keys(object.files), i = 0; i < keys.length; ++i)
                     message.files[keys[i]] = String(object.files[keys[i]]);
             }
+            if (object.ownerId != null)
+                message.ownerId = String(object.ownerId);
+            if (object.notes != null)
+                message.notes = String(object.notes);
             if (object.protobufSettings != null) {
                 if (typeof object.protobufSettings !== "object")
                     throw TypeError(".protos.Schema.protobufSettings: object expected");
@@ -59296,6 +59367,8 @@ $root.protos = (function() {
                 object.id = "";
                 object.name = "";
                 object.type = options.enums === String ? "SCHEMA_TYPE_UNSET" : 0;
+                object.ownerId = "";
+                object.notes = "";
             }
             if (message.id != null && message.hasOwnProperty("id"))
                 object.id = message.id;
@@ -59309,6 +59382,10 @@ $root.protos = (function() {
                 for (var j = 0; j < keys2.length; ++j)
                     object.files[keys2[j]] = message.files[keys2[j]];
             }
+            if (message.ownerId != null && message.hasOwnProperty("ownerId"))
+                object.ownerId = message.ownerId;
+            if (message.notes != null && message.hasOwnProperty("notes"))
+                object.notes = message.notes;
             if (message.protobufSettings != null && message.hasOwnProperty("protobufSettings")) {
                 object.protobufSettings = $root.protos.encoding.ProtobufSettings.toObject(message.protobufSettings, options);
                 if (options.oneofs)
@@ -61419,6 +61496,507 @@ $root.protos = (function() {
         };
 
         return ImportLocalResponse;
+    })();
+
+    protos.UpdateSchemaRequest = (function() {
+
+        /**
+         * Properties of an UpdateSchemaRequest.
+         * @memberof protos
+         * @interface IUpdateSchemaRequest
+         * @property {protos.common.IAuth|null} [auth] UpdateSchemaRequest auth
+         * @property {string|null} [id] UpdateSchemaRequest id
+         * @property {string|null} [name] UpdateSchemaRequest name
+         * @property {string|null} [ownerId] UpdateSchemaRequest ownerId
+         * @property {string|null} [notes] UpdateSchemaRequest notes
+         */
+
+        /**
+         * Constructs a new UpdateSchemaRequest.
+         * @memberof protos
+         * @classdesc Represents an UpdateSchemaRequest.
+         * @implements IUpdateSchemaRequest
+         * @constructor
+         * @param {protos.IUpdateSchemaRequest=} [properties] Properties to set
+         */
+        function UpdateSchemaRequest(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * UpdateSchemaRequest auth.
+         * @member {protos.common.IAuth|null|undefined} auth
+         * @memberof protos.UpdateSchemaRequest
+         * @instance
+         */
+        UpdateSchemaRequest.prototype.auth = null;
+
+        /**
+         * UpdateSchemaRequest id.
+         * @member {string} id
+         * @memberof protos.UpdateSchemaRequest
+         * @instance
+         */
+        UpdateSchemaRequest.prototype.id = "";
+
+        /**
+         * UpdateSchemaRequest name.
+         * @member {string} name
+         * @memberof protos.UpdateSchemaRequest
+         * @instance
+         */
+        UpdateSchemaRequest.prototype.name = "";
+
+        /**
+         * UpdateSchemaRequest ownerId.
+         * @member {string} ownerId
+         * @memberof protos.UpdateSchemaRequest
+         * @instance
+         */
+        UpdateSchemaRequest.prototype.ownerId = "";
+
+        /**
+         * UpdateSchemaRequest notes.
+         * @member {string} notes
+         * @memberof protos.UpdateSchemaRequest
+         * @instance
+         */
+        UpdateSchemaRequest.prototype.notes = "";
+
+        /**
+         * Creates a new UpdateSchemaRequest instance using the specified properties.
+         * @function create
+         * @memberof protos.UpdateSchemaRequest
+         * @static
+         * @param {protos.IUpdateSchemaRequest=} [properties] Properties to set
+         * @returns {protos.UpdateSchemaRequest} UpdateSchemaRequest instance
+         */
+        UpdateSchemaRequest.create = function create(properties) {
+            return new UpdateSchemaRequest(properties);
+        };
+
+        /**
+         * Encodes the specified UpdateSchemaRequest message. Does not implicitly {@link protos.UpdateSchemaRequest.verify|verify} messages.
+         * @function encode
+         * @memberof protos.UpdateSchemaRequest
+         * @static
+         * @param {protos.IUpdateSchemaRequest} message UpdateSchemaRequest message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        UpdateSchemaRequest.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.id != null && Object.hasOwnProperty.call(message, "id"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.id);
+            if (message.name != null && Object.hasOwnProperty.call(message, "name"))
+                writer.uint32(/* id 2, wireType 2 =*/18).string(message.name);
+            if (message.ownerId != null && Object.hasOwnProperty.call(message, "ownerId"))
+                writer.uint32(/* id 3, wireType 2 =*/26).string(message.ownerId);
+            if (message.notes != null && Object.hasOwnProperty.call(message, "notes"))
+                writer.uint32(/* id 4, wireType 2 =*/34).string(message.notes);
+            if (message.auth != null && Object.hasOwnProperty.call(message, "auth"))
+                $root.protos.common.Auth.encode(message.auth, writer.uint32(/* id 9999, wireType 2 =*/79994).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Encodes the specified UpdateSchemaRequest message, length delimited. Does not implicitly {@link protos.UpdateSchemaRequest.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.UpdateSchemaRequest
+         * @static
+         * @param {protos.IUpdateSchemaRequest} message UpdateSchemaRequest message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        UpdateSchemaRequest.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes an UpdateSchemaRequest message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.UpdateSchemaRequest
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.UpdateSchemaRequest} UpdateSchemaRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        UpdateSchemaRequest.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.UpdateSchemaRequest();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 9999:
+                    message.auth = $root.protos.common.Auth.decode(reader, reader.uint32());
+                    break;
+                case 1:
+                    message.id = reader.string();
+                    break;
+                case 2:
+                    message.name = reader.string();
+                    break;
+                case 3:
+                    message.ownerId = reader.string();
+                    break;
+                case 4:
+                    message.notes = reader.string();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes an UpdateSchemaRequest message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.UpdateSchemaRequest
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.UpdateSchemaRequest} UpdateSchemaRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        UpdateSchemaRequest.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies an UpdateSchemaRequest message.
+         * @function verify
+         * @memberof protos.UpdateSchemaRequest
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        UpdateSchemaRequest.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.auth != null && message.hasOwnProperty("auth")) {
+                var error = $root.protos.common.Auth.verify(message.auth);
+                if (error)
+                    return "auth." + error;
+            }
+            if (message.id != null && message.hasOwnProperty("id"))
+                if (!$util.isString(message.id))
+                    return "id: string expected";
+            if (message.name != null && message.hasOwnProperty("name"))
+                if (!$util.isString(message.name))
+                    return "name: string expected";
+            if (message.ownerId != null && message.hasOwnProperty("ownerId"))
+                if (!$util.isString(message.ownerId))
+                    return "ownerId: string expected";
+            if (message.notes != null && message.hasOwnProperty("notes"))
+                if (!$util.isString(message.notes))
+                    return "notes: string expected";
+            return null;
+        };
+
+        /**
+         * Creates an UpdateSchemaRequest message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.UpdateSchemaRequest
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.UpdateSchemaRequest} UpdateSchemaRequest
+         */
+        UpdateSchemaRequest.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.UpdateSchemaRequest)
+                return object;
+            var message = new $root.protos.UpdateSchemaRequest();
+            if (object.auth != null) {
+                if (typeof object.auth !== "object")
+                    throw TypeError(".protos.UpdateSchemaRequest.auth: object expected");
+                message.auth = $root.protos.common.Auth.fromObject(object.auth);
+            }
+            if (object.id != null)
+                message.id = String(object.id);
+            if (object.name != null)
+                message.name = String(object.name);
+            if (object.ownerId != null)
+                message.ownerId = String(object.ownerId);
+            if (object.notes != null)
+                message.notes = String(object.notes);
+            return message;
+        };
+
+        /**
+         * Creates a plain object from an UpdateSchemaRequest message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.UpdateSchemaRequest
+         * @static
+         * @param {protos.UpdateSchemaRequest} message UpdateSchemaRequest
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        UpdateSchemaRequest.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.id = "";
+                object.name = "";
+                object.ownerId = "";
+                object.notes = "";
+                object.auth = null;
+            }
+            if (message.id != null && message.hasOwnProperty("id"))
+                object.id = message.id;
+            if (message.name != null && message.hasOwnProperty("name"))
+                object.name = message.name;
+            if (message.ownerId != null && message.hasOwnProperty("ownerId"))
+                object.ownerId = message.ownerId;
+            if (message.notes != null && message.hasOwnProperty("notes"))
+                object.notes = message.notes;
+            if (message.auth != null && message.hasOwnProperty("auth"))
+                object.auth = $root.protos.common.Auth.toObject(message.auth, options);
+            return object;
+        };
+
+        /**
+         * Converts this UpdateSchemaRequest to JSON.
+         * @function toJSON
+         * @memberof protos.UpdateSchemaRequest
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        UpdateSchemaRequest.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return UpdateSchemaRequest;
+    })();
+
+    protos.UpdateSchemaResponse = (function() {
+
+        /**
+         * Properties of an UpdateSchemaResponse.
+         * @memberof protos
+         * @interface IUpdateSchemaResponse
+         * @property {protos.common.IStatus|null} [status] UpdateSchemaResponse status
+         * @property {protos.ISchema|null} [schema] UpdateSchemaResponse schema
+         */
+
+        /**
+         * Constructs a new UpdateSchemaResponse.
+         * @memberof protos
+         * @classdesc Represents an UpdateSchemaResponse.
+         * @implements IUpdateSchemaResponse
+         * @constructor
+         * @param {protos.IUpdateSchemaResponse=} [properties] Properties to set
+         */
+        function UpdateSchemaResponse(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * UpdateSchemaResponse status.
+         * @member {protos.common.IStatus|null|undefined} status
+         * @memberof protos.UpdateSchemaResponse
+         * @instance
+         */
+        UpdateSchemaResponse.prototype.status = null;
+
+        /**
+         * UpdateSchemaResponse schema.
+         * @member {protos.ISchema|null|undefined} schema
+         * @memberof protos.UpdateSchemaResponse
+         * @instance
+         */
+        UpdateSchemaResponse.prototype.schema = null;
+
+        /**
+         * Creates a new UpdateSchemaResponse instance using the specified properties.
+         * @function create
+         * @memberof protos.UpdateSchemaResponse
+         * @static
+         * @param {protos.IUpdateSchemaResponse=} [properties] Properties to set
+         * @returns {protos.UpdateSchemaResponse} UpdateSchemaResponse instance
+         */
+        UpdateSchemaResponse.create = function create(properties) {
+            return new UpdateSchemaResponse(properties);
+        };
+
+        /**
+         * Encodes the specified UpdateSchemaResponse message. Does not implicitly {@link protos.UpdateSchemaResponse.verify|verify} messages.
+         * @function encode
+         * @memberof protos.UpdateSchemaResponse
+         * @static
+         * @param {protos.IUpdateSchemaResponse} message UpdateSchemaResponse message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        UpdateSchemaResponse.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.schema != null && Object.hasOwnProperty.call(message, "schema"))
+                $root.protos.Schema.encode(message.schema, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+            if (message.status != null && Object.hasOwnProperty.call(message, "status"))
+                $root.protos.common.Status.encode(message.status, writer.uint32(/* id 1000, wireType 2 =*/8002).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Encodes the specified UpdateSchemaResponse message, length delimited. Does not implicitly {@link protos.UpdateSchemaResponse.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.UpdateSchemaResponse
+         * @static
+         * @param {protos.IUpdateSchemaResponse} message UpdateSchemaResponse message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        UpdateSchemaResponse.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes an UpdateSchemaResponse message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.UpdateSchemaResponse
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.UpdateSchemaResponse} UpdateSchemaResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        UpdateSchemaResponse.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.UpdateSchemaResponse();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1000:
+                    message.status = $root.protos.common.Status.decode(reader, reader.uint32());
+                    break;
+                case 1:
+                    message.schema = $root.protos.Schema.decode(reader, reader.uint32());
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes an UpdateSchemaResponse message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.UpdateSchemaResponse
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.UpdateSchemaResponse} UpdateSchemaResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        UpdateSchemaResponse.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies an UpdateSchemaResponse message.
+         * @function verify
+         * @memberof protos.UpdateSchemaResponse
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        UpdateSchemaResponse.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.status != null && message.hasOwnProperty("status")) {
+                var error = $root.protos.common.Status.verify(message.status);
+                if (error)
+                    return "status." + error;
+            }
+            if (message.schema != null && message.hasOwnProperty("schema")) {
+                var error = $root.protos.Schema.verify(message.schema);
+                if (error)
+                    return "schema." + error;
+            }
+            return null;
+        };
+
+        /**
+         * Creates an UpdateSchemaResponse message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.UpdateSchemaResponse
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.UpdateSchemaResponse} UpdateSchemaResponse
+         */
+        UpdateSchemaResponse.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.UpdateSchemaResponse)
+                return object;
+            var message = new $root.protos.UpdateSchemaResponse();
+            if (object.status != null) {
+                if (typeof object.status !== "object")
+                    throw TypeError(".protos.UpdateSchemaResponse.status: object expected");
+                message.status = $root.protos.common.Status.fromObject(object.status);
+            }
+            if (object.schema != null) {
+                if (typeof object.schema !== "object")
+                    throw TypeError(".protos.UpdateSchemaResponse.schema: object expected");
+                message.schema = $root.protos.Schema.fromObject(object.schema);
+            }
+            return message;
+        };
+
+        /**
+         * Creates a plain object from an UpdateSchemaResponse message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.UpdateSchemaResponse
+         * @static
+         * @param {protos.UpdateSchemaResponse} message UpdateSchemaResponse
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        UpdateSchemaResponse.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.schema = null;
+                object.status = null;
+            }
+            if (message.schema != null && message.hasOwnProperty("schema"))
+                object.schema = $root.protos.Schema.toObject(message.schema, options);
+            if (message.status != null && message.hasOwnProperty("status"))
+                object.status = $root.protos.common.Status.toObject(message.status, options);
+            return object;
+        };
+
+        /**
+         * Converts this UpdateSchemaResponse to JSON.
+         * @function toJSON
+         * @memberof protos.UpdateSchemaResponse
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        UpdateSchemaResponse.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return UpdateSchemaResponse;
     })();
 
     protos.DeleteSchemaRequest = (function() {

@@ -317,6 +317,20 @@ export namespace protos {
         public getAllSchemas(request: protos.IGetAllSchemasRequest): Promise<protos.GetAllSchemasResponse>;
 
         /**
+         * Calls UpdateSchema.
+         * @param request UpdateSchemaRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and UpdateSchemaResponse
+         */
+        public updateSchema(request: protos.IUpdateSchemaRequest, callback: protos.PlumberServer.UpdateSchemaCallback): void;
+
+        /**
+         * Calls UpdateSchema.
+         * @param request UpdateSchemaRequest message or plain object
+         * @returns Promise
+         */
+        public updateSchema(request: protos.IUpdateSchemaRequest): Promise<protos.UpdateSchemaResponse>;
+
+        /**
          * Calls ImportGithub.
          * @param request ImportGithubRequest message or plain object
          * @param callback Node-style callback called with the error, if any, and ImportGithubResponse
@@ -675,6 +689,13 @@ export namespace protos {
          * @param [response] GetAllSchemasResponse
          */
         type GetAllSchemasCallback = (error: (Error|null), response?: protos.GetAllSchemasResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#updateSchema}.
+         * @param error Error, if any
+         * @param [response] UpdateSchemaResponse
+         */
+        type UpdateSchemaCallback = (error: (Error|null), response?: protos.UpdateSchemaResponse) => void;
 
         /**
          * Callback as used by {@link protos.PlumberServer#importGithub}.
@@ -24049,6 +24070,12 @@ export namespace protos {
         /** Schema files */
         files?: ({ [k: string]: string }|null);
 
+        /** Schema ownerId */
+        ownerId?: (string|null);
+
+        /** Schema notes */
+        notes?: (string|null);
+
         /** Schema protobufSettings */
         protobufSettings?: (protos.encoding.IProtobufSettings|null);
 
@@ -24079,6 +24106,12 @@ export namespace protos {
 
         /** Schema files. */
         public files: { [k: string]: string };
+
+        /** Schema ownerId. */
+        public ownerId: string;
+
+        /** Schema notes. */
+        public notes: string;
 
         /** Schema protobufSettings. */
         public protobufSettings?: (protos.encoding.IProtobufSettings|null);
@@ -24988,6 +25021,216 @@ export namespace protos {
 
         /**
          * Converts this ImportLocalResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of an UpdateSchemaRequest. */
+    interface IUpdateSchemaRequest {
+
+        /** UpdateSchemaRequest auth */
+        auth?: (protos.common.IAuth|null);
+
+        /** UpdateSchemaRequest id */
+        id?: (string|null);
+
+        /** UpdateSchemaRequest name */
+        name?: (string|null);
+
+        /** UpdateSchemaRequest ownerId */
+        ownerId?: (string|null);
+
+        /** UpdateSchemaRequest notes */
+        notes?: (string|null);
+    }
+
+    /** Represents an UpdateSchemaRequest. */
+    class UpdateSchemaRequest implements IUpdateSchemaRequest {
+
+        /**
+         * Constructs a new UpdateSchemaRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IUpdateSchemaRequest);
+
+        /** UpdateSchemaRequest auth. */
+        public auth?: (protos.common.IAuth|null);
+
+        /** UpdateSchemaRequest id. */
+        public id: string;
+
+        /** UpdateSchemaRequest name. */
+        public name: string;
+
+        /** UpdateSchemaRequest ownerId. */
+        public ownerId: string;
+
+        /** UpdateSchemaRequest notes. */
+        public notes: string;
+
+        /**
+         * Creates a new UpdateSchemaRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns UpdateSchemaRequest instance
+         */
+        public static create(properties?: protos.IUpdateSchemaRequest): protos.UpdateSchemaRequest;
+
+        /**
+         * Encodes the specified UpdateSchemaRequest message. Does not implicitly {@link protos.UpdateSchemaRequest.verify|verify} messages.
+         * @param message UpdateSchemaRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IUpdateSchemaRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified UpdateSchemaRequest message, length delimited. Does not implicitly {@link protos.UpdateSchemaRequest.verify|verify} messages.
+         * @param message UpdateSchemaRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IUpdateSchemaRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes an UpdateSchemaRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns UpdateSchemaRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.UpdateSchemaRequest;
+
+        /**
+         * Decodes an UpdateSchemaRequest message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns UpdateSchemaRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.UpdateSchemaRequest;
+
+        /**
+         * Verifies an UpdateSchemaRequest message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates an UpdateSchemaRequest message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns UpdateSchemaRequest
+         */
+        public static fromObject(object: { [k: string]: any }): protos.UpdateSchemaRequest;
+
+        /**
+         * Creates a plain object from an UpdateSchemaRequest message. Also converts values to other types if specified.
+         * @param message UpdateSchemaRequest
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.UpdateSchemaRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this UpdateSchemaRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of an UpdateSchemaResponse. */
+    interface IUpdateSchemaResponse {
+
+        /** UpdateSchemaResponse status */
+        status?: (protos.common.IStatus|null);
+
+        /** UpdateSchemaResponse schema */
+        schema?: (protos.ISchema|null);
+    }
+
+    /** Represents an UpdateSchemaResponse. */
+    class UpdateSchemaResponse implements IUpdateSchemaResponse {
+
+        /**
+         * Constructs a new UpdateSchemaResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IUpdateSchemaResponse);
+
+        /** UpdateSchemaResponse status. */
+        public status?: (protos.common.IStatus|null);
+
+        /** UpdateSchemaResponse schema. */
+        public schema?: (protos.ISchema|null);
+
+        /**
+         * Creates a new UpdateSchemaResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns UpdateSchemaResponse instance
+         */
+        public static create(properties?: protos.IUpdateSchemaResponse): protos.UpdateSchemaResponse;
+
+        /**
+         * Encodes the specified UpdateSchemaResponse message. Does not implicitly {@link protos.UpdateSchemaResponse.verify|verify} messages.
+         * @param message UpdateSchemaResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IUpdateSchemaResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified UpdateSchemaResponse message, length delimited. Does not implicitly {@link protos.UpdateSchemaResponse.verify|verify} messages.
+         * @param message UpdateSchemaResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IUpdateSchemaResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes an UpdateSchemaResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns UpdateSchemaResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.UpdateSchemaResponse;
+
+        /**
+         * Decodes an UpdateSchemaResponse message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns UpdateSchemaResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.UpdateSchemaResponse;
+
+        /**
+         * Verifies an UpdateSchemaResponse message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates an UpdateSchemaResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns UpdateSchemaResponse
+         */
+        public static fromObject(object: { [k: string]: any }): protos.UpdateSchemaResponse;
+
+        /**
+         * Creates a plain object from an UpdateSchemaResponse message. Also converts values to other types if specified.
+         * @param message UpdateSchemaResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.UpdateSchemaResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this UpdateSchemaResponse to JSON.
          * @returns JSON object
          */
         public toJSON(): { [k: string]: any };
