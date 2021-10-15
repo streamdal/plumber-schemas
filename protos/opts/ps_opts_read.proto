@@ -87,6 +87,10 @@ message ReadOptions {
     // @gotags: kong:"-"
     ReadFilterOptions filter = 7;
 
+    // Whether to infer a JSON schema from this read. Ignored if schema_id is populated. Desktop use only
+    // @gotags: kong:"-"
+    InferSchemaOptions infer_schema_options = 8;
+
     // --------------------------------------------------------------------- //
     //                          PRIVATE FIELDS (1000+)                       //
     // --------------------------------------------------------------------- //
@@ -304,4 +308,22 @@ message ReadGroupKubeMQQueueOptions {
 
     // @gotags: kong:"embed"
     args.KubeMQQueueReadArgs args = 2;
+}
+
+message InferSchemaOptions {
+    enum Type {
+        UNSET = 0;
+        JSONSchema = 1;
+        // TODO: expand with other types when we support them
+    }
+
+    // Type of schema to infer from the data
+    // @gotags: kong:"-"
+    Type type = 1;
+
+    // Existing schema ID. Can be filled out by end user, or by plumber
+    // If filled out by end user, plumber will pull the schema and evolve from it
+    // If empty, plumber will make a new schema, save and publish to other instances, and then evolve from it
+    // @gotags: kong:"-"
+    string schema_id = 2;
 }

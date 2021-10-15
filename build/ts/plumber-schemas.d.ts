@@ -2707,6 +2707,9 @@ export namespace protos {
             /** ReadOptions filter */
             filter?: (protos.opts.IReadFilterOptions|null);
 
+            /** ReadOptions inferSchemaOptions */
+            inferSchemaOptions?: (protos.opts.IInferSchemaOptions|null);
+
             /** ReadOptions _id */
             _id?: (string|null);
 
@@ -2800,6 +2803,9 @@ export namespace protos {
 
             /** ReadOptions filter. */
             public filter?: (protos.opts.IReadFilterOptions|null);
+
+            /** ReadOptions inferSchemaOptions. */
+            public inferSchemaOptions?: (protos.opts.IInferSchemaOptions|null);
 
             /** ReadOptions _id. */
             public _id: string;
@@ -4661,6 +4667,111 @@ export namespace protos {
              * @returns JSON object
              */
             public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of an InferSchemaOptions. */
+        interface IInferSchemaOptions {
+
+            /** InferSchemaOptions type */
+            type?: (protos.opts.InferSchemaOptions.Type|null);
+
+            /** InferSchemaOptions schemaId */
+            schemaId?: (string|null);
+        }
+
+        /** Represents an InferSchemaOptions. */
+        class InferSchemaOptions implements IInferSchemaOptions {
+
+            /**
+             * Constructs a new InferSchemaOptions.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.opts.IInferSchemaOptions);
+
+            /** InferSchemaOptions type. */
+            public type: protos.opts.InferSchemaOptions.Type;
+
+            /** InferSchemaOptions schemaId. */
+            public schemaId: string;
+
+            /**
+             * Creates a new InferSchemaOptions instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns InferSchemaOptions instance
+             */
+            public static create(properties?: protos.opts.IInferSchemaOptions): protos.opts.InferSchemaOptions;
+
+            /**
+             * Encodes the specified InferSchemaOptions message. Does not implicitly {@link protos.opts.InferSchemaOptions.verify|verify} messages.
+             * @param message InferSchemaOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.opts.IInferSchemaOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified InferSchemaOptions message, length delimited. Does not implicitly {@link protos.opts.InferSchemaOptions.verify|verify} messages.
+             * @param message InferSchemaOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.opts.IInferSchemaOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes an InferSchemaOptions message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns InferSchemaOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.InferSchemaOptions;
+
+            /**
+             * Decodes an InferSchemaOptions message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns InferSchemaOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.InferSchemaOptions;
+
+            /**
+             * Verifies an InferSchemaOptions message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates an InferSchemaOptions message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns InferSchemaOptions
+             */
+            public static fromObject(object: { [k: string]: any }): protos.opts.InferSchemaOptions;
+
+            /**
+             * Creates a plain object from an InferSchemaOptions message. Also converts values to other types if specified.
+             * @param message InferSchemaOptions
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.opts.InferSchemaOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this InferSchemaOptions to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        namespace InferSchemaOptions {
+
+            /** Type enum. */
+            enum Type {
+                UNSET = 0,
+                JSONSchema = 1
+            }
         }
 
         /** Properties of a WriteCLIOptions. */
@@ -24076,6 +24187,9 @@ export namespace protos {
         /** Schema notes */
         notes?: (string|null);
 
+        /** Schema status */
+        status?: (protos.SchemaStatus|null);
+
         /** Schema protobufSettings */
         protobufSettings?: (protos.encoding.IProtobufSettings|null);
 
@@ -24112,6 +24226,9 @@ export namespace protos {
 
         /** Schema notes. */
         public notes: string;
+
+        /** Schema status. */
+        public status: protos.SchemaStatus;
 
         /** Schema protobufSettings. */
         public protobufSettings?: (protos.encoding.IProtobufSettings|null);
@@ -24194,6 +24311,13 @@ export namespace protos {
          * @returns JSON object
          */
         public toJSON(): { [k: string]: any };
+    }
+
+    /** SchemaStatus enum. */
+    enum SchemaStatus {
+        SCHEMA_STATUS_UNSET = 0,
+        SCHEMA_STATUS_ACCEPTED = 1,
+        SCHEMA_STATUS_PROPOSED = 2
     }
 
     /** SchemaType enum. */

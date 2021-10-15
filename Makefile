@@ -46,6 +46,12 @@ setup/linux:
 generate/all: description = Compile protos for all languages
 generate/all: generate/ts generate/go inject-tags
 
+.PHONY: local
+local: description = Compile protos for all languages and copy to local plumber
+local: generate/ts generate/go inject-tags
+local:
+	cp -R build/go/protos/ ~/Code/plumber/vendor/github.com/batchcorp/plumber-schemas/build/go/protos/
+
 .PHONY: generate/ts
 generate/ts: description = Compile TypeScript Interfaces for UI
 generate/ts: clean-ts

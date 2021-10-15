@@ -24,12 +24,23 @@ message Schema {
 
     string notes = 6;
 
+    SchemaStatus status = 7;
+
     // The 'type' will determine which one of these _should_ be filled out
     oneof settings {
         encoding.ProtobufSettings protobuf_settings = 100;
         encoding.AvroSettings avro_settings = 101;
         encoding.JSONSchemaSettings json_schema_settings = 102;
     }
+}
+
+// SchemaStatus defines whether an inferred schema has been accepted by the user. It should always be
+// SCHEMA_STATUS_ACCEPTED for imported schemas. A schema should default to SCHEMA_STATUS_PROPOSED if it is inferred
+// and then the user will need to accept it via the UI
+enum SchemaStatus {
+    SCHEMA_STATUS_UNSET = 0;
+    SCHEMA_STATUS_ACCEPTED = 1;
+    SCHEMA_STATUS_PROPOSED = 2;
 }
 
 enum SchemaType {

@@ -5934,6 +5934,7 @@ $root.protos = (function() {
              * @property {protos.encoding.IDecodeOptions|null} [decodeOptions] ReadOptions decodeOptions
              * @property {protos.opts.ConvertOption|null} [convertOutput] ReadOptions convertOutput
              * @property {protos.opts.IReadFilterOptions|null} [filter] ReadOptions filter
+             * @property {protos.opts.IInferSchemaOptions|null} [inferSchemaOptions] ReadOptions inferSchemaOptions
              * @property {string|null} [_id] ReadOptions _id
              * @property {boolean|null} [_active] ReadOptions _active
              * @property {protos.opts.IReadCLIOptions|null} [_cliOptions] ReadOptions _cliOptions
@@ -6027,6 +6028,14 @@ $root.protos = (function() {
              * @instance
              */
             ReadOptions.prototype.filter = null;
+
+            /**
+             * ReadOptions inferSchemaOptions.
+             * @member {protos.opts.IInferSchemaOptions|null|undefined} inferSchemaOptions
+             * @memberof protos.opts.ReadOptions
+             * @instance
+             */
+            ReadOptions.prototype.inferSchemaOptions = null;
 
             /**
              * ReadOptions _id.
@@ -6234,6 +6243,8 @@ $root.protos = (function() {
                     writer.uint32(/* id 6, wireType 0 =*/48).int32(message.convertOutput);
                 if (message.filter != null && Object.hasOwnProperty.call(message, "filter"))
                     $root.protos.opts.ReadFilterOptions.encode(message.filter, writer.uint32(/* id 7, wireType 2 =*/58).fork()).ldelim();
+                if (message.inferSchemaOptions != null && Object.hasOwnProperty.call(message, "inferSchemaOptions"))
+                    $root.protos.opts.InferSchemaOptions.encode(message.inferSchemaOptions, writer.uint32(/* id 8, wireType 2 =*/66).fork()).ldelim();
                 if (message.kafka != null && Object.hasOwnProperty.call(message, "kafka"))
                     $root.protos.opts.ReadGroupKafkaOptions.encode(message.kafka, writer.uint32(/* id 100, wireType 2 =*/802).fork()).ldelim();
                 if (message.activemq != null && Object.hasOwnProperty.call(message, "activemq"))
@@ -6330,6 +6341,9 @@ $root.protos = (function() {
                         break;
                     case 7:
                         message.filter = $root.protos.opts.ReadFilterOptions.decode(reader, reader.uint32());
+                        break;
+                    case 8:
+                        message.inferSchemaOptions = $root.protos.opts.InferSchemaOptions.decode(reader, reader.uint32());
                         break;
                     case 1000:
                         message._id = reader.string();
@@ -6461,6 +6475,11 @@ $root.protos = (function() {
                     var error = $root.protos.opts.ReadFilterOptions.verify(message.filter);
                     if (error)
                         return "filter." + error;
+                }
+                if (message.inferSchemaOptions != null && message.hasOwnProperty("inferSchemaOptions")) {
+                    var error = $root.protos.opts.InferSchemaOptions.verify(message.inferSchemaOptions);
+                    if (error)
+                        return "inferSchemaOptions." + error;
                 }
                 if (message._id != null && message.hasOwnProperty("_id"))
                     if (!$util.isString(message._id))
@@ -6613,6 +6632,11 @@ $root.protos = (function() {
                         throw TypeError(".protos.opts.ReadOptions.filter: object expected");
                     message.filter = $root.protos.opts.ReadFilterOptions.fromObject(object.filter);
                 }
+                if (object.inferSchemaOptions != null) {
+                    if (typeof object.inferSchemaOptions !== "object")
+                        throw TypeError(".protos.opts.ReadOptions.inferSchemaOptions: object expected");
+                    message.inferSchemaOptions = $root.protos.opts.InferSchemaOptions.fromObject(object.inferSchemaOptions);
+                }
                 if (object._id != null)
                     message._id = String(object._id);
                 if (object._active != null)
@@ -6736,6 +6760,7 @@ $root.protos = (function() {
                     object.decodeOptions = null;
                     object.convertOutput = options.enums === String ? "CONVERT_OPTION_UNSET" : 0;
                     object.filter = null;
+                    object.inferSchemaOptions = null;
                     object.kafka = null;
                     object.activemq = null;
                     object.awssqs = null;
@@ -6772,6 +6797,8 @@ $root.protos = (function() {
                     object.convertOutput = options.enums === String ? $root.protos.opts.ConvertOption[message.convertOutput] : message.convertOutput;
                 if (message.filter != null && message.hasOwnProperty("filter"))
                     object.filter = $root.protos.opts.ReadFilterOptions.toObject(message.filter, options);
+                if (message.inferSchemaOptions != null && message.hasOwnProperty("inferSchemaOptions"))
+                    object.inferSchemaOptions = $root.protos.opts.InferSchemaOptions.toObject(message.inferSchemaOptions, options);
                 if (message.kafka != null && message.hasOwnProperty("kafka"))
                     object.kafka = $root.protos.opts.ReadGroupKafkaOptions.toObject(message.kafka, options);
                 if (message.activemq != null && message.hasOwnProperty("activemq"))
@@ -10789,6 +10816,243 @@ $root.protos = (function() {
             };
 
             return ReadGroupKubeMQQueueOptions;
+        })();
+
+        opts.InferSchemaOptions = (function() {
+
+            /**
+             * Properties of an InferSchemaOptions.
+             * @memberof protos.opts
+             * @interface IInferSchemaOptions
+             * @property {protos.opts.InferSchemaOptions.Type|null} [type] InferSchemaOptions type
+             * @property {string|null} [schemaId] InferSchemaOptions schemaId
+             */
+
+            /**
+             * Constructs a new InferSchemaOptions.
+             * @memberof protos.opts
+             * @classdesc Represents an InferSchemaOptions.
+             * @implements IInferSchemaOptions
+             * @constructor
+             * @param {protos.opts.IInferSchemaOptions=} [properties] Properties to set
+             */
+            function InferSchemaOptions(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * InferSchemaOptions type.
+             * @member {protos.opts.InferSchemaOptions.Type} type
+             * @memberof protos.opts.InferSchemaOptions
+             * @instance
+             */
+            InferSchemaOptions.prototype.type = 0;
+
+            /**
+             * InferSchemaOptions schemaId.
+             * @member {string} schemaId
+             * @memberof protos.opts.InferSchemaOptions
+             * @instance
+             */
+            InferSchemaOptions.prototype.schemaId = "";
+
+            /**
+             * Creates a new InferSchemaOptions instance using the specified properties.
+             * @function create
+             * @memberof protos.opts.InferSchemaOptions
+             * @static
+             * @param {protos.opts.IInferSchemaOptions=} [properties] Properties to set
+             * @returns {protos.opts.InferSchemaOptions} InferSchemaOptions instance
+             */
+            InferSchemaOptions.create = function create(properties) {
+                return new InferSchemaOptions(properties);
+            };
+
+            /**
+             * Encodes the specified InferSchemaOptions message. Does not implicitly {@link protos.opts.InferSchemaOptions.verify|verify} messages.
+             * @function encode
+             * @memberof protos.opts.InferSchemaOptions
+             * @static
+             * @param {protos.opts.IInferSchemaOptions} message InferSchemaOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            InferSchemaOptions.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.type != null && Object.hasOwnProperty.call(message, "type"))
+                    writer.uint32(/* id 1, wireType 0 =*/8).int32(message.type);
+                if (message.schemaId != null && Object.hasOwnProperty.call(message, "schemaId"))
+                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.schemaId);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified InferSchemaOptions message, length delimited. Does not implicitly {@link protos.opts.InferSchemaOptions.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.opts.InferSchemaOptions
+             * @static
+             * @param {protos.opts.IInferSchemaOptions} message InferSchemaOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            InferSchemaOptions.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes an InferSchemaOptions message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.opts.InferSchemaOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.opts.InferSchemaOptions} InferSchemaOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            InferSchemaOptions.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.InferSchemaOptions();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.type = reader.int32();
+                        break;
+                    case 2:
+                        message.schemaId = reader.string();
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes an InferSchemaOptions message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.opts.InferSchemaOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.opts.InferSchemaOptions} InferSchemaOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            InferSchemaOptions.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies an InferSchemaOptions message.
+             * @function verify
+             * @memberof protos.opts.InferSchemaOptions
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            InferSchemaOptions.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.type != null && message.hasOwnProperty("type"))
+                    switch (message.type) {
+                    default:
+                        return "type: enum value expected";
+                    case 0:
+                    case 1:
+                        break;
+                    }
+                if (message.schemaId != null && message.hasOwnProperty("schemaId"))
+                    if (!$util.isString(message.schemaId))
+                        return "schemaId: string expected";
+                return null;
+            };
+
+            /**
+             * Creates an InferSchemaOptions message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.opts.InferSchemaOptions
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.opts.InferSchemaOptions} InferSchemaOptions
+             */
+            InferSchemaOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.InferSchemaOptions)
+                    return object;
+                var message = new $root.protos.opts.InferSchemaOptions();
+                switch (object.type) {
+                case "UNSET":
+                case 0:
+                    message.type = 0;
+                    break;
+                case "JSONSchema":
+                case 1:
+                    message.type = 1;
+                    break;
+                }
+                if (object.schemaId != null)
+                    message.schemaId = String(object.schemaId);
+                return message;
+            };
+
+            /**
+             * Creates a plain object from an InferSchemaOptions message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.opts.InferSchemaOptions
+             * @static
+             * @param {protos.opts.InferSchemaOptions} message InferSchemaOptions
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            InferSchemaOptions.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    object.type = options.enums === String ? "UNSET" : 0;
+                    object.schemaId = "";
+                }
+                if (message.type != null && message.hasOwnProperty("type"))
+                    object.type = options.enums === String ? $root.protos.opts.InferSchemaOptions.Type[message.type] : message.type;
+                if (message.schemaId != null && message.hasOwnProperty("schemaId"))
+                    object.schemaId = message.schemaId;
+                return object;
+            };
+
+            /**
+             * Converts this InferSchemaOptions to JSON.
+             * @function toJSON
+             * @memberof protos.opts.InferSchemaOptions
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            InferSchemaOptions.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Type enum.
+             * @name protos.opts.InferSchemaOptions.Type
+             * @enum {number}
+             * @property {number} UNSET=0 UNSET value
+             * @property {number} JSONSchema=1 JSONSchema value
+             */
+            InferSchemaOptions.Type = (function() {
+                var valuesById = {}, values = Object.create(valuesById);
+                values[valuesById[0] = "UNSET"] = 0;
+                values[valuesById[1] = "JSONSchema"] = 1;
+                return values;
+            })();
+
+            return InferSchemaOptions;
         })();
 
         opts.WriteCLIOptions = (function() {
@@ -58958,6 +59222,7 @@ $root.protos = (function() {
          * @property {Object.<string,string>|null} [files] Schema files
          * @property {string|null} [ownerId] Schema ownerId
          * @property {string|null} [notes] Schema notes
+         * @property {protos.SchemaStatus|null} [status] Schema status
          * @property {protos.encoding.IProtobufSettings|null} [protobufSettings] Schema protobufSettings
          * @property {protos.encoding.IAvroSettings|null} [avroSettings] Schema avroSettings
          * @property {protos.encoding.IJSONSchemaSettings|null} [jsonSchemaSettings] Schema jsonSchemaSettings
@@ -59026,6 +59291,14 @@ $root.protos = (function() {
          * @instance
          */
         Schema.prototype.notes = "";
+
+        /**
+         * Schema status.
+         * @member {protos.SchemaStatus} status
+         * @memberof protos.Schema
+         * @instance
+         */
+        Schema.prototype.status = 0;
 
         /**
          * Schema protobufSettings.
@@ -59102,6 +59375,8 @@ $root.protos = (function() {
                 writer.uint32(/* id 5, wireType 2 =*/42).string(message.ownerId);
             if (message.notes != null && Object.hasOwnProperty.call(message, "notes"))
                 writer.uint32(/* id 6, wireType 2 =*/50).string(message.notes);
+            if (message.status != null && Object.hasOwnProperty.call(message, "status"))
+                writer.uint32(/* id 7, wireType 0 =*/56).int32(message.status);
             if (message.protobufSettings != null && Object.hasOwnProperty.call(message, "protobufSettings"))
                 $root.protos.encoding.ProtobufSettings.encode(message.protobufSettings, writer.uint32(/* id 100, wireType 2 =*/802).fork()).ldelim();
             if (message.avroSettings != null && Object.hasOwnProperty.call(message, "avroSettings"))
@@ -59179,6 +59454,9 @@ $root.protos = (function() {
                 case 6:
                     message.notes = reader.string();
                     break;
+                case 7:
+                    message.status = reader.int32();
+                    break;
                 case 100:
                     message.protobufSettings = $root.protos.encoding.ProtobufSettings.decode(reader, reader.uint32());
                     break;
@@ -59254,6 +59532,15 @@ $root.protos = (function() {
             if (message.notes != null && message.hasOwnProperty("notes"))
                 if (!$util.isString(message.notes))
                     return "notes: string expected";
+            if (message.status != null && message.hasOwnProperty("status"))
+                switch (message.status) {
+                default:
+                    return "status: enum value expected";
+                case 0:
+                case 1:
+                case 2:
+                    break;
+                }
             if (message.protobufSettings != null && message.hasOwnProperty("protobufSettings")) {
                 properties.settings = 1;
                 {
@@ -59330,6 +59617,20 @@ $root.protos = (function() {
                 message.ownerId = String(object.ownerId);
             if (object.notes != null)
                 message.notes = String(object.notes);
+            switch (object.status) {
+            case "SCHEMA_STATUS_UNSET":
+            case 0:
+                message.status = 0;
+                break;
+            case "SCHEMA_STATUS_ACCEPTED":
+            case 1:
+                message.status = 1;
+                break;
+            case "SCHEMA_STATUS_PROPOSED":
+            case 2:
+                message.status = 2;
+                break;
+            }
             if (object.protobufSettings != null) {
                 if (typeof object.protobufSettings !== "object")
                     throw TypeError(".protos.Schema.protobufSettings: object expected");
@@ -59369,6 +59670,7 @@ $root.protos = (function() {
                 object.type = options.enums === String ? "SCHEMA_TYPE_UNSET" : 0;
                 object.ownerId = "";
                 object.notes = "";
+                object.status = options.enums === String ? "SCHEMA_STATUS_UNSET" : 0;
             }
             if (message.id != null && message.hasOwnProperty("id"))
                 object.id = message.id;
@@ -59386,6 +59688,8 @@ $root.protos = (function() {
                 object.ownerId = message.ownerId;
             if (message.notes != null && message.hasOwnProperty("notes"))
                 object.notes = message.notes;
+            if (message.status != null && message.hasOwnProperty("status"))
+                object.status = options.enums === String ? $root.protos.SchemaStatus[message.status] : message.status;
             if (message.protobufSettings != null && message.hasOwnProperty("protobufSettings")) {
                 object.protobufSettings = $root.protos.encoding.ProtobufSettings.toObject(message.protobufSettings, options);
                 if (options.oneofs)
@@ -59416,6 +59720,22 @@ $root.protos = (function() {
         };
 
         return Schema;
+    })();
+
+    /**
+     * SchemaStatus enum.
+     * @name protos.SchemaStatus
+     * @enum {number}
+     * @property {number} SCHEMA_STATUS_UNSET=0 SCHEMA_STATUS_UNSET value
+     * @property {number} SCHEMA_STATUS_ACCEPTED=1 SCHEMA_STATUS_ACCEPTED value
+     * @property {number} SCHEMA_STATUS_PROPOSED=2 SCHEMA_STATUS_PROPOSED value
+     */
+    protos.SchemaStatus = (function() {
+        var valuesById = {}, values = Object.create(valuesById);
+        values[valuesById[0] = "SCHEMA_STATUS_UNSET"] = 0;
+        values[valuesById[1] = "SCHEMA_STATUS_ACCEPTED"] = 1;
+        values[valuesById[2] = "SCHEMA_STATUS_PROPOSED"] = 2;
+        return values;
     })();
 
     /**
