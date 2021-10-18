@@ -876,6 +876,39 @@ $root.protos = (function() {
          */
 
         /**
+         * Callback as used by {@link protos.PlumberServer#deleteSchemaVersion}.
+         * @memberof protos.PlumberServer
+         * @typedef DeleteSchemaVersionCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.DeleteSchemaVersionResponse} [response] DeleteSchemaVersionResponse
+         */
+
+        /**
+         * Calls DeleteSchemaVersion.
+         * @function deleteSchemaVersion
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IDeleteSchemaVersionRequest} request DeleteSchemaVersionRequest message or plain object
+         * @param {protos.PlumberServer.DeleteSchemaVersionCallback} callback Node-style callback called with the error, if any, and DeleteSchemaVersionResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(PlumberServer.prototype.deleteSchemaVersion = function deleteSchemaVersion(request, callback) {
+            return this.rpcCall(deleteSchemaVersion, $root.protos.DeleteSchemaVersionRequest, $root.protos.DeleteSchemaVersionResponse, request, callback);
+        }, "name", { value: "DeleteSchemaVersion" });
+
+        /**
+         * Calls DeleteSchemaVersion.
+         * @function deleteSchemaVersion
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IDeleteSchemaVersionRequest} request DeleteSchemaVersionRequest message or plain object
+         * @returns {Promise<protos.DeleteSchemaVersionResponse>} Promise
+         * @variation 2
+         */
+
+        /**
          * Callback as used by {@link protos.PlumberServer#getService}.
          * @memberof protos.PlumberServer
          * @typedef GetServiceCallback
@@ -62956,6 +62989,463 @@ $root.protos = (function() {
         };
 
         return DeleteSchemaResponse;
+    })();
+
+    protos.DeleteSchemaVersionRequest = (function() {
+
+        /**
+         * Properties of a DeleteSchemaVersionRequest.
+         * @memberof protos
+         * @interface IDeleteSchemaVersionRequest
+         * @property {protos.common.IAuth|null} [auth] DeleteSchemaVersionRequest auth
+         * @property {string|null} [id] DeleteSchemaVersionRequest id
+         * @property {number|null} [version] DeleteSchemaVersionRequest version
+         */
+
+        /**
+         * Constructs a new DeleteSchemaVersionRequest.
+         * @memberof protos
+         * @classdesc Represents a DeleteSchemaVersionRequest.
+         * @implements IDeleteSchemaVersionRequest
+         * @constructor
+         * @param {protos.IDeleteSchemaVersionRequest=} [properties] Properties to set
+         */
+        function DeleteSchemaVersionRequest(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * DeleteSchemaVersionRequest auth.
+         * @member {protos.common.IAuth|null|undefined} auth
+         * @memberof protos.DeleteSchemaVersionRequest
+         * @instance
+         */
+        DeleteSchemaVersionRequest.prototype.auth = null;
+
+        /**
+         * DeleteSchemaVersionRequest id.
+         * @member {string} id
+         * @memberof protos.DeleteSchemaVersionRequest
+         * @instance
+         */
+        DeleteSchemaVersionRequest.prototype.id = "";
+
+        /**
+         * DeleteSchemaVersionRequest version.
+         * @member {number} version
+         * @memberof protos.DeleteSchemaVersionRequest
+         * @instance
+         */
+        DeleteSchemaVersionRequest.prototype.version = 0;
+
+        /**
+         * Creates a new DeleteSchemaVersionRequest instance using the specified properties.
+         * @function create
+         * @memberof protos.DeleteSchemaVersionRequest
+         * @static
+         * @param {protos.IDeleteSchemaVersionRequest=} [properties] Properties to set
+         * @returns {protos.DeleteSchemaVersionRequest} DeleteSchemaVersionRequest instance
+         */
+        DeleteSchemaVersionRequest.create = function create(properties) {
+            return new DeleteSchemaVersionRequest(properties);
+        };
+
+        /**
+         * Encodes the specified DeleteSchemaVersionRequest message. Does not implicitly {@link protos.DeleteSchemaVersionRequest.verify|verify} messages.
+         * @function encode
+         * @memberof protos.DeleteSchemaVersionRequest
+         * @static
+         * @param {protos.IDeleteSchemaVersionRequest} message DeleteSchemaVersionRequest message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        DeleteSchemaVersionRequest.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.id != null && Object.hasOwnProperty.call(message, "id"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.id);
+            if (message.version != null && Object.hasOwnProperty.call(message, "version"))
+                writer.uint32(/* id 2, wireType 0 =*/16).int32(message.version);
+            if (message.auth != null && Object.hasOwnProperty.call(message, "auth"))
+                $root.protos.common.Auth.encode(message.auth, writer.uint32(/* id 9999, wireType 2 =*/79994).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Encodes the specified DeleteSchemaVersionRequest message, length delimited. Does not implicitly {@link protos.DeleteSchemaVersionRequest.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.DeleteSchemaVersionRequest
+         * @static
+         * @param {protos.IDeleteSchemaVersionRequest} message DeleteSchemaVersionRequest message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        DeleteSchemaVersionRequest.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a DeleteSchemaVersionRequest message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.DeleteSchemaVersionRequest
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.DeleteSchemaVersionRequest} DeleteSchemaVersionRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        DeleteSchemaVersionRequest.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.DeleteSchemaVersionRequest();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 9999:
+                    message.auth = $root.protos.common.Auth.decode(reader, reader.uint32());
+                    break;
+                case 1:
+                    message.id = reader.string();
+                    break;
+                case 2:
+                    message.version = reader.int32();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a DeleteSchemaVersionRequest message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.DeleteSchemaVersionRequest
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.DeleteSchemaVersionRequest} DeleteSchemaVersionRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        DeleteSchemaVersionRequest.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a DeleteSchemaVersionRequest message.
+         * @function verify
+         * @memberof protos.DeleteSchemaVersionRequest
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        DeleteSchemaVersionRequest.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.auth != null && message.hasOwnProperty("auth")) {
+                var error = $root.protos.common.Auth.verify(message.auth);
+                if (error)
+                    return "auth." + error;
+            }
+            if (message.id != null && message.hasOwnProperty("id"))
+                if (!$util.isString(message.id))
+                    return "id: string expected";
+            if (message.version != null && message.hasOwnProperty("version"))
+                if (!$util.isInteger(message.version))
+                    return "version: integer expected";
+            return null;
+        };
+
+        /**
+         * Creates a DeleteSchemaVersionRequest message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.DeleteSchemaVersionRequest
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.DeleteSchemaVersionRequest} DeleteSchemaVersionRequest
+         */
+        DeleteSchemaVersionRequest.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.DeleteSchemaVersionRequest)
+                return object;
+            var message = new $root.protos.DeleteSchemaVersionRequest();
+            if (object.auth != null) {
+                if (typeof object.auth !== "object")
+                    throw TypeError(".protos.DeleteSchemaVersionRequest.auth: object expected");
+                message.auth = $root.protos.common.Auth.fromObject(object.auth);
+            }
+            if (object.id != null)
+                message.id = String(object.id);
+            if (object.version != null)
+                message.version = object.version | 0;
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a DeleteSchemaVersionRequest message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.DeleteSchemaVersionRequest
+         * @static
+         * @param {protos.DeleteSchemaVersionRequest} message DeleteSchemaVersionRequest
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        DeleteSchemaVersionRequest.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.id = "";
+                object.version = 0;
+                object.auth = null;
+            }
+            if (message.id != null && message.hasOwnProperty("id"))
+                object.id = message.id;
+            if (message.version != null && message.hasOwnProperty("version"))
+                object.version = message.version;
+            if (message.auth != null && message.hasOwnProperty("auth"))
+                object.auth = $root.protos.common.Auth.toObject(message.auth, options);
+            return object;
+        };
+
+        /**
+         * Converts this DeleteSchemaVersionRequest to JSON.
+         * @function toJSON
+         * @memberof protos.DeleteSchemaVersionRequest
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        DeleteSchemaVersionRequest.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return DeleteSchemaVersionRequest;
+    })();
+
+    protos.DeleteSchemaVersionResponse = (function() {
+
+        /**
+         * Properties of a DeleteSchemaVersionResponse.
+         * @memberof protos
+         * @interface IDeleteSchemaVersionResponse
+         * @property {protos.common.IStatus|null} [status] DeleteSchemaVersionResponse status
+         * @property {protos.ISchema|null} [schema] DeleteSchemaVersionResponse schema
+         */
+
+        /**
+         * Constructs a new DeleteSchemaVersionResponse.
+         * @memberof protos
+         * @classdesc Represents a DeleteSchemaVersionResponse.
+         * @implements IDeleteSchemaVersionResponse
+         * @constructor
+         * @param {protos.IDeleteSchemaVersionResponse=} [properties] Properties to set
+         */
+        function DeleteSchemaVersionResponse(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * DeleteSchemaVersionResponse status.
+         * @member {protos.common.IStatus|null|undefined} status
+         * @memberof protos.DeleteSchemaVersionResponse
+         * @instance
+         */
+        DeleteSchemaVersionResponse.prototype.status = null;
+
+        /**
+         * DeleteSchemaVersionResponse schema.
+         * @member {protos.ISchema|null|undefined} schema
+         * @memberof protos.DeleteSchemaVersionResponse
+         * @instance
+         */
+        DeleteSchemaVersionResponse.prototype.schema = null;
+
+        /**
+         * Creates a new DeleteSchemaVersionResponse instance using the specified properties.
+         * @function create
+         * @memberof protos.DeleteSchemaVersionResponse
+         * @static
+         * @param {protos.IDeleteSchemaVersionResponse=} [properties] Properties to set
+         * @returns {protos.DeleteSchemaVersionResponse} DeleteSchemaVersionResponse instance
+         */
+        DeleteSchemaVersionResponse.create = function create(properties) {
+            return new DeleteSchemaVersionResponse(properties);
+        };
+
+        /**
+         * Encodes the specified DeleteSchemaVersionResponse message. Does not implicitly {@link protos.DeleteSchemaVersionResponse.verify|verify} messages.
+         * @function encode
+         * @memberof protos.DeleteSchemaVersionResponse
+         * @static
+         * @param {protos.IDeleteSchemaVersionResponse} message DeleteSchemaVersionResponse message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        DeleteSchemaVersionResponse.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.schema != null && Object.hasOwnProperty.call(message, "schema"))
+                $root.protos.Schema.encode(message.schema, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+            if (message.status != null && Object.hasOwnProperty.call(message, "status"))
+                $root.protos.common.Status.encode(message.status, writer.uint32(/* id 1000, wireType 2 =*/8002).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Encodes the specified DeleteSchemaVersionResponse message, length delimited. Does not implicitly {@link protos.DeleteSchemaVersionResponse.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.DeleteSchemaVersionResponse
+         * @static
+         * @param {protos.IDeleteSchemaVersionResponse} message DeleteSchemaVersionResponse message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        DeleteSchemaVersionResponse.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a DeleteSchemaVersionResponse message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.DeleteSchemaVersionResponse
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.DeleteSchemaVersionResponse} DeleteSchemaVersionResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        DeleteSchemaVersionResponse.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.DeleteSchemaVersionResponse();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1000:
+                    message.status = $root.protos.common.Status.decode(reader, reader.uint32());
+                    break;
+                case 1:
+                    message.schema = $root.protos.Schema.decode(reader, reader.uint32());
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a DeleteSchemaVersionResponse message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.DeleteSchemaVersionResponse
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.DeleteSchemaVersionResponse} DeleteSchemaVersionResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        DeleteSchemaVersionResponse.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a DeleteSchemaVersionResponse message.
+         * @function verify
+         * @memberof protos.DeleteSchemaVersionResponse
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        DeleteSchemaVersionResponse.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.status != null && message.hasOwnProperty("status")) {
+                var error = $root.protos.common.Status.verify(message.status);
+                if (error)
+                    return "status." + error;
+            }
+            if (message.schema != null && message.hasOwnProperty("schema")) {
+                var error = $root.protos.Schema.verify(message.schema);
+                if (error)
+                    return "schema." + error;
+            }
+            return null;
+        };
+
+        /**
+         * Creates a DeleteSchemaVersionResponse message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.DeleteSchemaVersionResponse
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.DeleteSchemaVersionResponse} DeleteSchemaVersionResponse
+         */
+        DeleteSchemaVersionResponse.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.DeleteSchemaVersionResponse)
+                return object;
+            var message = new $root.protos.DeleteSchemaVersionResponse();
+            if (object.status != null) {
+                if (typeof object.status !== "object")
+                    throw TypeError(".protos.DeleteSchemaVersionResponse.status: object expected");
+                message.status = $root.protos.common.Status.fromObject(object.status);
+            }
+            if (object.schema != null) {
+                if (typeof object.schema !== "object")
+                    throw TypeError(".protos.DeleteSchemaVersionResponse.schema: object expected");
+                message.schema = $root.protos.Schema.fromObject(object.schema);
+            }
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a DeleteSchemaVersionResponse message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.DeleteSchemaVersionResponse
+         * @static
+         * @param {protos.DeleteSchemaVersionResponse} message DeleteSchemaVersionResponse
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        DeleteSchemaVersionResponse.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.schema = null;
+                object.status = null;
+            }
+            if (message.schema != null && message.hasOwnProperty("schema"))
+                object.schema = $root.protos.Schema.toObject(message.schema, options);
+            if (message.status != null && message.hasOwnProperty("status"))
+                object.status = $root.protos.common.Status.toObject(message.status, options);
+            return object;
+        };
+
+        /**
+         * Converts this DeleteSchemaVersionResponse to JSON.
+         * @function toJSON
+         * @memberof protos.DeleteSchemaVersionResponse
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        DeleteSchemaVersionResponse.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return DeleteSchemaVersionResponse;
     })();
 
     protos.Service = (function() {

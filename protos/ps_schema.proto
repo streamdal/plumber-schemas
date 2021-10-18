@@ -155,3 +155,19 @@ message DeleteSchemaRequest {
 message DeleteSchemaResponse {
     common.Status status = 1000;
 }
+
+message DeleteSchemaVersionRequest {
+    // Every gRPC request must have a valid auth config
+    common.Auth auth = 9999;
+
+    string id = 1;
+
+    int32 version = 2;
+}
+
+message DeleteSchemaVersionResponse {
+    common.Status status = 1000;
+
+    // The updated version of the schema definition after deletion
+    Schema schema = 1;
+}

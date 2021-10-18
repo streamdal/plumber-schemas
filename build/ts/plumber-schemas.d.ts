@@ -373,6 +373,20 @@ export namespace protos {
         public deleteSchema(request: protos.IDeleteSchemaRequest): Promise<protos.DeleteSchemaResponse>;
 
         /**
+         * Calls DeleteSchemaVersion.
+         * @param request DeleteSchemaVersionRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and DeleteSchemaVersionResponse
+         */
+        public deleteSchemaVersion(request: protos.IDeleteSchemaVersionRequest, callback: protos.PlumberServer.DeleteSchemaVersionCallback): void;
+
+        /**
+         * Calls DeleteSchemaVersion.
+         * @param request DeleteSchemaVersionRequest message or plain object
+         * @returns Promise
+         */
+        public deleteSchemaVersion(request: protos.IDeleteSchemaVersionRequest): Promise<protos.DeleteSchemaVersionResponse>;
+
+        /**
          * Calls GetService.
          * @param request GetServiceRequest message or plain object
          * @param callback Node-style callback called with the error, if any, and GetServiceResponse
@@ -717,6 +731,13 @@ export namespace protos {
          * @param [response] DeleteSchemaResponse
          */
         type DeleteSchemaCallback = (error: (Error|null), response?: protos.DeleteSchemaResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#deleteSchemaVersion}.
+         * @param error Error, if any
+         * @param [response] DeleteSchemaVersionResponse
+         */
+        type DeleteSchemaVersionCallback = (error: (Error|null), response?: protos.DeleteSchemaVersionResponse) => void;
 
         /**
          * Callback as used by {@link protos.PlumberServer#getService}.
@@ -25637,6 +25658,204 @@ export namespace protos {
 
         /**
          * Converts this DeleteSchemaResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a DeleteSchemaVersionRequest. */
+    interface IDeleteSchemaVersionRequest {
+
+        /** DeleteSchemaVersionRequest auth */
+        auth?: (protos.common.IAuth|null);
+
+        /** DeleteSchemaVersionRequest id */
+        id?: (string|null);
+
+        /** DeleteSchemaVersionRequest version */
+        version?: (number|null);
+    }
+
+    /** Represents a DeleteSchemaVersionRequest. */
+    class DeleteSchemaVersionRequest implements IDeleteSchemaVersionRequest {
+
+        /**
+         * Constructs a new DeleteSchemaVersionRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IDeleteSchemaVersionRequest);
+
+        /** DeleteSchemaVersionRequest auth. */
+        public auth?: (protos.common.IAuth|null);
+
+        /** DeleteSchemaVersionRequest id. */
+        public id: string;
+
+        /** DeleteSchemaVersionRequest version. */
+        public version: number;
+
+        /**
+         * Creates a new DeleteSchemaVersionRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns DeleteSchemaVersionRequest instance
+         */
+        public static create(properties?: protos.IDeleteSchemaVersionRequest): protos.DeleteSchemaVersionRequest;
+
+        /**
+         * Encodes the specified DeleteSchemaVersionRequest message. Does not implicitly {@link protos.DeleteSchemaVersionRequest.verify|verify} messages.
+         * @param message DeleteSchemaVersionRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IDeleteSchemaVersionRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified DeleteSchemaVersionRequest message, length delimited. Does not implicitly {@link protos.DeleteSchemaVersionRequest.verify|verify} messages.
+         * @param message DeleteSchemaVersionRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IDeleteSchemaVersionRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a DeleteSchemaVersionRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns DeleteSchemaVersionRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.DeleteSchemaVersionRequest;
+
+        /**
+         * Decodes a DeleteSchemaVersionRequest message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns DeleteSchemaVersionRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.DeleteSchemaVersionRequest;
+
+        /**
+         * Verifies a DeleteSchemaVersionRequest message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a DeleteSchemaVersionRequest message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns DeleteSchemaVersionRequest
+         */
+        public static fromObject(object: { [k: string]: any }): protos.DeleteSchemaVersionRequest;
+
+        /**
+         * Creates a plain object from a DeleteSchemaVersionRequest message. Also converts values to other types if specified.
+         * @param message DeleteSchemaVersionRequest
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.DeleteSchemaVersionRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this DeleteSchemaVersionRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a DeleteSchemaVersionResponse. */
+    interface IDeleteSchemaVersionResponse {
+
+        /** DeleteSchemaVersionResponse status */
+        status?: (protos.common.IStatus|null);
+
+        /** DeleteSchemaVersionResponse schema */
+        schema?: (protos.ISchema|null);
+    }
+
+    /** Represents a DeleteSchemaVersionResponse. */
+    class DeleteSchemaVersionResponse implements IDeleteSchemaVersionResponse {
+
+        /**
+         * Constructs a new DeleteSchemaVersionResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IDeleteSchemaVersionResponse);
+
+        /** DeleteSchemaVersionResponse status. */
+        public status?: (protos.common.IStatus|null);
+
+        /** DeleteSchemaVersionResponse schema. */
+        public schema?: (protos.ISchema|null);
+
+        /**
+         * Creates a new DeleteSchemaVersionResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns DeleteSchemaVersionResponse instance
+         */
+        public static create(properties?: protos.IDeleteSchemaVersionResponse): protos.DeleteSchemaVersionResponse;
+
+        /**
+         * Encodes the specified DeleteSchemaVersionResponse message. Does not implicitly {@link protos.DeleteSchemaVersionResponse.verify|verify} messages.
+         * @param message DeleteSchemaVersionResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IDeleteSchemaVersionResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified DeleteSchemaVersionResponse message, length delimited. Does not implicitly {@link protos.DeleteSchemaVersionResponse.verify|verify} messages.
+         * @param message DeleteSchemaVersionResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IDeleteSchemaVersionResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a DeleteSchemaVersionResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns DeleteSchemaVersionResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.DeleteSchemaVersionResponse;
+
+        /**
+         * Decodes a DeleteSchemaVersionResponse message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns DeleteSchemaVersionResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.DeleteSchemaVersionResponse;
+
+        /**
+         * Verifies a DeleteSchemaVersionResponse message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a DeleteSchemaVersionResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns DeleteSchemaVersionResponse
+         */
+        public static fromObject(object: { [k: string]: any }): protos.DeleteSchemaVersionResponse;
+
+        /**
+         * Creates a plain object from a DeleteSchemaVersionResponse message. Also converts values to other types if specified.
+         * @param message DeleteSchemaVersionResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.DeleteSchemaVersionResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this DeleteSchemaVersionResponse to JSON.
          * @returns JSON object
          */
         public toJSON(): { [k: string]: any };

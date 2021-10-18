@@ -87,6 +87,8 @@ service PlumberServer {
     // Delete a schema
     rpc DeleteSchema(DeleteSchemaRequest) returns (DeleteSchemaResponse);
 
+    rpc DeleteSchemaVersion(DeleteSchemaVersionRequest) returns (DeleteSchemaVersionResponse);
+
     rpc GetService(GetServiceRequest) returns (GetServiceResponse);
 
     rpc GetAllServices(GetAllServicesRequest) returns (GetAllServicesResponse);
