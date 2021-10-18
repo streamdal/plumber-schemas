@@ -17,14 +17,22 @@ message Schema {
 
     SchemaType type = 3;
 
-    // @mark what's this used for?
-    map<string,string> files = 4;
+    string notes = 4;
 
     string owner_id = 5;
 
-    string notes = 6;
+    repeated SchemaVersion versions = 6;
+}
 
-    SchemaStatus status = 7;
+message SchemaVersion {
+
+    int32 version = 1;
+
+    SchemaStatus status = 2;
+
+    // Contains a map of file names and file contents that contain schema definitions.
+    // This is mainly used for protobuf definition viewing
+    map<string,string> files = 3;
 
     // The 'type' will determine which one of these _should_ be filled out
     oneof settings {

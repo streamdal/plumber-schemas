@@ -59219,13 +59219,9 @@ $root.protos = (function() {
          * @property {string|null} [id] Schema id
          * @property {string|null} [name] Schema name
          * @property {protos.SchemaType|null} [type] Schema type
-         * @property {Object.<string,string>|null} [files] Schema files
-         * @property {string|null} [ownerId] Schema ownerId
          * @property {string|null} [notes] Schema notes
-         * @property {protos.SchemaStatus|null} [status] Schema status
-         * @property {protos.encoding.IProtobufSettings|null} [protobufSettings] Schema protobufSettings
-         * @property {protos.encoding.IAvroSettings|null} [avroSettings] Schema avroSettings
-         * @property {protos.encoding.IJSONSchemaSettings|null} [jsonSchemaSettings] Schema jsonSchemaSettings
+         * @property {string|null} [ownerId] Schema ownerId
+         * @property {Array.<protos.ISchemaVersion>|null} [versions] Schema versions
          */
 
         /**
@@ -59237,7 +59233,7 @@ $root.protos = (function() {
          * @param {protos.ISchema=} [properties] Properties to set
          */
         function Schema(properties) {
-            this.files = {};
+            this.versions = [];
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
@@ -59269,12 +59265,12 @@ $root.protos = (function() {
         Schema.prototype.type = 0;
 
         /**
-         * Schema files.
-         * @member {Object.<string,string>} files
+         * Schema notes.
+         * @member {string} notes
          * @memberof protos.Schema
          * @instance
          */
-        Schema.prototype.files = $util.emptyObject;
+        Schema.prototype.notes = "";
 
         /**
          * Schema ownerId.
@@ -59285,58 +59281,12 @@ $root.protos = (function() {
         Schema.prototype.ownerId = "";
 
         /**
-         * Schema notes.
-         * @member {string} notes
+         * Schema versions.
+         * @member {Array.<protos.ISchemaVersion>} versions
          * @memberof protos.Schema
          * @instance
          */
-        Schema.prototype.notes = "";
-
-        /**
-         * Schema status.
-         * @member {protos.SchemaStatus} status
-         * @memberof protos.Schema
-         * @instance
-         */
-        Schema.prototype.status = 0;
-
-        /**
-         * Schema protobufSettings.
-         * @member {protos.encoding.IProtobufSettings|null|undefined} protobufSettings
-         * @memberof protos.Schema
-         * @instance
-         */
-        Schema.prototype.protobufSettings = null;
-
-        /**
-         * Schema avroSettings.
-         * @member {protos.encoding.IAvroSettings|null|undefined} avroSettings
-         * @memberof protos.Schema
-         * @instance
-         */
-        Schema.prototype.avroSettings = null;
-
-        /**
-         * Schema jsonSchemaSettings.
-         * @member {protos.encoding.IJSONSchemaSettings|null|undefined} jsonSchemaSettings
-         * @memberof protos.Schema
-         * @instance
-         */
-        Schema.prototype.jsonSchemaSettings = null;
-
-        // OneOf field names bound to virtual getters and setters
-        var $oneOfFields;
-
-        /**
-         * Schema settings.
-         * @member {"protobufSettings"|"avroSettings"|"jsonSchemaSettings"|undefined} settings
-         * @memberof protos.Schema
-         * @instance
-         */
-        Object.defineProperty(Schema.prototype, "settings", {
-            get: $util.oneOfGetter($oneOfFields = ["protobufSettings", "avroSettings", "jsonSchemaSettings"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
+        Schema.prototype.versions = $util.emptyArray;
 
         /**
          * Creates a new Schema instance using the specified properties.
@@ -59368,21 +59318,13 @@ $root.protos = (function() {
                 writer.uint32(/* id 2, wireType 2 =*/18).string(message.name);
             if (message.type != null && Object.hasOwnProperty.call(message, "type"))
                 writer.uint32(/* id 3, wireType 0 =*/24).int32(message.type);
-            if (message.files != null && Object.hasOwnProperty.call(message, "files"))
-                for (var keys = Object.keys(message.files), i = 0; i < keys.length; ++i)
-                    writer.uint32(/* id 4, wireType 2 =*/34).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]).uint32(/* id 2, wireType 2 =*/18).string(message.files[keys[i]]).ldelim();
+            if (message.notes != null && Object.hasOwnProperty.call(message, "notes"))
+                writer.uint32(/* id 4, wireType 2 =*/34).string(message.notes);
             if (message.ownerId != null && Object.hasOwnProperty.call(message, "ownerId"))
                 writer.uint32(/* id 5, wireType 2 =*/42).string(message.ownerId);
-            if (message.notes != null && Object.hasOwnProperty.call(message, "notes"))
-                writer.uint32(/* id 6, wireType 2 =*/50).string(message.notes);
-            if (message.status != null && Object.hasOwnProperty.call(message, "status"))
-                writer.uint32(/* id 7, wireType 0 =*/56).int32(message.status);
-            if (message.protobufSettings != null && Object.hasOwnProperty.call(message, "protobufSettings"))
-                $root.protos.encoding.ProtobufSettings.encode(message.protobufSettings, writer.uint32(/* id 100, wireType 2 =*/802).fork()).ldelim();
-            if (message.avroSettings != null && Object.hasOwnProperty.call(message, "avroSettings"))
-                $root.protos.encoding.AvroSettings.encode(message.avroSettings, writer.uint32(/* id 101, wireType 2 =*/810).fork()).ldelim();
-            if (message.jsonSchemaSettings != null && Object.hasOwnProperty.call(message, "jsonSchemaSettings"))
-                $root.protos.encoding.JSONSchemaSettings.encode(message.jsonSchemaSettings, writer.uint32(/* id 102, wireType 2 =*/818).fork()).ldelim();
+            if (message.versions != null && message.versions.length)
+                for (var i = 0; i < message.versions.length; ++i)
+                    $root.protos.SchemaVersion.encode(message.versions[i], writer.uint32(/* id 6, wireType 2 =*/50).fork()).ldelim();
             return writer;
         };
 
@@ -59413,7 +59355,7 @@ $root.protos = (function() {
         Schema.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.Schema(), key, value;
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.Schema();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -59427,44 +59369,15 @@ $root.protos = (function() {
                     message.type = reader.int32();
                     break;
                 case 4:
-                    if (message.files === $util.emptyObject)
-                        message.files = {};
-                    var end2 = reader.uint32() + reader.pos;
-                    key = "";
-                    value = "";
-                    while (reader.pos < end2) {
-                        var tag2 = reader.uint32();
-                        switch (tag2 >>> 3) {
-                        case 1:
-                            key = reader.string();
-                            break;
-                        case 2:
-                            value = reader.string();
-                            break;
-                        default:
-                            reader.skipType(tag2 & 7);
-                            break;
-                        }
-                    }
-                    message.files[key] = value;
+                    message.notes = reader.string();
                     break;
                 case 5:
                     message.ownerId = reader.string();
                     break;
                 case 6:
-                    message.notes = reader.string();
-                    break;
-                case 7:
-                    message.status = reader.int32();
-                    break;
-                case 100:
-                    message.protobufSettings = $root.protos.encoding.ProtobufSettings.decode(reader, reader.uint32());
-                    break;
-                case 101:
-                    message.avroSettings = $root.protos.encoding.AvroSettings.decode(reader, reader.uint32());
-                    break;
-                case 102:
-                    message.jsonSchemaSettings = $root.protos.encoding.JSONSchemaSettings.decode(reader, reader.uint32());
+                    if (!(message.versions && message.versions.length))
+                        message.versions = [];
+                    message.versions.push($root.protos.SchemaVersion.decode(reader, reader.uint32()));
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -59501,7 +59414,6 @@ $root.protos = (function() {
         Schema.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            var properties = {};
             if (message.id != null && message.hasOwnProperty("id"))
                 if (!$util.isString(message.id))
                     return "id: string expected";
@@ -59518,55 +59430,19 @@ $root.protos = (function() {
                 case 3:
                     break;
                 }
-            if (message.files != null && message.hasOwnProperty("files")) {
-                if (!$util.isObject(message.files))
-                    return "files: object expected";
-                var key = Object.keys(message.files);
-                for (var i = 0; i < key.length; ++i)
-                    if (!$util.isString(message.files[key[i]]))
-                        return "files: string{k:string} expected";
-            }
-            if (message.ownerId != null && message.hasOwnProperty("ownerId"))
-                if (!$util.isString(message.ownerId))
-                    return "ownerId: string expected";
             if (message.notes != null && message.hasOwnProperty("notes"))
                 if (!$util.isString(message.notes))
                     return "notes: string expected";
-            if (message.status != null && message.hasOwnProperty("status"))
-                switch (message.status) {
-                default:
-                    return "status: enum value expected";
-                case 0:
-                case 1:
-                case 2:
-                    break;
-                }
-            if (message.protobufSettings != null && message.hasOwnProperty("protobufSettings")) {
-                properties.settings = 1;
-                {
-                    var error = $root.protos.encoding.ProtobufSettings.verify(message.protobufSettings);
+            if (message.ownerId != null && message.hasOwnProperty("ownerId"))
+                if (!$util.isString(message.ownerId))
+                    return "ownerId: string expected";
+            if (message.versions != null && message.hasOwnProperty("versions")) {
+                if (!Array.isArray(message.versions))
+                    return "versions: array expected";
+                for (var i = 0; i < message.versions.length; ++i) {
+                    var error = $root.protos.SchemaVersion.verify(message.versions[i]);
                     if (error)
-                        return "protobufSettings." + error;
-                }
-            }
-            if (message.avroSettings != null && message.hasOwnProperty("avroSettings")) {
-                if (properties.settings === 1)
-                    return "settings: multiple values";
-                properties.settings = 1;
-                {
-                    var error = $root.protos.encoding.AvroSettings.verify(message.avroSettings);
-                    if (error)
-                        return "avroSettings." + error;
-                }
-            }
-            if (message.jsonSchemaSettings != null && message.hasOwnProperty("jsonSchemaSettings")) {
-                if (properties.settings === 1)
-                    return "settings: multiple values";
-                properties.settings = 1;
-                {
-                    var error = $root.protos.encoding.JSONSchemaSettings.verify(message.jsonSchemaSettings);
-                    if (error)
-                        return "jsonSchemaSettings." + error;
+                        return "versions." + error;
                 }
             }
             return null;
@@ -59606,45 +59482,19 @@ $root.protos = (function() {
                 message.type = 3;
                 break;
             }
-            if (object.files) {
-                if (typeof object.files !== "object")
-                    throw TypeError(".protos.Schema.files: object expected");
-                message.files = {};
-                for (var keys = Object.keys(object.files), i = 0; i < keys.length; ++i)
-                    message.files[keys[i]] = String(object.files[keys[i]]);
-            }
-            if (object.ownerId != null)
-                message.ownerId = String(object.ownerId);
             if (object.notes != null)
                 message.notes = String(object.notes);
-            switch (object.status) {
-            case "SCHEMA_STATUS_UNSET":
-            case 0:
-                message.status = 0;
-                break;
-            case "SCHEMA_STATUS_ACCEPTED":
-            case 1:
-                message.status = 1;
-                break;
-            case "SCHEMA_STATUS_PROPOSED":
-            case 2:
-                message.status = 2;
-                break;
-            }
-            if (object.protobufSettings != null) {
-                if (typeof object.protobufSettings !== "object")
-                    throw TypeError(".protos.Schema.protobufSettings: object expected");
-                message.protobufSettings = $root.protos.encoding.ProtobufSettings.fromObject(object.protobufSettings);
-            }
-            if (object.avroSettings != null) {
-                if (typeof object.avroSettings !== "object")
-                    throw TypeError(".protos.Schema.avroSettings: object expected");
-                message.avroSettings = $root.protos.encoding.AvroSettings.fromObject(object.avroSettings);
-            }
-            if (object.jsonSchemaSettings != null) {
-                if (typeof object.jsonSchemaSettings !== "object")
-                    throw TypeError(".protos.Schema.jsonSchemaSettings: object expected");
-                message.jsonSchemaSettings = $root.protos.encoding.JSONSchemaSettings.fromObject(object.jsonSchemaSettings);
+            if (object.ownerId != null)
+                message.ownerId = String(object.ownerId);
+            if (object.versions) {
+                if (!Array.isArray(object.versions))
+                    throw TypeError(".protos.Schema.versions: array expected");
+                message.versions = [];
+                for (var i = 0; i < object.versions.length; ++i) {
+                    if (typeof object.versions[i] !== "object")
+                        throw TypeError(".protos.Schema.versions: object expected");
+                    message.versions[i] = $root.protos.SchemaVersion.fromObject(object.versions[i]);
+                }
             }
             return message;
         };
@@ -59662,15 +59512,14 @@ $root.protos = (function() {
             if (!options)
                 options = {};
             var object = {};
-            if (options.objects || options.defaults)
-                object.files = {};
+            if (options.arrays || options.defaults)
+                object.versions = [];
             if (options.defaults) {
                 object.id = "";
                 object.name = "";
                 object.type = options.enums === String ? "SCHEMA_TYPE_UNSET" : 0;
-                object.ownerId = "";
                 object.notes = "";
-                object.status = options.enums === String ? "SCHEMA_STATUS_UNSET" : 0;
+                object.ownerId = "";
             }
             if (message.id != null && message.hasOwnProperty("id"))
                 object.id = message.id;
@@ -59678,18 +59527,401 @@ $root.protos = (function() {
                 object.name = message.name;
             if (message.type != null && message.hasOwnProperty("type"))
                 object.type = options.enums === String ? $root.protos.SchemaType[message.type] : message.type;
+            if (message.notes != null && message.hasOwnProperty("notes"))
+                object.notes = message.notes;
+            if (message.ownerId != null && message.hasOwnProperty("ownerId"))
+                object.ownerId = message.ownerId;
+            if (message.versions && message.versions.length) {
+                object.versions = [];
+                for (var j = 0; j < message.versions.length; ++j)
+                    object.versions[j] = $root.protos.SchemaVersion.toObject(message.versions[j], options);
+            }
+            return object;
+        };
+
+        /**
+         * Converts this Schema to JSON.
+         * @function toJSON
+         * @memberof protos.Schema
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        Schema.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return Schema;
+    })();
+
+    protos.SchemaVersion = (function() {
+
+        /**
+         * Properties of a SchemaVersion.
+         * @memberof protos
+         * @interface ISchemaVersion
+         * @property {number|null} [version] SchemaVersion version
+         * @property {protos.SchemaStatus|null} [status] SchemaVersion status
+         * @property {Object.<string,string>|null} [files] SchemaVersion files
+         * @property {protos.encoding.IProtobufSettings|null} [protobufSettings] SchemaVersion protobufSettings
+         * @property {protos.encoding.IAvroSettings|null} [avroSettings] SchemaVersion avroSettings
+         * @property {protos.encoding.IJSONSchemaSettings|null} [jsonSchemaSettings] SchemaVersion jsonSchemaSettings
+         */
+
+        /**
+         * Constructs a new SchemaVersion.
+         * @memberof protos
+         * @classdesc Represents a SchemaVersion.
+         * @implements ISchemaVersion
+         * @constructor
+         * @param {protos.ISchemaVersion=} [properties] Properties to set
+         */
+        function SchemaVersion(properties) {
+            this.files = {};
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * SchemaVersion version.
+         * @member {number} version
+         * @memberof protos.SchemaVersion
+         * @instance
+         */
+        SchemaVersion.prototype.version = 0;
+
+        /**
+         * SchemaVersion status.
+         * @member {protos.SchemaStatus} status
+         * @memberof protos.SchemaVersion
+         * @instance
+         */
+        SchemaVersion.prototype.status = 0;
+
+        /**
+         * SchemaVersion files.
+         * @member {Object.<string,string>} files
+         * @memberof protos.SchemaVersion
+         * @instance
+         */
+        SchemaVersion.prototype.files = $util.emptyObject;
+
+        /**
+         * SchemaVersion protobufSettings.
+         * @member {protos.encoding.IProtobufSettings|null|undefined} protobufSettings
+         * @memberof protos.SchemaVersion
+         * @instance
+         */
+        SchemaVersion.prototype.protobufSettings = null;
+
+        /**
+         * SchemaVersion avroSettings.
+         * @member {protos.encoding.IAvroSettings|null|undefined} avroSettings
+         * @memberof protos.SchemaVersion
+         * @instance
+         */
+        SchemaVersion.prototype.avroSettings = null;
+
+        /**
+         * SchemaVersion jsonSchemaSettings.
+         * @member {protos.encoding.IJSONSchemaSettings|null|undefined} jsonSchemaSettings
+         * @memberof protos.SchemaVersion
+         * @instance
+         */
+        SchemaVersion.prototype.jsonSchemaSettings = null;
+
+        // OneOf field names bound to virtual getters and setters
+        var $oneOfFields;
+
+        /**
+         * SchemaVersion settings.
+         * @member {"protobufSettings"|"avroSettings"|"jsonSchemaSettings"|undefined} settings
+         * @memberof protos.SchemaVersion
+         * @instance
+         */
+        Object.defineProperty(SchemaVersion.prototype, "settings", {
+            get: $util.oneOfGetter($oneOfFields = ["protobufSettings", "avroSettings", "jsonSchemaSettings"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * Creates a new SchemaVersion instance using the specified properties.
+         * @function create
+         * @memberof protos.SchemaVersion
+         * @static
+         * @param {protos.ISchemaVersion=} [properties] Properties to set
+         * @returns {protos.SchemaVersion} SchemaVersion instance
+         */
+        SchemaVersion.create = function create(properties) {
+            return new SchemaVersion(properties);
+        };
+
+        /**
+         * Encodes the specified SchemaVersion message. Does not implicitly {@link protos.SchemaVersion.verify|verify} messages.
+         * @function encode
+         * @memberof protos.SchemaVersion
+         * @static
+         * @param {protos.ISchemaVersion} message SchemaVersion message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        SchemaVersion.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.version != null && Object.hasOwnProperty.call(message, "version"))
+                writer.uint32(/* id 1, wireType 0 =*/8).int32(message.version);
+            if (message.status != null && Object.hasOwnProperty.call(message, "status"))
+                writer.uint32(/* id 2, wireType 0 =*/16).int32(message.status);
+            if (message.files != null && Object.hasOwnProperty.call(message, "files"))
+                for (var keys = Object.keys(message.files), i = 0; i < keys.length; ++i)
+                    writer.uint32(/* id 3, wireType 2 =*/26).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]).uint32(/* id 2, wireType 2 =*/18).string(message.files[keys[i]]).ldelim();
+            if (message.protobufSettings != null && Object.hasOwnProperty.call(message, "protobufSettings"))
+                $root.protos.encoding.ProtobufSettings.encode(message.protobufSettings, writer.uint32(/* id 100, wireType 2 =*/802).fork()).ldelim();
+            if (message.avroSettings != null && Object.hasOwnProperty.call(message, "avroSettings"))
+                $root.protos.encoding.AvroSettings.encode(message.avroSettings, writer.uint32(/* id 101, wireType 2 =*/810).fork()).ldelim();
+            if (message.jsonSchemaSettings != null && Object.hasOwnProperty.call(message, "jsonSchemaSettings"))
+                $root.protos.encoding.JSONSchemaSettings.encode(message.jsonSchemaSettings, writer.uint32(/* id 102, wireType 2 =*/818).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Encodes the specified SchemaVersion message, length delimited. Does not implicitly {@link protos.SchemaVersion.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.SchemaVersion
+         * @static
+         * @param {protos.ISchemaVersion} message SchemaVersion message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        SchemaVersion.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a SchemaVersion message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.SchemaVersion
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.SchemaVersion} SchemaVersion
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        SchemaVersion.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.SchemaVersion(), key, value;
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.version = reader.int32();
+                    break;
+                case 2:
+                    message.status = reader.int32();
+                    break;
+                case 3:
+                    if (message.files === $util.emptyObject)
+                        message.files = {};
+                    var end2 = reader.uint32() + reader.pos;
+                    key = "";
+                    value = "";
+                    while (reader.pos < end2) {
+                        var tag2 = reader.uint32();
+                        switch (tag2 >>> 3) {
+                        case 1:
+                            key = reader.string();
+                            break;
+                        case 2:
+                            value = reader.string();
+                            break;
+                        default:
+                            reader.skipType(tag2 & 7);
+                            break;
+                        }
+                    }
+                    message.files[key] = value;
+                    break;
+                case 100:
+                    message.protobufSettings = $root.protos.encoding.ProtobufSettings.decode(reader, reader.uint32());
+                    break;
+                case 101:
+                    message.avroSettings = $root.protos.encoding.AvroSettings.decode(reader, reader.uint32());
+                    break;
+                case 102:
+                    message.jsonSchemaSettings = $root.protos.encoding.JSONSchemaSettings.decode(reader, reader.uint32());
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a SchemaVersion message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.SchemaVersion
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.SchemaVersion} SchemaVersion
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        SchemaVersion.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a SchemaVersion message.
+         * @function verify
+         * @memberof protos.SchemaVersion
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        SchemaVersion.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            var properties = {};
+            if (message.version != null && message.hasOwnProperty("version"))
+                if (!$util.isInteger(message.version))
+                    return "version: integer expected";
+            if (message.status != null && message.hasOwnProperty("status"))
+                switch (message.status) {
+                default:
+                    return "status: enum value expected";
+                case 0:
+                case 1:
+                case 2:
+                    break;
+                }
+            if (message.files != null && message.hasOwnProperty("files")) {
+                if (!$util.isObject(message.files))
+                    return "files: object expected";
+                var key = Object.keys(message.files);
+                for (var i = 0; i < key.length; ++i)
+                    if (!$util.isString(message.files[key[i]]))
+                        return "files: string{k:string} expected";
+            }
+            if (message.protobufSettings != null && message.hasOwnProperty("protobufSettings")) {
+                properties.settings = 1;
+                {
+                    var error = $root.protos.encoding.ProtobufSettings.verify(message.protobufSettings);
+                    if (error)
+                        return "protobufSettings." + error;
+                }
+            }
+            if (message.avroSettings != null && message.hasOwnProperty("avroSettings")) {
+                if (properties.settings === 1)
+                    return "settings: multiple values";
+                properties.settings = 1;
+                {
+                    var error = $root.protos.encoding.AvroSettings.verify(message.avroSettings);
+                    if (error)
+                        return "avroSettings." + error;
+                }
+            }
+            if (message.jsonSchemaSettings != null && message.hasOwnProperty("jsonSchemaSettings")) {
+                if (properties.settings === 1)
+                    return "settings: multiple values";
+                properties.settings = 1;
+                {
+                    var error = $root.protos.encoding.JSONSchemaSettings.verify(message.jsonSchemaSettings);
+                    if (error)
+                        return "jsonSchemaSettings." + error;
+                }
+            }
+            return null;
+        };
+
+        /**
+         * Creates a SchemaVersion message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.SchemaVersion
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.SchemaVersion} SchemaVersion
+         */
+        SchemaVersion.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.SchemaVersion)
+                return object;
+            var message = new $root.protos.SchemaVersion();
+            if (object.version != null)
+                message.version = object.version | 0;
+            switch (object.status) {
+            case "SCHEMA_STATUS_UNSET":
+            case 0:
+                message.status = 0;
+                break;
+            case "SCHEMA_STATUS_ACCEPTED":
+            case 1:
+                message.status = 1;
+                break;
+            case "SCHEMA_STATUS_PROPOSED":
+            case 2:
+                message.status = 2;
+                break;
+            }
+            if (object.files) {
+                if (typeof object.files !== "object")
+                    throw TypeError(".protos.SchemaVersion.files: object expected");
+                message.files = {};
+                for (var keys = Object.keys(object.files), i = 0; i < keys.length; ++i)
+                    message.files[keys[i]] = String(object.files[keys[i]]);
+            }
+            if (object.protobufSettings != null) {
+                if (typeof object.protobufSettings !== "object")
+                    throw TypeError(".protos.SchemaVersion.protobufSettings: object expected");
+                message.protobufSettings = $root.protos.encoding.ProtobufSettings.fromObject(object.protobufSettings);
+            }
+            if (object.avroSettings != null) {
+                if (typeof object.avroSettings !== "object")
+                    throw TypeError(".protos.SchemaVersion.avroSettings: object expected");
+                message.avroSettings = $root.protos.encoding.AvroSettings.fromObject(object.avroSettings);
+            }
+            if (object.jsonSchemaSettings != null) {
+                if (typeof object.jsonSchemaSettings !== "object")
+                    throw TypeError(".protos.SchemaVersion.jsonSchemaSettings: object expected");
+                message.jsonSchemaSettings = $root.protos.encoding.JSONSchemaSettings.fromObject(object.jsonSchemaSettings);
+            }
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a SchemaVersion message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.SchemaVersion
+         * @static
+         * @param {protos.SchemaVersion} message SchemaVersion
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        SchemaVersion.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.objects || options.defaults)
+                object.files = {};
+            if (options.defaults) {
+                object.version = 0;
+                object.status = options.enums === String ? "SCHEMA_STATUS_UNSET" : 0;
+            }
+            if (message.version != null && message.hasOwnProperty("version"))
+                object.version = message.version;
+            if (message.status != null && message.hasOwnProperty("status"))
+                object.status = options.enums === String ? $root.protos.SchemaStatus[message.status] : message.status;
             var keys2;
             if (message.files && (keys2 = Object.keys(message.files)).length) {
                 object.files = {};
                 for (var j = 0; j < keys2.length; ++j)
                     object.files[keys2[j]] = message.files[keys2[j]];
             }
-            if (message.ownerId != null && message.hasOwnProperty("ownerId"))
-                object.ownerId = message.ownerId;
-            if (message.notes != null && message.hasOwnProperty("notes"))
-                object.notes = message.notes;
-            if (message.status != null && message.hasOwnProperty("status"))
-                object.status = options.enums === String ? $root.protos.SchemaStatus[message.status] : message.status;
             if (message.protobufSettings != null && message.hasOwnProperty("protobufSettings")) {
                 object.protobufSettings = $root.protos.encoding.ProtobufSettings.toObject(message.protobufSettings, options);
                 if (options.oneofs)
@@ -59709,17 +59941,17 @@ $root.protos = (function() {
         };
 
         /**
-         * Converts this Schema to JSON.
+         * Converts this SchemaVersion to JSON.
          * @function toJSON
-         * @memberof protos.Schema
+         * @memberof protos.SchemaVersion
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        Schema.prototype.toJSON = function toJSON() {
+        SchemaVersion.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
         };
 
-        return Schema;
+        return SchemaVersion;
     })();
 
     /**

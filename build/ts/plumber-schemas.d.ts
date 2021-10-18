@@ -24178,26 +24178,14 @@ export namespace protos {
         /** Schema type */
         type?: (protos.SchemaType|null);
 
-        /** Schema files */
-        files?: ({ [k: string]: string }|null);
+        /** Schema notes */
+        notes?: (string|null);
 
         /** Schema ownerId */
         ownerId?: (string|null);
 
-        /** Schema notes */
-        notes?: (string|null);
-
-        /** Schema status */
-        status?: (protos.SchemaStatus|null);
-
-        /** Schema protobufSettings */
-        protobufSettings?: (protos.encoding.IProtobufSettings|null);
-
-        /** Schema avroSettings */
-        avroSettings?: (protos.encoding.IAvroSettings|null);
-
-        /** Schema jsonSchemaSettings */
-        jsonSchemaSettings?: (protos.encoding.IJSONSchemaSettings|null);
+        /** Schema versions */
+        versions?: (protos.ISchemaVersion[]|null);
     }
 
     /** Represents a Schema. */
@@ -24218,29 +24206,14 @@ export namespace protos {
         /** Schema type. */
         public type: protos.SchemaType;
 
-        /** Schema files. */
-        public files: { [k: string]: string };
+        /** Schema notes. */
+        public notes: string;
 
         /** Schema ownerId. */
         public ownerId: string;
 
-        /** Schema notes. */
-        public notes: string;
-
-        /** Schema status. */
-        public status: protos.SchemaStatus;
-
-        /** Schema protobufSettings. */
-        public protobufSettings?: (protos.encoding.IProtobufSettings|null);
-
-        /** Schema avroSettings. */
-        public avroSettings?: (protos.encoding.IAvroSettings|null);
-
-        /** Schema jsonSchemaSettings. */
-        public jsonSchemaSettings?: (protos.encoding.IJSONSchemaSettings|null);
-
-        /** Schema settings. */
-        public settings?: ("protobufSettings"|"avroSettings"|"jsonSchemaSettings");
+        /** Schema versions. */
+        public versions: protos.ISchemaVersion[];
 
         /**
          * Creates a new Schema instance using the specified properties.
@@ -24308,6 +24281,129 @@ export namespace protos {
 
         /**
          * Converts this Schema to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a SchemaVersion. */
+    interface ISchemaVersion {
+
+        /** SchemaVersion version */
+        version?: (number|null);
+
+        /** SchemaVersion status */
+        status?: (protos.SchemaStatus|null);
+
+        /** SchemaVersion files */
+        files?: ({ [k: string]: string }|null);
+
+        /** SchemaVersion protobufSettings */
+        protobufSettings?: (protos.encoding.IProtobufSettings|null);
+
+        /** SchemaVersion avroSettings */
+        avroSettings?: (protos.encoding.IAvroSettings|null);
+
+        /** SchemaVersion jsonSchemaSettings */
+        jsonSchemaSettings?: (protos.encoding.IJSONSchemaSettings|null);
+    }
+
+    /** Represents a SchemaVersion. */
+    class SchemaVersion implements ISchemaVersion {
+
+        /**
+         * Constructs a new SchemaVersion.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.ISchemaVersion);
+
+        /** SchemaVersion version. */
+        public version: number;
+
+        /** SchemaVersion status. */
+        public status: protos.SchemaStatus;
+
+        /** SchemaVersion files. */
+        public files: { [k: string]: string };
+
+        /** SchemaVersion protobufSettings. */
+        public protobufSettings?: (protos.encoding.IProtobufSettings|null);
+
+        /** SchemaVersion avroSettings. */
+        public avroSettings?: (protos.encoding.IAvroSettings|null);
+
+        /** SchemaVersion jsonSchemaSettings. */
+        public jsonSchemaSettings?: (protos.encoding.IJSONSchemaSettings|null);
+
+        /** SchemaVersion settings. */
+        public settings?: ("protobufSettings"|"avroSettings"|"jsonSchemaSettings");
+
+        /**
+         * Creates a new SchemaVersion instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns SchemaVersion instance
+         */
+        public static create(properties?: protos.ISchemaVersion): protos.SchemaVersion;
+
+        /**
+         * Encodes the specified SchemaVersion message. Does not implicitly {@link protos.SchemaVersion.verify|verify} messages.
+         * @param message SchemaVersion message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.ISchemaVersion, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified SchemaVersion message, length delimited. Does not implicitly {@link protos.SchemaVersion.verify|verify} messages.
+         * @param message SchemaVersion message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.ISchemaVersion, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a SchemaVersion message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns SchemaVersion
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.SchemaVersion;
+
+        /**
+         * Decodes a SchemaVersion message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns SchemaVersion
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.SchemaVersion;
+
+        /**
+         * Verifies a SchemaVersion message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a SchemaVersion message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns SchemaVersion
+         */
+        public static fromObject(object: { [k: string]: any }): protos.SchemaVersion;
+
+        /**
+         * Creates a plain object from a SchemaVersion message. Also converts values to other types if specified.
+         * @param message SchemaVersion
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.SchemaVersion, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this SchemaVersion to JSON.
          * @returns JSON object
          */
         public toJSON(): { [k: string]: any };
