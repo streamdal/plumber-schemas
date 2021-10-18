@@ -78,6 +78,9 @@ service PlumberServer {
     // Edit an existing schema
     rpc UpdateSchema(UpdateSchemaRequest) returns (UpdateSchemaResponse);
 
+    // Approve a pending inferred schema
+    rpc ApproveSchema(ApproveSchemaVersionRequest) returns (ApproveSchemaVersionResponse);
+
     // Import a schema from github
     rpc ImportGithub(ImportGithubRequest) returns (ImportGithubResponse);
 

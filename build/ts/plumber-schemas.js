@@ -777,6 +777,39 @@ $root.protos = (function() {
          */
 
         /**
+         * Callback as used by {@link protos.PlumberServer#approveSchema}.
+         * @memberof protos.PlumberServer
+         * @typedef ApproveSchemaCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.ApproveSchemaVersionResponse} [response] ApproveSchemaVersionResponse
+         */
+
+        /**
+         * Calls ApproveSchema.
+         * @function approveSchema
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IApproveSchemaVersionRequest} request ApproveSchemaVersionRequest message or plain object
+         * @param {protos.PlumberServer.ApproveSchemaCallback} callback Node-style callback called with the error, if any, and ApproveSchemaVersionResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(PlumberServer.prototype.approveSchema = function approveSchema(request, callback) {
+            return this.rpcCall(approveSchema, $root.protos.ApproveSchemaVersionRequest, $root.protos.ApproveSchemaVersionResponse, request, callback);
+        }, "name", { value: "ApproveSchema" });
+
+        /**
+         * Calls ApproveSchema.
+         * @function approveSchema
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IApproveSchemaVersionRequest} request ApproveSchemaVersionRequest message or plain object
+         * @returns {Promise<protos.ApproveSchemaVersionResponse>} Promise
+         * @variation 2
+         */
+
+        /**
          * Callback as used by {@link protos.PlumberServer#importGithub}.
          * @memberof protos.PlumberServer
          * @typedef ImportGithubCallback
@@ -63446,6 +63479,463 @@ $root.protos = (function() {
         };
 
         return DeleteSchemaVersionResponse;
+    })();
+
+    protos.ApproveSchemaVersionRequest = (function() {
+
+        /**
+         * Properties of an ApproveSchemaVersionRequest.
+         * @memberof protos
+         * @interface IApproveSchemaVersionRequest
+         * @property {protos.common.IAuth|null} [auth] ApproveSchemaVersionRequest auth
+         * @property {string|null} [id] ApproveSchemaVersionRequest id
+         * @property {number|null} [version] ApproveSchemaVersionRequest version
+         */
+
+        /**
+         * Constructs a new ApproveSchemaVersionRequest.
+         * @memberof protos
+         * @classdesc Represents an ApproveSchemaVersionRequest.
+         * @implements IApproveSchemaVersionRequest
+         * @constructor
+         * @param {protos.IApproveSchemaVersionRequest=} [properties] Properties to set
+         */
+        function ApproveSchemaVersionRequest(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * ApproveSchemaVersionRequest auth.
+         * @member {protos.common.IAuth|null|undefined} auth
+         * @memberof protos.ApproveSchemaVersionRequest
+         * @instance
+         */
+        ApproveSchemaVersionRequest.prototype.auth = null;
+
+        /**
+         * ApproveSchemaVersionRequest id.
+         * @member {string} id
+         * @memberof protos.ApproveSchemaVersionRequest
+         * @instance
+         */
+        ApproveSchemaVersionRequest.prototype.id = "";
+
+        /**
+         * ApproveSchemaVersionRequest version.
+         * @member {number} version
+         * @memberof protos.ApproveSchemaVersionRequest
+         * @instance
+         */
+        ApproveSchemaVersionRequest.prototype.version = 0;
+
+        /**
+         * Creates a new ApproveSchemaVersionRequest instance using the specified properties.
+         * @function create
+         * @memberof protos.ApproveSchemaVersionRequest
+         * @static
+         * @param {protos.IApproveSchemaVersionRequest=} [properties] Properties to set
+         * @returns {protos.ApproveSchemaVersionRequest} ApproveSchemaVersionRequest instance
+         */
+        ApproveSchemaVersionRequest.create = function create(properties) {
+            return new ApproveSchemaVersionRequest(properties);
+        };
+
+        /**
+         * Encodes the specified ApproveSchemaVersionRequest message. Does not implicitly {@link protos.ApproveSchemaVersionRequest.verify|verify} messages.
+         * @function encode
+         * @memberof protos.ApproveSchemaVersionRequest
+         * @static
+         * @param {protos.IApproveSchemaVersionRequest} message ApproveSchemaVersionRequest message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        ApproveSchemaVersionRequest.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.id != null && Object.hasOwnProperty.call(message, "id"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.id);
+            if (message.version != null && Object.hasOwnProperty.call(message, "version"))
+                writer.uint32(/* id 2, wireType 0 =*/16).int32(message.version);
+            if (message.auth != null && Object.hasOwnProperty.call(message, "auth"))
+                $root.protos.common.Auth.encode(message.auth, writer.uint32(/* id 9999, wireType 2 =*/79994).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Encodes the specified ApproveSchemaVersionRequest message, length delimited. Does not implicitly {@link protos.ApproveSchemaVersionRequest.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.ApproveSchemaVersionRequest
+         * @static
+         * @param {protos.IApproveSchemaVersionRequest} message ApproveSchemaVersionRequest message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        ApproveSchemaVersionRequest.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes an ApproveSchemaVersionRequest message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.ApproveSchemaVersionRequest
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.ApproveSchemaVersionRequest} ApproveSchemaVersionRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        ApproveSchemaVersionRequest.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.ApproveSchemaVersionRequest();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 9999:
+                    message.auth = $root.protos.common.Auth.decode(reader, reader.uint32());
+                    break;
+                case 1:
+                    message.id = reader.string();
+                    break;
+                case 2:
+                    message.version = reader.int32();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes an ApproveSchemaVersionRequest message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.ApproveSchemaVersionRequest
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.ApproveSchemaVersionRequest} ApproveSchemaVersionRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        ApproveSchemaVersionRequest.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies an ApproveSchemaVersionRequest message.
+         * @function verify
+         * @memberof protos.ApproveSchemaVersionRequest
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        ApproveSchemaVersionRequest.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.auth != null && message.hasOwnProperty("auth")) {
+                var error = $root.protos.common.Auth.verify(message.auth);
+                if (error)
+                    return "auth." + error;
+            }
+            if (message.id != null && message.hasOwnProperty("id"))
+                if (!$util.isString(message.id))
+                    return "id: string expected";
+            if (message.version != null && message.hasOwnProperty("version"))
+                if (!$util.isInteger(message.version))
+                    return "version: integer expected";
+            return null;
+        };
+
+        /**
+         * Creates an ApproveSchemaVersionRequest message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.ApproveSchemaVersionRequest
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.ApproveSchemaVersionRequest} ApproveSchemaVersionRequest
+         */
+        ApproveSchemaVersionRequest.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.ApproveSchemaVersionRequest)
+                return object;
+            var message = new $root.protos.ApproveSchemaVersionRequest();
+            if (object.auth != null) {
+                if (typeof object.auth !== "object")
+                    throw TypeError(".protos.ApproveSchemaVersionRequest.auth: object expected");
+                message.auth = $root.protos.common.Auth.fromObject(object.auth);
+            }
+            if (object.id != null)
+                message.id = String(object.id);
+            if (object.version != null)
+                message.version = object.version | 0;
+            return message;
+        };
+
+        /**
+         * Creates a plain object from an ApproveSchemaVersionRequest message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.ApproveSchemaVersionRequest
+         * @static
+         * @param {protos.ApproveSchemaVersionRequest} message ApproveSchemaVersionRequest
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        ApproveSchemaVersionRequest.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.id = "";
+                object.version = 0;
+                object.auth = null;
+            }
+            if (message.id != null && message.hasOwnProperty("id"))
+                object.id = message.id;
+            if (message.version != null && message.hasOwnProperty("version"))
+                object.version = message.version;
+            if (message.auth != null && message.hasOwnProperty("auth"))
+                object.auth = $root.protos.common.Auth.toObject(message.auth, options);
+            return object;
+        };
+
+        /**
+         * Converts this ApproveSchemaVersionRequest to JSON.
+         * @function toJSON
+         * @memberof protos.ApproveSchemaVersionRequest
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        ApproveSchemaVersionRequest.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return ApproveSchemaVersionRequest;
+    })();
+
+    protos.ApproveSchemaVersionResponse = (function() {
+
+        /**
+         * Properties of an ApproveSchemaVersionResponse.
+         * @memberof protos
+         * @interface IApproveSchemaVersionResponse
+         * @property {protos.common.IStatus|null} [status] ApproveSchemaVersionResponse status
+         * @property {protos.ISchema|null} [schema] ApproveSchemaVersionResponse schema
+         */
+
+        /**
+         * Constructs a new ApproveSchemaVersionResponse.
+         * @memberof protos
+         * @classdesc Represents an ApproveSchemaVersionResponse.
+         * @implements IApproveSchemaVersionResponse
+         * @constructor
+         * @param {protos.IApproveSchemaVersionResponse=} [properties] Properties to set
+         */
+        function ApproveSchemaVersionResponse(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * ApproveSchemaVersionResponse status.
+         * @member {protos.common.IStatus|null|undefined} status
+         * @memberof protos.ApproveSchemaVersionResponse
+         * @instance
+         */
+        ApproveSchemaVersionResponse.prototype.status = null;
+
+        /**
+         * ApproveSchemaVersionResponse schema.
+         * @member {protos.ISchema|null|undefined} schema
+         * @memberof protos.ApproveSchemaVersionResponse
+         * @instance
+         */
+        ApproveSchemaVersionResponse.prototype.schema = null;
+
+        /**
+         * Creates a new ApproveSchemaVersionResponse instance using the specified properties.
+         * @function create
+         * @memberof protos.ApproveSchemaVersionResponse
+         * @static
+         * @param {protos.IApproveSchemaVersionResponse=} [properties] Properties to set
+         * @returns {protos.ApproveSchemaVersionResponse} ApproveSchemaVersionResponse instance
+         */
+        ApproveSchemaVersionResponse.create = function create(properties) {
+            return new ApproveSchemaVersionResponse(properties);
+        };
+
+        /**
+         * Encodes the specified ApproveSchemaVersionResponse message. Does not implicitly {@link protos.ApproveSchemaVersionResponse.verify|verify} messages.
+         * @function encode
+         * @memberof protos.ApproveSchemaVersionResponse
+         * @static
+         * @param {protos.IApproveSchemaVersionResponse} message ApproveSchemaVersionResponse message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        ApproveSchemaVersionResponse.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.schema != null && Object.hasOwnProperty.call(message, "schema"))
+                $root.protos.Schema.encode(message.schema, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+            if (message.status != null && Object.hasOwnProperty.call(message, "status"))
+                $root.protos.common.Status.encode(message.status, writer.uint32(/* id 1000, wireType 2 =*/8002).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Encodes the specified ApproveSchemaVersionResponse message, length delimited. Does not implicitly {@link protos.ApproveSchemaVersionResponse.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.ApproveSchemaVersionResponse
+         * @static
+         * @param {protos.IApproveSchemaVersionResponse} message ApproveSchemaVersionResponse message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        ApproveSchemaVersionResponse.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes an ApproveSchemaVersionResponse message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.ApproveSchemaVersionResponse
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.ApproveSchemaVersionResponse} ApproveSchemaVersionResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        ApproveSchemaVersionResponse.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.ApproveSchemaVersionResponse();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1000:
+                    message.status = $root.protos.common.Status.decode(reader, reader.uint32());
+                    break;
+                case 1:
+                    message.schema = $root.protos.Schema.decode(reader, reader.uint32());
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes an ApproveSchemaVersionResponse message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.ApproveSchemaVersionResponse
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.ApproveSchemaVersionResponse} ApproveSchemaVersionResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        ApproveSchemaVersionResponse.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies an ApproveSchemaVersionResponse message.
+         * @function verify
+         * @memberof protos.ApproveSchemaVersionResponse
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        ApproveSchemaVersionResponse.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.status != null && message.hasOwnProperty("status")) {
+                var error = $root.protos.common.Status.verify(message.status);
+                if (error)
+                    return "status." + error;
+            }
+            if (message.schema != null && message.hasOwnProperty("schema")) {
+                var error = $root.protos.Schema.verify(message.schema);
+                if (error)
+                    return "schema." + error;
+            }
+            return null;
+        };
+
+        /**
+         * Creates an ApproveSchemaVersionResponse message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.ApproveSchemaVersionResponse
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.ApproveSchemaVersionResponse} ApproveSchemaVersionResponse
+         */
+        ApproveSchemaVersionResponse.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.ApproveSchemaVersionResponse)
+                return object;
+            var message = new $root.protos.ApproveSchemaVersionResponse();
+            if (object.status != null) {
+                if (typeof object.status !== "object")
+                    throw TypeError(".protos.ApproveSchemaVersionResponse.status: object expected");
+                message.status = $root.protos.common.Status.fromObject(object.status);
+            }
+            if (object.schema != null) {
+                if (typeof object.schema !== "object")
+                    throw TypeError(".protos.ApproveSchemaVersionResponse.schema: object expected");
+                message.schema = $root.protos.Schema.fromObject(object.schema);
+            }
+            return message;
+        };
+
+        /**
+         * Creates a plain object from an ApproveSchemaVersionResponse message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.ApproveSchemaVersionResponse
+         * @static
+         * @param {protos.ApproveSchemaVersionResponse} message ApproveSchemaVersionResponse
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        ApproveSchemaVersionResponse.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.schema = null;
+                object.status = null;
+            }
+            if (message.schema != null && message.hasOwnProperty("schema"))
+                object.schema = $root.protos.Schema.toObject(message.schema, options);
+            if (message.status != null && message.hasOwnProperty("status"))
+                object.status = $root.protos.common.Status.toObject(message.status, options);
+            return object;
+        };
+
+        /**
+         * Converts this ApproveSchemaVersionResponse to JSON.
+         * @function toJSON
+         * @memberof protos.ApproveSchemaVersionResponse
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        ApproveSchemaVersionResponse.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return ApproveSchemaVersionResponse;
     })();
 
     protos.Service = (function() {
