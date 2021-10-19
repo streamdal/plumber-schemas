@@ -11,6 +11,8 @@ import "ps_service.proto";
 import "ps_server.proto";
 import "ps_vc_server.proto";
 import "ps_vc_client.proto";
+import "ps_monitor.proto";
+import "ps_alert.proto";
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
 
@@ -116,4 +118,24 @@ service PlumberServer {
 
     // GetVCEvents connects to vc-service backend and returns a stream of events pushed from github/bitbucket/etc
     rpc GetVCEvents(GetVCEventsRequest) returns (stream VCEvent);
+
+    // --------------------- Monitor -------------------
+
+    rpc GetMonitor(GetMonitorRequest) returns (GetMonitorResponse);
+
+    rpc CreateMonitor(CreateMonitorRequest) returns (CreateMonitorResponse);
+
+    rpc DeleteMonitor(DeleteMonitorRequest) returns (DeleteMonitorResponse);
+
+    rpc UpdateMonitor(UpdateMonitorRequest) returns (UpdateMonitorResponse);
+
+    // -------------------- Alert --------------------
+
+    rpc GetAlert(GetMonitorRequest) returns (GetMonitorResponse);
+
+    rpc CreateAlert(CreateAlertRequest) returns (CreateAlertResponse);
+
+    rpc DeleteAlert(DeleteAlertRequest) returns (DeleteAlertResponse);
+
+    rpc UpdateAlert(UpdateAlertRequest) returns (UpdateAlertResponse);
 }
