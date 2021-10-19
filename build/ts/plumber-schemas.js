@@ -18,1346 +18,25 @@ $root.protos = (function() {
      */
     var protos = {};
 
-    protos.PlumberServer = (function() {
+    protos.GetAlertRequest = (function() {
 
         /**
-         * Constructs a new PlumberServer service.
+         * Properties of a GetAlertRequest.
          * @memberof protos
-         * @classdesc Represents a PlumberServer
-         * @extends $protobuf.rpc.Service
+         * @interface IGetAlertRequest
+         * @property {protos.common.IAuth|null} [auth] GetAlertRequest auth
+         * @property {string|null} [alertId] GetAlertRequest alertId
+         */
+
+        /**
+         * Constructs a new GetAlertRequest.
+         * @memberof protos
+         * @classdesc Represents a GetAlertRequest.
+         * @implements IGetAlertRequest
          * @constructor
-         * @param {$protobuf.RPCImpl} rpcImpl RPC implementation
-         * @param {boolean} [requestDelimited=false] Whether requests are length-delimited
-         * @param {boolean} [responseDelimited=false] Whether responses are length-delimited
+         * @param {protos.IGetAlertRequest=} [properties] Properties to set
          */
-        function PlumberServer(rpcImpl, requestDelimited, responseDelimited) {
-            $protobuf.rpc.Service.call(this, rpcImpl, requestDelimited, responseDelimited);
-        }
-
-        (PlumberServer.prototype = Object.create($protobuf.rpc.Service.prototype)).constructor = PlumberServer;
-
-        /**
-         * Creates new PlumberServer service using the specified rpc implementation.
-         * @function create
-         * @memberof protos.PlumberServer
-         * @static
-         * @param {$protobuf.RPCImpl} rpcImpl RPC implementation
-         * @param {boolean} [requestDelimited=false] Whether requests are length-delimited
-         * @param {boolean} [responseDelimited=false] Whether responses are length-delimited
-         * @returns {PlumberServer} RPC service. Useful where requests and/or responses are streamed.
-         */
-        PlumberServer.create = function create(rpcImpl, requestDelimited, responseDelimited) {
-            return new this(rpcImpl, requestDelimited, responseDelimited);
-        };
-
-        /**
-         * Callback as used by {@link protos.PlumberServer#getAllConnections}.
-         * @memberof protos.PlumberServer
-         * @typedef GetAllConnectionsCallback
-         * @type {function}
-         * @param {Error|null} error Error, if any
-         * @param {protos.GetAllConnectionsResponse} [response] GetAllConnectionsResponse
-         */
-
-        /**
-         * Calls GetAllConnections.
-         * @function getAllConnections
-         * @memberof protos.PlumberServer
-         * @instance
-         * @param {protos.IGetAllConnectionsRequest} request GetAllConnectionsRequest message or plain object
-         * @param {protos.PlumberServer.GetAllConnectionsCallback} callback Node-style callback called with the error, if any, and GetAllConnectionsResponse
-         * @returns {undefined}
-         * @variation 1
-         */
-        Object.defineProperty(PlumberServer.prototype.getAllConnections = function getAllConnections(request, callback) {
-            return this.rpcCall(getAllConnections, $root.protos.GetAllConnectionsRequest, $root.protos.GetAllConnectionsResponse, request, callback);
-        }, "name", { value: "GetAllConnections" });
-
-        /**
-         * Calls GetAllConnections.
-         * @function getAllConnections
-         * @memberof protos.PlumberServer
-         * @instance
-         * @param {protos.IGetAllConnectionsRequest} request GetAllConnectionsRequest message or plain object
-         * @returns {Promise<protos.GetAllConnectionsResponse>} Promise
-         * @variation 2
-         */
-
-        /**
-         * Callback as used by {@link protos.PlumberServer#getConnection}.
-         * @memberof protos.PlumberServer
-         * @typedef GetConnectionCallback
-         * @type {function}
-         * @param {Error|null} error Error, if any
-         * @param {protos.GetConnectionResponse} [response] GetConnectionResponse
-         */
-
-        /**
-         * Calls GetConnection.
-         * @function getConnection
-         * @memberof protos.PlumberServer
-         * @instance
-         * @param {protos.IGetConnectionRequest} request GetConnectionRequest message or plain object
-         * @param {protos.PlumberServer.GetConnectionCallback} callback Node-style callback called with the error, if any, and GetConnectionResponse
-         * @returns {undefined}
-         * @variation 1
-         */
-        Object.defineProperty(PlumberServer.prototype.getConnection = function getConnection(request, callback) {
-            return this.rpcCall(getConnection, $root.protos.GetConnectionRequest, $root.protos.GetConnectionResponse, request, callback);
-        }, "name", { value: "GetConnection" });
-
-        /**
-         * Calls GetConnection.
-         * @function getConnection
-         * @memberof protos.PlumberServer
-         * @instance
-         * @param {protos.IGetConnectionRequest} request GetConnectionRequest message or plain object
-         * @returns {Promise<protos.GetConnectionResponse>} Promise
-         * @variation 2
-         */
-
-        /**
-         * Callback as used by {@link protos.PlumberServer#createConnection}.
-         * @memberof protos.PlumberServer
-         * @typedef CreateConnectionCallback
-         * @type {function}
-         * @param {Error|null} error Error, if any
-         * @param {protos.CreateConnectionResponse} [response] CreateConnectionResponse
-         */
-
-        /**
-         * Calls CreateConnection.
-         * @function createConnection
-         * @memberof protos.PlumberServer
-         * @instance
-         * @param {protos.ICreateConnectionRequest} request CreateConnectionRequest message or plain object
-         * @param {protos.PlumberServer.CreateConnectionCallback} callback Node-style callback called with the error, if any, and CreateConnectionResponse
-         * @returns {undefined}
-         * @variation 1
-         */
-        Object.defineProperty(PlumberServer.prototype.createConnection = function createConnection(request, callback) {
-            return this.rpcCall(createConnection, $root.protos.CreateConnectionRequest, $root.protos.CreateConnectionResponse, request, callback);
-        }, "name", { value: "CreateConnection" });
-
-        /**
-         * Calls CreateConnection.
-         * @function createConnection
-         * @memberof protos.PlumberServer
-         * @instance
-         * @param {protos.ICreateConnectionRequest} request CreateConnectionRequest message or plain object
-         * @returns {Promise<protos.CreateConnectionResponse>} Promise
-         * @variation 2
-         */
-
-        /**
-         * Callback as used by {@link protos.PlumberServer#testConnection}.
-         * @memberof protos.PlumberServer
-         * @typedef TestConnectionCallback
-         * @type {function}
-         * @param {Error|null} error Error, if any
-         * @param {protos.TestConnectionResponse} [response] TestConnectionResponse
-         */
-
-        /**
-         * Calls TestConnection.
-         * @function testConnection
-         * @memberof protos.PlumberServer
-         * @instance
-         * @param {protos.ITestConnectionRequest} request TestConnectionRequest message or plain object
-         * @param {protos.PlumberServer.TestConnectionCallback} callback Node-style callback called with the error, if any, and TestConnectionResponse
-         * @returns {undefined}
-         * @variation 1
-         */
-        Object.defineProperty(PlumberServer.prototype.testConnection = function testConnection(request, callback) {
-            return this.rpcCall(testConnection, $root.protos.TestConnectionRequest, $root.protos.TestConnectionResponse, request, callback);
-        }, "name", { value: "TestConnection" });
-
-        /**
-         * Calls TestConnection.
-         * @function testConnection
-         * @memberof protos.PlumberServer
-         * @instance
-         * @param {protos.ITestConnectionRequest} request TestConnectionRequest message or plain object
-         * @returns {Promise<protos.TestConnectionResponse>} Promise
-         * @variation 2
-         */
-
-        /**
-         * Callback as used by {@link protos.PlumberServer#updateConnection}.
-         * @memberof protos.PlumberServer
-         * @typedef UpdateConnectionCallback
-         * @type {function}
-         * @param {Error|null} error Error, if any
-         * @param {protos.UpdateConnectionResponse} [response] UpdateConnectionResponse
-         */
-
-        /**
-         * Calls UpdateConnection.
-         * @function updateConnection
-         * @memberof protos.PlumberServer
-         * @instance
-         * @param {protos.IUpdateConnectionRequest} request UpdateConnectionRequest message or plain object
-         * @param {protos.PlumberServer.UpdateConnectionCallback} callback Node-style callback called with the error, if any, and UpdateConnectionResponse
-         * @returns {undefined}
-         * @variation 1
-         */
-        Object.defineProperty(PlumberServer.prototype.updateConnection = function updateConnection(request, callback) {
-            return this.rpcCall(updateConnection, $root.protos.UpdateConnectionRequest, $root.protos.UpdateConnectionResponse, request, callback);
-        }, "name", { value: "UpdateConnection" });
-
-        /**
-         * Calls UpdateConnection.
-         * @function updateConnection
-         * @memberof protos.PlumberServer
-         * @instance
-         * @param {protos.IUpdateConnectionRequest} request UpdateConnectionRequest message or plain object
-         * @returns {Promise<protos.UpdateConnectionResponse>} Promise
-         * @variation 2
-         */
-
-        /**
-         * Callback as used by {@link protos.PlumberServer#deleteConnection}.
-         * @memberof protos.PlumberServer
-         * @typedef DeleteConnectionCallback
-         * @type {function}
-         * @param {Error|null} error Error, if any
-         * @param {protos.DeleteConnectionResponse} [response] DeleteConnectionResponse
-         */
-
-        /**
-         * Calls DeleteConnection.
-         * @function deleteConnection
-         * @memberof protos.PlumberServer
-         * @instance
-         * @param {protos.IDeleteConnectionRequest} request DeleteConnectionRequest message or plain object
-         * @param {protos.PlumberServer.DeleteConnectionCallback} callback Node-style callback called with the error, if any, and DeleteConnectionResponse
-         * @returns {undefined}
-         * @variation 1
-         */
-        Object.defineProperty(PlumberServer.prototype.deleteConnection = function deleteConnection(request, callback) {
-            return this.rpcCall(deleteConnection, $root.protos.DeleteConnectionRequest, $root.protos.DeleteConnectionResponse, request, callback);
-        }, "name", { value: "DeleteConnection" });
-
-        /**
-         * Calls DeleteConnection.
-         * @function deleteConnection
-         * @memberof protos.PlumberServer
-         * @instance
-         * @param {protos.IDeleteConnectionRequest} request DeleteConnectionRequest message or plain object
-         * @returns {Promise<protos.DeleteConnectionResponse>} Promise
-         * @variation 2
-         */
-
-        /**
-         * Callback as used by {@link protos.PlumberServer#createRead}.
-         * @memberof protos.PlumberServer
-         * @typedef CreateReadCallback
-         * @type {function}
-         * @param {Error|null} error Error, if any
-         * @param {protos.CreateReadResponse} [response] CreateReadResponse
-         */
-
-        /**
-         * Calls CreateRead.
-         * @function createRead
-         * @memberof protos.PlumberServer
-         * @instance
-         * @param {protos.ICreateReadRequest} request CreateReadRequest message or plain object
-         * @param {protos.PlumberServer.CreateReadCallback} callback Node-style callback called with the error, if any, and CreateReadResponse
-         * @returns {undefined}
-         * @variation 1
-         */
-        Object.defineProperty(PlumberServer.prototype.createRead = function createRead(request, callback) {
-            return this.rpcCall(createRead, $root.protos.CreateReadRequest, $root.protos.CreateReadResponse, request, callback);
-        }, "name", { value: "CreateRead" });
-
-        /**
-         * Calls CreateRead.
-         * @function createRead
-         * @memberof protos.PlumberServer
-         * @instance
-         * @param {protos.ICreateReadRequest} request CreateReadRequest message or plain object
-         * @returns {Promise<protos.CreateReadResponse>} Promise
-         * @variation 2
-         */
-
-        /**
-         * Callback as used by {@link protos.PlumberServer#startRead}.
-         * @memberof protos.PlumberServer
-         * @typedef StartReadCallback
-         * @type {function}
-         * @param {Error|null} error Error, if any
-         * @param {protos.StartReadResponse} [response] StartReadResponse
-         */
-
-        /**
-         * Calls StartRead.
-         * @function startRead
-         * @memberof protos.PlumberServer
-         * @instance
-         * @param {protos.IStartReadRequest} request StartReadRequest message or plain object
-         * @param {protos.PlumberServer.StartReadCallback} callback Node-style callback called with the error, if any, and StartReadResponse
-         * @returns {undefined}
-         * @variation 1
-         */
-        Object.defineProperty(PlumberServer.prototype.startRead = function startRead(request, callback) {
-            return this.rpcCall(startRead, $root.protos.StartReadRequest, $root.protos.StartReadResponse, request, callback);
-        }, "name", { value: "StartRead" });
-
-        /**
-         * Calls StartRead.
-         * @function startRead
-         * @memberof protos.PlumberServer
-         * @instance
-         * @param {protos.IStartReadRequest} request StartReadRequest message or plain object
-         * @returns {Promise<protos.StartReadResponse>} Promise
-         * @variation 2
-         */
-
-        /**
-         * Callback as used by {@link protos.PlumberServer#getAllReads}.
-         * @memberof protos.PlumberServer
-         * @typedef GetAllReadsCallback
-         * @type {function}
-         * @param {Error|null} error Error, if any
-         * @param {protos.GetAllReadsResponse} [response] GetAllReadsResponse
-         */
-
-        /**
-         * Calls GetAllReads.
-         * @function getAllReads
-         * @memberof protos.PlumberServer
-         * @instance
-         * @param {protos.IGetAllReadsRequest} request GetAllReadsRequest message or plain object
-         * @param {protos.PlumberServer.GetAllReadsCallback} callback Node-style callback called with the error, if any, and GetAllReadsResponse
-         * @returns {undefined}
-         * @variation 1
-         */
-        Object.defineProperty(PlumberServer.prototype.getAllReads = function getAllReads(request, callback) {
-            return this.rpcCall(getAllReads, $root.protos.GetAllReadsRequest, $root.protos.GetAllReadsResponse, request, callback);
-        }, "name", { value: "GetAllReads" });
-
-        /**
-         * Calls GetAllReads.
-         * @function getAllReads
-         * @memberof protos.PlumberServer
-         * @instance
-         * @param {protos.IGetAllReadsRequest} request GetAllReadsRequest message or plain object
-         * @returns {Promise<protos.GetAllReadsResponse>} Promise
-         * @variation 2
-         */
-
-        /**
-         * Callback as used by {@link protos.PlumberServer#stopRead}.
-         * @memberof protos.PlumberServer
-         * @typedef StopReadCallback
-         * @type {function}
-         * @param {Error|null} error Error, if any
-         * @param {protos.StopReadResponse} [response] StopReadResponse
-         */
-
-        /**
-         * Calls StopRead.
-         * @function stopRead
-         * @memberof protos.PlumberServer
-         * @instance
-         * @param {protos.IStopReadRequest} request StopReadRequest message or plain object
-         * @param {protos.PlumberServer.StopReadCallback} callback Node-style callback called with the error, if any, and StopReadResponse
-         * @returns {undefined}
-         * @variation 1
-         */
-        Object.defineProperty(PlumberServer.prototype.stopRead = function stopRead(request, callback) {
-            return this.rpcCall(stopRead, $root.protos.StopReadRequest, $root.protos.StopReadResponse, request, callback);
-        }, "name", { value: "StopRead" });
-
-        /**
-         * Calls StopRead.
-         * @function stopRead
-         * @memberof protos.PlumberServer
-         * @instance
-         * @param {protos.IStopReadRequest} request StopReadRequest message or plain object
-         * @returns {Promise<protos.StopReadResponse>} Promise
-         * @variation 2
-         */
-
-        /**
-         * Callback as used by {@link protos.PlumberServer#resumeRead}.
-         * @memberof protos.PlumberServer
-         * @typedef ResumeReadCallback
-         * @type {function}
-         * @param {Error|null} error Error, if any
-         * @param {protos.ResumeReadResponse} [response] ResumeReadResponse
-         */
-
-        /**
-         * Calls ResumeRead.
-         * @function resumeRead
-         * @memberof protos.PlumberServer
-         * @instance
-         * @param {protos.IResumeReadRequest} request ResumeReadRequest message or plain object
-         * @param {protos.PlumberServer.ResumeReadCallback} callback Node-style callback called with the error, if any, and ResumeReadResponse
-         * @returns {undefined}
-         * @variation 1
-         */
-        Object.defineProperty(PlumberServer.prototype.resumeRead = function resumeRead(request, callback) {
-            return this.rpcCall(resumeRead, $root.protos.ResumeReadRequest, $root.protos.ResumeReadResponse, request, callback);
-        }, "name", { value: "ResumeRead" });
-
-        /**
-         * Calls ResumeRead.
-         * @function resumeRead
-         * @memberof protos.PlumberServer
-         * @instance
-         * @param {protos.IResumeReadRequest} request ResumeReadRequest message or plain object
-         * @returns {Promise<protos.ResumeReadResponse>} Promise
-         * @variation 2
-         */
-
-        /**
-         * Callback as used by {@link protos.PlumberServer#deleteRead}.
-         * @memberof protos.PlumberServer
-         * @typedef DeleteReadCallback
-         * @type {function}
-         * @param {Error|null} error Error, if any
-         * @param {protos.DeleteReadResponse} [response] DeleteReadResponse
-         */
-
-        /**
-         * Calls DeleteRead.
-         * @function deleteRead
-         * @memberof protos.PlumberServer
-         * @instance
-         * @param {protos.IDeleteReadRequest} request DeleteReadRequest message or plain object
-         * @param {protos.PlumberServer.DeleteReadCallback} callback Node-style callback called with the error, if any, and DeleteReadResponse
-         * @returns {undefined}
-         * @variation 1
-         */
-        Object.defineProperty(PlumberServer.prototype.deleteRead = function deleteRead(request, callback) {
-            return this.rpcCall(deleteRead, $root.protos.DeleteReadRequest, $root.protos.DeleteReadResponse, request, callback);
-        }, "name", { value: "DeleteRead" });
-
-        /**
-         * Calls DeleteRead.
-         * @function deleteRead
-         * @memberof protos.PlumberServer
-         * @instance
-         * @param {protos.IDeleteReadRequest} request DeleteReadRequest message or plain object
-         * @returns {Promise<protos.DeleteReadResponse>} Promise
-         * @variation 2
-         */
-
-        /**
-         * Callback as used by {@link protos.PlumberServer#write}.
-         * @memberof protos.PlumberServer
-         * @typedef WriteCallback
-         * @type {function}
-         * @param {Error|null} error Error, if any
-         * @param {protos.WriteResponse} [response] WriteResponse
-         */
-
-        /**
-         * Calls Write.
-         * @function write
-         * @memberof protos.PlumberServer
-         * @instance
-         * @param {protos.IWriteRequest} request WriteRequest message or plain object
-         * @param {protos.PlumberServer.WriteCallback} callback Node-style callback called with the error, if any, and WriteResponse
-         * @returns {undefined}
-         * @variation 1
-         */
-        Object.defineProperty(PlumberServer.prototype.write = function write(request, callback) {
-            return this.rpcCall(write, $root.protos.WriteRequest, $root.protos.WriteResponse, request, callback);
-        }, "name", { value: "Write" });
-
-        /**
-         * Calls Write.
-         * @function write
-         * @memberof protos.PlumberServer
-         * @instance
-         * @param {protos.IWriteRequest} request WriteRequest message or plain object
-         * @returns {Promise<protos.WriteResponse>} Promise
-         * @variation 2
-         */
-
-        /**
-         * Callback as used by {@link protos.PlumberServer#createRelay}.
-         * @memberof protos.PlumberServer
-         * @typedef CreateRelayCallback
-         * @type {function}
-         * @param {Error|null} error Error, if any
-         * @param {protos.CreateRelayResponse} [response] CreateRelayResponse
-         */
-
-        /**
-         * Calls CreateRelay.
-         * @function createRelay
-         * @memberof protos.PlumberServer
-         * @instance
-         * @param {protos.ICreateRelayRequest} request CreateRelayRequest message or plain object
-         * @param {protos.PlumberServer.CreateRelayCallback} callback Node-style callback called with the error, if any, and CreateRelayResponse
-         * @returns {undefined}
-         * @variation 1
-         */
-        Object.defineProperty(PlumberServer.prototype.createRelay = function createRelay(request, callback) {
-            return this.rpcCall(createRelay, $root.protos.CreateRelayRequest, $root.protos.CreateRelayResponse, request, callback);
-        }, "name", { value: "CreateRelay" });
-
-        /**
-         * Calls CreateRelay.
-         * @function createRelay
-         * @memberof protos.PlumberServer
-         * @instance
-         * @param {protos.ICreateRelayRequest} request CreateRelayRequest message or plain object
-         * @returns {Promise<protos.CreateRelayResponse>} Promise
-         * @variation 2
-         */
-
-        /**
-         * Callback as used by {@link protos.PlumberServer#updateRelay}.
-         * @memberof protos.PlumberServer
-         * @typedef UpdateRelayCallback
-         * @type {function}
-         * @param {Error|null} error Error, if any
-         * @param {protos.UpdateRelayResponse} [response] UpdateRelayResponse
-         */
-
-        /**
-         * Calls UpdateRelay.
-         * @function updateRelay
-         * @memberof protos.PlumberServer
-         * @instance
-         * @param {protos.IUpdateRelayRequest} request UpdateRelayRequest message or plain object
-         * @param {protos.PlumberServer.UpdateRelayCallback} callback Node-style callback called with the error, if any, and UpdateRelayResponse
-         * @returns {undefined}
-         * @variation 1
-         */
-        Object.defineProperty(PlumberServer.prototype.updateRelay = function updateRelay(request, callback) {
-            return this.rpcCall(updateRelay, $root.protos.UpdateRelayRequest, $root.protos.UpdateRelayResponse, request, callback);
-        }, "name", { value: "UpdateRelay" });
-
-        /**
-         * Calls UpdateRelay.
-         * @function updateRelay
-         * @memberof protos.PlumberServer
-         * @instance
-         * @param {protos.IUpdateRelayRequest} request UpdateRelayRequest message or plain object
-         * @returns {Promise<protos.UpdateRelayResponse>} Promise
-         * @variation 2
-         */
-
-        /**
-         * Callback as used by {@link protos.PlumberServer#resumeRelay}.
-         * @memberof protos.PlumberServer
-         * @typedef ResumeRelayCallback
-         * @type {function}
-         * @param {Error|null} error Error, if any
-         * @param {protos.ResumeRelayResponse} [response] ResumeRelayResponse
-         */
-
-        /**
-         * Calls ResumeRelay.
-         * @function resumeRelay
-         * @memberof protos.PlumberServer
-         * @instance
-         * @param {protos.IResumeRelayRequest} request ResumeRelayRequest message or plain object
-         * @param {protos.PlumberServer.ResumeRelayCallback} callback Node-style callback called with the error, if any, and ResumeRelayResponse
-         * @returns {undefined}
-         * @variation 1
-         */
-        Object.defineProperty(PlumberServer.prototype.resumeRelay = function resumeRelay(request, callback) {
-            return this.rpcCall(resumeRelay, $root.protos.ResumeRelayRequest, $root.protos.ResumeRelayResponse, request, callback);
-        }, "name", { value: "ResumeRelay" });
-
-        /**
-         * Calls ResumeRelay.
-         * @function resumeRelay
-         * @memberof protos.PlumberServer
-         * @instance
-         * @param {protos.IResumeRelayRequest} request ResumeRelayRequest message or plain object
-         * @returns {Promise<protos.ResumeRelayResponse>} Promise
-         * @variation 2
-         */
-
-        /**
-         * Callback as used by {@link protos.PlumberServer#stopRelay}.
-         * @memberof protos.PlumberServer
-         * @typedef StopRelayCallback
-         * @type {function}
-         * @param {Error|null} error Error, if any
-         * @param {protos.StopRelayResponse} [response] StopRelayResponse
-         */
-
-        /**
-         * Calls StopRelay.
-         * @function stopRelay
-         * @memberof protos.PlumberServer
-         * @instance
-         * @param {protos.IStopRelayRequest} request StopRelayRequest message or plain object
-         * @param {protos.PlumberServer.StopRelayCallback} callback Node-style callback called with the error, if any, and StopRelayResponse
-         * @returns {undefined}
-         * @variation 1
-         */
-        Object.defineProperty(PlumberServer.prototype.stopRelay = function stopRelay(request, callback) {
-            return this.rpcCall(stopRelay, $root.protos.StopRelayRequest, $root.protos.StopRelayResponse, request, callback);
-        }, "name", { value: "StopRelay" });
-
-        /**
-         * Calls StopRelay.
-         * @function stopRelay
-         * @memberof protos.PlumberServer
-         * @instance
-         * @param {protos.IStopRelayRequest} request StopRelayRequest message or plain object
-         * @returns {Promise<protos.StopRelayResponse>} Promise
-         * @variation 2
-         */
-
-        /**
-         * Callback as used by {@link protos.PlumberServer#getAllRelays}.
-         * @memberof protos.PlumberServer
-         * @typedef GetAllRelaysCallback
-         * @type {function}
-         * @param {Error|null} error Error, if any
-         * @param {protos.GetAllRelaysResponse} [response] GetAllRelaysResponse
-         */
-
-        /**
-         * Calls GetAllRelays.
-         * @function getAllRelays
-         * @memberof protos.PlumberServer
-         * @instance
-         * @param {protos.IGetAllRelaysRequest} request GetAllRelaysRequest message or plain object
-         * @param {protos.PlumberServer.GetAllRelaysCallback} callback Node-style callback called with the error, if any, and GetAllRelaysResponse
-         * @returns {undefined}
-         * @variation 1
-         */
-        Object.defineProperty(PlumberServer.prototype.getAllRelays = function getAllRelays(request, callback) {
-            return this.rpcCall(getAllRelays, $root.protos.GetAllRelaysRequest, $root.protos.GetAllRelaysResponse, request, callback);
-        }, "name", { value: "GetAllRelays" });
-
-        /**
-         * Calls GetAllRelays.
-         * @function getAllRelays
-         * @memberof protos.PlumberServer
-         * @instance
-         * @param {protos.IGetAllRelaysRequest} request GetAllRelaysRequest message or plain object
-         * @returns {Promise<protos.GetAllRelaysResponse>} Promise
-         * @variation 2
-         */
-
-        /**
-         * Callback as used by {@link protos.PlumberServer#deleteRelay}.
-         * @memberof protos.PlumberServer
-         * @typedef DeleteRelayCallback
-         * @type {function}
-         * @param {Error|null} error Error, if any
-         * @param {protos.DeleteRelayResponse} [response] DeleteRelayResponse
-         */
-
-        /**
-         * Calls DeleteRelay.
-         * @function deleteRelay
-         * @memberof protos.PlumberServer
-         * @instance
-         * @param {protos.IDeleteRelayRequest} request DeleteRelayRequest message or plain object
-         * @param {protos.PlumberServer.DeleteRelayCallback} callback Node-style callback called with the error, if any, and DeleteRelayResponse
-         * @returns {undefined}
-         * @variation 1
-         */
-        Object.defineProperty(PlumberServer.prototype.deleteRelay = function deleteRelay(request, callback) {
-            return this.rpcCall(deleteRelay, $root.protos.DeleteRelayRequest, $root.protos.DeleteRelayResponse, request, callback);
-        }, "name", { value: "DeleteRelay" });
-
-        /**
-         * Calls DeleteRelay.
-         * @function deleteRelay
-         * @memberof protos.PlumberServer
-         * @instance
-         * @param {protos.IDeleteRelayRequest} request DeleteRelayRequest message or plain object
-         * @returns {Promise<protos.DeleteRelayResponse>} Promise
-         * @variation 2
-         */
-
-        /**
-         * Callback as used by {@link protos.PlumberServer#getSchema}.
-         * @memberof protos.PlumberServer
-         * @typedef GetSchemaCallback
-         * @type {function}
-         * @param {Error|null} error Error, if any
-         * @param {protos.GetSchemaResponse} [response] GetSchemaResponse
-         */
-
-        /**
-         * Calls GetSchema.
-         * @function getSchema
-         * @memberof protos.PlumberServer
-         * @instance
-         * @param {protos.IGetSchemaRequest} request GetSchemaRequest message or plain object
-         * @param {protos.PlumberServer.GetSchemaCallback} callback Node-style callback called with the error, if any, and GetSchemaResponse
-         * @returns {undefined}
-         * @variation 1
-         */
-        Object.defineProperty(PlumberServer.prototype.getSchema = function getSchema(request, callback) {
-            return this.rpcCall(getSchema, $root.protos.GetSchemaRequest, $root.protos.GetSchemaResponse, request, callback);
-        }, "name", { value: "GetSchema" });
-
-        /**
-         * Calls GetSchema.
-         * @function getSchema
-         * @memberof protos.PlumberServer
-         * @instance
-         * @param {protos.IGetSchemaRequest} request GetSchemaRequest message or plain object
-         * @returns {Promise<protos.GetSchemaResponse>} Promise
-         * @variation 2
-         */
-
-        /**
-         * Callback as used by {@link protos.PlumberServer#getAllSchemas}.
-         * @memberof protos.PlumberServer
-         * @typedef GetAllSchemasCallback
-         * @type {function}
-         * @param {Error|null} error Error, if any
-         * @param {protos.GetAllSchemasResponse} [response] GetAllSchemasResponse
-         */
-
-        /**
-         * Calls GetAllSchemas.
-         * @function getAllSchemas
-         * @memberof protos.PlumberServer
-         * @instance
-         * @param {protos.IGetAllSchemasRequest} request GetAllSchemasRequest message or plain object
-         * @param {protos.PlumberServer.GetAllSchemasCallback} callback Node-style callback called with the error, if any, and GetAllSchemasResponse
-         * @returns {undefined}
-         * @variation 1
-         */
-        Object.defineProperty(PlumberServer.prototype.getAllSchemas = function getAllSchemas(request, callback) {
-            return this.rpcCall(getAllSchemas, $root.protos.GetAllSchemasRequest, $root.protos.GetAllSchemasResponse, request, callback);
-        }, "name", { value: "GetAllSchemas" });
-
-        /**
-         * Calls GetAllSchemas.
-         * @function getAllSchemas
-         * @memberof protos.PlumberServer
-         * @instance
-         * @param {protos.IGetAllSchemasRequest} request GetAllSchemasRequest message or plain object
-         * @returns {Promise<protos.GetAllSchemasResponse>} Promise
-         * @variation 2
-         */
-
-        /**
-         * Callback as used by {@link protos.PlumberServer#updateSchema}.
-         * @memberof protos.PlumberServer
-         * @typedef UpdateSchemaCallback
-         * @type {function}
-         * @param {Error|null} error Error, if any
-         * @param {protos.UpdateSchemaResponse} [response] UpdateSchemaResponse
-         */
-
-        /**
-         * Calls UpdateSchema.
-         * @function updateSchema
-         * @memberof protos.PlumberServer
-         * @instance
-         * @param {protos.IUpdateSchemaRequest} request UpdateSchemaRequest message or plain object
-         * @param {protos.PlumberServer.UpdateSchemaCallback} callback Node-style callback called with the error, if any, and UpdateSchemaResponse
-         * @returns {undefined}
-         * @variation 1
-         */
-        Object.defineProperty(PlumberServer.prototype.updateSchema = function updateSchema(request, callback) {
-            return this.rpcCall(updateSchema, $root.protos.UpdateSchemaRequest, $root.protos.UpdateSchemaResponse, request, callback);
-        }, "name", { value: "UpdateSchema" });
-
-        /**
-         * Calls UpdateSchema.
-         * @function updateSchema
-         * @memberof protos.PlumberServer
-         * @instance
-         * @param {protos.IUpdateSchemaRequest} request UpdateSchemaRequest message or plain object
-         * @returns {Promise<protos.UpdateSchemaResponse>} Promise
-         * @variation 2
-         */
-
-        /**
-         * Callback as used by {@link protos.PlumberServer#approveSchema}.
-         * @memberof protos.PlumberServer
-         * @typedef ApproveSchemaCallback
-         * @type {function}
-         * @param {Error|null} error Error, if any
-         * @param {protos.ApproveSchemaVersionResponse} [response] ApproveSchemaVersionResponse
-         */
-
-        /**
-         * Calls ApproveSchema.
-         * @function approveSchema
-         * @memberof protos.PlumberServer
-         * @instance
-         * @param {protos.IApproveSchemaVersionRequest} request ApproveSchemaVersionRequest message or plain object
-         * @param {protos.PlumberServer.ApproveSchemaCallback} callback Node-style callback called with the error, if any, and ApproveSchemaVersionResponse
-         * @returns {undefined}
-         * @variation 1
-         */
-        Object.defineProperty(PlumberServer.prototype.approveSchema = function approveSchema(request, callback) {
-            return this.rpcCall(approveSchema, $root.protos.ApproveSchemaVersionRequest, $root.protos.ApproveSchemaVersionResponse, request, callback);
-        }, "name", { value: "ApproveSchema" });
-
-        /**
-         * Calls ApproveSchema.
-         * @function approveSchema
-         * @memberof protos.PlumberServer
-         * @instance
-         * @param {protos.IApproveSchemaVersionRequest} request ApproveSchemaVersionRequest message or plain object
-         * @returns {Promise<protos.ApproveSchemaVersionResponse>} Promise
-         * @variation 2
-         */
-
-        /**
-         * Callback as used by {@link protos.PlumberServer#importGithub}.
-         * @memberof protos.PlumberServer
-         * @typedef ImportGithubCallback
-         * @type {function}
-         * @param {Error|null} error Error, if any
-         * @param {protos.ImportGithubResponse} [response] ImportGithubResponse
-         */
-
-        /**
-         * Calls ImportGithub.
-         * @function importGithub
-         * @memberof protos.PlumberServer
-         * @instance
-         * @param {protos.IImportGithubRequest} request ImportGithubRequest message or plain object
-         * @param {protos.PlumberServer.ImportGithubCallback} callback Node-style callback called with the error, if any, and ImportGithubResponse
-         * @returns {undefined}
-         * @variation 1
-         */
-        Object.defineProperty(PlumberServer.prototype.importGithub = function importGithub(request, callback) {
-            return this.rpcCall(importGithub, $root.protos.ImportGithubRequest, $root.protos.ImportGithubResponse, request, callback);
-        }, "name", { value: "ImportGithub" });
-
-        /**
-         * Calls ImportGithub.
-         * @function importGithub
-         * @memberof protos.PlumberServer
-         * @instance
-         * @param {protos.IImportGithubRequest} request ImportGithubRequest message or plain object
-         * @returns {Promise<protos.ImportGithubResponse>} Promise
-         * @variation 2
-         */
-
-        /**
-         * Callback as used by {@link protos.PlumberServer#importLocal}.
-         * @memberof protos.PlumberServer
-         * @typedef ImportLocalCallback
-         * @type {function}
-         * @param {Error|null} error Error, if any
-         * @param {protos.ImportLocalResponse} [response] ImportLocalResponse
-         */
-
-        /**
-         * Calls ImportLocal.
-         * @function importLocal
-         * @memberof protos.PlumberServer
-         * @instance
-         * @param {protos.IImportLocalRequest} request ImportLocalRequest message or plain object
-         * @param {protos.PlumberServer.ImportLocalCallback} callback Node-style callback called with the error, if any, and ImportLocalResponse
-         * @returns {undefined}
-         * @variation 1
-         */
-        Object.defineProperty(PlumberServer.prototype.importLocal = function importLocal(request, callback) {
-            return this.rpcCall(importLocal, $root.protos.ImportLocalRequest, $root.protos.ImportLocalResponse, request, callback);
-        }, "name", { value: "ImportLocal" });
-
-        /**
-         * Calls ImportLocal.
-         * @function importLocal
-         * @memberof protos.PlumberServer
-         * @instance
-         * @param {protos.IImportLocalRequest} request ImportLocalRequest message or plain object
-         * @returns {Promise<protos.ImportLocalResponse>} Promise
-         * @variation 2
-         */
-
-        /**
-         * Callback as used by {@link protos.PlumberServer#deleteSchema}.
-         * @memberof protos.PlumberServer
-         * @typedef DeleteSchemaCallback
-         * @type {function}
-         * @param {Error|null} error Error, if any
-         * @param {protos.DeleteSchemaResponse} [response] DeleteSchemaResponse
-         */
-
-        /**
-         * Calls DeleteSchema.
-         * @function deleteSchema
-         * @memberof protos.PlumberServer
-         * @instance
-         * @param {protos.IDeleteSchemaRequest} request DeleteSchemaRequest message or plain object
-         * @param {protos.PlumberServer.DeleteSchemaCallback} callback Node-style callback called with the error, if any, and DeleteSchemaResponse
-         * @returns {undefined}
-         * @variation 1
-         */
-        Object.defineProperty(PlumberServer.prototype.deleteSchema = function deleteSchema(request, callback) {
-            return this.rpcCall(deleteSchema, $root.protos.DeleteSchemaRequest, $root.protos.DeleteSchemaResponse, request, callback);
-        }, "name", { value: "DeleteSchema" });
-
-        /**
-         * Calls DeleteSchema.
-         * @function deleteSchema
-         * @memberof protos.PlumberServer
-         * @instance
-         * @param {protos.IDeleteSchemaRequest} request DeleteSchemaRequest message or plain object
-         * @returns {Promise<protos.DeleteSchemaResponse>} Promise
-         * @variation 2
-         */
-
-        /**
-         * Callback as used by {@link protos.PlumberServer#deleteSchemaVersion}.
-         * @memberof protos.PlumberServer
-         * @typedef DeleteSchemaVersionCallback
-         * @type {function}
-         * @param {Error|null} error Error, if any
-         * @param {protos.DeleteSchemaVersionResponse} [response] DeleteSchemaVersionResponse
-         */
-
-        /**
-         * Calls DeleteSchemaVersion.
-         * @function deleteSchemaVersion
-         * @memberof protos.PlumberServer
-         * @instance
-         * @param {protos.IDeleteSchemaVersionRequest} request DeleteSchemaVersionRequest message or plain object
-         * @param {protos.PlumberServer.DeleteSchemaVersionCallback} callback Node-style callback called with the error, if any, and DeleteSchemaVersionResponse
-         * @returns {undefined}
-         * @variation 1
-         */
-        Object.defineProperty(PlumberServer.prototype.deleteSchemaVersion = function deleteSchemaVersion(request, callback) {
-            return this.rpcCall(deleteSchemaVersion, $root.protos.DeleteSchemaVersionRequest, $root.protos.DeleteSchemaVersionResponse, request, callback);
-        }, "name", { value: "DeleteSchemaVersion" });
-
-        /**
-         * Calls DeleteSchemaVersion.
-         * @function deleteSchemaVersion
-         * @memberof protos.PlumberServer
-         * @instance
-         * @param {protos.IDeleteSchemaVersionRequest} request DeleteSchemaVersionRequest message or plain object
-         * @returns {Promise<protos.DeleteSchemaVersionResponse>} Promise
-         * @variation 2
-         */
-
-        /**
-         * Callback as used by {@link protos.PlumberServer#getService}.
-         * @memberof protos.PlumberServer
-         * @typedef GetServiceCallback
-         * @type {function}
-         * @param {Error|null} error Error, if any
-         * @param {protos.GetServiceResponse} [response] GetServiceResponse
-         */
-
-        /**
-         * Calls GetService.
-         * @function getService
-         * @memberof protos.PlumberServer
-         * @instance
-         * @param {protos.IGetServiceRequest} request GetServiceRequest message or plain object
-         * @param {protos.PlumberServer.GetServiceCallback} callback Node-style callback called with the error, if any, and GetServiceResponse
-         * @returns {undefined}
-         * @variation 1
-         */
-        Object.defineProperty(PlumberServer.prototype.getService = function getService(request, callback) {
-            return this.rpcCall(getService, $root.protos.GetServiceRequest, $root.protos.GetServiceResponse, request, callback);
-        }, "name", { value: "GetService" });
-
-        /**
-         * Calls GetService.
-         * @function getService
-         * @memberof protos.PlumberServer
-         * @instance
-         * @param {protos.IGetServiceRequest} request GetServiceRequest message or plain object
-         * @returns {Promise<protos.GetServiceResponse>} Promise
-         * @variation 2
-         */
-
-        /**
-         * Callback as used by {@link protos.PlumberServer#getAllServices}.
-         * @memberof protos.PlumberServer
-         * @typedef GetAllServicesCallback
-         * @type {function}
-         * @param {Error|null} error Error, if any
-         * @param {protos.GetAllServicesResponse} [response] GetAllServicesResponse
-         */
-
-        /**
-         * Calls GetAllServices.
-         * @function getAllServices
-         * @memberof protos.PlumberServer
-         * @instance
-         * @param {protos.IGetAllServicesRequest} request GetAllServicesRequest message or plain object
-         * @param {protos.PlumberServer.GetAllServicesCallback} callback Node-style callback called with the error, if any, and GetAllServicesResponse
-         * @returns {undefined}
-         * @variation 1
-         */
-        Object.defineProperty(PlumberServer.prototype.getAllServices = function getAllServices(request, callback) {
-            return this.rpcCall(getAllServices, $root.protos.GetAllServicesRequest, $root.protos.GetAllServicesResponse, request, callback);
-        }, "name", { value: "GetAllServices" });
-
-        /**
-         * Calls GetAllServices.
-         * @function getAllServices
-         * @memberof protos.PlumberServer
-         * @instance
-         * @param {protos.IGetAllServicesRequest} request GetAllServicesRequest message or plain object
-         * @returns {Promise<protos.GetAllServicesResponse>} Promise
-         * @variation 2
-         */
-
-        /**
-         * Callback as used by {@link protos.PlumberServer#createService}.
-         * @memberof protos.PlumberServer
-         * @typedef CreateServiceCallback
-         * @type {function}
-         * @param {Error|null} error Error, if any
-         * @param {protos.CreateServiceResponse} [response] CreateServiceResponse
-         */
-
-        /**
-         * Calls CreateService.
-         * @function createService
-         * @memberof protos.PlumberServer
-         * @instance
-         * @param {protos.ICreateServiceRequest} request CreateServiceRequest message or plain object
-         * @param {protos.PlumberServer.CreateServiceCallback} callback Node-style callback called with the error, if any, and CreateServiceResponse
-         * @returns {undefined}
-         * @variation 1
-         */
-        Object.defineProperty(PlumberServer.prototype.createService = function createService(request, callback) {
-            return this.rpcCall(createService, $root.protos.CreateServiceRequest, $root.protos.CreateServiceResponse, request, callback);
-        }, "name", { value: "CreateService" });
-
-        /**
-         * Calls CreateService.
-         * @function createService
-         * @memberof protos.PlumberServer
-         * @instance
-         * @param {protos.ICreateServiceRequest} request CreateServiceRequest message or plain object
-         * @returns {Promise<protos.CreateServiceResponse>} Promise
-         * @variation 2
-         */
-
-        /**
-         * Callback as used by {@link protos.PlumberServer#updateService}.
-         * @memberof protos.PlumberServer
-         * @typedef UpdateServiceCallback
-         * @type {function}
-         * @param {Error|null} error Error, if any
-         * @param {protos.UpdateServiceResponse} [response] UpdateServiceResponse
-         */
-
-        /**
-         * Calls UpdateService.
-         * @function updateService
-         * @memberof protos.PlumberServer
-         * @instance
-         * @param {protos.IUpdateServiceRequest} request UpdateServiceRequest message or plain object
-         * @param {protos.PlumberServer.UpdateServiceCallback} callback Node-style callback called with the error, if any, and UpdateServiceResponse
-         * @returns {undefined}
-         * @variation 1
-         */
-        Object.defineProperty(PlumberServer.prototype.updateService = function updateService(request, callback) {
-            return this.rpcCall(updateService, $root.protos.UpdateServiceRequest, $root.protos.UpdateServiceResponse, request, callback);
-        }, "name", { value: "UpdateService" });
-
-        /**
-         * Calls UpdateService.
-         * @function updateService
-         * @memberof protos.PlumberServer
-         * @instance
-         * @param {protos.IUpdateServiceRequest} request UpdateServiceRequest message or plain object
-         * @returns {Promise<protos.UpdateServiceResponse>} Promise
-         * @variation 2
-         */
-
-        /**
-         * Callback as used by {@link protos.PlumberServer#deleteService}.
-         * @memberof protos.PlumberServer
-         * @typedef DeleteServiceCallback
-         * @type {function}
-         * @param {Error|null} error Error, if any
-         * @param {protos.DeleteServiceResponse} [response] DeleteServiceResponse
-         */
-
-        /**
-         * Calls DeleteService.
-         * @function deleteService
-         * @memberof protos.PlumberServer
-         * @instance
-         * @param {protos.IDeleteServiceRequest} request DeleteServiceRequest message or plain object
-         * @param {protos.PlumberServer.DeleteServiceCallback} callback Node-style callback called with the error, if any, and DeleteServiceResponse
-         * @returns {undefined}
-         * @variation 1
-         */
-        Object.defineProperty(PlumberServer.prototype.deleteService = function deleteService(request, callback) {
-            return this.rpcCall(deleteService, $root.protos.DeleteServiceRequest, $root.protos.DeleteServiceResponse, request, callback);
-        }, "name", { value: "DeleteService" });
-
-        /**
-         * Calls DeleteService.
-         * @function deleteService
-         * @memberof protos.PlumberServer
-         * @instance
-         * @param {protos.IDeleteServiceRequest} request DeleteServiceRequest message or plain object
-         * @returns {Promise<protos.DeleteServiceResponse>} Promise
-         * @variation 2
-         */
-
-        /**
-         * Callback as used by {@link protos.PlumberServer#linkSchemaToService}.
-         * @memberof protos.PlumberServer
-         * @typedef LinkSchemaToServiceCallback
-         * @type {function}
-         * @param {Error|null} error Error, if any
-         * @param {protos.LinkSchemaToServiceResponse} [response] LinkSchemaToServiceResponse
-         */
-
-        /**
-         * Calls LinkSchemaToService.
-         * @function linkSchemaToService
-         * @memberof protos.PlumberServer
-         * @instance
-         * @param {protos.ILinkSchemaToServiceRequest} request LinkSchemaToServiceRequest message or plain object
-         * @param {protos.PlumberServer.LinkSchemaToServiceCallback} callback Node-style callback called with the error, if any, and LinkSchemaToServiceResponse
-         * @returns {undefined}
-         * @variation 1
-         */
-        Object.defineProperty(PlumberServer.prototype.linkSchemaToService = function linkSchemaToService(request, callback) {
-            return this.rpcCall(linkSchemaToService, $root.protos.LinkSchemaToServiceRequest, $root.protos.LinkSchemaToServiceResponse, request, callback);
-        }, "name", { value: "LinkSchemaToService" });
-
-        /**
-         * Calls LinkSchemaToService.
-         * @function linkSchemaToService
-         * @memberof protos.PlumberServer
-         * @instance
-         * @param {protos.ILinkSchemaToServiceRequest} request LinkSchemaToServiceRequest message or plain object
-         * @returns {Promise<protos.LinkSchemaToServiceResponse>} Promise
-         * @variation 2
-         */
-
-        /**
-         * Callback as used by {@link protos.PlumberServer#unlinkSchemaFromService}.
-         * @memberof protos.PlumberServer
-         * @typedef UnlinkSchemaFromServiceCallback
-         * @type {function}
-         * @param {Error|null} error Error, if any
-         * @param {protos.UnlinkSchemaFromServiceResponse} [response] UnlinkSchemaFromServiceResponse
-         */
-
-        /**
-         * Calls UnlinkSchemaFromService.
-         * @function unlinkSchemaFromService
-         * @memberof protos.PlumberServer
-         * @instance
-         * @param {protos.IUnlinkSchemaFromServiceRequest} request UnlinkSchemaFromServiceRequest message or plain object
-         * @param {protos.PlumberServer.UnlinkSchemaFromServiceCallback} callback Node-style callback called with the error, if any, and UnlinkSchemaFromServiceResponse
-         * @returns {undefined}
-         * @variation 1
-         */
-        Object.defineProperty(PlumberServer.prototype.unlinkSchemaFromService = function unlinkSchemaFromService(request, callback) {
-            return this.rpcCall(unlinkSchemaFromService, $root.protos.UnlinkSchemaFromServiceRequest, $root.protos.UnlinkSchemaFromServiceResponse, request, callback);
-        }, "name", { value: "UnlinkSchemaFromService" });
-
-        /**
-         * Calls UnlinkSchemaFromService.
-         * @function unlinkSchemaFromService
-         * @memberof protos.PlumberServer
-         * @instance
-         * @param {protos.IUnlinkSchemaFromServiceRequest} request UnlinkSchemaFromServiceRequest message or plain object
-         * @returns {Promise<protos.UnlinkSchemaFromServiceResponse>} Promise
-         * @variation 2
-         */
-
-        /**
-         * Callback as used by {@link protos.PlumberServer#linkRepoToService}.
-         * @memberof protos.PlumberServer
-         * @typedef LinkRepoToServiceCallback
-         * @type {function}
-         * @param {Error|null} error Error, if any
-         * @param {protos.LinkRepoToServiceResponse} [response] LinkRepoToServiceResponse
-         */
-
-        /**
-         * Calls LinkRepoToService.
-         * @function linkRepoToService
-         * @memberof protos.PlumberServer
-         * @instance
-         * @param {protos.ILinkRepoToServiceRequest} request LinkRepoToServiceRequest message or plain object
-         * @param {protos.PlumberServer.LinkRepoToServiceCallback} callback Node-style callback called with the error, if any, and LinkRepoToServiceResponse
-         * @returns {undefined}
-         * @variation 1
-         */
-        Object.defineProperty(PlumberServer.prototype.linkRepoToService = function linkRepoToService(request, callback) {
-            return this.rpcCall(linkRepoToService, $root.protos.LinkRepoToServiceRequest, $root.protos.LinkRepoToServiceResponse, request, callback);
-        }, "name", { value: "LinkRepoToService" });
-
-        /**
-         * Calls LinkRepoToService.
-         * @function linkRepoToService
-         * @memberof protos.PlumberServer
-         * @instance
-         * @param {protos.ILinkRepoToServiceRequest} request LinkRepoToServiceRequest message or plain object
-         * @returns {Promise<protos.LinkRepoToServiceResponse>} Promise
-         * @variation 2
-         */
-
-        /**
-         * Callback as used by {@link protos.PlumberServer#unlinkRepoFromService}.
-         * @memberof protos.PlumberServer
-         * @typedef UnlinkRepoFromServiceCallback
-         * @type {function}
-         * @param {Error|null} error Error, if any
-         * @param {protos.UnlinkRepoFromServiceResponse} [response] UnlinkRepoFromServiceResponse
-         */
-
-        /**
-         * Calls UnlinkRepoFromService.
-         * @function unlinkRepoFromService
-         * @memberof protos.PlumberServer
-         * @instance
-         * @param {protos.IUnlinkRepoFromServiceRequest} request UnlinkRepoFromServiceRequest message or plain object
-         * @param {protos.PlumberServer.UnlinkRepoFromServiceCallback} callback Node-style callback called with the error, if any, and UnlinkRepoFromServiceResponse
-         * @returns {undefined}
-         * @variation 1
-         */
-        Object.defineProperty(PlumberServer.prototype.unlinkRepoFromService = function unlinkRepoFromService(request, callback) {
-            return this.rpcCall(unlinkRepoFromService, $root.protos.UnlinkRepoFromServiceRequest, $root.protos.UnlinkRepoFromServiceResponse, request, callback);
-        }, "name", { value: "UnlinkRepoFromService" });
-
-        /**
-         * Calls UnlinkRepoFromService.
-         * @function unlinkRepoFromService
-         * @memberof protos.PlumberServer
-         * @instance
-         * @param {protos.IUnlinkRepoFromServiceRequest} request UnlinkRepoFromServiceRequest message or plain object
-         * @returns {Promise<protos.UnlinkRepoFromServiceResponse>} Promise
-         * @variation 2
-         */
-
-        /**
-         * Callback as used by {@link protos.PlumberServer#getServerOptions}.
-         * @memberof protos.PlumberServer
-         * @typedef GetServerOptionsCallback
-         * @type {function}
-         * @param {Error|null} error Error, if any
-         * @param {protos.GetServerOptionsResponse} [response] GetServerOptionsResponse
-         */
-
-        /**
-         * Calls GetServerOptions.
-         * @function getServerOptions
-         * @memberof protos.PlumberServer
-         * @instance
-         * @param {protos.IGetServerOptionsRequest} request GetServerOptionsRequest message or plain object
-         * @param {protos.PlumberServer.GetServerOptionsCallback} callback Node-style callback called with the error, if any, and GetServerOptionsResponse
-         * @returns {undefined}
-         * @variation 1
-         */
-        Object.defineProperty(PlumberServer.prototype.getServerOptions = function getServerOptions(request, callback) {
-            return this.rpcCall(getServerOptions, $root.protos.GetServerOptionsRequest, $root.protos.GetServerOptionsResponse, request, callback);
-        }, "name", { value: "GetServerOptions" });
-
-        /**
-         * Calls GetServerOptions.
-         * @function getServerOptions
-         * @memberof protos.PlumberServer
-         * @instance
-         * @param {protos.IGetServerOptionsRequest} request GetServerOptionsRequest message or plain object
-         * @returns {Promise<protos.GetServerOptionsResponse>} Promise
-         * @variation 2
-         */
-
-        /**
-         * Callback as used by {@link protos.PlumberServer#setServerOptions}.
-         * @memberof protos.PlumberServer
-         * @typedef SetServerOptionsCallback
-         * @type {function}
-         * @param {Error|null} error Error, if any
-         * @param {protos.SetServerOptionsResponse} [response] SetServerOptionsResponse
-         */
-
-        /**
-         * Calls SetServerOptions.
-         * @function setServerOptions
-         * @memberof protos.PlumberServer
-         * @instance
-         * @param {protos.ISetServerOptionsRequest} request SetServerOptionsRequest message or plain object
-         * @param {protos.PlumberServer.SetServerOptionsCallback} callback Node-style callback called with the error, if any, and SetServerOptionsResponse
-         * @returns {undefined}
-         * @variation 1
-         */
-        Object.defineProperty(PlumberServer.prototype.setServerOptions = function setServerOptions(request, callback) {
-            return this.rpcCall(setServerOptions, $root.protos.SetServerOptionsRequest, $root.protos.SetServerOptionsResponse, request, callback);
-        }, "name", { value: "SetServerOptions" });
-
-        /**
-         * Calls SetServerOptions.
-         * @function setServerOptions
-         * @memberof protos.PlumberServer
-         * @instance
-         * @param {protos.ISetServerOptionsRequest} request SetServerOptionsRequest message or plain object
-         * @returns {Promise<protos.SetServerOptionsResponse>} Promise
-         * @variation 2
-         */
-
-        /**
-         * Callback as used by {@link protos.PlumberServer#getVCEvents}.
-         * @memberof protos.PlumberServer
-         * @typedef GetVCEventsCallback
-         * @type {function}
-         * @param {Error|null} error Error, if any
-         * @param {protos.VCEvent} [response] VCEvent
-         */
-
-        /**
-         * Calls GetVCEvents.
-         * @function getVCEvents
-         * @memberof protos.PlumberServer
-         * @instance
-         * @param {protos.IGetVCEventsRequest} request GetVCEventsRequest message or plain object
-         * @param {protos.PlumberServer.GetVCEventsCallback} callback Node-style callback called with the error, if any, and VCEvent
-         * @returns {undefined}
-         * @variation 1
-         */
-        Object.defineProperty(PlumberServer.prototype.getVCEvents = function getVCEvents(request, callback) {
-            return this.rpcCall(getVCEvents, $root.protos.GetVCEventsRequest, $root.protos.VCEvent, request, callback);
-        }, "name", { value: "GetVCEvents" });
-
-        /**
-         * Calls GetVCEvents.
-         * @function getVCEvents
-         * @memberof protos.PlumberServer
-         * @instance
-         * @param {protos.IGetVCEventsRequest} request GetVCEventsRequest message or plain object
-         * @returns {Promise<protos.VCEvent>} Promise
-         * @variation 2
-         */
-
-        return PlumberServer;
-    })();
-
-    protos.GetAllConnectionsRequest = (function() {
-
-        /**
-         * Properties of a GetAllConnectionsRequest.
-         * @memberof protos
-         * @interface IGetAllConnectionsRequest
-         * @property {protos.common.IAuth|null} [auth] GetAllConnectionsRequest auth
-         */
-
-        /**
-         * Constructs a new GetAllConnectionsRequest.
-         * @memberof protos
-         * @classdesc Represents a GetAllConnectionsRequest.
-         * @implements IGetAllConnectionsRequest
-         * @constructor
-         * @param {protos.IGetAllConnectionsRequest=} [properties] Properties to set
-         */
-        function GetAllConnectionsRequest(properties) {
+        function GetAlertRequest(properties) {
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
@@ -1365,481 +44,80 @@ $root.protos = (function() {
         }
 
         /**
-         * GetAllConnectionsRequest auth.
+         * GetAlertRequest auth.
          * @member {protos.common.IAuth|null|undefined} auth
-         * @memberof protos.GetAllConnectionsRequest
+         * @memberof protos.GetAlertRequest
          * @instance
          */
-        GetAllConnectionsRequest.prototype.auth = null;
+        GetAlertRequest.prototype.auth = null;
 
         /**
-         * Creates a new GetAllConnectionsRequest instance using the specified properties.
-         * @function create
-         * @memberof protos.GetAllConnectionsRequest
-         * @static
-         * @param {protos.IGetAllConnectionsRequest=} [properties] Properties to set
-         * @returns {protos.GetAllConnectionsRequest} GetAllConnectionsRequest instance
+         * GetAlertRequest alertId.
+         * @member {string} alertId
+         * @memberof protos.GetAlertRequest
+         * @instance
          */
-        GetAllConnectionsRequest.create = function create(properties) {
-            return new GetAllConnectionsRequest(properties);
+        GetAlertRequest.prototype.alertId = "";
+
+        /**
+         * Creates a new GetAlertRequest instance using the specified properties.
+         * @function create
+         * @memberof protos.GetAlertRequest
+         * @static
+         * @param {protos.IGetAlertRequest=} [properties] Properties to set
+         * @returns {protos.GetAlertRequest} GetAlertRequest instance
+         */
+        GetAlertRequest.create = function create(properties) {
+            return new GetAlertRequest(properties);
         };
 
         /**
-         * Encodes the specified GetAllConnectionsRequest message. Does not implicitly {@link protos.GetAllConnectionsRequest.verify|verify} messages.
+         * Encodes the specified GetAlertRequest message. Does not implicitly {@link protos.GetAlertRequest.verify|verify} messages.
          * @function encode
-         * @memberof protos.GetAllConnectionsRequest
+         * @memberof protos.GetAlertRequest
          * @static
-         * @param {protos.IGetAllConnectionsRequest} message GetAllConnectionsRequest message or plain object to encode
+         * @param {protos.IGetAlertRequest} message GetAlertRequest message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        GetAllConnectionsRequest.encode = function encode(message, writer) {
+        GetAlertRequest.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
+            if (message.alertId != null && Object.hasOwnProperty.call(message, "alertId"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.alertId);
             if (message.auth != null && Object.hasOwnProperty.call(message, "auth"))
                 $root.protos.common.Auth.encode(message.auth, writer.uint32(/* id 9999, wireType 2 =*/79994).fork()).ldelim();
             return writer;
         };
 
         /**
-         * Encodes the specified GetAllConnectionsRequest message, length delimited. Does not implicitly {@link protos.GetAllConnectionsRequest.verify|verify} messages.
+         * Encodes the specified GetAlertRequest message, length delimited. Does not implicitly {@link protos.GetAlertRequest.verify|verify} messages.
          * @function encodeDelimited
-         * @memberof protos.GetAllConnectionsRequest
+         * @memberof protos.GetAlertRequest
          * @static
-         * @param {protos.IGetAllConnectionsRequest} message GetAllConnectionsRequest message or plain object to encode
+         * @param {protos.IGetAlertRequest} message GetAlertRequest message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        GetAllConnectionsRequest.encodeDelimited = function encodeDelimited(message, writer) {
+        GetAlertRequest.encodeDelimited = function encodeDelimited(message, writer) {
             return this.encode(message, writer).ldelim();
         };
 
         /**
-         * Decodes a GetAllConnectionsRequest message from the specified reader or buffer.
+         * Decodes a GetAlertRequest message from the specified reader or buffer.
          * @function decode
-         * @memberof protos.GetAllConnectionsRequest
+         * @memberof protos.GetAlertRequest
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {protos.GetAllConnectionsRequest} GetAllConnectionsRequest
+         * @returns {protos.GetAlertRequest} GetAlertRequest
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        GetAllConnectionsRequest.decode = function decode(reader, length) {
+        GetAlertRequest.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.GetAllConnectionsRequest();
-            while (reader.pos < end) {
-                var tag = reader.uint32();
-                switch (tag >>> 3) {
-                case 9999:
-                    message.auth = $root.protos.common.Auth.decode(reader, reader.uint32());
-                    break;
-                default:
-                    reader.skipType(tag & 7);
-                    break;
-                }
-            }
-            return message;
-        };
-
-        /**
-         * Decodes a GetAllConnectionsRequest message from the specified reader or buffer, length delimited.
-         * @function decodeDelimited
-         * @memberof protos.GetAllConnectionsRequest
-         * @static
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {protos.GetAllConnectionsRequest} GetAllConnectionsRequest
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        GetAllConnectionsRequest.decodeDelimited = function decodeDelimited(reader) {
-            if (!(reader instanceof $Reader))
-                reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
-        };
-
-        /**
-         * Verifies a GetAllConnectionsRequest message.
-         * @function verify
-         * @memberof protos.GetAllConnectionsRequest
-         * @static
-         * @param {Object.<string,*>} message Plain object to verify
-         * @returns {string|null} `null` if valid, otherwise the reason why it is not
-         */
-        GetAllConnectionsRequest.verify = function verify(message) {
-            if (typeof message !== "object" || message === null)
-                return "object expected";
-            if (message.auth != null && message.hasOwnProperty("auth")) {
-                var error = $root.protos.common.Auth.verify(message.auth);
-                if (error)
-                    return "auth." + error;
-            }
-            return null;
-        };
-
-        /**
-         * Creates a GetAllConnectionsRequest message from a plain object. Also converts values to their respective internal types.
-         * @function fromObject
-         * @memberof protos.GetAllConnectionsRequest
-         * @static
-         * @param {Object.<string,*>} object Plain object
-         * @returns {protos.GetAllConnectionsRequest} GetAllConnectionsRequest
-         */
-        GetAllConnectionsRequest.fromObject = function fromObject(object) {
-            if (object instanceof $root.protos.GetAllConnectionsRequest)
-                return object;
-            var message = new $root.protos.GetAllConnectionsRequest();
-            if (object.auth != null) {
-                if (typeof object.auth !== "object")
-                    throw TypeError(".protos.GetAllConnectionsRequest.auth: object expected");
-                message.auth = $root.protos.common.Auth.fromObject(object.auth);
-            }
-            return message;
-        };
-
-        /**
-         * Creates a plain object from a GetAllConnectionsRequest message. Also converts values to other types if specified.
-         * @function toObject
-         * @memberof protos.GetAllConnectionsRequest
-         * @static
-         * @param {protos.GetAllConnectionsRequest} message GetAllConnectionsRequest
-         * @param {$protobuf.IConversionOptions} [options] Conversion options
-         * @returns {Object.<string,*>} Plain object
-         */
-        GetAllConnectionsRequest.toObject = function toObject(message, options) {
-            if (!options)
-                options = {};
-            var object = {};
-            if (options.defaults)
-                object.auth = null;
-            if (message.auth != null && message.hasOwnProperty("auth"))
-                object.auth = $root.protos.common.Auth.toObject(message.auth, options);
-            return object;
-        };
-
-        /**
-         * Converts this GetAllConnectionsRequest to JSON.
-         * @function toJSON
-         * @memberof protos.GetAllConnectionsRequest
-         * @instance
-         * @returns {Object.<string,*>} JSON object
-         */
-        GetAllConnectionsRequest.prototype.toJSON = function toJSON() {
-            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-        };
-
-        return GetAllConnectionsRequest;
-    })();
-
-    protos.GetAllConnectionsResponse = (function() {
-
-        /**
-         * Properties of a GetAllConnectionsResponse.
-         * @memberof protos
-         * @interface IGetAllConnectionsResponse
-         * @property {Array.<protos.opts.IConnectionOptions>|null} [options] GetAllConnectionsResponse options
-         */
-
-        /**
-         * Constructs a new GetAllConnectionsResponse.
-         * @memberof protos
-         * @classdesc Represents a GetAllConnectionsResponse.
-         * @implements IGetAllConnectionsResponse
-         * @constructor
-         * @param {protos.IGetAllConnectionsResponse=} [properties] Properties to set
-         */
-        function GetAllConnectionsResponse(properties) {
-            this.options = [];
-            if (properties)
-                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                    if (properties[keys[i]] != null)
-                        this[keys[i]] = properties[keys[i]];
-        }
-
-        /**
-         * GetAllConnectionsResponse options.
-         * @member {Array.<protos.opts.IConnectionOptions>} options
-         * @memberof protos.GetAllConnectionsResponse
-         * @instance
-         */
-        GetAllConnectionsResponse.prototype.options = $util.emptyArray;
-
-        /**
-         * Creates a new GetAllConnectionsResponse instance using the specified properties.
-         * @function create
-         * @memberof protos.GetAllConnectionsResponse
-         * @static
-         * @param {protos.IGetAllConnectionsResponse=} [properties] Properties to set
-         * @returns {protos.GetAllConnectionsResponse} GetAllConnectionsResponse instance
-         */
-        GetAllConnectionsResponse.create = function create(properties) {
-            return new GetAllConnectionsResponse(properties);
-        };
-
-        /**
-         * Encodes the specified GetAllConnectionsResponse message. Does not implicitly {@link protos.GetAllConnectionsResponse.verify|verify} messages.
-         * @function encode
-         * @memberof protos.GetAllConnectionsResponse
-         * @static
-         * @param {protos.IGetAllConnectionsResponse} message GetAllConnectionsResponse message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
-         * @returns {$protobuf.Writer} Writer
-         */
-        GetAllConnectionsResponse.encode = function encode(message, writer) {
-            if (!writer)
-                writer = $Writer.create();
-            if (message.options != null && message.options.length)
-                for (var i = 0; i < message.options.length; ++i)
-                    $root.protos.opts.ConnectionOptions.encode(message.options[i], writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
-            return writer;
-        };
-
-        /**
-         * Encodes the specified GetAllConnectionsResponse message, length delimited. Does not implicitly {@link protos.GetAllConnectionsResponse.verify|verify} messages.
-         * @function encodeDelimited
-         * @memberof protos.GetAllConnectionsResponse
-         * @static
-         * @param {protos.IGetAllConnectionsResponse} message GetAllConnectionsResponse message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
-         * @returns {$protobuf.Writer} Writer
-         */
-        GetAllConnectionsResponse.encodeDelimited = function encodeDelimited(message, writer) {
-            return this.encode(message, writer).ldelim();
-        };
-
-        /**
-         * Decodes a GetAllConnectionsResponse message from the specified reader or buffer.
-         * @function decode
-         * @memberof protos.GetAllConnectionsResponse
-         * @static
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @param {number} [length] Message length if known beforehand
-         * @returns {protos.GetAllConnectionsResponse} GetAllConnectionsResponse
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        GetAllConnectionsResponse.decode = function decode(reader, length) {
-            if (!(reader instanceof $Reader))
-                reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.GetAllConnectionsResponse();
-            while (reader.pos < end) {
-                var tag = reader.uint32();
-                switch (tag >>> 3) {
-                case 1:
-                    if (!(message.options && message.options.length))
-                        message.options = [];
-                    message.options.push($root.protos.opts.ConnectionOptions.decode(reader, reader.uint32()));
-                    break;
-                default:
-                    reader.skipType(tag & 7);
-                    break;
-                }
-            }
-            return message;
-        };
-
-        /**
-         * Decodes a GetAllConnectionsResponse message from the specified reader or buffer, length delimited.
-         * @function decodeDelimited
-         * @memberof protos.GetAllConnectionsResponse
-         * @static
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {protos.GetAllConnectionsResponse} GetAllConnectionsResponse
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        GetAllConnectionsResponse.decodeDelimited = function decodeDelimited(reader) {
-            if (!(reader instanceof $Reader))
-                reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
-        };
-
-        /**
-         * Verifies a GetAllConnectionsResponse message.
-         * @function verify
-         * @memberof protos.GetAllConnectionsResponse
-         * @static
-         * @param {Object.<string,*>} message Plain object to verify
-         * @returns {string|null} `null` if valid, otherwise the reason why it is not
-         */
-        GetAllConnectionsResponse.verify = function verify(message) {
-            if (typeof message !== "object" || message === null)
-                return "object expected";
-            if (message.options != null && message.hasOwnProperty("options")) {
-                if (!Array.isArray(message.options))
-                    return "options: array expected";
-                for (var i = 0; i < message.options.length; ++i) {
-                    var error = $root.protos.opts.ConnectionOptions.verify(message.options[i]);
-                    if (error)
-                        return "options." + error;
-                }
-            }
-            return null;
-        };
-
-        /**
-         * Creates a GetAllConnectionsResponse message from a plain object. Also converts values to their respective internal types.
-         * @function fromObject
-         * @memberof protos.GetAllConnectionsResponse
-         * @static
-         * @param {Object.<string,*>} object Plain object
-         * @returns {protos.GetAllConnectionsResponse} GetAllConnectionsResponse
-         */
-        GetAllConnectionsResponse.fromObject = function fromObject(object) {
-            if (object instanceof $root.protos.GetAllConnectionsResponse)
-                return object;
-            var message = new $root.protos.GetAllConnectionsResponse();
-            if (object.options) {
-                if (!Array.isArray(object.options))
-                    throw TypeError(".protos.GetAllConnectionsResponse.options: array expected");
-                message.options = [];
-                for (var i = 0; i < object.options.length; ++i) {
-                    if (typeof object.options[i] !== "object")
-                        throw TypeError(".protos.GetAllConnectionsResponse.options: object expected");
-                    message.options[i] = $root.protos.opts.ConnectionOptions.fromObject(object.options[i]);
-                }
-            }
-            return message;
-        };
-
-        /**
-         * Creates a plain object from a GetAllConnectionsResponse message. Also converts values to other types if specified.
-         * @function toObject
-         * @memberof protos.GetAllConnectionsResponse
-         * @static
-         * @param {protos.GetAllConnectionsResponse} message GetAllConnectionsResponse
-         * @param {$protobuf.IConversionOptions} [options] Conversion options
-         * @returns {Object.<string,*>} Plain object
-         */
-        GetAllConnectionsResponse.toObject = function toObject(message, options) {
-            if (!options)
-                options = {};
-            var object = {};
-            if (options.arrays || options.defaults)
-                object.options = [];
-            if (message.options && message.options.length) {
-                object.options = [];
-                for (var j = 0; j < message.options.length; ++j)
-                    object.options[j] = $root.protos.opts.ConnectionOptions.toObject(message.options[j], options);
-            }
-            return object;
-        };
-
-        /**
-         * Converts this GetAllConnectionsResponse to JSON.
-         * @function toJSON
-         * @memberof protos.GetAllConnectionsResponse
-         * @instance
-         * @returns {Object.<string,*>} JSON object
-         */
-        GetAllConnectionsResponse.prototype.toJSON = function toJSON() {
-            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-        };
-
-        return GetAllConnectionsResponse;
-    })();
-
-    protos.GetConnectionRequest = (function() {
-
-        /**
-         * Properties of a GetConnectionRequest.
-         * @memberof protos
-         * @interface IGetConnectionRequest
-         * @property {protos.common.IAuth|null} [auth] GetConnectionRequest auth
-         * @property {string|null} [connectionId] GetConnectionRequest connectionId
-         */
-
-        /**
-         * Constructs a new GetConnectionRequest.
-         * @memberof protos
-         * @classdesc Represents a GetConnectionRequest.
-         * @implements IGetConnectionRequest
-         * @constructor
-         * @param {protos.IGetConnectionRequest=} [properties] Properties to set
-         */
-        function GetConnectionRequest(properties) {
-            if (properties)
-                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                    if (properties[keys[i]] != null)
-                        this[keys[i]] = properties[keys[i]];
-        }
-
-        /**
-         * GetConnectionRequest auth.
-         * @member {protos.common.IAuth|null|undefined} auth
-         * @memberof protos.GetConnectionRequest
-         * @instance
-         */
-        GetConnectionRequest.prototype.auth = null;
-
-        /**
-         * GetConnectionRequest connectionId.
-         * @member {string} connectionId
-         * @memberof protos.GetConnectionRequest
-         * @instance
-         */
-        GetConnectionRequest.prototype.connectionId = "";
-
-        /**
-         * Creates a new GetConnectionRequest instance using the specified properties.
-         * @function create
-         * @memberof protos.GetConnectionRequest
-         * @static
-         * @param {protos.IGetConnectionRequest=} [properties] Properties to set
-         * @returns {protos.GetConnectionRequest} GetConnectionRequest instance
-         */
-        GetConnectionRequest.create = function create(properties) {
-            return new GetConnectionRequest(properties);
-        };
-
-        /**
-         * Encodes the specified GetConnectionRequest message. Does not implicitly {@link protos.GetConnectionRequest.verify|verify} messages.
-         * @function encode
-         * @memberof protos.GetConnectionRequest
-         * @static
-         * @param {protos.IGetConnectionRequest} message GetConnectionRequest message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
-         * @returns {$protobuf.Writer} Writer
-         */
-        GetConnectionRequest.encode = function encode(message, writer) {
-            if (!writer)
-                writer = $Writer.create();
-            if (message.connectionId != null && Object.hasOwnProperty.call(message, "connectionId"))
-                writer.uint32(/* id 1, wireType 2 =*/10).string(message.connectionId);
-            if (message.auth != null && Object.hasOwnProperty.call(message, "auth"))
-                $root.protos.common.Auth.encode(message.auth, writer.uint32(/* id 9999, wireType 2 =*/79994).fork()).ldelim();
-            return writer;
-        };
-
-        /**
-         * Encodes the specified GetConnectionRequest message, length delimited. Does not implicitly {@link protos.GetConnectionRequest.verify|verify} messages.
-         * @function encodeDelimited
-         * @memberof protos.GetConnectionRequest
-         * @static
-         * @param {protos.IGetConnectionRequest} message GetConnectionRequest message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
-         * @returns {$protobuf.Writer} Writer
-         */
-        GetConnectionRequest.encodeDelimited = function encodeDelimited(message, writer) {
-            return this.encode(message, writer).ldelim();
-        };
-
-        /**
-         * Decodes a GetConnectionRequest message from the specified reader or buffer.
-         * @function decode
-         * @memberof protos.GetConnectionRequest
-         * @static
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @param {number} [length] Message length if known beforehand
-         * @returns {protos.GetConnectionRequest} GetConnectionRequest
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        GetConnectionRequest.decode = function decode(reader, length) {
-            if (!(reader instanceof $Reader))
-                reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.GetConnectionRequest();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.GetAlertRequest();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -1847,7 +125,7 @@ $root.protos = (function() {
                     message.auth = $root.protos.common.Auth.decode(reader, reader.uint32());
                     break;
                 case 1:
-                    message.connectionId = reader.string();
+                    message.alertId = reader.string();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -1858,30 +136,30 @@ $root.protos = (function() {
         };
 
         /**
-         * Decodes a GetConnectionRequest message from the specified reader or buffer, length delimited.
+         * Decodes a GetAlertRequest message from the specified reader or buffer, length delimited.
          * @function decodeDelimited
-         * @memberof protos.GetConnectionRequest
+         * @memberof protos.GetAlertRequest
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {protos.GetConnectionRequest} GetConnectionRequest
+         * @returns {protos.GetAlertRequest} GetAlertRequest
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        GetConnectionRequest.decodeDelimited = function decodeDelimited(reader) {
+        GetAlertRequest.decodeDelimited = function decodeDelimited(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
         };
 
         /**
-         * Verifies a GetConnectionRequest message.
+         * Verifies a GetAlertRequest message.
          * @function verify
-         * @memberof protos.GetConnectionRequest
+         * @memberof protos.GetAlertRequest
          * @static
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        GetConnectionRequest.verify = function verify(message) {
+        GetAlertRequest.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
             if (message.auth != null && message.hasOwnProperty("auth")) {
@@ -1889,90 +167,91 @@ $root.protos = (function() {
                 if (error)
                     return "auth." + error;
             }
-            if (message.connectionId != null && message.hasOwnProperty("connectionId"))
-                if (!$util.isString(message.connectionId))
-                    return "connectionId: string expected";
+            if (message.alertId != null && message.hasOwnProperty("alertId"))
+                if (!$util.isString(message.alertId))
+                    return "alertId: string expected";
             return null;
         };
 
         /**
-         * Creates a GetConnectionRequest message from a plain object. Also converts values to their respective internal types.
+         * Creates a GetAlertRequest message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof protos.GetConnectionRequest
+         * @memberof protos.GetAlertRequest
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {protos.GetConnectionRequest} GetConnectionRequest
+         * @returns {protos.GetAlertRequest} GetAlertRequest
          */
-        GetConnectionRequest.fromObject = function fromObject(object) {
-            if (object instanceof $root.protos.GetConnectionRequest)
+        GetAlertRequest.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.GetAlertRequest)
                 return object;
-            var message = new $root.protos.GetConnectionRequest();
+            var message = new $root.protos.GetAlertRequest();
             if (object.auth != null) {
                 if (typeof object.auth !== "object")
-                    throw TypeError(".protos.GetConnectionRequest.auth: object expected");
+                    throw TypeError(".protos.GetAlertRequest.auth: object expected");
                 message.auth = $root.protos.common.Auth.fromObject(object.auth);
             }
-            if (object.connectionId != null)
-                message.connectionId = String(object.connectionId);
+            if (object.alertId != null)
+                message.alertId = String(object.alertId);
             return message;
         };
 
         /**
-         * Creates a plain object from a GetConnectionRequest message. Also converts values to other types if specified.
+         * Creates a plain object from a GetAlertRequest message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof protos.GetConnectionRequest
+         * @memberof protos.GetAlertRequest
          * @static
-         * @param {protos.GetConnectionRequest} message GetConnectionRequest
+         * @param {protos.GetAlertRequest} message GetAlertRequest
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        GetConnectionRequest.toObject = function toObject(message, options) {
+        GetAlertRequest.toObject = function toObject(message, options) {
             if (!options)
                 options = {};
             var object = {};
             if (options.defaults) {
-                object.connectionId = "";
+                object.alertId = "";
                 object.auth = null;
             }
-            if (message.connectionId != null && message.hasOwnProperty("connectionId"))
-                object.connectionId = message.connectionId;
+            if (message.alertId != null && message.hasOwnProperty("alertId"))
+                object.alertId = message.alertId;
             if (message.auth != null && message.hasOwnProperty("auth"))
                 object.auth = $root.protos.common.Auth.toObject(message.auth, options);
             return object;
         };
 
         /**
-         * Converts this GetConnectionRequest to JSON.
+         * Converts this GetAlertRequest to JSON.
          * @function toJSON
-         * @memberof protos.GetConnectionRequest
+         * @memberof protos.GetAlertRequest
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        GetConnectionRequest.prototype.toJSON = function toJSON() {
+        GetAlertRequest.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
         };
 
-        return GetConnectionRequest;
+        return GetAlertRequest;
     })();
 
-    protos.GetConnectionResponse = (function() {
+    protos.GetAlertResponse = (function() {
 
         /**
-         * Properties of a GetConnectionResponse.
+         * Properties of a GetAlertResponse.
          * @memberof protos
-         * @interface IGetConnectionResponse
-         * @property {protos.opts.IConnectionOptions|null} [options] GetConnectionResponse options
+         * @interface IGetAlertResponse
+         * @property {protos.opts.IAlertOptions|null} [alert] GetAlertResponse alert
+         * @property {protos.common.IStatus|null} [status] GetAlertResponse status
          */
 
         /**
-         * Constructs a new GetConnectionResponse.
+         * Constructs a new GetAlertResponse.
          * @memberof protos
-         * @classdesc Represents a GetConnectionResponse.
-         * @implements IGetConnectionResponse
+         * @classdesc Represents a GetAlertResponse.
+         * @implements IGetAlertResponse
          * @constructor
-         * @param {protos.IGetConnectionResponse=} [properties] Properties to set
+         * @param {protos.IGetAlertResponse=} [properties] Properties to set
          */
-        function GetConnectionResponse(properties) {
+        function GetAlertResponse(properties) {
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
@@ -1980,854 +259,909 @@ $root.protos = (function() {
         }
 
         /**
-         * GetConnectionResponse options.
-         * @member {protos.opts.IConnectionOptions|null|undefined} options
-         * @memberof protos.GetConnectionResponse
+         * GetAlertResponse alert.
+         * @member {protos.opts.IAlertOptions|null|undefined} alert
+         * @memberof protos.GetAlertResponse
          * @instance
          */
-        GetConnectionResponse.prototype.options = null;
+        GetAlertResponse.prototype.alert = null;
 
         /**
-         * Creates a new GetConnectionResponse instance using the specified properties.
-         * @function create
-         * @memberof protos.GetConnectionResponse
-         * @static
-         * @param {protos.IGetConnectionResponse=} [properties] Properties to set
-         * @returns {protos.GetConnectionResponse} GetConnectionResponse instance
-         */
-        GetConnectionResponse.create = function create(properties) {
-            return new GetConnectionResponse(properties);
-        };
-
-        /**
-         * Encodes the specified GetConnectionResponse message. Does not implicitly {@link protos.GetConnectionResponse.verify|verify} messages.
-         * @function encode
-         * @memberof protos.GetConnectionResponse
-         * @static
-         * @param {protos.IGetConnectionResponse} message GetConnectionResponse message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
-         * @returns {$protobuf.Writer} Writer
-         */
-        GetConnectionResponse.encode = function encode(message, writer) {
-            if (!writer)
-                writer = $Writer.create();
-            if (message.options != null && Object.hasOwnProperty.call(message, "options"))
-                $root.protos.opts.ConnectionOptions.encode(message.options, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
-            return writer;
-        };
-
-        /**
-         * Encodes the specified GetConnectionResponse message, length delimited. Does not implicitly {@link protos.GetConnectionResponse.verify|verify} messages.
-         * @function encodeDelimited
-         * @memberof protos.GetConnectionResponse
-         * @static
-         * @param {protos.IGetConnectionResponse} message GetConnectionResponse message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
-         * @returns {$protobuf.Writer} Writer
-         */
-        GetConnectionResponse.encodeDelimited = function encodeDelimited(message, writer) {
-            return this.encode(message, writer).ldelim();
-        };
-
-        /**
-         * Decodes a GetConnectionResponse message from the specified reader or buffer.
-         * @function decode
-         * @memberof protos.GetConnectionResponse
-         * @static
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @param {number} [length] Message length if known beforehand
-         * @returns {protos.GetConnectionResponse} GetConnectionResponse
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        GetConnectionResponse.decode = function decode(reader, length) {
-            if (!(reader instanceof $Reader))
-                reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.GetConnectionResponse();
-            while (reader.pos < end) {
-                var tag = reader.uint32();
-                switch (tag >>> 3) {
-                case 1:
-                    message.options = $root.protos.opts.ConnectionOptions.decode(reader, reader.uint32());
-                    break;
-                default:
-                    reader.skipType(tag & 7);
-                    break;
-                }
-            }
-            return message;
-        };
-
-        /**
-         * Decodes a GetConnectionResponse message from the specified reader or buffer, length delimited.
-         * @function decodeDelimited
-         * @memberof protos.GetConnectionResponse
-         * @static
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {protos.GetConnectionResponse} GetConnectionResponse
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        GetConnectionResponse.decodeDelimited = function decodeDelimited(reader) {
-            if (!(reader instanceof $Reader))
-                reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
-        };
-
-        /**
-         * Verifies a GetConnectionResponse message.
-         * @function verify
-         * @memberof protos.GetConnectionResponse
-         * @static
-         * @param {Object.<string,*>} message Plain object to verify
-         * @returns {string|null} `null` if valid, otherwise the reason why it is not
-         */
-        GetConnectionResponse.verify = function verify(message) {
-            if (typeof message !== "object" || message === null)
-                return "object expected";
-            if (message.options != null && message.hasOwnProperty("options")) {
-                var error = $root.protos.opts.ConnectionOptions.verify(message.options);
-                if (error)
-                    return "options." + error;
-            }
-            return null;
-        };
-
-        /**
-         * Creates a GetConnectionResponse message from a plain object. Also converts values to their respective internal types.
-         * @function fromObject
-         * @memberof protos.GetConnectionResponse
-         * @static
-         * @param {Object.<string,*>} object Plain object
-         * @returns {protos.GetConnectionResponse} GetConnectionResponse
-         */
-        GetConnectionResponse.fromObject = function fromObject(object) {
-            if (object instanceof $root.protos.GetConnectionResponse)
-                return object;
-            var message = new $root.protos.GetConnectionResponse();
-            if (object.options != null) {
-                if (typeof object.options !== "object")
-                    throw TypeError(".protos.GetConnectionResponse.options: object expected");
-                message.options = $root.protos.opts.ConnectionOptions.fromObject(object.options);
-            }
-            return message;
-        };
-
-        /**
-         * Creates a plain object from a GetConnectionResponse message. Also converts values to other types if specified.
-         * @function toObject
-         * @memberof protos.GetConnectionResponse
-         * @static
-         * @param {protos.GetConnectionResponse} message GetConnectionResponse
-         * @param {$protobuf.IConversionOptions} [options] Conversion options
-         * @returns {Object.<string,*>} Plain object
-         */
-        GetConnectionResponse.toObject = function toObject(message, options) {
-            if (!options)
-                options = {};
-            var object = {};
-            if (options.defaults)
-                object.options = null;
-            if (message.options != null && message.hasOwnProperty("options"))
-                object.options = $root.protos.opts.ConnectionOptions.toObject(message.options, options);
-            return object;
-        };
-
-        /**
-         * Converts this GetConnectionResponse to JSON.
-         * @function toJSON
-         * @memberof protos.GetConnectionResponse
-         * @instance
-         * @returns {Object.<string,*>} JSON object
-         */
-        GetConnectionResponse.prototype.toJSON = function toJSON() {
-            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-        };
-
-        return GetConnectionResponse;
-    })();
-
-    protos.CreateConnectionRequest = (function() {
-
-        /**
-         * Properties of a CreateConnectionRequest.
-         * @memberof protos
-         * @interface ICreateConnectionRequest
-         * @property {protos.common.IAuth|null} [auth] CreateConnectionRequest auth
-         * @property {protos.opts.IConnectionOptions|null} [options] CreateConnectionRequest options
-         */
-
-        /**
-         * Constructs a new CreateConnectionRequest.
-         * @memberof protos
-         * @classdesc Represents a CreateConnectionRequest.
-         * @implements ICreateConnectionRequest
-         * @constructor
-         * @param {protos.ICreateConnectionRequest=} [properties] Properties to set
-         */
-        function CreateConnectionRequest(properties) {
-            if (properties)
-                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                    if (properties[keys[i]] != null)
-                        this[keys[i]] = properties[keys[i]];
-        }
-
-        /**
-         * CreateConnectionRequest auth.
-         * @member {protos.common.IAuth|null|undefined} auth
-         * @memberof protos.CreateConnectionRequest
-         * @instance
-         */
-        CreateConnectionRequest.prototype.auth = null;
-
-        /**
-         * CreateConnectionRequest options.
-         * @member {protos.opts.IConnectionOptions|null|undefined} options
-         * @memberof protos.CreateConnectionRequest
-         * @instance
-         */
-        CreateConnectionRequest.prototype.options = null;
-
-        /**
-         * Creates a new CreateConnectionRequest instance using the specified properties.
-         * @function create
-         * @memberof protos.CreateConnectionRequest
-         * @static
-         * @param {protos.ICreateConnectionRequest=} [properties] Properties to set
-         * @returns {protos.CreateConnectionRequest} CreateConnectionRequest instance
-         */
-        CreateConnectionRequest.create = function create(properties) {
-            return new CreateConnectionRequest(properties);
-        };
-
-        /**
-         * Encodes the specified CreateConnectionRequest message. Does not implicitly {@link protos.CreateConnectionRequest.verify|verify} messages.
-         * @function encode
-         * @memberof protos.CreateConnectionRequest
-         * @static
-         * @param {protos.ICreateConnectionRequest} message CreateConnectionRequest message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
-         * @returns {$protobuf.Writer} Writer
-         */
-        CreateConnectionRequest.encode = function encode(message, writer) {
-            if (!writer)
-                writer = $Writer.create();
-            if (message.options != null && Object.hasOwnProperty.call(message, "options"))
-                $root.protos.opts.ConnectionOptions.encode(message.options, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
-            if (message.auth != null && Object.hasOwnProperty.call(message, "auth"))
-                $root.protos.common.Auth.encode(message.auth, writer.uint32(/* id 9999, wireType 2 =*/79994).fork()).ldelim();
-            return writer;
-        };
-
-        /**
-         * Encodes the specified CreateConnectionRequest message, length delimited. Does not implicitly {@link protos.CreateConnectionRequest.verify|verify} messages.
-         * @function encodeDelimited
-         * @memberof protos.CreateConnectionRequest
-         * @static
-         * @param {protos.ICreateConnectionRequest} message CreateConnectionRequest message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
-         * @returns {$protobuf.Writer} Writer
-         */
-        CreateConnectionRequest.encodeDelimited = function encodeDelimited(message, writer) {
-            return this.encode(message, writer).ldelim();
-        };
-
-        /**
-         * Decodes a CreateConnectionRequest message from the specified reader or buffer.
-         * @function decode
-         * @memberof protos.CreateConnectionRequest
-         * @static
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @param {number} [length] Message length if known beforehand
-         * @returns {protos.CreateConnectionRequest} CreateConnectionRequest
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        CreateConnectionRequest.decode = function decode(reader, length) {
-            if (!(reader instanceof $Reader))
-                reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.CreateConnectionRequest();
-            while (reader.pos < end) {
-                var tag = reader.uint32();
-                switch (tag >>> 3) {
-                case 9999:
-                    message.auth = $root.protos.common.Auth.decode(reader, reader.uint32());
-                    break;
-                case 1:
-                    message.options = $root.protos.opts.ConnectionOptions.decode(reader, reader.uint32());
-                    break;
-                default:
-                    reader.skipType(tag & 7);
-                    break;
-                }
-            }
-            return message;
-        };
-
-        /**
-         * Decodes a CreateConnectionRequest message from the specified reader or buffer, length delimited.
-         * @function decodeDelimited
-         * @memberof protos.CreateConnectionRequest
-         * @static
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {protos.CreateConnectionRequest} CreateConnectionRequest
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        CreateConnectionRequest.decodeDelimited = function decodeDelimited(reader) {
-            if (!(reader instanceof $Reader))
-                reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
-        };
-
-        /**
-         * Verifies a CreateConnectionRequest message.
-         * @function verify
-         * @memberof protos.CreateConnectionRequest
-         * @static
-         * @param {Object.<string,*>} message Plain object to verify
-         * @returns {string|null} `null` if valid, otherwise the reason why it is not
-         */
-        CreateConnectionRequest.verify = function verify(message) {
-            if (typeof message !== "object" || message === null)
-                return "object expected";
-            if (message.auth != null && message.hasOwnProperty("auth")) {
-                var error = $root.protos.common.Auth.verify(message.auth);
-                if (error)
-                    return "auth." + error;
-            }
-            if (message.options != null && message.hasOwnProperty("options")) {
-                var error = $root.protos.opts.ConnectionOptions.verify(message.options);
-                if (error)
-                    return "options." + error;
-            }
-            return null;
-        };
-
-        /**
-         * Creates a CreateConnectionRequest message from a plain object. Also converts values to their respective internal types.
-         * @function fromObject
-         * @memberof protos.CreateConnectionRequest
-         * @static
-         * @param {Object.<string,*>} object Plain object
-         * @returns {protos.CreateConnectionRequest} CreateConnectionRequest
-         */
-        CreateConnectionRequest.fromObject = function fromObject(object) {
-            if (object instanceof $root.protos.CreateConnectionRequest)
-                return object;
-            var message = new $root.protos.CreateConnectionRequest();
-            if (object.auth != null) {
-                if (typeof object.auth !== "object")
-                    throw TypeError(".protos.CreateConnectionRequest.auth: object expected");
-                message.auth = $root.protos.common.Auth.fromObject(object.auth);
-            }
-            if (object.options != null) {
-                if (typeof object.options !== "object")
-                    throw TypeError(".protos.CreateConnectionRequest.options: object expected");
-                message.options = $root.protos.opts.ConnectionOptions.fromObject(object.options);
-            }
-            return message;
-        };
-
-        /**
-         * Creates a plain object from a CreateConnectionRequest message. Also converts values to other types if specified.
-         * @function toObject
-         * @memberof protos.CreateConnectionRequest
-         * @static
-         * @param {protos.CreateConnectionRequest} message CreateConnectionRequest
-         * @param {$protobuf.IConversionOptions} [options] Conversion options
-         * @returns {Object.<string,*>} Plain object
-         */
-        CreateConnectionRequest.toObject = function toObject(message, options) {
-            if (!options)
-                options = {};
-            var object = {};
-            if (options.defaults) {
-                object.options = null;
-                object.auth = null;
-            }
-            if (message.options != null && message.hasOwnProperty("options"))
-                object.options = $root.protos.opts.ConnectionOptions.toObject(message.options, options);
-            if (message.auth != null && message.hasOwnProperty("auth"))
-                object.auth = $root.protos.common.Auth.toObject(message.auth, options);
-            return object;
-        };
-
-        /**
-         * Converts this CreateConnectionRequest to JSON.
-         * @function toJSON
-         * @memberof protos.CreateConnectionRequest
-         * @instance
-         * @returns {Object.<string,*>} JSON object
-         */
-        CreateConnectionRequest.prototype.toJSON = function toJSON() {
-            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-        };
-
-        return CreateConnectionRequest;
-    })();
-
-    protos.CreateConnectionResponse = (function() {
-
-        /**
-         * Properties of a CreateConnectionResponse.
-         * @memberof protos
-         * @interface ICreateConnectionResponse
-         * @property {string|null} [connectionId] CreateConnectionResponse connectionId
-         */
-
-        /**
-         * Constructs a new CreateConnectionResponse.
-         * @memberof protos
-         * @classdesc Represents a CreateConnectionResponse.
-         * @implements ICreateConnectionResponse
-         * @constructor
-         * @param {protos.ICreateConnectionResponse=} [properties] Properties to set
-         */
-        function CreateConnectionResponse(properties) {
-            if (properties)
-                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                    if (properties[keys[i]] != null)
-                        this[keys[i]] = properties[keys[i]];
-        }
-
-        /**
-         * CreateConnectionResponse connectionId.
-         * @member {string} connectionId
-         * @memberof protos.CreateConnectionResponse
-         * @instance
-         */
-        CreateConnectionResponse.prototype.connectionId = "";
-
-        /**
-         * Creates a new CreateConnectionResponse instance using the specified properties.
-         * @function create
-         * @memberof protos.CreateConnectionResponse
-         * @static
-         * @param {protos.ICreateConnectionResponse=} [properties] Properties to set
-         * @returns {protos.CreateConnectionResponse} CreateConnectionResponse instance
-         */
-        CreateConnectionResponse.create = function create(properties) {
-            return new CreateConnectionResponse(properties);
-        };
-
-        /**
-         * Encodes the specified CreateConnectionResponse message. Does not implicitly {@link protos.CreateConnectionResponse.verify|verify} messages.
-         * @function encode
-         * @memberof protos.CreateConnectionResponse
-         * @static
-         * @param {protos.ICreateConnectionResponse} message CreateConnectionResponse message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
-         * @returns {$protobuf.Writer} Writer
-         */
-        CreateConnectionResponse.encode = function encode(message, writer) {
-            if (!writer)
-                writer = $Writer.create();
-            if (message.connectionId != null && Object.hasOwnProperty.call(message, "connectionId"))
-                writer.uint32(/* id 1, wireType 2 =*/10).string(message.connectionId);
-            return writer;
-        };
-
-        /**
-         * Encodes the specified CreateConnectionResponse message, length delimited. Does not implicitly {@link protos.CreateConnectionResponse.verify|verify} messages.
-         * @function encodeDelimited
-         * @memberof protos.CreateConnectionResponse
-         * @static
-         * @param {protos.ICreateConnectionResponse} message CreateConnectionResponse message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
-         * @returns {$protobuf.Writer} Writer
-         */
-        CreateConnectionResponse.encodeDelimited = function encodeDelimited(message, writer) {
-            return this.encode(message, writer).ldelim();
-        };
-
-        /**
-         * Decodes a CreateConnectionResponse message from the specified reader or buffer.
-         * @function decode
-         * @memberof protos.CreateConnectionResponse
-         * @static
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @param {number} [length] Message length if known beforehand
-         * @returns {protos.CreateConnectionResponse} CreateConnectionResponse
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        CreateConnectionResponse.decode = function decode(reader, length) {
-            if (!(reader instanceof $Reader))
-                reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.CreateConnectionResponse();
-            while (reader.pos < end) {
-                var tag = reader.uint32();
-                switch (tag >>> 3) {
-                case 1:
-                    message.connectionId = reader.string();
-                    break;
-                default:
-                    reader.skipType(tag & 7);
-                    break;
-                }
-            }
-            return message;
-        };
-
-        /**
-         * Decodes a CreateConnectionResponse message from the specified reader or buffer, length delimited.
-         * @function decodeDelimited
-         * @memberof protos.CreateConnectionResponse
-         * @static
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {protos.CreateConnectionResponse} CreateConnectionResponse
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        CreateConnectionResponse.decodeDelimited = function decodeDelimited(reader) {
-            if (!(reader instanceof $Reader))
-                reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
-        };
-
-        /**
-         * Verifies a CreateConnectionResponse message.
-         * @function verify
-         * @memberof protos.CreateConnectionResponse
-         * @static
-         * @param {Object.<string,*>} message Plain object to verify
-         * @returns {string|null} `null` if valid, otherwise the reason why it is not
-         */
-        CreateConnectionResponse.verify = function verify(message) {
-            if (typeof message !== "object" || message === null)
-                return "object expected";
-            if (message.connectionId != null && message.hasOwnProperty("connectionId"))
-                if (!$util.isString(message.connectionId))
-                    return "connectionId: string expected";
-            return null;
-        };
-
-        /**
-         * Creates a CreateConnectionResponse message from a plain object. Also converts values to their respective internal types.
-         * @function fromObject
-         * @memberof protos.CreateConnectionResponse
-         * @static
-         * @param {Object.<string,*>} object Plain object
-         * @returns {protos.CreateConnectionResponse} CreateConnectionResponse
-         */
-        CreateConnectionResponse.fromObject = function fromObject(object) {
-            if (object instanceof $root.protos.CreateConnectionResponse)
-                return object;
-            var message = new $root.protos.CreateConnectionResponse();
-            if (object.connectionId != null)
-                message.connectionId = String(object.connectionId);
-            return message;
-        };
-
-        /**
-         * Creates a plain object from a CreateConnectionResponse message. Also converts values to other types if specified.
-         * @function toObject
-         * @memberof protos.CreateConnectionResponse
-         * @static
-         * @param {protos.CreateConnectionResponse} message CreateConnectionResponse
-         * @param {$protobuf.IConversionOptions} [options] Conversion options
-         * @returns {Object.<string,*>} Plain object
-         */
-        CreateConnectionResponse.toObject = function toObject(message, options) {
-            if (!options)
-                options = {};
-            var object = {};
-            if (options.defaults)
-                object.connectionId = "";
-            if (message.connectionId != null && message.hasOwnProperty("connectionId"))
-                object.connectionId = message.connectionId;
-            return object;
-        };
-
-        /**
-         * Converts this CreateConnectionResponse to JSON.
-         * @function toJSON
-         * @memberof protos.CreateConnectionResponse
-         * @instance
-         * @returns {Object.<string,*>} JSON object
-         */
-        CreateConnectionResponse.prototype.toJSON = function toJSON() {
-            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-        };
-
-        return CreateConnectionResponse;
-    })();
-
-    protos.TestConnectionRequest = (function() {
-
-        /**
-         * Properties of a TestConnectionRequest.
-         * @memberof protos
-         * @interface ITestConnectionRequest
-         * @property {protos.common.IAuth|null} [auth] TestConnectionRequest auth
-         * @property {protos.opts.IConnectionOptions|null} [options] TestConnectionRequest options
-         */
-
-        /**
-         * Constructs a new TestConnectionRequest.
-         * @memberof protos
-         * @classdesc Represents a TestConnectionRequest.
-         * @implements ITestConnectionRequest
-         * @constructor
-         * @param {protos.ITestConnectionRequest=} [properties] Properties to set
-         */
-        function TestConnectionRequest(properties) {
-            if (properties)
-                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                    if (properties[keys[i]] != null)
-                        this[keys[i]] = properties[keys[i]];
-        }
-
-        /**
-         * TestConnectionRequest auth.
-         * @member {protos.common.IAuth|null|undefined} auth
-         * @memberof protos.TestConnectionRequest
-         * @instance
-         */
-        TestConnectionRequest.prototype.auth = null;
-
-        /**
-         * TestConnectionRequest options.
-         * @member {protos.opts.IConnectionOptions|null|undefined} options
-         * @memberof protos.TestConnectionRequest
-         * @instance
-         */
-        TestConnectionRequest.prototype.options = null;
-
-        /**
-         * Creates a new TestConnectionRequest instance using the specified properties.
-         * @function create
-         * @memberof protos.TestConnectionRequest
-         * @static
-         * @param {protos.ITestConnectionRequest=} [properties] Properties to set
-         * @returns {protos.TestConnectionRequest} TestConnectionRequest instance
-         */
-        TestConnectionRequest.create = function create(properties) {
-            return new TestConnectionRequest(properties);
-        };
-
-        /**
-         * Encodes the specified TestConnectionRequest message. Does not implicitly {@link protos.TestConnectionRequest.verify|verify} messages.
-         * @function encode
-         * @memberof protos.TestConnectionRequest
-         * @static
-         * @param {protos.ITestConnectionRequest} message TestConnectionRequest message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
-         * @returns {$protobuf.Writer} Writer
-         */
-        TestConnectionRequest.encode = function encode(message, writer) {
-            if (!writer)
-                writer = $Writer.create();
-            if (message.options != null && Object.hasOwnProperty.call(message, "options"))
-                $root.protos.opts.ConnectionOptions.encode(message.options, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
-            if (message.auth != null && Object.hasOwnProperty.call(message, "auth"))
-                $root.protos.common.Auth.encode(message.auth, writer.uint32(/* id 9999, wireType 2 =*/79994).fork()).ldelim();
-            return writer;
-        };
-
-        /**
-         * Encodes the specified TestConnectionRequest message, length delimited. Does not implicitly {@link protos.TestConnectionRequest.verify|verify} messages.
-         * @function encodeDelimited
-         * @memberof protos.TestConnectionRequest
-         * @static
-         * @param {protos.ITestConnectionRequest} message TestConnectionRequest message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
-         * @returns {$protobuf.Writer} Writer
-         */
-        TestConnectionRequest.encodeDelimited = function encodeDelimited(message, writer) {
-            return this.encode(message, writer).ldelim();
-        };
-
-        /**
-         * Decodes a TestConnectionRequest message from the specified reader or buffer.
-         * @function decode
-         * @memberof protos.TestConnectionRequest
-         * @static
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @param {number} [length] Message length if known beforehand
-         * @returns {protos.TestConnectionRequest} TestConnectionRequest
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        TestConnectionRequest.decode = function decode(reader, length) {
-            if (!(reader instanceof $Reader))
-                reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.TestConnectionRequest();
-            while (reader.pos < end) {
-                var tag = reader.uint32();
-                switch (tag >>> 3) {
-                case 9999:
-                    message.auth = $root.protos.common.Auth.decode(reader, reader.uint32());
-                    break;
-                case 1:
-                    message.options = $root.protos.opts.ConnectionOptions.decode(reader, reader.uint32());
-                    break;
-                default:
-                    reader.skipType(tag & 7);
-                    break;
-                }
-            }
-            return message;
-        };
-
-        /**
-         * Decodes a TestConnectionRequest message from the specified reader or buffer, length delimited.
-         * @function decodeDelimited
-         * @memberof protos.TestConnectionRequest
-         * @static
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {protos.TestConnectionRequest} TestConnectionRequest
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        TestConnectionRequest.decodeDelimited = function decodeDelimited(reader) {
-            if (!(reader instanceof $Reader))
-                reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
-        };
-
-        /**
-         * Verifies a TestConnectionRequest message.
-         * @function verify
-         * @memberof protos.TestConnectionRequest
-         * @static
-         * @param {Object.<string,*>} message Plain object to verify
-         * @returns {string|null} `null` if valid, otherwise the reason why it is not
-         */
-        TestConnectionRequest.verify = function verify(message) {
-            if (typeof message !== "object" || message === null)
-                return "object expected";
-            if (message.auth != null && message.hasOwnProperty("auth")) {
-                var error = $root.protos.common.Auth.verify(message.auth);
-                if (error)
-                    return "auth." + error;
-            }
-            if (message.options != null && message.hasOwnProperty("options")) {
-                var error = $root.protos.opts.ConnectionOptions.verify(message.options);
-                if (error)
-                    return "options." + error;
-            }
-            return null;
-        };
-
-        /**
-         * Creates a TestConnectionRequest message from a plain object. Also converts values to their respective internal types.
-         * @function fromObject
-         * @memberof protos.TestConnectionRequest
-         * @static
-         * @param {Object.<string,*>} object Plain object
-         * @returns {protos.TestConnectionRequest} TestConnectionRequest
-         */
-        TestConnectionRequest.fromObject = function fromObject(object) {
-            if (object instanceof $root.protos.TestConnectionRequest)
-                return object;
-            var message = new $root.protos.TestConnectionRequest();
-            if (object.auth != null) {
-                if (typeof object.auth !== "object")
-                    throw TypeError(".protos.TestConnectionRequest.auth: object expected");
-                message.auth = $root.protos.common.Auth.fromObject(object.auth);
-            }
-            if (object.options != null) {
-                if (typeof object.options !== "object")
-                    throw TypeError(".protos.TestConnectionRequest.options: object expected");
-                message.options = $root.protos.opts.ConnectionOptions.fromObject(object.options);
-            }
-            return message;
-        };
-
-        /**
-         * Creates a plain object from a TestConnectionRequest message. Also converts values to other types if specified.
-         * @function toObject
-         * @memberof protos.TestConnectionRequest
-         * @static
-         * @param {protos.TestConnectionRequest} message TestConnectionRequest
-         * @param {$protobuf.IConversionOptions} [options] Conversion options
-         * @returns {Object.<string,*>} Plain object
-         */
-        TestConnectionRequest.toObject = function toObject(message, options) {
-            if (!options)
-                options = {};
-            var object = {};
-            if (options.defaults) {
-                object.options = null;
-                object.auth = null;
-            }
-            if (message.options != null && message.hasOwnProperty("options"))
-                object.options = $root.protos.opts.ConnectionOptions.toObject(message.options, options);
-            if (message.auth != null && message.hasOwnProperty("auth"))
-                object.auth = $root.protos.common.Auth.toObject(message.auth, options);
-            return object;
-        };
-
-        /**
-         * Converts this TestConnectionRequest to JSON.
-         * @function toJSON
-         * @memberof protos.TestConnectionRequest
-         * @instance
-         * @returns {Object.<string,*>} JSON object
-         */
-        TestConnectionRequest.prototype.toJSON = function toJSON() {
-            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-        };
-
-        return TestConnectionRequest;
-    })();
-
-    protos.TestConnectionResponse = (function() {
-
-        /**
-         * Properties of a TestConnectionResponse.
-         * @memberof protos
-         * @interface ITestConnectionResponse
-         * @property {protos.common.IStatus|null} [status] TestConnectionResponse status
-         */
-
-        /**
-         * Constructs a new TestConnectionResponse.
-         * @memberof protos
-         * @classdesc Represents a TestConnectionResponse.
-         * @implements ITestConnectionResponse
-         * @constructor
-         * @param {protos.ITestConnectionResponse=} [properties] Properties to set
-         */
-        function TestConnectionResponse(properties) {
-            if (properties)
-                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                    if (properties[keys[i]] != null)
-                        this[keys[i]] = properties[keys[i]];
-        }
-
-        /**
-         * TestConnectionResponse status.
+         * GetAlertResponse status.
          * @member {protos.common.IStatus|null|undefined} status
-         * @memberof protos.TestConnectionResponse
+         * @memberof protos.GetAlertResponse
          * @instance
          */
-        TestConnectionResponse.prototype.status = null;
+        GetAlertResponse.prototype.status = null;
 
         /**
-         * Creates a new TestConnectionResponse instance using the specified properties.
+         * Creates a new GetAlertResponse instance using the specified properties.
          * @function create
-         * @memberof protos.TestConnectionResponse
+         * @memberof protos.GetAlertResponse
          * @static
-         * @param {protos.ITestConnectionResponse=} [properties] Properties to set
-         * @returns {protos.TestConnectionResponse} TestConnectionResponse instance
+         * @param {protos.IGetAlertResponse=} [properties] Properties to set
+         * @returns {protos.GetAlertResponse} GetAlertResponse instance
          */
-        TestConnectionResponse.create = function create(properties) {
-            return new TestConnectionResponse(properties);
+        GetAlertResponse.create = function create(properties) {
+            return new GetAlertResponse(properties);
         };
 
         /**
-         * Encodes the specified TestConnectionResponse message. Does not implicitly {@link protos.TestConnectionResponse.verify|verify} messages.
+         * Encodes the specified GetAlertResponse message. Does not implicitly {@link protos.GetAlertResponse.verify|verify} messages.
          * @function encode
-         * @memberof protos.TestConnectionResponse
+         * @memberof protos.GetAlertResponse
          * @static
-         * @param {protos.ITestConnectionResponse} message TestConnectionResponse message or plain object to encode
+         * @param {protos.IGetAlertResponse} message GetAlertResponse message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        TestConnectionResponse.encode = function encode(message, writer) {
+        GetAlertResponse.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.alert != null && Object.hasOwnProperty.call(message, "alert"))
+                $root.protos.opts.AlertOptions.encode(message.alert, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+            if (message.status != null && Object.hasOwnProperty.call(message, "status"))
+                $root.protos.common.Status.encode(message.status, writer.uint32(/* id 1000, wireType 2 =*/8002).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Encodes the specified GetAlertResponse message, length delimited. Does not implicitly {@link protos.GetAlertResponse.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.GetAlertResponse
+         * @static
+         * @param {protos.IGetAlertResponse} message GetAlertResponse message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        GetAlertResponse.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a GetAlertResponse message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.GetAlertResponse
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.GetAlertResponse} GetAlertResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        GetAlertResponse.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.GetAlertResponse();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.alert = $root.protos.opts.AlertOptions.decode(reader, reader.uint32());
+                    break;
+                case 1000:
+                    message.status = $root.protos.common.Status.decode(reader, reader.uint32());
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a GetAlertResponse message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.GetAlertResponse
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.GetAlertResponse} GetAlertResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        GetAlertResponse.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a GetAlertResponse message.
+         * @function verify
+         * @memberof protos.GetAlertResponse
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        GetAlertResponse.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.alert != null && message.hasOwnProperty("alert")) {
+                var error = $root.protos.opts.AlertOptions.verify(message.alert);
+                if (error)
+                    return "alert." + error;
+            }
+            if (message.status != null && message.hasOwnProperty("status")) {
+                var error = $root.protos.common.Status.verify(message.status);
+                if (error)
+                    return "status." + error;
+            }
+            return null;
+        };
+
+        /**
+         * Creates a GetAlertResponse message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.GetAlertResponse
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.GetAlertResponse} GetAlertResponse
+         */
+        GetAlertResponse.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.GetAlertResponse)
+                return object;
+            var message = new $root.protos.GetAlertResponse();
+            if (object.alert != null) {
+                if (typeof object.alert !== "object")
+                    throw TypeError(".protos.GetAlertResponse.alert: object expected");
+                message.alert = $root.protos.opts.AlertOptions.fromObject(object.alert);
+            }
+            if (object.status != null) {
+                if (typeof object.status !== "object")
+                    throw TypeError(".protos.GetAlertResponse.status: object expected");
+                message.status = $root.protos.common.Status.fromObject(object.status);
+            }
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a GetAlertResponse message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.GetAlertResponse
+         * @static
+         * @param {protos.GetAlertResponse} message GetAlertResponse
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        GetAlertResponse.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.alert = null;
+                object.status = null;
+            }
+            if (message.alert != null && message.hasOwnProperty("alert"))
+                object.alert = $root.protos.opts.AlertOptions.toObject(message.alert, options);
+            if (message.status != null && message.hasOwnProperty("status"))
+                object.status = $root.protos.common.Status.toObject(message.status, options);
+            return object;
+        };
+
+        /**
+         * Converts this GetAlertResponse to JSON.
+         * @function toJSON
+         * @memberof protos.GetAlertResponse
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        GetAlertResponse.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return GetAlertResponse;
+    })();
+
+    protos.CreateAlertRequest = (function() {
+
+        /**
+         * Properties of a CreateAlertRequest.
+         * @memberof protos
+         * @interface ICreateAlertRequest
+         * @property {protos.common.IAuth|null} [auth] CreateAlertRequest auth
+         * @property {protos.opts.IAlertOptions|null} [alert] CreateAlertRequest alert
+         */
+
+        /**
+         * Constructs a new CreateAlertRequest.
+         * @memberof protos
+         * @classdesc Represents a CreateAlertRequest.
+         * @implements ICreateAlertRequest
+         * @constructor
+         * @param {protos.ICreateAlertRequest=} [properties] Properties to set
+         */
+        function CreateAlertRequest(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * CreateAlertRequest auth.
+         * @member {protos.common.IAuth|null|undefined} auth
+         * @memberof protos.CreateAlertRequest
+         * @instance
+         */
+        CreateAlertRequest.prototype.auth = null;
+
+        /**
+         * CreateAlertRequest alert.
+         * @member {protos.opts.IAlertOptions|null|undefined} alert
+         * @memberof protos.CreateAlertRequest
+         * @instance
+         */
+        CreateAlertRequest.prototype.alert = null;
+
+        /**
+         * Creates a new CreateAlertRequest instance using the specified properties.
+         * @function create
+         * @memberof protos.CreateAlertRequest
+         * @static
+         * @param {protos.ICreateAlertRequest=} [properties] Properties to set
+         * @returns {protos.CreateAlertRequest} CreateAlertRequest instance
+         */
+        CreateAlertRequest.create = function create(properties) {
+            return new CreateAlertRequest(properties);
+        };
+
+        /**
+         * Encodes the specified CreateAlertRequest message. Does not implicitly {@link protos.CreateAlertRequest.verify|verify} messages.
+         * @function encode
+         * @memberof protos.CreateAlertRequest
+         * @static
+         * @param {protos.ICreateAlertRequest} message CreateAlertRequest message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        CreateAlertRequest.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.alert != null && Object.hasOwnProperty.call(message, "alert"))
+                $root.protos.opts.AlertOptions.encode(message.alert, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+            if (message.auth != null && Object.hasOwnProperty.call(message, "auth"))
+                $root.protos.common.Auth.encode(message.auth, writer.uint32(/* id 9999, wireType 2 =*/79994).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Encodes the specified CreateAlertRequest message, length delimited. Does not implicitly {@link protos.CreateAlertRequest.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.CreateAlertRequest
+         * @static
+         * @param {protos.ICreateAlertRequest} message CreateAlertRequest message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        CreateAlertRequest.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a CreateAlertRequest message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.CreateAlertRequest
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.CreateAlertRequest} CreateAlertRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        CreateAlertRequest.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.CreateAlertRequest();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 9999:
+                    message.auth = $root.protos.common.Auth.decode(reader, reader.uint32());
+                    break;
+                case 1:
+                    message.alert = $root.protos.opts.AlertOptions.decode(reader, reader.uint32());
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a CreateAlertRequest message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.CreateAlertRequest
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.CreateAlertRequest} CreateAlertRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        CreateAlertRequest.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a CreateAlertRequest message.
+         * @function verify
+         * @memberof protos.CreateAlertRequest
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        CreateAlertRequest.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.auth != null && message.hasOwnProperty("auth")) {
+                var error = $root.protos.common.Auth.verify(message.auth);
+                if (error)
+                    return "auth." + error;
+            }
+            if (message.alert != null && message.hasOwnProperty("alert")) {
+                var error = $root.protos.opts.AlertOptions.verify(message.alert);
+                if (error)
+                    return "alert." + error;
+            }
+            return null;
+        };
+
+        /**
+         * Creates a CreateAlertRequest message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.CreateAlertRequest
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.CreateAlertRequest} CreateAlertRequest
+         */
+        CreateAlertRequest.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.CreateAlertRequest)
+                return object;
+            var message = new $root.protos.CreateAlertRequest();
+            if (object.auth != null) {
+                if (typeof object.auth !== "object")
+                    throw TypeError(".protos.CreateAlertRequest.auth: object expected");
+                message.auth = $root.protos.common.Auth.fromObject(object.auth);
+            }
+            if (object.alert != null) {
+                if (typeof object.alert !== "object")
+                    throw TypeError(".protos.CreateAlertRequest.alert: object expected");
+                message.alert = $root.protos.opts.AlertOptions.fromObject(object.alert);
+            }
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a CreateAlertRequest message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.CreateAlertRequest
+         * @static
+         * @param {protos.CreateAlertRequest} message CreateAlertRequest
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        CreateAlertRequest.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.alert = null;
+                object.auth = null;
+            }
+            if (message.alert != null && message.hasOwnProperty("alert"))
+                object.alert = $root.protos.opts.AlertOptions.toObject(message.alert, options);
+            if (message.auth != null && message.hasOwnProperty("auth"))
+                object.auth = $root.protos.common.Auth.toObject(message.auth, options);
+            return object;
+        };
+
+        /**
+         * Converts this CreateAlertRequest to JSON.
+         * @function toJSON
+         * @memberof protos.CreateAlertRequest
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        CreateAlertRequest.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return CreateAlertRequest;
+    })();
+
+    protos.CreateAlertResponse = (function() {
+
+        /**
+         * Properties of a CreateAlertResponse.
+         * @memberof protos
+         * @interface ICreateAlertResponse
+         * @property {protos.opts.IAlertOptions|null} [alert] CreateAlertResponse alert
+         * @property {protos.common.IStatus|null} [status] CreateAlertResponse status
+         */
+
+        /**
+         * Constructs a new CreateAlertResponse.
+         * @memberof protos
+         * @classdesc Represents a CreateAlertResponse.
+         * @implements ICreateAlertResponse
+         * @constructor
+         * @param {protos.ICreateAlertResponse=} [properties] Properties to set
+         */
+        function CreateAlertResponse(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * CreateAlertResponse alert.
+         * @member {protos.opts.IAlertOptions|null|undefined} alert
+         * @memberof protos.CreateAlertResponse
+         * @instance
+         */
+        CreateAlertResponse.prototype.alert = null;
+
+        /**
+         * CreateAlertResponse status.
+         * @member {protos.common.IStatus|null|undefined} status
+         * @memberof protos.CreateAlertResponse
+         * @instance
+         */
+        CreateAlertResponse.prototype.status = null;
+
+        /**
+         * Creates a new CreateAlertResponse instance using the specified properties.
+         * @function create
+         * @memberof protos.CreateAlertResponse
+         * @static
+         * @param {protos.ICreateAlertResponse=} [properties] Properties to set
+         * @returns {protos.CreateAlertResponse} CreateAlertResponse instance
+         */
+        CreateAlertResponse.create = function create(properties) {
+            return new CreateAlertResponse(properties);
+        };
+
+        /**
+         * Encodes the specified CreateAlertResponse message. Does not implicitly {@link protos.CreateAlertResponse.verify|verify} messages.
+         * @function encode
+         * @memberof protos.CreateAlertResponse
+         * @static
+         * @param {protos.ICreateAlertResponse} message CreateAlertResponse message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        CreateAlertResponse.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.alert != null && Object.hasOwnProperty.call(message, "alert"))
+                $root.protos.opts.AlertOptions.encode(message.alert, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+            if (message.status != null && Object.hasOwnProperty.call(message, "status"))
+                $root.protos.common.Status.encode(message.status, writer.uint32(/* id 1000, wireType 2 =*/8002).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Encodes the specified CreateAlertResponse message, length delimited. Does not implicitly {@link protos.CreateAlertResponse.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.CreateAlertResponse
+         * @static
+         * @param {protos.ICreateAlertResponse} message CreateAlertResponse message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        CreateAlertResponse.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a CreateAlertResponse message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.CreateAlertResponse
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.CreateAlertResponse} CreateAlertResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        CreateAlertResponse.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.CreateAlertResponse();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.alert = $root.protos.opts.AlertOptions.decode(reader, reader.uint32());
+                    break;
+                case 1000:
+                    message.status = $root.protos.common.Status.decode(reader, reader.uint32());
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a CreateAlertResponse message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.CreateAlertResponse
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.CreateAlertResponse} CreateAlertResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        CreateAlertResponse.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a CreateAlertResponse message.
+         * @function verify
+         * @memberof protos.CreateAlertResponse
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        CreateAlertResponse.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.alert != null && message.hasOwnProperty("alert")) {
+                var error = $root.protos.opts.AlertOptions.verify(message.alert);
+                if (error)
+                    return "alert." + error;
+            }
+            if (message.status != null && message.hasOwnProperty("status")) {
+                var error = $root.protos.common.Status.verify(message.status);
+                if (error)
+                    return "status." + error;
+            }
+            return null;
+        };
+
+        /**
+         * Creates a CreateAlertResponse message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.CreateAlertResponse
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.CreateAlertResponse} CreateAlertResponse
+         */
+        CreateAlertResponse.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.CreateAlertResponse)
+                return object;
+            var message = new $root.protos.CreateAlertResponse();
+            if (object.alert != null) {
+                if (typeof object.alert !== "object")
+                    throw TypeError(".protos.CreateAlertResponse.alert: object expected");
+                message.alert = $root.protos.opts.AlertOptions.fromObject(object.alert);
+            }
+            if (object.status != null) {
+                if (typeof object.status !== "object")
+                    throw TypeError(".protos.CreateAlertResponse.status: object expected");
+                message.status = $root.protos.common.Status.fromObject(object.status);
+            }
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a CreateAlertResponse message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.CreateAlertResponse
+         * @static
+         * @param {protos.CreateAlertResponse} message CreateAlertResponse
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        CreateAlertResponse.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.alert = null;
+                object.status = null;
+            }
+            if (message.alert != null && message.hasOwnProperty("alert"))
+                object.alert = $root.protos.opts.AlertOptions.toObject(message.alert, options);
+            if (message.status != null && message.hasOwnProperty("status"))
+                object.status = $root.protos.common.Status.toObject(message.status, options);
+            return object;
+        };
+
+        /**
+         * Converts this CreateAlertResponse to JSON.
+         * @function toJSON
+         * @memberof protos.CreateAlertResponse
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        CreateAlertResponse.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return CreateAlertResponse;
+    })();
+
+    protos.DeleteAlertRequest = (function() {
+
+        /**
+         * Properties of a DeleteAlertRequest.
+         * @memberof protos
+         * @interface IDeleteAlertRequest
+         * @property {protos.common.IAuth|null} [auth] DeleteAlertRequest auth
+         * @property {string|null} [alertId] DeleteAlertRequest alertId
+         */
+
+        /**
+         * Constructs a new DeleteAlertRequest.
+         * @memberof protos
+         * @classdesc Represents a DeleteAlertRequest.
+         * @implements IDeleteAlertRequest
+         * @constructor
+         * @param {protos.IDeleteAlertRequest=} [properties] Properties to set
+         */
+        function DeleteAlertRequest(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * DeleteAlertRequest auth.
+         * @member {protos.common.IAuth|null|undefined} auth
+         * @memberof protos.DeleteAlertRequest
+         * @instance
+         */
+        DeleteAlertRequest.prototype.auth = null;
+
+        /**
+         * DeleteAlertRequest alertId.
+         * @member {string} alertId
+         * @memberof protos.DeleteAlertRequest
+         * @instance
+         */
+        DeleteAlertRequest.prototype.alertId = "";
+
+        /**
+         * Creates a new DeleteAlertRequest instance using the specified properties.
+         * @function create
+         * @memberof protos.DeleteAlertRequest
+         * @static
+         * @param {protos.IDeleteAlertRequest=} [properties] Properties to set
+         * @returns {protos.DeleteAlertRequest} DeleteAlertRequest instance
+         */
+        DeleteAlertRequest.create = function create(properties) {
+            return new DeleteAlertRequest(properties);
+        };
+
+        /**
+         * Encodes the specified DeleteAlertRequest message. Does not implicitly {@link protos.DeleteAlertRequest.verify|verify} messages.
+         * @function encode
+         * @memberof protos.DeleteAlertRequest
+         * @static
+         * @param {protos.IDeleteAlertRequest} message DeleteAlertRequest message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        DeleteAlertRequest.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.alertId != null && Object.hasOwnProperty.call(message, "alertId"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.alertId);
+            if (message.auth != null && Object.hasOwnProperty.call(message, "auth"))
+                $root.protos.common.Auth.encode(message.auth, writer.uint32(/* id 9999, wireType 2 =*/79994).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Encodes the specified DeleteAlertRequest message, length delimited. Does not implicitly {@link protos.DeleteAlertRequest.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.DeleteAlertRequest
+         * @static
+         * @param {protos.IDeleteAlertRequest} message DeleteAlertRequest message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        DeleteAlertRequest.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a DeleteAlertRequest message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.DeleteAlertRequest
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.DeleteAlertRequest} DeleteAlertRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        DeleteAlertRequest.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.DeleteAlertRequest();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 9999:
+                    message.auth = $root.protos.common.Auth.decode(reader, reader.uint32());
+                    break;
+                case 1:
+                    message.alertId = reader.string();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a DeleteAlertRequest message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.DeleteAlertRequest
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.DeleteAlertRequest} DeleteAlertRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        DeleteAlertRequest.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a DeleteAlertRequest message.
+         * @function verify
+         * @memberof protos.DeleteAlertRequest
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        DeleteAlertRequest.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.auth != null && message.hasOwnProperty("auth")) {
+                var error = $root.protos.common.Auth.verify(message.auth);
+                if (error)
+                    return "auth." + error;
+            }
+            if (message.alertId != null && message.hasOwnProperty("alertId"))
+                if (!$util.isString(message.alertId))
+                    return "alertId: string expected";
+            return null;
+        };
+
+        /**
+         * Creates a DeleteAlertRequest message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.DeleteAlertRequest
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.DeleteAlertRequest} DeleteAlertRequest
+         */
+        DeleteAlertRequest.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.DeleteAlertRequest)
+                return object;
+            var message = new $root.protos.DeleteAlertRequest();
+            if (object.auth != null) {
+                if (typeof object.auth !== "object")
+                    throw TypeError(".protos.DeleteAlertRequest.auth: object expected");
+                message.auth = $root.protos.common.Auth.fromObject(object.auth);
+            }
+            if (object.alertId != null)
+                message.alertId = String(object.alertId);
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a DeleteAlertRequest message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.DeleteAlertRequest
+         * @static
+         * @param {protos.DeleteAlertRequest} message DeleteAlertRequest
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        DeleteAlertRequest.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.alertId = "";
+                object.auth = null;
+            }
+            if (message.alertId != null && message.hasOwnProperty("alertId"))
+                object.alertId = message.alertId;
+            if (message.auth != null && message.hasOwnProperty("auth"))
+                object.auth = $root.protos.common.Auth.toObject(message.auth, options);
+            return object;
+        };
+
+        /**
+         * Converts this DeleteAlertRequest to JSON.
+         * @function toJSON
+         * @memberof protos.DeleteAlertRequest
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        DeleteAlertRequest.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return DeleteAlertRequest;
+    })();
+
+    protos.DeleteAlertResponse = (function() {
+
+        /**
+         * Properties of a DeleteAlertResponse.
+         * @memberof protos
+         * @interface IDeleteAlertResponse
+         * @property {protos.common.IStatus|null} [status] DeleteAlertResponse status
+         */
+
+        /**
+         * Constructs a new DeleteAlertResponse.
+         * @memberof protos
+         * @classdesc Represents a DeleteAlertResponse.
+         * @implements IDeleteAlertResponse
+         * @constructor
+         * @param {protos.IDeleteAlertResponse=} [properties] Properties to set
+         */
+        function DeleteAlertResponse(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * DeleteAlertResponse status.
+         * @member {protos.common.IStatus|null|undefined} status
+         * @memberof protos.DeleteAlertResponse
+         * @instance
+         */
+        DeleteAlertResponse.prototype.status = null;
+
+        /**
+         * Creates a new DeleteAlertResponse instance using the specified properties.
+         * @function create
+         * @memberof protos.DeleteAlertResponse
+         * @static
+         * @param {protos.IDeleteAlertResponse=} [properties] Properties to set
+         * @returns {protos.DeleteAlertResponse} DeleteAlertResponse instance
+         */
+        DeleteAlertResponse.create = function create(properties) {
+            return new DeleteAlertResponse(properties);
+        };
+
+        /**
+         * Encodes the specified DeleteAlertResponse message. Does not implicitly {@link protos.DeleteAlertResponse.verify|verify} messages.
+         * @function encode
+         * @memberof protos.DeleteAlertResponse
+         * @static
+         * @param {protos.IDeleteAlertResponse} message DeleteAlertResponse message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        DeleteAlertResponse.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
             if (message.status != null && Object.hasOwnProperty.call(message, "status"))
@@ -2836,33 +1170,33 @@ $root.protos = (function() {
         };
 
         /**
-         * Encodes the specified TestConnectionResponse message, length delimited. Does not implicitly {@link protos.TestConnectionResponse.verify|verify} messages.
+         * Encodes the specified DeleteAlertResponse message, length delimited. Does not implicitly {@link protos.DeleteAlertResponse.verify|verify} messages.
          * @function encodeDelimited
-         * @memberof protos.TestConnectionResponse
+         * @memberof protos.DeleteAlertResponse
          * @static
-         * @param {protos.ITestConnectionResponse} message TestConnectionResponse message or plain object to encode
+         * @param {protos.IDeleteAlertResponse} message DeleteAlertResponse message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        TestConnectionResponse.encodeDelimited = function encodeDelimited(message, writer) {
+        DeleteAlertResponse.encodeDelimited = function encodeDelimited(message, writer) {
             return this.encode(message, writer).ldelim();
         };
 
         /**
-         * Decodes a TestConnectionResponse message from the specified reader or buffer.
+         * Decodes a DeleteAlertResponse message from the specified reader or buffer.
          * @function decode
-         * @memberof protos.TestConnectionResponse
+         * @memberof protos.DeleteAlertResponse
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {protos.TestConnectionResponse} TestConnectionResponse
+         * @returns {protos.DeleteAlertResponse} DeleteAlertResponse
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        TestConnectionResponse.decode = function decode(reader, length) {
+        DeleteAlertResponse.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.TestConnectionResponse();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.DeleteAlertResponse();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -2878,30 +1212,30 @@ $root.protos = (function() {
         };
 
         /**
-         * Decodes a TestConnectionResponse message from the specified reader or buffer, length delimited.
+         * Decodes a DeleteAlertResponse message from the specified reader or buffer, length delimited.
          * @function decodeDelimited
-         * @memberof protos.TestConnectionResponse
+         * @memberof protos.DeleteAlertResponse
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {protos.TestConnectionResponse} TestConnectionResponse
+         * @returns {protos.DeleteAlertResponse} DeleteAlertResponse
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        TestConnectionResponse.decodeDelimited = function decodeDelimited(reader) {
+        DeleteAlertResponse.decodeDelimited = function decodeDelimited(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
         };
 
         /**
-         * Verifies a TestConnectionResponse message.
+         * Verifies a DeleteAlertResponse message.
          * @function verify
-         * @memberof protos.TestConnectionResponse
+         * @memberof protos.DeleteAlertResponse
          * @static
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        TestConnectionResponse.verify = function verify(message) {
+        DeleteAlertResponse.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
             if (message.status != null && message.hasOwnProperty("status")) {
@@ -2913,35 +1247,35 @@ $root.protos = (function() {
         };
 
         /**
-         * Creates a TestConnectionResponse message from a plain object. Also converts values to their respective internal types.
+         * Creates a DeleteAlertResponse message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof protos.TestConnectionResponse
+         * @memberof protos.DeleteAlertResponse
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {protos.TestConnectionResponse} TestConnectionResponse
+         * @returns {protos.DeleteAlertResponse} DeleteAlertResponse
          */
-        TestConnectionResponse.fromObject = function fromObject(object) {
-            if (object instanceof $root.protos.TestConnectionResponse)
+        DeleteAlertResponse.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.DeleteAlertResponse)
                 return object;
-            var message = new $root.protos.TestConnectionResponse();
+            var message = new $root.protos.DeleteAlertResponse();
             if (object.status != null) {
                 if (typeof object.status !== "object")
-                    throw TypeError(".protos.TestConnectionResponse.status: object expected");
+                    throw TypeError(".protos.DeleteAlertResponse.status: object expected");
                 message.status = $root.protos.common.Status.fromObject(object.status);
             }
             return message;
         };
 
         /**
-         * Creates a plain object from a TestConnectionResponse message. Also converts values to other types if specified.
+         * Creates a plain object from a DeleteAlertResponse message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof protos.TestConnectionResponse
+         * @memberof protos.DeleteAlertResponse
          * @static
-         * @param {protos.TestConnectionResponse} message TestConnectionResponse
+         * @param {protos.DeleteAlertResponse} message DeleteAlertResponse
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        TestConnectionResponse.toObject = function toObject(message, options) {
+        DeleteAlertResponse.toObject = function toObject(message, options) {
             if (!options)
                 options = {};
             var object = {};
@@ -2953,39 +1287,38 @@ $root.protos = (function() {
         };
 
         /**
-         * Converts this TestConnectionResponse to JSON.
+         * Converts this DeleteAlertResponse to JSON.
          * @function toJSON
-         * @memberof protos.TestConnectionResponse
+         * @memberof protos.DeleteAlertResponse
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        TestConnectionResponse.prototype.toJSON = function toJSON() {
+        DeleteAlertResponse.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
         };
 
-        return TestConnectionResponse;
+        return DeleteAlertResponse;
     })();
 
-    protos.UpdateConnectionRequest = (function() {
+    protos.UpdateAlertRequest = (function() {
 
         /**
-         * Properties of an UpdateConnectionRequest.
+         * Properties of an UpdateAlertRequest.
          * @memberof protos
-         * @interface IUpdateConnectionRequest
-         * @property {protos.common.IAuth|null} [auth] UpdateConnectionRequest auth
-         * @property {string|null} [connectionId] UpdateConnectionRequest connectionId
-         * @property {protos.opts.IConnectionOptions|null} [options] UpdateConnectionRequest options
+         * @interface IUpdateAlertRequest
+         * @property {protos.common.IAuth|null} [auth] UpdateAlertRequest auth
+         * @property {protos.opts.IAlertOptions|null} [alert] UpdateAlertRequest alert
          */
 
         /**
-         * Constructs a new UpdateConnectionRequest.
+         * Constructs a new UpdateAlertRequest.
          * @memberof protos
-         * @classdesc Represents an UpdateConnectionRequest.
-         * @implements IUpdateConnectionRequest
+         * @classdesc Represents an UpdateAlertRequest.
+         * @implements IUpdateAlertRequest
          * @constructor
-         * @param {protos.IUpdateConnectionRequest=} [properties] Properties to set
+         * @param {protos.IUpdateAlertRequest=} [properties] Properties to set
          */
-        function UpdateConnectionRequest(properties) {
+        function UpdateAlertRequest(properties) {
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
@@ -2993,90 +1326,80 @@ $root.protos = (function() {
         }
 
         /**
-         * UpdateConnectionRequest auth.
+         * UpdateAlertRequest auth.
          * @member {protos.common.IAuth|null|undefined} auth
-         * @memberof protos.UpdateConnectionRequest
+         * @memberof protos.UpdateAlertRequest
          * @instance
          */
-        UpdateConnectionRequest.prototype.auth = null;
+        UpdateAlertRequest.prototype.auth = null;
 
         /**
-         * UpdateConnectionRequest connectionId.
-         * @member {string} connectionId
-         * @memberof protos.UpdateConnectionRequest
+         * UpdateAlertRequest alert.
+         * @member {protos.opts.IAlertOptions|null|undefined} alert
+         * @memberof protos.UpdateAlertRequest
          * @instance
          */
-        UpdateConnectionRequest.prototype.connectionId = "";
+        UpdateAlertRequest.prototype.alert = null;
 
         /**
-         * UpdateConnectionRequest options.
-         * @member {protos.opts.IConnectionOptions|null|undefined} options
-         * @memberof protos.UpdateConnectionRequest
-         * @instance
-         */
-        UpdateConnectionRequest.prototype.options = null;
-
-        /**
-         * Creates a new UpdateConnectionRequest instance using the specified properties.
+         * Creates a new UpdateAlertRequest instance using the specified properties.
          * @function create
-         * @memberof protos.UpdateConnectionRequest
+         * @memberof protos.UpdateAlertRequest
          * @static
-         * @param {protos.IUpdateConnectionRequest=} [properties] Properties to set
-         * @returns {protos.UpdateConnectionRequest} UpdateConnectionRequest instance
+         * @param {protos.IUpdateAlertRequest=} [properties] Properties to set
+         * @returns {protos.UpdateAlertRequest} UpdateAlertRequest instance
          */
-        UpdateConnectionRequest.create = function create(properties) {
-            return new UpdateConnectionRequest(properties);
+        UpdateAlertRequest.create = function create(properties) {
+            return new UpdateAlertRequest(properties);
         };
 
         /**
-         * Encodes the specified UpdateConnectionRequest message. Does not implicitly {@link protos.UpdateConnectionRequest.verify|verify} messages.
+         * Encodes the specified UpdateAlertRequest message. Does not implicitly {@link protos.UpdateAlertRequest.verify|verify} messages.
          * @function encode
-         * @memberof protos.UpdateConnectionRequest
+         * @memberof protos.UpdateAlertRequest
          * @static
-         * @param {protos.IUpdateConnectionRequest} message UpdateConnectionRequest message or plain object to encode
+         * @param {protos.IUpdateAlertRequest} message UpdateAlertRequest message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        UpdateConnectionRequest.encode = function encode(message, writer) {
+        UpdateAlertRequest.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
-            if (message.connectionId != null && Object.hasOwnProperty.call(message, "connectionId"))
-                writer.uint32(/* id 1, wireType 2 =*/10).string(message.connectionId);
-            if (message.options != null && Object.hasOwnProperty.call(message, "options"))
-                $root.protos.opts.ConnectionOptions.encode(message.options, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+            if (message.alert != null && Object.hasOwnProperty.call(message, "alert"))
+                $root.protos.opts.AlertOptions.encode(message.alert, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
             if (message.auth != null && Object.hasOwnProperty.call(message, "auth"))
                 $root.protos.common.Auth.encode(message.auth, writer.uint32(/* id 9999, wireType 2 =*/79994).fork()).ldelim();
             return writer;
         };
 
         /**
-         * Encodes the specified UpdateConnectionRequest message, length delimited. Does not implicitly {@link protos.UpdateConnectionRequest.verify|verify} messages.
+         * Encodes the specified UpdateAlertRequest message, length delimited. Does not implicitly {@link protos.UpdateAlertRequest.verify|verify} messages.
          * @function encodeDelimited
-         * @memberof protos.UpdateConnectionRequest
+         * @memberof protos.UpdateAlertRequest
          * @static
-         * @param {protos.IUpdateConnectionRequest} message UpdateConnectionRequest message or plain object to encode
+         * @param {protos.IUpdateAlertRequest} message UpdateAlertRequest message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        UpdateConnectionRequest.encodeDelimited = function encodeDelimited(message, writer) {
+        UpdateAlertRequest.encodeDelimited = function encodeDelimited(message, writer) {
             return this.encode(message, writer).ldelim();
         };
 
         /**
-         * Decodes an UpdateConnectionRequest message from the specified reader or buffer.
+         * Decodes an UpdateAlertRequest message from the specified reader or buffer.
          * @function decode
-         * @memberof protos.UpdateConnectionRequest
+         * @memberof protos.UpdateAlertRequest
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {protos.UpdateConnectionRequest} UpdateConnectionRequest
+         * @returns {protos.UpdateAlertRequest} UpdateAlertRequest
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        UpdateConnectionRequest.decode = function decode(reader, length) {
+        UpdateAlertRequest.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.UpdateConnectionRequest();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.UpdateAlertRequest();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -3084,10 +1407,7 @@ $root.protos = (function() {
                     message.auth = $root.protos.common.Auth.decode(reader, reader.uint32());
                     break;
                 case 1:
-                    message.connectionId = reader.string();
-                    break;
-                case 2:
-                    message.options = $root.protos.opts.ConnectionOptions.decode(reader, reader.uint32());
+                    message.alert = $root.protos.opts.AlertOptions.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -3098,30 +1418,30 @@ $root.protos = (function() {
         };
 
         /**
-         * Decodes an UpdateConnectionRequest message from the specified reader or buffer, length delimited.
+         * Decodes an UpdateAlertRequest message from the specified reader or buffer, length delimited.
          * @function decodeDelimited
-         * @memberof protos.UpdateConnectionRequest
+         * @memberof protos.UpdateAlertRequest
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {protos.UpdateConnectionRequest} UpdateConnectionRequest
+         * @returns {protos.UpdateAlertRequest} UpdateAlertRequest
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        UpdateConnectionRequest.decodeDelimited = function decodeDelimited(reader) {
+        UpdateAlertRequest.decodeDelimited = function decodeDelimited(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
         };
 
         /**
-         * Verifies an UpdateConnectionRequest message.
+         * Verifies an UpdateAlertRequest message.
          * @function verify
-         * @memberof protos.UpdateConnectionRequest
+         * @memberof protos.UpdateAlertRequest
          * @static
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        UpdateConnectionRequest.verify = function verify(message) {
+        UpdateAlertRequest.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
             if (message.auth != null && message.hasOwnProperty("auth")) {
@@ -3129,103 +1449,96 @@ $root.protos = (function() {
                 if (error)
                     return "auth." + error;
             }
-            if (message.connectionId != null && message.hasOwnProperty("connectionId"))
-                if (!$util.isString(message.connectionId))
-                    return "connectionId: string expected";
-            if (message.options != null && message.hasOwnProperty("options")) {
-                var error = $root.protos.opts.ConnectionOptions.verify(message.options);
+            if (message.alert != null && message.hasOwnProperty("alert")) {
+                var error = $root.protos.opts.AlertOptions.verify(message.alert);
                 if (error)
-                    return "options." + error;
+                    return "alert." + error;
             }
             return null;
         };
 
         /**
-         * Creates an UpdateConnectionRequest message from a plain object. Also converts values to their respective internal types.
+         * Creates an UpdateAlertRequest message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof protos.UpdateConnectionRequest
+         * @memberof protos.UpdateAlertRequest
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {protos.UpdateConnectionRequest} UpdateConnectionRequest
+         * @returns {protos.UpdateAlertRequest} UpdateAlertRequest
          */
-        UpdateConnectionRequest.fromObject = function fromObject(object) {
-            if (object instanceof $root.protos.UpdateConnectionRequest)
+        UpdateAlertRequest.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.UpdateAlertRequest)
                 return object;
-            var message = new $root.protos.UpdateConnectionRequest();
+            var message = new $root.protos.UpdateAlertRequest();
             if (object.auth != null) {
                 if (typeof object.auth !== "object")
-                    throw TypeError(".protos.UpdateConnectionRequest.auth: object expected");
+                    throw TypeError(".protos.UpdateAlertRequest.auth: object expected");
                 message.auth = $root.protos.common.Auth.fromObject(object.auth);
             }
-            if (object.connectionId != null)
-                message.connectionId = String(object.connectionId);
-            if (object.options != null) {
-                if (typeof object.options !== "object")
-                    throw TypeError(".protos.UpdateConnectionRequest.options: object expected");
-                message.options = $root.protos.opts.ConnectionOptions.fromObject(object.options);
+            if (object.alert != null) {
+                if (typeof object.alert !== "object")
+                    throw TypeError(".protos.UpdateAlertRequest.alert: object expected");
+                message.alert = $root.protos.opts.AlertOptions.fromObject(object.alert);
             }
             return message;
         };
 
         /**
-         * Creates a plain object from an UpdateConnectionRequest message. Also converts values to other types if specified.
+         * Creates a plain object from an UpdateAlertRequest message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof protos.UpdateConnectionRequest
+         * @memberof protos.UpdateAlertRequest
          * @static
-         * @param {protos.UpdateConnectionRequest} message UpdateConnectionRequest
+         * @param {protos.UpdateAlertRequest} message UpdateAlertRequest
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        UpdateConnectionRequest.toObject = function toObject(message, options) {
+        UpdateAlertRequest.toObject = function toObject(message, options) {
             if (!options)
                 options = {};
             var object = {};
             if (options.defaults) {
-                object.connectionId = "";
-                object.options = null;
+                object.alert = null;
                 object.auth = null;
             }
-            if (message.connectionId != null && message.hasOwnProperty("connectionId"))
-                object.connectionId = message.connectionId;
-            if (message.options != null && message.hasOwnProperty("options"))
-                object.options = $root.protos.opts.ConnectionOptions.toObject(message.options, options);
+            if (message.alert != null && message.hasOwnProperty("alert"))
+                object.alert = $root.protos.opts.AlertOptions.toObject(message.alert, options);
             if (message.auth != null && message.hasOwnProperty("auth"))
                 object.auth = $root.protos.common.Auth.toObject(message.auth, options);
             return object;
         };
 
         /**
-         * Converts this UpdateConnectionRequest to JSON.
+         * Converts this UpdateAlertRequest to JSON.
          * @function toJSON
-         * @memberof protos.UpdateConnectionRequest
+         * @memberof protos.UpdateAlertRequest
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        UpdateConnectionRequest.prototype.toJSON = function toJSON() {
+        UpdateAlertRequest.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
         };
 
-        return UpdateConnectionRequest;
+        return UpdateAlertRequest;
     })();
 
-    protos.UpdateConnectionResponse = (function() {
+    protos.UpdateAlertResponse = (function() {
 
         /**
-         * Properties of an UpdateConnectionResponse.
+         * Properties of an UpdateAlertResponse.
          * @memberof protos
-         * @interface IUpdateConnectionResponse
-         * @property {protos.common.IStatus|null} [status] UpdateConnectionResponse status
+         * @interface IUpdateAlertResponse
+         * @property {protos.opts.IAlertOptions|null} [alert] UpdateAlertResponse alert
+         * @property {protos.common.IStatus|null} [status] UpdateAlertResponse status
          */
 
         /**
-         * Constructs a new UpdateConnectionResponse.
+         * Constructs a new UpdateAlertResponse.
          * @memberof protos
-         * @classdesc Represents an UpdateConnectionResponse.
-         * @implements IUpdateConnectionResponse
+         * @classdesc Represents an UpdateAlertResponse.
+         * @implements IUpdateAlertResponse
          * @constructor
-         * @param {protos.IUpdateConnectionResponse=} [properties] Properties to set
+         * @param {protos.IUpdateAlertResponse=} [properties] Properties to set
          */
-        function UpdateConnectionResponse(properties) {
+        function UpdateAlertResponse(properties) {
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
@@ -3233,73 +1546,86 @@ $root.protos = (function() {
         }
 
         /**
-         * UpdateConnectionResponse status.
-         * @member {protos.common.IStatus|null|undefined} status
-         * @memberof protos.UpdateConnectionResponse
+         * UpdateAlertResponse alert.
+         * @member {protos.opts.IAlertOptions|null|undefined} alert
+         * @memberof protos.UpdateAlertResponse
          * @instance
          */
-        UpdateConnectionResponse.prototype.status = null;
+        UpdateAlertResponse.prototype.alert = null;
 
         /**
-         * Creates a new UpdateConnectionResponse instance using the specified properties.
-         * @function create
-         * @memberof protos.UpdateConnectionResponse
-         * @static
-         * @param {protos.IUpdateConnectionResponse=} [properties] Properties to set
-         * @returns {protos.UpdateConnectionResponse} UpdateConnectionResponse instance
+         * UpdateAlertResponse status.
+         * @member {protos.common.IStatus|null|undefined} status
+         * @memberof protos.UpdateAlertResponse
+         * @instance
          */
-        UpdateConnectionResponse.create = function create(properties) {
-            return new UpdateConnectionResponse(properties);
+        UpdateAlertResponse.prototype.status = null;
+
+        /**
+         * Creates a new UpdateAlertResponse instance using the specified properties.
+         * @function create
+         * @memberof protos.UpdateAlertResponse
+         * @static
+         * @param {protos.IUpdateAlertResponse=} [properties] Properties to set
+         * @returns {protos.UpdateAlertResponse} UpdateAlertResponse instance
+         */
+        UpdateAlertResponse.create = function create(properties) {
+            return new UpdateAlertResponse(properties);
         };
 
         /**
-         * Encodes the specified UpdateConnectionResponse message. Does not implicitly {@link protos.UpdateConnectionResponse.verify|verify} messages.
+         * Encodes the specified UpdateAlertResponse message. Does not implicitly {@link protos.UpdateAlertResponse.verify|verify} messages.
          * @function encode
-         * @memberof protos.UpdateConnectionResponse
+         * @memberof protos.UpdateAlertResponse
          * @static
-         * @param {protos.IUpdateConnectionResponse} message UpdateConnectionResponse message or plain object to encode
+         * @param {protos.IUpdateAlertResponse} message UpdateAlertResponse message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        UpdateConnectionResponse.encode = function encode(message, writer) {
+        UpdateAlertResponse.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
+            if (message.alert != null && Object.hasOwnProperty.call(message, "alert"))
+                $root.protos.opts.AlertOptions.encode(message.alert, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
             if (message.status != null && Object.hasOwnProperty.call(message, "status"))
                 $root.protos.common.Status.encode(message.status, writer.uint32(/* id 1000, wireType 2 =*/8002).fork()).ldelim();
             return writer;
         };
 
         /**
-         * Encodes the specified UpdateConnectionResponse message, length delimited. Does not implicitly {@link protos.UpdateConnectionResponse.verify|verify} messages.
+         * Encodes the specified UpdateAlertResponse message, length delimited. Does not implicitly {@link protos.UpdateAlertResponse.verify|verify} messages.
          * @function encodeDelimited
-         * @memberof protos.UpdateConnectionResponse
+         * @memberof protos.UpdateAlertResponse
          * @static
-         * @param {protos.IUpdateConnectionResponse} message UpdateConnectionResponse message or plain object to encode
+         * @param {protos.IUpdateAlertResponse} message UpdateAlertResponse message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        UpdateConnectionResponse.encodeDelimited = function encodeDelimited(message, writer) {
+        UpdateAlertResponse.encodeDelimited = function encodeDelimited(message, writer) {
             return this.encode(message, writer).ldelim();
         };
 
         /**
-         * Decodes an UpdateConnectionResponse message from the specified reader or buffer.
+         * Decodes an UpdateAlertResponse message from the specified reader or buffer.
          * @function decode
-         * @memberof protos.UpdateConnectionResponse
+         * @memberof protos.UpdateAlertResponse
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {protos.UpdateConnectionResponse} UpdateConnectionResponse
+         * @returns {protos.UpdateAlertResponse} UpdateAlertResponse
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        UpdateConnectionResponse.decode = function decode(reader, length) {
+        UpdateAlertResponse.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.UpdateConnectionResponse();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.UpdateAlertResponse();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
+                case 1:
+                    message.alert = $root.protos.opts.AlertOptions.decode(reader, reader.uint32());
+                    break;
                 case 1000:
                     message.status = $root.protos.common.Status.decode(reader, reader.uint32());
                     break;
@@ -3312,32 +1638,37 @@ $root.protos = (function() {
         };
 
         /**
-         * Decodes an UpdateConnectionResponse message from the specified reader or buffer, length delimited.
+         * Decodes an UpdateAlertResponse message from the specified reader or buffer, length delimited.
          * @function decodeDelimited
-         * @memberof protos.UpdateConnectionResponse
+         * @memberof protos.UpdateAlertResponse
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {protos.UpdateConnectionResponse} UpdateConnectionResponse
+         * @returns {protos.UpdateAlertResponse} UpdateAlertResponse
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        UpdateConnectionResponse.decodeDelimited = function decodeDelimited(reader) {
+        UpdateAlertResponse.decodeDelimited = function decodeDelimited(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
         };
 
         /**
-         * Verifies an UpdateConnectionResponse message.
+         * Verifies an UpdateAlertResponse message.
          * @function verify
-         * @memberof protos.UpdateConnectionResponse
+         * @memberof protos.UpdateAlertResponse
          * @static
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        UpdateConnectionResponse.verify = function verify(message) {
+        UpdateAlertResponse.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
+            if (message.alert != null && message.hasOwnProperty("alert")) {
+                var error = $root.protos.opts.AlertOptions.verify(message.alert);
+                if (error)
+                    return "alert." + error;
+            }
             if (message.status != null && message.hasOwnProperty("status")) {
                 var error = $root.protos.common.Status.verify(message.status);
                 if (error)
@@ -3347,464 +1678,66 @@ $root.protos = (function() {
         };
 
         /**
-         * Creates an UpdateConnectionResponse message from a plain object. Also converts values to their respective internal types.
+         * Creates an UpdateAlertResponse message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof protos.UpdateConnectionResponse
+         * @memberof protos.UpdateAlertResponse
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {protos.UpdateConnectionResponse} UpdateConnectionResponse
+         * @returns {protos.UpdateAlertResponse} UpdateAlertResponse
          */
-        UpdateConnectionResponse.fromObject = function fromObject(object) {
-            if (object instanceof $root.protos.UpdateConnectionResponse)
+        UpdateAlertResponse.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.UpdateAlertResponse)
                 return object;
-            var message = new $root.protos.UpdateConnectionResponse();
+            var message = new $root.protos.UpdateAlertResponse();
+            if (object.alert != null) {
+                if (typeof object.alert !== "object")
+                    throw TypeError(".protos.UpdateAlertResponse.alert: object expected");
+                message.alert = $root.protos.opts.AlertOptions.fromObject(object.alert);
+            }
             if (object.status != null) {
                 if (typeof object.status !== "object")
-                    throw TypeError(".protos.UpdateConnectionResponse.status: object expected");
+                    throw TypeError(".protos.UpdateAlertResponse.status: object expected");
                 message.status = $root.protos.common.Status.fromObject(object.status);
             }
             return message;
         };
 
         /**
-         * Creates a plain object from an UpdateConnectionResponse message. Also converts values to other types if specified.
+         * Creates a plain object from an UpdateAlertResponse message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof protos.UpdateConnectionResponse
+         * @memberof protos.UpdateAlertResponse
          * @static
-         * @param {protos.UpdateConnectionResponse} message UpdateConnectionResponse
+         * @param {protos.UpdateAlertResponse} message UpdateAlertResponse
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        UpdateConnectionResponse.toObject = function toObject(message, options) {
-            if (!options)
-                options = {};
-            var object = {};
-            if (options.defaults)
-                object.status = null;
-            if (message.status != null && message.hasOwnProperty("status"))
-                object.status = $root.protos.common.Status.toObject(message.status, options);
-            return object;
-        };
-
-        /**
-         * Converts this UpdateConnectionResponse to JSON.
-         * @function toJSON
-         * @memberof protos.UpdateConnectionResponse
-         * @instance
-         * @returns {Object.<string,*>} JSON object
-         */
-        UpdateConnectionResponse.prototype.toJSON = function toJSON() {
-            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-        };
-
-        return UpdateConnectionResponse;
-    })();
-
-    protos.DeleteConnectionRequest = (function() {
-
-        /**
-         * Properties of a DeleteConnectionRequest.
-         * @memberof protos
-         * @interface IDeleteConnectionRequest
-         * @property {protos.common.IAuth|null} [auth] DeleteConnectionRequest auth
-         * @property {string|null} [connectionId] DeleteConnectionRequest connectionId
-         */
-
-        /**
-         * Constructs a new DeleteConnectionRequest.
-         * @memberof protos
-         * @classdesc Represents a DeleteConnectionRequest.
-         * @implements IDeleteConnectionRequest
-         * @constructor
-         * @param {protos.IDeleteConnectionRequest=} [properties] Properties to set
-         */
-        function DeleteConnectionRequest(properties) {
-            if (properties)
-                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                    if (properties[keys[i]] != null)
-                        this[keys[i]] = properties[keys[i]];
-        }
-
-        /**
-         * DeleteConnectionRequest auth.
-         * @member {protos.common.IAuth|null|undefined} auth
-         * @memberof protos.DeleteConnectionRequest
-         * @instance
-         */
-        DeleteConnectionRequest.prototype.auth = null;
-
-        /**
-         * DeleteConnectionRequest connectionId.
-         * @member {string} connectionId
-         * @memberof protos.DeleteConnectionRequest
-         * @instance
-         */
-        DeleteConnectionRequest.prototype.connectionId = "";
-
-        /**
-         * Creates a new DeleteConnectionRequest instance using the specified properties.
-         * @function create
-         * @memberof protos.DeleteConnectionRequest
-         * @static
-         * @param {protos.IDeleteConnectionRequest=} [properties] Properties to set
-         * @returns {protos.DeleteConnectionRequest} DeleteConnectionRequest instance
-         */
-        DeleteConnectionRequest.create = function create(properties) {
-            return new DeleteConnectionRequest(properties);
-        };
-
-        /**
-         * Encodes the specified DeleteConnectionRequest message. Does not implicitly {@link protos.DeleteConnectionRequest.verify|verify} messages.
-         * @function encode
-         * @memberof protos.DeleteConnectionRequest
-         * @static
-         * @param {protos.IDeleteConnectionRequest} message DeleteConnectionRequest message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
-         * @returns {$protobuf.Writer} Writer
-         */
-        DeleteConnectionRequest.encode = function encode(message, writer) {
-            if (!writer)
-                writer = $Writer.create();
-            if (message.connectionId != null && Object.hasOwnProperty.call(message, "connectionId"))
-                writer.uint32(/* id 1, wireType 2 =*/10).string(message.connectionId);
-            if (message.auth != null && Object.hasOwnProperty.call(message, "auth"))
-                $root.protos.common.Auth.encode(message.auth, writer.uint32(/* id 9999, wireType 2 =*/79994).fork()).ldelim();
-            return writer;
-        };
-
-        /**
-         * Encodes the specified DeleteConnectionRequest message, length delimited. Does not implicitly {@link protos.DeleteConnectionRequest.verify|verify} messages.
-         * @function encodeDelimited
-         * @memberof protos.DeleteConnectionRequest
-         * @static
-         * @param {protos.IDeleteConnectionRequest} message DeleteConnectionRequest message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
-         * @returns {$protobuf.Writer} Writer
-         */
-        DeleteConnectionRequest.encodeDelimited = function encodeDelimited(message, writer) {
-            return this.encode(message, writer).ldelim();
-        };
-
-        /**
-         * Decodes a DeleteConnectionRequest message from the specified reader or buffer.
-         * @function decode
-         * @memberof protos.DeleteConnectionRequest
-         * @static
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @param {number} [length] Message length if known beforehand
-         * @returns {protos.DeleteConnectionRequest} DeleteConnectionRequest
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        DeleteConnectionRequest.decode = function decode(reader, length) {
-            if (!(reader instanceof $Reader))
-                reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.DeleteConnectionRequest();
-            while (reader.pos < end) {
-                var tag = reader.uint32();
-                switch (tag >>> 3) {
-                case 9999:
-                    message.auth = $root.protos.common.Auth.decode(reader, reader.uint32());
-                    break;
-                case 1:
-                    message.connectionId = reader.string();
-                    break;
-                default:
-                    reader.skipType(tag & 7);
-                    break;
-                }
-            }
-            return message;
-        };
-
-        /**
-         * Decodes a DeleteConnectionRequest message from the specified reader or buffer, length delimited.
-         * @function decodeDelimited
-         * @memberof protos.DeleteConnectionRequest
-         * @static
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {protos.DeleteConnectionRequest} DeleteConnectionRequest
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        DeleteConnectionRequest.decodeDelimited = function decodeDelimited(reader) {
-            if (!(reader instanceof $Reader))
-                reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
-        };
-
-        /**
-         * Verifies a DeleteConnectionRequest message.
-         * @function verify
-         * @memberof protos.DeleteConnectionRequest
-         * @static
-         * @param {Object.<string,*>} message Plain object to verify
-         * @returns {string|null} `null` if valid, otherwise the reason why it is not
-         */
-        DeleteConnectionRequest.verify = function verify(message) {
-            if (typeof message !== "object" || message === null)
-                return "object expected";
-            if (message.auth != null && message.hasOwnProperty("auth")) {
-                var error = $root.protos.common.Auth.verify(message.auth);
-                if (error)
-                    return "auth." + error;
-            }
-            if (message.connectionId != null && message.hasOwnProperty("connectionId"))
-                if (!$util.isString(message.connectionId))
-                    return "connectionId: string expected";
-            return null;
-        };
-
-        /**
-         * Creates a DeleteConnectionRequest message from a plain object. Also converts values to their respective internal types.
-         * @function fromObject
-         * @memberof protos.DeleteConnectionRequest
-         * @static
-         * @param {Object.<string,*>} object Plain object
-         * @returns {protos.DeleteConnectionRequest} DeleteConnectionRequest
-         */
-        DeleteConnectionRequest.fromObject = function fromObject(object) {
-            if (object instanceof $root.protos.DeleteConnectionRequest)
-                return object;
-            var message = new $root.protos.DeleteConnectionRequest();
-            if (object.auth != null) {
-                if (typeof object.auth !== "object")
-                    throw TypeError(".protos.DeleteConnectionRequest.auth: object expected");
-                message.auth = $root.protos.common.Auth.fromObject(object.auth);
-            }
-            if (object.connectionId != null)
-                message.connectionId = String(object.connectionId);
-            return message;
-        };
-
-        /**
-         * Creates a plain object from a DeleteConnectionRequest message. Also converts values to other types if specified.
-         * @function toObject
-         * @memberof protos.DeleteConnectionRequest
-         * @static
-         * @param {protos.DeleteConnectionRequest} message DeleteConnectionRequest
-         * @param {$protobuf.IConversionOptions} [options] Conversion options
-         * @returns {Object.<string,*>} Plain object
-         */
-        DeleteConnectionRequest.toObject = function toObject(message, options) {
+        UpdateAlertResponse.toObject = function toObject(message, options) {
             if (!options)
                 options = {};
             var object = {};
             if (options.defaults) {
-                object.connectionId = "";
-                object.auth = null;
-            }
-            if (message.connectionId != null && message.hasOwnProperty("connectionId"))
-                object.connectionId = message.connectionId;
-            if (message.auth != null && message.hasOwnProperty("auth"))
-                object.auth = $root.protos.common.Auth.toObject(message.auth, options);
-            return object;
-        };
-
-        /**
-         * Converts this DeleteConnectionRequest to JSON.
-         * @function toJSON
-         * @memberof protos.DeleteConnectionRequest
-         * @instance
-         * @returns {Object.<string,*>} JSON object
-         */
-        DeleteConnectionRequest.prototype.toJSON = function toJSON() {
-            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-        };
-
-        return DeleteConnectionRequest;
-    })();
-
-    protos.DeleteConnectionResponse = (function() {
-
-        /**
-         * Properties of a DeleteConnectionResponse.
-         * @memberof protos
-         * @interface IDeleteConnectionResponse
-         * @property {protos.common.IStatus|null} [status] DeleteConnectionResponse status
-         */
-
-        /**
-         * Constructs a new DeleteConnectionResponse.
-         * @memberof protos
-         * @classdesc Represents a DeleteConnectionResponse.
-         * @implements IDeleteConnectionResponse
-         * @constructor
-         * @param {protos.IDeleteConnectionResponse=} [properties] Properties to set
-         */
-        function DeleteConnectionResponse(properties) {
-            if (properties)
-                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                    if (properties[keys[i]] != null)
-                        this[keys[i]] = properties[keys[i]];
-        }
-
-        /**
-         * DeleteConnectionResponse status.
-         * @member {protos.common.IStatus|null|undefined} status
-         * @memberof protos.DeleteConnectionResponse
-         * @instance
-         */
-        DeleteConnectionResponse.prototype.status = null;
-
-        /**
-         * Creates a new DeleteConnectionResponse instance using the specified properties.
-         * @function create
-         * @memberof protos.DeleteConnectionResponse
-         * @static
-         * @param {protos.IDeleteConnectionResponse=} [properties] Properties to set
-         * @returns {protos.DeleteConnectionResponse} DeleteConnectionResponse instance
-         */
-        DeleteConnectionResponse.create = function create(properties) {
-            return new DeleteConnectionResponse(properties);
-        };
-
-        /**
-         * Encodes the specified DeleteConnectionResponse message. Does not implicitly {@link protos.DeleteConnectionResponse.verify|verify} messages.
-         * @function encode
-         * @memberof protos.DeleteConnectionResponse
-         * @static
-         * @param {protos.IDeleteConnectionResponse} message DeleteConnectionResponse message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
-         * @returns {$protobuf.Writer} Writer
-         */
-        DeleteConnectionResponse.encode = function encode(message, writer) {
-            if (!writer)
-                writer = $Writer.create();
-            if (message.status != null && Object.hasOwnProperty.call(message, "status"))
-                $root.protos.common.Status.encode(message.status, writer.uint32(/* id 1000, wireType 2 =*/8002).fork()).ldelim();
-            return writer;
-        };
-
-        /**
-         * Encodes the specified DeleteConnectionResponse message, length delimited. Does not implicitly {@link protos.DeleteConnectionResponse.verify|verify} messages.
-         * @function encodeDelimited
-         * @memberof protos.DeleteConnectionResponse
-         * @static
-         * @param {protos.IDeleteConnectionResponse} message DeleteConnectionResponse message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
-         * @returns {$protobuf.Writer} Writer
-         */
-        DeleteConnectionResponse.encodeDelimited = function encodeDelimited(message, writer) {
-            return this.encode(message, writer).ldelim();
-        };
-
-        /**
-         * Decodes a DeleteConnectionResponse message from the specified reader or buffer.
-         * @function decode
-         * @memberof protos.DeleteConnectionResponse
-         * @static
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @param {number} [length] Message length if known beforehand
-         * @returns {protos.DeleteConnectionResponse} DeleteConnectionResponse
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        DeleteConnectionResponse.decode = function decode(reader, length) {
-            if (!(reader instanceof $Reader))
-                reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.DeleteConnectionResponse();
-            while (reader.pos < end) {
-                var tag = reader.uint32();
-                switch (tag >>> 3) {
-                case 1000:
-                    message.status = $root.protos.common.Status.decode(reader, reader.uint32());
-                    break;
-                default:
-                    reader.skipType(tag & 7);
-                    break;
-                }
-            }
-            return message;
-        };
-
-        /**
-         * Decodes a DeleteConnectionResponse message from the specified reader or buffer, length delimited.
-         * @function decodeDelimited
-         * @memberof protos.DeleteConnectionResponse
-         * @static
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {protos.DeleteConnectionResponse} DeleteConnectionResponse
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        DeleteConnectionResponse.decodeDelimited = function decodeDelimited(reader) {
-            if (!(reader instanceof $Reader))
-                reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
-        };
-
-        /**
-         * Verifies a DeleteConnectionResponse message.
-         * @function verify
-         * @memberof protos.DeleteConnectionResponse
-         * @static
-         * @param {Object.<string,*>} message Plain object to verify
-         * @returns {string|null} `null` if valid, otherwise the reason why it is not
-         */
-        DeleteConnectionResponse.verify = function verify(message) {
-            if (typeof message !== "object" || message === null)
-                return "object expected";
-            if (message.status != null && message.hasOwnProperty("status")) {
-                var error = $root.protos.common.Status.verify(message.status);
-                if (error)
-                    return "status." + error;
-            }
-            return null;
-        };
-
-        /**
-         * Creates a DeleteConnectionResponse message from a plain object. Also converts values to their respective internal types.
-         * @function fromObject
-         * @memberof protos.DeleteConnectionResponse
-         * @static
-         * @param {Object.<string,*>} object Plain object
-         * @returns {protos.DeleteConnectionResponse} DeleteConnectionResponse
-         */
-        DeleteConnectionResponse.fromObject = function fromObject(object) {
-            if (object instanceof $root.protos.DeleteConnectionResponse)
-                return object;
-            var message = new $root.protos.DeleteConnectionResponse();
-            if (object.status != null) {
-                if (typeof object.status !== "object")
-                    throw TypeError(".protos.DeleteConnectionResponse.status: object expected");
-                message.status = $root.protos.common.Status.fromObject(object.status);
-            }
-            return message;
-        };
-
-        /**
-         * Creates a plain object from a DeleteConnectionResponse message. Also converts values to other types if specified.
-         * @function toObject
-         * @memberof protos.DeleteConnectionResponse
-         * @static
-         * @param {protos.DeleteConnectionResponse} message DeleteConnectionResponse
-         * @param {$protobuf.IConversionOptions} [options] Conversion options
-         * @returns {Object.<string,*>} Plain object
-         */
-        DeleteConnectionResponse.toObject = function toObject(message, options) {
-            if (!options)
-                options = {};
-            var object = {};
-            if (options.defaults)
+                object.alert = null;
                 object.status = null;
+            }
+            if (message.alert != null && message.hasOwnProperty("alert"))
+                object.alert = $root.protos.opts.AlertOptions.toObject(message.alert, options);
             if (message.status != null && message.hasOwnProperty("status"))
                 object.status = $root.protos.common.Status.toObject(message.status, options);
             return object;
         };
 
         /**
-         * Converts this DeleteConnectionResponse to JSON.
+         * Converts this UpdateAlertResponse to JSON.
          * @function toJSON
-         * @memberof protos.DeleteConnectionResponse
+         * @memberof protos.UpdateAlertResponse
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        DeleteConnectionResponse.prototype.toJSON = function toJSON() {
+        UpdateAlertResponse.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
         };
 
-        return DeleteConnectionResponse;
+        return UpdateAlertResponse;
     })();
 
     protos.common = (function() {
@@ -4428,6 +2361,2254 @@ $root.protos = (function() {
          * @namespace
          */
         var opts = {};
+
+        /**
+         * Weekday enum.
+         * @name protos.opts.Weekday
+         * @enum {number}
+         * @property {number} WEEKDAY_SUNDAY=0 WEEKDAY_SUNDAY value
+         * @property {number} WEEKDAY_MONDAY=1 WEEKDAY_MONDAY value
+         * @property {number} WEEKDAY_TUESDAY=2 WEEKDAY_TUESDAY value
+         * @property {number} WEEKDAY_WEDNESDAY=3 WEEKDAY_WEDNESDAY value
+         * @property {number} WEEKDAY_THURSDAY=4 WEEKDAY_THURSDAY value
+         * @property {number} WEEKDAY_FRIDAY=5 WEEKDAY_FRIDAY value
+         * @property {number} WEEKDAY_SATURDAY=6 WEEKDAY_SATURDAY value
+         */
+        opts.Weekday = (function() {
+            var valuesById = {}, values = Object.create(valuesById);
+            values[valuesById[0] = "WEEKDAY_SUNDAY"] = 0;
+            values[valuesById[1] = "WEEKDAY_MONDAY"] = 1;
+            values[valuesById[2] = "WEEKDAY_TUESDAY"] = 2;
+            values[valuesById[3] = "WEEKDAY_WEDNESDAY"] = 3;
+            values[valuesById[4] = "WEEKDAY_THURSDAY"] = 4;
+            values[valuesById[5] = "WEEKDAY_FRIDAY"] = 5;
+            values[valuesById[6] = "WEEKDAY_SATURDAY"] = 6;
+            return values;
+        })();
+
+        opts.AlertTimeRange = (function() {
+
+            /**
+             * Properties of an AlertTimeRange.
+             * @memberof protos.opts
+             * @interface IAlertTimeRange
+             * @property {Array.<protos.opts.Weekday>|null} [days] AlertTimeRange days
+             * @property {number|null} [fromHour] AlertTimeRange fromHour
+             * @property {number|null} [fromMin] AlertTimeRange fromMin
+             * @property {number|null} [toHour] AlertTimeRange toHour
+             * @property {number|null} [toMin] AlertTimeRange toMin
+             */
+
+            /**
+             * Constructs a new AlertTimeRange.
+             * @memberof protos.opts
+             * @classdesc Represents an AlertTimeRange.
+             * @implements IAlertTimeRange
+             * @constructor
+             * @param {protos.opts.IAlertTimeRange=} [properties] Properties to set
+             */
+            function AlertTimeRange(properties) {
+                this.days = [];
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * AlertTimeRange days.
+             * @member {Array.<protos.opts.Weekday>} days
+             * @memberof protos.opts.AlertTimeRange
+             * @instance
+             */
+            AlertTimeRange.prototype.days = $util.emptyArray;
+
+            /**
+             * AlertTimeRange fromHour.
+             * @member {number} fromHour
+             * @memberof protos.opts.AlertTimeRange
+             * @instance
+             */
+            AlertTimeRange.prototype.fromHour = 0;
+
+            /**
+             * AlertTimeRange fromMin.
+             * @member {number} fromMin
+             * @memberof protos.opts.AlertTimeRange
+             * @instance
+             */
+            AlertTimeRange.prototype.fromMin = 0;
+
+            /**
+             * AlertTimeRange toHour.
+             * @member {number} toHour
+             * @memberof protos.opts.AlertTimeRange
+             * @instance
+             */
+            AlertTimeRange.prototype.toHour = 0;
+
+            /**
+             * AlertTimeRange toMin.
+             * @member {number} toMin
+             * @memberof protos.opts.AlertTimeRange
+             * @instance
+             */
+            AlertTimeRange.prototype.toMin = 0;
+
+            /**
+             * Creates a new AlertTimeRange instance using the specified properties.
+             * @function create
+             * @memberof protos.opts.AlertTimeRange
+             * @static
+             * @param {protos.opts.IAlertTimeRange=} [properties] Properties to set
+             * @returns {protos.opts.AlertTimeRange} AlertTimeRange instance
+             */
+            AlertTimeRange.create = function create(properties) {
+                return new AlertTimeRange(properties);
+            };
+
+            /**
+             * Encodes the specified AlertTimeRange message. Does not implicitly {@link protos.opts.AlertTimeRange.verify|verify} messages.
+             * @function encode
+             * @memberof protos.opts.AlertTimeRange
+             * @static
+             * @param {protos.opts.IAlertTimeRange} message AlertTimeRange message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            AlertTimeRange.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.days != null && message.days.length) {
+                    writer.uint32(/* id 1, wireType 2 =*/10).fork();
+                    for (var i = 0; i < message.days.length; ++i)
+                        writer.int32(message.days[i]);
+                    writer.ldelim();
+                }
+                if (message.fromHour != null && Object.hasOwnProperty.call(message, "fromHour"))
+                    writer.uint32(/* id 2, wireType 0 =*/16).uint32(message.fromHour);
+                if (message.fromMin != null && Object.hasOwnProperty.call(message, "fromMin"))
+                    writer.uint32(/* id 3, wireType 0 =*/24).uint32(message.fromMin);
+                if (message.toHour != null && Object.hasOwnProperty.call(message, "toHour"))
+                    writer.uint32(/* id 4, wireType 0 =*/32).uint32(message.toHour);
+                if (message.toMin != null && Object.hasOwnProperty.call(message, "toMin"))
+                    writer.uint32(/* id 5, wireType 0 =*/40).uint32(message.toMin);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified AlertTimeRange message, length delimited. Does not implicitly {@link protos.opts.AlertTimeRange.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.opts.AlertTimeRange
+             * @static
+             * @param {protos.opts.IAlertTimeRange} message AlertTimeRange message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            AlertTimeRange.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes an AlertTimeRange message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.opts.AlertTimeRange
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.opts.AlertTimeRange} AlertTimeRange
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            AlertTimeRange.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.AlertTimeRange();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        if (!(message.days && message.days.length))
+                            message.days = [];
+                        if ((tag & 7) === 2) {
+                            var end2 = reader.uint32() + reader.pos;
+                            while (reader.pos < end2)
+                                message.days.push(reader.int32());
+                        } else
+                            message.days.push(reader.int32());
+                        break;
+                    case 2:
+                        message.fromHour = reader.uint32();
+                        break;
+                    case 3:
+                        message.fromMin = reader.uint32();
+                        break;
+                    case 4:
+                        message.toHour = reader.uint32();
+                        break;
+                    case 5:
+                        message.toMin = reader.uint32();
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes an AlertTimeRange message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.opts.AlertTimeRange
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.opts.AlertTimeRange} AlertTimeRange
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            AlertTimeRange.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies an AlertTimeRange message.
+             * @function verify
+             * @memberof protos.opts.AlertTimeRange
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            AlertTimeRange.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.days != null && message.hasOwnProperty("days")) {
+                    if (!Array.isArray(message.days))
+                        return "days: array expected";
+                    for (var i = 0; i < message.days.length; ++i)
+                        switch (message.days[i]) {
+                        default:
+                            return "days: enum value[] expected";
+                        case 0:
+                        case 1:
+                        case 2:
+                        case 3:
+                        case 4:
+                        case 5:
+                        case 6:
+                            break;
+                        }
+                }
+                if (message.fromHour != null && message.hasOwnProperty("fromHour"))
+                    if (!$util.isInteger(message.fromHour))
+                        return "fromHour: integer expected";
+                if (message.fromMin != null && message.hasOwnProperty("fromMin"))
+                    if (!$util.isInteger(message.fromMin))
+                        return "fromMin: integer expected";
+                if (message.toHour != null && message.hasOwnProperty("toHour"))
+                    if (!$util.isInteger(message.toHour))
+                        return "toHour: integer expected";
+                if (message.toMin != null && message.hasOwnProperty("toMin"))
+                    if (!$util.isInteger(message.toMin))
+                        return "toMin: integer expected";
+                return null;
+            };
+
+            /**
+             * Creates an AlertTimeRange message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.opts.AlertTimeRange
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.opts.AlertTimeRange} AlertTimeRange
+             */
+            AlertTimeRange.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.AlertTimeRange)
+                    return object;
+                var message = new $root.protos.opts.AlertTimeRange();
+                if (object.days) {
+                    if (!Array.isArray(object.days))
+                        throw TypeError(".protos.opts.AlertTimeRange.days: array expected");
+                    message.days = [];
+                    for (var i = 0; i < object.days.length; ++i)
+                        switch (object.days[i]) {
+                        default:
+                        case "WEEKDAY_SUNDAY":
+                        case 0:
+                            message.days[i] = 0;
+                            break;
+                        case "WEEKDAY_MONDAY":
+                        case 1:
+                            message.days[i] = 1;
+                            break;
+                        case "WEEKDAY_TUESDAY":
+                        case 2:
+                            message.days[i] = 2;
+                            break;
+                        case "WEEKDAY_WEDNESDAY":
+                        case 3:
+                            message.days[i] = 3;
+                            break;
+                        case "WEEKDAY_THURSDAY":
+                        case 4:
+                            message.days[i] = 4;
+                            break;
+                        case "WEEKDAY_FRIDAY":
+                        case 5:
+                            message.days[i] = 5;
+                            break;
+                        case "WEEKDAY_SATURDAY":
+                        case 6:
+                            message.days[i] = 6;
+                            break;
+                        }
+                }
+                if (object.fromHour != null)
+                    message.fromHour = object.fromHour >>> 0;
+                if (object.fromMin != null)
+                    message.fromMin = object.fromMin >>> 0;
+                if (object.toHour != null)
+                    message.toHour = object.toHour >>> 0;
+                if (object.toMin != null)
+                    message.toMin = object.toMin >>> 0;
+                return message;
+            };
+
+            /**
+             * Creates a plain object from an AlertTimeRange message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.opts.AlertTimeRange
+             * @static
+             * @param {protos.opts.AlertTimeRange} message AlertTimeRange
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            AlertTimeRange.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.arrays || options.defaults)
+                    object.days = [];
+                if (options.defaults) {
+                    object.fromHour = 0;
+                    object.fromMin = 0;
+                    object.toHour = 0;
+                    object.toMin = 0;
+                }
+                if (message.days && message.days.length) {
+                    object.days = [];
+                    for (var j = 0; j < message.days.length; ++j)
+                        object.days[j] = options.enums === String ? $root.protos.opts.Weekday[message.days[j]] : message.days[j];
+                }
+                if (message.fromHour != null && message.hasOwnProperty("fromHour"))
+                    object.fromHour = message.fromHour;
+                if (message.fromMin != null && message.hasOwnProperty("fromMin"))
+                    object.fromMin = message.fromMin;
+                if (message.toHour != null && message.hasOwnProperty("toHour"))
+                    object.toHour = message.toHour;
+                if (message.toMin != null && message.hasOwnProperty("toMin"))
+                    object.toMin = message.toMin;
+                return object;
+            };
+
+            /**
+             * Converts this AlertTimeRange to JSON.
+             * @function toJSON
+             * @memberof protos.opts.AlertTimeRange
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            AlertTimeRange.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return AlertTimeRange;
+        })();
+
+        opts.AlertSchedule = (function() {
+
+            /**
+             * Properties of an AlertSchedule.
+             * @memberof protos.opts
+             * @interface IAlertSchedule
+             * @property {string|null} [timezone] AlertSchedule timezone
+             * @property {Array.<protos.opts.IAlertTimeRange>|null} [timeRangeOn] AlertSchedule timeRangeOn
+             * @property {Array.<protos.opts.IAlertTimeRange>|null} [timeRangeOff] AlertSchedule timeRangeOff
+             */
+
+            /**
+             * Constructs a new AlertSchedule.
+             * @memberof protos.opts
+             * @classdesc Represents an AlertSchedule.
+             * @implements IAlertSchedule
+             * @constructor
+             * @param {protos.opts.IAlertSchedule=} [properties] Properties to set
+             */
+            function AlertSchedule(properties) {
+                this.timeRangeOn = [];
+                this.timeRangeOff = [];
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * AlertSchedule timezone.
+             * @member {string} timezone
+             * @memberof protos.opts.AlertSchedule
+             * @instance
+             */
+            AlertSchedule.prototype.timezone = "";
+
+            /**
+             * AlertSchedule timeRangeOn.
+             * @member {Array.<protos.opts.IAlertTimeRange>} timeRangeOn
+             * @memberof protos.opts.AlertSchedule
+             * @instance
+             */
+            AlertSchedule.prototype.timeRangeOn = $util.emptyArray;
+
+            /**
+             * AlertSchedule timeRangeOff.
+             * @member {Array.<protos.opts.IAlertTimeRange>} timeRangeOff
+             * @memberof protos.opts.AlertSchedule
+             * @instance
+             */
+            AlertSchedule.prototype.timeRangeOff = $util.emptyArray;
+
+            /**
+             * Creates a new AlertSchedule instance using the specified properties.
+             * @function create
+             * @memberof protos.opts.AlertSchedule
+             * @static
+             * @param {protos.opts.IAlertSchedule=} [properties] Properties to set
+             * @returns {protos.opts.AlertSchedule} AlertSchedule instance
+             */
+            AlertSchedule.create = function create(properties) {
+                return new AlertSchedule(properties);
+            };
+
+            /**
+             * Encodes the specified AlertSchedule message. Does not implicitly {@link protos.opts.AlertSchedule.verify|verify} messages.
+             * @function encode
+             * @memberof protos.opts.AlertSchedule
+             * @static
+             * @param {protos.opts.IAlertSchedule} message AlertSchedule message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            AlertSchedule.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.timezone != null && Object.hasOwnProperty.call(message, "timezone"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.timezone);
+                if (message.timeRangeOn != null && message.timeRangeOn.length)
+                    for (var i = 0; i < message.timeRangeOn.length; ++i)
+                        $root.protos.opts.AlertTimeRange.encode(message.timeRangeOn[i], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                if (message.timeRangeOff != null && message.timeRangeOff.length)
+                    for (var i = 0; i < message.timeRangeOff.length; ++i)
+                        $root.protos.opts.AlertTimeRange.encode(message.timeRangeOff[i], writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
+                return writer;
+            };
+
+            /**
+             * Encodes the specified AlertSchedule message, length delimited. Does not implicitly {@link protos.opts.AlertSchedule.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.opts.AlertSchedule
+             * @static
+             * @param {protos.opts.IAlertSchedule} message AlertSchedule message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            AlertSchedule.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes an AlertSchedule message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.opts.AlertSchedule
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.opts.AlertSchedule} AlertSchedule
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            AlertSchedule.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.AlertSchedule();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.timezone = reader.string();
+                        break;
+                    case 2:
+                        if (!(message.timeRangeOn && message.timeRangeOn.length))
+                            message.timeRangeOn = [];
+                        message.timeRangeOn.push($root.protos.opts.AlertTimeRange.decode(reader, reader.uint32()));
+                        break;
+                    case 3:
+                        if (!(message.timeRangeOff && message.timeRangeOff.length))
+                            message.timeRangeOff = [];
+                        message.timeRangeOff.push($root.protos.opts.AlertTimeRange.decode(reader, reader.uint32()));
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes an AlertSchedule message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.opts.AlertSchedule
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.opts.AlertSchedule} AlertSchedule
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            AlertSchedule.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies an AlertSchedule message.
+             * @function verify
+             * @memberof protos.opts.AlertSchedule
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            AlertSchedule.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.timezone != null && message.hasOwnProperty("timezone"))
+                    if (!$util.isString(message.timezone))
+                        return "timezone: string expected";
+                if (message.timeRangeOn != null && message.hasOwnProperty("timeRangeOn")) {
+                    if (!Array.isArray(message.timeRangeOn))
+                        return "timeRangeOn: array expected";
+                    for (var i = 0; i < message.timeRangeOn.length; ++i) {
+                        var error = $root.protos.opts.AlertTimeRange.verify(message.timeRangeOn[i]);
+                        if (error)
+                            return "timeRangeOn." + error;
+                    }
+                }
+                if (message.timeRangeOff != null && message.hasOwnProperty("timeRangeOff")) {
+                    if (!Array.isArray(message.timeRangeOff))
+                        return "timeRangeOff: array expected";
+                    for (var i = 0; i < message.timeRangeOff.length; ++i) {
+                        var error = $root.protos.opts.AlertTimeRange.verify(message.timeRangeOff[i]);
+                        if (error)
+                            return "timeRangeOff." + error;
+                    }
+                }
+                return null;
+            };
+
+            /**
+             * Creates an AlertSchedule message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.opts.AlertSchedule
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.opts.AlertSchedule} AlertSchedule
+             */
+            AlertSchedule.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.AlertSchedule)
+                    return object;
+                var message = new $root.protos.opts.AlertSchedule();
+                if (object.timezone != null)
+                    message.timezone = String(object.timezone);
+                if (object.timeRangeOn) {
+                    if (!Array.isArray(object.timeRangeOn))
+                        throw TypeError(".protos.opts.AlertSchedule.timeRangeOn: array expected");
+                    message.timeRangeOn = [];
+                    for (var i = 0; i < object.timeRangeOn.length; ++i) {
+                        if (typeof object.timeRangeOn[i] !== "object")
+                            throw TypeError(".protos.opts.AlertSchedule.timeRangeOn: object expected");
+                        message.timeRangeOn[i] = $root.protos.opts.AlertTimeRange.fromObject(object.timeRangeOn[i]);
+                    }
+                }
+                if (object.timeRangeOff) {
+                    if (!Array.isArray(object.timeRangeOff))
+                        throw TypeError(".protos.opts.AlertSchedule.timeRangeOff: array expected");
+                    message.timeRangeOff = [];
+                    for (var i = 0; i < object.timeRangeOff.length; ++i) {
+                        if (typeof object.timeRangeOff[i] !== "object")
+                            throw TypeError(".protos.opts.AlertSchedule.timeRangeOff: object expected");
+                        message.timeRangeOff[i] = $root.protos.opts.AlertTimeRange.fromObject(object.timeRangeOff[i]);
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from an AlertSchedule message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.opts.AlertSchedule
+             * @static
+             * @param {protos.opts.AlertSchedule} message AlertSchedule
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            AlertSchedule.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.arrays || options.defaults) {
+                    object.timeRangeOn = [];
+                    object.timeRangeOff = [];
+                }
+                if (options.defaults)
+                    object.timezone = "";
+                if (message.timezone != null && message.hasOwnProperty("timezone"))
+                    object.timezone = message.timezone;
+                if (message.timeRangeOn && message.timeRangeOn.length) {
+                    object.timeRangeOn = [];
+                    for (var j = 0; j < message.timeRangeOn.length; ++j)
+                        object.timeRangeOn[j] = $root.protos.opts.AlertTimeRange.toObject(message.timeRangeOn[j], options);
+                }
+                if (message.timeRangeOff && message.timeRangeOff.length) {
+                    object.timeRangeOff = [];
+                    for (var j = 0; j < message.timeRangeOff.length; ++j)
+                        object.timeRangeOff[j] = $root.protos.opts.AlertTimeRange.toObject(message.timeRangeOff[j], options);
+                }
+                return object;
+            };
+
+            /**
+             * Converts this AlertSchedule to JSON.
+             * @function toJSON
+             * @memberof protos.opts.AlertSchedule
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            AlertSchedule.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return AlertSchedule;
+        })();
+
+        opts.AlertOptions = (function() {
+
+            /**
+             * Properties of an AlertOptions.
+             * @memberof protos.opts
+             * @interface IAlertOptions
+             * @property {Array.<string>|null} [monitorIds] AlertOptions monitorIds
+             * @property {Array.<protos.opts.IAlertOutput>|null} [outputs] AlertOptions outputs
+             * @property {protos.opts.IAlertSchedule|null} [schedule] AlertOptions schedule
+             */
+
+            /**
+             * Constructs a new AlertOptions.
+             * @memberof protos.opts
+             * @classdesc Represents an AlertOptions.
+             * @implements IAlertOptions
+             * @constructor
+             * @param {protos.opts.IAlertOptions=} [properties] Properties to set
+             */
+            function AlertOptions(properties) {
+                this.monitorIds = [];
+                this.outputs = [];
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * AlertOptions monitorIds.
+             * @member {Array.<string>} monitorIds
+             * @memberof protos.opts.AlertOptions
+             * @instance
+             */
+            AlertOptions.prototype.monitorIds = $util.emptyArray;
+
+            /**
+             * AlertOptions outputs.
+             * @member {Array.<protos.opts.IAlertOutput>} outputs
+             * @memberof protos.opts.AlertOptions
+             * @instance
+             */
+            AlertOptions.prototype.outputs = $util.emptyArray;
+
+            /**
+             * AlertOptions schedule.
+             * @member {protos.opts.IAlertSchedule|null|undefined} schedule
+             * @memberof protos.opts.AlertOptions
+             * @instance
+             */
+            AlertOptions.prototype.schedule = null;
+
+            /**
+             * Creates a new AlertOptions instance using the specified properties.
+             * @function create
+             * @memberof protos.opts.AlertOptions
+             * @static
+             * @param {protos.opts.IAlertOptions=} [properties] Properties to set
+             * @returns {protos.opts.AlertOptions} AlertOptions instance
+             */
+            AlertOptions.create = function create(properties) {
+                return new AlertOptions(properties);
+            };
+
+            /**
+             * Encodes the specified AlertOptions message. Does not implicitly {@link protos.opts.AlertOptions.verify|verify} messages.
+             * @function encode
+             * @memberof protos.opts.AlertOptions
+             * @static
+             * @param {protos.opts.IAlertOptions} message AlertOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            AlertOptions.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.monitorIds != null && message.monitorIds.length)
+                    for (var i = 0; i < message.monitorIds.length; ++i)
+                        writer.uint32(/* id 1, wireType 2 =*/10).string(message.monitorIds[i]);
+                if (message.outputs != null && message.outputs.length)
+                    for (var i = 0; i < message.outputs.length; ++i)
+                        $root.protos.opts.AlertOutput.encode(message.outputs[i], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                if (message.schedule != null && Object.hasOwnProperty.call(message, "schedule"))
+                    $root.protos.opts.AlertSchedule.encode(message.schedule, writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
+                return writer;
+            };
+
+            /**
+             * Encodes the specified AlertOptions message, length delimited. Does not implicitly {@link protos.opts.AlertOptions.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.opts.AlertOptions
+             * @static
+             * @param {protos.opts.IAlertOptions} message AlertOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            AlertOptions.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes an AlertOptions message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.opts.AlertOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.opts.AlertOptions} AlertOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            AlertOptions.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.AlertOptions();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        if (!(message.monitorIds && message.monitorIds.length))
+                            message.monitorIds = [];
+                        message.monitorIds.push(reader.string());
+                        break;
+                    case 2:
+                        if (!(message.outputs && message.outputs.length))
+                            message.outputs = [];
+                        message.outputs.push($root.protos.opts.AlertOutput.decode(reader, reader.uint32()));
+                        break;
+                    case 3:
+                        message.schedule = $root.protos.opts.AlertSchedule.decode(reader, reader.uint32());
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes an AlertOptions message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.opts.AlertOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.opts.AlertOptions} AlertOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            AlertOptions.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies an AlertOptions message.
+             * @function verify
+             * @memberof protos.opts.AlertOptions
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            AlertOptions.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.monitorIds != null && message.hasOwnProperty("monitorIds")) {
+                    if (!Array.isArray(message.monitorIds))
+                        return "monitorIds: array expected";
+                    for (var i = 0; i < message.monitorIds.length; ++i)
+                        if (!$util.isString(message.monitorIds[i]))
+                            return "monitorIds: string[] expected";
+                }
+                if (message.outputs != null && message.hasOwnProperty("outputs")) {
+                    if (!Array.isArray(message.outputs))
+                        return "outputs: array expected";
+                    for (var i = 0; i < message.outputs.length; ++i) {
+                        var error = $root.protos.opts.AlertOutput.verify(message.outputs[i]);
+                        if (error)
+                            return "outputs." + error;
+                    }
+                }
+                if (message.schedule != null && message.hasOwnProperty("schedule")) {
+                    var error = $root.protos.opts.AlertSchedule.verify(message.schedule);
+                    if (error)
+                        return "schedule." + error;
+                }
+                return null;
+            };
+
+            /**
+             * Creates an AlertOptions message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.opts.AlertOptions
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.opts.AlertOptions} AlertOptions
+             */
+            AlertOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.AlertOptions)
+                    return object;
+                var message = new $root.protos.opts.AlertOptions();
+                if (object.monitorIds) {
+                    if (!Array.isArray(object.monitorIds))
+                        throw TypeError(".protos.opts.AlertOptions.monitorIds: array expected");
+                    message.monitorIds = [];
+                    for (var i = 0; i < object.monitorIds.length; ++i)
+                        message.monitorIds[i] = String(object.monitorIds[i]);
+                }
+                if (object.outputs) {
+                    if (!Array.isArray(object.outputs))
+                        throw TypeError(".protos.opts.AlertOptions.outputs: array expected");
+                    message.outputs = [];
+                    for (var i = 0; i < object.outputs.length; ++i) {
+                        if (typeof object.outputs[i] !== "object")
+                            throw TypeError(".protos.opts.AlertOptions.outputs: object expected");
+                        message.outputs[i] = $root.protos.opts.AlertOutput.fromObject(object.outputs[i]);
+                    }
+                }
+                if (object.schedule != null) {
+                    if (typeof object.schedule !== "object")
+                        throw TypeError(".protos.opts.AlertOptions.schedule: object expected");
+                    message.schedule = $root.protos.opts.AlertSchedule.fromObject(object.schedule);
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from an AlertOptions message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.opts.AlertOptions
+             * @static
+             * @param {protos.opts.AlertOptions} message AlertOptions
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            AlertOptions.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.arrays || options.defaults) {
+                    object.monitorIds = [];
+                    object.outputs = [];
+                }
+                if (options.defaults)
+                    object.schedule = null;
+                if (message.monitorIds && message.monitorIds.length) {
+                    object.monitorIds = [];
+                    for (var j = 0; j < message.monitorIds.length; ++j)
+                        object.monitorIds[j] = message.monitorIds[j];
+                }
+                if (message.outputs && message.outputs.length) {
+                    object.outputs = [];
+                    for (var j = 0; j < message.outputs.length; ++j)
+                        object.outputs[j] = $root.protos.opts.AlertOutput.toObject(message.outputs[j], options);
+                }
+                if (message.schedule != null && message.hasOwnProperty("schedule"))
+                    object.schedule = $root.protos.opts.AlertSchedule.toObject(message.schedule, options);
+                return object;
+            };
+
+            /**
+             * Converts this AlertOptions to JSON.
+             * @function toJSON
+             * @memberof protos.opts.AlertOptions
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            AlertOptions.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return AlertOptions;
+        })();
+
+        opts.AlertOutput = (function() {
+
+            /**
+             * Properties of an AlertOutput.
+             * @memberof protos.opts
+             * @interface IAlertOutput
+             * @property {protos.opts.IAlertEmailOutput|null} [email] AlertOutput email
+             * @property {protos.opts.IAlertSlackOutput|null} [slack] AlertOutput slack
+             * @property {protos.opts.IAlertPagerdutyOutput|null} [pagerduty] AlertOutput pagerduty
+             */
+
+            /**
+             * Constructs a new AlertOutput.
+             * @memberof protos.opts
+             * @classdesc Represents an AlertOutput.
+             * @implements IAlertOutput
+             * @constructor
+             * @param {protos.opts.IAlertOutput=} [properties] Properties to set
+             */
+            function AlertOutput(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * AlertOutput email.
+             * @member {protos.opts.IAlertEmailOutput|null|undefined} email
+             * @memberof protos.opts.AlertOutput
+             * @instance
+             */
+            AlertOutput.prototype.email = null;
+
+            /**
+             * AlertOutput slack.
+             * @member {protos.opts.IAlertSlackOutput|null|undefined} slack
+             * @memberof protos.opts.AlertOutput
+             * @instance
+             */
+            AlertOutput.prototype.slack = null;
+
+            /**
+             * AlertOutput pagerduty.
+             * @member {protos.opts.IAlertPagerdutyOutput|null|undefined} pagerduty
+             * @memberof protos.opts.AlertOutput
+             * @instance
+             */
+            AlertOutput.prototype.pagerduty = null;
+
+            // OneOf field names bound to virtual getters and setters
+            var $oneOfFields;
+
+            /**
+             * AlertOutput output.
+             * @member {"email"|"slack"|"pagerduty"|undefined} output
+             * @memberof protos.opts.AlertOutput
+             * @instance
+             */
+            Object.defineProperty(AlertOutput.prototype, "output", {
+                get: $util.oneOfGetter($oneOfFields = ["email", "slack", "pagerduty"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * Creates a new AlertOutput instance using the specified properties.
+             * @function create
+             * @memberof protos.opts.AlertOutput
+             * @static
+             * @param {protos.opts.IAlertOutput=} [properties] Properties to set
+             * @returns {protos.opts.AlertOutput} AlertOutput instance
+             */
+            AlertOutput.create = function create(properties) {
+                return new AlertOutput(properties);
+            };
+
+            /**
+             * Encodes the specified AlertOutput message. Does not implicitly {@link protos.opts.AlertOutput.verify|verify} messages.
+             * @function encode
+             * @memberof protos.opts.AlertOutput
+             * @static
+             * @param {protos.opts.IAlertOutput} message AlertOutput message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            AlertOutput.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.email != null && Object.hasOwnProperty.call(message, "email"))
+                    $root.protos.opts.AlertEmailOutput.encode(message.email, writer.uint32(/* id 100, wireType 2 =*/802).fork()).ldelim();
+                if (message.slack != null && Object.hasOwnProperty.call(message, "slack"))
+                    $root.protos.opts.AlertSlackOutput.encode(message.slack, writer.uint32(/* id 101, wireType 2 =*/810).fork()).ldelim();
+                if (message.pagerduty != null && Object.hasOwnProperty.call(message, "pagerduty"))
+                    $root.protos.opts.AlertPagerdutyOutput.encode(message.pagerduty, writer.uint32(/* id 102, wireType 2 =*/818).fork()).ldelim();
+                return writer;
+            };
+
+            /**
+             * Encodes the specified AlertOutput message, length delimited. Does not implicitly {@link protos.opts.AlertOutput.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.opts.AlertOutput
+             * @static
+             * @param {protos.opts.IAlertOutput} message AlertOutput message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            AlertOutput.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes an AlertOutput message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.opts.AlertOutput
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.opts.AlertOutput} AlertOutput
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            AlertOutput.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.AlertOutput();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 100:
+                        message.email = $root.protos.opts.AlertEmailOutput.decode(reader, reader.uint32());
+                        break;
+                    case 101:
+                        message.slack = $root.protos.opts.AlertSlackOutput.decode(reader, reader.uint32());
+                        break;
+                    case 102:
+                        message.pagerduty = $root.protos.opts.AlertPagerdutyOutput.decode(reader, reader.uint32());
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes an AlertOutput message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.opts.AlertOutput
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.opts.AlertOutput} AlertOutput
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            AlertOutput.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies an AlertOutput message.
+             * @function verify
+             * @memberof protos.opts.AlertOutput
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            AlertOutput.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                var properties = {};
+                if (message.email != null && message.hasOwnProperty("email")) {
+                    properties.output = 1;
+                    {
+                        var error = $root.protos.opts.AlertEmailOutput.verify(message.email);
+                        if (error)
+                            return "email." + error;
+                    }
+                }
+                if (message.slack != null && message.hasOwnProperty("slack")) {
+                    if (properties.output === 1)
+                        return "output: multiple values";
+                    properties.output = 1;
+                    {
+                        var error = $root.protos.opts.AlertSlackOutput.verify(message.slack);
+                        if (error)
+                            return "slack." + error;
+                    }
+                }
+                if (message.pagerduty != null && message.hasOwnProperty("pagerduty")) {
+                    if (properties.output === 1)
+                        return "output: multiple values";
+                    properties.output = 1;
+                    {
+                        var error = $root.protos.opts.AlertPagerdutyOutput.verify(message.pagerduty);
+                        if (error)
+                            return "pagerduty." + error;
+                    }
+                }
+                return null;
+            };
+
+            /**
+             * Creates an AlertOutput message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.opts.AlertOutput
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.opts.AlertOutput} AlertOutput
+             */
+            AlertOutput.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.AlertOutput)
+                    return object;
+                var message = new $root.protos.opts.AlertOutput();
+                if (object.email != null) {
+                    if (typeof object.email !== "object")
+                        throw TypeError(".protos.opts.AlertOutput.email: object expected");
+                    message.email = $root.protos.opts.AlertEmailOutput.fromObject(object.email);
+                }
+                if (object.slack != null) {
+                    if (typeof object.slack !== "object")
+                        throw TypeError(".protos.opts.AlertOutput.slack: object expected");
+                    message.slack = $root.protos.opts.AlertSlackOutput.fromObject(object.slack);
+                }
+                if (object.pagerduty != null) {
+                    if (typeof object.pagerduty !== "object")
+                        throw TypeError(".protos.opts.AlertOutput.pagerduty: object expected");
+                    message.pagerduty = $root.protos.opts.AlertPagerdutyOutput.fromObject(object.pagerduty);
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from an AlertOutput message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.opts.AlertOutput
+             * @static
+             * @param {protos.opts.AlertOutput} message AlertOutput
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            AlertOutput.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (message.email != null && message.hasOwnProperty("email")) {
+                    object.email = $root.protos.opts.AlertEmailOutput.toObject(message.email, options);
+                    if (options.oneofs)
+                        object.output = "email";
+                }
+                if (message.slack != null && message.hasOwnProperty("slack")) {
+                    object.slack = $root.protos.opts.AlertSlackOutput.toObject(message.slack, options);
+                    if (options.oneofs)
+                        object.output = "slack";
+                }
+                if (message.pagerduty != null && message.hasOwnProperty("pagerduty")) {
+                    object.pagerduty = $root.protos.opts.AlertPagerdutyOutput.toObject(message.pagerduty, options);
+                    if (options.oneofs)
+                        object.output = "pagerduty";
+                }
+                return object;
+            };
+
+            /**
+             * Converts this AlertOutput to JSON.
+             * @function toJSON
+             * @memberof protos.opts.AlertOutput
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            AlertOutput.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return AlertOutput;
+        })();
+
+        opts.AlertEmailOutput = (function() {
+
+            /**
+             * Properties of an AlertEmailOutput.
+             * @memberof protos.opts
+             * @interface IAlertEmailOutput
+             * @property {Array.<string>|null} [emailAddress] AlertEmailOutput emailAddress
+             * @property {string|null} [subject] AlertEmailOutput subject
+             * @property {Object.<string,string>|null} [metadata] AlertEmailOutput metadata
+             * @property {protos.opts.AlertEmailOutput.ISMTPServer|null} [smtpServer] AlertEmailOutput smtpServer
+             */
+
+            /**
+             * Constructs a new AlertEmailOutput.
+             * @memberof protos.opts
+             * @classdesc Represents an AlertEmailOutput.
+             * @implements IAlertEmailOutput
+             * @constructor
+             * @param {protos.opts.IAlertEmailOutput=} [properties] Properties to set
+             */
+            function AlertEmailOutput(properties) {
+                this.emailAddress = [];
+                this.metadata = {};
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * AlertEmailOutput emailAddress.
+             * @member {Array.<string>} emailAddress
+             * @memberof protos.opts.AlertEmailOutput
+             * @instance
+             */
+            AlertEmailOutput.prototype.emailAddress = $util.emptyArray;
+
+            /**
+             * AlertEmailOutput subject.
+             * @member {string} subject
+             * @memberof protos.opts.AlertEmailOutput
+             * @instance
+             */
+            AlertEmailOutput.prototype.subject = "";
+
+            /**
+             * AlertEmailOutput metadata.
+             * @member {Object.<string,string>} metadata
+             * @memberof protos.opts.AlertEmailOutput
+             * @instance
+             */
+            AlertEmailOutput.prototype.metadata = $util.emptyObject;
+
+            /**
+             * AlertEmailOutput smtpServer.
+             * @member {protos.opts.AlertEmailOutput.ISMTPServer|null|undefined} smtpServer
+             * @memberof protos.opts.AlertEmailOutput
+             * @instance
+             */
+            AlertEmailOutput.prototype.smtpServer = null;
+
+            /**
+             * Creates a new AlertEmailOutput instance using the specified properties.
+             * @function create
+             * @memberof protos.opts.AlertEmailOutput
+             * @static
+             * @param {protos.opts.IAlertEmailOutput=} [properties] Properties to set
+             * @returns {protos.opts.AlertEmailOutput} AlertEmailOutput instance
+             */
+            AlertEmailOutput.create = function create(properties) {
+                return new AlertEmailOutput(properties);
+            };
+
+            /**
+             * Encodes the specified AlertEmailOutput message. Does not implicitly {@link protos.opts.AlertEmailOutput.verify|verify} messages.
+             * @function encode
+             * @memberof protos.opts.AlertEmailOutput
+             * @static
+             * @param {protos.opts.IAlertEmailOutput} message AlertEmailOutput message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            AlertEmailOutput.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.emailAddress != null && message.emailAddress.length)
+                    for (var i = 0; i < message.emailAddress.length; ++i)
+                        writer.uint32(/* id 1, wireType 2 =*/10).string(message.emailAddress[i]);
+                if (message.subject != null && Object.hasOwnProperty.call(message, "subject"))
+                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.subject);
+                if (message.metadata != null && Object.hasOwnProperty.call(message, "metadata"))
+                    for (var keys = Object.keys(message.metadata), i = 0; i < keys.length; ++i)
+                        writer.uint32(/* id 3, wireType 2 =*/26).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]).uint32(/* id 2, wireType 2 =*/18).string(message.metadata[keys[i]]).ldelim();
+                if (message.smtpServer != null && Object.hasOwnProperty.call(message, "smtpServer"))
+                    $root.protos.opts.AlertEmailOutput.SMTPServer.encode(message.smtpServer, writer.uint32(/* id 4, wireType 2 =*/34).fork()).ldelim();
+                return writer;
+            };
+
+            /**
+             * Encodes the specified AlertEmailOutput message, length delimited. Does not implicitly {@link protos.opts.AlertEmailOutput.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.opts.AlertEmailOutput
+             * @static
+             * @param {protos.opts.IAlertEmailOutput} message AlertEmailOutput message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            AlertEmailOutput.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes an AlertEmailOutput message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.opts.AlertEmailOutput
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.opts.AlertEmailOutput} AlertEmailOutput
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            AlertEmailOutput.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.AlertEmailOutput(), key, value;
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        if (!(message.emailAddress && message.emailAddress.length))
+                            message.emailAddress = [];
+                        message.emailAddress.push(reader.string());
+                        break;
+                    case 2:
+                        message.subject = reader.string();
+                        break;
+                    case 3:
+                        if (message.metadata === $util.emptyObject)
+                            message.metadata = {};
+                        var end2 = reader.uint32() + reader.pos;
+                        key = "";
+                        value = "";
+                        while (reader.pos < end2) {
+                            var tag2 = reader.uint32();
+                            switch (tag2 >>> 3) {
+                            case 1:
+                                key = reader.string();
+                                break;
+                            case 2:
+                                value = reader.string();
+                                break;
+                            default:
+                                reader.skipType(tag2 & 7);
+                                break;
+                            }
+                        }
+                        message.metadata[key] = value;
+                        break;
+                    case 4:
+                        message.smtpServer = $root.protos.opts.AlertEmailOutput.SMTPServer.decode(reader, reader.uint32());
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes an AlertEmailOutput message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.opts.AlertEmailOutput
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.opts.AlertEmailOutput} AlertEmailOutput
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            AlertEmailOutput.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies an AlertEmailOutput message.
+             * @function verify
+             * @memberof protos.opts.AlertEmailOutput
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            AlertEmailOutput.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.emailAddress != null && message.hasOwnProperty("emailAddress")) {
+                    if (!Array.isArray(message.emailAddress))
+                        return "emailAddress: array expected";
+                    for (var i = 0; i < message.emailAddress.length; ++i)
+                        if (!$util.isString(message.emailAddress[i]))
+                            return "emailAddress: string[] expected";
+                }
+                if (message.subject != null && message.hasOwnProperty("subject"))
+                    if (!$util.isString(message.subject))
+                        return "subject: string expected";
+                if (message.metadata != null && message.hasOwnProperty("metadata")) {
+                    if (!$util.isObject(message.metadata))
+                        return "metadata: object expected";
+                    var key = Object.keys(message.metadata);
+                    for (var i = 0; i < key.length; ++i)
+                        if (!$util.isString(message.metadata[key[i]]))
+                            return "metadata: string{k:string} expected";
+                }
+                if (message.smtpServer != null && message.hasOwnProperty("smtpServer")) {
+                    var error = $root.protos.opts.AlertEmailOutput.SMTPServer.verify(message.smtpServer);
+                    if (error)
+                        return "smtpServer." + error;
+                }
+                return null;
+            };
+
+            /**
+             * Creates an AlertEmailOutput message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.opts.AlertEmailOutput
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.opts.AlertEmailOutput} AlertEmailOutput
+             */
+            AlertEmailOutput.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.AlertEmailOutput)
+                    return object;
+                var message = new $root.protos.opts.AlertEmailOutput();
+                if (object.emailAddress) {
+                    if (!Array.isArray(object.emailAddress))
+                        throw TypeError(".protos.opts.AlertEmailOutput.emailAddress: array expected");
+                    message.emailAddress = [];
+                    for (var i = 0; i < object.emailAddress.length; ++i)
+                        message.emailAddress[i] = String(object.emailAddress[i]);
+                }
+                if (object.subject != null)
+                    message.subject = String(object.subject);
+                if (object.metadata) {
+                    if (typeof object.metadata !== "object")
+                        throw TypeError(".protos.opts.AlertEmailOutput.metadata: object expected");
+                    message.metadata = {};
+                    for (var keys = Object.keys(object.metadata), i = 0; i < keys.length; ++i)
+                        message.metadata[keys[i]] = String(object.metadata[keys[i]]);
+                }
+                if (object.smtpServer != null) {
+                    if (typeof object.smtpServer !== "object")
+                        throw TypeError(".protos.opts.AlertEmailOutput.smtpServer: object expected");
+                    message.smtpServer = $root.protos.opts.AlertEmailOutput.SMTPServer.fromObject(object.smtpServer);
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from an AlertEmailOutput message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.opts.AlertEmailOutput
+             * @static
+             * @param {protos.opts.AlertEmailOutput} message AlertEmailOutput
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            AlertEmailOutput.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.arrays || options.defaults)
+                    object.emailAddress = [];
+                if (options.objects || options.defaults)
+                    object.metadata = {};
+                if (options.defaults) {
+                    object.subject = "";
+                    object.smtpServer = null;
+                }
+                if (message.emailAddress && message.emailAddress.length) {
+                    object.emailAddress = [];
+                    for (var j = 0; j < message.emailAddress.length; ++j)
+                        object.emailAddress[j] = message.emailAddress[j];
+                }
+                if (message.subject != null && message.hasOwnProperty("subject"))
+                    object.subject = message.subject;
+                var keys2;
+                if (message.metadata && (keys2 = Object.keys(message.metadata)).length) {
+                    object.metadata = {};
+                    for (var j = 0; j < keys2.length; ++j)
+                        object.metadata[keys2[j]] = message.metadata[keys2[j]];
+                }
+                if (message.smtpServer != null && message.hasOwnProperty("smtpServer"))
+                    object.smtpServer = $root.protos.opts.AlertEmailOutput.SMTPServer.toObject(message.smtpServer, options);
+                return object;
+            };
+
+            /**
+             * Converts this AlertEmailOutput to JSON.
+             * @function toJSON
+             * @memberof protos.opts.AlertEmailOutput
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            AlertEmailOutput.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            AlertEmailOutput.SMTPServer = (function() {
+
+                /**
+                 * Properties of a SMTPServer.
+                 * @memberof protos.opts.AlertEmailOutput
+                 * @interface ISMTPServer
+                 * @property {string|null} [username] SMTPServer username
+                 * @property {string|null} [password] SMTPServer password
+                 * @property {string|null} [hostname] SMTPServer hostname
+                 * @property {number|null} [port] SMTPServer port
+                 * @property {boolean|null} [useTls] SMTPServer useTls
+                 * @property {string|null} [fromAddress] SMTPServer fromAddress
+                 */
+
+                /**
+                 * Constructs a new SMTPServer.
+                 * @memberof protos.opts.AlertEmailOutput
+                 * @classdesc Represents a SMTPServer.
+                 * @implements ISMTPServer
+                 * @constructor
+                 * @param {protos.opts.AlertEmailOutput.ISMTPServer=} [properties] Properties to set
+                 */
+                function SMTPServer(properties) {
+                    if (properties)
+                        for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                            if (properties[keys[i]] != null)
+                                this[keys[i]] = properties[keys[i]];
+                }
+
+                /**
+                 * SMTPServer username.
+                 * @member {string} username
+                 * @memberof protos.opts.AlertEmailOutput.SMTPServer
+                 * @instance
+                 */
+                SMTPServer.prototype.username = "";
+
+                /**
+                 * SMTPServer password.
+                 * @member {string} password
+                 * @memberof protos.opts.AlertEmailOutput.SMTPServer
+                 * @instance
+                 */
+                SMTPServer.prototype.password = "";
+
+                /**
+                 * SMTPServer hostname.
+                 * @member {string} hostname
+                 * @memberof protos.opts.AlertEmailOutput.SMTPServer
+                 * @instance
+                 */
+                SMTPServer.prototype.hostname = "";
+
+                /**
+                 * SMTPServer port.
+                 * @member {number} port
+                 * @memberof protos.opts.AlertEmailOutput.SMTPServer
+                 * @instance
+                 */
+                SMTPServer.prototype.port = 0;
+
+                /**
+                 * SMTPServer useTls.
+                 * @member {boolean} useTls
+                 * @memberof protos.opts.AlertEmailOutput.SMTPServer
+                 * @instance
+                 */
+                SMTPServer.prototype.useTls = false;
+
+                /**
+                 * SMTPServer fromAddress.
+                 * @member {string} fromAddress
+                 * @memberof protos.opts.AlertEmailOutput.SMTPServer
+                 * @instance
+                 */
+                SMTPServer.prototype.fromAddress = "";
+
+                /**
+                 * Creates a new SMTPServer instance using the specified properties.
+                 * @function create
+                 * @memberof protos.opts.AlertEmailOutput.SMTPServer
+                 * @static
+                 * @param {protos.opts.AlertEmailOutput.ISMTPServer=} [properties] Properties to set
+                 * @returns {protos.opts.AlertEmailOutput.SMTPServer} SMTPServer instance
+                 */
+                SMTPServer.create = function create(properties) {
+                    return new SMTPServer(properties);
+                };
+
+                /**
+                 * Encodes the specified SMTPServer message. Does not implicitly {@link protos.opts.AlertEmailOutput.SMTPServer.verify|verify} messages.
+                 * @function encode
+                 * @memberof protos.opts.AlertEmailOutput.SMTPServer
+                 * @static
+                 * @param {protos.opts.AlertEmailOutput.ISMTPServer} message SMTPServer message or plain object to encode
+                 * @param {$protobuf.Writer} [writer] Writer to encode to
+                 * @returns {$protobuf.Writer} Writer
+                 */
+                SMTPServer.encode = function encode(message, writer) {
+                    if (!writer)
+                        writer = $Writer.create();
+                    if (message.username != null && Object.hasOwnProperty.call(message, "username"))
+                        writer.uint32(/* id 1, wireType 2 =*/10).string(message.username);
+                    if (message.password != null && Object.hasOwnProperty.call(message, "password"))
+                        writer.uint32(/* id 2, wireType 2 =*/18).string(message.password);
+                    if (message.hostname != null && Object.hasOwnProperty.call(message, "hostname"))
+                        writer.uint32(/* id 3, wireType 2 =*/26).string(message.hostname);
+                    if (message.port != null && Object.hasOwnProperty.call(message, "port"))
+                        writer.uint32(/* id 4, wireType 0 =*/32).int32(message.port);
+                    if (message.useTls != null && Object.hasOwnProperty.call(message, "useTls"))
+                        writer.uint32(/* id 5, wireType 0 =*/40).bool(message.useTls);
+                    if (message.fromAddress != null && Object.hasOwnProperty.call(message, "fromAddress"))
+                        writer.uint32(/* id 6, wireType 2 =*/50).string(message.fromAddress);
+                    return writer;
+                };
+
+                /**
+                 * Encodes the specified SMTPServer message, length delimited. Does not implicitly {@link protos.opts.AlertEmailOutput.SMTPServer.verify|verify} messages.
+                 * @function encodeDelimited
+                 * @memberof protos.opts.AlertEmailOutput.SMTPServer
+                 * @static
+                 * @param {protos.opts.AlertEmailOutput.ISMTPServer} message SMTPServer message or plain object to encode
+                 * @param {$protobuf.Writer} [writer] Writer to encode to
+                 * @returns {$protobuf.Writer} Writer
+                 */
+                SMTPServer.encodeDelimited = function encodeDelimited(message, writer) {
+                    return this.encode(message, writer).ldelim();
+                };
+
+                /**
+                 * Decodes a SMTPServer message from the specified reader or buffer.
+                 * @function decode
+                 * @memberof protos.opts.AlertEmailOutput.SMTPServer
+                 * @static
+                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                 * @param {number} [length] Message length if known beforehand
+                 * @returns {protos.opts.AlertEmailOutput.SMTPServer} SMTPServer
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                SMTPServer.decode = function decode(reader, length) {
+                    if (!(reader instanceof $Reader))
+                        reader = $Reader.create(reader);
+                    var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.AlertEmailOutput.SMTPServer();
+                    while (reader.pos < end) {
+                        var tag = reader.uint32();
+                        switch (tag >>> 3) {
+                        case 1:
+                            message.username = reader.string();
+                            break;
+                        case 2:
+                            message.password = reader.string();
+                            break;
+                        case 3:
+                            message.hostname = reader.string();
+                            break;
+                        case 4:
+                            message.port = reader.int32();
+                            break;
+                        case 5:
+                            message.useTls = reader.bool();
+                            break;
+                        case 6:
+                            message.fromAddress = reader.string();
+                            break;
+                        default:
+                            reader.skipType(tag & 7);
+                            break;
+                        }
+                    }
+                    return message;
+                };
+
+                /**
+                 * Decodes a SMTPServer message from the specified reader or buffer, length delimited.
+                 * @function decodeDelimited
+                 * @memberof protos.opts.AlertEmailOutput.SMTPServer
+                 * @static
+                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                 * @returns {protos.opts.AlertEmailOutput.SMTPServer} SMTPServer
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                SMTPServer.decodeDelimited = function decodeDelimited(reader) {
+                    if (!(reader instanceof $Reader))
+                        reader = new $Reader(reader);
+                    return this.decode(reader, reader.uint32());
+                };
+
+                /**
+                 * Verifies a SMTPServer message.
+                 * @function verify
+                 * @memberof protos.opts.AlertEmailOutput.SMTPServer
+                 * @static
+                 * @param {Object.<string,*>} message Plain object to verify
+                 * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                 */
+                SMTPServer.verify = function verify(message) {
+                    if (typeof message !== "object" || message === null)
+                        return "object expected";
+                    if (message.username != null && message.hasOwnProperty("username"))
+                        if (!$util.isString(message.username))
+                            return "username: string expected";
+                    if (message.password != null && message.hasOwnProperty("password"))
+                        if (!$util.isString(message.password))
+                            return "password: string expected";
+                    if (message.hostname != null && message.hasOwnProperty("hostname"))
+                        if (!$util.isString(message.hostname))
+                            return "hostname: string expected";
+                    if (message.port != null && message.hasOwnProperty("port"))
+                        if (!$util.isInteger(message.port))
+                            return "port: integer expected";
+                    if (message.useTls != null && message.hasOwnProperty("useTls"))
+                        if (typeof message.useTls !== "boolean")
+                            return "useTls: boolean expected";
+                    if (message.fromAddress != null && message.hasOwnProperty("fromAddress"))
+                        if (!$util.isString(message.fromAddress))
+                            return "fromAddress: string expected";
+                    return null;
+                };
+
+                /**
+                 * Creates a SMTPServer message from a plain object. Also converts values to their respective internal types.
+                 * @function fromObject
+                 * @memberof protos.opts.AlertEmailOutput.SMTPServer
+                 * @static
+                 * @param {Object.<string,*>} object Plain object
+                 * @returns {protos.opts.AlertEmailOutput.SMTPServer} SMTPServer
+                 */
+                SMTPServer.fromObject = function fromObject(object) {
+                    if (object instanceof $root.protos.opts.AlertEmailOutput.SMTPServer)
+                        return object;
+                    var message = new $root.protos.opts.AlertEmailOutput.SMTPServer();
+                    if (object.username != null)
+                        message.username = String(object.username);
+                    if (object.password != null)
+                        message.password = String(object.password);
+                    if (object.hostname != null)
+                        message.hostname = String(object.hostname);
+                    if (object.port != null)
+                        message.port = object.port | 0;
+                    if (object.useTls != null)
+                        message.useTls = Boolean(object.useTls);
+                    if (object.fromAddress != null)
+                        message.fromAddress = String(object.fromAddress);
+                    return message;
+                };
+
+                /**
+                 * Creates a plain object from a SMTPServer message. Also converts values to other types if specified.
+                 * @function toObject
+                 * @memberof protos.opts.AlertEmailOutput.SMTPServer
+                 * @static
+                 * @param {protos.opts.AlertEmailOutput.SMTPServer} message SMTPServer
+                 * @param {$protobuf.IConversionOptions} [options] Conversion options
+                 * @returns {Object.<string,*>} Plain object
+                 */
+                SMTPServer.toObject = function toObject(message, options) {
+                    if (!options)
+                        options = {};
+                    var object = {};
+                    if (options.defaults) {
+                        object.username = "";
+                        object.password = "";
+                        object.hostname = "";
+                        object.port = 0;
+                        object.useTls = false;
+                        object.fromAddress = "";
+                    }
+                    if (message.username != null && message.hasOwnProperty("username"))
+                        object.username = message.username;
+                    if (message.password != null && message.hasOwnProperty("password"))
+                        object.password = message.password;
+                    if (message.hostname != null && message.hasOwnProperty("hostname"))
+                        object.hostname = message.hostname;
+                    if (message.port != null && message.hasOwnProperty("port"))
+                        object.port = message.port;
+                    if (message.useTls != null && message.hasOwnProperty("useTls"))
+                        object.useTls = message.useTls;
+                    if (message.fromAddress != null && message.hasOwnProperty("fromAddress"))
+                        object.fromAddress = message.fromAddress;
+                    return object;
+                };
+
+                /**
+                 * Converts this SMTPServer to JSON.
+                 * @function toJSON
+                 * @memberof protos.opts.AlertEmailOutput.SMTPServer
+                 * @instance
+                 * @returns {Object.<string,*>} JSON object
+                 */
+                SMTPServer.prototype.toJSON = function toJSON() {
+                    return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                };
+
+                return SMTPServer;
+            })();
+
+            return AlertEmailOutput;
+        })();
+
+        opts.AlertSlackOutput = (function() {
+
+            /**
+             * Properties of an AlertSlackOutput.
+             * @memberof protos.opts
+             * @interface IAlertSlackOutput
+             * @property {Array.<string>|null} [channelId] AlertSlackOutput channelId
+             * @property {string|null} [authToken] AlertSlackOutput authToken
+             * @property {Object.<string,string>|null} [metadata] AlertSlackOutput metadata
+             */
+
+            /**
+             * Constructs a new AlertSlackOutput.
+             * @memberof protos.opts
+             * @classdesc Represents an AlertSlackOutput.
+             * @implements IAlertSlackOutput
+             * @constructor
+             * @param {protos.opts.IAlertSlackOutput=} [properties] Properties to set
+             */
+            function AlertSlackOutput(properties) {
+                this.channelId = [];
+                this.metadata = {};
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * AlertSlackOutput channelId.
+             * @member {Array.<string>} channelId
+             * @memberof protos.opts.AlertSlackOutput
+             * @instance
+             */
+            AlertSlackOutput.prototype.channelId = $util.emptyArray;
+
+            /**
+             * AlertSlackOutput authToken.
+             * @member {string} authToken
+             * @memberof protos.opts.AlertSlackOutput
+             * @instance
+             */
+            AlertSlackOutput.prototype.authToken = "";
+
+            /**
+             * AlertSlackOutput metadata.
+             * @member {Object.<string,string>} metadata
+             * @memberof protos.opts.AlertSlackOutput
+             * @instance
+             */
+            AlertSlackOutput.prototype.metadata = $util.emptyObject;
+
+            /**
+             * Creates a new AlertSlackOutput instance using the specified properties.
+             * @function create
+             * @memberof protos.opts.AlertSlackOutput
+             * @static
+             * @param {protos.opts.IAlertSlackOutput=} [properties] Properties to set
+             * @returns {protos.opts.AlertSlackOutput} AlertSlackOutput instance
+             */
+            AlertSlackOutput.create = function create(properties) {
+                return new AlertSlackOutput(properties);
+            };
+
+            /**
+             * Encodes the specified AlertSlackOutput message. Does not implicitly {@link protos.opts.AlertSlackOutput.verify|verify} messages.
+             * @function encode
+             * @memberof protos.opts.AlertSlackOutput
+             * @static
+             * @param {protos.opts.IAlertSlackOutput} message AlertSlackOutput message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            AlertSlackOutput.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.channelId != null && message.channelId.length)
+                    for (var i = 0; i < message.channelId.length; ++i)
+                        writer.uint32(/* id 1, wireType 2 =*/10).string(message.channelId[i]);
+                if (message.authToken != null && Object.hasOwnProperty.call(message, "authToken"))
+                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.authToken);
+                if (message.metadata != null && Object.hasOwnProperty.call(message, "metadata"))
+                    for (var keys = Object.keys(message.metadata), i = 0; i < keys.length; ++i)
+                        writer.uint32(/* id 3, wireType 2 =*/26).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]).uint32(/* id 2, wireType 2 =*/18).string(message.metadata[keys[i]]).ldelim();
+                return writer;
+            };
+
+            /**
+             * Encodes the specified AlertSlackOutput message, length delimited. Does not implicitly {@link protos.opts.AlertSlackOutput.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.opts.AlertSlackOutput
+             * @static
+             * @param {protos.opts.IAlertSlackOutput} message AlertSlackOutput message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            AlertSlackOutput.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes an AlertSlackOutput message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.opts.AlertSlackOutput
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.opts.AlertSlackOutput} AlertSlackOutput
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            AlertSlackOutput.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.AlertSlackOutput(), key, value;
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        if (!(message.channelId && message.channelId.length))
+                            message.channelId = [];
+                        message.channelId.push(reader.string());
+                        break;
+                    case 2:
+                        message.authToken = reader.string();
+                        break;
+                    case 3:
+                        if (message.metadata === $util.emptyObject)
+                            message.metadata = {};
+                        var end2 = reader.uint32() + reader.pos;
+                        key = "";
+                        value = "";
+                        while (reader.pos < end2) {
+                            var tag2 = reader.uint32();
+                            switch (tag2 >>> 3) {
+                            case 1:
+                                key = reader.string();
+                                break;
+                            case 2:
+                                value = reader.string();
+                                break;
+                            default:
+                                reader.skipType(tag2 & 7);
+                                break;
+                            }
+                        }
+                        message.metadata[key] = value;
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes an AlertSlackOutput message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.opts.AlertSlackOutput
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.opts.AlertSlackOutput} AlertSlackOutput
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            AlertSlackOutput.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies an AlertSlackOutput message.
+             * @function verify
+             * @memberof protos.opts.AlertSlackOutput
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            AlertSlackOutput.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.channelId != null && message.hasOwnProperty("channelId")) {
+                    if (!Array.isArray(message.channelId))
+                        return "channelId: array expected";
+                    for (var i = 0; i < message.channelId.length; ++i)
+                        if (!$util.isString(message.channelId[i]))
+                            return "channelId: string[] expected";
+                }
+                if (message.authToken != null && message.hasOwnProperty("authToken"))
+                    if (!$util.isString(message.authToken))
+                        return "authToken: string expected";
+                if (message.metadata != null && message.hasOwnProperty("metadata")) {
+                    if (!$util.isObject(message.metadata))
+                        return "metadata: object expected";
+                    var key = Object.keys(message.metadata);
+                    for (var i = 0; i < key.length; ++i)
+                        if (!$util.isString(message.metadata[key[i]]))
+                            return "metadata: string{k:string} expected";
+                }
+                return null;
+            };
+
+            /**
+             * Creates an AlertSlackOutput message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.opts.AlertSlackOutput
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.opts.AlertSlackOutput} AlertSlackOutput
+             */
+            AlertSlackOutput.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.AlertSlackOutput)
+                    return object;
+                var message = new $root.protos.opts.AlertSlackOutput();
+                if (object.channelId) {
+                    if (!Array.isArray(object.channelId))
+                        throw TypeError(".protos.opts.AlertSlackOutput.channelId: array expected");
+                    message.channelId = [];
+                    for (var i = 0; i < object.channelId.length; ++i)
+                        message.channelId[i] = String(object.channelId[i]);
+                }
+                if (object.authToken != null)
+                    message.authToken = String(object.authToken);
+                if (object.metadata) {
+                    if (typeof object.metadata !== "object")
+                        throw TypeError(".protos.opts.AlertSlackOutput.metadata: object expected");
+                    message.metadata = {};
+                    for (var keys = Object.keys(object.metadata), i = 0; i < keys.length; ++i)
+                        message.metadata[keys[i]] = String(object.metadata[keys[i]]);
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from an AlertSlackOutput message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.opts.AlertSlackOutput
+             * @static
+             * @param {protos.opts.AlertSlackOutput} message AlertSlackOutput
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            AlertSlackOutput.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.arrays || options.defaults)
+                    object.channelId = [];
+                if (options.objects || options.defaults)
+                    object.metadata = {};
+                if (options.defaults)
+                    object.authToken = "";
+                if (message.channelId && message.channelId.length) {
+                    object.channelId = [];
+                    for (var j = 0; j < message.channelId.length; ++j)
+                        object.channelId[j] = message.channelId[j];
+                }
+                if (message.authToken != null && message.hasOwnProperty("authToken"))
+                    object.authToken = message.authToken;
+                var keys2;
+                if (message.metadata && (keys2 = Object.keys(message.metadata)).length) {
+                    object.metadata = {};
+                    for (var j = 0; j < keys2.length; ++j)
+                        object.metadata[keys2[j]] = message.metadata[keys2[j]];
+                }
+                return object;
+            };
+
+            /**
+             * Converts this AlertSlackOutput to JSON.
+             * @function toJSON
+             * @memberof protos.opts.AlertSlackOutput
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            AlertSlackOutput.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return AlertSlackOutput;
+        })();
+
+        opts.AlertPagerdutyOutput = (function() {
+
+            /**
+             * Properties of an AlertPagerdutyOutput.
+             * @memberof protos.opts
+             * @interface IAlertPagerdutyOutput
+             */
+
+            /**
+             * Constructs a new AlertPagerdutyOutput.
+             * @memberof protos.opts
+             * @classdesc Represents an AlertPagerdutyOutput.
+             * @implements IAlertPagerdutyOutput
+             * @constructor
+             * @param {protos.opts.IAlertPagerdutyOutput=} [properties] Properties to set
+             */
+            function AlertPagerdutyOutput(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * Creates a new AlertPagerdutyOutput instance using the specified properties.
+             * @function create
+             * @memberof protos.opts.AlertPagerdutyOutput
+             * @static
+             * @param {protos.opts.IAlertPagerdutyOutput=} [properties] Properties to set
+             * @returns {protos.opts.AlertPagerdutyOutput} AlertPagerdutyOutput instance
+             */
+            AlertPagerdutyOutput.create = function create(properties) {
+                return new AlertPagerdutyOutput(properties);
+            };
+
+            /**
+             * Encodes the specified AlertPagerdutyOutput message. Does not implicitly {@link protos.opts.AlertPagerdutyOutput.verify|verify} messages.
+             * @function encode
+             * @memberof protos.opts.AlertPagerdutyOutput
+             * @static
+             * @param {protos.opts.IAlertPagerdutyOutput} message AlertPagerdutyOutput message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            AlertPagerdutyOutput.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                return writer;
+            };
+
+            /**
+             * Encodes the specified AlertPagerdutyOutput message, length delimited. Does not implicitly {@link protos.opts.AlertPagerdutyOutput.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.opts.AlertPagerdutyOutput
+             * @static
+             * @param {protos.opts.IAlertPagerdutyOutput} message AlertPagerdutyOutput message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            AlertPagerdutyOutput.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes an AlertPagerdutyOutput message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.opts.AlertPagerdutyOutput
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.opts.AlertPagerdutyOutput} AlertPagerdutyOutput
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            AlertPagerdutyOutput.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.AlertPagerdutyOutput();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes an AlertPagerdutyOutput message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.opts.AlertPagerdutyOutput
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.opts.AlertPagerdutyOutput} AlertPagerdutyOutput
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            AlertPagerdutyOutput.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies an AlertPagerdutyOutput message.
+             * @function verify
+             * @memberof protos.opts.AlertPagerdutyOutput
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            AlertPagerdutyOutput.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                return null;
+            };
+
+            /**
+             * Creates an AlertPagerdutyOutput message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.opts.AlertPagerdutyOutput
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.opts.AlertPagerdutyOutput} AlertPagerdutyOutput
+             */
+            AlertPagerdutyOutput.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.AlertPagerdutyOutput)
+                    return object;
+                return new $root.protos.opts.AlertPagerdutyOutput();
+            };
+
+            /**
+             * Creates a plain object from an AlertPagerdutyOutput message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.opts.AlertPagerdutyOutput
+             * @static
+             * @param {protos.opts.AlertPagerdutyOutput} message AlertPagerdutyOutput
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            AlertPagerdutyOutput.toObject = function toObject() {
+                return {};
+            };
+
+            /**
+             * Converts this AlertPagerdutyOutput to JSON.
+             * @function toJSON
+             * @memberof protos.opts.AlertPagerdutyOutput
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            AlertPagerdutyOutput.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return AlertPagerdutyOutput;
+        })();
 
         opts.ConnectionOptions = (function() {
 
@@ -19832,6 +20013,1229 @@ $root.protos = (function() {
             return ServerOptions;
         })();
 
+        opts.MonitorOptions = (function() {
+
+            /**
+             * Properties of a MonitorOptions.
+             * @memberof protos.opts
+             * @interface IMonitorOptions
+             * @property {string|null} [_id] MonitorOptions _id
+             * @property {string|null} [_createdBy] MonitorOptions _createdBy
+             * @property {number|Long|null} [_createdAtTsUtc] MonitorOptions _createdAtTsUtc
+             * @property {string|null} [notes] MonitorOptions notes
+             * @property {protos.opts.IMonitorSchemaValidationConfig|null} [schemaValidation] MonitorOptions schemaValidation
+             * @property {protos.opts.IMonitorServiceSchemaVersionConfig|null} [serviceSchemaVersion] MonitorOptions serviceSchemaVersion
+             * @property {protos.opts.IMonitorReadHasDataConfig|null} [readHasData] MonitorOptions readHasData
+             */
+
+            /**
+             * Constructs a new MonitorOptions.
+             * @memberof protos.opts
+             * @classdesc Represents a MonitorOptions.
+             * @implements IMonitorOptions
+             * @constructor
+             * @param {protos.opts.IMonitorOptions=} [properties] Properties to set
+             */
+            function MonitorOptions(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * MonitorOptions _id.
+             * @member {string} _id
+             * @memberof protos.opts.MonitorOptions
+             * @instance
+             */
+            MonitorOptions.prototype._id = "";
+
+            /**
+             * MonitorOptions _createdBy.
+             * @member {string} _createdBy
+             * @memberof protos.opts.MonitorOptions
+             * @instance
+             */
+            MonitorOptions.prototype._createdBy = "";
+
+            /**
+             * MonitorOptions _createdAtTsUtc.
+             * @member {number|Long} _createdAtTsUtc
+             * @memberof protos.opts.MonitorOptions
+             * @instance
+             */
+            MonitorOptions.prototype._createdAtTsUtc = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
+
+            /**
+             * MonitorOptions notes.
+             * @member {string} notes
+             * @memberof protos.opts.MonitorOptions
+             * @instance
+             */
+            MonitorOptions.prototype.notes = "";
+
+            /**
+             * MonitorOptions schemaValidation.
+             * @member {protos.opts.IMonitorSchemaValidationConfig|null|undefined} schemaValidation
+             * @memberof protos.opts.MonitorOptions
+             * @instance
+             */
+            MonitorOptions.prototype.schemaValidation = null;
+
+            /**
+             * MonitorOptions serviceSchemaVersion.
+             * @member {protos.opts.IMonitorServiceSchemaVersionConfig|null|undefined} serviceSchemaVersion
+             * @memberof protos.opts.MonitorOptions
+             * @instance
+             */
+            MonitorOptions.prototype.serviceSchemaVersion = null;
+
+            /**
+             * MonitorOptions readHasData.
+             * @member {protos.opts.IMonitorReadHasDataConfig|null|undefined} readHasData
+             * @memberof protos.opts.MonitorOptions
+             * @instance
+             */
+            MonitorOptions.prototype.readHasData = null;
+
+            // OneOf field names bound to virtual getters and setters
+            var $oneOfFields;
+
+            /**
+             * MonitorOptions config.
+             * @member {"schemaValidation"|"serviceSchemaVersion"|"readHasData"|undefined} config
+             * @memberof protos.opts.MonitorOptions
+             * @instance
+             */
+            Object.defineProperty(MonitorOptions.prototype, "config", {
+                get: $util.oneOfGetter($oneOfFields = ["schemaValidation", "serviceSchemaVersion", "readHasData"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * Creates a new MonitorOptions instance using the specified properties.
+             * @function create
+             * @memberof protos.opts.MonitorOptions
+             * @static
+             * @param {protos.opts.IMonitorOptions=} [properties] Properties to set
+             * @returns {protos.opts.MonitorOptions} MonitorOptions instance
+             */
+            MonitorOptions.create = function create(properties) {
+                return new MonitorOptions(properties);
+            };
+
+            /**
+             * Encodes the specified MonitorOptions message. Does not implicitly {@link protos.opts.MonitorOptions.verify|verify} messages.
+             * @function encode
+             * @memberof protos.opts.MonitorOptions
+             * @static
+             * @param {protos.opts.IMonitorOptions} message MonitorOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            MonitorOptions.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message._id != null && Object.hasOwnProperty.call(message, "_id"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message._id);
+                if (message._createdBy != null && Object.hasOwnProperty.call(message, "_createdBy"))
+                    writer.uint32(/* id 2, wireType 2 =*/18).string(message._createdBy);
+                if (message._createdAtTsUtc != null && Object.hasOwnProperty.call(message, "_createdAtTsUtc"))
+                    writer.uint32(/* id 3, wireType 0 =*/24).int64(message._createdAtTsUtc);
+                if (message.notes != null && Object.hasOwnProperty.call(message, "notes"))
+                    writer.uint32(/* id 4, wireType 2 =*/34).string(message.notes);
+                if (message.schemaValidation != null && Object.hasOwnProperty.call(message, "schemaValidation"))
+                    $root.protos.opts.MonitorSchemaValidationConfig.encode(message.schemaValidation, writer.uint32(/* id 100, wireType 2 =*/802).fork()).ldelim();
+                if (message.serviceSchemaVersion != null && Object.hasOwnProperty.call(message, "serviceSchemaVersion"))
+                    $root.protos.opts.MonitorServiceSchemaVersionConfig.encode(message.serviceSchemaVersion, writer.uint32(/* id 101, wireType 2 =*/810).fork()).ldelim();
+                if (message.readHasData != null && Object.hasOwnProperty.call(message, "readHasData"))
+                    $root.protos.opts.MonitorReadHasDataConfig.encode(message.readHasData, writer.uint32(/* id 102, wireType 2 =*/818).fork()).ldelim();
+                return writer;
+            };
+
+            /**
+             * Encodes the specified MonitorOptions message, length delimited. Does not implicitly {@link protos.opts.MonitorOptions.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.opts.MonitorOptions
+             * @static
+             * @param {protos.opts.IMonitorOptions} message MonitorOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            MonitorOptions.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a MonitorOptions message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.opts.MonitorOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.opts.MonitorOptions} MonitorOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            MonitorOptions.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.MonitorOptions();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message._id = reader.string();
+                        break;
+                    case 2:
+                        message._createdBy = reader.string();
+                        break;
+                    case 3:
+                        message._createdAtTsUtc = reader.int64();
+                        break;
+                    case 4:
+                        message.notes = reader.string();
+                        break;
+                    case 100:
+                        message.schemaValidation = $root.protos.opts.MonitorSchemaValidationConfig.decode(reader, reader.uint32());
+                        break;
+                    case 101:
+                        message.serviceSchemaVersion = $root.protos.opts.MonitorServiceSchemaVersionConfig.decode(reader, reader.uint32());
+                        break;
+                    case 102:
+                        message.readHasData = $root.protos.opts.MonitorReadHasDataConfig.decode(reader, reader.uint32());
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a MonitorOptions message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.opts.MonitorOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.opts.MonitorOptions} MonitorOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            MonitorOptions.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a MonitorOptions message.
+             * @function verify
+             * @memberof protos.opts.MonitorOptions
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            MonitorOptions.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                var properties = {};
+                if (message._id != null && message.hasOwnProperty("_id"))
+                    if (!$util.isString(message._id))
+                        return "_id: string expected";
+                if (message._createdBy != null && message.hasOwnProperty("_createdBy"))
+                    if (!$util.isString(message._createdBy))
+                        return "_createdBy: string expected";
+                if (message._createdAtTsUtc != null && message.hasOwnProperty("_createdAtTsUtc"))
+                    if (!$util.isInteger(message._createdAtTsUtc) && !(message._createdAtTsUtc && $util.isInteger(message._createdAtTsUtc.low) && $util.isInteger(message._createdAtTsUtc.high)))
+                        return "_createdAtTsUtc: integer|Long expected";
+                if (message.notes != null && message.hasOwnProperty("notes"))
+                    if (!$util.isString(message.notes))
+                        return "notes: string expected";
+                if (message.schemaValidation != null && message.hasOwnProperty("schemaValidation")) {
+                    properties.config = 1;
+                    {
+                        var error = $root.protos.opts.MonitorSchemaValidationConfig.verify(message.schemaValidation);
+                        if (error)
+                            return "schemaValidation." + error;
+                    }
+                }
+                if (message.serviceSchemaVersion != null && message.hasOwnProperty("serviceSchemaVersion")) {
+                    if (properties.config === 1)
+                        return "config: multiple values";
+                    properties.config = 1;
+                    {
+                        var error = $root.protos.opts.MonitorServiceSchemaVersionConfig.verify(message.serviceSchemaVersion);
+                        if (error)
+                            return "serviceSchemaVersion." + error;
+                    }
+                }
+                if (message.readHasData != null && message.hasOwnProperty("readHasData")) {
+                    if (properties.config === 1)
+                        return "config: multiple values";
+                    properties.config = 1;
+                    {
+                        var error = $root.protos.opts.MonitorReadHasDataConfig.verify(message.readHasData);
+                        if (error)
+                            return "readHasData." + error;
+                    }
+                }
+                return null;
+            };
+
+            /**
+             * Creates a MonitorOptions message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.opts.MonitorOptions
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.opts.MonitorOptions} MonitorOptions
+             */
+            MonitorOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.MonitorOptions)
+                    return object;
+                var message = new $root.protos.opts.MonitorOptions();
+                if (object._id != null)
+                    message._id = String(object._id);
+                if (object._createdBy != null)
+                    message._createdBy = String(object._createdBy);
+                if (object._createdAtTsUtc != null)
+                    if ($util.Long)
+                        (message._createdAtTsUtc = $util.Long.fromValue(object._createdAtTsUtc)).unsigned = false;
+                    else if (typeof object._createdAtTsUtc === "string")
+                        message._createdAtTsUtc = parseInt(object._createdAtTsUtc, 10);
+                    else if (typeof object._createdAtTsUtc === "number")
+                        message._createdAtTsUtc = object._createdAtTsUtc;
+                    else if (typeof object._createdAtTsUtc === "object")
+                        message._createdAtTsUtc = new $util.LongBits(object._createdAtTsUtc.low >>> 0, object._createdAtTsUtc.high >>> 0).toNumber();
+                if (object.notes != null)
+                    message.notes = String(object.notes);
+                if (object.schemaValidation != null) {
+                    if (typeof object.schemaValidation !== "object")
+                        throw TypeError(".protos.opts.MonitorOptions.schemaValidation: object expected");
+                    message.schemaValidation = $root.protos.opts.MonitorSchemaValidationConfig.fromObject(object.schemaValidation);
+                }
+                if (object.serviceSchemaVersion != null) {
+                    if (typeof object.serviceSchemaVersion !== "object")
+                        throw TypeError(".protos.opts.MonitorOptions.serviceSchemaVersion: object expected");
+                    message.serviceSchemaVersion = $root.protos.opts.MonitorServiceSchemaVersionConfig.fromObject(object.serviceSchemaVersion);
+                }
+                if (object.readHasData != null) {
+                    if (typeof object.readHasData !== "object")
+                        throw TypeError(".protos.opts.MonitorOptions.readHasData: object expected");
+                    message.readHasData = $root.protos.opts.MonitorReadHasDataConfig.fromObject(object.readHasData);
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a MonitorOptions message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.opts.MonitorOptions
+             * @static
+             * @param {protos.opts.MonitorOptions} message MonitorOptions
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            MonitorOptions.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    object._id = "";
+                    object._createdBy = "";
+                    if ($util.Long) {
+                        var long = new $util.Long(0, 0, false);
+                        object._createdAtTsUtc = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                    } else
+                        object._createdAtTsUtc = options.longs === String ? "0" : 0;
+                    object.notes = "";
+                }
+                if (message._id != null && message.hasOwnProperty("_id"))
+                    object._id = message._id;
+                if (message._createdBy != null && message.hasOwnProperty("_createdBy"))
+                    object._createdBy = message._createdBy;
+                if (message._createdAtTsUtc != null && message.hasOwnProperty("_createdAtTsUtc"))
+                    if (typeof message._createdAtTsUtc === "number")
+                        object._createdAtTsUtc = options.longs === String ? String(message._createdAtTsUtc) : message._createdAtTsUtc;
+                    else
+                        object._createdAtTsUtc = options.longs === String ? $util.Long.prototype.toString.call(message._createdAtTsUtc) : options.longs === Number ? new $util.LongBits(message._createdAtTsUtc.low >>> 0, message._createdAtTsUtc.high >>> 0).toNumber() : message._createdAtTsUtc;
+                if (message.notes != null && message.hasOwnProperty("notes"))
+                    object.notes = message.notes;
+                if (message.schemaValidation != null && message.hasOwnProperty("schemaValidation")) {
+                    object.schemaValidation = $root.protos.opts.MonitorSchemaValidationConfig.toObject(message.schemaValidation, options);
+                    if (options.oneofs)
+                        object.config = "schemaValidation";
+                }
+                if (message.serviceSchemaVersion != null && message.hasOwnProperty("serviceSchemaVersion")) {
+                    object.serviceSchemaVersion = $root.protos.opts.MonitorServiceSchemaVersionConfig.toObject(message.serviceSchemaVersion, options);
+                    if (options.oneofs)
+                        object.config = "serviceSchemaVersion";
+                }
+                if (message.readHasData != null && message.hasOwnProperty("readHasData")) {
+                    object.readHasData = $root.protos.opts.MonitorReadHasDataConfig.toObject(message.readHasData, options);
+                    if (options.oneofs)
+                        object.config = "readHasData";
+                }
+                return object;
+            };
+
+            /**
+             * Converts this MonitorOptions to JSON.
+             * @function toJSON
+             * @memberof protos.opts.MonitorOptions
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            MonitorOptions.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return MonitorOptions;
+        })();
+
+        opts.MonitorSchemaValidationConfig = (function() {
+
+            /**
+             * Properties of a MonitorSchemaValidationConfig.
+             * @memberof protos.opts
+             * @interface IMonitorSchemaValidationConfig
+             * @property {Array.<string>|null} [schemaId] MonitorSchemaValidationConfig schemaId
+             */
+
+            /**
+             * Constructs a new MonitorSchemaValidationConfig.
+             * @memberof protos.opts
+             * @classdesc Represents a MonitorSchemaValidationConfig.
+             * @implements IMonitorSchemaValidationConfig
+             * @constructor
+             * @param {protos.opts.IMonitorSchemaValidationConfig=} [properties] Properties to set
+             */
+            function MonitorSchemaValidationConfig(properties) {
+                this.schemaId = [];
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * MonitorSchemaValidationConfig schemaId.
+             * @member {Array.<string>} schemaId
+             * @memberof protos.opts.MonitorSchemaValidationConfig
+             * @instance
+             */
+            MonitorSchemaValidationConfig.prototype.schemaId = $util.emptyArray;
+
+            /**
+             * Creates a new MonitorSchemaValidationConfig instance using the specified properties.
+             * @function create
+             * @memberof protos.opts.MonitorSchemaValidationConfig
+             * @static
+             * @param {protos.opts.IMonitorSchemaValidationConfig=} [properties] Properties to set
+             * @returns {protos.opts.MonitorSchemaValidationConfig} MonitorSchemaValidationConfig instance
+             */
+            MonitorSchemaValidationConfig.create = function create(properties) {
+                return new MonitorSchemaValidationConfig(properties);
+            };
+
+            /**
+             * Encodes the specified MonitorSchemaValidationConfig message. Does not implicitly {@link protos.opts.MonitorSchemaValidationConfig.verify|verify} messages.
+             * @function encode
+             * @memberof protos.opts.MonitorSchemaValidationConfig
+             * @static
+             * @param {protos.opts.IMonitorSchemaValidationConfig} message MonitorSchemaValidationConfig message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            MonitorSchemaValidationConfig.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.schemaId != null && message.schemaId.length)
+                    for (var i = 0; i < message.schemaId.length; ++i)
+                        writer.uint32(/* id 1, wireType 2 =*/10).string(message.schemaId[i]);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified MonitorSchemaValidationConfig message, length delimited. Does not implicitly {@link protos.opts.MonitorSchemaValidationConfig.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.opts.MonitorSchemaValidationConfig
+             * @static
+             * @param {protos.opts.IMonitorSchemaValidationConfig} message MonitorSchemaValidationConfig message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            MonitorSchemaValidationConfig.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a MonitorSchemaValidationConfig message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.opts.MonitorSchemaValidationConfig
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.opts.MonitorSchemaValidationConfig} MonitorSchemaValidationConfig
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            MonitorSchemaValidationConfig.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.MonitorSchemaValidationConfig();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        if (!(message.schemaId && message.schemaId.length))
+                            message.schemaId = [];
+                        message.schemaId.push(reader.string());
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a MonitorSchemaValidationConfig message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.opts.MonitorSchemaValidationConfig
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.opts.MonitorSchemaValidationConfig} MonitorSchemaValidationConfig
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            MonitorSchemaValidationConfig.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a MonitorSchemaValidationConfig message.
+             * @function verify
+             * @memberof protos.opts.MonitorSchemaValidationConfig
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            MonitorSchemaValidationConfig.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.schemaId != null && message.hasOwnProperty("schemaId")) {
+                    if (!Array.isArray(message.schemaId))
+                        return "schemaId: array expected";
+                    for (var i = 0; i < message.schemaId.length; ++i)
+                        if (!$util.isString(message.schemaId[i]))
+                            return "schemaId: string[] expected";
+                }
+                return null;
+            };
+
+            /**
+             * Creates a MonitorSchemaValidationConfig message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.opts.MonitorSchemaValidationConfig
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.opts.MonitorSchemaValidationConfig} MonitorSchemaValidationConfig
+             */
+            MonitorSchemaValidationConfig.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.MonitorSchemaValidationConfig)
+                    return object;
+                var message = new $root.protos.opts.MonitorSchemaValidationConfig();
+                if (object.schemaId) {
+                    if (!Array.isArray(object.schemaId))
+                        throw TypeError(".protos.opts.MonitorSchemaValidationConfig.schemaId: array expected");
+                    message.schemaId = [];
+                    for (var i = 0; i < object.schemaId.length; ++i)
+                        message.schemaId[i] = String(object.schemaId[i]);
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a MonitorSchemaValidationConfig message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.opts.MonitorSchemaValidationConfig
+             * @static
+             * @param {protos.opts.MonitorSchemaValidationConfig} message MonitorSchemaValidationConfig
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            MonitorSchemaValidationConfig.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.arrays || options.defaults)
+                    object.schemaId = [];
+                if (message.schemaId && message.schemaId.length) {
+                    object.schemaId = [];
+                    for (var j = 0; j < message.schemaId.length; ++j)
+                        object.schemaId[j] = message.schemaId[j];
+                }
+                return object;
+            };
+
+            /**
+             * Converts this MonitorSchemaValidationConfig to JSON.
+             * @function toJSON
+             * @memberof protos.opts.MonitorSchemaValidationConfig
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            MonitorSchemaValidationConfig.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return MonitorSchemaValidationConfig;
+        })();
+
+        /**
+         * MonitorServiceSchemaVersionType enum.
+         * @name protos.opts.MonitorServiceSchemaVersionType
+         * @enum {number}
+         * @property {number} SERVICE_SCHEMA_VERSION_CONDITION_TYPE_LATEST=0 SERVICE_SCHEMA_VERSION_CONDITION_TYPE_LATEST value
+         * @property {number} SERVICE_SCHEMA_VERSION_CONDITION_TYPE_EXACT=1 SERVICE_SCHEMA_VERSION_CONDITION_TYPE_EXACT value
+         */
+        opts.MonitorServiceSchemaVersionType = (function() {
+            var valuesById = {}, values = Object.create(valuesById);
+            values[valuesById[0] = "SERVICE_SCHEMA_VERSION_CONDITION_TYPE_LATEST"] = 0;
+            values[valuesById[1] = "SERVICE_SCHEMA_VERSION_CONDITION_TYPE_EXACT"] = 1;
+            return values;
+        })();
+
+        opts.MonitorServiceSchemaVersionConfig = (function() {
+
+            /**
+             * Properties of a MonitorServiceSchemaVersionConfig.
+             * @memberof protos.opts
+             * @interface IMonitorServiceSchemaVersionConfig
+             * @property {Array.<string>|null} [serviceIds] MonitorServiceSchemaVersionConfig serviceIds
+             * @property {protos.opts.MonitorServiceSchemaVersionType|null} [type] MonitorServiceSchemaVersionConfig type
+             * @property {Object.<string,string>|null} [args] MonitorServiceSchemaVersionConfig args
+             */
+
+            /**
+             * Constructs a new MonitorServiceSchemaVersionConfig.
+             * @memberof protos.opts
+             * @classdesc Represents a MonitorServiceSchemaVersionConfig.
+             * @implements IMonitorServiceSchemaVersionConfig
+             * @constructor
+             * @param {protos.opts.IMonitorServiceSchemaVersionConfig=} [properties] Properties to set
+             */
+            function MonitorServiceSchemaVersionConfig(properties) {
+                this.serviceIds = [];
+                this.args = {};
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * MonitorServiceSchemaVersionConfig serviceIds.
+             * @member {Array.<string>} serviceIds
+             * @memberof protos.opts.MonitorServiceSchemaVersionConfig
+             * @instance
+             */
+            MonitorServiceSchemaVersionConfig.prototype.serviceIds = $util.emptyArray;
+
+            /**
+             * MonitorServiceSchemaVersionConfig type.
+             * @member {protos.opts.MonitorServiceSchemaVersionType} type
+             * @memberof protos.opts.MonitorServiceSchemaVersionConfig
+             * @instance
+             */
+            MonitorServiceSchemaVersionConfig.prototype.type = 0;
+
+            /**
+             * MonitorServiceSchemaVersionConfig args.
+             * @member {Object.<string,string>} args
+             * @memberof protos.opts.MonitorServiceSchemaVersionConfig
+             * @instance
+             */
+            MonitorServiceSchemaVersionConfig.prototype.args = $util.emptyObject;
+
+            /**
+             * Creates a new MonitorServiceSchemaVersionConfig instance using the specified properties.
+             * @function create
+             * @memberof protos.opts.MonitorServiceSchemaVersionConfig
+             * @static
+             * @param {protos.opts.IMonitorServiceSchemaVersionConfig=} [properties] Properties to set
+             * @returns {protos.opts.MonitorServiceSchemaVersionConfig} MonitorServiceSchemaVersionConfig instance
+             */
+            MonitorServiceSchemaVersionConfig.create = function create(properties) {
+                return new MonitorServiceSchemaVersionConfig(properties);
+            };
+
+            /**
+             * Encodes the specified MonitorServiceSchemaVersionConfig message. Does not implicitly {@link protos.opts.MonitorServiceSchemaVersionConfig.verify|verify} messages.
+             * @function encode
+             * @memberof protos.opts.MonitorServiceSchemaVersionConfig
+             * @static
+             * @param {protos.opts.IMonitorServiceSchemaVersionConfig} message MonitorServiceSchemaVersionConfig message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            MonitorServiceSchemaVersionConfig.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.serviceIds != null && message.serviceIds.length)
+                    for (var i = 0; i < message.serviceIds.length; ++i)
+                        writer.uint32(/* id 1, wireType 2 =*/10).string(message.serviceIds[i]);
+                if (message.type != null && Object.hasOwnProperty.call(message, "type"))
+                    writer.uint32(/* id 2, wireType 0 =*/16).int32(message.type);
+                if (message.args != null && Object.hasOwnProperty.call(message, "args"))
+                    for (var keys = Object.keys(message.args), i = 0; i < keys.length; ++i)
+                        writer.uint32(/* id 3, wireType 2 =*/26).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]).uint32(/* id 2, wireType 2 =*/18).string(message.args[keys[i]]).ldelim();
+                return writer;
+            };
+
+            /**
+             * Encodes the specified MonitorServiceSchemaVersionConfig message, length delimited. Does not implicitly {@link protos.opts.MonitorServiceSchemaVersionConfig.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.opts.MonitorServiceSchemaVersionConfig
+             * @static
+             * @param {protos.opts.IMonitorServiceSchemaVersionConfig} message MonitorServiceSchemaVersionConfig message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            MonitorServiceSchemaVersionConfig.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a MonitorServiceSchemaVersionConfig message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.opts.MonitorServiceSchemaVersionConfig
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.opts.MonitorServiceSchemaVersionConfig} MonitorServiceSchemaVersionConfig
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            MonitorServiceSchemaVersionConfig.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.MonitorServiceSchemaVersionConfig(), key, value;
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        if (!(message.serviceIds && message.serviceIds.length))
+                            message.serviceIds = [];
+                        message.serviceIds.push(reader.string());
+                        break;
+                    case 2:
+                        message.type = reader.int32();
+                        break;
+                    case 3:
+                        if (message.args === $util.emptyObject)
+                            message.args = {};
+                        var end2 = reader.uint32() + reader.pos;
+                        key = "";
+                        value = "";
+                        while (reader.pos < end2) {
+                            var tag2 = reader.uint32();
+                            switch (tag2 >>> 3) {
+                            case 1:
+                                key = reader.string();
+                                break;
+                            case 2:
+                                value = reader.string();
+                                break;
+                            default:
+                                reader.skipType(tag2 & 7);
+                                break;
+                            }
+                        }
+                        message.args[key] = value;
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a MonitorServiceSchemaVersionConfig message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.opts.MonitorServiceSchemaVersionConfig
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.opts.MonitorServiceSchemaVersionConfig} MonitorServiceSchemaVersionConfig
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            MonitorServiceSchemaVersionConfig.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a MonitorServiceSchemaVersionConfig message.
+             * @function verify
+             * @memberof protos.opts.MonitorServiceSchemaVersionConfig
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            MonitorServiceSchemaVersionConfig.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.serviceIds != null && message.hasOwnProperty("serviceIds")) {
+                    if (!Array.isArray(message.serviceIds))
+                        return "serviceIds: array expected";
+                    for (var i = 0; i < message.serviceIds.length; ++i)
+                        if (!$util.isString(message.serviceIds[i]))
+                            return "serviceIds: string[] expected";
+                }
+                if (message.type != null && message.hasOwnProperty("type"))
+                    switch (message.type) {
+                    default:
+                        return "type: enum value expected";
+                    case 0:
+                    case 1:
+                        break;
+                    }
+                if (message.args != null && message.hasOwnProperty("args")) {
+                    if (!$util.isObject(message.args))
+                        return "args: object expected";
+                    var key = Object.keys(message.args);
+                    for (var i = 0; i < key.length; ++i)
+                        if (!$util.isString(message.args[key[i]]))
+                            return "args: string{k:string} expected";
+                }
+                return null;
+            };
+
+            /**
+             * Creates a MonitorServiceSchemaVersionConfig message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.opts.MonitorServiceSchemaVersionConfig
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.opts.MonitorServiceSchemaVersionConfig} MonitorServiceSchemaVersionConfig
+             */
+            MonitorServiceSchemaVersionConfig.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.MonitorServiceSchemaVersionConfig)
+                    return object;
+                var message = new $root.protos.opts.MonitorServiceSchemaVersionConfig();
+                if (object.serviceIds) {
+                    if (!Array.isArray(object.serviceIds))
+                        throw TypeError(".protos.opts.MonitorServiceSchemaVersionConfig.serviceIds: array expected");
+                    message.serviceIds = [];
+                    for (var i = 0; i < object.serviceIds.length; ++i)
+                        message.serviceIds[i] = String(object.serviceIds[i]);
+                }
+                switch (object.type) {
+                case "SERVICE_SCHEMA_VERSION_CONDITION_TYPE_LATEST":
+                case 0:
+                    message.type = 0;
+                    break;
+                case "SERVICE_SCHEMA_VERSION_CONDITION_TYPE_EXACT":
+                case 1:
+                    message.type = 1;
+                    break;
+                }
+                if (object.args) {
+                    if (typeof object.args !== "object")
+                        throw TypeError(".protos.opts.MonitorServiceSchemaVersionConfig.args: object expected");
+                    message.args = {};
+                    for (var keys = Object.keys(object.args), i = 0; i < keys.length; ++i)
+                        message.args[keys[i]] = String(object.args[keys[i]]);
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a MonitorServiceSchemaVersionConfig message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.opts.MonitorServiceSchemaVersionConfig
+             * @static
+             * @param {protos.opts.MonitorServiceSchemaVersionConfig} message MonitorServiceSchemaVersionConfig
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            MonitorServiceSchemaVersionConfig.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.arrays || options.defaults)
+                    object.serviceIds = [];
+                if (options.objects || options.defaults)
+                    object.args = {};
+                if (options.defaults)
+                    object.type = options.enums === String ? "SERVICE_SCHEMA_VERSION_CONDITION_TYPE_LATEST" : 0;
+                if (message.serviceIds && message.serviceIds.length) {
+                    object.serviceIds = [];
+                    for (var j = 0; j < message.serviceIds.length; ++j)
+                        object.serviceIds[j] = message.serviceIds[j];
+                }
+                if (message.type != null && message.hasOwnProperty("type"))
+                    object.type = options.enums === String ? $root.protos.opts.MonitorServiceSchemaVersionType[message.type] : message.type;
+                var keys2;
+                if (message.args && (keys2 = Object.keys(message.args)).length) {
+                    object.args = {};
+                    for (var j = 0; j < keys2.length; ++j)
+                        object.args[keys2[j]] = message.args[keys2[j]];
+                }
+                return object;
+            };
+
+            /**
+             * Converts this MonitorServiceSchemaVersionConfig to JSON.
+             * @function toJSON
+             * @memberof protos.opts.MonitorServiceSchemaVersionConfig
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            MonitorServiceSchemaVersionConfig.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return MonitorServiceSchemaVersionConfig;
+        })();
+
+        /**
+         * ReadOperator enum.
+         * @name protos.opts.ReadOperator
+         * @enum {number}
+         * @property {number} READ_OPERATOR_UNSET=0 READ_OPERATOR_UNSET value
+         * @property {number} READ_OPERATOR_EQ=1 READ_OPERATOR_EQ value
+         * @property {number} READ_OPERATOR_LT=2 READ_OPERATOR_LT value
+         * @property {number} READ_OPERATOR_GT=3 READ_OPERATOR_GT value
+         * @property {number} READ_OPERATOR_LTE=4 READ_OPERATOR_LTE value
+         * @property {number} READ_OPERATOR_GTE=5 READ_OPERATOR_GTE value
+         */
+        opts.ReadOperator = (function() {
+            var valuesById = {}, values = Object.create(valuesById);
+            values[valuesById[0] = "READ_OPERATOR_UNSET"] = 0;
+            values[valuesById[1] = "READ_OPERATOR_EQ"] = 1;
+            values[valuesById[2] = "READ_OPERATOR_LT"] = 2;
+            values[valuesById[3] = "READ_OPERATOR_GT"] = 3;
+            values[valuesById[4] = "READ_OPERATOR_LTE"] = 4;
+            values[valuesById[5] = "READ_OPERATOR_GTE"] = 5;
+            return values;
+        })();
+
+        opts.MonitorReadHasDataConfig = (function() {
+
+            /**
+             * Properties of a MonitorReadHasDataConfig.
+             * @memberof protos.opts
+             * @interface IMonitorReadHasDataConfig
+             * @property {Array.<string>|null} [readIds] MonitorReadHasDataConfig readIds
+             * @property {protos.opts.ReadOperator|null} [operator] MonitorReadHasDataConfig operator
+             * @property {number|null} [value] MonitorReadHasDataConfig value
+             * @property {number|null} [intervalSeconds] MonitorReadHasDataConfig intervalSeconds
+             */
+
+            /**
+             * Constructs a new MonitorReadHasDataConfig.
+             * @memberof protos.opts
+             * @classdesc Represents a MonitorReadHasDataConfig.
+             * @implements IMonitorReadHasDataConfig
+             * @constructor
+             * @param {protos.opts.IMonitorReadHasDataConfig=} [properties] Properties to set
+             */
+            function MonitorReadHasDataConfig(properties) {
+                this.readIds = [];
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * MonitorReadHasDataConfig readIds.
+             * @member {Array.<string>} readIds
+             * @memberof protos.opts.MonitorReadHasDataConfig
+             * @instance
+             */
+            MonitorReadHasDataConfig.prototype.readIds = $util.emptyArray;
+
+            /**
+             * MonitorReadHasDataConfig operator.
+             * @member {protos.opts.ReadOperator} operator
+             * @memberof protos.opts.MonitorReadHasDataConfig
+             * @instance
+             */
+            MonitorReadHasDataConfig.prototype.operator = 0;
+
+            /**
+             * MonitorReadHasDataConfig value.
+             * @member {number} value
+             * @memberof protos.opts.MonitorReadHasDataConfig
+             * @instance
+             */
+            MonitorReadHasDataConfig.prototype.value = 0;
+
+            /**
+             * MonitorReadHasDataConfig intervalSeconds.
+             * @member {number} intervalSeconds
+             * @memberof protos.opts.MonitorReadHasDataConfig
+             * @instance
+             */
+            MonitorReadHasDataConfig.prototype.intervalSeconds = 0;
+
+            /**
+             * Creates a new MonitorReadHasDataConfig instance using the specified properties.
+             * @function create
+             * @memberof protos.opts.MonitorReadHasDataConfig
+             * @static
+             * @param {protos.opts.IMonitorReadHasDataConfig=} [properties] Properties to set
+             * @returns {protos.opts.MonitorReadHasDataConfig} MonitorReadHasDataConfig instance
+             */
+            MonitorReadHasDataConfig.create = function create(properties) {
+                return new MonitorReadHasDataConfig(properties);
+            };
+
+            /**
+             * Encodes the specified MonitorReadHasDataConfig message. Does not implicitly {@link protos.opts.MonitorReadHasDataConfig.verify|verify} messages.
+             * @function encode
+             * @memberof protos.opts.MonitorReadHasDataConfig
+             * @static
+             * @param {protos.opts.IMonitorReadHasDataConfig} message MonitorReadHasDataConfig message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            MonitorReadHasDataConfig.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.readIds != null && message.readIds.length)
+                    for (var i = 0; i < message.readIds.length; ++i)
+                        writer.uint32(/* id 1, wireType 2 =*/10).string(message.readIds[i]);
+                if (message.operator != null && Object.hasOwnProperty.call(message, "operator"))
+                    writer.uint32(/* id 2, wireType 0 =*/16).int32(message.operator);
+                if (message.value != null && Object.hasOwnProperty.call(message, "value"))
+                    writer.uint32(/* id 3, wireType 0 =*/24).int32(message.value);
+                if (message.intervalSeconds != null && Object.hasOwnProperty.call(message, "intervalSeconds"))
+                    writer.uint32(/* id 4, wireType 0 =*/32).int32(message.intervalSeconds);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified MonitorReadHasDataConfig message, length delimited. Does not implicitly {@link protos.opts.MonitorReadHasDataConfig.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.opts.MonitorReadHasDataConfig
+             * @static
+             * @param {protos.opts.IMonitorReadHasDataConfig} message MonitorReadHasDataConfig message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            MonitorReadHasDataConfig.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a MonitorReadHasDataConfig message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.opts.MonitorReadHasDataConfig
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.opts.MonitorReadHasDataConfig} MonitorReadHasDataConfig
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            MonitorReadHasDataConfig.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.MonitorReadHasDataConfig();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        if (!(message.readIds && message.readIds.length))
+                            message.readIds = [];
+                        message.readIds.push(reader.string());
+                        break;
+                    case 2:
+                        message.operator = reader.int32();
+                        break;
+                    case 3:
+                        message.value = reader.int32();
+                        break;
+                    case 4:
+                        message.intervalSeconds = reader.int32();
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a MonitorReadHasDataConfig message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.opts.MonitorReadHasDataConfig
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.opts.MonitorReadHasDataConfig} MonitorReadHasDataConfig
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            MonitorReadHasDataConfig.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a MonitorReadHasDataConfig message.
+             * @function verify
+             * @memberof protos.opts.MonitorReadHasDataConfig
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            MonitorReadHasDataConfig.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.readIds != null && message.hasOwnProperty("readIds")) {
+                    if (!Array.isArray(message.readIds))
+                        return "readIds: array expected";
+                    for (var i = 0; i < message.readIds.length; ++i)
+                        if (!$util.isString(message.readIds[i]))
+                            return "readIds: string[] expected";
+                }
+                if (message.operator != null && message.hasOwnProperty("operator"))
+                    switch (message.operator) {
+                    default:
+                        return "operator: enum value expected";
+                    case 0:
+                    case 1:
+                    case 2:
+                    case 3:
+                    case 4:
+                    case 5:
+                        break;
+                    }
+                if (message.value != null && message.hasOwnProperty("value"))
+                    if (!$util.isInteger(message.value))
+                        return "value: integer expected";
+                if (message.intervalSeconds != null && message.hasOwnProperty("intervalSeconds"))
+                    if (!$util.isInteger(message.intervalSeconds))
+                        return "intervalSeconds: integer expected";
+                return null;
+            };
+
+            /**
+             * Creates a MonitorReadHasDataConfig message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.opts.MonitorReadHasDataConfig
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.opts.MonitorReadHasDataConfig} MonitorReadHasDataConfig
+             */
+            MonitorReadHasDataConfig.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.MonitorReadHasDataConfig)
+                    return object;
+                var message = new $root.protos.opts.MonitorReadHasDataConfig();
+                if (object.readIds) {
+                    if (!Array.isArray(object.readIds))
+                        throw TypeError(".protos.opts.MonitorReadHasDataConfig.readIds: array expected");
+                    message.readIds = [];
+                    for (var i = 0; i < object.readIds.length; ++i)
+                        message.readIds[i] = String(object.readIds[i]);
+                }
+                switch (object.operator) {
+                case "READ_OPERATOR_UNSET":
+                case 0:
+                    message.operator = 0;
+                    break;
+                case "READ_OPERATOR_EQ":
+                case 1:
+                    message.operator = 1;
+                    break;
+                case "READ_OPERATOR_LT":
+                case 2:
+                    message.operator = 2;
+                    break;
+                case "READ_OPERATOR_GT":
+                case 3:
+                    message.operator = 3;
+                    break;
+                case "READ_OPERATOR_LTE":
+                case 4:
+                    message.operator = 4;
+                    break;
+                case "READ_OPERATOR_GTE":
+                case 5:
+                    message.operator = 5;
+                    break;
+                }
+                if (object.value != null)
+                    message.value = object.value | 0;
+                if (object.intervalSeconds != null)
+                    message.intervalSeconds = object.intervalSeconds | 0;
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a MonitorReadHasDataConfig message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.opts.MonitorReadHasDataConfig
+             * @static
+             * @param {protos.opts.MonitorReadHasDataConfig} message MonitorReadHasDataConfig
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            MonitorReadHasDataConfig.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.arrays || options.defaults)
+                    object.readIds = [];
+                if (options.defaults) {
+                    object.operator = options.enums === String ? "READ_OPERATOR_UNSET" : 0;
+                    object.value = 0;
+                    object.intervalSeconds = 0;
+                }
+                if (message.readIds && message.readIds.length) {
+                    object.readIds = [];
+                    for (var j = 0; j < message.readIds.length; ++j)
+                        object.readIds[j] = message.readIds[j];
+                }
+                if (message.operator != null && message.hasOwnProperty("operator"))
+                    object.operator = options.enums === String ? $root.protos.opts.ReadOperator[message.operator] : message.operator;
+                if (message.value != null && message.hasOwnProperty("value"))
+                    object.value = message.value;
+                if (message.intervalSeconds != null && message.hasOwnProperty("intervalSeconds"))
+                    object.intervalSeconds = message.intervalSeconds;
+                return object;
+            };
+
+            /**
+             * Converts this MonitorReadHasDataConfig to JSON.
+             * @function toJSON
+             * @memberof protos.opts.MonitorReadHasDataConfig
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            MonitorReadHasDataConfig.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return MonitorReadHasDataConfig;
+        })();
+
         /**
          * BatchOutputType enum.
          * @name protos.opts.BatchOutputType
@@ -27709,6 +29113,4059 @@ $root.protos = (function() {
         })();
 
         return opts;
+    })();
+
+    protos.PlumberServer = (function() {
+
+        /**
+         * Constructs a new PlumberServer service.
+         * @memberof protos
+         * @classdesc Represents a PlumberServer
+         * @extends $protobuf.rpc.Service
+         * @constructor
+         * @param {$protobuf.RPCImpl} rpcImpl RPC implementation
+         * @param {boolean} [requestDelimited=false] Whether requests are length-delimited
+         * @param {boolean} [responseDelimited=false] Whether responses are length-delimited
+         */
+        function PlumberServer(rpcImpl, requestDelimited, responseDelimited) {
+            $protobuf.rpc.Service.call(this, rpcImpl, requestDelimited, responseDelimited);
+        }
+
+        (PlumberServer.prototype = Object.create($protobuf.rpc.Service.prototype)).constructor = PlumberServer;
+
+        /**
+         * Creates new PlumberServer service using the specified rpc implementation.
+         * @function create
+         * @memberof protos.PlumberServer
+         * @static
+         * @param {$protobuf.RPCImpl} rpcImpl RPC implementation
+         * @param {boolean} [requestDelimited=false] Whether requests are length-delimited
+         * @param {boolean} [responseDelimited=false] Whether responses are length-delimited
+         * @returns {PlumberServer} RPC service. Useful where requests and/or responses are streamed.
+         */
+        PlumberServer.create = function create(rpcImpl, requestDelimited, responseDelimited) {
+            return new this(rpcImpl, requestDelimited, responseDelimited);
+        };
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#getAllConnections}.
+         * @memberof protos.PlumberServer
+         * @typedef GetAllConnectionsCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.GetAllConnectionsResponse} [response] GetAllConnectionsResponse
+         */
+
+        /**
+         * Calls GetAllConnections.
+         * @function getAllConnections
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IGetAllConnectionsRequest} request GetAllConnectionsRequest message or plain object
+         * @param {protos.PlumberServer.GetAllConnectionsCallback} callback Node-style callback called with the error, if any, and GetAllConnectionsResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(PlumberServer.prototype.getAllConnections = function getAllConnections(request, callback) {
+            return this.rpcCall(getAllConnections, $root.protos.GetAllConnectionsRequest, $root.protos.GetAllConnectionsResponse, request, callback);
+        }, "name", { value: "GetAllConnections" });
+
+        /**
+         * Calls GetAllConnections.
+         * @function getAllConnections
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IGetAllConnectionsRequest} request GetAllConnectionsRequest message or plain object
+         * @returns {Promise<protos.GetAllConnectionsResponse>} Promise
+         * @variation 2
+         */
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#getConnection}.
+         * @memberof protos.PlumberServer
+         * @typedef GetConnectionCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.GetConnectionResponse} [response] GetConnectionResponse
+         */
+
+        /**
+         * Calls GetConnection.
+         * @function getConnection
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IGetConnectionRequest} request GetConnectionRequest message or plain object
+         * @param {protos.PlumberServer.GetConnectionCallback} callback Node-style callback called with the error, if any, and GetConnectionResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(PlumberServer.prototype.getConnection = function getConnection(request, callback) {
+            return this.rpcCall(getConnection, $root.protos.GetConnectionRequest, $root.protos.GetConnectionResponse, request, callback);
+        }, "name", { value: "GetConnection" });
+
+        /**
+         * Calls GetConnection.
+         * @function getConnection
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IGetConnectionRequest} request GetConnectionRequest message or plain object
+         * @returns {Promise<protos.GetConnectionResponse>} Promise
+         * @variation 2
+         */
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#createConnection}.
+         * @memberof protos.PlumberServer
+         * @typedef CreateConnectionCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.CreateConnectionResponse} [response] CreateConnectionResponse
+         */
+
+        /**
+         * Calls CreateConnection.
+         * @function createConnection
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.ICreateConnectionRequest} request CreateConnectionRequest message or plain object
+         * @param {protos.PlumberServer.CreateConnectionCallback} callback Node-style callback called with the error, if any, and CreateConnectionResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(PlumberServer.prototype.createConnection = function createConnection(request, callback) {
+            return this.rpcCall(createConnection, $root.protos.CreateConnectionRequest, $root.protos.CreateConnectionResponse, request, callback);
+        }, "name", { value: "CreateConnection" });
+
+        /**
+         * Calls CreateConnection.
+         * @function createConnection
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.ICreateConnectionRequest} request CreateConnectionRequest message or plain object
+         * @returns {Promise<protos.CreateConnectionResponse>} Promise
+         * @variation 2
+         */
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#testConnection}.
+         * @memberof protos.PlumberServer
+         * @typedef TestConnectionCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.TestConnectionResponse} [response] TestConnectionResponse
+         */
+
+        /**
+         * Calls TestConnection.
+         * @function testConnection
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.ITestConnectionRequest} request TestConnectionRequest message or plain object
+         * @param {protos.PlumberServer.TestConnectionCallback} callback Node-style callback called with the error, if any, and TestConnectionResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(PlumberServer.prototype.testConnection = function testConnection(request, callback) {
+            return this.rpcCall(testConnection, $root.protos.TestConnectionRequest, $root.protos.TestConnectionResponse, request, callback);
+        }, "name", { value: "TestConnection" });
+
+        /**
+         * Calls TestConnection.
+         * @function testConnection
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.ITestConnectionRequest} request TestConnectionRequest message or plain object
+         * @returns {Promise<protos.TestConnectionResponse>} Promise
+         * @variation 2
+         */
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#updateConnection}.
+         * @memberof protos.PlumberServer
+         * @typedef UpdateConnectionCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.UpdateConnectionResponse} [response] UpdateConnectionResponse
+         */
+
+        /**
+         * Calls UpdateConnection.
+         * @function updateConnection
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IUpdateConnectionRequest} request UpdateConnectionRequest message or plain object
+         * @param {protos.PlumberServer.UpdateConnectionCallback} callback Node-style callback called with the error, if any, and UpdateConnectionResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(PlumberServer.prototype.updateConnection = function updateConnection(request, callback) {
+            return this.rpcCall(updateConnection, $root.protos.UpdateConnectionRequest, $root.protos.UpdateConnectionResponse, request, callback);
+        }, "name", { value: "UpdateConnection" });
+
+        /**
+         * Calls UpdateConnection.
+         * @function updateConnection
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IUpdateConnectionRequest} request UpdateConnectionRequest message or plain object
+         * @returns {Promise<protos.UpdateConnectionResponse>} Promise
+         * @variation 2
+         */
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#deleteConnection}.
+         * @memberof protos.PlumberServer
+         * @typedef DeleteConnectionCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.DeleteConnectionResponse} [response] DeleteConnectionResponse
+         */
+
+        /**
+         * Calls DeleteConnection.
+         * @function deleteConnection
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IDeleteConnectionRequest} request DeleteConnectionRequest message or plain object
+         * @param {protos.PlumberServer.DeleteConnectionCallback} callback Node-style callback called with the error, if any, and DeleteConnectionResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(PlumberServer.prototype.deleteConnection = function deleteConnection(request, callback) {
+            return this.rpcCall(deleteConnection, $root.protos.DeleteConnectionRequest, $root.protos.DeleteConnectionResponse, request, callback);
+        }, "name", { value: "DeleteConnection" });
+
+        /**
+         * Calls DeleteConnection.
+         * @function deleteConnection
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IDeleteConnectionRequest} request DeleteConnectionRequest message or plain object
+         * @returns {Promise<protos.DeleteConnectionResponse>} Promise
+         * @variation 2
+         */
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#createRead}.
+         * @memberof protos.PlumberServer
+         * @typedef CreateReadCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.CreateReadResponse} [response] CreateReadResponse
+         */
+
+        /**
+         * Calls CreateRead.
+         * @function createRead
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.ICreateReadRequest} request CreateReadRequest message or plain object
+         * @param {protos.PlumberServer.CreateReadCallback} callback Node-style callback called with the error, if any, and CreateReadResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(PlumberServer.prototype.createRead = function createRead(request, callback) {
+            return this.rpcCall(createRead, $root.protos.CreateReadRequest, $root.protos.CreateReadResponse, request, callback);
+        }, "name", { value: "CreateRead" });
+
+        /**
+         * Calls CreateRead.
+         * @function createRead
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.ICreateReadRequest} request CreateReadRequest message or plain object
+         * @returns {Promise<protos.CreateReadResponse>} Promise
+         * @variation 2
+         */
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#startRead}.
+         * @memberof protos.PlumberServer
+         * @typedef StartReadCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.StartReadResponse} [response] StartReadResponse
+         */
+
+        /**
+         * Calls StartRead.
+         * @function startRead
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IStartReadRequest} request StartReadRequest message or plain object
+         * @param {protos.PlumberServer.StartReadCallback} callback Node-style callback called with the error, if any, and StartReadResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(PlumberServer.prototype.startRead = function startRead(request, callback) {
+            return this.rpcCall(startRead, $root.protos.StartReadRequest, $root.protos.StartReadResponse, request, callback);
+        }, "name", { value: "StartRead" });
+
+        /**
+         * Calls StartRead.
+         * @function startRead
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IStartReadRequest} request StartReadRequest message or plain object
+         * @returns {Promise<protos.StartReadResponse>} Promise
+         * @variation 2
+         */
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#getAllReads}.
+         * @memberof protos.PlumberServer
+         * @typedef GetAllReadsCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.GetAllReadsResponse} [response] GetAllReadsResponse
+         */
+
+        /**
+         * Calls GetAllReads.
+         * @function getAllReads
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IGetAllReadsRequest} request GetAllReadsRequest message or plain object
+         * @param {protos.PlumberServer.GetAllReadsCallback} callback Node-style callback called with the error, if any, and GetAllReadsResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(PlumberServer.prototype.getAllReads = function getAllReads(request, callback) {
+            return this.rpcCall(getAllReads, $root.protos.GetAllReadsRequest, $root.protos.GetAllReadsResponse, request, callback);
+        }, "name", { value: "GetAllReads" });
+
+        /**
+         * Calls GetAllReads.
+         * @function getAllReads
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IGetAllReadsRequest} request GetAllReadsRequest message or plain object
+         * @returns {Promise<protos.GetAllReadsResponse>} Promise
+         * @variation 2
+         */
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#stopRead}.
+         * @memberof protos.PlumberServer
+         * @typedef StopReadCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.StopReadResponse} [response] StopReadResponse
+         */
+
+        /**
+         * Calls StopRead.
+         * @function stopRead
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IStopReadRequest} request StopReadRequest message or plain object
+         * @param {protos.PlumberServer.StopReadCallback} callback Node-style callback called with the error, if any, and StopReadResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(PlumberServer.prototype.stopRead = function stopRead(request, callback) {
+            return this.rpcCall(stopRead, $root.protos.StopReadRequest, $root.protos.StopReadResponse, request, callback);
+        }, "name", { value: "StopRead" });
+
+        /**
+         * Calls StopRead.
+         * @function stopRead
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IStopReadRequest} request StopReadRequest message or plain object
+         * @returns {Promise<protos.StopReadResponse>} Promise
+         * @variation 2
+         */
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#resumeRead}.
+         * @memberof protos.PlumberServer
+         * @typedef ResumeReadCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.ResumeReadResponse} [response] ResumeReadResponse
+         */
+
+        /**
+         * Calls ResumeRead.
+         * @function resumeRead
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IResumeReadRequest} request ResumeReadRequest message or plain object
+         * @param {protos.PlumberServer.ResumeReadCallback} callback Node-style callback called with the error, if any, and ResumeReadResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(PlumberServer.prototype.resumeRead = function resumeRead(request, callback) {
+            return this.rpcCall(resumeRead, $root.protos.ResumeReadRequest, $root.protos.ResumeReadResponse, request, callback);
+        }, "name", { value: "ResumeRead" });
+
+        /**
+         * Calls ResumeRead.
+         * @function resumeRead
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IResumeReadRequest} request ResumeReadRequest message or plain object
+         * @returns {Promise<protos.ResumeReadResponse>} Promise
+         * @variation 2
+         */
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#deleteRead}.
+         * @memberof protos.PlumberServer
+         * @typedef DeleteReadCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.DeleteReadResponse} [response] DeleteReadResponse
+         */
+
+        /**
+         * Calls DeleteRead.
+         * @function deleteRead
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IDeleteReadRequest} request DeleteReadRequest message or plain object
+         * @param {protos.PlumberServer.DeleteReadCallback} callback Node-style callback called with the error, if any, and DeleteReadResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(PlumberServer.prototype.deleteRead = function deleteRead(request, callback) {
+            return this.rpcCall(deleteRead, $root.protos.DeleteReadRequest, $root.protos.DeleteReadResponse, request, callback);
+        }, "name", { value: "DeleteRead" });
+
+        /**
+         * Calls DeleteRead.
+         * @function deleteRead
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IDeleteReadRequest} request DeleteReadRequest message or plain object
+         * @returns {Promise<protos.DeleteReadResponse>} Promise
+         * @variation 2
+         */
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#write}.
+         * @memberof protos.PlumberServer
+         * @typedef WriteCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.WriteResponse} [response] WriteResponse
+         */
+
+        /**
+         * Calls Write.
+         * @function write
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IWriteRequest} request WriteRequest message or plain object
+         * @param {protos.PlumberServer.WriteCallback} callback Node-style callback called with the error, if any, and WriteResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(PlumberServer.prototype.write = function write(request, callback) {
+            return this.rpcCall(write, $root.protos.WriteRequest, $root.protos.WriteResponse, request, callback);
+        }, "name", { value: "Write" });
+
+        /**
+         * Calls Write.
+         * @function write
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IWriteRequest} request WriteRequest message or plain object
+         * @returns {Promise<protos.WriteResponse>} Promise
+         * @variation 2
+         */
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#createRelay}.
+         * @memberof protos.PlumberServer
+         * @typedef CreateRelayCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.CreateRelayResponse} [response] CreateRelayResponse
+         */
+
+        /**
+         * Calls CreateRelay.
+         * @function createRelay
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.ICreateRelayRequest} request CreateRelayRequest message or plain object
+         * @param {protos.PlumberServer.CreateRelayCallback} callback Node-style callback called with the error, if any, and CreateRelayResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(PlumberServer.prototype.createRelay = function createRelay(request, callback) {
+            return this.rpcCall(createRelay, $root.protos.CreateRelayRequest, $root.protos.CreateRelayResponse, request, callback);
+        }, "name", { value: "CreateRelay" });
+
+        /**
+         * Calls CreateRelay.
+         * @function createRelay
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.ICreateRelayRequest} request CreateRelayRequest message or plain object
+         * @returns {Promise<protos.CreateRelayResponse>} Promise
+         * @variation 2
+         */
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#updateRelay}.
+         * @memberof protos.PlumberServer
+         * @typedef UpdateRelayCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.UpdateRelayResponse} [response] UpdateRelayResponse
+         */
+
+        /**
+         * Calls UpdateRelay.
+         * @function updateRelay
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IUpdateRelayRequest} request UpdateRelayRequest message or plain object
+         * @param {protos.PlumberServer.UpdateRelayCallback} callback Node-style callback called with the error, if any, and UpdateRelayResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(PlumberServer.prototype.updateRelay = function updateRelay(request, callback) {
+            return this.rpcCall(updateRelay, $root.protos.UpdateRelayRequest, $root.protos.UpdateRelayResponse, request, callback);
+        }, "name", { value: "UpdateRelay" });
+
+        /**
+         * Calls UpdateRelay.
+         * @function updateRelay
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IUpdateRelayRequest} request UpdateRelayRequest message or plain object
+         * @returns {Promise<protos.UpdateRelayResponse>} Promise
+         * @variation 2
+         */
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#resumeRelay}.
+         * @memberof protos.PlumberServer
+         * @typedef ResumeRelayCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.ResumeRelayResponse} [response] ResumeRelayResponse
+         */
+
+        /**
+         * Calls ResumeRelay.
+         * @function resumeRelay
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IResumeRelayRequest} request ResumeRelayRequest message or plain object
+         * @param {protos.PlumberServer.ResumeRelayCallback} callback Node-style callback called with the error, if any, and ResumeRelayResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(PlumberServer.prototype.resumeRelay = function resumeRelay(request, callback) {
+            return this.rpcCall(resumeRelay, $root.protos.ResumeRelayRequest, $root.protos.ResumeRelayResponse, request, callback);
+        }, "name", { value: "ResumeRelay" });
+
+        /**
+         * Calls ResumeRelay.
+         * @function resumeRelay
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IResumeRelayRequest} request ResumeRelayRequest message or plain object
+         * @returns {Promise<protos.ResumeRelayResponse>} Promise
+         * @variation 2
+         */
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#stopRelay}.
+         * @memberof protos.PlumberServer
+         * @typedef StopRelayCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.StopRelayResponse} [response] StopRelayResponse
+         */
+
+        /**
+         * Calls StopRelay.
+         * @function stopRelay
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IStopRelayRequest} request StopRelayRequest message or plain object
+         * @param {protos.PlumberServer.StopRelayCallback} callback Node-style callback called with the error, if any, and StopRelayResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(PlumberServer.prototype.stopRelay = function stopRelay(request, callback) {
+            return this.rpcCall(stopRelay, $root.protos.StopRelayRequest, $root.protos.StopRelayResponse, request, callback);
+        }, "name", { value: "StopRelay" });
+
+        /**
+         * Calls StopRelay.
+         * @function stopRelay
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IStopRelayRequest} request StopRelayRequest message or plain object
+         * @returns {Promise<protos.StopRelayResponse>} Promise
+         * @variation 2
+         */
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#getAllRelays}.
+         * @memberof protos.PlumberServer
+         * @typedef GetAllRelaysCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.GetAllRelaysResponse} [response] GetAllRelaysResponse
+         */
+
+        /**
+         * Calls GetAllRelays.
+         * @function getAllRelays
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IGetAllRelaysRequest} request GetAllRelaysRequest message or plain object
+         * @param {protos.PlumberServer.GetAllRelaysCallback} callback Node-style callback called with the error, if any, and GetAllRelaysResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(PlumberServer.prototype.getAllRelays = function getAllRelays(request, callback) {
+            return this.rpcCall(getAllRelays, $root.protos.GetAllRelaysRequest, $root.protos.GetAllRelaysResponse, request, callback);
+        }, "name", { value: "GetAllRelays" });
+
+        /**
+         * Calls GetAllRelays.
+         * @function getAllRelays
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IGetAllRelaysRequest} request GetAllRelaysRequest message or plain object
+         * @returns {Promise<protos.GetAllRelaysResponse>} Promise
+         * @variation 2
+         */
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#deleteRelay}.
+         * @memberof protos.PlumberServer
+         * @typedef DeleteRelayCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.DeleteRelayResponse} [response] DeleteRelayResponse
+         */
+
+        /**
+         * Calls DeleteRelay.
+         * @function deleteRelay
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IDeleteRelayRequest} request DeleteRelayRequest message or plain object
+         * @param {protos.PlumberServer.DeleteRelayCallback} callback Node-style callback called with the error, if any, and DeleteRelayResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(PlumberServer.prototype.deleteRelay = function deleteRelay(request, callback) {
+            return this.rpcCall(deleteRelay, $root.protos.DeleteRelayRequest, $root.protos.DeleteRelayResponse, request, callback);
+        }, "name", { value: "DeleteRelay" });
+
+        /**
+         * Calls DeleteRelay.
+         * @function deleteRelay
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IDeleteRelayRequest} request DeleteRelayRequest message or plain object
+         * @returns {Promise<protos.DeleteRelayResponse>} Promise
+         * @variation 2
+         */
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#getSchema}.
+         * @memberof protos.PlumberServer
+         * @typedef GetSchemaCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.GetSchemaResponse} [response] GetSchemaResponse
+         */
+
+        /**
+         * Calls GetSchema.
+         * @function getSchema
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IGetSchemaRequest} request GetSchemaRequest message or plain object
+         * @param {protos.PlumberServer.GetSchemaCallback} callback Node-style callback called with the error, if any, and GetSchemaResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(PlumberServer.prototype.getSchema = function getSchema(request, callback) {
+            return this.rpcCall(getSchema, $root.protos.GetSchemaRequest, $root.protos.GetSchemaResponse, request, callback);
+        }, "name", { value: "GetSchema" });
+
+        /**
+         * Calls GetSchema.
+         * @function getSchema
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IGetSchemaRequest} request GetSchemaRequest message or plain object
+         * @returns {Promise<protos.GetSchemaResponse>} Promise
+         * @variation 2
+         */
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#getAllSchemas}.
+         * @memberof protos.PlumberServer
+         * @typedef GetAllSchemasCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.GetAllSchemasResponse} [response] GetAllSchemasResponse
+         */
+
+        /**
+         * Calls GetAllSchemas.
+         * @function getAllSchemas
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IGetAllSchemasRequest} request GetAllSchemasRequest message or plain object
+         * @param {protos.PlumberServer.GetAllSchemasCallback} callback Node-style callback called with the error, if any, and GetAllSchemasResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(PlumberServer.prototype.getAllSchemas = function getAllSchemas(request, callback) {
+            return this.rpcCall(getAllSchemas, $root.protos.GetAllSchemasRequest, $root.protos.GetAllSchemasResponse, request, callback);
+        }, "name", { value: "GetAllSchemas" });
+
+        /**
+         * Calls GetAllSchemas.
+         * @function getAllSchemas
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IGetAllSchemasRequest} request GetAllSchemasRequest message or plain object
+         * @returns {Promise<protos.GetAllSchemasResponse>} Promise
+         * @variation 2
+         */
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#updateSchema}.
+         * @memberof protos.PlumberServer
+         * @typedef UpdateSchemaCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.UpdateSchemaResponse} [response] UpdateSchemaResponse
+         */
+
+        /**
+         * Calls UpdateSchema.
+         * @function updateSchema
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IUpdateSchemaRequest} request UpdateSchemaRequest message or plain object
+         * @param {protos.PlumberServer.UpdateSchemaCallback} callback Node-style callback called with the error, if any, and UpdateSchemaResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(PlumberServer.prototype.updateSchema = function updateSchema(request, callback) {
+            return this.rpcCall(updateSchema, $root.protos.UpdateSchemaRequest, $root.protos.UpdateSchemaResponse, request, callback);
+        }, "name", { value: "UpdateSchema" });
+
+        /**
+         * Calls UpdateSchema.
+         * @function updateSchema
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IUpdateSchemaRequest} request UpdateSchemaRequest message or plain object
+         * @returns {Promise<protos.UpdateSchemaResponse>} Promise
+         * @variation 2
+         */
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#approveSchema}.
+         * @memberof protos.PlumberServer
+         * @typedef ApproveSchemaCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.ApproveSchemaVersionResponse} [response] ApproveSchemaVersionResponse
+         */
+
+        /**
+         * Calls ApproveSchema.
+         * @function approveSchema
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IApproveSchemaVersionRequest} request ApproveSchemaVersionRequest message or plain object
+         * @param {protos.PlumberServer.ApproveSchemaCallback} callback Node-style callback called with the error, if any, and ApproveSchemaVersionResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(PlumberServer.prototype.approveSchema = function approveSchema(request, callback) {
+            return this.rpcCall(approveSchema, $root.protos.ApproveSchemaVersionRequest, $root.protos.ApproveSchemaVersionResponse, request, callback);
+        }, "name", { value: "ApproveSchema" });
+
+        /**
+         * Calls ApproveSchema.
+         * @function approveSchema
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IApproveSchemaVersionRequest} request ApproveSchemaVersionRequest message or plain object
+         * @returns {Promise<protos.ApproveSchemaVersionResponse>} Promise
+         * @variation 2
+         */
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#importGithub}.
+         * @memberof protos.PlumberServer
+         * @typedef ImportGithubCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.ImportGithubResponse} [response] ImportGithubResponse
+         */
+
+        /**
+         * Calls ImportGithub.
+         * @function importGithub
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IImportGithubRequest} request ImportGithubRequest message or plain object
+         * @param {protos.PlumberServer.ImportGithubCallback} callback Node-style callback called with the error, if any, and ImportGithubResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(PlumberServer.prototype.importGithub = function importGithub(request, callback) {
+            return this.rpcCall(importGithub, $root.protos.ImportGithubRequest, $root.protos.ImportGithubResponse, request, callback);
+        }, "name", { value: "ImportGithub" });
+
+        /**
+         * Calls ImportGithub.
+         * @function importGithub
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IImportGithubRequest} request ImportGithubRequest message or plain object
+         * @returns {Promise<protos.ImportGithubResponse>} Promise
+         * @variation 2
+         */
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#importLocal}.
+         * @memberof protos.PlumberServer
+         * @typedef ImportLocalCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.ImportLocalResponse} [response] ImportLocalResponse
+         */
+
+        /**
+         * Calls ImportLocal.
+         * @function importLocal
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IImportLocalRequest} request ImportLocalRequest message or plain object
+         * @param {protos.PlumberServer.ImportLocalCallback} callback Node-style callback called with the error, if any, and ImportLocalResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(PlumberServer.prototype.importLocal = function importLocal(request, callback) {
+            return this.rpcCall(importLocal, $root.protos.ImportLocalRequest, $root.protos.ImportLocalResponse, request, callback);
+        }, "name", { value: "ImportLocal" });
+
+        /**
+         * Calls ImportLocal.
+         * @function importLocal
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IImportLocalRequest} request ImportLocalRequest message or plain object
+         * @returns {Promise<protos.ImportLocalResponse>} Promise
+         * @variation 2
+         */
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#deleteSchema}.
+         * @memberof protos.PlumberServer
+         * @typedef DeleteSchemaCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.DeleteSchemaResponse} [response] DeleteSchemaResponse
+         */
+
+        /**
+         * Calls DeleteSchema.
+         * @function deleteSchema
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IDeleteSchemaRequest} request DeleteSchemaRequest message or plain object
+         * @param {protos.PlumberServer.DeleteSchemaCallback} callback Node-style callback called with the error, if any, and DeleteSchemaResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(PlumberServer.prototype.deleteSchema = function deleteSchema(request, callback) {
+            return this.rpcCall(deleteSchema, $root.protos.DeleteSchemaRequest, $root.protos.DeleteSchemaResponse, request, callback);
+        }, "name", { value: "DeleteSchema" });
+
+        /**
+         * Calls DeleteSchema.
+         * @function deleteSchema
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IDeleteSchemaRequest} request DeleteSchemaRequest message or plain object
+         * @returns {Promise<protos.DeleteSchemaResponse>} Promise
+         * @variation 2
+         */
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#deleteSchemaVersion}.
+         * @memberof protos.PlumberServer
+         * @typedef DeleteSchemaVersionCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.DeleteSchemaVersionResponse} [response] DeleteSchemaVersionResponse
+         */
+
+        /**
+         * Calls DeleteSchemaVersion.
+         * @function deleteSchemaVersion
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IDeleteSchemaVersionRequest} request DeleteSchemaVersionRequest message or plain object
+         * @param {protos.PlumberServer.DeleteSchemaVersionCallback} callback Node-style callback called with the error, if any, and DeleteSchemaVersionResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(PlumberServer.prototype.deleteSchemaVersion = function deleteSchemaVersion(request, callback) {
+            return this.rpcCall(deleteSchemaVersion, $root.protos.DeleteSchemaVersionRequest, $root.protos.DeleteSchemaVersionResponse, request, callback);
+        }, "name", { value: "DeleteSchemaVersion" });
+
+        /**
+         * Calls DeleteSchemaVersion.
+         * @function deleteSchemaVersion
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IDeleteSchemaVersionRequest} request DeleteSchemaVersionRequest message or plain object
+         * @returns {Promise<protos.DeleteSchemaVersionResponse>} Promise
+         * @variation 2
+         */
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#getService}.
+         * @memberof protos.PlumberServer
+         * @typedef GetServiceCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.GetServiceResponse} [response] GetServiceResponse
+         */
+
+        /**
+         * Calls GetService.
+         * @function getService
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IGetServiceRequest} request GetServiceRequest message or plain object
+         * @param {protos.PlumberServer.GetServiceCallback} callback Node-style callback called with the error, if any, and GetServiceResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(PlumberServer.prototype.getService = function getService(request, callback) {
+            return this.rpcCall(getService, $root.protos.GetServiceRequest, $root.protos.GetServiceResponse, request, callback);
+        }, "name", { value: "GetService" });
+
+        /**
+         * Calls GetService.
+         * @function getService
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IGetServiceRequest} request GetServiceRequest message or plain object
+         * @returns {Promise<protos.GetServiceResponse>} Promise
+         * @variation 2
+         */
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#getAllServices}.
+         * @memberof protos.PlumberServer
+         * @typedef GetAllServicesCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.GetAllServicesResponse} [response] GetAllServicesResponse
+         */
+
+        /**
+         * Calls GetAllServices.
+         * @function getAllServices
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IGetAllServicesRequest} request GetAllServicesRequest message or plain object
+         * @param {protos.PlumberServer.GetAllServicesCallback} callback Node-style callback called with the error, if any, and GetAllServicesResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(PlumberServer.prototype.getAllServices = function getAllServices(request, callback) {
+            return this.rpcCall(getAllServices, $root.protos.GetAllServicesRequest, $root.protos.GetAllServicesResponse, request, callback);
+        }, "name", { value: "GetAllServices" });
+
+        /**
+         * Calls GetAllServices.
+         * @function getAllServices
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IGetAllServicesRequest} request GetAllServicesRequest message or plain object
+         * @returns {Promise<protos.GetAllServicesResponse>} Promise
+         * @variation 2
+         */
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#createService}.
+         * @memberof protos.PlumberServer
+         * @typedef CreateServiceCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.CreateServiceResponse} [response] CreateServiceResponse
+         */
+
+        /**
+         * Calls CreateService.
+         * @function createService
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.ICreateServiceRequest} request CreateServiceRequest message or plain object
+         * @param {protos.PlumberServer.CreateServiceCallback} callback Node-style callback called with the error, if any, and CreateServiceResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(PlumberServer.prototype.createService = function createService(request, callback) {
+            return this.rpcCall(createService, $root.protos.CreateServiceRequest, $root.protos.CreateServiceResponse, request, callback);
+        }, "name", { value: "CreateService" });
+
+        /**
+         * Calls CreateService.
+         * @function createService
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.ICreateServiceRequest} request CreateServiceRequest message or plain object
+         * @returns {Promise<protos.CreateServiceResponse>} Promise
+         * @variation 2
+         */
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#updateService}.
+         * @memberof protos.PlumberServer
+         * @typedef UpdateServiceCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.UpdateServiceResponse} [response] UpdateServiceResponse
+         */
+
+        /**
+         * Calls UpdateService.
+         * @function updateService
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IUpdateServiceRequest} request UpdateServiceRequest message or plain object
+         * @param {protos.PlumberServer.UpdateServiceCallback} callback Node-style callback called with the error, if any, and UpdateServiceResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(PlumberServer.prototype.updateService = function updateService(request, callback) {
+            return this.rpcCall(updateService, $root.protos.UpdateServiceRequest, $root.protos.UpdateServiceResponse, request, callback);
+        }, "name", { value: "UpdateService" });
+
+        /**
+         * Calls UpdateService.
+         * @function updateService
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IUpdateServiceRequest} request UpdateServiceRequest message or plain object
+         * @returns {Promise<protos.UpdateServiceResponse>} Promise
+         * @variation 2
+         */
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#deleteService}.
+         * @memberof protos.PlumberServer
+         * @typedef DeleteServiceCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.DeleteServiceResponse} [response] DeleteServiceResponse
+         */
+
+        /**
+         * Calls DeleteService.
+         * @function deleteService
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IDeleteServiceRequest} request DeleteServiceRequest message or plain object
+         * @param {protos.PlumberServer.DeleteServiceCallback} callback Node-style callback called with the error, if any, and DeleteServiceResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(PlumberServer.prototype.deleteService = function deleteService(request, callback) {
+            return this.rpcCall(deleteService, $root.protos.DeleteServiceRequest, $root.protos.DeleteServiceResponse, request, callback);
+        }, "name", { value: "DeleteService" });
+
+        /**
+         * Calls DeleteService.
+         * @function deleteService
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IDeleteServiceRequest} request DeleteServiceRequest message or plain object
+         * @returns {Promise<protos.DeleteServiceResponse>} Promise
+         * @variation 2
+         */
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#linkSchemaToService}.
+         * @memberof protos.PlumberServer
+         * @typedef LinkSchemaToServiceCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.LinkSchemaToServiceResponse} [response] LinkSchemaToServiceResponse
+         */
+
+        /**
+         * Calls LinkSchemaToService.
+         * @function linkSchemaToService
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.ILinkSchemaToServiceRequest} request LinkSchemaToServiceRequest message or plain object
+         * @param {protos.PlumberServer.LinkSchemaToServiceCallback} callback Node-style callback called with the error, if any, and LinkSchemaToServiceResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(PlumberServer.prototype.linkSchemaToService = function linkSchemaToService(request, callback) {
+            return this.rpcCall(linkSchemaToService, $root.protos.LinkSchemaToServiceRequest, $root.protos.LinkSchemaToServiceResponse, request, callback);
+        }, "name", { value: "LinkSchemaToService" });
+
+        /**
+         * Calls LinkSchemaToService.
+         * @function linkSchemaToService
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.ILinkSchemaToServiceRequest} request LinkSchemaToServiceRequest message or plain object
+         * @returns {Promise<protos.LinkSchemaToServiceResponse>} Promise
+         * @variation 2
+         */
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#unlinkSchemaFromService}.
+         * @memberof protos.PlumberServer
+         * @typedef UnlinkSchemaFromServiceCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.UnlinkSchemaFromServiceResponse} [response] UnlinkSchemaFromServiceResponse
+         */
+
+        /**
+         * Calls UnlinkSchemaFromService.
+         * @function unlinkSchemaFromService
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IUnlinkSchemaFromServiceRequest} request UnlinkSchemaFromServiceRequest message or plain object
+         * @param {protos.PlumberServer.UnlinkSchemaFromServiceCallback} callback Node-style callback called with the error, if any, and UnlinkSchemaFromServiceResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(PlumberServer.prototype.unlinkSchemaFromService = function unlinkSchemaFromService(request, callback) {
+            return this.rpcCall(unlinkSchemaFromService, $root.protos.UnlinkSchemaFromServiceRequest, $root.protos.UnlinkSchemaFromServiceResponse, request, callback);
+        }, "name", { value: "UnlinkSchemaFromService" });
+
+        /**
+         * Calls UnlinkSchemaFromService.
+         * @function unlinkSchemaFromService
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IUnlinkSchemaFromServiceRequest} request UnlinkSchemaFromServiceRequest message or plain object
+         * @returns {Promise<protos.UnlinkSchemaFromServiceResponse>} Promise
+         * @variation 2
+         */
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#linkRepoToService}.
+         * @memberof protos.PlumberServer
+         * @typedef LinkRepoToServiceCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.LinkRepoToServiceResponse} [response] LinkRepoToServiceResponse
+         */
+
+        /**
+         * Calls LinkRepoToService.
+         * @function linkRepoToService
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.ILinkRepoToServiceRequest} request LinkRepoToServiceRequest message or plain object
+         * @param {protos.PlumberServer.LinkRepoToServiceCallback} callback Node-style callback called with the error, if any, and LinkRepoToServiceResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(PlumberServer.prototype.linkRepoToService = function linkRepoToService(request, callback) {
+            return this.rpcCall(linkRepoToService, $root.protos.LinkRepoToServiceRequest, $root.protos.LinkRepoToServiceResponse, request, callback);
+        }, "name", { value: "LinkRepoToService" });
+
+        /**
+         * Calls LinkRepoToService.
+         * @function linkRepoToService
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.ILinkRepoToServiceRequest} request LinkRepoToServiceRequest message or plain object
+         * @returns {Promise<protos.LinkRepoToServiceResponse>} Promise
+         * @variation 2
+         */
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#unlinkRepoFromService}.
+         * @memberof protos.PlumberServer
+         * @typedef UnlinkRepoFromServiceCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.UnlinkRepoFromServiceResponse} [response] UnlinkRepoFromServiceResponse
+         */
+
+        /**
+         * Calls UnlinkRepoFromService.
+         * @function unlinkRepoFromService
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IUnlinkRepoFromServiceRequest} request UnlinkRepoFromServiceRequest message or plain object
+         * @param {protos.PlumberServer.UnlinkRepoFromServiceCallback} callback Node-style callback called with the error, if any, and UnlinkRepoFromServiceResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(PlumberServer.prototype.unlinkRepoFromService = function unlinkRepoFromService(request, callback) {
+            return this.rpcCall(unlinkRepoFromService, $root.protos.UnlinkRepoFromServiceRequest, $root.protos.UnlinkRepoFromServiceResponse, request, callback);
+        }, "name", { value: "UnlinkRepoFromService" });
+
+        /**
+         * Calls UnlinkRepoFromService.
+         * @function unlinkRepoFromService
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IUnlinkRepoFromServiceRequest} request UnlinkRepoFromServiceRequest message or plain object
+         * @returns {Promise<protos.UnlinkRepoFromServiceResponse>} Promise
+         * @variation 2
+         */
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#getServerOptions}.
+         * @memberof protos.PlumberServer
+         * @typedef GetServerOptionsCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.GetServerOptionsResponse} [response] GetServerOptionsResponse
+         */
+
+        /**
+         * Calls GetServerOptions.
+         * @function getServerOptions
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IGetServerOptionsRequest} request GetServerOptionsRequest message or plain object
+         * @param {protos.PlumberServer.GetServerOptionsCallback} callback Node-style callback called with the error, if any, and GetServerOptionsResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(PlumberServer.prototype.getServerOptions = function getServerOptions(request, callback) {
+            return this.rpcCall(getServerOptions, $root.protos.GetServerOptionsRequest, $root.protos.GetServerOptionsResponse, request, callback);
+        }, "name", { value: "GetServerOptions" });
+
+        /**
+         * Calls GetServerOptions.
+         * @function getServerOptions
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IGetServerOptionsRequest} request GetServerOptionsRequest message or plain object
+         * @returns {Promise<protos.GetServerOptionsResponse>} Promise
+         * @variation 2
+         */
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#setServerOptions}.
+         * @memberof protos.PlumberServer
+         * @typedef SetServerOptionsCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.SetServerOptionsResponse} [response] SetServerOptionsResponse
+         */
+
+        /**
+         * Calls SetServerOptions.
+         * @function setServerOptions
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.ISetServerOptionsRequest} request SetServerOptionsRequest message or plain object
+         * @param {protos.PlumberServer.SetServerOptionsCallback} callback Node-style callback called with the error, if any, and SetServerOptionsResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(PlumberServer.prototype.setServerOptions = function setServerOptions(request, callback) {
+            return this.rpcCall(setServerOptions, $root.protos.SetServerOptionsRequest, $root.protos.SetServerOptionsResponse, request, callback);
+        }, "name", { value: "SetServerOptions" });
+
+        /**
+         * Calls SetServerOptions.
+         * @function setServerOptions
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.ISetServerOptionsRequest} request SetServerOptionsRequest message or plain object
+         * @returns {Promise<protos.SetServerOptionsResponse>} Promise
+         * @variation 2
+         */
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#getVCEvents}.
+         * @memberof protos.PlumberServer
+         * @typedef GetVCEventsCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.VCEvent} [response] VCEvent
+         */
+
+        /**
+         * Calls GetVCEvents.
+         * @function getVCEvents
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IGetVCEventsRequest} request GetVCEventsRequest message or plain object
+         * @param {protos.PlumberServer.GetVCEventsCallback} callback Node-style callback called with the error, if any, and VCEvent
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(PlumberServer.prototype.getVCEvents = function getVCEvents(request, callback) {
+            return this.rpcCall(getVCEvents, $root.protos.GetVCEventsRequest, $root.protos.VCEvent, request, callback);
+        }, "name", { value: "GetVCEvents" });
+
+        /**
+         * Calls GetVCEvents.
+         * @function getVCEvents
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IGetVCEventsRequest} request GetVCEventsRequest message or plain object
+         * @returns {Promise<protos.VCEvent>} Promise
+         * @variation 2
+         */
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#getMonitor}.
+         * @memberof protos.PlumberServer
+         * @typedef GetMonitorCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.GetMonitorResponse} [response] GetMonitorResponse
+         */
+
+        /**
+         * Calls GetMonitor.
+         * @function getMonitor
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IGetMonitorRequest} request GetMonitorRequest message or plain object
+         * @param {protos.PlumberServer.GetMonitorCallback} callback Node-style callback called with the error, if any, and GetMonitorResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(PlumberServer.prototype.getMonitor = function getMonitor(request, callback) {
+            return this.rpcCall(getMonitor, $root.protos.GetMonitorRequest, $root.protos.GetMonitorResponse, request, callback);
+        }, "name", { value: "GetMonitor" });
+
+        /**
+         * Calls GetMonitor.
+         * @function getMonitor
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IGetMonitorRequest} request GetMonitorRequest message or plain object
+         * @returns {Promise<protos.GetMonitorResponse>} Promise
+         * @variation 2
+         */
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#createMonitor}.
+         * @memberof protos.PlumberServer
+         * @typedef CreateMonitorCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.CreateMonitorResponse} [response] CreateMonitorResponse
+         */
+
+        /**
+         * Calls CreateMonitor.
+         * @function createMonitor
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.ICreateMonitorRequest} request CreateMonitorRequest message or plain object
+         * @param {protos.PlumberServer.CreateMonitorCallback} callback Node-style callback called with the error, if any, and CreateMonitorResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(PlumberServer.prototype.createMonitor = function createMonitor(request, callback) {
+            return this.rpcCall(createMonitor, $root.protos.CreateMonitorRequest, $root.protos.CreateMonitorResponse, request, callback);
+        }, "name", { value: "CreateMonitor" });
+
+        /**
+         * Calls CreateMonitor.
+         * @function createMonitor
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.ICreateMonitorRequest} request CreateMonitorRequest message or plain object
+         * @returns {Promise<protos.CreateMonitorResponse>} Promise
+         * @variation 2
+         */
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#deleteMonitor}.
+         * @memberof protos.PlumberServer
+         * @typedef DeleteMonitorCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.DeleteMonitorResponse} [response] DeleteMonitorResponse
+         */
+
+        /**
+         * Calls DeleteMonitor.
+         * @function deleteMonitor
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IDeleteMonitorRequest} request DeleteMonitorRequest message or plain object
+         * @param {protos.PlumberServer.DeleteMonitorCallback} callback Node-style callback called with the error, if any, and DeleteMonitorResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(PlumberServer.prototype.deleteMonitor = function deleteMonitor(request, callback) {
+            return this.rpcCall(deleteMonitor, $root.protos.DeleteMonitorRequest, $root.protos.DeleteMonitorResponse, request, callback);
+        }, "name", { value: "DeleteMonitor" });
+
+        /**
+         * Calls DeleteMonitor.
+         * @function deleteMonitor
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IDeleteMonitorRequest} request DeleteMonitorRequest message or plain object
+         * @returns {Promise<protos.DeleteMonitorResponse>} Promise
+         * @variation 2
+         */
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#updateMonitor}.
+         * @memberof protos.PlumberServer
+         * @typedef UpdateMonitorCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.UpdateMonitorResponse} [response] UpdateMonitorResponse
+         */
+
+        /**
+         * Calls UpdateMonitor.
+         * @function updateMonitor
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IUpdateMonitorRequest} request UpdateMonitorRequest message or plain object
+         * @param {protos.PlumberServer.UpdateMonitorCallback} callback Node-style callback called with the error, if any, and UpdateMonitorResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(PlumberServer.prototype.updateMonitor = function updateMonitor(request, callback) {
+            return this.rpcCall(updateMonitor, $root.protos.UpdateMonitorRequest, $root.protos.UpdateMonitorResponse, request, callback);
+        }, "name", { value: "UpdateMonitor" });
+
+        /**
+         * Calls UpdateMonitor.
+         * @function updateMonitor
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IUpdateMonitorRequest} request UpdateMonitorRequest message or plain object
+         * @returns {Promise<protos.UpdateMonitorResponse>} Promise
+         * @variation 2
+         */
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#getAlert}.
+         * @memberof protos.PlumberServer
+         * @typedef GetAlertCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.GetMonitorResponse} [response] GetMonitorResponse
+         */
+
+        /**
+         * Calls GetAlert.
+         * @function getAlert
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IGetMonitorRequest} request GetMonitorRequest message or plain object
+         * @param {protos.PlumberServer.GetAlertCallback} callback Node-style callback called with the error, if any, and GetMonitorResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(PlumberServer.prototype.getAlert = function getAlert(request, callback) {
+            return this.rpcCall(getAlert, $root.protos.GetMonitorRequest, $root.protos.GetMonitorResponse, request, callback);
+        }, "name", { value: "GetAlert" });
+
+        /**
+         * Calls GetAlert.
+         * @function getAlert
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IGetMonitorRequest} request GetMonitorRequest message or plain object
+         * @returns {Promise<protos.GetMonitorResponse>} Promise
+         * @variation 2
+         */
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#createAlert}.
+         * @memberof protos.PlumberServer
+         * @typedef CreateAlertCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.CreateAlertResponse} [response] CreateAlertResponse
+         */
+
+        /**
+         * Calls CreateAlert.
+         * @function createAlert
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.ICreateAlertRequest} request CreateAlertRequest message or plain object
+         * @param {protos.PlumberServer.CreateAlertCallback} callback Node-style callback called with the error, if any, and CreateAlertResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(PlumberServer.prototype.createAlert = function createAlert(request, callback) {
+            return this.rpcCall(createAlert, $root.protos.CreateAlertRequest, $root.protos.CreateAlertResponse, request, callback);
+        }, "name", { value: "CreateAlert" });
+
+        /**
+         * Calls CreateAlert.
+         * @function createAlert
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.ICreateAlertRequest} request CreateAlertRequest message or plain object
+         * @returns {Promise<protos.CreateAlertResponse>} Promise
+         * @variation 2
+         */
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#deleteAlert}.
+         * @memberof protos.PlumberServer
+         * @typedef DeleteAlertCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.DeleteAlertResponse} [response] DeleteAlertResponse
+         */
+
+        /**
+         * Calls DeleteAlert.
+         * @function deleteAlert
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IDeleteAlertRequest} request DeleteAlertRequest message or plain object
+         * @param {protos.PlumberServer.DeleteAlertCallback} callback Node-style callback called with the error, if any, and DeleteAlertResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(PlumberServer.prototype.deleteAlert = function deleteAlert(request, callback) {
+            return this.rpcCall(deleteAlert, $root.protos.DeleteAlertRequest, $root.protos.DeleteAlertResponse, request, callback);
+        }, "name", { value: "DeleteAlert" });
+
+        /**
+         * Calls DeleteAlert.
+         * @function deleteAlert
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IDeleteAlertRequest} request DeleteAlertRequest message or plain object
+         * @returns {Promise<protos.DeleteAlertResponse>} Promise
+         * @variation 2
+         */
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#updateAlert}.
+         * @memberof protos.PlumberServer
+         * @typedef UpdateAlertCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.UpdateAlertResponse} [response] UpdateAlertResponse
+         */
+
+        /**
+         * Calls UpdateAlert.
+         * @function updateAlert
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IUpdateAlertRequest} request UpdateAlertRequest message or plain object
+         * @param {protos.PlumberServer.UpdateAlertCallback} callback Node-style callback called with the error, if any, and UpdateAlertResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(PlumberServer.prototype.updateAlert = function updateAlert(request, callback) {
+            return this.rpcCall(updateAlert, $root.protos.UpdateAlertRequest, $root.protos.UpdateAlertResponse, request, callback);
+        }, "name", { value: "UpdateAlert" });
+
+        /**
+         * Calls UpdateAlert.
+         * @function updateAlert
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IUpdateAlertRequest} request UpdateAlertRequest message or plain object
+         * @returns {Promise<protos.UpdateAlertResponse>} Promise
+         * @variation 2
+         */
+
+        return PlumberServer;
+    })();
+
+    protos.GetAllConnectionsRequest = (function() {
+
+        /**
+         * Properties of a GetAllConnectionsRequest.
+         * @memberof protos
+         * @interface IGetAllConnectionsRequest
+         * @property {protos.common.IAuth|null} [auth] GetAllConnectionsRequest auth
+         */
+
+        /**
+         * Constructs a new GetAllConnectionsRequest.
+         * @memberof protos
+         * @classdesc Represents a GetAllConnectionsRequest.
+         * @implements IGetAllConnectionsRequest
+         * @constructor
+         * @param {protos.IGetAllConnectionsRequest=} [properties] Properties to set
+         */
+        function GetAllConnectionsRequest(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * GetAllConnectionsRequest auth.
+         * @member {protos.common.IAuth|null|undefined} auth
+         * @memberof protos.GetAllConnectionsRequest
+         * @instance
+         */
+        GetAllConnectionsRequest.prototype.auth = null;
+
+        /**
+         * Creates a new GetAllConnectionsRequest instance using the specified properties.
+         * @function create
+         * @memberof protos.GetAllConnectionsRequest
+         * @static
+         * @param {protos.IGetAllConnectionsRequest=} [properties] Properties to set
+         * @returns {protos.GetAllConnectionsRequest} GetAllConnectionsRequest instance
+         */
+        GetAllConnectionsRequest.create = function create(properties) {
+            return new GetAllConnectionsRequest(properties);
+        };
+
+        /**
+         * Encodes the specified GetAllConnectionsRequest message. Does not implicitly {@link protos.GetAllConnectionsRequest.verify|verify} messages.
+         * @function encode
+         * @memberof protos.GetAllConnectionsRequest
+         * @static
+         * @param {protos.IGetAllConnectionsRequest} message GetAllConnectionsRequest message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        GetAllConnectionsRequest.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.auth != null && Object.hasOwnProperty.call(message, "auth"))
+                $root.protos.common.Auth.encode(message.auth, writer.uint32(/* id 9999, wireType 2 =*/79994).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Encodes the specified GetAllConnectionsRequest message, length delimited. Does not implicitly {@link protos.GetAllConnectionsRequest.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.GetAllConnectionsRequest
+         * @static
+         * @param {protos.IGetAllConnectionsRequest} message GetAllConnectionsRequest message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        GetAllConnectionsRequest.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a GetAllConnectionsRequest message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.GetAllConnectionsRequest
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.GetAllConnectionsRequest} GetAllConnectionsRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        GetAllConnectionsRequest.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.GetAllConnectionsRequest();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 9999:
+                    message.auth = $root.protos.common.Auth.decode(reader, reader.uint32());
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a GetAllConnectionsRequest message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.GetAllConnectionsRequest
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.GetAllConnectionsRequest} GetAllConnectionsRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        GetAllConnectionsRequest.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a GetAllConnectionsRequest message.
+         * @function verify
+         * @memberof protos.GetAllConnectionsRequest
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        GetAllConnectionsRequest.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.auth != null && message.hasOwnProperty("auth")) {
+                var error = $root.protos.common.Auth.verify(message.auth);
+                if (error)
+                    return "auth." + error;
+            }
+            return null;
+        };
+
+        /**
+         * Creates a GetAllConnectionsRequest message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.GetAllConnectionsRequest
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.GetAllConnectionsRequest} GetAllConnectionsRequest
+         */
+        GetAllConnectionsRequest.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.GetAllConnectionsRequest)
+                return object;
+            var message = new $root.protos.GetAllConnectionsRequest();
+            if (object.auth != null) {
+                if (typeof object.auth !== "object")
+                    throw TypeError(".protos.GetAllConnectionsRequest.auth: object expected");
+                message.auth = $root.protos.common.Auth.fromObject(object.auth);
+            }
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a GetAllConnectionsRequest message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.GetAllConnectionsRequest
+         * @static
+         * @param {protos.GetAllConnectionsRequest} message GetAllConnectionsRequest
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        GetAllConnectionsRequest.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults)
+                object.auth = null;
+            if (message.auth != null && message.hasOwnProperty("auth"))
+                object.auth = $root.protos.common.Auth.toObject(message.auth, options);
+            return object;
+        };
+
+        /**
+         * Converts this GetAllConnectionsRequest to JSON.
+         * @function toJSON
+         * @memberof protos.GetAllConnectionsRequest
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        GetAllConnectionsRequest.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return GetAllConnectionsRequest;
+    })();
+
+    protos.GetAllConnectionsResponse = (function() {
+
+        /**
+         * Properties of a GetAllConnectionsResponse.
+         * @memberof protos
+         * @interface IGetAllConnectionsResponse
+         * @property {Array.<protos.opts.IConnectionOptions>|null} [options] GetAllConnectionsResponse options
+         */
+
+        /**
+         * Constructs a new GetAllConnectionsResponse.
+         * @memberof protos
+         * @classdesc Represents a GetAllConnectionsResponse.
+         * @implements IGetAllConnectionsResponse
+         * @constructor
+         * @param {protos.IGetAllConnectionsResponse=} [properties] Properties to set
+         */
+        function GetAllConnectionsResponse(properties) {
+            this.options = [];
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * GetAllConnectionsResponse options.
+         * @member {Array.<protos.opts.IConnectionOptions>} options
+         * @memberof protos.GetAllConnectionsResponse
+         * @instance
+         */
+        GetAllConnectionsResponse.prototype.options = $util.emptyArray;
+
+        /**
+         * Creates a new GetAllConnectionsResponse instance using the specified properties.
+         * @function create
+         * @memberof protos.GetAllConnectionsResponse
+         * @static
+         * @param {protos.IGetAllConnectionsResponse=} [properties] Properties to set
+         * @returns {protos.GetAllConnectionsResponse} GetAllConnectionsResponse instance
+         */
+        GetAllConnectionsResponse.create = function create(properties) {
+            return new GetAllConnectionsResponse(properties);
+        };
+
+        /**
+         * Encodes the specified GetAllConnectionsResponse message. Does not implicitly {@link protos.GetAllConnectionsResponse.verify|verify} messages.
+         * @function encode
+         * @memberof protos.GetAllConnectionsResponse
+         * @static
+         * @param {protos.IGetAllConnectionsResponse} message GetAllConnectionsResponse message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        GetAllConnectionsResponse.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.options != null && message.options.length)
+                for (var i = 0; i < message.options.length; ++i)
+                    $root.protos.opts.ConnectionOptions.encode(message.options[i], writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Encodes the specified GetAllConnectionsResponse message, length delimited. Does not implicitly {@link protos.GetAllConnectionsResponse.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.GetAllConnectionsResponse
+         * @static
+         * @param {protos.IGetAllConnectionsResponse} message GetAllConnectionsResponse message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        GetAllConnectionsResponse.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a GetAllConnectionsResponse message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.GetAllConnectionsResponse
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.GetAllConnectionsResponse} GetAllConnectionsResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        GetAllConnectionsResponse.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.GetAllConnectionsResponse();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    if (!(message.options && message.options.length))
+                        message.options = [];
+                    message.options.push($root.protos.opts.ConnectionOptions.decode(reader, reader.uint32()));
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a GetAllConnectionsResponse message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.GetAllConnectionsResponse
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.GetAllConnectionsResponse} GetAllConnectionsResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        GetAllConnectionsResponse.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a GetAllConnectionsResponse message.
+         * @function verify
+         * @memberof protos.GetAllConnectionsResponse
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        GetAllConnectionsResponse.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.options != null && message.hasOwnProperty("options")) {
+                if (!Array.isArray(message.options))
+                    return "options: array expected";
+                for (var i = 0; i < message.options.length; ++i) {
+                    var error = $root.protos.opts.ConnectionOptions.verify(message.options[i]);
+                    if (error)
+                        return "options." + error;
+                }
+            }
+            return null;
+        };
+
+        /**
+         * Creates a GetAllConnectionsResponse message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.GetAllConnectionsResponse
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.GetAllConnectionsResponse} GetAllConnectionsResponse
+         */
+        GetAllConnectionsResponse.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.GetAllConnectionsResponse)
+                return object;
+            var message = new $root.protos.GetAllConnectionsResponse();
+            if (object.options) {
+                if (!Array.isArray(object.options))
+                    throw TypeError(".protos.GetAllConnectionsResponse.options: array expected");
+                message.options = [];
+                for (var i = 0; i < object.options.length; ++i) {
+                    if (typeof object.options[i] !== "object")
+                        throw TypeError(".protos.GetAllConnectionsResponse.options: object expected");
+                    message.options[i] = $root.protos.opts.ConnectionOptions.fromObject(object.options[i]);
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a GetAllConnectionsResponse message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.GetAllConnectionsResponse
+         * @static
+         * @param {protos.GetAllConnectionsResponse} message GetAllConnectionsResponse
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        GetAllConnectionsResponse.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.arrays || options.defaults)
+                object.options = [];
+            if (message.options && message.options.length) {
+                object.options = [];
+                for (var j = 0; j < message.options.length; ++j)
+                    object.options[j] = $root.protos.opts.ConnectionOptions.toObject(message.options[j], options);
+            }
+            return object;
+        };
+
+        /**
+         * Converts this GetAllConnectionsResponse to JSON.
+         * @function toJSON
+         * @memberof protos.GetAllConnectionsResponse
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        GetAllConnectionsResponse.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return GetAllConnectionsResponse;
+    })();
+
+    protos.GetConnectionRequest = (function() {
+
+        /**
+         * Properties of a GetConnectionRequest.
+         * @memberof protos
+         * @interface IGetConnectionRequest
+         * @property {protos.common.IAuth|null} [auth] GetConnectionRequest auth
+         * @property {string|null} [connectionId] GetConnectionRequest connectionId
+         */
+
+        /**
+         * Constructs a new GetConnectionRequest.
+         * @memberof protos
+         * @classdesc Represents a GetConnectionRequest.
+         * @implements IGetConnectionRequest
+         * @constructor
+         * @param {protos.IGetConnectionRequest=} [properties] Properties to set
+         */
+        function GetConnectionRequest(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * GetConnectionRequest auth.
+         * @member {protos.common.IAuth|null|undefined} auth
+         * @memberof protos.GetConnectionRequest
+         * @instance
+         */
+        GetConnectionRequest.prototype.auth = null;
+
+        /**
+         * GetConnectionRequest connectionId.
+         * @member {string} connectionId
+         * @memberof protos.GetConnectionRequest
+         * @instance
+         */
+        GetConnectionRequest.prototype.connectionId = "";
+
+        /**
+         * Creates a new GetConnectionRequest instance using the specified properties.
+         * @function create
+         * @memberof protos.GetConnectionRequest
+         * @static
+         * @param {protos.IGetConnectionRequest=} [properties] Properties to set
+         * @returns {protos.GetConnectionRequest} GetConnectionRequest instance
+         */
+        GetConnectionRequest.create = function create(properties) {
+            return new GetConnectionRequest(properties);
+        };
+
+        /**
+         * Encodes the specified GetConnectionRequest message. Does not implicitly {@link protos.GetConnectionRequest.verify|verify} messages.
+         * @function encode
+         * @memberof protos.GetConnectionRequest
+         * @static
+         * @param {protos.IGetConnectionRequest} message GetConnectionRequest message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        GetConnectionRequest.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.connectionId != null && Object.hasOwnProperty.call(message, "connectionId"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.connectionId);
+            if (message.auth != null && Object.hasOwnProperty.call(message, "auth"))
+                $root.protos.common.Auth.encode(message.auth, writer.uint32(/* id 9999, wireType 2 =*/79994).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Encodes the specified GetConnectionRequest message, length delimited. Does not implicitly {@link protos.GetConnectionRequest.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.GetConnectionRequest
+         * @static
+         * @param {protos.IGetConnectionRequest} message GetConnectionRequest message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        GetConnectionRequest.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a GetConnectionRequest message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.GetConnectionRequest
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.GetConnectionRequest} GetConnectionRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        GetConnectionRequest.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.GetConnectionRequest();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 9999:
+                    message.auth = $root.protos.common.Auth.decode(reader, reader.uint32());
+                    break;
+                case 1:
+                    message.connectionId = reader.string();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a GetConnectionRequest message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.GetConnectionRequest
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.GetConnectionRequest} GetConnectionRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        GetConnectionRequest.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a GetConnectionRequest message.
+         * @function verify
+         * @memberof protos.GetConnectionRequest
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        GetConnectionRequest.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.auth != null && message.hasOwnProperty("auth")) {
+                var error = $root.protos.common.Auth.verify(message.auth);
+                if (error)
+                    return "auth." + error;
+            }
+            if (message.connectionId != null && message.hasOwnProperty("connectionId"))
+                if (!$util.isString(message.connectionId))
+                    return "connectionId: string expected";
+            return null;
+        };
+
+        /**
+         * Creates a GetConnectionRequest message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.GetConnectionRequest
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.GetConnectionRequest} GetConnectionRequest
+         */
+        GetConnectionRequest.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.GetConnectionRequest)
+                return object;
+            var message = new $root.protos.GetConnectionRequest();
+            if (object.auth != null) {
+                if (typeof object.auth !== "object")
+                    throw TypeError(".protos.GetConnectionRequest.auth: object expected");
+                message.auth = $root.protos.common.Auth.fromObject(object.auth);
+            }
+            if (object.connectionId != null)
+                message.connectionId = String(object.connectionId);
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a GetConnectionRequest message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.GetConnectionRequest
+         * @static
+         * @param {protos.GetConnectionRequest} message GetConnectionRequest
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        GetConnectionRequest.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.connectionId = "";
+                object.auth = null;
+            }
+            if (message.connectionId != null && message.hasOwnProperty("connectionId"))
+                object.connectionId = message.connectionId;
+            if (message.auth != null && message.hasOwnProperty("auth"))
+                object.auth = $root.protos.common.Auth.toObject(message.auth, options);
+            return object;
+        };
+
+        /**
+         * Converts this GetConnectionRequest to JSON.
+         * @function toJSON
+         * @memberof protos.GetConnectionRequest
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        GetConnectionRequest.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return GetConnectionRequest;
+    })();
+
+    protos.GetConnectionResponse = (function() {
+
+        /**
+         * Properties of a GetConnectionResponse.
+         * @memberof protos
+         * @interface IGetConnectionResponse
+         * @property {protos.opts.IConnectionOptions|null} [options] GetConnectionResponse options
+         */
+
+        /**
+         * Constructs a new GetConnectionResponse.
+         * @memberof protos
+         * @classdesc Represents a GetConnectionResponse.
+         * @implements IGetConnectionResponse
+         * @constructor
+         * @param {protos.IGetConnectionResponse=} [properties] Properties to set
+         */
+        function GetConnectionResponse(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * GetConnectionResponse options.
+         * @member {protos.opts.IConnectionOptions|null|undefined} options
+         * @memberof protos.GetConnectionResponse
+         * @instance
+         */
+        GetConnectionResponse.prototype.options = null;
+
+        /**
+         * Creates a new GetConnectionResponse instance using the specified properties.
+         * @function create
+         * @memberof protos.GetConnectionResponse
+         * @static
+         * @param {protos.IGetConnectionResponse=} [properties] Properties to set
+         * @returns {protos.GetConnectionResponse} GetConnectionResponse instance
+         */
+        GetConnectionResponse.create = function create(properties) {
+            return new GetConnectionResponse(properties);
+        };
+
+        /**
+         * Encodes the specified GetConnectionResponse message. Does not implicitly {@link protos.GetConnectionResponse.verify|verify} messages.
+         * @function encode
+         * @memberof protos.GetConnectionResponse
+         * @static
+         * @param {protos.IGetConnectionResponse} message GetConnectionResponse message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        GetConnectionResponse.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.options != null && Object.hasOwnProperty.call(message, "options"))
+                $root.protos.opts.ConnectionOptions.encode(message.options, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Encodes the specified GetConnectionResponse message, length delimited. Does not implicitly {@link protos.GetConnectionResponse.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.GetConnectionResponse
+         * @static
+         * @param {protos.IGetConnectionResponse} message GetConnectionResponse message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        GetConnectionResponse.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a GetConnectionResponse message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.GetConnectionResponse
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.GetConnectionResponse} GetConnectionResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        GetConnectionResponse.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.GetConnectionResponse();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.options = $root.protos.opts.ConnectionOptions.decode(reader, reader.uint32());
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a GetConnectionResponse message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.GetConnectionResponse
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.GetConnectionResponse} GetConnectionResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        GetConnectionResponse.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a GetConnectionResponse message.
+         * @function verify
+         * @memberof protos.GetConnectionResponse
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        GetConnectionResponse.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.options != null && message.hasOwnProperty("options")) {
+                var error = $root.protos.opts.ConnectionOptions.verify(message.options);
+                if (error)
+                    return "options." + error;
+            }
+            return null;
+        };
+
+        /**
+         * Creates a GetConnectionResponse message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.GetConnectionResponse
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.GetConnectionResponse} GetConnectionResponse
+         */
+        GetConnectionResponse.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.GetConnectionResponse)
+                return object;
+            var message = new $root.protos.GetConnectionResponse();
+            if (object.options != null) {
+                if (typeof object.options !== "object")
+                    throw TypeError(".protos.GetConnectionResponse.options: object expected");
+                message.options = $root.protos.opts.ConnectionOptions.fromObject(object.options);
+            }
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a GetConnectionResponse message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.GetConnectionResponse
+         * @static
+         * @param {protos.GetConnectionResponse} message GetConnectionResponse
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        GetConnectionResponse.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults)
+                object.options = null;
+            if (message.options != null && message.hasOwnProperty("options"))
+                object.options = $root.protos.opts.ConnectionOptions.toObject(message.options, options);
+            return object;
+        };
+
+        /**
+         * Converts this GetConnectionResponse to JSON.
+         * @function toJSON
+         * @memberof protos.GetConnectionResponse
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        GetConnectionResponse.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return GetConnectionResponse;
+    })();
+
+    protos.CreateConnectionRequest = (function() {
+
+        /**
+         * Properties of a CreateConnectionRequest.
+         * @memberof protos
+         * @interface ICreateConnectionRequest
+         * @property {protos.common.IAuth|null} [auth] CreateConnectionRequest auth
+         * @property {protos.opts.IConnectionOptions|null} [options] CreateConnectionRequest options
+         */
+
+        /**
+         * Constructs a new CreateConnectionRequest.
+         * @memberof protos
+         * @classdesc Represents a CreateConnectionRequest.
+         * @implements ICreateConnectionRequest
+         * @constructor
+         * @param {protos.ICreateConnectionRequest=} [properties] Properties to set
+         */
+        function CreateConnectionRequest(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * CreateConnectionRequest auth.
+         * @member {protos.common.IAuth|null|undefined} auth
+         * @memberof protos.CreateConnectionRequest
+         * @instance
+         */
+        CreateConnectionRequest.prototype.auth = null;
+
+        /**
+         * CreateConnectionRequest options.
+         * @member {protos.opts.IConnectionOptions|null|undefined} options
+         * @memberof protos.CreateConnectionRequest
+         * @instance
+         */
+        CreateConnectionRequest.prototype.options = null;
+
+        /**
+         * Creates a new CreateConnectionRequest instance using the specified properties.
+         * @function create
+         * @memberof protos.CreateConnectionRequest
+         * @static
+         * @param {protos.ICreateConnectionRequest=} [properties] Properties to set
+         * @returns {protos.CreateConnectionRequest} CreateConnectionRequest instance
+         */
+        CreateConnectionRequest.create = function create(properties) {
+            return new CreateConnectionRequest(properties);
+        };
+
+        /**
+         * Encodes the specified CreateConnectionRequest message. Does not implicitly {@link protos.CreateConnectionRequest.verify|verify} messages.
+         * @function encode
+         * @memberof protos.CreateConnectionRequest
+         * @static
+         * @param {protos.ICreateConnectionRequest} message CreateConnectionRequest message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        CreateConnectionRequest.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.options != null && Object.hasOwnProperty.call(message, "options"))
+                $root.protos.opts.ConnectionOptions.encode(message.options, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+            if (message.auth != null && Object.hasOwnProperty.call(message, "auth"))
+                $root.protos.common.Auth.encode(message.auth, writer.uint32(/* id 9999, wireType 2 =*/79994).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Encodes the specified CreateConnectionRequest message, length delimited. Does not implicitly {@link protos.CreateConnectionRequest.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.CreateConnectionRequest
+         * @static
+         * @param {protos.ICreateConnectionRequest} message CreateConnectionRequest message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        CreateConnectionRequest.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a CreateConnectionRequest message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.CreateConnectionRequest
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.CreateConnectionRequest} CreateConnectionRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        CreateConnectionRequest.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.CreateConnectionRequest();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 9999:
+                    message.auth = $root.protos.common.Auth.decode(reader, reader.uint32());
+                    break;
+                case 1:
+                    message.options = $root.protos.opts.ConnectionOptions.decode(reader, reader.uint32());
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a CreateConnectionRequest message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.CreateConnectionRequest
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.CreateConnectionRequest} CreateConnectionRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        CreateConnectionRequest.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a CreateConnectionRequest message.
+         * @function verify
+         * @memberof protos.CreateConnectionRequest
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        CreateConnectionRequest.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.auth != null && message.hasOwnProperty("auth")) {
+                var error = $root.protos.common.Auth.verify(message.auth);
+                if (error)
+                    return "auth." + error;
+            }
+            if (message.options != null && message.hasOwnProperty("options")) {
+                var error = $root.protos.opts.ConnectionOptions.verify(message.options);
+                if (error)
+                    return "options." + error;
+            }
+            return null;
+        };
+
+        /**
+         * Creates a CreateConnectionRequest message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.CreateConnectionRequest
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.CreateConnectionRequest} CreateConnectionRequest
+         */
+        CreateConnectionRequest.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.CreateConnectionRequest)
+                return object;
+            var message = new $root.protos.CreateConnectionRequest();
+            if (object.auth != null) {
+                if (typeof object.auth !== "object")
+                    throw TypeError(".protos.CreateConnectionRequest.auth: object expected");
+                message.auth = $root.protos.common.Auth.fromObject(object.auth);
+            }
+            if (object.options != null) {
+                if (typeof object.options !== "object")
+                    throw TypeError(".protos.CreateConnectionRequest.options: object expected");
+                message.options = $root.protos.opts.ConnectionOptions.fromObject(object.options);
+            }
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a CreateConnectionRequest message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.CreateConnectionRequest
+         * @static
+         * @param {protos.CreateConnectionRequest} message CreateConnectionRequest
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        CreateConnectionRequest.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.options = null;
+                object.auth = null;
+            }
+            if (message.options != null && message.hasOwnProperty("options"))
+                object.options = $root.protos.opts.ConnectionOptions.toObject(message.options, options);
+            if (message.auth != null && message.hasOwnProperty("auth"))
+                object.auth = $root.protos.common.Auth.toObject(message.auth, options);
+            return object;
+        };
+
+        /**
+         * Converts this CreateConnectionRequest to JSON.
+         * @function toJSON
+         * @memberof protos.CreateConnectionRequest
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        CreateConnectionRequest.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return CreateConnectionRequest;
+    })();
+
+    protos.CreateConnectionResponse = (function() {
+
+        /**
+         * Properties of a CreateConnectionResponse.
+         * @memberof protos
+         * @interface ICreateConnectionResponse
+         * @property {string|null} [connectionId] CreateConnectionResponse connectionId
+         */
+
+        /**
+         * Constructs a new CreateConnectionResponse.
+         * @memberof protos
+         * @classdesc Represents a CreateConnectionResponse.
+         * @implements ICreateConnectionResponse
+         * @constructor
+         * @param {protos.ICreateConnectionResponse=} [properties] Properties to set
+         */
+        function CreateConnectionResponse(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * CreateConnectionResponse connectionId.
+         * @member {string} connectionId
+         * @memberof protos.CreateConnectionResponse
+         * @instance
+         */
+        CreateConnectionResponse.prototype.connectionId = "";
+
+        /**
+         * Creates a new CreateConnectionResponse instance using the specified properties.
+         * @function create
+         * @memberof protos.CreateConnectionResponse
+         * @static
+         * @param {protos.ICreateConnectionResponse=} [properties] Properties to set
+         * @returns {protos.CreateConnectionResponse} CreateConnectionResponse instance
+         */
+        CreateConnectionResponse.create = function create(properties) {
+            return new CreateConnectionResponse(properties);
+        };
+
+        /**
+         * Encodes the specified CreateConnectionResponse message. Does not implicitly {@link protos.CreateConnectionResponse.verify|verify} messages.
+         * @function encode
+         * @memberof protos.CreateConnectionResponse
+         * @static
+         * @param {protos.ICreateConnectionResponse} message CreateConnectionResponse message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        CreateConnectionResponse.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.connectionId != null && Object.hasOwnProperty.call(message, "connectionId"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.connectionId);
+            return writer;
+        };
+
+        /**
+         * Encodes the specified CreateConnectionResponse message, length delimited. Does not implicitly {@link protos.CreateConnectionResponse.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.CreateConnectionResponse
+         * @static
+         * @param {protos.ICreateConnectionResponse} message CreateConnectionResponse message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        CreateConnectionResponse.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a CreateConnectionResponse message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.CreateConnectionResponse
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.CreateConnectionResponse} CreateConnectionResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        CreateConnectionResponse.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.CreateConnectionResponse();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.connectionId = reader.string();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a CreateConnectionResponse message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.CreateConnectionResponse
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.CreateConnectionResponse} CreateConnectionResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        CreateConnectionResponse.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a CreateConnectionResponse message.
+         * @function verify
+         * @memberof protos.CreateConnectionResponse
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        CreateConnectionResponse.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.connectionId != null && message.hasOwnProperty("connectionId"))
+                if (!$util.isString(message.connectionId))
+                    return "connectionId: string expected";
+            return null;
+        };
+
+        /**
+         * Creates a CreateConnectionResponse message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.CreateConnectionResponse
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.CreateConnectionResponse} CreateConnectionResponse
+         */
+        CreateConnectionResponse.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.CreateConnectionResponse)
+                return object;
+            var message = new $root.protos.CreateConnectionResponse();
+            if (object.connectionId != null)
+                message.connectionId = String(object.connectionId);
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a CreateConnectionResponse message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.CreateConnectionResponse
+         * @static
+         * @param {protos.CreateConnectionResponse} message CreateConnectionResponse
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        CreateConnectionResponse.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults)
+                object.connectionId = "";
+            if (message.connectionId != null && message.hasOwnProperty("connectionId"))
+                object.connectionId = message.connectionId;
+            return object;
+        };
+
+        /**
+         * Converts this CreateConnectionResponse to JSON.
+         * @function toJSON
+         * @memberof protos.CreateConnectionResponse
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        CreateConnectionResponse.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return CreateConnectionResponse;
+    })();
+
+    protos.TestConnectionRequest = (function() {
+
+        /**
+         * Properties of a TestConnectionRequest.
+         * @memberof protos
+         * @interface ITestConnectionRequest
+         * @property {protos.common.IAuth|null} [auth] TestConnectionRequest auth
+         * @property {protos.opts.IConnectionOptions|null} [options] TestConnectionRequest options
+         */
+
+        /**
+         * Constructs a new TestConnectionRequest.
+         * @memberof protos
+         * @classdesc Represents a TestConnectionRequest.
+         * @implements ITestConnectionRequest
+         * @constructor
+         * @param {protos.ITestConnectionRequest=} [properties] Properties to set
+         */
+        function TestConnectionRequest(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * TestConnectionRequest auth.
+         * @member {protos.common.IAuth|null|undefined} auth
+         * @memberof protos.TestConnectionRequest
+         * @instance
+         */
+        TestConnectionRequest.prototype.auth = null;
+
+        /**
+         * TestConnectionRequest options.
+         * @member {protos.opts.IConnectionOptions|null|undefined} options
+         * @memberof protos.TestConnectionRequest
+         * @instance
+         */
+        TestConnectionRequest.prototype.options = null;
+
+        /**
+         * Creates a new TestConnectionRequest instance using the specified properties.
+         * @function create
+         * @memberof protos.TestConnectionRequest
+         * @static
+         * @param {protos.ITestConnectionRequest=} [properties] Properties to set
+         * @returns {protos.TestConnectionRequest} TestConnectionRequest instance
+         */
+        TestConnectionRequest.create = function create(properties) {
+            return new TestConnectionRequest(properties);
+        };
+
+        /**
+         * Encodes the specified TestConnectionRequest message. Does not implicitly {@link protos.TestConnectionRequest.verify|verify} messages.
+         * @function encode
+         * @memberof protos.TestConnectionRequest
+         * @static
+         * @param {protos.ITestConnectionRequest} message TestConnectionRequest message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        TestConnectionRequest.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.options != null && Object.hasOwnProperty.call(message, "options"))
+                $root.protos.opts.ConnectionOptions.encode(message.options, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+            if (message.auth != null && Object.hasOwnProperty.call(message, "auth"))
+                $root.protos.common.Auth.encode(message.auth, writer.uint32(/* id 9999, wireType 2 =*/79994).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Encodes the specified TestConnectionRequest message, length delimited. Does not implicitly {@link protos.TestConnectionRequest.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.TestConnectionRequest
+         * @static
+         * @param {protos.ITestConnectionRequest} message TestConnectionRequest message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        TestConnectionRequest.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a TestConnectionRequest message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.TestConnectionRequest
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.TestConnectionRequest} TestConnectionRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        TestConnectionRequest.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.TestConnectionRequest();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 9999:
+                    message.auth = $root.protos.common.Auth.decode(reader, reader.uint32());
+                    break;
+                case 1:
+                    message.options = $root.protos.opts.ConnectionOptions.decode(reader, reader.uint32());
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a TestConnectionRequest message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.TestConnectionRequest
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.TestConnectionRequest} TestConnectionRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        TestConnectionRequest.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a TestConnectionRequest message.
+         * @function verify
+         * @memberof protos.TestConnectionRequest
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        TestConnectionRequest.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.auth != null && message.hasOwnProperty("auth")) {
+                var error = $root.protos.common.Auth.verify(message.auth);
+                if (error)
+                    return "auth." + error;
+            }
+            if (message.options != null && message.hasOwnProperty("options")) {
+                var error = $root.protos.opts.ConnectionOptions.verify(message.options);
+                if (error)
+                    return "options." + error;
+            }
+            return null;
+        };
+
+        /**
+         * Creates a TestConnectionRequest message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.TestConnectionRequest
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.TestConnectionRequest} TestConnectionRequest
+         */
+        TestConnectionRequest.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.TestConnectionRequest)
+                return object;
+            var message = new $root.protos.TestConnectionRequest();
+            if (object.auth != null) {
+                if (typeof object.auth !== "object")
+                    throw TypeError(".protos.TestConnectionRequest.auth: object expected");
+                message.auth = $root.protos.common.Auth.fromObject(object.auth);
+            }
+            if (object.options != null) {
+                if (typeof object.options !== "object")
+                    throw TypeError(".protos.TestConnectionRequest.options: object expected");
+                message.options = $root.protos.opts.ConnectionOptions.fromObject(object.options);
+            }
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a TestConnectionRequest message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.TestConnectionRequest
+         * @static
+         * @param {protos.TestConnectionRequest} message TestConnectionRequest
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        TestConnectionRequest.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.options = null;
+                object.auth = null;
+            }
+            if (message.options != null && message.hasOwnProperty("options"))
+                object.options = $root.protos.opts.ConnectionOptions.toObject(message.options, options);
+            if (message.auth != null && message.hasOwnProperty("auth"))
+                object.auth = $root.protos.common.Auth.toObject(message.auth, options);
+            return object;
+        };
+
+        /**
+         * Converts this TestConnectionRequest to JSON.
+         * @function toJSON
+         * @memberof protos.TestConnectionRequest
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        TestConnectionRequest.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return TestConnectionRequest;
+    })();
+
+    protos.TestConnectionResponse = (function() {
+
+        /**
+         * Properties of a TestConnectionResponse.
+         * @memberof protos
+         * @interface ITestConnectionResponse
+         * @property {protos.common.IStatus|null} [status] TestConnectionResponse status
+         */
+
+        /**
+         * Constructs a new TestConnectionResponse.
+         * @memberof protos
+         * @classdesc Represents a TestConnectionResponse.
+         * @implements ITestConnectionResponse
+         * @constructor
+         * @param {protos.ITestConnectionResponse=} [properties] Properties to set
+         */
+        function TestConnectionResponse(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * TestConnectionResponse status.
+         * @member {protos.common.IStatus|null|undefined} status
+         * @memberof protos.TestConnectionResponse
+         * @instance
+         */
+        TestConnectionResponse.prototype.status = null;
+
+        /**
+         * Creates a new TestConnectionResponse instance using the specified properties.
+         * @function create
+         * @memberof protos.TestConnectionResponse
+         * @static
+         * @param {protos.ITestConnectionResponse=} [properties] Properties to set
+         * @returns {protos.TestConnectionResponse} TestConnectionResponse instance
+         */
+        TestConnectionResponse.create = function create(properties) {
+            return new TestConnectionResponse(properties);
+        };
+
+        /**
+         * Encodes the specified TestConnectionResponse message. Does not implicitly {@link protos.TestConnectionResponse.verify|verify} messages.
+         * @function encode
+         * @memberof protos.TestConnectionResponse
+         * @static
+         * @param {protos.ITestConnectionResponse} message TestConnectionResponse message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        TestConnectionResponse.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.status != null && Object.hasOwnProperty.call(message, "status"))
+                $root.protos.common.Status.encode(message.status, writer.uint32(/* id 1000, wireType 2 =*/8002).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Encodes the specified TestConnectionResponse message, length delimited. Does not implicitly {@link protos.TestConnectionResponse.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.TestConnectionResponse
+         * @static
+         * @param {protos.ITestConnectionResponse} message TestConnectionResponse message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        TestConnectionResponse.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a TestConnectionResponse message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.TestConnectionResponse
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.TestConnectionResponse} TestConnectionResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        TestConnectionResponse.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.TestConnectionResponse();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1000:
+                    message.status = $root.protos.common.Status.decode(reader, reader.uint32());
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a TestConnectionResponse message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.TestConnectionResponse
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.TestConnectionResponse} TestConnectionResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        TestConnectionResponse.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a TestConnectionResponse message.
+         * @function verify
+         * @memberof protos.TestConnectionResponse
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        TestConnectionResponse.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.status != null && message.hasOwnProperty("status")) {
+                var error = $root.protos.common.Status.verify(message.status);
+                if (error)
+                    return "status." + error;
+            }
+            return null;
+        };
+
+        /**
+         * Creates a TestConnectionResponse message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.TestConnectionResponse
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.TestConnectionResponse} TestConnectionResponse
+         */
+        TestConnectionResponse.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.TestConnectionResponse)
+                return object;
+            var message = new $root.protos.TestConnectionResponse();
+            if (object.status != null) {
+                if (typeof object.status !== "object")
+                    throw TypeError(".protos.TestConnectionResponse.status: object expected");
+                message.status = $root.protos.common.Status.fromObject(object.status);
+            }
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a TestConnectionResponse message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.TestConnectionResponse
+         * @static
+         * @param {protos.TestConnectionResponse} message TestConnectionResponse
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        TestConnectionResponse.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults)
+                object.status = null;
+            if (message.status != null && message.hasOwnProperty("status"))
+                object.status = $root.protos.common.Status.toObject(message.status, options);
+            return object;
+        };
+
+        /**
+         * Converts this TestConnectionResponse to JSON.
+         * @function toJSON
+         * @memberof protos.TestConnectionResponse
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        TestConnectionResponse.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return TestConnectionResponse;
+    })();
+
+    protos.UpdateConnectionRequest = (function() {
+
+        /**
+         * Properties of an UpdateConnectionRequest.
+         * @memberof protos
+         * @interface IUpdateConnectionRequest
+         * @property {protos.common.IAuth|null} [auth] UpdateConnectionRequest auth
+         * @property {string|null} [connectionId] UpdateConnectionRequest connectionId
+         * @property {protos.opts.IConnectionOptions|null} [options] UpdateConnectionRequest options
+         */
+
+        /**
+         * Constructs a new UpdateConnectionRequest.
+         * @memberof protos
+         * @classdesc Represents an UpdateConnectionRequest.
+         * @implements IUpdateConnectionRequest
+         * @constructor
+         * @param {protos.IUpdateConnectionRequest=} [properties] Properties to set
+         */
+        function UpdateConnectionRequest(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * UpdateConnectionRequest auth.
+         * @member {protos.common.IAuth|null|undefined} auth
+         * @memberof protos.UpdateConnectionRequest
+         * @instance
+         */
+        UpdateConnectionRequest.prototype.auth = null;
+
+        /**
+         * UpdateConnectionRequest connectionId.
+         * @member {string} connectionId
+         * @memberof protos.UpdateConnectionRequest
+         * @instance
+         */
+        UpdateConnectionRequest.prototype.connectionId = "";
+
+        /**
+         * UpdateConnectionRequest options.
+         * @member {protos.opts.IConnectionOptions|null|undefined} options
+         * @memberof protos.UpdateConnectionRequest
+         * @instance
+         */
+        UpdateConnectionRequest.prototype.options = null;
+
+        /**
+         * Creates a new UpdateConnectionRequest instance using the specified properties.
+         * @function create
+         * @memberof protos.UpdateConnectionRequest
+         * @static
+         * @param {protos.IUpdateConnectionRequest=} [properties] Properties to set
+         * @returns {protos.UpdateConnectionRequest} UpdateConnectionRequest instance
+         */
+        UpdateConnectionRequest.create = function create(properties) {
+            return new UpdateConnectionRequest(properties);
+        };
+
+        /**
+         * Encodes the specified UpdateConnectionRequest message. Does not implicitly {@link protos.UpdateConnectionRequest.verify|verify} messages.
+         * @function encode
+         * @memberof protos.UpdateConnectionRequest
+         * @static
+         * @param {protos.IUpdateConnectionRequest} message UpdateConnectionRequest message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        UpdateConnectionRequest.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.connectionId != null && Object.hasOwnProperty.call(message, "connectionId"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.connectionId);
+            if (message.options != null && Object.hasOwnProperty.call(message, "options"))
+                $root.protos.opts.ConnectionOptions.encode(message.options, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+            if (message.auth != null && Object.hasOwnProperty.call(message, "auth"))
+                $root.protos.common.Auth.encode(message.auth, writer.uint32(/* id 9999, wireType 2 =*/79994).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Encodes the specified UpdateConnectionRequest message, length delimited. Does not implicitly {@link protos.UpdateConnectionRequest.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.UpdateConnectionRequest
+         * @static
+         * @param {protos.IUpdateConnectionRequest} message UpdateConnectionRequest message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        UpdateConnectionRequest.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes an UpdateConnectionRequest message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.UpdateConnectionRequest
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.UpdateConnectionRequest} UpdateConnectionRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        UpdateConnectionRequest.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.UpdateConnectionRequest();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 9999:
+                    message.auth = $root.protos.common.Auth.decode(reader, reader.uint32());
+                    break;
+                case 1:
+                    message.connectionId = reader.string();
+                    break;
+                case 2:
+                    message.options = $root.protos.opts.ConnectionOptions.decode(reader, reader.uint32());
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes an UpdateConnectionRequest message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.UpdateConnectionRequest
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.UpdateConnectionRequest} UpdateConnectionRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        UpdateConnectionRequest.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies an UpdateConnectionRequest message.
+         * @function verify
+         * @memberof protos.UpdateConnectionRequest
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        UpdateConnectionRequest.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.auth != null && message.hasOwnProperty("auth")) {
+                var error = $root.protos.common.Auth.verify(message.auth);
+                if (error)
+                    return "auth." + error;
+            }
+            if (message.connectionId != null && message.hasOwnProperty("connectionId"))
+                if (!$util.isString(message.connectionId))
+                    return "connectionId: string expected";
+            if (message.options != null && message.hasOwnProperty("options")) {
+                var error = $root.protos.opts.ConnectionOptions.verify(message.options);
+                if (error)
+                    return "options." + error;
+            }
+            return null;
+        };
+
+        /**
+         * Creates an UpdateConnectionRequest message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.UpdateConnectionRequest
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.UpdateConnectionRequest} UpdateConnectionRequest
+         */
+        UpdateConnectionRequest.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.UpdateConnectionRequest)
+                return object;
+            var message = new $root.protos.UpdateConnectionRequest();
+            if (object.auth != null) {
+                if (typeof object.auth !== "object")
+                    throw TypeError(".protos.UpdateConnectionRequest.auth: object expected");
+                message.auth = $root.protos.common.Auth.fromObject(object.auth);
+            }
+            if (object.connectionId != null)
+                message.connectionId = String(object.connectionId);
+            if (object.options != null) {
+                if (typeof object.options !== "object")
+                    throw TypeError(".protos.UpdateConnectionRequest.options: object expected");
+                message.options = $root.protos.opts.ConnectionOptions.fromObject(object.options);
+            }
+            return message;
+        };
+
+        /**
+         * Creates a plain object from an UpdateConnectionRequest message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.UpdateConnectionRequest
+         * @static
+         * @param {protos.UpdateConnectionRequest} message UpdateConnectionRequest
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        UpdateConnectionRequest.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.connectionId = "";
+                object.options = null;
+                object.auth = null;
+            }
+            if (message.connectionId != null && message.hasOwnProperty("connectionId"))
+                object.connectionId = message.connectionId;
+            if (message.options != null && message.hasOwnProperty("options"))
+                object.options = $root.protos.opts.ConnectionOptions.toObject(message.options, options);
+            if (message.auth != null && message.hasOwnProperty("auth"))
+                object.auth = $root.protos.common.Auth.toObject(message.auth, options);
+            return object;
+        };
+
+        /**
+         * Converts this UpdateConnectionRequest to JSON.
+         * @function toJSON
+         * @memberof protos.UpdateConnectionRequest
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        UpdateConnectionRequest.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return UpdateConnectionRequest;
+    })();
+
+    protos.UpdateConnectionResponse = (function() {
+
+        /**
+         * Properties of an UpdateConnectionResponse.
+         * @memberof protos
+         * @interface IUpdateConnectionResponse
+         * @property {protos.common.IStatus|null} [status] UpdateConnectionResponse status
+         */
+
+        /**
+         * Constructs a new UpdateConnectionResponse.
+         * @memberof protos
+         * @classdesc Represents an UpdateConnectionResponse.
+         * @implements IUpdateConnectionResponse
+         * @constructor
+         * @param {protos.IUpdateConnectionResponse=} [properties] Properties to set
+         */
+        function UpdateConnectionResponse(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * UpdateConnectionResponse status.
+         * @member {protos.common.IStatus|null|undefined} status
+         * @memberof protos.UpdateConnectionResponse
+         * @instance
+         */
+        UpdateConnectionResponse.prototype.status = null;
+
+        /**
+         * Creates a new UpdateConnectionResponse instance using the specified properties.
+         * @function create
+         * @memberof protos.UpdateConnectionResponse
+         * @static
+         * @param {protos.IUpdateConnectionResponse=} [properties] Properties to set
+         * @returns {protos.UpdateConnectionResponse} UpdateConnectionResponse instance
+         */
+        UpdateConnectionResponse.create = function create(properties) {
+            return new UpdateConnectionResponse(properties);
+        };
+
+        /**
+         * Encodes the specified UpdateConnectionResponse message. Does not implicitly {@link protos.UpdateConnectionResponse.verify|verify} messages.
+         * @function encode
+         * @memberof protos.UpdateConnectionResponse
+         * @static
+         * @param {protos.IUpdateConnectionResponse} message UpdateConnectionResponse message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        UpdateConnectionResponse.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.status != null && Object.hasOwnProperty.call(message, "status"))
+                $root.protos.common.Status.encode(message.status, writer.uint32(/* id 1000, wireType 2 =*/8002).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Encodes the specified UpdateConnectionResponse message, length delimited. Does not implicitly {@link protos.UpdateConnectionResponse.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.UpdateConnectionResponse
+         * @static
+         * @param {protos.IUpdateConnectionResponse} message UpdateConnectionResponse message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        UpdateConnectionResponse.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes an UpdateConnectionResponse message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.UpdateConnectionResponse
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.UpdateConnectionResponse} UpdateConnectionResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        UpdateConnectionResponse.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.UpdateConnectionResponse();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1000:
+                    message.status = $root.protos.common.Status.decode(reader, reader.uint32());
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes an UpdateConnectionResponse message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.UpdateConnectionResponse
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.UpdateConnectionResponse} UpdateConnectionResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        UpdateConnectionResponse.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies an UpdateConnectionResponse message.
+         * @function verify
+         * @memberof protos.UpdateConnectionResponse
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        UpdateConnectionResponse.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.status != null && message.hasOwnProperty("status")) {
+                var error = $root.protos.common.Status.verify(message.status);
+                if (error)
+                    return "status." + error;
+            }
+            return null;
+        };
+
+        /**
+         * Creates an UpdateConnectionResponse message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.UpdateConnectionResponse
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.UpdateConnectionResponse} UpdateConnectionResponse
+         */
+        UpdateConnectionResponse.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.UpdateConnectionResponse)
+                return object;
+            var message = new $root.protos.UpdateConnectionResponse();
+            if (object.status != null) {
+                if (typeof object.status !== "object")
+                    throw TypeError(".protos.UpdateConnectionResponse.status: object expected");
+                message.status = $root.protos.common.Status.fromObject(object.status);
+            }
+            return message;
+        };
+
+        /**
+         * Creates a plain object from an UpdateConnectionResponse message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.UpdateConnectionResponse
+         * @static
+         * @param {protos.UpdateConnectionResponse} message UpdateConnectionResponse
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        UpdateConnectionResponse.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults)
+                object.status = null;
+            if (message.status != null && message.hasOwnProperty("status"))
+                object.status = $root.protos.common.Status.toObject(message.status, options);
+            return object;
+        };
+
+        /**
+         * Converts this UpdateConnectionResponse to JSON.
+         * @function toJSON
+         * @memberof protos.UpdateConnectionResponse
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        UpdateConnectionResponse.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return UpdateConnectionResponse;
+    })();
+
+    protos.DeleteConnectionRequest = (function() {
+
+        /**
+         * Properties of a DeleteConnectionRequest.
+         * @memberof protos
+         * @interface IDeleteConnectionRequest
+         * @property {protos.common.IAuth|null} [auth] DeleteConnectionRequest auth
+         * @property {string|null} [connectionId] DeleteConnectionRequest connectionId
+         */
+
+        /**
+         * Constructs a new DeleteConnectionRequest.
+         * @memberof protos
+         * @classdesc Represents a DeleteConnectionRequest.
+         * @implements IDeleteConnectionRequest
+         * @constructor
+         * @param {protos.IDeleteConnectionRequest=} [properties] Properties to set
+         */
+        function DeleteConnectionRequest(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * DeleteConnectionRequest auth.
+         * @member {protos.common.IAuth|null|undefined} auth
+         * @memberof protos.DeleteConnectionRequest
+         * @instance
+         */
+        DeleteConnectionRequest.prototype.auth = null;
+
+        /**
+         * DeleteConnectionRequest connectionId.
+         * @member {string} connectionId
+         * @memberof protos.DeleteConnectionRequest
+         * @instance
+         */
+        DeleteConnectionRequest.prototype.connectionId = "";
+
+        /**
+         * Creates a new DeleteConnectionRequest instance using the specified properties.
+         * @function create
+         * @memberof protos.DeleteConnectionRequest
+         * @static
+         * @param {protos.IDeleteConnectionRequest=} [properties] Properties to set
+         * @returns {protos.DeleteConnectionRequest} DeleteConnectionRequest instance
+         */
+        DeleteConnectionRequest.create = function create(properties) {
+            return new DeleteConnectionRequest(properties);
+        };
+
+        /**
+         * Encodes the specified DeleteConnectionRequest message. Does not implicitly {@link protos.DeleteConnectionRequest.verify|verify} messages.
+         * @function encode
+         * @memberof protos.DeleteConnectionRequest
+         * @static
+         * @param {protos.IDeleteConnectionRequest} message DeleteConnectionRequest message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        DeleteConnectionRequest.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.connectionId != null && Object.hasOwnProperty.call(message, "connectionId"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.connectionId);
+            if (message.auth != null && Object.hasOwnProperty.call(message, "auth"))
+                $root.protos.common.Auth.encode(message.auth, writer.uint32(/* id 9999, wireType 2 =*/79994).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Encodes the specified DeleteConnectionRequest message, length delimited. Does not implicitly {@link protos.DeleteConnectionRequest.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.DeleteConnectionRequest
+         * @static
+         * @param {protos.IDeleteConnectionRequest} message DeleteConnectionRequest message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        DeleteConnectionRequest.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a DeleteConnectionRequest message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.DeleteConnectionRequest
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.DeleteConnectionRequest} DeleteConnectionRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        DeleteConnectionRequest.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.DeleteConnectionRequest();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 9999:
+                    message.auth = $root.protos.common.Auth.decode(reader, reader.uint32());
+                    break;
+                case 1:
+                    message.connectionId = reader.string();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a DeleteConnectionRequest message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.DeleteConnectionRequest
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.DeleteConnectionRequest} DeleteConnectionRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        DeleteConnectionRequest.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a DeleteConnectionRequest message.
+         * @function verify
+         * @memberof protos.DeleteConnectionRequest
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        DeleteConnectionRequest.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.auth != null && message.hasOwnProperty("auth")) {
+                var error = $root.protos.common.Auth.verify(message.auth);
+                if (error)
+                    return "auth." + error;
+            }
+            if (message.connectionId != null && message.hasOwnProperty("connectionId"))
+                if (!$util.isString(message.connectionId))
+                    return "connectionId: string expected";
+            return null;
+        };
+
+        /**
+         * Creates a DeleteConnectionRequest message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.DeleteConnectionRequest
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.DeleteConnectionRequest} DeleteConnectionRequest
+         */
+        DeleteConnectionRequest.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.DeleteConnectionRequest)
+                return object;
+            var message = new $root.protos.DeleteConnectionRequest();
+            if (object.auth != null) {
+                if (typeof object.auth !== "object")
+                    throw TypeError(".protos.DeleteConnectionRequest.auth: object expected");
+                message.auth = $root.protos.common.Auth.fromObject(object.auth);
+            }
+            if (object.connectionId != null)
+                message.connectionId = String(object.connectionId);
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a DeleteConnectionRequest message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.DeleteConnectionRequest
+         * @static
+         * @param {protos.DeleteConnectionRequest} message DeleteConnectionRequest
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        DeleteConnectionRequest.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.connectionId = "";
+                object.auth = null;
+            }
+            if (message.connectionId != null && message.hasOwnProperty("connectionId"))
+                object.connectionId = message.connectionId;
+            if (message.auth != null && message.hasOwnProperty("auth"))
+                object.auth = $root.protos.common.Auth.toObject(message.auth, options);
+            return object;
+        };
+
+        /**
+         * Converts this DeleteConnectionRequest to JSON.
+         * @function toJSON
+         * @memberof protos.DeleteConnectionRequest
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        DeleteConnectionRequest.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return DeleteConnectionRequest;
+    })();
+
+    protos.DeleteConnectionResponse = (function() {
+
+        /**
+         * Properties of a DeleteConnectionResponse.
+         * @memberof protos
+         * @interface IDeleteConnectionResponse
+         * @property {protos.common.IStatus|null} [status] DeleteConnectionResponse status
+         */
+
+        /**
+         * Constructs a new DeleteConnectionResponse.
+         * @memberof protos
+         * @classdesc Represents a DeleteConnectionResponse.
+         * @implements IDeleteConnectionResponse
+         * @constructor
+         * @param {protos.IDeleteConnectionResponse=} [properties] Properties to set
+         */
+        function DeleteConnectionResponse(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * DeleteConnectionResponse status.
+         * @member {protos.common.IStatus|null|undefined} status
+         * @memberof protos.DeleteConnectionResponse
+         * @instance
+         */
+        DeleteConnectionResponse.prototype.status = null;
+
+        /**
+         * Creates a new DeleteConnectionResponse instance using the specified properties.
+         * @function create
+         * @memberof protos.DeleteConnectionResponse
+         * @static
+         * @param {protos.IDeleteConnectionResponse=} [properties] Properties to set
+         * @returns {protos.DeleteConnectionResponse} DeleteConnectionResponse instance
+         */
+        DeleteConnectionResponse.create = function create(properties) {
+            return new DeleteConnectionResponse(properties);
+        };
+
+        /**
+         * Encodes the specified DeleteConnectionResponse message. Does not implicitly {@link protos.DeleteConnectionResponse.verify|verify} messages.
+         * @function encode
+         * @memberof protos.DeleteConnectionResponse
+         * @static
+         * @param {protos.IDeleteConnectionResponse} message DeleteConnectionResponse message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        DeleteConnectionResponse.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.status != null && Object.hasOwnProperty.call(message, "status"))
+                $root.protos.common.Status.encode(message.status, writer.uint32(/* id 1000, wireType 2 =*/8002).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Encodes the specified DeleteConnectionResponse message, length delimited. Does not implicitly {@link protos.DeleteConnectionResponse.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.DeleteConnectionResponse
+         * @static
+         * @param {protos.IDeleteConnectionResponse} message DeleteConnectionResponse message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        DeleteConnectionResponse.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a DeleteConnectionResponse message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.DeleteConnectionResponse
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.DeleteConnectionResponse} DeleteConnectionResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        DeleteConnectionResponse.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.DeleteConnectionResponse();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1000:
+                    message.status = $root.protos.common.Status.decode(reader, reader.uint32());
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a DeleteConnectionResponse message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.DeleteConnectionResponse
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.DeleteConnectionResponse} DeleteConnectionResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        DeleteConnectionResponse.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a DeleteConnectionResponse message.
+         * @function verify
+         * @memberof protos.DeleteConnectionResponse
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        DeleteConnectionResponse.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.status != null && message.hasOwnProperty("status")) {
+                var error = $root.protos.common.Status.verify(message.status);
+                if (error)
+                    return "status." + error;
+            }
+            return null;
+        };
+
+        /**
+         * Creates a DeleteConnectionResponse message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.DeleteConnectionResponse
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.DeleteConnectionResponse} DeleteConnectionResponse
+         */
+        DeleteConnectionResponse.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.DeleteConnectionResponse)
+                return object;
+            var message = new $root.protos.DeleteConnectionResponse();
+            if (object.status != null) {
+                if (typeof object.status !== "object")
+                    throw TypeError(".protos.DeleteConnectionResponse.status: object expected");
+                message.status = $root.protos.common.Status.fromObject(object.status);
+            }
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a DeleteConnectionResponse message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.DeleteConnectionResponse
+         * @static
+         * @param {protos.DeleteConnectionResponse} message DeleteConnectionResponse
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        DeleteConnectionResponse.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults)
+                object.status = null;
+            if (message.status != null && message.hasOwnProperty("status"))
+                object.status = $root.protos.common.Status.toObject(message.status, options);
+            return object;
+        };
+
+        /**
+         * Converts this DeleteConnectionResponse to JSON.
+         * @function toJSON
+         * @memberof protos.DeleteConnectionResponse
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        DeleteConnectionResponse.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return DeleteConnectionResponse;
     })();
 
     protos.args = (function() {
@@ -73462,6 +78919,1728 @@ $root.protos = (function() {
         };
 
         return GetVCEventsRequest;
+    })();
+
+    protos.GetMonitorRequest = (function() {
+
+        /**
+         * Properties of a GetMonitorRequest.
+         * @memberof protos
+         * @interface IGetMonitorRequest
+         * @property {protos.common.IAuth|null} [auth] GetMonitorRequest auth
+         * @property {string|null} [monitorId] GetMonitorRequest monitorId
+         */
+
+        /**
+         * Constructs a new GetMonitorRequest.
+         * @memberof protos
+         * @classdesc Represents a GetMonitorRequest.
+         * @implements IGetMonitorRequest
+         * @constructor
+         * @param {protos.IGetMonitorRequest=} [properties] Properties to set
+         */
+        function GetMonitorRequest(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * GetMonitorRequest auth.
+         * @member {protos.common.IAuth|null|undefined} auth
+         * @memberof protos.GetMonitorRequest
+         * @instance
+         */
+        GetMonitorRequest.prototype.auth = null;
+
+        /**
+         * GetMonitorRequest monitorId.
+         * @member {string} monitorId
+         * @memberof protos.GetMonitorRequest
+         * @instance
+         */
+        GetMonitorRequest.prototype.monitorId = "";
+
+        /**
+         * Creates a new GetMonitorRequest instance using the specified properties.
+         * @function create
+         * @memberof protos.GetMonitorRequest
+         * @static
+         * @param {protos.IGetMonitorRequest=} [properties] Properties to set
+         * @returns {protos.GetMonitorRequest} GetMonitorRequest instance
+         */
+        GetMonitorRequest.create = function create(properties) {
+            return new GetMonitorRequest(properties);
+        };
+
+        /**
+         * Encodes the specified GetMonitorRequest message. Does not implicitly {@link protos.GetMonitorRequest.verify|verify} messages.
+         * @function encode
+         * @memberof protos.GetMonitorRequest
+         * @static
+         * @param {protos.IGetMonitorRequest} message GetMonitorRequest message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        GetMonitorRequest.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.monitorId != null && Object.hasOwnProperty.call(message, "monitorId"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.monitorId);
+            if (message.auth != null && Object.hasOwnProperty.call(message, "auth"))
+                $root.protos.common.Auth.encode(message.auth, writer.uint32(/* id 9999, wireType 2 =*/79994).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Encodes the specified GetMonitorRequest message, length delimited. Does not implicitly {@link protos.GetMonitorRequest.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.GetMonitorRequest
+         * @static
+         * @param {protos.IGetMonitorRequest} message GetMonitorRequest message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        GetMonitorRequest.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a GetMonitorRequest message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.GetMonitorRequest
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.GetMonitorRequest} GetMonitorRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        GetMonitorRequest.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.GetMonitorRequest();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 9999:
+                    message.auth = $root.protos.common.Auth.decode(reader, reader.uint32());
+                    break;
+                case 1:
+                    message.monitorId = reader.string();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a GetMonitorRequest message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.GetMonitorRequest
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.GetMonitorRequest} GetMonitorRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        GetMonitorRequest.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a GetMonitorRequest message.
+         * @function verify
+         * @memberof protos.GetMonitorRequest
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        GetMonitorRequest.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.auth != null && message.hasOwnProperty("auth")) {
+                var error = $root.protos.common.Auth.verify(message.auth);
+                if (error)
+                    return "auth." + error;
+            }
+            if (message.monitorId != null && message.hasOwnProperty("monitorId"))
+                if (!$util.isString(message.monitorId))
+                    return "monitorId: string expected";
+            return null;
+        };
+
+        /**
+         * Creates a GetMonitorRequest message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.GetMonitorRequest
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.GetMonitorRequest} GetMonitorRequest
+         */
+        GetMonitorRequest.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.GetMonitorRequest)
+                return object;
+            var message = new $root.protos.GetMonitorRequest();
+            if (object.auth != null) {
+                if (typeof object.auth !== "object")
+                    throw TypeError(".protos.GetMonitorRequest.auth: object expected");
+                message.auth = $root.protos.common.Auth.fromObject(object.auth);
+            }
+            if (object.monitorId != null)
+                message.monitorId = String(object.monitorId);
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a GetMonitorRequest message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.GetMonitorRequest
+         * @static
+         * @param {protos.GetMonitorRequest} message GetMonitorRequest
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        GetMonitorRequest.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.monitorId = "";
+                object.auth = null;
+            }
+            if (message.monitorId != null && message.hasOwnProperty("monitorId"))
+                object.monitorId = message.monitorId;
+            if (message.auth != null && message.hasOwnProperty("auth"))
+                object.auth = $root.protos.common.Auth.toObject(message.auth, options);
+            return object;
+        };
+
+        /**
+         * Converts this GetMonitorRequest to JSON.
+         * @function toJSON
+         * @memberof protos.GetMonitorRequest
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        GetMonitorRequest.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return GetMonitorRequest;
+    })();
+
+    protos.GetMonitorResponse = (function() {
+
+        /**
+         * Properties of a GetMonitorResponse.
+         * @memberof protos
+         * @interface IGetMonitorResponse
+         * @property {protos.opts.IMonitorOptions|null} [monitor] GetMonitorResponse monitor
+         * @property {protos.common.IStatus|null} [status] GetMonitorResponse status
+         */
+
+        /**
+         * Constructs a new GetMonitorResponse.
+         * @memberof protos
+         * @classdesc Represents a GetMonitorResponse.
+         * @implements IGetMonitorResponse
+         * @constructor
+         * @param {protos.IGetMonitorResponse=} [properties] Properties to set
+         */
+        function GetMonitorResponse(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * GetMonitorResponse monitor.
+         * @member {protos.opts.IMonitorOptions|null|undefined} monitor
+         * @memberof protos.GetMonitorResponse
+         * @instance
+         */
+        GetMonitorResponse.prototype.monitor = null;
+
+        /**
+         * GetMonitorResponse status.
+         * @member {protos.common.IStatus|null|undefined} status
+         * @memberof protos.GetMonitorResponse
+         * @instance
+         */
+        GetMonitorResponse.prototype.status = null;
+
+        /**
+         * Creates a new GetMonitorResponse instance using the specified properties.
+         * @function create
+         * @memberof protos.GetMonitorResponse
+         * @static
+         * @param {protos.IGetMonitorResponse=} [properties] Properties to set
+         * @returns {protos.GetMonitorResponse} GetMonitorResponse instance
+         */
+        GetMonitorResponse.create = function create(properties) {
+            return new GetMonitorResponse(properties);
+        };
+
+        /**
+         * Encodes the specified GetMonitorResponse message. Does not implicitly {@link protos.GetMonitorResponse.verify|verify} messages.
+         * @function encode
+         * @memberof protos.GetMonitorResponse
+         * @static
+         * @param {protos.IGetMonitorResponse} message GetMonitorResponse message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        GetMonitorResponse.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.monitor != null && Object.hasOwnProperty.call(message, "monitor"))
+                $root.protos.opts.MonitorOptions.encode(message.monitor, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+            if (message.status != null && Object.hasOwnProperty.call(message, "status"))
+                $root.protos.common.Status.encode(message.status, writer.uint32(/* id 1000, wireType 2 =*/8002).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Encodes the specified GetMonitorResponse message, length delimited. Does not implicitly {@link protos.GetMonitorResponse.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.GetMonitorResponse
+         * @static
+         * @param {protos.IGetMonitorResponse} message GetMonitorResponse message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        GetMonitorResponse.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a GetMonitorResponse message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.GetMonitorResponse
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.GetMonitorResponse} GetMonitorResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        GetMonitorResponse.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.GetMonitorResponse();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.monitor = $root.protos.opts.MonitorOptions.decode(reader, reader.uint32());
+                    break;
+                case 1000:
+                    message.status = $root.protos.common.Status.decode(reader, reader.uint32());
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a GetMonitorResponse message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.GetMonitorResponse
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.GetMonitorResponse} GetMonitorResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        GetMonitorResponse.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a GetMonitorResponse message.
+         * @function verify
+         * @memberof protos.GetMonitorResponse
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        GetMonitorResponse.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.monitor != null && message.hasOwnProperty("monitor")) {
+                var error = $root.protos.opts.MonitorOptions.verify(message.monitor);
+                if (error)
+                    return "monitor." + error;
+            }
+            if (message.status != null && message.hasOwnProperty("status")) {
+                var error = $root.protos.common.Status.verify(message.status);
+                if (error)
+                    return "status." + error;
+            }
+            return null;
+        };
+
+        /**
+         * Creates a GetMonitorResponse message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.GetMonitorResponse
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.GetMonitorResponse} GetMonitorResponse
+         */
+        GetMonitorResponse.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.GetMonitorResponse)
+                return object;
+            var message = new $root.protos.GetMonitorResponse();
+            if (object.monitor != null) {
+                if (typeof object.monitor !== "object")
+                    throw TypeError(".protos.GetMonitorResponse.monitor: object expected");
+                message.monitor = $root.protos.opts.MonitorOptions.fromObject(object.monitor);
+            }
+            if (object.status != null) {
+                if (typeof object.status !== "object")
+                    throw TypeError(".protos.GetMonitorResponse.status: object expected");
+                message.status = $root.protos.common.Status.fromObject(object.status);
+            }
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a GetMonitorResponse message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.GetMonitorResponse
+         * @static
+         * @param {protos.GetMonitorResponse} message GetMonitorResponse
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        GetMonitorResponse.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.monitor = null;
+                object.status = null;
+            }
+            if (message.monitor != null && message.hasOwnProperty("monitor"))
+                object.monitor = $root.protos.opts.MonitorOptions.toObject(message.monitor, options);
+            if (message.status != null && message.hasOwnProperty("status"))
+                object.status = $root.protos.common.Status.toObject(message.status, options);
+            return object;
+        };
+
+        /**
+         * Converts this GetMonitorResponse to JSON.
+         * @function toJSON
+         * @memberof protos.GetMonitorResponse
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        GetMonitorResponse.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return GetMonitorResponse;
+    })();
+
+    protos.CreateMonitorRequest = (function() {
+
+        /**
+         * Properties of a CreateMonitorRequest.
+         * @memberof protos
+         * @interface ICreateMonitorRequest
+         * @property {protos.common.IAuth|null} [auth] CreateMonitorRequest auth
+         * @property {protos.opts.IMonitorOptions|null} [read] CreateMonitorRequest read
+         */
+
+        /**
+         * Constructs a new CreateMonitorRequest.
+         * @memberof protos
+         * @classdesc Represents a CreateMonitorRequest.
+         * @implements ICreateMonitorRequest
+         * @constructor
+         * @param {protos.ICreateMonitorRequest=} [properties] Properties to set
+         */
+        function CreateMonitorRequest(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * CreateMonitorRequest auth.
+         * @member {protos.common.IAuth|null|undefined} auth
+         * @memberof protos.CreateMonitorRequest
+         * @instance
+         */
+        CreateMonitorRequest.prototype.auth = null;
+
+        /**
+         * CreateMonitorRequest read.
+         * @member {protos.opts.IMonitorOptions|null|undefined} read
+         * @memberof protos.CreateMonitorRequest
+         * @instance
+         */
+        CreateMonitorRequest.prototype.read = null;
+
+        /**
+         * Creates a new CreateMonitorRequest instance using the specified properties.
+         * @function create
+         * @memberof protos.CreateMonitorRequest
+         * @static
+         * @param {protos.ICreateMonitorRequest=} [properties] Properties to set
+         * @returns {protos.CreateMonitorRequest} CreateMonitorRequest instance
+         */
+        CreateMonitorRequest.create = function create(properties) {
+            return new CreateMonitorRequest(properties);
+        };
+
+        /**
+         * Encodes the specified CreateMonitorRequest message. Does not implicitly {@link protos.CreateMonitorRequest.verify|verify} messages.
+         * @function encode
+         * @memberof protos.CreateMonitorRequest
+         * @static
+         * @param {protos.ICreateMonitorRequest} message CreateMonitorRequest message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        CreateMonitorRequest.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.read != null && Object.hasOwnProperty.call(message, "read"))
+                $root.protos.opts.MonitorOptions.encode(message.read, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+            if (message.auth != null && Object.hasOwnProperty.call(message, "auth"))
+                $root.protos.common.Auth.encode(message.auth, writer.uint32(/* id 9999, wireType 2 =*/79994).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Encodes the specified CreateMonitorRequest message, length delimited. Does not implicitly {@link protos.CreateMonitorRequest.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.CreateMonitorRequest
+         * @static
+         * @param {protos.ICreateMonitorRequest} message CreateMonitorRequest message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        CreateMonitorRequest.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a CreateMonitorRequest message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.CreateMonitorRequest
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.CreateMonitorRequest} CreateMonitorRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        CreateMonitorRequest.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.CreateMonitorRequest();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 9999:
+                    message.auth = $root.protos.common.Auth.decode(reader, reader.uint32());
+                    break;
+                case 1:
+                    message.read = $root.protos.opts.MonitorOptions.decode(reader, reader.uint32());
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a CreateMonitorRequest message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.CreateMonitorRequest
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.CreateMonitorRequest} CreateMonitorRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        CreateMonitorRequest.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a CreateMonitorRequest message.
+         * @function verify
+         * @memberof protos.CreateMonitorRequest
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        CreateMonitorRequest.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.auth != null && message.hasOwnProperty("auth")) {
+                var error = $root.protos.common.Auth.verify(message.auth);
+                if (error)
+                    return "auth." + error;
+            }
+            if (message.read != null && message.hasOwnProperty("read")) {
+                var error = $root.protos.opts.MonitorOptions.verify(message.read);
+                if (error)
+                    return "read." + error;
+            }
+            return null;
+        };
+
+        /**
+         * Creates a CreateMonitorRequest message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.CreateMonitorRequest
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.CreateMonitorRequest} CreateMonitorRequest
+         */
+        CreateMonitorRequest.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.CreateMonitorRequest)
+                return object;
+            var message = new $root.protos.CreateMonitorRequest();
+            if (object.auth != null) {
+                if (typeof object.auth !== "object")
+                    throw TypeError(".protos.CreateMonitorRequest.auth: object expected");
+                message.auth = $root.protos.common.Auth.fromObject(object.auth);
+            }
+            if (object.read != null) {
+                if (typeof object.read !== "object")
+                    throw TypeError(".protos.CreateMonitorRequest.read: object expected");
+                message.read = $root.protos.opts.MonitorOptions.fromObject(object.read);
+            }
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a CreateMonitorRequest message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.CreateMonitorRequest
+         * @static
+         * @param {protos.CreateMonitorRequest} message CreateMonitorRequest
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        CreateMonitorRequest.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.read = null;
+                object.auth = null;
+            }
+            if (message.read != null && message.hasOwnProperty("read"))
+                object.read = $root.protos.opts.MonitorOptions.toObject(message.read, options);
+            if (message.auth != null && message.hasOwnProperty("auth"))
+                object.auth = $root.protos.common.Auth.toObject(message.auth, options);
+            return object;
+        };
+
+        /**
+         * Converts this CreateMonitorRequest to JSON.
+         * @function toJSON
+         * @memberof protos.CreateMonitorRequest
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        CreateMonitorRequest.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return CreateMonitorRequest;
+    })();
+
+    protos.CreateMonitorResponse = (function() {
+
+        /**
+         * Properties of a CreateMonitorResponse.
+         * @memberof protos
+         * @interface ICreateMonitorResponse
+         * @property {protos.opts.IMonitorOptions|null} [monitor] CreateMonitorResponse monitor
+         * @property {protos.common.IStatus|null} [status] CreateMonitorResponse status
+         */
+
+        /**
+         * Constructs a new CreateMonitorResponse.
+         * @memberof protos
+         * @classdesc Represents a CreateMonitorResponse.
+         * @implements ICreateMonitorResponse
+         * @constructor
+         * @param {protos.ICreateMonitorResponse=} [properties] Properties to set
+         */
+        function CreateMonitorResponse(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * CreateMonitorResponse monitor.
+         * @member {protos.opts.IMonitorOptions|null|undefined} monitor
+         * @memberof protos.CreateMonitorResponse
+         * @instance
+         */
+        CreateMonitorResponse.prototype.monitor = null;
+
+        /**
+         * CreateMonitorResponse status.
+         * @member {protos.common.IStatus|null|undefined} status
+         * @memberof protos.CreateMonitorResponse
+         * @instance
+         */
+        CreateMonitorResponse.prototype.status = null;
+
+        /**
+         * Creates a new CreateMonitorResponse instance using the specified properties.
+         * @function create
+         * @memberof protos.CreateMonitorResponse
+         * @static
+         * @param {protos.ICreateMonitorResponse=} [properties] Properties to set
+         * @returns {protos.CreateMonitorResponse} CreateMonitorResponse instance
+         */
+        CreateMonitorResponse.create = function create(properties) {
+            return new CreateMonitorResponse(properties);
+        };
+
+        /**
+         * Encodes the specified CreateMonitorResponse message. Does not implicitly {@link protos.CreateMonitorResponse.verify|verify} messages.
+         * @function encode
+         * @memberof protos.CreateMonitorResponse
+         * @static
+         * @param {protos.ICreateMonitorResponse} message CreateMonitorResponse message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        CreateMonitorResponse.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.monitor != null && Object.hasOwnProperty.call(message, "monitor"))
+                $root.protos.opts.MonitorOptions.encode(message.monitor, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+            if (message.status != null && Object.hasOwnProperty.call(message, "status"))
+                $root.protos.common.Status.encode(message.status, writer.uint32(/* id 1000, wireType 2 =*/8002).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Encodes the specified CreateMonitorResponse message, length delimited. Does not implicitly {@link protos.CreateMonitorResponse.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.CreateMonitorResponse
+         * @static
+         * @param {protos.ICreateMonitorResponse} message CreateMonitorResponse message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        CreateMonitorResponse.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a CreateMonitorResponse message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.CreateMonitorResponse
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.CreateMonitorResponse} CreateMonitorResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        CreateMonitorResponse.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.CreateMonitorResponse();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.monitor = $root.protos.opts.MonitorOptions.decode(reader, reader.uint32());
+                    break;
+                case 1000:
+                    message.status = $root.protos.common.Status.decode(reader, reader.uint32());
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a CreateMonitorResponse message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.CreateMonitorResponse
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.CreateMonitorResponse} CreateMonitorResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        CreateMonitorResponse.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a CreateMonitorResponse message.
+         * @function verify
+         * @memberof protos.CreateMonitorResponse
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        CreateMonitorResponse.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.monitor != null && message.hasOwnProperty("monitor")) {
+                var error = $root.protos.opts.MonitorOptions.verify(message.monitor);
+                if (error)
+                    return "monitor." + error;
+            }
+            if (message.status != null && message.hasOwnProperty("status")) {
+                var error = $root.protos.common.Status.verify(message.status);
+                if (error)
+                    return "status." + error;
+            }
+            return null;
+        };
+
+        /**
+         * Creates a CreateMonitorResponse message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.CreateMonitorResponse
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.CreateMonitorResponse} CreateMonitorResponse
+         */
+        CreateMonitorResponse.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.CreateMonitorResponse)
+                return object;
+            var message = new $root.protos.CreateMonitorResponse();
+            if (object.monitor != null) {
+                if (typeof object.monitor !== "object")
+                    throw TypeError(".protos.CreateMonitorResponse.monitor: object expected");
+                message.monitor = $root.protos.opts.MonitorOptions.fromObject(object.monitor);
+            }
+            if (object.status != null) {
+                if (typeof object.status !== "object")
+                    throw TypeError(".protos.CreateMonitorResponse.status: object expected");
+                message.status = $root.protos.common.Status.fromObject(object.status);
+            }
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a CreateMonitorResponse message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.CreateMonitorResponse
+         * @static
+         * @param {protos.CreateMonitorResponse} message CreateMonitorResponse
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        CreateMonitorResponse.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.monitor = null;
+                object.status = null;
+            }
+            if (message.monitor != null && message.hasOwnProperty("monitor"))
+                object.monitor = $root.protos.opts.MonitorOptions.toObject(message.monitor, options);
+            if (message.status != null && message.hasOwnProperty("status"))
+                object.status = $root.protos.common.Status.toObject(message.status, options);
+            return object;
+        };
+
+        /**
+         * Converts this CreateMonitorResponse to JSON.
+         * @function toJSON
+         * @memberof protos.CreateMonitorResponse
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        CreateMonitorResponse.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return CreateMonitorResponse;
+    })();
+
+    protos.DeleteMonitorRequest = (function() {
+
+        /**
+         * Properties of a DeleteMonitorRequest.
+         * @memberof protos
+         * @interface IDeleteMonitorRequest
+         * @property {protos.common.IAuth|null} [auth] DeleteMonitorRequest auth
+         * @property {string|null} [monitorId] DeleteMonitorRequest monitorId
+         */
+
+        /**
+         * Constructs a new DeleteMonitorRequest.
+         * @memberof protos
+         * @classdesc Represents a DeleteMonitorRequest.
+         * @implements IDeleteMonitorRequest
+         * @constructor
+         * @param {protos.IDeleteMonitorRequest=} [properties] Properties to set
+         */
+        function DeleteMonitorRequest(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * DeleteMonitorRequest auth.
+         * @member {protos.common.IAuth|null|undefined} auth
+         * @memberof protos.DeleteMonitorRequest
+         * @instance
+         */
+        DeleteMonitorRequest.prototype.auth = null;
+
+        /**
+         * DeleteMonitorRequest monitorId.
+         * @member {string} monitorId
+         * @memberof protos.DeleteMonitorRequest
+         * @instance
+         */
+        DeleteMonitorRequest.prototype.monitorId = "";
+
+        /**
+         * Creates a new DeleteMonitorRequest instance using the specified properties.
+         * @function create
+         * @memberof protos.DeleteMonitorRequest
+         * @static
+         * @param {protos.IDeleteMonitorRequest=} [properties] Properties to set
+         * @returns {protos.DeleteMonitorRequest} DeleteMonitorRequest instance
+         */
+        DeleteMonitorRequest.create = function create(properties) {
+            return new DeleteMonitorRequest(properties);
+        };
+
+        /**
+         * Encodes the specified DeleteMonitorRequest message. Does not implicitly {@link protos.DeleteMonitorRequest.verify|verify} messages.
+         * @function encode
+         * @memberof protos.DeleteMonitorRequest
+         * @static
+         * @param {protos.IDeleteMonitorRequest} message DeleteMonitorRequest message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        DeleteMonitorRequest.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.monitorId != null && Object.hasOwnProperty.call(message, "monitorId"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.monitorId);
+            if (message.auth != null && Object.hasOwnProperty.call(message, "auth"))
+                $root.protos.common.Auth.encode(message.auth, writer.uint32(/* id 9999, wireType 2 =*/79994).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Encodes the specified DeleteMonitorRequest message, length delimited. Does not implicitly {@link protos.DeleteMonitorRequest.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.DeleteMonitorRequest
+         * @static
+         * @param {protos.IDeleteMonitorRequest} message DeleteMonitorRequest message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        DeleteMonitorRequest.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a DeleteMonitorRequest message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.DeleteMonitorRequest
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.DeleteMonitorRequest} DeleteMonitorRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        DeleteMonitorRequest.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.DeleteMonitorRequest();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 9999:
+                    message.auth = $root.protos.common.Auth.decode(reader, reader.uint32());
+                    break;
+                case 1:
+                    message.monitorId = reader.string();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a DeleteMonitorRequest message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.DeleteMonitorRequest
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.DeleteMonitorRequest} DeleteMonitorRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        DeleteMonitorRequest.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a DeleteMonitorRequest message.
+         * @function verify
+         * @memberof protos.DeleteMonitorRequest
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        DeleteMonitorRequest.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.auth != null && message.hasOwnProperty("auth")) {
+                var error = $root.protos.common.Auth.verify(message.auth);
+                if (error)
+                    return "auth." + error;
+            }
+            if (message.monitorId != null && message.hasOwnProperty("monitorId"))
+                if (!$util.isString(message.monitorId))
+                    return "monitorId: string expected";
+            return null;
+        };
+
+        /**
+         * Creates a DeleteMonitorRequest message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.DeleteMonitorRequest
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.DeleteMonitorRequest} DeleteMonitorRequest
+         */
+        DeleteMonitorRequest.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.DeleteMonitorRequest)
+                return object;
+            var message = new $root.protos.DeleteMonitorRequest();
+            if (object.auth != null) {
+                if (typeof object.auth !== "object")
+                    throw TypeError(".protos.DeleteMonitorRequest.auth: object expected");
+                message.auth = $root.protos.common.Auth.fromObject(object.auth);
+            }
+            if (object.monitorId != null)
+                message.monitorId = String(object.monitorId);
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a DeleteMonitorRequest message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.DeleteMonitorRequest
+         * @static
+         * @param {protos.DeleteMonitorRequest} message DeleteMonitorRequest
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        DeleteMonitorRequest.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.monitorId = "";
+                object.auth = null;
+            }
+            if (message.monitorId != null && message.hasOwnProperty("monitorId"))
+                object.monitorId = message.monitorId;
+            if (message.auth != null && message.hasOwnProperty("auth"))
+                object.auth = $root.protos.common.Auth.toObject(message.auth, options);
+            return object;
+        };
+
+        /**
+         * Converts this DeleteMonitorRequest to JSON.
+         * @function toJSON
+         * @memberof protos.DeleteMonitorRequest
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        DeleteMonitorRequest.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return DeleteMonitorRequest;
+    })();
+
+    protos.DeleteMonitorResponse = (function() {
+
+        /**
+         * Properties of a DeleteMonitorResponse.
+         * @memberof protos
+         * @interface IDeleteMonitorResponse
+         * @property {protos.common.IStatus|null} [status] DeleteMonitorResponse status
+         */
+
+        /**
+         * Constructs a new DeleteMonitorResponse.
+         * @memberof protos
+         * @classdesc Represents a DeleteMonitorResponse.
+         * @implements IDeleteMonitorResponse
+         * @constructor
+         * @param {protos.IDeleteMonitorResponse=} [properties] Properties to set
+         */
+        function DeleteMonitorResponse(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * DeleteMonitorResponse status.
+         * @member {protos.common.IStatus|null|undefined} status
+         * @memberof protos.DeleteMonitorResponse
+         * @instance
+         */
+        DeleteMonitorResponse.prototype.status = null;
+
+        /**
+         * Creates a new DeleteMonitorResponse instance using the specified properties.
+         * @function create
+         * @memberof protos.DeleteMonitorResponse
+         * @static
+         * @param {protos.IDeleteMonitorResponse=} [properties] Properties to set
+         * @returns {protos.DeleteMonitorResponse} DeleteMonitorResponse instance
+         */
+        DeleteMonitorResponse.create = function create(properties) {
+            return new DeleteMonitorResponse(properties);
+        };
+
+        /**
+         * Encodes the specified DeleteMonitorResponse message. Does not implicitly {@link protos.DeleteMonitorResponse.verify|verify} messages.
+         * @function encode
+         * @memberof protos.DeleteMonitorResponse
+         * @static
+         * @param {protos.IDeleteMonitorResponse} message DeleteMonitorResponse message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        DeleteMonitorResponse.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.status != null && Object.hasOwnProperty.call(message, "status"))
+                $root.protos.common.Status.encode(message.status, writer.uint32(/* id 1000, wireType 2 =*/8002).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Encodes the specified DeleteMonitorResponse message, length delimited. Does not implicitly {@link protos.DeleteMonitorResponse.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.DeleteMonitorResponse
+         * @static
+         * @param {protos.IDeleteMonitorResponse} message DeleteMonitorResponse message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        DeleteMonitorResponse.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a DeleteMonitorResponse message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.DeleteMonitorResponse
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.DeleteMonitorResponse} DeleteMonitorResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        DeleteMonitorResponse.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.DeleteMonitorResponse();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1000:
+                    message.status = $root.protos.common.Status.decode(reader, reader.uint32());
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a DeleteMonitorResponse message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.DeleteMonitorResponse
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.DeleteMonitorResponse} DeleteMonitorResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        DeleteMonitorResponse.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a DeleteMonitorResponse message.
+         * @function verify
+         * @memberof protos.DeleteMonitorResponse
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        DeleteMonitorResponse.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.status != null && message.hasOwnProperty("status")) {
+                var error = $root.protos.common.Status.verify(message.status);
+                if (error)
+                    return "status." + error;
+            }
+            return null;
+        };
+
+        /**
+         * Creates a DeleteMonitorResponse message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.DeleteMonitorResponse
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.DeleteMonitorResponse} DeleteMonitorResponse
+         */
+        DeleteMonitorResponse.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.DeleteMonitorResponse)
+                return object;
+            var message = new $root.protos.DeleteMonitorResponse();
+            if (object.status != null) {
+                if (typeof object.status !== "object")
+                    throw TypeError(".protos.DeleteMonitorResponse.status: object expected");
+                message.status = $root.protos.common.Status.fromObject(object.status);
+            }
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a DeleteMonitorResponse message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.DeleteMonitorResponse
+         * @static
+         * @param {protos.DeleteMonitorResponse} message DeleteMonitorResponse
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        DeleteMonitorResponse.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults)
+                object.status = null;
+            if (message.status != null && message.hasOwnProperty("status"))
+                object.status = $root.protos.common.Status.toObject(message.status, options);
+            return object;
+        };
+
+        /**
+         * Converts this DeleteMonitorResponse to JSON.
+         * @function toJSON
+         * @memberof protos.DeleteMonitorResponse
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        DeleteMonitorResponse.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return DeleteMonitorResponse;
+    })();
+
+    protos.UpdateMonitorRequest = (function() {
+
+        /**
+         * Properties of an UpdateMonitorRequest.
+         * @memberof protos
+         * @interface IUpdateMonitorRequest
+         * @property {protos.common.IAuth|null} [auth] UpdateMonitorRequest auth
+         * @property {protos.opts.IMonitorOptions|null} [monitor] UpdateMonitorRequest monitor
+         */
+
+        /**
+         * Constructs a new UpdateMonitorRequest.
+         * @memberof protos
+         * @classdesc Represents an UpdateMonitorRequest.
+         * @implements IUpdateMonitorRequest
+         * @constructor
+         * @param {protos.IUpdateMonitorRequest=} [properties] Properties to set
+         */
+        function UpdateMonitorRequest(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * UpdateMonitorRequest auth.
+         * @member {protos.common.IAuth|null|undefined} auth
+         * @memberof protos.UpdateMonitorRequest
+         * @instance
+         */
+        UpdateMonitorRequest.prototype.auth = null;
+
+        /**
+         * UpdateMonitorRequest monitor.
+         * @member {protos.opts.IMonitorOptions|null|undefined} monitor
+         * @memberof protos.UpdateMonitorRequest
+         * @instance
+         */
+        UpdateMonitorRequest.prototype.monitor = null;
+
+        /**
+         * Creates a new UpdateMonitorRequest instance using the specified properties.
+         * @function create
+         * @memberof protos.UpdateMonitorRequest
+         * @static
+         * @param {protos.IUpdateMonitorRequest=} [properties] Properties to set
+         * @returns {protos.UpdateMonitorRequest} UpdateMonitorRequest instance
+         */
+        UpdateMonitorRequest.create = function create(properties) {
+            return new UpdateMonitorRequest(properties);
+        };
+
+        /**
+         * Encodes the specified UpdateMonitorRequest message. Does not implicitly {@link protos.UpdateMonitorRequest.verify|verify} messages.
+         * @function encode
+         * @memberof protos.UpdateMonitorRequest
+         * @static
+         * @param {protos.IUpdateMonitorRequest} message UpdateMonitorRequest message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        UpdateMonitorRequest.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.monitor != null && Object.hasOwnProperty.call(message, "monitor"))
+                $root.protos.opts.MonitorOptions.encode(message.monitor, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+            if (message.auth != null && Object.hasOwnProperty.call(message, "auth"))
+                $root.protos.common.Auth.encode(message.auth, writer.uint32(/* id 9999, wireType 2 =*/79994).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Encodes the specified UpdateMonitorRequest message, length delimited. Does not implicitly {@link protos.UpdateMonitorRequest.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.UpdateMonitorRequest
+         * @static
+         * @param {protos.IUpdateMonitorRequest} message UpdateMonitorRequest message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        UpdateMonitorRequest.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes an UpdateMonitorRequest message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.UpdateMonitorRequest
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.UpdateMonitorRequest} UpdateMonitorRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        UpdateMonitorRequest.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.UpdateMonitorRequest();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 9999:
+                    message.auth = $root.protos.common.Auth.decode(reader, reader.uint32());
+                    break;
+                case 1:
+                    message.monitor = $root.protos.opts.MonitorOptions.decode(reader, reader.uint32());
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes an UpdateMonitorRequest message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.UpdateMonitorRequest
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.UpdateMonitorRequest} UpdateMonitorRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        UpdateMonitorRequest.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies an UpdateMonitorRequest message.
+         * @function verify
+         * @memberof protos.UpdateMonitorRequest
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        UpdateMonitorRequest.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.auth != null && message.hasOwnProperty("auth")) {
+                var error = $root.protos.common.Auth.verify(message.auth);
+                if (error)
+                    return "auth." + error;
+            }
+            if (message.monitor != null && message.hasOwnProperty("monitor")) {
+                var error = $root.protos.opts.MonitorOptions.verify(message.monitor);
+                if (error)
+                    return "monitor." + error;
+            }
+            return null;
+        };
+
+        /**
+         * Creates an UpdateMonitorRequest message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.UpdateMonitorRequest
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.UpdateMonitorRequest} UpdateMonitorRequest
+         */
+        UpdateMonitorRequest.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.UpdateMonitorRequest)
+                return object;
+            var message = new $root.protos.UpdateMonitorRequest();
+            if (object.auth != null) {
+                if (typeof object.auth !== "object")
+                    throw TypeError(".protos.UpdateMonitorRequest.auth: object expected");
+                message.auth = $root.protos.common.Auth.fromObject(object.auth);
+            }
+            if (object.monitor != null) {
+                if (typeof object.monitor !== "object")
+                    throw TypeError(".protos.UpdateMonitorRequest.monitor: object expected");
+                message.monitor = $root.protos.opts.MonitorOptions.fromObject(object.monitor);
+            }
+            return message;
+        };
+
+        /**
+         * Creates a plain object from an UpdateMonitorRequest message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.UpdateMonitorRequest
+         * @static
+         * @param {protos.UpdateMonitorRequest} message UpdateMonitorRequest
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        UpdateMonitorRequest.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.monitor = null;
+                object.auth = null;
+            }
+            if (message.monitor != null && message.hasOwnProperty("monitor"))
+                object.monitor = $root.protos.opts.MonitorOptions.toObject(message.monitor, options);
+            if (message.auth != null && message.hasOwnProperty("auth"))
+                object.auth = $root.protos.common.Auth.toObject(message.auth, options);
+            return object;
+        };
+
+        /**
+         * Converts this UpdateMonitorRequest to JSON.
+         * @function toJSON
+         * @memberof protos.UpdateMonitorRequest
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        UpdateMonitorRequest.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return UpdateMonitorRequest;
+    })();
+
+    protos.UpdateMonitorResponse = (function() {
+
+        /**
+         * Properties of an UpdateMonitorResponse.
+         * @memberof protos
+         * @interface IUpdateMonitorResponse
+         * @property {protos.opts.IMonitorOptions|null} [monitor] UpdateMonitorResponse monitor
+         * @property {protos.common.IStatus|null} [status] UpdateMonitorResponse status
+         */
+
+        /**
+         * Constructs a new UpdateMonitorResponse.
+         * @memberof protos
+         * @classdesc Represents an UpdateMonitorResponse.
+         * @implements IUpdateMonitorResponse
+         * @constructor
+         * @param {protos.IUpdateMonitorResponse=} [properties] Properties to set
+         */
+        function UpdateMonitorResponse(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * UpdateMonitorResponse monitor.
+         * @member {protos.opts.IMonitorOptions|null|undefined} monitor
+         * @memberof protos.UpdateMonitorResponse
+         * @instance
+         */
+        UpdateMonitorResponse.prototype.monitor = null;
+
+        /**
+         * UpdateMonitorResponse status.
+         * @member {protos.common.IStatus|null|undefined} status
+         * @memberof protos.UpdateMonitorResponse
+         * @instance
+         */
+        UpdateMonitorResponse.prototype.status = null;
+
+        /**
+         * Creates a new UpdateMonitorResponse instance using the specified properties.
+         * @function create
+         * @memberof protos.UpdateMonitorResponse
+         * @static
+         * @param {protos.IUpdateMonitorResponse=} [properties] Properties to set
+         * @returns {protos.UpdateMonitorResponse} UpdateMonitorResponse instance
+         */
+        UpdateMonitorResponse.create = function create(properties) {
+            return new UpdateMonitorResponse(properties);
+        };
+
+        /**
+         * Encodes the specified UpdateMonitorResponse message. Does not implicitly {@link protos.UpdateMonitorResponse.verify|verify} messages.
+         * @function encode
+         * @memberof protos.UpdateMonitorResponse
+         * @static
+         * @param {protos.IUpdateMonitorResponse} message UpdateMonitorResponse message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        UpdateMonitorResponse.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.monitor != null && Object.hasOwnProperty.call(message, "monitor"))
+                $root.protos.opts.MonitorOptions.encode(message.monitor, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+            if (message.status != null && Object.hasOwnProperty.call(message, "status"))
+                $root.protos.common.Status.encode(message.status, writer.uint32(/* id 1000, wireType 2 =*/8002).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Encodes the specified UpdateMonitorResponse message, length delimited. Does not implicitly {@link protos.UpdateMonitorResponse.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.UpdateMonitorResponse
+         * @static
+         * @param {protos.IUpdateMonitorResponse} message UpdateMonitorResponse message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        UpdateMonitorResponse.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes an UpdateMonitorResponse message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.UpdateMonitorResponse
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.UpdateMonitorResponse} UpdateMonitorResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        UpdateMonitorResponse.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.UpdateMonitorResponse();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.monitor = $root.protos.opts.MonitorOptions.decode(reader, reader.uint32());
+                    break;
+                case 1000:
+                    message.status = $root.protos.common.Status.decode(reader, reader.uint32());
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes an UpdateMonitorResponse message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.UpdateMonitorResponse
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.UpdateMonitorResponse} UpdateMonitorResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        UpdateMonitorResponse.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies an UpdateMonitorResponse message.
+         * @function verify
+         * @memberof protos.UpdateMonitorResponse
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        UpdateMonitorResponse.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.monitor != null && message.hasOwnProperty("monitor")) {
+                var error = $root.protos.opts.MonitorOptions.verify(message.monitor);
+                if (error)
+                    return "monitor." + error;
+            }
+            if (message.status != null && message.hasOwnProperty("status")) {
+                var error = $root.protos.common.Status.verify(message.status);
+                if (error)
+                    return "status." + error;
+            }
+            return null;
+        };
+
+        /**
+         * Creates an UpdateMonitorResponse message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.UpdateMonitorResponse
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.UpdateMonitorResponse} UpdateMonitorResponse
+         */
+        UpdateMonitorResponse.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.UpdateMonitorResponse)
+                return object;
+            var message = new $root.protos.UpdateMonitorResponse();
+            if (object.monitor != null) {
+                if (typeof object.monitor !== "object")
+                    throw TypeError(".protos.UpdateMonitorResponse.monitor: object expected");
+                message.monitor = $root.protos.opts.MonitorOptions.fromObject(object.monitor);
+            }
+            if (object.status != null) {
+                if (typeof object.status !== "object")
+                    throw TypeError(".protos.UpdateMonitorResponse.status: object expected");
+                message.status = $root.protos.common.Status.fromObject(object.status);
+            }
+            return message;
+        };
+
+        /**
+         * Creates a plain object from an UpdateMonitorResponse message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.UpdateMonitorResponse
+         * @static
+         * @param {protos.UpdateMonitorResponse} message UpdateMonitorResponse
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        UpdateMonitorResponse.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.monitor = null;
+                object.status = null;
+            }
+            if (message.monitor != null && message.hasOwnProperty("monitor"))
+                object.monitor = $root.protos.opts.MonitorOptions.toObject(message.monitor, options);
+            if (message.status != null && message.hasOwnProperty("status"))
+                object.status = $root.protos.common.Status.toObject(message.status, options);
+            return object;
+        };
+
+        /**
+         * Converts this UpdateMonitorResponse to JSON.
+         * @function toJSON
+         * @memberof protos.UpdateMonitorResponse
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        UpdateMonitorResponse.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return UpdateMonitorResponse;
     })();
 
     return protos;
