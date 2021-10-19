@@ -17,14 +17,22 @@ message Schema {
 
     SchemaType type = 3;
 
-    // @mark what's this used for?
-    map<string,string> files = 4;
+    string notes = 4;
 
     string owner_id = 5;
 
-    string notes = 6;
+    repeated SchemaVersion versions = 6;
+}
 
-    SchemaStatus status = 7;
+message SchemaVersion {
+
+    int32 version = 1;
+
+    SchemaStatus status = 2;
+
+    // Contains a map of file names and file contents that contain schema definitions.
+    // This is mainly used for protobuf definition viewing
+    map<string,string> files = 3;
 
     // The 'type' will determine which one of these _should_ be filled out
     oneof settings {
@@ -146,4 +154,37 @@ message DeleteSchemaRequest {
 
 message DeleteSchemaResponse {
     common.Status status = 1000;
+}
+
+message DeleteSchemaVersionRequest {
+    // Every gRPC request must have a valid auth config
+    common.Auth auth = 9999;
+
+    string id = 1;
+
+    int32 version = 2;
+}
+
+message DeleteSchemaVersionResponse {
+    common.Status status = 1000;
+
+    // The updated version of the schema definition after deletion
+    Schema schema = 1;
+}
+
+message ApproveSchemaVersionRequest {
+    // Every gRPC request must have a valid auth config
+    common.Auth auth = 9999;
+
+    // Schema ID
+    string id = 1;
+
+    int32 version = 2;
+}
+
+message ApproveSchemaVersionResponse {
+    common.Status status = 1000;
+
+    // The updated version of the schema definition after approval
+    Schema schema = 1;
 }
