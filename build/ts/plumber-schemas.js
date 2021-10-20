@@ -30402,6 +30402,39 @@ $root.protos = (function() {
          */
 
         /**
+         * Callback as used by {@link protos.PlumberServer#getRepoList}.
+         * @memberof protos.PlumberServer
+         * @typedef GetRepoListCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.GetRepoListResponse} [response] GetRepoListResponse
+         */
+
+        /**
+         * Calls GetRepoList.
+         * @function getRepoList
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IGetRepoListRequest} request GetRepoListRequest message or plain object
+         * @param {protos.PlumberServer.GetRepoListCallback} callback Node-style callback called with the error, if any, and GetRepoListResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(PlumberServer.prototype.getRepoList = function getRepoList(request, callback) {
+            return this.rpcCall(getRepoList, $root.protos.GetRepoListRequest, $root.protos.GetRepoListResponse, request, callback);
+        }, "name", { value: "GetRepoList" });
+
+        /**
+         * Calls GetRepoList.
+         * @function getRepoList
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IGetRepoListRequest} request GetRepoListRequest message or plain object
+         * @returns {Promise<protos.GetRepoListResponse>} Promise
+         * @variation 2
+         */
+
+        /**
          * Callback as used by {@link protos.PlumberServer#getVCEvents}.
          * @memberof protos.PlumberServer
          * @typedef GetVCEventsCallback
@@ -69393,6 +69426,401 @@ $root.protos = (function() {
         };
 
         return ApproveSchemaVersionResponse;
+    })();
+
+    protos.GetRepoListRequest = (function() {
+
+        /**
+         * Properties of a GetRepoListRequest.
+         * @memberof protos
+         * @interface IGetRepoListRequest
+         * @property {protos.common.IAuth|null} [auth] GetRepoListRequest auth
+         */
+
+        /**
+         * Constructs a new GetRepoListRequest.
+         * @memberof protos
+         * @classdesc Represents a GetRepoListRequest.
+         * @implements IGetRepoListRequest
+         * @constructor
+         * @param {protos.IGetRepoListRequest=} [properties] Properties to set
+         */
+        function GetRepoListRequest(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * GetRepoListRequest auth.
+         * @member {protos.common.IAuth|null|undefined} auth
+         * @memberof protos.GetRepoListRequest
+         * @instance
+         */
+        GetRepoListRequest.prototype.auth = null;
+
+        /**
+         * Creates a new GetRepoListRequest instance using the specified properties.
+         * @function create
+         * @memberof protos.GetRepoListRequest
+         * @static
+         * @param {protos.IGetRepoListRequest=} [properties] Properties to set
+         * @returns {protos.GetRepoListRequest} GetRepoListRequest instance
+         */
+        GetRepoListRequest.create = function create(properties) {
+            return new GetRepoListRequest(properties);
+        };
+
+        /**
+         * Encodes the specified GetRepoListRequest message. Does not implicitly {@link protos.GetRepoListRequest.verify|verify} messages.
+         * @function encode
+         * @memberof protos.GetRepoListRequest
+         * @static
+         * @param {protos.IGetRepoListRequest} message GetRepoListRequest message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        GetRepoListRequest.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.auth != null && Object.hasOwnProperty.call(message, "auth"))
+                $root.protos.common.Auth.encode(message.auth, writer.uint32(/* id 9999, wireType 2 =*/79994).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Encodes the specified GetRepoListRequest message, length delimited. Does not implicitly {@link protos.GetRepoListRequest.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.GetRepoListRequest
+         * @static
+         * @param {protos.IGetRepoListRequest} message GetRepoListRequest message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        GetRepoListRequest.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a GetRepoListRequest message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.GetRepoListRequest
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.GetRepoListRequest} GetRepoListRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        GetRepoListRequest.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.GetRepoListRequest();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 9999:
+                    message.auth = $root.protos.common.Auth.decode(reader, reader.uint32());
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a GetRepoListRequest message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.GetRepoListRequest
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.GetRepoListRequest} GetRepoListRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        GetRepoListRequest.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a GetRepoListRequest message.
+         * @function verify
+         * @memberof protos.GetRepoListRequest
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        GetRepoListRequest.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.auth != null && message.hasOwnProperty("auth")) {
+                var error = $root.protos.common.Auth.verify(message.auth);
+                if (error)
+                    return "auth." + error;
+            }
+            return null;
+        };
+
+        /**
+         * Creates a GetRepoListRequest message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.GetRepoListRequest
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.GetRepoListRequest} GetRepoListRequest
+         */
+        GetRepoListRequest.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.GetRepoListRequest)
+                return object;
+            var message = new $root.protos.GetRepoListRequest();
+            if (object.auth != null) {
+                if (typeof object.auth !== "object")
+                    throw TypeError(".protos.GetRepoListRequest.auth: object expected");
+                message.auth = $root.protos.common.Auth.fromObject(object.auth);
+            }
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a GetRepoListRequest message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.GetRepoListRequest
+         * @static
+         * @param {protos.GetRepoListRequest} message GetRepoListRequest
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        GetRepoListRequest.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults)
+                object.auth = null;
+            if (message.auth != null && message.hasOwnProperty("auth"))
+                object.auth = $root.protos.common.Auth.toObject(message.auth, options);
+            return object;
+        };
+
+        /**
+         * Converts this GetRepoListRequest to JSON.
+         * @function toJSON
+         * @memberof protos.GetRepoListRequest
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        GetRepoListRequest.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return GetRepoListRequest;
+    })();
+
+    protos.GetRepoListResponse = (function() {
+
+        /**
+         * Properties of a GetRepoListResponse.
+         * @memberof protos
+         * @interface IGetRepoListResponse
+         * @property {Array.<string>|null} [repositoryUrls] GetRepoListResponse repositoryUrls
+         */
+
+        /**
+         * Constructs a new GetRepoListResponse.
+         * @memberof protos
+         * @classdesc Represents a GetRepoListResponse.
+         * @implements IGetRepoListResponse
+         * @constructor
+         * @param {protos.IGetRepoListResponse=} [properties] Properties to set
+         */
+        function GetRepoListResponse(properties) {
+            this.repositoryUrls = [];
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * GetRepoListResponse repositoryUrls.
+         * @member {Array.<string>} repositoryUrls
+         * @memberof protos.GetRepoListResponse
+         * @instance
+         */
+        GetRepoListResponse.prototype.repositoryUrls = $util.emptyArray;
+
+        /**
+         * Creates a new GetRepoListResponse instance using the specified properties.
+         * @function create
+         * @memberof protos.GetRepoListResponse
+         * @static
+         * @param {protos.IGetRepoListResponse=} [properties] Properties to set
+         * @returns {protos.GetRepoListResponse} GetRepoListResponse instance
+         */
+        GetRepoListResponse.create = function create(properties) {
+            return new GetRepoListResponse(properties);
+        };
+
+        /**
+         * Encodes the specified GetRepoListResponse message. Does not implicitly {@link protos.GetRepoListResponse.verify|verify} messages.
+         * @function encode
+         * @memberof protos.GetRepoListResponse
+         * @static
+         * @param {protos.IGetRepoListResponse} message GetRepoListResponse message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        GetRepoListResponse.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.repositoryUrls != null && message.repositoryUrls.length)
+                for (var i = 0; i < message.repositoryUrls.length; ++i)
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.repositoryUrls[i]);
+            return writer;
+        };
+
+        /**
+         * Encodes the specified GetRepoListResponse message, length delimited. Does not implicitly {@link protos.GetRepoListResponse.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.GetRepoListResponse
+         * @static
+         * @param {protos.IGetRepoListResponse} message GetRepoListResponse message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        GetRepoListResponse.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a GetRepoListResponse message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.GetRepoListResponse
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.GetRepoListResponse} GetRepoListResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        GetRepoListResponse.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.GetRepoListResponse();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    if (!(message.repositoryUrls && message.repositoryUrls.length))
+                        message.repositoryUrls = [];
+                    message.repositoryUrls.push(reader.string());
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a GetRepoListResponse message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.GetRepoListResponse
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.GetRepoListResponse} GetRepoListResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        GetRepoListResponse.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a GetRepoListResponse message.
+         * @function verify
+         * @memberof protos.GetRepoListResponse
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        GetRepoListResponse.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.repositoryUrls != null && message.hasOwnProperty("repositoryUrls")) {
+                if (!Array.isArray(message.repositoryUrls))
+                    return "repositoryUrls: array expected";
+                for (var i = 0; i < message.repositoryUrls.length; ++i)
+                    if (!$util.isString(message.repositoryUrls[i]))
+                        return "repositoryUrls: string[] expected";
+            }
+            return null;
+        };
+
+        /**
+         * Creates a GetRepoListResponse message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.GetRepoListResponse
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.GetRepoListResponse} GetRepoListResponse
+         */
+        GetRepoListResponse.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.GetRepoListResponse)
+                return object;
+            var message = new $root.protos.GetRepoListResponse();
+            if (object.repositoryUrls) {
+                if (!Array.isArray(object.repositoryUrls))
+                    throw TypeError(".protos.GetRepoListResponse.repositoryUrls: array expected");
+                message.repositoryUrls = [];
+                for (var i = 0; i < object.repositoryUrls.length; ++i)
+                    message.repositoryUrls[i] = String(object.repositoryUrls[i]);
+            }
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a GetRepoListResponse message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.GetRepoListResponse
+         * @static
+         * @param {protos.GetRepoListResponse} message GetRepoListResponse
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        GetRepoListResponse.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.arrays || options.defaults)
+                object.repositoryUrls = [];
+            if (message.repositoryUrls && message.repositoryUrls.length) {
+                object.repositoryUrls = [];
+                for (var j = 0; j < message.repositoryUrls.length; ++j)
+                    object.repositoryUrls[j] = message.repositoryUrls[j];
+            }
+            return object;
+        };
+
+        /**
+         * Converts this GetRepoListResponse to JSON.
+         * @function toJSON
+         * @memberof protos.GetRepoListResponse
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        GetRepoListResponse.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return GetRepoListResponse;
     })();
 
     protos.Service = (function() {

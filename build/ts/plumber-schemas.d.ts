@@ -12279,6 +12279,20 @@ export namespace protos {
         public setServerOptions(request: protos.ISetServerOptionsRequest): Promise<protos.SetServerOptionsResponse>;
 
         /**
+         * Calls GetRepoList.
+         * @param request GetRepoListRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and GetRepoListResponse
+         */
+        public getRepoList(request: protos.IGetRepoListRequest, callback: protos.PlumberServer.GetRepoListCallback): void;
+
+        /**
+         * Calls GetRepoList.
+         * @param request GetRepoListRequest message or plain object
+         * @returns Promise
+         */
+        public getRepoList(request: protos.IGetRepoListRequest): Promise<protos.GetRepoListResponse>;
+
+        /**
          * Calls GetVCEvents.
          * @param request GetVCEventsRequest message or plain object
          * @param callback Node-style callback called with the error, if any, and VCEvent
@@ -12672,6 +12686,13 @@ export namespace protos {
          * @param [response] SetServerOptionsResponse
          */
         type SetServerOptionsCallback = (error: (Error|null), response?: protos.SetServerOptionsResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#getRepoList}.
+         * @param error Error, if any
+         * @param [response] GetRepoListResponse
+         */
+        type GetRepoListCallback = (error: (Error|null), response?: protos.GetRepoListResponse) => void;
 
         /**
          * Callback as used by {@link protos.PlumberServer#getVCEvents}.
@@ -28301,6 +28322,186 @@ export namespace protos {
 
         /**
          * Converts this ApproveSchemaVersionResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a GetRepoListRequest. */
+    interface IGetRepoListRequest {
+
+        /** GetRepoListRequest auth */
+        auth?: (protos.common.IAuth|null);
+    }
+
+    /** Represents a GetRepoListRequest. */
+    class GetRepoListRequest implements IGetRepoListRequest {
+
+        /**
+         * Constructs a new GetRepoListRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IGetRepoListRequest);
+
+        /** GetRepoListRequest auth. */
+        public auth?: (protos.common.IAuth|null);
+
+        /**
+         * Creates a new GetRepoListRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns GetRepoListRequest instance
+         */
+        public static create(properties?: protos.IGetRepoListRequest): protos.GetRepoListRequest;
+
+        /**
+         * Encodes the specified GetRepoListRequest message. Does not implicitly {@link protos.GetRepoListRequest.verify|verify} messages.
+         * @param message GetRepoListRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IGetRepoListRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified GetRepoListRequest message, length delimited. Does not implicitly {@link protos.GetRepoListRequest.verify|verify} messages.
+         * @param message GetRepoListRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IGetRepoListRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a GetRepoListRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns GetRepoListRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.GetRepoListRequest;
+
+        /**
+         * Decodes a GetRepoListRequest message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns GetRepoListRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.GetRepoListRequest;
+
+        /**
+         * Verifies a GetRepoListRequest message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a GetRepoListRequest message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns GetRepoListRequest
+         */
+        public static fromObject(object: { [k: string]: any }): protos.GetRepoListRequest;
+
+        /**
+         * Creates a plain object from a GetRepoListRequest message. Also converts values to other types if specified.
+         * @param message GetRepoListRequest
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.GetRepoListRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this GetRepoListRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a GetRepoListResponse. */
+    interface IGetRepoListResponse {
+
+        /** GetRepoListResponse repositoryUrls */
+        repositoryUrls?: (string[]|null);
+    }
+
+    /** Represents a GetRepoListResponse. */
+    class GetRepoListResponse implements IGetRepoListResponse {
+
+        /**
+         * Constructs a new GetRepoListResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IGetRepoListResponse);
+
+        /** GetRepoListResponse repositoryUrls. */
+        public repositoryUrls: string[];
+
+        /**
+         * Creates a new GetRepoListResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns GetRepoListResponse instance
+         */
+        public static create(properties?: protos.IGetRepoListResponse): protos.GetRepoListResponse;
+
+        /**
+         * Encodes the specified GetRepoListResponse message. Does not implicitly {@link protos.GetRepoListResponse.verify|verify} messages.
+         * @param message GetRepoListResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IGetRepoListResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified GetRepoListResponse message, length delimited. Does not implicitly {@link protos.GetRepoListResponse.verify|verify} messages.
+         * @param message GetRepoListResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IGetRepoListResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a GetRepoListResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns GetRepoListResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.GetRepoListResponse;
+
+        /**
+         * Decodes a GetRepoListResponse message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns GetRepoListResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.GetRepoListResponse;
+
+        /**
+         * Verifies a GetRepoListResponse message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a GetRepoListResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns GetRepoListResponse
+         */
+        public static fromObject(object: { [k: string]: any }): protos.GetRepoListResponse;
+
+        /**
+         * Creates a plain object from a GetRepoListResponse message. Also converts values to other types if specified.
+         * @param message GetRepoListResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.GetRepoListResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this GetRepoListResponse to JSON.
          * @returns JSON object
          */
         public toJSON(): { [k: string]: any };

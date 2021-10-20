@@ -188,3 +188,12 @@ message ApproveSchemaVersionResponse {
     // The updated version of the schema definition after approval
     Schema schema = 1;
 }
+
+message GetRepoListRequest {
+    // Every gRPC request must have a valid auth config
+    common.Auth auth = 9999;
+}
+
+message GetRepoListResponse {
+    repeated string repository_urls = 1;
+}

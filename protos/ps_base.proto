@@ -116,6 +116,9 @@ service PlumberServer {
 
     rpc SetServerOptions(SetServerOptionsRequest) returns (SetServerOptionsResponse);
 
+    // List repos pulls a list of repositories from Github after a user has authorized the app
+    rpc GetRepoList(GetRepoListRequest) returns (GetRepoListResponse);
+
     // GetVCEvents connects to vc-service backend and returns a stream of events pushed from github/bitbucket/etc
     rpc GetVCEvents(GetVCEventsRequest) returns (stream VCEvent);
 
