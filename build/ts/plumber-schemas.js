@@ -29940,6 +29940,39 @@ $root.protos = (function() {
          */
 
         /**
+         * Callback as used by {@link protos.PlumberServer#importGithubSelect}.
+         * @memberof protos.PlumberServer
+         * @typedef ImportGithubSelectCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.ImportGithubSelectResponse} [response] ImportGithubSelectResponse
+         */
+
+        /**
+         * Calls ImportGithubSelect.
+         * @function importGithubSelect
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IImportGithubSelectRequest} request ImportGithubSelectRequest message or plain object
+         * @param {protos.PlumberServer.ImportGithubSelectCallback} callback Node-style callback called with the error, if any, and ImportGithubSelectResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(PlumberServer.prototype.importGithubSelect = function importGithubSelect(request, callback) {
+            return this.rpcCall(importGithubSelect, $root.protos.ImportGithubSelectRequest, $root.protos.ImportGithubSelectResponse, request, callback);
+        }, "name", { value: "ImportGithubSelect" });
+
+        /**
+         * Calls ImportGithubSelect.
+         * @function importGithubSelect
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IImportGithubSelectRequest} request ImportGithubSelectRequest message or plain object
+         * @returns {Promise<protos.ImportGithubSelectResponse>} Promise
+         * @variation 2
+         */
+
+        /**
          * Callback as used by {@link protos.PlumberServer#importLocal}.
          * @memberof protos.PlumberServer
          * @typedef ImportLocalCallback
@@ -66361,9 +66394,7 @@ $root.protos = (function() {
          * @property {string|null} [name] ImportGithubRequest name
          * @property {protos.SchemaType|null} [type] ImportGithubRequest type
          * @property {string|null} [githubUrl] ImportGithubRequest githubUrl
-         * @property {protos.encoding.IProtobufSettings|null} [protobufSettings] ImportGithubRequest protobufSettings
-         * @property {protos.encoding.IAvroSettings|null} [avroSettings] ImportGithubRequest avroSettings
-         * @property {protos.encoding.IJSONSchemaSettings|null} [jsonSchemaSettings] ImportGithubRequest jsonSchemaSettings
+         * @property {string|null} [_id] ImportGithubRequest _id
          */
 
         /**
@@ -66414,42 +66445,12 @@ $root.protos = (function() {
         ImportGithubRequest.prototype.githubUrl = "";
 
         /**
-         * ImportGithubRequest protobufSettings.
-         * @member {protos.encoding.IProtobufSettings|null|undefined} protobufSettings
+         * ImportGithubRequest _id.
+         * @member {string} _id
          * @memberof protos.ImportGithubRequest
          * @instance
          */
-        ImportGithubRequest.prototype.protobufSettings = null;
-
-        /**
-         * ImportGithubRequest avroSettings.
-         * @member {protos.encoding.IAvroSettings|null|undefined} avroSettings
-         * @memberof protos.ImportGithubRequest
-         * @instance
-         */
-        ImportGithubRequest.prototype.avroSettings = null;
-
-        /**
-         * ImportGithubRequest jsonSchemaSettings.
-         * @member {protos.encoding.IJSONSchemaSettings|null|undefined} jsonSchemaSettings
-         * @memberof protos.ImportGithubRequest
-         * @instance
-         */
-        ImportGithubRequest.prototype.jsonSchemaSettings = null;
-
-        // OneOf field names bound to virtual getters and setters
-        var $oneOfFields;
-
-        /**
-         * ImportGithubRequest settings.
-         * @member {"protobufSettings"|"avroSettings"|"jsonSchemaSettings"|undefined} settings
-         * @memberof protos.ImportGithubRequest
-         * @instance
-         */
-        Object.defineProperty(ImportGithubRequest.prototype, "settings", {
-            get: $util.oneOfGetter($oneOfFields = ["protobufSettings", "avroSettings", "jsonSchemaSettings"]),
-            set: $util.oneOfSetter($oneOfFields)
-        });
+        ImportGithubRequest.prototype._id = "";
 
         /**
          * Creates a new ImportGithubRequest instance using the specified properties.
@@ -66481,12 +66482,8 @@ $root.protos = (function() {
                 writer.uint32(/* id 2, wireType 0 =*/16).int32(message.type);
             if (message.githubUrl != null && Object.hasOwnProperty.call(message, "githubUrl"))
                 writer.uint32(/* id 3, wireType 2 =*/26).string(message.githubUrl);
-            if (message.protobufSettings != null && Object.hasOwnProperty.call(message, "protobufSettings"))
-                $root.protos.encoding.ProtobufSettings.encode(message.protobufSettings, writer.uint32(/* id 100, wireType 2 =*/802).fork()).ldelim();
-            if (message.avroSettings != null && Object.hasOwnProperty.call(message, "avroSettings"))
-                $root.protos.encoding.AvroSettings.encode(message.avroSettings, writer.uint32(/* id 101, wireType 2 =*/810).fork()).ldelim();
-            if (message.jsonSchemaSettings != null && Object.hasOwnProperty.call(message, "jsonSchemaSettings"))
-                $root.protos.encoding.JSONSchemaSettings.encode(message.jsonSchemaSettings, writer.uint32(/* id 102, wireType 2 =*/818).fork()).ldelim();
+            if (message._id != null && Object.hasOwnProperty.call(message, "_id"))
+                writer.uint32(/* id 4, wireType 2 =*/34).string(message._id);
             if (message.auth != null && Object.hasOwnProperty.call(message, "auth"))
                 $root.protos.common.Auth.encode(message.auth, writer.uint32(/* id 9999, wireType 2 =*/79994).fork()).ldelim();
             return writer;
@@ -66535,14 +66532,8 @@ $root.protos = (function() {
                 case 3:
                     message.githubUrl = reader.string();
                     break;
-                case 100:
-                    message.protobufSettings = $root.protos.encoding.ProtobufSettings.decode(reader, reader.uint32());
-                    break;
-                case 101:
-                    message.avroSettings = $root.protos.encoding.AvroSettings.decode(reader, reader.uint32());
-                    break;
-                case 102:
-                    message.jsonSchemaSettings = $root.protos.encoding.JSONSchemaSettings.decode(reader, reader.uint32());
+                case 4:
+                    message._id = reader.string();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -66579,7 +66570,6 @@ $root.protos = (function() {
         ImportGithubRequest.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            var properties = {};
             if (message.auth != null && message.hasOwnProperty("auth")) {
                 var error = $root.protos.common.Auth.verify(message.auth);
                 if (error)
@@ -66601,34 +66591,9 @@ $root.protos = (function() {
             if (message.githubUrl != null && message.hasOwnProperty("githubUrl"))
                 if (!$util.isString(message.githubUrl))
                     return "githubUrl: string expected";
-            if (message.protobufSettings != null && message.hasOwnProperty("protobufSettings")) {
-                properties.settings = 1;
-                {
-                    var error = $root.protos.encoding.ProtobufSettings.verify(message.protobufSettings);
-                    if (error)
-                        return "protobufSettings." + error;
-                }
-            }
-            if (message.avroSettings != null && message.hasOwnProperty("avroSettings")) {
-                if (properties.settings === 1)
-                    return "settings: multiple values";
-                properties.settings = 1;
-                {
-                    var error = $root.protos.encoding.AvroSettings.verify(message.avroSettings);
-                    if (error)
-                        return "avroSettings." + error;
-                }
-            }
-            if (message.jsonSchemaSettings != null && message.hasOwnProperty("jsonSchemaSettings")) {
-                if (properties.settings === 1)
-                    return "settings: multiple values";
-                properties.settings = 1;
-                {
-                    var error = $root.protos.encoding.JSONSchemaSettings.verify(message.jsonSchemaSettings);
-                    if (error)
-                        return "jsonSchemaSettings." + error;
-                }
-            }
+            if (message._id != null && message.hasOwnProperty("_id"))
+                if (!$util.isString(message._id))
+                    return "_id: string expected";
             return null;
         };
 
@@ -66671,21 +66636,8 @@ $root.protos = (function() {
             }
             if (object.githubUrl != null)
                 message.githubUrl = String(object.githubUrl);
-            if (object.protobufSettings != null) {
-                if (typeof object.protobufSettings !== "object")
-                    throw TypeError(".protos.ImportGithubRequest.protobufSettings: object expected");
-                message.protobufSettings = $root.protos.encoding.ProtobufSettings.fromObject(object.protobufSettings);
-            }
-            if (object.avroSettings != null) {
-                if (typeof object.avroSettings !== "object")
-                    throw TypeError(".protos.ImportGithubRequest.avroSettings: object expected");
-                message.avroSettings = $root.protos.encoding.AvroSettings.fromObject(object.avroSettings);
-            }
-            if (object.jsonSchemaSettings != null) {
-                if (typeof object.jsonSchemaSettings !== "object")
-                    throw TypeError(".protos.ImportGithubRequest.jsonSchemaSettings: object expected");
-                message.jsonSchemaSettings = $root.protos.encoding.JSONSchemaSettings.fromObject(object.jsonSchemaSettings);
-            }
+            if (object._id != null)
+                message._id = String(object._id);
             return message;
         };
 
@@ -66706,6 +66658,7 @@ $root.protos = (function() {
                 object.name = "";
                 object.type = options.enums === String ? "SCHEMA_TYPE_UNSET" : 0;
                 object.githubUrl = "";
+                object._id = "";
                 object.auth = null;
             }
             if (message.name != null && message.hasOwnProperty("name"))
@@ -66714,21 +66667,8 @@ $root.protos = (function() {
                 object.type = options.enums === String ? $root.protos.SchemaType[message.type] : message.type;
             if (message.githubUrl != null && message.hasOwnProperty("githubUrl"))
                 object.githubUrl = message.githubUrl;
-            if (message.protobufSettings != null && message.hasOwnProperty("protobufSettings")) {
-                object.protobufSettings = $root.protos.encoding.ProtobufSettings.toObject(message.protobufSettings, options);
-                if (options.oneofs)
-                    object.settings = "protobufSettings";
-            }
-            if (message.avroSettings != null && message.hasOwnProperty("avroSettings")) {
-                object.avroSettings = $root.protos.encoding.AvroSettings.toObject(message.avroSettings, options);
-                if (options.oneofs)
-                    object.settings = "avroSettings";
-            }
-            if (message.jsonSchemaSettings != null && message.hasOwnProperty("jsonSchemaSettings")) {
-                object.jsonSchemaSettings = $root.protos.encoding.JSONSchemaSettings.toObject(message.jsonSchemaSettings, options);
-                if (options.oneofs)
-                    object.settings = "jsonSchemaSettings";
-            }
+            if (message._id != null && message.hasOwnProperty("_id"))
+                object._id = message._id;
             if (message.auth != null && message.hasOwnProperty("auth"))
                 object.auth = $root.protos.common.Auth.toObject(message.auth, options);
             return object;
@@ -66756,6 +66696,7 @@ $root.protos = (function() {
          * @interface IImportGithubResponse
          * @property {protos.common.IStatus|null} [status] ImportGithubResponse status
          * @property {string|null} [id] ImportGithubResponse id
+         * @property {protos.IDirectory|null} [tree] ImportGithubResponse tree
          */
 
         /**
@@ -66790,6 +66731,14 @@ $root.protos = (function() {
         ImportGithubResponse.prototype.id = "";
 
         /**
+         * ImportGithubResponse tree.
+         * @member {protos.IDirectory|null|undefined} tree
+         * @memberof protos.ImportGithubResponse
+         * @instance
+         */
+        ImportGithubResponse.prototype.tree = null;
+
+        /**
          * Creates a new ImportGithubResponse instance using the specified properties.
          * @function create
          * @memberof protos.ImportGithubResponse
@@ -66815,6 +66764,8 @@ $root.protos = (function() {
                 writer = $Writer.create();
             if (message.id != null && Object.hasOwnProperty.call(message, "id"))
                 writer.uint32(/* id 1, wireType 2 =*/10).string(message.id);
+            if (message.tree != null && Object.hasOwnProperty.call(message, "tree"))
+                $root.protos.Directory.encode(message.tree, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
             if (message.status != null && Object.hasOwnProperty.call(message, "status"))
                 $root.protos.common.Status.encode(message.status, writer.uint32(/* id 1000, wireType 2 =*/8002).fork()).ldelim();
             return writer;
@@ -66856,6 +66807,9 @@ $root.protos = (function() {
                     break;
                 case 1:
                     message.id = reader.string();
+                    break;
+                case 2:
+                    message.tree = $root.protos.Directory.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -66900,6 +66854,11 @@ $root.protos = (function() {
             if (message.id != null && message.hasOwnProperty("id"))
                 if (!$util.isString(message.id))
                     return "id: string expected";
+            if (message.tree != null && message.hasOwnProperty("tree")) {
+                var error = $root.protos.Directory.verify(message.tree);
+                if (error)
+                    return "tree." + error;
+            }
             return null;
         };
 
@@ -66922,6 +66881,11 @@ $root.protos = (function() {
             }
             if (object.id != null)
                 message.id = String(object.id);
+            if (object.tree != null) {
+                if (typeof object.tree !== "object")
+                    throw TypeError(".protos.ImportGithubResponse.tree: object expected");
+                message.tree = $root.protos.Directory.fromObject(object.tree);
+            }
             return message;
         };
 
@@ -66940,10 +66904,13 @@ $root.protos = (function() {
             var object = {};
             if (options.defaults) {
                 object.id = "";
+                object.tree = null;
                 object.status = null;
             }
             if (message.id != null && message.hasOwnProperty("id"))
                 object.id = message.id;
+            if (message.tree != null && message.hasOwnProperty("tree"))
+                object.tree = $root.protos.Directory.toObject(message.tree, options);
             if (message.status != null && message.hasOwnProperty("status"))
                 object.status = $root.protos.common.Status.toObject(message.status, options);
             return object;
@@ -66961,6 +66928,600 @@ $root.protos = (function() {
         };
 
         return ImportGithubResponse;
+    })();
+
+    protos.ImportGithubSelectRequest = (function() {
+
+        /**
+         * Properties of an ImportGithubSelectRequest.
+         * @memberof protos
+         * @interface IImportGithubSelectRequest
+         * @property {protos.common.IAuth|null} [auth] ImportGithubSelectRequest auth
+         * @property {string|null} [importId] ImportGithubSelectRequest importId
+         * @property {string|null} [schemaFileName] ImportGithubSelectRequest schemaFileName
+         * @property {string|null} [schemaFileSha] ImportGithubSelectRequest schemaFileSha
+         * @property {protos.encoding.IProtobufSettings|null} [protobufSettings] ImportGithubSelectRequest protobufSettings
+         * @property {protos.encoding.IAvroSettings|null} [avroSettings] ImportGithubSelectRequest avroSettings
+         * @property {protos.encoding.IJSONSchemaSettings|null} [jsonSchemaSettings] ImportGithubSelectRequest jsonSchemaSettings
+         */
+
+        /**
+         * Constructs a new ImportGithubSelectRequest.
+         * @memberof protos
+         * @classdesc Represents an ImportGithubSelectRequest.
+         * @implements IImportGithubSelectRequest
+         * @constructor
+         * @param {protos.IImportGithubSelectRequest=} [properties] Properties to set
+         */
+        function ImportGithubSelectRequest(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * ImportGithubSelectRequest auth.
+         * @member {protos.common.IAuth|null|undefined} auth
+         * @memberof protos.ImportGithubSelectRequest
+         * @instance
+         */
+        ImportGithubSelectRequest.prototype.auth = null;
+
+        /**
+         * ImportGithubSelectRequest importId.
+         * @member {string} importId
+         * @memberof protos.ImportGithubSelectRequest
+         * @instance
+         */
+        ImportGithubSelectRequest.prototype.importId = "";
+
+        /**
+         * ImportGithubSelectRequest schemaFileName.
+         * @member {string} schemaFileName
+         * @memberof protos.ImportGithubSelectRequest
+         * @instance
+         */
+        ImportGithubSelectRequest.prototype.schemaFileName = "";
+
+        /**
+         * ImportGithubSelectRequest schemaFileSha.
+         * @member {string} schemaFileSha
+         * @memberof protos.ImportGithubSelectRequest
+         * @instance
+         */
+        ImportGithubSelectRequest.prototype.schemaFileSha = "";
+
+        /**
+         * ImportGithubSelectRequest protobufSettings.
+         * @member {protos.encoding.IProtobufSettings|null|undefined} protobufSettings
+         * @memberof protos.ImportGithubSelectRequest
+         * @instance
+         */
+        ImportGithubSelectRequest.prototype.protobufSettings = null;
+
+        /**
+         * ImportGithubSelectRequest avroSettings.
+         * @member {protos.encoding.IAvroSettings|null|undefined} avroSettings
+         * @memberof protos.ImportGithubSelectRequest
+         * @instance
+         */
+        ImportGithubSelectRequest.prototype.avroSettings = null;
+
+        /**
+         * ImportGithubSelectRequest jsonSchemaSettings.
+         * @member {protos.encoding.IJSONSchemaSettings|null|undefined} jsonSchemaSettings
+         * @memberof protos.ImportGithubSelectRequest
+         * @instance
+         */
+        ImportGithubSelectRequest.prototype.jsonSchemaSettings = null;
+
+        // OneOf field names bound to virtual getters and setters
+        var $oneOfFields;
+
+        /**
+         * ImportGithubSelectRequest settings.
+         * @member {"protobufSettings"|"avroSettings"|"jsonSchemaSettings"|undefined} settings
+         * @memberof protos.ImportGithubSelectRequest
+         * @instance
+         */
+        Object.defineProperty(ImportGithubSelectRequest.prototype, "settings", {
+            get: $util.oneOfGetter($oneOfFields = ["protobufSettings", "avroSettings", "jsonSchemaSettings"]),
+            set: $util.oneOfSetter($oneOfFields)
+        });
+
+        /**
+         * Creates a new ImportGithubSelectRequest instance using the specified properties.
+         * @function create
+         * @memberof protos.ImportGithubSelectRequest
+         * @static
+         * @param {protos.IImportGithubSelectRequest=} [properties] Properties to set
+         * @returns {protos.ImportGithubSelectRequest} ImportGithubSelectRequest instance
+         */
+        ImportGithubSelectRequest.create = function create(properties) {
+            return new ImportGithubSelectRequest(properties);
+        };
+
+        /**
+         * Encodes the specified ImportGithubSelectRequest message. Does not implicitly {@link protos.ImportGithubSelectRequest.verify|verify} messages.
+         * @function encode
+         * @memberof protos.ImportGithubSelectRequest
+         * @static
+         * @param {protos.IImportGithubSelectRequest} message ImportGithubSelectRequest message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        ImportGithubSelectRequest.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.importId != null && Object.hasOwnProperty.call(message, "importId"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.importId);
+            if (message.schemaFileName != null && Object.hasOwnProperty.call(message, "schemaFileName"))
+                writer.uint32(/* id 2, wireType 2 =*/18).string(message.schemaFileName);
+            if (message.schemaFileSha != null && Object.hasOwnProperty.call(message, "schemaFileSha"))
+                writer.uint32(/* id 3, wireType 2 =*/26).string(message.schemaFileSha);
+            if (message.protobufSettings != null && Object.hasOwnProperty.call(message, "protobufSettings"))
+                $root.protos.encoding.ProtobufSettings.encode(message.protobufSettings, writer.uint32(/* id 100, wireType 2 =*/802).fork()).ldelim();
+            if (message.avroSettings != null && Object.hasOwnProperty.call(message, "avroSettings"))
+                $root.protos.encoding.AvroSettings.encode(message.avroSettings, writer.uint32(/* id 101, wireType 2 =*/810).fork()).ldelim();
+            if (message.jsonSchemaSettings != null && Object.hasOwnProperty.call(message, "jsonSchemaSettings"))
+                $root.protos.encoding.JSONSchemaSettings.encode(message.jsonSchemaSettings, writer.uint32(/* id 102, wireType 2 =*/818).fork()).ldelim();
+            if (message.auth != null && Object.hasOwnProperty.call(message, "auth"))
+                $root.protos.common.Auth.encode(message.auth, writer.uint32(/* id 9999, wireType 2 =*/79994).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Encodes the specified ImportGithubSelectRequest message, length delimited. Does not implicitly {@link protos.ImportGithubSelectRequest.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.ImportGithubSelectRequest
+         * @static
+         * @param {protos.IImportGithubSelectRequest} message ImportGithubSelectRequest message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        ImportGithubSelectRequest.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes an ImportGithubSelectRequest message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.ImportGithubSelectRequest
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.ImportGithubSelectRequest} ImportGithubSelectRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        ImportGithubSelectRequest.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.ImportGithubSelectRequest();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 9999:
+                    message.auth = $root.protos.common.Auth.decode(reader, reader.uint32());
+                    break;
+                case 1:
+                    message.importId = reader.string();
+                    break;
+                case 2:
+                    message.schemaFileName = reader.string();
+                    break;
+                case 3:
+                    message.schemaFileSha = reader.string();
+                    break;
+                case 100:
+                    message.protobufSettings = $root.protos.encoding.ProtobufSettings.decode(reader, reader.uint32());
+                    break;
+                case 101:
+                    message.avroSettings = $root.protos.encoding.AvroSettings.decode(reader, reader.uint32());
+                    break;
+                case 102:
+                    message.jsonSchemaSettings = $root.protos.encoding.JSONSchemaSettings.decode(reader, reader.uint32());
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes an ImportGithubSelectRequest message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.ImportGithubSelectRequest
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.ImportGithubSelectRequest} ImportGithubSelectRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        ImportGithubSelectRequest.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies an ImportGithubSelectRequest message.
+         * @function verify
+         * @memberof protos.ImportGithubSelectRequest
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        ImportGithubSelectRequest.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            var properties = {};
+            if (message.auth != null && message.hasOwnProperty("auth")) {
+                var error = $root.protos.common.Auth.verify(message.auth);
+                if (error)
+                    return "auth." + error;
+            }
+            if (message.importId != null && message.hasOwnProperty("importId"))
+                if (!$util.isString(message.importId))
+                    return "importId: string expected";
+            if (message.schemaFileName != null && message.hasOwnProperty("schemaFileName"))
+                if (!$util.isString(message.schemaFileName))
+                    return "schemaFileName: string expected";
+            if (message.schemaFileSha != null && message.hasOwnProperty("schemaFileSha"))
+                if (!$util.isString(message.schemaFileSha))
+                    return "schemaFileSha: string expected";
+            if (message.protobufSettings != null && message.hasOwnProperty("protobufSettings")) {
+                properties.settings = 1;
+                {
+                    var error = $root.protos.encoding.ProtobufSettings.verify(message.protobufSettings);
+                    if (error)
+                        return "protobufSettings." + error;
+                }
+            }
+            if (message.avroSettings != null && message.hasOwnProperty("avroSettings")) {
+                if (properties.settings === 1)
+                    return "settings: multiple values";
+                properties.settings = 1;
+                {
+                    var error = $root.protos.encoding.AvroSettings.verify(message.avroSettings);
+                    if (error)
+                        return "avroSettings." + error;
+                }
+            }
+            if (message.jsonSchemaSettings != null && message.hasOwnProperty("jsonSchemaSettings")) {
+                if (properties.settings === 1)
+                    return "settings: multiple values";
+                properties.settings = 1;
+                {
+                    var error = $root.protos.encoding.JSONSchemaSettings.verify(message.jsonSchemaSettings);
+                    if (error)
+                        return "jsonSchemaSettings." + error;
+                }
+            }
+            return null;
+        };
+
+        /**
+         * Creates an ImportGithubSelectRequest message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.ImportGithubSelectRequest
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.ImportGithubSelectRequest} ImportGithubSelectRequest
+         */
+        ImportGithubSelectRequest.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.ImportGithubSelectRequest)
+                return object;
+            var message = new $root.protos.ImportGithubSelectRequest();
+            if (object.auth != null) {
+                if (typeof object.auth !== "object")
+                    throw TypeError(".protos.ImportGithubSelectRequest.auth: object expected");
+                message.auth = $root.protos.common.Auth.fromObject(object.auth);
+            }
+            if (object.importId != null)
+                message.importId = String(object.importId);
+            if (object.schemaFileName != null)
+                message.schemaFileName = String(object.schemaFileName);
+            if (object.schemaFileSha != null)
+                message.schemaFileSha = String(object.schemaFileSha);
+            if (object.protobufSettings != null) {
+                if (typeof object.protobufSettings !== "object")
+                    throw TypeError(".protos.ImportGithubSelectRequest.protobufSettings: object expected");
+                message.protobufSettings = $root.protos.encoding.ProtobufSettings.fromObject(object.protobufSettings);
+            }
+            if (object.avroSettings != null) {
+                if (typeof object.avroSettings !== "object")
+                    throw TypeError(".protos.ImportGithubSelectRequest.avroSettings: object expected");
+                message.avroSettings = $root.protos.encoding.AvroSettings.fromObject(object.avroSettings);
+            }
+            if (object.jsonSchemaSettings != null) {
+                if (typeof object.jsonSchemaSettings !== "object")
+                    throw TypeError(".protos.ImportGithubSelectRequest.jsonSchemaSettings: object expected");
+                message.jsonSchemaSettings = $root.protos.encoding.JSONSchemaSettings.fromObject(object.jsonSchemaSettings);
+            }
+            return message;
+        };
+
+        /**
+         * Creates a plain object from an ImportGithubSelectRequest message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.ImportGithubSelectRequest
+         * @static
+         * @param {protos.ImportGithubSelectRequest} message ImportGithubSelectRequest
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        ImportGithubSelectRequest.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.importId = "";
+                object.schemaFileName = "";
+                object.schemaFileSha = "";
+                object.auth = null;
+            }
+            if (message.importId != null && message.hasOwnProperty("importId"))
+                object.importId = message.importId;
+            if (message.schemaFileName != null && message.hasOwnProperty("schemaFileName"))
+                object.schemaFileName = message.schemaFileName;
+            if (message.schemaFileSha != null && message.hasOwnProperty("schemaFileSha"))
+                object.schemaFileSha = message.schemaFileSha;
+            if (message.protobufSettings != null && message.hasOwnProperty("protobufSettings")) {
+                object.protobufSettings = $root.protos.encoding.ProtobufSettings.toObject(message.protobufSettings, options);
+                if (options.oneofs)
+                    object.settings = "protobufSettings";
+            }
+            if (message.avroSettings != null && message.hasOwnProperty("avroSettings")) {
+                object.avroSettings = $root.protos.encoding.AvroSettings.toObject(message.avroSettings, options);
+                if (options.oneofs)
+                    object.settings = "avroSettings";
+            }
+            if (message.jsonSchemaSettings != null && message.hasOwnProperty("jsonSchemaSettings")) {
+                object.jsonSchemaSettings = $root.protos.encoding.JSONSchemaSettings.toObject(message.jsonSchemaSettings, options);
+                if (options.oneofs)
+                    object.settings = "jsonSchemaSettings";
+            }
+            if (message.auth != null && message.hasOwnProperty("auth"))
+                object.auth = $root.protos.common.Auth.toObject(message.auth, options);
+            return object;
+        };
+
+        /**
+         * Converts this ImportGithubSelectRequest to JSON.
+         * @function toJSON
+         * @memberof protos.ImportGithubSelectRequest
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        ImportGithubSelectRequest.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return ImportGithubSelectRequest;
+    })();
+
+    protos.ImportGithubSelectResponse = (function() {
+
+        /**
+         * Properties of an ImportGithubSelectResponse.
+         * @memberof protos
+         * @interface IImportGithubSelectResponse
+         * @property {protos.common.IStatus|null} [status] ImportGithubSelectResponse status
+         * @property {protos.ISchema|null} [schema] ImportGithubSelectResponse schema
+         */
+
+        /**
+         * Constructs a new ImportGithubSelectResponse.
+         * @memberof protos
+         * @classdesc Represents an ImportGithubSelectResponse.
+         * @implements IImportGithubSelectResponse
+         * @constructor
+         * @param {protos.IImportGithubSelectResponse=} [properties] Properties to set
+         */
+        function ImportGithubSelectResponse(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * ImportGithubSelectResponse status.
+         * @member {protos.common.IStatus|null|undefined} status
+         * @memberof protos.ImportGithubSelectResponse
+         * @instance
+         */
+        ImportGithubSelectResponse.prototype.status = null;
+
+        /**
+         * ImportGithubSelectResponse schema.
+         * @member {protos.ISchema|null|undefined} schema
+         * @memberof protos.ImportGithubSelectResponse
+         * @instance
+         */
+        ImportGithubSelectResponse.prototype.schema = null;
+
+        /**
+         * Creates a new ImportGithubSelectResponse instance using the specified properties.
+         * @function create
+         * @memberof protos.ImportGithubSelectResponse
+         * @static
+         * @param {protos.IImportGithubSelectResponse=} [properties] Properties to set
+         * @returns {protos.ImportGithubSelectResponse} ImportGithubSelectResponse instance
+         */
+        ImportGithubSelectResponse.create = function create(properties) {
+            return new ImportGithubSelectResponse(properties);
+        };
+
+        /**
+         * Encodes the specified ImportGithubSelectResponse message. Does not implicitly {@link protos.ImportGithubSelectResponse.verify|verify} messages.
+         * @function encode
+         * @memberof protos.ImportGithubSelectResponse
+         * @static
+         * @param {protos.IImportGithubSelectResponse} message ImportGithubSelectResponse message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        ImportGithubSelectResponse.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.schema != null && Object.hasOwnProperty.call(message, "schema"))
+                $root.protos.Schema.encode(message.schema, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+            if (message.status != null && Object.hasOwnProperty.call(message, "status"))
+                $root.protos.common.Status.encode(message.status, writer.uint32(/* id 1000, wireType 2 =*/8002).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Encodes the specified ImportGithubSelectResponse message, length delimited. Does not implicitly {@link protos.ImportGithubSelectResponse.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.ImportGithubSelectResponse
+         * @static
+         * @param {protos.IImportGithubSelectResponse} message ImportGithubSelectResponse message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        ImportGithubSelectResponse.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes an ImportGithubSelectResponse message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.ImportGithubSelectResponse
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.ImportGithubSelectResponse} ImportGithubSelectResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        ImportGithubSelectResponse.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.ImportGithubSelectResponse();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1000:
+                    message.status = $root.protos.common.Status.decode(reader, reader.uint32());
+                    break;
+                case 1:
+                    message.schema = $root.protos.Schema.decode(reader, reader.uint32());
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes an ImportGithubSelectResponse message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.ImportGithubSelectResponse
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.ImportGithubSelectResponse} ImportGithubSelectResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        ImportGithubSelectResponse.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies an ImportGithubSelectResponse message.
+         * @function verify
+         * @memberof protos.ImportGithubSelectResponse
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        ImportGithubSelectResponse.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.status != null && message.hasOwnProperty("status")) {
+                var error = $root.protos.common.Status.verify(message.status);
+                if (error)
+                    return "status." + error;
+            }
+            if (message.schema != null && message.hasOwnProperty("schema")) {
+                var error = $root.protos.Schema.verify(message.schema);
+                if (error)
+                    return "schema." + error;
+            }
+            return null;
+        };
+
+        /**
+         * Creates an ImportGithubSelectResponse message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.ImportGithubSelectResponse
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.ImportGithubSelectResponse} ImportGithubSelectResponse
+         */
+        ImportGithubSelectResponse.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.ImportGithubSelectResponse)
+                return object;
+            var message = new $root.protos.ImportGithubSelectResponse();
+            if (object.status != null) {
+                if (typeof object.status !== "object")
+                    throw TypeError(".protos.ImportGithubSelectResponse.status: object expected");
+                message.status = $root.protos.common.Status.fromObject(object.status);
+            }
+            if (object.schema != null) {
+                if (typeof object.schema !== "object")
+                    throw TypeError(".protos.ImportGithubSelectResponse.schema: object expected");
+                message.schema = $root.protos.Schema.fromObject(object.schema);
+            }
+            return message;
+        };
+
+        /**
+         * Creates a plain object from an ImportGithubSelectResponse message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.ImportGithubSelectResponse
+         * @static
+         * @param {protos.ImportGithubSelectResponse} message ImportGithubSelectResponse
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        ImportGithubSelectResponse.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.schema = null;
+                object.status = null;
+            }
+            if (message.schema != null && message.hasOwnProperty("schema"))
+                object.schema = $root.protos.Schema.toObject(message.schema, options);
+            if (message.status != null && message.hasOwnProperty("status"))
+                object.status = $root.protos.common.Status.toObject(message.status, options);
+            return object;
+        };
+
+        /**
+         * Converts this ImportGithubSelectResponse to JSON.
+         * @function toJSON
+         * @memberof protos.ImportGithubSelectResponse
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        ImportGithubSelectResponse.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return ImportGithubSelectResponse;
     })();
 
     protos.ImportLocalRequest = (function() {
@@ -69821,6 +70382,830 @@ $root.protos = (function() {
         };
 
         return GetRepoListResponse;
+    })();
+
+    protos.GetRepoTreeRequest = (function() {
+
+        /**
+         * Properties of a GetRepoTreeRequest.
+         * @memberof protos
+         * @interface IGetRepoTreeRequest
+         * @property {protos.common.IAuth|null} [auth] GetRepoTreeRequest auth
+         * @property {string|null} [repoOwner] GetRepoTreeRequest repoOwner
+         * @property {string|null} [repoName] GetRepoTreeRequest repoName
+         */
+
+        /**
+         * Constructs a new GetRepoTreeRequest.
+         * @memberof protos
+         * @classdesc Represents a GetRepoTreeRequest.
+         * @implements IGetRepoTreeRequest
+         * @constructor
+         * @param {protos.IGetRepoTreeRequest=} [properties] Properties to set
+         */
+        function GetRepoTreeRequest(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * GetRepoTreeRequest auth.
+         * @member {protos.common.IAuth|null|undefined} auth
+         * @memberof protos.GetRepoTreeRequest
+         * @instance
+         */
+        GetRepoTreeRequest.prototype.auth = null;
+
+        /**
+         * GetRepoTreeRequest repoOwner.
+         * @member {string} repoOwner
+         * @memberof protos.GetRepoTreeRequest
+         * @instance
+         */
+        GetRepoTreeRequest.prototype.repoOwner = "";
+
+        /**
+         * GetRepoTreeRequest repoName.
+         * @member {string} repoName
+         * @memberof protos.GetRepoTreeRequest
+         * @instance
+         */
+        GetRepoTreeRequest.prototype.repoName = "";
+
+        /**
+         * Creates a new GetRepoTreeRequest instance using the specified properties.
+         * @function create
+         * @memberof protos.GetRepoTreeRequest
+         * @static
+         * @param {protos.IGetRepoTreeRequest=} [properties] Properties to set
+         * @returns {protos.GetRepoTreeRequest} GetRepoTreeRequest instance
+         */
+        GetRepoTreeRequest.create = function create(properties) {
+            return new GetRepoTreeRequest(properties);
+        };
+
+        /**
+         * Encodes the specified GetRepoTreeRequest message. Does not implicitly {@link protos.GetRepoTreeRequest.verify|verify} messages.
+         * @function encode
+         * @memberof protos.GetRepoTreeRequest
+         * @static
+         * @param {protos.IGetRepoTreeRequest} message GetRepoTreeRequest message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        GetRepoTreeRequest.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.repoOwner != null && Object.hasOwnProperty.call(message, "repoOwner"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.repoOwner);
+            if (message.repoName != null && Object.hasOwnProperty.call(message, "repoName"))
+                writer.uint32(/* id 2, wireType 2 =*/18).string(message.repoName);
+            if (message.auth != null && Object.hasOwnProperty.call(message, "auth"))
+                $root.protos.common.Auth.encode(message.auth, writer.uint32(/* id 9999, wireType 2 =*/79994).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Encodes the specified GetRepoTreeRequest message, length delimited. Does not implicitly {@link protos.GetRepoTreeRequest.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.GetRepoTreeRequest
+         * @static
+         * @param {protos.IGetRepoTreeRequest} message GetRepoTreeRequest message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        GetRepoTreeRequest.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a GetRepoTreeRequest message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.GetRepoTreeRequest
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.GetRepoTreeRequest} GetRepoTreeRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        GetRepoTreeRequest.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.GetRepoTreeRequest();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 9999:
+                    message.auth = $root.protos.common.Auth.decode(reader, reader.uint32());
+                    break;
+                case 1:
+                    message.repoOwner = reader.string();
+                    break;
+                case 2:
+                    message.repoName = reader.string();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a GetRepoTreeRequest message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.GetRepoTreeRequest
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.GetRepoTreeRequest} GetRepoTreeRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        GetRepoTreeRequest.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a GetRepoTreeRequest message.
+         * @function verify
+         * @memberof protos.GetRepoTreeRequest
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        GetRepoTreeRequest.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.auth != null && message.hasOwnProperty("auth")) {
+                var error = $root.protos.common.Auth.verify(message.auth);
+                if (error)
+                    return "auth." + error;
+            }
+            if (message.repoOwner != null && message.hasOwnProperty("repoOwner"))
+                if (!$util.isString(message.repoOwner))
+                    return "repoOwner: string expected";
+            if (message.repoName != null && message.hasOwnProperty("repoName"))
+                if (!$util.isString(message.repoName))
+                    return "repoName: string expected";
+            return null;
+        };
+
+        /**
+         * Creates a GetRepoTreeRequest message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.GetRepoTreeRequest
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.GetRepoTreeRequest} GetRepoTreeRequest
+         */
+        GetRepoTreeRequest.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.GetRepoTreeRequest)
+                return object;
+            var message = new $root.protos.GetRepoTreeRequest();
+            if (object.auth != null) {
+                if (typeof object.auth !== "object")
+                    throw TypeError(".protos.GetRepoTreeRequest.auth: object expected");
+                message.auth = $root.protos.common.Auth.fromObject(object.auth);
+            }
+            if (object.repoOwner != null)
+                message.repoOwner = String(object.repoOwner);
+            if (object.repoName != null)
+                message.repoName = String(object.repoName);
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a GetRepoTreeRequest message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.GetRepoTreeRequest
+         * @static
+         * @param {protos.GetRepoTreeRequest} message GetRepoTreeRequest
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        GetRepoTreeRequest.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.repoOwner = "";
+                object.repoName = "";
+                object.auth = null;
+            }
+            if (message.repoOwner != null && message.hasOwnProperty("repoOwner"))
+                object.repoOwner = message.repoOwner;
+            if (message.repoName != null && message.hasOwnProperty("repoName"))
+                object.repoName = message.repoName;
+            if (message.auth != null && message.hasOwnProperty("auth"))
+                object.auth = $root.protos.common.Auth.toObject(message.auth, options);
+            return object;
+        };
+
+        /**
+         * Converts this GetRepoTreeRequest to JSON.
+         * @function toJSON
+         * @memberof protos.GetRepoTreeRequest
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        GetRepoTreeRequest.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return GetRepoTreeRequest;
+    })();
+
+    protos.Directory = (function() {
+
+        /**
+         * Properties of a Directory.
+         * @memberof protos
+         * @interface IDirectory
+         * @property {string|null} [name] Directory name
+         * @property {string|null} [fullPath] Directory fullPath
+         * @property {Array.<protos.IFile>|null} [files] Directory files
+         * @property {Object.<string,protos.IDirectory>|null} [dirs] Directory dirs
+         */
+
+        /**
+         * Constructs a new Directory.
+         * @memberof protos
+         * @classdesc Represents a Directory.
+         * @implements IDirectory
+         * @constructor
+         * @param {protos.IDirectory=} [properties] Properties to set
+         */
+        function Directory(properties) {
+            this.files = [];
+            this.dirs = {};
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * Directory name.
+         * @member {string} name
+         * @memberof protos.Directory
+         * @instance
+         */
+        Directory.prototype.name = "";
+
+        /**
+         * Directory fullPath.
+         * @member {string} fullPath
+         * @memberof protos.Directory
+         * @instance
+         */
+        Directory.prototype.fullPath = "";
+
+        /**
+         * Directory files.
+         * @member {Array.<protos.IFile>} files
+         * @memberof protos.Directory
+         * @instance
+         */
+        Directory.prototype.files = $util.emptyArray;
+
+        /**
+         * Directory dirs.
+         * @member {Object.<string,protos.IDirectory>} dirs
+         * @memberof protos.Directory
+         * @instance
+         */
+        Directory.prototype.dirs = $util.emptyObject;
+
+        /**
+         * Creates a new Directory instance using the specified properties.
+         * @function create
+         * @memberof protos.Directory
+         * @static
+         * @param {protos.IDirectory=} [properties] Properties to set
+         * @returns {protos.Directory} Directory instance
+         */
+        Directory.create = function create(properties) {
+            return new Directory(properties);
+        };
+
+        /**
+         * Encodes the specified Directory message. Does not implicitly {@link protos.Directory.verify|verify} messages.
+         * @function encode
+         * @memberof protos.Directory
+         * @static
+         * @param {protos.IDirectory} message Directory message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        Directory.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.name != null && Object.hasOwnProperty.call(message, "name"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.name);
+            if (message.fullPath != null && Object.hasOwnProperty.call(message, "fullPath"))
+                writer.uint32(/* id 2, wireType 2 =*/18).string(message.fullPath);
+            if (message.files != null && message.files.length)
+                for (var i = 0; i < message.files.length; ++i)
+                    $root.protos.File.encode(message.files[i], writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
+            if (message.dirs != null && Object.hasOwnProperty.call(message, "dirs"))
+                for (var keys = Object.keys(message.dirs), i = 0; i < keys.length; ++i) {
+                    writer.uint32(/* id 4, wireType 2 =*/34).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]);
+                    $root.protos.Directory.encode(message.dirs[keys[i]], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim().ldelim();
+                }
+            return writer;
+        };
+
+        /**
+         * Encodes the specified Directory message, length delimited. Does not implicitly {@link protos.Directory.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.Directory
+         * @static
+         * @param {protos.IDirectory} message Directory message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        Directory.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a Directory message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.Directory
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.Directory} Directory
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        Directory.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.Directory(), key, value;
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.name = reader.string();
+                    break;
+                case 2:
+                    message.fullPath = reader.string();
+                    break;
+                case 3:
+                    if (!(message.files && message.files.length))
+                        message.files = [];
+                    message.files.push($root.protos.File.decode(reader, reader.uint32()));
+                    break;
+                case 4:
+                    if (message.dirs === $util.emptyObject)
+                        message.dirs = {};
+                    var end2 = reader.uint32() + reader.pos;
+                    key = "";
+                    value = null;
+                    while (reader.pos < end2) {
+                        var tag2 = reader.uint32();
+                        switch (tag2 >>> 3) {
+                        case 1:
+                            key = reader.string();
+                            break;
+                        case 2:
+                            value = $root.protos.Directory.decode(reader, reader.uint32());
+                            break;
+                        default:
+                            reader.skipType(tag2 & 7);
+                            break;
+                        }
+                    }
+                    message.dirs[key] = value;
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a Directory message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.Directory
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.Directory} Directory
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        Directory.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a Directory message.
+         * @function verify
+         * @memberof protos.Directory
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        Directory.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.name != null && message.hasOwnProperty("name"))
+                if (!$util.isString(message.name))
+                    return "name: string expected";
+            if (message.fullPath != null && message.hasOwnProperty("fullPath"))
+                if (!$util.isString(message.fullPath))
+                    return "fullPath: string expected";
+            if (message.files != null && message.hasOwnProperty("files")) {
+                if (!Array.isArray(message.files))
+                    return "files: array expected";
+                for (var i = 0; i < message.files.length; ++i) {
+                    var error = $root.protos.File.verify(message.files[i]);
+                    if (error)
+                        return "files." + error;
+                }
+            }
+            if (message.dirs != null && message.hasOwnProperty("dirs")) {
+                if (!$util.isObject(message.dirs))
+                    return "dirs: object expected";
+                var key = Object.keys(message.dirs);
+                for (var i = 0; i < key.length; ++i) {
+                    var error = $root.protos.Directory.verify(message.dirs[key[i]]);
+                    if (error)
+                        return "dirs." + error;
+                }
+            }
+            return null;
+        };
+
+        /**
+         * Creates a Directory message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.Directory
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.Directory} Directory
+         */
+        Directory.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.Directory)
+                return object;
+            var message = new $root.protos.Directory();
+            if (object.name != null)
+                message.name = String(object.name);
+            if (object.fullPath != null)
+                message.fullPath = String(object.fullPath);
+            if (object.files) {
+                if (!Array.isArray(object.files))
+                    throw TypeError(".protos.Directory.files: array expected");
+                message.files = [];
+                for (var i = 0; i < object.files.length; ++i) {
+                    if (typeof object.files[i] !== "object")
+                        throw TypeError(".protos.Directory.files: object expected");
+                    message.files[i] = $root.protos.File.fromObject(object.files[i]);
+                }
+            }
+            if (object.dirs) {
+                if (typeof object.dirs !== "object")
+                    throw TypeError(".protos.Directory.dirs: object expected");
+                message.dirs = {};
+                for (var keys = Object.keys(object.dirs), i = 0; i < keys.length; ++i) {
+                    if (typeof object.dirs[keys[i]] !== "object")
+                        throw TypeError(".protos.Directory.dirs: object expected");
+                    message.dirs[keys[i]] = $root.protos.Directory.fromObject(object.dirs[keys[i]]);
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a Directory message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.Directory
+         * @static
+         * @param {protos.Directory} message Directory
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        Directory.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.arrays || options.defaults)
+                object.files = [];
+            if (options.objects || options.defaults)
+                object.dirs = {};
+            if (options.defaults) {
+                object.name = "";
+                object.fullPath = "";
+            }
+            if (message.name != null && message.hasOwnProperty("name"))
+                object.name = message.name;
+            if (message.fullPath != null && message.hasOwnProperty("fullPath"))
+                object.fullPath = message.fullPath;
+            if (message.files && message.files.length) {
+                object.files = [];
+                for (var j = 0; j < message.files.length; ++j)
+                    object.files[j] = $root.protos.File.toObject(message.files[j], options);
+            }
+            var keys2;
+            if (message.dirs && (keys2 = Object.keys(message.dirs)).length) {
+                object.dirs = {};
+                for (var j = 0; j < keys2.length; ++j)
+                    object.dirs[keys2[j]] = $root.protos.Directory.toObject(message.dirs[keys2[j]], options);
+            }
+            return object;
+        };
+
+        /**
+         * Converts this Directory to JSON.
+         * @function toJSON
+         * @memberof protos.Directory
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        Directory.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return Directory;
+    })();
+
+    protos.File = (function() {
+
+        /**
+         * Properties of a File.
+         * @memberof protos
+         * @interface IFile
+         * @property {string|null} [name] File name
+         * @property {string|null} [path] File path
+         * @property {string|null} [sha] File sha
+         * @property {number|Long|null} [size] File size
+         */
+
+        /**
+         * Constructs a new File.
+         * @memberof protos
+         * @classdesc Represents a File.
+         * @implements IFile
+         * @constructor
+         * @param {protos.IFile=} [properties] Properties to set
+         */
+        function File(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * File name.
+         * @member {string} name
+         * @memberof protos.File
+         * @instance
+         */
+        File.prototype.name = "";
+
+        /**
+         * File path.
+         * @member {string} path
+         * @memberof protos.File
+         * @instance
+         */
+        File.prototype.path = "";
+
+        /**
+         * File sha.
+         * @member {string} sha
+         * @memberof protos.File
+         * @instance
+         */
+        File.prototype.sha = "";
+
+        /**
+         * File size.
+         * @member {number|Long} size
+         * @memberof protos.File
+         * @instance
+         */
+        File.prototype.size = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
+
+        /**
+         * Creates a new File instance using the specified properties.
+         * @function create
+         * @memberof protos.File
+         * @static
+         * @param {protos.IFile=} [properties] Properties to set
+         * @returns {protos.File} File instance
+         */
+        File.create = function create(properties) {
+            return new File(properties);
+        };
+
+        /**
+         * Encodes the specified File message. Does not implicitly {@link protos.File.verify|verify} messages.
+         * @function encode
+         * @memberof protos.File
+         * @static
+         * @param {protos.IFile} message File message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        File.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.name != null && Object.hasOwnProperty.call(message, "name"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.name);
+            if (message.path != null && Object.hasOwnProperty.call(message, "path"))
+                writer.uint32(/* id 2, wireType 2 =*/18).string(message.path);
+            if (message.sha != null && Object.hasOwnProperty.call(message, "sha"))
+                writer.uint32(/* id 3, wireType 2 =*/26).string(message.sha);
+            if (message.size != null && Object.hasOwnProperty.call(message, "size"))
+                writer.uint32(/* id 4, wireType 0 =*/32).int64(message.size);
+            return writer;
+        };
+
+        /**
+         * Encodes the specified File message, length delimited. Does not implicitly {@link protos.File.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.File
+         * @static
+         * @param {protos.IFile} message File message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        File.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a File message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.File
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.File} File
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        File.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.File();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.name = reader.string();
+                    break;
+                case 2:
+                    message.path = reader.string();
+                    break;
+                case 3:
+                    message.sha = reader.string();
+                    break;
+                case 4:
+                    message.size = reader.int64();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a File message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.File
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.File} File
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        File.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a File message.
+         * @function verify
+         * @memberof protos.File
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        File.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.name != null && message.hasOwnProperty("name"))
+                if (!$util.isString(message.name))
+                    return "name: string expected";
+            if (message.path != null && message.hasOwnProperty("path"))
+                if (!$util.isString(message.path))
+                    return "path: string expected";
+            if (message.sha != null && message.hasOwnProperty("sha"))
+                if (!$util.isString(message.sha))
+                    return "sha: string expected";
+            if (message.size != null && message.hasOwnProperty("size"))
+                if (!$util.isInteger(message.size) && !(message.size && $util.isInteger(message.size.low) && $util.isInteger(message.size.high)))
+                    return "size: integer|Long expected";
+            return null;
+        };
+
+        /**
+         * Creates a File message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.File
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.File} File
+         */
+        File.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.File)
+                return object;
+            var message = new $root.protos.File();
+            if (object.name != null)
+                message.name = String(object.name);
+            if (object.path != null)
+                message.path = String(object.path);
+            if (object.sha != null)
+                message.sha = String(object.sha);
+            if (object.size != null)
+                if ($util.Long)
+                    (message.size = $util.Long.fromValue(object.size)).unsigned = false;
+                else if (typeof object.size === "string")
+                    message.size = parseInt(object.size, 10);
+                else if (typeof object.size === "number")
+                    message.size = object.size;
+                else if (typeof object.size === "object")
+                    message.size = new $util.LongBits(object.size.low >>> 0, object.size.high >>> 0).toNumber();
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a File message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.File
+         * @static
+         * @param {protos.File} message File
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        File.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.name = "";
+                object.path = "";
+                object.sha = "";
+                if ($util.Long) {
+                    var long = new $util.Long(0, 0, false);
+                    object.size = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                } else
+                    object.size = options.longs === String ? "0" : 0;
+            }
+            if (message.name != null && message.hasOwnProperty("name"))
+                object.name = message.name;
+            if (message.path != null && message.hasOwnProperty("path"))
+                object.path = message.path;
+            if (message.sha != null && message.hasOwnProperty("sha"))
+                object.sha = message.sha;
+            if (message.size != null && message.hasOwnProperty("size"))
+                if (typeof message.size === "number")
+                    object.size = options.longs === String ? String(message.size) : message.size;
+                else
+                    object.size = options.longs === String ? $util.Long.prototype.toString.call(message.size) : options.longs === Number ? new $util.LongBits(message.size.low >>> 0, message.size.high >>> 0).toNumber() : message.size;
+            return object;
+        };
+
+        /**
+         * Converts this File to JSON.
+         * @function toJSON
+         * @memberof protos.File
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        File.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return File;
     })();
 
     protos.Service = (function() {

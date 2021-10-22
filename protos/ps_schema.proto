@@ -88,6 +88,38 @@ message ImportGithubRequest {
 
     string github_url = 3;
 
+    // Internal ID for tracking two-step import process. DO NOT FILL
+    string _id = 4;
+}
+
+message ImportGithubResponse {
+    common.Status status = 1000;
+
+    // Temp ID to hold this information in cache
+    string id = 1;
+
+    // Contains file structure of the repo. The end user will select the root schema file and then
+    // make a call to ImportGithubSelect() to complete the import
+    Directory tree = 2;
+}
+
+message ImportGithubSelectRequest {
+    // Every gRPC request must have a valid auth config
+    common.Auth auth = 9999;
+
+    // ID received in ImportGithubResponse. This is used to pull the previous import request from cache
+    // now that the user knows which file to import
+    string import_id = 1;
+
+    // The schema file to import. For protobuf, this will be the root envelope message.
+    // For Avro or JSONSchema, it will be the actual schema file
+    // Only used for JSONSchema/Avro. Protobuf needs a directory, not a file
+    string schema_file_name = 2;
+
+    // Obtained from ImportGithubResponse.Tree. This is the SHA git hash for the file
+    // Only used for JSONSchema/Avro. Protobuf needs a directory, not a file
+    string schema_file_sha = 3;
+
     oneof settings {
         encoding.ProtobufSettings protobuf_settings = 100;
         encoding.AvroSettings avro_settings = 101;
@@ -95,10 +127,11 @@ message ImportGithubRequest {
     }
 }
 
-message ImportGithubResponse {
+message ImportGithubSelectResponse {
     common.Status status = 1000;
 
-    string id = 1;
+    // The newly created schema
+    Schema schema = 1;
 }
 
 message ImportLocalRequest {
@@ -196,4 +229,29 @@ message GetRepoListRequest {
 
 message GetRepoListResponse {
     repeated string repository_urls = 1;
+}
+
+message GetRepoTreeRequest {
+    // Every gRPC request must have a valid auth config
+    common.Auth auth = 9999;
+
+    string repo_owner = 1;
+
+    string repo_name = 2;
+}
+
+// Directory represents a repository directory
+message Directory {
+    string name  = 1;
+    string full_path = 2;
+    repeated File files = 3;
+    map<string,Directory> dirs = 4;
+}
+
+// File represents a file inside of a repository directory
+message File {
+    string name = 1;
+    string path = 2;
+    string sha = 3;
+    int64 size = 4;
 }
