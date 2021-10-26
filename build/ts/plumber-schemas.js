@@ -30501,6 +30501,105 @@ $root.protos = (function() {
          */
 
         /**
+         * Callback as used by {@link protos.PlumberServer#getRepoTree}.
+         * @memberof protos.PlumberServer
+         * @typedef GetRepoTreeCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.GetRepoTreeResponse} [response] GetRepoTreeResponse
+         */
+
+        /**
+         * Calls GetRepoTree.
+         * @function getRepoTree
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IGetRepoTreeRequest} request GetRepoTreeRequest message or plain object
+         * @param {protos.PlumberServer.GetRepoTreeCallback} callback Node-style callback called with the error, if any, and GetRepoTreeResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(PlumberServer.prototype.getRepoTree = function getRepoTree(request, callback) {
+            return this.rpcCall(getRepoTree, $root.protos.GetRepoTreeRequest, $root.protos.GetRepoTreeResponse, request, callback);
+        }, "name", { value: "GetRepoTree" });
+
+        /**
+         * Calls GetRepoTree.
+         * @function getRepoTree
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IGetRepoTreeRequest} request GetRepoTreeRequest message or plain object
+         * @returns {Promise<protos.GetRepoTreeResponse>} Promise
+         * @variation 2
+         */
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#getRepoFile}.
+         * @memberof protos.PlumberServer
+         * @typedef GetRepoFileCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.GetRepoFileResponse} [response] GetRepoFileResponse
+         */
+
+        /**
+         * Calls GetRepoFile.
+         * @function getRepoFile
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IGetRepoFileRequest} request GetRepoFileRequest message or plain object
+         * @param {protos.PlumberServer.GetRepoFileCallback} callback Node-style callback called with the error, if any, and GetRepoFileResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(PlumberServer.prototype.getRepoFile = function getRepoFile(request, callback) {
+            return this.rpcCall(getRepoFile, $root.protos.GetRepoFileRequest, $root.protos.GetRepoFileResponse, request, callback);
+        }, "name", { value: "GetRepoFile" });
+
+        /**
+         * Calls GetRepoFile.
+         * @function getRepoFile
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IGetRepoFileRequest} request GetRepoFileRequest message or plain object
+         * @returns {Promise<protos.GetRepoFileResponse>} Promise
+         * @variation 2
+         */
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#createPullRequest}.
+         * @memberof protos.PlumberServer
+         * @typedef CreatePullRequestCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.CreatePRResponse} [response] CreatePRResponse
+         */
+
+        /**
+         * Calls CreatePullRequest.
+         * @function createPullRequest
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.ICreatePRRequest} request CreatePRRequest message or plain object
+         * @param {protos.PlumberServer.CreatePullRequestCallback} callback Node-style callback called with the error, if any, and CreatePRResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(PlumberServer.prototype.createPullRequest = function createPullRequest(request, callback) {
+            return this.rpcCall(createPullRequest, $root.protos.CreatePRRequest, $root.protos.CreatePRResponse, request, callback);
+        }, "name", { value: "CreatePullRequest" });
+
+        /**
+         * Calls CreatePullRequest.
+         * @function createPullRequest
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.ICreatePRRequest} request CreatePRRequest message or plain object
+         * @returns {Promise<protos.CreatePRResponse>} Promise
+         * @variation 2
+         */
+
+        /**
          * Callback as used by {@link protos.PlumberServer#getMonitor}.
          * @memberof protos.PlumberServer
          * @typedef GetMonitorCallback
@@ -70391,8 +70490,7 @@ $root.protos = (function() {
          * @memberof protos
          * @interface IGetRepoTreeRequest
          * @property {protos.common.IAuth|null} [auth] GetRepoTreeRequest auth
-         * @property {string|null} [repoOwner] GetRepoTreeRequest repoOwner
-         * @property {string|null} [repoName] GetRepoTreeRequest repoName
+         * @property {string|null} [repoUrl] GetRepoTreeRequest repoUrl
          */
 
         /**
@@ -70419,20 +70517,12 @@ $root.protos = (function() {
         GetRepoTreeRequest.prototype.auth = null;
 
         /**
-         * GetRepoTreeRequest repoOwner.
-         * @member {string} repoOwner
+         * GetRepoTreeRequest repoUrl.
+         * @member {string} repoUrl
          * @memberof protos.GetRepoTreeRequest
          * @instance
          */
-        GetRepoTreeRequest.prototype.repoOwner = "";
-
-        /**
-         * GetRepoTreeRequest repoName.
-         * @member {string} repoName
-         * @memberof protos.GetRepoTreeRequest
-         * @instance
-         */
-        GetRepoTreeRequest.prototype.repoName = "";
+        GetRepoTreeRequest.prototype.repoUrl = "";
 
         /**
          * Creates a new GetRepoTreeRequest instance using the specified properties.
@@ -70458,10 +70548,8 @@ $root.protos = (function() {
         GetRepoTreeRequest.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
-            if (message.repoOwner != null && Object.hasOwnProperty.call(message, "repoOwner"))
-                writer.uint32(/* id 1, wireType 2 =*/10).string(message.repoOwner);
-            if (message.repoName != null && Object.hasOwnProperty.call(message, "repoName"))
-                writer.uint32(/* id 2, wireType 2 =*/18).string(message.repoName);
+            if (message.repoUrl != null && Object.hasOwnProperty.call(message, "repoUrl"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.repoUrl);
             if (message.auth != null && Object.hasOwnProperty.call(message, "auth"))
                 $root.protos.common.Auth.encode(message.auth, writer.uint32(/* id 9999, wireType 2 =*/79994).fork()).ldelim();
             return writer;
@@ -70502,10 +70590,7 @@ $root.protos = (function() {
                     message.auth = $root.protos.common.Auth.decode(reader, reader.uint32());
                     break;
                 case 1:
-                    message.repoOwner = reader.string();
-                    break;
-                case 2:
-                    message.repoName = reader.string();
+                    message.repoUrl = reader.string();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -70547,12 +70632,9 @@ $root.protos = (function() {
                 if (error)
                     return "auth." + error;
             }
-            if (message.repoOwner != null && message.hasOwnProperty("repoOwner"))
-                if (!$util.isString(message.repoOwner))
-                    return "repoOwner: string expected";
-            if (message.repoName != null && message.hasOwnProperty("repoName"))
-                if (!$util.isString(message.repoName))
-                    return "repoName: string expected";
+            if (message.repoUrl != null && message.hasOwnProperty("repoUrl"))
+                if (!$util.isString(message.repoUrl))
+                    return "repoUrl: string expected";
             return null;
         };
 
@@ -70573,10 +70655,8 @@ $root.protos = (function() {
                     throw TypeError(".protos.GetRepoTreeRequest.auth: object expected");
                 message.auth = $root.protos.common.Auth.fromObject(object.auth);
             }
-            if (object.repoOwner != null)
-                message.repoOwner = String(object.repoOwner);
-            if (object.repoName != null)
-                message.repoName = String(object.repoName);
+            if (object.repoUrl != null)
+                message.repoUrl = String(object.repoUrl);
             return message;
         };
 
@@ -70594,14 +70674,11 @@ $root.protos = (function() {
                 options = {};
             var object = {};
             if (options.defaults) {
-                object.repoOwner = "";
-                object.repoName = "";
+                object.repoUrl = "";
                 object.auth = null;
             }
-            if (message.repoOwner != null && message.hasOwnProperty("repoOwner"))
-                object.repoOwner = message.repoOwner;
-            if (message.repoName != null && message.hasOwnProperty("repoName"))
-                object.repoName = message.repoName;
+            if (message.repoUrl != null && message.hasOwnProperty("repoUrl"))
+                object.repoUrl = message.repoUrl;
             if (message.auth != null && message.hasOwnProperty("auth"))
                 object.auth = $root.protos.common.Auth.toObject(message.auth, options);
             return object;
@@ -70619,6 +70696,1407 @@ $root.protos = (function() {
         };
 
         return GetRepoTreeRequest;
+    })();
+
+    protos.GetRepoTreeResponse = (function() {
+
+        /**
+         * Properties of a GetRepoTreeResponse.
+         * @memberof protos
+         * @interface IGetRepoTreeResponse
+         * @property {protos.IDirectory|null} [tree] GetRepoTreeResponse tree
+         */
+
+        /**
+         * Constructs a new GetRepoTreeResponse.
+         * @memberof protos
+         * @classdesc Represents a GetRepoTreeResponse.
+         * @implements IGetRepoTreeResponse
+         * @constructor
+         * @param {protos.IGetRepoTreeResponse=} [properties] Properties to set
+         */
+        function GetRepoTreeResponse(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * GetRepoTreeResponse tree.
+         * @member {protos.IDirectory|null|undefined} tree
+         * @memberof protos.GetRepoTreeResponse
+         * @instance
+         */
+        GetRepoTreeResponse.prototype.tree = null;
+
+        /**
+         * Creates a new GetRepoTreeResponse instance using the specified properties.
+         * @function create
+         * @memberof protos.GetRepoTreeResponse
+         * @static
+         * @param {protos.IGetRepoTreeResponse=} [properties] Properties to set
+         * @returns {protos.GetRepoTreeResponse} GetRepoTreeResponse instance
+         */
+        GetRepoTreeResponse.create = function create(properties) {
+            return new GetRepoTreeResponse(properties);
+        };
+
+        /**
+         * Encodes the specified GetRepoTreeResponse message. Does not implicitly {@link protos.GetRepoTreeResponse.verify|verify} messages.
+         * @function encode
+         * @memberof protos.GetRepoTreeResponse
+         * @static
+         * @param {protos.IGetRepoTreeResponse} message GetRepoTreeResponse message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        GetRepoTreeResponse.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.tree != null && Object.hasOwnProperty.call(message, "tree"))
+                $root.protos.Directory.encode(message.tree, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Encodes the specified GetRepoTreeResponse message, length delimited. Does not implicitly {@link protos.GetRepoTreeResponse.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.GetRepoTreeResponse
+         * @static
+         * @param {protos.IGetRepoTreeResponse} message GetRepoTreeResponse message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        GetRepoTreeResponse.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a GetRepoTreeResponse message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.GetRepoTreeResponse
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.GetRepoTreeResponse} GetRepoTreeResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        GetRepoTreeResponse.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.GetRepoTreeResponse();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.tree = $root.protos.Directory.decode(reader, reader.uint32());
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a GetRepoTreeResponse message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.GetRepoTreeResponse
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.GetRepoTreeResponse} GetRepoTreeResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        GetRepoTreeResponse.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a GetRepoTreeResponse message.
+         * @function verify
+         * @memberof protos.GetRepoTreeResponse
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        GetRepoTreeResponse.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.tree != null && message.hasOwnProperty("tree")) {
+                var error = $root.protos.Directory.verify(message.tree);
+                if (error)
+                    return "tree." + error;
+            }
+            return null;
+        };
+
+        /**
+         * Creates a GetRepoTreeResponse message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.GetRepoTreeResponse
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.GetRepoTreeResponse} GetRepoTreeResponse
+         */
+        GetRepoTreeResponse.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.GetRepoTreeResponse)
+                return object;
+            var message = new $root.protos.GetRepoTreeResponse();
+            if (object.tree != null) {
+                if (typeof object.tree !== "object")
+                    throw TypeError(".protos.GetRepoTreeResponse.tree: object expected");
+                message.tree = $root.protos.Directory.fromObject(object.tree);
+            }
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a GetRepoTreeResponse message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.GetRepoTreeResponse
+         * @static
+         * @param {protos.GetRepoTreeResponse} message GetRepoTreeResponse
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        GetRepoTreeResponse.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults)
+                object.tree = null;
+            if (message.tree != null && message.hasOwnProperty("tree"))
+                object.tree = $root.protos.Directory.toObject(message.tree, options);
+            return object;
+        };
+
+        /**
+         * Converts this GetRepoTreeResponse to JSON.
+         * @function toJSON
+         * @memberof protos.GetRepoTreeResponse
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        GetRepoTreeResponse.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return GetRepoTreeResponse;
+    })();
+
+    protos.GetRepoFileRequest = (function() {
+
+        /**
+         * Properties of a GetRepoFileRequest.
+         * @memberof protos
+         * @interface IGetRepoFileRequest
+         * @property {protos.common.IAuth|null} [auth] GetRepoFileRequest auth
+         * @property {string|null} [repoUrl] GetRepoFileRequest repoUrl
+         * @property {string|null} [fileName] GetRepoFileRequest fileName
+         * @property {string|null} [filePath] GetRepoFileRequest filePath
+         * @property {string|null} [fileSha] GetRepoFileRequest fileSha
+         */
+
+        /**
+         * Constructs a new GetRepoFileRequest.
+         * @memberof protos
+         * @classdesc Represents a GetRepoFileRequest.
+         * @implements IGetRepoFileRequest
+         * @constructor
+         * @param {protos.IGetRepoFileRequest=} [properties] Properties to set
+         */
+        function GetRepoFileRequest(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * GetRepoFileRequest auth.
+         * @member {protos.common.IAuth|null|undefined} auth
+         * @memberof protos.GetRepoFileRequest
+         * @instance
+         */
+        GetRepoFileRequest.prototype.auth = null;
+
+        /**
+         * GetRepoFileRequest repoUrl.
+         * @member {string} repoUrl
+         * @memberof protos.GetRepoFileRequest
+         * @instance
+         */
+        GetRepoFileRequest.prototype.repoUrl = "";
+
+        /**
+         * GetRepoFileRequest fileName.
+         * @member {string} fileName
+         * @memberof protos.GetRepoFileRequest
+         * @instance
+         */
+        GetRepoFileRequest.prototype.fileName = "";
+
+        /**
+         * GetRepoFileRequest filePath.
+         * @member {string} filePath
+         * @memberof protos.GetRepoFileRequest
+         * @instance
+         */
+        GetRepoFileRequest.prototype.filePath = "";
+
+        /**
+         * GetRepoFileRequest fileSha.
+         * @member {string} fileSha
+         * @memberof protos.GetRepoFileRequest
+         * @instance
+         */
+        GetRepoFileRequest.prototype.fileSha = "";
+
+        /**
+         * Creates a new GetRepoFileRequest instance using the specified properties.
+         * @function create
+         * @memberof protos.GetRepoFileRequest
+         * @static
+         * @param {protos.IGetRepoFileRequest=} [properties] Properties to set
+         * @returns {protos.GetRepoFileRequest} GetRepoFileRequest instance
+         */
+        GetRepoFileRequest.create = function create(properties) {
+            return new GetRepoFileRequest(properties);
+        };
+
+        /**
+         * Encodes the specified GetRepoFileRequest message. Does not implicitly {@link protos.GetRepoFileRequest.verify|verify} messages.
+         * @function encode
+         * @memberof protos.GetRepoFileRequest
+         * @static
+         * @param {protos.IGetRepoFileRequest} message GetRepoFileRequest message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        GetRepoFileRequest.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.repoUrl != null && Object.hasOwnProperty.call(message, "repoUrl"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.repoUrl);
+            if (message.fileName != null && Object.hasOwnProperty.call(message, "fileName"))
+                writer.uint32(/* id 2, wireType 2 =*/18).string(message.fileName);
+            if (message.filePath != null && Object.hasOwnProperty.call(message, "filePath"))
+                writer.uint32(/* id 3, wireType 2 =*/26).string(message.filePath);
+            if (message.fileSha != null && Object.hasOwnProperty.call(message, "fileSha"))
+                writer.uint32(/* id 4, wireType 2 =*/34).string(message.fileSha);
+            if (message.auth != null && Object.hasOwnProperty.call(message, "auth"))
+                $root.protos.common.Auth.encode(message.auth, writer.uint32(/* id 9999, wireType 2 =*/79994).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Encodes the specified GetRepoFileRequest message, length delimited. Does not implicitly {@link protos.GetRepoFileRequest.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.GetRepoFileRequest
+         * @static
+         * @param {protos.IGetRepoFileRequest} message GetRepoFileRequest message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        GetRepoFileRequest.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a GetRepoFileRequest message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.GetRepoFileRequest
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.GetRepoFileRequest} GetRepoFileRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        GetRepoFileRequest.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.GetRepoFileRequest();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 9999:
+                    message.auth = $root.protos.common.Auth.decode(reader, reader.uint32());
+                    break;
+                case 1:
+                    message.repoUrl = reader.string();
+                    break;
+                case 2:
+                    message.fileName = reader.string();
+                    break;
+                case 3:
+                    message.filePath = reader.string();
+                    break;
+                case 4:
+                    message.fileSha = reader.string();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a GetRepoFileRequest message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.GetRepoFileRequest
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.GetRepoFileRequest} GetRepoFileRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        GetRepoFileRequest.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a GetRepoFileRequest message.
+         * @function verify
+         * @memberof protos.GetRepoFileRequest
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        GetRepoFileRequest.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.auth != null && message.hasOwnProperty("auth")) {
+                var error = $root.protos.common.Auth.verify(message.auth);
+                if (error)
+                    return "auth." + error;
+            }
+            if (message.repoUrl != null && message.hasOwnProperty("repoUrl"))
+                if (!$util.isString(message.repoUrl))
+                    return "repoUrl: string expected";
+            if (message.fileName != null && message.hasOwnProperty("fileName"))
+                if (!$util.isString(message.fileName))
+                    return "fileName: string expected";
+            if (message.filePath != null && message.hasOwnProperty("filePath"))
+                if (!$util.isString(message.filePath))
+                    return "filePath: string expected";
+            if (message.fileSha != null && message.hasOwnProperty("fileSha"))
+                if (!$util.isString(message.fileSha))
+                    return "fileSha: string expected";
+            return null;
+        };
+
+        /**
+         * Creates a GetRepoFileRequest message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.GetRepoFileRequest
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.GetRepoFileRequest} GetRepoFileRequest
+         */
+        GetRepoFileRequest.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.GetRepoFileRequest)
+                return object;
+            var message = new $root.protos.GetRepoFileRequest();
+            if (object.auth != null) {
+                if (typeof object.auth !== "object")
+                    throw TypeError(".protos.GetRepoFileRequest.auth: object expected");
+                message.auth = $root.protos.common.Auth.fromObject(object.auth);
+            }
+            if (object.repoUrl != null)
+                message.repoUrl = String(object.repoUrl);
+            if (object.fileName != null)
+                message.fileName = String(object.fileName);
+            if (object.filePath != null)
+                message.filePath = String(object.filePath);
+            if (object.fileSha != null)
+                message.fileSha = String(object.fileSha);
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a GetRepoFileRequest message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.GetRepoFileRequest
+         * @static
+         * @param {protos.GetRepoFileRequest} message GetRepoFileRequest
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        GetRepoFileRequest.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.repoUrl = "";
+                object.fileName = "";
+                object.filePath = "";
+                object.fileSha = "";
+                object.auth = null;
+            }
+            if (message.repoUrl != null && message.hasOwnProperty("repoUrl"))
+                object.repoUrl = message.repoUrl;
+            if (message.fileName != null && message.hasOwnProperty("fileName"))
+                object.fileName = message.fileName;
+            if (message.filePath != null && message.hasOwnProperty("filePath"))
+                object.filePath = message.filePath;
+            if (message.fileSha != null && message.hasOwnProperty("fileSha"))
+                object.fileSha = message.fileSha;
+            if (message.auth != null && message.hasOwnProperty("auth"))
+                object.auth = $root.protos.common.Auth.toObject(message.auth, options);
+            return object;
+        };
+
+        /**
+         * Converts this GetRepoFileRequest to JSON.
+         * @function toJSON
+         * @memberof protos.GetRepoFileRequest
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        GetRepoFileRequest.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return GetRepoFileRequest;
+    })();
+
+    protos.GetRepoFileResponse = (function() {
+
+        /**
+         * Properties of a GetRepoFileResponse.
+         * @memberof protos
+         * @interface IGetRepoFileResponse
+         * @property {Uint8Array|null} [content] GetRepoFileResponse content
+         */
+
+        /**
+         * Constructs a new GetRepoFileResponse.
+         * @memberof protos
+         * @classdesc Represents a GetRepoFileResponse.
+         * @implements IGetRepoFileResponse
+         * @constructor
+         * @param {protos.IGetRepoFileResponse=} [properties] Properties to set
+         */
+        function GetRepoFileResponse(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * GetRepoFileResponse content.
+         * @member {Uint8Array} content
+         * @memberof protos.GetRepoFileResponse
+         * @instance
+         */
+        GetRepoFileResponse.prototype.content = $util.newBuffer([]);
+
+        /**
+         * Creates a new GetRepoFileResponse instance using the specified properties.
+         * @function create
+         * @memberof protos.GetRepoFileResponse
+         * @static
+         * @param {protos.IGetRepoFileResponse=} [properties] Properties to set
+         * @returns {protos.GetRepoFileResponse} GetRepoFileResponse instance
+         */
+        GetRepoFileResponse.create = function create(properties) {
+            return new GetRepoFileResponse(properties);
+        };
+
+        /**
+         * Encodes the specified GetRepoFileResponse message. Does not implicitly {@link protos.GetRepoFileResponse.verify|verify} messages.
+         * @function encode
+         * @memberof protos.GetRepoFileResponse
+         * @static
+         * @param {protos.IGetRepoFileResponse} message GetRepoFileResponse message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        GetRepoFileResponse.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.content != null && Object.hasOwnProperty.call(message, "content"))
+                writer.uint32(/* id 1, wireType 2 =*/10).bytes(message.content);
+            return writer;
+        };
+
+        /**
+         * Encodes the specified GetRepoFileResponse message, length delimited. Does not implicitly {@link protos.GetRepoFileResponse.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.GetRepoFileResponse
+         * @static
+         * @param {protos.IGetRepoFileResponse} message GetRepoFileResponse message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        GetRepoFileResponse.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a GetRepoFileResponse message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.GetRepoFileResponse
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.GetRepoFileResponse} GetRepoFileResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        GetRepoFileResponse.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.GetRepoFileResponse();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.content = reader.bytes();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a GetRepoFileResponse message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.GetRepoFileResponse
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.GetRepoFileResponse} GetRepoFileResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        GetRepoFileResponse.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a GetRepoFileResponse message.
+         * @function verify
+         * @memberof protos.GetRepoFileResponse
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        GetRepoFileResponse.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.content != null && message.hasOwnProperty("content"))
+                if (!(message.content && typeof message.content.length === "number" || $util.isString(message.content)))
+                    return "content: buffer expected";
+            return null;
+        };
+
+        /**
+         * Creates a GetRepoFileResponse message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.GetRepoFileResponse
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.GetRepoFileResponse} GetRepoFileResponse
+         */
+        GetRepoFileResponse.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.GetRepoFileResponse)
+                return object;
+            var message = new $root.protos.GetRepoFileResponse();
+            if (object.content != null)
+                if (typeof object.content === "string")
+                    $util.base64.decode(object.content, message.content = $util.newBuffer($util.base64.length(object.content)), 0);
+                else if (object.content.length)
+                    message.content = object.content;
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a GetRepoFileResponse message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.GetRepoFileResponse
+         * @static
+         * @param {protos.GetRepoFileResponse} message GetRepoFileResponse
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        GetRepoFileResponse.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults)
+                if (options.bytes === String)
+                    object.content = "";
+                else {
+                    object.content = [];
+                    if (options.bytes !== Array)
+                        object.content = $util.newBuffer(object.content);
+                }
+            if (message.content != null && message.hasOwnProperty("content"))
+                object.content = options.bytes === String ? $util.base64.encode(message.content, 0, message.content.length) : options.bytes === Array ? Array.prototype.slice.call(message.content) : message.content;
+            return object;
+        };
+
+        /**
+         * Converts this GetRepoFileResponse to JSON.
+         * @function toJSON
+         * @memberof protos.GetRepoFileResponse
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        GetRepoFileResponse.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return GetRepoFileResponse;
+    })();
+
+    protos.CreatePRRequest = (function() {
+
+        /**
+         * Properties of a CreatePRRequest.
+         * @memberof protos
+         * @interface ICreatePRRequest
+         * @property {protos.common.IAuth|null} [auth] CreatePRRequest auth
+         * @property {string|null} [repoUrl] CreatePRRequest repoUrl
+         * @property {string|null} [prName] CreatePRRequest prName
+         * @property {string|null} [prBody] CreatePRRequest prBody
+         * @property {Array.<protos.CreatePRRequest.IPRFile>|null} [files] CreatePRRequest files
+         */
+
+        /**
+         * Constructs a new CreatePRRequest.
+         * @memberof protos
+         * @classdesc Represents a CreatePRRequest.
+         * @implements ICreatePRRequest
+         * @constructor
+         * @param {protos.ICreatePRRequest=} [properties] Properties to set
+         */
+        function CreatePRRequest(properties) {
+            this.files = [];
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * CreatePRRequest auth.
+         * @member {protos.common.IAuth|null|undefined} auth
+         * @memberof protos.CreatePRRequest
+         * @instance
+         */
+        CreatePRRequest.prototype.auth = null;
+
+        /**
+         * CreatePRRequest repoUrl.
+         * @member {string} repoUrl
+         * @memberof protos.CreatePRRequest
+         * @instance
+         */
+        CreatePRRequest.prototype.repoUrl = "";
+
+        /**
+         * CreatePRRequest prName.
+         * @member {string} prName
+         * @memberof protos.CreatePRRequest
+         * @instance
+         */
+        CreatePRRequest.prototype.prName = "";
+
+        /**
+         * CreatePRRequest prBody.
+         * @member {string} prBody
+         * @memberof protos.CreatePRRequest
+         * @instance
+         */
+        CreatePRRequest.prototype.prBody = "";
+
+        /**
+         * CreatePRRequest files.
+         * @member {Array.<protos.CreatePRRequest.IPRFile>} files
+         * @memberof protos.CreatePRRequest
+         * @instance
+         */
+        CreatePRRequest.prototype.files = $util.emptyArray;
+
+        /**
+         * Creates a new CreatePRRequest instance using the specified properties.
+         * @function create
+         * @memberof protos.CreatePRRequest
+         * @static
+         * @param {protos.ICreatePRRequest=} [properties] Properties to set
+         * @returns {protos.CreatePRRequest} CreatePRRequest instance
+         */
+        CreatePRRequest.create = function create(properties) {
+            return new CreatePRRequest(properties);
+        };
+
+        /**
+         * Encodes the specified CreatePRRequest message. Does not implicitly {@link protos.CreatePRRequest.verify|verify} messages.
+         * @function encode
+         * @memberof protos.CreatePRRequest
+         * @static
+         * @param {protos.ICreatePRRequest} message CreatePRRequest message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        CreatePRRequest.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.repoUrl != null && Object.hasOwnProperty.call(message, "repoUrl"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.repoUrl);
+            if (message.prName != null && Object.hasOwnProperty.call(message, "prName"))
+                writer.uint32(/* id 2, wireType 2 =*/18).string(message.prName);
+            if (message.prBody != null && Object.hasOwnProperty.call(message, "prBody"))
+                writer.uint32(/* id 3, wireType 2 =*/26).string(message.prBody);
+            if (message.files != null && message.files.length)
+                for (var i = 0; i < message.files.length; ++i)
+                    $root.protos.CreatePRRequest.PRFile.encode(message.files[i], writer.uint32(/* id 4, wireType 2 =*/34).fork()).ldelim();
+            if (message.auth != null && Object.hasOwnProperty.call(message, "auth"))
+                $root.protos.common.Auth.encode(message.auth, writer.uint32(/* id 9999, wireType 2 =*/79994).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Encodes the specified CreatePRRequest message, length delimited. Does not implicitly {@link protos.CreatePRRequest.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.CreatePRRequest
+         * @static
+         * @param {protos.ICreatePRRequest} message CreatePRRequest message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        CreatePRRequest.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a CreatePRRequest message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.CreatePRRequest
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.CreatePRRequest} CreatePRRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        CreatePRRequest.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.CreatePRRequest();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 9999:
+                    message.auth = $root.protos.common.Auth.decode(reader, reader.uint32());
+                    break;
+                case 1:
+                    message.repoUrl = reader.string();
+                    break;
+                case 2:
+                    message.prName = reader.string();
+                    break;
+                case 3:
+                    message.prBody = reader.string();
+                    break;
+                case 4:
+                    if (!(message.files && message.files.length))
+                        message.files = [];
+                    message.files.push($root.protos.CreatePRRequest.PRFile.decode(reader, reader.uint32()));
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a CreatePRRequest message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.CreatePRRequest
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.CreatePRRequest} CreatePRRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        CreatePRRequest.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a CreatePRRequest message.
+         * @function verify
+         * @memberof protos.CreatePRRequest
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        CreatePRRequest.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.auth != null && message.hasOwnProperty("auth")) {
+                var error = $root.protos.common.Auth.verify(message.auth);
+                if (error)
+                    return "auth." + error;
+            }
+            if (message.repoUrl != null && message.hasOwnProperty("repoUrl"))
+                if (!$util.isString(message.repoUrl))
+                    return "repoUrl: string expected";
+            if (message.prName != null && message.hasOwnProperty("prName"))
+                if (!$util.isString(message.prName))
+                    return "prName: string expected";
+            if (message.prBody != null && message.hasOwnProperty("prBody"))
+                if (!$util.isString(message.prBody))
+                    return "prBody: string expected";
+            if (message.files != null && message.hasOwnProperty("files")) {
+                if (!Array.isArray(message.files))
+                    return "files: array expected";
+                for (var i = 0; i < message.files.length; ++i) {
+                    var error = $root.protos.CreatePRRequest.PRFile.verify(message.files[i]);
+                    if (error)
+                        return "files." + error;
+                }
+            }
+            return null;
+        };
+
+        /**
+         * Creates a CreatePRRequest message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.CreatePRRequest
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.CreatePRRequest} CreatePRRequest
+         */
+        CreatePRRequest.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.CreatePRRequest)
+                return object;
+            var message = new $root.protos.CreatePRRequest();
+            if (object.auth != null) {
+                if (typeof object.auth !== "object")
+                    throw TypeError(".protos.CreatePRRequest.auth: object expected");
+                message.auth = $root.protos.common.Auth.fromObject(object.auth);
+            }
+            if (object.repoUrl != null)
+                message.repoUrl = String(object.repoUrl);
+            if (object.prName != null)
+                message.prName = String(object.prName);
+            if (object.prBody != null)
+                message.prBody = String(object.prBody);
+            if (object.files) {
+                if (!Array.isArray(object.files))
+                    throw TypeError(".protos.CreatePRRequest.files: array expected");
+                message.files = [];
+                for (var i = 0; i < object.files.length; ++i) {
+                    if (typeof object.files[i] !== "object")
+                        throw TypeError(".protos.CreatePRRequest.files: object expected");
+                    message.files[i] = $root.protos.CreatePRRequest.PRFile.fromObject(object.files[i]);
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a CreatePRRequest message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.CreatePRRequest
+         * @static
+         * @param {protos.CreatePRRequest} message CreatePRRequest
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        CreatePRRequest.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.arrays || options.defaults)
+                object.files = [];
+            if (options.defaults) {
+                object.repoUrl = "";
+                object.prName = "";
+                object.prBody = "";
+                object.auth = null;
+            }
+            if (message.repoUrl != null && message.hasOwnProperty("repoUrl"))
+                object.repoUrl = message.repoUrl;
+            if (message.prName != null && message.hasOwnProperty("prName"))
+                object.prName = message.prName;
+            if (message.prBody != null && message.hasOwnProperty("prBody"))
+                object.prBody = message.prBody;
+            if (message.files && message.files.length) {
+                object.files = [];
+                for (var j = 0; j < message.files.length; ++j)
+                    object.files[j] = $root.protos.CreatePRRequest.PRFile.toObject(message.files[j], options);
+            }
+            if (message.auth != null && message.hasOwnProperty("auth"))
+                object.auth = $root.protos.common.Auth.toObject(message.auth, options);
+            return object;
+        };
+
+        /**
+         * Converts this CreatePRRequest to JSON.
+         * @function toJSON
+         * @memberof protos.CreatePRRequest
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        CreatePRRequest.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        CreatePRRequest.PRFile = (function() {
+
+            /**
+             * Properties of a PRFile.
+             * @memberof protos.CreatePRRequest
+             * @interface IPRFile
+             * @property {string|null} [path] PRFile path
+             * @property {Uint8Array|null} [contents] PRFile contents
+             */
+
+            /**
+             * Constructs a new PRFile.
+             * @memberof protos.CreatePRRequest
+             * @classdesc Represents a PRFile.
+             * @implements IPRFile
+             * @constructor
+             * @param {protos.CreatePRRequest.IPRFile=} [properties] Properties to set
+             */
+            function PRFile(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * PRFile path.
+             * @member {string} path
+             * @memberof protos.CreatePRRequest.PRFile
+             * @instance
+             */
+            PRFile.prototype.path = "";
+
+            /**
+             * PRFile contents.
+             * @member {Uint8Array} contents
+             * @memberof protos.CreatePRRequest.PRFile
+             * @instance
+             */
+            PRFile.prototype.contents = $util.newBuffer([]);
+
+            /**
+             * Creates a new PRFile instance using the specified properties.
+             * @function create
+             * @memberof protos.CreatePRRequest.PRFile
+             * @static
+             * @param {protos.CreatePRRequest.IPRFile=} [properties] Properties to set
+             * @returns {protos.CreatePRRequest.PRFile} PRFile instance
+             */
+            PRFile.create = function create(properties) {
+                return new PRFile(properties);
+            };
+
+            /**
+             * Encodes the specified PRFile message. Does not implicitly {@link protos.CreatePRRequest.PRFile.verify|verify} messages.
+             * @function encode
+             * @memberof protos.CreatePRRequest.PRFile
+             * @static
+             * @param {protos.CreatePRRequest.IPRFile} message PRFile message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            PRFile.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.path != null && Object.hasOwnProperty.call(message, "path"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.path);
+                if (message.contents != null && Object.hasOwnProperty.call(message, "contents"))
+                    writer.uint32(/* id 2, wireType 2 =*/18).bytes(message.contents);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified PRFile message, length delimited. Does not implicitly {@link protos.CreatePRRequest.PRFile.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.CreatePRRequest.PRFile
+             * @static
+             * @param {protos.CreatePRRequest.IPRFile} message PRFile message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            PRFile.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a PRFile message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.CreatePRRequest.PRFile
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.CreatePRRequest.PRFile} PRFile
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            PRFile.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.CreatePRRequest.PRFile();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.path = reader.string();
+                        break;
+                    case 2:
+                        message.contents = reader.bytes();
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a PRFile message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.CreatePRRequest.PRFile
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.CreatePRRequest.PRFile} PRFile
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            PRFile.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a PRFile message.
+             * @function verify
+             * @memberof protos.CreatePRRequest.PRFile
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            PRFile.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.path != null && message.hasOwnProperty("path"))
+                    if (!$util.isString(message.path))
+                        return "path: string expected";
+                if (message.contents != null && message.hasOwnProperty("contents"))
+                    if (!(message.contents && typeof message.contents.length === "number" || $util.isString(message.contents)))
+                        return "contents: buffer expected";
+                return null;
+            };
+
+            /**
+             * Creates a PRFile message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.CreatePRRequest.PRFile
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.CreatePRRequest.PRFile} PRFile
+             */
+            PRFile.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.CreatePRRequest.PRFile)
+                    return object;
+                var message = new $root.protos.CreatePRRequest.PRFile();
+                if (object.path != null)
+                    message.path = String(object.path);
+                if (object.contents != null)
+                    if (typeof object.contents === "string")
+                        $util.base64.decode(object.contents, message.contents = $util.newBuffer($util.base64.length(object.contents)), 0);
+                    else if (object.contents.length)
+                        message.contents = object.contents;
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a PRFile message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.CreatePRRequest.PRFile
+             * @static
+             * @param {protos.CreatePRRequest.PRFile} message PRFile
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            PRFile.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    object.path = "";
+                    if (options.bytes === String)
+                        object.contents = "";
+                    else {
+                        object.contents = [];
+                        if (options.bytes !== Array)
+                            object.contents = $util.newBuffer(object.contents);
+                    }
+                }
+                if (message.path != null && message.hasOwnProperty("path"))
+                    object.path = message.path;
+                if (message.contents != null && message.hasOwnProperty("contents"))
+                    object.contents = options.bytes === String ? $util.base64.encode(message.contents, 0, message.contents.length) : options.bytes === Array ? Array.prototype.slice.call(message.contents) : message.contents;
+                return object;
+            };
+
+            /**
+             * Converts this PRFile to JSON.
+             * @function toJSON
+             * @memberof protos.CreatePRRequest.PRFile
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            PRFile.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return PRFile;
+        })();
+
+        return CreatePRRequest;
+    })();
+
+    protos.CreatePRResponse = (function() {
+
+        /**
+         * Properties of a CreatePRResponse.
+         * @memberof protos
+         * @interface ICreatePRResponse
+         * @property {string|null} [url] CreatePRResponse url
+         * @property {string|null} [fullPath] CreatePRResponse fullPath
+         */
+
+        /**
+         * Constructs a new CreatePRResponse.
+         * @memberof protos
+         * @classdesc Represents a CreatePRResponse.
+         * @implements ICreatePRResponse
+         * @constructor
+         * @param {protos.ICreatePRResponse=} [properties] Properties to set
+         */
+        function CreatePRResponse(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * CreatePRResponse url.
+         * @member {string} url
+         * @memberof protos.CreatePRResponse
+         * @instance
+         */
+        CreatePRResponse.prototype.url = "";
+
+        /**
+         * CreatePRResponse fullPath.
+         * @member {string} fullPath
+         * @memberof protos.CreatePRResponse
+         * @instance
+         */
+        CreatePRResponse.prototype.fullPath = "";
+
+        /**
+         * Creates a new CreatePRResponse instance using the specified properties.
+         * @function create
+         * @memberof protos.CreatePRResponse
+         * @static
+         * @param {protos.ICreatePRResponse=} [properties] Properties to set
+         * @returns {protos.CreatePRResponse} CreatePRResponse instance
+         */
+        CreatePRResponse.create = function create(properties) {
+            return new CreatePRResponse(properties);
+        };
+
+        /**
+         * Encodes the specified CreatePRResponse message. Does not implicitly {@link protos.CreatePRResponse.verify|verify} messages.
+         * @function encode
+         * @memberof protos.CreatePRResponse
+         * @static
+         * @param {protos.ICreatePRResponse} message CreatePRResponse message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        CreatePRResponse.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.url != null && Object.hasOwnProperty.call(message, "url"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.url);
+            if (message.fullPath != null && Object.hasOwnProperty.call(message, "fullPath"))
+                writer.uint32(/* id 2, wireType 2 =*/18).string(message.fullPath);
+            return writer;
+        };
+
+        /**
+         * Encodes the specified CreatePRResponse message, length delimited. Does not implicitly {@link protos.CreatePRResponse.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.CreatePRResponse
+         * @static
+         * @param {protos.ICreatePRResponse} message CreatePRResponse message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        CreatePRResponse.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a CreatePRResponse message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.CreatePRResponse
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.CreatePRResponse} CreatePRResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        CreatePRResponse.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.CreatePRResponse();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.url = reader.string();
+                    break;
+                case 2:
+                    message.fullPath = reader.string();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a CreatePRResponse message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.CreatePRResponse
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.CreatePRResponse} CreatePRResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        CreatePRResponse.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a CreatePRResponse message.
+         * @function verify
+         * @memberof protos.CreatePRResponse
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        CreatePRResponse.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.url != null && message.hasOwnProperty("url"))
+                if (!$util.isString(message.url))
+                    return "url: string expected";
+            if (message.fullPath != null && message.hasOwnProperty("fullPath"))
+                if (!$util.isString(message.fullPath))
+                    return "fullPath: string expected";
+            return null;
+        };
+
+        /**
+         * Creates a CreatePRResponse message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.CreatePRResponse
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.CreatePRResponse} CreatePRResponse
+         */
+        CreatePRResponse.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.CreatePRResponse)
+                return object;
+            var message = new $root.protos.CreatePRResponse();
+            if (object.url != null)
+                message.url = String(object.url);
+            if (object.fullPath != null)
+                message.fullPath = String(object.fullPath);
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a CreatePRResponse message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.CreatePRResponse
+         * @static
+         * @param {protos.CreatePRResponse} message CreatePRResponse
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        CreatePRResponse.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.url = "";
+                object.fullPath = "";
+            }
+            if (message.url != null && message.hasOwnProperty("url"))
+                object.url = message.url;
+            if (message.fullPath != null && message.hasOwnProperty("fullPath"))
+                object.fullPath = message.fullPath;
+            return object;
+        };
+
+        /**
+         * Converts this CreatePRResponse to JSON.
+         * @function toJSON
+         * @memberof protos.CreatePRResponse
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        CreatePRResponse.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return CreatePRResponse;
     })();
 
     protos.Directory = (function() {

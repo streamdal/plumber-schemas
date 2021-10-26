@@ -12321,6 +12321,48 @@ export namespace protos {
         public getVCEvents(request: protos.IGetVCEventsRequest): Promise<protos.VCEvent>;
 
         /**
+         * Calls GetRepoTree.
+         * @param request GetRepoTreeRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and GetRepoTreeResponse
+         */
+        public getRepoTree(request: protos.IGetRepoTreeRequest, callback: protos.PlumberServer.GetRepoTreeCallback): void;
+
+        /**
+         * Calls GetRepoTree.
+         * @param request GetRepoTreeRequest message or plain object
+         * @returns Promise
+         */
+        public getRepoTree(request: protos.IGetRepoTreeRequest): Promise<protos.GetRepoTreeResponse>;
+
+        /**
+         * Calls GetRepoFile.
+         * @param request GetRepoFileRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and GetRepoFileResponse
+         */
+        public getRepoFile(request: protos.IGetRepoFileRequest, callback: protos.PlumberServer.GetRepoFileCallback): void;
+
+        /**
+         * Calls GetRepoFile.
+         * @param request GetRepoFileRequest message or plain object
+         * @returns Promise
+         */
+        public getRepoFile(request: protos.IGetRepoFileRequest): Promise<protos.GetRepoFileResponse>;
+
+        /**
+         * Calls CreatePullRequest.
+         * @param request CreatePRRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and CreatePRResponse
+         */
+        public createPullRequest(request: protos.ICreatePRRequest, callback: protos.PlumberServer.CreatePullRequestCallback): void;
+
+        /**
+         * Calls CreatePullRequest.
+         * @param request CreatePRRequest message or plain object
+         * @returns Promise
+         */
+        public createPullRequest(request: protos.ICreatePRRequest): Promise<protos.CreatePRResponse>;
+
+        /**
          * Calls GetMonitor.
          * @param request GetMonitorRequest message or plain object
          * @param callback Node-style callback called with the error, if any, and GetMonitorResponse
@@ -12721,6 +12763,27 @@ export namespace protos {
          * @param [response] VCEvent
          */
         type GetVCEventsCallback = (error: (Error|null), response?: protos.VCEvent) => void;
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#getRepoTree}.
+         * @param error Error, if any
+         * @param [response] GetRepoTreeResponse
+         */
+        type GetRepoTreeCallback = (error: (Error|null), response?: protos.GetRepoTreeResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#getRepoFile}.
+         * @param error Error, if any
+         * @param [response] GetRepoFileResponse
+         */
+        type GetRepoFileCallback = (error: (Error|null), response?: protos.GetRepoFileResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#createPullRequest}.
+         * @param error Error, if any
+         * @param [response] CreatePRResponse
+         */
+        type CreatePullRequestCallback = (error: (Error|null), response?: protos.CreatePRResponse) => void;
 
         /**
          * Callback as used by {@link protos.PlumberServer#getMonitor}.
@@ -28750,11 +28813,8 @@ export namespace protos {
         /** GetRepoTreeRequest auth */
         auth?: (protos.common.IAuth|null);
 
-        /** GetRepoTreeRequest repoOwner */
-        repoOwner?: (string|null);
-
-        /** GetRepoTreeRequest repoName */
-        repoName?: (string|null);
+        /** GetRepoTreeRequest repoUrl */
+        repoUrl?: (string|null);
     }
 
     /** Represents a GetRepoTreeRequest. */
@@ -28769,11 +28829,8 @@ export namespace protos {
         /** GetRepoTreeRequest auth. */
         public auth?: (protos.common.IAuth|null);
 
-        /** GetRepoTreeRequest repoOwner. */
-        public repoOwner: string;
-
-        /** GetRepoTreeRequest repoName. */
-        public repoName: string;
+        /** GetRepoTreeRequest repoUrl. */
+        public repoUrl: string;
 
         /**
          * Creates a new GetRepoTreeRequest instance using the specified properties.
@@ -28841,6 +28898,609 @@ export namespace protos {
 
         /**
          * Converts this GetRepoTreeRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a GetRepoTreeResponse. */
+    interface IGetRepoTreeResponse {
+
+        /** GetRepoTreeResponse tree */
+        tree?: (protos.IDirectory|null);
+    }
+
+    /** Represents a GetRepoTreeResponse. */
+    class GetRepoTreeResponse implements IGetRepoTreeResponse {
+
+        /**
+         * Constructs a new GetRepoTreeResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IGetRepoTreeResponse);
+
+        /** GetRepoTreeResponse tree. */
+        public tree?: (protos.IDirectory|null);
+
+        /**
+         * Creates a new GetRepoTreeResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns GetRepoTreeResponse instance
+         */
+        public static create(properties?: protos.IGetRepoTreeResponse): protos.GetRepoTreeResponse;
+
+        /**
+         * Encodes the specified GetRepoTreeResponse message. Does not implicitly {@link protos.GetRepoTreeResponse.verify|verify} messages.
+         * @param message GetRepoTreeResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IGetRepoTreeResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified GetRepoTreeResponse message, length delimited. Does not implicitly {@link protos.GetRepoTreeResponse.verify|verify} messages.
+         * @param message GetRepoTreeResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IGetRepoTreeResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a GetRepoTreeResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns GetRepoTreeResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.GetRepoTreeResponse;
+
+        /**
+         * Decodes a GetRepoTreeResponse message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns GetRepoTreeResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.GetRepoTreeResponse;
+
+        /**
+         * Verifies a GetRepoTreeResponse message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a GetRepoTreeResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns GetRepoTreeResponse
+         */
+        public static fromObject(object: { [k: string]: any }): protos.GetRepoTreeResponse;
+
+        /**
+         * Creates a plain object from a GetRepoTreeResponse message. Also converts values to other types if specified.
+         * @param message GetRepoTreeResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.GetRepoTreeResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this GetRepoTreeResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a GetRepoFileRequest. */
+    interface IGetRepoFileRequest {
+
+        /** GetRepoFileRequest auth */
+        auth?: (protos.common.IAuth|null);
+
+        /** GetRepoFileRequest repoUrl */
+        repoUrl?: (string|null);
+
+        /** GetRepoFileRequest fileName */
+        fileName?: (string|null);
+
+        /** GetRepoFileRequest filePath */
+        filePath?: (string|null);
+
+        /** GetRepoFileRequest fileSha */
+        fileSha?: (string|null);
+    }
+
+    /** Represents a GetRepoFileRequest. */
+    class GetRepoFileRequest implements IGetRepoFileRequest {
+
+        /**
+         * Constructs a new GetRepoFileRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IGetRepoFileRequest);
+
+        /** GetRepoFileRequest auth. */
+        public auth?: (protos.common.IAuth|null);
+
+        /** GetRepoFileRequest repoUrl. */
+        public repoUrl: string;
+
+        /** GetRepoFileRequest fileName. */
+        public fileName: string;
+
+        /** GetRepoFileRequest filePath. */
+        public filePath: string;
+
+        /** GetRepoFileRequest fileSha. */
+        public fileSha: string;
+
+        /**
+         * Creates a new GetRepoFileRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns GetRepoFileRequest instance
+         */
+        public static create(properties?: protos.IGetRepoFileRequest): protos.GetRepoFileRequest;
+
+        /**
+         * Encodes the specified GetRepoFileRequest message. Does not implicitly {@link protos.GetRepoFileRequest.verify|verify} messages.
+         * @param message GetRepoFileRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IGetRepoFileRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified GetRepoFileRequest message, length delimited. Does not implicitly {@link protos.GetRepoFileRequest.verify|verify} messages.
+         * @param message GetRepoFileRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IGetRepoFileRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a GetRepoFileRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns GetRepoFileRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.GetRepoFileRequest;
+
+        /**
+         * Decodes a GetRepoFileRequest message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns GetRepoFileRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.GetRepoFileRequest;
+
+        /**
+         * Verifies a GetRepoFileRequest message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a GetRepoFileRequest message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns GetRepoFileRequest
+         */
+        public static fromObject(object: { [k: string]: any }): protos.GetRepoFileRequest;
+
+        /**
+         * Creates a plain object from a GetRepoFileRequest message. Also converts values to other types if specified.
+         * @param message GetRepoFileRequest
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.GetRepoFileRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this GetRepoFileRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a GetRepoFileResponse. */
+    interface IGetRepoFileResponse {
+
+        /** GetRepoFileResponse content */
+        content?: (Uint8Array|null);
+    }
+
+    /** Represents a GetRepoFileResponse. */
+    class GetRepoFileResponse implements IGetRepoFileResponse {
+
+        /**
+         * Constructs a new GetRepoFileResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IGetRepoFileResponse);
+
+        /** GetRepoFileResponse content. */
+        public content: Uint8Array;
+
+        /**
+         * Creates a new GetRepoFileResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns GetRepoFileResponse instance
+         */
+        public static create(properties?: protos.IGetRepoFileResponse): protos.GetRepoFileResponse;
+
+        /**
+         * Encodes the specified GetRepoFileResponse message. Does not implicitly {@link protos.GetRepoFileResponse.verify|verify} messages.
+         * @param message GetRepoFileResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IGetRepoFileResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified GetRepoFileResponse message, length delimited. Does not implicitly {@link protos.GetRepoFileResponse.verify|verify} messages.
+         * @param message GetRepoFileResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IGetRepoFileResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a GetRepoFileResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns GetRepoFileResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.GetRepoFileResponse;
+
+        /**
+         * Decodes a GetRepoFileResponse message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns GetRepoFileResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.GetRepoFileResponse;
+
+        /**
+         * Verifies a GetRepoFileResponse message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a GetRepoFileResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns GetRepoFileResponse
+         */
+        public static fromObject(object: { [k: string]: any }): protos.GetRepoFileResponse;
+
+        /**
+         * Creates a plain object from a GetRepoFileResponse message. Also converts values to other types if specified.
+         * @param message GetRepoFileResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.GetRepoFileResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this GetRepoFileResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a CreatePRRequest. */
+    interface ICreatePRRequest {
+
+        /** CreatePRRequest auth */
+        auth?: (protos.common.IAuth|null);
+
+        /** CreatePRRequest repoUrl */
+        repoUrl?: (string|null);
+
+        /** CreatePRRequest prName */
+        prName?: (string|null);
+
+        /** CreatePRRequest prBody */
+        prBody?: (string|null);
+
+        /** CreatePRRequest files */
+        files?: (protos.CreatePRRequest.IPRFile[]|null);
+    }
+
+    /** Represents a CreatePRRequest. */
+    class CreatePRRequest implements ICreatePRRequest {
+
+        /**
+         * Constructs a new CreatePRRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.ICreatePRRequest);
+
+        /** CreatePRRequest auth. */
+        public auth?: (protos.common.IAuth|null);
+
+        /** CreatePRRequest repoUrl. */
+        public repoUrl: string;
+
+        /** CreatePRRequest prName. */
+        public prName: string;
+
+        /** CreatePRRequest prBody. */
+        public prBody: string;
+
+        /** CreatePRRequest files. */
+        public files: protos.CreatePRRequest.IPRFile[];
+
+        /**
+         * Creates a new CreatePRRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns CreatePRRequest instance
+         */
+        public static create(properties?: protos.ICreatePRRequest): protos.CreatePRRequest;
+
+        /**
+         * Encodes the specified CreatePRRequest message. Does not implicitly {@link protos.CreatePRRequest.verify|verify} messages.
+         * @param message CreatePRRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.ICreatePRRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified CreatePRRequest message, length delimited. Does not implicitly {@link protos.CreatePRRequest.verify|verify} messages.
+         * @param message CreatePRRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.ICreatePRRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a CreatePRRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns CreatePRRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.CreatePRRequest;
+
+        /**
+         * Decodes a CreatePRRequest message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns CreatePRRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.CreatePRRequest;
+
+        /**
+         * Verifies a CreatePRRequest message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a CreatePRRequest message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns CreatePRRequest
+         */
+        public static fromObject(object: { [k: string]: any }): protos.CreatePRRequest;
+
+        /**
+         * Creates a plain object from a CreatePRRequest message. Also converts values to other types if specified.
+         * @param message CreatePRRequest
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.CreatePRRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this CreatePRRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    namespace CreatePRRequest {
+
+        /** Properties of a PRFile. */
+        interface IPRFile {
+
+            /** PRFile path */
+            path?: (string|null);
+
+            /** PRFile contents */
+            contents?: (Uint8Array|null);
+        }
+
+        /** Represents a PRFile. */
+        class PRFile implements IPRFile {
+
+            /**
+             * Constructs a new PRFile.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.CreatePRRequest.IPRFile);
+
+            /** PRFile path. */
+            public path: string;
+
+            /** PRFile contents. */
+            public contents: Uint8Array;
+
+            /**
+             * Creates a new PRFile instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns PRFile instance
+             */
+            public static create(properties?: protos.CreatePRRequest.IPRFile): protos.CreatePRRequest.PRFile;
+
+            /**
+             * Encodes the specified PRFile message. Does not implicitly {@link protos.CreatePRRequest.PRFile.verify|verify} messages.
+             * @param message PRFile message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.CreatePRRequest.IPRFile, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified PRFile message, length delimited. Does not implicitly {@link protos.CreatePRRequest.PRFile.verify|verify} messages.
+             * @param message PRFile message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.CreatePRRequest.IPRFile, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a PRFile message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns PRFile
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.CreatePRRequest.PRFile;
+
+            /**
+             * Decodes a PRFile message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns PRFile
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.CreatePRRequest.PRFile;
+
+            /**
+             * Verifies a PRFile message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a PRFile message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns PRFile
+             */
+            public static fromObject(object: { [k: string]: any }): protos.CreatePRRequest.PRFile;
+
+            /**
+             * Creates a plain object from a PRFile message. Also converts values to other types if specified.
+             * @param message PRFile
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.CreatePRRequest.PRFile, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this PRFile to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+    }
+
+    /** Properties of a CreatePRResponse. */
+    interface ICreatePRResponse {
+
+        /** CreatePRResponse url */
+        url?: (string|null);
+
+        /** CreatePRResponse fullPath */
+        fullPath?: (string|null);
+    }
+
+    /** Represents a CreatePRResponse. */
+    class CreatePRResponse implements ICreatePRResponse {
+
+        /**
+         * Constructs a new CreatePRResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.ICreatePRResponse);
+
+        /** CreatePRResponse url. */
+        public url: string;
+
+        /** CreatePRResponse fullPath. */
+        public fullPath: string;
+
+        /**
+         * Creates a new CreatePRResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns CreatePRResponse instance
+         */
+        public static create(properties?: protos.ICreatePRResponse): protos.CreatePRResponse;
+
+        /**
+         * Encodes the specified CreatePRResponse message. Does not implicitly {@link protos.CreatePRResponse.verify|verify} messages.
+         * @param message CreatePRResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.ICreatePRResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified CreatePRResponse message, length delimited. Does not implicitly {@link protos.CreatePRResponse.verify|verify} messages.
+         * @param message CreatePRResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.ICreatePRResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a CreatePRResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns CreatePRResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.CreatePRResponse;
+
+        /**
+         * Decodes a CreatePRResponse message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns CreatePRResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.CreatePRResponse;
+
+        /**
+         * Verifies a CreatePRResponse message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a CreatePRResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns CreatePRResponse
+         */
+        public static fromObject(object: { [k: string]: any }): protos.CreatePRResponse;
+
+        /**
+         * Creates a plain object from a CreatePRResponse message. Also converts values to other types if specified.
+         * @param message CreatePRResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.CreatePRResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this CreatePRResponse to JSON.
          * @returns JSON object
          */
         public toJSON(): { [k: string]: any };

@@ -124,6 +124,13 @@ service PlumberServer {
     // GetVCEvents connects to vc-service backend and returns a stream of events pushed from github/bitbucket/etc
     rpc GetVCEvents(GetVCEventsRequest) returns (stream VCEvent);
 
+    // --------------------- Pull Request -------------------
+    rpc GetRepoTree(GetRepoTreeRequest) returns (GetRepoTreeResponse);
+
+    rpc GetRepoFile(GetRepoFileRequest) returns (GetRepoFileResponse);
+
+    rpc CreatePullRequest(CreatePRRequest) returns (CreatePRResponse);
+
     // --------------------- Monitor -------------------
 
     rpc GetMonitor(GetMonitorRequest) returns (GetMonitorResponse);

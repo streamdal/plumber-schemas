@@ -235,9 +235,49 @@ message GetRepoTreeRequest {
     // Every gRPC request must have a valid auth config
     common.Auth auth = 9999;
 
-    string repo_owner = 1;
+    string repo_url = 1;
+}
 
-    string repo_name = 2;
+message GetRepoTreeResponse {
+    Directory tree = 1;
+}
+
+message GetRepoFileRequest {
+    // Every gRPC request must have a valid auth config
+    common.Auth auth = 9999;
+
+    string repo_url = 1;
+    string file_name = 2;
+    string file_path = 3;
+    string file_sha = 4;
+}
+
+message GetRepoFileResponse {
+    bytes content = 1;
+}
+
+message CreatePRRequest {
+    message PRFile {
+        string path = 1;
+        bytes contents = 2;
+    }
+
+    // Every gRPC request must have a valid auth config
+    common.Auth auth = 9999;
+
+    string repo_url = 1;
+
+    string pr_name = 2;
+
+    string pr_body = 3;
+
+    repeated PRFile files = 4;
+}
+
+message CreatePRResponse {
+    string url = 1;
+
+    string full_path = 2;
 }
 
 // Directory represents a repository directory
