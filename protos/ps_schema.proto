@@ -111,7 +111,7 @@ message ImportGithubSelectRequest {
     // now that the user knows which file to import
     string import_id = 1;
 
-    // The schema file to import. For protobuf, this will be the root envelope message.
+    // The schema file to import. For protobuf, this will be the root directory under which .proto files are stored
     // For Avro or JSONSchema, it will be the actual schema file
     // Only used for JSONSchema/Avro. Protobuf needs a directory, not a file
     string schema_file_name = 2;
