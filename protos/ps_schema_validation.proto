@@ -1,0 +1,87 @@
+syntax = "proto3";
+
+package protos;
+
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
+
+import "common/ps_common_auth.proto";
+import "common/ps_common_status.proto";
+
+message Validation {
+    message Field {
+        string path = 1;
+        string validation_type = 2;
+    }
+
+    string _id = 1;
+
+    string schema_id = 2;
+
+    repeated Field fields = 3;
+}
+
+message GetValidationRequest {
+    // Every gRPC request must have a valid auth config
+    common.Auth auth = 9999;
+
+    // Validation ID
+    string id = 1;
+}
+
+message GetValidationResponse {
+    Validation validation = 1;
+}
+
+message GetAllValidationsRequest {
+    // Every gRPC request must have a valid auth config
+    common.Auth auth = 9999;
+
+    // Validation ID
+    string id = 1;
+}
+
+message GetAllValidationsResponse {
+    repeated Validation validations = 1;
+}
+
+
+message CreateValidationRequest {
+    // Every gRPC request must have a valid auth config
+    common.Auth auth = 9999;
+
+    Validation validation = 1;
+}
+
+message CreateValidationResponse {
+    common.Status status = 1000;
+
+    Validation validation = 1;
+}
+
+message UpdateValidationRequest {
+    // Every gRPC request must have a valid auth config
+    common.Auth auth = 9999;
+
+    // Validation ID
+    string id = 1;
+
+    Validation validation = 2;
+}
+
+message UpdateValidationResponse {
+    common.Status status = 1000;
+
+    Validation validation = 1;
+}
+
+message DeleteValidationRequest {
+    // Every gRPC request must have a valid auth config
+    common.Auth auth = 9999;
+
+    // Validation ID
+    string id = 1;
+}
+
+message DeleteValidationResponse {
+    common.Status status = 1000;
+}

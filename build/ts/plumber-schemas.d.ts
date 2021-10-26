@@ -12473,6 +12473,76 @@ export namespace protos {
          * @returns Promise
          */
         public updateAlert(request: protos.IUpdateAlertRequest): Promise<protos.UpdateAlertResponse>;
+
+        /**
+         * Calls GetValidation.
+         * @param request GetValidationRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and GetValidationResponse
+         */
+        public getValidation(request: protos.IGetValidationRequest, callback: protos.PlumberServer.GetValidationCallback): void;
+
+        /**
+         * Calls GetValidation.
+         * @param request GetValidationRequest message or plain object
+         * @returns Promise
+         */
+        public getValidation(request: protos.IGetValidationRequest): Promise<protos.GetValidationResponse>;
+
+        /**
+         * Calls GetAllValidations.
+         * @param request GetAllValidationsRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and GetAllValidationsResponse
+         */
+        public getAllValidations(request: protos.IGetAllValidationsRequest, callback: protos.PlumberServer.GetAllValidationsCallback): void;
+
+        /**
+         * Calls GetAllValidations.
+         * @param request GetAllValidationsRequest message or plain object
+         * @returns Promise
+         */
+        public getAllValidations(request: protos.IGetAllValidationsRequest): Promise<protos.GetAllValidationsResponse>;
+
+        /**
+         * Calls CreateValidation.
+         * @param request CreateValidationRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and CreateValidationResponse
+         */
+        public createValidation(request: protos.ICreateValidationRequest, callback: protos.PlumberServer.CreateValidationCallback): void;
+
+        /**
+         * Calls CreateValidation.
+         * @param request CreateValidationRequest message or plain object
+         * @returns Promise
+         */
+        public createValidation(request: protos.ICreateValidationRequest): Promise<protos.CreateValidationResponse>;
+
+        /**
+         * Calls UpdateValidation.
+         * @param request UpdateValidationRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and UpdateValidationResponse
+         */
+        public updateValidation(request: protos.IUpdateValidationRequest, callback: protos.PlumberServer.UpdateValidationCallback): void;
+
+        /**
+         * Calls UpdateValidation.
+         * @param request UpdateValidationRequest message or plain object
+         * @returns Promise
+         */
+        public updateValidation(request: protos.IUpdateValidationRequest): Promise<protos.UpdateValidationResponse>;
+
+        /**
+         * Calls DeleteValidation.
+         * @param request DeleteValidationRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and DeleteValidationResponse
+         */
+        public deleteValidation(request: protos.IDeleteValidationRequest, callback: protos.PlumberServer.DeleteValidationCallback): void;
+
+        /**
+         * Calls DeleteValidation.
+         * @param request DeleteValidationRequest message or plain object
+         * @returns Promise
+         */
+        public deleteValidation(request: protos.IDeleteValidationRequest): Promise<protos.DeleteValidationResponse>;
     }
 
     namespace PlumberServer {
@@ -12840,6 +12910,41 @@ export namespace protos {
          * @param [response] UpdateAlertResponse
          */
         type UpdateAlertCallback = (error: (Error|null), response?: protos.UpdateAlertResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#getValidation}.
+         * @param error Error, if any
+         * @param [response] GetValidationResponse
+         */
+        type GetValidationCallback = (error: (Error|null), response?: protos.GetValidationResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#getAllValidations}.
+         * @param error Error, if any
+         * @param [response] GetAllValidationsResponse
+         */
+        type GetAllValidationsCallback = (error: (Error|null), response?: protos.GetAllValidationsResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#createValidation}.
+         * @param error Error, if any
+         * @param [response] CreateValidationResponse
+         */
+        type CreateValidationCallback = (error: (Error|null), response?: protos.CreateValidationResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#updateValidation}.
+         * @param error Error, if any
+         * @param [response] UpdateValidationResponse
+         */
+        type UpdateValidationCallback = (error: (Error|null), response?: protos.UpdateValidationResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#deleteValidation}.
+         * @param error Error, if any
+         * @param [response] DeleteValidationResponse
+         */
+        type DeleteValidationCallback = (error: (Error|null), response?: protos.DeleteValidationResponse) => void;
     }
 
     /** Properties of a GetAllConnectionsRequest. */
@@ -34536,6 +34641,1155 @@ export namespace protos {
 
         /**
          * Converts this UpdateMonitorResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a Validation. */
+    interface IValidation {
+
+        /** Validation _id */
+        _id?: (string|null);
+
+        /** Validation schemaId */
+        schemaId?: (string|null);
+
+        /** Validation fields */
+        fields?: (protos.Validation.IField[]|null);
+    }
+
+    /** Represents a Validation. */
+    class Validation implements IValidation {
+
+        /**
+         * Constructs a new Validation.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IValidation);
+
+        /** Validation _id. */
+        public _id: string;
+
+        /** Validation schemaId. */
+        public schemaId: string;
+
+        /** Validation fields. */
+        public fields: protos.Validation.IField[];
+
+        /**
+         * Creates a new Validation instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns Validation instance
+         */
+        public static create(properties?: protos.IValidation): protos.Validation;
+
+        /**
+         * Encodes the specified Validation message. Does not implicitly {@link protos.Validation.verify|verify} messages.
+         * @param message Validation message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IValidation, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified Validation message, length delimited. Does not implicitly {@link protos.Validation.verify|verify} messages.
+         * @param message Validation message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IValidation, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a Validation message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns Validation
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.Validation;
+
+        /**
+         * Decodes a Validation message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns Validation
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.Validation;
+
+        /**
+         * Verifies a Validation message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a Validation message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns Validation
+         */
+        public static fromObject(object: { [k: string]: any }): protos.Validation;
+
+        /**
+         * Creates a plain object from a Validation message. Also converts values to other types if specified.
+         * @param message Validation
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.Validation, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this Validation to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    namespace Validation {
+
+        /** Properties of a Field. */
+        interface IField {
+
+            /** Field path */
+            path?: (string|null);
+
+            /** Field validationType */
+            validationType?: (string|null);
+        }
+
+        /** Represents a Field. */
+        class Field implements IField {
+
+            /**
+             * Constructs a new Field.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.Validation.IField);
+
+            /** Field path. */
+            public path: string;
+
+            /** Field validationType. */
+            public validationType: string;
+
+            /**
+             * Creates a new Field instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns Field instance
+             */
+            public static create(properties?: protos.Validation.IField): protos.Validation.Field;
+
+            /**
+             * Encodes the specified Field message. Does not implicitly {@link protos.Validation.Field.verify|verify} messages.
+             * @param message Field message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.Validation.IField, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified Field message, length delimited. Does not implicitly {@link protos.Validation.Field.verify|verify} messages.
+             * @param message Field message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.Validation.IField, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a Field message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns Field
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.Validation.Field;
+
+            /**
+             * Decodes a Field message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns Field
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.Validation.Field;
+
+            /**
+             * Verifies a Field message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a Field message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns Field
+             */
+            public static fromObject(object: { [k: string]: any }): protos.Validation.Field;
+
+            /**
+             * Creates a plain object from a Field message. Also converts values to other types if specified.
+             * @param message Field
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.Validation.Field, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this Field to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+    }
+
+    /** Properties of a GetValidationRequest. */
+    interface IGetValidationRequest {
+
+        /** GetValidationRequest auth */
+        auth?: (protos.common.IAuth|null);
+
+        /** GetValidationRequest id */
+        id?: (string|null);
+    }
+
+    /** Represents a GetValidationRequest. */
+    class GetValidationRequest implements IGetValidationRequest {
+
+        /**
+         * Constructs a new GetValidationRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IGetValidationRequest);
+
+        /** GetValidationRequest auth. */
+        public auth?: (protos.common.IAuth|null);
+
+        /** GetValidationRequest id. */
+        public id: string;
+
+        /**
+         * Creates a new GetValidationRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns GetValidationRequest instance
+         */
+        public static create(properties?: protos.IGetValidationRequest): protos.GetValidationRequest;
+
+        /**
+         * Encodes the specified GetValidationRequest message. Does not implicitly {@link protos.GetValidationRequest.verify|verify} messages.
+         * @param message GetValidationRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IGetValidationRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified GetValidationRequest message, length delimited. Does not implicitly {@link protos.GetValidationRequest.verify|verify} messages.
+         * @param message GetValidationRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IGetValidationRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a GetValidationRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns GetValidationRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.GetValidationRequest;
+
+        /**
+         * Decodes a GetValidationRequest message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns GetValidationRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.GetValidationRequest;
+
+        /**
+         * Verifies a GetValidationRequest message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a GetValidationRequest message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns GetValidationRequest
+         */
+        public static fromObject(object: { [k: string]: any }): protos.GetValidationRequest;
+
+        /**
+         * Creates a plain object from a GetValidationRequest message. Also converts values to other types if specified.
+         * @param message GetValidationRequest
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.GetValidationRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this GetValidationRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a GetValidationResponse. */
+    interface IGetValidationResponse {
+
+        /** GetValidationResponse validation */
+        validation?: (protos.IValidation|null);
+    }
+
+    /** Represents a GetValidationResponse. */
+    class GetValidationResponse implements IGetValidationResponse {
+
+        /**
+         * Constructs a new GetValidationResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IGetValidationResponse);
+
+        /** GetValidationResponse validation. */
+        public validation?: (protos.IValidation|null);
+
+        /**
+         * Creates a new GetValidationResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns GetValidationResponse instance
+         */
+        public static create(properties?: protos.IGetValidationResponse): protos.GetValidationResponse;
+
+        /**
+         * Encodes the specified GetValidationResponse message. Does not implicitly {@link protos.GetValidationResponse.verify|verify} messages.
+         * @param message GetValidationResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IGetValidationResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified GetValidationResponse message, length delimited. Does not implicitly {@link protos.GetValidationResponse.verify|verify} messages.
+         * @param message GetValidationResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IGetValidationResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a GetValidationResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns GetValidationResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.GetValidationResponse;
+
+        /**
+         * Decodes a GetValidationResponse message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns GetValidationResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.GetValidationResponse;
+
+        /**
+         * Verifies a GetValidationResponse message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a GetValidationResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns GetValidationResponse
+         */
+        public static fromObject(object: { [k: string]: any }): protos.GetValidationResponse;
+
+        /**
+         * Creates a plain object from a GetValidationResponse message. Also converts values to other types if specified.
+         * @param message GetValidationResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.GetValidationResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this GetValidationResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a GetAllValidationsRequest. */
+    interface IGetAllValidationsRequest {
+
+        /** GetAllValidationsRequest auth */
+        auth?: (protos.common.IAuth|null);
+
+        /** GetAllValidationsRequest id */
+        id?: (string|null);
+    }
+
+    /** Represents a GetAllValidationsRequest. */
+    class GetAllValidationsRequest implements IGetAllValidationsRequest {
+
+        /**
+         * Constructs a new GetAllValidationsRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IGetAllValidationsRequest);
+
+        /** GetAllValidationsRequest auth. */
+        public auth?: (protos.common.IAuth|null);
+
+        /** GetAllValidationsRequest id. */
+        public id: string;
+
+        /**
+         * Creates a new GetAllValidationsRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns GetAllValidationsRequest instance
+         */
+        public static create(properties?: protos.IGetAllValidationsRequest): protos.GetAllValidationsRequest;
+
+        /**
+         * Encodes the specified GetAllValidationsRequest message. Does not implicitly {@link protos.GetAllValidationsRequest.verify|verify} messages.
+         * @param message GetAllValidationsRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IGetAllValidationsRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified GetAllValidationsRequest message, length delimited. Does not implicitly {@link protos.GetAllValidationsRequest.verify|verify} messages.
+         * @param message GetAllValidationsRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IGetAllValidationsRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a GetAllValidationsRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns GetAllValidationsRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.GetAllValidationsRequest;
+
+        /**
+         * Decodes a GetAllValidationsRequest message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns GetAllValidationsRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.GetAllValidationsRequest;
+
+        /**
+         * Verifies a GetAllValidationsRequest message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a GetAllValidationsRequest message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns GetAllValidationsRequest
+         */
+        public static fromObject(object: { [k: string]: any }): protos.GetAllValidationsRequest;
+
+        /**
+         * Creates a plain object from a GetAllValidationsRequest message. Also converts values to other types if specified.
+         * @param message GetAllValidationsRequest
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.GetAllValidationsRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this GetAllValidationsRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a GetAllValidationsResponse. */
+    interface IGetAllValidationsResponse {
+
+        /** GetAllValidationsResponse validations */
+        validations?: (protos.IValidation[]|null);
+    }
+
+    /** Represents a GetAllValidationsResponse. */
+    class GetAllValidationsResponse implements IGetAllValidationsResponse {
+
+        /**
+         * Constructs a new GetAllValidationsResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IGetAllValidationsResponse);
+
+        /** GetAllValidationsResponse validations. */
+        public validations: protos.IValidation[];
+
+        /**
+         * Creates a new GetAllValidationsResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns GetAllValidationsResponse instance
+         */
+        public static create(properties?: protos.IGetAllValidationsResponse): protos.GetAllValidationsResponse;
+
+        /**
+         * Encodes the specified GetAllValidationsResponse message. Does not implicitly {@link protos.GetAllValidationsResponse.verify|verify} messages.
+         * @param message GetAllValidationsResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IGetAllValidationsResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified GetAllValidationsResponse message, length delimited. Does not implicitly {@link protos.GetAllValidationsResponse.verify|verify} messages.
+         * @param message GetAllValidationsResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IGetAllValidationsResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a GetAllValidationsResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns GetAllValidationsResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.GetAllValidationsResponse;
+
+        /**
+         * Decodes a GetAllValidationsResponse message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns GetAllValidationsResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.GetAllValidationsResponse;
+
+        /**
+         * Verifies a GetAllValidationsResponse message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a GetAllValidationsResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns GetAllValidationsResponse
+         */
+        public static fromObject(object: { [k: string]: any }): protos.GetAllValidationsResponse;
+
+        /**
+         * Creates a plain object from a GetAllValidationsResponse message. Also converts values to other types if specified.
+         * @param message GetAllValidationsResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.GetAllValidationsResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this GetAllValidationsResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a CreateValidationRequest. */
+    interface ICreateValidationRequest {
+
+        /** CreateValidationRequest auth */
+        auth?: (protos.common.IAuth|null);
+
+        /** CreateValidationRequest validation */
+        validation?: (protos.IValidation|null);
+    }
+
+    /** Represents a CreateValidationRequest. */
+    class CreateValidationRequest implements ICreateValidationRequest {
+
+        /**
+         * Constructs a new CreateValidationRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.ICreateValidationRequest);
+
+        /** CreateValidationRequest auth. */
+        public auth?: (protos.common.IAuth|null);
+
+        /** CreateValidationRequest validation. */
+        public validation?: (protos.IValidation|null);
+
+        /**
+         * Creates a new CreateValidationRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns CreateValidationRequest instance
+         */
+        public static create(properties?: protos.ICreateValidationRequest): protos.CreateValidationRequest;
+
+        /**
+         * Encodes the specified CreateValidationRequest message. Does not implicitly {@link protos.CreateValidationRequest.verify|verify} messages.
+         * @param message CreateValidationRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.ICreateValidationRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified CreateValidationRequest message, length delimited. Does not implicitly {@link protos.CreateValidationRequest.verify|verify} messages.
+         * @param message CreateValidationRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.ICreateValidationRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a CreateValidationRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns CreateValidationRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.CreateValidationRequest;
+
+        /**
+         * Decodes a CreateValidationRequest message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns CreateValidationRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.CreateValidationRequest;
+
+        /**
+         * Verifies a CreateValidationRequest message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a CreateValidationRequest message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns CreateValidationRequest
+         */
+        public static fromObject(object: { [k: string]: any }): protos.CreateValidationRequest;
+
+        /**
+         * Creates a plain object from a CreateValidationRequest message. Also converts values to other types if specified.
+         * @param message CreateValidationRequest
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.CreateValidationRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this CreateValidationRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a CreateValidationResponse. */
+    interface ICreateValidationResponse {
+
+        /** CreateValidationResponse status */
+        status?: (protos.common.IStatus|null);
+
+        /** CreateValidationResponse validation */
+        validation?: (protos.IValidation|null);
+    }
+
+    /** Represents a CreateValidationResponse. */
+    class CreateValidationResponse implements ICreateValidationResponse {
+
+        /**
+         * Constructs a new CreateValidationResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.ICreateValidationResponse);
+
+        /** CreateValidationResponse status. */
+        public status?: (protos.common.IStatus|null);
+
+        /** CreateValidationResponse validation. */
+        public validation?: (protos.IValidation|null);
+
+        /**
+         * Creates a new CreateValidationResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns CreateValidationResponse instance
+         */
+        public static create(properties?: protos.ICreateValidationResponse): protos.CreateValidationResponse;
+
+        /**
+         * Encodes the specified CreateValidationResponse message. Does not implicitly {@link protos.CreateValidationResponse.verify|verify} messages.
+         * @param message CreateValidationResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.ICreateValidationResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified CreateValidationResponse message, length delimited. Does not implicitly {@link protos.CreateValidationResponse.verify|verify} messages.
+         * @param message CreateValidationResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.ICreateValidationResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a CreateValidationResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns CreateValidationResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.CreateValidationResponse;
+
+        /**
+         * Decodes a CreateValidationResponse message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns CreateValidationResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.CreateValidationResponse;
+
+        /**
+         * Verifies a CreateValidationResponse message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a CreateValidationResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns CreateValidationResponse
+         */
+        public static fromObject(object: { [k: string]: any }): protos.CreateValidationResponse;
+
+        /**
+         * Creates a plain object from a CreateValidationResponse message. Also converts values to other types if specified.
+         * @param message CreateValidationResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.CreateValidationResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this CreateValidationResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of an UpdateValidationRequest. */
+    interface IUpdateValidationRequest {
+
+        /** UpdateValidationRequest auth */
+        auth?: (protos.common.IAuth|null);
+
+        /** UpdateValidationRequest id */
+        id?: (string|null);
+
+        /** UpdateValidationRequest validation */
+        validation?: (protos.IValidation|null);
+    }
+
+    /** Represents an UpdateValidationRequest. */
+    class UpdateValidationRequest implements IUpdateValidationRequest {
+
+        /**
+         * Constructs a new UpdateValidationRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IUpdateValidationRequest);
+
+        /** UpdateValidationRequest auth. */
+        public auth?: (protos.common.IAuth|null);
+
+        /** UpdateValidationRequest id. */
+        public id: string;
+
+        /** UpdateValidationRequest validation. */
+        public validation?: (protos.IValidation|null);
+
+        /**
+         * Creates a new UpdateValidationRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns UpdateValidationRequest instance
+         */
+        public static create(properties?: protos.IUpdateValidationRequest): protos.UpdateValidationRequest;
+
+        /**
+         * Encodes the specified UpdateValidationRequest message. Does not implicitly {@link protos.UpdateValidationRequest.verify|verify} messages.
+         * @param message UpdateValidationRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IUpdateValidationRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified UpdateValidationRequest message, length delimited. Does not implicitly {@link protos.UpdateValidationRequest.verify|verify} messages.
+         * @param message UpdateValidationRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IUpdateValidationRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes an UpdateValidationRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns UpdateValidationRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.UpdateValidationRequest;
+
+        /**
+         * Decodes an UpdateValidationRequest message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns UpdateValidationRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.UpdateValidationRequest;
+
+        /**
+         * Verifies an UpdateValidationRequest message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates an UpdateValidationRequest message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns UpdateValidationRequest
+         */
+        public static fromObject(object: { [k: string]: any }): protos.UpdateValidationRequest;
+
+        /**
+         * Creates a plain object from an UpdateValidationRequest message. Also converts values to other types if specified.
+         * @param message UpdateValidationRequest
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.UpdateValidationRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this UpdateValidationRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of an UpdateValidationResponse. */
+    interface IUpdateValidationResponse {
+
+        /** UpdateValidationResponse status */
+        status?: (protos.common.IStatus|null);
+
+        /** UpdateValidationResponse validation */
+        validation?: (protos.IValidation|null);
+    }
+
+    /** Represents an UpdateValidationResponse. */
+    class UpdateValidationResponse implements IUpdateValidationResponse {
+
+        /**
+         * Constructs a new UpdateValidationResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IUpdateValidationResponse);
+
+        /** UpdateValidationResponse status. */
+        public status?: (protos.common.IStatus|null);
+
+        /** UpdateValidationResponse validation. */
+        public validation?: (protos.IValidation|null);
+
+        /**
+         * Creates a new UpdateValidationResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns UpdateValidationResponse instance
+         */
+        public static create(properties?: protos.IUpdateValidationResponse): protos.UpdateValidationResponse;
+
+        /**
+         * Encodes the specified UpdateValidationResponse message. Does not implicitly {@link protos.UpdateValidationResponse.verify|verify} messages.
+         * @param message UpdateValidationResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IUpdateValidationResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified UpdateValidationResponse message, length delimited. Does not implicitly {@link protos.UpdateValidationResponse.verify|verify} messages.
+         * @param message UpdateValidationResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IUpdateValidationResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes an UpdateValidationResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns UpdateValidationResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.UpdateValidationResponse;
+
+        /**
+         * Decodes an UpdateValidationResponse message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns UpdateValidationResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.UpdateValidationResponse;
+
+        /**
+         * Verifies an UpdateValidationResponse message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates an UpdateValidationResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns UpdateValidationResponse
+         */
+        public static fromObject(object: { [k: string]: any }): protos.UpdateValidationResponse;
+
+        /**
+         * Creates a plain object from an UpdateValidationResponse message. Also converts values to other types if specified.
+         * @param message UpdateValidationResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.UpdateValidationResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this UpdateValidationResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a DeleteValidationRequest. */
+    interface IDeleteValidationRequest {
+
+        /** DeleteValidationRequest auth */
+        auth?: (protos.common.IAuth|null);
+
+        /** DeleteValidationRequest id */
+        id?: (string|null);
+    }
+
+    /** Represents a DeleteValidationRequest. */
+    class DeleteValidationRequest implements IDeleteValidationRequest {
+
+        /**
+         * Constructs a new DeleteValidationRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IDeleteValidationRequest);
+
+        /** DeleteValidationRequest auth. */
+        public auth?: (protos.common.IAuth|null);
+
+        /** DeleteValidationRequest id. */
+        public id: string;
+
+        /**
+         * Creates a new DeleteValidationRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns DeleteValidationRequest instance
+         */
+        public static create(properties?: protos.IDeleteValidationRequest): protos.DeleteValidationRequest;
+
+        /**
+         * Encodes the specified DeleteValidationRequest message. Does not implicitly {@link protos.DeleteValidationRequest.verify|verify} messages.
+         * @param message DeleteValidationRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IDeleteValidationRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified DeleteValidationRequest message, length delimited. Does not implicitly {@link protos.DeleteValidationRequest.verify|verify} messages.
+         * @param message DeleteValidationRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IDeleteValidationRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a DeleteValidationRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns DeleteValidationRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.DeleteValidationRequest;
+
+        /**
+         * Decodes a DeleteValidationRequest message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns DeleteValidationRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.DeleteValidationRequest;
+
+        /**
+         * Verifies a DeleteValidationRequest message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a DeleteValidationRequest message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns DeleteValidationRequest
+         */
+        public static fromObject(object: { [k: string]: any }): protos.DeleteValidationRequest;
+
+        /**
+         * Creates a plain object from a DeleteValidationRequest message. Also converts values to other types if specified.
+         * @param message DeleteValidationRequest
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.DeleteValidationRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this DeleteValidationRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a DeleteValidationResponse. */
+    interface IDeleteValidationResponse {
+
+        /** DeleteValidationResponse status */
+        status?: (protos.common.IStatus|null);
+    }
+
+    /** Represents a DeleteValidationResponse. */
+    class DeleteValidationResponse implements IDeleteValidationResponse {
+
+        /**
+         * Constructs a new DeleteValidationResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IDeleteValidationResponse);
+
+        /** DeleteValidationResponse status. */
+        public status?: (protos.common.IStatus|null);
+
+        /**
+         * Creates a new DeleteValidationResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns DeleteValidationResponse instance
+         */
+        public static create(properties?: protos.IDeleteValidationResponse): protos.DeleteValidationResponse;
+
+        /**
+         * Encodes the specified DeleteValidationResponse message. Does not implicitly {@link protos.DeleteValidationResponse.verify|verify} messages.
+         * @param message DeleteValidationResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IDeleteValidationResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified DeleteValidationResponse message, length delimited. Does not implicitly {@link protos.DeleteValidationResponse.verify|verify} messages.
+         * @param message DeleteValidationResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IDeleteValidationResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a DeleteValidationResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns DeleteValidationResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.DeleteValidationResponse;
+
+        /**
+         * Decodes a DeleteValidationResponse message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns DeleteValidationResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.DeleteValidationResponse;
+
+        /**
+         * Verifies a DeleteValidationResponse message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a DeleteValidationResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns DeleteValidationResponse
+         */
+        public static fromObject(object: { [k: string]: any }): protos.DeleteValidationResponse;
+
+        /**
+         * Creates a plain object from a DeleteValidationResponse message. Also converts values to other types if specified.
+         * @param message DeleteValidationResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.DeleteValidationResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this DeleteValidationResponse to JSON.
          * @returns JSON object
          */
         public toJSON(): { [k: string]: any };
