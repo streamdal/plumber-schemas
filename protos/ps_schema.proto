@@ -271,7 +271,9 @@ message CreatePRRequest {
 
     string pr_body = 3;
 
-    repeated PRFile files = 4;
+    string branch_name = 4;
+
+    repeated PRFile files = 5;
 }
 
 message CreatePRResponse {

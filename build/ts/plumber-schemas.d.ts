@@ -29212,6 +29212,9 @@ export namespace protos {
         /** CreatePRRequest prBody */
         prBody?: (string|null);
 
+        /** CreatePRRequest branchName */
+        branchName?: (string|null);
+
         /** CreatePRRequest files */
         files?: (protos.CreatePRRequest.IPRFile[]|null);
     }
@@ -29236,6 +29239,9 @@ export namespace protos {
 
         /** CreatePRRequest prBody. */
         public prBody: string;
+
+        /** CreatePRRequest branchName. */
+        public branchName: string;
 
         /** CreatePRRequest files. */
         public files: protos.CreatePRRequest.IPRFile[];

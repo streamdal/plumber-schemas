@@ -71377,6 +71377,7 @@ $root.protos = (function() {
          * @property {string|null} [repoUrl] CreatePRRequest repoUrl
          * @property {string|null} [prName] CreatePRRequest prName
          * @property {string|null} [prBody] CreatePRRequest prBody
+         * @property {string|null} [branchName] CreatePRRequest branchName
          * @property {Array.<protos.CreatePRRequest.IPRFile>|null} [files] CreatePRRequest files
          */
 
@@ -71429,6 +71430,14 @@ $root.protos = (function() {
         CreatePRRequest.prototype.prBody = "";
 
         /**
+         * CreatePRRequest branchName.
+         * @member {string} branchName
+         * @memberof protos.CreatePRRequest
+         * @instance
+         */
+        CreatePRRequest.prototype.branchName = "";
+
+        /**
          * CreatePRRequest files.
          * @member {Array.<protos.CreatePRRequest.IPRFile>} files
          * @memberof protos.CreatePRRequest
@@ -71466,9 +71475,11 @@ $root.protos = (function() {
                 writer.uint32(/* id 2, wireType 2 =*/18).string(message.prName);
             if (message.prBody != null && Object.hasOwnProperty.call(message, "prBody"))
                 writer.uint32(/* id 3, wireType 2 =*/26).string(message.prBody);
+            if (message.branchName != null && Object.hasOwnProperty.call(message, "branchName"))
+                writer.uint32(/* id 4, wireType 2 =*/34).string(message.branchName);
             if (message.files != null && message.files.length)
                 for (var i = 0; i < message.files.length; ++i)
-                    $root.protos.CreatePRRequest.PRFile.encode(message.files[i], writer.uint32(/* id 4, wireType 2 =*/34).fork()).ldelim();
+                    $root.protos.CreatePRRequest.PRFile.encode(message.files[i], writer.uint32(/* id 5, wireType 2 =*/42).fork()).ldelim();
             if (message.auth != null && Object.hasOwnProperty.call(message, "auth"))
                 $root.protos.common.Auth.encode(message.auth, writer.uint32(/* id 9999, wireType 2 =*/79994).fork()).ldelim();
             return writer;
@@ -71518,6 +71529,9 @@ $root.protos = (function() {
                     message.prBody = reader.string();
                     break;
                 case 4:
+                    message.branchName = reader.string();
+                    break;
+                case 5:
                     if (!(message.files && message.files.length))
                         message.files = [];
                     message.files.push($root.protos.CreatePRRequest.PRFile.decode(reader, reader.uint32()));
@@ -71571,6 +71585,9 @@ $root.protos = (function() {
             if (message.prBody != null && message.hasOwnProperty("prBody"))
                 if (!$util.isString(message.prBody))
                     return "prBody: string expected";
+            if (message.branchName != null && message.hasOwnProperty("branchName"))
+                if (!$util.isString(message.branchName))
+                    return "branchName: string expected";
             if (message.files != null && message.hasOwnProperty("files")) {
                 if (!Array.isArray(message.files))
                     return "files: array expected";
@@ -71606,6 +71623,8 @@ $root.protos = (function() {
                 message.prName = String(object.prName);
             if (object.prBody != null)
                 message.prBody = String(object.prBody);
+            if (object.branchName != null)
+                message.branchName = String(object.branchName);
             if (object.files) {
                 if (!Array.isArray(object.files))
                     throw TypeError(".protos.CreatePRRequest.files: array expected");
@@ -71638,6 +71657,7 @@ $root.protos = (function() {
                 object.repoUrl = "";
                 object.prName = "";
                 object.prBody = "";
+                object.branchName = "";
                 object.auth = null;
             }
             if (message.repoUrl != null && message.hasOwnProperty("repoUrl"))
@@ -71646,6 +71666,8 @@ $root.protos = (function() {
                 object.prName = message.prName;
             if (message.prBody != null && message.hasOwnProperty("prBody"))
                 object.prBody = message.prBody;
+            if (message.branchName != null && message.hasOwnProperty("branchName"))
+                object.branchName = message.branchName;
             if (message.files && message.files.length) {
                 object.files = [];
                 for (var j = 0; j < message.files.length; ++j)
