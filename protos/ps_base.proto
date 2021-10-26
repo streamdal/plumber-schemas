@@ -13,6 +13,7 @@ import "ps_vc_server.proto";
 import "ps_vc_client.proto";
 import "ps_monitor.proto";
 import "ps_alert.proto";
+import "ps_schema_validation.proto";
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
 
@@ -150,4 +151,16 @@ service PlumberServer {
     rpc DeleteAlert(DeleteAlertRequest) returns (DeleteAlertResponse);
 
     rpc UpdateAlert(UpdateAlertRequest) returns (UpdateAlertResponse);
+
+    // -------------------- Schema validations --------------------
+
+    rpc GetValidation(GetValidationRequest) returns (GetValidationResponse);
+
+    rpc GetAllValidations(GetAllValidationsRequest) returns (GetAllValidationsResponse);
+
+    rpc CreateValidation(CreateValidationRequest) returns (CreateValidationResponse);
+
+    rpc UpdateValidation(UpdateValidationRequest) returns (UpdateValidationResponse);
+
+    rpc DeleteValidation(DeleteValidationRequest) returns (DeleteValidationResponse);
 }
