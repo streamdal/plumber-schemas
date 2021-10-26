@@ -86,6 +86,8 @@ service PlumberServer {
     // Import a schema from github
     rpc ImportGithub(ImportGithubRequest) returns (ImportGithubResponse);
 
+    rpc ImportGithubSelect(ImportGithubSelectRequest) returns (ImportGithubSelectResponse);
+
     // Import a schema from the local file system
     rpc ImportLocal(ImportLocalRequest) returns (ImportLocalResponse);
 
@@ -121,6 +123,13 @@ service PlumberServer {
 
     // GetVCEvents connects to vc-service backend and returns a stream of events pushed from github/bitbucket/etc
     rpc GetVCEvents(GetVCEventsRequest) returns (stream VCEvent);
+
+    // --------------------- Pull Request -------------------
+    rpc GetRepoTree(GetRepoTreeRequest) returns (GetRepoTreeResponse);
+
+    rpc GetRepoFile(GetRepoFileRequest) returns (GetRepoFileResponse);
+
+    rpc CreatePullRequest(CreatePRRequest) returns (CreatePRResponse);
 
     // --------------------- Monitor -------------------
 

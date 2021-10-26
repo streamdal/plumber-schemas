@@ -34,9 +34,7 @@ message ProtobufSettings {
     // @gotags: kong:"-"
     string _protobuf_root_dir = 3;
 
-    // TODO: This should probably be removed since archive should probably be
-    // exposed at a higher level than inside each of the settings. ~ds 09.18.21
-    // Used by server/desktop
+    // Used by server/desktop when creating a read without an existing schema
     // @gotags: kong:"-"
     bytes archive = 4;
 
