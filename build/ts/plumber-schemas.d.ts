@@ -8168,6 +8168,9 @@ export namespace protos {
 
             /** MonitorSchemaValidationConfig schemaId */
             schemaId?: (string[]|null);
+
+            /** MonitorSchemaValidationConfig validations */
+            validations?: (protos.IValidation[]|null);
         }
 
         /** Represents a MonitorSchemaValidationConfig. */
@@ -8181,6 +8184,9 @@ export namespace protos {
 
             /** MonitorSchemaValidationConfig schemaId. */
             public schemaId: string[];
+
+            /** MonitorSchemaValidationConfig validations. */
+            public validations: protos.IValidation[];
 
             /**
              * Creates a new MonitorSchemaValidationConfig instance using the specified properties.
@@ -34758,6 +34764,9 @@ export namespace protos {
 
             /** Field validationType */
             validationType?: (string|null);
+
+            /** Field matchValue */
+            matchValue?: (string|null);
         }
 
         /** Represents a Field. */
@@ -34774,6 +34783,9 @@ export namespace protos {
 
             /** Field validationType. */
             public validationType: string;
+
+            /** Field matchValue. */
+            public matchValue: string;
 
             /**
              * Creates a new Field instance using the specified properties.

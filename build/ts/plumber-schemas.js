@@ -20403,6 +20403,7 @@ $root.protos = (function() {
              * @memberof protos.opts
              * @interface IMonitorSchemaValidationConfig
              * @property {Array.<string>|null} [schemaId] MonitorSchemaValidationConfig schemaId
+             * @property {Array.<protos.IValidation>|null} [validations] MonitorSchemaValidationConfig validations
              */
 
             /**
@@ -20415,6 +20416,7 @@ $root.protos = (function() {
              */
             function MonitorSchemaValidationConfig(properties) {
                 this.schemaId = [];
+                this.validations = [];
                 if (properties)
                     for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                         if (properties[keys[i]] != null)
@@ -20428,6 +20430,14 @@ $root.protos = (function() {
              * @instance
              */
             MonitorSchemaValidationConfig.prototype.schemaId = $util.emptyArray;
+
+            /**
+             * MonitorSchemaValidationConfig validations.
+             * @member {Array.<protos.IValidation>} validations
+             * @memberof protos.opts.MonitorSchemaValidationConfig
+             * @instance
+             */
+            MonitorSchemaValidationConfig.prototype.validations = $util.emptyArray;
 
             /**
              * Creates a new MonitorSchemaValidationConfig instance using the specified properties.
@@ -20456,6 +20466,9 @@ $root.protos = (function() {
                 if (message.schemaId != null && message.schemaId.length)
                     for (var i = 0; i < message.schemaId.length; ++i)
                         writer.uint32(/* id 1, wireType 2 =*/10).string(message.schemaId[i]);
+                if (message.validations != null && message.validations.length)
+                    for (var i = 0; i < message.validations.length; ++i)
+                        $root.protos.Validation.encode(message.validations[i], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
                 return writer;
             };
 
@@ -20494,6 +20507,11 @@ $root.protos = (function() {
                         if (!(message.schemaId && message.schemaId.length))
                             message.schemaId = [];
                         message.schemaId.push(reader.string());
+                        break;
+                    case 2:
+                        if (!(message.validations && message.validations.length))
+                            message.validations = [];
+                        message.validations.push($root.protos.Validation.decode(reader, reader.uint32()));
                         break;
                     default:
                         reader.skipType(tag & 7);
@@ -20537,6 +20555,15 @@ $root.protos = (function() {
                         if (!$util.isString(message.schemaId[i]))
                             return "schemaId: string[] expected";
                 }
+                if (message.validations != null && message.hasOwnProperty("validations")) {
+                    if (!Array.isArray(message.validations))
+                        return "validations: array expected";
+                    for (var i = 0; i < message.validations.length; ++i) {
+                        var error = $root.protos.Validation.verify(message.validations[i]);
+                        if (error)
+                            return "validations." + error;
+                    }
+                }
                 return null;
             };
 
@@ -20559,6 +20586,16 @@ $root.protos = (function() {
                     for (var i = 0; i < object.schemaId.length; ++i)
                         message.schemaId[i] = String(object.schemaId[i]);
                 }
+                if (object.validations) {
+                    if (!Array.isArray(object.validations))
+                        throw TypeError(".protos.opts.MonitorSchemaValidationConfig.validations: array expected");
+                    message.validations = [];
+                    for (var i = 0; i < object.validations.length; ++i) {
+                        if (typeof object.validations[i] !== "object")
+                            throw TypeError(".protos.opts.MonitorSchemaValidationConfig.validations: object expected");
+                        message.validations[i] = $root.protos.Validation.fromObject(object.validations[i]);
+                    }
+                }
                 return message;
             };
 
@@ -20575,12 +20612,19 @@ $root.protos = (function() {
                 if (!options)
                     options = {};
                 var object = {};
-                if (options.arrays || options.defaults)
+                if (options.arrays || options.defaults) {
                     object.schemaId = [];
+                    object.validations = [];
+                }
                 if (message.schemaId && message.schemaId.length) {
                     object.schemaId = [];
                     for (var j = 0; j < message.schemaId.length; ++j)
                         object.schemaId[j] = message.schemaId[j];
+                }
+                if (message.validations && message.validations.length) {
+                    object.validations = [];
+                    for (var j = 0; j < message.validations.length; ++j)
+                        object.validations[j] = $root.protos.Validation.toObject(message.validations[j], options);
                 }
                 return object;
             };
@@ -84380,6 +84424,7 @@ $root.protos = (function() {
              * @interface IField
              * @property {string|null} [path] Field path
              * @property {string|null} [validationType] Field validationType
+             * @property {string|null} [matchValue] Field matchValue
              */
 
             /**
@@ -84414,6 +84459,14 @@ $root.protos = (function() {
             Field.prototype.validationType = "";
 
             /**
+             * Field matchValue.
+             * @member {string} matchValue
+             * @memberof protos.Validation.Field
+             * @instance
+             */
+            Field.prototype.matchValue = "";
+
+            /**
              * Creates a new Field instance using the specified properties.
              * @function create
              * @memberof protos.Validation.Field
@@ -84441,6 +84494,8 @@ $root.protos = (function() {
                     writer.uint32(/* id 1, wireType 2 =*/10).string(message.path);
                 if (message.validationType != null && Object.hasOwnProperty.call(message, "validationType"))
                     writer.uint32(/* id 2, wireType 2 =*/18).string(message.validationType);
+                if (message.matchValue != null && Object.hasOwnProperty.call(message, "matchValue"))
+                    writer.uint32(/* id 3, wireType 2 =*/26).string(message.matchValue);
                 return writer;
             };
 
@@ -84480,6 +84535,9 @@ $root.protos = (function() {
                         break;
                     case 2:
                         message.validationType = reader.string();
+                        break;
+                    case 3:
+                        message.matchValue = reader.string();
                         break;
                     default:
                         reader.skipType(tag & 7);
@@ -84522,6 +84580,9 @@ $root.protos = (function() {
                 if (message.validationType != null && message.hasOwnProperty("validationType"))
                     if (!$util.isString(message.validationType))
                         return "validationType: string expected";
+                if (message.matchValue != null && message.hasOwnProperty("matchValue"))
+                    if (!$util.isString(message.matchValue))
+                        return "matchValue: string expected";
                 return null;
             };
 
@@ -84541,6 +84602,8 @@ $root.protos = (function() {
                     message.path = String(object.path);
                 if (object.validationType != null)
                     message.validationType = String(object.validationType);
+                if (object.matchValue != null)
+                    message.matchValue = String(object.matchValue);
                 return message;
             };
 
@@ -84560,11 +84623,14 @@ $root.protos = (function() {
                 if (options.defaults) {
                     object.path = "";
                     object.validationType = "";
+                    object.matchValue = "";
                 }
                 if (message.path != null && message.hasOwnProperty("path"))
                     object.path = message.path;
                 if (message.validationType != null && message.hasOwnProperty("validationType"))
                     object.validationType = message.validationType;
+                if (message.matchValue != null && message.hasOwnProperty("matchValue"))
+                    object.matchValue = message.matchValue;
                 return object;
             };
 
