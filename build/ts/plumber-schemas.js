@@ -65119,6 +65119,7 @@ $root.protos = (function() {
          * @property {string|null} [notes] Schema notes
          * @property {string|null} [ownerId] Schema ownerId
          * @property {Array.<protos.ISchemaVersion>|null} [versions] Schema versions
+         * @property {protos.encoding.IJSONSchemaSettings|null} [inferredSchema] Schema inferredSchema
          */
 
         /**
@@ -65186,6 +65187,14 @@ $root.protos = (function() {
         Schema.prototype.versions = $util.emptyArray;
 
         /**
+         * Schema inferredSchema.
+         * @member {protos.encoding.IJSONSchemaSettings|null|undefined} inferredSchema
+         * @memberof protos.Schema
+         * @instance
+         */
+        Schema.prototype.inferredSchema = null;
+
+        /**
          * Creates a new Schema instance using the specified properties.
          * @function create
          * @memberof protos.Schema
@@ -65222,6 +65231,8 @@ $root.protos = (function() {
             if (message.versions != null && message.versions.length)
                 for (var i = 0; i < message.versions.length; ++i)
                     $root.protos.SchemaVersion.encode(message.versions[i], writer.uint32(/* id 6, wireType 2 =*/50).fork()).ldelim();
+            if (message.inferredSchema != null && Object.hasOwnProperty.call(message, "inferredSchema"))
+                $root.protos.encoding.JSONSchemaSettings.encode(message.inferredSchema, writer.uint32(/* id 7, wireType 2 =*/58).fork()).ldelim();
             return writer;
         };
 
@@ -65275,6 +65286,9 @@ $root.protos = (function() {
                     if (!(message.versions && message.versions.length))
                         message.versions = [];
                     message.versions.push($root.protos.SchemaVersion.decode(reader, reader.uint32()));
+                    break;
+                case 7:
+                    message.inferredSchema = $root.protos.encoding.JSONSchemaSettings.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -65342,6 +65356,11 @@ $root.protos = (function() {
                         return "versions." + error;
                 }
             }
+            if (message.inferredSchema != null && message.hasOwnProperty("inferredSchema")) {
+                var error = $root.protos.encoding.JSONSchemaSettings.verify(message.inferredSchema);
+                if (error)
+                    return "inferredSchema." + error;
+            }
             return null;
         };
 
@@ -65393,6 +65412,11 @@ $root.protos = (function() {
                     message.versions[i] = $root.protos.SchemaVersion.fromObject(object.versions[i]);
                 }
             }
+            if (object.inferredSchema != null) {
+                if (typeof object.inferredSchema !== "object")
+                    throw TypeError(".protos.Schema.inferredSchema: object expected");
+                message.inferredSchema = $root.protos.encoding.JSONSchemaSettings.fromObject(object.inferredSchema);
+            }
             return message;
         };
 
@@ -65417,6 +65441,7 @@ $root.protos = (function() {
                 object.type = options.enums === String ? "SCHEMA_TYPE_UNSET" : 0;
                 object.notes = "";
                 object.ownerId = "";
+                object.inferredSchema = null;
             }
             if (message.id != null && message.hasOwnProperty("id"))
                 object.id = message.id;
@@ -65433,6 +65458,8 @@ $root.protos = (function() {
                 for (var j = 0; j < message.versions.length; ++j)
                     object.versions[j] = $root.protos.SchemaVersion.toObject(message.versions[j], options);
             }
+            if (message.inferredSchema != null && message.hasOwnProperty("inferredSchema"))
+                object.inferredSchema = $root.protos.encoding.JSONSchemaSettings.toObject(message.inferredSchema, options);
             return object;
         };
 

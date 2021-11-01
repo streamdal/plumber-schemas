@@ -26670,6 +26670,9 @@ export namespace protos {
 
         /** Schema versions */
         versions?: (protos.ISchemaVersion[]|null);
+
+        /** Schema inferredSchema */
+        inferredSchema?: (protos.encoding.IJSONSchemaSettings|null);
     }
 
     /** Represents a Schema. */
@@ -26698,6 +26701,9 @@ export namespace protos {
 
         /** Schema versions. */
         public versions: protos.ISchemaVersion[];
+
+        /** Schema inferredSchema. */
+        public inferredSchema?: (protos.encoding.IJSONSchemaSettings|null);
 
         /**
          * Creates a new Schema instance using the specified properties.
