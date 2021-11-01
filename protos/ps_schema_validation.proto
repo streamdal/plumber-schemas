@@ -6,25 +6,8 @@ option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
 
 import "common/ps_common_auth.proto";
 import "common/ps_common_status.proto";
+import "common/ps_common_validation.proto";
 
-message Validation {
-    message Field {
-        // path in our jsonquery filter syntax
-        string path = 1;
-
-        // https://github.com/batchcorp/lucene2x/blob/55f43862dfc294d5594758cba6a5c0ba088c0040/jsonquery/validate.go#L22
-        string validation_type = 2;
-
-        // For Regex / HasPrefix / HasSuffix / StringContains validation types only. Ignored for all others
-        string match_value = 3;
-    }
-
-    string _id = 1;
-
-    string schema_id = 2;
-
-    repeated Field fields = 3;
-}
 
 message GetValidationRequest {
     // Every gRPC request must have a valid auth config
@@ -35,7 +18,7 @@ message GetValidationRequest {
 }
 
 message GetValidationResponse {
-    Validation validation = 1;
+    common.Validation validation = 1;
 }
 
 message GetAllValidationsRequest {
@@ -47,7 +30,7 @@ message GetAllValidationsRequest {
 }
 
 message GetAllValidationsResponse {
-    repeated Validation validations = 1;
+    repeated common.Validation validations = 1;
 }
 
 
@@ -55,13 +38,13 @@ message CreateValidationRequest {
     // Every gRPC request must have a valid auth config
     common.Auth auth = 9999;
 
-    Validation validation = 1;
+    common.Validation validation = 1;
 }
 
 message CreateValidationResponse {
     common.Status status = 1000;
 
-    Validation validation = 1;
+    common.Validation validation = 1;
 }
 
 message UpdateValidationRequest {
@@ -71,13 +54,13 @@ message UpdateValidationRequest {
     // Validation ID
     string id = 1;
 
-    Validation validation = 2;
+    common.Validation validation = 2;
 }
 
 message UpdateValidationResponse {
     common.Status status = 1000;
 
-    Validation validation = 1;
+    common.Validation validation = 1;
 }
 
 message DeleteValidationRequest {

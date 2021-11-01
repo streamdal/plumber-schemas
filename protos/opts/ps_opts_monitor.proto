@@ -4,7 +4,7 @@ package protos.opts;
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/opts";
 
-import "ps_schema_validation.proto";
+import "common/ps_common_validation.proto";
 
 message MonitorOptions {
     string _id               = 1;
@@ -28,7 +28,7 @@ message MonitorSchemaValidationConfig {
     repeated string schema_id = 1;
 
     // Array of validations to perform on the payload
-    repeated Validation validations = 2;
+    repeated common.Validation validations = 2;
 }
 
 // ------------------ Service schema version -------------------
