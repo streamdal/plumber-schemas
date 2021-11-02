@@ -47,4 +47,10 @@ message ServerOptions {
 
     // @gotags: kong:"help='Use gRPC insecure mode when talking to VC-Service'"
     bool vcservice_grpc_insecure = 13;
+
+    // @gotags: kong:"help='Location to store time-series data for counters',default='./.tsdata'"
+    string stats_database_path = 14;
+
+    // @gotags: kong:"help='How often to flush time-series data, in seconds, from memory to storage',default='60'"
+    int32 stats_flush_interval_seconds = 15;
 }

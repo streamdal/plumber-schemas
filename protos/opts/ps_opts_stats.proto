@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package protos.opts;
+
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/opts";
+
+message Counter {
+    enum Resource {
+        RESOURCE_UNSET = 0;
+        RESOURCE_CONNECTION = 1;
+        RESOURCE_READ = 2;
+        RESOURCE_SCHEMA = 3;
+        RESOURCE_REPLAY = 4;
+    }
+
+    enum Type {
+        TYPE_UNSET = 0;
+        TYPE_SCHEMA_VIOLATION = 1;
+        TYPE_MESSAGE_RECEIVED = 2;
+        TYPE_MESSAGE_REPLAYED = 3;
+        // TODO: expand
+    }
+
+    Resource resource = 1;
+
+    Type type = 2;
+
+    string resource_id = 3;
+
+    double value = 4;
+}
