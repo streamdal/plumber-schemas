@@ -28,6 +28,4 @@ message Counter {
     string resource_id = 3;
 
     double value = 4;
-
-    bool persist = 5;
 }

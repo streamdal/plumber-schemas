@@ -8718,9 +8718,6 @@ export namespace protos {
 
             /** Counter value */
             value?: (number|null);
-
-            /** Counter persist */
-            persist?: (boolean|null);
         }
 
         /** Represents a Counter. */
@@ -8743,9 +8740,6 @@ export namespace protos {
 
             /** Counter value. */
             public value: number;
-
-            /** Counter persist. */
-            public persist: boolean;
 
             /**
              * Creates a new Counter instance using the specified properties.
