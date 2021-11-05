@@ -26,7 +26,7 @@ message CreateMonitorRequest {
     // Every gRPC request must have a valid auth config
     common.Auth auth = 9999;
 
-    opts.MonitorOptions read = 1;
+    opts.MonitorOptions monitor = 1;
 }
 
 message CreateMonitorResponse {

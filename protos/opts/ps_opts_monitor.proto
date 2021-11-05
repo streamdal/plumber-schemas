@@ -45,7 +45,7 @@ enum MonitorServiceSchemaVersionType {
 }
 
 message MonitorServiceSchemaVersionConfig {
-    repeated string service_ids = 1;
+    string service_id = 1;
 
     MonitorServiceSchemaVersionType type = 2;
 

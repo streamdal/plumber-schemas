@@ -21149,7 +21149,7 @@ $root.protos = (function() {
              * Properties of a MonitorServiceSchemaVersionConfig.
              * @memberof protos.opts
              * @interface IMonitorServiceSchemaVersionConfig
-             * @property {Array.<string>|null} [serviceIds] MonitorServiceSchemaVersionConfig serviceIds
+             * @property {string|null} [serviceId] MonitorServiceSchemaVersionConfig serviceId
              * @property {protos.opts.MonitorServiceSchemaVersionType|null} [type] MonitorServiceSchemaVersionConfig type
              * @property {Object.<string,string>|null} [args] MonitorServiceSchemaVersionConfig args
              */
@@ -21163,7 +21163,6 @@ $root.protos = (function() {
              * @param {protos.opts.IMonitorServiceSchemaVersionConfig=} [properties] Properties to set
              */
             function MonitorServiceSchemaVersionConfig(properties) {
-                this.serviceIds = [];
                 this.args = {};
                 if (properties)
                     for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
@@ -21172,12 +21171,12 @@ $root.protos = (function() {
             }
 
             /**
-             * MonitorServiceSchemaVersionConfig serviceIds.
-             * @member {Array.<string>} serviceIds
+             * MonitorServiceSchemaVersionConfig serviceId.
+             * @member {string} serviceId
              * @memberof protos.opts.MonitorServiceSchemaVersionConfig
              * @instance
              */
-            MonitorServiceSchemaVersionConfig.prototype.serviceIds = $util.emptyArray;
+            MonitorServiceSchemaVersionConfig.prototype.serviceId = "";
 
             /**
              * MonitorServiceSchemaVersionConfig type.
@@ -21219,9 +21218,8 @@ $root.protos = (function() {
             MonitorServiceSchemaVersionConfig.encode = function encode(message, writer) {
                 if (!writer)
                     writer = $Writer.create();
-                if (message.serviceIds != null && message.serviceIds.length)
-                    for (var i = 0; i < message.serviceIds.length; ++i)
-                        writer.uint32(/* id 1, wireType 2 =*/10).string(message.serviceIds[i]);
+                if (message.serviceId != null && Object.hasOwnProperty.call(message, "serviceId"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.serviceId);
                 if (message.type != null && Object.hasOwnProperty.call(message, "type"))
                     writer.uint32(/* id 2, wireType 0 =*/16).int32(message.type);
                 if (message.args != null && Object.hasOwnProperty.call(message, "args"))
@@ -21262,9 +21260,7 @@ $root.protos = (function() {
                     var tag = reader.uint32();
                     switch (tag >>> 3) {
                     case 1:
-                        if (!(message.serviceIds && message.serviceIds.length))
-                            message.serviceIds = [];
-                        message.serviceIds.push(reader.string());
+                        message.serviceId = reader.string();
                         break;
                     case 2:
                         message.type = reader.int32();
@@ -21326,13 +21322,9 @@ $root.protos = (function() {
             MonitorServiceSchemaVersionConfig.verify = function verify(message) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (message.serviceIds != null && message.hasOwnProperty("serviceIds")) {
-                    if (!Array.isArray(message.serviceIds))
-                        return "serviceIds: array expected";
-                    for (var i = 0; i < message.serviceIds.length; ++i)
-                        if (!$util.isString(message.serviceIds[i]))
-                            return "serviceIds: string[] expected";
-                }
+                if (message.serviceId != null && message.hasOwnProperty("serviceId"))
+                    if (!$util.isString(message.serviceId))
+                        return "serviceId: string expected";
                 if (message.type != null && message.hasOwnProperty("type"))
                     switch (message.type) {
                     default:
@@ -21364,13 +21356,8 @@ $root.protos = (function() {
                 if (object instanceof $root.protos.opts.MonitorServiceSchemaVersionConfig)
                     return object;
                 var message = new $root.protos.opts.MonitorServiceSchemaVersionConfig();
-                if (object.serviceIds) {
-                    if (!Array.isArray(object.serviceIds))
-                        throw TypeError(".protos.opts.MonitorServiceSchemaVersionConfig.serviceIds: array expected");
-                    message.serviceIds = [];
-                    for (var i = 0; i < object.serviceIds.length; ++i)
-                        message.serviceIds[i] = String(object.serviceIds[i]);
-                }
+                if (object.serviceId != null)
+                    message.serviceId = String(object.serviceId);
                 switch (object.type) {
                 case "SERVICE_SCHEMA_VERSION_CONDITION_TYPE_LATEST":
                 case 0:
@@ -21404,17 +21391,14 @@ $root.protos = (function() {
                 if (!options)
                     options = {};
                 var object = {};
-                if (options.arrays || options.defaults)
-                    object.serviceIds = [];
                 if (options.objects || options.defaults)
                     object.args = {};
-                if (options.defaults)
+                if (options.defaults) {
+                    object.serviceId = "";
                     object.type = options.enums === String ? "SERVICE_SCHEMA_VERSION_CONDITION_TYPE_LATEST" : 0;
-                if (message.serviceIds && message.serviceIds.length) {
-                    object.serviceIds = [];
-                    for (var j = 0; j < message.serviceIds.length; ++j)
-                        object.serviceIds[j] = message.serviceIds[j];
                 }
+                if (message.serviceId != null && message.hasOwnProperty("serviceId"))
+                    object.serviceId = message.serviceId;
                 if (message.type != null && message.hasOwnProperty("type"))
                     object.type = options.enums === String ? $root.protos.opts.MonitorServiceSchemaVersionType[message.type] : message.type;
                 var keys2;
@@ -83398,7 +83382,7 @@ $root.protos = (function() {
          * @memberof protos
          * @interface ICreateMonitorRequest
          * @property {protos.common.IAuth|null} [auth] CreateMonitorRequest auth
-         * @property {protos.opts.IMonitorOptions|null} [read] CreateMonitorRequest read
+         * @property {protos.opts.IMonitorOptions|null} [monitor] CreateMonitorRequest monitor
          */
 
         /**
@@ -83425,12 +83409,12 @@ $root.protos = (function() {
         CreateMonitorRequest.prototype.auth = null;
 
         /**
-         * CreateMonitorRequest read.
-         * @member {protos.opts.IMonitorOptions|null|undefined} read
+         * CreateMonitorRequest monitor.
+         * @member {protos.opts.IMonitorOptions|null|undefined} monitor
          * @memberof protos.CreateMonitorRequest
          * @instance
          */
-        CreateMonitorRequest.prototype.read = null;
+        CreateMonitorRequest.prototype.monitor = null;
 
         /**
          * Creates a new CreateMonitorRequest instance using the specified properties.
@@ -83456,8 +83440,8 @@ $root.protos = (function() {
         CreateMonitorRequest.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
-            if (message.read != null && Object.hasOwnProperty.call(message, "read"))
-                $root.protos.opts.MonitorOptions.encode(message.read, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+            if (message.monitor != null && Object.hasOwnProperty.call(message, "monitor"))
+                $root.protos.opts.MonitorOptions.encode(message.monitor, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
             if (message.auth != null && Object.hasOwnProperty.call(message, "auth"))
                 $root.protos.common.Auth.encode(message.auth, writer.uint32(/* id 9999, wireType 2 =*/79994).fork()).ldelim();
             return writer;
@@ -83498,7 +83482,7 @@ $root.protos = (function() {
                     message.auth = $root.protos.common.Auth.decode(reader, reader.uint32());
                     break;
                 case 1:
-                    message.read = $root.protos.opts.MonitorOptions.decode(reader, reader.uint32());
+                    message.monitor = $root.protos.opts.MonitorOptions.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -83540,10 +83524,10 @@ $root.protos = (function() {
                 if (error)
                     return "auth." + error;
             }
-            if (message.read != null && message.hasOwnProperty("read")) {
-                var error = $root.protos.opts.MonitorOptions.verify(message.read);
+            if (message.monitor != null && message.hasOwnProperty("monitor")) {
+                var error = $root.protos.opts.MonitorOptions.verify(message.monitor);
                 if (error)
-                    return "read." + error;
+                    return "monitor." + error;
             }
             return null;
         };
@@ -83565,10 +83549,10 @@ $root.protos = (function() {
                     throw TypeError(".protos.CreateMonitorRequest.auth: object expected");
                 message.auth = $root.protos.common.Auth.fromObject(object.auth);
             }
-            if (object.read != null) {
-                if (typeof object.read !== "object")
-                    throw TypeError(".protos.CreateMonitorRequest.read: object expected");
-                message.read = $root.protos.opts.MonitorOptions.fromObject(object.read);
+            if (object.monitor != null) {
+                if (typeof object.monitor !== "object")
+                    throw TypeError(".protos.CreateMonitorRequest.monitor: object expected");
+                message.monitor = $root.protos.opts.MonitorOptions.fromObject(object.monitor);
             }
             return message;
         };
@@ -83587,11 +83571,11 @@ $root.protos = (function() {
                 options = {};
             var object = {};
             if (options.defaults) {
-                object.read = null;
+                object.monitor = null;
                 object.auth = null;
             }
-            if (message.read != null && message.hasOwnProperty("read"))
-                object.read = $root.protos.opts.MonitorOptions.toObject(message.read, options);
+            if (message.monitor != null && message.hasOwnProperty("monitor"))
+                object.monitor = $root.protos.opts.MonitorOptions.toObject(message.monitor, options);
             if (message.auth != null && message.hasOwnProperty("auth"))
                 object.auth = $root.protos.common.Auth.toObject(message.auth, options);
             return object;
