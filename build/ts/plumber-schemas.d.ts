@@ -8475,8 +8475,8 @@ export namespace protos {
         /** Properties of a MonitorServiceSchemaVersionConfig. */
         interface IMonitorServiceSchemaVersionConfig {
 
-            /** MonitorServiceSchemaVersionConfig serviceIds */
-            serviceIds?: (string[]|null);
+            /** MonitorServiceSchemaVersionConfig serviceId */
+            serviceId?: (string|null);
 
             /** MonitorServiceSchemaVersionConfig type */
             type?: (protos.opts.MonitorServiceSchemaVersionType|null);
@@ -8494,8 +8494,8 @@ export namespace protos {
              */
             constructor(properties?: protos.opts.IMonitorServiceSchemaVersionConfig);
 
-            /** MonitorServiceSchemaVersionConfig serviceIds. */
-            public serviceIds: string[];
+            /** MonitorServiceSchemaVersionConfig serviceId. */
+            public serviceId: string;
 
             /** MonitorServiceSchemaVersionConfig type. */
             public type: protos.opts.MonitorServiceSchemaVersionType;
@@ -34301,8 +34301,8 @@ export namespace protos {
         /** CreateMonitorRequest auth */
         auth?: (protos.common.IAuth|null);
 
-        /** CreateMonitorRequest read */
-        read?: (protos.opts.IMonitorOptions|null);
+        /** CreateMonitorRequest monitor */
+        monitor?: (protos.opts.IMonitorOptions|null);
     }
 
     /** Represents a CreateMonitorRequest. */
@@ -34317,8 +34317,8 @@ export namespace protos {
         /** CreateMonitorRequest auth. */
         public auth?: (protos.common.IAuth|null);
 
-        /** CreateMonitorRequest read. */
-        public read?: (protos.opts.IMonitorOptions|null);
+        /** CreateMonitorRequest monitor. */
+        public monitor?: (protos.opts.IMonitorOptions|null);
 
         /**
          * Creates a new CreateMonitorRequest instance using the specified properties.
