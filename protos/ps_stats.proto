@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+package protos;
+
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
+
+import "opts/ps_opts_stats.proto";
+import "common/ps_common_auth.proto";
+
+message GetCurrentCountersRequest {
+    // Every gRPC request must have a valid auth config
+    common.Auth auth = 9999;
+}
+
+message GetCurrentCountersResponse {
+    repeated opts.Counter counters = 1;
+}
+
+message CounterDataPoint {
+    int64 unix_ts = 1;
+    double value = 2;
+}
+
+message GetCounterHistoryRequest {
+    // Every gRPC request must have a valid auth config
+    common.Auth auth = 9999;
+
+    opts.Counter.Resource resource = 1;
+
+    opts.Counter.Type type = 2;
+
+    string resource_id = 3;
+
+    int64 from_unix_ts = 4;
+
+    int64 to_unix_ts = 5;
+}
+
+message GetCounterHistoryResponse {
+    opts.Counter counter = 1;
+
+    repeated CounterDataPoint data_points = 2;
+}

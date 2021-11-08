@@ -8120,6 +8120,12 @@ export namespace protos {
 
             /** ServerOptions vcserviceGrpcInsecure */
             vcserviceGrpcInsecure?: (boolean|null);
+
+            /** ServerOptions statsDatabasePath */
+            statsDatabasePath?: (string|null);
+
+            /** ServerOptions statsFlushIntervalSeconds */
+            statsFlushIntervalSeconds?: (number|null);
         }
 
         /** Represents a ServerOptions. */
@@ -8169,6 +8175,12 @@ export namespace protos {
 
             /** ServerOptions vcserviceGrpcInsecure. */
             public vcserviceGrpcInsecure: boolean;
+
+            /** ServerOptions statsDatabasePath. */
+            public statsDatabasePath: string;
+
+            /** ServerOptions statsFlushIntervalSeconds. */
+            public statsFlushIntervalSeconds: number;
 
             /**
              * Creates a new ServerOptions instance using the specified properties.
@@ -8690,6 +8702,140 @@ export namespace protos {
              * @returns JSON object
              */
             public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a Counter. */
+        interface ICounter {
+
+            /** Counter resource */
+            resource?: (protos.opts.Counter.Resource|null);
+
+            /** Counter type */
+            type?: (protos.opts.Counter.Type|null);
+
+            /** Counter name */
+            name?: (string|null);
+
+            /** Counter resourceId */
+            resourceId?: (string|null);
+
+            /** Counter value */
+            value?: (number|null);
+        }
+
+        /** Represents a Counter. */
+        class Counter implements ICounter {
+
+            /**
+             * Constructs a new Counter.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.opts.ICounter);
+
+            /** Counter resource. */
+            public resource: protos.opts.Counter.Resource;
+
+            /** Counter type. */
+            public type: protos.opts.Counter.Type;
+
+            /** Counter name. */
+            public name: string;
+
+            /** Counter resourceId. */
+            public resourceId: string;
+
+            /** Counter value. */
+            public value: number;
+
+            /**
+             * Creates a new Counter instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns Counter instance
+             */
+            public static create(properties?: protos.opts.ICounter): protos.opts.Counter;
+
+            /**
+             * Encodes the specified Counter message. Does not implicitly {@link protos.opts.Counter.verify|verify} messages.
+             * @param message Counter message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.opts.ICounter, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified Counter message, length delimited. Does not implicitly {@link protos.opts.Counter.verify|verify} messages.
+             * @param message Counter message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.opts.ICounter, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a Counter message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns Counter
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.Counter;
+
+            /**
+             * Decodes a Counter message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns Counter
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.Counter;
+
+            /**
+             * Verifies a Counter message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a Counter message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns Counter
+             */
+            public static fromObject(object: { [k: string]: any }): protos.opts.Counter;
+
+            /**
+             * Creates a plain object from a Counter message. Also converts values to other types if specified.
+             * @param message Counter
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.opts.Counter, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this Counter to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        namespace Counter {
+
+            /** Resource enum. */
+            enum Resource {
+                RESOURCE_UNSET = 0,
+                RESOURCE_CONNECTION = 1,
+                RESOURCE_READ = 2,
+                RESOURCE_SCHEMA = 3,
+                RESOURCE_REPLAY = 4
+            }
+
+            /** Type enum. */
+            enum Type {
+                TYPE_UNSET = 0,
+                TYPE_SCHEMA_VIOLATION = 1,
+                TYPE_MESSAGE_RECEIVED = 2,
+                TYPE_MESSAGE_REPLAYED = 3
+            }
         }
 
         /** BatchOutputType enum. */
@@ -12756,6 +12902,34 @@ export namespace protos {
          * @returns Promise
          */
         public deleteValidation(request: protos.IDeleteValidationRequest): Promise<protos.DeleteValidationResponse>;
+
+        /**
+         * Calls GetCurrentCounters.
+         * @param request GetCurrentCountersRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and GetCurrentCountersResponse
+         */
+        public getCurrentCounters(request: protos.IGetCurrentCountersRequest, callback: protos.PlumberServer.GetCurrentCountersCallback): void;
+
+        /**
+         * Calls GetCurrentCounters.
+         * @param request GetCurrentCountersRequest message or plain object
+         * @returns Promise
+         */
+        public getCurrentCounters(request: protos.IGetCurrentCountersRequest): Promise<protos.GetCurrentCountersResponse>;
+
+        /**
+         * Calls GetCounterHistory.
+         * @param request GetCounterHistoryRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and GetCounterHistoryResponse
+         */
+        public getCounterHistory(request: protos.IGetCounterHistoryRequest, callback: protos.PlumberServer.GetCounterHistoryCallback): void;
+
+        /**
+         * Calls GetCounterHistory.
+         * @param request GetCounterHistoryRequest message or plain object
+         * @returns Promise
+         */
+        public getCounterHistory(request: protos.IGetCounterHistoryRequest): Promise<protos.GetCounterHistoryResponse>;
     }
 
     namespace PlumberServer {
@@ -13158,6 +13332,20 @@ export namespace protos {
          * @param [response] DeleteValidationResponse
          */
         type DeleteValidationCallback = (error: (Error|null), response?: protos.DeleteValidationResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#getCurrentCounters}.
+         * @param error Error, if any
+         * @param [response] GetCurrentCountersResponse
+         */
+        type GetCurrentCountersCallback = (error: (Error|null), response?: protos.GetCurrentCountersResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#getCounterHistory}.
+         * @param error Error, if any
+         * @param [response] GetCounterHistoryResponse
+         */
+        type GetCounterHistoryCallback = (error: (Error|null), response?: protos.GetCounterHistoryResponse) => void;
     }
 
     /** Properties of a GetAllConnectionsRequest. */
@@ -35808,6 +35996,498 @@ export namespace protos {
 
         /**
          * Converts this DeleteValidationResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a GetCurrentCountersRequest. */
+    interface IGetCurrentCountersRequest {
+
+        /** GetCurrentCountersRequest auth */
+        auth?: (protos.common.IAuth|null);
+    }
+
+    /** Represents a GetCurrentCountersRequest. */
+    class GetCurrentCountersRequest implements IGetCurrentCountersRequest {
+
+        /**
+         * Constructs a new GetCurrentCountersRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IGetCurrentCountersRequest);
+
+        /** GetCurrentCountersRequest auth. */
+        public auth?: (protos.common.IAuth|null);
+
+        /**
+         * Creates a new GetCurrentCountersRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns GetCurrentCountersRequest instance
+         */
+        public static create(properties?: protos.IGetCurrentCountersRequest): protos.GetCurrentCountersRequest;
+
+        /**
+         * Encodes the specified GetCurrentCountersRequest message. Does not implicitly {@link protos.GetCurrentCountersRequest.verify|verify} messages.
+         * @param message GetCurrentCountersRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IGetCurrentCountersRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified GetCurrentCountersRequest message, length delimited. Does not implicitly {@link protos.GetCurrentCountersRequest.verify|verify} messages.
+         * @param message GetCurrentCountersRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IGetCurrentCountersRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a GetCurrentCountersRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns GetCurrentCountersRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.GetCurrentCountersRequest;
+
+        /**
+         * Decodes a GetCurrentCountersRequest message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns GetCurrentCountersRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.GetCurrentCountersRequest;
+
+        /**
+         * Verifies a GetCurrentCountersRequest message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a GetCurrentCountersRequest message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns GetCurrentCountersRequest
+         */
+        public static fromObject(object: { [k: string]: any }): protos.GetCurrentCountersRequest;
+
+        /**
+         * Creates a plain object from a GetCurrentCountersRequest message. Also converts values to other types if specified.
+         * @param message GetCurrentCountersRequest
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.GetCurrentCountersRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this GetCurrentCountersRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a GetCurrentCountersResponse. */
+    interface IGetCurrentCountersResponse {
+
+        /** GetCurrentCountersResponse counters */
+        counters?: (protos.opts.ICounter[]|null);
+    }
+
+    /** Represents a GetCurrentCountersResponse. */
+    class GetCurrentCountersResponse implements IGetCurrentCountersResponse {
+
+        /**
+         * Constructs a new GetCurrentCountersResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IGetCurrentCountersResponse);
+
+        /** GetCurrentCountersResponse counters. */
+        public counters: protos.opts.ICounter[];
+
+        /**
+         * Creates a new GetCurrentCountersResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns GetCurrentCountersResponse instance
+         */
+        public static create(properties?: protos.IGetCurrentCountersResponse): protos.GetCurrentCountersResponse;
+
+        /**
+         * Encodes the specified GetCurrentCountersResponse message. Does not implicitly {@link protos.GetCurrentCountersResponse.verify|verify} messages.
+         * @param message GetCurrentCountersResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IGetCurrentCountersResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified GetCurrentCountersResponse message, length delimited. Does not implicitly {@link protos.GetCurrentCountersResponse.verify|verify} messages.
+         * @param message GetCurrentCountersResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IGetCurrentCountersResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a GetCurrentCountersResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns GetCurrentCountersResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.GetCurrentCountersResponse;
+
+        /**
+         * Decodes a GetCurrentCountersResponse message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns GetCurrentCountersResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.GetCurrentCountersResponse;
+
+        /**
+         * Verifies a GetCurrentCountersResponse message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a GetCurrentCountersResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns GetCurrentCountersResponse
+         */
+        public static fromObject(object: { [k: string]: any }): protos.GetCurrentCountersResponse;
+
+        /**
+         * Creates a plain object from a GetCurrentCountersResponse message. Also converts values to other types if specified.
+         * @param message GetCurrentCountersResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.GetCurrentCountersResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this GetCurrentCountersResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a CounterDataPoint. */
+    interface ICounterDataPoint {
+
+        /** CounterDataPoint unixTs */
+        unixTs?: (number|Long|null);
+
+        /** CounterDataPoint value */
+        value?: (number|null);
+    }
+
+    /** Represents a CounterDataPoint. */
+    class CounterDataPoint implements ICounterDataPoint {
+
+        /**
+         * Constructs a new CounterDataPoint.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.ICounterDataPoint);
+
+        /** CounterDataPoint unixTs. */
+        public unixTs: (number|Long);
+
+        /** CounterDataPoint value. */
+        public value: number;
+
+        /**
+         * Creates a new CounterDataPoint instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns CounterDataPoint instance
+         */
+        public static create(properties?: protos.ICounterDataPoint): protos.CounterDataPoint;
+
+        /**
+         * Encodes the specified CounterDataPoint message. Does not implicitly {@link protos.CounterDataPoint.verify|verify} messages.
+         * @param message CounterDataPoint message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.ICounterDataPoint, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified CounterDataPoint message, length delimited. Does not implicitly {@link protos.CounterDataPoint.verify|verify} messages.
+         * @param message CounterDataPoint message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.ICounterDataPoint, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a CounterDataPoint message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns CounterDataPoint
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.CounterDataPoint;
+
+        /**
+         * Decodes a CounterDataPoint message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns CounterDataPoint
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.CounterDataPoint;
+
+        /**
+         * Verifies a CounterDataPoint message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a CounterDataPoint message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns CounterDataPoint
+         */
+        public static fromObject(object: { [k: string]: any }): protos.CounterDataPoint;
+
+        /**
+         * Creates a plain object from a CounterDataPoint message. Also converts values to other types if specified.
+         * @param message CounterDataPoint
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.CounterDataPoint, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this CounterDataPoint to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a GetCounterHistoryRequest. */
+    interface IGetCounterHistoryRequest {
+
+        /** GetCounterHistoryRequest auth */
+        auth?: (protos.common.IAuth|null);
+
+        /** GetCounterHistoryRequest resource */
+        resource?: (protos.opts.Counter.Resource|null);
+
+        /** GetCounterHistoryRequest type */
+        type?: (protos.opts.Counter.Type|null);
+
+        /** GetCounterHistoryRequest resourceId */
+        resourceId?: (string|null);
+
+        /** GetCounterHistoryRequest fromUnixTs */
+        fromUnixTs?: (number|Long|null);
+
+        /** GetCounterHistoryRequest toUnixTs */
+        toUnixTs?: (number|Long|null);
+    }
+
+    /** Represents a GetCounterHistoryRequest. */
+    class GetCounterHistoryRequest implements IGetCounterHistoryRequest {
+
+        /**
+         * Constructs a new GetCounterHistoryRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IGetCounterHistoryRequest);
+
+        /** GetCounterHistoryRequest auth. */
+        public auth?: (protos.common.IAuth|null);
+
+        /** GetCounterHistoryRequest resource. */
+        public resource: protos.opts.Counter.Resource;
+
+        /** GetCounterHistoryRequest type. */
+        public type: protos.opts.Counter.Type;
+
+        /** GetCounterHistoryRequest resourceId. */
+        public resourceId: string;
+
+        /** GetCounterHistoryRequest fromUnixTs. */
+        public fromUnixTs: (number|Long);
+
+        /** GetCounterHistoryRequest toUnixTs. */
+        public toUnixTs: (number|Long);
+
+        /**
+         * Creates a new GetCounterHistoryRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns GetCounterHistoryRequest instance
+         */
+        public static create(properties?: protos.IGetCounterHistoryRequest): protos.GetCounterHistoryRequest;
+
+        /**
+         * Encodes the specified GetCounterHistoryRequest message. Does not implicitly {@link protos.GetCounterHistoryRequest.verify|verify} messages.
+         * @param message GetCounterHistoryRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IGetCounterHistoryRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified GetCounterHistoryRequest message, length delimited. Does not implicitly {@link protos.GetCounterHistoryRequest.verify|verify} messages.
+         * @param message GetCounterHistoryRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IGetCounterHistoryRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a GetCounterHistoryRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns GetCounterHistoryRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.GetCounterHistoryRequest;
+
+        /**
+         * Decodes a GetCounterHistoryRequest message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns GetCounterHistoryRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.GetCounterHistoryRequest;
+
+        /**
+         * Verifies a GetCounterHistoryRequest message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a GetCounterHistoryRequest message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns GetCounterHistoryRequest
+         */
+        public static fromObject(object: { [k: string]: any }): protos.GetCounterHistoryRequest;
+
+        /**
+         * Creates a plain object from a GetCounterHistoryRequest message. Also converts values to other types if specified.
+         * @param message GetCounterHistoryRequest
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.GetCounterHistoryRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this GetCounterHistoryRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a GetCounterHistoryResponse. */
+    interface IGetCounterHistoryResponse {
+
+        /** GetCounterHistoryResponse counter */
+        counter?: (protos.opts.ICounter|null);
+
+        /** GetCounterHistoryResponse dataPoints */
+        dataPoints?: (protos.ICounterDataPoint[]|null);
+    }
+
+    /** Represents a GetCounterHistoryResponse. */
+    class GetCounterHistoryResponse implements IGetCounterHistoryResponse {
+
+        /**
+         * Constructs a new GetCounterHistoryResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IGetCounterHistoryResponse);
+
+        /** GetCounterHistoryResponse counter. */
+        public counter?: (protos.opts.ICounter|null);
+
+        /** GetCounterHistoryResponse dataPoints. */
+        public dataPoints: protos.ICounterDataPoint[];
+
+        /**
+         * Creates a new GetCounterHistoryResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns GetCounterHistoryResponse instance
+         */
+        public static create(properties?: protos.IGetCounterHistoryResponse): protos.GetCounterHistoryResponse;
+
+        /**
+         * Encodes the specified GetCounterHistoryResponse message. Does not implicitly {@link protos.GetCounterHistoryResponse.verify|verify} messages.
+         * @param message GetCounterHistoryResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IGetCounterHistoryResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified GetCounterHistoryResponse message, length delimited. Does not implicitly {@link protos.GetCounterHistoryResponse.verify|verify} messages.
+         * @param message GetCounterHistoryResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IGetCounterHistoryResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a GetCounterHistoryResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns GetCounterHistoryResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.GetCounterHistoryResponse;
+
+        /**
+         * Decodes a GetCounterHistoryResponse message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns GetCounterHistoryResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.GetCounterHistoryResponse;
+
+        /**
+         * Verifies a GetCounterHistoryResponse message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a GetCounterHistoryResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns GetCounterHistoryResponse
+         */
+        public static fromObject(object: { [k: string]: any }): protos.GetCounterHistoryResponse;
+
+        /**
+         * Creates a plain object from a GetCounterHistoryResponse message. Also converts values to other types if specified.
+         * @param message GetCounterHistoryResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.GetCounterHistoryResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this GetCounterHistoryResponse to JSON.
          * @returns JSON object
          */
         public toJSON(): { [k: string]: any };
