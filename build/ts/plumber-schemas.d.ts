@@ -36544,6 +36544,9 @@ export namespace protos {
         /** ErrorMessage resourceId */
         resourceId?: (string|null);
 
+        /** ErrorMessage timestamp */
+        timestamp?: (number|Long|null);
+
         /** ErrorMessage error */
         error?: (string|null);
 
@@ -36565,6 +36568,9 @@ export namespace protos {
 
         /** ErrorMessage resourceId. */
         public resourceId: string;
+
+        /** ErrorMessage timestamp. */
+        public timestamp: (number|Long);
 
         /** ErrorMessage error. */
         public error: string;

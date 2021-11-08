@@ -12,9 +12,11 @@ message ErrorMessage {
 
     string resource_id = 2;
 
-    string error = 3;
+    int64 timestamp = 3;
 
-    string body = 4;
+    string error = 4;
+
+    string body = 5;
 }
 
 message GetLiveErrorsRequest {
