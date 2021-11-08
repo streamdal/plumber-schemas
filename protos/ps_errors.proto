@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package protos;
+
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
+
+import "opts/ps_opts_stats.proto";
+import "common/ps_common_auth.proto";
+
+message ErrorMessage {
+    string resource = 1;
+
+    string resource_id = 2;
+
+    string error = 3;
+
+    string body = 4;
+}
+
+message GetErrorsRequest {
+    common.Auth auth = 9999;
+}
+
+message GetErrorsResponse {
+    ErrorMessage error = 1;
+}
