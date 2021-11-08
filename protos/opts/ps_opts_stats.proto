@@ -25,7 +25,9 @@ message Counter {
 
     Type type = 2;
 
-    string resource_id = 3;
+    string name = 3;
 
-    double value = 4;
+    string resource_id = 4;
+
+    double value = 5;
 }

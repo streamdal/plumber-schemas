@@ -8713,6 +8713,9 @@ export namespace protos {
             /** Counter type */
             type?: (protos.opts.Counter.Type|null);
 
+            /** Counter name */
+            name?: (string|null);
+
             /** Counter resourceId */
             resourceId?: (string|null);
 
@@ -8734,6 +8737,9 @@ export namespace protos {
 
             /** Counter type. */
             public type: protos.opts.Counter.Type;
+
+            /** Counter name. */
+            public name: string;
 
             /** Counter resourceId. */
             public resourceId: string;
