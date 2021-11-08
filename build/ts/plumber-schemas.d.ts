@@ -12932,18 +12932,32 @@ export namespace protos {
         public getCounterHistory(request: protos.IGetCounterHistoryRequest): Promise<protos.GetCounterHistoryResponse>;
 
         /**
-         * Calls GetErrors.
-         * @param request GetErrorsRequest message or plain object
-         * @param callback Node-style callback called with the error, if any, and GetErrorsResponse
+         * Calls GetLiveErrors.
+         * @param request GetLiveErrorsRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and GetLiveErrorsResponse
          */
-        public getErrors(request: protos.IGetErrorsRequest, callback: protos.PlumberServer.GetErrorsCallback): void;
+        public getLiveErrors(request: protos.IGetLiveErrorsRequest, callback: protos.PlumberServer.GetLiveErrorsCallback): void;
 
         /**
-         * Calls GetErrors.
-         * @param request GetErrorsRequest message or plain object
+         * Calls GetLiveErrors.
+         * @param request GetLiveErrorsRequest message or plain object
          * @returns Promise
          */
-        public getErrors(request: protos.IGetErrorsRequest): Promise<protos.GetErrorsResponse>;
+        public getLiveErrors(request: protos.IGetLiveErrorsRequest): Promise<protos.GetLiveErrorsResponse>;
+
+        /**
+         * Calls GetErrorHistory.
+         * @param request GetErrorHistoryRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and GetErrorHistoryResponse
+         */
+        public getErrorHistory(request: protos.IGetErrorHistoryRequest, callback: protos.PlumberServer.GetErrorHistoryCallback): void;
+
+        /**
+         * Calls GetErrorHistory.
+         * @param request GetErrorHistoryRequest message or plain object
+         * @returns Promise
+         */
+        public getErrorHistory(request: protos.IGetErrorHistoryRequest): Promise<protos.GetErrorHistoryResponse>;
     }
 
     namespace PlumberServer {
@@ -13362,11 +13376,18 @@ export namespace protos {
         type GetCounterHistoryCallback = (error: (Error|null), response?: protos.GetCounterHistoryResponse) => void;
 
         /**
-         * Callback as used by {@link protos.PlumberServer#getErrors}.
+         * Callback as used by {@link protos.PlumberServer#getLiveErrors}.
          * @param error Error, if any
-         * @param [response] GetErrorsResponse
+         * @param [response] GetLiveErrorsResponse
          */
-        type GetErrorsCallback = (error: (Error|null), response?: protos.GetErrorsResponse) => void;
+        type GetLiveErrorsCallback = (error: (Error|null), response?: protos.GetLiveErrorsResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#getErrorHistory}.
+         * @param error Error, if any
+         * @param [response] GetErrorHistoryResponse
+         */
+        type GetErrorHistoryCallback = (error: (Error|null), response?: protos.GetErrorHistoryResponse) => void;
     }
 
     /** Properties of a GetAllConnectionsRequest. */
@@ -36622,181 +36643,361 @@ export namespace protos {
         public toJSON(): { [k: string]: any };
     }
 
-    /** Properties of a GetErrorsRequest. */
-    interface IGetErrorsRequest {
+    /** Properties of a GetLiveErrorsRequest. */
+    interface IGetLiveErrorsRequest {
 
-        /** GetErrorsRequest auth */
+        /** GetLiveErrorsRequest auth */
         auth?: (protos.common.IAuth|null);
     }
 
-    /** Represents a GetErrorsRequest. */
-    class GetErrorsRequest implements IGetErrorsRequest {
+    /** Represents a GetLiveErrorsRequest. */
+    class GetLiveErrorsRequest implements IGetLiveErrorsRequest {
 
         /**
-         * Constructs a new GetErrorsRequest.
+         * Constructs a new GetLiveErrorsRequest.
          * @param [properties] Properties to set
          */
-        constructor(properties?: protos.IGetErrorsRequest);
+        constructor(properties?: protos.IGetLiveErrorsRequest);
 
-        /** GetErrorsRequest auth. */
+        /** GetLiveErrorsRequest auth. */
         public auth?: (protos.common.IAuth|null);
 
         /**
-         * Creates a new GetErrorsRequest instance using the specified properties.
+         * Creates a new GetLiveErrorsRequest instance using the specified properties.
          * @param [properties] Properties to set
-         * @returns GetErrorsRequest instance
+         * @returns GetLiveErrorsRequest instance
          */
-        public static create(properties?: protos.IGetErrorsRequest): protos.GetErrorsRequest;
+        public static create(properties?: protos.IGetLiveErrorsRequest): protos.GetLiveErrorsRequest;
 
         /**
-         * Encodes the specified GetErrorsRequest message. Does not implicitly {@link protos.GetErrorsRequest.verify|verify} messages.
-         * @param message GetErrorsRequest message or plain object to encode
+         * Encodes the specified GetLiveErrorsRequest message. Does not implicitly {@link protos.GetLiveErrorsRequest.verify|verify} messages.
+         * @param message GetLiveErrorsRequest message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: protos.IGetErrorsRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+        public static encode(message: protos.IGetLiveErrorsRequest, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Encodes the specified GetErrorsRequest message, length delimited. Does not implicitly {@link protos.GetErrorsRequest.verify|verify} messages.
-         * @param message GetErrorsRequest message or plain object to encode
+         * Encodes the specified GetLiveErrorsRequest message, length delimited. Does not implicitly {@link protos.GetLiveErrorsRequest.verify|verify} messages.
+         * @param message GetLiveErrorsRequest message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encodeDelimited(message: protos.IGetErrorsRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+        public static encodeDelimited(message: protos.IGetLiveErrorsRequest, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a GetErrorsRequest message from the specified reader or buffer.
+         * Decodes a GetLiveErrorsRequest message from the specified reader or buffer.
          * @param reader Reader or buffer to decode from
          * @param [length] Message length if known beforehand
-         * @returns GetErrorsRequest
+         * @returns GetLiveErrorsRequest
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.GetErrorsRequest;
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.GetLiveErrorsRequest;
 
         /**
-         * Decodes a GetErrorsRequest message from the specified reader or buffer, length delimited.
+         * Decodes a GetLiveErrorsRequest message from the specified reader or buffer, length delimited.
          * @param reader Reader or buffer to decode from
-         * @returns GetErrorsRequest
+         * @returns GetLiveErrorsRequest
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.GetErrorsRequest;
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.GetLiveErrorsRequest;
 
         /**
-         * Verifies a GetErrorsRequest message.
+         * Verifies a GetLiveErrorsRequest message.
          * @param message Plain object to verify
          * @returns `null` if valid, otherwise the reason why it is not
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a GetErrorsRequest message from a plain object. Also converts values to their respective internal types.
+         * Creates a GetLiveErrorsRequest message from a plain object. Also converts values to their respective internal types.
          * @param object Plain object
-         * @returns GetErrorsRequest
+         * @returns GetLiveErrorsRequest
          */
-        public static fromObject(object: { [k: string]: any }): protos.GetErrorsRequest;
+        public static fromObject(object: { [k: string]: any }): protos.GetLiveErrorsRequest;
 
         /**
-         * Creates a plain object from a GetErrorsRequest message. Also converts values to other types if specified.
-         * @param message GetErrorsRequest
+         * Creates a plain object from a GetLiveErrorsRequest message. Also converts values to other types if specified.
+         * @param message GetLiveErrorsRequest
          * @param [options] Conversion options
          * @returns Plain object
          */
-        public static toObject(message: protos.GetErrorsRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+        public static toObject(message: protos.GetLiveErrorsRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
         /**
-         * Converts this GetErrorsRequest to JSON.
+         * Converts this GetLiveErrorsRequest to JSON.
          * @returns JSON object
          */
         public toJSON(): { [k: string]: any };
     }
 
-    /** Properties of a GetErrorsResponse. */
-    interface IGetErrorsResponse {
+    /** Properties of a GetLiveErrorsResponse. */
+    interface IGetLiveErrorsResponse {
 
-        /** GetErrorsResponse error */
+        /** GetLiveErrorsResponse error */
         error?: (protos.IErrorMessage|null);
     }
 
-    /** Represents a GetErrorsResponse. */
-    class GetErrorsResponse implements IGetErrorsResponse {
+    /** Represents a GetLiveErrorsResponse. */
+    class GetLiveErrorsResponse implements IGetLiveErrorsResponse {
 
         /**
-         * Constructs a new GetErrorsResponse.
+         * Constructs a new GetLiveErrorsResponse.
          * @param [properties] Properties to set
          */
-        constructor(properties?: protos.IGetErrorsResponse);
+        constructor(properties?: protos.IGetLiveErrorsResponse);
 
-        /** GetErrorsResponse error. */
+        /** GetLiveErrorsResponse error. */
         public error?: (protos.IErrorMessage|null);
 
         /**
-         * Creates a new GetErrorsResponse instance using the specified properties.
+         * Creates a new GetLiveErrorsResponse instance using the specified properties.
          * @param [properties] Properties to set
-         * @returns GetErrorsResponse instance
+         * @returns GetLiveErrorsResponse instance
          */
-        public static create(properties?: protos.IGetErrorsResponse): protos.GetErrorsResponse;
+        public static create(properties?: protos.IGetLiveErrorsResponse): protos.GetLiveErrorsResponse;
 
         /**
-         * Encodes the specified GetErrorsResponse message. Does not implicitly {@link protos.GetErrorsResponse.verify|verify} messages.
-         * @param message GetErrorsResponse message or plain object to encode
+         * Encodes the specified GetLiveErrorsResponse message. Does not implicitly {@link protos.GetLiveErrorsResponse.verify|verify} messages.
+         * @param message GetLiveErrorsResponse message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: protos.IGetErrorsResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+        public static encode(message: protos.IGetLiveErrorsResponse, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Encodes the specified GetErrorsResponse message, length delimited. Does not implicitly {@link protos.GetErrorsResponse.verify|verify} messages.
-         * @param message GetErrorsResponse message or plain object to encode
+         * Encodes the specified GetLiveErrorsResponse message, length delimited. Does not implicitly {@link protos.GetLiveErrorsResponse.verify|verify} messages.
+         * @param message GetLiveErrorsResponse message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encodeDelimited(message: protos.IGetErrorsResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+        public static encodeDelimited(message: protos.IGetLiveErrorsResponse, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a GetErrorsResponse message from the specified reader or buffer.
+         * Decodes a GetLiveErrorsResponse message from the specified reader or buffer.
          * @param reader Reader or buffer to decode from
          * @param [length] Message length if known beforehand
-         * @returns GetErrorsResponse
+         * @returns GetLiveErrorsResponse
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.GetErrorsResponse;
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.GetLiveErrorsResponse;
 
         /**
-         * Decodes a GetErrorsResponse message from the specified reader or buffer, length delimited.
+         * Decodes a GetLiveErrorsResponse message from the specified reader or buffer, length delimited.
          * @param reader Reader or buffer to decode from
-         * @returns GetErrorsResponse
+         * @returns GetLiveErrorsResponse
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.GetErrorsResponse;
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.GetLiveErrorsResponse;
 
         /**
-         * Verifies a GetErrorsResponse message.
+         * Verifies a GetLiveErrorsResponse message.
          * @param message Plain object to verify
          * @returns `null` if valid, otherwise the reason why it is not
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a GetErrorsResponse message from a plain object. Also converts values to their respective internal types.
+         * Creates a GetLiveErrorsResponse message from a plain object. Also converts values to their respective internal types.
          * @param object Plain object
-         * @returns GetErrorsResponse
+         * @returns GetLiveErrorsResponse
          */
-        public static fromObject(object: { [k: string]: any }): protos.GetErrorsResponse;
+        public static fromObject(object: { [k: string]: any }): protos.GetLiveErrorsResponse;
 
         /**
-         * Creates a plain object from a GetErrorsResponse message. Also converts values to other types if specified.
-         * @param message GetErrorsResponse
+         * Creates a plain object from a GetLiveErrorsResponse message. Also converts values to other types if specified.
+         * @param message GetLiveErrorsResponse
          * @param [options] Conversion options
          * @returns Plain object
          */
-        public static toObject(message: protos.GetErrorsResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+        public static toObject(message: protos.GetLiveErrorsResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
         /**
-         * Converts this GetErrorsResponse to JSON.
+         * Converts this GetLiveErrorsResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a GetErrorHistoryRequest. */
+    interface IGetErrorHistoryRequest {
+
+        /** GetErrorHistoryRequest auth */
+        auth?: (protos.common.IAuth|null);
+    }
+
+    /** Represents a GetErrorHistoryRequest. */
+    class GetErrorHistoryRequest implements IGetErrorHistoryRequest {
+
+        /**
+         * Constructs a new GetErrorHistoryRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IGetErrorHistoryRequest);
+
+        /** GetErrorHistoryRequest auth. */
+        public auth?: (protos.common.IAuth|null);
+
+        /**
+         * Creates a new GetErrorHistoryRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns GetErrorHistoryRequest instance
+         */
+        public static create(properties?: protos.IGetErrorHistoryRequest): protos.GetErrorHistoryRequest;
+
+        /**
+         * Encodes the specified GetErrorHistoryRequest message. Does not implicitly {@link protos.GetErrorHistoryRequest.verify|verify} messages.
+         * @param message GetErrorHistoryRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IGetErrorHistoryRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified GetErrorHistoryRequest message, length delimited. Does not implicitly {@link protos.GetErrorHistoryRequest.verify|verify} messages.
+         * @param message GetErrorHistoryRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IGetErrorHistoryRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a GetErrorHistoryRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns GetErrorHistoryRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.GetErrorHistoryRequest;
+
+        /**
+         * Decodes a GetErrorHistoryRequest message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns GetErrorHistoryRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.GetErrorHistoryRequest;
+
+        /**
+         * Verifies a GetErrorHistoryRequest message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a GetErrorHistoryRequest message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns GetErrorHistoryRequest
+         */
+        public static fromObject(object: { [k: string]: any }): protos.GetErrorHistoryRequest;
+
+        /**
+         * Creates a plain object from a GetErrorHistoryRequest message. Also converts values to other types if specified.
+         * @param message GetErrorHistoryRequest
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.GetErrorHistoryRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this GetErrorHistoryRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a GetErrorHistoryResponse. */
+    interface IGetErrorHistoryResponse {
+
+        /** GetErrorHistoryResponse errors */
+        errors?: (protos.IErrorMessage[]|null);
+    }
+
+    /** Represents a GetErrorHistoryResponse. */
+    class GetErrorHistoryResponse implements IGetErrorHistoryResponse {
+
+        /**
+         * Constructs a new GetErrorHistoryResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IGetErrorHistoryResponse);
+
+        /** GetErrorHistoryResponse errors. */
+        public errors: protos.IErrorMessage[];
+
+        /**
+         * Creates a new GetErrorHistoryResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns GetErrorHistoryResponse instance
+         */
+        public static create(properties?: protos.IGetErrorHistoryResponse): protos.GetErrorHistoryResponse;
+
+        /**
+         * Encodes the specified GetErrorHistoryResponse message. Does not implicitly {@link protos.GetErrorHistoryResponse.verify|verify} messages.
+         * @param message GetErrorHistoryResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IGetErrorHistoryResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified GetErrorHistoryResponse message, length delimited. Does not implicitly {@link protos.GetErrorHistoryResponse.verify|verify} messages.
+         * @param message GetErrorHistoryResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IGetErrorHistoryResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a GetErrorHistoryResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns GetErrorHistoryResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.GetErrorHistoryResponse;
+
+        /**
+         * Decodes a GetErrorHistoryResponse message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns GetErrorHistoryResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.GetErrorHistoryResponse;
+
+        /**
+         * Verifies a GetErrorHistoryResponse message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a GetErrorHistoryResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns GetErrorHistoryResponse
+         */
+        public static fromObject(object: { [k: string]: any }): protos.GetErrorHistoryResponse;
+
+        /**
+         * Creates a plain object from a GetErrorHistoryResponse message. Also converts values to other types if specified.
+         * @param message GetErrorHistoryResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.GetErrorHistoryResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this GetErrorHistoryResponse to JSON.
          * @returns JSON object
          */
         public toJSON(): { [k: string]: any };

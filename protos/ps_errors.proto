@@ -17,10 +17,18 @@ message ErrorMessage {
     string body = 4;
 }
 
-message GetErrorsRequest {
+message GetLiveErrorsRequest {
     common.Auth auth = 9999;
 }
 
-message GetErrorsResponse {
+message GetLiveErrorsResponse {
     ErrorMessage error = 1;
+}
+
+message GetErrorHistoryRequest {
+    common.Auth auth = 9999;
+}
+
+message GetErrorHistoryResponse {
+    repeated ErrorMessage errors = 1;
 }

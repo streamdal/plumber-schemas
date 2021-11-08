@@ -85,110 +85,192 @@ func (m *ErrorMessage) GetBody() string {
 	return ""
 }
 
-type GetErrorsRequest struct {
+type GetLiveErrorsRequest struct {
 	Auth                 *common.Auth `protobuf:"bytes,9999,opt,name=auth,proto3" json:"auth,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}     `json:"-"`
 	XXX_unrecognized     []byte       `json:"-"`
 	XXX_sizecache        int32        `json:"-"`
 }
 
-func (m *GetErrorsRequest) Reset()         { *m = GetErrorsRequest{} }
-func (m *GetErrorsRequest) String() string { return proto.CompactTextString(m) }
-func (*GetErrorsRequest) ProtoMessage()    {}
-func (*GetErrorsRequest) Descriptor() ([]byte, []int) {
+func (m *GetLiveErrorsRequest) Reset()         { *m = GetLiveErrorsRequest{} }
+func (m *GetLiveErrorsRequest) String() string { return proto.CompactTextString(m) }
+func (*GetLiveErrorsRequest) ProtoMessage()    {}
+func (*GetLiveErrorsRequest) Descriptor() ([]byte, []int) {
 	return fileDescriptor_f58175ccf95effe0, []int{1}
 }
 
-func (m *GetErrorsRequest) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_GetErrorsRequest.Unmarshal(m, b)
+func (m *GetLiveErrorsRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetLiveErrorsRequest.Unmarshal(m, b)
 }
-func (m *GetErrorsRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_GetErrorsRequest.Marshal(b, m, deterministic)
+func (m *GetLiveErrorsRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetLiveErrorsRequest.Marshal(b, m, deterministic)
 }
-func (m *GetErrorsRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_GetErrorsRequest.Merge(m, src)
+func (m *GetLiveErrorsRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetLiveErrorsRequest.Merge(m, src)
 }
-func (m *GetErrorsRequest) XXX_Size() int {
-	return xxx_messageInfo_GetErrorsRequest.Size(m)
+func (m *GetLiveErrorsRequest) XXX_Size() int {
+	return xxx_messageInfo_GetLiveErrorsRequest.Size(m)
 }
-func (m *GetErrorsRequest) XXX_DiscardUnknown() {
-	xxx_messageInfo_GetErrorsRequest.DiscardUnknown(m)
+func (m *GetLiveErrorsRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetLiveErrorsRequest.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_GetErrorsRequest proto.InternalMessageInfo
+var xxx_messageInfo_GetLiveErrorsRequest proto.InternalMessageInfo
 
-func (m *GetErrorsRequest) GetAuth() *common.Auth {
+func (m *GetLiveErrorsRequest) GetAuth() *common.Auth {
 	if m != nil {
 		return m.Auth
 	}
 	return nil
 }
 
-type GetErrorsResponse struct {
+type GetLiveErrorsResponse struct {
 	Error                *ErrorMessage `protobuf:"bytes,1,opt,name=error,proto3" json:"error,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}      `json:"-"`
 	XXX_unrecognized     []byte        `json:"-"`
 	XXX_sizecache        int32         `json:"-"`
 }
 
-func (m *GetErrorsResponse) Reset()         { *m = GetErrorsResponse{} }
-func (m *GetErrorsResponse) String() string { return proto.CompactTextString(m) }
-func (*GetErrorsResponse) ProtoMessage()    {}
-func (*GetErrorsResponse) Descriptor() ([]byte, []int) {
+func (m *GetLiveErrorsResponse) Reset()         { *m = GetLiveErrorsResponse{} }
+func (m *GetLiveErrorsResponse) String() string { return proto.CompactTextString(m) }
+func (*GetLiveErrorsResponse) ProtoMessage()    {}
+func (*GetLiveErrorsResponse) Descriptor() ([]byte, []int) {
 	return fileDescriptor_f58175ccf95effe0, []int{2}
 }
 
-func (m *GetErrorsResponse) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_GetErrorsResponse.Unmarshal(m, b)
+func (m *GetLiveErrorsResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetLiveErrorsResponse.Unmarshal(m, b)
 }
-func (m *GetErrorsResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_GetErrorsResponse.Marshal(b, m, deterministic)
+func (m *GetLiveErrorsResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetLiveErrorsResponse.Marshal(b, m, deterministic)
 }
-func (m *GetErrorsResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_GetErrorsResponse.Merge(m, src)
+func (m *GetLiveErrorsResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetLiveErrorsResponse.Merge(m, src)
 }
-func (m *GetErrorsResponse) XXX_Size() int {
-	return xxx_messageInfo_GetErrorsResponse.Size(m)
+func (m *GetLiveErrorsResponse) XXX_Size() int {
+	return xxx_messageInfo_GetLiveErrorsResponse.Size(m)
 }
-func (m *GetErrorsResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_GetErrorsResponse.DiscardUnknown(m)
+func (m *GetLiveErrorsResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetLiveErrorsResponse.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_GetErrorsResponse proto.InternalMessageInfo
+var xxx_messageInfo_GetLiveErrorsResponse proto.InternalMessageInfo
 
-func (m *GetErrorsResponse) GetError() *ErrorMessage {
+func (m *GetLiveErrorsResponse) GetError() *ErrorMessage {
 	if m != nil {
 		return m.Error
 	}
 	return nil
 }
 
+type GetErrorHistoryRequest struct {
+	Auth                 *common.Auth `protobuf:"bytes,9999,opt,name=auth,proto3" json:"auth,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}     `json:"-"`
+	XXX_unrecognized     []byte       `json:"-"`
+	XXX_sizecache        int32        `json:"-"`
+}
+
+func (m *GetErrorHistoryRequest) Reset()         { *m = GetErrorHistoryRequest{} }
+func (m *GetErrorHistoryRequest) String() string { return proto.CompactTextString(m) }
+func (*GetErrorHistoryRequest) ProtoMessage()    {}
+func (*GetErrorHistoryRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_f58175ccf95effe0, []int{3}
+}
+
+func (m *GetErrorHistoryRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetErrorHistoryRequest.Unmarshal(m, b)
+}
+func (m *GetErrorHistoryRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetErrorHistoryRequest.Marshal(b, m, deterministic)
+}
+func (m *GetErrorHistoryRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetErrorHistoryRequest.Merge(m, src)
+}
+func (m *GetErrorHistoryRequest) XXX_Size() int {
+	return xxx_messageInfo_GetErrorHistoryRequest.Size(m)
+}
+func (m *GetErrorHistoryRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetErrorHistoryRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetErrorHistoryRequest proto.InternalMessageInfo
+
+func (m *GetErrorHistoryRequest) GetAuth() *common.Auth {
+	if m != nil {
+		return m.Auth
+	}
+	return nil
+}
+
+type GetErrorHistoryResponse struct {
+	Errors               []*ErrorMessage `protobuf:"bytes,1,rep,name=errors,proto3" json:"errors,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}        `json:"-"`
+	XXX_unrecognized     []byte          `json:"-"`
+	XXX_sizecache        int32           `json:"-"`
+}
+
+func (m *GetErrorHistoryResponse) Reset()         { *m = GetErrorHistoryResponse{} }
+func (m *GetErrorHistoryResponse) String() string { return proto.CompactTextString(m) }
+func (*GetErrorHistoryResponse) ProtoMessage()    {}
+func (*GetErrorHistoryResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_f58175ccf95effe0, []int{4}
+}
+
+func (m *GetErrorHistoryResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetErrorHistoryResponse.Unmarshal(m, b)
+}
+func (m *GetErrorHistoryResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetErrorHistoryResponse.Marshal(b, m, deterministic)
+}
+func (m *GetErrorHistoryResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetErrorHistoryResponse.Merge(m, src)
+}
+func (m *GetErrorHistoryResponse) XXX_Size() int {
+	return xxx_messageInfo_GetErrorHistoryResponse.Size(m)
+}
+func (m *GetErrorHistoryResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetErrorHistoryResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetErrorHistoryResponse proto.InternalMessageInfo
+
+func (m *GetErrorHistoryResponse) GetErrors() []*ErrorMessage {
+	if m != nil {
+		return m.Errors
+	}
+	return nil
+}
+
 func init() {
 	proto.RegisterType((*ErrorMessage)(nil), "protos.ErrorMessage")
-	proto.RegisterType((*GetErrorsRequest)(nil), "protos.GetErrorsRequest")
-	proto.RegisterType((*GetErrorsResponse)(nil), "protos.GetErrorsResponse")
+	proto.RegisterType((*GetLiveErrorsRequest)(nil), "protos.GetLiveErrorsRequest")
+	proto.RegisterType((*GetLiveErrorsResponse)(nil), "protos.GetLiveErrorsResponse")
+	proto.RegisterType((*GetErrorHistoryRequest)(nil), "protos.GetErrorHistoryRequest")
+	proto.RegisterType((*GetErrorHistoryResponse)(nil), "protos.GetErrorHistoryResponse")
 }
 
 func init() { proto.RegisterFile("ps_errors.proto", fileDescriptor_f58175ccf95effe0) }
 
 var fileDescriptor_f58175ccf95effe0 = []byte{
-	// 273 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x4c, 0x50, 0xc1, 0x4a, 0xc4, 0x30,
-	0x10, 0xa5, 0x5a, 0x45, 0xb3, 0x82, 0x1a, 0xf7, 0x10, 0xea, 0xc1, 0xa5, 0xa7, 0x22, 0xd8, 0x80,
-	0x8a, 0x27, 0x41, 0x14, 0x44, 0x3c, 0xe8, 0xa1, 0x47, 0x2f, 0xa5, 0x69, 0x87, 0xb6, 0xb0, 0xdd,
-	0x89, 0x99, 0xe4, 0xe0, 0x57, 0xf8, 0xcb, 0x92, 0x64, 0x2b, 0x7b, 0x9a, 0x37, 0xf3, 0xe6, 0xbd,
-	0x79, 0x09, 0x3b, 0xd5, 0x54, 0x83, 0x31, 0x68, 0xa8, 0xd4, 0x06, 0x2d, 0xf2, 0xc3, 0x50, 0x28,
-	0x13, 0xa8, 0x2d, 0x49, 0x4d, 0xb5, 0xaf, 0x35, 0xd9, 0xc6, 0x6e, 0x37, 0xb2, 0xcb, 0x16, 0xa7,
-	0x09, 0x37, 0x9e, 0x8b, 0xa8, 0x6e, 0x9c, 0x1d, 0x22, 0x99, 0x3b, 0x76, 0xf2, 0xea, 0xed, 0x3e,
-	0x80, 0xa8, 0xe9, 0x81, 0x67, 0xec, 0xc8, 0x00, 0xa1, 0x33, 0x2d, 0x88, 0x64, 0x95, 0x14, 0xc7,
-	0xd5, 0x7f, 0xcf, 0xaf, 0xd8, 0x62, 0xc6, 0xf5, 0xd8, 0x89, 0xbd, 0x40, 0xb3, 0x79, 0xf4, 0xde,
-	0xf1, 0x25, 0x3b, 0x08, 0xd9, 0xc4, 0x7e, 0xa0, 0x62, 0xc3, 0x39, 0x4b, 0x15, 0x76, 0x3f, 0x22,
-	0x0d, 0xc3, 0x80, 0xf3, 0x47, 0x76, 0xf6, 0x06, 0x36, 0x5c, 0xa6, 0x0a, 0xbe, 0x1d, 0x90, 0xe5,
-	0x05, 0x4b, 0x7d, 0x30, 0xf1, 0xfb, 0xb9, 0x4a, 0x8a, 0xc5, 0xed, 0x45, 0x4c, 0x48, 0x65, 0x0c,
-	0x5d, 0x3e, 0x3b, 0x3b, 0x54, 0x61, 0x23, 0x7f, 0x62, 0xe7, 0x3b, 0x6a, 0xd2, 0xb8, 0x21, 0xe0,
-	0xd7, 0xf3, 0xf1, 0x24, 0xc8, 0x97, 0xb3, 0x7c, 0xf7, 0x79, 0xdb, 0x48, 0x2f, 0x0f, 0x5f, 0xf7,
-	0xfd, 0x68, 0x07, 0xa7, 0xbc, 0xb9, 0x54, 0x8d, 0x6d, 0x87, 0x16, 0x8d, 0x96, 0x7a, 0xed, 0x26,
-	0x05, 0xe6, 0x86, 0xda, 0x01, 0xa6, 0x86, 0xa4, 0x72, 0xe3, 0xba, 0x93, 0x3d, 0xca, 0xe8, 0xa5,
-	0xe2, 0x67, 0xdf, 0xfd, 0x05, 0x00, 0x00, 0xff, 0xff, 0x5b, 0x07, 0xc2, 0x2d, 0x86, 0x01, 0x00,
-	0x00,
+	// 315 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x94, 0x92, 0x4d, 0x4b, 0xfb, 0x40,
+	0x10, 0xc6, 0xc9, 0xbf, 0xfd, 0x17, 0x9d, 0x0a, 0xc2, 0x5a, 0x75, 0xa9, 0x07, 0x4b, 0x4e, 0x45,
+	0xb4, 0x01, 0x15, 0xcf, 0x5a, 0x91, 0x2a, 0xa8, 0x87, 0x1e, 0xbd, 0x84, 0xbc, 0x0c, 0x49, 0xa0,
+	0xe9, 0xae, 0x3b, 0xb3, 0x42, 0x3f, 0x85, 0x5f, 0x59, 0xb2, 0x9b, 0x88, 0x28, 0x1e, 0x3c, 0xcd,
+	0xcb, 0xf3, 0xf0, 0xcc, 0x2f, 0x64, 0x61, 0x57, 0x53, 0x8c, 0xc6, 0x28, 0x43, 0x33, 0x6d, 0x14,
+	0x2b, 0x31, 0x70, 0x85, 0xc6, 0x52, 0x69, 0xa6, 0x48, 0x53, 0xdc, 0xd4, 0x98, 0x38, 0xe1, 0xd6,
+	0x31, 0x3e, 0xca, 0x54, 0x5d, 0xab, 0x75, 0xa3, 0xf9, 0x2e, 0x4e, 0x2c, 0x97, 0x5e, 0x0c, 0x2d,
+	0xec, 0xdc, 0x35, 0x71, 0x4f, 0x48, 0x94, 0x14, 0x28, 0xc6, 0xb0, 0x65, 0x90, 0x94, 0x35, 0x19,
+	0xca, 0x60, 0x12, 0x4c, 0xb7, 0x97, 0x9f, 0xb3, 0x38, 0x86, 0x61, 0xd7, 0xc7, 0x55, 0x2e, 0xff,
+	0x39, 0x19, 0xba, 0xd5, 0x43, 0x2e, 0x46, 0xf0, 0xdf, 0xb1, 0xc9, 0x9e, 0x93, 0xfc, 0x20, 0x04,
+	0xf4, 0x53, 0x95, 0x6f, 0x64, 0xdf, 0x2d, 0x5d, 0x1f, 0x5e, 0xc3, 0x68, 0x81, 0xfc, 0x58, 0xbd,
+	0xa1, 0xbb, 0x4e, 0x4b, 0x7c, 0xb5, 0x48, 0x2c, 0xa6, 0xd0, 0x6f, 0xe0, 0xe4, 0xfb, 0xf3, 0x24,
+	0x98, 0x0e, 0xcf, 0xf7, 0x3c, 0x25, 0xcd, 0x3c, 0xf8, 0xec, 0xc6, 0x72, 0xb9, 0x74, 0x8e, 0xf0,
+	0x16, 0xf6, 0xbf, 0x25, 0x90, 0x56, 0x6b, 0x42, 0x71, 0xd2, 0x41, 0x04, 0x2e, 0x62, 0xd4, 0x45,
+	0x7c, 0xfd, 0xcc, 0x16, 0x2d, 0x9c, 0xc3, 0xc1, 0x02, 0xd9, 0x29, 0xf7, 0x15, 0xb1, 0x32, 0x9b,
+	0xbf, 0x83, 0x2c, 0xe0, 0xf0, 0x47, 0x46, 0x8b, 0x72, 0x0a, 0x03, 0xff, 0xaf, 0x64, 0x30, 0xe9,
+	0xfd, 0xca, 0xd2, 0x7a, 0xe6, 0x57, 0x2f, 0x97, 0x45, 0xc5, 0xa5, 0x4d, 0x9b, 0x23, 0x51, 0x9a,
+	0x70, 0x56, 0x66, 0xca, 0xe8, 0x48, 0xaf, 0x6c, 0x9d, 0xa2, 0x39, 0xa3, 0xac, 0xc4, 0x3a, 0xa1,
+	0x28, 0xb5, 0xd5, 0x2a, 0x8f, 0x0a, 0x15, 0xf9, 0xb0, 0xd4, 0xbf, 0x80, 0x8b, 0x8f, 0x00, 0x00,
+	0x00, 0xff, 0xff, 0x62, 0xaa, 0x95, 0x20, 0x1b, 0x02, 0x00, 0x00,
 }

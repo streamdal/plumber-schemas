@@ -172,7 +172,11 @@ service PlumberServer {
 
     rpc GetCounterHistory(GetCounterHistoryRequest) returns (GetCounterHistoryResponse);
 
-    // -------------------- Counters --------------------
+    // -------------------- Errors --------------------
 
-    rpc GetErrors(GetErrorsRequest) returns (stream GetErrorsResponse);
+    // Returns a stream of errors as they happen
+    rpc GetLiveErrors(GetLiveErrorsRequest) returns (stream GetLiveErrorsResponse);
+
+    // Returns 1000 most recent errors from etcd
+    rpc GetErrorHistory(GetErrorHistoryRequest) returns (GetErrorHistoryResponse);
 }
