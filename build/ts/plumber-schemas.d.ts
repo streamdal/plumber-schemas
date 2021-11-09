@@ -30249,8 +30249,8 @@ export namespace protos {
         /** Service name */
         name?: (string|null);
 
-        /** Service repositories */
-        repositories?: (protos.IRepository[]|null);
+        /** Service repo */
+        repo?: (protos.IRepository|null);
 
         /** Service notes */
         notes?: (string|null);
@@ -30277,8 +30277,8 @@ export namespace protos {
         /** Service name. */
         public name: string;
 
-        /** Service repositories. */
-        public repositories: protos.IRepository[];
+        /** Service repo. */
+        public repo?: (protos.IRepository|null);
 
         /** Service notes. */
         public notes: string;
