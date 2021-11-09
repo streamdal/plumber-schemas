@@ -12,7 +12,7 @@ message Service {
 
   string name = 2;
 
-  repeated Repository repositories = 3;
+  Repository repo = 3;
 
   string notes = 4;
 
