@@ -32922,29 +32922,14 @@ export namespace protos {
         /** GithubEvent type */
         type?: (protos.GithubEvent.Type|null);
 
-        /** GithubEvent installCreated */
-        installCreated?: (protos.IInstallCreated|null);
+        /** GithubEvent install */
+        install?: (protos.IInstall|null);
 
-        /** GithubEvent installUpdated */
-        installUpdated?: (protos.IInstallUpdated|null);
+        /** GithubEvent pullRequest */
+        pullRequest?: (protos.IPullRequest|null);
 
-        /** GithubEvent installDeleted */
-        installDeleted?: (protos.IInstallDeleted|null);
-
-        /** GithubEvent prCreated */
-        prCreated?: (protos.IPullRequestCreated|null);
-
-        /** GithubEvent prMerged */
-        prMerged?: (protos.IPullRequestMerged|null);
-
-        /** GithubEvent issueCreated */
-        issueCreated?: (protos.IIssueCreated|null);
-
-        /** GithubEvent issueReopened */
-        issueReopened?: (protos.IIssueReopened|null);
-
-        /** GithubEvent issueClosed */
-        issueClosed?: (protos.IIssueClosed|null);
+        /** GithubEvent issue */
+        issue?: (protos.IIssue|null);
     }
 
     /** Represents a GithubEvent. */
@@ -32959,32 +32944,17 @@ export namespace protos {
         /** GithubEvent type. */
         public type: protos.GithubEvent.Type;
 
-        /** GithubEvent installCreated. */
-        public installCreated?: (protos.IInstallCreated|null);
+        /** GithubEvent install. */
+        public install?: (protos.IInstall|null);
 
-        /** GithubEvent installUpdated. */
-        public installUpdated?: (protos.IInstallUpdated|null);
+        /** GithubEvent pullRequest. */
+        public pullRequest?: (protos.IPullRequest|null);
 
-        /** GithubEvent installDeleted. */
-        public installDeleted?: (protos.IInstallDeleted|null);
-
-        /** GithubEvent prCreated. */
-        public prCreated?: (protos.IPullRequestCreated|null);
-
-        /** GithubEvent prMerged. */
-        public prMerged?: (protos.IPullRequestMerged|null);
-
-        /** GithubEvent issueCreated. */
-        public issueCreated?: (protos.IIssueCreated|null);
-
-        /** GithubEvent issueReopened. */
-        public issueReopened?: (protos.IIssueReopened|null);
-
-        /** GithubEvent issueClosed. */
-        public issueClosed?: (protos.IIssueClosed|null);
+        /** GithubEvent issue. */
+        public issue?: (protos.IIssue|null);
 
         /** GithubEvent payload. */
-        public payload?: ("installCreated"|"installUpdated"|"installDeleted"|"prCreated"|"prMerged"|"issueCreated"|"issueReopened"|"issueClosed");
+        public payload?: ("install"|"pullRequest"|"issue");
 
         /**
          * Creates a new GithubEvent instance using the specified properties.
@@ -33065,11 +33035,15 @@ export namespace protos {
             INSTALL_CREATED = 1,
             INSTALL_UPDATED = 2,
             INSTALL_DELETED = 3,
-            PULL_CREATED = 4,
-            PULL_MERGED = 5,
-            ISSUE_CREATED = 6,
-            ISSUE_REOPENED = 7,
-            ISSUE_CLOSED = 8
+            INSTALL_SUSPENDED = 5,
+            INSTALL_UNSUSPENDED = 6,
+            PULL_CREATED = 7,
+            PULL_MERGED = 8,
+            PULL_CLOSED = 9,
+            PULL_REOPENED = 10,
+            ISSUE_CREATED = 11,
+            ISSUE_REOPENED = 12,
+            ISSUE_CLOSED = 13
         }
     }
 
@@ -33078,6 +33052,9 @@ export namespace protos {
 
         /** ConnectAuthRequest apiToken */
         apiToken?: (string|null);
+
+        /** ConnectAuthRequest startAt */
+        startAt?: (number|Long|null);
     }
 
     /** Represents a ConnectAuthRequest. */
@@ -33091,6 +33068,9 @@ export namespace protos {
 
         /** ConnectAuthRequest apiToken. */
         public apiToken: string;
+
+        /** ConnectAuthRequest startAt. */
+        public startAt: (number|Long);
 
         /**
          * Creates a new ConnectAuthRequest instance using the specified properties.
@@ -33259,511 +33239,211 @@ export namespace protos {
         public toJSON(): { [k: string]: any };
     }
 
-    /** Properties of a PullRequestCreated. */
-    interface IPullRequestCreated {
+    /** Properties of a PullRequest. */
+    interface IPullRequest {
 
-        /** PullRequestCreated owner */
+        /** PullRequest owner */
         owner?: (string|null);
 
-        /** PullRequestCreated repo */
+        /** PullRequest repo */
         repo?: (string|null);
 
-        /** PullRequestCreated number */
+        /** PullRequest number */
         number?: (number|null);
 
-        /** PullRequestCreated url */
+        /** PullRequest url */
         url?: (string|null);
 
-        /** PullRequestCreated description */
+        /** PullRequest description */
         description?: (string|null);
     }
 
-    /** Represents a PullRequestCreated. */
-    class PullRequestCreated implements IPullRequestCreated {
+    /** Represents a PullRequest. */
+    class PullRequest implements IPullRequest {
 
         /**
-         * Constructs a new PullRequestCreated.
+         * Constructs a new PullRequest.
          * @param [properties] Properties to set
          */
-        constructor(properties?: protos.IPullRequestCreated);
+        constructor(properties?: protos.IPullRequest);
 
-        /** PullRequestCreated owner. */
+        /** PullRequest owner. */
         public owner: string;
 
-        /** PullRequestCreated repo. */
+        /** PullRequest repo. */
         public repo: string;
 
-        /** PullRequestCreated number. */
+        /** PullRequest number. */
         public number: number;
 
-        /** PullRequestCreated url. */
+        /** PullRequest url. */
         public url: string;
 
-        /** PullRequestCreated description. */
+        /** PullRequest description. */
         public description: string;
 
         /**
-         * Creates a new PullRequestCreated instance using the specified properties.
+         * Creates a new PullRequest instance using the specified properties.
          * @param [properties] Properties to set
-         * @returns PullRequestCreated instance
+         * @returns PullRequest instance
          */
-        public static create(properties?: protos.IPullRequestCreated): protos.PullRequestCreated;
+        public static create(properties?: protos.IPullRequest): protos.PullRequest;
 
         /**
-         * Encodes the specified PullRequestCreated message. Does not implicitly {@link protos.PullRequestCreated.verify|verify} messages.
-         * @param message PullRequestCreated message or plain object to encode
+         * Encodes the specified PullRequest message. Does not implicitly {@link protos.PullRequest.verify|verify} messages.
+         * @param message PullRequest message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: protos.IPullRequestCreated, writer?: $protobuf.Writer): $protobuf.Writer;
+        public static encode(message: protos.IPullRequest, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Encodes the specified PullRequestCreated message, length delimited. Does not implicitly {@link protos.PullRequestCreated.verify|verify} messages.
-         * @param message PullRequestCreated message or plain object to encode
+         * Encodes the specified PullRequest message, length delimited. Does not implicitly {@link protos.PullRequest.verify|verify} messages.
+         * @param message PullRequest message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encodeDelimited(message: protos.IPullRequestCreated, writer?: $protobuf.Writer): $protobuf.Writer;
+        public static encodeDelimited(message: protos.IPullRequest, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a PullRequestCreated message from the specified reader or buffer.
+         * Decodes a PullRequest message from the specified reader or buffer.
          * @param reader Reader or buffer to decode from
          * @param [length] Message length if known beforehand
-         * @returns PullRequestCreated
+         * @returns PullRequest
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.PullRequestCreated;
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.PullRequest;
 
         /**
-         * Decodes a PullRequestCreated message from the specified reader or buffer, length delimited.
+         * Decodes a PullRequest message from the specified reader or buffer, length delimited.
          * @param reader Reader or buffer to decode from
-         * @returns PullRequestCreated
+         * @returns PullRequest
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.PullRequestCreated;
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.PullRequest;
 
         /**
-         * Verifies a PullRequestCreated message.
+         * Verifies a PullRequest message.
          * @param message Plain object to verify
          * @returns `null` if valid, otherwise the reason why it is not
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a PullRequestCreated message from a plain object. Also converts values to their respective internal types.
+         * Creates a PullRequest message from a plain object. Also converts values to their respective internal types.
          * @param object Plain object
-         * @returns PullRequestCreated
+         * @returns PullRequest
          */
-        public static fromObject(object: { [k: string]: any }): protos.PullRequestCreated;
+        public static fromObject(object: { [k: string]: any }): protos.PullRequest;
 
         /**
-         * Creates a plain object from a PullRequestCreated message. Also converts values to other types if specified.
-         * @param message PullRequestCreated
+         * Creates a plain object from a PullRequest message. Also converts values to other types if specified.
+         * @param message PullRequest
          * @param [options] Conversion options
          * @returns Plain object
          */
-        public static toObject(message: protos.PullRequestCreated, options?: $protobuf.IConversionOptions): { [k: string]: any };
+        public static toObject(message: protos.PullRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
         /**
-         * Converts this PullRequestCreated to JSON.
+         * Converts this PullRequest to JSON.
          * @returns JSON object
          */
         public toJSON(): { [k: string]: any };
     }
 
-    /** Properties of a PullRequestMerged. */
-    interface IPullRequestMerged {
+    /** Properties of an Install. */
+    interface IInstall {
 
-        /** PullRequestMerged owner */
-        owner?: (string|null);
-
-        /** PullRequestMerged repo */
-        repo?: (string|null);
-
-        /** PullRequestMerged number */
-        number?: (number|null);
-
-        /** PullRequestMerged url */
-        url?: (string|null);
-    }
-
-    /** Represents a PullRequestMerged. */
-    class PullRequestMerged implements IPullRequestMerged {
-
-        /**
-         * Constructs a new PullRequestMerged.
-         * @param [properties] Properties to set
-         */
-        constructor(properties?: protos.IPullRequestMerged);
-
-        /** PullRequestMerged owner. */
-        public owner: string;
-
-        /** PullRequestMerged repo. */
-        public repo: string;
-
-        /** PullRequestMerged number. */
-        public number: number;
-
-        /** PullRequestMerged url. */
-        public url: string;
-
-        /**
-         * Creates a new PullRequestMerged instance using the specified properties.
-         * @param [properties] Properties to set
-         * @returns PullRequestMerged instance
-         */
-        public static create(properties?: protos.IPullRequestMerged): protos.PullRequestMerged;
-
-        /**
-         * Encodes the specified PullRequestMerged message. Does not implicitly {@link protos.PullRequestMerged.verify|verify} messages.
-         * @param message PullRequestMerged message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encode(message: protos.IPullRequestMerged, writer?: $protobuf.Writer): $protobuf.Writer;
-
-        /**
-         * Encodes the specified PullRequestMerged message, length delimited. Does not implicitly {@link protos.PullRequestMerged.verify|verify} messages.
-         * @param message PullRequestMerged message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encodeDelimited(message: protos.IPullRequestMerged, writer?: $protobuf.Writer): $protobuf.Writer;
-
-        /**
-         * Decodes a PullRequestMerged message from the specified reader or buffer.
-         * @param reader Reader or buffer to decode from
-         * @param [length] Message length if known beforehand
-         * @returns PullRequestMerged
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.PullRequestMerged;
-
-        /**
-         * Decodes a PullRequestMerged message from the specified reader or buffer, length delimited.
-         * @param reader Reader or buffer to decode from
-         * @returns PullRequestMerged
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.PullRequestMerged;
-
-        /**
-         * Verifies a PullRequestMerged message.
-         * @param message Plain object to verify
-         * @returns `null` if valid, otherwise the reason why it is not
-         */
-        public static verify(message: { [k: string]: any }): (string|null);
-
-        /**
-         * Creates a PullRequestMerged message from a plain object. Also converts values to their respective internal types.
-         * @param object Plain object
-         * @returns PullRequestMerged
-         */
-        public static fromObject(object: { [k: string]: any }): protos.PullRequestMerged;
-
-        /**
-         * Creates a plain object from a PullRequestMerged message. Also converts values to other types if specified.
-         * @param message PullRequestMerged
-         * @param [options] Conversion options
-         * @returns Plain object
-         */
-        public static toObject(message: protos.PullRequestMerged, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-        /**
-         * Converts this PullRequestMerged to JSON.
-         * @returns JSON object
-         */
-        public toJSON(): { [k: string]: any };
-    }
-
-    /** Properties of an InstallCreated. */
-    interface IInstallCreated {
-
-        /** InstallCreated installId */
+        /** Install installId */
         installId?: (number|Long|null);
 
-        /** InstallCreated accountId */
+        /** Install accountId */
         accountId?: (number|Long|null);
     }
 
-    /** Represents an InstallCreated. */
-    class InstallCreated implements IInstallCreated {
+    /** Represents an Install. */
+    class Install implements IInstall {
 
         /**
-         * Constructs a new InstallCreated.
+         * Constructs a new Install.
          * @param [properties] Properties to set
          */
-        constructor(properties?: protos.IInstallCreated);
+        constructor(properties?: protos.IInstall);
 
-        /** InstallCreated installId. */
+        /** Install installId. */
         public installId: (number|Long);
 
-        /** InstallCreated accountId. */
+        /** Install accountId. */
         public accountId: (number|Long);
 
         /**
-         * Creates a new InstallCreated instance using the specified properties.
+         * Creates a new Install instance using the specified properties.
          * @param [properties] Properties to set
-         * @returns InstallCreated instance
+         * @returns Install instance
          */
-        public static create(properties?: protos.IInstallCreated): protos.InstallCreated;
+        public static create(properties?: protos.IInstall): protos.Install;
 
         /**
-         * Encodes the specified InstallCreated message. Does not implicitly {@link protos.InstallCreated.verify|verify} messages.
-         * @param message InstallCreated message or plain object to encode
+         * Encodes the specified Install message. Does not implicitly {@link protos.Install.verify|verify} messages.
+         * @param message Install message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: protos.IInstallCreated, writer?: $protobuf.Writer): $protobuf.Writer;
+        public static encode(message: protos.IInstall, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Encodes the specified InstallCreated message, length delimited. Does not implicitly {@link protos.InstallCreated.verify|verify} messages.
-         * @param message InstallCreated message or plain object to encode
+         * Encodes the specified Install message, length delimited. Does not implicitly {@link protos.Install.verify|verify} messages.
+         * @param message Install message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encodeDelimited(message: protos.IInstallCreated, writer?: $protobuf.Writer): $protobuf.Writer;
+        public static encodeDelimited(message: protos.IInstall, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes an InstallCreated message from the specified reader or buffer.
+         * Decodes an Install message from the specified reader or buffer.
          * @param reader Reader or buffer to decode from
          * @param [length] Message length if known beforehand
-         * @returns InstallCreated
+         * @returns Install
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.InstallCreated;
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.Install;
 
         /**
-         * Decodes an InstallCreated message from the specified reader or buffer, length delimited.
+         * Decodes an Install message from the specified reader or buffer, length delimited.
          * @param reader Reader or buffer to decode from
-         * @returns InstallCreated
+         * @returns Install
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.InstallCreated;
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.Install;
 
         /**
-         * Verifies an InstallCreated message.
+         * Verifies an Install message.
          * @param message Plain object to verify
          * @returns `null` if valid, otherwise the reason why it is not
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates an InstallCreated message from a plain object. Also converts values to their respective internal types.
+         * Creates an Install message from a plain object. Also converts values to their respective internal types.
          * @param object Plain object
-         * @returns InstallCreated
+         * @returns Install
          */
-        public static fromObject(object: { [k: string]: any }): protos.InstallCreated;
+        public static fromObject(object: { [k: string]: any }): protos.Install;
 
         /**
-         * Creates a plain object from an InstallCreated message. Also converts values to other types if specified.
-         * @param message InstallCreated
+         * Creates a plain object from an Install message. Also converts values to other types if specified.
+         * @param message Install
          * @param [options] Conversion options
          * @returns Plain object
          */
-        public static toObject(message: protos.InstallCreated, options?: $protobuf.IConversionOptions): { [k: string]: any };
+        public static toObject(message: protos.Install, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
         /**
-         * Converts this InstallCreated to JSON.
-         * @returns JSON object
-         */
-        public toJSON(): { [k: string]: any };
-    }
-
-    /** Properties of an InstallUpdated. */
-    interface IInstallUpdated {
-
-        /** InstallUpdated installId */
-        installId?: (number|Long|null);
-
-        /** InstallUpdated accountId */
-        accountId?: (number|Long|null);
-    }
-
-    /** Represents an InstallUpdated. */
-    class InstallUpdated implements IInstallUpdated {
-
-        /**
-         * Constructs a new InstallUpdated.
-         * @param [properties] Properties to set
-         */
-        constructor(properties?: protos.IInstallUpdated);
-
-        /** InstallUpdated installId. */
-        public installId: (number|Long);
-
-        /** InstallUpdated accountId. */
-        public accountId: (number|Long);
-
-        /**
-         * Creates a new InstallUpdated instance using the specified properties.
-         * @param [properties] Properties to set
-         * @returns InstallUpdated instance
-         */
-        public static create(properties?: protos.IInstallUpdated): protos.InstallUpdated;
-
-        /**
-         * Encodes the specified InstallUpdated message. Does not implicitly {@link protos.InstallUpdated.verify|verify} messages.
-         * @param message InstallUpdated message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encode(message: protos.IInstallUpdated, writer?: $protobuf.Writer): $protobuf.Writer;
-
-        /**
-         * Encodes the specified InstallUpdated message, length delimited. Does not implicitly {@link protos.InstallUpdated.verify|verify} messages.
-         * @param message InstallUpdated message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encodeDelimited(message: protos.IInstallUpdated, writer?: $protobuf.Writer): $protobuf.Writer;
-
-        /**
-         * Decodes an InstallUpdated message from the specified reader or buffer.
-         * @param reader Reader or buffer to decode from
-         * @param [length] Message length if known beforehand
-         * @returns InstallUpdated
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.InstallUpdated;
-
-        /**
-         * Decodes an InstallUpdated message from the specified reader or buffer, length delimited.
-         * @param reader Reader or buffer to decode from
-         * @returns InstallUpdated
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.InstallUpdated;
-
-        /**
-         * Verifies an InstallUpdated message.
-         * @param message Plain object to verify
-         * @returns `null` if valid, otherwise the reason why it is not
-         */
-        public static verify(message: { [k: string]: any }): (string|null);
-
-        /**
-         * Creates an InstallUpdated message from a plain object. Also converts values to their respective internal types.
-         * @param object Plain object
-         * @returns InstallUpdated
-         */
-        public static fromObject(object: { [k: string]: any }): protos.InstallUpdated;
-
-        /**
-         * Creates a plain object from an InstallUpdated message. Also converts values to other types if specified.
-         * @param message InstallUpdated
-         * @param [options] Conversion options
-         * @returns Plain object
-         */
-        public static toObject(message: protos.InstallUpdated, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-        /**
-         * Converts this InstallUpdated to JSON.
-         * @returns JSON object
-         */
-        public toJSON(): { [k: string]: any };
-    }
-
-    /** Properties of an InstallDeleted. */
-    interface IInstallDeleted {
-
-        /** InstallDeleted installId */
-        installId?: (number|Long|null);
-
-        /** InstallDeleted accountId */
-        accountId?: (number|Long|null);
-    }
-
-    /** Represents an InstallDeleted. */
-    class InstallDeleted implements IInstallDeleted {
-
-        /**
-         * Constructs a new InstallDeleted.
-         * @param [properties] Properties to set
-         */
-        constructor(properties?: protos.IInstallDeleted);
-
-        /** InstallDeleted installId. */
-        public installId: (number|Long);
-
-        /** InstallDeleted accountId. */
-        public accountId: (number|Long);
-
-        /**
-         * Creates a new InstallDeleted instance using the specified properties.
-         * @param [properties] Properties to set
-         * @returns InstallDeleted instance
-         */
-        public static create(properties?: protos.IInstallDeleted): protos.InstallDeleted;
-
-        /**
-         * Encodes the specified InstallDeleted message. Does not implicitly {@link protos.InstallDeleted.verify|verify} messages.
-         * @param message InstallDeleted message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encode(message: protos.IInstallDeleted, writer?: $protobuf.Writer): $protobuf.Writer;
-
-        /**
-         * Encodes the specified InstallDeleted message, length delimited. Does not implicitly {@link protos.InstallDeleted.verify|verify} messages.
-         * @param message InstallDeleted message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encodeDelimited(message: protos.IInstallDeleted, writer?: $protobuf.Writer): $protobuf.Writer;
-
-        /**
-         * Decodes an InstallDeleted message from the specified reader or buffer.
-         * @param reader Reader or buffer to decode from
-         * @param [length] Message length if known beforehand
-         * @returns InstallDeleted
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.InstallDeleted;
-
-        /**
-         * Decodes an InstallDeleted message from the specified reader or buffer, length delimited.
-         * @param reader Reader or buffer to decode from
-         * @returns InstallDeleted
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.InstallDeleted;
-
-        /**
-         * Verifies an InstallDeleted message.
-         * @param message Plain object to verify
-         * @returns `null` if valid, otherwise the reason why it is not
-         */
-        public static verify(message: { [k: string]: any }): (string|null);
-
-        /**
-         * Creates an InstallDeleted message from a plain object. Also converts values to their respective internal types.
-         * @param object Plain object
-         * @returns InstallDeleted
-         */
-        public static fromObject(object: { [k: string]: any }): protos.InstallDeleted;
-
-        /**
-         * Creates a plain object from an InstallDeleted message. Also converts values to other types if specified.
-         * @param message InstallDeleted
-         * @param [options] Conversion options
-         * @returns Plain object
-         */
-        public static toObject(message: protos.InstallDeleted, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-        /**
-         * Converts this InstallDeleted to JSON.
+         * Converts this Install to JSON.
          * @returns JSON object
          */
         public toJSON(): { [k: string]: any };
@@ -33859,343 +33539,115 @@ export namespace protos {
         public toJSON(): { [k: string]: any };
     }
 
-    /** Properties of an IssueCreated. */
-    interface IIssueCreated {
+    /** Properties of an Issue. */
+    interface IIssue {
 
-        /** IssueCreated owner */
+        /** Issue owner */
         owner?: (string|null);
 
-        /** IssueCreated repo */
+        /** Issue repo */
         repo?: (string|null);
 
-        /** IssueCreated number */
+        /** Issue number */
         number?: (number|null);
 
-        /** IssueCreated url */
+        /** Issue url */
         url?: (string|null);
 
-        /** IssueCreated description */
+        /** Issue description */
         description?: (string|null);
     }
 
-    /** Represents an IssueCreated. */
-    class IssueCreated implements IIssueCreated {
+    /** Represents an Issue. */
+    class Issue implements IIssue {
 
         /**
-         * Constructs a new IssueCreated.
+         * Constructs a new Issue.
          * @param [properties] Properties to set
          */
-        constructor(properties?: protos.IIssueCreated);
+        constructor(properties?: protos.IIssue);
 
-        /** IssueCreated owner. */
+        /** Issue owner. */
         public owner: string;
 
-        /** IssueCreated repo. */
+        /** Issue repo. */
         public repo: string;
 
-        /** IssueCreated number. */
+        /** Issue number. */
         public number: number;
 
-        /** IssueCreated url. */
+        /** Issue url. */
         public url: string;
 
-        /** IssueCreated description. */
+        /** Issue description. */
         public description: string;
 
         /**
-         * Creates a new IssueCreated instance using the specified properties.
+         * Creates a new Issue instance using the specified properties.
          * @param [properties] Properties to set
-         * @returns IssueCreated instance
+         * @returns Issue instance
          */
-        public static create(properties?: protos.IIssueCreated): protos.IssueCreated;
+        public static create(properties?: protos.IIssue): protos.Issue;
 
         /**
-         * Encodes the specified IssueCreated message. Does not implicitly {@link protos.IssueCreated.verify|verify} messages.
-         * @param message IssueCreated message or plain object to encode
+         * Encodes the specified Issue message. Does not implicitly {@link protos.Issue.verify|verify} messages.
+         * @param message Issue message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: protos.IIssueCreated, writer?: $protobuf.Writer): $protobuf.Writer;
+        public static encode(message: protos.IIssue, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Encodes the specified IssueCreated message, length delimited. Does not implicitly {@link protos.IssueCreated.verify|verify} messages.
-         * @param message IssueCreated message or plain object to encode
+         * Encodes the specified Issue message, length delimited. Does not implicitly {@link protos.Issue.verify|verify} messages.
+         * @param message Issue message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encodeDelimited(message: protos.IIssueCreated, writer?: $protobuf.Writer): $protobuf.Writer;
+        public static encodeDelimited(message: protos.IIssue, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes an IssueCreated message from the specified reader or buffer.
+         * Decodes an Issue message from the specified reader or buffer.
          * @param reader Reader or buffer to decode from
          * @param [length] Message length if known beforehand
-         * @returns IssueCreated
+         * @returns Issue
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.IssueCreated;
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.Issue;
 
         /**
-         * Decodes an IssueCreated message from the specified reader or buffer, length delimited.
+         * Decodes an Issue message from the specified reader or buffer, length delimited.
          * @param reader Reader or buffer to decode from
-         * @returns IssueCreated
+         * @returns Issue
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.IssueCreated;
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.Issue;
 
         /**
-         * Verifies an IssueCreated message.
+         * Verifies an Issue message.
          * @param message Plain object to verify
          * @returns `null` if valid, otherwise the reason why it is not
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates an IssueCreated message from a plain object. Also converts values to their respective internal types.
+         * Creates an Issue message from a plain object. Also converts values to their respective internal types.
          * @param object Plain object
-         * @returns IssueCreated
+         * @returns Issue
          */
-        public static fromObject(object: { [k: string]: any }): protos.IssueCreated;
+        public static fromObject(object: { [k: string]: any }): protos.Issue;
 
         /**
-         * Creates a plain object from an IssueCreated message. Also converts values to other types if specified.
-         * @param message IssueCreated
+         * Creates a plain object from an Issue message. Also converts values to other types if specified.
+         * @param message Issue
          * @param [options] Conversion options
          * @returns Plain object
          */
-        public static toObject(message: protos.IssueCreated, options?: $protobuf.IConversionOptions): { [k: string]: any };
+        public static toObject(message: protos.Issue, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
         /**
-         * Converts this IssueCreated to JSON.
-         * @returns JSON object
-         */
-        public toJSON(): { [k: string]: any };
-    }
-
-    /** Properties of an IssueReopened. */
-    interface IIssueReopened {
-
-        /** IssueReopened owner */
-        owner?: (string|null);
-
-        /** IssueReopened repo */
-        repo?: (string|null);
-
-        /** IssueReopened number */
-        number?: (number|null);
-
-        /** IssueReopened url */
-        url?: (string|null);
-
-        /** IssueReopened description */
-        description?: (string|null);
-    }
-
-    /** Represents an IssueReopened. */
-    class IssueReopened implements IIssueReopened {
-
-        /**
-         * Constructs a new IssueReopened.
-         * @param [properties] Properties to set
-         */
-        constructor(properties?: protos.IIssueReopened);
-
-        /** IssueReopened owner. */
-        public owner: string;
-
-        /** IssueReopened repo. */
-        public repo: string;
-
-        /** IssueReopened number. */
-        public number: number;
-
-        /** IssueReopened url. */
-        public url: string;
-
-        /** IssueReopened description. */
-        public description: string;
-
-        /**
-         * Creates a new IssueReopened instance using the specified properties.
-         * @param [properties] Properties to set
-         * @returns IssueReopened instance
-         */
-        public static create(properties?: protos.IIssueReopened): protos.IssueReopened;
-
-        /**
-         * Encodes the specified IssueReopened message. Does not implicitly {@link protos.IssueReopened.verify|verify} messages.
-         * @param message IssueReopened message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encode(message: protos.IIssueReopened, writer?: $protobuf.Writer): $protobuf.Writer;
-
-        /**
-         * Encodes the specified IssueReopened message, length delimited. Does not implicitly {@link protos.IssueReopened.verify|verify} messages.
-         * @param message IssueReopened message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encodeDelimited(message: protos.IIssueReopened, writer?: $protobuf.Writer): $protobuf.Writer;
-
-        /**
-         * Decodes an IssueReopened message from the specified reader or buffer.
-         * @param reader Reader or buffer to decode from
-         * @param [length] Message length if known beforehand
-         * @returns IssueReopened
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.IssueReopened;
-
-        /**
-         * Decodes an IssueReopened message from the specified reader or buffer, length delimited.
-         * @param reader Reader or buffer to decode from
-         * @returns IssueReopened
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.IssueReopened;
-
-        /**
-         * Verifies an IssueReopened message.
-         * @param message Plain object to verify
-         * @returns `null` if valid, otherwise the reason why it is not
-         */
-        public static verify(message: { [k: string]: any }): (string|null);
-
-        /**
-         * Creates an IssueReopened message from a plain object. Also converts values to their respective internal types.
-         * @param object Plain object
-         * @returns IssueReopened
-         */
-        public static fromObject(object: { [k: string]: any }): protos.IssueReopened;
-
-        /**
-         * Creates a plain object from an IssueReopened message. Also converts values to other types if specified.
-         * @param message IssueReopened
-         * @param [options] Conversion options
-         * @returns Plain object
-         */
-        public static toObject(message: protos.IssueReopened, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-        /**
-         * Converts this IssueReopened to JSON.
-         * @returns JSON object
-         */
-        public toJSON(): { [k: string]: any };
-    }
-
-    /** Properties of an IssueClosed. */
-    interface IIssueClosed {
-
-        /** IssueClosed owner */
-        owner?: (string|null);
-
-        /** IssueClosed repo */
-        repo?: (string|null);
-
-        /** IssueClosed number */
-        number?: (number|null);
-
-        /** IssueClosed url */
-        url?: (string|null);
-
-        /** IssueClosed description */
-        description?: (string|null);
-    }
-
-    /** Represents an IssueClosed. */
-    class IssueClosed implements IIssueClosed {
-
-        /**
-         * Constructs a new IssueClosed.
-         * @param [properties] Properties to set
-         */
-        constructor(properties?: protos.IIssueClosed);
-
-        /** IssueClosed owner. */
-        public owner: string;
-
-        /** IssueClosed repo. */
-        public repo: string;
-
-        /** IssueClosed number. */
-        public number: number;
-
-        /** IssueClosed url. */
-        public url: string;
-
-        /** IssueClosed description. */
-        public description: string;
-
-        /**
-         * Creates a new IssueClosed instance using the specified properties.
-         * @param [properties] Properties to set
-         * @returns IssueClosed instance
-         */
-        public static create(properties?: protos.IIssueClosed): protos.IssueClosed;
-
-        /**
-         * Encodes the specified IssueClosed message. Does not implicitly {@link protos.IssueClosed.verify|verify} messages.
-         * @param message IssueClosed message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encode(message: protos.IIssueClosed, writer?: $protobuf.Writer): $protobuf.Writer;
-
-        /**
-         * Encodes the specified IssueClosed message, length delimited. Does not implicitly {@link protos.IssueClosed.verify|verify} messages.
-         * @param message IssueClosed message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encodeDelimited(message: protos.IIssueClosed, writer?: $protobuf.Writer): $protobuf.Writer;
-
-        /**
-         * Decodes an IssueClosed message from the specified reader or buffer.
-         * @param reader Reader or buffer to decode from
-         * @param [length] Message length if known beforehand
-         * @returns IssueClosed
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.IssueClosed;
-
-        /**
-         * Decodes an IssueClosed message from the specified reader or buffer, length delimited.
-         * @param reader Reader or buffer to decode from
-         * @returns IssueClosed
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.IssueClosed;
-
-        /**
-         * Verifies an IssueClosed message.
-         * @param message Plain object to verify
-         * @returns `null` if valid, otherwise the reason why it is not
-         */
-        public static verify(message: { [k: string]: any }): (string|null);
-
-        /**
-         * Creates an IssueClosed message from a plain object. Also converts values to their respective internal types.
-         * @param object Plain object
-         * @returns IssueClosed
-         */
-        public static fromObject(object: { [k: string]: any }): protos.IssueClosed;
-
-        /**
-         * Creates a plain object from an IssueClosed message. Also converts values to other types if specified.
-         * @param message IssueClosed
-         * @param [options] Conversion options
-         * @returns Plain object
-         */
-        public static toObject(message: protos.IssueClosed, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-        /**
-         * Converts this IssueClosed to JSON.
+         * Converts this Issue to JSON.
          * @returns JSON object
          */
         public toJSON(): { [k: string]: any };

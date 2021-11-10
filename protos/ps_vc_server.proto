@@ -49,24 +49,25 @@ message GithubEvent {
     INSTALL_CREATED = 1;
     INSTALL_UPDATED = 2;
     INSTALL_DELETED = 3;
-    PULL_CREATED = 4;
-    PULL_MERGED = 5;
-    ISSUE_CREATED = 6;
-    ISSUE_REOPENED = 7;
-    ISSUE_CLOSED = 8;
+    INSTALL_SUSPENDED = 5;
+    INSTALL_UNSUSPENDED = 6;
+
+    PULL_CREATED = 7;
+    PULL_MERGED = 8;
+    PULL_CLOSED = 9;
+    PULL_REOPENED = 10;
+
+    ISSUE_CREATED = 11;
+    ISSUE_REOPENED = 12;
+    ISSUE_CLOSED = 13;
   }
 
   Type type = 1;
 
   oneof payload {
-    InstallCreated install_created = 100;
-    InstallUpdated install_updated = 101;
-    InstallDeleted install_deleted = 102;
-    PullRequestCreated pr_created = 103;
-    PullRequestMerged pr_merged = 104;
-    IssueCreated issue_created = 105;
-    IssueReopened issue_reopened = 106;
-    IssueClosed issue_closed = 107;
+    Install install = 100;
+    PullRequest pull_request = 101;
+    Issue issue = 102;
   }
 }
 
@@ -74,6 +75,9 @@ message GithubEvent {
 message ConnectAuthRequest {
   // JWT token returned during install process
   string api_token = 1;
+
+  // unix timestamp. VC-service will pull all events from the database starting at this timestamp
+  int64 start_at = 2;
 }
 
 // AuthResponse is sent by github-service and received by plumber VCServiceServer.Connect()
@@ -84,7 +88,7 @@ message AuthResponse {
 
 // Sent by github-service and received by plumber
 // Sent by plumber, received by UI
-message PullRequestCreated {
+message PullRequest {
   string owner = 1;
   string repo = 2;
   int32 number = 3;
@@ -94,30 +98,7 @@ message PullRequestCreated {
 
 // Sent by github-service and received by plumber
 // Sent by plumber, received by UI
-message PullRequestMerged {
-  string owner = 1;
-  string repo = 2;
-  int32 number = 3;
-  string url = 4;
-}
-
-// Sent by github-service and received by plumber
-// Sent by plumber, received by UI
-message InstallCreated {
-  int64 install_id = 1;
-  int64 account_id = 2;
-}
-
-// Sent by github-service and received by plumber
-// Sent by plumber, received by UI
-message InstallUpdated {
-  int64 install_id = 1;
-  int64 account_id = 2;
-}
-
-// Sent by github-service and received by plumber
-// Sent by plumber, received by UI
-message InstallDeleted {
+message Install {
   int64 install_id = 1;
   int64 account_id = 2;
 }
@@ -126,23 +107,7 @@ message NewJwtToken {
   string token = 1;
 }
 
-message IssueCreated {
-  string owner = 1;
-  string repo = 2;
-  int32 number = 3;
-  string url = 4;
-  string description = 5;
-}
-
-message IssueReopened {
-  string owner = 1;
-  string repo = 2;
-  int32 number = 3;
-  string url = 4;
-  string description = 5;
-}
-
-message IssueClosed {
+message Issue {
   string owner = 1;
   string repo = 2;
   int32 number = 3;
