@@ -15,6 +15,7 @@ import "ps_monitor.proto";
 import "ps_alert.proto";
 import "ps_schema_validation.proto";
 import "ps_stats.proto";
+import "ps_composite.proto";
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
 
@@ -152,6 +153,18 @@ service PlumberServer {
     rpc DeleteAlert(DeleteAlertRequest) returns (DeleteAlertResponse);
 
     rpc UpdateAlert(UpdateAlertRequest) returns (UpdateAlertResponse);
+
+    // -------------------- Composite views --------------------
+
+    rpc GetAllComposites(GetAllCompositesRequest) returns (GetAllCompositesResponse);
+
+    rpc GetComposite(GetCompositeRequest) returns (GetCompositeResponse);
+
+    rpc CreateComposite(CreateCompositeRequest) returns (CreateCompositeResponse);
+
+    rpc UpdateComposite(UpdateCompositeRequest) returns (UpdateCompositeResponse);
+
+    rpc DeleteComposite(DeleteCompositeRequest) returns (DeleteCompositeResponse);
 
     // -------------------- Schema validations --------------------
 

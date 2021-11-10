@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package protos.opts;
+
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/opts";
+
+message Composite {
+    string _id = 1;
+
+    repeated string read_ids = 2;
+
+    // TODO: what else do we need here?
+}
