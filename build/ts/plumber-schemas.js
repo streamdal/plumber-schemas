@@ -37317,10 +37317,10 @@ $root.protos = (function() {
              * @interface IAWSSQSReadArgs
              * @property {string|null} [queueName] AWSSQSReadArgs queueName
              * @property {string|null} [remoteAccountId] AWSSQSReadArgs remoteAccountId
-             * @property {number|null} [maxNumMessages] AWSSQSReadArgs maxNumMessages
+             * @property {number|Long|null} [maxNumMessages] AWSSQSReadArgs maxNumMessages
              * @property {string|null} [receiveRequestAttemptId] AWSSQSReadArgs receiveRequestAttemptId
              * @property {boolean|null} [autoDelete] AWSSQSReadArgs autoDelete
-             * @property {number|null} [waitTimeSeconds] AWSSQSReadArgs waitTimeSeconds
+             * @property {number|Long|null} [waitTimeSeconds] AWSSQSReadArgs waitTimeSeconds
              */
 
             /**
@@ -37356,11 +37356,11 @@ $root.protos = (function() {
 
             /**
              * AWSSQSReadArgs maxNumMessages.
-             * @member {number} maxNumMessages
+             * @member {number|Long} maxNumMessages
              * @memberof protos.args.AWSSQSReadArgs
              * @instance
              */
-            AWSSQSReadArgs.prototype.maxNumMessages = 0;
+            AWSSQSReadArgs.prototype.maxNumMessages = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
 
             /**
              * AWSSQSReadArgs receiveRequestAttemptId.
@@ -37380,11 +37380,11 @@ $root.protos = (function() {
 
             /**
              * AWSSQSReadArgs waitTimeSeconds.
-             * @member {number} waitTimeSeconds
+             * @member {number|Long} waitTimeSeconds
              * @memberof protos.args.AWSSQSReadArgs
              * @instance
              */
-            AWSSQSReadArgs.prototype.waitTimeSeconds = 0;
+            AWSSQSReadArgs.prototype.waitTimeSeconds = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
 
             /**
              * Creates a new AWSSQSReadArgs instance using the specified properties.
@@ -37415,13 +37415,13 @@ $root.protos = (function() {
                 if (message.remoteAccountId != null && Object.hasOwnProperty.call(message, "remoteAccountId"))
                     writer.uint32(/* id 2, wireType 2 =*/18).string(message.remoteAccountId);
                 if (message.maxNumMessages != null && Object.hasOwnProperty.call(message, "maxNumMessages"))
-                    writer.uint32(/* id 3, wireType 0 =*/24).uint32(message.maxNumMessages);
+                    writer.uint32(/* id 3, wireType 0 =*/24).int64(message.maxNumMessages);
                 if (message.receiveRequestAttemptId != null && Object.hasOwnProperty.call(message, "receiveRequestAttemptId"))
                     writer.uint32(/* id 4, wireType 2 =*/34).string(message.receiveRequestAttemptId);
                 if (message.autoDelete != null && Object.hasOwnProperty.call(message, "autoDelete"))
                     writer.uint32(/* id 5, wireType 0 =*/40).bool(message.autoDelete);
                 if (message.waitTimeSeconds != null && Object.hasOwnProperty.call(message, "waitTimeSeconds"))
-                    writer.uint32(/* id 6, wireType 0 =*/48).uint32(message.waitTimeSeconds);
+                    writer.uint32(/* id 6, wireType 0 =*/48).int64(message.waitTimeSeconds);
                 return writer;
             };
 
@@ -37463,7 +37463,7 @@ $root.protos = (function() {
                         message.remoteAccountId = reader.string();
                         break;
                     case 3:
-                        message.maxNumMessages = reader.uint32();
+                        message.maxNumMessages = reader.int64();
                         break;
                     case 4:
                         message.receiveRequestAttemptId = reader.string();
@@ -37472,7 +37472,7 @@ $root.protos = (function() {
                         message.autoDelete = reader.bool();
                         break;
                     case 6:
-                        message.waitTimeSeconds = reader.uint32();
+                        message.waitTimeSeconds = reader.int64();
                         break;
                     default:
                         reader.skipType(tag & 7);
@@ -37516,8 +37516,8 @@ $root.protos = (function() {
                     if (!$util.isString(message.remoteAccountId))
                         return "remoteAccountId: string expected";
                 if (message.maxNumMessages != null && message.hasOwnProperty("maxNumMessages"))
-                    if (!$util.isInteger(message.maxNumMessages))
-                        return "maxNumMessages: integer expected";
+                    if (!$util.isInteger(message.maxNumMessages) && !(message.maxNumMessages && $util.isInteger(message.maxNumMessages.low) && $util.isInteger(message.maxNumMessages.high)))
+                        return "maxNumMessages: integer|Long expected";
                 if (message.receiveRequestAttemptId != null && message.hasOwnProperty("receiveRequestAttemptId"))
                     if (!$util.isString(message.receiveRequestAttemptId))
                         return "receiveRequestAttemptId: string expected";
@@ -37525,8 +37525,8 @@ $root.protos = (function() {
                     if (typeof message.autoDelete !== "boolean")
                         return "autoDelete: boolean expected";
                 if (message.waitTimeSeconds != null && message.hasOwnProperty("waitTimeSeconds"))
-                    if (!$util.isInteger(message.waitTimeSeconds))
-                        return "waitTimeSeconds: integer expected";
+                    if (!$util.isInteger(message.waitTimeSeconds) && !(message.waitTimeSeconds && $util.isInteger(message.waitTimeSeconds.low) && $util.isInteger(message.waitTimeSeconds.high)))
+                        return "waitTimeSeconds: integer|Long expected";
                 return null;
             };
 
@@ -37547,13 +37547,27 @@ $root.protos = (function() {
                 if (object.remoteAccountId != null)
                     message.remoteAccountId = String(object.remoteAccountId);
                 if (object.maxNumMessages != null)
-                    message.maxNumMessages = object.maxNumMessages >>> 0;
+                    if ($util.Long)
+                        (message.maxNumMessages = $util.Long.fromValue(object.maxNumMessages)).unsigned = false;
+                    else if (typeof object.maxNumMessages === "string")
+                        message.maxNumMessages = parseInt(object.maxNumMessages, 10);
+                    else if (typeof object.maxNumMessages === "number")
+                        message.maxNumMessages = object.maxNumMessages;
+                    else if (typeof object.maxNumMessages === "object")
+                        message.maxNumMessages = new $util.LongBits(object.maxNumMessages.low >>> 0, object.maxNumMessages.high >>> 0).toNumber();
                 if (object.receiveRequestAttemptId != null)
                     message.receiveRequestAttemptId = String(object.receiveRequestAttemptId);
                 if (object.autoDelete != null)
                     message.autoDelete = Boolean(object.autoDelete);
                 if (object.waitTimeSeconds != null)
-                    message.waitTimeSeconds = object.waitTimeSeconds >>> 0;
+                    if ($util.Long)
+                        (message.waitTimeSeconds = $util.Long.fromValue(object.waitTimeSeconds)).unsigned = false;
+                    else if (typeof object.waitTimeSeconds === "string")
+                        message.waitTimeSeconds = parseInt(object.waitTimeSeconds, 10);
+                    else if (typeof object.waitTimeSeconds === "number")
+                        message.waitTimeSeconds = object.waitTimeSeconds;
+                    else if (typeof object.waitTimeSeconds === "object")
+                        message.waitTimeSeconds = new $util.LongBits(object.waitTimeSeconds.low >>> 0, object.waitTimeSeconds.high >>> 0).toNumber();
                 return message;
             };
 
@@ -37573,23 +37587,37 @@ $root.protos = (function() {
                 if (options.defaults) {
                     object.queueName = "";
                     object.remoteAccountId = "";
-                    object.maxNumMessages = 0;
+                    if ($util.Long) {
+                        var long = new $util.Long(0, 0, false);
+                        object.maxNumMessages = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                    } else
+                        object.maxNumMessages = options.longs === String ? "0" : 0;
                     object.receiveRequestAttemptId = "";
                     object.autoDelete = false;
-                    object.waitTimeSeconds = 0;
+                    if ($util.Long) {
+                        var long = new $util.Long(0, 0, false);
+                        object.waitTimeSeconds = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                    } else
+                        object.waitTimeSeconds = options.longs === String ? "0" : 0;
                 }
                 if (message.queueName != null && message.hasOwnProperty("queueName"))
                     object.queueName = message.queueName;
                 if (message.remoteAccountId != null && message.hasOwnProperty("remoteAccountId"))
                     object.remoteAccountId = message.remoteAccountId;
                 if (message.maxNumMessages != null && message.hasOwnProperty("maxNumMessages"))
-                    object.maxNumMessages = message.maxNumMessages;
+                    if (typeof message.maxNumMessages === "number")
+                        object.maxNumMessages = options.longs === String ? String(message.maxNumMessages) : message.maxNumMessages;
+                    else
+                        object.maxNumMessages = options.longs === String ? $util.Long.prototype.toString.call(message.maxNumMessages) : options.longs === Number ? new $util.LongBits(message.maxNumMessages.low >>> 0, message.maxNumMessages.high >>> 0).toNumber() : message.maxNumMessages;
                 if (message.receiveRequestAttemptId != null && message.hasOwnProperty("receiveRequestAttemptId"))
                     object.receiveRequestAttemptId = message.receiveRequestAttemptId;
                 if (message.autoDelete != null && message.hasOwnProperty("autoDelete"))
                     object.autoDelete = message.autoDelete;
                 if (message.waitTimeSeconds != null && message.hasOwnProperty("waitTimeSeconds"))
-                    object.waitTimeSeconds = message.waitTimeSeconds;
+                    if (typeof message.waitTimeSeconds === "number")
+                        object.waitTimeSeconds = options.longs === String ? String(message.waitTimeSeconds) : message.waitTimeSeconds;
+                    else
+                        object.waitTimeSeconds = options.longs === String ? $util.Long.prototype.toString.call(message.waitTimeSeconds) : options.longs === Number ? new $util.LongBits(message.waitTimeSeconds.low >>> 0, message.waitTimeSeconds.high >>> 0).toNumber() : message.waitTimeSeconds;
                 return object;
             };
 
@@ -37615,7 +37643,7 @@ $root.protos = (function() {
              * @interface IAWSSQSWriteArgs
              * @property {string|null} [queueName] AWSSQSWriteArgs queueName
              * @property {string|null} [remoteAccountId] AWSSQSWriteArgs remoteAccountId
-             * @property {number|null} [delaySeconds] AWSSQSWriteArgs delaySeconds
+             * @property {number|Long|null} [delaySeconds] AWSSQSWriteArgs delaySeconds
              * @property {Object.<string,string>|null} [attributes] AWSSQSWriteArgs attributes
              * @property {string|null} [messageGroupId] AWSSQSWriteArgs messageGroupId
              * @property {string|null} [messageDeduplicationId] AWSSQSWriteArgs messageDeduplicationId
@@ -37655,11 +37683,11 @@ $root.protos = (function() {
 
             /**
              * AWSSQSWriteArgs delaySeconds.
-             * @member {number} delaySeconds
+             * @member {number|Long} delaySeconds
              * @memberof protos.args.AWSSQSWriteArgs
              * @instance
              */
-            AWSSQSWriteArgs.prototype.delaySeconds = 0;
+            AWSSQSWriteArgs.prototype.delaySeconds = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
 
             /**
              * AWSSQSWriteArgs attributes.
@@ -37714,7 +37742,7 @@ $root.protos = (function() {
                 if (message.remoteAccountId != null && Object.hasOwnProperty.call(message, "remoteAccountId"))
                     writer.uint32(/* id 2, wireType 2 =*/18).string(message.remoteAccountId);
                 if (message.delaySeconds != null && Object.hasOwnProperty.call(message, "delaySeconds"))
-                    writer.uint32(/* id 3, wireType 0 =*/24).uint32(message.delaySeconds);
+                    writer.uint32(/* id 3, wireType 0 =*/24).int64(message.delaySeconds);
                 if (message.attributes != null && Object.hasOwnProperty.call(message, "attributes"))
                     for (var keys = Object.keys(message.attributes), i = 0; i < keys.length; ++i)
                         writer.uint32(/* id 4, wireType 2 =*/34).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]).uint32(/* id 2, wireType 2 =*/18).string(message.attributes[keys[i]]).ldelim();
@@ -37763,7 +37791,7 @@ $root.protos = (function() {
                         message.remoteAccountId = reader.string();
                         break;
                     case 3:
-                        message.delaySeconds = reader.uint32();
+                        message.delaySeconds = reader.int64();
                         break;
                     case 4:
                         if (message.attributes === $util.emptyObject)
@@ -37835,8 +37863,8 @@ $root.protos = (function() {
                     if (!$util.isString(message.remoteAccountId))
                         return "remoteAccountId: string expected";
                 if (message.delaySeconds != null && message.hasOwnProperty("delaySeconds"))
-                    if (!$util.isInteger(message.delaySeconds))
-                        return "delaySeconds: integer expected";
+                    if (!$util.isInteger(message.delaySeconds) && !(message.delaySeconds && $util.isInteger(message.delaySeconds.low) && $util.isInteger(message.delaySeconds.high)))
+                        return "delaySeconds: integer|Long expected";
                 if (message.attributes != null && message.hasOwnProperty("attributes")) {
                     if (!$util.isObject(message.attributes))
                         return "attributes: object expected";
@@ -37871,7 +37899,14 @@ $root.protos = (function() {
                 if (object.remoteAccountId != null)
                     message.remoteAccountId = String(object.remoteAccountId);
                 if (object.delaySeconds != null)
-                    message.delaySeconds = object.delaySeconds >>> 0;
+                    if ($util.Long)
+                        (message.delaySeconds = $util.Long.fromValue(object.delaySeconds)).unsigned = false;
+                    else if (typeof object.delaySeconds === "string")
+                        message.delaySeconds = parseInt(object.delaySeconds, 10);
+                    else if (typeof object.delaySeconds === "number")
+                        message.delaySeconds = object.delaySeconds;
+                    else if (typeof object.delaySeconds === "object")
+                        message.delaySeconds = new $util.LongBits(object.delaySeconds.low >>> 0, object.delaySeconds.high >>> 0).toNumber();
                 if (object.attributes) {
                     if (typeof object.attributes !== "object")
                         throw TypeError(".protos.args.AWSSQSWriteArgs.attributes: object expected");
@@ -37904,7 +37939,11 @@ $root.protos = (function() {
                 if (options.defaults) {
                     object.queueName = "";
                     object.remoteAccountId = "";
-                    object.delaySeconds = 0;
+                    if ($util.Long) {
+                        var long = new $util.Long(0, 0, false);
+                        object.delaySeconds = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                    } else
+                        object.delaySeconds = options.longs === String ? "0" : 0;
                     object.messageGroupId = "";
                     object.messageDeduplicationId = "";
                 }
@@ -37913,7 +37952,10 @@ $root.protos = (function() {
                 if (message.remoteAccountId != null && message.hasOwnProperty("remoteAccountId"))
                     object.remoteAccountId = message.remoteAccountId;
                 if (message.delaySeconds != null && message.hasOwnProperty("delaySeconds"))
-                    object.delaySeconds = message.delaySeconds;
+                    if (typeof message.delaySeconds === "number")
+                        object.delaySeconds = options.longs === String ? String(message.delaySeconds) : message.delaySeconds;
+                    else
+                        object.delaySeconds = options.longs === String ? $util.Long.prototype.toString.call(message.delaySeconds) : options.longs === Number ? new $util.LongBits(message.delaySeconds.low >>> 0, message.delaySeconds.high >>> 0).toNumber() : message.delaySeconds;
                 var keys2;
                 if (message.attributes && (keys2 = Object.keys(message.attributes)).length) {
                     object.attributes = {};
@@ -37949,10 +37991,10 @@ $root.protos = (function() {
              * @interface IAWSSQSRelayArgs
              * @property {string|null} [queueName] AWSSQSRelayArgs queueName
              * @property {string|null} [remoteAccountId] AWSSQSRelayArgs remoteAccountId
-             * @property {number|null} [maxNumMessages] AWSSQSRelayArgs maxNumMessages
+             * @property {number|Long|null} [maxNumMessages] AWSSQSRelayArgs maxNumMessages
              * @property {string|null} [receiveRequestAttemptId] AWSSQSRelayArgs receiveRequestAttemptId
              * @property {boolean|null} [autoDelete] AWSSQSRelayArgs autoDelete
-             * @property {number|null} [waitTimeSeconds] AWSSQSRelayArgs waitTimeSeconds
+             * @property {number|Long|null} [waitTimeSeconds] AWSSQSRelayArgs waitTimeSeconds
              */
 
             /**
@@ -37988,11 +38030,11 @@ $root.protos = (function() {
 
             /**
              * AWSSQSRelayArgs maxNumMessages.
-             * @member {number} maxNumMessages
+             * @member {number|Long} maxNumMessages
              * @memberof protos.args.AWSSQSRelayArgs
              * @instance
              */
-            AWSSQSRelayArgs.prototype.maxNumMessages = 0;
+            AWSSQSRelayArgs.prototype.maxNumMessages = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
 
             /**
              * AWSSQSRelayArgs receiveRequestAttemptId.
@@ -38012,11 +38054,11 @@ $root.protos = (function() {
 
             /**
              * AWSSQSRelayArgs waitTimeSeconds.
-             * @member {number} waitTimeSeconds
+             * @member {number|Long} waitTimeSeconds
              * @memberof protos.args.AWSSQSRelayArgs
              * @instance
              */
-            AWSSQSRelayArgs.prototype.waitTimeSeconds = 0;
+            AWSSQSRelayArgs.prototype.waitTimeSeconds = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
 
             /**
              * Creates a new AWSSQSRelayArgs instance using the specified properties.
@@ -38047,13 +38089,13 @@ $root.protos = (function() {
                 if (message.remoteAccountId != null && Object.hasOwnProperty.call(message, "remoteAccountId"))
                     writer.uint32(/* id 2, wireType 2 =*/18).string(message.remoteAccountId);
                 if (message.maxNumMessages != null && Object.hasOwnProperty.call(message, "maxNumMessages"))
-                    writer.uint32(/* id 3, wireType 0 =*/24).uint32(message.maxNumMessages);
+                    writer.uint32(/* id 3, wireType 0 =*/24).int64(message.maxNumMessages);
                 if (message.receiveRequestAttemptId != null && Object.hasOwnProperty.call(message, "receiveRequestAttemptId"))
                     writer.uint32(/* id 4, wireType 2 =*/34).string(message.receiveRequestAttemptId);
                 if (message.autoDelete != null && Object.hasOwnProperty.call(message, "autoDelete"))
                     writer.uint32(/* id 5, wireType 0 =*/40).bool(message.autoDelete);
                 if (message.waitTimeSeconds != null && Object.hasOwnProperty.call(message, "waitTimeSeconds"))
-                    writer.uint32(/* id 6, wireType 0 =*/48).int32(message.waitTimeSeconds);
+                    writer.uint32(/* id 6, wireType 0 =*/48).int64(message.waitTimeSeconds);
                 return writer;
             };
 
@@ -38095,7 +38137,7 @@ $root.protos = (function() {
                         message.remoteAccountId = reader.string();
                         break;
                     case 3:
-                        message.maxNumMessages = reader.uint32();
+                        message.maxNumMessages = reader.int64();
                         break;
                     case 4:
                         message.receiveRequestAttemptId = reader.string();
@@ -38104,7 +38146,7 @@ $root.protos = (function() {
                         message.autoDelete = reader.bool();
                         break;
                     case 6:
-                        message.waitTimeSeconds = reader.int32();
+                        message.waitTimeSeconds = reader.int64();
                         break;
                     default:
                         reader.skipType(tag & 7);
@@ -38148,8 +38190,8 @@ $root.protos = (function() {
                     if (!$util.isString(message.remoteAccountId))
                         return "remoteAccountId: string expected";
                 if (message.maxNumMessages != null && message.hasOwnProperty("maxNumMessages"))
-                    if (!$util.isInteger(message.maxNumMessages))
-                        return "maxNumMessages: integer expected";
+                    if (!$util.isInteger(message.maxNumMessages) && !(message.maxNumMessages && $util.isInteger(message.maxNumMessages.low) && $util.isInteger(message.maxNumMessages.high)))
+                        return "maxNumMessages: integer|Long expected";
                 if (message.receiveRequestAttemptId != null && message.hasOwnProperty("receiveRequestAttemptId"))
                     if (!$util.isString(message.receiveRequestAttemptId))
                         return "receiveRequestAttemptId: string expected";
@@ -38157,8 +38199,8 @@ $root.protos = (function() {
                     if (typeof message.autoDelete !== "boolean")
                         return "autoDelete: boolean expected";
                 if (message.waitTimeSeconds != null && message.hasOwnProperty("waitTimeSeconds"))
-                    if (!$util.isInteger(message.waitTimeSeconds))
-                        return "waitTimeSeconds: integer expected";
+                    if (!$util.isInteger(message.waitTimeSeconds) && !(message.waitTimeSeconds && $util.isInteger(message.waitTimeSeconds.low) && $util.isInteger(message.waitTimeSeconds.high)))
+                        return "waitTimeSeconds: integer|Long expected";
                 return null;
             };
 
@@ -38179,13 +38221,27 @@ $root.protos = (function() {
                 if (object.remoteAccountId != null)
                     message.remoteAccountId = String(object.remoteAccountId);
                 if (object.maxNumMessages != null)
-                    message.maxNumMessages = object.maxNumMessages >>> 0;
+                    if ($util.Long)
+                        (message.maxNumMessages = $util.Long.fromValue(object.maxNumMessages)).unsigned = false;
+                    else if (typeof object.maxNumMessages === "string")
+                        message.maxNumMessages = parseInt(object.maxNumMessages, 10);
+                    else if (typeof object.maxNumMessages === "number")
+                        message.maxNumMessages = object.maxNumMessages;
+                    else if (typeof object.maxNumMessages === "object")
+                        message.maxNumMessages = new $util.LongBits(object.maxNumMessages.low >>> 0, object.maxNumMessages.high >>> 0).toNumber();
                 if (object.receiveRequestAttemptId != null)
                     message.receiveRequestAttemptId = String(object.receiveRequestAttemptId);
                 if (object.autoDelete != null)
                     message.autoDelete = Boolean(object.autoDelete);
                 if (object.waitTimeSeconds != null)
-                    message.waitTimeSeconds = object.waitTimeSeconds | 0;
+                    if ($util.Long)
+                        (message.waitTimeSeconds = $util.Long.fromValue(object.waitTimeSeconds)).unsigned = false;
+                    else if (typeof object.waitTimeSeconds === "string")
+                        message.waitTimeSeconds = parseInt(object.waitTimeSeconds, 10);
+                    else if (typeof object.waitTimeSeconds === "number")
+                        message.waitTimeSeconds = object.waitTimeSeconds;
+                    else if (typeof object.waitTimeSeconds === "object")
+                        message.waitTimeSeconds = new $util.LongBits(object.waitTimeSeconds.low >>> 0, object.waitTimeSeconds.high >>> 0).toNumber();
                 return message;
             };
 
@@ -38205,23 +38261,37 @@ $root.protos = (function() {
                 if (options.defaults) {
                     object.queueName = "";
                     object.remoteAccountId = "";
-                    object.maxNumMessages = 0;
+                    if ($util.Long) {
+                        var long = new $util.Long(0, 0, false);
+                        object.maxNumMessages = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                    } else
+                        object.maxNumMessages = options.longs === String ? "0" : 0;
                     object.receiveRequestAttemptId = "";
                     object.autoDelete = false;
-                    object.waitTimeSeconds = 0;
+                    if ($util.Long) {
+                        var long = new $util.Long(0, 0, false);
+                        object.waitTimeSeconds = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                    } else
+                        object.waitTimeSeconds = options.longs === String ? "0" : 0;
                 }
                 if (message.queueName != null && message.hasOwnProperty("queueName"))
                     object.queueName = message.queueName;
                 if (message.remoteAccountId != null && message.hasOwnProperty("remoteAccountId"))
                     object.remoteAccountId = message.remoteAccountId;
                 if (message.maxNumMessages != null && message.hasOwnProperty("maxNumMessages"))
-                    object.maxNumMessages = message.maxNumMessages;
+                    if (typeof message.maxNumMessages === "number")
+                        object.maxNumMessages = options.longs === String ? String(message.maxNumMessages) : message.maxNumMessages;
+                    else
+                        object.maxNumMessages = options.longs === String ? $util.Long.prototype.toString.call(message.maxNumMessages) : options.longs === Number ? new $util.LongBits(message.maxNumMessages.low >>> 0, message.maxNumMessages.high >>> 0).toNumber() : message.maxNumMessages;
                 if (message.receiveRequestAttemptId != null && message.hasOwnProperty("receiveRequestAttemptId"))
                     object.receiveRequestAttemptId = message.receiveRequestAttemptId;
                 if (message.autoDelete != null && message.hasOwnProperty("autoDelete"))
                     object.autoDelete = message.autoDelete;
                 if (message.waitTimeSeconds != null && message.hasOwnProperty("waitTimeSeconds"))
-                    object.waitTimeSeconds = message.waitTimeSeconds;
+                    if (typeof message.waitTimeSeconds === "number")
+                        object.waitTimeSeconds = options.longs === String ? String(message.waitTimeSeconds) : message.waitTimeSeconds;
+                    else
+                        object.waitTimeSeconds = options.longs === String ? $util.Long.prototype.toString.call(message.waitTimeSeconds) : options.longs === Number ? new $util.LongBits(message.waitTimeSeconds.low >>> 0, message.waitTimeSeconds.high >>> 0).toNumber() : message.waitTimeSeconds;
                 return object;
             };
 

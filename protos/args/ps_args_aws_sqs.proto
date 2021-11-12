@@ -23,7 +23,7 @@ message AWSSQSReadArgs {
   string remote_account_id = 2;
 
   // @gotags: kong:"help='Max number of messages to read',default=1"
-  uint32 max_num_messages = 3;
+  int64 max_num_messages = 3;
 
   // @gotags: kong:"help='An id to identify this read request by',default='plumber/relay'"
   string receive_request_attempt_id = 4;
@@ -32,7 +32,7 @@ message AWSSQSReadArgs {
   bool auto_delete = 5;
 
   // @gotags: kong:"help='Number of seconds to wait for messages (not used when using --continuous)',default=5"
-  uint32 wait_time_seconds = 6;
+  int64 wait_time_seconds = 6;
 }
 
 message AWSSQSWriteArgs {
@@ -43,7 +43,7 @@ message AWSSQSWriteArgs {
   string remote_account_id = 2;
 
   // @gotags: kong:"help='How many seconds to delay message delivery by',default=0"
-  uint32 delay_seconds = 3;
+  int64 delay_seconds = 3;
 
   // @gotags: kong:"help='Add optional attributes to outgoing message (k=v, delimited by ;)'"
   map<string, string> attributes = 4;
@@ -64,7 +64,7 @@ message AWSSQSRelayArgs {
   string remote_account_id = 2;
 
   // @gotags: kong:"help='Max number of messages to read',env=PLUMBER_RELAY_SQS_MAX_NUM_MESSAGES,default=1"
-  uint32 max_num_messages = 3;
+  int64 max_num_messages = 3;
 
   // @gotags: kong:"help='An id to identify this read request by',env=PLUMBER_RELAY_SQS_RECEIVE_REQUEST_ATTEMPT_ID,default='plumber/relay'"
   string receive_request_attempt_id = 4;
@@ -73,5 +73,5 @@ message AWSSQSRelayArgs {
   bool auto_delete = 5;
 
   // @gotags: kong:"help='Number of seconds to wait for messages (not used when using --continuous)',env=PLUMBER_RELAY_SQS_WAIT_TIME_SECONDS,default=5"
-  int32 wait_time_seconds = 6;
+  int64 wait_time_seconds = 6;
 }

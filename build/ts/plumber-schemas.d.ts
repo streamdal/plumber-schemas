@@ -15594,7 +15594,7 @@ export namespace protos {
             remoteAccountId?: (string|null);
 
             /** AWSSQSReadArgs maxNumMessages */
-            maxNumMessages?: (number|null);
+            maxNumMessages?: (number|Long|null);
 
             /** AWSSQSReadArgs receiveRequestAttemptId */
             receiveRequestAttemptId?: (string|null);
@@ -15603,7 +15603,7 @@ export namespace protos {
             autoDelete?: (boolean|null);
 
             /** AWSSQSReadArgs waitTimeSeconds */
-            waitTimeSeconds?: (number|null);
+            waitTimeSeconds?: (number|Long|null);
         }
 
         /** Represents a AWSSQSReadArgs. */
@@ -15622,7 +15622,7 @@ export namespace protos {
             public remoteAccountId: string;
 
             /** AWSSQSReadArgs maxNumMessages. */
-            public maxNumMessages: number;
+            public maxNumMessages: (number|Long);
 
             /** AWSSQSReadArgs receiveRequestAttemptId. */
             public receiveRequestAttemptId: string;
@@ -15631,7 +15631,7 @@ export namespace protos {
             public autoDelete: boolean;
 
             /** AWSSQSReadArgs waitTimeSeconds. */
-            public waitTimeSeconds: number;
+            public waitTimeSeconds: (number|Long);
 
             /**
              * Creates a new AWSSQSReadArgs instance using the specified properties.
@@ -15714,7 +15714,7 @@ export namespace protos {
             remoteAccountId?: (string|null);
 
             /** AWSSQSWriteArgs delaySeconds */
-            delaySeconds?: (number|null);
+            delaySeconds?: (number|Long|null);
 
             /** AWSSQSWriteArgs attributes */
             attributes?: ({ [k: string]: string }|null);
@@ -15742,7 +15742,7 @@ export namespace protos {
             public remoteAccountId: string;
 
             /** AWSSQSWriteArgs delaySeconds. */
-            public delaySeconds: number;
+            public delaySeconds: (number|Long);
 
             /** AWSSQSWriteArgs attributes. */
             public attributes: { [k: string]: string };
@@ -15834,7 +15834,7 @@ export namespace protos {
             remoteAccountId?: (string|null);
 
             /** AWSSQSRelayArgs maxNumMessages */
-            maxNumMessages?: (number|null);
+            maxNumMessages?: (number|Long|null);
 
             /** AWSSQSRelayArgs receiveRequestAttemptId */
             receiveRequestAttemptId?: (string|null);
@@ -15843,7 +15843,7 @@ export namespace protos {
             autoDelete?: (boolean|null);
 
             /** AWSSQSRelayArgs waitTimeSeconds */
-            waitTimeSeconds?: (number|null);
+            waitTimeSeconds?: (number|Long|null);
         }
 
         /** Represents a AWSSQSRelayArgs. */
@@ -15862,7 +15862,7 @@ export namespace protos {
             public remoteAccountId: string;
 
             /** AWSSQSRelayArgs maxNumMessages. */
-            public maxNumMessages: number;
+            public maxNumMessages: (number|Long);
 
             /** AWSSQSRelayArgs receiveRequestAttemptId. */
             public receiveRequestAttemptId: string;
@@ -15871,7 +15871,7 @@ export namespace protos {
             public autoDelete: boolean;
 
             /** AWSSQSRelayArgs waitTimeSeconds. */
-            public waitTimeSeconds: number;
+            public waitTimeSeconds: (number|Long);
 
             /**
              * Creates a new AWSSQSRelayArgs instance using the specified properties.
