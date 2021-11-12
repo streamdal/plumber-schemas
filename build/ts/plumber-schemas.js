@@ -46614,6 +46614,7 @@ $root.protos = (function() {
              * @property {string|null} [address] RedisPubSubConn address
              * @property {string|null} [username] RedisPubSubConn username
              * @property {string|null} [password] RedisPubSubConn password
+             * @property {number|null} [database] RedisPubSubConn database
              */
 
             /**
@@ -46656,6 +46657,14 @@ $root.protos = (function() {
             RedisPubSubConn.prototype.password = "";
 
             /**
+             * RedisPubSubConn database.
+             * @member {number} database
+             * @memberof protos.args.RedisPubSubConn
+             * @instance
+             */
+            RedisPubSubConn.prototype.database = 0;
+
+            /**
              * Creates a new RedisPubSubConn instance using the specified properties.
              * @function create
              * @memberof protos.args.RedisPubSubConn
@@ -46685,6 +46694,8 @@ $root.protos = (function() {
                     writer.uint32(/* id 2, wireType 2 =*/18).string(message.username);
                 if (message.password != null && Object.hasOwnProperty.call(message, "password"))
                     writer.uint32(/* id 3, wireType 2 =*/26).string(message.password);
+                if (message.database != null && Object.hasOwnProperty.call(message, "database"))
+                    writer.uint32(/* id 4, wireType 0 =*/32).uint32(message.database);
                 return writer;
             };
 
@@ -46727,6 +46738,9 @@ $root.protos = (function() {
                         break;
                     case 3:
                         message.password = reader.string();
+                        break;
+                    case 4:
+                        message.database = reader.uint32();
                         break;
                     default:
                         reader.skipType(tag & 7);
@@ -46772,6 +46786,9 @@ $root.protos = (function() {
                 if (message.password != null && message.hasOwnProperty("password"))
                     if (!$util.isString(message.password))
                         return "password: string expected";
+                if (message.database != null && message.hasOwnProperty("database"))
+                    if (!$util.isInteger(message.database))
+                        return "database: integer expected";
                 return null;
             };
 
@@ -46793,6 +46810,8 @@ $root.protos = (function() {
                     message.username = String(object.username);
                 if (object.password != null)
                     message.password = String(object.password);
+                if (object.database != null)
+                    message.database = object.database >>> 0;
                 return message;
             };
 
@@ -46813,6 +46832,7 @@ $root.protos = (function() {
                     object.address = "";
                     object.username = "";
                     object.password = "";
+                    object.database = 0;
                 }
                 if (message.address != null && message.hasOwnProperty("address"))
                     object.address = message.address;
@@ -46820,6 +46840,8 @@ $root.protos = (function() {
                     object.username = message.username;
                 if (message.password != null && message.hasOwnProperty("password"))
                     object.password = message.password;
+                if (message.database != null && message.hasOwnProperty("database"))
+                    object.database = message.database;
                 return object;
             };
 
@@ -46843,7 +46865,6 @@ $root.protos = (function() {
              * Properties of a RedisPubSubReadArgs.
              * @memberof protos.args
              * @interface IRedisPubSubReadArgs
-             * @property {number|null} [database] RedisPubSubReadArgs database
              * @property {Array.<string>|null} [channel] RedisPubSubReadArgs channel
              */
 
@@ -46862,14 +46883,6 @@ $root.protos = (function() {
                         if (properties[keys[i]] != null)
                             this[keys[i]] = properties[keys[i]];
             }
-
-            /**
-             * RedisPubSubReadArgs database.
-             * @member {number} database
-             * @memberof protos.args.RedisPubSubReadArgs
-             * @instance
-             */
-            RedisPubSubReadArgs.prototype.database = 0;
 
             /**
              * RedisPubSubReadArgs channel.
@@ -46903,11 +46916,9 @@ $root.protos = (function() {
             RedisPubSubReadArgs.encode = function encode(message, writer) {
                 if (!writer)
                     writer = $Writer.create();
-                if (message.database != null && Object.hasOwnProperty.call(message, "database"))
-                    writer.uint32(/* id 1, wireType 0 =*/8).uint32(message.database);
                 if (message.channel != null && message.channel.length)
                     for (var i = 0; i < message.channel.length; ++i)
-                        writer.uint32(/* id 2, wireType 2 =*/18).string(message.channel[i]);
+                        writer.uint32(/* id 1, wireType 2 =*/10).string(message.channel[i]);
                 return writer;
             };
 
@@ -46943,9 +46954,6 @@ $root.protos = (function() {
                     var tag = reader.uint32();
                     switch (tag >>> 3) {
                     case 1:
-                        message.database = reader.uint32();
-                        break;
-                    case 2:
                         if (!(message.channel && message.channel.length))
                             message.channel = [];
                         message.channel.push(reader.string());
@@ -46985,9 +46993,6 @@ $root.protos = (function() {
             RedisPubSubReadArgs.verify = function verify(message) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (message.database != null && message.hasOwnProperty("database"))
-                    if (!$util.isInteger(message.database))
-                        return "database: integer expected";
                 if (message.channel != null && message.hasOwnProperty("channel")) {
                     if (!Array.isArray(message.channel))
                         return "channel: array expected";
@@ -47010,8 +47015,6 @@ $root.protos = (function() {
                 if (object instanceof $root.protos.args.RedisPubSubReadArgs)
                     return object;
                 var message = new $root.protos.args.RedisPubSubReadArgs();
-                if (object.database != null)
-                    message.database = object.database >>> 0;
                 if (object.channel) {
                     if (!Array.isArray(object.channel))
                         throw TypeError(".protos.args.RedisPubSubReadArgs.channel: array expected");
@@ -47037,10 +47040,6 @@ $root.protos = (function() {
                 var object = {};
                 if (options.arrays || options.defaults)
                     object.channel = [];
-                if (options.defaults)
-                    object.database = 0;
-                if (message.database != null && message.hasOwnProperty("database"))
-                    object.database = message.database;
                 if (message.channel && message.channel.length) {
                     object.channel = [];
                     for (var j = 0; j < message.channel.length; ++j)
@@ -47069,7 +47068,6 @@ $root.protos = (function() {
              * Properties of a RedisPubSubWriteArgs.
              * @memberof protos.args
              * @interface IRedisPubSubWriteArgs
-             * @property {number|null} [database] RedisPubSubWriteArgs database
              * @property {Array.<string>|null} [channel] RedisPubSubWriteArgs channel
              */
 
@@ -47088,14 +47086,6 @@ $root.protos = (function() {
                         if (properties[keys[i]] != null)
                             this[keys[i]] = properties[keys[i]];
             }
-
-            /**
-             * RedisPubSubWriteArgs database.
-             * @member {number} database
-             * @memberof protos.args.RedisPubSubWriteArgs
-             * @instance
-             */
-            RedisPubSubWriteArgs.prototype.database = 0;
 
             /**
              * RedisPubSubWriteArgs channel.
@@ -47129,11 +47119,9 @@ $root.protos = (function() {
             RedisPubSubWriteArgs.encode = function encode(message, writer) {
                 if (!writer)
                     writer = $Writer.create();
-                if (message.database != null && Object.hasOwnProperty.call(message, "database"))
-                    writer.uint32(/* id 1, wireType 0 =*/8).uint32(message.database);
                 if (message.channel != null && message.channel.length)
                     for (var i = 0; i < message.channel.length; ++i)
-                        writer.uint32(/* id 2, wireType 2 =*/18).string(message.channel[i]);
+                        writer.uint32(/* id 1, wireType 2 =*/10).string(message.channel[i]);
                 return writer;
             };
 
@@ -47169,9 +47157,6 @@ $root.protos = (function() {
                     var tag = reader.uint32();
                     switch (tag >>> 3) {
                     case 1:
-                        message.database = reader.uint32();
-                        break;
-                    case 2:
                         if (!(message.channel && message.channel.length))
                             message.channel = [];
                         message.channel.push(reader.string());
@@ -47211,9 +47196,6 @@ $root.protos = (function() {
             RedisPubSubWriteArgs.verify = function verify(message) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (message.database != null && message.hasOwnProperty("database"))
-                    if (!$util.isInteger(message.database))
-                        return "database: integer expected";
                 if (message.channel != null && message.hasOwnProperty("channel")) {
                     if (!Array.isArray(message.channel))
                         return "channel: array expected";
@@ -47236,8 +47218,6 @@ $root.protos = (function() {
                 if (object instanceof $root.protos.args.RedisPubSubWriteArgs)
                     return object;
                 var message = new $root.protos.args.RedisPubSubWriteArgs();
-                if (object.database != null)
-                    message.database = object.database >>> 0;
                 if (object.channel) {
                     if (!Array.isArray(object.channel))
                         throw TypeError(".protos.args.RedisPubSubWriteArgs.channel: array expected");
@@ -47263,10 +47243,6 @@ $root.protos = (function() {
                 var object = {};
                 if (options.arrays || options.defaults)
                     object.channel = [];
-                if (options.defaults)
-                    object.database = 0;
-                if (message.database != null && message.hasOwnProperty("database"))
-                    object.database = message.database;
                 if (message.channel && message.channel.length) {
                     object.channel = [];
                     for (var j = 0; j < message.channel.length; ++j)
@@ -47312,6 +47288,7 @@ $root.protos = (function() {
              * @property {string|null} [address] RedisStreamsConn address
              * @property {string|null} [username] RedisStreamsConn username
              * @property {string|null} [password] RedisStreamsConn password
+             * @property {number|null} [database] RedisStreamsConn database
              */
 
             /**
@@ -47354,6 +47331,14 @@ $root.protos = (function() {
             RedisStreamsConn.prototype.password = "";
 
             /**
+             * RedisStreamsConn database.
+             * @member {number} database
+             * @memberof protos.args.RedisStreamsConn
+             * @instance
+             */
+            RedisStreamsConn.prototype.database = 0;
+
+            /**
              * Creates a new RedisStreamsConn instance using the specified properties.
              * @function create
              * @memberof protos.args.RedisStreamsConn
@@ -47383,6 +47368,8 @@ $root.protos = (function() {
                     writer.uint32(/* id 2, wireType 2 =*/18).string(message.username);
                 if (message.password != null && Object.hasOwnProperty.call(message, "password"))
                     writer.uint32(/* id 3, wireType 2 =*/26).string(message.password);
+                if (message.database != null && Object.hasOwnProperty.call(message, "database"))
+                    writer.uint32(/* id 4, wireType 0 =*/32).uint32(message.database);
                 return writer;
             };
 
@@ -47425,6 +47412,9 @@ $root.protos = (function() {
                         break;
                     case 3:
                         message.password = reader.string();
+                        break;
+                    case 4:
+                        message.database = reader.uint32();
                         break;
                     default:
                         reader.skipType(tag & 7);
@@ -47470,6 +47460,9 @@ $root.protos = (function() {
                 if (message.password != null && message.hasOwnProperty("password"))
                     if (!$util.isString(message.password))
                         return "password: string expected";
+                if (message.database != null && message.hasOwnProperty("database"))
+                    if (!$util.isInteger(message.database))
+                        return "database: integer expected";
                 return null;
             };
 
@@ -47491,6 +47484,8 @@ $root.protos = (function() {
                     message.username = String(object.username);
                 if (object.password != null)
                     message.password = String(object.password);
+                if (object.database != null)
+                    message.database = object.database >>> 0;
                 return message;
             };
 
@@ -47511,6 +47506,7 @@ $root.protos = (function() {
                     object.address = "";
                     object.username = "";
                     object.password = "";
+                    object.database = 0;
                 }
                 if (message.address != null && message.hasOwnProperty("address"))
                     object.address = message.address;
@@ -47518,6 +47514,8 @@ $root.protos = (function() {
                     object.username = message.username;
                 if (message.password != null && message.hasOwnProperty("password"))
                     object.password = message.password;
+                if (message.database != null && message.hasOwnProperty("database"))
+                    object.database = message.database;
                 return object;
             };
 
@@ -47786,7 +47784,6 @@ $root.protos = (function() {
              * Properties of a RedisStreamsReadArgs.
              * @memberof protos.args
              * @interface IRedisStreamsReadArgs
-             * @property {number|null} [database] RedisStreamsReadArgs database
              * @property {Array.<string>|null} [stream] RedisStreamsReadArgs stream
              * @property {string|null} [consumerGroup] RedisStreamsReadArgs consumerGroup
              * @property {string|null} [consumerName] RedisStreamsReadArgs consumerName
@@ -47809,14 +47806,6 @@ $root.protos = (function() {
                         if (properties[keys[i]] != null)
                             this[keys[i]] = properties[keys[i]];
             }
-
-            /**
-             * RedisStreamsReadArgs database.
-             * @member {number} database
-             * @memberof protos.args.RedisStreamsReadArgs
-             * @instance
-             */
-            RedisStreamsReadArgs.prototype.database = 0;
 
             /**
              * RedisStreamsReadArgs stream.
@@ -47882,19 +47871,17 @@ $root.protos = (function() {
             RedisStreamsReadArgs.encode = function encode(message, writer) {
                 if (!writer)
                     writer = $Writer.create();
-                if (message.database != null && Object.hasOwnProperty.call(message, "database"))
-                    writer.uint32(/* id 1, wireType 0 =*/8).uint32(message.database);
                 if (message.stream != null && message.stream.length)
                     for (var i = 0; i < message.stream.length; ++i)
-                        writer.uint32(/* id 2, wireType 2 =*/18).string(message.stream[i]);
+                        writer.uint32(/* id 1, wireType 2 =*/10).string(message.stream[i]);
                 if (message.consumerGroup != null && Object.hasOwnProperty.call(message, "consumerGroup"))
-                    writer.uint32(/* id 3, wireType 2 =*/26).string(message.consumerGroup);
+                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.consumerGroup);
                 if (message.consumerName != null && Object.hasOwnProperty.call(message, "consumerName"))
-                    writer.uint32(/* id 4, wireType 2 =*/34).string(message.consumerName);
+                    writer.uint32(/* id 3, wireType 2 =*/26).string(message.consumerName);
                 if (message.count != null && Object.hasOwnProperty.call(message, "count"))
-                    writer.uint32(/* id 5, wireType 0 =*/40).uint32(message.count);
+                    writer.uint32(/* id 4, wireType 0 =*/32).uint32(message.count);
                 if (message.createConsumerConfig != null && Object.hasOwnProperty.call(message, "createConsumerConfig"))
-                    $root.protos.args.CreateConsumerConfig.encode(message.createConsumerConfig, writer.uint32(/* id 6, wireType 2 =*/50).fork()).ldelim();
+                    $root.protos.args.CreateConsumerConfig.encode(message.createConsumerConfig, writer.uint32(/* id 5, wireType 2 =*/42).fork()).ldelim();
                 return writer;
             };
 
@@ -47930,23 +47917,20 @@ $root.protos = (function() {
                     var tag = reader.uint32();
                     switch (tag >>> 3) {
                     case 1:
-                        message.database = reader.uint32();
-                        break;
-                    case 2:
                         if (!(message.stream && message.stream.length))
                             message.stream = [];
                         message.stream.push(reader.string());
                         break;
-                    case 3:
+                    case 2:
                         message.consumerGroup = reader.string();
                         break;
-                    case 4:
+                    case 3:
                         message.consumerName = reader.string();
                         break;
-                    case 5:
+                    case 4:
                         message.count = reader.uint32();
                         break;
-                    case 6:
+                    case 5:
                         message.createConsumerConfig = $root.protos.args.CreateConsumerConfig.decode(reader, reader.uint32());
                         break;
                     default:
@@ -47984,9 +47968,6 @@ $root.protos = (function() {
             RedisStreamsReadArgs.verify = function verify(message) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (message.database != null && message.hasOwnProperty("database"))
-                    if (!$util.isInteger(message.database))
-                        return "database: integer expected";
                 if (message.stream != null && message.hasOwnProperty("stream")) {
                     if (!Array.isArray(message.stream))
                         return "stream: array expected";
@@ -48023,8 +48004,6 @@ $root.protos = (function() {
                 if (object instanceof $root.protos.args.RedisStreamsReadArgs)
                     return object;
                 var message = new $root.protos.args.RedisStreamsReadArgs();
-                if (object.database != null)
-                    message.database = object.database >>> 0;
                 if (object.stream) {
                     if (!Array.isArray(object.stream))
                         throw TypeError(".protos.args.RedisStreamsReadArgs.stream: array expected");
@@ -48062,14 +48041,11 @@ $root.protos = (function() {
                 if (options.arrays || options.defaults)
                     object.stream = [];
                 if (options.defaults) {
-                    object.database = 0;
                     object.consumerGroup = "";
                     object.consumerName = "";
                     object.count = 0;
                     object.createConsumerConfig = null;
                 }
-                if (message.database != null && message.hasOwnProperty("database"))
-                    object.database = message.database;
                 if (message.stream && message.stream.length) {
                     object.stream = [];
                     for (var j = 0; j < message.stream.length; ++j)

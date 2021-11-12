@@ -19450,6 +19450,9 @@ export namespace protos {
 
             /** RedisPubSubConn password */
             password?: (string|null);
+
+            /** RedisPubSubConn database */
+            database?: (number|null);
         }
 
         /** Represents a RedisPubSubConn. */
@@ -19469,6 +19472,9 @@ export namespace protos {
 
             /** RedisPubSubConn password. */
             public password: string;
+
+            /** RedisPubSubConn database. */
+            public database: number;
 
             /**
              * Creates a new RedisPubSubConn instance using the specified properties.
@@ -19544,9 +19550,6 @@ export namespace protos {
         /** Properties of a RedisPubSubReadArgs. */
         interface IRedisPubSubReadArgs {
 
-            /** RedisPubSubReadArgs database */
-            database?: (number|null);
-
             /** RedisPubSubReadArgs channel */
             channel?: (string[]|null);
         }
@@ -19559,9 +19562,6 @@ export namespace protos {
              * @param [properties] Properties to set
              */
             constructor(properties?: protos.args.IRedisPubSubReadArgs);
-
-            /** RedisPubSubReadArgs database. */
-            public database: number;
 
             /** RedisPubSubReadArgs channel. */
             public channel: string[];
@@ -19640,9 +19640,6 @@ export namespace protos {
         /** Properties of a RedisPubSubWriteArgs. */
         interface IRedisPubSubWriteArgs {
 
-            /** RedisPubSubWriteArgs database */
-            database?: (number|null);
-
             /** RedisPubSubWriteArgs channel */
             channel?: (string[]|null);
         }
@@ -19655,9 +19652,6 @@ export namespace protos {
              * @param [properties] Properties to set
              */
             constructor(properties?: protos.args.IRedisPubSubWriteArgs);
-
-            /** RedisPubSubWriteArgs database. */
-            public database: number;
 
             /** RedisPubSubWriteArgs channel. */
             public channel: string[];
@@ -19750,6 +19744,9 @@ export namespace protos {
 
             /** RedisStreamsConn password */
             password?: (string|null);
+
+            /** RedisStreamsConn database */
+            database?: (number|null);
         }
 
         /** Represents a RedisStreamsConn. */
@@ -19769,6 +19766,9 @@ export namespace protos {
 
             /** RedisStreamsConn password. */
             public password: string;
+
+            /** RedisStreamsConn database. */
+            public database: number;
 
             /**
              * Creates a new RedisStreamsConn instance using the specified properties.
@@ -19946,9 +19946,6 @@ export namespace protos {
         /** Properties of a RedisStreamsReadArgs. */
         interface IRedisStreamsReadArgs {
 
-            /** RedisStreamsReadArgs database */
-            database?: (number|null);
-
             /** RedisStreamsReadArgs stream */
             stream?: (string[]|null);
 
@@ -19973,9 +19970,6 @@ export namespace protos {
              * @param [properties] Properties to set
              */
             constructor(properties?: protos.args.IRedisStreamsReadArgs);
-
-            /** RedisStreamsReadArgs database. */
-            public database: number;
 
             /** RedisStreamsReadArgs stream. */
             public stream: string[];

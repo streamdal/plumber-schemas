@@ -13,21 +13,18 @@ message RedisPubSubConn {
 
   // @gotags: kong:"help='Optional password to auth with (redis >= v6.0.0)',env='PLUMBER_RELAY_REDIS_PUBSUB_PASSWORD'"
   string password = 3;
+
+  // @gotags: kong:"help='Database (0-16)',env='PLUMBER_RELAY_REDIS_PUBSUB_DATABASE'"
+  uint32 database = 4;
 }
 
 message RedisPubSubReadArgs {
-  // @gotags: kong:"help='Database (0-16)',env='PLUMBER_RELAY_REDIS_PUBSUB_DATABASE'"
-  uint32 database = 1;
-
   // @gotags: kong:"help='Comma separated list of channels to read from',env='PLUMBER_RELAY_REDIS_PUBSUB_CHANNELS',required"
-  repeated string channel = 2;
+  repeated string channel = 1;
 }
 
 message RedisPubSubWriteArgs {
-  // @gotags: kong:"help='Database (0-16)'"
-  uint32 database = 1;
-
   // @gotags: kong:"help='Comma separated list of channels to write to',required"
-  repeated string channel = 2;
+  repeated string channel = 1;
 
 }
