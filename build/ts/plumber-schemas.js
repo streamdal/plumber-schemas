@@ -42083,6 +42083,8 @@ $root.protos = (function() {
              * @memberof protos.args
              * @interface IGCPPubSubConn
              * @property {string|null} [projectId] GCPPubSubConn projectId
+             * @property {string|null} [credentialsJson] GCPPubSubConn credentialsJson
+             * @property {string|null} [credentialsFile] GCPPubSubConn credentialsFile
              */
 
             /**
@@ -42107,6 +42109,22 @@ $root.protos = (function() {
              * @instance
              */
             GCPPubSubConn.prototype.projectId = "";
+
+            /**
+             * GCPPubSubConn credentialsJson.
+             * @member {string} credentialsJson
+             * @memberof protos.args.GCPPubSubConn
+             * @instance
+             */
+            GCPPubSubConn.prototype.credentialsJson = "";
+
+            /**
+             * GCPPubSubConn credentialsFile.
+             * @member {string} credentialsFile
+             * @memberof protos.args.GCPPubSubConn
+             * @instance
+             */
+            GCPPubSubConn.prototype.credentialsFile = "";
 
             /**
              * Creates a new GCPPubSubConn instance using the specified properties.
@@ -42134,6 +42152,10 @@ $root.protos = (function() {
                     writer = $Writer.create();
                 if (message.projectId != null && Object.hasOwnProperty.call(message, "projectId"))
                     writer.uint32(/* id 1, wireType 2 =*/10).string(message.projectId);
+                if (message.credentialsJson != null && Object.hasOwnProperty.call(message, "credentialsJson"))
+                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.credentialsJson);
+                if (message.credentialsFile != null && Object.hasOwnProperty.call(message, "credentialsFile"))
+                    writer.uint32(/* id 3, wireType 2 =*/26).string(message.credentialsFile);
                 return writer;
             };
 
@@ -42170,6 +42192,12 @@ $root.protos = (function() {
                     switch (tag >>> 3) {
                     case 1:
                         message.projectId = reader.string();
+                        break;
+                    case 2:
+                        message.credentialsJson = reader.string();
+                        break;
+                    case 3:
+                        message.credentialsFile = reader.string();
                         break;
                     default:
                         reader.skipType(tag & 7);
@@ -42209,6 +42237,12 @@ $root.protos = (function() {
                 if (message.projectId != null && message.hasOwnProperty("projectId"))
                     if (!$util.isString(message.projectId))
                         return "projectId: string expected";
+                if (message.credentialsJson != null && message.hasOwnProperty("credentialsJson"))
+                    if (!$util.isString(message.credentialsJson))
+                        return "credentialsJson: string expected";
+                if (message.credentialsFile != null && message.hasOwnProperty("credentialsFile"))
+                    if (!$util.isString(message.credentialsFile))
+                        return "credentialsFile: string expected";
                 return null;
             };
 
@@ -42226,6 +42260,10 @@ $root.protos = (function() {
                 var message = new $root.protos.args.GCPPubSubConn();
                 if (object.projectId != null)
                     message.projectId = String(object.projectId);
+                if (object.credentialsJson != null)
+                    message.credentialsJson = String(object.credentialsJson);
+                if (object.credentialsFile != null)
+                    message.credentialsFile = String(object.credentialsFile);
                 return message;
             };
 
@@ -42242,10 +42280,17 @@ $root.protos = (function() {
                 if (!options)
                     options = {};
                 var object = {};
-                if (options.defaults)
+                if (options.defaults) {
                     object.projectId = "";
+                    object.credentialsJson = "";
+                    object.credentialsFile = "";
+                }
                 if (message.projectId != null && message.hasOwnProperty("projectId"))
                     object.projectId = message.projectId;
+                if (message.credentialsJson != null && message.hasOwnProperty("credentialsJson"))
+                    object.credentialsJson = message.credentialsJson;
+                if (message.credentialsFile != null && message.hasOwnProperty("credentialsFile"))
+                    object.credentialsFile = message.credentialsFile;
                 return object;
             };
 

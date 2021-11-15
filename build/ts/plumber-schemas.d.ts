@@ -17528,6 +17528,12 @@ export namespace protos {
 
             /** GCPPubSubConn projectId */
             projectId?: (string|null);
+
+            /** GCPPubSubConn credentialsJson */
+            credentialsJson?: (string|null);
+
+            /** GCPPubSubConn credentialsFile */
+            credentialsFile?: (string|null);
         }
 
         /** Represents a GCPPubSubConn. */
@@ -17541,6 +17547,12 @@ export namespace protos {
 
             /** GCPPubSubConn projectId. */
             public projectId: string;
+
+            /** GCPPubSubConn credentialsJson. */
+            public credentialsJson: string;
+
+            /** GCPPubSubConn credentialsFile. */
+            public credentialsFile: string;
 
             /**
              * Creates a new GCPPubSubConn instance using the specified properties.

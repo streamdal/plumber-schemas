@@ -7,6 +7,12 @@ option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/args";
 message GCPPubSubConn {
     // @gotags: kong:"help='Project ID',env='PLUMBER_RELAY_GCP_PROJECT_ID',required"
     string project_id = 1;
+
+    // @gotags: kong:"help='GCP Credentials in JSON format',env='PLUMBER_RELAY_GCP_CREDENTIALS'"
+    string credentials_json = 2;
+
+    // @gotags: kong:"help='Path to GCP credentials JSON file',env='GOOGLE_APPLICATION_CREDENTIALS'"
+    string credentials_file = 3;
 }
 
 message GCPPubSubReadArgs {
