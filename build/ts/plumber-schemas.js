@@ -45862,7 +45862,7 @@ $root.protos = (function() {
              * @memberof protos.args
              * @interface IRabbitStreamsOffsetOptions
              * @property {number|Long|null} [specificOffset] RabbitStreamsOffsetOptions specificOffset
-             * @property {number|Long|null} [lastOffset] RabbitStreamsOffsetOptions lastOffset
+             * @property {boolean|null} [lastOffset] RabbitStreamsOffsetOptions lastOffset
              * @property {boolean|null} [lastConsumed] RabbitStreamsOffsetOptions lastConsumed
              * @property {boolean|null} [firstOffset] RabbitStreamsOffsetOptions firstOffset
              * @property {boolean|null} [nextOffset] RabbitStreamsOffsetOptions nextOffset
@@ -45889,15 +45889,15 @@ $root.protos = (function() {
              * @memberof protos.args.RabbitStreamsOffsetOptions
              * @instance
              */
-            RabbitStreamsOffsetOptions.prototype.specificOffset = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
+            RabbitStreamsOffsetOptions.prototype.specificOffset = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
 
             /**
              * RabbitStreamsOffsetOptions lastOffset.
-             * @member {number|Long} lastOffset
+             * @member {boolean} lastOffset
              * @memberof protos.args.RabbitStreamsOffsetOptions
              * @instance
              */
-            RabbitStreamsOffsetOptions.prototype.lastOffset = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
+            RabbitStreamsOffsetOptions.prototype.lastOffset = false;
 
             /**
              * RabbitStreamsOffsetOptions lastConsumed.
@@ -45948,9 +45948,9 @@ $root.protos = (function() {
                 if (!writer)
                     writer = $Writer.create();
                 if (message.specificOffset != null && Object.hasOwnProperty.call(message, "specificOffset"))
-                    writer.uint32(/* id 1, wireType 0 =*/8).uint64(message.specificOffset);
+                    writer.uint32(/* id 1, wireType 0 =*/8).int64(message.specificOffset);
                 if (message.lastOffset != null && Object.hasOwnProperty.call(message, "lastOffset"))
-                    writer.uint32(/* id 2, wireType 0 =*/16).uint64(message.lastOffset);
+                    writer.uint32(/* id 2, wireType 0 =*/16).bool(message.lastOffset);
                 if (message.lastConsumed != null && Object.hasOwnProperty.call(message, "lastConsumed"))
                     writer.uint32(/* id 3, wireType 0 =*/24).bool(message.lastConsumed);
                 if (message.firstOffset != null && Object.hasOwnProperty.call(message, "firstOffset"))
@@ -45992,10 +45992,10 @@ $root.protos = (function() {
                     var tag = reader.uint32();
                     switch (tag >>> 3) {
                     case 1:
-                        message.specificOffset = reader.uint64();
+                        message.specificOffset = reader.int64();
                         break;
                     case 2:
-                        message.lastOffset = reader.uint64();
+                        message.lastOffset = reader.bool();
                         break;
                     case 3:
                         message.lastConsumed = reader.bool();
@@ -46045,8 +46045,8 @@ $root.protos = (function() {
                     if (!$util.isInteger(message.specificOffset) && !(message.specificOffset && $util.isInteger(message.specificOffset.low) && $util.isInteger(message.specificOffset.high)))
                         return "specificOffset: integer|Long expected";
                 if (message.lastOffset != null && message.hasOwnProperty("lastOffset"))
-                    if (!$util.isInteger(message.lastOffset) && !(message.lastOffset && $util.isInteger(message.lastOffset.low) && $util.isInteger(message.lastOffset.high)))
-                        return "lastOffset: integer|Long expected";
+                    if (typeof message.lastOffset !== "boolean")
+                        return "lastOffset: boolean expected";
                 if (message.lastConsumed != null && message.hasOwnProperty("lastConsumed"))
                     if (typeof message.lastConsumed !== "boolean")
                         return "lastConsumed: boolean expected";
@@ -46073,22 +46073,15 @@ $root.protos = (function() {
                 var message = new $root.protos.args.RabbitStreamsOffsetOptions();
                 if (object.specificOffset != null)
                     if ($util.Long)
-                        (message.specificOffset = $util.Long.fromValue(object.specificOffset)).unsigned = true;
+                        (message.specificOffset = $util.Long.fromValue(object.specificOffset)).unsigned = false;
                     else if (typeof object.specificOffset === "string")
                         message.specificOffset = parseInt(object.specificOffset, 10);
                     else if (typeof object.specificOffset === "number")
                         message.specificOffset = object.specificOffset;
                     else if (typeof object.specificOffset === "object")
-                        message.specificOffset = new $util.LongBits(object.specificOffset.low >>> 0, object.specificOffset.high >>> 0).toNumber(true);
+                        message.specificOffset = new $util.LongBits(object.specificOffset.low >>> 0, object.specificOffset.high >>> 0).toNumber();
                 if (object.lastOffset != null)
-                    if ($util.Long)
-                        (message.lastOffset = $util.Long.fromValue(object.lastOffset)).unsigned = true;
-                    else if (typeof object.lastOffset === "string")
-                        message.lastOffset = parseInt(object.lastOffset, 10);
-                    else if (typeof object.lastOffset === "number")
-                        message.lastOffset = object.lastOffset;
-                    else if (typeof object.lastOffset === "object")
-                        message.lastOffset = new $util.LongBits(object.lastOffset.low >>> 0, object.lastOffset.high >>> 0).toNumber(true);
+                    message.lastOffset = Boolean(object.lastOffset);
                 if (object.lastConsumed != null)
                     message.lastConsumed = Boolean(object.lastConsumed);
                 if (object.firstOffset != null)
@@ -46113,15 +46106,11 @@ $root.protos = (function() {
                 var object = {};
                 if (options.defaults) {
                     if ($util.Long) {
-                        var long = new $util.Long(0, 0, true);
+                        var long = new $util.Long(0, 0, false);
                         object.specificOffset = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
                     } else
                         object.specificOffset = options.longs === String ? "0" : 0;
-                    if ($util.Long) {
-                        var long = new $util.Long(0, 0, true);
-                        object.lastOffset = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
-                    } else
-                        object.lastOffset = options.longs === String ? "0" : 0;
+                    object.lastOffset = false;
                     object.lastConsumed = false;
                     object.firstOffset = false;
                     object.nextOffset = false;
@@ -46130,12 +46119,9 @@ $root.protos = (function() {
                     if (typeof message.specificOffset === "number")
                         object.specificOffset = options.longs === String ? String(message.specificOffset) : message.specificOffset;
                     else
-                        object.specificOffset = options.longs === String ? $util.Long.prototype.toString.call(message.specificOffset) : options.longs === Number ? new $util.LongBits(message.specificOffset.low >>> 0, message.specificOffset.high >>> 0).toNumber(true) : message.specificOffset;
+                        object.specificOffset = options.longs === String ? $util.Long.prototype.toString.call(message.specificOffset) : options.longs === Number ? new $util.LongBits(message.specificOffset.low >>> 0, message.specificOffset.high >>> 0).toNumber() : message.specificOffset;
                 if (message.lastOffset != null && message.hasOwnProperty("lastOffset"))
-                    if (typeof message.lastOffset === "number")
-                        object.lastOffset = options.longs === String ? String(message.lastOffset) : message.lastOffset;
-                    else
-                        object.lastOffset = options.longs === String ? $util.Long.prototype.toString.call(message.lastOffset) : options.longs === Number ? new $util.LongBits(message.lastOffset.low >>> 0, message.lastOffset.high >>> 0).toNumber(true) : message.lastOffset;
+                    object.lastOffset = message.lastOffset;
                 if (message.lastConsumed != null && message.hasOwnProperty("lastConsumed"))
                     object.lastConsumed = message.lastConsumed;
                 if (message.firstOffset != null && message.hasOwnProperty("firstOffset"))
@@ -59941,7 +59927,6 @@ $root.protos = (function() {
              * @property {number|null} [format] RabbitStreams format
              * @property {protos.records.IRabbitStreamsHeader|null} [header] RabbitStreams header
              * @property {Object.<string,string>|null} [deliveryAnnotations] RabbitStreams deliveryAnnotations
-             * @property {Object.<string,string>|null} [footer] RabbitStreams footer
              * @property {boolean|null} [sendSettled] RabbitStreams sendSettled
              * @property {string|null} [streamName] RabbitStreams streamName
              * @property {number|Long|null} [timestamp] RabbitStreams timestamp
@@ -59958,7 +59943,6 @@ $root.protos = (function() {
              */
             function RabbitStreams(properties) {
                 this.deliveryAnnotations = {};
-                this.footer = {};
                 if (properties)
                     for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                         if (properties[keys[i]] != null)
@@ -59996,14 +59980,6 @@ $root.protos = (function() {
              * @instance
              */
             RabbitStreams.prototype.deliveryAnnotations = $util.emptyObject;
-
-            /**
-             * RabbitStreams footer.
-             * @member {Object.<string,string>} footer
-             * @memberof protos.records.RabbitStreams
-             * @instance
-             */
-            RabbitStreams.prototype.footer = $util.emptyObject;
 
             /**
              * RabbitStreams sendSettled.
@@ -60070,17 +60046,14 @@ $root.protos = (function() {
                 if (message.deliveryAnnotations != null && Object.hasOwnProperty.call(message, "deliveryAnnotations"))
                     for (var keys = Object.keys(message.deliveryAnnotations), i = 0; i < keys.length; ++i)
                         writer.uint32(/* id 4, wireType 2 =*/34).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]).uint32(/* id 2, wireType 2 =*/18).string(message.deliveryAnnotations[keys[i]]).ldelim();
-                if (message.footer != null && Object.hasOwnProperty.call(message, "footer"))
-                    for (var keys = Object.keys(message.footer), i = 0; i < keys.length; ++i)
-                        writer.uint32(/* id 5, wireType 2 =*/42).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]).uint32(/* id 2, wireType 2 =*/18).string(message.footer[keys[i]]).ldelim();
                 if (message.sendSettled != null && Object.hasOwnProperty.call(message, "sendSettled"))
-                    writer.uint32(/* id 6, wireType 0 =*/48).bool(message.sendSettled);
+                    writer.uint32(/* id 5, wireType 0 =*/40).bool(message.sendSettled);
                 if (message.streamName != null && Object.hasOwnProperty.call(message, "streamName"))
-                    writer.uint32(/* id 7, wireType 2 =*/58).string(message.streamName);
+                    writer.uint32(/* id 6, wireType 2 =*/50).string(message.streamName);
                 if (message.timestamp != null && Object.hasOwnProperty.call(message, "timestamp"))
-                    writer.uint32(/* id 8, wireType 0 =*/64).int64(message.timestamp);
+                    writer.uint32(/* id 7, wireType 0 =*/56).int64(message.timestamp);
                 if (message.value != null && Object.hasOwnProperty.call(message, "value"))
-                    writer.uint32(/* id 9, wireType 2 =*/74).bytes(message.value);
+                    writer.uint32(/* id 8, wireType 2 =*/66).bytes(message.value);
                 return writer;
             };
 
@@ -60147,37 +60120,15 @@ $root.protos = (function() {
                         message.deliveryAnnotations[key] = value;
                         break;
                     case 5:
-                        if (message.footer === $util.emptyObject)
-                            message.footer = {};
-                        var end2 = reader.uint32() + reader.pos;
-                        key = "";
-                        value = "";
-                        while (reader.pos < end2) {
-                            var tag2 = reader.uint32();
-                            switch (tag2 >>> 3) {
-                            case 1:
-                                key = reader.string();
-                                break;
-                            case 2:
-                                value = reader.string();
-                                break;
-                            default:
-                                reader.skipType(tag2 & 7);
-                                break;
-                            }
-                        }
-                        message.footer[key] = value;
-                        break;
-                    case 6:
                         message.sendSettled = reader.bool();
                         break;
-                    case 7:
+                    case 6:
                         message.streamName = reader.string();
                         break;
-                    case 8:
+                    case 7:
                         message.timestamp = reader.int64();
                         break;
-                    case 9:
+                    case 8:
                         message.value = reader.bytes();
                         break;
                     default:
@@ -60234,14 +60185,6 @@ $root.protos = (function() {
                         if (!$util.isString(message.deliveryAnnotations[key[i]]))
                             return "deliveryAnnotations: string{k:string} expected";
                 }
-                if (message.footer != null && message.hasOwnProperty("footer")) {
-                    if (!$util.isObject(message.footer))
-                        return "footer: object expected";
-                    var key = Object.keys(message.footer);
-                    for (var i = 0; i < key.length; ++i)
-                        if (!$util.isString(message.footer[key[i]]))
-                            return "footer: string{k:string} expected";
-                }
                 if (message.sendSettled != null && message.hasOwnProperty("sendSettled"))
                     if (typeof message.sendSettled !== "boolean")
                         return "sendSettled: boolean expected";
@@ -60285,13 +60228,6 @@ $root.protos = (function() {
                     for (var keys = Object.keys(object.deliveryAnnotations), i = 0; i < keys.length; ++i)
                         message.deliveryAnnotations[keys[i]] = String(object.deliveryAnnotations[keys[i]]);
                 }
-                if (object.footer) {
-                    if (typeof object.footer !== "object")
-                        throw TypeError(".protos.records.RabbitStreams.footer: object expected");
-                    message.footer = {};
-                    for (var keys = Object.keys(object.footer), i = 0; i < keys.length; ++i)
-                        message.footer[keys[i]] = String(object.footer[keys[i]]);
-                }
                 if (object.sendSettled != null)
                     message.sendSettled = Boolean(object.sendSettled);
                 if (object.streamName != null)
@@ -60326,10 +60262,8 @@ $root.protos = (function() {
                 if (!options)
                     options = {};
                 var object = {};
-                if (options.objects || options.defaults) {
+                if (options.objects || options.defaults)
                     object.deliveryAnnotations = {};
-                    object.footer = {};
-                }
                 if (options.defaults) {
                     object.deliveryTag = "";
                     object.format = 0;
@@ -60360,11 +60294,6 @@ $root.protos = (function() {
                     object.deliveryAnnotations = {};
                     for (var j = 0; j < keys2.length; ++j)
                         object.deliveryAnnotations[keys2[j]] = message.deliveryAnnotations[keys2[j]];
-                }
-                if (message.footer && (keys2 = Object.keys(message.footer)).length) {
-                    object.footer = {};
-                    for (var j = 0; j < keys2.length; ++j)
-                        object.footer[keys2[j]] = message.footer[keys2[j]];
                 }
                 if (message.sendSettled != null && message.hasOwnProperty("sendSettled"))
                     object.sendSettled = message.sendSettled;
@@ -60400,19 +60329,11 @@ $root.protos = (function() {
              * Properties of a RabbitStreamsHeader.
              * @memberof protos.records
              * @interface IRabbitStreamsHeader
-             * @property {string|null} [messageId] RabbitStreamsHeader messageId
-             * @property {string|null} [userId] RabbitStreamsHeader userId
-             * @property {string|null} [to] RabbitStreamsHeader to
-             * @property {string|null} [subject] RabbitStreamsHeader subject
-             * @property {string|null} [replayTo] RabbitStreamsHeader replayTo
-             * @property {string|null} [correlationId] RabbitStreamsHeader correlationId
-             * @property {string|null} [contentType] RabbitStreamsHeader contentType
-             * @property {string|null} [contentEncoding] RabbitStreamsHeader contentEncoding
-             * @property {string|null} [absoluteExpiryTime] RabbitStreamsHeader absoluteExpiryTime
-             * @property {string|null} [creationTime] RabbitStreamsHeader creationTime
-             * @property {string|null} [groupId] RabbitStreamsHeader groupId
-             * @property {number|null} [groupSequence] RabbitStreamsHeader groupSequence
-             * @property {string|null} [replayToGroupId] RabbitStreamsHeader replayToGroupId
+             * @property {boolean|null} [durable] RabbitStreamsHeader durable
+             * @property {number|null} [priority] RabbitStreamsHeader priority
+             * @property {number|Long|null} [ttl] RabbitStreamsHeader ttl
+             * @property {boolean|null} [firstAcquirer] RabbitStreamsHeader firstAcquirer
+             * @property {number|null} [deliveryCount] RabbitStreamsHeader deliveryCount
              */
 
             /**
@@ -60431,108 +60352,44 @@ $root.protos = (function() {
             }
 
             /**
-             * RabbitStreamsHeader messageId.
-             * @member {string} messageId
+             * RabbitStreamsHeader durable.
+             * @member {boolean} durable
              * @memberof protos.records.RabbitStreamsHeader
              * @instance
              */
-            RabbitStreamsHeader.prototype.messageId = "";
+            RabbitStreamsHeader.prototype.durable = false;
 
             /**
-             * RabbitStreamsHeader userId.
-             * @member {string} userId
+             * RabbitStreamsHeader priority.
+             * @member {number} priority
              * @memberof protos.records.RabbitStreamsHeader
              * @instance
              */
-            RabbitStreamsHeader.prototype.userId = "";
+            RabbitStreamsHeader.prototype.priority = 0;
 
             /**
-             * RabbitStreamsHeader to.
-             * @member {string} to
+             * RabbitStreamsHeader ttl.
+             * @member {number|Long} ttl
              * @memberof protos.records.RabbitStreamsHeader
              * @instance
              */
-            RabbitStreamsHeader.prototype.to = "";
+            RabbitStreamsHeader.prototype.ttl = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
 
             /**
-             * RabbitStreamsHeader subject.
-             * @member {string} subject
+             * RabbitStreamsHeader firstAcquirer.
+             * @member {boolean} firstAcquirer
              * @memberof protos.records.RabbitStreamsHeader
              * @instance
              */
-            RabbitStreamsHeader.prototype.subject = "";
+            RabbitStreamsHeader.prototype.firstAcquirer = false;
 
             /**
-             * RabbitStreamsHeader replayTo.
-             * @member {string} replayTo
+             * RabbitStreamsHeader deliveryCount.
+             * @member {number} deliveryCount
              * @memberof protos.records.RabbitStreamsHeader
              * @instance
              */
-            RabbitStreamsHeader.prototype.replayTo = "";
-
-            /**
-             * RabbitStreamsHeader correlationId.
-             * @member {string} correlationId
-             * @memberof protos.records.RabbitStreamsHeader
-             * @instance
-             */
-            RabbitStreamsHeader.prototype.correlationId = "";
-
-            /**
-             * RabbitStreamsHeader contentType.
-             * @member {string} contentType
-             * @memberof protos.records.RabbitStreamsHeader
-             * @instance
-             */
-            RabbitStreamsHeader.prototype.contentType = "";
-
-            /**
-             * RabbitStreamsHeader contentEncoding.
-             * @member {string} contentEncoding
-             * @memberof protos.records.RabbitStreamsHeader
-             * @instance
-             */
-            RabbitStreamsHeader.prototype.contentEncoding = "";
-
-            /**
-             * RabbitStreamsHeader absoluteExpiryTime.
-             * @member {string} absoluteExpiryTime
-             * @memberof protos.records.RabbitStreamsHeader
-             * @instance
-             */
-            RabbitStreamsHeader.prototype.absoluteExpiryTime = "";
-
-            /**
-             * RabbitStreamsHeader creationTime.
-             * @member {string} creationTime
-             * @memberof protos.records.RabbitStreamsHeader
-             * @instance
-             */
-            RabbitStreamsHeader.prototype.creationTime = "";
-
-            /**
-             * RabbitStreamsHeader groupId.
-             * @member {string} groupId
-             * @memberof protos.records.RabbitStreamsHeader
-             * @instance
-             */
-            RabbitStreamsHeader.prototype.groupId = "";
-
-            /**
-             * RabbitStreamsHeader groupSequence.
-             * @member {number} groupSequence
-             * @memberof protos.records.RabbitStreamsHeader
-             * @instance
-             */
-            RabbitStreamsHeader.prototype.groupSequence = 0;
-
-            /**
-             * RabbitStreamsHeader replayToGroupId.
-             * @member {string} replayToGroupId
-             * @memberof protos.records.RabbitStreamsHeader
-             * @instance
-             */
-            RabbitStreamsHeader.prototype.replayToGroupId = "";
+            RabbitStreamsHeader.prototype.deliveryCount = 0;
 
             /**
              * Creates a new RabbitStreamsHeader instance using the specified properties.
@@ -60558,32 +60415,16 @@ $root.protos = (function() {
             RabbitStreamsHeader.encode = function encode(message, writer) {
                 if (!writer)
                     writer = $Writer.create();
-                if (message.messageId != null && Object.hasOwnProperty.call(message, "messageId"))
-                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.messageId);
-                if (message.userId != null && Object.hasOwnProperty.call(message, "userId"))
-                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.userId);
-                if (message.to != null && Object.hasOwnProperty.call(message, "to"))
-                    writer.uint32(/* id 3, wireType 2 =*/26).string(message.to);
-                if (message.subject != null && Object.hasOwnProperty.call(message, "subject"))
-                    writer.uint32(/* id 4, wireType 2 =*/34).string(message.subject);
-                if (message.replayTo != null && Object.hasOwnProperty.call(message, "replayTo"))
-                    writer.uint32(/* id 5, wireType 2 =*/42).string(message.replayTo);
-                if (message.correlationId != null && Object.hasOwnProperty.call(message, "correlationId"))
-                    writer.uint32(/* id 6, wireType 2 =*/50).string(message.correlationId);
-                if (message.contentType != null && Object.hasOwnProperty.call(message, "contentType"))
-                    writer.uint32(/* id 7, wireType 2 =*/58).string(message.contentType);
-                if (message.contentEncoding != null && Object.hasOwnProperty.call(message, "contentEncoding"))
-                    writer.uint32(/* id 8, wireType 2 =*/66).string(message.contentEncoding);
-                if (message.absoluteExpiryTime != null && Object.hasOwnProperty.call(message, "absoluteExpiryTime"))
-                    writer.uint32(/* id 9, wireType 2 =*/74).string(message.absoluteExpiryTime);
-                if (message.creationTime != null && Object.hasOwnProperty.call(message, "creationTime"))
-                    writer.uint32(/* id 10, wireType 2 =*/82).string(message.creationTime);
-                if (message.groupId != null && Object.hasOwnProperty.call(message, "groupId"))
-                    writer.uint32(/* id 11, wireType 2 =*/90).string(message.groupId);
-                if (message.groupSequence != null && Object.hasOwnProperty.call(message, "groupSequence"))
-                    writer.uint32(/* id 12, wireType 0 =*/96).uint32(message.groupSequence);
-                if (message.replayToGroupId != null && Object.hasOwnProperty.call(message, "replayToGroupId"))
-                    writer.uint32(/* id 13, wireType 2 =*/106).string(message.replayToGroupId);
+                if (message.durable != null && Object.hasOwnProperty.call(message, "durable"))
+                    writer.uint32(/* id 1, wireType 0 =*/8).bool(message.durable);
+                if (message.priority != null && Object.hasOwnProperty.call(message, "priority"))
+                    writer.uint32(/* id 2, wireType 0 =*/16).uint32(message.priority);
+                if (message.ttl != null && Object.hasOwnProperty.call(message, "ttl"))
+                    writer.uint32(/* id 3, wireType 0 =*/24).int64(message.ttl);
+                if (message.firstAcquirer != null && Object.hasOwnProperty.call(message, "firstAcquirer"))
+                    writer.uint32(/* id 4, wireType 0 =*/32).bool(message.firstAcquirer);
+                if (message.deliveryCount != null && Object.hasOwnProperty.call(message, "deliveryCount"))
+                    writer.uint32(/* id 5, wireType 0 =*/40).uint32(message.deliveryCount);
                 return writer;
             };
 
@@ -60619,43 +60460,19 @@ $root.protos = (function() {
                     var tag = reader.uint32();
                     switch (tag >>> 3) {
                     case 1:
-                        message.messageId = reader.string();
+                        message.durable = reader.bool();
                         break;
                     case 2:
-                        message.userId = reader.string();
+                        message.priority = reader.uint32();
                         break;
                     case 3:
-                        message.to = reader.string();
+                        message.ttl = reader.int64();
                         break;
                     case 4:
-                        message.subject = reader.string();
+                        message.firstAcquirer = reader.bool();
                         break;
                     case 5:
-                        message.replayTo = reader.string();
-                        break;
-                    case 6:
-                        message.correlationId = reader.string();
-                        break;
-                    case 7:
-                        message.contentType = reader.string();
-                        break;
-                    case 8:
-                        message.contentEncoding = reader.string();
-                        break;
-                    case 9:
-                        message.absoluteExpiryTime = reader.string();
-                        break;
-                    case 10:
-                        message.creationTime = reader.string();
-                        break;
-                    case 11:
-                        message.groupId = reader.string();
-                        break;
-                    case 12:
-                        message.groupSequence = reader.uint32();
-                        break;
-                    case 13:
-                        message.replayToGroupId = reader.string();
+                        message.deliveryCount = reader.uint32();
                         break;
                     default:
                         reader.skipType(tag & 7);
@@ -60692,45 +60509,21 @@ $root.protos = (function() {
             RabbitStreamsHeader.verify = function verify(message) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (message.messageId != null && message.hasOwnProperty("messageId"))
-                    if (!$util.isString(message.messageId))
-                        return "messageId: string expected";
-                if (message.userId != null && message.hasOwnProperty("userId"))
-                    if (!$util.isString(message.userId))
-                        return "userId: string expected";
-                if (message.to != null && message.hasOwnProperty("to"))
-                    if (!$util.isString(message.to))
-                        return "to: string expected";
-                if (message.subject != null && message.hasOwnProperty("subject"))
-                    if (!$util.isString(message.subject))
-                        return "subject: string expected";
-                if (message.replayTo != null && message.hasOwnProperty("replayTo"))
-                    if (!$util.isString(message.replayTo))
-                        return "replayTo: string expected";
-                if (message.correlationId != null && message.hasOwnProperty("correlationId"))
-                    if (!$util.isString(message.correlationId))
-                        return "correlationId: string expected";
-                if (message.contentType != null && message.hasOwnProperty("contentType"))
-                    if (!$util.isString(message.contentType))
-                        return "contentType: string expected";
-                if (message.contentEncoding != null && message.hasOwnProperty("contentEncoding"))
-                    if (!$util.isString(message.contentEncoding))
-                        return "contentEncoding: string expected";
-                if (message.absoluteExpiryTime != null && message.hasOwnProperty("absoluteExpiryTime"))
-                    if (!$util.isString(message.absoluteExpiryTime))
-                        return "absoluteExpiryTime: string expected";
-                if (message.creationTime != null && message.hasOwnProperty("creationTime"))
-                    if (!$util.isString(message.creationTime))
-                        return "creationTime: string expected";
-                if (message.groupId != null && message.hasOwnProperty("groupId"))
-                    if (!$util.isString(message.groupId))
-                        return "groupId: string expected";
-                if (message.groupSequence != null && message.hasOwnProperty("groupSequence"))
-                    if (!$util.isInteger(message.groupSequence))
-                        return "groupSequence: integer expected";
-                if (message.replayToGroupId != null && message.hasOwnProperty("replayToGroupId"))
-                    if (!$util.isString(message.replayToGroupId))
-                        return "replayToGroupId: string expected";
+                if (message.durable != null && message.hasOwnProperty("durable"))
+                    if (typeof message.durable !== "boolean")
+                        return "durable: boolean expected";
+                if (message.priority != null && message.hasOwnProperty("priority"))
+                    if (!$util.isInteger(message.priority))
+                        return "priority: integer expected";
+                if (message.ttl != null && message.hasOwnProperty("ttl"))
+                    if (!$util.isInteger(message.ttl) && !(message.ttl && $util.isInteger(message.ttl.low) && $util.isInteger(message.ttl.high)))
+                        return "ttl: integer|Long expected";
+                if (message.firstAcquirer != null && message.hasOwnProperty("firstAcquirer"))
+                    if (typeof message.firstAcquirer !== "boolean")
+                        return "firstAcquirer: boolean expected";
+                if (message.deliveryCount != null && message.hasOwnProperty("deliveryCount"))
+                    if (!$util.isInteger(message.deliveryCount))
+                        return "deliveryCount: integer expected";
                 return null;
             };
 
@@ -60746,32 +60539,23 @@ $root.protos = (function() {
                 if (object instanceof $root.protos.records.RabbitStreamsHeader)
                     return object;
                 var message = new $root.protos.records.RabbitStreamsHeader();
-                if (object.messageId != null)
-                    message.messageId = String(object.messageId);
-                if (object.userId != null)
-                    message.userId = String(object.userId);
-                if (object.to != null)
-                    message.to = String(object.to);
-                if (object.subject != null)
-                    message.subject = String(object.subject);
-                if (object.replayTo != null)
-                    message.replayTo = String(object.replayTo);
-                if (object.correlationId != null)
-                    message.correlationId = String(object.correlationId);
-                if (object.contentType != null)
-                    message.contentType = String(object.contentType);
-                if (object.contentEncoding != null)
-                    message.contentEncoding = String(object.contentEncoding);
-                if (object.absoluteExpiryTime != null)
-                    message.absoluteExpiryTime = String(object.absoluteExpiryTime);
-                if (object.creationTime != null)
-                    message.creationTime = String(object.creationTime);
-                if (object.groupId != null)
-                    message.groupId = String(object.groupId);
-                if (object.groupSequence != null)
-                    message.groupSequence = object.groupSequence >>> 0;
-                if (object.replayToGroupId != null)
-                    message.replayToGroupId = String(object.replayToGroupId);
+                if (object.durable != null)
+                    message.durable = Boolean(object.durable);
+                if (object.priority != null)
+                    message.priority = object.priority >>> 0;
+                if (object.ttl != null)
+                    if ($util.Long)
+                        (message.ttl = $util.Long.fromValue(object.ttl)).unsigned = false;
+                    else if (typeof object.ttl === "string")
+                        message.ttl = parseInt(object.ttl, 10);
+                    else if (typeof object.ttl === "number")
+                        message.ttl = object.ttl;
+                    else if (typeof object.ttl === "object")
+                        message.ttl = new $util.LongBits(object.ttl.low >>> 0, object.ttl.high >>> 0).toNumber();
+                if (object.firstAcquirer != null)
+                    message.firstAcquirer = Boolean(object.firstAcquirer);
+                if (object.deliveryCount != null)
+                    message.deliveryCount = object.deliveryCount >>> 0;
                 return message;
             };
 
@@ -60789,46 +60573,29 @@ $root.protos = (function() {
                     options = {};
                 var object = {};
                 if (options.defaults) {
-                    object.messageId = "";
-                    object.userId = "";
-                    object.to = "";
-                    object.subject = "";
-                    object.replayTo = "";
-                    object.correlationId = "";
-                    object.contentType = "";
-                    object.contentEncoding = "";
-                    object.absoluteExpiryTime = "";
-                    object.creationTime = "";
-                    object.groupId = "";
-                    object.groupSequence = 0;
-                    object.replayToGroupId = "";
+                    object.durable = false;
+                    object.priority = 0;
+                    if ($util.Long) {
+                        var long = new $util.Long(0, 0, false);
+                        object.ttl = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                    } else
+                        object.ttl = options.longs === String ? "0" : 0;
+                    object.firstAcquirer = false;
+                    object.deliveryCount = 0;
                 }
-                if (message.messageId != null && message.hasOwnProperty("messageId"))
-                    object.messageId = message.messageId;
-                if (message.userId != null && message.hasOwnProperty("userId"))
-                    object.userId = message.userId;
-                if (message.to != null && message.hasOwnProperty("to"))
-                    object.to = message.to;
-                if (message.subject != null && message.hasOwnProperty("subject"))
-                    object.subject = message.subject;
-                if (message.replayTo != null && message.hasOwnProperty("replayTo"))
-                    object.replayTo = message.replayTo;
-                if (message.correlationId != null && message.hasOwnProperty("correlationId"))
-                    object.correlationId = message.correlationId;
-                if (message.contentType != null && message.hasOwnProperty("contentType"))
-                    object.contentType = message.contentType;
-                if (message.contentEncoding != null && message.hasOwnProperty("contentEncoding"))
-                    object.contentEncoding = message.contentEncoding;
-                if (message.absoluteExpiryTime != null && message.hasOwnProperty("absoluteExpiryTime"))
-                    object.absoluteExpiryTime = message.absoluteExpiryTime;
-                if (message.creationTime != null && message.hasOwnProperty("creationTime"))
-                    object.creationTime = message.creationTime;
-                if (message.groupId != null && message.hasOwnProperty("groupId"))
-                    object.groupId = message.groupId;
-                if (message.groupSequence != null && message.hasOwnProperty("groupSequence"))
-                    object.groupSequence = message.groupSequence;
-                if (message.replayToGroupId != null && message.hasOwnProperty("replayToGroupId"))
-                    object.replayToGroupId = message.replayToGroupId;
+                if (message.durable != null && message.hasOwnProperty("durable"))
+                    object.durable = message.durable;
+                if (message.priority != null && message.hasOwnProperty("priority"))
+                    object.priority = message.priority;
+                if (message.ttl != null && message.hasOwnProperty("ttl"))
+                    if (typeof message.ttl === "number")
+                        object.ttl = options.longs === String ? String(message.ttl) : message.ttl;
+                    else
+                        object.ttl = options.longs === String ? $util.Long.prototype.toString.call(message.ttl) : options.longs === Number ? new $util.LongBits(message.ttl.low >>> 0, message.ttl.high >>> 0).toNumber() : message.ttl;
+                if (message.firstAcquirer != null && message.hasOwnProperty("firstAcquirer"))
+                    object.firstAcquirer = message.firstAcquirer;
+                if (message.deliveryCount != null && message.hasOwnProperty("deliveryCount"))
+                    object.deliveryCount = message.deliveryCount;
                 return object;
             };
 

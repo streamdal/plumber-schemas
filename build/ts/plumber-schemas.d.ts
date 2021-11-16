@@ -19134,7 +19134,7 @@ export namespace protos {
             specificOffset?: (number|Long|null);
 
             /** RabbitStreamsOffsetOptions lastOffset */
-            lastOffset?: (number|Long|null);
+            lastOffset?: (boolean|null);
 
             /** RabbitStreamsOffsetOptions lastConsumed */
             lastConsumed?: (boolean|null);
@@ -19159,7 +19159,7 @@ export namespace protos {
             public specificOffset: (number|Long);
 
             /** RabbitStreamsOffsetOptions lastOffset. */
-            public lastOffset: (number|Long);
+            public lastOffset: boolean;
 
             /** RabbitStreamsOffsetOptions lastConsumed. */
             public lastConsumed: boolean;
@@ -24507,9 +24507,6 @@ export namespace protos {
             /** RabbitStreams deliveryAnnotations */
             deliveryAnnotations?: ({ [k: string]: string }|null);
 
-            /** RabbitStreams footer */
-            footer?: ({ [k: string]: string }|null);
-
             /** RabbitStreams sendSettled */
             sendSettled?: (boolean|null);
 
@@ -24543,9 +24540,6 @@ export namespace protos {
 
             /** RabbitStreams deliveryAnnotations. */
             public deliveryAnnotations: { [k: string]: string };
-
-            /** RabbitStreams footer. */
-            public footer: { [k: string]: string };
 
             /** RabbitStreams sendSettled. */
             public sendSettled: boolean;
@@ -24633,44 +24627,20 @@ export namespace protos {
         /** Properties of a RabbitStreamsHeader. */
         interface IRabbitStreamsHeader {
 
-            /** RabbitStreamsHeader messageId */
-            messageId?: (string|null);
+            /** RabbitStreamsHeader durable */
+            durable?: (boolean|null);
 
-            /** RabbitStreamsHeader userId */
-            userId?: (string|null);
+            /** RabbitStreamsHeader priority */
+            priority?: (number|null);
 
-            /** RabbitStreamsHeader to */
-            to?: (string|null);
+            /** RabbitStreamsHeader ttl */
+            ttl?: (number|Long|null);
 
-            /** RabbitStreamsHeader subject */
-            subject?: (string|null);
+            /** RabbitStreamsHeader firstAcquirer */
+            firstAcquirer?: (boolean|null);
 
-            /** RabbitStreamsHeader replayTo */
-            replayTo?: (string|null);
-
-            /** RabbitStreamsHeader correlationId */
-            correlationId?: (string|null);
-
-            /** RabbitStreamsHeader contentType */
-            contentType?: (string|null);
-
-            /** RabbitStreamsHeader contentEncoding */
-            contentEncoding?: (string|null);
-
-            /** RabbitStreamsHeader absoluteExpiryTime */
-            absoluteExpiryTime?: (string|null);
-
-            /** RabbitStreamsHeader creationTime */
-            creationTime?: (string|null);
-
-            /** RabbitStreamsHeader groupId */
-            groupId?: (string|null);
-
-            /** RabbitStreamsHeader groupSequence */
-            groupSequence?: (number|null);
-
-            /** RabbitStreamsHeader replayToGroupId */
-            replayToGroupId?: (string|null);
+            /** RabbitStreamsHeader deliveryCount */
+            deliveryCount?: (number|null);
         }
 
         /** Represents a RabbitStreamsHeader. */
@@ -24682,44 +24652,20 @@ export namespace protos {
              */
             constructor(properties?: protos.records.IRabbitStreamsHeader);
 
-            /** RabbitStreamsHeader messageId. */
-            public messageId: string;
+            /** RabbitStreamsHeader durable. */
+            public durable: boolean;
 
-            /** RabbitStreamsHeader userId. */
-            public userId: string;
+            /** RabbitStreamsHeader priority. */
+            public priority: number;
 
-            /** RabbitStreamsHeader to. */
-            public to: string;
+            /** RabbitStreamsHeader ttl. */
+            public ttl: (number|Long);
 
-            /** RabbitStreamsHeader subject. */
-            public subject: string;
+            /** RabbitStreamsHeader firstAcquirer. */
+            public firstAcquirer: boolean;
 
-            /** RabbitStreamsHeader replayTo. */
-            public replayTo: string;
-
-            /** RabbitStreamsHeader correlationId. */
-            public correlationId: string;
-
-            /** RabbitStreamsHeader contentType. */
-            public contentType: string;
-
-            /** RabbitStreamsHeader contentEncoding. */
-            public contentEncoding: string;
-
-            /** RabbitStreamsHeader absoluteExpiryTime. */
-            public absoluteExpiryTime: string;
-
-            /** RabbitStreamsHeader creationTime. */
-            public creationTime: string;
-
-            /** RabbitStreamsHeader groupId. */
-            public groupId: string;
-
-            /** RabbitStreamsHeader groupSequence. */
-            public groupSequence: number;
-
-            /** RabbitStreamsHeader replayToGroupId. */
-            public replayToGroupId: string;
+            /** RabbitStreamsHeader deliveryCount. */
+            public deliveryCount: number;
 
             /**
              * Creates a new RabbitStreamsHeader instance using the specified properties.
