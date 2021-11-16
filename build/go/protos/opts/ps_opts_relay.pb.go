@@ -22,8 +22,8 @@ var _ = math.Inf
 const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
 type RelayCLIOptions struct {
-	// @gotags: kong:"help='What address to bind the built-in HTTP server to',default='http://localhost:9191'"
-	HttpListenAddress    string   `protobuf:"bytes,1,opt,name=http_listen_address,json=httpListenAddress,proto3" json:"http_listen_address,omitempty" kong:"help='What address to bind the built-in HTTP server to',default='http://localhost:9191'"`
+	// @gotags: kong:"help='What address to bind the built-in HTTP server to',env='PLUMBER_RELAY_HTTP_LISTEN_ADDRESS',default='localhost:9191'"
+	HttpListenAddress    string   `protobuf:"bytes,1,opt,name=http_listen_address,json=httpListenAddress,proto3" json:"http_listen_address,omitempty" kong:"help='What address to bind the built-in HTTP server to',env='PLUMBER_RELAY_HTTP_LISTEN_ADDRESS',default='localhost:9191'"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -64,23 +64,23 @@ func (m *RelayCLIOptions) GetHttpListenAddress() string {
 // Relay is the structure that backends accept for facilitating a relay.
 // NOTE: _conn is only used by the CLI - desktop does not need to set it.
 type RelayOptions struct {
-	// @gotags: kong:"help='Secret collection token',name=token,required"
-	CollectionToken string `protobuf:"bytes,1,opt,name=collection_token,json=collectionToken,proto3" json:"collection_token,omitempty" kong:"help='Secret collection token',name=token,required"`
-	// @gotags: kong:"help='How many messages to send in a single batch',default=1000"
-	BatchSize int32 `protobuf:"varint,2,opt,name=batch_size,json=batchSize,proto3" json:"batch_size,omitempty" kong:"help='How many messages to send in a single batch',default=1000"`
-	// @gotags: kong:"help='How many times plumber will try re-sending a batch',default=3"
-	BatchMaxRetry int32 `protobuf:"varint,3,opt,name=batch_max_retry,json=batchMaxRetry,proto3" json:"batch_max_retry,omitempty" kong:"help='How many times plumber will try re-sending a batch',default=3"`
+	// @gotags: kong:"help='Secret collection token',env='PLUMBER_RELAY_TOKEN',name=token,required"
+	CollectionToken string `protobuf:"bytes,1,opt,name=collection_token,json=collectionToken,proto3" json:"collection_token,omitempty" kong:"help='Secret collection token',env='PLUMBER_RELAY_TOKEN',name=token,required"`
+	// @gotags: kong:"help='How many messages to send in a single batch',env='PLUMBER_RELAY_BATCH_SIZE',default=1000"
+	BatchSize int32 `protobuf:"varint,2,opt,name=batch_size,json=batchSize,proto3" json:"batch_size,omitempty" kong:"help='How many messages to send in a single batch',env='PLUMBER_RELAY_BATCH_SIZE',default=1000"`
+	// @gotags: kong:"help='How many times plumber will try re-sending a batch',env='PLUMBER_RELAY_BATCH_MAX_RETRY',default=3"
+	BatchMaxRetry int32 `protobuf:"varint,3,opt,name=batch_max_retry,json=batchMaxRetry,proto3" json:"batch_max_retry,omitempty" kong:"help='How many times plumber will try re-sending a batch',env='PLUMBER_RELAY_BATCH_MAX_RETRY',default=3"`
 	// Required for desktop; ignored in CLI.
 	// @gotags: kong:"-"
 	ConnectionId string `protobuf:"bytes,4,opt,name=connection_id,json=connectionId,proto3" json:"connection_id,omitempty" kong:"-"`
-	// @gotags: kong:"name='How many workers to launch per relay',default=10"
-	NumWorkers int32 `protobuf:"varint,5,opt,name=num_workers,json=numWorkers,proto3" json:"num_workers,omitempty" kong:"name='How many workers to launch per relay',default=10"`
-	// @gotags: kong:"help='Alternative collector to relay events to',name='grpc-address',default='grpc-collector.batch.sh:9000'"
-	XBatchshGrpcAddress string `protobuf:"bytes,1000,opt,name=_batchsh_grpc_address,json=BatchshGrpcAddress,proto3" json:"_batchsh_grpc_address,omitempty" kong:"help='Alternative collector to relay events to',name='grpc-address',default='grpc-collector.batch.sh:9000'"`
-	// @gotags: kong:"help='Whether to use TLS with collector',name=grpc-disable-tls,default=true"
-	XBatchshGrpcDisableTls bool `protobuf:"varint,1001,opt,name=_batchsh_grpc_disable_tls,json=BatchshGrpcDisableTls,proto3" json:"_batchsh_grpc_disable_tls,omitempty" kong:"help='Whether to use TLS with collector',name=grpc-disable-tls,default=true"`
-	// @gotags: kong:"help='How long to wait before giving up talking to the gRPC collector',name='grpc-timeout-seconds'"
-	XBatchshGrpcTimeoutSeconds int32 `protobuf:"varint,1002,opt,name=_batchsh_grpc_timeout_seconds,json=BatchshGrpcTimeoutSeconds,proto3" json:"_batchsh_grpc_timeout_seconds,omitempty" kong:"help='How long to wait before giving up talking to the gRPC collector',name='grpc-timeout-seconds'"`
+	// @gotags: kong:"name='How many workers to launch per relay',env='PLUMBER_RELAY_NUM_WORKERS',default=10"
+	NumWorkers int32 `protobuf:"varint,5,opt,name=num_workers,json=numWorkers,proto3" json:"num_workers,omitempty" kong:"name='How many workers to launch per relay',env='PLUMBER_RELAY_NUM_WORKERS',default=10"`
+	// @gotags: kong:"help='Alternative collector to relay events to',name='grpc-address',env='PLUMBER_RELAY_GRPC_ADDRESS',default='grpc-collector.batch.sh:9000'"
+	XBatchshGrpcAddress string `protobuf:"bytes,1000,opt,name=_batchsh_grpc_address,json=BatchshGrpcAddress,proto3" json:"_batchsh_grpc_address,omitempty" kong:"help='Alternative collector to relay events to',name='grpc-address',env='PLUMBER_RELAY_GRPC_ADDRESS',default='grpc-collector.batch.sh:9000'"`
+	// @gotags: kong:"help='Whether to use TLS with collector',name=grpc-disable-tls,env='PLUMBER_RELAY_GRPC_DISABLE_TLS',default=true"
+	XBatchshGrpcDisableTls bool `protobuf:"varint,1001,opt,name=_batchsh_grpc_disable_tls,json=BatchshGrpcDisableTls,proto3" json:"_batchsh_grpc_disable_tls,omitempty" kong:"help='Whether to use TLS with collector',name=grpc-disable-tls,env='PLUMBER_RELAY_GRPC_DISABLE_TLS',default=true"`
+	// @gotags: kong:"help='How long to wait before giving up talking to the gRPC collector',name='grpc-timeout-seconds',env='PLUMBER_RELAY_GRPC_TIMEOUT',default=5"
+	XBatchshGrpcTimeoutSeconds int32 `protobuf:"varint,1002,opt,name=_batchsh_grpc_timeout_seconds,json=BatchshGrpcTimeoutSeconds,proto3" json:"_batchsh_grpc_timeout_seconds,omitempty" kong:"help='How long to wait before giving up talking to the gRPC collector',name='grpc-timeout-seconds',env='PLUMBER_RELAY_GRPC_TIMEOUT',default=5"`
 	// ID of the created relay entry; populated by plumber.
 	// @gotags: kong:"-"
 	XRelayId string `protobuf:"bytes,1003,opt,name=_relay_id,json=RelayId,proto3" json:"_relay_id,omitempty" kong:"-"`
