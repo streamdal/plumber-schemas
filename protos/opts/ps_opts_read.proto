@@ -34,14 +34,8 @@ message ReadCLIOptions {
     // @gotags: kong:"help='Display more verbose information during reads (varies by backend)'"
     bool verbose_output = 1;
 
-    // @gotags: kong:"group=stats,help='Display periodic read stats'"
-    bool stats_enable = 2;
-
-    // @gotags: kong:"group=stats,help='How often to print stats',default=5"
-    int32 stats_report_interval_sec = 3;
-
     // @gotags: kong:"help='Provide pretty output'"
-    bool pretty = 4;
+    bool pretty = 2;
 }
 
 message ReadSampleOptions {

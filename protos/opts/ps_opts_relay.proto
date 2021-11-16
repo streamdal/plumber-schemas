@@ -41,6 +41,12 @@ message RelayOptions {
     // @gotags: kong:"name='How many workers to launch per relay',env='PLUMBER_RELAY_NUM_WORKERS',default=10"
     int32 num_workers = 5;
 
+    // @gotags: kong:"group=stats,help='Display periodic read stats'"
+    bool stats_enable = 6;
+
+    // @gotags: kong:"group=stats,help='How often to print stats',default=5"
+    int32 stats_report_interval_sec = 7;
+
     // --------------------------------------------------------------------- //
     //                          PRIVATE FIELDS (1000+)                       //
     // --------------------------------------------------------------------- //

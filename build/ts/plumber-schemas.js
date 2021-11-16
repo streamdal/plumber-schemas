@@ -6010,8 +6010,6 @@ $root.protos = (function() {
              * @memberof protos.opts
              * @interface IReadCLIOptions
              * @property {boolean|null} [verboseOutput] ReadCLIOptions verboseOutput
-             * @property {boolean|null} [statsEnable] ReadCLIOptions statsEnable
-             * @property {number|null} [statsReportIntervalSec] ReadCLIOptions statsReportIntervalSec
              * @property {boolean|null} [pretty] ReadCLIOptions pretty
              */
 
@@ -6037,22 +6035,6 @@ $root.protos = (function() {
              * @instance
              */
             ReadCLIOptions.prototype.verboseOutput = false;
-
-            /**
-             * ReadCLIOptions statsEnable.
-             * @member {boolean} statsEnable
-             * @memberof protos.opts.ReadCLIOptions
-             * @instance
-             */
-            ReadCLIOptions.prototype.statsEnable = false;
-
-            /**
-             * ReadCLIOptions statsReportIntervalSec.
-             * @member {number} statsReportIntervalSec
-             * @memberof protos.opts.ReadCLIOptions
-             * @instance
-             */
-            ReadCLIOptions.prototype.statsReportIntervalSec = 0;
 
             /**
              * ReadCLIOptions pretty.
@@ -6088,12 +6070,8 @@ $root.protos = (function() {
                     writer = $Writer.create();
                 if (message.verboseOutput != null && Object.hasOwnProperty.call(message, "verboseOutput"))
                     writer.uint32(/* id 1, wireType 0 =*/8).bool(message.verboseOutput);
-                if (message.statsEnable != null && Object.hasOwnProperty.call(message, "statsEnable"))
-                    writer.uint32(/* id 2, wireType 0 =*/16).bool(message.statsEnable);
-                if (message.statsReportIntervalSec != null && Object.hasOwnProperty.call(message, "statsReportIntervalSec"))
-                    writer.uint32(/* id 3, wireType 0 =*/24).int32(message.statsReportIntervalSec);
                 if (message.pretty != null && Object.hasOwnProperty.call(message, "pretty"))
-                    writer.uint32(/* id 4, wireType 0 =*/32).bool(message.pretty);
+                    writer.uint32(/* id 2, wireType 0 =*/16).bool(message.pretty);
                 return writer;
             };
 
@@ -6132,12 +6110,6 @@ $root.protos = (function() {
                         message.verboseOutput = reader.bool();
                         break;
                     case 2:
-                        message.statsEnable = reader.bool();
-                        break;
-                    case 3:
-                        message.statsReportIntervalSec = reader.int32();
-                        break;
-                    case 4:
                         message.pretty = reader.bool();
                         break;
                     default:
@@ -6178,12 +6150,6 @@ $root.protos = (function() {
                 if (message.verboseOutput != null && message.hasOwnProperty("verboseOutput"))
                     if (typeof message.verboseOutput !== "boolean")
                         return "verboseOutput: boolean expected";
-                if (message.statsEnable != null && message.hasOwnProperty("statsEnable"))
-                    if (typeof message.statsEnable !== "boolean")
-                        return "statsEnable: boolean expected";
-                if (message.statsReportIntervalSec != null && message.hasOwnProperty("statsReportIntervalSec"))
-                    if (!$util.isInteger(message.statsReportIntervalSec))
-                        return "statsReportIntervalSec: integer expected";
                 if (message.pretty != null && message.hasOwnProperty("pretty"))
                     if (typeof message.pretty !== "boolean")
                         return "pretty: boolean expected";
@@ -6204,10 +6170,6 @@ $root.protos = (function() {
                 var message = new $root.protos.opts.ReadCLIOptions();
                 if (object.verboseOutput != null)
                     message.verboseOutput = Boolean(object.verboseOutput);
-                if (object.statsEnable != null)
-                    message.statsEnable = Boolean(object.statsEnable);
-                if (object.statsReportIntervalSec != null)
-                    message.statsReportIntervalSec = object.statsReportIntervalSec | 0;
                 if (object.pretty != null)
                     message.pretty = Boolean(object.pretty);
                 return message;
@@ -6228,16 +6190,10 @@ $root.protos = (function() {
                 var object = {};
                 if (options.defaults) {
                     object.verboseOutput = false;
-                    object.statsEnable = false;
-                    object.statsReportIntervalSec = 0;
                     object.pretty = false;
                 }
                 if (message.verboseOutput != null && message.hasOwnProperty("verboseOutput"))
                     object.verboseOutput = message.verboseOutput;
-                if (message.statsEnable != null && message.hasOwnProperty("statsEnable"))
-                    object.statsEnable = message.statsEnable;
-                if (message.statsReportIntervalSec != null && message.hasOwnProperty("statsReportIntervalSec"))
-                    object.statsReportIntervalSec = message.statsReportIntervalSec;
                 if (message.pretty != null && message.hasOwnProperty("pretty"))
                     object.pretty = message.pretty;
                 return object;
@@ -16703,6 +16659,8 @@ $root.protos = (function() {
              * @property {number|null} [batchMaxRetry] RelayOptions batchMaxRetry
              * @property {string|null} [connectionId] RelayOptions connectionId
              * @property {number|null} [numWorkers] RelayOptions numWorkers
+             * @property {boolean|null} [statsEnable] RelayOptions statsEnable
+             * @property {number|null} [statsReportIntervalSec] RelayOptions statsReportIntervalSec
              * @property {string|null} [_batchshGrpcAddress] RelayOptions _batchshGrpcAddress
              * @property {boolean|null} [_batchshGrpcDisableTls] RelayOptions _batchshGrpcDisableTls
              * @property {number|null} [_batchshGrpcTimeoutSeconds] RelayOptions _batchshGrpcTimeoutSeconds
@@ -16776,6 +16734,22 @@ $root.protos = (function() {
              * @instance
              */
             RelayOptions.prototype.numWorkers = 0;
+
+            /**
+             * RelayOptions statsEnable.
+             * @member {boolean} statsEnable
+             * @memberof protos.opts.RelayOptions
+             * @instance
+             */
+            RelayOptions.prototype.statsEnable = false;
+
+            /**
+             * RelayOptions statsReportIntervalSec.
+             * @member {number} statsReportIntervalSec
+             * @memberof protos.opts.RelayOptions
+             * @instance
+             */
+            RelayOptions.prototype.statsReportIntervalSec = 0;
 
             /**
              * RelayOptions _batchshGrpcAddress.
@@ -16947,6 +16921,10 @@ $root.protos = (function() {
                     writer.uint32(/* id 4, wireType 2 =*/34).string(message.connectionId);
                 if (message.numWorkers != null && Object.hasOwnProperty.call(message, "numWorkers"))
                     writer.uint32(/* id 5, wireType 0 =*/40).int32(message.numWorkers);
+                if (message.statsEnable != null && Object.hasOwnProperty.call(message, "statsEnable"))
+                    writer.uint32(/* id 6, wireType 0 =*/48).bool(message.statsEnable);
+                if (message.statsReportIntervalSec != null && Object.hasOwnProperty.call(message, "statsReportIntervalSec"))
+                    writer.uint32(/* id 7, wireType 0 =*/56).int32(message.statsReportIntervalSec);
                 if (message.kafka != null && Object.hasOwnProperty.call(message, "kafka"))
                     $root.protos.opts.RelayGroupKafkaOptions.encode(message.kafka, writer.uint32(/* id 100, wireType 2 =*/802).fork()).ldelim();
                 if (message.awssqs != null && Object.hasOwnProperty.call(message, "awssqs"))
@@ -17029,6 +17007,12 @@ $root.protos = (function() {
                         break;
                     case 5:
                         message.numWorkers = reader.int32();
+                        break;
+                    case 6:
+                        message.statsEnable = reader.bool();
+                        break;
+                    case 7:
+                        message.statsReportIntervalSec = reader.int32();
                         break;
                     case 1000:
                         message._batchshGrpcAddress = reader.string();
@@ -17131,6 +17115,12 @@ $root.protos = (function() {
                 if (message.numWorkers != null && message.hasOwnProperty("numWorkers"))
                     if (!$util.isInteger(message.numWorkers))
                         return "numWorkers: integer expected";
+                if (message.statsEnable != null && message.hasOwnProperty("statsEnable"))
+                    if (typeof message.statsEnable !== "boolean")
+                        return "statsEnable: boolean expected";
+                if (message.statsReportIntervalSec != null && message.hasOwnProperty("statsReportIntervalSec"))
+                    if (!$util.isInteger(message.statsReportIntervalSec))
+                        return "statsReportIntervalSec: integer expected";
                 if (message._batchshGrpcAddress != null && message.hasOwnProperty("_batchshGrpcAddress"))
                     if (!$util.isString(message._batchshGrpcAddress))
                         return "_batchshGrpcAddress: string expected";
@@ -17233,6 +17223,10 @@ $root.protos = (function() {
                     message.connectionId = String(object.connectionId);
                 if (object.numWorkers != null)
                     message.numWorkers = object.numWorkers | 0;
+                if (object.statsEnable != null)
+                    message.statsEnable = Boolean(object.statsEnable);
+                if (object.statsReportIntervalSec != null)
+                    message.statsReportIntervalSec = object.statsReportIntervalSec | 0;
                 if (object._batchshGrpcAddress != null)
                     message._batchshGrpcAddress = String(object._batchshGrpcAddress);
                 if (object._batchshGrpcDisableTls != null)
@@ -17328,6 +17322,8 @@ $root.protos = (function() {
                     object.batchMaxRetry = 0;
                     object.connectionId = "";
                     object.numWorkers = 0;
+                    object.statsEnable = false;
+                    object.statsReportIntervalSec = 0;
                     object.kafka = null;
                     object.awssqs = null;
                     object.mongo = null;
@@ -17356,6 +17352,10 @@ $root.protos = (function() {
                     object.connectionId = message.connectionId;
                 if (message.numWorkers != null && message.hasOwnProperty("numWorkers"))
                     object.numWorkers = message.numWorkers;
+                if (message.statsEnable != null && message.hasOwnProperty("statsEnable"))
+                    object.statsEnable = message.statsEnable;
+                if (message.statsReportIntervalSec != null && message.hasOwnProperty("statsReportIntervalSec"))
+                    object.statsReportIntervalSec = message.statsReportIntervalSec;
                 if (message.kafka != null && message.hasOwnProperty("kafka"))
                     object.kafka = $root.protos.opts.RelayGroupKafkaOptions.toObject(message.kafka, options);
                 if (message.awssqs != null && message.hasOwnProperty("awssqs"))

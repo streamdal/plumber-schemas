@@ -2298,12 +2298,6 @@ export namespace protos {
             /** ReadCLIOptions verboseOutput */
             verboseOutput?: (boolean|null);
 
-            /** ReadCLIOptions statsEnable */
-            statsEnable?: (boolean|null);
-
-            /** ReadCLIOptions statsReportIntervalSec */
-            statsReportIntervalSec?: (number|null);
-
             /** ReadCLIOptions pretty */
             pretty?: (boolean|null);
         }
@@ -2319,12 +2313,6 @@ export namespace protos {
 
             /** ReadCLIOptions verboseOutput. */
             public verboseOutput: boolean;
-
-            /** ReadCLIOptions statsEnable. */
-            public statsEnable: boolean;
-
-            /** ReadCLIOptions statsReportIntervalSec. */
-            public statsReportIntervalSec: number;
 
             /** ReadCLIOptions pretty. */
             public pretty: boolean;
@@ -6729,6 +6717,12 @@ export namespace protos {
             /** RelayOptions numWorkers */
             numWorkers?: (number|null);
 
+            /** RelayOptions statsEnable */
+            statsEnable?: (boolean|null);
+
+            /** RelayOptions statsReportIntervalSec */
+            statsReportIntervalSec?: (number|null);
+
             /** RelayOptions _batchshGrpcAddress */
             _batchshGrpcAddress?: (string|null);
 
@@ -6804,6 +6798,12 @@ export namespace protos {
 
             /** RelayOptions numWorkers. */
             public numWorkers: number;
+
+            /** RelayOptions statsEnable. */
+            public statsEnable: boolean;
+
+            /** RelayOptions statsReportIntervalSec. */
+            public statsReportIntervalSec: number;
 
             /** RelayOptions _batchshGrpcAddress. */
             public _batchshGrpcAddress: string;
