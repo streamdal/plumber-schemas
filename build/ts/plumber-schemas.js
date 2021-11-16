@@ -42714,6 +42714,7 @@ $root.protos = (function() {
              * @property {string|null} [address] KubeMQQueueConn address
              * @property {string|null} [authToken] KubeMQQueueConn authToken
              * @property {string|null} [tlsCertFile] KubeMQQueueConn tlsCertFile
+             * @property {string|null} [clientId] KubeMQQueueConn clientId
              */
 
             /**
@@ -42756,6 +42757,14 @@ $root.protos = (function() {
             KubeMQQueueConn.prototype.tlsCertFile = "";
 
             /**
+             * KubeMQQueueConn clientId.
+             * @member {string} clientId
+             * @memberof protos.args.KubeMQQueueConn
+             * @instance
+             */
+            KubeMQQueueConn.prototype.clientId = "";
+
+            /**
              * Creates a new KubeMQQueueConn instance using the specified properties.
              * @function create
              * @memberof protos.args.KubeMQQueueConn
@@ -42785,6 +42794,8 @@ $root.protos = (function() {
                     writer.uint32(/* id 2, wireType 2 =*/18).string(message.authToken);
                 if (message.tlsCertFile != null && Object.hasOwnProperty.call(message, "tlsCertFile"))
                     writer.uint32(/* id 3, wireType 2 =*/26).string(message.tlsCertFile);
+                if (message.clientId != null && Object.hasOwnProperty.call(message, "clientId"))
+                    writer.uint32(/* id 4, wireType 2 =*/34).string(message.clientId);
                 return writer;
             };
 
@@ -42827,6 +42838,9 @@ $root.protos = (function() {
                         break;
                     case 3:
                         message.tlsCertFile = reader.string();
+                        break;
+                    case 4:
+                        message.clientId = reader.string();
                         break;
                     default:
                         reader.skipType(tag & 7);
@@ -42872,6 +42886,9 @@ $root.protos = (function() {
                 if (message.tlsCertFile != null && message.hasOwnProperty("tlsCertFile"))
                     if (!$util.isString(message.tlsCertFile))
                         return "tlsCertFile: string expected";
+                if (message.clientId != null && message.hasOwnProperty("clientId"))
+                    if (!$util.isString(message.clientId))
+                        return "clientId: string expected";
                 return null;
             };
 
@@ -42893,6 +42910,8 @@ $root.protos = (function() {
                     message.authToken = String(object.authToken);
                 if (object.tlsCertFile != null)
                     message.tlsCertFile = String(object.tlsCertFile);
+                if (object.clientId != null)
+                    message.clientId = String(object.clientId);
                 return message;
             };
 
@@ -42913,6 +42932,7 @@ $root.protos = (function() {
                     object.address = "";
                     object.authToken = "";
                     object.tlsCertFile = "";
+                    object.clientId = "";
                 }
                 if (message.address != null && message.hasOwnProperty("address"))
                     object.address = message.address;
@@ -42920,6 +42940,8 @@ $root.protos = (function() {
                     object.authToken = message.authToken;
                 if (message.tlsCertFile != null && message.hasOwnProperty("tlsCertFile"))
                     object.tlsCertFile = message.tlsCertFile;
+                if (message.clientId != null && message.hasOwnProperty("clientId"))
+                    object.clientId = message.clientId;
                 return object;
             };
 
@@ -42943,7 +42965,6 @@ $root.protos = (function() {
              * Properties of a KubeMQQueueReadArgs.
              * @memberof protos.args
              * @interface IKubeMQQueueReadArgs
-             * @property {string|null} [clientId] KubeMQQueueReadArgs clientId
              * @property {string|null} [queueName] KubeMQQueueReadArgs queueName
              */
 
@@ -42961,14 +42982,6 @@ $root.protos = (function() {
                         if (properties[keys[i]] != null)
                             this[keys[i]] = properties[keys[i]];
             }
-
-            /**
-             * KubeMQQueueReadArgs clientId.
-             * @member {string} clientId
-             * @memberof protos.args.KubeMQQueueReadArgs
-             * @instance
-             */
-            KubeMQQueueReadArgs.prototype.clientId = "";
 
             /**
              * KubeMQQueueReadArgs queueName.
@@ -43002,10 +43015,8 @@ $root.protos = (function() {
             KubeMQQueueReadArgs.encode = function encode(message, writer) {
                 if (!writer)
                     writer = $Writer.create();
-                if (message.clientId != null && Object.hasOwnProperty.call(message, "clientId"))
-                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.clientId);
                 if (message.queueName != null && Object.hasOwnProperty.call(message, "queueName"))
-                    writer.uint32(/* id 3, wireType 2 =*/26).string(message.queueName);
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.queueName);
                 return writer;
             };
 
@@ -43040,10 +43051,7 @@ $root.protos = (function() {
                 while (reader.pos < end) {
                     var tag = reader.uint32();
                     switch (tag >>> 3) {
-                    case 2:
-                        message.clientId = reader.string();
-                        break;
-                    case 3:
+                    case 1:
                         message.queueName = reader.string();
                         break;
                     default:
@@ -43081,9 +43089,6 @@ $root.protos = (function() {
             KubeMQQueueReadArgs.verify = function verify(message) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (message.clientId != null && message.hasOwnProperty("clientId"))
-                    if (!$util.isString(message.clientId))
-                        return "clientId: string expected";
                 if (message.queueName != null && message.hasOwnProperty("queueName"))
                     if (!$util.isString(message.queueName))
                         return "queueName: string expected";
@@ -43102,8 +43107,6 @@ $root.protos = (function() {
                 if (object instanceof $root.protos.args.KubeMQQueueReadArgs)
                     return object;
                 var message = new $root.protos.args.KubeMQQueueReadArgs();
-                if (object.clientId != null)
-                    message.clientId = String(object.clientId);
                 if (object.queueName != null)
                     message.queueName = String(object.queueName);
                 return message;
@@ -43122,12 +43125,8 @@ $root.protos = (function() {
                 if (!options)
                     options = {};
                 var object = {};
-                if (options.defaults) {
-                    object.clientId = "";
+                if (options.defaults)
                     object.queueName = "";
-                }
-                if (message.clientId != null && message.hasOwnProperty("clientId"))
-                    object.clientId = message.clientId;
                 if (message.queueName != null && message.hasOwnProperty("queueName"))
                     object.queueName = message.queueName;
                 return object;
@@ -43153,7 +43152,6 @@ $root.protos = (function() {
              * Properties of a KubeMQQueueWriteArgs.
              * @memberof protos.args
              * @interface IKubeMQQueueWriteArgs
-             * @property {string|null} [clientId] KubeMQQueueWriteArgs clientId
              * @property {string|null} [queueName] KubeMQQueueWriteArgs queueName
              */
 
@@ -43171,14 +43169,6 @@ $root.protos = (function() {
                         if (properties[keys[i]] != null)
                             this[keys[i]] = properties[keys[i]];
             }
-
-            /**
-             * KubeMQQueueWriteArgs clientId.
-             * @member {string} clientId
-             * @memberof protos.args.KubeMQQueueWriteArgs
-             * @instance
-             */
-            KubeMQQueueWriteArgs.prototype.clientId = "";
 
             /**
              * KubeMQQueueWriteArgs queueName.
@@ -43212,10 +43202,8 @@ $root.protos = (function() {
             KubeMQQueueWriteArgs.encode = function encode(message, writer) {
                 if (!writer)
                     writer = $Writer.create();
-                if (message.clientId != null && Object.hasOwnProperty.call(message, "clientId"))
-                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.clientId);
                 if (message.queueName != null && Object.hasOwnProperty.call(message, "queueName"))
-                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.queueName);
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.queueName);
                 return writer;
             };
 
@@ -43251,9 +43239,6 @@ $root.protos = (function() {
                     var tag = reader.uint32();
                     switch (tag >>> 3) {
                     case 1:
-                        message.clientId = reader.string();
-                        break;
-                    case 2:
                         message.queueName = reader.string();
                         break;
                     default:
@@ -43291,9 +43276,6 @@ $root.protos = (function() {
             KubeMQQueueWriteArgs.verify = function verify(message) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (message.clientId != null && message.hasOwnProperty("clientId"))
-                    if (!$util.isString(message.clientId))
-                        return "clientId: string expected";
                 if (message.queueName != null && message.hasOwnProperty("queueName"))
                     if (!$util.isString(message.queueName))
                         return "queueName: string expected";
@@ -43312,8 +43294,6 @@ $root.protos = (function() {
                 if (object instanceof $root.protos.args.KubeMQQueueWriteArgs)
                     return object;
                 var message = new $root.protos.args.KubeMQQueueWriteArgs();
-                if (object.clientId != null)
-                    message.clientId = String(object.clientId);
                 if (object.queueName != null)
                     message.queueName = String(object.queueName);
                 return message;
@@ -43332,12 +43312,8 @@ $root.protos = (function() {
                 if (!options)
                     options = {};
                 var object = {};
-                if (options.defaults) {
-                    object.clientId = "";
+                if (options.defaults)
                     object.queueName = "";
-                }
-                if (message.clientId != null && message.hasOwnProperty("clientId"))
-                    object.clientId = message.clientId;
                 if (message.queueName != null && message.hasOwnProperty("queueName"))
                     object.queueName = message.queueName;
                 return object;

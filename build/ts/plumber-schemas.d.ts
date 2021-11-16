@@ -17822,6 +17822,9 @@ export namespace protos {
 
             /** KubeMQQueueConn tlsCertFile */
             tlsCertFile?: (string|null);
+
+            /** KubeMQQueueConn clientId */
+            clientId?: (string|null);
         }
 
         /** Represents a KubeMQQueueConn. */
@@ -17841,6 +17844,9 @@ export namespace protos {
 
             /** KubeMQQueueConn tlsCertFile. */
             public tlsCertFile: string;
+
+            /** KubeMQQueueConn clientId. */
+            public clientId: string;
 
             /**
              * Creates a new KubeMQQueueConn instance using the specified properties.
@@ -17916,9 +17922,6 @@ export namespace protos {
         /** Properties of a KubeMQQueueReadArgs. */
         interface IKubeMQQueueReadArgs {
 
-            /** KubeMQQueueReadArgs clientId */
-            clientId?: (string|null);
-
             /** KubeMQQueueReadArgs queueName */
             queueName?: (string|null);
         }
@@ -17931,9 +17934,6 @@ export namespace protos {
              * @param [properties] Properties to set
              */
             constructor(properties?: protos.args.IKubeMQQueueReadArgs);
-
-            /** KubeMQQueueReadArgs clientId. */
-            public clientId: string;
 
             /** KubeMQQueueReadArgs queueName. */
             public queueName: string;
@@ -18012,9 +18012,6 @@ export namespace protos {
         /** Properties of a KubeMQQueueWriteArgs. */
         interface IKubeMQQueueWriteArgs {
 
-            /** KubeMQQueueWriteArgs clientId */
-            clientId?: (string|null);
-
             /** KubeMQQueueWriteArgs queueName */
             queueName?: (string|null);
         }
@@ -18027,9 +18024,6 @@ export namespace protos {
              * @param [properties] Properties to set
              */
             constructor(properties?: protos.args.IKubeMQQueueWriteArgs);
-
-            /** KubeMQQueueWriteArgs clientId. */
-            public clientId: string;
 
             /** KubeMQQueueWriteArgs queueName. */
             public queueName: string;
