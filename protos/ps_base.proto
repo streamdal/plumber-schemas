@@ -15,7 +15,7 @@ import "ps_monitor.proto";
 import "ps_alert.proto";
 import "ps_schema_validation.proto";
 import "ps_stats.proto";
-import "ps_composite.proto";
+import "ps_errors.proto";
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
 
@@ -154,18 +154,6 @@ service PlumberServer {
 
     rpc UpdateAlert(UpdateAlertRequest) returns (UpdateAlertResponse);
 
-    // -------------------- Composite views --------------------
-
-    rpc GetAllComposites(GetAllCompositesRequest) returns (GetAllCompositesResponse);
-
-    rpc GetComposite(GetCompositeRequest) returns (GetCompositeResponse);
-
-    rpc CreateComposite(CreateCompositeRequest) returns (CreateCompositeResponse);
-
-    rpc UpdateComposite(UpdateCompositeRequest) returns (UpdateCompositeResponse);
-
-    rpc DeleteComposite(DeleteCompositeRequest) returns (DeleteCompositeResponse);
-
     // -------------------- Schema validations --------------------
 
     rpc GetValidation(GetValidationRequest) returns (GetValidationResponse);
@@ -183,4 +171,12 @@ service PlumberServer {
     rpc GetCurrentCounters(GetCurrentCountersRequest) returns (GetCurrentCountersResponse);
 
     rpc GetCounterHistory(GetCounterHistoryRequest) returns (GetCounterHistoryResponse);
+
+    // -------------------- Errors --------------------
+
+    // Returns a stream of errors as they happen
+    rpc GetLiveErrors(GetLiveErrorsRequest) returns (stream GetLiveErrorsResponse);
+
+    // Returns 1000 most recent errors from etcd
+    rpc GetErrorHistory(GetErrorHistoryRequest) returns (GetErrorHistoryResponse);
 }

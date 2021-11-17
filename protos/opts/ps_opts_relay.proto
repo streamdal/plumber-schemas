@@ -18,40 +18,46 @@ import "args/ps_args_redis_streams.proto";
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/opts";
 
 message RelayCLIOptions {
-    // @gotags: kong:"help='What address to bind the built-in HTTP server to',default='http://localhost:9191'"
+    // @gotags: kong:"help='What address to bind the built-in HTTP server to',env='PLUMBER_RELAY_HTTP_LISTEN_ADDRESS',default='localhost:9191'"
     string http_listen_address = 1;
 }
 
 // Relay is the structure that backends accept for facilitating a relay.
 // NOTE: _conn is only used by the CLI - desktop does not need to set it.
 message RelayOptions {
-    // @gotags: kong:"help='Secret collection token',name=token,required"
+    // @gotags: kong:"help='Secret collection token',env='PLUMBER_RELAY_TOKEN',name=token,required"
     string collection_token = 1;
 
-    // @gotags: kong:"help='How many messages to send in a single batch',default=1000"
+    // @gotags: kong:"help='How many messages to send in a single batch',env='PLUMBER_RELAY_BATCH_SIZE',default=1000"
     int32 batch_size = 2;
 
-    // @gotags: kong:"help='How many times plumber will try re-sending a batch',default=3"
+    // @gotags: kong:"help='How many times plumber will try re-sending a batch',env='PLUMBER_RELAY_BATCH_MAX_RETRY',default=3"
     int32 batch_max_retry = 3;
 
     // Required for desktop; ignored in CLI.
     // @gotags: kong:"-"
     string connection_id = 4;
 
-    // @gotags: kong:"name='How many workers to launch per relay',default=10"
+    // @gotags: kong:"name='How many workers to launch per relay',env='PLUMBER_RELAY_NUM_WORKERS',default=10"
     int32 num_workers = 5;
+
+    // @gotags: kong:"group=stats,help='Display periodic read stats'"
+    bool stats_enable = 6;
+
+    // @gotags: kong:"group=stats,help='How often to print stats',default=5"
+    int32 stats_report_interval_sec = 7;
 
     // --------------------------------------------------------------------- //
     //                          PRIVATE FIELDS (1000+)                       //
     // --------------------------------------------------------------------- //
 
-    // @gotags: kong:"help='Alternative collector to relay events to',name='grpc-address',default='grpc-collector.batch.sh:9000'"
+    // @gotags: kong:"help='Alternative collector to relay events to',name='grpc-address',env='PLUMBER_RELAY_GRPC_ADDRESS',default='grpc-collector.batch.sh:9000'"
     string _batchsh_grpc_address = 1000;
 
-    // @gotags: kong:"help='Whether to use TLS with collector',name=grpc-disable-tls,default=true"
+    // @gotags: kong:"help='Whether to use TLS with collector',name=grpc-disable-tls,env='PLUMBER_RELAY_GRPC_DISABLE_TLS',default=true"
     bool _batchsh_grpc_disable_tls = 1001;
 
-    // @gotags: kong:"help='How long to wait before giving up talking to the gRPC collector',name='grpc-timeout-seconds'"
+    // @gotags: kong:"help='How long to wait before giving up talking to the gRPC collector',name='grpc-timeout-seconds',env='PLUMBER_RELAY_GRPC_TIMEOUT',default=5"
     int32 _batchsh_grpc_timeout_seconds = 1002;
 
     // ID of the created relay entry; populated by plumber.

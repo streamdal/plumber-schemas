@@ -26,10 +26,10 @@ message RabbitStreamsConn {
 
 message RabbitStreamsOffsetOptions {
   // @gotags: kong:"group=offset,xor=offset"
-  uint64 specific_offset = 1;
+  int64 specific_offset = 1;
 
   // @gotags: kong:"group=offset,xor=offset"
-  uint64 last_offset = 2;
+  bool last_offset = 2;
 
   // @gotags: kong:"group=offset,xor=offset"
   bool last_consumed = 3;
@@ -57,7 +57,7 @@ message RabbitStreamsReadArgs {
 }
 
 message RabbitStreamsWriteArgs {
-  // @gotags: kong:"help='',required"
+  // @gotags: kong:"help='Stream name',required"
   string stream = 1;
 
   // @gotags: kong:"help='Declare the stream if it does not exist'"

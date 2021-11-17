@@ -18,6 +18,9 @@ message RedisStreamsConn {
 
   // @gotags: kong:"help='Password (redis >= v6.0.0)',env='PLUMBER_RELAY_REDIS_STREAMS_PASSWORD'"
   string password = 3;
+
+  // @gotags: kong:"help='Database (0-16)',env='PLUMBER_RELAY_REDIS_PUBSUB_DATABASE'"
+  uint32 database = 4;
 }
 
 message CreateConsumerConfig {
@@ -32,23 +35,20 @@ message CreateConsumerConfig {
 }
 
 message RedisStreamsReadArgs {
-  // @gotags: kong:"help='Database',required,default=0,env='PLUMBER_RELAY_REDIS_STREAMS_DATABASE'"
-  uint32 database = 1;
-
   // @gotags: kong:"help='Streams to read from',required,env='PLUMBER_RELAY_REDIS_STREAMS_STREAMS'"
-  repeated string stream = 2;
+  repeated string stream = 1;
 
   // @gotags: kong:"help='Consumer group name',env='PLUMBER_RELAY_REDIS_STREAMS_CONSUMER_GROUP',default=plumber"
-  string consumer_group = 3;
+  string consumer_group = 2;
 
   // @gotags: kong:"help='Consumer name',env='PLUMBER_RELAY_REDIS_STREAMS_CONSUMER_NAME',default=plumber-consumer-1"
-  string consumer_name = 4;
+  string consumer_name = 3;
 
   // @gotags: kong:"help='Number of records to read from stream(s) per read',env='PLUMBER_RELAY_REDIS_STREAMS_COUNT',default=10"
-  uint32 count = 5;
+  uint32 count = 4;
 
   // @gotags: kong:"embed"
-  CreateConsumerConfig create_consumer_config = 6;
+  CreateConsumerConfig create_consumer_config = 5;
 }
 
 message RedisStreamsWriteArgs {
