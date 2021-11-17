@@ -8838,6 +8838,102 @@ export namespace protos {
             }
         }
 
+        /** Properties of a Composite. */
+        interface IComposite {
+
+            /** Composite _id */
+            _id?: (string|null);
+
+            /** Composite readIds */
+            readIds?: (string[]|null);
+        }
+
+        /** Represents a Composite. */
+        class Composite implements IComposite {
+
+            /**
+             * Constructs a new Composite.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.opts.IComposite);
+
+            /** Composite _id. */
+            public _id: string;
+
+            /** Composite readIds. */
+            public readIds: string[];
+
+            /**
+             * Creates a new Composite instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns Composite instance
+             */
+            public static create(properties?: protos.opts.IComposite): protos.opts.Composite;
+
+            /**
+             * Encodes the specified Composite message. Does not implicitly {@link protos.opts.Composite.verify|verify} messages.
+             * @param message Composite message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.opts.IComposite, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified Composite message, length delimited. Does not implicitly {@link protos.opts.Composite.verify|verify} messages.
+             * @param message Composite message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.opts.IComposite, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a Composite message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns Composite
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.Composite;
+
+            /**
+             * Decodes a Composite message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns Composite
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.Composite;
+
+            /**
+             * Verifies a Composite message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a Composite message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns Composite
+             */
+            public static fromObject(object: { [k: string]: any }): protos.opts.Composite;
+
+            /**
+             * Creates a plain object from a Composite message. Also converts values to other types if specified.
+             * @param message Composite
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.opts.Composite, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this Composite to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
         /** BatchOutputType enum. */
         enum BatchOutputType {
             TABLE = 0,
@@ -36402,6 +36498,948 @@ export namespace protos {
 
         /**
          * Converts this GetErrorHistoryResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a GetAllCompositesRequest. */
+    interface IGetAllCompositesRequest {
+
+        /** GetAllCompositesRequest auth */
+        auth?: (protos.common.IAuth|null);
+    }
+
+    /** Represents a GetAllCompositesRequest. */
+    class GetAllCompositesRequest implements IGetAllCompositesRequest {
+
+        /**
+         * Constructs a new GetAllCompositesRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IGetAllCompositesRequest);
+
+        /** GetAllCompositesRequest auth. */
+        public auth?: (protos.common.IAuth|null);
+
+        /**
+         * Creates a new GetAllCompositesRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns GetAllCompositesRequest instance
+         */
+        public static create(properties?: protos.IGetAllCompositesRequest): protos.GetAllCompositesRequest;
+
+        /**
+         * Encodes the specified GetAllCompositesRequest message. Does not implicitly {@link protos.GetAllCompositesRequest.verify|verify} messages.
+         * @param message GetAllCompositesRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IGetAllCompositesRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified GetAllCompositesRequest message, length delimited. Does not implicitly {@link protos.GetAllCompositesRequest.verify|verify} messages.
+         * @param message GetAllCompositesRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IGetAllCompositesRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a GetAllCompositesRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns GetAllCompositesRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.GetAllCompositesRequest;
+
+        /**
+         * Decodes a GetAllCompositesRequest message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns GetAllCompositesRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.GetAllCompositesRequest;
+
+        /**
+         * Verifies a GetAllCompositesRequest message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a GetAllCompositesRequest message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns GetAllCompositesRequest
+         */
+        public static fromObject(object: { [k: string]: any }): protos.GetAllCompositesRequest;
+
+        /**
+         * Creates a plain object from a GetAllCompositesRequest message. Also converts values to other types if specified.
+         * @param message GetAllCompositesRequest
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.GetAllCompositesRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this GetAllCompositesRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a GetAllCompositesResponse. */
+    interface IGetAllCompositesResponse {
+
+        /** GetAllCompositesResponse composites */
+        composites?: (protos.opts.IComposite[]|null);
+    }
+
+    /** Represents a GetAllCompositesResponse. */
+    class GetAllCompositesResponse implements IGetAllCompositesResponse {
+
+        /**
+         * Constructs a new GetAllCompositesResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IGetAllCompositesResponse);
+
+        /** GetAllCompositesResponse composites. */
+        public composites: protos.opts.IComposite[];
+
+        /**
+         * Creates a new GetAllCompositesResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns GetAllCompositesResponse instance
+         */
+        public static create(properties?: protos.IGetAllCompositesResponse): protos.GetAllCompositesResponse;
+
+        /**
+         * Encodes the specified GetAllCompositesResponse message. Does not implicitly {@link protos.GetAllCompositesResponse.verify|verify} messages.
+         * @param message GetAllCompositesResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IGetAllCompositesResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified GetAllCompositesResponse message, length delimited. Does not implicitly {@link protos.GetAllCompositesResponse.verify|verify} messages.
+         * @param message GetAllCompositesResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IGetAllCompositesResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a GetAllCompositesResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns GetAllCompositesResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.GetAllCompositesResponse;
+
+        /**
+         * Decodes a GetAllCompositesResponse message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns GetAllCompositesResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.GetAllCompositesResponse;
+
+        /**
+         * Verifies a GetAllCompositesResponse message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a GetAllCompositesResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns GetAllCompositesResponse
+         */
+        public static fromObject(object: { [k: string]: any }): protos.GetAllCompositesResponse;
+
+        /**
+         * Creates a plain object from a GetAllCompositesResponse message. Also converts values to other types if specified.
+         * @param message GetAllCompositesResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.GetAllCompositesResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this GetAllCompositesResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a GetCompositeRequest. */
+    interface IGetCompositeRequest {
+
+        /** GetCompositeRequest auth */
+        auth?: (protos.common.IAuth|null);
+
+        /** GetCompositeRequest id */
+        id?: (string|null);
+    }
+
+    /** Represents a GetCompositeRequest. */
+    class GetCompositeRequest implements IGetCompositeRequest {
+
+        /**
+         * Constructs a new GetCompositeRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IGetCompositeRequest);
+
+        /** GetCompositeRequest auth. */
+        public auth?: (protos.common.IAuth|null);
+
+        /** GetCompositeRequest id. */
+        public id: string;
+
+        /**
+         * Creates a new GetCompositeRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns GetCompositeRequest instance
+         */
+        public static create(properties?: protos.IGetCompositeRequest): protos.GetCompositeRequest;
+
+        /**
+         * Encodes the specified GetCompositeRequest message. Does not implicitly {@link protos.GetCompositeRequest.verify|verify} messages.
+         * @param message GetCompositeRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IGetCompositeRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified GetCompositeRequest message, length delimited. Does not implicitly {@link protos.GetCompositeRequest.verify|verify} messages.
+         * @param message GetCompositeRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IGetCompositeRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a GetCompositeRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns GetCompositeRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.GetCompositeRequest;
+
+        /**
+         * Decodes a GetCompositeRequest message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns GetCompositeRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.GetCompositeRequest;
+
+        /**
+         * Verifies a GetCompositeRequest message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a GetCompositeRequest message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns GetCompositeRequest
+         */
+        public static fromObject(object: { [k: string]: any }): protos.GetCompositeRequest;
+
+        /**
+         * Creates a plain object from a GetCompositeRequest message. Also converts values to other types if specified.
+         * @param message GetCompositeRequest
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.GetCompositeRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this GetCompositeRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a GetCompositeResponse. */
+    interface IGetCompositeResponse {
+
+        /** GetCompositeResponse composite */
+        composite?: (protos.opts.IComposite|null);
+    }
+
+    /** Represents a GetCompositeResponse. */
+    class GetCompositeResponse implements IGetCompositeResponse {
+
+        /**
+         * Constructs a new GetCompositeResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IGetCompositeResponse);
+
+        /** GetCompositeResponse composite. */
+        public composite?: (protos.opts.IComposite|null);
+
+        /**
+         * Creates a new GetCompositeResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns GetCompositeResponse instance
+         */
+        public static create(properties?: protos.IGetCompositeResponse): protos.GetCompositeResponse;
+
+        /**
+         * Encodes the specified GetCompositeResponse message. Does not implicitly {@link protos.GetCompositeResponse.verify|verify} messages.
+         * @param message GetCompositeResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IGetCompositeResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified GetCompositeResponse message, length delimited. Does not implicitly {@link protos.GetCompositeResponse.verify|verify} messages.
+         * @param message GetCompositeResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IGetCompositeResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a GetCompositeResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns GetCompositeResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.GetCompositeResponse;
+
+        /**
+         * Decodes a GetCompositeResponse message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns GetCompositeResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.GetCompositeResponse;
+
+        /**
+         * Verifies a GetCompositeResponse message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a GetCompositeResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns GetCompositeResponse
+         */
+        public static fromObject(object: { [k: string]: any }): protos.GetCompositeResponse;
+
+        /**
+         * Creates a plain object from a GetCompositeResponse message. Also converts values to other types if specified.
+         * @param message GetCompositeResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.GetCompositeResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this GetCompositeResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a CreateCompositeRequest. */
+    interface ICreateCompositeRequest {
+
+        /** CreateCompositeRequest auth */
+        auth?: (protos.common.IAuth|null);
+
+        /** CreateCompositeRequest composite */
+        composite?: (protos.opts.IComposite|null);
+    }
+
+    /** Represents a CreateCompositeRequest. */
+    class CreateCompositeRequest implements ICreateCompositeRequest {
+
+        /**
+         * Constructs a new CreateCompositeRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.ICreateCompositeRequest);
+
+        /** CreateCompositeRequest auth. */
+        public auth?: (protos.common.IAuth|null);
+
+        /** CreateCompositeRequest composite. */
+        public composite?: (protos.opts.IComposite|null);
+
+        /**
+         * Creates a new CreateCompositeRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns CreateCompositeRequest instance
+         */
+        public static create(properties?: protos.ICreateCompositeRequest): protos.CreateCompositeRequest;
+
+        /**
+         * Encodes the specified CreateCompositeRequest message. Does not implicitly {@link protos.CreateCompositeRequest.verify|verify} messages.
+         * @param message CreateCompositeRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.ICreateCompositeRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified CreateCompositeRequest message, length delimited. Does not implicitly {@link protos.CreateCompositeRequest.verify|verify} messages.
+         * @param message CreateCompositeRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.ICreateCompositeRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a CreateCompositeRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns CreateCompositeRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.CreateCompositeRequest;
+
+        /**
+         * Decodes a CreateCompositeRequest message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns CreateCompositeRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.CreateCompositeRequest;
+
+        /**
+         * Verifies a CreateCompositeRequest message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a CreateCompositeRequest message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns CreateCompositeRequest
+         */
+        public static fromObject(object: { [k: string]: any }): protos.CreateCompositeRequest;
+
+        /**
+         * Creates a plain object from a CreateCompositeRequest message. Also converts values to other types if specified.
+         * @param message CreateCompositeRequest
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.CreateCompositeRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this CreateCompositeRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a CreateCompositeResponse. */
+    interface ICreateCompositeResponse {
+
+        /** CreateCompositeResponse composite */
+        composite?: (protos.opts.IComposite|null);
+
+        /** CreateCompositeResponse status */
+        status?: (protos.common.IStatus|null);
+    }
+
+    /** Represents a CreateCompositeResponse. */
+    class CreateCompositeResponse implements ICreateCompositeResponse {
+
+        /**
+         * Constructs a new CreateCompositeResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.ICreateCompositeResponse);
+
+        /** CreateCompositeResponse composite. */
+        public composite?: (protos.opts.IComposite|null);
+
+        /** CreateCompositeResponse status. */
+        public status?: (protos.common.IStatus|null);
+
+        /**
+         * Creates a new CreateCompositeResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns CreateCompositeResponse instance
+         */
+        public static create(properties?: protos.ICreateCompositeResponse): protos.CreateCompositeResponse;
+
+        /**
+         * Encodes the specified CreateCompositeResponse message. Does not implicitly {@link protos.CreateCompositeResponse.verify|verify} messages.
+         * @param message CreateCompositeResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.ICreateCompositeResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified CreateCompositeResponse message, length delimited. Does not implicitly {@link protos.CreateCompositeResponse.verify|verify} messages.
+         * @param message CreateCompositeResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.ICreateCompositeResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a CreateCompositeResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns CreateCompositeResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.CreateCompositeResponse;
+
+        /**
+         * Decodes a CreateCompositeResponse message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns CreateCompositeResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.CreateCompositeResponse;
+
+        /**
+         * Verifies a CreateCompositeResponse message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a CreateCompositeResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns CreateCompositeResponse
+         */
+        public static fromObject(object: { [k: string]: any }): protos.CreateCompositeResponse;
+
+        /**
+         * Creates a plain object from a CreateCompositeResponse message. Also converts values to other types if specified.
+         * @param message CreateCompositeResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.CreateCompositeResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this CreateCompositeResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of an UpdateCompositeRequest. */
+    interface IUpdateCompositeRequest {
+
+        /** UpdateCompositeRequest auth */
+        auth?: (protos.common.IAuth|null);
+
+        /** UpdateCompositeRequest id */
+        id?: (string|null);
+
+        /** UpdateCompositeRequest composite */
+        composite?: (protos.opts.IComposite|null);
+    }
+
+    /** Represents an UpdateCompositeRequest. */
+    class UpdateCompositeRequest implements IUpdateCompositeRequest {
+
+        /**
+         * Constructs a new UpdateCompositeRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IUpdateCompositeRequest);
+
+        /** UpdateCompositeRequest auth. */
+        public auth?: (protos.common.IAuth|null);
+
+        /** UpdateCompositeRequest id. */
+        public id: string;
+
+        /** UpdateCompositeRequest composite. */
+        public composite?: (protos.opts.IComposite|null);
+
+        /**
+         * Creates a new UpdateCompositeRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns UpdateCompositeRequest instance
+         */
+        public static create(properties?: protos.IUpdateCompositeRequest): protos.UpdateCompositeRequest;
+
+        /**
+         * Encodes the specified UpdateCompositeRequest message. Does not implicitly {@link protos.UpdateCompositeRequest.verify|verify} messages.
+         * @param message UpdateCompositeRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IUpdateCompositeRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified UpdateCompositeRequest message, length delimited. Does not implicitly {@link protos.UpdateCompositeRequest.verify|verify} messages.
+         * @param message UpdateCompositeRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IUpdateCompositeRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes an UpdateCompositeRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns UpdateCompositeRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.UpdateCompositeRequest;
+
+        /**
+         * Decodes an UpdateCompositeRequest message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns UpdateCompositeRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.UpdateCompositeRequest;
+
+        /**
+         * Verifies an UpdateCompositeRequest message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates an UpdateCompositeRequest message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns UpdateCompositeRequest
+         */
+        public static fromObject(object: { [k: string]: any }): protos.UpdateCompositeRequest;
+
+        /**
+         * Creates a plain object from an UpdateCompositeRequest message. Also converts values to other types if specified.
+         * @param message UpdateCompositeRequest
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.UpdateCompositeRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this UpdateCompositeRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of an UpdateCompositeResponse. */
+    interface IUpdateCompositeResponse {
+
+        /** UpdateCompositeResponse composite */
+        composite?: (protos.opts.IComposite|null);
+
+        /** UpdateCompositeResponse status */
+        status?: (protos.common.IStatus|null);
+    }
+
+    /** Represents an UpdateCompositeResponse. */
+    class UpdateCompositeResponse implements IUpdateCompositeResponse {
+
+        /**
+         * Constructs a new UpdateCompositeResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IUpdateCompositeResponse);
+
+        /** UpdateCompositeResponse composite. */
+        public composite?: (protos.opts.IComposite|null);
+
+        /** UpdateCompositeResponse status. */
+        public status?: (protos.common.IStatus|null);
+
+        /**
+         * Creates a new UpdateCompositeResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns UpdateCompositeResponse instance
+         */
+        public static create(properties?: protos.IUpdateCompositeResponse): protos.UpdateCompositeResponse;
+
+        /**
+         * Encodes the specified UpdateCompositeResponse message. Does not implicitly {@link protos.UpdateCompositeResponse.verify|verify} messages.
+         * @param message UpdateCompositeResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IUpdateCompositeResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified UpdateCompositeResponse message, length delimited. Does not implicitly {@link protos.UpdateCompositeResponse.verify|verify} messages.
+         * @param message UpdateCompositeResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IUpdateCompositeResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes an UpdateCompositeResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns UpdateCompositeResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.UpdateCompositeResponse;
+
+        /**
+         * Decodes an UpdateCompositeResponse message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns UpdateCompositeResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.UpdateCompositeResponse;
+
+        /**
+         * Verifies an UpdateCompositeResponse message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates an UpdateCompositeResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns UpdateCompositeResponse
+         */
+        public static fromObject(object: { [k: string]: any }): protos.UpdateCompositeResponse;
+
+        /**
+         * Creates a plain object from an UpdateCompositeResponse message. Also converts values to other types if specified.
+         * @param message UpdateCompositeResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.UpdateCompositeResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this UpdateCompositeResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a DeleteCompositeRequest. */
+    interface IDeleteCompositeRequest {
+
+        /** DeleteCompositeRequest auth */
+        auth?: (protos.common.IAuth|null);
+
+        /** DeleteCompositeRequest id */
+        id?: (string|null);
+    }
+
+    /** Represents a DeleteCompositeRequest. */
+    class DeleteCompositeRequest implements IDeleteCompositeRequest {
+
+        /**
+         * Constructs a new DeleteCompositeRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IDeleteCompositeRequest);
+
+        /** DeleteCompositeRequest auth. */
+        public auth?: (protos.common.IAuth|null);
+
+        /** DeleteCompositeRequest id. */
+        public id: string;
+
+        /**
+         * Creates a new DeleteCompositeRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns DeleteCompositeRequest instance
+         */
+        public static create(properties?: protos.IDeleteCompositeRequest): protos.DeleteCompositeRequest;
+
+        /**
+         * Encodes the specified DeleteCompositeRequest message. Does not implicitly {@link protos.DeleteCompositeRequest.verify|verify} messages.
+         * @param message DeleteCompositeRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IDeleteCompositeRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified DeleteCompositeRequest message, length delimited. Does not implicitly {@link protos.DeleteCompositeRequest.verify|verify} messages.
+         * @param message DeleteCompositeRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IDeleteCompositeRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a DeleteCompositeRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns DeleteCompositeRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.DeleteCompositeRequest;
+
+        /**
+         * Decodes a DeleteCompositeRequest message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns DeleteCompositeRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.DeleteCompositeRequest;
+
+        /**
+         * Verifies a DeleteCompositeRequest message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a DeleteCompositeRequest message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns DeleteCompositeRequest
+         */
+        public static fromObject(object: { [k: string]: any }): protos.DeleteCompositeRequest;
+
+        /**
+         * Creates a plain object from a DeleteCompositeRequest message. Also converts values to other types if specified.
+         * @param message DeleteCompositeRequest
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.DeleteCompositeRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this DeleteCompositeRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a DeleteCompositeResponse. */
+    interface IDeleteCompositeResponse {
+
+        /** DeleteCompositeResponse status */
+        status?: (protos.common.IStatus|null);
+    }
+
+    /** Represents a DeleteCompositeResponse. */
+    class DeleteCompositeResponse implements IDeleteCompositeResponse {
+
+        /**
+         * Constructs a new DeleteCompositeResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IDeleteCompositeResponse);
+
+        /** DeleteCompositeResponse status. */
+        public status?: (protos.common.IStatus|null);
+
+        /**
+         * Creates a new DeleteCompositeResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns DeleteCompositeResponse instance
+         */
+        public static create(properties?: protos.IDeleteCompositeResponse): protos.DeleteCompositeResponse;
+
+        /**
+         * Encodes the specified DeleteCompositeResponse message. Does not implicitly {@link protos.DeleteCompositeResponse.verify|verify} messages.
+         * @param message DeleteCompositeResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IDeleteCompositeResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified DeleteCompositeResponse message, length delimited. Does not implicitly {@link protos.DeleteCompositeResponse.verify|verify} messages.
+         * @param message DeleteCompositeResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IDeleteCompositeResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a DeleteCompositeResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns DeleteCompositeResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.DeleteCompositeResponse;
+
+        /**
+         * Decodes a DeleteCompositeResponse message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns DeleteCompositeResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.DeleteCompositeResponse;
+
+        /**
+         * Verifies a DeleteCompositeResponse message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a DeleteCompositeResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns DeleteCompositeResponse
+         */
+        public static fromObject(object: { [k: string]: any }): protos.DeleteCompositeResponse;
+
+        /**
+         * Creates a plain object from a DeleteCompositeResponse message. Also converts values to other types if specified.
+         * @param message DeleteCompositeResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.DeleteCompositeResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this DeleteCompositeResponse to JSON.
          * @returns JSON object
          */
         public toJSON(): { [k: string]: any };
