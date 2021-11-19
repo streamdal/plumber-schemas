@@ -10505,6 +10505,9 @@ export namespace protos {
 
             /** DynamicOptions redisStreams */
             redisStreams?: (protos.opts.IDynamicGroupRedisStreamsOptions|null);
+
+            /** DynamicOptions pulsar */
+            pulsar?: (protos.opts.IDynamicGroupPulsarOptions|null);
         }
 
         /** Represents a DynamicOptions. */
@@ -10572,6 +10575,9 @@ export namespace protos {
 
             /** DynamicOptions redisStreams. */
             public redisStreams?: (protos.opts.IDynamicGroupRedisStreamsOptions|null);
+
+            /** DynamicOptions pulsar. */
+            public pulsar?: (protos.opts.IDynamicGroupPulsarOptions|null);
 
             /**
              * Creates a new DynamicOptions instance using the specified properties.
@@ -12175,6 +12181,102 @@ export namespace protos {
 
             /**
              * Converts this DynamicGroupKubeMQQueueOptions to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a DynamicGroupPulsarOptions. */
+        interface IDynamicGroupPulsarOptions {
+
+            /** DynamicGroupPulsarOptions _conn */
+            _conn?: (protos.args.IPulsarConn|null);
+
+            /** DynamicGroupPulsarOptions args */
+            args?: (protos.args.IPulsarWriteArgs|null);
+        }
+
+        /** Represents a DynamicGroupPulsarOptions. */
+        class DynamicGroupPulsarOptions implements IDynamicGroupPulsarOptions {
+
+            /**
+             * Constructs a new DynamicGroupPulsarOptions.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.opts.IDynamicGroupPulsarOptions);
+
+            /** DynamicGroupPulsarOptions _conn. */
+            public _conn?: (protos.args.IPulsarConn|null);
+
+            /** DynamicGroupPulsarOptions args. */
+            public args?: (protos.args.IPulsarWriteArgs|null);
+
+            /**
+             * Creates a new DynamicGroupPulsarOptions instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns DynamicGroupPulsarOptions instance
+             */
+            public static create(properties?: protos.opts.IDynamicGroupPulsarOptions): protos.opts.DynamicGroupPulsarOptions;
+
+            /**
+             * Encodes the specified DynamicGroupPulsarOptions message. Does not implicitly {@link protos.opts.DynamicGroupPulsarOptions.verify|verify} messages.
+             * @param message DynamicGroupPulsarOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.opts.IDynamicGroupPulsarOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified DynamicGroupPulsarOptions message, length delimited. Does not implicitly {@link protos.opts.DynamicGroupPulsarOptions.verify|verify} messages.
+             * @param message DynamicGroupPulsarOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.opts.IDynamicGroupPulsarOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a DynamicGroupPulsarOptions message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns DynamicGroupPulsarOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.DynamicGroupPulsarOptions;
+
+            /**
+             * Decodes a DynamicGroupPulsarOptions message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns DynamicGroupPulsarOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.DynamicGroupPulsarOptions;
+
+            /**
+             * Verifies a DynamicGroupPulsarOptions message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a DynamicGroupPulsarOptions message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns DynamicGroupPulsarOptions
+             */
+            public static fromObject(object: { [k: string]: any }): protos.opts.DynamicGroupPulsarOptions;
+
+            /**
+             * Creates a plain object from a DynamicGroupPulsarOptions message. Also converts values to other types if specified.
+             * @param message DynamicGroupPulsarOptions
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.opts.DynamicGroupPulsarOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this DynamicGroupPulsarOptions to JSON.
              * @returns JSON object
              */
             public toJSON(): { [k: string]: any };
