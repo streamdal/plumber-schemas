@@ -11,14 +11,14 @@ enum MQTTQoSLevel {
 }
 
 message MQTTTLSOptions {
-    // @gotags: kong:"help='CA file (only needed if addr is ssl://)',env=PLUMBER_RELAY_MQTT_TLS_CA_FILE,type=existingfile"
-    string ca_file = 1;
+    // @gotags: kong:"help='CA file (only needed if addr is ssl://)',env=PLUMBER_RELAY_MQTT_TLS_CA_FILE"
+    bytes ca_file = 1;
 
-    // @gotags: kong:"help='Client cert file (only needed if addr is ssl://)',env=PLUMBER_RELAY_MQTT_TLS_CERT_FILE,type=existingfile"
-    string cert_file = 2;
+    // @gotags: kong:"help='Client cert file (only needed if addr is ssl://)',env=PLUMBER_RELAY_MQTT_TLS_CLIENT_CERT"
+    bytes client_cert = 2;
 
-    // @gotags: kong:"help='Client key file (only needed if addr is ssl://)',env=PLUMBER_RELAY_MQTT_TLS_KEY_FILE,type=existingfile"
-    string key_file = 3;
+    // @gotags: kong:"help='Client key file (only needed if addr is ssl://)',env=PLUMBER_RELAY_MQTT_TLS_CLIENT_KEY"
+    bytes client_key = 3;
 
     // @gotags: kong:"help='Whether to verify server certificate',env=PLUMBER_RELAY_MQTT_SKIP_VERIFY_TLS"
     bool skip_verify = 4;

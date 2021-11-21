@@ -17353,13 +17353,13 @@ export namespace protos {
         interface IMQTTTLSOptions {
 
             /** MQTTTLSOptions caFile */
-            caFile?: (string|null);
+            caFile?: (Uint8Array|null);
 
-            /** MQTTTLSOptions certFile */
-            certFile?: (string|null);
+            /** MQTTTLSOptions clientCert */
+            clientCert?: (Uint8Array|null);
 
-            /** MQTTTLSOptions keyFile */
-            keyFile?: (string|null);
+            /** MQTTTLSOptions clientKey */
+            clientKey?: (Uint8Array|null);
 
             /** MQTTTLSOptions skipVerify */
             skipVerify?: (boolean|null);
@@ -17375,13 +17375,13 @@ export namespace protos {
             constructor(properties?: protos.args.IMQTTTLSOptions);
 
             /** MQTTTLSOptions caFile. */
-            public caFile: string;
+            public caFile: Uint8Array;
 
-            /** MQTTTLSOptions certFile. */
-            public certFile: string;
+            /** MQTTTLSOptions clientCert. */
+            public clientCert: Uint8Array;
 
-            /** MQTTTLSOptions keyFile. */
-            public keyFile: string;
+            /** MQTTTLSOptions clientKey. */
+            public clientKey: Uint8Array;
 
             /** MQTTTLSOptions skipVerify. */
             public skipVerify: boolean;
