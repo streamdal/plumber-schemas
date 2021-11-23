@@ -16676,23 +16676,119 @@ export namespace protos {
             public toJSON(): { [k: string]: any };
         }
 
+        /** Properties of a NatsStreamingTLSOptions. */
+        interface INatsStreamingTLSOptions {
+
+            /** NatsStreamingTLSOptions caFile */
+            caFile?: (Uint8Array|null);
+
+            /** NatsStreamingTLSOptions clientCert */
+            clientCert?: (Uint8Array|null);
+
+            /** NatsStreamingTLSOptions clientKey */
+            clientKey?: (Uint8Array|null);
+
+            /** NatsStreamingTLSOptions skipVerify */
+            skipVerify?: (boolean|null);
+        }
+
+        /** Represents a NatsStreamingTLSOptions. */
+        class NatsStreamingTLSOptions implements INatsStreamingTLSOptions {
+
+            /**
+             * Constructs a new NatsStreamingTLSOptions.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.args.INatsStreamingTLSOptions);
+
+            /** NatsStreamingTLSOptions caFile. */
+            public caFile: Uint8Array;
+
+            /** NatsStreamingTLSOptions clientCert. */
+            public clientCert: Uint8Array;
+
+            /** NatsStreamingTLSOptions clientKey. */
+            public clientKey: Uint8Array;
+
+            /** NatsStreamingTLSOptions skipVerify. */
+            public skipVerify: boolean;
+
+            /**
+             * Creates a new NatsStreamingTLSOptions instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns NatsStreamingTLSOptions instance
+             */
+            public static create(properties?: protos.args.INatsStreamingTLSOptions): protos.args.NatsStreamingTLSOptions;
+
+            /**
+             * Encodes the specified NatsStreamingTLSOptions message. Does not implicitly {@link protos.args.NatsStreamingTLSOptions.verify|verify} messages.
+             * @param message NatsStreamingTLSOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.args.INatsStreamingTLSOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified NatsStreamingTLSOptions message, length delimited. Does not implicitly {@link protos.args.NatsStreamingTLSOptions.verify|verify} messages.
+             * @param message NatsStreamingTLSOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.args.INatsStreamingTLSOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a NatsStreamingTLSOptions message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns NatsStreamingTLSOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.args.NatsStreamingTLSOptions;
+
+            /**
+             * Decodes a NatsStreamingTLSOptions message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns NatsStreamingTLSOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.args.NatsStreamingTLSOptions;
+
+            /**
+             * Verifies a NatsStreamingTLSOptions message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a NatsStreamingTLSOptions message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns NatsStreamingTLSOptions
+             */
+            public static fromObject(object: { [k: string]: any }): protos.args.NatsStreamingTLSOptions;
+
+            /**
+             * Creates a plain object from a NatsStreamingTLSOptions message. Also converts values to other types if specified.
+             * @param message NatsStreamingTLSOptions
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.args.NatsStreamingTLSOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this NatsStreamingTLSOptions to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
         /** Properties of a NatsStreamingConn. */
         interface INatsStreamingConn {
 
             /** NatsStreamingConn dsn */
             dsn?: (string|null);
-
-            /** NatsStreamingConn insecureTls */
-            insecureTls?: (boolean|null);
-
-            /** NatsStreamingConn tlsCaCert */
-            tlsCaCert?: (Uint8Array|null);
-
-            /** NatsStreamingConn tlsClientCert */
-            tlsClientCert?: (Uint8Array|null);
-
-            /** NatsStreamingConn tlsClientKey */
-            tlsClientKey?: (Uint8Array|null);
 
             /** NatsStreamingConn userCredentials */
             userCredentials?: (Uint8Array|null);
@@ -16702,6 +16798,9 @@ export namespace protos {
 
             /** NatsStreamingConn clientId */
             clientId?: (string|null);
+
+            /** NatsStreamingConn tlsOptions */
+            tlsOptions?: (protos.args.INatsStreamingTLSOptions|null);
         }
 
         /** Represents a NatsStreamingConn. */
@@ -16716,18 +16815,6 @@ export namespace protos {
             /** NatsStreamingConn dsn. */
             public dsn: string;
 
-            /** NatsStreamingConn insecureTls. */
-            public insecureTls: boolean;
-
-            /** NatsStreamingConn tlsCaCert. */
-            public tlsCaCert: Uint8Array;
-
-            /** NatsStreamingConn tlsClientCert. */
-            public tlsClientCert: Uint8Array;
-
-            /** NatsStreamingConn tlsClientKey. */
-            public tlsClientKey: Uint8Array;
-
             /** NatsStreamingConn userCredentials. */
             public userCredentials: Uint8Array;
 
@@ -16736,6 +16823,9 @@ export namespace protos {
 
             /** NatsStreamingConn clientId. */
             public clientId: string;
+
+            /** NatsStreamingConn tlsOptions. */
+            public tlsOptions?: (protos.args.INatsStreamingTLSOptions|null);
 
             /**
              * Creates a new NatsStreamingConn instance using the specified properties.

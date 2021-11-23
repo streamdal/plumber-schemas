@@ -4,30 +4,35 @@ package protos.args;
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/args";
 
+message NatsStreamingTLSOptions {
+  // @gotags: kong:"help='CA file (only needed if addr is tls://*)',env=PLUMBER_RELAY_NATS_STREAMING_TLS_CA_FILE"
+  bytes ca_file = 1;
+
+  // @gotags: kong:"help='Client cert file (only needed if addr is tls://*)',env=PLUMBER_RELAY_NATS_STREAMING_TLS_CLIENT_CERT"
+  bytes client_cert = 2;
+
+  // @gotags: kong:"help='Client key file (only needed if addr is tls://*)',env=PLUMBER_RELAY_NATS_STREAMING_TLS_CLIENT_KEY"
+  bytes client_key = 3;
+
+  // @gotags: kong:"help='Whether to verify server certificate',env=PLUMBER_RELAY_NATS_STREAMING_SKIP_VERIFY_TLS"
+  bool skip_verify = 4;
+}
+
 message NatsStreamingConn {
   // @gotags: kong:"help='Dial string for NATS server. Ex: nats://localhost:4222',default='nats://localhost:4222'"
   string dsn = 1;
 
-  // @gotags: kong:"help='Whether to verify server certificate'"
-  bool insecure_tls = 2;
-
-  // @gotags: kong:"help='CA file (only needed if addr is tls://)*',type=existingfile"
-  bytes tls_ca_cert = 3;
-
-  // @gotags: kong:"help='Cient cert file (only needed if addr is tls://*)',type=existingfile"
-  bytes tls_client_cert = 4;
-
-  // @gotags: kong:"help='Client key file (only needed if addr is tls://*)',type=existingfile"
-  bytes tls_client_key = 5;
-
   // @gotags: kong:"help='NATS .creds file containing authentication credentials'"
-  bytes user_credentials = 6;
+  bytes user_credentials = 2;
 
   // @gotags: kong:"help='Cluster ID of the Nats server',required"
-  string cluster_id = 7;
+  string cluster_id = 3;
 
   // @gotags: kong:"help='User specified client ID to connect with',default=plumber"
-  string client_id = 8;
+  string client_id = 4;
+
+  // @gotags: kong:"embed"
+  NatsStreamingTLSOptions tls_options = 5;
 }
 
 message NatsStreamingReadArgs {
