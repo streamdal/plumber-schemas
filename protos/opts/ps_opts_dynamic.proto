@@ -86,6 +86,9 @@ message DynamicOptions {
 
     // @gotags: kong:"cmd,help='Apache Pulsar'"
     DynamicGroupPulsarOptions pulsar = 115;
+
+    // @gotags: kong:"cmd,help='RabbitMQ Streams'"
+    DynamicGroupRabbitStreamsOptions rabbit_streams = 116;
 }
 
 message DynamicGroupKafkaOptions {

@@ -10508,6 +10508,9 @@ export namespace protos {
 
             /** DynamicOptions pulsar */
             pulsar?: (protos.opts.IDynamicGroupPulsarOptions|null);
+
+            /** DynamicOptions rabbitStreams */
+            rabbitStreams?: (protos.opts.IDynamicGroupRabbitStreamsOptions|null);
         }
 
         /** Represents a DynamicOptions. */
@@ -10578,6 +10581,9 @@ export namespace protos {
 
             /** DynamicOptions pulsar. */
             public pulsar?: (protos.opts.IDynamicGroupPulsarOptions|null);
+
+            /** DynamicOptions rabbitStreams. */
+            public rabbitStreams?: (protos.opts.IDynamicGroupRabbitStreamsOptions|null);
 
             /**
              * Creates a new DynamicOptions instance using the specified properties.
