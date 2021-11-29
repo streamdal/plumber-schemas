@@ -20405,8 +20405,8 @@ export namespace protos {
             /** RedisStreamsWriteArgs writeId */
             writeId?: (string|null);
 
-            /** RedisStreamsWriteArgs streams */
-            streams?: (string[]|null);
+            /** RedisStreamsWriteArgs stream */
+            stream?: (string[]|null);
 
             /** RedisStreamsWriteArgs key */
             key?: (string|null);
@@ -20424,8 +20424,8 @@ export namespace protos {
             /** RedisStreamsWriteArgs writeId. */
             public writeId: string;
 
-            /** RedisStreamsWriteArgs streams. */
-            public streams: string[];
+            /** RedisStreamsWriteArgs stream. */
+            public stream: string[];
 
             /** RedisStreamsWriteArgs key. */
             public key: string;

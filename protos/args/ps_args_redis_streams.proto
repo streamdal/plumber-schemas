@@ -56,7 +56,7 @@ message RedisStreamsWriteArgs {
   string write_id = 1;
 
   // @gotags: kong:"help='Streams to write to'"
-  repeated string streams = 2;
+  repeated string stream = 2;
 
   // @gotags: kong:"help='Key name to write input data to'"
   string key = 3;
