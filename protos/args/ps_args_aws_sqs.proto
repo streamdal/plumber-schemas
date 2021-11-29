@@ -5,7 +5,7 @@ package protos.args;
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/args";
 
 message AWSSQSConn {
-  // @gotags: kong:"en=AWS_DEFAULT_REGION,hidden,required"
+  // @gotags: kong:"env=AWS_DEFAULT_REGION,hidden,required"
   string aws_region = 1;
 
   // @gotags: kong:"env=AWS_ACCESS_KEY_ID,hidden,required"
