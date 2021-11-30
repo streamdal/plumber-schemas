@@ -15113,8 +15113,8 @@ export namespace protos {
         /** Properties of a KafkaRelayArgs. */
         interface IKafkaRelayArgs {
 
-            /** KafkaRelayArgs topics */
-            topics?: (string[]|null);
+            /** KafkaRelayArgs topic */
+            topic?: (string[]|null);
 
             /** KafkaRelayArgs readOffset */
             readOffset?: (number|Long|null);
@@ -15153,8 +15153,8 @@ export namespace protos {
              */
             constructor(properties?: protos.args.IKafkaRelayArgs);
 
-            /** KafkaRelayArgs topics. */
-            public topics: string[];
+            /** KafkaRelayArgs topic. */
+            public topic: string[];
 
             /** KafkaRelayArgs readOffset. */
             public readOffset: (number|Long);
