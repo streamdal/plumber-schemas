@@ -14849,8 +14849,8 @@ export namespace protos {
         /** Properties of a KafkaReadArgs. */
         interface IKafkaReadArgs {
 
-            /** KafkaReadArgs topics */
-            topics?: (string[]|null);
+            /** KafkaReadArgs topic */
+            topic?: (string[]|null);
 
             /** KafkaReadArgs readOffset */
             readOffset?: (number|Long|null);
@@ -14898,8 +14898,8 @@ export namespace protos {
              */
             constructor(properties?: protos.args.IKafkaReadArgs);
 
-            /** KafkaReadArgs topics. */
-            public topics: string[];
+            /** KafkaReadArgs topic. */
+            public topic: string[];
 
             /** KafkaReadArgs readOffset. */
             public readOffset: (number|Long);

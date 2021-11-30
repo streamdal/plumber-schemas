@@ -36,7 +36,7 @@ message KafkaConn {
 
 message KafkaReadArgs {
     // @gotags: kong:"help='Topic(s) to read from',required"
-    repeated string topics = 1;
+    repeated string topic = 1;
 
     // @gotags: kong:"help='Specify what offset the consumer should read from (only works if --use-consumer-group is false)',default=0"
     int64 read_offset = 2;
