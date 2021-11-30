@@ -83,7 +83,7 @@ message KafkaWriteArgs {
     map<string, string> headers = 2;
 
     // @gotags: kong:"help='Topic(s) to write to',required"
-    repeated string topics = 3;
+    repeated string topic = 3;
 }
 
 message KafkaRelayArgs {

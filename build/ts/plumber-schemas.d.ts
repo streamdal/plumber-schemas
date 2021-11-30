@@ -15017,8 +15017,8 @@ export namespace protos {
             /** KafkaWriteArgs headers */
             headers?: ({ [k: string]: string }|null);
 
-            /** KafkaWriteArgs topics */
-            topics?: (string[]|null);
+            /** KafkaWriteArgs topic */
+            topic?: (string[]|null);
         }
 
         /** Represents a KafkaWriteArgs. */
@@ -15036,8 +15036,8 @@ export namespace protos {
             /** KafkaWriteArgs headers. */
             public headers: { [k: string]: string };
 
-            /** KafkaWriteArgs topics. */
-            public topics: string[];
+            /** KafkaWriteArgs topic. */
+            public topic: string[];
 
             /**
              * Creates a new KafkaWriteArgs instance using the specified properties.
