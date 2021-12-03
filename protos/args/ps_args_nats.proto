@@ -9,18 +9,18 @@ message NatsConn {
   string dsn = 1;
 
   // @gotags: kong:"help='Whether to verify server certificate'"
-  bool insecure_tls = 2;
+  bool tls_skip_verify = 2;
 
-  // @gotags: kong:"help='CA file (only needed if addr is tls://)',type=existingfile"
+  // @gotags: kong:"help='CA file (only needed if addr is tls://)'"
   bytes tls_ca_cert = 3;
 
-  // @gotags: kong:"help='Client cert file (only needed if addr is tls://)',type=existingfile"
+  // @gotags: kong:"help='Client cert file (only needed if addr is tls://)'"
   bytes tls_client_cert = 4;
 
-  // @gotags: kong:"help='client key file (only needed if addr is tls://)',type=existingfile"
+  // @gotags: kong:"help='client key file (only needed if addr is tls://)'"
   bytes tls_client_key = 5;
 
-  // @gotags: kong:"help='NATS .creds file containing authentication credentials',type=existingfile"
+  // @gotags: kong:"help='NATS .creds file containing authentication credentials'"
   bytes user_credentials = 6;
 }
 

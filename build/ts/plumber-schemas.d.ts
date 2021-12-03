@@ -2081,11 +2081,11 @@ export namespace protos {
             /** ConnectionOptions activeMq */
             activeMq?: (protos.args.IActiveMQConn|null);
 
-            /** ConnectionOptions awssqs */
-            awssqs?: (protos.args.IAWSSQSConn|null);
+            /** ConnectionOptions awsSqs */
+            awsSqs?: (protos.args.IAWSSQSConn|null);
 
-            /** ConnectionOptions awssns */
-            awssns?: (protos.args.IAWSSNSConn|null);
+            /** ConnectionOptions awsSns */
+            awsSns?: (protos.args.IAWSSNSConn|null);
 
             /** ConnectionOptions mongo */
             mongo?: (protos.args.IMongoConn|null);
@@ -2157,11 +2157,11 @@ export namespace protos {
             /** ConnectionOptions activeMq. */
             public activeMq?: (protos.args.IActiveMQConn|null);
 
-            /** ConnectionOptions awssqs. */
-            public awssqs?: (protos.args.IAWSSQSConn|null);
+            /** ConnectionOptions awsSqs. */
+            public awsSqs?: (protos.args.IAWSSQSConn|null);
 
-            /** ConnectionOptions awssns. */
-            public awssns?: (protos.args.IAWSSNSConn|null);
+            /** ConnectionOptions awsSns. */
+            public awsSns?: (protos.args.IAWSSNSConn|null);
 
             /** ConnectionOptions mongo. */
             public mongo?: (protos.args.IMongoConn|null);
@@ -2212,7 +2212,7 @@ export namespace protos {
             public _id: string;
 
             /** ConnectionOptions conn. */
-            public conn?: ("kafka"|"activeMq"|"awssqs"|"awssns"|"mongo"|"nats"|"natsStreaming"|"nsq"|"postgres"|"pulsar"|"rabbit"|"rabbitStreams"|"redisPubsub"|"redisStreams"|"azureEventHub"|"azureServiceBus"|"mqtt"|"kubemqQueue"|"gcpPubsub");
+            public conn?: ("kafka"|"activeMq"|"awsSqs"|"awsSns"|"mongo"|"nats"|"natsStreaming"|"nsq"|"postgres"|"pulsar"|"rabbit"|"rabbitStreams"|"redisPubsub"|"redisStreams"|"azureEventHub"|"azureServiceBus"|"mqtt"|"kubemqQueue"|"gcpPubsub");
 
             /**
              * Creates a new ConnectionOptions instance using the specified properties.
@@ -2616,8 +2616,8 @@ export namespace protos {
             /** ReadOptions activemq */
             activemq?: (protos.opts.IReadGroupActiveMQOptions|null);
 
-            /** ReadOptions awssqs */
-            awssqs?: (protos.opts.IReadGroupAWSSQSOptions|null);
+            /** ReadOptions awsSqs */
+            awsSqs?: (protos.opts.IReadGroupAWSSQSOptions|null);
 
             /** ReadOptions mongo */
             mongo?: (protos.opts.IReadGroupMongoOptions|null);
@@ -2713,8 +2713,8 @@ export namespace protos {
             /** ReadOptions activemq. */
             public activemq?: (protos.opts.IReadGroupActiveMQOptions|null);
 
-            /** ReadOptions awssqs. */
-            public awssqs?: (protos.opts.IReadGroupAWSSQSOptions|null);
+            /** ReadOptions awsSqs. */
+            public awsSqs?: (protos.opts.IReadGroupAWSSQSOptions|null);
 
             /** ReadOptions mongo. */
             public mongo?: (protos.opts.IReadGroupMongoOptions|null);
@@ -4788,11 +4788,11 @@ export namespace protos {
             /** WriteOptions activemq */
             activemq?: (protos.opts.IWriteGroupActiveMQOptions|null);
 
-            /** WriteOptions awssqs */
-            awssqs?: (protos.opts.IWriteGroupAWSSQSOptions|null);
+            /** WriteOptions awsSqs */
+            awsSqs?: (protos.opts.IWriteGroupAWSSQSOptions|null);
 
-            /** WriteOptions awssns */
-            awssns?: (protos.opts.IWriteGroupAWSSNSOptions|null);
+            /** WriteOptions awsSns */
+            awsSns?: (protos.opts.IWriteGroupAWSSNSOptions|null);
 
             /** WriteOptions nats */
             nats?: (protos.opts.IWriteGroupNatsOptions|null);
@@ -4861,11 +4861,11 @@ export namespace protos {
             /** WriteOptions activemq. */
             public activemq?: (protos.opts.IWriteGroupActiveMQOptions|null);
 
-            /** WriteOptions awssqs. */
-            public awssqs?: (protos.opts.IWriteGroupAWSSQSOptions|null);
+            /** WriteOptions awsSqs. */
+            public awsSqs?: (protos.opts.IWriteGroupAWSSQSOptions|null);
 
-            /** WriteOptions awssns. */
-            public awssns?: (protos.opts.IWriteGroupAWSSNSOptions|null);
+            /** WriteOptions awsSns. */
+            public awsSns?: (protos.opts.IWriteGroupAWSSNSOptions|null);
 
             /** WriteOptions nats. */
             public nats?: (protos.opts.IWriteGroupNatsOptions|null);
@@ -6741,8 +6741,8 @@ export namespace protos {
             /** RelayOptions kafka */
             kafka?: (protos.opts.IRelayGroupKafkaOptions|null);
 
-            /** RelayOptions awssqs */
-            awssqs?: (protos.opts.IRelayGroupAWSSQSOptions|null);
+            /** RelayOptions awsSqs */
+            awsSqs?: (protos.opts.IRelayGroupAWSSQSOptions|null);
 
             /** RelayOptions mongo */
             mongo?: (protos.opts.IRelayGroupMongoOptions|null);
@@ -6823,8 +6823,8 @@ export namespace protos {
             /** RelayOptions kafka. */
             public kafka?: (protos.opts.IRelayGroupKafkaOptions|null);
 
-            /** RelayOptions awssqs. */
-            public awssqs?: (protos.opts.IRelayGroupAWSSQSOptions|null);
+            /** RelayOptions awsSqs. */
+            public awsSqs?: (protos.opts.IRelayGroupAWSSQSOptions|null);
 
             /** RelayOptions mongo. */
             public mongo?: (protos.opts.IRelayGroupMongoOptions|null);
@@ -9993,8 +9993,8 @@ export namespace protos {
             /** BatchCreateDestinationOptions kubemqQueue */
             kubemqQueue?: (protos.opts.IWriteGroupKubeMQQueueOptions|null);
 
-            /** BatchCreateDestinationOptions awssqs */
-            awssqs?: (protos.opts.IWriteGroupAWSSQSOptions|null);
+            /** BatchCreateDestinationOptions awsSqs */
+            awsSqs?: (protos.opts.IWriteGroupAWSSQSOptions|null);
 
             /** BatchCreateDestinationOptions http */
             http?: (protos.opts.IHTTPDestination|null);
@@ -10027,8 +10027,8 @@ export namespace protos {
             /** BatchCreateDestinationOptions kubemqQueue. */
             public kubemqQueue?: (protos.opts.IWriteGroupKubeMQQueueOptions|null);
 
-            /** BatchCreateDestinationOptions awssqs. */
-            public awssqs?: (protos.opts.IWriteGroupAWSSQSOptions|null);
+            /** BatchCreateDestinationOptions awsSqs. */
+            public awsSqs?: (protos.opts.IWriteGroupAWSSQSOptions|null);
 
             /** BatchCreateDestinationOptions http. */
             public http?: (protos.opts.IHTTPDestination|null);
@@ -10467,11 +10467,11 @@ export namespace protos {
             /** DynamicOptions activemq */
             activemq?: (protos.opts.IDynamicGroupActiveMQOptions|null);
 
-            /** DynamicOptions awssqs */
-            awssqs?: (protos.opts.IDynamicGroupAWSSQSOptions|null);
+            /** DynamicOptions awsSqs */
+            awsSqs?: (protos.opts.IDynamicGroupAWSSQSOptions|null);
 
-            /** DynamicOptions awssns */
-            awssns?: (protos.opts.IDynamicGroupAWSSNSOptions|null);
+            /** DynamicOptions awsSns */
+            awsSns?: (protos.opts.IDynamicGroupAWSSNSOptions|null);
 
             /** DynamicOptions nats */
             nats?: (protos.opts.IDynamicGroupNatsOptions|null);
@@ -10540,11 +10540,11 @@ export namespace protos {
             /** DynamicOptions activemq. */
             public activemq?: (protos.opts.IDynamicGroupActiveMQOptions|null);
 
-            /** DynamicOptions awssqs. */
-            public awssqs?: (protos.opts.IDynamicGroupAWSSQSOptions|null);
+            /** DynamicOptions awsSqs. */
+            public awsSqs?: (protos.opts.IDynamicGroupAWSSQSOptions|null);
 
-            /** DynamicOptions awssns. */
-            public awssns?: (protos.opts.IDynamicGroupAWSSNSOptions|null);
+            /** DynamicOptions awsSns. */
+            public awsSns?: (protos.opts.IDynamicGroupAWSSNSOptions|null);
 
             /** DynamicOptions nats. */
             public nats?: (protos.opts.IDynamicGroupNatsOptions|null);
@@ -14732,8 +14732,8 @@ export namespace protos {
             /** KafkaConn useTls */
             useTls?: (boolean|null);
 
-            /** KafkaConn insecureTls */
-            insecureTls?: (boolean|null);
+            /** KafkaConn tlsSkipVerify */
+            tlsSkipVerify?: (boolean|null);
 
             /** KafkaConn saslType */
             saslType?: (protos.args.SASLType|null);
@@ -14763,8 +14763,8 @@ export namespace protos {
             /** KafkaConn useTls. */
             public useTls: boolean;
 
-            /** KafkaConn insecureTls. */
-            public insecureTls: boolean;
+            /** KafkaConn tlsSkipVerify. */
+            public tlsSkipVerify: boolean;
 
             /** KafkaConn saslType. */
             public saslType: protos.args.SASLType;
@@ -14849,8 +14849,8 @@ export namespace protos {
         /** Properties of a KafkaReadArgs. */
         interface IKafkaReadArgs {
 
-            /** KafkaReadArgs topic */
-            topic?: (string[]|null);
+            /** KafkaReadArgs topics */
+            topics?: (string[]|null);
 
             /** KafkaReadArgs readOffset */
             readOffset?: (number|Long|null);
@@ -14898,8 +14898,8 @@ export namespace protos {
              */
             constructor(properties?: protos.args.IKafkaReadArgs);
 
-            /** KafkaReadArgs topic. */
-            public topic: string[];
+            /** KafkaReadArgs topics. */
+            public topics: string[];
 
             /** KafkaReadArgs readOffset. */
             public readOffset: (number|Long);
@@ -15017,8 +15017,8 @@ export namespace protos {
             /** KafkaWriteArgs headers */
             headers?: ({ [k: string]: string }|null);
 
-            /** KafkaWriteArgs topic */
-            topic?: (string[]|null);
+            /** KafkaWriteArgs topics */
+            topics?: (string[]|null);
         }
 
         /** Represents a KafkaWriteArgs. */
@@ -15036,8 +15036,8 @@ export namespace protos {
             /** KafkaWriteArgs headers. */
             public headers: { [k: string]: string };
 
-            /** KafkaWriteArgs topic. */
-            public topic: string[];
+            /** KafkaWriteArgs topics. */
+            public topics: string[];
 
             /**
              * Creates a new KafkaWriteArgs instance using the specified properties.
@@ -15113,8 +15113,8 @@ export namespace protos {
         /** Properties of a KafkaRelayArgs. */
         interface IKafkaRelayArgs {
 
-            /** KafkaRelayArgs topic */
-            topic?: (string[]|null);
+            /** KafkaRelayArgs topics */
+            topics?: (string[]|null);
 
             /** KafkaRelayArgs readOffset */
             readOffset?: (number|Long|null);
@@ -15153,8 +15153,8 @@ export namespace protos {
              */
             constructor(properties?: protos.args.IKafkaRelayArgs);
 
-            /** KafkaRelayArgs topic. */
-            public topic: string[];
+            /** KafkaRelayArgs topics. */
+            public topics: string[];
 
             /** KafkaRelayArgs readOffset. */
             public readOffset: (number|Long);
@@ -16388,8 +16388,8 @@ export namespace protos {
             /** NatsConn dsn */
             dsn?: (string|null);
 
-            /** NatsConn insecureTls */
-            insecureTls?: (boolean|null);
+            /** NatsConn tlsSkipVerify */
+            tlsSkipVerify?: (boolean|null);
 
             /** NatsConn tlsCaCert */
             tlsCaCert?: (Uint8Array|null);
@@ -16416,8 +16416,8 @@ export namespace protos {
             /** NatsConn dsn. */
             public dsn: string;
 
-            /** NatsConn insecureTls. */
-            public insecureTls: boolean;
+            /** NatsConn tlsSkipVerify. */
+            public tlsSkipVerify: boolean;
 
             /** NatsConn tlsCaCert. */
             public tlsCaCert: Uint8Array;
@@ -16685,17 +16685,17 @@ export namespace protos {
         /** Properties of a NatsStreamingTLSOptions. */
         interface INatsStreamingTLSOptions {
 
-            /** NatsStreamingTLSOptions caFile */
-            caFile?: (Uint8Array|null);
+            /** NatsStreamingTLSOptions tlsCaCert */
+            tlsCaCert?: (Uint8Array|null);
 
-            /** NatsStreamingTLSOptions clientCert */
-            clientCert?: (Uint8Array|null);
+            /** NatsStreamingTLSOptions tlsClientCert */
+            tlsClientCert?: (Uint8Array|null);
 
-            /** NatsStreamingTLSOptions clientKey */
-            clientKey?: (Uint8Array|null);
+            /** NatsStreamingTLSOptions tlsClientKey */
+            tlsClientKey?: (Uint8Array|null);
 
-            /** NatsStreamingTLSOptions skipVerify */
-            skipVerify?: (boolean|null);
+            /** NatsStreamingTLSOptions tlsSkipVerify */
+            tlsSkipVerify?: (boolean|null);
         }
 
         /** Represents a NatsStreamingTLSOptions. */
@@ -16707,17 +16707,17 @@ export namespace protos {
              */
             constructor(properties?: protos.args.INatsStreamingTLSOptions);
 
-            /** NatsStreamingTLSOptions caFile. */
-            public caFile: Uint8Array;
+            /** NatsStreamingTLSOptions tlsCaCert. */
+            public tlsCaCert: Uint8Array;
 
-            /** NatsStreamingTLSOptions clientCert. */
-            public clientCert: Uint8Array;
+            /** NatsStreamingTLSOptions tlsClientCert. */
+            public tlsClientCert: Uint8Array;
 
-            /** NatsStreamingTLSOptions clientKey. */
-            public clientKey: Uint8Array;
+            /** NatsStreamingTLSOptions tlsClientKey. */
+            public tlsClientKey: Uint8Array;
 
-            /** NatsStreamingTLSOptions skipVerify. */
-            public skipVerify: boolean;
+            /** NatsStreamingTLSOptions tlsSkipVerify. */
+            public tlsSkipVerify: boolean;
 
             /**
              * Creates a new NatsStreamingTLSOptions instance using the specified properties.
@@ -17126,8 +17126,8 @@ export namespace protos {
             /** NSQConn useTls */
             useTls?: (boolean|null);
 
-            /** NSQConn insecureTls */
-            insecureTls?: (boolean|null);
+            /** NSQConn tlsSkipVerify */
+            tlsSkipVerify?: (boolean|null);
 
             /** NSQConn tlsCaCert */
             tlsCaCert?: (Uint8Array|null);
@@ -17163,8 +17163,8 @@ export namespace protos {
             /** NSQConn useTls. */
             public useTls: boolean;
 
-            /** NSQConn insecureTls. */
-            public insecureTls: boolean;
+            /** NSQConn tlsSkipVerify. */
+            public tlsSkipVerify: boolean;
 
             /** NSQConn tlsCaCert. */
             public tlsCaCert: Uint8Array;
@@ -17448,17 +17448,17 @@ export namespace protos {
         /** Properties of a MQTTTLSOptions. */
         interface IMQTTTLSOptions {
 
-            /** MQTTTLSOptions caFile */
-            caFile?: (Uint8Array|null);
+            /** MQTTTLSOptions tlsCaCert */
+            tlsCaCert?: (Uint8Array|null);
 
-            /** MQTTTLSOptions clientCert */
-            clientCert?: (Uint8Array|null);
+            /** MQTTTLSOptions tlsClientCert */
+            tlsClientCert?: (Uint8Array|null);
 
-            /** MQTTTLSOptions clientKey */
-            clientKey?: (Uint8Array|null);
+            /** MQTTTLSOptions tlsClientKey */
+            tlsClientKey?: (Uint8Array|null);
 
-            /** MQTTTLSOptions skipVerify */
-            skipVerify?: (boolean|null);
+            /** MQTTTLSOptions tlsSkipVerify */
+            tlsSkipVerify?: (boolean|null);
         }
 
         /** Represents a MQTTTLSOptions. */
@@ -17470,17 +17470,17 @@ export namespace protos {
              */
             constructor(properties?: protos.args.IMQTTTLSOptions);
 
-            /** MQTTTLSOptions caFile. */
-            public caFile: Uint8Array;
+            /** MQTTTLSOptions tlsCaCert. */
+            public tlsCaCert: Uint8Array;
 
-            /** MQTTTLSOptions clientCert. */
-            public clientCert: Uint8Array;
+            /** MQTTTLSOptions tlsClientCert. */
+            public tlsClientCert: Uint8Array;
 
-            /** MQTTTLSOptions clientKey. */
-            public clientKey: Uint8Array;
+            /** MQTTTLSOptions tlsClientKey. */
+            public tlsClientKey: Uint8Array;
 
-            /** MQTTTLSOptions skipVerify. */
-            public skipVerify: boolean;
+            /** MQTTTLSOptions tlsSkipVerify. */
+            public tlsSkipVerify: boolean;
 
             /**
              * Creates a new MQTTTLSOptions instance using the specified properties.
@@ -18156,8 +18156,8 @@ export namespace protos {
             /** KubeMQQueueConn authToken */
             authToken?: (string|null);
 
-            /** KubeMQQueueConn tlsCertFile */
-            tlsCertFile?: (string|null);
+            /** KubeMQQueueConn tlsClientCert */
+            tlsClientCert?: (string|null);
 
             /** KubeMQQueueConn clientId */
             clientId?: (string|null);
@@ -18178,8 +18178,8 @@ export namespace protos {
             /** KubeMQQueueConn authToken. */
             public authToken: string;
 
-            /** KubeMQQueueConn tlsCertFile. */
-            public tlsCertFile: string;
+            /** KubeMQQueueConn tlsClientCert. */
+            public tlsClientCert: string;
 
             /** KubeMQQueueConn clientId. */
             public clientId: string;
@@ -18456,8 +18456,8 @@ export namespace protos {
             /** PostgresConn useTls */
             useTls?: (boolean|null);
 
-            /** PostgresConn insecureTls */
-            insecureTls?: (boolean|null);
+            /** PostgresConn tlsSkipVerify */
+            tlsSkipVerify?: (boolean|null);
         }
 
         /** Represents a PostgresConn. */
@@ -18487,8 +18487,8 @@ export namespace protos {
             /** PostgresConn useTls. */
             public useTls: boolean;
 
-            /** PostgresConn insecureTls. */
-            public insecureTls: boolean;
+            /** PostgresConn tlsSkipVerify. */
+            public tlsSkipVerify: boolean;
 
             /**
              * Creates a new PostgresConn instance using the specified properties.
@@ -18674,8 +18674,8 @@ export namespace protos {
             /** PulsarConn connectTimeoutSeconds */
             connectTimeoutSeconds?: (number|null);
 
-            /** PulsarConn insecureTls */
-            insecureTls?: (boolean|null);
+            /** PulsarConn tlsSkipVerify */
+            tlsSkipVerify?: (boolean|null);
 
             /** PulsarConn tlsClientCert */
             tlsClientCert?: (Uint8Array|null);
@@ -18699,8 +18699,8 @@ export namespace protos {
             /** PulsarConn connectTimeoutSeconds. */
             public connectTimeoutSeconds: number;
 
-            /** PulsarConn insecureTls. */
-            public insecureTls: boolean;
+            /** PulsarConn tlsSkipVerify. */
+            public tlsSkipVerify: boolean;
 
             /** PulsarConn tlsClientCert. */
             public tlsClientCert: Uint8Array;
@@ -18980,8 +18980,8 @@ export namespace protos {
             /** RabbitConn useTls */
             useTls?: (boolean|null);
 
-            /** RabbitConn insecureTls */
-            insecureTls?: (boolean|null);
+            /** RabbitConn tlsSkipVerify */
+            tlsSkipVerify?: (boolean|null);
         }
 
         /** Represents a RabbitConn. */
@@ -18999,8 +18999,8 @@ export namespace protos {
             /** RabbitConn useTls. */
             public useTls: boolean;
 
-            /** RabbitConn insecureTls. */
-            public insecureTls: boolean;
+            /** RabbitConn tlsSkipVerify. */
+            public tlsSkipVerify: boolean;
 
             /**
              * Creates a new RabbitConn instance using the specified properties.
@@ -19346,8 +19346,8 @@ export namespace protos {
             /** RabbitStreamsConn useTls */
             useTls?: (boolean|null);
 
-            /** RabbitStreamsConn insecureTls */
-            insecureTls?: (boolean|null);
+            /** RabbitStreamsConn tlsSkipVerify */
+            tlsSkipVerify?: (boolean|null);
 
             /** RabbitStreamsConn username */
             username?: (string|null);
@@ -19374,8 +19374,8 @@ export namespace protos {
             /** RabbitStreamsConn useTls. */
             public useTls: boolean;
 
-            /** RabbitStreamsConn insecureTls. */
-            public insecureTls: boolean;
+            /** RabbitStreamsConn tlsSkipVerify. */
+            public tlsSkipVerify: boolean;
 
             /** RabbitStreamsConn username. */
             public username: string;
@@ -19892,8 +19892,8 @@ export namespace protos {
         /** Properties of a RedisPubSubReadArgs. */
         interface IRedisPubSubReadArgs {
 
-            /** RedisPubSubReadArgs channel */
-            channel?: (string[]|null);
+            /** RedisPubSubReadArgs channels */
+            channels?: (string[]|null);
         }
 
         /** Represents a RedisPubSubReadArgs. */
@@ -19905,8 +19905,8 @@ export namespace protos {
              */
             constructor(properties?: protos.args.IRedisPubSubReadArgs);
 
-            /** RedisPubSubReadArgs channel. */
-            public channel: string[];
+            /** RedisPubSubReadArgs channels. */
+            public channels: string[];
 
             /**
              * Creates a new RedisPubSubReadArgs instance using the specified properties.
@@ -19982,8 +19982,8 @@ export namespace protos {
         /** Properties of a RedisPubSubWriteArgs. */
         interface IRedisPubSubWriteArgs {
 
-            /** RedisPubSubWriteArgs channel */
-            channel?: (string[]|null);
+            /** RedisPubSubWriteArgs channels */
+            channels?: (string[]|null);
         }
 
         /** Represents a RedisPubSubWriteArgs. */
@@ -19995,8 +19995,8 @@ export namespace protos {
              */
             constructor(properties?: protos.args.IRedisPubSubWriteArgs);
 
-            /** RedisPubSubWriteArgs channel. */
-            public channel: string[];
+            /** RedisPubSubWriteArgs channels. */
+            public channels: string[];
 
             /**
              * Creates a new RedisPubSubWriteArgs instance using the specified properties.
@@ -20288,8 +20288,8 @@ export namespace protos {
         /** Properties of a RedisStreamsReadArgs. */
         interface IRedisStreamsReadArgs {
 
-            /** RedisStreamsReadArgs stream */
-            stream?: (string[]|null);
+            /** RedisStreamsReadArgs streams */
+            streams?: (string[]|null);
 
             /** RedisStreamsReadArgs consumerGroup */
             consumerGroup?: (string|null);
@@ -20313,8 +20313,8 @@ export namespace protos {
              */
             constructor(properties?: protos.args.IRedisStreamsReadArgs);
 
-            /** RedisStreamsReadArgs stream. */
-            public stream: string[];
+            /** RedisStreamsReadArgs streams. */
+            public streams: string[];
 
             /** RedisStreamsReadArgs consumerGroup. */
             public consumerGroup: string;
@@ -20405,8 +20405,8 @@ export namespace protos {
             /** RedisStreamsWriteArgs writeId */
             writeId?: (string|null);
 
-            /** RedisStreamsWriteArgs stream */
-            stream?: (string[]|null);
+            /** RedisStreamsWriteArgs streams */
+            streams?: (string[]|null);
 
             /** RedisStreamsWriteArgs key */
             key?: (string|null);
@@ -20424,8 +20424,8 @@ export namespace protos {
             /** RedisStreamsWriteArgs writeId. */
             public writeId: string;
 
-            /** RedisStreamsWriteArgs stream. */
-            public stream: string[];
+            /** RedisStreamsWriteArgs streams. */
+            public streams: string[];
 
             /** RedisStreamsWriteArgs key. */
             public key: string;
@@ -22218,8 +22218,8 @@ export namespace protos {
             /** ReadRecord activemq */
             activemq?: (protos.records.IActiveMQ|null);
 
-            /** ReadRecord awssqs */
-            awssqs?: (protos.records.IAWSSQS|null);
+            /** ReadRecord awsSqs */
+            awsSqs?: (protos.records.IAWSSQS|null);
 
             /** ReadRecord azureEventHub */
             azureEventHub?: (protos.records.IAzureEventHub|null);
@@ -22303,8 +22303,8 @@ export namespace protos {
             /** ReadRecord activemq. */
             public activemq?: (protos.records.IActiveMQ|null);
 
-            /** ReadRecord awssqs. */
-            public awssqs?: (protos.records.IAWSSQS|null);
+            /** ReadRecord awsSqs. */
+            public awsSqs?: (protos.records.IAWSSQS|null);
 
             /** ReadRecord azureEventHub. */
             public azureEventHub?: (protos.records.IAzureEventHub|null);
@@ -22355,7 +22355,7 @@ export namespace protos {
             public _plumberId: string;
 
             /** ReadRecord Record. */
-            public Record?: ("kafka"|"rabbit"|"activemq"|"awssqs"|"azureEventHub"|"azureServiceBus"|"gcpPubsub"|"kubemq"|"mongo"|"mqtt"|"nats"|"natsStreaming"|"nsq"|"postgres"|"pulsar"|"rabbitStreams"|"redisPubsub"|"redisStreams");
+            public Record?: ("kafka"|"rabbit"|"activemq"|"awsSqs"|"azureEventHub"|"azureServiceBus"|"gcpPubsub"|"kubemq"|"mongo"|"mqtt"|"nats"|"natsStreaming"|"nsq"|"postgres"|"pulsar"|"rabbitStreams"|"redisPubsub"|"redisStreams");
 
             /**
              * Creates a new ReadRecord instance using the specified properties.

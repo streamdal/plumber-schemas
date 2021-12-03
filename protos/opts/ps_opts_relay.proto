@@ -75,7 +75,7 @@ message RelayOptions {
     RelayGroupKafkaOptions kafka = 100;
 
     // @gotags: kong:"cmd,help='AWS Simple Queue System'"
-    RelayGroupAWSSQSOptions awssqs = 101;
+    RelayGroupAWSSQSOptions aws_sqs = 101;
 
     // @gotags: kong:"cmd,help='MongoDB (CDC)'"
     RelayGroupMongoOptions mongo = 102;

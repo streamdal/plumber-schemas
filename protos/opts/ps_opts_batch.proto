@@ -156,7 +156,7 @@ message BatchCreateDestinationOptions {
     opts.WriteGroupKubeMQQueueOptions kubemq_queue = 102;
 
     // @gotags: kong:"cmd,help='AWS Simple Queue System'"
-    WriteGroupAWSSQSOptions awssqs = 103;
+    WriteGroupAWSSQSOptions aws_sqs = 103;
 
     // @gotags: kong:"cmd,help='HTTP Destination (POST)'"
     HTTPDestination http = 104;

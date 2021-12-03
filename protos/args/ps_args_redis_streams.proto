@@ -36,7 +36,7 @@ message CreateConsumerConfig {
 
 message RedisStreamsReadArgs {
   // @gotags: kong:"help='Streams to read from',required,env='PLUMBER_RELAY_REDIS_STREAMS_STREAMS'"
-  repeated string stream = 1;
+  repeated string streams = 1;
 
   // @gotags: kong:"help='Consumer group name',env='PLUMBER_RELAY_REDIS_STREAMS_CONSUMER_GROUP',default=plumber"
   string consumer_group = 2;
@@ -56,7 +56,7 @@ message RedisStreamsWriteArgs {
   string write_id = 1;
 
   // @gotags: kong:"help='Streams to write to'"
-  repeated string stream = 2;
+  repeated string streams = 2;
 
   // @gotags: kong:"help='Key name to write input data to'"
   string key = 3;

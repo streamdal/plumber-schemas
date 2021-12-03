@@ -60,7 +60,7 @@ message ReadRecord {
         records.Kafka kafka = 100;
         records.Rabbit rabbit = 101;
         records.ActiveMQ activemq = 102;
-        records.AWSSQS awssqs = 103;
+        records.AWSSQS aws_sqs = 103;
         records.AzureEventHub azure_event_hub = 104;
         records.AzureServiceBus azure_service_bus = 105;
         records.GCPPubSub gcp_pubsub = 106;

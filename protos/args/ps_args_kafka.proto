@@ -21,7 +21,7 @@ message KafkaConn {
     bool use_tls = 3;
 
     // @gotags: kong:"help='Allow insecure TLS usage',env=PLUMBER_RELAY_KAFKA_INSECURE_TLS"
-    bool insecure_tls = 4;
+    bool tls_skip_verify = 4;
 
     // @gotags: kong:"help='SASL authentication type (options: none, plain, scram)',env=PLUMBER_RELAY_KAFKA_SASL_TYPE,type=pbenum,pbenum_lowercase,default=none"
     SASLType sasl_type = 5;
@@ -36,7 +36,7 @@ message KafkaConn {
 
 message KafkaReadArgs {
     // @gotags: kong:"help='Topic(s) to read from',required"
-    repeated string topic = 1;
+    repeated string topics = 1;
 
     // @gotags: kong:"help='Specify what offset the consumer should read from (only works if --use-consumer-group is false)',default=0"
     int64 read_offset = 2;
@@ -83,12 +83,12 @@ message KafkaWriteArgs {
     map<string, string> headers = 2;
 
     // @gotags: kong:"help='Topic(s) to write to',required"
-    repeated string topic = 3;
+    repeated string topics = 3;
 }
 
 message KafkaRelayArgs {
     // @gotags: kong:"help='Topic(s) to read, write or get lag stats for',env=PLUMBER_RELAY_KAFKA_TOPIC,required"
-    repeated string topic = 1;
+    repeated string topics = 1;
 
     // @gotags: kong:"help='Specify what offset the consumer should read from (only works if --use-consumer-group is false)',env=PLUMBER_RELAY_KAFKA_READ_OFFSET,default=0"
     int64 read_offset = 2;

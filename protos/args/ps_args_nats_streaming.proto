@@ -5,17 +5,17 @@ package protos.args;
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/args";
 
 message NatsStreamingTLSOptions {
-  // @gotags: kong:"help='CA file (only needed if addr is tls://*)',env=PLUMBER_RELAY_NATS_STREAMING_TLS_CA_FILE"
-  bytes ca_file = 1;
+  // @gotags: kong:"help='CA file (only needed if addr is tls://*)',env=PLUMBER_RELAY_NATS_STREAMING_TLS_CA_CERT"
+  bytes tls_ca_cert = 1;
 
   // @gotags: kong:"help='Client cert file (only needed if addr is tls://*)',env=PLUMBER_RELAY_NATS_STREAMING_TLS_CLIENT_CERT"
-  bytes client_cert = 2;
+  bytes tls_client_cert = 2;
 
   // @gotags: kong:"help='Client key file (only needed if addr is tls://*)',env=PLUMBER_RELAY_NATS_STREAMING_TLS_CLIENT_KEY"
-  bytes client_key = 3;
+  bytes tls_client_key = 3;
 
   // @gotags: kong:"help='Whether to verify server certificate',env=PLUMBER_RELAY_NATS_STREAMING_SKIP_VERIFY_TLS"
-  bool skip_verify = 4;
+  bool tls_skip_verify = 4;
 }
 
 message NatsStreamingConn {

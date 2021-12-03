@@ -12,7 +12,7 @@ message RabbitStreamsConn {
   bool use_tls = 2;
 
   // @gotags: kong:"help='Whether to verify server certificate'"
-  bool insecure_tls = 3;
+  bool tls_skip_verify = 3;
 
   // @gotags: kong:"help='Username to authenticate to server with',default=guest"
   string username = 4;

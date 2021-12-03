@@ -46,10 +46,10 @@ message DynamicOptions {
     DynamicGroupActiveMQOptions activemq = 101;
 
     // @gotags: kong:"cmd,help='AWS Simple Queue System'"
-    DynamicGroupAWSSQSOptions awssqs = 102;
+    DynamicGroupAWSSQSOptions aws_sqs = 102;
 
     // @gotags: kong:"cmd,help='AWS Simple Notification System'"
-    DynamicGroupAWSSNSOptions awssns = 103;
+    DynamicGroupAWSSNSOptions aws_sns = 103;
 
     // @gotags: kong:"cmd,help='NATS'"
     DynamicGroupNatsOptions nats = 104;

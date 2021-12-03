@@ -11,8 +11,8 @@ message KubeMQQueueConn {
     // @gotags: kong:"help='Client JWT authentication token',env='PLUMBER_RELAY_KUBEMQ_QUEUE_AUTH_TOKEN'"
     string auth_token = 2;
 
-    // @gotags: kong:"help='KubeMQ client cert file',env='PLUMBER_RELAY_KUBEMQ_QUEUE_TLS_CERT_FILE',type=existingfile"
-    string tls_cert_file = 3;
+    // @gotags: kong:"help='KubeMQ client cert file',env='PLUMBER_RELAY_KUBEMQ_QUEUE_TLS_CLIENT_CERT'"
+    string tls_client_cert = 3;
 
     // @gotags: kong:"help='KubeMQ client ID',env='PLUMBER_RELAY_KUBEMQ_QUEUE_CLIENT_ID',default=plumber"
     string client_id = 4;

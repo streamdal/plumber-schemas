@@ -19,12 +19,12 @@ message PulsarConn {
   uint32 connect_timeout_seconds = 2;
 
   // @gotags: kong:"help='Whether to verify server certificate'"
-  bool insecure_tls = 3;
+  bool tls_skip_verify = 3;
 
-  // @gotags: kong:"help='TLS client certificate file',type=existingfile"
+  // @gotags: kong:"help='TLS client certificate file'"
   bytes tls_client_cert = 4;
 
-  // @gotags: kong:"help='TLS client key file',type=existingfile"
+  // @gotags: kong:"help='TLS client key file'"
   bytes tls_client_key = 5;
 }
 

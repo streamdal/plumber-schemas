@@ -24,7 +24,7 @@ message PostgresConn {
   bool use_tls = 6;
 
   // @gotags: kong:"help='Whether to verify server certificate',env='PLUMBER_RELAY_CDCPOSTGRES_SKIP_VERIFY_TLS'"
-  bool insecure_tls = 7;
+  bool tls_skip_verify = 7;
 }
 
 message PostgresReadArgs {

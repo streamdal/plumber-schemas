@@ -112,7 +112,7 @@ message ReadOptions {
     ReadGroupActiveMQOptions activemq = 101;
 
     // @gotags: kong:"cmd,help='AWS Simple Queue System'"
-    ReadGroupAWSSQSOptions awssqs = 102;
+    ReadGroupAWSSQSOptions aws_sqs = 102;
 
     // @gotags: kong:"cmd,help='MongoDB'"
     ReadGroupMongoOptions mongo = 103;

@@ -67,10 +67,10 @@ message WriteOptions {
     WriteGroupActiveMQOptions activemq = 101;
 
     // @gotags: kong:"cmd,help='AWS Simple Queue System'"
-    WriteGroupAWSSQSOptions awssqs = 102;
+    WriteGroupAWSSQSOptions aws_sqs = 102;
 
     // @gotags: kong:"cmd,help='AWS Simple Notification System'"
-    WriteGroupAWSSNSOptions awssns = 103;
+    WriteGroupAWSSNSOptions aws_sns = 103;
 
     // @gotags: kong:"cmd,help='NATS'"
     WriteGroupNatsOptions nats = 104;

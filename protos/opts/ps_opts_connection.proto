@@ -36,8 +36,8 @@ message ConnectionOptions {
     oneof conn {
         args.KafkaConn kafka = 100;
         args.ActiveMQConn active_mq = 101;
-        args.AWSSQSConn awssqs = 102;
-        args.AWSSNSConn awssns = 103;
+        args.AWSSQSConn aws_sqs = 102;
+        args.AWSSNSConn aws_sns = 103;
         args.MongoConn mongo = 104;
         args.NatsConn nats = 105;
         args.NatsStreamingConn nats_streaming = 106;
