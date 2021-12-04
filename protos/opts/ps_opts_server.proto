@@ -21,22 +21,22 @@ message ServerOptions {
     //                          EMBEDDED ETCD SETTINGS                       //
     // --------------------------------------------------------------------- //
 
-    // @gotags: kong:"default=plumber1=http://127.0.0.1:2380,help='InitialCluster should contain comma separated list of key=value pairs of host:port entries for ALL peers in the cluster. (Example: server1=http://192.168.1.10:2380,server2=http://192.168.1.11:2380,server3=http://192.168.1.12:2380). IMPORTANT! The list should include the address of _this_ instance.',env='PLUMBER_SERVER_INITIAL_CLUSTER',required"
+    // @gotags: kong:"default='plumber1=http://127.0.0.1:2380',help='InitialCluster should contain comma separated list of key=value pairs of host:port entries for ALL peers in the cluster. (Example: server1=http://192.168.1.10:2380,server2=http://192.168.1.11:2380,server3=http://192.168.1.12:2380). IMPORTANT! The list MUST include the address of _this_ instance.',env='PLUMBER_SERVER_INITIAL_CLUSTER',required"
     string initial_cluster = 5;
 
-    // @gotags: kong:"default=http://127.0.0.1:2380,help='Address of _this_ plumber instance etcd server interface. Example: http://local-ip:2380',env='PLUMBER_SERVER_ADVERTISE_PEER_URL'"
+    // @gotags: kong:"default='http://127.0.0.1:2380',help='Address of _this_ plumber instance etcd server interface. Example: http://local-ip:2380',env='PLUMBER_SERVER_ADVERTISE_PEER_URL'"
     string advertise_peer_url = 6;
 
-    // @gotags: kong:"default=http://127.0.0.1:2379,help='Address of _this_ plumber instance etcd client interface. Example: http://local-ip:2379',env='PLUMBER_SERVER_ADVERTISE_CLIENT_URL',required"
+    // @gotags: kong:"default='http://127.0.0.1:2379',help='Address of _this_ plumber instance etcd client interface. Example: http://local-ip:2379',env='PLUMBER_SERVER_ADVERTISE_CLIENT_URL',required"
     string advertise_client_url = 7;
 
-    // @gotags: kong:"default=http://127.0.0.1:2380,help='Address that _this_ plumber instance etcd server should listen on. Example: http://local-ip:2380',env='PLUMBER_SERVER_LISTENER_PEER_URL'"
+    // @gotags: kong:"default='http://127.0.0.1:2380',help='Address that _this_ plumber instance etcd server should listen on. Example: http://local-ip:2380',env='PLUMBER_SERVER_LISTENER_PEER_URL'"
     string listener_peer_url = 8;
 
-    // @gotags: kong:"default=http://127.0.0.1:2379,help='Address that _this_ plumber instance etcd client should listen on. Example: http://local-ip:2379',env='PLUMBER_SERVER_LISTENER_CLIENT_URL'"
+    // @gotags: kong:"default='http://127.0.0.1:2379',help='Address that _this_ plumber instance etcd client should listen on. Example: http://local-ip:2379',env='PLUMBER_SERVER_LISTENER_CLIENT_URL'"
     string listener_client_url = 9;
 
-    // @gotags: kong:"default=secret,help='Secret token that ALL cluster members should use/share. If this token does not match on one of the plumber instances, this node will NOT be able to join the cluster.',env='PLUMBER_SERVER_PEER_TOKEN'"
+    // @gotags: kong:"default=secret,help='Secret token that ALL cluster members should use/share. This node will NOT be able to join the cluster IF this token does not match on one of the plumber instances.',env='PLUMBER_SERVER_PEER_TOKEN'"
     string peer_token = 10;
 
     // @gotags: kong:"help='VC-Service gRPC server address',default='https://vc-service.batch.sh'"
@@ -51,6 +51,6 @@ message ServerOptions {
     // @gotags: kong:"help='Location to store time-series data for counters',default='./.tsdata'"
     string stats_database_path = 14;
 
-    // @gotags: kong:"help='How often to flush time-series data, in seconds, from memory to storage',default='60'"
+    // @gotags: kong:"help='How often to flush time-series data (in seconds) from memory to storage',default='60'"
     int32 stats_flush_interval_seconds = 15;
 }

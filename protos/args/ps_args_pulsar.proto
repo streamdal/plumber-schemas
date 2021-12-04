@@ -35,7 +35,7 @@ message PulsarReadArgs {
   // @gotags: kong:"help='Subscription name',required"
   string subscription_name = 2;
 
-  // @gotags: kong:"help='Subscription type (options: shared, exclusive, failover, keyshared)',default=shared,type=pbenum,pbenum_lowercase"
+  // @gotags: kong:"help='Subscription type (options: shared exclusive failover keyshared)',default=shared,type=pbenum,pbenum_lowercase"
   SubscriptionType subscription_type = 3;
 }
 

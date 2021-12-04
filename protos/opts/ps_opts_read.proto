@@ -75,7 +75,7 @@ message ReadOptions {
     // @gotags: kong:"embed,group=decode"
     encoding.DecodeOptions decode_options = 5;
 
-    // @gotags: kong:"help='Convert output before it is printed to STDOUT (options: unset, base64, gzip)',type=pbenum,pbenum_strip_prefix=CONVERT_OPTION_,pbenum_lowercase,default=unset"
+    // @gotags: kong:"help='Convert output before it is printed to STDOUT (options: unset; base64; gzip)',type=pbenum,pbenum_strip_prefix=CONVERT_OPTION_,pbenum_lowercase,default=unset"
     ConvertOption convert_output = 6;
 
     // @gotags: kong:"-"
@@ -141,7 +141,7 @@ message ReadOptions {
     // @gotags: kong:"cmd,help='Azure Service Bus'"
     ReadGroupAzureServiceBusOptions azure_service_bus = 111;
 
-    // @gotags: kong:"cmd,help=''"
+    // @gotags: kong:"cmd,help='Azure Event Hub'"
     ReadGroupAzureEventHubOptions azure_event_hub = 112;
 
     // @gotags: kong:"cmd,help='Google Cloud Platform Pub/Sub'"

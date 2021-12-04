@@ -45,7 +45,7 @@ message AWSSQSWriteArgs {
   // @gotags: kong:"help='How many seconds to delay message delivery by',default=0"
   int64 delay_seconds = 3;
 
-  // @gotags: kong:"help='Add optional attributes to outgoing message (k=v, delimited by ;)'"
+  // @gotags: kong:"help='Add optional attributes to outgoing message (assign: k=v delimit: ;)'"
   map<string, string> attributes = 4;
 
   // @gotags: kong:"help='Message Group ID. For FIFO queues only'"
