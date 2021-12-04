@@ -60,6 +60,6 @@ message CLIOptions {
     // @gotags: kong:"cmd,help='Control Batch resources via the public API'"
     opts.BatchOptions batch = 6;
 
-     // @gotags: kong:"cmd,help='Run plumber in server mode'"
-     // opts.ServerOptions server = 7;
+    // @gotags: kong:"cmd,help='Run plumber in server mode'"
+    opts.ServerOptions server = 7;
 }

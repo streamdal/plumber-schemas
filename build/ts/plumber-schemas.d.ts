@@ -10340,6 +10340,9 @@ export namespace protos {
 
             /** CLIOptions batch */
             batch?: (protos.opts.IBatchOptions|null);
+
+            /** CLIOptions server */
+            server?: (protos.opts.IServerOptions|null);
         }
 
         /** Represents a CLIOptions. */
@@ -10368,6 +10371,9 @@ export namespace protos {
 
             /** CLIOptions batch. */
             public batch?: (protos.opts.IBatchOptions|null);
+
+            /** CLIOptions server. */
+            public server?: (protos.opts.IServerOptions|null);
 
             /**
              * Creates a new CLIOptions instance using the specified properties.
