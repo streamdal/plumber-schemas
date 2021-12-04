@@ -48,7 +48,7 @@ message RabbitStreamsReadArgs {
   // @gotags: kong:"help='Declare the stream if it does not exist'"
   bool declare_stream = 2;
 
-  // @gotags: kong:"help='Stream capacity to declare (required if declare_stream is true; ex: 1024k, 10mb, 3gb'"
+  // @gotags: kong:"help='Stream capacity to declare (required if declare_stream is true; ex: 1024k; 10mb; 3gb)'"
   string declare_stream_size = 3;
 
   // TODO: Will this break? Might just need to be a string.

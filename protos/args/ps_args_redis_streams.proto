@@ -30,7 +30,7 @@ message CreateConsumerConfig {
   // @gotags: kong:"help='Recreate this consumer group if it does not exist',env='PLUMBER_RELAY_REDIS_STREAMS_RECREATE_CONSUMER_GROUP'"
   bool recreate_consumer_group = 2;
 
-  // @gotags: kong:"help='What offset to start reading at (options: latest, oldest)',default=latest,required,env='PLUMBER_RELAY_REDIS_STREAMS_START_ID',type=pbenum,pbenum_lowercase"
+  // @gotags: kong:"help='What offset to start reading at (options: latest oldest)',default=latest,required,env='PLUMBER_RELAY_REDIS_STREAMS_START_ID',type=pbenum,pbenum_lowercase"
   OffsetStart offset_start = 3;
 }
 

@@ -61,5 +61,5 @@ message CLIOptions {
     opts.BatchOptions batch = 6;
 
      // @gotags: kong:"cmd,help='Run plumber in server mode'"
-    opts.ServerOptions server = 7;
+     // opts.ServerOptions server = 7;
 }

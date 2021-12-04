@@ -23,7 +23,7 @@ import "args/ps_args_redis_streams.proto";
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/opts";
 
 message DynamicOptions {
-    // @gotags: kong:"help='API token to use for dynamic destination (Create here: https://console.batch.sh/account/security)',required"
+    // @gotags: kong:"help='API token to use for dynamic destination (create here: https://console.batch.sh/account/security)',required"
     string api_token = 1;
 
     // @gotags: kong:"help='Dynamic destination collector address',default='dproxy.batch.sh:443'"

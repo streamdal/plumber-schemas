@@ -20,10 +20,10 @@ message NSQConn {
   // @gotags: kong:"help='CA file',env='PLUMBER_RELAY_NSQ_TLS_CA_CERT'"
   bytes tls_ca_cert = 5;
 
-  // @gotags: kong:"help='',env='PLUMBER_RELAY_NSQ_TLS_CLIENT_CERT'"
+  // @gotags: kong:"help='Client cert file',env='PLUMBER_RELAY_NSQ_TLS_CLIENT_CERT'"
   bytes tls_client_cert = 6;
 
-  // @gotags: kong:"help='',env='PLUMBER_RELAY_NSQ_TLS_CLIENT_KEY'"
+  // @gotags: kong:"help='Client key file',env='PLUMBER_RELAY_NSQ_TLS_CLIENT_KEY'"
   bytes tls_client_key = 7;
 
   // @gotags: kong:"help='Authentication secret',env='PLUMBER_RELAY_NSQ_AUTH_SECRET'"

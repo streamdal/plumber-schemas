@@ -11,7 +11,7 @@ enum SASLType {
 }
 
 message KafkaConn {
-    // @gotags: kong:"help='Kafka broker address (you may specify this flag multiple times',env=PLUMBER_RELAY_KAFKA_ADDRESS,default='localhost:9092',required"
+    // @gotags: kong:"help='Kafka broker address (you may specify this flag multiple times)',env=PLUMBER_RELAY_KAFKA_ADDRESS,default='localhost:9092',required"
     repeated string address = 1;
 
     // @gotags: kong:"help='Connect timeout',env=PLUMBER_RELAY_TIMEOUT_SECONDS,default=10"
@@ -23,14 +23,14 @@ message KafkaConn {
     // @gotags: kong:"help='Allow insecure TLS usage',env=PLUMBER_RELAY_KAFKA_INSECURE_TLS"
     bool tls_skip_verify = 4;
 
-    // @gotags: kong:"help='SASL authentication type (options: none, plain, scram)',env=PLUMBER_RELAY_KAFKA_SASL_TYPE,type=pbenum,pbenum_lowercase,default=none"
+    // @gotags: kong:"help='SASL authentication type (options: none plain scram)',env=PLUMBER_RELAY_KAFKA_SASL_TYPE,type=pbenum,pbenum_lowercase,default=none"
     SASLType sasl_type = 5;
 
     // @gotags: kong:"help='SASL Username',env=PLUMBER_RELAY_KAFKA_USERNAME"
     string sasl_username = 6;
 
     // Required if sasl_type is not NONE
-    // @gotags: kong:"help='SASL Password. If omitted, you will be prompted for the password',env=PLUMBER_RELAY_KAFKA_PASSWORD"
+    // @gotags: kong:"help='SASL Password. You will be prompted for the password if omitted',env=PLUMBER_RELAY_KAFKA_PASSWORD"
     string sasl_password = 7;
 }
 
