@@ -34,8 +34,11 @@ message ReadCLIOptions {
     // @gotags: kong:"help='Display more verbose information during reads (varies by backend)'"
     bool verbose_output = 1;
 
-    // @gotags: kong:"help='Provide pretty output'"
+    // @gotags: kong:"help='Pretty (colorized) output'"
     bool pretty = 2;
+
+    // @gotags: kong:"help='Display all output as JSON (including tabular metadata)'"
+    bool json = 3;
 }
 
 message ReadSampleOptions {

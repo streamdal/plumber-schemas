@@ -2300,6 +2300,9 @@ export namespace protos {
 
             /** ReadCLIOptions pretty */
             pretty?: (boolean|null);
+
+            /** ReadCLIOptions json */
+            json?: (boolean|null);
         }
 
         /** Represents a ReadCLIOptions. */
@@ -2316,6 +2319,9 @@ export namespace protos {
 
             /** ReadCLIOptions pretty. */
             public pretty: boolean;
+
+            /** ReadCLIOptions json. */
+            public json: boolean;
 
             /**
              * Creates a new ReadCLIOptions instance using the specified properties.
