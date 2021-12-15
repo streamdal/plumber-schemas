@@ -19108,6 +19108,9 @@ export namespace protos {
 
             /** RabbitReadArgs queueDelete */
             queueDelete?: (boolean|null);
+
+            /** RabbitReadArgs queueArg */
+            queueArg?: ({ [k: string]: string }|null);
         }
 
         /** Represents a RabbitReadArgs. */
@@ -19145,6 +19148,9 @@ export namespace protos {
 
             /** RabbitReadArgs queueDelete. */
             public queueDelete: boolean;
+
+            /** RabbitReadArgs queueArg. */
+            public queueArg: { [k: string]: string };
 
             /**
              * Creates a new RabbitReadArgs instance using the specified properties.

@@ -42,6 +42,9 @@ message RabbitReadArgs {
 
   // @gotags: kong:"help='Whether to auto-delete the queue after plumber has disconnected',env='PLUMBER_RELAY_RABBIT_QUEUE_AUTO_DELETE',default=true"
   bool queue_delete = 9;
+
+  // @gotags: kong:"help='Key=Value pair for sending additional queue argument to RabbitMQ. Example: --queue-arg x-dead-letter-exchange=mydlexchange --queue-arg x-queue-mode=lazy',env='PLUMBER_RELAY_RABBIT_QUEUE_ARGS'"
+  map<string,string> queue_arg = 10;
 }
 
 message RabbitWriteArgs {
