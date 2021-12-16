@@ -9,6 +9,7 @@ import "args/ps_args_aws_sqs.proto";
 import "args/ps_args_mongo.proto";
 import "args/ps_args_nats.proto";
 import "args/ps_args_nats_streaming.proto";
+import "args/ps_args_nats_jetstream.proto";
 import "args/ps_args_nsq.proto";
 import "args/ps_args_mqtt.proto";
 import "args/ps_args_gcp_pubsub.proto";
@@ -53,6 +54,7 @@ message ConnectionOptions {
         args.MQTTConn mqtt = 116;
         args.KubeMQQueueConn kubemq_queue = 117;
         args.GCPPubSubConn gcp_pubsub = 118;
+        args.NatsJetstreamConn nats_jetstream = 119;
     }
 
     // --------------------------------------------------------------------- //

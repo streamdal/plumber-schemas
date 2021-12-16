@@ -14,6 +14,7 @@ import "args/ps_args_kubemq_queue.proto";
 import "args/ps_args_mqtt.proto";
 import "args/ps_args_nats.proto";
 import "args/ps_args_nats_streaming.proto";
+import "args/ps_args_nats_jetstream.proto";
 import "args/ps_args_nsq.proto";
 import "args/ps_args_pulsar.proto";
 import "args/ps_args_rabbit.proto";
@@ -110,6 +111,9 @@ message WriteOptions {
 
     // @gotags: kong:"cmd,help='Redis Streams'"
     WriteGroupRedisStreamsOptions redis_streams = 116;
+
+    // @gotags: kong:"cmd,help='NATS JetStream'"
+    WriteGroupNatsJetstreamOptions nats_jetstream = 117;
 }
 
 message WriteGroupKafkaOptions {
@@ -150,6 +154,14 @@ message WriteGroupNatsOptions {
 
     // @gotags: kong:"embed"
     args.NatsWriteArgs args = 2;
+}
+
+message WriteGroupNatsJetstreamOptions {
+    // @gotags: kong:"embed"
+    args.NatsJetstreamConn _conn = 1;
+
+    // @gotags: kong:"embed"
+    args.NatsJetstreamWriteArgs args = 2;
 }
 
 message WriteGroupNatsStreamingOptions {

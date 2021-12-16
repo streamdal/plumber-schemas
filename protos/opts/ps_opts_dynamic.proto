@@ -12,6 +12,7 @@ import "args/ps_args_kafka.proto";
 import "args/ps_args_kubemq_queue.proto";
 import "args/ps_args_mqtt.proto";
 import "args/ps_args_nats.proto";
+import "args/ps_args_nats_jetstream.proto";
 import "args/ps_args_nats_streaming.proto";
 import "args/ps_args_nsq.proto";
 import "args/ps_args_pulsar.proto";
@@ -89,6 +90,9 @@ message DynamicOptions {
 
     // @gotags: kong:"cmd,help='RabbitMQ Streams'"
     DynamicGroupRabbitStreamsOptions rabbit_streams = 116;
+
+    // @gotags: kong:"cmd,help='NATS JetStream'"
+    DynamicGroupNatsJetstreamOptions nats_jetstream = 117;
 }
 
 message DynamicGroupKafkaOptions {
@@ -129,6 +133,14 @@ message DynamicGroupNatsOptions {
 
     // @gotags: kong:"embed"
     args.NatsWriteArgs args = 2;
+}
+
+message DynamicGroupNatsJetstreamOptions {
+    // @gotags: kong:"embed"
+    args.NatsJetstreamConn _conn = 1;
+
+    // @gotags: kong:"embed"
+    args.NatsJetstreamWriteArgs args = 2;
 }
 
 message DynamicGroupNatsStreamingOptions {

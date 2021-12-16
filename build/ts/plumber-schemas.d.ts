@@ -2132,6 +2132,9 @@ export namespace protos {
             /** ConnectionOptions gcpPubsub */
             gcpPubsub?: (protos.args.IGCPPubSubConn|null);
 
+            /** ConnectionOptions natsJetstream */
+            natsJetstream?: (protos.args.INatsJetstreamConn|null);
+
             /** ConnectionOptions _id */
             _id?: (string|null);
         }
@@ -2208,11 +2211,14 @@ export namespace protos {
             /** ConnectionOptions gcpPubsub. */
             public gcpPubsub?: (protos.args.IGCPPubSubConn|null);
 
+            /** ConnectionOptions natsJetstream. */
+            public natsJetstream?: (protos.args.INatsJetstreamConn|null);
+
             /** ConnectionOptions _id. */
             public _id: string;
 
             /** ConnectionOptions conn. */
-            public conn?: ("kafka"|"activeMq"|"awsSqs"|"awsSns"|"mongo"|"nats"|"natsStreaming"|"nsq"|"postgres"|"pulsar"|"rabbit"|"rabbitStreams"|"redisPubsub"|"redisStreams"|"azureEventHub"|"azureServiceBus"|"mqtt"|"kubemqQueue"|"gcpPubsub");
+            public conn?: ("kafka"|"activeMq"|"awsSqs"|"awsSns"|"mongo"|"nats"|"natsStreaming"|"nsq"|"postgres"|"pulsar"|"rabbit"|"rabbitStreams"|"redisPubsub"|"redisStreams"|"azureEventHub"|"azureServiceBus"|"mqtt"|"kubemqQueue"|"gcpPubsub"|"natsJetstream");
 
             /**
              * Creates a new ConnectionOptions instance using the specified properties.
@@ -2669,6 +2675,9 @@ export namespace protos {
 
             /** ReadOptions postgres */
             postgres?: (protos.opts.IReadGroupPostgresOptions|null);
+
+            /** ReadOptions natsJetstream */
+            natsJetstream?: (protos.opts.IReadGroupNatsJetstreamOptions|null);
         }
 
         /** Represents a ReadOptions. */
@@ -2766,6 +2775,9 @@ export namespace protos {
 
             /** ReadOptions postgres. */
             public postgres?: (protos.opts.IReadGroupPostgresOptions|null);
+
+            /** ReadOptions natsJetstream. */
+            public natsJetstream?: (protos.opts.IReadGroupNatsJetstreamOptions|null);
 
             /**
              * Creates a new ReadOptions instance using the specified properties.
@@ -3409,6 +3421,102 @@ export namespace protos {
 
             /**
              * Converts this ReadGroupNatsStreamingOptions to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a ReadGroupNatsJetstreamOptions. */
+        interface IReadGroupNatsJetstreamOptions {
+
+            /** ReadGroupNatsJetstreamOptions _conn */
+            _conn?: (protos.args.INatsJetstreamConn|null);
+
+            /** ReadGroupNatsJetstreamOptions args */
+            args?: (protos.args.INatsJetstreamReadArgs|null);
+        }
+
+        /** Represents a ReadGroupNatsJetstreamOptions. */
+        class ReadGroupNatsJetstreamOptions implements IReadGroupNatsJetstreamOptions {
+
+            /**
+             * Constructs a new ReadGroupNatsJetstreamOptions.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.opts.IReadGroupNatsJetstreamOptions);
+
+            /** ReadGroupNatsJetstreamOptions _conn. */
+            public _conn?: (protos.args.INatsJetstreamConn|null);
+
+            /** ReadGroupNatsJetstreamOptions args. */
+            public args?: (protos.args.INatsJetstreamReadArgs|null);
+
+            /**
+             * Creates a new ReadGroupNatsJetstreamOptions instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns ReadGroupNatsJetstreamOptions instance
+             */
+            public static create(properties?: protos.opts.IReadGroupNatsJetstreamOptions): protos.opts.ReadGroupNatsJetstreamOptions;
+
+            /**
+             * Encodes the specified ReadGroupNatsJetstreamOptions message. Does not implicitly {@link protos.opts.ReadGroupNatsJetstreamOptions.verify|verify} messages.
+             * @param message ReadGroupNatsJetstreamOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.opts.IReadGroupNatsJetstreamOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified ReadGroupNatsJetstreamOptions message, length delimited. Does not implicitly {@link protos.opts.ReadGroupNatsJetstreamOptions.verify|verify} messages.
+             * @param message ReadGroupNatsJetstreamOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.opts.IReadGroupNatsJetstreamOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a ReadGroupNatsJetstreamOptions message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns ReadGroupNatsJetstreamOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.ReadGroupNatsJetstreamOptions;
+
+            /**
+             * Decodes a ReadGroupNatsJetstreamOptions message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns ReadGroupNatsJetstreamOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.ReadGroupNatsJetstreamOptions;
+
+            /**
+             * Verifies a ReadGroupNatsJetstreamOptions message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a ReadGroupNatsJetstreamOptions message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns ReadGroupNatsJetstreamOptions
+             */
+            public static fromObject(object: { [k: string]: any }): protos.opts.ReadGroupNatsJetstreamOptions;
+
+            /**
+             * Creates a plain object from a ReadGroupNatsJetstreamOptions message. Also converts values to other types if specified.
+             * @param message ReadGroupNatsJetstreamOptions
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.opts.ReadGroupNatsJetstreamOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this ReadGroupNatsJetstreamOptions to JSON.
              * @returns JSON object
              */
             public toJSON(): { [k: string]: any };
@@ -4838,6 +4946,9 @@ export namespace protos {
 
             /** WriteOptions redisStreams */
             redisStreams?: (protos.opts.IWriteGroupRedisStreamsOptions|null);
+
+            /** WriteOptions natsJetstream */
+            natsJetstream?: (protos.opts.IWriteGroupNatsJetstreamOptions|null);
         }
 
         /** Represents a WriteOptions. */
@@ -4911,6 +5022,9 @@ export namespace protos {
 
             /** WriteOptions redisStreams. */
             public redisStreams?: (protos.opts.IWriteGroupRedisStreamsOptions|null);
+
+            /** WriteOptions natsJetstream. */
+            public natsJetstream?: (protos.opts.IWriteGroupNatsJetstreamOptions|null);
 
             /**
              * Creates a new WriteOptions instance using the specified properties.
@@ -5458,6 +5572,102 @@ export namespace protos {
 
             /**
              * Converts this WriteGroupNatsOptions to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a WriteGroupNatsJetstreamOptions. */
+        interface IWriteGroupNatsJetstreamOptions {
+
+            /** WriteGroupNatsJetstreamOptions _conn */
+            _conn?: (protos.args.INatsJetstreamConn|null);
+
+            /** WriteGroupNatsJetstreamOptions args */
+            args?: (protos.args.INatsJetstreamWriteArgs|null);
+        }
+
+        /** Represents a WriteGroupNatsJetstreamOptions. */
+        class WriteGroupNatsJetstreamOptions implements IWriteGroupNatsJetstreamOptions {
+
+            /**
+             * Constructs a new WriteGroupNatsJetstreamOptions.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.opts.IWriteGroupNatsJetstreamOptions);
+
+            /** WriteGroupNatsJetstreamOptions _conn. */
+            public _conn?: (protos.args.INatsJetstreamConn|null);
+
+            /** WriteGroupNatsJetstreamOptions args. */
+            public args?: (protos.args.INatsJetstreamWriteArgs|null);
+
+            /**
+             * Creates a new WriteGroupNatsJetstreamOptions instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns WriteGroupNatsJetstreamOptions instance
+             */
+            public static create(properties?: protos.opts.IWriteGroupNatsJetstreamOptions): protos.opts.WriteGroupNatsJetstreamOptions;
+
+            /**
+             * Encodes the specified WriteGroupNatsJetstreamOptions message. Does not implicitly {@link protos.opts.WriteGroupNatsJetstreamOptions.verify|verify} messages.
+             * @param message WriteGroupNatsJetstreamOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.opts.IWriteGroupNatsJetstreamOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified WriteGroupNatsJetstreamOptions message, length delimited. Does not implicitly {@link protos.opts.WriteGroupNatsJetstreamOptions.verify|verify} messages.
+             * @param message WriteGroupNatsJetstreamOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.opts.IWriteGroupNatsJetstreamOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a WriteGroupNatsJetstreamOptions message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns WriteGroupNatsJetstreamOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.WriteGroupNatsJetstreamOptions;
+
+            /**
+             * Decodes a WriteGroupNatsJetstreamOptions message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns WriteGroupNatsJetstreamOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.WriteGroupNatsJetstreamOptions;
+
+            /**
+             * Verifies a WriteGroupNatsJetstreamOptions message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a WriteGroupNatsJetstreamOptions message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns WriteGroupNatsJetstreamOptions
+             */
+            public static fromObject(object: { [k: string]: any }): protos.opts.WriteGroupNatsJetstreamOptions;
+
+            /**
+             * Creates a plain object from a WriteGroupNatsJetstreamOptions message. Also converts values to other types if specified.
+             * @param message WriteGroupNatsJetstreamOptions
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.opts.WriteGroupNatsJetstreamOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this WriteGroupNatsJetstreamOptions to JSON.
              * @returns JSON object
              */
             public toJSON(): { [k: string]: any };
@@ -10517,6 +10727,9 @@ export namespace protos {
 
             /** DynamicOptions rabbitStreams */
             rabbitStreams?: (protos.opts.IDynamicGroupRabbitStreamsOptions|null);
+
+            /** DynamicOptions natsJetstream */
+            natsJetstream?: (protos.opts.IDynamicGroupNatsJetstreamOptions|null);
         }
 
         /** Represents a DynamicOptions. */
@@ -10590,6 +10803,9 @@ export namespace protos {
 
             /** DynamicOptions rabbitStreams. */
             public rabbitStreams?: (protos.opts.IDynamicGroupRabbitStreamsOptions|null);
+
+            /** DynamicOptions natsJetstream. */
+            public natsJetstream?: (protos.opts.IDynamicGroupNatsJetstreamOptions|null);
 
             /**
              * Creates a new DynamicOptions instance using the specified properties.
@@ -11137,6 +11353,102 @@ export namespace protos {
 
             /**
              * Converts this DynamicGroupNatsOptions to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a DynamicGroupNatsJetstreamOptions. */
+        interface IDynamicGroupNatsJetstreamOptions {
+
+            /** DynamicGroupNatsJetstreamOptions _conn */
+            _conn?: (protos.args.INatsJetstreamConn|null);
+
+            /** DynamicGroupNatsJetstreamOptions args */
+            args?: (protos.args.INatsJetstreamWriteArgs|null);
+        }
+
+        /** Represents a DynamicGroupNatsJetstreamOptions. */
+        class DynamicGroupNatsJetstreamOptions implements IDynamicGroupNatsJetstreamOptions {
+
+            /**
+             * Constructs a new DynamicGroupNatsJetstreamOptions.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.opts.IDynamicGroupNatsJetstreamOptions);
+
+            /** DynamicGroupNatsJetstreamOptions _conn. */
+            public _conn?: (protos.args.INatsJetstreamConn|null);
+
+            /** DynamicGroupNatsJetstreamOptions args. */
+            public args?: (protos.args.INatsJetstreamWriteArgs|null);
+
+            /**
+             * Creates a new DynamicGroupNatsJetstreamOptions instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns DynamicGroupNatsJetstreamOptions instance
+             */
+            public static create(properties?: protos.opts.IDynamicGroupNatsJetstreamOptions): protos.opts.DynamicGroupNatsJetstreamOptions;
+
+            /**
+             * Encodes the specified DynamicGroupNatsJetstreamOptions message. Does not implicitly {@link protos.opts.DynamicGroupNatsJetstreamOptions.verify|verify} messages.
+             * @param message DynamicGroupNatsJetstreamOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.opts.IDynamicGroupNatsJetstreamOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified DynamicGroupNatsJetstreamOptions message, length delimited. Does not implicitly {@link protos.opts.DynamicGroupNatsJetstreamOptions.verify|verify} messages.
+             * @param message DynamicGroupNatsJetstreamOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.opts.IDynamicGroupNatsJetstreamOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a DynamicGroupNatsJetstreamOptions message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns DynamicGroupNatsJetstreamOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.DynamicGroupNatsJetstreamOptions;
+
+            /**
+             * Decodes a DynamicGroupNatsJetstreamOptions message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns DynamicGroupNatsJetstreamOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.DynamicGroupNatsJetstreamOptions;
+
+            /**
+             * Verifies a DynamicGroupNatsJetstreamOptions message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a DynamicGroupNatsJetstreamOptions message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns DynamicGroupNatsJetstreamOptions
+             */
+            public static fromObject(object: { [k: string]: any }): protos.opts.DynamicGroupNatsJetstreamOptions;
+
+            /**
+             * Creates a plain object from a DynamicGroupNatsJetstreamOptions message. Also converts values to other types if specified.
+             * @param message DynamicGroupNatsJetstreamOptions
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.opts.DynamicGroupNatsJetstreamOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this DynamicGroupNatsJetstreamOptions to JSON.
              * @returns JSON object
              */
             public toJSON(): { [k: string]: any };
@@ -17120,6 +17432,402 @@ export namespace protos {
             public toJSON(): { [k: string]: any };
         }
 
+        /** Properties of a NatsJetstreamTLSOptions. */
+        interface INatsJetstreamTLSOptions {
+
+            /** NatsJetstreamTLSOptions tlsCaCert */
+            tlsCaCert?: (Uint8Array|null);
+
+            /** NatsJetstreamTLSOptions tlsClientCert */
+            tlsClientCert?: (Uint8Array|null);
+
+            /** NatsJetstreamTLSOptions tlsClientKey */
+            tlsClientKey?: (Uint8Array|null);
+
+            /** NatsJetstreamTLSOptions tlsSkipVerify */
+            tlsSkipVerify?: (boolean|null);
+        }
+
+        /** Represents a NatsJetstreamTLSOptions. */
+        class NatsJetstreamTLSOptions implements INatsJetstreamTLSOptions {
+
+            /**
+             * Constructs a new NatsJetstreamTLSOptions.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.args.INatsJetstreamTLSOptions);
+
+            /** NatsJetstreamTLSOptions tlsCaCert. */
+            public tlsCaCert: Uint8Array;
+
+            /** NatsJetstreamTLSOptions tlsClientCert. */
+            public tlsClientCert: Uint8Array;
+
+            /** NatsJetstreamTLSOptions tlsClientKey. */
+            public tlsClientKey: Uint8Array;
+
+            /** NatsJetstreamTLSOptions tlsSkipVerify. */
+            public tlsSkipVerify: boolean;
+
+            /**
+             * Creates a new NatsJetstreamTLSOptions instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns NatsJetstreamTLSOptions instance
+             */
+            public static create(properties?: protos.args.INatsJetstreamTLSOptions): protos.args.NatsJetstreamTLSOptions;
+
+            /**
+             * Encodes the specified NatsJetstreamTLSOptions message. Does not implicitly {@link protos.args.NatsJetstreamTLSOptions.verify|verify} messages.
+             * @param message NatsJetstreamTLSOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.args.INatsJetstreamTLSOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified NatsJetstreamTLSOptions message, length delimited. Does not implicitly {@link protos.args.NatsJetstreamTLSOptions.verify|verify} messages.
+             * @param message NatsJetstreamTLSOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.args.INatsJetstreamTLSOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a NatsJetstreamTLSOptions message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns NatsJetstreamTLSOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.args.NatsJetstreamTLSOptions;
+
+            /**
+             * Decodes a NatsJetstreamTLSOptions message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns NatsJetstreamTLSOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.args.NatsJetstreamTLSOptions;
+
+            /**
+             * Verifies a NatsJetstreamTLSOptions message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a NatsJetstreamTLSOptions message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns NatsJetstreamTLSOptions
+             */
+            public static fromObject(object: { [k: string]: any }): protos.args.NatsJetstreamTLSOptions;
+
+            /**
+             * Creates a plain object from a NatsJetstreamTLSOptions message. Also converts values to other types if specified.
+             * @param message NatsJetstreamTLSOptions
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.args.NatsJetstreamTLSOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this NatsJetstreamTLSOptions to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a NatsJetstreamConn. */
+        interface INatsJetstreamConn {
+
+            /** NatsJetstreamConn dsn */
+            dsn?: (string|null);
+
+            /** NatsJetstreamConn userCredentials */
+            userCredentials?: (Uint8Array|null);
+
+            /** NatsJetstreamConn clientId */
+            clientId?: (string|null);
+
+            /** NatsJetstreamConn tlsOptions */
+            tlsOptions?: (protos.args.INatsJetstreamTLSOptions|null);
+        }
+
+        /** Represents a NatsJetstreamConn. */
+        class NatsJetstreamConn implements INatsJetstreamConn {
+
+            /**
+             * Constructs a new NatsJetstreamConn.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.args.INatsJetstreamConn);
+
+            /** NatsJetstreamConn dsn. */
+            public dsn: string;
+
+            /** NatsJetstreamConn userCredentials. */
+            public userCredentials: Uint8Array;
+
+            /** NatsJetstreamConn clientId. */
+            public clientId: string;
+
+            /** NatsJetstreamConn tlsOptions. */
+            public tlsOptions?: (protos.args.INatsJetstreamTLSOptions|null);
+
+            /**
+             * Creates a new NatsJetstreamConn instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns NatsJetstreamConn instance
+             */
+            public static create(properties?: protos.args.INatsJetstreamConn): protos.args.NatsJetstreamConn;
+
+            /**
+             * Encodes the specified NatsJetstreamConn message. Does not implicitly {@link protos.args.NatsJetstreamConn.verify|verify} messages.
+             * @param message NatsJetstreamConn message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.args.INatsJetstreamConn, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified NatsJetstreamConn message, length delimited. Does not implicitly {@link protos.args.NatsJetstreamConn.verify|verify} messages.
+             * @param message NatsJetstreamConn message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.args.INatsJetstreamConn, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a NatsJetstreamConn message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns NatsJetstreamConn
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.args.NatsJetstreamConn;
+
+            /**
+             * Decodes a NatsJetstreamConn message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns NatsJetstreamConn
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.args.NatsJetstreamConn;
+
+            /**
+             * Verifies a NatsJetstreamConn message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a NatsJetstreamConn message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns NatsJetstreamConn
+             */
+            public static fromObject(object: { [k: string]: any }): protos.args.NatsJetstreamConn;
+
+            /**
+             * Creates a plain object from a NatsJetstreamConn message. Also converts values to other types if specified.
+             * @param message NatsJetstreamConn
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.args.NatsJetstreamConn, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this NatsJetstreamConn to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a NatsJetstreamReadArgs. */
+        interface INatsJetstreamReadArgs {
+
+            /** NatsJetstreamReadArgs stream */
+            stream?: (string|null);
+        }
+
+        /** Represents a NatsJetstreamReadArgs. */
+        class NatsJetstreamReadArgs implements INatsJetstreamReadArgs {
+
+            /**
+             * Constructs a new NatsJetstreamReadArgs.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.args.INatsJetstreamReadArgs);
+
+            /** NatsJetstreamReadArgs stream. */
+            public stream: string;
+
+            /**
+             * Creates a new NatsJetstreamReadArgs instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns NatsJetstreamReadArgs instance
+             */
+            public static create(properties?: protos.args.INatsJetstreamReadArgs): protos.args.NatsJetstreamReadArgs;
+
+            /**
+             * Encodes the specified NatsJetstreamReadArgs message. Does not implicitly {@link protos.args.NatsJetstreamReadArgs.verify|verify} messages.
+             * @param message NatsJetstreamReadArgs message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.args.INatsJetstreamReadArgs, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified NatsJetstreamReadArgs message, length delimited. Does not implicitly {@link protos.args.NatsJetstreamReadArgs.verify|verify} messages.
+             * @param message NatsJetstreamReadArgs message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.args.INatsJetstreamReadArgs, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a NatsJetstreamReadArgs message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns NatsJetstreamReadArgs
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.args.NatsJetstreamReadArgs;
+
+            /**
+             * Decodes a NatsJetstreamReadArgs message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns NatsJetstreamReadArgs
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.args.NatsJetstreamReadArgs;
+
+            /**
+             * Verifies a NatsJetstreamReadArgs message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a NatsJetstreamReadArgs message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns NatsJetstreamReadArgs
+             */
+            public static fromObject(object: { [k: string]: any }): protos.args.NatsJetstreamReadArgs;
+
+            /**
+             * Creates a plain object from a NatsJetstreamReadArgs message. Also converts values to other types if specified.
+             * @param message NatsJetstreamReadArgs
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.args.NatsJetstreamReadArgs, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this NatsJetstreamReadArgs to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a NatsJetstreamWriteArgs. */
+        interface INatsJetstreamWriteArgs {
+
+            /** NatsJetstreamWriteArgs stream */
+            stream?: (string|null);
+        }
+
+        /** Represents a NatsJetstreamWriteArgs. */
+        class NatsJetstreamWriteArgs implements INatsJetstreamWriteArgs {
+
+            /**
+             * Constructs a new NatsJetstreamWriteArgs.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.args.INatsJetstreamWriteArgs);
+
+            /** NatsJetstreamWriteArgs stream. */
+            public stream: string;
+
+            /**
+             * Creates a new NatsJetstreamWriteArgs instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns NatsJetstreamWriteArgs instance
+             */
+            public static create(properties?: protos.args.INatsJetstreamWriteArgs): protos.args.NatsJetstreamWriteArgs;
+
+            /**
+             * Encodes the specified NatsJetstreamWriteArgs message. Does not implicitly {@link protos.args.NatsJetstreamWriteArgs.verify|verify} messages.
+             * @param message NatsJetstreamWriteArgs message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.args.INatsJetstreamWriteArgs, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified NatsJetstreamWriteArgs message, length delimited. Does not implicitly {@link protos.args.NatsJetstreamWriteArgs.verify|verify} messages.
+             * @param message NatsJetstreamWriteArgs message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.args.INatsJetstreamWriteArgs, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a NatsJetstreamWriteArgs message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns NatsJetstreamWriteArgs
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.args.NatsJetstreamWriteArgs;
+
+            /**
+             * Decodes a NatsJetstreamWriteArgs message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns NatsJetstreamWriteArgs
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.args.NatsJetstreamWriteArgs;
+
+            /**
+             * Verifies a NatsJetstreamWriteArgs message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a NatsJetstreamWriteArgs message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns NatsJetstreamWriteArgs
+             */
+            public static fromObject(object: { [k: string]: any }): protos.args.NatsJetstreamWriteArgs;
+
+            /**
+             * Creates a plain object from a NatsJetstreamWriteArgs message. Also converts values to other types if specified.
+             * @param message NatsJetstreamWriteArgs
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.args.NatsJetstreamWriteArgs, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this NatsJetstreamWriteArgs to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
         /** Properties of a NSQConn. */
         interface INSQConn {
 
@@ -22275,6 +22983,9 @@ export namespace protos {
             /** ReadRecord redisStreams */
             redisStreams?: (protos.records.IRedisStreams|null);
 
+            /** ReadRecord natsJetstream */
+            natsJetstream?: (protos.records.INatsJetstream|null);
+
             /** ReadRecord _raw */
             _raw?: (Uint8Array|null);
 
@@ -22360,6 +23071,9 @@ export namespace protos {
             /** ReadRecord redisStreams. */
             public redisStreams?: (protos.records.IRedisStreams|null);
 
+            /** ReadRecord natsJetstream. */
+            public natsJetstream?: (protos.records.INatsJetstream|null);
+
             /** ReadRecord _raw. */
             public _raw: Uint8Array;
 
@@ -22367,7 +23081,7 @@ export namespace protos {
             public _plumberId: string;
 
             /** ReadRecord Record. */
-            public Record?: ("kafka"|"rabbit"|"activemq"|"awsSqs"|"azureEventHub"|"azureServiceBus"|"gcpPubsub"|"kubemq"|"mongo"|"mqtt"|"nats"|"natsStreaming"|"nsq"|"postgres"|"pulsar"|"rabbitStreams"|"redisPubsub"|"redisStreams");
+            public Record?: ("kafka"|"rabbit"|"activemq"|"awsSqs"|"azureEventHub"|"azureServiceBus"|"gcpPubsub"|"kubemq"|"mongo"|"mqtt"|"nats"|"natsStreaming"|"nsq"|"postgres"|"pulsar"|"rabbitStreams"|"redisPubsub"|"redisStreams"|"natsJetstream");
 
             /**
              * Creates a new ReadRecord instance using the specified properties.
@@ -24445,6 +25159,102 @@ export namespace protos {
 
             /**
              * Converts this NatsStreaming to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a NatsJetstream. */
+        interface INatsJetstream {
+
+            /** NatsJetstream stream */
+            stream?: (string|null);
+
+            /** NatsJetstream value */
+            value?: (Uint8Array|null);
+        }
+
+        /** Represents a NatsJetstream. */
+        class NatsJetstream implements INatsJetstream {
+
+            /**
+             * Constructs a new NatsJetstream.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.records.INatsJetstream);
+
+            /** NatsJetstream stream. */
+            public stream: string;
+
+            /** NatsJetstream value. */
+            public value: Uint8Array;
+
+            /**
+             * Creates a new NatsJetstream instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns NatsJetstream instance
+             */
+            public static create(properties?: protos.records.INatsJetstream): protos.records.NatsJetstream;
+
+            /**
+             * Encodes the specified NatsJetstream message. Does not implicitly {@link protos.records.NatsJetstream.verify|verify} messages.
+             * @param message NatsJetstream message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.records.INatsJetstream, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified NatsJetstream message, length delimited. Does not implicitly {@link protos.records.NatsJetstream.verify|verify} messages.
+             * @param message NatsJetstream message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.records.INatsJetstream, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a NatsJetstream message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns NatsJetstream
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.records.NatsJetstream;
+
+            /**
+             * Decodes a NatsJetstream message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns NatsJetstream
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.records.NatsJetstream;
+
+            /**
+             * Verifies a NatsJetstream message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a NatsJetstream message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns NatsJetstream
+             */
+            public static fromObject(object: { [k: string]: any }): protos.records.NatsJetstream;
+
+            /**
+             * Creates a plain object from a NatsJetstream message. Also converts values to other types if specified.
+             * @param message NatsJetstream
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.records.NatsJetstream, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this NatsJetstream to JSON.
              * @returns JSON object
              */
             public toJSON(): { [k: string]: any };

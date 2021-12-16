@@ -13,6 +13,7 @@ import "args/ps_args_kubemq_queue.proto";
 import "args/ps_args_mongo.proto";
 import "args/ps_args_mqtt.proto";
 import "args/ps_args_nats.proto";
+import "args/ps_args_nats_jetstream.proto";
 import "args/ps_args_nats_streaming.proto";
 import "args/ps_args_nsq.proto";
 import "args/ps_args_postgres.proto";
@@ -161,6 +162,9 @@ message ReadOptions {
 
     // @gotags: kong:"cmd,help='PostgreSQL'"
     ReadGroupPostgresOptions postgres = 117;
+
+    // @gotags: kong:"cmd,help='NATS Jetstream'"
+    ReadGroupNatsJetstreamOptions nats_jetstream = 118;
 }
 
 message ReadGroupKafkaOptions {
@@ -209,6 +213,14 @@ message ReadGroupNatsStreamingOptions {
 
     // @gotags: kong:"embed"
     args.NatsStreamingReadArgs args = 2;
+}
+
+message ReadGroupNatsJetstreamOptions {
+    // @gotags: kong:"embed"
+    args.NatsJetstreamConn _conn = 1;
+
+    // @gotags: kong:"embed"
+    args.NatsJetstreamReadArgs args = 2;
 }
 
 message ReadGroupNSQOptions {

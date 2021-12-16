@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+package protos.args;
+
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/args";
+
+message NatsJetstreamTLSOptions {
+  // @gotags: kong:"help='CA file (only needed if addr is tls://*)',env=PLUMBER_RELAY_NATS_JETSTREAM_TLS_CA_CERT"
+  bytes tls_ca_cert = 1;
+
+  // @gotags: kong:"help='Client cert file (only needed if addr is tls://*)',env=PLUMBER_RELAY_NATS_JETSTREAM_TLS_CLIENT_CERT"
+  bytes tls_client_cert = 2;
+
+  // @gotags: kong:"help='Client key file (only needed if addr is tls://*)',env=PLUMBER_RELAY_NATS_JETSTREAM_TLS_CLIENT_KEY"
+  bytes tls_client_key = 3;
+
+  // @gotags: kong:"help='Whether to verify server certificate',env=PLUMBER_RELAY_NATS_JETSTREAM_SKIP_VERIFY_TLS"
+  bool tls_skip_verify = 4;
+}
+
+message NatsJetstreamConn {
+  // @gotags: kong:"help='Dial string for NATS server. Ex: nats://localhost:4222',default='nats://localhost:4222'"
+  string dsn = 1;
+
+  // @gotags: kong:"help='NATS .creds file containing authentication credentials'"
+  bytes user_credentials = 2;
+
+  // @gotags: kong:"help='User specified client ID to connect with',default=plumber"
+  string client_id = 3;
+
+  // @gotags: kong:"embed"
+  NatsJetstreamTLSOptions tls_options = 4;
+}
+
+message NatsJetstreamReadArgs {
+  // @gotags: kong:"help='NATS JetStream stream name. Ex: orders.>'"
+  string stream = 1;
+}
+
+message NatsJetstreamWriteArgs {
+  // @gotags: kong:"help='NATS JetStream stream name. Ex: orders.>'"
+  string stream = 1;
+}
