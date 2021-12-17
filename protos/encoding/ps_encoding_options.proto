@@ -22,6 +22,12 @@ enum DecodeType {
     DECODE_TYPE_FLATBUFFER = 4;
 }
 
+enum EnvelopeType {
+    ENVELOPE_TYPE_UNSET = 0;
+    ENVELOPE_TYPE_DEEP = 1;
+    ENVELOPE_TYPE_SHALLOW = 2;
+}
+
 message ProtobufSettings {
     // @gotags: kong:"help='Input message(s) should be encoded with this message envelope'"
     string protobuf_root_message = 1;
@@ -41,6 +47,19 @@ message ProtobufSettings {
     // Used internally by the server
     // @gotags: kong:"-"
     bytes _message_descriptor = 5;
+
+    // @gotags: kong:"help='Envelope type (options: deep, shallow)',type=pbenum,pbenum_strip_prefix=ENVELOPE_TYPE_,pbenum_lowercase,default=deep"
+    EnvelopeType protobuf_envelope_type = 6;
+
+    // @gotags: kong:"help='For shallow envelope messages, the payload field should be encoded with this message name'"
+    string shallow_envelope_message = 7;
+
+    // @gotags: kong:"help='For shallow envelope messages, the field number of the root message that contains the shallow envelope payload'"
+    int32 shallow_envelope_field_number = 8;
+
+    // Used internally by the server
+    // @gotags: kong:"-"
+    bytes _shallow_envelope_message_descriptor = 9;
 }
 
 message AvroSettings {
