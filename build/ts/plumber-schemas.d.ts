@@ -26126,6 +26126,13 @@ export namespace protos {
             DECODE_TYPE_FLATBUFFER = 4
         }
 
+        /** EnvelopeType enum. */
+        enum EnvelopeType {
+            ENVELOPE_TYPE_UNSET = 0,
+            ENVELOPE_TYPE_DEEP = 1,
+            ENVELOPE_TYPE_SHALLOW = 2
+        }
+
         /** Properties of a ProtobufSettings. */
         interface IProtobufSettings {
 
@@ -26143,6 +26150,18 @@ export namespace protos {
 
             /** ProtobufSettings _messageDescriptor */
             _messageDescriptor?: (Uint8Array|null);
+
+            /** ProtobufSettings protobufEnvelopeType */
+            protobufEnvelopeType?: (protos.encoding.EnvelopeType|null);
+
+            /** ProtobufSettings shallowEnvelopeMessage */
+            shallowEnvelopeMessage?: (string|null);
+
+            /** ProtobufSettings shallowEnvelopeFieldNumber */
+            shallowEnvelopeFieldNumber?: (number|null);
+
+            /** ProtobufSettings _shallowEnvelopeMessageDescriptor */
+            _shallowEnvelopeMessageDescriptor?: (Uint8Array|null);
         }
 
         /** Represents a ProtobufSettings. */
@@ -26168,6 +26187,18 @@ export namespace protos {
 
             /** ProtobufSettings _messageDescriptor. */
             public _messageDescriptor: Uint8Array;
+
+            /** ProtobufSettings protobufEnvelopeType. */
+            public protobufEnvelopeType: protos.encoding.EnvelopeType;
+
+            /** ProtobufSettings shallowEnvelopeMessage. */
+            public shallowEnvelopeMessage: string;
+
+            /** ProtobufSettings shallowEnvelopeFieldNumber. */
+            public shallowEnvelopeFieldNumber: number;
+
+            /** ProtobufSettings _shallowEnvelopeMessageDescriptor. */
+            public _shallowEnvelopeMessageDescriptor: Uint8Array;
 
             /**
              * Creates a new ProtobufSettings instance using the specified properties.
