@@ -4,6 +4,7 @@ package protos.opts;
 
 import "args/ps_args_kafka.proto";
 import "args/ps_args_activemq.proto";
+import "args/ps_args_aws_kinesis.proto";
 import "args/ps_args_aws_sns.proto";
 import "args/ps_args_aws_sqs.proto";
 import "args/ps_args_mongo.proto";
@@ -55,6 +56,7 @@ message ConnectionOptions {
         args.KubeMQQueueConn kubemq_queue = 117;
         args.GCPPubSubConn gcp_pubsub = 118;
         args.NatsJetstreamConn nats_jetstream = 119;
+        args.AWSKinesisConn aws_kinesis = 120;
     }
 
     // --------------------------------------------------------------------- //

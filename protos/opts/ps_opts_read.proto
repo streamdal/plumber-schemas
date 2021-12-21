@@ -7,6 +7,7 @@ import "args/ps_args_activemq.proto";
 import "args/ps_args_azure_service_bus.proto";
 import "args/ps_args_azure_event_hub.proto";
 import "args/ps_args_aws_sqs.proto";
+import "args/ps_args_aws_kinesis.proto";
 import "args/ps_args_gcp_pubsub.proto";
 import "args/ps_args_kafka.proto";
 import "args/ps_args_kubemq_queue.proto";
@@ -165,6 +166,9 @@ message ReadOptions {
 
     // @gotags: kong:"cmd,help='NATS Jetstream'"
     ReadGroupNatsJetstreamOptions nats_jetstream = 118;
+
+    // @gotags: kong:"cmd,help='AWS Kinesis Streams'"
+    ReadGroupAWSKinesisOptions aws_kinesis = 119;
 }
 
 message ReadGroupKafkaOptions {
@@ -318,6 +322,15 @@ message ReadGroupKubeMQQueueOptions {
     // @gotags: kong:"embed"
     args.KubeMQQueueReadArgs args = 2;
 }
+
+message ReadGroupAWSKinesisOptions {
+    // @gotags: kong:"embed"
+    args.AWSKinesisConn _conn = 1;
+
+    // @gotags: kong:"embed"
+    args.AWSKinesisReadArgs args = 2;
+}
+
 
 message InferSchemaOptions {
     enum Type {

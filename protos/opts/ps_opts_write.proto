@@ -6,6 +6,7 @@ import "records/ps_records_base.proto";
 import "args/ps_args_activemq.proto";
 import "args/ps_args_azure_service_bus.proto";
 import "args/ps_args_azure_event_hub.proto";
+import "args/ps_args_aws_kinesis.proto";
 import "args/ps_args_aws_sns.proto";
 import "args/ps_args_aws_sqs.proto";
 import "args/ps_args_gcp_pubsub.proto";
@@ -114,6 +115,9 @@ message WriteOptions {
 
     // @gotags: kong:"cmd,help='NATS JetStream'"
     WriteGroupNatsJetstreamOptions nats_jetstream = 117;
+
+    // @gotags: kong:"cmd,help='AWS Kinesis Streams'"
+    WriteGroupAWSKinesisOptions aws_kinesis = 118;
 }
 
 message WriteGroupKafkaOptions {
@@ -258,4 +262,12 @@ message WriteGroupKubeMQQueueOptions {
 
     // @gotags: kong:"embed"
     args.KubeMQQueueWriteArgs args = 2;
+}
+
+message WriteGroupAWSKinesisOptions {
+    // @gotags: kong:"embed"
+    args.AWSKinesisConn _conn = 1;
+
+    // @gotags: kong:"embed"
+    args.AWSKinesisWriteArgs args = 2;
 }

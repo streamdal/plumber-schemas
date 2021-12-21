@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+package protos.args;
+
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/args";
+
+message AWSKinesisConn {
+    // @gotags: kong:"env=AWS_DEFAULT_REGION,hidden,required"
+    string aws_region = 1;
+
+    // @gotags: kong:"env=AWS_ACCESS_KEY_ID,hidden,required"
+    string aws_access_key_id = 2;
+
+    // @gotags: kong:"env=AWS_SECRET_ACCESS_KEY,hidden,required"
+    string aws_secret_access_key = 3;
+
+}
+
+message AWSKinesisReadArgs {
+    // @gotags: kong:"help='Stream Name',required"
+    string stream = 1;
+
+    // @gotags: kong:"help='Shard ID. If empty, will read from all shards'"
+    string shard = 2;
+
+    // @gotags: kong:"help='Maximum number of records to read from kinesis',default=1"
+    int64 max_records = 3;
+
+    // @gotags: kong:"help='Deliver starting at this timestamp',xor=kinesis_delivery_option"
+    int64 read_from_timestamp = 4;
+
+    // @gotags: kong:"help='Deliver messages starting at sequence number',xor=kinesis_delivery_option"
+    string read_sequence_number = 5;
+
+    // @gotags: kong:"help='Deliver messages starting after this sequence number',xor=kinesis_delivery_option"
+    string read_after_sequence_number = 6;
+
+    // @gotags: kong:"help='Deliver messages starting at the last untrimmed record in the shard in the system, which is the oldest data record in the shard.',xor=kinesis_delivery_option"
+    bool read_trim_horizon = 7;
+
+    // @gotags: kong:"help='Deliver messages after the most recent record',xor=kinesis_delivery_option"
+    bool read_latest = 8;
+}
+
+
+message AWSKinesisWriteArgs {
+    // @gotags: kong:"help='Stream Name',required"
+    string stream = 1;
+
+    // @gotags: kong:"help='Partition Key',required"
+    string partition_key = 2;
+
+    // @gotags: kong:"help='Sequence number for ordering'"
+    string sequence_number = 3;
+}

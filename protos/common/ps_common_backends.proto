@@ -26,4 +26,5 @@ enum BackendType {
     BACKEND_TYPE_POSTGRES_CDC      = 17;
     BACKEND_TYPE_MONGODB_CDC       = 18;
     BACKEND_TYPE_KUBE_MQ           = 19;
+    BACKEND_TYPE_AWS_KINESIS       = 20;
 }

@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package protos.records;
+
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/records";
+
+message AWSKinesis {
+  string partition_key = 1;
+  string sequence_number = 2;
+  string encryption_type = 3;
+  string shard_id = 4;
+  bytes value = 5;
+}

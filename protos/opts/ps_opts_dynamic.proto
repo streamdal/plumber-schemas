@@ -5,6 +5,7 @@ package protos.opts;
 import "args/ps_args_activemq.proto";
 import "args/ps_args_azure_service_bus.proto";
 import "args/ps_args_azure_event_hub.proto";
+import "args/ps_args_aws_kinesis.proto";
 import "args/ps_args_aws_sqs.proto";
 import "args/ps_args_aws_sns.proto";
 import "args/ps_args_gcp_pubsub.proto";
@@ -93,6 +94,9 @@ message DynamicOptions {
 
     // @gotags: kong:"cmd,help='NATS JetStream'"
     DynamicGroupNatsJetstreamOptions nats_jetstream = 117;
+
+    // @gotags: kong:"cmd,help='AWS Kinesis Streams'"
+    DynamicGroupAWSKinesisOptions aws_kinesis = 118;
 }
 
 message DynamicGroupKafkaOptions {
@@ -237,4 +241,12 @@ message DynamicGroupPulsarOptions {
 
     // @gotags: kong:"embed"
     args.PulsarWriteArgs args = 2;
+}
+
+message DynamicGroupAWSKinesisOptions {
+    // @gotags: kong:"embed"
+    args.AWSKinesisConn _conn = 1;
+
+    // @gotags: kong:"embed"
+    args.AWSKinesisWriteArgs args = 2;
 }

@@ -1208,7 +1208,8 @@ export namespace protos {
             BACKEND_TYPE_MQTT = 16,
             BACKEND_TYPE_POSTGRES_CDC = 17,
             BACKEND_TYPE_MONGODB_CDC = 18,
-            BACKEND_TYPE_KUBE_MQ = 19
+            BACKEND_TYPE_KUBE_MQ = 19,
+            BACKEND_TYPE_AWS_KINESIS = 20
         }
     }
 
@@ -2135,6 +2136,9 @@ export namespace protos {
             /** ConnectionOptions natsJetstream */
             natsJetstream?: (protos.args.INatsJetstreamConn|null);
 
+            /** ConnectionOptions awsKinesis */
+            awsKinesis?: (protos.args.IAWSKinesisConn|null);
+
             /** ConnectionOptions _id */
             _id?: (string|null);
         }
@@ -2214,11 +2218,14 @@ export namespace protos {
             /** ConnectionOptions natsJetstream. */
             public natsJetstream?: (protos.args.INatsJetstreamConn|null);
 
+            /** ConnectionOptions awsKinesis. */
+            public awsKinesis?: (protos.args.IAWSKinesisConn|null);
+
             /** ConnectionOptions _id. */
             public _id: string;
 
             /** ConnectionOptions conn. */
-            public conn?: ("kafka"|"activeMq"|"awsSqs"|"awsSns"|"mongo"|"nats"|"natsStreaming"|"nsq"|"postgres"|"pulsar"|"rabbit"|"rabbitStreams"|"redisPubsub"|"redisStreams"|"azureEventHub"|"azureServiceBus"|"mqtt"|"kubemqQueue"|"gcpPubsub"|"natsJetstream");
+            public conn?: ("kafka"|"activeMq"|"awsSqs"|"awsSns"|"mongo"|"nats"|"natsStreaming"|"nsq"|"postgres"|"pulsar"|"rabbit"|"rabbitStreams"|"redisPubsub"|"redisStreams"|"azureEventHub"|"azureServiceBus"|"mqtt"|"kubemqQueue"|"gcpPubsub"|"natsJetstream"|"awsKinesis");
 
             /**
              * Creates a new ConnectionOptions instance using the specified properties.
@@ -2678,6 +2685,9 @@ export namespace protos {
 
             /** ReadOptions natsJetstream */
             natsJetstream?: (protos.opts.IReadGroupNatsJetstreamOptions|null);
+
+            /** ReadOptions awsKinesis */
+            awsKinesis?: (protos.opts.IReadGroupAWSKinesisOptions|null);
         }
 
         /** Represents a ReadOptions. */
@@ -2778,6 +2788,9 @@ export namespace protos {
 
             /** ReadOptions natsJetstream. */
             public natsJetstream?: (protos.opts.IReadGroupNatsJetstreamOptions|null);
+
+            /** ReadOptions awsKinesis. */
+            public awsKinesis?: (protos.opts.IReadGroupAWSKinesisOptions|null);
 
             /**
              * Creates a new ReadOptions instance using the specified properties.
@@ -4674,6 +4687,102 @@ export namespace protos {
             public toJSON(): { [k: string]: any };
         }
 
+        /** Properties of a ReadGroupAWSKinesisOptions. */
+        interface IReadGroupAWSKinesisOptions {
+
+            /** ReadGroupAWSKinesisOptions _conn */
+            _conn?: (protos.args.IAWSKinesisConn|null);
+
+            /** ReadGroupAWSKinesisOptions args */
+            args?: (protos.args.IAWSKinesisReadArgs|null);
+        }
+
+        /** Represents a ReadGroupAWSKinesisOptions. */
+        class ReadGroupAWSKinesisOptions implements IReadGroupAWSKinesisOptions {
+
+            /**
+             * Constructs a new ReadGroupAWSKinesisOptions.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.opts.IReadGroupAWSKinesisOptions);
+
+            /** ReadGroupAWSKinesisOptions _conn. */
+            public _conn?: (protos.args.IAWSKinesisConn|null);
+
+            /** ReadGroupAWSKinesisOptions args. */
+            public args?: (protos.args.IAWSKinesisReadArgs|null);
+
+            /**
+             * Creates a new ReadGroupAWSKinesisOptions instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns ReadGroupAWSKinesisOptions instance
+             */
+            public static create(properties?: protos.opts.IReadGroupAWSKinesisOptions): protos.opts.ReadGroupAWSKinesisOptions;
+
+            /**
+             * Encodes the specified ReadGroupAWSKinesisOptions message. Does not implicitly {@link protos.opts.ReadGroupAWSKinesisOptions.verify|verify} messages.
+             * @param message ReadGroupAWSKinesisOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.opts.IReadGroupAWSKinesisOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified ReadGroupAWSKinesisOptions message, length delimited. Does not implicitly {@link protos.opts.ReadGroupAWSKinesisOptions.verify|verify} messages.
+             * @param message ReadGroupAWSKinesisOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.opts.IReadGroupAWSKinesisOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a ReadGroupAWSKinesisOptions message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns ReadGroupAWSKinesisOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.ReadGroupAWSKinesisOptions;
+
+            /**
+             * Decodes a ReadGroupAWSKinesisOptions message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns ReadGroupAWSKinesisOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.ReadGroupAWSKinesisOptions;
+
+            /**
+             * Verifies a ReadGroupAWSKinesisOptions message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a ReadGroupAWSKinesisOptions message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns ReadGroupAWSKinesisOptions
+             */
+            public static fromObject(object: { [k: string]: any }): protos.opts.ReadGroupAWSKinesisOptions;
+
+            /**
+             * Creates a plain object from a ReadGroupAWSKinesisOptions message. Also converts values to other types if specified.
+             * @param message ReadGroupAWSKinesisOptions
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.opts.ReadGroupAWSKinesisOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this ReadGroupAWSKinesisOptions to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
         /** Properties of an InferSchemaOptions. */
         interface IInferSchemaOptions {
 
@@ -4949,6 +5058,9 @@ export namespace protos {
 
             /** WriteOptions natsJetstream */
             natsJetstream?: (protos.opts.IWriteGroupNatsJetstreamOptions|null);
+
+            /** WriteOptions awsKinesis */
+            awsKinesis?: (protos.opts.IWriteGroupAWSKinesisOptions|null);
         }
 
         /** Represents a WriteOptions. */
@@ -5025,6 +5137,9 @@ export namespace protos {
 
             /** WriteOptions natsJetstream. */
             public natsJetstream?: (protos.opts.IWriteGroupNatsJetstreamOptions|null);
+
+            /** WriteOptions awsKinesis. */
+            public awsKinesis?: (protos.opts.IWriteGroupAWSKinesisOptions|null);
 
             /**
              * Creates a new WriteOptions instance using the specified properties.
@@ -6820,6 +6935,102 @@ export namespace protos {
 
             /**
              * Converts this WriteGroupKubeMQQueueOptions to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a WriteGroupAWSKinesisOptions. */
+        interface IWriteGroupAWSKinesisOptions {
+
+            /** WriteGroupAWSKinesisOptions _conn */
+            _conn?: (protos.args.IAWSKinesisConn|null);
+
+            /** WriteGroupAWSKinesisOptions args */
+            args?: (protos.args.IAWSKinesisWriteArgs|null);
+        }
+
+        /** Represents a WriteGroupAWSKinesisOptions. */
+        class WriteGroupAWSKinesisOptions implements IWriteGroupAWSKinesisOptions {
+
+            /**
+             * Constructs a new WriteGroupAWSKinesisOptions.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.opts.IWriteGroupAWSKinesisOptions);
+
+            /** WriteGroupAWSKinesisOptions _conn. */
+            public _conn?: (protos.args.IAWSKinesisConn|null);
+
+            /** WriteGroupAWSKinesisOptions args. */
+            public args?: (protos.args.IAWSKinesisWriteArgs|null);
+
+            /**
+             * Creates a new WriteGroupAWSKinesisOptions instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns WriteGroupAWSKinesisOptions instance
+             */
+            public static create(properties?: protos.opts.IWriteGroupAWSKinesisOptions): protos.opts.WriteGroupAWSKinesisOptions;
+
+            /**
+             * Encodes the specified WriteGroupAWSKinesisOptions message. Does not implicitly {@link protos.opts.WriteGroupAWSKinesisOptions.verify|verify} messages.
+             * @param message WriteGroupAWSKinesisOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.opts.IWriteGroupAWSKinesisOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified WriteGroupAWSKinesisOptions message, length delimited. Does not implicitly {@link protos.opts.WriteGroupAWSKinesisOptions.verify|verify} messages.
+             * @param message WriteGroupAWSKinesisOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.opts.IWriteGroupAWSKinesisOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a WriteGroupAWSKinesisOptions message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns WriteGroupAWSKinesisOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.WriteGroupAWSKinesisOptions;
+
+            /**
+             * Decodes a WriteGroupAWSKinesisOptions message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns WriteGroupAWSKinesisOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.WriteGroupAWSKinesisOptions;
+
+            /**
+             * Verifies a WriteGroupAWSKinesisOptions message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a WriteGroupAWSKinesisOptions message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns WriteGroupAWSKinesisOptions
+             */
+            public static fromObject(object: { [k: string]: any }): protos.opts.WriteGroupAWSKinesisOptions;
+
+            /**
+             * Creates a plain object from a WriteGroupAWSKinesisOptions message. Also converts values to other types if specified.
+             * @param message WriteGroupAWSKinesisOptions
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.opts.WriteGroupAWSKinesisOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this WriteGroupAWSKinesisOptions to JSON.
              * @returns JSON object
              */
             public toJSON(): { [k: string]: any };
@@ -10730,6 +10941,9 @@ export namespace protos {
 
             /** DynamicOptions natsJetstream */
             natsJetstream?: (protos.opts.IDynamicGroupNatsJetstreamOptions|null);
+
+            /** DynamicOptions awsKinesis */
+            awsKinesis?: (protos.opts.IDynamicGroupAWSKinesisOptions|null);
         }
 
         /** Represents a DynamicOptions. */
@@ -10806,6 +11020,9 @@ export namespace protos {
 
             /** DynamicOptions natsJetstream. */
             public natsJetstream?: (protos.opts.IDynamicGroupNatsJetstreamOptions|null);
+
+            /** DynamicOptions awsKinesis. */
+            public awsKinesis?: (protos.opts.IDynamicGroupAWSKinesisOptions|null);
 
             /**
              * Creates a new DynamicOptions instance using the specified properties.
@@ -12601,6 +12818,102 @@ export namespace protos {
 
             /**
              * Converts this DynamicGroupPulsarOptions to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a DynamicGroupAWSKinesisOptions. */
+        interface IDynamicGroupAWSKinesisOptions {
+
+            /** DynamicGroupAWSKinesisOptions _conn */
+            _conn?: (protos.args.IAWSKinesisConn|null);
+
+            /** DynamicGroupAWSKinesisOptions args */
+            args?: (protos.args.IAWSKinesisWriteArgs|null);
+        }
+
+        /** Represents a DynamicGroupAWSKinesisOptions. */
+        class DynamicGroupAWSKinesisOptions implements IDynamicGroupAWSKinesisOptions {
+
+            /**
+             * Constructs a new DynamicGroupAWSKinesisOptions.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.opts.IDynamicGroupAWSKinesisOptions);
+
+            /** DynamicGroupAWSKinesisOptions _conn. */
+            public _conn?: (protos.args.IAWSKinesisConn|null);
+
+            /** DynamicGroupAWSKinesisOptions args. */
+            public args?: (protos.args.IAWSKinesisWriteArgs|null);
+
+            /**
+             * Creates a new DynamicGroupAWSKinesisOptions instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns DynamicGroupAWSKinesisOptions instance
+             */
+            public static create(properties?: protos.opts.IDynamicGroupAWSKinesisOptions): protos.opts.DynamicGroupAWSKinesisOptions;
+
+            /**
+             * Encodes the specified DynamicGroupAWSKinesisOptions message. Does not implicitly {@link protos.opts.DynamicGroupAWSKinesisOptions.verify|verify} messages.
+             * @param message DynamicGroupAWSKinesisOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.opts.IDynamicGroupAWSKinesisOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified DynamicGroupAWSKinesisOptions message, length delimited. Does not implicitly {@link protos.opts.DynamicGroupAWSKinesisOptions.verify|verify} messages.
+             * @param message DynamicGroupAWSKinesisOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.opts.IDynamicGroupAWSKinesisOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a DynamicGroupAWSKinesisOptions message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns DynamicGroupAWSKinesisOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.DynamicGroupAWSKinesisOptions;
+
+            /**
+             * Decodes a DynamicGroupAWSKinesisOptions message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns DynamicGroupAWSKinesisOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.DynamicGroupAWSKinesisOptions;
+
+            /**
+             * Verifies a DynamicGroupAWSKinesisOptions message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a DynamicGroupAWSKinesisOptions message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns DynamicGroupAWSKinesisOptions
+             */
+            public static fromObject(object: { [k: string]: any }): protos.opts.DynamicGroupAWSKinesisOptions;
+
+            /**
+             * Creates a plain object from a DynamicGroupAWSKinesisOptions message. Also converts values to other types if specified.
+             * @param message DynamicGroupAWSKinesisOptions
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.opts.DynamicGroupAWSKinesisOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this DynamicGroupAWSKinesisOptions to JSON.
              * @returns JSON object
              */
             public toJSON(): { [k: string]: any };
@@ -15849,6 +16162,342 @@ export namespace protos {
 
             /**
              * Converts this ActiveMQWriteArgs to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a AWSKinesisConn. */
+        interface IAWSKinesisConn {
+
+            /** AWSKinesisConn awsRegion */
+            awsRegion?: (string|null);
+
+            /** AWSKinesisConn awsAccessKeyId */
+            awsAccessKeyId?: (string|null);
+
+            /** AWSKinesisConn awsSecretAccessKey */
+            awsSecretAccessKey?: (string|null);
+        }
+
+        /** Represents a AWSKinesisConn. */
+        class AWSKinesisConn implements IAWSKinesisConn {
+
+            /**
+             * Constructs a new AWSKinesisConn.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.args.IAWSKinesisConn);
+
+            /** AWSKinesisConn awsRegion. */
+            public awsRegion: string;
+
+            /** AWSKinesisConn awsAccessKeyId. */
+            public awsAccessKeyId: string;
+
+            /** AWSKinesisConn awsSecretAccessKey. */
+            public awsSecretAccessKey: string;
+
+            /**
+             * Creates a new AWSKinesisConn instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns AWSKinesisConn instance
+             */
+            public static create(properties?: protos.args.IAWSKinesisConn): protos.args.AWSKinesisConn;
+
+            /**
+             * Encodes the specified AWSKinesisConn message. Does not implicitly {@link protos.args.AWSKinesisConn.verify|verify} messages.
+             * @param message AWSKinesisConn message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.args.IAWSKinesisConn, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified AWSKinesisConn message, length delimited. Does not implicitly {@link protos.args.AWSKinesisConn.verify|verify} messages.
+             * @param message AWSKinesisConn message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.args.IAWSKinesisConn, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a AWSKinesisConn message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns AWSKinesisConn
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.args.AWSKinesisConn;
+
+            /**
+             * Decodes a AWSKinesisConn message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns AWSKinesisConn
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.args.AWSKinesisConn;
+
+            /**
+             * Verifies a AWSKinesisConn message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a AWSKinesisConn message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns AWSKinesisConn
+             */
+            public static fromObject(object: { [k: string]: any }): protos.args.AWSKinesisConn;
+
+            /**
+             * Creates a plain object from a AWSKinesisConn message. Also converts values to other types if specified.
+             * @param message AWSKinesisConn
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.args.AWSKinesisConn, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this AWSKinesisConn to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a AWSKinesisReadArgs. */
+        interface IAWSKinesisReadArgs {
+
+            /** AWSKinesisReadArgs stream */
+            stream?: (string|null);
+
+            /** AWSKinesisReadArgs shard */
+            shard?: (string|null);
+
+            /** AWSKinesisReadArgs maxRecords */
+            maxRecords?: (number|Long|null);
+
+            /** AWSKinesisReadArgs readFromTimestamp */
+            readFromTimestamp?: (number|Long|null);
+
+            /** AWSKinesisReadArgs readSequenceNumber */
+            readSequenceNumber?: (string|null);
+
+            /** AWSKinesisReadArgs readAfterSequenceNumber */
+            readAfterSequenceNumber?: (string|null);
+
+            /** AWSKinesisReadArgs readTrimHorizon */
+            readTrimHorizon?: (boolean|null);
+
+            /** AWSKinesisReadArgs readLatest */
+            readLatest?: (boolean|null);
+        }
+
+        /** Represents a AWSKinesisReadArgs. */
+        class AWSKinesisReadArgs implements IAWSKinesisReadArgs {
+
+            /**
+             * Constructs a new AWSKinesisReadArgs.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.args.IAWSKinesisReadArgs);
+
+            /** AWSKinesisReadArgs stream. */
+            public stream: string;
+
+            /** AWSKinesisReadArgs shard. */
+            public shard: string;
+
+            /** AWSKinesisReadArgs maxRecords. */
+            public maxRecords: (number|Long);
+
+            /** AWSKinesisReadArgs readFromTimestamp. */
+            public readFromTimestamp: (number|Long);
+
+            /** AWSKinesisReadArgs readSequenceNumber. */
+            public readSequenceNumber: string;
+
+            /** AWSKinesisReadArgs readAfterSequenceNumber. */
+            public readAfterSequenceNumber: string;
+
+            /** AWSKinesisReadArgs readTrimHorizon. */
+            public readTrimHorizon: boolean;
+
+            /** AWSKinesisReadArgs readLatest. */
+            public readLatest: boolean;
+
+            /**
+             * Creates a new AWSKinesisReadArgs instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns AWSKinesisReadArgs instance
+             */
+            public static create(properties?: protos.args.IAWSKinesisReadArgs): protos.args.AWSKinesisReadArgs;
+
+            /**
+             * Encodes the specified AWSKinesisReadArgs message. Does not implicitly {@link protos.args.AWSKinesisReadArgs.verify|verify} messages.
+             * @param message AWSKinesisReadArgs message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.args.IAWSKinesisReadArgs, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified AWSKinesisReadArgs message, length delimited. Does not implicitly {@link protos.args.AWSKinesisReadArgs.verify|verify} messages.
+             * @param message AWSKinesisReadArgs message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.args.IAWSKinesisReadArgs, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a AWSKinesisReadArgs message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns AWSKinesisReadArgs
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.args.AWSKinesisReadArgs;
+
+            /**
+             * Decodes a AWSKinesisReadArgs message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns AWSKinesisReadArgs
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.args.AWSKinesisReadArgs;
+
+            /**
+             * Verifies a AWSKinesisReadArgs message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a AWSKinesisReadArgs message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns AWSKinesisReadArgs
+             */
+            public static fromObject(object: { [k: string]: any }): protos.args.AWSKinesisReadArgs;
+
+            /**
+             * Creates a plain object from a AWSKinesisReadArgs message. Also converts values to other types if specified.
+             * @param message AWSKinesisReadArgs
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.args.AWSKinesisReadArgs, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this AWSKinesisReadArgs to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a AWSKinesisWriteArgs. */
+        interface IAWSKinesisWriteArgs {
+
+            /** AWSKinesisWriteArgs stream */
+            stream?: (string|null);
+
+            /** AWSKinesisWriteArgs partitionKey */
+            partitionKey?: (string|null);
+
+            /** AWSKinesisWriteArgs sequenceNumber */
+            sequenceNumber?: (string|null);
+        }
+
+        /** Represents a AWSKinesisWriteArgs. */
+        class AWSKinesisWriteArgs implements IAWSKinesisWriteArgs {
+
+            /**
+             * Constructs a new AWSKinesisWriteArgs.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.args.IAWSKinesisWriteArgs);
+
+            /** AWSKinesisWriteArgs stream. */
+            public stream: string;
+
+            /** AWSKinesisWriteArgs partitionKey. */
+            public partitionKey: string;
+
+            /** AWSKinesisWriteArgs sequenceNumber. */
+            public sequenceNumber: string;
+
+            /**
+             * Creates a new AWSKinesisWriteArgs instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns AWSKinesisWriteArgs instance
+             */
+            public static create(properties?: protos.args.IAWSKinesisWriteArgs): protos.args.AWSKinesisWriteArgs;
+
+            /**
+             * Encodes the specified AWSKinesisWriteArgs message. Does not implicitly {@link protos.args.AWSKinesisWriteArgs.verify|verify} messages.
+             * @param message AWSKinesisWriteArgs message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.args.IAWSKinesisWriteArgs, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified AWSKinesisWriteArgs message, length delimited. Does not implicitly {@link protos.args.AWSKinesisWriteArgs.verify|verify} messages.
+             * @param message AWSKinesisWriteArgs message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.args.IAWSKinesisWriteArgs, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a AWSKinesisWriteArgs message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns AWSKinesisWriteArgs
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.args.AWSKinesisWriteArgs;
+
+            /**
+             * Decodes a AWSKinesisWriteArgs message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns AWSKinesisWriteArgs
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.args.AWSKinesisWriteArgs;
+
+            /**
+             * Verifies a AWSKinesisWriteArgs message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a AWSKinesisWriteArgs message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns AWSKinesisWriteArgs
+             */
+            public static fromObject(object: { [k: string]: any }): protos.args.AWSKinesisWriteArgs;
+
+            /**
+             * Creates a plain object from a AWSKinesisWriteArgs message. Also converts values to other types if specified.
+             * @param message AWSKinesisWriteArgs
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.args.AWSKinesisWriteArgs, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this AWSKinesisWriteArgs to JSON.
              * @returns JSON object
              */
             public toJSON(): { [k: string]: any };
@@ -22986,6 +23635,9 @@ export namespace protos {
             /** ReadRecord natsJetstream */
             natsJetstream?: (protos.records.INatsJetstream|null);
 
+            /** ReadRecord awsKinesis */
+            awsKinesis?: (protos.records.IAWSKinesis|null);
+
             /** ReadRecord _raw */
             _raw?: (Uint8Array|null);
 
@@ -23074,6 +23726,9 @@ export namespace protos {
             /** ReadRecord natsJetstream. */
             public natsJetstream?: (protos.records.INatsJetstream|null);
 
+            /** ReadRecord awsKinesis. */
+            public awsKinesis?: (protos.records.IAWSKinesis|null);
+
             /** ReadRecord _raw. */
             public _raw: Uint8Array;
 
@@ -23081,7 +23736,7 @@ export namespace protos {
             public _plumberId: string;
 
             /** ReadRecord Record. */
-            public Record?: ("kafka"|"rabbit"|"activemq"|"awsSqs"|"azureEventHub"|"azureServiceBus"|"gcpPubsub"|"kubemq"|"mongo"|"mqtt"|"nats"|"natsStreaming"|"nsq"|"postgres"|"pulsar"|"rabbitStreams"|"redisPubsub"|"redisStreams"|"natsJetstream");
+            public Record?: ("kafka"|"rabbit"|"activemq"|"awsSqs"|"azureEventHub"|"azureServiceBus"|"gcpPubsub"|"kubemq"|"mongo"|"mqtt"|"nats"|"natsStreaming"|"nsq"|"postgres"|"pulsar"|"rabbitStreams"|"redisPubsub"|"redisStreams"|"natsJetstream"|"awsKinesis");
 
             /**
              * Creates a new ReadRecord instance using the specified properties.
@@ -23953,6 +24608,120 @@ export namespace protos {
 
             /**
              * Converts this ActiveMQ to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a AWSKinesis. */
+        interface IAWSKinesis {
+
+            /** AWSKinesis partitionKey */
+            partitionKey?: (string|null);
+
+            /** AWSKinesis sequenceNumber */
+            sequenceNumber?: (string|null);
+
+            /** AWSKinesis encryptionType */
+            encryptionType?: (string|null);
+
+            /** AWSKinesis shardId */
+            shardId?: (string|null);
+
+            /** AWSKinesis value */
+            value?: (Uint8Array|null);
+        }
+
+        /** Represents a AWSKinesis. */
+        class AWSKinesis implements IAWSKinesis {
+
+            /**
+             * Constructs a new AWSKinesis.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.records.IAWSKinesis);
+
+            /** AWSKinesis partitionKey. */
+            public partitionKey: string;
+
+            /** AWSKinesis sequenceNumber. */
+            public sequenceNumber: string;
+
+            /** AWSKinesis encryptionType. */
+            public encryptionType: string;
+
+            /** AWSKinesis shardId. */
+            public shardId: string;
+
+            /** AWSKinesis value. */
+            public value: Uint8Array;
+
+            /**
+             * Creates a new AWSKinesis instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns AWSKinesis instance
+             */
+            public static create(properties?: protos.records.IAWSKinesis): protos.records.AWSKinesis;
+
+            /**
+             * Encodes the specified AWSKinesis message. Does not implicitly {@link protos.records.AWSKinesis.verify|verify} messages.
+             * @param message AWSKinesis message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.records.IAWSKinesis, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified AWSKinesis message, length delimited. Does not implicitly {@link protos.records.AWSKinesis.verify|verify} messages.
+             * @param message AWSKinesis message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.records.IAWSKinesis, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a AWSKinesis message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns AWSKinesis
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.records.AWSKinesis;
+
+            /**
+             * Decodes a AWSKinesis message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns AWSKinesis
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.records.AWSKinesis;
+
+            /**
+             * Verifies a AWSKinesis message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a AWSKinesis message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns AWSKinesis
+             */
+            public static fromObject(object: { [k: string]: any }): protos.records.AWSKinesis;
+
+            /**
+             * Creates a plain object from a AWSKinesis message. Also converts values to other types if specified.
+             * @param message AWSKinesis
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.records.AWSKinesis, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this AWSKinesis to JSON.
              * @returns JSON object
              */
             public toJSON(): { [k: string]: any };

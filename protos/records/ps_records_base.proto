@@ -6,6 +6,7 @@ package protos.records;
 import "records/ps_records_kafka.proto";
 import "records/ps_records_rabbit.proto";
 import "records/ps_records_activemq.proto";
+import "records/ps_records_aws_kinesis.proto";
 import "records/ps_records_aws_sqs.proto";
 import "records/ps_records_azure_event_hub.proto";
 import "records/ps_records_azure_service_bus.proto";
@@ -77,6 +78,7 @@ message ReadRecord {
         records.RedisPubsub redis_pubsub = 116;
         records.RedisStreams redis_streams = 117;
         records.NatsJetstream nats_jetstream = 118;
+        records.AWSKinesis aws_kinesis = 119;
     }
 
     // --------------------------------------------------------------------- //
