@@ -5,14 +5,17 @@ package protos.args;
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/args";
 
 message AWSSQSConn {
-  // @gotags: kong:"env=AWS_DEFAULT_REGION,hidden,required"
+  // @gotags: kong:"env=AWS_DEFAULT_REGION,hidden"
   string aws_region = 1;
 
-  // @gotags: kong:"env=AWS_ACCESS_KEY_ID,hidden,required"
+  // @gotags: kong:"env=AWS_ACCESS_KEY_ID,hidden"
   string aws_access_key_id = 2;
 
-  // @gotags: kong:"env=AWS_SECRET_ACCESS_KEY,hidden,required"
+  // @gotags: kong:"env=AWS_SECRET_ACCESS_KEY,hidden"
   string aws_secret_access_key = 3;
+
+  // @gotags: kong:"env=AWS_PROFILE,hidden"
+  string aws_profile = 4;
 }
 
 message AWSSQSReadArgs {

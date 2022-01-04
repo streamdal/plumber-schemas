@@ -16178,6 +16178,9 @@ export namespace protos {
 
             /** AWSKinesisConn awsSecretAccessKey */
             awsSecretAccessKey?: (string|null);
+
+            /** AWSKinesisConn awsProfile */
+            awsProfile?: (string|null);
         }
 
         /** Represents a AWSKinesisConn. */
@@ -16197,6 +16200,9 @@ export namespace protos {
 
             /** AWSKinesisConn awsSecretAccessKey. */
             public awsSecretAccessKey: string;
+
+            /** AWSKinesisConn awsProfile. */
+            public awsProfile: string;
 
             /**
              * Creates a new AWSKinesisConn instance using the specified properties.
@@ -16514,6 +16520,9 @@ export namespace protos {
 
             /** AWSSNSConn awsSecretAccessKey */
             awsSecretAccessKey?: (string|null);
+
+            /** AWSSNSConn awsProfile */
+            awsProfile?: (string|null);
         }
 
         /** Represents a AWSSNSConn. */
@@ -16533,6 +16542,9 @@ export namespace protos {
 
             /** AWSSNSConn awsSecretAccessKey. */
             public awsSecretAccessKey: string;
+
+            /** AWSSNSConn awsProfile. */
+            public awsProfile: string;
 
             /**
              * Creates a new AWSSNSConn instance using the specified properties.
@@ -16706,6 +16718,9 @@ export namespace protos {
 
             /** AWSSQSConn awsSecretAccessKey */
             awsSecretAccessKey?: (string|null);
+
+            /** AWSSQSConn awsProfile */
+            awsProfile?: (string|null);
         }
 
         /** Represents a AWSSQSConn. */
@@ -16725,6 +16740,9 @@ export namespace protos {
 
             /** AWSSQSConn awsSecretAccessKey. */
             public awsSecretAccessKey: string;
+
+            /** AWSSQSConn awsProfile. */
+            public awsProfile: string;
 
             /**
              * Creates a new AWSSQSConn instance using the specified properties.
