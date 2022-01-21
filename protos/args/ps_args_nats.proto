@@ -5,27 +5,32 @@ package protos.args;
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/args";
 
 message NatsConn {
-  // @gotags: kong:"help='Dial string for NATS server. Ex: nats://localhost:4222',default='nas://localhost:4222'"
+  // @gotags: kong:"help='Dial string for NATS server. Ex: nats://localhost:4222',default='nats://localhost:4222',env='PLUMBER_RELAY_NATS_DSN'"
   string dsn = 1;
 
-  // @gotags: kong:"help='Whether to verify server certificate'"
-  bool tls_skip_verify = 2;
+  // @gotags: kong:"help='NATS .creds file containing authentication credentials',env='PLUMBER_RELAY_NATS_CREDENTIALS'"
+  bytes user_credentials = 2;
 
-  // @gotags: kong:"help='CA file (only needed if addr is tls://)'"
-  bytes tls_ca_cert = 3;
+  // @gotags: kong:"embed"
+  NatsTLSOptions tls_options = 3;
+}
 
-  // @gotags: kong:"help='Client cert file (only needed if addr is tls://)'"
-  bytes tls_client_cert = 4;
+message NatsTLSOptions {
+  // @gotags: kong:"help='Whether to verify server certificate',env='PLUMBER_RELAY_NATS_SKIP_VERIFY_TLS'"
+  bool tls_skip_verify = 1;
 
-  // @gotags: kong:"help='client key file (only needed if addr is tls://)'"
-  bytes tls_client_key = 5;
+  // @gotags: kong:"help='CA file (only needed if addr is tls://)',env='PLUMBER_RELAY_NATS_TLS_CA_CERT'"
+  bytes tls_ca_cert = 2;
 
-  // @gotags: kong:"help='NATS .creds file containing authentication credentials'"
-  bytes user_credentials = 6;
+  // @gotags: kong:"help='Client cert file (only needed if addr is tls://)',env='PLUMBER_RELAY_NATS_TLS_CLIENT_CERT'"
+  bytes tls_client_cert = 3;
+
+  // @gotags: kong:"help='client key file (only needed if addr is tls://)',env='PLUMBER_RELAY_NATS_TLS_CLIENT_KEY'"
+  bytes tls_client_key = 4;
 }
 
 message NatsReadArgs {
-  // @gotags: kong:"help='NATS Subject. Ex: foo.bar.*'"
+  // @gotags: kong:"help='NATS Subject. Ex: foo.bar.*',env='PLUMBER_RELAY_NATS_SUBJECT'"
   string subject = 1;
 }
 
