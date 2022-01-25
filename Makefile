@@ -173,4 +173,4 @@ clean-ts:
 .PHONY: lint
 lint: description = Run protolint
 lint:
-	protolint events/
+	protolint protos/
