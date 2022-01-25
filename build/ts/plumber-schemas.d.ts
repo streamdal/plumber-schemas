@@ -7200,6 +7200,15 @@ export namespace protos {
 
             /** RelayOptions postgres */
             postgres?: (protos.opts.IRelayGroupPostgresOptions|null);
+
+            /** RelayOptions nats */
+            nats?: (protos.opts.IRelayGroupNatsOptions|null);
+
+            /** RelayOptions natsStreaming */
+            natsStreaming?: (protos.opts.IRelayGroupNatsStreamingOptions|null);
+
+            /** RelayOptions natsJetstream */
+            natsJetstream?: (protos.opts.IRelayGroupNatsJetStreamOptions|null);
         }
 
         /** Represents a RelayOptions. */
@@ -7282,6 +7291,15 @@ export namespace protos {
 
             /** RelayOptions postgres. */
             public postgres?: (protos.opts.IRelayGroupPostgresOptions|null);
+
+            /** RelayOptions nats. */
+            public nats?: (protos.opts.IRelayGroupNatsOptions|null);
+
+            /** RelayOptions natsStreaming. */
+            public natsStreaming?: (protos.opts.IRelayGroupNatsStreamingOptions|null);
+
+            /** RelayOptions natsJetstream. */
+            public natsJetstream?: (protos.opts.IRelayGroupNatsJetStreamOptions|null);
 
             /**
              * Creates a new RelayOptions instance using the specified properties.
@@ -8506,6 +8524,294 @@ export namespace protos {
             public toJSON(): { [k: string]: any };
         }
 
+        /** Properties of a RelayGroupNatsOptions. */
+        interface IRelayGroupNatsOptions {
+
+            /** RelayGroupNatsOptions _conn */
+            _conn?: (protos.args.INatsConn|null);
+
+            /** RelayGroupNatsOptions args */
+            args?: (protos.args.INatsReadArgs|null);
+        }
+
+        /** Represents a RelayGroupNatsOptions. */
+        class RelayGroupNatsOptions implements IRelayGroupNatsOptions {
+
+            /**
+             * Constructs a new RelayGroupNatsOptions.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.opts.IRelayGroupNatsOptions);
+
+            /** RelayGroupNatsOptions _conn. */
+            public _conn?: (protos.args.INatsConn|null);
+
+            /** RelayGroupNatsOptions args. */
+            public args?: (protos.args.INatsReadArgs|null);
+
+            /**
+             * Creates a new RelayGroupNatsOptions instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns RelayGroupNatsOptions instance
+             */
+            public static create(properties?: protos.opts.IRelayGroupNatsOptions): protos.opts.RelayGroupNatsOptions;
+
+            /**
+             * Encodes the specified RelayGroupNatsOptions message. Does not implicitly {@link protos.opts.RelayGroupNatsOptions.verify|verify} messages.
+             * @param message RelayGroupNatsOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.opts.IRelayGroupNatsOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified RelayGroupNatsOptions message, length delimited. Does not implicitly {@link protos.opts.RelayGroupNatsOptions.verify|verify} messages.
+             * @param message RelayGroupNatsOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.opts.IRelayGroupNatsOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a RelayGroupNatsOptions message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns RelayGroupNatsOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.RelayGroupNatsOptions;
+
+            /**
+             * Decodes a RelayGroupNatsOptions message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns RelayGroupNatsOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.RelayGroupNatsOptions;
+
+            /**
+             * Verifies a RelayGroupNatsOptions message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a RelayGroupNatsOptions message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns RelayGroupNatsOptions
+             */
+            public static fromObject(object: { [k: string]: any }): protos.opts.RelayGroupNatsOptions;
+
+            /**
+             * Creates a plain object from a RelayGroupNatsOptions message. Also converts values to other types if specified.
+             * @param message RelayGroupNatsOptions
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.opts.RelayGroupNatsOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this RelayGroupNatsOptions to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a RelayGroupNatsStreamingOptions. */
+        interface IRelayGroupNatsStreamingOptions {
+
+            /** RelayGroupNatsStreamingOptions _conn */
+            _conn?: (protos.args.INatsStreamingConn|null);
+
+            /** RelayGroupNatsStreamingOptions args */
+            args?: (protos.args.INatsStreamingReadArgs|null);
+        }
+
+        /** Represents a RelayGroupNatsStreamingOptions. */
+        class RelayGroupNatsStreamingOptions implements IRelayGroupNatsStreamingOptions {
+
+            /**
+             * Constructs a new RelayGroupNatsStreamingOptions.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.opts.IRelayGroupNatsStreamingOptions);
+
+            /** RelayGroupNatsStreamingOptions _conn. */
+            public _conn?: (protos.args.INatsStreamingConn|null);
+
+            /** RelayGroupNatsStreamingOptions args. */
+            public args?: (protos.args.INatsStreamingReadArgs|null);
+
+            /**
+             * Creates a new RelayGroupNatsStreamingOptions instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns RelayGroupNatsStreamingOptions instance
+             */
+            public static create(properties?: protos.opts.IRelayGroupNatsStreamingOptions): protos.opts.RelayGroupNatsStreamingOptions;
+
+            /**
+             * Encodes the specified RelayGroupNatsStreamingOptions message. Does not implicitly {@link protos.opts.RelayGroupNatsStreamingOptions.verify|verify} messages.
+             * @param message RelayGroupNatsStreamingOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.opts.IRelayGroupNatsStreamingOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified RelayGroupNatsStreamingOptions message, length delimited. Does not implicitly {@link protos.opts.RelayGroupNatsStreamingOptions.verify|verify} messages.
+             * @param message RelayGroupNatsStreamingOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.opts.IRelayGroupNatsStreamingOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a RelayGroupNatsStreamingOptions message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns RelayGroupNatsStreamingOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.RelayGroupNatsStreamingOptions;
+
+            /**
+             * Decodes a RelayGroupNatsStreamingOptions message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns RelayGroupNatsStreamingOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.RelayGroupNatsStreamingOptions;
+
+            /**
+             * Verifies a RelayGroupNatsStreamingOptions message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a RelayGroupNatsStreamingOptions message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns RelayGroupNatsStreamingOptions
+             */
+            public static fromObject(object: { [k: string]: any }): protos.opts.RelayGroupNatsStreamingOptions;
+
+            /**
+             * Creates a plain object from a RelayGroupNatsStreamingOptions message. Also converts values to other types if specified.
+             * @param message RelayGroupNatsStreamingOptions
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.opts.RelayGroupNatsStreamingOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this RelayGroupNatsStreamingOptions to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a RelayGroupNatsJetStreamOptions. */
+        interface IRelayGroupNatsJetStreamOptions {
+
+            /** RelayGroupNatsJetStreamOptions _conn */
+            _conn?: (protos.args.INatsJetstreamConn|null);
+
+            /** RelayGroupNatsJetStreamOptions args */
+            args?: (protos.args.INatsJetstreamReadArgs|null);
+        }
+
+        /** Represents a RelayGroupNatsJetStreamOptions. */
+        class RelayGroupNatsJetStreamOptions implements IRelayGroupNatsJetStreamOptions {
+
+            /**
+             * Constructs a new RelayGroupNatsJetStreamOptions.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.opts.IRelayGroupNatsJetStreamOptions);
+
+            /** RelayGroupNatsJetStreamOptions _conn. */
+            public _conn?: (protos.args.INatsJetstreamConn|null);
+
+            /** RelayGroupNatsJetStreamOptions args. */
+            public args?: (protos.args.INatsJetstreamReadArgs|null);
+
+            /**
+             * Creates a new RelayGroupNatsJetStreamOptions instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns RelayGroupNatsJetStreamOptions instance
+             */
+            public static create(properties?: protos.opts.IRelayGroupNatsJetStreamOptions): protos.opts.RelayGroupNatsJetStreamOptions;
+
+            /**
+             * Encodes the specified RelayGroupNatsJetStreamOptions message. Does not implicitly {@link protos.opts.RelayGroupNatsJetStreamOptions.verify|verify} messages.
+             * @param message RelayGroupNatsJetStreamOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.opts.IRelayGroupNatsJetStreamOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified RelayGroupNatsJetStreamOptions message, length delimited. Does not implicitly {@link protos.opts.RelayGroupNatsJetStreamOptions.verify|verify} messages.
+             * @param message RelayGroupNatsJetStreamOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.opts.IRelayGroupNatsJetStreamOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a RelayGroupNatsJetStreamOptions message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns RelayGroupNatsJetStreamOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.RelayGroupNatsJetStreamOptions;
+
+            /**
+             * Decodes a RelayGroupNatsJetStreamOptions message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns RelayGroupNatsJetStreamOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.RelayGroupNatsJetStreamOptions;
+
+            /**
+             * Verifies a RelayGroupNatsJetStreamOptions message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a RelayGroupNatsJetStreamOptions message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns RelayGroupNatsJetStreamOptions
+             */
+            public static fromObject(object: { [k: string]: any }): protos.opts.RelayGroupNatsJetStreamOptions;
+
+            /**
+             * Creates a plain object from a RelayGroupNatsJetStreamOptions message. Also converts values to other types if specified.
+             * @param message RelayGroupNatsJetStreamOptions
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.opts.RelayGroupNatsJetStreamOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this RelayGroupNatsJetStreamOptions to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
         /** Properties of a ServerOptions. */
         interface IServerOptions {
 
@@ -9673,6 +9979,342 @@ export namespace protos {
             public toJSON(): { [k: string]: any };
         }
 
+        /** Properties of a BatchListCollectionOptions. */
+        interface IBatchListCollectionOptions {
+        }
+
+        /** Represents a BatchListCollectionOptions. */
+        class BatchListCollectionOptions implements IBatchListCollectionOptions {
+
+            /**
+             * Constructs a new BatchListCollectionOptions.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.opts.IBatchListCollectionOptions);
+
+            /**
+             * Creates a new BatchListCollectionOptions instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns BatchListCollectionOptions instance
+             */
+            public static create(properties?: protos.opts.IBatchListCollectionOptions): protos.opts.BatchListCollectionOptions;
+
+            /**
+             * Encodes the specified BatchListCollectionOptions message. Does not implicitly {@link protos.opts.BatchListCollectionOptions.verify|verify} messages.
+             * @param message BatchListCollectionOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.opts.IBatchListCollectionOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified BatchListCollectionOptions message, length delimited. Does not implicitly {@link protos.opts.BatchListCollectionOptions.verify|verify} messages.
+             * @param message BatchListCollectionOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.opts.IBatchListCollectionOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a BatchListCollectionOptions message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns BatchListCollectionOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.BatchListCollectionOptions;
+
+            /**
+             * Decodes a BatchListCollectionOptions message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns BatchListCollectionOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.BatchListCollectionOptions;
+
+            /**
+             * Verifies a BatchListCollectionOptions message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a BatchListCollectionOptions message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns BatchListCollectionOptions
+             */
+            public static fromObject(object: { [k: string]: any }): protos.opts.BatchListCollectionOptions;
+
+            /**
+             * Creates a plain object from a BatchListCollectionOptions message. Also converts values to other types if specified.
+             * @param message BatchListCollectionOptions
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.opts.BatchListCollectionOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this BatchListCollectionOptions to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a BatchListDestinationOptions. */
+        interface IBatchListDestinationOptions {
+        }
+
+        /** Represents a BatchListDestinationOptions. */
+        class BatchListDestinationOptions implements IBatchListDestinationOptions {
+
+            /**
+             * Constructs a new BatchListDestinationOptions.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.opts.IBatchListDestinationOptions);
+
+            /**
+             * Creates a new BatchListDestinationOptions instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns BatchListDestinationOptions instance
+             */
+            public static create(properties?: protos.opts.IBatchListDestinationOptions): protos.opts.BatchListDestinationOptions;
+
+            /**
+             * Encodes the specified BatchListDestinationOptions message. Does not implicitly {@link protos.opts.BatchListDestinationOptions.verify|verify} messages.
+             * @param message BatchListDestinationOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.opts.IBatchListDestinationOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified BatchListDestinationOptions message, length delimited. Does not implicitly {@link protos.opts.BatchListDestinationOptions.verify|verify} messages.
+             * @param message BatchListDestinationOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.opts.IBatchListDestinationOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a BatchListDestinationOptions message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns BatchListDestinationOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.BatchListDestinationOptions;
+
+            /**
+             * Decodes a BatchListDestinationOptions message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns BatchListDestinationOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.BatchListDestinationOptions;
+
+            /**
+             * Verifies a BatchListDestinationOptions message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a BatchListDestinationOptions message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns BatchListDestinationOptions
+             */
+            public static fromObject(object: { [k: string]: any }): protos.opts.BatchListDestinationOptions;
+
+            /**
+             * Creates a plain object from a BatchListDestinationOptions message. Also converts values to other types if specified.
+             * @param message BatchListDestinationOptions
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.opts.BatchListDestinationOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this BatchListDestinationOptions to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a BatchListSchemaOptions. */
+        interface IBatchListSchemaOptions {
+        }
+
+        /** Represents a BatchListSchemaOptions. */
+        class BatchListSchemaOptions implements IBatchListSchemaOptions {
+
+            /**
+             * Constructs a new BatchListSchemaOptions.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.opts.IBatchListSchemaOptions);
+
+            /**
+             * Creates a new BatchListSchemaOptions instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns BatchListSchemaOptions instance
+             */
+            public static create(properties?: protos.opts.IBatchListSchemaOptions): protos.opts.BatchListSchemaOptions;
+
+            /**
+             * Encodes the specified BatchListSchemaOptions message. Does not implicitly {@link protos.opts.BatchListSchemaOptions.verify|verify} messages.
+             * @param message BatchListSchemaOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.opts.IBatchListSchemaOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified BatchListSchemaOptions message, length delimited. Does not implicitly {@link protos.opts.BatchListSchemaOptions.verify|verify} messages.
+             * @param message BatchListSchemaOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.opts.IBatchListSchemaOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a BatchListSchemaOptions message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns BatchListSchemaOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.BatchListSchemaOptions;
+
+            /**
+             * Decodes a BatchListSchemaOptions message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns BatchListSchemaOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.BatchListSchemaOptions;
+
+            /**
+             * Verifies a BatchListSchemaOptions message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a BatchListSchemaOptions message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns BatchListSchemaOptions
+             */
+            public static fromObject(object: { [k: string]: any }): protos.opts.BatchListSchemaOptions;
+
+            /**
+             * Creates a plain object from a BatchListSchemaOptions message. Also converts values to other types if specified.
+             * @param message BatchListSchemaOptions
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.opts.BatchListSchemaOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this BatchListSchemaOptions to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a BatchListReplayOptions. */
+        interface IBatchListReplayOptions {
+        }
+
+        /** Represents a BatchListReplayOptions. */
+        class BatchListReplayOptions implements IBatchListReplayOptions {
+
+            /**
+             * Constructs a new BatchListReplayOptions.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.opts.IBatchListReplayOptions);
+
+            /**
+             * Creates a new BatchListReplayOptions instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns BatchListReplayOptions instance
+             */
+            public static create(properties?: protos.opts.IBatchListReplayOptions): protos.opts.BatchListReplayOptions;
+
+            /**
+             * Encodes the specified BatchListReplayOptions message. Does not implicitly {@link protos.opts.BatchListReplayOptions.verify|verify} messages.
+             * @param message BatchListReplayOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.opts.IBatchListReplayOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified BatchListReplayOptions message, length delimited. Does not implicitly {@link protos.opts.BatchListReplayOptions.verify|verify} messages.
+             * @param message BatchListReplayOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.opts.IBatchListReplayOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a BatchListReplayOptions message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns BatchListReplayOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.BatchListReplayOptions;
+
+            /**
+             * Decodes a BatchListReplayOptions message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns BatchListReplayOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.BatchListReplayOptions;
+
+            /**
+             * Verifies a BatchListReplayOptions message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a BatchListReplayOptions message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns BatchListReplayOptions
+             */
+            public static fromObject(object: { [k: string]: any }): protos.opts.BatchListReplayOptions;
+
+            /**
+             * Creates a plain object from a BatchListReplayOptions message. Also converts values to other types if specified.
+             * @param message BatchListReplayOptions
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.opts.BatchListReplayOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this BatchListReplayOptions to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
         /** Properties of a BatchArchiveOptions. */
         interface IBatchArchiveOptions {
 
@@ -9857,16 +10499,16 @@ export namespace protos {
         interface IBatchListOptions {
 
             /** BatchListOptions collection */
-            collection?: (boolean|null);
+            collection?: (protos.opts.IBatchListCollectionOptions|null);
 
             /** BatchListOptions destination */
-            destination?: (boolean|null);
+            destination?: (protos.opts.IBatchListDestinationOptions|null);
 
             /** BatchListOptions replay */
-            replay?: (boolean|null);
+            replay?: (protos.opts.IBatchListReplayOptions|null);
 
             /** BatchListOptions schema */
-            schema?: (boolean|null);
+            schema?: (protos.opts.IBatchListSchemaOptions|null);
         }
 
         /** Represents a BatchListOptions. */
@@ -9879,16 +10521,16 @@ export namespace protos {
             constructor(properties?: protos.opts.IBatchListOptions);
 
             /** BatchListOptions collection. */
-            public collection: boolean;
+            public collection?: (protos.opts.IBatchListCollectionOptions|null);
 
             /** BatchListOptions destination. */
-            public destination: boolean;
+            public destination?: (protos.opts.IBatchListDestinationOptions|null);
 
             /** BatchListOptions replay. */
-            public replay: boolean;
+            public replay?: (protos.opts.IBatchListReplayOptions|null);
 
             /** BatchListOptions schema. */
-            public schema: boolean;
+            public schema?: (protos.opts.IBatchListSchemaOptions|null);
 
             /**
              * Creates a new BatchListOptions instance using the specified properties.
@@ -17373,20 +18015,11 @@ export namespace protos {
             /** NatsConn dsn */
             dsn?: (string|null);
 
-            /** NatsConn tlsSkipVerify */
-            tlsSkipVerify?: (boolean|null);
-
-            /** NatsConn tlsCaCert */
-            tlsCaCert?: (Uint8Array|null);
-
-            /** NatsConn tlsClientCert */
-            tlsClientCert?: (Uint8Array|null);
-
-            /** NatsConn tlsClientKey */
-            tlsClientKey?: (Uint8Array|null);
-
             /** NatsConn userCredentials */
             userCredentials?: (Uint8Array|null);
+
+            /** NatsConn tlsOptions */
+            tlsOptions?: (protos.args.INatsTLSOptions|null);
         }
 
         /** Represents a NatsConn. */
@@ -17401,20 +18034,11 @@ export namespace protos {
             /** NatsConn dsn. */
             public dsn: string;
 
-            /** NatsConn tlsSkipVerify. */
-            public tlsSkipVerify: boolean;
-
-            /** NatsConn tlsCaCert. */
-            public tlsCaCert: Uint8Array;
-
-            /** NatsConn tlsClientCert. */
-            public tlsClientCert: Uint8Array;
-
-            /** NatsConn tlsClientKey. */
-            public tlsClientKey: Uint8Array;
-
             /** NatsConn userCredentials. */
             public userCredentials: Uint8Array;
+
+            /** NatsConn tlsOptions. */
+            public tlsOptions?: (protos.args.INatsTLSOptions|null);
 
             /**
              * Creates a new NatsConn instance using the specified properties.
@@ -17482,6 +18106,114 @@ export namespace protos {
 
             /**
              * Converts this NatsConn to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a NatsTLSOptions. */
+        interface INatsTLSOptions {
+
+            /** NatsTLSOptions tlsSkipVerify */
+            tlsSkipVerify?: (boolean|null);
+
+            /** NatsTLSOptions tlsCaCert */
+            tlsCaCert?: (Uint8Array|null);
+
+            /** NatsTLSOptions tlsClientCert */
+            tlsClientCert?: (Uint8Array|null);
+
+            /** NatsTLSOptions tlsClientKey */
+            tlsClientKey?: (Uint8Array|null);
+        }
+
+        /** Represents a NatsTLSOptions. */
+        class NatsTLSOptions implements INatsTLSOptions {
+
+            /**
+             * Constructs a new NatsTLSOptions.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.args.INatsTLSOptions);
+
+            /** NatsTLSOptions tlsSkipVerify. */
+            public tlsSkipVerify: boolean;
+
+            /** NatsTLSOptions tlsCaCert. */
+            public tlsCaCert: Uint8Array;
+
+            /** NatsTLSOptions tlsClientCert. */
+            public tlsClientCert: Uint8Array;
+
+            /** NatsTLSOptions tlsClientKey. */
+            public tlsClientKey: Uint8Array;
+
+            /**
+             * Creates a new NatsTLSOptions instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns NatsTLSOptions instance
+             */
+            public static create(properties?: protos.args.INatsTLSOptions): protos.args.NatsTLSOptions;
+
+            /**
+             * Encodes the specified NatsTLSOptions message. Does not implicitly {@link protos.args.NatsTLSOptions.verify|verify} messages.
+             * @param message NatsTLSOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.args.INatsTLSOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified NatsTLSOptions message, length delimited. Does not implicitly {@link protos.args.NatsTLSOptions.verify|verify} messages.
+             * @param message NatsTLSOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.args.INatsTLSOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a NatsTLSOptions message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns NatsTLSOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.args.NatsTLSOptions;
+
+            /**
+             * Decodes a NatsTLSOptions message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns NatsTLSOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.args.NatsTLSOptions;
+
+            /**
+             * Verifies a NatsTLSOptions message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a NatsTLSOptions message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns NatsTLSOptions
+             */
+            public static fromObject(object: { [k: string]: any }): protos.args.NatsTLSOptions;
+
+            /**
+             * Creates a plain object from a NatsTLSOptions message. Also converts values to other types if specified.
+             * @param message NatsTLSOptions
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.args.NatsTLSOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this NatsTLSOptions to JSON.
              * @returns JSON object
              */
             public toJSON(): { [k: string]: any };
