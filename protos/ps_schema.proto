@@ -79,7 +79,7 @@ message GetAllSchemasRequest {
 }
 
 message GetAllSchemasResponse {
-  repeated Schema schemata = 1;
+  repeated Schema schema = 1;
 }
 
 message ImportGithubRequest {

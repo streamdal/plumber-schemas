@@ -85,7 +85,7 @@ message GetAllReadsRequest {
 }
 
 message GetAllReadsResponse {
-  repeated opts.ReadOptions reads = 1;
+  repeated opts.ReadOptions read = 1;
 
   common.Status status = 1000;
 }

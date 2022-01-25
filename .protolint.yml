@@ -5,3 +5,4 @@ lint:
       - ENUM_FIELD_NAMES_PREFIX
       - FIELD_NAMES_LOWER_SNAKE_CASE # because we prefix private fields with underscore
       - ENUM_FIELD_NAMES_ZERO_VALUE_END_WITH
+      - REPEATED_FIELD_NAMES_PLURALIZED

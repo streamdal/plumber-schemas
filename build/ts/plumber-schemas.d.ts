@@ -1347,11 +1347,11 @@ export namespace protos {
             /** AlertSchedule timezone */
             timezone?: (string|null);
 
-            /** AlertSchedule timeRangeOns */
-            timeRangeOns?: (protos.opts.IAlertTimeRange[]|null);
+            /** AlertSchedule timeRangeOn */
+            timeRangeOn?: (protos.opts.IAlertTimeRange[]|null);
 
-            /** AlertSchedule timeRangeOffs */
-            timeRangeOffs?: (protos.opts.IAlertTimeRange[]|null);
+            /** AlertSchedule timeRangeOff */
+            timeRangeOff?: (protos.opts.IAlertTimeRange[]|null);
         }
 
         /** Represents an AlertSchedule. */
@@ -1366,11 +1366,11 @@ export namespace protos {
             /** AlertSchedule timezone. */
             public timezone: string;
 
-            /** AlertSchedule timeRangeOns. */
-            public timeRangeOns: protos.opts.IAlertTimeRange[];
+            /** AlertSchedule timeRangeOn. */
+            public timeRangeOn: protos.opts.IAlertTimeRange[];
 
-            /** AlertSchedule timeRangeOffs. */
-            public timeRangeOffs: protos.opts.IAlertTimeRange[];
+            /** AlertSchedule timeRangeOff. */
+            public timeRangeOff: protos.opts.IAlertTimeRange[];
 
             /**
              * Creates a new AlertSchedule instance using the specified properties.
@@ -1653,8 +1653,8 @@ export namespace protos {
         /** Properties of an AlertEmailOutput. */
         interface IAlertEmailOutput {
 
-            /** AlertEmailOutput emailAddresses */
-            emailAddresses?: (string[]|null);
+            /** AlertEmailOutput emailAddress */
+            emailAddress?: (string[]|null);
 
             /** AlertEmailOutput subject */
             subject?: (string|null);
@@ -1675,8 +1675,8 @@ export namespace protos {
              */
             constructor(properties?: protos.opts.IAlertEmailOutput);
 
-            /** AlertEmailOutput emailAddresses. */
-            public emailAddresses: string[];
+            /** AlertEmailOutput emailAddress. */
+            public emailAddress: string[];
 
             /** AlertEmailOutput subject. */
             public subject: string;
@@ -7432,8 +7432,8 @@ export namespace protos {
             /** WriteCLIOptions inputAsJsonArray */
             inputAsJsonArray?: (boolean|null);
 
-            /** WriteCLIOptions inputStdins */
-            inputStdins?: (string[]|null);
+            /** WriteCLIOptions inputStdin */
+            inputStdin?: (string[]|null);
         }
 
         /** Represents a WriteCLIOptions. */
@@ -7451,8 +7451,8 @@ export namespace protos {
             /** WriteCLIOptions inputAsJsonArray. */
             public inputAsJsonArray: boolean;
 
-            /** WriteCLIOptions inputStdins. */
-            public inputStdins: string[];
+            /** WriteCLIOptions inputStdin. */
+            public inputStdin: string[];
 
             /**
              * Creates a new WriteCLIOptions instance using the specified properties.
@@ -18132,8 +18132,8 @@ export namespace protos {
         /** Properties of a KafkaConn. */
         interface IKafkaConn {
 
-            /** KafkaConn addresses */
-            addresses?: (string[]|null);
+            /** KafkaConn address */
+            address?: (string[]|null);
 
             /** KafkaConn timeoutSeconds */
             timeoutSeconds?: (number|null);
@@ -18163,8 +18163,8 @@ export namespace protos {
              */
             constructor(properties?: protos.args.IKafkaConn);
 
-            /** KafkaConn addresses. */
-            public addresses: string[];
+            /** KafkaConn address. */
+            public address: string[];
 
             /** KafkaConn timeoutSeconds. */
             public timeoutSeconds: number;
@@ -28769,8 +28769,8 @@ export namespace protos {
     /** Properties of a GetAllReadsResponse. */
     interface IGetAllReadsResponse {
 
-        /** GetAllReadsResponse reads */
-        reads?: (protos.opts.IReadOptions[]|null);
+        /** GetAllReadsResponse read */
+        read?: (protos.opts.IReadOptions[]|null);
 
         /** GetAllReadsResponse status */
         status?: (protos.common.IStatus|null);
@@ -28785,8 +28785,8 @@ export namespace protos {
          */
         constructor(properties?: protos.IGetAllReadsResponse);
 
-        /** GetAllReadsResponse reads. */
-        public reads: protos.opts.IReadOptions[];
+        /** GetAllReadsResponse read. */
+        public read: protos.opts.IReadOptions[];
 
         /** GetAllReadsResponse status. */
         public status?: (protos.common.IStatus|null);
@@ -31292,8 +31292,8 @@ export namespace protos {
     /** Properties of a GetAllSchemasResponse. */
     interface IGetAllSchemasResponse {
 
-        /** GetAllSchemasResponse schemata */
-        schemata?: (protos.ISchema[]|null);
+        /** GetAllSchemasResponse schema */
+        schema?: (protos.ISchema[]|null);
     }
 
     /** Represents a GetAllSchemasResponse. */
@@ -31305,8 +31305,8 @@ export namespace protos {
          */
         constructor(properties?: protos.IGetAllSchemasResponse);
 
-        /** GetAllSchemasResponse schemata. */
-        public schemata: protos.ISchema[];
+        /** GetAllSchemasResponse schema. */
+        public schema: protos.ISchema[];
 
         /**
          * Creates a new GetAllSchemasResponse instance using the specified properties.

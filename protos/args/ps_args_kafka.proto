@@ -12,7 +12,7 @@ enum SASLType {
 
 message KafkaConn {
   // @gotags: kong:"help='Kafka broker address (you may specify this flag multiple times)',env=PLUMBER_RELAY_KAFKA_ADDRESS,default='localhost:9092',required"
-  repeated string addresses = 1;
+  repeated string address = 1;
 
   // @gotags: kong:"help='Connect timeout',env=PLUMBER_RELAY_TIMEOUT_SECONDS,default=10"
   int32 timeout_seconds = 2;
