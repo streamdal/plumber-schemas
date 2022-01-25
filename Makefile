@@ -169,3 +169,8 @@ clean-go:
 clean-ts: description = Remove all ts build artifacts
 clean-ts:
 	rm -rf ./build/ts/*
+
+.PHONY: lint
+lint: description = Run protolint
+lint:
+	protolint protos/

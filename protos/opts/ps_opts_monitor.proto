@@ -2,21 +2,21 @@ syntax = "proto3";
 
 package protos.opts;
 
-option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/opts";
-
 import "common/ps_common_validation.proto";
 
-message MonitorOptions {
-    string _id               = 1;
-    string _created_by       = 2;
-    int64 _created_at_ts_utc = 3;
-    string notes             = 4;
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/opts";
 
-    oneof config {
-        MonitorSchemaValidationConfig schema_validation = 100;
-        MonitorServiceSchemaVersionConfig service_schema_version = 101;
-        MonitorReadHasDataConfig read_has_data = 102;
-    }
+message MonitorOptions {
+  string _id               = 1;
+  string _created_by       = 2;
+  int64 _created_at_ts_utc = 3;
+  string notes             = 4;
+
+  oneof config {
+    MonitorSchemaValidationConfig schema_validation = 100;
+    MonitorServiceSchemaVersionConfig service_schema_version = 101;
+    MonitorReadHasDataConfig read_has_data = 102;
+  }
 }
 
 // ----------------- Schema validation ------------------
@@ -24,11 +24,11 @@ message MonitorOptions {
 // DESC: Validates the actual field values in a payload
 
 message MonitorSchemaValidationConfig {
-    // SchemaID is the read's schema
-    repeated string schema_id = 1;
+  // SchemaID is the read's schema
+  repeated string schema_ids = 1;
 
-    // Array of validations to perform on the payload
-    repeated common.Validation validations = 2;
+  // Array of validations to perform on the payload
+  repeated common.Validation validations = 2;
 }
 
 // ------------------ Service schema version -------------------
@@ -36,21 +36,21 @@ message MonitorSchemaValidationConfig {
 // DESC: Service must be on specific schema OR within X of latest schema version
 
 enum MonitorServiceSchemaVersionType {
-    // Default to "latest" check
-    SERVICE_SCHEMA_VERSION_CONDITION_TYPE_LATEST = 0;
+  // Default to "latest" check
+  SERVICE_SCHEMA_VERSION_CONDITION_TYPE_LATEST = 0;
 
-    // If this is used, consumer knows that they should look into
-    // condition_args["version"]
-    SERVICE_SCHEMA_VERSION_CONDITION_TYPE_EXACT = 1;
+  // If this is used, consumer knows that they should look into
+  // condition_args["version"]
+  SERVICE_SCHEMA_VERSION_CONDITION_TYPE_EXACT = 1;
 }
 
 message MonitorServiceSchemaVersionConfig {
-    string service_id = 1;
+  string service_id = 1;
 
-    MonitorServiceSchemaVersionType type = 2;
+  MonitorServiceSchemaVersionType type = 2;
 
-    // Potentially set, depending on condition
-    map<string, string> args = 3;
+  // Potentially set, depending on condition
+  map<string, string> args = 3;
 }
 
 // -------------- Read has data ------------------
@@ -58,20 +58,20 @@ message MonitorServiceSchemaVersionConfig {
 // DESC: One or more reads should receive X amount of events within Y timeframe
 
 enum ReadOperator {
-    READ_OPERATOR_UNSET = 0;
-    READ_OPERATOR_EQ = 1;
-    READ_OPERATOR_LT = 2;
-    READ_OPERATOR_GT = 3;
-    READ_OPERATOR_LTE = 4;
-    READ_OPERATOR_GTE = 5;
+  READ_OPERATOR_UNSET = 0;
+  READ_OPERATOR_EQ = 1;
+  READ_OPERATOR_LT = 2;
+  READ_OPERATOR_GT = 3;
+  READ_OPERATOR_LTE = 4;
+  READ_OPERATOR_GTE = 5;
 }
 
 message MonitorReadHasDataConfig {
-    // Which reads does this alert config pertain to?
-    repeated string read_ids = 1;
+  // Which reads does this alert config pertain to?
+  repeated string read_ids = 1;
 
-    ReadOperator operator = 2;
+  ReadOperator operator = 2;
 
-    int32 value = 3;
-    int32 interval_seconds = 4;
+  int32 value = 3;
+  int32 interval_seconds = 4;
 }

@@ -5,16 +5,16 @@ package protos.records;
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/records";
 
 message KafkaHeader {
-    string key = 1;
-    string value = 2;
+  string key = 1;
+  string value = 2;
 }
 
 message Kafka {
-    string topic = 1;
-    bytes key = 2;
-    bytes value = 3;
-    int64 timestamp = 4;
-    int64 offset = 5;
-    int32 partition = 6;
-    repeated KafkaHeader headers = 7;
+  string topic = 1;
+  bytes key = 2;
+  bytes value = 3;
+  int64 timestamp = 4;
+  int64 offset = 5;
+  int32 partition = 6;
+  repeated KafkaHeader headers = 7;
 }

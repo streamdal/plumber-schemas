@@ -5,6 +5,6 @@ package protos.records;
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/records";
 
 message Nats {
-    string subject = 1;
-    bytes value = 2;
+  string subject = 1;
+  bytes value = 2;
 }

@@ -7,39 +7,39 @@ import "opts/ps_opts_write.proto";
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/opts";
 
 enum BatchOutputType {
-    TABLE = 0;
-    JSON  = 1;
+  TABLE = 0;
+  JSON  = 1;
 }
 
 enum BatchReplayType {
-    SINGLE     = 0;
-    CONTINUOUS = 1;
+  SINGLE     = 0;
+  CONTINUOUS = 1;
 }
 
 message BatchOptions {
-    // @gotags: kong:"help='How to output results (options: table json)',default=table,type=pbenum,pbenum_lowercase"
-    BatchOutputType output_type = 1;
+  // @gotags: kong:"help='How to output results (options: table json)',default=table,type=pbenum,pbenum_lowercase"
+  BatchOutputType output_type = 1;
 
-    // @gotags: kong:"help='Alternative URL to use for Batch API',default='https://api.batch.sh'"
-    string api_url = 2;
+  // @gotags: kong:"help='Alternative URL to use for Batch API',default='https://api.batch.sh'"
+  string api_url = 2;
 
-    // @gotags: kong:"cmd,help='Login to the Batch platform'"
-    BatchLoginOptions login = 3;
+  // @gotags: kong:"cmd,help='Login to the Batch platform'"
+  BatchLoginOptions login = 3;
 
-    // @gotags: kong:"cmd,help='Login to Batch'"
-    BatchLogoutOptions logout = 4;
+  // @gotags: kong:"cmd,help='Login to Batch'"
+  BatchLogoutOptions logout = 4;
 
-    // @gotags: kong:"cmd,help='List Batch resources'"
-    BatchListOptions list = 5;
+  // @gotags: kong:"cmd,help='List Batch resources'"
+  BatchListOptions list = 5;
 
-    // @gotags: kong:"cmd,help='Create operations'"
-    BatchCreateOptions create = 6;
+  // @gotags: kong:"cmd,help='Create operations'"
+  BatchCreateOptions create = 6;
 
-    // @gotags: kong:"cmd,help='Search operations'"
-    BatchSearchOptions search = 7;
+  // @gotags: kong:"cmd,help='Search operations'"
+  BatchSearchOptions search = 7;
 
-    // @gotags: kong:"cmd,help='Archive a resource'"
-    BatchArchiveOptions archive = 8;
+  // @gotags: kong:"cmd,help='Archive a resource'"
+  BatchArchiveOptions archive = 8;
 }
 
 message BatchLoginOptions {
@@ -66,121 +66,121 @@ message BatchListReplayOptions {
 }
 
 message BatchArchiveOptions {
-    // @gotags: kong:"embed,cmd,help='Archive a replay'"
-    BatchArchiveReplayOptions replay = 1;
+  // @gotags: kong:"embed,cmd,help='Archive a replay'"
+  BatchArchiveReplayOptions replay = 1;
 }
 
 message BatchArchiveReplayOptions {
-    // @gotags: kong:"help='Replay ID to archive',required"
-    string replay_id = 1;
+  // @gotags: kong:"help='Replay ID to archive',required"
+  string replay_id = 1;
 }
 
 message BatchListOptions {
-    // @gotags: kong:"cmd,help='List all collections'"
-    BatchListCollectionOptions collection = 1;
+  // @gotags: kong:"cmd,help='List all collections'"
+  BatchListCollectionOptions collection = 1;
 
-    // @gotags: kong:"cmd,help='List all destinations'"
-    BatchListDestinationOptions destination = 2;
+  // @gotags: kong:"cmd,help='List all destinations'"
+  BatchListDestinationOptions destination = 2;
 
-    // @gotags: kong:"cmd,help='List all replays'"
-    BatchListReplayOptions replay = 3;
+  // @gotags: kong:"cmd,help='List all replays'"
+  BatchListReplayOptions replay = 3;
 
-    // @gotags: kong:"cmd,help='List all schemas'"
-    BatchListSchemaOptions schema = 4;
+  // @gotags: kong:"cmd,help='List all schemas'"
+  BatchListSchemaOptions schema = 4;
 }
 
 message BatchCreateOptions {
-    // @gotags: kong:"cmd,help='Create a collection'"
-    BatchCreateCollectionOptions collection = 1;
+  // @gotags: kong:"cmd,help='Create a collection'"
+  BatchCreateCollectionOptions collection = 1;
 
-    // @gotags: kong:"cmd,help='Create a replay'"
-    BatchCreateReplayOptions replay = 2;
+  // @gotags: kong:"cmd,help='Create a replay'"
+  BatchCreateReplayOptions replay = 2;
 
-    // @gotags: kong:"cmd,help='Create a destination'"
-    BatchCreateDestinationOptions destination = 3;
+  // @gotags: kong:"cmd,help='Create a destination'"
+  BatchCreateDestinationOptions destination = 3;
 }
 
 message BatchSearchOptions {
-    // @gotags: kong:"help='Query to perform',default='*'"
-    string query = 1;
+  // @gotags: kong:"help='Query to perform',default='*'"
+  string query = 1;
 
-    // @gotags: kong:"help='Collection id to query',required"
-    string collection_id = 2;
+  // @gotags: kong:"help='Collection id to query',required"
+  string collection_id = 2;
 
-    // @gotags: kong:"help='Which page to display',default=1"
-    int32 page = 3;
+  // @gotags: kong:"help='Which page to display',default=1"
+  int32 page = 3;
 
     // TODO: Should be able to override default pagesize
 }
 
 message BatchCreateCollectionOptions {
-    // @gotags: kong:"help='Friendly name for the collection',required"
-    string name = 1;
+  // @gotags: kong:"help='Friendly name for the collection',required"
+  string name = 1;
 
-    // @gotags: kong:"help='Schema the collection will use (can be obtained running _plumber batch list schema_)',required"
-    string schema_id = 2;
+  // @gotags: kong:"help='Schema the collection will use (can be obtained running _plumber batch list schema_)',required"
+  string schema_id = 2;
 
-    // @gotags: kong:"help='Optional notes for the collection'"
-    string notes = 3;
+  // @gotags: kong:"help='Optional notes for the collection'"
+  string notes = 3;
 }
 
 message BatchCreateReplayOptions {
-    // @gotags: kong:"help='Friendly name to assign to the replay',required"
-    string name = 1;
+  // @gotags: kong:"help='Friendly name to assign to the replay',required"
+  string name = 1;
 
-    // @gotags: kong:"help='One-time/single or continuous replay (options: single, continuous)',type=pbenum,pbenum_lowercase,default=single"
-    BatchReplayType type = 2;
+  // @gotags: kong:"help='One-time/single or continuous replay (options: single, continuous)',type=pbenum,pbenum_lowercase,default=single"
+  BatchReplayType type = 2;
 
-    // @gotags: kong:"help='Notes to attach to the replay'"
-    string notes = 3;
+  // @gotags: kong:"help='Notes to attach to the replay'"
+  string notes = 3;
 
-    // @gotags: kong:"help='Collection ID to replay from',required"
-    string collection_id = 4;
+  // @gotags: kong:"help='Collection ID to replay from',required"
+  string collection_id = 4;
 
-    // @gotags: kong:"help='Destination ID to replay to',required"
-    string destination_id = 5;
+  // @gotags: kong:"help='Destination ID to replay to',required"
+  string destination_id = 5;
 
-    // @gotags: kong:"help='Search query',default='*'"
-    string query = 6;
+  // @gotags: kong:"help='Search query',default='*'"
+  string query = 6;
 
-    // @gotags: kong:"help='Where to begin search (RFC3339 timestamp)',required"
-    string from_timestamp = 7;
+  // @gotags: kong:"help='Where to begin search (RFC3339 timestamp)',required"
+  string from_timestamp = 7;
 
-    // @gotags: kong:"help='Where to end search (RFC3339 timestamp)',required"
-    string to_timestamp = 8;
+  // @gotags: kong:"help='Where to end search (RFC3339 timestamp)',required"
+  string to_timestamp = 8;
 }
 
 message BatchCreateDestinationOptions {
-    // @gotags: kong:"help='Friendly name to assign to the destination',required"
-    string name = 1;
+  // @gotags: kong:"help='Friendly name to assign to the destination',required"
+  string name = 1;
 
-    // @gotags: kong:"help='Any notes to include with the destination'"
-    string notes = 2;
+  // @gotags: kong:"help='Any notes to include with the destination'"
+  string notes = 2;
 
-    // Used internally by CLI
-    // @gotags: kong:"-"
-    string _api_destination_type = 1000;
+  // Used internally by CLI
+  // @gotags: kong:"-"
+  string _api_destination_type = 1000;
 
-    // @gotags: kong:"cmd,help='Apache Kafka'"
-    opts.WriteGroupKafkaOptions kafka = 100;
+  // @gotags: kong:"cmd,help='Apache Kafka'"
+  opts.WriteGroupKafkaOptions kafka = 100;
 
-    // @gotags: kong:"cmd,help='RabbitMQ'"
-    opts.WriteGroupRabbitOptions rabbit = 101;
+  // @gotags: kong:"cmd,help='RabbitMQ'"
+  opts.WriteGroupRabbitOptions rabbit = 101;
 
-    // @gotags: kong:"cmd,help='KubeMQ Queue'"
-    opts.WriteGroupKubeMQQueueOptions kubemq_queue = 102;
+  // @gotags: kong:"cmd,help='KubeMQ Queue'"
+  opts.WriteGroupKubeMQQueueOptions kubemq_queue = 102;
 
-    // @gotags: kong:"cmd,help='AWS Simple Queue System'"
-    WriteGroupAWSSQSOptions aws_sqs = 103;
+  // @gotags: kong:"cmd,help='AWS Simple Queue System'"
+  WriteGroupAWSSQSOptions aws_sqs = 103;
 
-    // @gotags: kong:"cmd,help='HTTP Destination (POST)'"
-    HTTPDestination http = 104;
+  // @gotags: kong:"cmd,help='HTTP Destination (POST)'"
+  HTTPDestination http = 104;
 }
 
 message HTTPDestination {
-    // @gotags: kong:"help='Full URL to HTTP server (ex: https://example.com/some/path)',required"
-    string url = 1;
+  // @gotags: kong:"help='Full URL to HTTP server (ex: https://example.com/some/path)',required"
+  string url = 1;
 
-    // @gotags: kong:"help='Optional map of headers to pass on replay (--headers key1:value1,key2:value2..)'"
-    map<string, string> headers = 2;
+  // @gotags: kong:"help='Optional map of headers to pass on replay (--headers key1:value1,key2:value2..)'"
+  map<string, string> headers = 2;
 }

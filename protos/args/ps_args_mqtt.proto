@@ -5,54 +5,54 @@ package protos.args;
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/args";
 
 enum MQTTQoSLevel {
-    MQTT_QOS_LEVEL_AT_MOST_ONCE  = 0;
-    MQTT_QOS_LEVEL_AT_LEAST_ONCE = 1;
-    MQTT_QOS_LEVEL_EXACTLY_ONCE  = 2;
+  MQTT_QOS_LEVEL_AT_MOST_ONCE  = 0;
+  MQTT_QOS_LEVEL_AT_LEAST_ONCE = 1;
+  MQTT_QOS_LEVEL_EXACTLY_ONCE  = 2;
 }
 
 message MQTTTLSOptions {
-    // @gotags: kong:"help='CA cert (only needed if addr is ssl://)',env=PLUMBER_RELAY_MQTT_TLS_CA_CERT"
-    bytes tls_ca_cert = 1;
+  // @gotags: kong:"help='CA cert (only needed if addr is ssl://)',env=PLUMBER_RELAY_MQTT_TLS_CA_CERT"
+  bytes tls_ca_cert = 1;
 
-    // @gotags: kong:"help='Client cert file (only needed if addr is ssl://)',env=PLUMBER_RELAY_MQTT_TLS_CLIENT_CERT"
-    bytes tls_client_cert = 2;
+  // @gotags: kong:"help='Client cert file (only needed if addr is ssl://)',env=PLUMBER_RELAY_MQTT_TLS_CLIENT_CERT"
+  bytes tls_client_cert = 2;
 
-    // @gotags: kong:"help='Client key file (only needed if addr is ssl://)',env=PLUMBER_RELAY_MQTT_TLS_CLIENT_KEY"
-    bytes tls_client_key = 3;
+  // @gotags: kong:"help='Client key file (only needed if addr is ssl://)',env=PLUMBER_RELAY_MQTT_TLS_CLIENT_KEY"
+  bytes tls_client_key = 3;
 
-    // @gotags: kong:"help='Whether to verify server certificate',env=PLUMBER_RELAY_MQTT_SKIP_VERIFY_TLS"
-    bool tls_skip_verify = 4;
+  // @gotags: kong:"help='Whether to verify server certificate',env=PLUMBER_RELAY_MQTT_SKIP_VERIFY_TLS"
+  bool tls_skip_verify = 4;
 }
 
 message MQTTConn {
-    // @gotags: kong:"help='MQTT address',default='tcp://localhost:1883',env='PLUMBER_RELAY_MQTT_ADDRESS',required"
-    string address = 1;
+  // @gotags: kong:"help='MQTT address',default='tcp://localhost:1883',env='PLUMBER_RELAY_MQTT_ADDRESS',required"
+  string address = 1;
 
-    // @gotags: kong:"help='How long to attempt to connect for',env='PLUMBER_RELAY_MQTT_CONNECT_TIMEOUT',default=5"
-    uint32 conn_timeout_seconds = 3;
+  // @gotags: kong:"help='How long to attempt to connect for',env='PLUMBER_RELAY_MQTT_CONNECT_TIMEOUT',default=5"
+  uint32 conn_timeout_seconds = 3;
 
-    // @gotags: kong:"help='Client id presented to MQTT broker',env='PLUMBER_RELAY_MQTT_CLIENT_ID',default=plumber"
-    string client_id = 4;
+  // @gotags: kong:"help='Client id presented to MQTT broker',env='PLUMBER_RELAY_MQTT_CLIENT_ID',default=plumber"
+  string client_id = 4;
 
-    // @gotags: kong:"help='QoS level to use for pub/sub (options: at_most_once, at_least_once, exactly_once)',env=PLUMBER_RELAY_MQTT_QOS,type=pbenum,pbenum_strip_prefix=MQTT_QOS_LEVEL_,pbenum_lowercase,default=at_most_once"
-    MQTTQoSLevel qos_level = 5;
+  // @gotags: kong:"help='QoS level to use for pub/sub (options: at_most_once, at_least_once, exactly_once)',env=PLUMBER_RELAY_MQTT_QOS,type=pbenum,pbenum_strip_prefix=MQTT_QOS_LEVEL_,pbenum_lowercase,default=at_most_once"
+  MQTTQoSLevel qos_level = 5;
 
-    // @gotags: kong:"embed"
-    MQTTTLSOptions tls_options = 6;
+  // @gotags: kong:"embed"
+  MQTTTLSOptions tls_options = 6;
 }
 
 message MQTTReadArgs {
-    // @gotags: kong:"help='Topic to read message(s) from',env='PLUMBER_RELAY_MQTT_TOPIC',required"
-    string topic = 1;
+  // @gotags: kong:"help='Topic to read message(s) from',env='PLUMBER_RELAY_MQTT_TOPIC',required"
+  string topic = 1;
 
-    // @gotags: kong:"help='How long to attempt to read message(s)',default=0,env='PLUMBER_RELAY_MQTT_READ_TIMEOUT_SECONDS'"
-    uint32 read_timeout_seconds = 2;
+  // @gotags: kong:"help='How long to attempt to read message(s)',default=0,env='PLUMBER_RELAY_MQTT_READ_TIMEOUT_SECONDS'"
+  uint32 read_timeout_seconds = 2;
 }
 
 message MQTTWriteArgs {
-    // @gotags: kong:"help='Topic to write message(s) to',required"
-    string topic = 1;
+  // @gotags: kong:"help='Topic to write message(s) to',required"
+  string topic = 1;
 
-    // @gotags: kong:"help='How long to attempt to publish message(s)',default=5"
-    uint32 write_timeout_seconds = 2;
+  // @gotags: kong:"help='How long to attempt to publish message(s)',default=5"
+  uint32 write_timeout_seconds = 2;
 }

@@ -5,115 +5,115 @@ package protos.args;
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/args";
 
 enum SASLType {
-    NONE = 0;
-    PLAIN = 1;
-    SCRAM = 2;
+  NONE = 0;
+  PLAIN = 1;
+  SCRAM = 2;
 }
 
 message KafkaConn {
-    // @gotags: kong:"help='Kafka broker address (you may specify this flag multiple times)',env=PLUMBER_RELAY_KAFKA_ADDRESS,default='localhost:9092',required"
-    repeated string address = 1;
+  // @gotags: kong:"help='Kafka broker address (you may specify this flag multiple times)',env=PLUMBER_RELAY_KAFKA_ADDRESS,default='localhost:9092',required"
+  repeated string addresses = 1;
 
-    // @gotags: kong:"help='Connect timeout',env=PLUMBER_RELAY_TIMEOUT_SECONDS,default=10"
-    int32 timeout_seconds = 2;
+  // @gotags: kong:"help='Connect timeout',env=PLUMBER_RELAY_TIMEOUT_SECONDS,default=10"
+  int32 timeout_seconds = 2;
 
-    // @gotags: kong:"help='Enable TLS usage',env=PLUMBER_RELAY_USE_TLS"
-    bool use_tls = 3;
+  // @gotags: kong:"help='Enable TLS usage',env=PLUMBER_RELAY_USE_TLS"
+  bool use_tls = 3;
 
-    // @gotags: kong:"help='Allow insecure TLS usage',env=PLUMBER_RELAY_KAFKA_INSECURE_TLS"
-    bool tls_skip_verify = 4;
+  // @gotags: kong:"help='Allow insecure TLS usage',env=PLUMBER_RELAY_KAFKA_INSECURE_TLS"
+  bool tls_skip_verify = 4;
 
-    // @gotags: kong:"help='SASL authentication type (options: none plain scram)',env=PLUMBER_RELAY_KAFKA_SASL_TYPE,type=pbenum,pbenum_lowercase,default=none"
-    SASLType sasl_type = 5;
+  // @gotags: kong:"help='SASL authentication type (options: none plain scram)',env=PLUMBER_RELAY_KAFKA_SASL_TYPE,type=pbenum,pbenum_lowercase,default=none"
+  SASLType sasl_type = 5;
 
-    // @gotags: kong:"help='SASL Username',env=PLUMBER_RELAY_KAFKA_USERNAME"
-    string sasl_username = 6;
+  // @gotags: kong:"help='SASL Username',env=PLUMBER_RELAY_KAFKA_USERNAME"
+  string sasl_username = 6;
 
-    // Required if sasl_type is not NONE
-    // @gotags: kong:"help='SASL Password. You will be prompted for the password if omitted',env=PLUMBER_RELAY_KAFKA_PASSWORD"
-    string sasl_password = 7;
+  // Required if sasl_type is not NONE
+  // @gotags: kong:"help='SASL Password. You will be prompted for the password if omitted',env=PLUMBER_RELAY_KAFKA_PASSWORD"
+  string sasl_password = 7;
 }
 
 message KafkaReadArgs {
-    // @gotags: kong:"help='Topic(s) to read from',required"
-    repeated string topics = 1;
+  // @gotags: kong:"help='Topic(s) to read from',required"
+  repeated string topics = 1;
 
-    // @gotags: kong:"help='Specify what offset the consumer should read from (only works if --use-consumer-group is false)',default=0"
-    int64 read_offset = 2;
+  // @gotags: kong:"help='Specify what offset the consumer should read from (only works if --use-consumer-group is false)',default=0"
+  int64 read_offset = 2;
 
-    // @gotags: kong:"help='Whether plumber should use a consumer group',default=true"
-    bool use_consumer_group = 3;
+  // @gotags: kong:"help='Whether plumber should use a consumer group',default=true"
+  bool use_consumer_group = 3;
 
-    // @gotags: kong:"help='Specify a specific group-id to use when reading from kafka',default=plumber"
-    string consumer_group_name = 4;
+  // @gotags: kong:"help='Specify a specific group-id to use when reading from kafka',default=plumber"
+  string consumer_group_name = 4;
 
-    // @gotags: kong:"help='How long to wait for new data when reading batches of messages',default=1"
-    int32 max_wait_seconds = 5;
+  // @gotags: kong:"help='How long to wait for new data when reading batches of messages',default=1"
+  int32 max_wait_seconds = 5;
 
-    // @gotags: kong:"help='Minimum number of bytes to fetch in a single kafka request (throughput optimization)',default=1"
-    int32 min_bytes = 6;
+  // @gotags: kong:"help='Minimum number of bytes to fetch in a single kafka request (throughput optimization)',default=1"
+  int32 min_bytes = 6;
 
-    // @gotags: kong:"help='Maximum number of bytes to fetch in a single kafka request (throughput optimization)',default=1"
-    int32 max_bytes = 7;
+  // @gotags: kong:"help='Maximum number of bytes to fetch in a single kafka request (throughput optimization)',default=1"
+  int32 max_bytes = 7;
 
-    // @gotags: kong:"help='How often to commit offsets to broker (0 = synchronous)',default=5"
-    int32 commit_interval_seconds = 8;
+  // @gotags: kong:"help='How often to commit offsets to broker (0 = synchronous)',default=5"
+  int32 commit_interval_seconds = 8;
 
-    // @gotags: kong:"help='How long a coordinator will wait for member joins as part of a rebalance',default=0"
-    int32 rebalance_timeout_seconds = 9;
+  // @gotags: kong:"help='How long a coordinator will wait for member joins as part of a rebalance',default=0"
+  int32 rebalance_timeout_seconds = 9;
 
-    // @gotags: kong:"help='Internal library queue capacity (throughput optimization)',default=1"
-    int32 queue_capacity = 10;
+  // @gotags: kong:"help='Internal library queue capacity (throughput optimization)',default=1"
+  int32 queue_capacity = 10;
 
-    // @gotags: kong:"help='Display consumer offset stats during read'"
-    bool include_offset_info = 11;
+  // @gotags: kong:"help='Display consumer offset stats during read'"
+  bool include_offset_info = 11;
 
-    // @gotags: kong:"help='Only lookup consumer group lag',group=lag"
-    bool lag = 12;
+  // @gotags: kong:"help='Only lookup consumer group lag',group=lag"
+  bool lag = 12;
 
-    // @gotags: kong:"help='What consumer group to lookup lag for (required if --lag is set)',group=lag"
-    string lag_consumer_group = 13;
+  // @gotags: kong:"help='What consumer group to lookup lag for (required if --lag is set)',group=lag"
+  string lag_consumer_group = 13;
 }
 
 message KafkaWriteArgs {
-    // @gotags: kong:"help='Key to write to kafka (optional)'"
-    string key = 1;
+  // @gotags: kong:"help='Key to write to kafka (optional)'"
+  string key = 1;
 
-    // @gotags: kong:"help='Add one or more headers (optional; repeat flags to specify multiple)'"
-    map<string, string> headers = 2;
+  // @gotags: kong:"help='Add one or more headers (optional; repeat flags to specify multiple)'"
+  map<string, string> headers = 2;
 
-    // @gotags: kong:"help='Topic(s) to write to',required"
-    repeated string topics = 3;
+  // @gotags: kong:"help='Topic(s) to write to',required"
+  repeated string topics = 3;
 }
 
 message KafkaRelayArgs {
-    // @gotags: kong:"help='Topic(s) to read, write or get lag stats for',env=PLUMBER_RELAY_KAFKA_TOPIC,required"
-    repeated string topics = 1;
+  // @gotags: kong:"help='Topic(s) to read, write or get lag stats for',env=PLUMBER_RELAY_KAFKA_TOPIC,required"
+  repeated string topics = 1;
 
-    // @gotags: kong:"help='Specify what offset the consumer should read from (only works if --use-consumer-group is false)',env=PLUMBER_RELAY_KAFKA_READ_OFFSET,default=0"
-    int64 read_offset = 2;
+  // @gotags: kong:"help='Specify what offset the consumer should read from (only works if --use-consumer-group is false)',env=PLUMBER_RELAY_KAFKA_READ_OFFSET,default=0"
+  int64 read_offset = 2;
 
-    // @gotags: kong:"help='Whether plumber should use a consumer group',env=PLUMBER_RELAY_KAFKA_USE_CONSUMER_GROUP,default=true"
-    bool use_consumer_group = 3;
+  // @gotags: kong:"help='Whether plumber should use a consumer group',env=PLUMBER_RELAY_KAFKA_USE_CONSUMER_GROUP,default=true"
+  bool use_consumer_group = 3;
 
-    // @gotags: kong:"help='Specify a specific group-id to use when reading from kafka',env=PLUMBER_RELAY_KAFKA_GROUP_ID,default=plumber"
-    string consumer_group_name = 4;
+  // @gotags: kong:"help='Specify a specific group-id to use when reading from kafka',env=PLUMBER_RELAY_KAFKA_GROUP_ID,default=plumber"
+  string consumer_group_name = 4;
 
-    // @gotags: kong:"help='How long to wait for new data when reading batches of messages',env=PLUMBER_RELAY_KAFKA_MAX_WAIT,default=5"
-    int32 max_wait_seconds = 5;
+  // @gotags: kong:"help='How long to wait for new data when reading batches of messages',env=PLUMBER_RELAY_KAFKA_MAX_WAIT,default=5"
+  int32 max_wait_seconds = 5;
 
-    // @gotags: kong:"help='Minimum number of bytes to fetch in a single kafka request (throughput optimization)',env=PLUMBER_RELAY_KAFKA_MIN_BYTES,default=1048576"
-    int32 min_bytes = 6;
+  // @gotags: kong:"help='Minimum number of bytes to fetch in a single kafka request (throughput optimization)',env=PLUMBER_RELAY_KAFKA_MIN_BYTES,default=1048576"
+  int32 min_bytes = 6;
 
-    // @gotags: kong:"help='Maximum number of bytes to fetch in a single kafka request (throughput optimization)',env=PLUMBER_RELAY_KAFKA_MAX_BYTES,default=1048576"
-    int32 max_bytes = 7;
+  // @gotags: kong:"help='Maximum number of bytes to fetch in a single kafka request (throughput optimization)',env=PLUMBER_RELAY_KAFKA_MAX_BYTES,default=1048576"
+  int32 max_bytes = 7;
 
-    // @gotags: kong:"help='How often to commit offsets to broker (0 = synchronous)',env=PLUMBER_RELAY_KAFKA_COMMIT_INTERVAL,default=5"
-    int32 commit_interval_seconds = 8;
+  // @gotags: kong:"help='How often to commit offsets to broker (0 = synchronous)',env=PLUMBER_RELAY_KAFKA_COMMIT_INTERVAL,default=5"
+  int32 commit_interval_seconds = 8;
 
-    // @gotags: kong:"help='How long a coordinator will wait for member joins as part of a rebalance',env=PLUMBER_RELAY_KAFKA_REBALANCE_TIMEOUT,default=5"
-    int32 rebalance_timeout_seconds = 9;
+  // @gotags: kong:"help='How long a coordinator will wait for member joins as part of a rebalance',env=PLUMBER_RELAY_KAFKA_REBALANCE_TIMEOUT,default=5"
+  int32 rebalance_timeout_seconds = 9;
 
-    // @gotags: kong:"help='Internal library queue capacity (throughput optimization)',env=PLUMBER_RELAY_KAFKA_QUEUE_CAPACITY,default=1000"
-    int32 queue_capacity = 10;
+  // @gotags: kong:"help='Internal library queue capacity (throughput optimization)',env=PLUMBER_RELAY_KAFKA_QUEUE_CAPACITY,default=1000"
+  int32 queue_capacity = 10;
 }

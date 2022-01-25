@@ -9,51 +9,51 @@ import "opts/ps_opts_alert.proto";
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
 
 message GetAlertRequest {
-    // Every gRPC request must have a valid auth config
-    common.Auth auth = 9999;
+  // Every gRPC request must have a valid auth config
+  common.Auth auth = 9999;
 
-    string alert_id = 1;
+  string alert_id = 1;
 }
 
 message GetAlertResponse {
-    opts.AlertOptions alert = 1;
+  opts.AlertOptions alert = 1;
 
-    common.Status status = 1000;
+  common.Status status = 1000;
 }
 
 message CreateAlertRequest {
-    // Every gRPC request must have a valid auth config
-    common.Auth auth = 9999;
+  // Every gRPC request must have a valid auth config
+  common.Auth auth = 9999;
 
-    opts.AlertOptions alert = 1;
+  opts.AlertOptions alert = 1;
 }
 
 message CreateAlertResponse {
-    opts.AlertOptions alert = 1;
+  opts.AlertOptions alert = 1;
 
-    common.Status status = 1000;
+  common.Status status = 1000;
 }
 
 message DeleteAlertRequest {
-    // Every gRPC request must have a valid auth config
-    common.Auth auth = 9999;
+  // Every gRPC request must have a valid auth config
+  common.Auth auth = 9999;
 
-    string alert_id = 1;
+  string alert_id = 1;
 }
 
 message DeleteAlertResponse {
-    common.Status status = 1000;
+  common.Status status = 1000;
 }
 
 message UpdateAlertRequest {
-    // Every gRPC request must have a valid auth config
-    common.Auth auth = 9999;
+  // Every gRPC request must have a valid auth config
+  common.Auth auth = 9999;
 
-    opts.AlertOptions alert = 1;
+  opts.AlertOptions alert = 1;
 }
 
 message UpdateAlertResponse {
-    opts.AlertOptions alert = 1;
+  opts.AlertOptions alert = 1;
 
-    common.Status status = 1000;
+  common.Status status = 1000;
 }

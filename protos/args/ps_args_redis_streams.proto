@@ -5,8 +5,8 @@ package protos.args;
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/args";
 
 enum OffsetStart {
-  Latest = 0;
-  Oldest = 1;
+  LATEST = 0;
+  OLDEST = 1;
 }
 
 message RedisStreamsConn {

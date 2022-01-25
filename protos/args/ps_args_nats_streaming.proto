@@ -28,7 +28,7 @@ message NatsStreamingConn {
   // @gotags: kong:"help='Cluster ID of the Nats server',required,env='PLUMBER_RELAY_NATS_STREAMING_CLUSTER_ID'"
   string cluster_id = 3;
 
-  // @gotags: kong:"help='User specified client ID to connect with',default='plumber',ENV='PLUMBER_RELAY_NATS_STREAMING_CLIENT_ID'"
+  // @gotags: kong:"help='User specified client ID to connect with',default='plumber',env='PLUMBER_RELAY_NATS_STREAMING_CLIENT_ID'"
   string client_id = 4;
 
   // @gotags: kong:"embed"
@@ -36,22 +36,22 @@ message NatsStreamingConn {
 }
 
 message NatsStreamingReadArgs {
-  // @gotags: kong:"help='NATS stream channel. Ex: orders'"
+  // @gotags: kong:"help='NATS stream channel. Ex: orders',env='PLUMBER_RELAY_NATS_STREAMING_CHANNEL"
   string channel = 1;
 
-  // @gotags: kong:"help='Create a durable subscription with this name for the given channel'"
+  // @gotags: kong:"help='Create a durable subscription with this name for the given channel',env='PLUMBER_RELAY_NATS_STREAMING_DURABLE_SUBSCRIPTION_NAME'"
   string durable_name = 2;
 
-  // @gotags: kong:"help='Deliver starting with last published message',xor=nats_delivery_option"
+  // @gotags: kong:"help='Deliver starting with last published message',xor=nats_delivery_option,env='PLUMBER_RELAY_NATS_STREAMING_READ_LAST'"
   bool read_last_available = 3;
 
-  // @gotags: kong:"help='Deliver messages starting at sequence number',xor=nats_delivery_option"
+  // @gotags: kong:"help='Deliver messages starting at sequence number',xor=nats_delivery_option,env='PLUMBER_RELAY_NATS_STREAMING_READ_SEQUENCE'"
   uint32 read_sequence_number = 4;
 
-  // @gotags: kong:"help='Deliver messages in last interval (e.g. 1s, 1h)',xor=nats_delivery_option"
+  // @gotags: kong:"help='Deliver messages in last interval (e.g. 1s, 1h)',xor=nats_delivery_option,env='PLUMBER_RELAY_NATS_STREAMING_READ_SINCE'"
   string read_since = 5;
 
-  // @gotags: kong:"help='Deliver all available messages',xor=nats_delivery_option"
+  // @gotags: kong:"help='Deliver all available messages',xor=nats_delivery_option,env='PLUMBER_RELAY_NATS_STREAMING_READ_ALL'"
   bool read_all = 6;
 }
 

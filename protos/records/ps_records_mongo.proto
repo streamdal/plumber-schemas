@@ -5,6 +5,6 @@ package protos.records;
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/records";
 
 message Mongo {
-    bytes value = 1;
-    int64 timestamp = 2;
+  bytes value = 1;
+  int64 timestamp = 2;
 }

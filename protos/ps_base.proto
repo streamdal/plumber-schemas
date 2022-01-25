@@ -2,181 +2,181 @@ syntax = "proto3";
 
 package protos;
 
+import "ps_alert.proto";
 import "ps_connect.proto";
+import "ps_errors.proto";
+import "ps_monitor.proto";
 import "ps_read.proto";
-import "ps_write.proto";
 import "ps_relay.proto";
 import "ps_schema.proto";
-import "ps_service.proto";
-import "ps_server.proto";
-import "ps_vc_server.proto";
-import "ps_vc_client.proto";
-import "ps_monitor.proto";
-import "ps_alert.proto";
 import "ps_schema_validation.proto";
+import "ps_server.proto";
+import "ps_service.proto";
 import "ps_stats.proto";
-import "ps_errors.proto";
+import "ps_vc_client.proto";
+import "ps_vc_server.proto";
+import "ps_write.proto";
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
 
 service PlumberServer {
-    // List configured/known connections
-    rpc GetAllConnections (GetAllConnectionsRequest) returns (GetAllConnectionsResponse);
+  // List configured/known connections
+  rpc GetAllConnections (GetAllConnectionsRequest) returns (GetAllConnectionsResponse);
 
-    // Fetch a specific connection by ID
-    rpc GetConnection(GetConnectionRequest) returns (GetConnectionResponse);
+  // Fetch a specific connection by ID
+  rpc GetConnection(GetConnectionRequest) returns (GetConnectionResponse);
 
-    // Create a connection in plumber
-    rpc CreateConnection(CreateConnectionRequest) returns (CreateConnectionResponse);
+  // Create a connection in plumber
+  rpc CreateConnection(CreateConnectionRequest) returns (CreateConnectionResponse);
 
-    // Test a connection before saving its configuration
-    rpc TestConnection(TestConnectionRequest) returns (TestConnectionResponse);
+  // Test a connection before saving its configuration
+  rpc TestConnection(TestConnectionRequest) returns (TestConnectionResponse);
 
-    // Any active connections will be restarted
-    rpc UpdateConnection(UpdateConnectionRequest) returns (UpdateConnectionResponse);
+  // Any active connections will be restarted
+  rpc UpdateConnection(UpdateConnectionRequest) returns (UpdateConnectionResponse);
 
-    // If there are any active connections, delete will cause them to get closed
-    rpc DeleteConnection(DeleteConnectionRequest) returns (DeleteConnectionResponse);
+  // If there are any active connections, delete will cause them to get closed
+  rpc DeleteConnection(DeleteConnectionRequest) returns (DeleteConnectionResponse);
 
-    // Start reading data from a connection
-    rpc CreateRead(CreateReadRequest) returns (CreateReadResponse);
+  // Start reading data from a connection
+  rpc CreateRead(CreateReadRequest) returns (CreateReadResponse);
 
-    // Streams messages received off of a read
-    rpc StartRead(StartReadRequest) returns (stream StartReadResponse);
+  // Streams messages received off of a read
+  rpc StartRead(StartReadRequest) returns (stream StartReadResponse);
 
-    // List all reads that have been created
-    rpc GetAllReads(GetAllReadsRequest) returns (GetAllReadsResponse);
+  // List all reads that have been created
+  rpc GetAllReads(GetAllReadsRequest) returns (GetAllReadsResponse);
 
-    // Stop reading data from a connection
-    rpc StopRead(StopReadRequest) returns (StopReadResponse);
+  // Stop reading data from a connection
+  rpc StopRead(StopReadRequest) returns (StopReadResponse);
 
-    // Resume reading data from an existing read
-    rpc ResumeRead(ResumeReadRequest) returns (ResumeReadResponse);
+  // Resume reading data from an existing read
+  rpc ResumeRead(ResumeReadRequest) returns (ResumeReadResponse);
 
-    // Resume reading data from an existing read
-    rpc DeleteRead(DeleteReadRequest) returns (DeleteReadResponse);
+  // Resume reading data from an existing read
+  rpc DeleteRead(DeleteReadRequest) returns (DeleteReadResponse);
 
-    // Write data to a connection
-    rpc Write(WriteRequest) returns (WriteResponse);
+  // Write data to a connection
+  rpc Write(WriteRequest) returns (WriteResponse);
 
-    // Create a data relay from plumber server to the Batch platform
-    rpc CreateRelay(CreateRelayRequest) returns (CreateRelayResponse);
+  // Create a data relay from plumber server to the Batch platform
+  rpc CreateRelay(CreateRelayRequest) returns (CreateRelayResponse);
 
-    // Update a relay (such as API token) - relay will be interrupted!
-    rpc UpdateRelay(UpdateRelayRequest) returns (UpdateRelayResponse);
+  // Update a relay (such as API token) - relay will be interrupted!
+  rpc UpdateRelay(UpdateRelayRequest) returns (UpdateRelayResponse);
 
-    rpc ResumeRelay(ResumeRelayRequest) returns (ResumeRelayResponse);
+  rpc ResumeRelay(ResumeRelayRequest) returns (ResumeRelayResponse);
 
-    rpc StopRelay(StopRelayRequest) returns (StopRelayResponse);
+  rpc StopRelay(StopRelayRequest) returns (StopRelayResponse);
 
-    rpc GetAllRelays(GetAllRelaysRequest) returns (GetAllRelaysResponse);
+  rpc GetAllRelays(GetAllRelaysRequest) returns (GetAllRelaysResponse);
 
-    // Delete an existing relay
-    rpc DeleteRelay(DeleteRelayRequest) returns (DeleteRelayResponse);
+  // Delete an existing relay
+  rpc DeleteRelay(DeleteRelayRequest) returns (DeleteRelayResponse);
 
-    // Retrieve a single schema
-    rpc GetSchema(GetSchemaRequest) returns (GetSchemaResponse);
+  // Retrieve a single schema
+  rpc GetSchema(GetSchemaRequest) returns (GetSchemaResponse);
 
-    // Retrieve all schemas
-    rpc GetAllSchemas(GetAllSchemasRequest) returns (GetAllSchemasResponse);
+  // Retrieve all schemas
+  rpc GetAllSchemas(GetAllSchemasRequest) returns (GetAllSchemasResponse);
 
-    // Edit an existing schema
-    rpc UpdateSchema(UpdateSchemaRequest) returns (UpdateSchemaResponse);
+  // Edit an existing schema
+  rpc UpdateSchema(UpdateSchemaRequest) returns (UpdateSchemaResponse);
 
-    // Approve a pending inferred schema
-    rpc ApproveSchema(ApproveSchemaVersionRequest) returns (ApproveSchemaVersionResponse);
+  // Approve a pending inferred schema
+  rpc ApproveSchema(ApproveSchemaVersionRequest) returns (ApproveSchemaVersionResponse);
 
-    // Import a schema from github
-    rpc ImportGithub(ImportGithubRequest) returns (ImportGithubResponse);
+  // Import a schema from github
+  rpc ImportGithub(ImportGithubRequest) returns (ImportGithubResponse);
 
-    rpc ImportGithubSelect(ImportGithubSelectRequest) returns (ImportGithubSelectResponse);
+  rpc ImportGithubSelect(ImportGithubSelectRequest) returns (ImportGithubSelectResponse);
 
-    // Import a schema from the local file system
-    rpc ImportLocal(ImportLocalRequest) returns (ImportLocalResponse);
+  // Import a schema from the local file system
+  rpc ImportLocal(ImportLocalRequest) returns (ImportLocalResponse);
 
-    // Delete a schema
-    rpc DeleteSchema(DeleteSchemaRequest) returns (DeleteSchemaResponse);
+  // Delete a schema
+  rpc DeleteSchema(DeleteSchemaRequest) returns (DeleteSchemaResponse);
 
-    rpc DeleteSchemaVersion(DeleteSchemaVersionRequest) returns (DeleteSchemaVersionResponse);
+  rpc DeleteSchemaVersion(DeleteSchemaVersionRequest) returns (DeleteSchemaVersionResponse);
 
-    rpc GetService(GetServiceRequest) returns (GetServiceResponse);
+  rpc GetService(GetServiceRequest) returns (GetServiceResponse);
 
-    rpc GetAllServices(GetAllServicesRequest) returns (GetAllServicesResponse);
+  rpc GetAllServices(GetAllServicesRequest) returns (GetAllServicesResponse);
 
-    rpc CreateService(CreateServiceRequest) returns (CreateServiceResponse);
+  rpc CreateService(CreateServiceRequest) returns (CreateServiceResponse);
 
-    rpc UpdateService(UpdateServiceRequest) returns (UpdateServiceResponse);
+  rpc UpdateService(UpdateServiceRequest) returns (UpdateServiceResponse);
 
-    rpc DeleteService(DeleteServiceRequest) returns (DeleteServiceResponse);
+  rpc DeleteService(DeleteServiceRequest) returns (DeleteServiceResponse);
 
-    rpc LinkSchemaToService(LinkSchemaToServiceRequest) returns (LinkSchemaToServiceResponse);
+  rpc LinkSchemaToService(LinkSchemaToServiceRequest) returns (LinkSchemaToServiceResponse);
 
-    rpc UnlinkSchemaFromService(UnlinkSchemaFromServiceRequest) returns (UnlinkSchemaFromServiceResponse);
+  rpc UnlinkSchemaFromService(UnlinkSchemaFromServiceRequest) returns (UnlinkSchemaFromServiceResponse);
 
-    rpc LinkRepoToService(LinkRepoToServiceRequest) returns (LinkRepoToServiceResponse);
+  rpc LinkRepoToService(LinkRepoToServiceRequest) returns (LinkRepoToServiceResponse);
 
-    rpc UnlinkRepoFromService(UnlinkRepoFromServiceRequest) returns (UnlinkRepoFromServiceResponse);
+  rpc UnlinkRepoFromService(UnlinkRepoFromServiceRequest) returns (UnlinkRepoFromServiceResponse);
 
-    rpc GetServerOptions(GetServerOptionsRequest) returns (GetServerOptionsResponse);
+  rpc GetServerOptions(GetServerOptionsRequest) returns (GetServerOptionsResponse);
 
-    rpc SetServerOptions(SetServerOptionsRequest) returns (SetServerOptionsResponse);
+  rpc SetServerOptions(SetServerOptionsRequest) returns (SetServerOptionsResponse);
 
-    // List repos pulls a list of repositories from Github after a user has authorized the app
-    rpc GetRepoList(GetRepoListRequest) returns (GetRepoListResponse);
+  // List repos pulls a list of repositories from Github after a user has authorized the app
+  rpc GetRepoList(GetRepoListRequest) returns (GetRepoListResponse);
 
-    // GetVCEvents connects to vc-service backend and returns a stream of events pushed from github/bitbucket/etc
-    rpc GetVCEvents(GetVCEventsRequest) returns (stream VCEvent);
+  // GetVCEvents connects to vc-service backend and returns a stream of events pushed from github/bitbucket/etc
+  rpc GetVCEvents(GetVCEventsRequest) returns (stream VCEvent);
 
-    // --------------------- Pull Request -------------------
-    rpc GetRepoTree(GetRepoTreeRequest) returns (GetRepoTreeResponse);
+  // --------------------- Pull Request -------------------
+  rpc GetRepoTree(GetRepoTreeRequest) returns (GetRepoTreeResponse);
 
-    rpc GetRepoFile(GetRepoFileRequest) returns (GetRepoFileResponse);
+  rpc GetRepoFile(GetRepoFileRequest) returns (GetRepoFileResponse);
 
-    rpc CreatePullRequest(CreatePRRequest) returns (CreatePRResponse);
+  rpc CreatePullRequest(CreatePRRequest) returns (CreatePRResponse);
 
-    // --------------------- Monitor -------------------
+  // --------------------- Monitor -------------------
 
-    rpc GetMonitor(GetMonitorRequest) returns (GetMonitorResponse);
+  rpc GetMonitor(GetMonitorRequest) returns (GetMonitorResponse);
 
-    rpc CreateMonitor(CreateMonitorRequest) returns (CreateMonitorResponse);
+  rpc CreateMonitor(CreateMonitorRequest) returns (CreateMonitorResponse);
 
-    rpc DeleteMonitor(DeleteMonitorRequest) returns (DeleteMonitorResponse);
+  rpc DeleteMonitor(DeleteMonitorRequest) returns (DeleteMonitorResponse);
 
-    rpc UpdateMonitor(UpdateMonitorRequest) returns (UpdateMonitorResponse);
+  rpc UpdateMonitor(UpdateMonitorRequest) returns (UpdateMonitorResponse);
 
-    // -------------------- Alert --------------------
+  // -------------------- Alert --------------------
 
-    rpc GetAlert(GetMonitorRequest) returns (GetMonitorResponse);
+  rpc GetAlert(GetMonitorRequest) returns (GetMonitorResponse);
 
-    rpc CreateAlert(CreateAlertRequest) returns (CreateAlertResponse);
+  rpc CreateAlert(CreateAlertRequest) returns (CreateAlertResponse);
 
-    rpc DeleteAlert(DeleteAlertRequest) returns (DeleteAlertResponse);
+  rpc DeleteAlert(DeleteAlertRequest) returns (DeleteAlertResponse);
 
-    rpc UpdateAlert(UpdateAlertRequest) returns (UpdateAlertResponse);
+  rpc UpdateAlert(UpdateAlertRequest) returns (UpdateAlertResponse);
 
-    // -------------------- Schema validations --------------------
+  // -------------------- Schema validations --------------------
 
-    rpc GetValidation(GetValidationRequest) returns (GetValidationResponse);
+  rpc GetValidation(GetValidationRequest) returns (GetValidationResponse);
 
-    rpc GetAllValidations(GetAllValidationsRequest) returns (GetAllValidationsResponse);
+  rpc GetAllValidations(GetAllValidationsRequest) returns (GetAllValidationsResponse);
 
-    rpc CreateValidation(CreateValidationRequest) returns (CreateValidationResponse);
+  rpc CreateValidation(CreateValidationRequest) returns (CreateValidationResponse);
 
-    rpc UpdateValidation(UpdateValidationRequest) returns (UpdateValidationResponse);
+  rpc UpdateValidation(UpdateValidationRequest) returns (UpdateValidationResponse);
 
-    rpc DeleteValidation(DeleteValidationRequest) returns (DeleteValidationResponse);
+  rpc DeleteValidation(DeleteValidationRequest) returns (DeleteValidationResponse);
 
-    // -------------------- Counters --------------------
+  // -------------------- Counters --------------------
 
-    rpc GetCurrentCounters(GetCurrentCountersRequest) returns (GetCurrentCountersResponse);
+  rpc GetCurrentCounters(GetCurrentCountersRequest) returns (GetCurrentCountersResponse);
 
-    rpc GetCounterHistory(GetCounterHistoryRequest) returns (GetCounterHistoryResponse);
+  rpc GetCounterHistory(GetCounterHistoryRequest) returns (GetCounterHistoryResponse);
 
-    // -------------------- Errors --------------------
+  // -------------------- Errors --------------------
 
-    // Returns a stream of errors as they happen
-    rpc GetLiveErrors(GetLiveErrorsRequest) returns (stream GetLiveErrorsResponse);
+  // Returns a stream of errors as they happen
+  rpc GetLiveErrors(GetLiveErrorsRequest) returns (stream GetLiveErrorsResponse);
 
-    // Returns 1000 most recent errors from etcd
-    rpc GetErrorHistory(GetErrorHistoryRequest) returns (GetErrorHistoryResponse);
+  // Returns 1000 most recent errors from etcd
+  rpc GetErrorHistory(GetErrorHistoryRequest) returns (GetErrorHistoryResponse);
 }

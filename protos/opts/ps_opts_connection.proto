@@ -2,67 +2,67 @@ syntax = "proto3";
 
 package protos.opts;
 
-import "args/ps_args_kafka.proto";
 import "args/ps_args_activemq.proto";
 import "args/ps_args_aws_kinesis.proto";
 import "args/ps_args_aws_sns.proto";
 import "args/ps_args_aws_sqs.proto";
-import "args/ps_args_mongo.proto";
-import "args/ps_args_nats.proto";
-import "args/ps_args_nats_streaming.proto";
-import "args/ps_args_nats_jetstream.proto";
-import "args/ps_args_nsq.proto";
-import "args/ps_args_mqtt.proto";
+import "args/ps_args_azure_event_hub.proto";
+import "args/ps_args_azure_service_bus.proto";
 import "args/ps_args_gcp_pubsub.proto";
+import "args/ps_args_kafka.proto";
 import "args/ps_args_kubemq_queue.proto";
+import "args/ps_args_mongo.proto";
+import "args/ps_args_mqtt.proto";
+import "args/ps_args_nats.proto";
+import "args/ps_args_nats_jetstream.proto";
+import "args/ps_args_nats_streaming.proto";
+import "args/ps_args_nsq.proto";
 import "args/ps_args_postgres.proto";
 import "args/ps_args_pulsar.proto";
 import "args/ps_args_rabbit.proto";
 import "args/ps_args_rabbit_streams.proto";
 import "args/ps_args_redis_pubsub.proto";
 import "args/ps_args_redis_streams.proto";
-import "args/ps_args_azure_service_bus.proto";
-import "args/ps_args_azure_event_hub.proto";
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/opts";
 
 // ConnectionConfig is used for creating a new backend. CLI creates an instance
 // of this structure by injecting the conn struct it receives via *Args.
 message ConnectionOptions {
-    // Friendly name to identify this connection by (used in plumber-server logs)
-    string name = 1;
+  // Friendly name to identify this connection by (used in plumber-server logs)
+  string name = 1;
 
-    // Any notes associated with this connection (stored plumber-server side)
-    string notes = 2;
+  // Any notes associated with this connection (stored plumber-server side)
+  string notes = 2;
 
-    oneof conn {
-        args.KafkaConn kafka = 100;
-        args.ActiveMQConn active_mq = 101;
-        args.AWSSQSConn aws_sqs = 102;
-        args.AWSSNSConn aws_sns = 103;
-        args.MongoConn mongo = 104;
-        args.NatsConn nats = 105;
-        args.NatsStreamingConn nats_streaming = 106;
-        args.NSQConn nsq = 107;
-        args.PostgresConn postgres = 108;
-        args.PulsarConn pulsar = 109;
-        args.RabbitConn rabbit = 110;
-        args.RabbitStreamsConn rabbit_streams = 111;
-        args.RedisPubSubConn redis_pubsub = 112;
-        args.RedisStreamsConn redis_streams = 113;
-        args.AzureEventHubConn azure_event_hub = 114;
-        args.AzureServiceBusConn azure_service_bus = 115;
-        args.MQTTConn mqtt = 116;
-        args.KubeMQQueueConn kubemq_queue = 117;
-        args.GCPPubSubConn gcp_pubsub = 118;
-        args.NatsJetstreamConn nats_jetstream = 119;
-        args.AWSKinesisConn aws_kinesis = 120;
-    }
+  oneof conn {
+    args.KafkaConn kafka = 100;
+    args.ActiveMQConn active_mq = 101;
+    args.AWSSQSConn aws_sqs = 102;
+    args.AWSSNSConn aws_sns = 103;
+    args.MongoConn mongo = 104;
+    args.NatsConn nats = 105;
+    args.NatsStreamingConn nats_streaming = 106;
+    args.NSQConn nsq = 107;
+    args.PostgresConn postgres = 108;
+    args.PulsarConn pulsar = 109;
+    args.RabbitConn rabbit = 110;
+    args.RabbitStreamsConn rabbit_streams = 111;
+    args.RedisPubSubConn redis_pubsub = 112;
+    args.RedisStreamsConn redis_streams = 113;
+    args.AzureEventHubConn azure_event_hub = 114;
+    args.AzureServiceBusConn azure_service_bus = 115;
+    args.MQTTConn mqtt = 116;
+    args.KubeMQQueueConn kubemq_queue = 117;
+    args.GCPPubSubConn gcp_pubsub = 118;
+    args.NatsJetstreamConn nats_jetstream = 119;
+    args.AWSKinesisConn aws_kinesis = 120;
+  }
 
-    // --------------------------------------------------------------------- //
-    //                          PRIVATE FIELDS (1000+)                       //
-    // --------------------------------------------------------------------- //
+  // --------------------------------------------------------------------- //
+  //                          PRIVATE FIELDS (1000+)                       //
+  // --------------------------------------------------------------------- //
 
-    // Used internally by plumber
-    string _id = 1000;
+  // Used internally by plumber
+  string _id = 1000;
 }
