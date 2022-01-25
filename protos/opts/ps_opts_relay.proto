@@ -14,6 +14,9 @@ import "args/ps_args_postgres.proto";
 import "args/ps_args_rabbit.proto";
 import "args/ps_args_redis_pubsub.proto";
 import "args/ps_args_redis_streams.proto";
+import "args/ps_args_nats.proto";
+import "args/ps_args_nats_jetstream.proto";
+import "args/ps_args_nats_streaming.proto";
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/opts";
 
@@ -106,6 +109,15 @@ message RelayOptions {
 
     // @gotags: kong:"cmd,help='PostgreSQL (CDC)'"
     RelayGroupPostgresOptions postgres = 112;
+
+    // @gotags: kong:"cmd,help='NATS'"
+    RelayGroupNatsOptions nats = 113;
+
+    // @gotags: kong:"cmd,help='NATS Streaming'"
+    RelayGroupNatsStreamingOptions nats_streaming = 114;
+
+    // @gotags: kong:"cmd,help='NATS JetStream'"
+    RelayGroupNatsJetStreamOptions nats_jetstream = 115;
 }
 
 message RelayGroupKafkaOptions {
@@ -191,3 +203,26 @@ message RelayGroupKubeMQQueueOptions {
     // @gotags: kong:"embed"
     args.KubeMQQueueReadArgs args = 2;
 }
+
+message RelayGroupNatsOptions {
+    // @gotags: kong:"embed"
+    args.NatsConn _conn = 1;
+    // @gotags: kong:"embed"
+    args.NatsReadArgs args = 2;
+}
+
+message RelayGroupNatsStreamingOptions {
+    // @gotags: kong:"embed"
+    args.NatsStreamingConn _conn = 1;
+    // @gotags: kong:"embed"
+    args.NatsStreamingReadArgs args = 2;
+}
+
+
+message RelayGroupNatsJetStreamOptions {
+    // @gotags: kong:"embed"
+    args.NatsJetstreamConn _conn = 1;
+    // @gotags: kong:"embed"
+    args.NatsJetstreamReadArgs args = 2;
+}
+
