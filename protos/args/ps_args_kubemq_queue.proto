@@ -5,25 +5,25 @@ package protos.args;
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/args";
 
 message KubeMQQueueConn {
-    // @gotags: kong:"help='Dial string for KubeMQ server',env='PLUMBER_RELAY_KUBEMQ_QUEUE_ADDRESS',default='localhost:50000',required"
-    string address = 1;
+  // @gotags: kong:"help='Dial string for KubeMQ server',env='PLUMBER_RELAY_KUBEMQ_QUEUE_ADDRESS',default='localhost:50000',required"
+  string address = 1;
 
-    // @gotags: kong:"help='Client JWT authentication token',env='PLUMBER_RELAY_KUBEMQ_QUEUE_AUTH_TOKEN'"
-    string auth_token = 2;
+  // @gotags: kong:"help='Client JWT authentication token',env='PLUMBER_RELAY_KUBEMQ_QUEUE_AUTH_TOKEN'"
+  string auth_token = 2;
 
-    // @gotags: kong:"help='KubeMQ client cert file',env='PLUMBER_RELAY_KUBEMQ_QUEUE_TLS_CLIENT_CERT'"
-    string tls_client_cert = 3;
+  // @gotags: kong:"help='KubeMQ client cert file',env='PLUMBER_RELAY_KUBEMQ_QUEUE_TLS_CLIENT_CERT'"
+  string tls_client_cert = 3;
 
-    // @gotags: kong:"help='KubeMQ client ID',env='PLUMBER_RELAY_KUBEMQ_QUEUE_CLIENT_ID',default=plumber"
-    string client_id = 4;
+  // @gotags: kong:"help='KubeMQ client ID',env='PLUMBER_RELAY_KUBEMQ_QUEUE_CLIENT_ID',default=plumber"
+  string client_id = 4;
 }
 
 message KubeMQQueueReadArgs {
-    // @gotags: kong:"help='KubeMQ queue name',env='PLUMBER_RELAY_KUBEMQ_QUEUE_QUEUE'"
-    string queue_name = 1;
+  // @gotags: kong:"help='KubeMQ queue name',env='PLUMBER_RELAY_KUBEMQ_QUEUE_QUEUE'"
+  string queue_name = 1;
 }
 
 message KubeMQQueueWriteArgs {
-    // @gotags: kong:"help='KubeMQ queue name'"
-    string queue_name = 1;
+  // @gotags: kong:"help='KubeMQ queue name'"
+  string queue_name = 1;
 }

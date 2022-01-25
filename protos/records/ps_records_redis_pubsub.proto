@@ -5,7 +5,7 @@ package protos.records;
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/records";
 
 message RedisPubsub {
-    map<string,string> metadata = 1;
-    bytes value = 2;
-    int64 timestamp = 3;
+  map<string,string> metadata = 1;
+  bytes value = 2;
+  int64 timestamp = 3;
 }

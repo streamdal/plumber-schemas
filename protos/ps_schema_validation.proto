@@ -2,75 +2,74 @@ syntax = "proto3";
 
 package protos;
 
-option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
-
 import "common/ps_common_auth.proto";
 import "common/ps_common_status.proto";
 import "common/ps_common_validation.proto";
 
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
 
 message GetValidationRequest {
-    // Every gRPC request must have a valid auth config
-    common.Auth auth = 9999;
+  // Every gRPC request must have a valid auth config
+  common.Auth auth = 9999;
 
-    // Validation ID
-    string id = 1;
+  // Validation ID
+  string id = 1;
 }
 
 message GetValidationResponse {
-    common.Validation validation = 1;
+  common.Validation validation = 1;
 }
 
 message GetAllValidationsRequest {
-    // Every gRPC request must have a valid auth config
-    common.Auth auth = 9999;
+  // Every gRPC request must have a valid auth config
+  common.Auth auth = 9999;
 
-    // Validation ID
-    string id = 1;
+  // Validation ID
+  string id = 1;
 }
 
 message GetAllValidationsResponse {
-    repeated common.Validation validations = 1;
+  repeated common.Validation validations = 1;
 }
 
 
 message CreateValidationRequest {
-    // Every gRPC request must have a valid auth config
-    common.Auth auth = 9999;
+  // Every gRPC request must have a valid auth config
+  common.Auth auth = 9999;
 
-    common.Validation validation = 1;
+  common.Validation validation = 1;
 }
 
 message CreateValidationResponse {
-    common.Status status = 1000;
+  common.Status status = 1000;
 
-    common.Validation validation = 1;
+  common.Validation validation = 1;
 }
 
 message UpdateValidationRequest {
-    // Every gRPC request must have a valid auth config
-    common.Auth auth = 9999;
+  // Every gRPC request must have a valid auth config
+  common.Auth auth = 9999;
 
-    // Validation ID
-    string id = 1;
+  // Validation ID
+  string id = 1;
 
-    common.Validation validation = 2;
+  common.Validation validation = 2;
 }
 
 message UpdateValidationResponse {
-    common.Status status = 1000;
+  common.Status status = 1000;
 
-    common.Validation validation = 1;
+  common.Validation validation = 1;
 }
 
 message DeleteValidationRequest {
-    // Every gRPC request must have a valid auth config
-    common.Auth auth = 9999;
+  // Every gRPC request must have a valid auth config
+  common.Auth auth = 9999;
 
-    // Validation ID
-    string id = 1;
+  // Validation ID
+  string id = 1;
 }
 
 message DeleteValidationResponse {
-    common.Status status = 1000;
+  common.Status status = 1000;
 }

@@ -9,101 +9,101 @@ package protos.encoding;
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/encoding";
 
 enum EncodeType {
-    ENCODE_TYPE_UNSET  = 0;
-    ENCODE_TYPE_JSONPB = 1;
-    ENCODE_TYPE_AVRO   = 2;
+  ENCODE_TYPE_UNSET  = 0;
+  ENCODE_TYPE_JSONPB = 1;
+  ENCODE_TYPE_AVRO   = 2;
 }
 
 enum DecodeType {
-    DECODE_TYPE_UNSET      = 0;
-    DECODE_TYPE_PROTOBUF   = 1;
-    DECODE_TYPE_AVRO       = 2;
-    DECODE_TYPE_THRIFT     = 3;
-    DECODE_TYPE_FLATBUFFER = 4;
+  DECODE_TYPE_UNSET      = 0;
+  DECODE_TYPE_PROTOBUF   = 1;
+  DECODE_TYPE_AVRO       = 2;
+  DECODE_TYPE_THRIFT     = 3;
+  DECODE_TYPE_FLATBUFFER = 4;
 }
 
 enum EnvelopeType {
-    ENVELOPE_TYPE_UNSET = 0;
-    ENVELOPE_TYPE_DEEP = 1;
-    ENVELOPE_TYPE_SHALLOW = 2;
+  ENVELOPE_TYPE_UNSET = 0;
+  ENVELOPE_TYPE_DEEP = 1;
+  ENVELOPE_TYPE_SHALLOW = 2;
 }
 
 message ProtobufSettings {
-    // @gotags: kong:"help='Input message(s) should be encoded with this message envelope'"
-    string protobuf_root_message = 1;
+  // @gotags: kong:"help='Input message(s) should be encoded with this message envelope'"
+  string protobuf_root_message = 1;
 
-    // Desktop/server should not use this.
-    // @gotags: kong:"help='One or more directories which contains protobuf schemas',existingdir"
-    repeated string protobuf_dirs = 2;
+  // Desktop/server should not use this.
+  // @gotags: kong:"help='One or more directories which contains protobuf schemas',existingdir"
+  repeated string protobuf_dirs = 2;
 
-    // Directory where protos are stored (used for github import)
-    // @gotags: kong:"-"
-    string _protobuf_root_dir = 3;
+  // Directory where protos are stored (used for github import)
+  // @gotags: kong:"-"
+  string _protobuf_root_dir = 3;
 
-    // Used by server/desktop when creating a read without an existing schema
-    // @gotags: kong:"-"
-    bytes archive = 4;
+  // Used by server/desktop when creating a read without an existing schema
+  // @gotags: kong:"-"
+  bytes archive = 4;
 
-    // Used internally by the server
-    // @gotags: kong:"-"
-    bytes _message_descriptor = 5;
+  // Used internally by the server
+  // @gotags: kong:"-"
+  bytes _message_descriptor = 5;
 
-    // @gotags: kong:"help='Envelope type (options: deep, shallow)',type=pbenum,pbenum_strip_prefix=ENVELOPE_TYPE_,pbenum_lowercase,default=deep"
-    EnvelopeType protobuf_envelope_type = 6;
+  // @gotags: kong:"help='Envelope type (options: deep, shallow)',type=pbenum,pbenum_strip_prefix=ENVELOPE_TYPE_,pbenum_lowercase,default=deep"
+  EnvelopeType protobuf_envelope_type = 6;
 
-    // @gotags: kong:"help='For shallow envelope messages, the payload field should be encoded with this message name'"
-    string shallow_envelope_message = 7;
+  // @gotags: kong:"help='For shallow envelope messages, the payload field should be encoded with this message name'"
+  string shallow_envelope_message = 7;
 
-    // @gotags: kong:"help='For shallow envelope messages, the field number of the root message that contains the shallow envelope payload'"
-    int32 shallow_envelope_field_number = 8;
+  // @gotags: kong:"help='For shallow envelope messages, the field number of the root message that contains the shallow envelope payload'"
+  int32 shallow_envelope_field_number = 8;
 
-    // Used internally by the server
-    // @gotags: kong:"-"
-    bytes _shallow_envelope_message_descriptor = 9;
+  // Used internally by the server
+  // @gotags: kong:"-"
+  bytes _shallow_envelope_message_descriptor = 9;
 }
 
 message AvroSettings {
-    // Used by CLI; desktop should not set/use this.
-    // @gotags: kong:"help='If encode-type is set to avro, must specify avro schema file',existingfile"
-    string avro_schema_file = 1;
+  // Used by CLI; desktop should not set/use this.
+  // @gotags: kong:"help='If encode-type is set to avro, must specify avro schema file',existingfile"
+  string avro_schema_file = 1;
 
-    // Used by desktop; CLI should not set/use this.
-    // @gotags: kong:"-"
-    bytes schema = 2;
+  // Used by desktop; CLI should not set/use this.
+  // @gotags: kong:"-"
+  bytes schema = 2;
 }
 
 message JSONSchemaSettings {
-    // Used by desktop; CLI should not set/use this.
-    // @gotags: kong:"-"
-    bytes schema = 1;
+  // Used by desktop; CLI should not set/use this.
+  // @gotags: kong:"-"
+  bytes schema = 1;
 }
 
 message EncodeOptions {
-    // Use an existing schema for encoding (and ignore all other encode settings)
-    // @gotags: kong:"-"
-    string schema_id = 1;
+  // Use an existing schema for encoding (and ignore all other encode settings)
+  // @gotags: kong:"-"
+  string schema_id = 1;
 
-    // @gotags: kong:"help='Encode type (options: unset, jsonpb, avro)',default=unset,type=pbenum,pbenum_strip_prefix=ENCODE_TYPE_,pbenum_lowercase"
-    EncodeType encode_type = 2;
+  // @gotags: kong:"help='Encode type (options: unset, jsonpb, avro)',default=unset,type=pbenum,pbenum_strip_prefix=ENCODE_TYPE_,pbenum_lowercase"
+  EncodeType encode_type = 2;
 
-    // @gotags: kong:"embed,group=protobuf"
-    ProtobufSettings protobuf_settings = 3;
+  // @gotags: kong:"embed,group=protobuf"
+  ProtobufSettings protobuf_settings = 3;
 
-    // @gotags: kong:"embed,group=avro"
-    AvroSettings avro_settings = 4;
+  // @gotags: kong:"embed,group=avro"
+  AvroSettings avro_settings = 4;
 }
 
 message DecodeOptions {
-    // Use an existing schema for decoding (and ignore all other decode settings)
-    // @gotags: kong:"-"
-    string schema_id = 1;
+  // Use an existing schema for decoding (and ignore all other decode settings)
+  // @gotags: kong:"-"
+  string schema_id = 1;
 
-    // @gotags: kong:"help='Decode type (options: unset, protobuf, avro, thrift, flatbuffer)',type=pbenum,pbenum_strip_prefix=DECODE_TYPE_,pbenum_lowercase,default=unset"
-    DecodeType decode_type = 2;
+  // @gotags: kong:"help='Decode type (options: unset, protobuf, avro, thrift, flatbuffer)',type=pbenum,pbenum_strip_prefix=DECODE_TYPE_,pbenum_lowercase,default=unset"
+  DecodeType decode_type = 2;
 
-    // @gotags: kong:"embed,group=protobuf"
-    ProtobufSettings protobuf_settings = 3;
+  // @gotags: kong:"embed,group=protobuf"
+  ProtobufSettings protobuf_settings = 3;
 
-    // @gotags: kong:"embed,group=avro"
-    AvroSettings avro_settings = 4;
+  // @gotags: kong:"embed,group=avro"
+  AvroSettings avro_settings = 4;
 }

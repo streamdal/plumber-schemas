@@ -5,20 +5,20 @@ package protos.records;
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/records";
 
 message RabbitStreams {
-    string delivery_tag = 1;
-    uint32 format = 2;
-    RabbitStreamsHeader header = 3;
-    map<string,string> delivery_annotations = 4;
-    bool send_settled = 5;
-    string stream_name = 6;
-    int64 timestamp = 7;
-    bytes value = 8;
+  string delivery_tag = 1;
+  uint32 format = 2;
+  RabbitStreamsHeader header = 3;
+  map<string,string> delivery_annotations = 4;
+  bool send_settled = 5;
+  string stream_name = 6;
+  int64 timestamp = 7;
+  bytes value = 8;
 }
 
 message RabbitStreamsHeader {
-    bool durable = 1;
-    uint32 priority = 2;
-    int64 ttl = 3;
-    bool first_acquirer = 4;
-    uint32 delivery_count = 5;
+  bool durable = 1;
+  uint32 priority = 2;
+  int64 ttl = 3;
+  bool first_acquirer = 4;
+  uint32 delivery_count = 5;
 }

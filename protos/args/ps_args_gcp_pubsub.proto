@@ -5,25 +5,25 @@ package protos.args;
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/args";
 
 message GCPPubSubConn {
-    // @gotags: kong:"help='Project ID',env='PLUMBER_RELAY_GCP_PROJECT_ID',required"
-    string project_id = 1;
+  // @gotags: kong:"help='Project ID',env='PLUMBER_RELAY_GCP_PROJECT_ID',required"
+  string project_id = 1;
 
-    // @gotags: kong:"help='GCP Credentials in JSON format',env='PLUMBER_RELAY_GCP_CREDENTIALS'"
-    string credentials_json = 2;
+  // @gotags: kong:"help='GCP Credentials in JSON format',env='PLUMBER_RELAY_GCP_CREDENTIALS'"
+  string credentials_json = 2;
 
-    // @gotags: kong:"help='Path to GCP credentials JSON file',env='GOOGLE_APPLICATION_CREDENTIALS'"
-    string credentials_file = 3;
+  // @gotags: kong:"help='Path to GCP credentials JSON file',env='GOOGLE_APPLICATION_CREDENTIALS'"
+  string credentials_file = 3;
 }
 
 message GCPPubSubReadArgs {
-    // @gotags: kong:"help='Subscription ID',env='PLUMBER_RELAY_GCP_SUBSCRIPTION_ID',required"
-    string subscription_id = 1;
+  // @gotags: kong:"help='Subscription ID',env='PLUMBER_RELAY_GCP_SUBSCRIPTION_ID',required"
+  string subscription_id = 1;
 
-    // @gotags: kong:"help='Whether to acknowledge message receive',env='PLUMBER_RELAY_GCP_ACK_MESSAGE',default=true"
-    bool ack_messages = 2;
+  // @gotags: kong:"help='Whether to acknowledge message receive',env='PLUMBER_RELAY_GCP_ACK_MESSAGE',default=true"
+  bool ack_messages = 2;
 }
 
 message GCPPubSubWriteArgs {
-    // @gotags: kong:"help='Topic ID to publish message(s) to',required"
-    string topic_id = 1;
+  // @gotags: kong:"help='Topic ID to publish message(s) to',required"
+  string topic_id = 1;
 }

@@ -3,23 +3,23 @@ syntax = "proto3";
 
 package protos.records;
 
-import "records/ps_records_kafka.proto";
-import "records/ps_records_rabbit.proto";
 import "records/ps_records_activemq.proto";
 import "records/ps_records_aws_kinesis.proto";
 import "records/ps_records_aws_sqs.proto";
 import "records/ps_records_azure_event_hub.proto";
 import "records/ps_records_azure_service_bus.proto";
 import "records/ps_records_gcp_pubsub.proto";
+import "records/ps_records_kafka.proto";
 import "records/ps_records_kubemq.proto";
 import "records/ps_records_mongo.proto";
 import "records/ps_records_mqtt.proto";
 import "records/ps_records_nats.proto";
-import "records/ps_records_nats_streaming.proto";
 import "records/ps_records_nats_jetstream.proto";
+import "records/ps_records_nats_streaming.proto";
 import "records/ps_records_nsq.proto";
 import "records/ps_records_postgres.proto";
 import "records/ps_records_pulsar.proto";
+import "records/ps_records_rabbit.proto";
 import "records/ps_records_rabbit_streams.proto";
 import "records/ps_records_redis_pubsub.proto";
 import "records/ps_records_redis_streams.proto";
@@ -29,84 +29,84 @@ option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/record
 
 // Returned for read requests (server & cli)
 message ReadRecord {
-    // Unique id automatically created by plumber
-    string message_id = 1;
+  // Unique id automatically created by plumber
+  string message_id = 1;
 
-    // Plumber counts the number of messages it reads; this number represents
-    // the message number (useful for CLI).
-    int64 num = 3;
+  // Plumber counts the number of messages it reads; this number represents
+  // the message number (useful for CLI).
+  int64 num = 3;
 
-    // Metadata may contain properties that cannot be found in the Raw message.
-    // For example: read lag in Kafka.
-    //
-    // Metadata may also contain data such as "count" which is an incremental
-    // number that plumber assigns to each message it receives. This is used
-    // with read via CLI functionality to allow the user to quickly discern
-    // whether this is message #1 or #500, etc.
-    map<string, string> metadata = 4;
+  // Metadata may contain properties that cannot be found in the Raw message.
+  // For example: read lag in Kafka.
+  //
+  // Metadata may also contain data such as "count" which is an incremental
+  // number that plumber assigns to each message it receives. This is used
+  // with read via CLI functionality to allow the user to quickly discern
+  // whether this is message #1 or #500, etc.
+  map<string, string> metadata = 4;
 
-    // UTC unix timestamp of when plumber received the message; a backend record
-    // entry might have its own timestamp as well. This should be seconds.
-    int64 received_at_unix_ts_utc = 6;
+  // UTC unix timestamp of when plumber received the message; a backend record
+  // entry might have its own timestamp as well. This should be seconds.
+  int64 received_at_unix_ts_utc = 6;
 
-    //
-    // >>> Intentionally leaving this index space for future use <<<
-    //
+  //
+  // >>> Intentionally leaving this index space for future use <<<
+  //
 
-    // Set _outside_ the backend; will contain the final value, regardless of
-    // whether decoding options were specified for a read.
-    // _This_ is what both CLI and desktop should display for the payload.
-    bytes payload = 99;
+  // Set _outside_ the backend; will contain the final value, regardless of
+  // whether decoding options were specified for a read.
+  // _This_ is what both CLI and desktop should display for the payload.
+  bytes payload = 99;
 
-    oneof Record {
-        records.Kafka kafka = 100;
-        records.Rabbit rabbit = 101;
-        records.ActiveMQ activemq = 102;
-        records.AWSSQS aws_sqs = 103;
-        records.AzureEventHub azure_event_hub = 104;
-        records.AzureServiceBus azure_service_bus = 105;
-        records.GCPPubSub gcp_pubsub = 106;
-        records.KubeMQ kubemq = 107;
-        records.Mongo mongo = 108;
-        records.MQTT mqtt = 109;
-        records.Nats nats = 110;
-        records.NatsStreaming nats_streaming = 111;
-        records.NSQ nsq = 112;
-        records.Postgres postgres = 113;
-        records.Pulsar pulsar = 114;
-        records.RabbitStreams rabbit_streams = 115;
-        records.RedisPubsub redis_pubsub = 116;
-        records.RedisStreams redis_streams = 117;
-        records.NatsJetstream nats_jetstream = 118;
-        records.AWSKinesis aws_kinesis = 119;
-    }
+  oneof Record {
+    records.Kafka kafka = 100;
+    records.Rabbit rabbit = 101;
+    records.ActiveMQ activemq = 102;
+    records.AWSSQS aws_sqs = 103;
+    records.AzureEventHub azure_event_hub = 104;
+    records.AzureServiceBus azure_service_bus = 105;
+    records.GCPPubSub gcp_pubsub = 106;
+    records.KubeMQ kubemq = 107;
+    records.Mongo mongo = 108;
+    records.MQTT mqtt = 109;
+    records.Nats nats = 110;
+    records.NatsStreaming nats_streaming = 111;
+    records.NSQ nsq = 112;
+    records.Postgres postgres = 113;
+    records.Pulsar pulsar = 114;
+    records.RabbitStreams rabbit_streams = 115;
+    records.RedisPubsub redis_pubsub = 116;
+    records.RedisStreams redis_streams = 117;
+    records.NatsJetstream nats_jetstream = 118;
+    records.AWSKinesis aws_kinesis = 119;
+  }
 
-    // --------------------------------------------------------------------- //
-    //                          PRIVATE FIELDS (1000+)                       //
-    // --------------------------------------------------------------------- //
+  // --------------------------------------------------------------------- //
+  //                          PRIVATE FIELDS (1000+)                       //
+  // --------------------------------------------------------------------- //
 
-    // Original backend message (encoded with gob, ie. *skafka.Message, etc.).
-    // In most cases, you should use the oneof record instead of the raw message.
-    bytes _raw = 1000;
+  // Original backend message (encoded with gob, ie. *skafka.Message, etc.).
+  // In most cases, you should use the oneof record instead of the raw message.
+  bytes _raw = 1000;
 
-    // Identifies which plumber instance received the event (set outside the backend)
-    string _plumber_id = 1001;
+  // Identifies which plumber instance received the event (set outside the backend)
+  string _plumber_id = 1001;
 }
 
 // Used as an arg for write requests (server & cli)
 message WriteRecord {
-    // If encoding options are provided, this value will be updated by plumber
-    // to contain the encoded payload _before_ passing it to the backend.
-    // @gotags: kong:"help='Input string',name=input,xor=input,default"
-    string input = 1;
+  // If encoding options are provided, this value will be updated by plumber
+  // to contain the encoded payload _before_ passing it to the backend.
+  // @gotags: kong:"help='Input string',name=input,xor=input,default"
+  string input = 1;
 
-    // @gotags: kong:"help='Optional metadata a backend may use (key1:value,key2:value,etc)',name=input-metadata"
-    map<string, string> input_metadata = 2;
+  // @gotags: kong:"help='Optional metadata a backend may use (key1:value,key2:value,etc)',name=input-metadata"
+  map<string, string> input_metadata = 2;
 }
 
 // Used for communicating errors that occur during a read, write, relay, etc.
 message ErrorRecord {
-    int64 occurred_at_unix_ts_utc = 1;
-    string error = 2;
-    map<string, bytes> metadata = 3;
+  int64 occurred_at_unix_ts_utc = 1;
+  string error = 2;
+  map<string, bytes> metadata = 3;
 }

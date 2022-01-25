@@ -2,37 +2,37 @@ syntax = "proto3";
 
 package protos.opts;
 
-import "opts/ps_opts_read.proto";
-import "opts/ps_opts_write.proto";
-import "opts/ps_opts_relay.proto";
-import "opts/ps_opts_server.proto";
 import "opts/ps_opts_batch.proto";
 import "opts/ps_opts_dynamic.proto";
+import "opts/ps_opts_read.proto";
+import "opts/ps_opts_relay.proto";
+import "opts/ps_opts_server.proto";
+import "opts/ps_opts_write.proto";
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/opts";
 
 message GlobalCLIOptions {
-    // @gotags: kong:"help='Enable debug output',short=d"
-    bool debug = 1;
+  // @gotags: kong:"help='Enable debug output',short=d"
+  bool debug = 1;
 
-    // @gotags: kong:"help='Disable fancy output (like curl -s)',short=q"
-    bool quiet = 2;
+  // @gotags: kong:"help='Disable fancy output (like curl -s)',short=q"
+  bool quiet = 2;
 
-    // @gotags: kong:"help='Display plumber version'"
-    bool version = 3;
+  // @gotags: kong:"help='Display plumber version'"
+  bool version = 3;
 
-    // --------------------------------------------------------------------- //
-    //                          PRIVATE FIELDS (1000+)                       //
-    // --------------------------------------------------------------------- //
+  // --------------------------------------------------------------------- //
+  //                          PRIVATE FIELDS (1000+)                       //
+  // --------------------------------------------------------------------- //
 
-    // @gotags: kong:"-"
-    string _full_command = 1000;
+  // @gotags: kong:"-"
+  string _full_command = 1000;
 
-    // @gotags: kong:"-"
-    string _action = 1001;
+  // @gotags: kong:"-"
+  string _action = 1001;
 
-    // @gotags: kong:"-"
-    string _backend = 1002;
+  // @gotags: kong:"-"
+  string _backend = 1002;
 }
 
 // CLI options in plumber are derived 100% from the protobuf schemas.
@@ -42,24 +42,24 @@ message GlobalCLIOptions {
 //
 // For more info, check README_CLI.md
 message CLIOptions {
-    // @gotags: kong:"embed"
-    opts.GlobalCLIOptions global = 1;
+  // @gotags: kong:"embed"
+  opts.GlobalCLIOptions global = 1;
 
-    // @gotags: kong:"cmd,help='Read message(s) from messaging system'"
-    opts.ReadOptions read = 2;
+  // @gotags: kong:"cmd,help='Read message(s) from messaging system'"
+  opts.ReadOptions read = 2;
 
-    // @gotags: kong:"cmd,help='Write message(s) to messaging system'"
-    opts.WriteOptions write = 3;
+  // @gotags: kong:"cmd,help='Write message(s) to messaging system'"
+  opts.WriteOptions write = 3;
 
-    // @gotags: kong:"cmd,help='Relay message(s) from messaging system to Batch'"
-    opts.RelayOptions relay = 4;
+  // @gotags: kong:"cmd,help='Relay message(s) from messaging system to Batch'"
+  opts.RelayOptions relay = 4;
 
-    // @gotags: kong:"cmd,help='Use plumber as a replay destination in Batch.sh'"
-    opts.DynamicOptions dynamic = 5;
+  // @gotags: kong:"cmd,help='Use plumber as a replay destination in Batch.sh'"
+  opts.DynamicOptions dynamic = 5;
 
-    // @gotags: kong:"cmd,help='Control Batch resources via the public API'"
-    opts.BatchOptions batch = 6;
+  // @gotags: kong:"cmd,help='Control Batch resources via the public API'"
+  opts.BatchOptions batch = 6;
 
-    // @gotags: kong:"cmd,help='Run plumber in server mode'"
-    opts.ServerOptions server = 7;
+  // @gotags: kong:"cmd,help='Run plumber in server mode'"
+  opts.ServerOptions server = 7;
 }

@@ -5,5 +5,5 @@ package protos.common;
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/common";
 
 message Auth {
-    string token = 1;
+  string token = 1;
 }
