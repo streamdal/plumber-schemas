@@ -73,8 +73,8 @@ type RelayOptions struct {
 	// Required for desktop; ignored in CLI.
 	// @gotags: kong:"-"
 	ConnectionId string `protobuf:"bytes,4,opt,name=connection_id,json=connectionId,proto3" json:"connection_id,omitempty" kong:"-"`
-	// @gotags: kong:"name='How many workers to launch per relay',env='PLUMBER_RELAY_NUM_WORKERS',default=10"
-	NumWorkers int32 `protobuf:"varint,5,opt,name=num_workers,json=numWorkers,proto3" json:"num_workers,omitempty" kong:"name='How many workers to launch per relay',env='PLUMBER_RELAY_NUM_WORKERS',default=10"`
+	// @gotags: kong:"help='How many workers to launch per relay',env='PLUMBER_RELAY_NUM_WORKERS',default=10"
+	NumWorkers int32 `protobuf:"varint,5,opt,name=num_workers,json=numWorkers,proto3" json:"num_workers,omitempty" kong:"help='How many workers to launch per relay',env='PLUMBER_RELAY_NUM_WORKERS',default=10"`
 	// @gotags: kong:"group=stats,help='Display periodic read stats'"
 	StatsEnable bool `protobuf:"varint,6,opt,name=stats_enable,json=statsEnable,proto3" json:"stats_enable,omitempty" kong:"group=stats,help='Display periodic read stats'"`
 	// @gotags: kong:"group=stats,help='How often to print stats',default=5"

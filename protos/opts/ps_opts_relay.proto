@@ -41,7 +41,7 @@ message RelayOptions {
   // @gotags: kong:"-"
   string connection_id = 4;
 
-  // @gotags: kong:"name='How many workers to launch per relay',env='PLUMBER_RELAY_NUM_WORKERS',default=10"
+  // @gotags: kong:"help='How many workers to launch per relay',env='PLUMBER_RELAY_NUM_WORKERS',default=10"
   int32 num_workers = 5;
 
   // @gotags: kong:"group=stats,help='Display periodic read stats'"
