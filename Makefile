@@ -1,4 +1,5 @@
-TS_DEST = ./build/ts
+GO_PROTOS_DIR=./build/go/protos
+GO_DESCRIPTOR_SET_DIR=./build/go/descriptor-sets
 
 help: HELP_SCRIPT = \
 	if (/^([a-zA-Z0-9-\.\/]+).*?: description\s*=\s*(.+)/) { \
@@ -50,13 +51,13 @@ generate/all: generate/ts generate/go inject-tags
 local: description = Compile protos for all languages and copy to local plumber
 local: generate/ts generate/go inject-tags
 local:
-	cp -R build/go/protos/ ~/Code/plumber/vendor/github.com/batchcorp/plumber-schemas/build/go/protos/
+	cp -R $(GO_PROTOS_DIR)/ ~/Code/plumber/vendor/github.com/batchcorp/plumber-schemas/$(GO_PROTOS_DIR)/
 
 .PHONY: generate/ts
 generate/ts: description = Compile TypeScript Interfaces for UI
 generate/ts: clean-ts
 generate/ts:
-	mkdir -p build/ts 
+	mkdir -p build/ts
 	./node_modules/.bin/pbjs \
 	-t static-module \
 	-w commonjs \
@@ -75,12 +76,13 @@ generate/ts:
 generate/go: description = Compile protobuf schemas for Go
 generate/go: clean-go
 generate/go:
-	mkdir -p build/go/protos
-	mkdir -p build/go/protos/args
-	mkdir -p build/go/protos/common
-	mkdir -p build/go/protos/encoding
-	mkdir -p build/go/protos/opts
-	mkdir -p build/go/protos/records
+	mkdir -p $(GO_DESCRIPTOR_SET_DIR)
+	mkdir -p $(GO_PROTOS_DIR)
+	mkdir -p $(GO_PROTOS_DIR)/args
+	mkdir -p $(GO_PROTOS_DIR)/common
+	mkdir -p $(GO_PROTOS_DIR)/encoding
+	mkdir -p $(GO_PROTOS_DIR)/opts
+	mkdir -p $(GO_PROTOS_DIR)/records
 
 	docker run --rm -w $(PWD) -v $(PWD):$(PWD) -w${PWD} jaegertracing/protobuf:0.2.0 \
 	--proto_path=./protos \
@@ -88,40 +90,58 @@ generate/go:
 	--proto_path=./protos/common \
 	--proto_path=./protos/encoding \
 	--proto_path=./protos/records \
-	--go_out=plugins=grpc:build/go/protos \
+	--go_out=plugins=grpc:$(GO_PROTOS_DIR) \
 	--go_opt=paths=source_relative \
+	-o ./$(GO_DESCRIPTOR_SET_DIR)/base.fds \
+	--include_imports \
+	--include_source_info \
 	protos/*.proto
 
 	docker run --rm -w $(PWD) -v $(PWD):$(PWD) -w${PWD} jaegertracing/protobuf:0.2.0 \
 	--proto_path=./protos/args \
-	--go_out=plugins=grpc:build/go/protos/args \
+	--go_out=plugins=grpc:$(GO_PROTOS_DIR)/args \
 	--go_opt=paths=source_relative \
+	-o ./$(GO_DESCRIPTOR_SET_DIR)/args.fds \
+	--include_imports \
+	--include_source_info \
 	protos/args/*.proto
 
 	docker run --rm -w $(PWD) -v $(PWD):$(PWD) -w${PWD} jaegertracing/protobuf:0.2.0 \
 	--proto_path=./protos/common \
-	--go_out=plugins=grpc:build/go/protos/common \
+	--go_out=plugins=grpc:$(GO_PROTOS_DIR)/common \
 	--go_opt=paths=source_relative \
+	-o ./$(GO_DESCRIPTOR_SET_DIR)/common.fds \
+	--include_imports \
+	--include_source_info \
 	protos/common/*.proto
 
 	docker run --rm -w $(PWD) -v $(PWD):$(PWD) -w${PWD} jaegertracing/protobuf:0.2.0 \
 	--proto_path=./protos/encoding \
-	--go_out=plugins=grpc:build/go/protos/encoding \
+	--go_out=plugins=grpc:$(GO_PROTOS_DIR)/encoding \
 	--go_opt=paths=source_relative \
+	-o ./$(GO_DESCRIPTOR_SET_DIR)/encoding.fds \
+	--include_imports \
+	--include_source_info \
 	protos/encoding/*.proto
 
 # Because opts imports from base /protos, we have to specify --proto_path=./protos
-# This means that output location will be _inferred_ as 'build/go/protos/opts'
+# This means that output location will be _inferred_ as '$(GO_PROTOS_DIR)/opts'
 	docker run --rm -w $(PWD) -v $(PWD):$(PWD) -w${PWD} jaegertracing/protobuf:0.2.0 \
 	--proto_path=./protos \
-	--go_out=plugins=grpc:build/go/protos \
+	--go_out=plugins=grpc:$(GO_PROTOS_DIR) \
 	--go_opt=paths=source_relative \
+	-o ./$(GO_DESCRIPTOR_SET_DIR)/opts.fds \
+	--include_imports \
+	--include_source_info \
 	protos/opts/*.proto
 
 	docker run --rm -w $(PWD) -v $(PWD):$(PWD) -w${PWD} jaegertracing/protobuf:0.2.0 \
 	--proto_path=./protos \
-	--go_out=plugins=grpc:build/go/protos \
+	--go_out=plugins=grpc:$(GO_PROTOS_DIR) \
 	--go_opt=paths=source_relative \
+	-o ./$(GO_DESCRIPTOR_SET_DIR)/records.fds \
+	--include_imports \
+	--include_source_info \
 	protos/records/*.proto
 
 # Perform any extra steps as part of codegen
@@ -133,12 +153,12 @@ generate/go:
 inject-tags: description = Inject tags for CLI
 inject-tags:
 	# Injecting tags into *.pb.go files...
-	protoc-go-inject-tag -input="build/go/protos/*.pb.go"
-	protoc-go-inject-tag -input="build/go/protos/args/*.pb.go"
-	protoc-go-inject-tag -input="build/go/protos/common/*.pb.go"
-	protoc-go-inject-tag -input="build/go/protos/encoding/*.pb.go"
-	protoc-go-inject-tag -input="build/go/protos/opts/*.pb.go"
-	protoc-go-inject-tag -input="build/go/protos/records/*.pb.go"
+	protoc-go-inject-tag -input="$(GO_PROTOS_DIR)/*.pb.go"
+	protoc-go-inject-tag -input="$(GO_PROTOS_DIR)/args/*.pb.go"
+	protoc-go-inject-tag -input="$(GO_PROTOS_DIR)/common/*.pb.go"
+	protoc-go-inject-tag -input="$(GO_PROTOS_DIR)/encoding/*.pb.go"
+	protoc-go-inject-tag -input="$(GO_PROTOS_DIR)/opts/*.pb.go"
+	protoc-go-inject-tag -input="$(GO_PROTOS_DIR)/records/*.pb.go"
 
 .PHONY: clean-go
 clean-go: description = Remove all go build artifacts
