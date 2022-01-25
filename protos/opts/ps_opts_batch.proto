@@ -50,6 +50,21 @@ message BatchLogoutOptions {
     // None
 }
 
+message BatchListCollectionOptions {
+    // None
+}
+
+message BatchListDestinationOptions {
+    // None
+}
+
+message BatchListSchemaOptions {
+    // None
+}
+message BatchListReplayOptions {
+    // None
+}
+
 message BatchArchiveOptions {
     // @gotags: kong:"embed,cmd,help='Archive a replay'"
     BatchArchiveReplayOptions replay = 1;
@@ -62,16 +77,16 @@ message BatchArchiveReplayOptions {
 
 message BatchListOptions {
     // @gotags: kong:"cmd,help='List all collections'"
-    bool collection = 1;
+    BatchListCollectionOptions collection = 1;
 
     // @gotags: kong:"cmd,help='List all destinations'"
-    bool destination = 2;
+    BatchListDestinationOptions destination = 2;
 
     // @gotags: kong:"cmd,help='List all replays'"
-    bool replay = 3;
+    BatchListReplayOptions replay = 3;
 
     // @gotags: kong:"cmd,help='List all schemas'"
-    bool schema = 4;
+    BatchListSchemaOptions schema = 4;
 }
 
 message BatchCreateOptions {

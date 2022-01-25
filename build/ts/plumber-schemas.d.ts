@@ -9673,6 +9673,342 @@ export namespace protos {
             public toJSON(): { [k: string]: any };
         }
 
+        /** Properties of a BatchListCollectionOptions. */
+        interface IBatchListCollectionOptions {
+        }
+
+        /** Represents a BatchListCollectionOptions. */
+        class BatchListCollectionOptions implements IBatchListCollectionOptions {
+
+            /**
+             * Constructs a new BatchListCollectionOptions.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.opts.IBatchListCollectionOptions);
+
+            /**
+             * Creates a new BatchListCollectionOptions instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns BatchListCollectionOptions instance
+             */
+            public static create(properties?: protos.opts.IBatchListCollectionOptions): protos.opts.BatchListCollectionOptions;
+
+            /**
+             * Encodes the specified BatchListCollectionOptions message. Does not implicitly {@link protos.opts.BatchListCollectionOptions.verify|verify} messages.
+             * @param message BatchListCollectionOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.opts.IBatchListCollectionOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified BatchListCollectionOptions message, length delimited. Does not implicitly {@link protos.opts.BatchListCollectionOptions.verify|verify} messages.
+             * @param message BatchListCollectionOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.opts.IBatchListCollectionOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a BatchListCollectionOptions message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns BatchListCollectionOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.BatchListCollectionOptions;
+
+            /**
+             * Decodes a BatchListCollectionOptions message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns BatchListCollectionOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.BatchListCollectionOptions;
+
+            /**
+             * Verifies a BatchListCollectionOptions message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a BatchListCollectionOptions message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns BatchListCollectionOptions
+             */
+            public static fromObject(object: { [k: string]: any }): protos.opts.BatchListCollectionOptions;
+
+            /**
+             * Creates a plain object from a BatchListCollectionOptions message. Also converts values to other types if specified.
+             * @param message BatchListCollectionOptions
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.opts.BatchListCollectionOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this BatchListCollectionOptions to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a BatchListDestinationOptions. */
+        interface IBatchListDestinationOptions {
+        }
+
+        /** Represents a BatchListDestinationOptions. */
+        class BatchListDestinationOptions implements IBatchListDestinationOptions {
+
+            /**
+             * Constructs a new BatchListDestinationOptions.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.opts.IBatchListDestinationOptions);
+
+            /**
+             * Creates a new BatchListDestinationOptions instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns BatchListDestinationOptions instance
+             */
+            public static create(properties?: protos.opts.IBatchListDestinationOptions): protos.opts.BatchListDestinationOptions;
+
+            /**
+             * Encodes the specified BatchListDestinationOptions message. Does not implicitly {@link protos.opts.BatchListDestinationOptions.verify|verify} messages.
+             * @param message BatchListDestinationOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.opts.IBatchListDestinationOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified BatchListDestinationOptions message, length delimited. Does not implicitly {@link protos.opts.BatchListDestinationOptions.verify|verify} messages.
+             * @param message BatchListDestinationOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.opts.IBatchListDestinationOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a BatchListDestinationOptions message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns BatchListDestinationOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.BatchListDestinationOptions;
+
+            /**
+             * Decodes a BatchListDestinationOptions message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns BatchListDestinationOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.BatchListDestinationOptions;
+
+            /**
+             * Verifies a BatchListDestinationOptions message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a BatchListDestinationOptions message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns BatchListDestinationOptions
+             */
+            public static fromObject(object: { [k: string]: any }): protos.opts.BatchListDestinationOptions;
+
+            /**
+             * Creates a plain object from a BatchListDestinationOptions message. Also converts values to other types if specified.
+             * @param message BatchListDestinationOptions
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.opts.BatchListDestinationOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this BatchListDestinationOptions to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a BatchListSchemaOptions. */
+        interface IBatchListSchemaOptions {
+        }
+
+        /** Represents a BatchListSchemaOptions. */
+        class BatchListSchemaOptions implements IBatchListSchemaOptions {
+
+            /**
+             * Constructs a new BatchListSchemaOptions.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.opts.IBatchListSchemaOptions);
+
+            /**
+             * Creates a new BatchListSchemaOptions instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns BatchListSchemaOptions instance
+             */
+            public static create(properties?: protos.opts.IBatchListSchemaOptions): protos.opts.BatchListSchemaOptions;
+
+            /**
+             * Encodes the specified BatchListSchemaOptions message. Does not implicitly {@link protos.opts.BatchListSchemaOptions.verify|verify} messages.
+             * @param message BatchListSchemaOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.opts.IBatchListSchemaOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified BatchListSchemaOptions message, length delimited. Does not implicitly {@link protos.opts.BatchListSchemaOptions.verify|verify} messages.
+             * @param message BatchListSchemaOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.opts.IBatchListSchemaOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a BatchListSchemaOptions message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns BatchListSchemaOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.BatchListSchemaOptions;
+
+            /**
+             * Decodes a BatchListSchemaOptions message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns BatchListSchemaOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.BatchListSchemaOptions;
+
+            /**
+             * Verifies a BatchListSchemaOptions message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a BatchListSchemaOptions message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns BatchListSchemaOptions
+             */
+            public static fromObject(object: { [k: string]: any }): protos.opts.BatchListSchemaOptions;
+
+            /**
+             * Creates a plain object from a BatchListSchemaOptions message. Also converts values to other types if specified.
+             * @param message BatchListSchemaOptions
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.opts.BatchListSchemaOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this BatchListSchemaOptions to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a BatchListReplayOptions. */
+        interface IBatchListReplayOptions {
+        }
+
+        /** Represents a BatchListReplayOptions. */
+        class BatchListReplayOptions implements IBatchListReplayOptions {
+
+            /**
+             * Constructs a new BatchListReplayOptions.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.opts.IBatchListReplayOptions);
+
+            /**
+             * Creates a new BatchListReplayOptions instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns BatchListReplayOptions instance
+             */
+            public static create(properties?: protos.opts.IBatchListReplayOptions): protos.opts.BatchListReplayOptions;
+
+            /**
+             * Encodes the specified BatchListReplayOptions message. Does not implicitly {@link protos.opts.BatchListReplayOptions.verify|verify} messages.
+             * @param message BatchListReplayOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.opts.IBatchListReplayOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified BatchListReplayOptions message, length delimited. Does not implicitly {@link protos.opts.BatchListReplayOptions.verify|verify} messages.
+             * @param message BatchListReplayOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.opts.IBatchListReplayOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a BatchListReplayOptions message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns BatchListReplayOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.BatchListReplayOptions;
+
+            /**
+             * Decodes a BatchListReplayOptions message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns BatchListReplayOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.BatchListReplayOptions;
+
+            /**
+             * Verifies a BatchListReplayOptions message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a BatchListReplayOptions message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns BatchListReplayOptions
+             */
+            public static fromObject(object: { [k: string]: any }): protos.opts.BatchListReplayOptions;
+
+            /**
+             * Creates a plain object from a BatchListReplayOptions message. Also converts values to other types if specified.
+             * @param message BatchListReplayOptions
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.opts.BatchListReplayOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this BatchListReplayOptions to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
         /** Properties of a BatchArchiveOptions. */
         interface IBatchArchiveOptions {
 
@@ -9857,16 +10193,16 @@ export namespace protos {
         interface IBatchListOptions {
 
             /** BatchListOptions collection */
-            collection?: (boolean|null);
+            collection?: (protos.opts.IBatchListCollectionOptions|null);
 
             /** BatchListOptions destination */
-            destination?: (boolean|null);
+            destination?: (protos.opts.IBatchListDestinationOptions|null);
 
             /** BatchListOptions replay */
-            replay?: (boolean|null);
+            replay?: (protos.opts.IBatchListReplayOptions|null);
 
             /** BatchListOptions schema */
-            schema?: (boolean|null);
+            schema?: (protos.opts.IBatchListSchemaOptions|null);
         }
 
         /** Represents a BatchListOptions. */
@@ -9879,16 +10215,16 @@ export namespace protos {
             constructor(properties?: protos.opts.IBatchListOptions);
 
             /** BatchListOptions collection. */
-            public collection: boolean;
+            public collection?: (protos.opts.IBatchListCollectionOptions|null);
 
             /** BatchListOptions destination. */
-            public destination: boolean;
+            public destination?: (protos.opts.IBatchListDestinationOptions|null);
 
             /** BatchListOptions replay. */
-            public replay: boolean;
+            public replay?: (protos.opts.IBatchListReplayOptions|null);
 
             /** BatchListOptions schema. */
-            public schema: boolean;
+            public schema?: (protos.opts.IBatchListSchemaOptions|null);
 
             /**
              * Creates a new BatchListOptions instance using the specified properties.
