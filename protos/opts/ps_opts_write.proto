@@ -34,7 +34,7 @@ message WriteCLIOptions {
   bool input_as_json_array = 2;
 
   // @gotags: kong:"-"
-  repeated string input_stdins = 3;
+  repeated string input_stdin = 3;
 }
 
 // Write is the structure that backends accept for facilitating a write.

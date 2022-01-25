@@ -27,10 +27,10 @@ message AlertSchedule {
   string timezone = 1; // if unset, UTC
 
   // When to alert; at all times if unset
-  repeated AlertTimeRange time_range_ons  = 2;
+  repeated AlertTimeRange time_range_on  = 2;
 
   // When NOT to alert; never if unset
-  repeated AlertTimeRange time_range_offs = 3;
+  repeated AlertTimeRange time_range_off = 3;
 }
 
 message AlertOptions {
@@ -62,7 +62,7 @@ message AlertEmailOutput {
     string from_address = 6;
   }
 
-  repeated string email_addresses = 1;
+  repeated string email_address = 1;
   string subject                = 2;
   map<string, string> metadata  = 3;
 
