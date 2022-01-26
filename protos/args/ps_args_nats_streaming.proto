@@ -36,7 +36,7 @@ message NatsStreamingConn {
 }
 
 message NatsStreamingReadArgs {
-  // @gotags: kong:"help='NATS stream channel. Ex: orders',env='PLUMBER_RELAY_NATS_STREAMING_CHANNEL"
+  // @gotags: kong:"help='NATS stream channel. Ex: orders',env='PLUMBER_RELAY_NATS_STREAMING_CHANNEL'"
   string channel = 1;
 
   // @gotags: kong:"help='Create a durable subscription with this name for the given channel',env='PLUMBER_RELAY_NATS_STREAMING_DURABLE_SUBSCRIPTION_NAME'"
