@@ -2298,6 +2298,2052 @@ export namespace protos {
             public toJSON(): { [k: string]: any };
         }
 
+        /** Properties of a DynamicOptions. */
+        interface IDynamicOptions {
+
+            /** DynamicOptions apiToken */
+            apiToken?: (string|null);
+
+            /** DynamicOptions _grpcAddress */
+            _grpcAddress?: (string|null);
+
+            /** DynamicOptions _grpcTimeoutSeconds */
+            _grpcTimeoutSeconds?: (number|null);
+
+            /** DynamicOptions _grpcInsecure */
+            _grpcInsecure?: (boolean|null);
+
+            /** DynamicOptions kafka */
+            kafka?: (protos.opts.IDynamicGroupKafkaOptions|null);
+
+            /** DynamicOptions activemq */
+            activemq?: (protos.opts.IDynamicGroupActiveMQOptions|null);
+
+            /** DynamicOptions awsSqs */
+            awsSqs?: (protos.opts.IDynamicGroupAWSSQSOptions|null);
+
+            /** DynamicOptions awsSns */
+            awsSns?: (protos.opts.IDynamicGroupAWSSNSOptions|null);
+
+            /** DynamicOptions nats */
+            nats?: (protos.opts.IDynamicGroupNatsOptions|null);
+
+            /** DynamicOptions natsStreaming */
+            natsStreaming?: (protos.opts.IDynamicGroupNatsStreamingOptions|null);
+
+            /** DynamicOptions nsq */
+            nsq?: (protos.opts.IDynamicGroupNSQOptions|null);
+
+            /** DynamicOptions rabbit */
+            rabbit?: (protos.opts.IDynamicGroupRabbitOptions|null);
+
+            /** DynamicOptions mqtt */
+            mqtt?: (protos.opts.IDynamicGroupMQTTOptions|null);
+
+            /** DynamicOptions azureServiceBus */
+            azureServiceBus?: (protos.opts.IDynamicGroupAzureServiceBusOptions|null);
+
+            /** DynamicOptions azureEventHub */
+            azureEventHub?: (protos.opts.IDynamicGroupAzureEventHubOptions|null);
+
+            /** DynamicOptions gcpPubsub */
+            gcpPubsub?: (protos.opts.IDynamicGroupGCPPubSubOptions|null);
+
+            /** DynamicOptions kubemqQueue */
+            kubemqQueue?: (protos.opts.IDynamicGroupKubeMQQueueOptions|null);
+
+            /** DynamicOptions redisPubsub */
+            redisPubsub?: (protos.opts.IDynamicGroupRedisPubSubOptions|null);
+
+            /** DynamicOptions redisStreams */
+            redisStreams?: (protos.opts.IDynamicGroupRedisStreamsOptions|null);
+
+            /** DynamicOptions pulsar */
+            pulsar?: (protos.opts.IDynamicGroupPulsarOptions|null);
+
+            /** DynamicOptions rabbitStreams */
+            rabbitStreams?: (protos.opts.IDynamicGroupRabbitStreamsOptions|null);
+
+            /** DynamicOptions natsJetstream */
+            natsJetstream?: (protos.opts.IDynamicGroupNatsJetstreamOptions|null);
+
+            /** DynamicOptions awsKinesis */
+            awsKinesis?: (protos.opts.IDynamicGroupAWSKinesisOptions|null);
+        }
+
+        /** Represents a DynamicOptions. */
+        class DynamicOptions implements IDynamicOptions {
+
+            /**
+             * Constructs a new DynamicOptions.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.opts.IDynamicOptions);
+
+            /** DynamicOptions apiToken. */
+            public apiToken: string;
+
+            /** DynamicOptions _grpcAddress. */
+            public _grpcAddress: string;
+
+            /** DynamicOptions _grpcTimeoutSeconds. */
+            public _grpcTimeoutSeconds: number;
+
+            /** DynamicOptions _grpcInsecure. */
+            public _grpcInsecure: boolean;
+
+            /** DynamicOptions kafka. */
+            public kafka?: (protos.opts.IDynamicGroupKafkaOptions|null);
+
+            /** DynamicOptions activemq. */
+            public activemq?: (protos.opts.IDynamicGroupActiveMQOptions|null);
+
+            /** DynamicOptions awsSqs. */
+            public awsSqs?: (protos.opts.IDynamicGroupAWSSQSOptions|null);
+
+            /** DynamicOptions awsSns. */
+            public awsSns?: (protos.opts.IDynamicGroupAWSSNSOptions|null);
+
+            /** DynamicOptions nats. */
+            public nats?: (protos.opts.IDynamicGroupNatsOptions|null);
+
+            /** DynamicOptions natsStreaming. */
+            public natsStreaming?: (protos.opts.IDynamicGroupNatsStreamingOptions|null);
+
+            /** DynamicOptions nsq. */
+            public nsq?: (protos.opts.IDynamicGroupNSQOptions|null);
+
+            /** DynamicOptions rabbit. */
+            public rabbit?: (protos.opts.IDynamicGroupRabbitOptions|null);
+
+            /** DynamicOptions mqtt. */
+            public mqtt?: (protos.opts.IDynamicGroupMQTTOptions|null);
+
+            /** DynamicOptions azureServiceBus. */
+            public azureServiceBus?: (protos.opts.IDynamicGroupAzureServiceBusOptions|null);
+
+            /** DynamicOptions azureEventHub. */
+            public azureEventHub?: (protos.opts.IDynamicGroupAzureEventHubOptions|null);
+
+            /** DynamicOptions gcpPubsub. */
+            public gcpPubsub?: (protos.opts.IDynamicGroupGCPPubSubOptions|null);
+
+            /** DynamicOptions kubemqQueue. */
+            public kubemqQueue?: (protos.opts.IDynamicGroupKubeMQQueueOptions|null);
+
+            /** DynamicOptions redisPubsub. */
+            public redisPubsub?: (protos.opts.IDynamicGroupRedisPubSubOptions|null);
+
+            /** DynamicOptions redisStreams. */
+            public redisStreams?: (protos.opts.IDynamicGroupRedisStreamsOptions|null);
+
+            /** DynamicOptions pulsar. */
+            public pulsar?: (protos.opts.IDynamicGroupPulsarOptions|null);
+
+            /** DynamicOptions rabbitStreams. */
+            public rabbitStreams?: (protos.opts.IDynamicGroupRabbitStreamsOptions|null);
+
+            /** DynamicOptions natsJetstream. */
+            public natsJetstream?: (protos.opts.IDynamicGroupNatsJetstreamOptions|null);
+
+            /** DynamicOptions awsKinesis. */
+            public awsKinesis?: (protos.opts.IDynamicGroupAWSKinesisOptions|null);
+
+            /**
+             * Creates a new DynamicOptions instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns DynamicOptions instance
+             */
+            public static create(properties?: protos.opts.IDynamicOptions): protos.opts.DynamicOptions;
+
+            /**
+             * Encodes the specified DynamicOptions message. Does not implicitly {@link protos.opts.DynamicOptions.verify|verify} messages.
+             * @param message DynamicOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.opts.IDynamicOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified DynamicOptions message, length delimited. Does not implicitly {@link protos.opts.DynamicOptions.verify|verify} messages.
+             * @param message DynamicOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.opts.IDynamicOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a DynamicOptions message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns DynamicOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.DynamicOptions;
+
+            /**
+             * Decodes a DynamicOptions message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns DynamicOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.DynamicOptions;
+
+            /**
+             * Verifies a DynamicOptions message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a DynamicOptions message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns DynamicOptions
+             */
+            public static fromObject(object: { [k: string]: any }): protos.opts.DynamicOptions;
+
+            /**
+             * Creates a plain object from a DynamicOptions message. Also converts values to other types if specified.
+             * @param message DynamicOptions
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.opts.DynamicOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this DynamicOptions to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a DynamicGroupKafkaOptions. */
+        interface IDynamicGroupKafkaOptions {
+
+            /** DynamicGroupKafkaOptions _conn */
+            _conn?: (protos.args.IKafkaConn|null);
+
+            /** DynamicGroupKafkaOptions args */
+            args?: (protos.args.IKafkaWriteArgs|null);
+        }
+
+        /** Represents a DynamicGroupKafkaOptions. */
+        class DynamicGroupKafkaOptions implements IDynamicGroupKafkaOptions {
+
+            /**
+             * Constructs a new DynamicGroupKafkaOptions.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.opts.IDynamicGroupKafkaOptions);
+
+            /** DynamicGroupKafkaOptions _conn. */
+            public _conn?: (protos.args.IKafkaConn|null);
+
+            /** DynamicGroupKafkaOptions args. */
+            public args?: (protos.args.IKafkaWriteArgs|null);
+
+            /**
+             * Creates a new DynamicGroupKafkaOptions instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns DynamicGroupKafkaOptions instance
+             */
+            public static create(properties?: protos.opts.IDynamicGroupKafkaOptions): protos.opts.DynamicGroupKafkaOptions;
+
+            /**
+             * Encodes the specified DynamicGroupKafkaOptions message. Does not implicitly {@link protos.opts.DynamicGroupKafkaOptions.verify|verify} messages.
+             * @param message DynamicGroupKafkaOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.opts.IDynamicGroupKafkaOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified DynamicGroupKafkaOptions message, length delimited. Does not implicitly {@link protos.opts.DynamicGroupKafkaOptions.verify|verify} messages.
+             * @param message DynamicGroupKafkaOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.opts.IDynamicGroupKafkaOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a DynamicGroupKafkaOptions message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns DynamicGroupKafkaOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.DynamicGroupKafkaOptions;
+
+            /**
+             * Decodes a DynamicGroupKafkaOptions message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns DynamicGroupKafkaOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.DynamicGroupKafkaOptions;
+
+            /**
+             * Verifies a DynamicGroupKafkaOptions message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a DynamicGroupKafkaOptions message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns DynamicGroupKafkaOptions
+             */
+            public static fromObject(object: { [k: string]: any }): protos.opts.DynamicGroupKafkaOptions;
+
+            /**
+             * Creates a plain object from a DynamicGroupKafkaOptions message. Also converts values to other types if specified.
+             * @param message DynamicGroupKafkaOptions
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.opts.DynamicGroupKafkaOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this DynamicGroupKafkaOptions to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a DynamicGroupActiveMQOptions. */
+        interface IDynamicGroupActiveMQOptions {
+
+            /** DynamicGroupActiveMQOptions _conn */
+            _conn?: (protos.args.IActiveMQConn|null);
+
+            /** DynamicGroupActiveMQOptions args */
+            args?: (protos.args.IActiveMQWriteArgs|null);
+        }
+
+        /** Represents a DynamicGroupActiveMQOptions. */
+        class DynamicGroupActiveMQOptions implements IDynamicGroupActiveMQOptions {
+
+            /**
+             * Constructs a new DynamicGroupActiveMQOptions.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.opts.IDynamicGroupActiveMQOptions);
+
+            /** DynamicGroupActiveMQOptions _conn. */
+            public _conn?: (protos.args.IActiveMQConn|null);
+
+            /** DynamicGroupActiveMQOptions args. */
+            public args?: (protos.args.IActiveMQWriteArgs|null);
+
+            /**
+             * Creates a new DynamicGroupActiveMQOptions instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns DynamicGroupActiveMQOptions instance
+             */
+            public static create(properties?: protos.opts.IDynamicGroupActiveMQOptions): protos.opts.DynamicGroupActiveMQOptions;
+
+            /**
+             * Encodes the specified DynamicGroupActiveMQOptions message. Does not implicitly {@link protos.opts.DynamicGroupActiveMQOptions.verify|verify} messages.
+             * @param message DynamicGroupActiveMQOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.opts.IDynamicGroupActiveMQOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified DynamicGroupActiveMQOptions message, length delimited. Does not implicitly {@link protos.opts.DynamicGroupActiveMQOptions.verify|verify} messages.
+             * @param message DynamicGroupActiveMQOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.opts.IDynamicGroupActiveMQOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a DynamicGroupActiveMQOptions message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns DynamicGroupActiveMQOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.DynamicGroupActiveMQOptions;
+
+            /**
+             * Decodes a DynamicGroupActiveMQOptions message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns DynamicGroupActiveMQOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.DynamicGroupActiveMQOptions;
+
+            /**
+             * Verifies a DynamicGroupActiveMQOptions message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a DynamicGroupActiveMQOptions message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns DynamicGroupActiveMQOptions
+             */
+            public static fromObject(object: { [k: string]: any }): protos.opts.DynamicGroupActiveMQOptions;
+
+            /**
+             * Creates a plain object from a DynamicGroupActiveMQOptions message. Also converts values to other types if specified.
+             * @param message DynamicGroupActiveMQOptions
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.opts.DynamicGroupActiveMQOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this DynamicGroupActiveMQOptions to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a DynamicGroupAWSSQSOptions. */
+        interface IDynamicGroupAWSSQSOptions {
+
+            /** DynamicGroupAWSSQSOptions _conn */
+            _conn?: (protos.args.IAWSSQSConn|null);
+
+            /** DynamicGroupAWSSQSOptions args */
+            args?: (protos.args.IAWSSQSWriteArgs|null);
+        }
+
+        /** Represents a DynamicGroupAWSSQSOptions. */
+        class DynamicGroupAWSSQSOptions implements IDynamicGroupAWSSQSOptions {
+
+            /**
+             * Constructs a new DynamicGroupAWSSQSOptions.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.opts.IDynamicGroupAWSSQSOptions);
+
+            /** DynamicGroupAWSSQSOptions _conn. */
+            public _conn?: (protos.args.IAWSSQSConn|null);
+
+            /** DynamicGroupAWSSQSOptions args. */
+            public args?: (protos.args.IAWSSQSWriteArgs|null);
+
+            /**
+             * Creates a new DynamicGroupAWSSQSOptions instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns DynamicGroupAWSSQSOptions instance
+             */
+            public static create(properties?: protos.opts.IDynamicGroupAWSSQSOptions): protos.opts.DynamicGroupAWSSQSOptions;
+
+            /**
+             * Encodes the specified DynamicGroupAWSSQSOptions message. Does not implicitly {@link protos.opts.DynamicGroupAWSSQSOptions.verify|verify} messages.
+             * @param message DynamicGroupAWSSQSOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.opts.IDynamicGroupAWSSQSOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified DynamicGroupAWSSQSOptions message, length delimited. Does not implicitly {@link protos.opts.DynamicGroupAWSSQSOptions.verify|verify} messages.
+             * @param message DynamicGroupAWSSQSOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.opts.IDynamicGroupAWSSQSOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a DynamicGroupAWSSQSOptions message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns DynamicGroupAWSSQSOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.DynamicGroupAWSSQSOptions;
+
+            /**
+             * Decodes a DynamicGroupAWSSQSOptions message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns DynamicGroupAWSSQSOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.DynamicGroupAWSSQSOptions;
+
+            /**
+             * Verifies a DynamicGroupAWSSQSOptions message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a DynamicGroupAWSSQSOptions message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns DynamicGroupAWSSQSOptions
+             */
+            public static fromObject(object: { [k: string]: any }): protos.opts.DynamicGroupAWSSQSOptions;
+
+            /**
+             * Creates a plain object from a DynamicGroupAWSSQSOptions message. Also converts values to other types if specified.
+             * @param message DynamicGroupAWSSQSOptions
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.opts.DynamicGroupAWSSQSOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this DynamicGroupAWSSQSOptions to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a DynamicGroupAWSSNSOptions. */
+        interface IDynamicGroupAWSSNSOptions {
+
+            /** DynamicGroupAWSSNSOptions _conn */
+            _conn?: (protos.args.IAWSSNSConn|null);
+
+            /** DynamicGroupAWSSNSOptions args */
+            args?: (protos.args.IAWSSNSWriteArgs|null);
+        }
+
+        /** Represents a DynamicGroupAWSSNSOptions. */
+        class DynamicGroupAWSSNSOptions implements IDynamicGroupAWSSNSOptions {
+
+            /**
+             * Constructs a new DynamicGroupAWSSNSOptions.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.opts.IDynamicGroupAWSSNSOptions);
+
+            /** DynamicGroupAWSSNSOptions _conn. */
+            public _conn?: (protos.args.IAWSSNSConn|null);
+
+            /** DynamicGroupAWSSNSOptions args. */
+            public args?: (protos.args.IAWSSNSWriteArgs|null);
+
+            /**
+             * Creates a new DynamicGroupAWSSNSOptions instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns DynamicGroupAWSSNSOptions instance
+             */
+            public static create(properties?: protos.opts.IDynamicGroupAWSSNSOptions): protos.opts.DynamicGroupAWSSNSOptions;
+
+            /**
+             * Encodes the specified DynamicGroupAWSSNSOptions message. Does not implicitly {@link protos.opts.DynamicGroupAWSSNSOptions.verify|verify} messages.
+             * @param message DynamicGroupAWSSNSOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.opts.IDynamicGroupAWSSNSOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified DynamicGroupAWSSNSOptions message, length delimited. Does not implicitly {@link protos.opts.DynamicGroupAWSSNSOptions.verify|verify} messages.
+             * @param message DynamicGroupAWSSNSOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.opts.IDynamicGroupAWSSNSOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a DynamicGroupAWSSNSOptions message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns DynamicGroupAWSSNSOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.DynamicGroupAWSSNSOptions;
+
+            /**
+             * Decodes a DynamicGroupAWSSNSOptions message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns DynamicGroupAWSSNSOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.DynamicGroupAWSSNSOptions;
+
+            /**
+             * Verifies a DynamicGroupAWSSNSOptions message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a DynamicGroupAWSSNSOptions message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns DynamicGroupAWSSNSOptions
+             */
+            public static fromObject(object: { [k: string]: any }): protos.opts.DynamicGroupAWSSNSOptions;
+
+            /**
+             * Creates a plain object from a DynamicGroupAWSSNSOptions message. Also converts values to other types if specified.
+             * @param message DynamicGroupAWSSNSOptions
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.opts.DynamicGroupAWSSNSOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this DynamicGroupAWSSNSOptions to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a DynamicGroupNatsOptions. */
+        interface IDynamicGroupNatsOptions {
+
+            /** DynamicGroupNatsOptions _conn */
+            _conn?: (protos.args.INatsConn|null);
+
+            /** DynamicGroupNatsOptions args */
+            args?: (protos.args.INatsWriteArgs|null);
+        }
+
+        /** Represents a DynamicGroupNatsOptions. */
+        class DynamicGroupNatsOptions implements IDynamicGroupNatsOptions {
+
+            /**
+             * Constructs a new DynamicGroupNatsOptions.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.opts.IDynamicGroupNatsOptions);
+
+            /** DynamicGroupNatsOptions _conn. */
+            public _conn?: (protos.args.INatsConn|null);
+
+            /** DynamicGroupNatsOptions args. */
+            public args?: (protos.args.INatsWriteArgs|null);
+
+            /**
+             * Creates a new DynamicGroupNatsOptions instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns DynamicGroupNatsOptions instance
+             */
+            public static create(properties?: protos.opts.IDynamicGroupNatsOptions): protos.opts.DynamicGroupNatsOptions;
+
+            /**
+             * Encodes the specified DynamicGroupNatsOptions message. Does not implicitly {@link protos.opts.DynamicGroupNatsOptions.verify|verify} messages.
+             * @param message DynamicGroupNatsOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.opts.IDynamicGroupNatsOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified DynamicGroupNatsOptions message, length delimited. Does not implicitly {@link protos.opts.DynamicGroupNatsOptions.verify|verify} messages.
+             * @param message DynamicGroupNatsOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.opts.IDynamicGroupNatsOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a DynamicGroupNatsOptions message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns DynamicGroupNatsOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.DynamicGroupNatsOptions;
+
+            /**
+             * Decodes a DynamicGroupNatsOptions message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns DynamicGroupNatsOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.DynamicGroupNatsOptions;
+
+            /**
+             * Verifies a DynamicGroupNatsOptions message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a DynamicGroupNatsOptions message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns DynamicGroupNatsOptions
+             */
+            public static fromObject(object: { [k: string]: any }): protos.opts.DynamicGroupNatsOptions;
+
+            /**
+             * Creates a plain object from a DynamicGroupNatsOptions message. Also converts values to other types if specified.
+             * @param message DynamicGroupNatsOptions
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.opts.DynamicGroupNatsOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this DynamicGroupNatsOptions to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a DynamicGroupNatsJetstreamOptions. */
+        interface IDynamicGroupNatsJetstreamOptions {
+
+            /** DynamicGroupNatsJetstreamOptions _conn */
+            _conn?: (protos.args.INatsJetstreamConn|null);
+
+            /** DynamicGroupNatsJetstreamOptions args */
+            args?: (protos.args.INatsJetstreamWriteArgs|null);
+        }
+
+        /** Represents a DynamicGroupNatsJetstreamOptions. */
+        class DynamicGroupNatsJetstreamOptions implements IDynamicGroupNatsJetstreamOptions {
+
+            /**
+             * Constructs a new DynamicGroupNatsJetstreamOptions.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.opts.IDynamicGroupNatsJetstreamOptions);
+
+            /** DynamicGroupNatsJetstreamOptions _conn. */
+            public _conn?: (protos.args.INatsJetstreamConn|null);
+
+            /** DynamicGroupNatsJetstreamOptions args. */
+            public args?: (protos.args.INatsJetstreamWriteArgs|null);
+
+            /**
+             * Creates a new DynamicGroupNatsJetstreamOptions instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns DynamicGroupNatsJetstreamOptions instance
+             */
+            public static create(properties?: protos.opts.IDynamicGroupNatsJetstreamOptions): protos.opts.DynamicGroupNatsJetstreamOptions;
+
+            /**
+             * Encodes the specified DynamicGroupNatsJetstreamOptions message. Does not implicitly {@link protos.opts.DynamicGroupNatsJetstreamOptions.verify|verify} messages.
+             * @param message DynamicGroupNatsJetstreamOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.opts.IDynamicGroupNatsJetstreamOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified DynamicGroupNatsJetstreamOptions message, length delimited. Does not implicitly {@link protos.opts.DynamicGroupNatsJetstreamOptions.verify|verify} messages.
+             * @param message DynamicGroupNatsJetstreamOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.opts.IDynamicGroupNatsJetstreamOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a DynamicGroupNatsJetstreamOptions message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns DynamicGroupNatsJetstreamOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.DynamicGroupNatsJetstreamOptions;
+
+            /**
+             * Decodes a DynamicGroupNatsJetstreamOptions message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns DynamicGroupNatsJetstreamOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.DynamicGroupNatsJetstreamOptions;
+
+            /**
+             * Verifies a DynamicGroupNatsJetstreamOptions message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a DynamicGroupNatsJetstreamOptions message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns DynamicGroupNatsJetstreamOptions
+             */
+            public static fromObject(object: { [k: string]: any }): protos.opts.DynamicGroupNatsJetstreamOptions;
+
+            /**
+             * Creates a plain object from a DynamicGroupNatsJetstreamOptions message. Also converts values to other types if specified.
+             * @param message DynamicGroupNatsJetstreamOptions
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.opts.DynamicGroupNatsJetstreamOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this DynamicGroupNatsJetstreamOptions to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a DynamicGroupNatsStreamingOptions. */
+        interface IDynamicGroupNatsStreamingOptions {
+
+            /** DynamicGroupNatsStreamingOptions _conn */
+            _conn?: (protos.args.INatsStreamingConn|null);
+
+            /** DynamicGroupNatsStreamingOptions args */
+            args?: (protos.args.INatsStreamingWriteArgs|null);
+        }
+
+        /** Represents a DynamicGroupNatsStreamingOptions. */
+        class DynamicGroupNatsStreamingOptions implements IDynamicGroupNatsStreamingOptions {
+
+            /**
+             * Constructs a new DynamicGroupNatsStreamingOptions.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.opts.IDynamicGroupNatsStreamingOptions);
+
+            /** DynamicGroupNatsStreamingOptions _conn. */
+            public _conn?: (protos.args.INatsStreamingConn|null);
+
+            /** DynamicGroupNatsStreamingOptions args. */
+            public args?: (protos.args.INatsStreamingWriteArgs|null);
+
+            /**
+             * Creates a new DynamicGroupNatsStreamingOptions instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns DynamicGroupNatsStreamingOptions instance
+             */
+            public static create(properties?: protos.opts.IDynamicGroupNatsStreamingOptions): protos.opts.DynamicGroupNatsStreamingOptions;
+
+            /**
+             * Encodes the specified DynamicGroupNatsStreamingOptions message. Does not implicitly {@link protos.opts.DynamicGroupNatsStreamingOptions.verify|verify} messages.
+             * @param message DynamicGroupNatsStreamingOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.opts.IDynamicGroupNatsStreamingOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified DynamicGroupNatsStreamingOptions message, length delimited. Does not implicitly {@link protos.opts.DynamicGroupNatsStreamingOptions.verify|verify} messages.
+             * @param message DynamicGroupNatsStreamingOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.opts.IDynamicGroupNatsStreamingOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a DynamicGroupNatsStreamingOptions message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns DynamicGroupNatsStreamingOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.DynamicGroupNatsStreamingOptions;
+
+            /**
+             * Decodes a DynamicGroupNatsStreamingOptions message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns DynamicGroupNatsStreamingOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.DynamicGroupNatsStreamingOptions;
+
+            /**
+             * Verifies a DynamicGroupNatsStreamingOptions message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a DynamicGroupNatsStreamingOptions message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns DynamicGroupNatsStreamingOptions
+             */
+            public static fromObject(object: { [k: string]: any }): protos.opts.DynamicGroupNatsStreamingOptions;
+
+            /**
+             * Creates a plain object from a DynamicGroupNatsStreamingOptions message. Also converts values to other types if specified.
+             * @param message DynamicGroupNatsStreamingOptions
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.opts.DynamicGroupNatsStreamingOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this DynamicGroupNatsStreamingOptions to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a DynamicGroupNSQOptions. */
+        interface IDynamicGroupNSQOptions {
+
+            /** DynamicGroupNSQOptions _conn */
+            _conn?: (protos.args.INSQConn|null);
+
+            /** DynamicGroupNSQOptions args */
+            args?: (protos.args.INSQWriteArgs|null);
+        }
+
+        /** Represents a DynamicGroupNSQOptions. */
+        class DynamicGroupNSQOptions implements IDynamicGroupNSQOptions {
+
+            /**
+             * Constructs a new DynamicGroupNSQOptions.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.opts.IDynamicGroupNSQOptions);
+
+            /** DynamicGroupNSQOptions _conn. */
+            public _conn?: (protos.args.INSQConn|null);
+
+            /** DynamicGroupNSQOptions args. */
+            public args?: (protos.args.INSQWriteArgs|null);
+
+            /**
+             * Creates a new DynamicGroupNSQOptions instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns DynamicGroupNSQOptions instance
+             */
+            public static create(properties?: protos.opts.IDynamicGroupNSQOptions): protos.opts.DynamicGroupNSQOptions;
+
+            /**
+             * Encodes the specified DynamicGroupNSQOptions message. Does not implicitly {@link protos.opts.DynamicGroupNSQOptions.verify|verify} messages.
+             * @param message DynamicGroupNSQOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.opts.IDynamicGroupNSQOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified DynamicGroupNSQOptions message, length delimited. Does not implicitly {@link protos.opts.DynamicGroupNSQOptions.verify|verify} messages.
+             * @param message DynamicGroupNSQOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.opts.IDynamicGroupNSQOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a DynamicGroupNSQOptions message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns DynamicGroupNSQOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.DynamicGroupNSQOptions;
+
+            /**
+             * Decodes a DynamicGroupNSQOptions message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns DynamicGroupNSQOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.DynamicGroupNSQOptions;
+
+            /**
+             * Verifies a DynamicGroupNSQOptions message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a DynamicGroupNSQOptions message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns DynamicGroupNSQOptions
+             */
+            public static fromObject(object: { [k: string]: any }): protos.opts.DynamicGroupNSQOptions;
+
+            /**
+             * Creates a plain object from a DynamicGroupNSQOptions message. Also converts values to other types if specified.
+             * @param message DynamicGroupNSQOptions
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.opts.DynamicGroupNSQOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this DynamicGroupNSQOptions to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a DynamicGroupRabbitOptions. */
+        interface IDynamicGroupRabbitOptions {
+
+            /** DynamicGroupRabbitOptions _conn */
+            _conn?: (protos.args.IRabbitConn|null);
+
+            /** DynamicGroupRabbitOptions args */
+            args?: (protos.args.IRabbitWriteArgs|null);
+        }
+
+        /** Represents a DynamicGroupRabbitOptions. */
+        class DynamicGroupRabbitOptions implements IDynamicGroupRabbitOptions {
+
+            /**
+             * Constructs a new DynamicGroupRabbitOptions.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.opts.IDynamicGroupRabbitOptions);
+
+            /** DynamicGroupRabbitOptions _conn. */
+            public _conn?: (protos.args.IRabbitConn|null);
+
+            /** DynamicGroupRabbitOptions args. */
+            public args?: (protos.args.IRabbitWriteArgs|null);
+
+            /**
+             * Creates a new DynamicGroupRabbitOptions instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns DynamicGroupRabbitOptions instance
+             */
+            public static create(properties?: protos.opts.IDynamicGroupRabbitOptions): protos.opts.DynamicGroupRabbitOptions;
+
+            /**
+             * Encodes the specified DynamicGroupRabbitOptions message. Does not implicitly {@link protos.opts.DynamicGroupRabbitOptions.verify|verify} messages.
+             * @param message DynamicGroupRabbitOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.opts.IDynamicGroupRabbitOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified DynamicGroupRabbitOptions message, length delimited. Does not implicitly {@link protos.opts.DynamicGroupRabbitOptions.verify|verify} messages.
+             * @param message DynamicGroupRabbitOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.opts.IDynamicGroupRabbitOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a DynamicGroupRabbitOptions message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns DynamicGroupRabbitOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.DynamicGroupRabbitOptions;
+
+            /**
+             * Decodes a DynamicGroupRabbitOptions message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns DynamicGroupRabbitOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.DynamicGroupRabbitOptions;
+
+            /**
+             * Verifies a DynamicGroupRabbitOptions message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a DynamicGroupRabbitOptions message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns DynamicGroupRabbitOptions
+             */
+            public static fromObject(object: { [k: string]: any }): protos.opts.DynamicGroupRabbitOptions;
+
+            /**
+             * Creates a plain object from a DynamicGroupRabbitOptions message. Also converts values to other types if specified.
+             * @param message DynamicGroupRabbitOptions
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.opts.DynamicGroupRabbitOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this DynamicGroupRabbitOptions to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a DynamicGroupRabbitStreamsOptions. */
+        interface IDynamicGroupRabbitStreamsOptions {
+
+            /** DynamicGroupRabbitStreamsOptions _conn */
+            _conn?: (protos.args.IRabbitStreamsConn|null);
+
+            /** DynamicGroupRabbitStreamsOptions args */
+            args?: (protos.args.IRabbitStreamsWriteArgs|null);
+        }
+
+        /** Represents a DynamicGroupRabbitStreamsOptions. */
+        class DynamicGroupRabbitStreamsOptions implements IDynamicGroupRabbitStreamsOptions {
+
+            /**
+             * Constructs a new DynamicGroupRabbitStreamsOptions.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.opts.IDynamicGroupRabbitStreamsOptions);
+
+            /** DynamicGroupRabbitStreamsOptions _conn. */
+            public _conn?: (protos.args.IRabbitStreamsConn|null);
+
+            /** DynamicGroupRabbitStreamsOptions args. */
+            public args?: (protos.args.IRabbitStreamsWriteArgs|null);
+
+            /**
+             * Creates a new DynamicGroupRabbitStreamsOptions instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns DynamicGroupRabbitStreamsOptions instance
+             */
+            public static create(properties?: protos.opts.IDynamicGroupRabbitStreamsOptions): protos.opts.DynamicGroupRabbitStreamsOptions;
+
+            /**
+             * Encodes the specified DynamicGroupRabbitStreamsOptions message. Does not implicitly {@link protos.opts.DynamicGroupRabbitStreamsOptions.verify|verify} messages.
+             * @param message DynamicGroupRabbitStreamsOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.opts.IDynamicGroupRabbitStreamsOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified DynamicGroupRabbitStreamsOptions message, length delimited. Does not implicitly {@link protos.opts.DynamicGroupRabbitStreamsOptions.verify|verify} messages.
+             * @param message DynamicGroupRabbitStreamsOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.opts.IDynamicGroupRabbitStreamsOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a DynamicGroupRabbitStreamsOptions message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns DynamicGroupRabbitStreamsOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.DynamicGroupRabbitStreamsOptions;
+
+            /**
+             * Decodes a DynamicGroupRabbitStreamsOptions message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns DynamicGroupRabbitStreamsOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.DynamicGroupRabbitStreamsOptions;
+
+            /**
+             * Verifies a DynamicGroupRabbitStreamsOptions message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a DynamicGroupRabbitStreamsOptions message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns DynamicGroupRabbitStreamsOptions
+             */
+            public static fromObject(object: { [k: string]: any }): protos.opts.DynamicGroupRabbitStreamsOptions;
+
+            /**
+             * Creates a plain object from a DynamicGroupRabbitStreamsOptions message. Also converts values to other types if specified.
+             * @param message DynamicGroupRabbitStreamsOptions
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.opts.DynamicGroupRabbitStreamsOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this DynamicGroupRabbitStreamsOptions to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a DynamicGroupRedisPubSubOptions. */
+        interface IDynamicGroupRedisPubSubOptions {
+
+            /** DynamicGroupRedisPubSubOptions _conn */
+            _conn?: (protos.args.IRedisPubSubConn|null);
+
+            /** DynamicGroupRedisPubSubOptions args */
+            args?: (protos.args.IRedisPubSubWriteArgs|null);
+        }
+
+        /** Represents a DynamicGroupRedisPubSubOptions. */
+        class DynamicGroupRedisPubSubOptions implements IDynamicGroupRedisPubSubOptions {
+
+            /**
+             * Constructs a new DynamicGroupRedisPubSubOptions.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.opts.IDynamicGroupRedisPubSubOptions);
+
+            /** DynamicGroupRedisPubSubOptions _conn. */
+            public _conn?: (protos.args.IRedisPubSubConn|null);
+
+            /** DynamicGroupRedisPubSubOptions args. */
+            public args?: (protos.args.IRedisPubSubWriteArgs|null);
+
+            /**
+             * Creates a new DynamicGroupRedisPubSubOptions instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns DynamicGroupRedisPubSubOptions instance
+             */
+            public static create(properties?: protos.opts.IDynamicGroupRedisPubSubOptions): protos.opts.DynamicGroupRedisPubSubOptions;
+
+            /**
+             * Encodes the specified DynamicGroupRedisPubSubOptions message. Does not implicitly {@link protos.opts.DynamicGroupRedisPubSubOptions.verify|verify} messages.
+             * @param message DynamicGroupRedisPubSubOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.opts.IDynamicGroupRedisPubSubOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified DynamicGroupRedisPubSubOptions message, length delimited. Does not implicitly {@link protos.opts.DynamicGroupRedisPubSubOptions.verify|verify} messages.
+             * @param message DynamicGroupRedisPubSubOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.opts.IDynamicGroupRedisPubSubOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a DynamicGroupRedisPubSubOptions message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns DynamicGroupRedisPubSubOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.DynamicGroupRedisPubSubOptions;
+
+            /**
+             * Decodes a DynamicGroupRedisPubSubOptions message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns DynamicGroupRedisPubSubOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.DynamicGroupRedisPubSubOptions;
+
+            /**
+             * Verifies a DynamicGroupRedisPubSubOptions message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a DynamicGroupRedisPubSubOptions message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns DynamicGroupRedisPubSubOptions
+             */
+            public static fromObject(object: { [k: string]: any }): protos.opts.DynamicGroupRedisPubSubOptions;
+
+            /**
+             * Creates a plain object from a DynamicGroupRedisPubSubOptions message. Also converts values to other types if specified.
+             * @param message DynamicGroupRedisPubSubOptions
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.opts.DynamicGroupRedisPubSubOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this DynamicGroupRedisPubSubOptions to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a DynamicGroupRedisStreamsOptions. */
+        interface IDynamicGroupRedisStreamsOptions {
+
+            /** DynamicGroupRedisStreamsOptions _conn */
+            _conn?: (protos.args.IRedisStreamsConn|null);
+
+            /** DynamicGroupRedisStreamsOptions args */
+            args?: (protos.args.IRedisStreamsWriteArgs|null);
+        }
+
+        /** Represents a DynamicGroupRedisStreamsOptions. */
+        class DynamicGroupRedisStreamsOptions implements IDynamicGroupRedisStreamsOptions {
+
+            /**
+             * Constructs a new DynamicGroupRedisStreamsOptions.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.opts.IDynamicGroupRedisStreamsOptions);
+
+            /** DynamicGroupRedisStreamsOptions _conn. */
+            public _conn?: (protos.args.IRedisStreamsConn|null);
+
+            /** DynamicGroupRedisStreamsOptions args. */
+            public args?: (protos.args.IRedisStreamsWriteArgs|null);
+
+            /**
+             * Creates a new DynamicGroupRedisStreamsOptions instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns DynamicGroupRedisStreamsOptions instance
+             */
+            public static create(properties?: protos.opts.IDynamicGroupRedisStreamsOptions): protos.opts.DynamicGroupRedisStreamsOptions;
+
+            /**
+             * Encodes the specified DynamicGroupRedisStreamsOptions message. Does not implicitly {@link protos.opts.DynamicGroupRedisStreamsOptions.verify|verify} messages.
+             * @param message DynamicGroupRedisStreamsOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.opts.IDynamicGroupRedisStreamsOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified DynamicGroupRedisStreamsOptions message, length delimited. Does not implicitly {@link protos.opts.DynamicGroupRedisStreamsOptions.verify|verify} messages.
+             * @param message DynamicGroupRedisStreamsOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.opts.IDynamicGroupRedisStreamsOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a DynamicGroupRedisStreamsOptions message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns DynamicGroupRedisStreamsOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.DynamicGroupRedisStreamsOptions;
+
+            /**
+             * Decodes a DynamicGroupRedisStreamsOptions message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns DynamicGroupRedisStreamsOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.DynamicGroupRedisStreamsOptions;
+
+            /**
+             * Verifies a DynamicGroupRedisStreamsOptions message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a DynamicGroupRedisStreamsOptions message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns DynamicGroupRedisStreamsOptions
+             */
+            public static fromObject(object: { [k: string]: any }): protos.opts.DynamicGroupRedisStreamsOptions;
+
+            /**
+             * Creates a plain object from a DynamicGroupRedisStreamsOptions message. Also converts values to other types if specified.
+             * @param message DynamicGroupRedisStreamsOptions
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.opts.DynamicGroupRedisStreamsOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this DynamicGroupRedisStreamsOptions to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a DynamicGroupAzureEventHubOptions. */
+        interface IDynamicGroupAzureEventHubOptions {
+
+            /** DynamicGroupAzureEventHubOptions _conn */
+            _conn?: (protos.args.IAzureEventHubConn|null);
+
+            /** DynamicGroupAzureEventHubOptions args */
+            args?: (protos.args.IAzureEventHubWriteArgs|null);
+        }
+
+        /** Represents a DynamicGroupAzureEventHubOptions. */
+        class DynamicGroupAzureEventHubOptions implements IDynamicGroupAzureEventHubOptions {
+
+            /**
+             * Constructs a new DynamicGroupAzureEventHubOptions.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.opts.IDynamicGroupAzureEventHubOptions);
+
+            /** DynamicGroupAzureEventHubOptions _conn. */
+            public _conn?: (protos.args.IAzureEventHubConn|null);
+
+            /** DynamicGroupAzureEventHubOptions args. */
+            public args?: (protos.args.IAzureEventHubWriteArgs|null);
+
+            /**
+             * Creates a new DynamicGroupAzureEventHubOptions instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns DynamicGroupAzureEventHubOptions instance
+             */
+            public static create(properties?: protos.opts.IDynamicGroupAzureEventHubOptions): protos.opts.DynamicGroupAzureEventHubOptions;
+
+            /**
+             * Encodes the specified DynamicGroupAzureEventHubOptions message. Does not implicitly {@link protos.opts.DynamicGroupAzureEventHubOptions.verify|verify} messages.
+             * @param message DynamicGroupAzureEventHubOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.opts.IDynamicGroupAzureEventHubOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified DynamicGroupAzureEventHubOptions message, length delimited. Does not implicitly {@link protos.opts.DynamicGroupAzureEventHubOptions.verify|verify} messages.
+             * @param message DynamicGroupAzureEventHubOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.opts.IDynamicGroupAzureEventHubOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a DynamicGroupAzureEventHubOptions message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns DynamicGroupAzureEventHubOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.DynamicGroupAzureEventHubOptions;
+
+            /**
+             * Decodes a DynamicGroupAzureEventHubOptions message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns DynamicGroupAzureEventHubOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.DynamicGroupAzureEventHubOptions;
+
+            /**
+             * Verifies a DynamicGroupAzureEventHubOptions message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a DynamicGroupAzureEventHubOptions message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns DynamicGroupAzureEventHubOptions
+             */
+            public static fromObject(object: { [k: string]: any }): protos.opts.DynamicGroupAzureEventHubOptions;
+
+            /**
+             * Creates a plain object from a DynamicGroupAzureEventHubOptions message. Also converts values to other types if specified.
+             * @param message DynamicGroupAzureEventHubOptions
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.opts.DynamicGroupAzureEventHubOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this DynamicGroupAzureEventHubOptions to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a DynamicGroupAzureServiceBusOptions. */
+        interface IDynamicGroupAzureServiceBusOptions {
+
+            /** DynamicGroupAzureServiceBusOptions _conn */
+            _conn?: (protos.args.IAzureServiceBusConn|null);
+
+            /** DynamicGroupAzureServiceBusOptions args */
+            args?: (protos.args.IAzureServiceBusWriteArgs|null);
+        }
+
+        /** Represents a DynamicGroupAzureServiceBusOptions. */
+        class DynamicGroupAzureServiceBusOptions implements IDynamicGroupAzureServiceBusOptions {
+
+            /**
+             * Constructs a new DynamicGroupAzureServiceBusOptions.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.opts.IDynamicGroupAzureServiceBusOptions);
+
+            /** DynamicGroupAzureServiceBusOptions _conn. */
+            public _conn?: (protos.args.IAzureServiceBusConn|null);
+
+            /** DynamicGroupAzureServiceBusOptions args. */
+            public args?: (protos.args.IAzureServiceBusWriteArgs|null);
+
+            /**
+             * Creates a new DynamicGroupAzureServiceBusOptions instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns DynamicGroupAzureServiceBusOptions instance
+             */
+            public static create(properties?: protos.opts.IDynamicGroupAzureServiceBusOptions): protos.opts.DynamicGroupAzureServiceBusOptions;
+
+            /**
+             * Encodes the specified DynamicGroupAzureServiceBusOptions message. Does not implicitly {@link protos.opts.DynamicGroupAzureServiceBusOptions.verify|verify} messages.
+             * @param message DynamicGroupAzureServiceBusOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.opts.IDynamicGroupAzureServiceBusOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified DynamicGroupAzureServiceBusOptions message, length delimited. Does not implicitly {@link protos.opts.DynamicGroupAzureServiceBusOptions.verify|verify} messages.
+             * @param message DynamicGroupAzureServiceBusOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.opts.IDynamicGroupAzureServiceBusOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a DynamicGroupAzureServiceBusOptions message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns DynamicGroupAzureServiceBusOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.DynamicGroupAzureServiceBusOptions;
+
+            /**
+             * Decodes a DynamicGroupAzureServiceBusOptions message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns DynamicGroupAzureServiceBusOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.DynamicGroupAzureServiceBusOptions;
+
+            /**
+             * Verifies a DynamicGroupAzureServiceBusOptions message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a DynamicGroupAzureServiceBusOptions message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns DynamicGroupAzureServiceBusOptions
+             */
+            public static fromObject(object: { [k: string]: any }): protos.opts.DynamicGroupAzureServiceBusOptions;
+
+            /**
+             * Creates a plain object from a DynamicGroupAzureServiceBusOptions message. Also converts values to other types if specified.
+             * @param message DynamicGroupAzureServiceBusOptions
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.opts.DynamicGroupAzureServiceBusOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this DynamicGroupAzureServiceBusOptions to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a DynamicGroupMQTTOptions. */
+        interface IDynamicGroupMQTTOptions {
+
+            /** DynamicGroupMQTTOptions _conn */
+            _conn?: (protos.args.IMQTTConn|null);
+
+            /** DynamicGroupMQTTOptions args */
+            args?: (protos.args.IMQTTWriteArgs|null);
+        }
+
+        /** Represents a DynamicGroupMQTTOptions. */
+        class DynamicGroupMQTTOptions implements IDynamicGroupMQTTOptions {
+
+            /**
+             * Constructs a new DynamicGroupMQTTOptions.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.opts.IDynamicGroupMQTTOptions);
+
+            /** DynamicGroupMQTTOptions _conn. */
+            public _conn?: (protos.args.IMQTTConn|null);
+
+            /** DynamicGroupMQTTOptions args. */
+            public args?: (protos.args.IMQTTWriteArgs|null);
+
+            /**
+             * Creates a new DynamicGroupMQTTOptions instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns DynamicGroupMQTTOptions instance
+             */
+            public static create(properties?: protos.opts.IDynamicGroupMQTTOptions): protos.opts.DynamicGroupMQTTOptions;
+
+            /**
+             * Encodes the specified DynamicGroupMQTTOptions message. Does not implicitly {@link protos.opts.DynamicGroupMQTTOptions.verify|verify} messages.
+             * @param message DynamicGroupMQTTOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.opts.IDynamicGroupMQTTOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified DynamicGroupMQTTOptions message, length delimited. Does not implicitly {@link protos.opts.DynamicGroupMQTTOptions.verify|verify} messages.
+             * @param message DynamicGroupMQTTOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.opts.IDynamicGroupMQTTOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a DynamicGroupMQTTOptions message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns DynamicGroupMQTTOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.DynamicGroupMQTTOptions;
+
+            /**
+             * Decodes a DynamicGroupMQTTOptions message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns DynamicGroupMQTTOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.DynamicGroupMQTTOptions;
+
+            /**
+             * Verifies a DynamicGroupMQTTOptions message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a DynamicGroupMQTTOptions message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns DynamicGroupMQTTOptions
+             */
+            public static fromObject(object: { [k: string]: any }): protos.opts.DynamicGroupMQTTOptions;
+
+            /**
+             * Creates a plain object from a DynamicGroupMQTTOptions message. Also converts values to other types if specified.
+             * @param message DynamicGroupMQTTOptions
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.opts.DynamicGroupMQTTOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this DynamicGroupMQTTOptions to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a DynamicGroupGCPPubSubOptions. */
+        interface IDynamicGroupGCPPubSubOptions {
+
+            /** DynamicGroupGCPPubSubOptions _conn */
+            _conn?: (protos.args.IGCPPubSubConn|null);
+
+            /** DynamicGroupGCPPubSubOptions args */
+            args?: (protos.args.IGCPPubSubWriteArgs|null);
+        }
+
+        /** Represents a DynamicGroupGCPPubSubOptions. */
+        class DynamicGroupGCPPubSubOptions implements IDynamicGroupGCPPubSubOptions {
+
+            /**
+             * Constructs a new DynamicGroupGCPPubSubOptions.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.opts.IDynamicGroupGCPPubSubOptions);
+
+            /** DynamicGroupGCPPubSubOptions _conn. */
+            public _conn?: (protos.args.IGCPPubSubConn|null);
+
+            /** DynamicGroupGCPPubSubOptions args. */
+            public args?: (protos.args.IGCPPubSubWriteArgs|null);
+
+            /**
+             * Creates a new DynamicGroupGCPPubSubOptions instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns DynamicGroupGCPPubSubOptions instance
+             */
+            public static create(properties?: protos.opts.IDynamicGroupGCPPubSubOptions): protos.opts.DynamicGroupGCPPubSubOptions;
+
+            /**
+             * Encodes the specified DynamicGroupGCPPubSubOptions message. Does not implicitly {@link protos.opts.DynamicGroupGCPPubSubOptions.verify|verify} messages.
+             * @param message DynamicGroupGCPPubSubOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.opts.IDynamicGroupGCPPubSubOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified DynamicGroupGCPPubSubOptions message, length delimited. Does not implicitly {@link protos.opts.DynamicGroupGCPPubSubOptions.verify|verify} messages.
+             * @param message DynamicGroupGCPPubSubOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.opts.IDynamicGroupGCPPubSubOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a DynamicGroupGCPPubSubOptions message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns DynamicGroupGCPPubSubOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.DynamicGroupGCPPubSubOptions;
+
+            /**
+             * Decodes a DynamicGroupGCPPubSubOptions message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns DynamicGroupGCPPubSubOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.DynamicGroupGCPPubSubOptions;
+
+            /**
+             * Verifies a DynamicGroupGCPPubSubOptions message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a DynamicGroupGCPPubSubOptions message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns DynamicGroupGCPPubSubOptions
+             */
+            public static fromObject(object: { [k: string]: any }): protos.opts.DynamicGroupGCPPubSubOptions;
+
+            /**
+             * Creates a plain object from a DynamicGroupGCPPubSubOptions message. Also converts values to other types if specified.
+             * @param message DynamicGroupGCPPubSubOptions
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.opts.DynamicGroupGCPPubSubOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this DynamicGroupGCPPubSubOptions to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a DynamicGroupKubeMQQueueOptions. */
+        interface IDynamicGroupKubeMQQueueOptions {
+
+            /** DynamicGroupKubeMQQueueOptions _conn */
+            _conn?: (protos.args.IKubeMQQueueConn|null);
+
+            /** DynamicGroupKubeMQQueueOptions args */
+            args?: (protos.args.IKubeMQQueueWriteArgs|null);
+        }
+
+        /** Represents a DynamicGroupKubeMQQueueOptions. */
+        class DynamicGroupKubeMQQueueOptions implements IDynamicGroupKubeMQQueueOptions {
+
+            /**
+             * Constructs a new DynamicGroupKubeMQQueueOptions.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.opts.IDynamicGroupKubeMQQueueOptions);
+
+            /** DynamicGroupKubeMQQueueOptions _conn. */
+            public _conn?: (protos.args.IKubeMQQueueConn|null);
+
+            /** DynamicGroupKubeMQQueueOptions args. */
+            public args?: (protos.args.IKubeMQQueueWriteArgs|null);
+
+            /**
+             * Creates a new DynamicGroupKubeMQQueueOptions instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns DynamicGroupKubeMQQueueOptions instance
+             */
+            public static create(properties?: protos.opts.IDynamicGroupKubeMQQueueOptions): protos.opts.DynamicGroupKubeMQQueueOptions;
+
+            /**
+             * Encodes the specified DynamicGroupKubeMQQueueOptions message. Does not implicitly {@link protos.opts.DynamicGroupKubeMQQueueOptions.verify|verify} messages.
+             * @param message DynamicGroupKubeMQQueueOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.opts.IDynamicGroupKubeMQQueueOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified DynamicGroupKubeMQQueueOptions message, length delimited. Does not implicitly {@link protos.opts.DynamicGroupKubeMQQueueOptions.verify|verify} messages.
+             * @param message DynamicGroupKubeMQQueueOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.opts.IDynamicGroupKubeMQQueueOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a DynamicGroupKubeMQQueueOptions message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns DynamicGroupKubeMQQueueOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.DynamicGroupKubeMQQueueOptions;
+
+            /**
+             * Decodes a DynamicGroupKubeMQQueueOptions message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns DynamicGroupKubeMQQueueOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.DynamicGroupKubeMQQueueOptions;
+
+            /**
+             * Verifies a DynamicGroupKubeMQQueueOptions message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a DynamicGroupKubeMQQueueOptions message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns DynamicGroupKubeMQQueueOptions
+             */
+            public static fromObject(object: { [k: string]: any }): protos.opts.DynamicGroupKubeMQQueueOptions;
+
+            /**
+             * Creates a plain object from a DynamicGroupKubeMQQueueOptions message. Also converts values to other types if specified.
+             * @param message DynamicGroupKubeMQQueueOptions
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.opts.DynamicGroupKubeMQQueueOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this DynamicGroupKubeMQQueueOptions to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a DynamicGroupPulsarOptions. */
+        interface IDynamicGroupPulsarOptions {
+
+            /** DynamicGroupPulsarOptions _conn */
+            _conn?: (protos.args.IPulsarConn|null);
+
+            /** DynamicGroupPulsarOptions args */
+            args?: (protos.args.IPulsarWriteArgs|null);
+        }
+
+        /** Represents a DynamicGroupPulsarOptions. */
+        class DynamicGroupPulsarOptions implements IDynamicGroupPulsarOptions {
+
+            /**
+             * Constructs a new DynamicGroupPulsarOptions.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.opts.IDynamicGroupPulsarOptions);
+
+            /** DynamicGroupPulsarOptions _conn. */
+            public _conn?: (protos.args.IPulsarConn|null);
+
+            /** DynamicGroupPulsarOptions args. */
+            public args?: (protos.args.IPulsarWriteArgs|null);
+
+            /**
+             * Creates a new DynamicGroupPulsarOptions instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns DynamicGroupPulsarOptions instance
+             */
+            public static create(properties?: protos.opts.IDynamicGroupPulsarOptions): protos.opts.DynamicGroupPulsarOptions;
+
+            /**
+             * Encodes the specified DynamicGroupPulsarOptions message. Does not implicitly {@link protos.opts.DynamicGroupPulsarOptions.verify|verify} messages.
+             * @param message DynamicGroupPulsarOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.opts.IDynamicGroupPulsarOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified DynamicGroupPulsarOptions message, length delimited. Does not implicitly {@link protos.opts.DynamicGroupPulsarOptions.verify|verify} messages.
+             * @param message DynamicGroupPulsarOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.opts.IDynamicGroupPulsarOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a DynamicGroupPulsarOptions message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns DynamicGroupPulsarOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.DynamicGroupPulsarOptions;
+
+            /**
+             * Decodes a DynamicGroupPulsarOptions message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns DynamicGroupPulsarOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.DynamicGroupPulsarOptions;
+
+            /**
+             * Verifies a DynamicGroupPulsarOptions message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a DynamicGroupPulsarOptions message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns DynamicGroupPulsarOptions
+             */
+            public static fromObject(object: { [k: string]: any }): protos.opts.DynamicGroupPulsarOptions;
+
+            /**
+             * Creates a plain object from a DynamicGroupPulsarOptions message. Also converts values to other types if specified.
+             * @param message DynamicGroupPulsarOptions
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.opts.DynamicGroupPulsarOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this DynamicGroupPulsarOptions to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a DynamicGroupAWSKinesisOptions. */
+        interface IDynamicGroupAWSKinesisOptions {
+
+            /** DynamicGroupAWSKinesisOptions _conn */
+            _conn?: (protos.args.IAWSKinesisConn|null);
+
+            /** DynamicGroupAWSKinesisOptions args */
+            args?: (protos.args.IAWSKinesisWriteArgs|null);
+        }
+
+        /** Represents a DynamicGroupAWSKinesisOptions. */
+        class DynamicGroupAWSKinesisOptions implements IDynamicGroupAWSKinesisOptions {
+
+            /**
+             * Constructs a new DynamicGroupAWSKinesisOptions.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.opts.IDynamicGroupAWSKinesisOptions);
+
+            /** DynamicGroupAWSKinesisOptions _conn. */
+            public _conn?: (protos.args.IAWSKinesisConn|null);
+
+            /** DynamicGroupAWSKinesisOptions args. */
+            public args?: (protos.args.IAWSKinesisWriteArgs|null);
+
+            /**
+             * Creates a new DynamicGroupAWSKinesisOptions instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns DynamicGroupAWSKinesisOptions instance
+             */
+            public static create(properties?: protos.opts.IDynamicGroupAWSKinesisOptions): protos.opts.DynamicGroupAWSKinesisOptions;
+
+            /**
+             * Encodes the specified DynamicGroupAWSKinesisOptions message. Does not implicitly {@link protos.opts.DynamicGroupAWSKinesisOptions.verify|verify} messages.
+             * @param message DynamicGroupAWSKinesisOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.opts.IDynamicGroupAWSKinesisOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified DynamicGroupAWSKinesisOptions message, length delimited. Does not implicitly {@link protos.opts.DynamicGroupAWSKinesisOptions.verify|verify} messages.
+             * @param message DynamicGroupAWSKinesisOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.opts.IDynamicGroupAWSKinesisOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a DynamicGroupAWSKinesisOptions message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns DynamicGroupAWSKinesisOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.DynamicGroupAWSKinesisOptions;
+
+            /**
+             * Decodes a DynamicGroupAWSKinesisOptions message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns DynamicGroupAWSKinesisOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.DynamicGroupAWSKinesisOptions;
+
+            /**
+             * Verifies a DynamicGroupAWSKinesisOptions message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a DynamicGroupAWSKinesisOptions message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns DynamicGroupAWSKinesisOptions
+             */
+            public static fromObject(object: { [k: string]: any }): protos.opts.DynamicGroupAWSKinesisOptions;
+
+            /**
+             * Creates a plain object from a DynamicGroupAWSKinesisOptions message. Also converts values to other types if specified.
+             * @param message DynamicGroupAWSKinesisOptions
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.opts.DynamicGroupAWSKinesisOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this DynamicGroupAWSKinesisOptions to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
         /** Properties of a Counter. */
         interface ICounter {
 
@@ -11514,2052 +13560,6 @@ export namespace protos {
              */
             public toJSON(): { [k: string]: any };
         }
-
-        /** Properties of a DynamicOptions. */
-        interface IDynamicOptions {
-
-            /** DynamicOptions apiToken */
-            apiToken?: (string|null);
-
-            /** DynamicOptions _grpcAddress */
-            _grpcAddress?: (string|null);
-
-            /** DynamicOptions _grpcTimeoutSeconds */
-            _grpcTimeoutSeconds?: (number|null);
-
-            /** DynamicOptions _grpcInsecure */
-            _grpcInsecure?: (boolean|null);
-
-            /** DynamicOptions kafka */
-            kafka?: (protos.opts.IDynamicGroupKafkaOptions|null);
-
-            /** DynamicOptions activemq */
-            activemq?: (protos.opts.IDynamicGroupActiveMQOptions|null);
-
-            /** DynamicOptions awsSqs */
-            awsSqs?: (protos.opts.IDynamicGroupAWSSQSOptions|null);
-
-            /** DynamicOptions awsSns */
-            awsSns?: (protos.opts.IDynamicGroupAWSSNSOptions|null);
-
-            /** DynamicOptions nats */
-            nats?: (protos.opts.IDynamicGroupNatsOptions|null);
-
-            /** DynamicOptions natsStreaming */
-            natsStreaming?: (protos.opts.IDynamicGroupNatsStreamingOptions|null);
-
-            /** DynamicOptions nsq */
-            nsq?: (protos.opts.IDynamicGroupNSQOptions|null);
-
-            /** DynamicOptions rabbit */
-            rabbit?: (protos.opts.IDynamicGroupRabbitOptions|null);
-
-            /** DynamicOptions mqtt */
-            mqtt?: (protos.opts.IDynamicGroupMQTTOptions|null);
-
-            /** DynamicOptions azureServiceBus */
-            azureServiceBus?: (protos.opts.IDynamicGroupAzureServiceBusOptions|null);
-
-            /** DynamicOptions azureEventHub */
-            azureEventHub?: (protos.opts.IDynamicGroupAzureEventHubOptions|null);
-
-            /** DynamicOptions gcpPubsub */
-            gcpPubsub?: (protos.opts.IDynamicGroupGCPPubSubOptions|null);
-
-            /** DynamicOptions kubemqQueue */
-            kubemqQueue?: (protos.opts.IDynamicGroupKubeMQQueueOptions|null);
-
-            /** DynamicOptions redisPubsub */
-            redisPubsub?: (protos.opts.IDynamicGroupRedisPubSubOptions|null);
-
-            /** DynamicOptions redisStreams */
-            redisStreams?: (protos.opts.IDynamicGroupRedisStreamsOptions|null);
-
-            /** DynamicOptions pulsar */
-            pulsar?: (protos.opts.IDynamicGroupPulsarOptions|null);
-
-            /** DynamicOptions rabbitStreams */
-            rabbitStreams?: (protos.opts.IDynamicGroupRabbitStreamsOptions|null);
-
-            /** DynamicOptions natsJetstream */
-            natsJetstream?: (protos.opts.IDynamicGroupNatsJetstreamOptions|null);
-
-            /** DynamicOptions awsKinesis */
-            awsKinesis?: (protos.opts.IDynamicGroupAWSKinesisOptions|null);
-        }
-
-        /** Represents a DynamicOptions. */
-        class DynamicOptions implements IDynamicOptions {
-
-            /**
-             * Constructs a new DynamicOptions.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: protos.opts.IDynamicOptions);
-
-            /** DynamicOptions apiToken. */
-            public apiToken: string;
-
-            /** DynamicOptions _grpcAddress. */
-            public _grpcAddress: string;
-
-            /** DynamicOptions _grpcTimeoutSeconds. */
-            public _grpcTimeoutSeconds: number;
-
-            /** DynamicOptions _grpcInsecure. */
-            public _grpcInsecure: boolean;
-
-            /** DynamicOptions kafka. */
-            public kafka?: (protos.opts.IDynamicGroupKafkaOptions|null);
-
-            /** DynamicOptions activemq. */
-            public activemq?: (protos.opts.IDynamicGroupActiveMQOptions|null);
-
-            /** DynamicOptions awsSqs. */
-            public awsSqs?: (protos.opts.IDynamicGroupAWSSQSOptions|null);
-
-            /** DynamicOptions awsSns. */
-            public awsSns?: (protos.opts.IDynamicGroupAWSSNSOptions|null);
-
-            /** DynamicOptions nats. */
-            public nats?: (protos.opts.IDynamicGroupNatsOptions|null);
-
-            /** DynamicOptions natsStreaming. */
-            public natsStreaming?: (protos.opts.IDynamicGroupNatsStreamingOptions|null);
-
-            /** DynamicOptions nsq. */
-            public nsq?: (protos.opts.IDynamicGroupNSQOptions|null);
-
-            /** DynamicOptions rabbit. */
-            public rabbit?: (protos.opts.IDynamicGroupRabbitOptions|null);
-
-            /** DynamicOptions mqtt. */
-            public mqtt?: (protos.opts.IDynamicGroupMQTTOptions|null);
-
-            /** DynamicOptions azureServiceBus. */
-            public azureServiceBus?: (protos.opts.IDynamicGroupAzureServiceBusOptions|null);
-
-            /** DynamicOptions azureEventHub. */
-            public azureEventHub?: (protos.opts.IDynamicGroupAzureEventHubOptions|null);
-
-            /** DynamicOptions gcpPubsub. */
-            public gcpPubsub?: (protos.opts.IDynamicGroupGCPPubSubOptions|null);
-
-            /** DynamicOptions kubemqQueue. */
-            public kubemqQueue?: (protos.opts.IDynamicGroupKubeMQQueueOptions|null);
-
-            /** DynamicOptions redisPubsub. */
-            public redisPubsub?: (protos.opts.IDynamicGroupRedisPubSubOptions|null);
-
-            /** DynamicOptions redisStreams. */
-            public redisStreams?: (protos.opts.IDynamicGroupRedisStreamsOptions|null);
-
-            /** DynamicOptions pulsar. */
-            public pulsar?: (protos.opts.IDynamicGroupPulsarOptions|null);
-
-            /** DynamicOptions rabbitStreams. */
-            public rabbitStreams?: (protos.opts.IDynamicGroupRabbitStreamsOptions|null);
-
-            /** DynamicOptions natsJetstream. */
-            public natsJetstream?: (protos.opts.IDynamicGroupNatsJetstreamOptions|null);
-
-            /** DynamicOptions awsKinesis. */
-            public awsKinesis?: (protos.opts.IDynamicGroupAWSKinesisOptions|null);
-
-            /**
-             * Creates a new DynamicOptions instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns DynamicOptions instance
-             */
-            public static create(properties?: protos.opts.IDynamicOptions): protos.opts.DynamicOptions;
-
-            /**
-             * Encodes the specified DynamicOptions message. Does not implicitly {@link protos.opts.DynamicOptions.verify|verify} messages.
-             * @param message DynamicOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: protos.opts.IDynamicOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified DynamicOptions message, length delimited. Does not implicitly {@link protos.opts.DynamicOptions.verify|verify} messages.
-             * @param message DynamicOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: protos.opts.IDynamicOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes a DynamicOptions message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns DynamicOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.DynamicOptions;
-
-            /**
-             * Decodes a DynamicOptions message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns DynamicOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.DynamicOptions;
-
-            /**
-             * Verifies a DynamicOptions message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates a DynamicOptions message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns DynamicOptions
-             */
-            public static fromObject(object: { [k: string]: any }): protos.opts.DynamicOptions;
-
-            /**
-             * Creates a plain object from a DynamicOptions message. Also converts values to other types if specified.
-             * @param message DynamicOptions
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: protos.opts.DynamicOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this DynamicOptions to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-        }
-
-        /** Properties of a DynamicGroupKafkaOptions. */
-        interface IDynamicGroupKafkaOptions {
-
-            /** DynamicGroupKafkaOptions _conn */
-            _conn?: (protos.args.IKafkaConn|null);
-
-            /** DynamicGroupKafkaOptions args */
-            args?: (protos.args.IKafkaWriteArgs|null);
-        }
-
-        /** Represents a DynamicGroupKafkaOptions. */
-        class DynamicGroupKafkaOptions implements IDynamicGroupKafkaOptions {
-
-            /**
-             * Constructs a new DynamicGroupKafkaOptions.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: protos.opts.IDynamicGroupKafkaOptions);
-
-            /** DynamicGroupKafkaOptions _conn. */
-            public _conn?: (protos.args.IKafkaConn|null);
-
-            /** DynamicGroupKafkaOptions args. */
-            public args?: (protos.args.IKafkaWriteArgs|null);
-
-            /**
-             * Creates a new DynamicGroupKafkaOptions instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns DynamicGroupKafkaOptions instance
-             */
-            public static create(properties?: protos.opts.IDynamicGroupKafkaOptions): protos.opts.DynamicGroupKafkaOptions;
-
-            /**
-             * Encodes the specified DynamicGroupKafkaOptions message. Does not implicitly {@link protos.opts.DynamicGroupKafkaOptions.verify|verify} messages.
-             * @param message DynamicGroupKafkaOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: protos.opts.IDynamicGroupKafkaOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified DynamicGroupKafkaOptions message, length delimited. Does not implicitly {@link protos.opts.DynamicGroupKafkaOptions.verify|verify} messages.
-             * @param message DynamicGroupKafkaOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: protos.opts.IDynamicGroupKafkaOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes a DynamicGroupKafkaOptions message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns DynamicGroupKafkaOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.DynamicGroupKafkaOptions;
-
-            /**
-             * Decodes a DynamicGroupKafkaOptions message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns DynamicGroupKafkaOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.DynamicGroupKafkaOptions;
-
-            /**
-             * Verifies a DynamicGroupKafkaOptions message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates a DynamicGroupKafkaOptions message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns DynamicGroupKafkaOptions
-             */
-            public static fromObject(object: { [k: string]: any }): protos.opts.DynamicGroupKafkaOptions;
-
-            /**
-             * Creates a plain object from a DynamicGroupKafkaOptions message. Also converts values to other types if specified.
-             * @param message DynamicGroupKafkaOptions
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: protos.opts.DynamicGroupKafkaOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this DynamicGroupKafkaOptions to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-        }
-
-        /** Properties of a DynamicGroupActiveMQOptions. */
-        interface IDynamicGroupActiveMQOptions {
-
-            /** DynamicGroupActiveMQOptions _conn */
-            _conn?: (protos.args.IActiveMQConn|null);
-
-            /** DynamicGroupActiveMQOptions args */
-            args?: (protos.args.IActiveMQWriteArgs|null);
-        }
-
-        /** Represents a DynamicGroupActiveMQOptions. */
-        class DynamicGroupActiveMQOptions implements IDynamicGroupActiveMQOptions {
-
-            /**
-             * Constructs a new DynamicGroupActiveMQOptions.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: protos.opts.IDynamicGroupActiveMQOptions);
-
-            /** DynamicGroupActiveMQOptions _conn. */
-            public _conn?: (protos.args.IActiveMQConn|null);
-
-            /** DynamicGroupActiveMQOptions args. */
-            public args?: (protos.args.IActiveMQWriteArgs|null);
-
-            /**
-             * Creates a new DynamicGroupActiveMQOptions instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns DynamicGroupActiveMQOptions instance
-             */
-            public static create(properties?: protos.opts.IDynamicGroupActiveMQOptions): protos.opts.DynamicGroupActiveMQOptions;
-
-            /**
-             * Encodes the specified DynamicGroupActiveMQOptions message. Does not implicitly {@link protos.opts.DynamicGroupActiveMQOptions.verify|verify} messages.
-             * @param message DynamicGroupActiveMQOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: protos.opts.IDynamicGroupActiveMQOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified DynamicGroupActiveMQOptions message, length delimited. Does not implicitly {@link protos.opts.DynamicGroupActiveMQOptions.verify|verify} messages.
-             * @param message DynamicGroupActiveMQOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: protos.opts.IDynamicGroupActiveMQOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes a DynamicGroupActiveMQOptions message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns DynamicGroupActiveMQOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.DynamicGroupActiveMQOptions;
-
-            /**
-             * Decodes a DynamicGroupActiveMQOptions message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns DynamicGroupActiveMQOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.DynamicGroupActiveMQOptions;
-
-            /**
-             * Verifies a DynamicGroupActiveMQOptions message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates a DynamicGroupActiveMQOptions message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns DynamicGroupActiveMQOptions
-             */
-            public static fromObject(object: { [k: string]: any }): protos.opts.DynamicGroupActiveMQOptions;
-
-            /**
-             * Creates a plain object from a DynamicGroupActiveMQOptions message. Also converts values to other types if specified.
-             * @param message DynamicGroupActiveMQOptions
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: protos.opts.DynamicGroupActiveMQOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this DynamicGroupActiveMQOptions to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-        }
-
-        /** Properties of a DynamicGroupAWSSQSOptions. */
-        interface IDynamicGroupAWSSQSOptions {
-
-            /** DynamicGroupAWSSQSOptions _conn */
-            _conn?: (protos.args.IAWSSQSConn|null);
-
-            /** DynamicGroupAWSSQSOptions args */
-            args?: (protos.args.IAWSSQSWriteArgs|null);
-        }
-
-        /** Represents a DynamicGroupAWSSQSOptions. */
-        class DynamicGroupAWSSQSOptions implements IDynamicGroupAWSSQSOptions {
-
-            /**
-             * Constructs a new DynamicGroupAWSSQSOptions.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: protos.opts.IDynamicGroupAWSSQSOptions);
-
-            /** DynamicGroupAWSSQSOptions _conn. */
-            public _conn?: (protos.args.IAWSSQSConn|null);
-
-            /** DynamicGroupAWSSQSOptions args. */
-            public args?: (protos.args.IAWSSQSWriteArgs|null);
-
-            /**
-             * Creates a new DynamicGroupAWSSQSOptions instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns DynamicGroupAWSSQSOptions instance
-             */
-            public static create(properties?: protos.opts.IDynamicGroupAWSSQSOptions): protos.opts.DynamicGroupAWSSQSOptions;
-
-            /**
-             * Encodes the specified DynamicGroupAWSSQSOptions message. Does not implicitly {@link protos.opts.DynamicGroupAWSSQSOptions.verify|verify} messages.
-             * @param message DynamicGroupAWSSQSOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: protos.opts.IDynamicGroupAWSSQSOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified DynamicGroupAWSSQSOptions message, length delimited. Does not implicitly {@link protos.opts.DynamicGroupAWSSQSOptions.verify|verify} messages.
-             * @param message DynamicGroupAWSSQSOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: protos.opts.IDynamicGroupAWSSQSOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes a DynamicGroupAWSSQSOptions message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns DynamicGroupAWSSQSOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.DynamicGroupAWSSQSOptions;
-
-            /**
-             * Decodes a DynamicGroupAWSSQSOptions message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns DynamicGroupAWSSQSOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.DynamicGroupAWSSQSOptions;
-
-            /**
-             * Verifies a DynamicGroupAWSSQSOptions message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates a DynamicGroupAWSSQSOptions message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns DynamicGroupAWSSQSOptions
-             */
-            public static fromObject(object: { [k: string]: any }): protos.opts.DynamicGroupAWSSQSOptions;
-
-            /**
-             * Creates a plain object from a DynamicGroupAWSSQSOptions message. Also converts values to other types if specified.
-             * @param message DynamicGroupAWSSQSOptions
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: protos.opts.DynamicGroupAWSSQSOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this DynamicGroupAWSSQSOptions to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-        }
-
-        /** Properties of a DynamicGroupAWSSNSOptions. */
-        interface IDynamicGroupAWSSNSOptions {
-
-            /** DynamicGroupAWSSNSOptions _conn */
-            _conn?: (protos.args.IAWSSNSConn|null);
-
-            /** DynamicGroupAWSSNSOptions args */
-            args?: (protos.args.IAWSSNSWriteArgs|null);
-        }
-
-        /** Represents a DynamicGroupAWSSNSOptions. */
-        class DynamicGroupAWSSNSOptions implements IDynamicGroupAWSSNSOptions {
-
-            /**
-             * Constructs a new DynamicGroupAWSSNSOptions.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: protos.opts.IDynamicGroupAWSSNSOptions);
-
-            /** DynamicGroupAWSSNSOptions _conn. */
-            public _conn?: (protos.args.IAWSSNSConn|null);
-
-            /** DynamicGroupAWSSNSOptions args. */
-            public args?: (protos.args.IAWSSNSWriteArgs|null);
-
-            /**
-             * Creates a new DynamicGroupAWSSNSOptions instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns DynamicGroupAWSSNSOptions instance
-             */
-            public static create(properties?: protos.opts.IDynamicGroupAWSSNSOptions): protos.opts.DynamicGroupAWSSNSOptions;
-
-            /**
-             * Encodes the specified DynamicGroupAWSSNSOptions message. Does not implicitly {@link protos.opts.DynamicGroupAWSSNSOptions.verify|verify} messages.
-             * @param message DynamicGroupAWSSNSOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: protos.opts.IDynamicGroupAWSSNSOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified DynamicGroupAWSSNSOptions message, length delimited. Does not implicitly {@link protos.opts.DynamicGroupAWSSNSOptions.verify|verify} messages.
-             * @param message DynamicGroupAWSSNSOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: protos.opts.IDynamicGroupAWSSNSOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes a DynamicGroupAWSSNSOptions message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns DynamicGroupAWSSNSOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.DynamicGroupAWSSNSOptions;
-
-            /**
-             * Decodes a DynamicGroupAWSSNSOptions message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns DynamicGroupAWSSNSOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.DynamicGroupAWSSNSOptions;
-
-            /**
-             * Verifies a DynamicGroupAWSSNSOptions message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates a DynamicGroupAWSSNSOptions message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns DynamicGroupAWSSNSOptions
-             */
-            public static fromObject(object: { [k: string]: any }): protos.opts.DynamicGroupAWSSNSOptions;
-
-            /**
-             * Creates a plain object from a DynamicGroupAWSSNSOptions message. Also converts values to other types if specified.
-             * @param message DynamicGroupAWSSNSOptions
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: protos.opts.DynamicGroupAWSSNSOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this DynamicGroupAWSSNSOptions to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-        }
-
-        /** Properties of a DynamicGroupNatsOptions. */
-        interface IDynamicGroupNatsOptions {
-
-            /** DynamicGroupNatsOptions _conn */
-            _conn?: (protos.args.INatsConn|null);
-
-            /** DynamicGroupNatsOptions args */
-            args?: (protos.args.INatsWriteArgs|null);
-        }
-
-        /** Represents a DynamicGroupNatsOptions. */
-        class DynamicGroupNatsOptions implements IDynamicGroupNatsOptions {
-
-            /**
-             * Constructs a new DynamicGroupNatsOptions.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: protos.opts.IDynamicGroupNatsOptions);
-
-            /** DynamicGroupNatsOptions _conn. */
-            public _conn?: (protos.args.INatsConn|null);
-
-            /** DynamicGroupNatsOptions args. */
-            public args?: (protos.args.INatsWriteArgs|null);
-
-            /**
-             * Creates a new DynamicGroupNatsOptions instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns DynamicGroupNatsOptions instance
-             */
-            public static create(properties?: protos.opts.IDynamicGroupNatsOptions): protos.opts.DynamicGroupNatsOptions;
-
-            /**
-             * Encodes the specified DynamicGroupNatsOptions message. Does not implicitly {@link protos.opts.DynamicGroupNatsOptions.verify|verify} messages.
-             * @param message DynamicGroupNatsOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: protos.opts.IDynamicGroupNatsOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified DynamicGroupNatsOptions message, length delimited. Does not implicitly {@link protos.opts.DynamicGroupNatsOptions.verify|verify} messages.
-             * @param message DynamicGroupNatsOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: protos.opts.IDynamicGroupNatsOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes a DynamicGroupNatsOptions message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns DynamicGroupNatsOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.DynamicGroupNatsOptions;
-
-            /**
-             * Decodes a DynamicGroupNatsOptions message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns DynamicGroupNatsOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.DynamicGroupNatsOptions;
-
-            /**
-             * Verifies a DynamicGroupNatsOptions message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates a DynamicGroupNatsOptions message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns DynamicGroupNatsOptions
-             */
-            public static fromObject(object: { [k: string]: any }): protos.opts.DynamicGroupNatsOptions;
-
-            /**
-             * Creates a plain object from a DynamicGroupNatsOptions message. Also converts values to other types if specified.
-             * @param message DynamicGroupNatsOptions
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: protos.opts.DynamicGroupNatsOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this DynamicGroupNatsOptions to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-        }
-
-        /** Properties of a DynamicGroupNatsJetstreamOptions. */
-        interface IDynamicGroupNatsJetstreamOptions {
-
-            /** DynamicGroupNatsJetstreamOptions _conn */
-            _conn?: (protos.args.INatsJetstreamConn|null);
-
-            /** DynamicGroupNatsJetstreamOptions args */
-            args?: (protos.args.INatsJetstreamWriteArgs|null);
-        }
-
-        /** Represents a DynamicGroupNatsJetstreamOptions. */
-        class DynamicGroupNatsJetstreamOptions implements IDynamicGroupNatsJetstreamOptions {
-
-            /**
-             * Constructs a new DynamicGroupNatsJetstreamOptions.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: protos.opts.IDynamicGroupNatsJetstreamOptions);
-
-            /** DynamicGroupNatsJetstreamOptions _conn. */
-            public _conn?: (protos.args.INatsJetstreamConn|null);
-
-            /** DynamicGroupNatsJetstreamOptions args. */
-            public args?: (protos.args.INatsJetstreamWriteArgs|null);
-
-            /**
-             * Creates a new DynamicGroupNatsJetstreamOptions instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns DynamicGroupNatsJetstreamOptions instance
-             */
-            public static create(properties?: protos.opts.IDynamicGroupNatsJetstreamOptions): protos.opts.DynamicGroupNatsJetstreamOptions;
-
-            /**
-             * Encodes the specified DynamicGroupNatsJetstreamOptions message. Does not implicitly {@link protos.opts.DynamicGroupNatsJetstreamOptions.verify|verify} messages.
-             * @param message DynamicGroupNatsJetstreamOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: protos.opts.IDynamicGroupNatsJetstreamOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified DynamicGroupNatsJetstreamOptions message, length delimited. Does not implicitly {@link protos.opts.DynamicGroupNatsJetstreamOptions.verify|verify} messages.
-             * @param message DynamicGroupNatsJetstreamOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: protos.opts.IDynamicGroupNatsJetstreamOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes a DynamicGroupNatsJetstreamOptions message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns DynamicGroupNatsJetstreamOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.DynamicGroupNatsJetstreamOptions;
-
-            /**
-             * Decodes a DynamicGroupNatsJetstreamOptions message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns DynamicGroupNatsJetstreamOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.DynamicGroupNatsJetstreamOptions;
-
-            /**
-             * Verifies a DynamicGroupNatsJetstreamOptions message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates a DynamicGroupNatsJetstreamOptions message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns DynamicGroupNatsJetstreamOptions
-             */
-            public static fromObject(object: { [k: string]: any }): protos.opts.DynamicGroupNatsJetstreamOptions;
-
-            /**
-             * Creates a plain object from a DynamicGroupNatsJetstreamOptions message. Also converts values to other types if specified.
-             * @param message DynamicGroupNatsJetstreamOptions
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: protos.opts.DynamicGroupNatsJetstreamOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this DynamicGroupNatsJetstreamOptions to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-        }
-
-        /** Properties of a DynamicGroupNatsStreamingOptions. */
-        interface IDynamicGroupNatsStreamingOptions {
-
-            /** DynamicGroupNatsStreamingOptions _conn */
-            _conn?: (protos.args.INatsStreamingConn|null);
-
-            /** DynamicGroupNatsStreamingOptions args */
-            args?: (protos.args.INatsStreamingWriteArgs|null);
-        }
-
-        /** Represents a DynamicGroupNatsStreamingOptions. */
-        class DynamicGroupNatsStreamingOptions implements IDynamicGroupNatsStreamingOptions {
-
-            /**
-             * Constructs a new DynamicGroupNatsStreamingOptions.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: protos.opts.IDynamicGroupNatsStreamingOptions);
-
-            /** DynamicGroupNatsStreamingOptions _conn. */
-            public _conn?: (protos.args.INatsStreamingConn|null);
-
-            /** DynamicGroupNatsStreamingOptions args. */
-            public args?: (protos.args.INatsStreamingWriteArgs|null);
-
-            /**
-             * Creates a new DynamicGroupNatsStreamingOptions instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns DynamicGroupNatsStreamingOptions instance
-             */
-            public static create(properties?: protos.opts.IDynamicGroupNatsStreamingOptions): protos.opts.DynamicGroupNatsStreamingOptions;
-
-            /**
-             * Encodes the specified DynamicGroupNatsStreamingOptions message. Does not implicitly {@link protos.opts.DynamicGroupNatsStreamingOptions.verify|verify} messages.
-             * @param message DynamicGroupNatsStreamingOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: protos.opts.IDynamicGroupNatsStreamingOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified DynamicGroupNatsStreamingOptions message, length delimited. Does not implicitly {@link protos.opts.DynamicGroupNatsStreamingOptions.verify|verify} messages.
-             * @param message DynamicGroupNatsStreamingOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: protos.opts.IDynamicGroupNatsStreamingOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes a DynamicGroupNatsStreamingOptions message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns DynamicGroupNatsStreamingOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.DynamicGroupNatsStreamingOptions;
-
-            /**
-             * Decodes a DynamicGroupNatsStreamingOptions message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns DynamicGroupNatsStreamingOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.DynamicGroupNatsStreamingOptions;
-
-            /**
-             * Verifies a DynamicGroupNatsStreamingOptions message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates a DynamicGroupNatsStreamingOptions message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns DynamicGroupNatsStreamingOptions
-             */
-            public static fromObject(object: { [k: string]: any }): protos.opts.DynamicGroupNatsStreamingOptions;
-
-            /**
-             * Creates a plain object from a DynamicGroupNatsStreamingOptions message. Also converts values to other types if specified.
-             * @param message DynamicGroupNatsStreamingOptions
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: protos.opts.DynamicGroupNatsStreamingOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this DynamicGroupNatsStreamingOptions to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-        }
-
-        /** Properties of a DynamicGroupNSQOptions. */
-        interface IDynamicGroupNSQOptions {
-
-            /** DynamicGroupNSQOptions _conn */
-            _conn?: (protos.args.INSQConn|null);
-
-            /** DynamicGroupNSQOptions args */
-            args?: (protos.args.INSQWriteArgs|null);
-        }
-
-        /** Represents a DynamicGroupNSQOptions. */
-        class DynamicGroupNSQOptions implements IDynamicGroupNSQOptions {
-
-            /**
-             * Constructs a new DynamicGroupNSQOptions.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: protos.opts.IDynamicGroupNSQOptions);
-
-            /** DynamicGroupNSQOptions _conn. */
-            public _conn?: (protos.args.INSQConn|null);
-
-            /** DynamicGroupNSQOptions args. */
-            public args?: (protos.args.INSQWriteArgs|null);
-
-            /**
-             * Creates a new DynamicGroupNSQOptions instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns DynamicGroupNSQOptions instance
-             */
-            public static create(properties?: protos.opts.IDynamicGroupNSQOptions): protos.opts.DynamicGroupNSQOptions;
-
-            /**
-             * Encodes the specified DynamicGroupNSQOptions message. Does not implicitly {@link protos.opts.DynamicGroupNSQOptions.verify|verify} messages.
-             * @param message DynamicGroupNSQOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: protos.opts.IDynamicGroupNSQOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified DynamicGroupNSQOptions message, length delimited. Does not implicitly {@link protos.opts.DynamicGroupNSQOptions.verify|verify} messages.
-             * @param message DynamicGroupNSQOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: protos.opts.IDynamicGroupNSQOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes a DynamicGroupNSQOptions message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns DynamicGroupNSQOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.DynamicGroupNSQOptions;
-
-            /**
-             * Decodes a DynamicGroupNSQOptions message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns DynamicGroupNSQOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.DynamicGroupNSQOptions;
-
-            /**
-             * Verifies a DynamicGroupNSQOptions message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates a DynamicGroupNSQOptions message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns DynamicGroupNSQOptions
-             */
-            public static fromObject(object: { [k: string]: any }): protos.opts.DynamicGroupNSQOptions;
-
-            /**
-             * Creates a plain object from a DynamicGroupNSQOptions message. Also converts values to other types if specified.
-             * @param message DynamicGroupNSQOptions
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: protos.opts.DynamicGroupNSQOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this DynamicGroupNSQOptions to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-        }
-
-        /** Properties of a DynamicGroupRabbitOptions. */
-        interface IDynamicGroupRabbitOptions {
-
-            /** DynamicGroupRabbitOptions _conn */
-            _conn?: (protos.args.IRabbitConn|null);
-
-            /** DynamicGroupRabbitOptions args */
-            args?: (protos.args.IRabbitWriteArgs|null);
-        }
-
-        /** Represents a DynamicGroupRabbitOptions. */
-        class DynamicGroupRabbitOptions implements IDynamicGroupRabbitOptions {
-
-            /**
-             * Constructs a new DynamicGroupRabbitOptions.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: protos.opts.IDynamicGroupRabbitOptions);
-
-            /** DynamicGroupRabbitOptions _conn. */
-            public _conn?: (protos.args.IRabbitConn|null);
-
-            /** DynamicGroupRabbitOptions args. */
-            public args?: (protos.args.IRabbitWriteArgs|null);
-
-            /**
-             * Creates a new DynamicGroupRabbitOptions instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns DynamicGroupRabbitOptions instance
-             */
-            public static create(properties?: protos.opts.IDynamicGroupRabbitOptions): protos.opts.DynamicGroupRabbitOptions;
-
-            /**
-             * Encodes the specified DynamicGroupRabbitOptions message. Does not implicitly {@link protos.opts.DynamicGroupRabbitOptions.verify|verify} messages.
-             * @param message DynamicGroupRabbitOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: protos.opts.IDynamicGroupRabbitOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified DynamicGroupRabbitOptions message, length delimited. Does not implicitly {@link protos.opts.DynamicGroupRabbitOptions.verify|verify} messages.
-             * @param message DynamicGroupRabbitOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: protos.opts.IDynamicGroupRabbitOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes a DynamicGroupRabbitOptions message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns DynamicGroupRabbitOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.DynamicGroupRabbitOptions;
-
-            /**
-             * Decodes a DynamicGroupRabbitOptions message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns DynamicGroupRabbitOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.DynamicGroupRabbitOptions;
-
-            /**
-             * Verifies a DynamicGroupRabbitOptions message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates a DynamicGroupRabbitOptions message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns DynamicGroupRabbitOptions
-             */
-            public static fromObject(object: { [k: string]: any }): protos.opts.DynamicGroupRabbitOptions;
-
-            /**
-             * Creates a plain object from a DynamicGroupRabbitOptions message. Also converts values to other types if specified.
-             * @param message DynamicGroupRabbitOptions
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: protos.opts.DynamicGroupRabbitOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this DynamicGroupRabbitOptions to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-        }
-
-        /** Properties of a DynamicGroupRabbitStreamsOptions. */
-        interface IDynamicGroupRabbitStreamsOptions {
-
-            /** DynamicGroupRabbitStreamsOptions _conn */
-            _conn?: (protos.args.IRabbitStreamsConn|null);
-
-            /** DynamicGroupRabbitStreamsOptions args */
-            args?: (protos.args.IRabbitStreamsWriteArgs|null);
-        }
-
-        /** Represents a DynamicGroupRabbitStreamsOptions. */
-        class DynamicGroupRabbitStreamsOptions implements IDynamicGroupRabbitStreamsOptions {
-
-            /**
-             * Constructs a new DynamicGroupRabbitStreamsOptions.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: protos.opts.IDynamicGroupRabbitStreamsOptions);
-
-            /** DynamicGroupRabbitStreamsOptions _conn. */
-            public _conn?: (protos.args.IRabbitStreamsConn|null);
-
-            /** DynamicGroupRabbitStreamsOptions args. */
-            public args?: (protos.args.IRabbitStreamsWriteArgs|null);
-
-            /**
-             * Creates a new DynamicGroupRabbitStreamsOptions instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns DynamicGroupRabbitStreamsOptions instance
-             */
-            public static create(properties?: protos.opts.IDynamicGroupRabbitStreamsOptions): protos.opts.DynamicGroupRabbitStreamsOptions;
-
-            /**
-             * Encodes the specified DynamicGroupRabbitStreamsOptions message. Does not implicitly {@link protos.opts.DynamicGroupRabbitStreamsOptions.verify|verify} messages.
-             * @param message DynamicGroupRabbitStreamsOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: protos.opts.IDynamicGroupRabbitStreamsOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified DynamicGroupRabbitStreamsOptions message, length delimited. Does not implicitly {@link protos.opts.DynamicGroupRabbitStreamsOptions.verify|verify} messages.
-             * @param message DynamicGroupRabbitStreamsOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: protos.opts.IDynamicGroupRabbitStreamsOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes a DynamicGroupRabbitStreamsOptions message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns DynamicGroupRabbitStreamsOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.DynamicGroupRabbitStreamsOptions;
-
-            /**
-             * Decodes a DynamicGroupRabbitStreamsOptions message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns DynamicGroupRabbitStreamsOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.DynamicGroupRabbitStreamsOptions;
-
-            /**
-             * Verifies a DynamicGroupRabbitStreamsOptions message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates a DynamicGroupRabbitStreamsOptions message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns DynamicGroupRabbitStreamsOptions
-             */
-            public static fromObject(object: { [k: string]: any }): protos.opts.DynamicGroupRabbitStreamsOptions;
-
-            /**
-             * Creates a plain object from a DynamicGroupRabbitStreamsOptions message. Also converts values to other types if specified.
-             * @param message DynamicGroupRabbitStreamsOptions
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: protos.opts.DynamicGroupRabbitStreamsOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this DynamicGroupRabbitStreamsOptions to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-        }
-
-        /** Properties of a DynamicGroupRedisPubSubOptions. */
-        interface IDynamicGroupRedisPubSubOptions {
-
-            /** DynamicGroupRedisPubSubOptions _conn */
-            _conn?: (protos.args.IRedisPubSubConn|null);
-
-            /** DynamicGroupRedisPubSubOptions args */
-            args?: (protos.args.IRedisPubSubWriteArgs|null);
-        }
-
-        /** Represents a DynamicGroupRedisPubSubOptions. */
-        class DynamicGroupRedisPubSubOptions implements IDynamicGroupRedisPubSubOptions {
-
-            /**
-             * Constructs a new DynamicGroupRedisPubSubOptions.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: protos.opts.IDynamicGroupRedisPubSubOptions);
-
-            /** DynamicGroupRedisPubSubOptions _conn. */
-            public _conn?: (protos.args.IRedisPubSubConn|null);
-
-            /** DynamicGroupRedisPubSubOptions args. */
-            public args?: (protos.args.IRedisPubSubWriteArgs|null);
-
-            /**
-             * Creates a new DynamicGroupRedisPubSubOptions instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns DynamicGroupRedisPubSubOptions instance
-             */
-            public static create(properties?: protos.opts.IDynamicGroupRedisPubSubOptions): protos.opts.DynamicGroupRedisPubSubOptions;
-
-            /**
-             * Encodes the specified DynamicGroupRedisPubSubOptions message. Does not implicitly {@link protos.opts.DynamicGroupRedisPubSubOptions.verify|verify} messages.
-             * @param message DynamicGroupRedisPubSubOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: protos.opts.IDynamicGroupRedisPubSubOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified DynamicGroupRedisPubSubOptions message, length delimited. Does not implicitly {@link protos.opts.DynamicGroupRedisPubSubOptions.verify|verify} messages.
-             * @param message DynamicGroupRedisPubSubOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: protos.opts.IDynamicGroupRedisPubSubOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes a DynamicGroupRedisPubSubOptions message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns DynamicGroupRedisPubSubOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.DynamicGroupRedisPubSubOptions;
-
-            /**
-             * Decodes a DynamicGroupRedisPubSubOptions message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns DynamicGroupRedisPubSubOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.DynamicGroupRedisPubSubOptions;
-
-            /**
-             * Verifies a DynamicGroupRedisPubSubOptions message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates a DynamicGroupRedisPubSubOptions message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns DynamicGroupRedisPubSubOptions
-             */
-            public static fromObject(object: { [k: string]: any }): protos.opts.DynamicGroupRedisPubSubOptions;
-
-            /**
-             * Creates a plain object from a DynamicGroupRedisPubSubOptions message. Also converts values to other types if specified.
-             * @param message DynamicGroupRedisPubSubOptions
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: protos.opts.DynamicGroupRedisPubSubOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this DynamicGroupRedisPubSubOptions to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-        }
-
-        /** Properties of a DynamicGroupRedisStreamsOptions. */
-        interface IDynamicGroupRedisStreamsOptions {
-
-            /** DynamicGroupRedisStreamsOptions _conn */
-            _conn?: (protos.args.IRedisStreamsConn|null);
-
-            /** DynamicGroupRedisStreamsOptions args */
-            args?: (protos.args.IRedisStreamsWriteArgs|null);
-        }
-
-        /** Represents a DynamicGroupRedisStreamsOptions. */
-        class DynamicGroupRedisStreamsOptions implements IDynamicGroupRedisStreamsOptions {
-
-            /**
-             * Constructs a new DynamicGroupRedisStreamsOptions.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: protos.opts.IDynamicGroupRedisStreamsOptions);
-
-            /** DynamicGroupRedisStreamsOptions _conn. */
-            public _conn?: (protos.args.IRedisStreamsConn|null);
-
-            /** DynamicGroupRedisStreamsOptions args. */
-            public args?: (protos.args.IRedisStreamsWriteArgs|null);
-
-            /**
-             * Creates a new DynamicGroupRedisStreamsOptions instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns DynamicGroupRedisStreamsOptions instance
-             */
-            public static create(properties?: protos.opts.IDynamicGroupRedisStreamsOptions): protos.opts.DynamicGroupRedisStreamsOptions;
-
-            /**
-             * Encodes the specified DynamicGroupRedisStreamsOptions message. Does not implicitly {@link protos.opts.DynamicGroupRedisStreamsOptions.verify|verify} messages.
-             * @param message DynamicGroupRedisStreamsOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: protos.opts.IDynamicGroupRedisStreamsOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified DynamicGroupRedisStreamsOptions message, length delimited. Does not implicitly {@link protos.opts.DynamicGroupRedisStreamsOptions.verify|verify} messages.
-             * @param message DynamicGroupRedisStreamsOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: protos.opts.IDynamicGroupRedisStreamsOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes a DynamicGroupRedisStreamsOptions message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns DynamicGroupRedisStreamsOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.DynamicGroupRedisStreamsOptions;
-
-            /**
-             * Decodes a DynamicGroupRedisStreamsOptions message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns DynamicGroupRedisStreamsOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.DynamicGroupRedisStreamsOptions;
-
-            /**
-             * Verifies a DynamicGroupRedisStreamsOptions message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates a DynamicGroupRedisStreamsOptions message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns DynamicGroupRedisStreamsOptions
-             */
-            public static fromObject(object: { [k: string]: any }): protos.opts.DynamicGroupRedisStreamsOptions;
-
-            /**
-             * Creates a plain object from a DynamicGroupRedisStreamsOptions message. Also converts values to other types if specified.
-             * @param message DynamicGroupRedisStreamsOptions
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: protos.opts.DynamicGroupRedisStreamsOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this DynamicGroupRedisStreamsOptions to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-        }
-
-        /** Properties of a DynamicGroupAzureEventHubOptions. */
-        interface IDynamicGroupAzureEventHubOptions {
-
-            /** DynamicGroupAzureEventHubOptions _conn */
-            _conn?: (protos.args.IAzureEventHubConn|null);
-
-            /** DynamicGroupAzureEventHubOptions args */
-            args?: (protos.args.IAzureEventHubWriteArgs|null);
-        }
-
-        /** Represents a DynamicGroupAzureEventHubOptions. */
-        class DynamicGroupAzureEventHubOptions implements IDynamicGroupAzureEventHubOptions {
-
-            /**
-             * Constructs a new DynamicGroupAzureEventHubOptions.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: protos.opts.IDynamicGroupAzureEventHubOptions);
-
-            /** DynamicGroupAzureEventHubOptions _conn. */
-            public _conn?: (protos.args.IAzureEventHubConn|null);
-
-            /** DynamicGroupAzureEventHubOptions args. */
-            public args?: (protos.args.IAzureEventHubWriteArgs|null);
-
-            /**
-             * Creates a new DynamicGroupAzureEventHubOptions instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns DynamicGroupAzureEventHubOptions instance
-             */
-            public static create(properties?: protos.opts.IDynamicGroupAzureEventHubOptions): protos.opts.DynamicGroupAzureEventHubOptions;
-
-            /**
-             * Encodes the specified DynamicGroupAzureEventHubOptions message. Does not implicitly {@link protos.opts.DynamicGroupAzureEventHubOptions.verify|verify} messages.
-             * @param message DynamicGroupAzureEventHubOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: protos.opts.IDynamicGroupAzureEventHubOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified DynamicGroupAzureEventHubOptions message, length delimited. Does not implicitly {@link protos.opts.DynamicGroupAzureEventHubOptions.verify|verify} messages.
-             * @param message DynamicGroupAzureEventHubOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: protos.opts.IDynamicGroupAzureEventHubOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes a DynamicGroupAzureEventHubOptions message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns DynamicGroupAzureEventHubOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.DynamicGroupAzureEventHubOptions;
-
-            /**
-             * Decodes a DynamicGroupAzureEventHubOptions message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns DynamicGroupAzureEventHubOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.DynamicGroupAzureEventHubOptions;
-
-            /**
-             * Verifies a DynamicGroupAzureEventHubOptions message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates a DynamicGroupAzureEventHubOptions message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns DynamicGroupAzureEventHubOptions
-             */
-            public static fromObject(object: { [k: string]: any }): protos.opts.DynamicGroupAzureEventHubOptions;
-
-            /**
-             * Creates a plain object from a DynamicGroupAzureEventHubOptions message. Also converts values to other types if specified.
-             * @param message DynamicGroupAzureEventHubOptions
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: protos.opts.DynamicGroupAzureEventHubOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this DynamicGroupAzureEventHubOptions to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-        }
-
-        /** Properties of a DynamicGroupAzureServiceBusOptions. */
-        interface IDynamicGroupAzureServiceBusOptions {
-
-            /** DynamicGroupAzureServiceBusOptions _conn */
-            _conn?: (protos.args.IAzureServiceBusConn|null);
-
-            /** DynamicGroupAzureServiceBusOptions args */
-            args?: (protos.args.IAzureServiceBusWriteArgs|null);
-        }
-
-        /** Represents a DynamicGroupAzureServiceBusOptions. */
-        class DynamicGroupAzureServiceBusOptions implements IDynamicGroupAzureServiceBusOptions {
-
-            /**
-             * Constructs a new DynamicGroupAzureServiceBusOptions.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: protos.opts.IDynamicGroupAzureServiceBusOptions);
-
-            /** DynamicGroupAzureServiceBusOptions _conn. */
-            public _conn?: (protos.args.IAzureServiceBusConn|null);
-
-            /** DynamicGroupAzureServiceBusOptions args. */
-            public args?: (protos.args.IAzureServiceBusWriteArgs|null);
-
-            /**
-             * Creates a new DynamicGroupAzureServiceBusOptions instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns DynamicGroupAzureServiceBusOptions instance
-             */
-            public static create(properties?: protos.opts.IDynamicGroupAzureServiceBusOptions): protos.opts.DynamicGroupAzureServiceBusOptions;
-
-            /**
-             * Encodes the specified DynamicGroupAzureServiceBusOptions message. Does not implicitly {@link protos.opts.DynamicGroupAzureServiceBusOptions.verify|verify} messages.
-             * @param message DynamicGroupAzureServiceBusOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: protos.opts.IDynamicGroupAzureServiceBusOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified DynamicGroupAzureServiceBusOptions message, length delimited. Does not implicitly {@link protos.opts.DynamicGroupAzureServiceBusOptions.verify|verify} messages.
-             * @param message DynamicGroupAzureServiceBusOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: protos.opts.IDynamicGroupAzureServiceBusOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes a DynamicGroupAzureServiceBusOptions message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns DynamicGroupAzureServiceBusOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.DynamicGroupAzureServiceBusOptions;
-
-            /**
-             * Decodes a DynamicGroupAzureServiceBusOptions message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns DynamicGroupAzureServiceBusOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.DynamicGroupAzureServiceBusOptions;
-
-            /**
-             * Verifies a DynamicGroupAzureServiceBusOptions message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates a DynamicGroupAzureServiceBusOptions message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns DynamicGroupAzureServiceBusOptions
-             */
-            public static fromObject(object: { [k: string]: any }): protos.opts.DynamicGroupAzureServiceBusOptions;
-
-            /**
-             * Creates a plain object from a DynamicGroupAzureServiceBusOptions message. Also converts values to other types if specified.
-             * @param message DynamicGroupAzureServiceBusOptions
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: protos.opts.DynamicGroupAzureServiceBusOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this DynamicGroupAzureServiceBusOptions to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-        }
-
-        /** Properties of a DynamicGroupMQTTOptions. */
-        interface IDynamicGroupMQTTOptions {
-
-            /** DynamicGroupMQTTOptions _conn */
-            _conn?: (protos.args.IMQTTConn|null);
-
-            /** DynamicGroupMQTTOptions args */
-            args?: (protos.args.IMQTTWriteArgs|null);
-        }
-
-        /** Represents a DynamicGroupMQTTOptions. */
-        class DynamicGroupMQTTOptions implements IDynamicGroupMQTTOptions {
-
-            /**
-             * Constructs a new DynamicGroupMQTTOptions.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: protos.opts.IDynamicGroupMQTTOptions);
-
-            /** DynamicGroupMQTTOptions _conn. */
-            public _conn?: (protos.args.IMQTTConn|null);
-
-            /** DynamicGroupMQTTOptions args. */
-            public args?: (protos.args.IMQTTWriteArgs|null);
-
-            /**
-             * Creates a new DynamicGroupMQTTOptions instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns DynamicGroupMQTTOptions instance
-             */
-            public static create(properties?: protos.opts.IDynamicGroupMQTTOptions): protos.opts.DynamicGroupMQTTOptions;
-
-            /**
-             * Encodes the specified DynamicGroupMQTTOptions message. Does not implicitly {@link protos.opts.DynamicGroupMQTTOptions.verify|verify} messages.
-             * @param message DynamicGroupMQTTOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: protos.opts.IDynamicGroupMQTTOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified DynamicGroupMQTTOptions message, length delimited. Does not implicitly {@link protos.opts.DynamicGroupMQTTOptions.verify|verify} messages.
-             * @param message DynamicGroupMQTTOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: protos.opts.IDynamicGroupMQTTOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes a DynamicGroupMQTTOptions message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns DynamicGroupMQTTOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.DynamicGroupMQTTOptions;
-
-            /**
-             * Decodes a DynamicGroupMQTTOptions message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns DynamicGroupMQTTOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.DynamicGroupMQTTOptions;
-
-            /**
-             * Verifies a DynamicGroupMQTTOptions message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates a DynamicGroupMQTTOptions message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns DynamicGroupMQTTOptions
-             */
-            public static fromObject(object: { [k: string]: any }): protos.opts.DynamicGroupMQTTOptions;
-
-            /**
-             * Creates a plain object from a DynamicGroupMQTTOptions message. Also converts values to other types if specified.
-             * @param message DynamicGroupMQTTOptions
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: protos.opts.DynamicGroupMQTTOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this DynamicGroupMQTTOptions to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-        }
-
-        /** Properties of a DynamicGroupGCPPubSubOptions. */
-        interface IDynamicGroupGCPPubSubOptions {
-
-            /** DynamicGroupGCPPubSubOptions _conn */
-            _conn?: (protos.args.IGCPPubSubConn|null);
-
-            /** DynamicGroupGCPPubSubOptions args */
-            args?: (protos.args.IGCPPubSubWriteArgs|null);
-        }
-
-        /** Represents a DynamicGroupGCPPubSubOptions. */
-        class DynamicGroupGCPPubSubOptions implements IDynamicGroupGCPPubSubOptions {
-
-            /**
-             * Constructs a new DynamicGroupGCPPubSubOptions.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: protos.opts.IDynamicGroupGCPPubSubOptions);
-
-            /** DynamicGroupGCPPubSubOptions _conn. */
-            public _conn?: (protos.args.IGCPPubSubConn|null);
-
-            /** DynamicGroupGCPPubSubOptions args. */
-            public args?: (protos.args.IGCPPubSubWriteArgs|null);
-
-            /**
-             * Creates a new DynamicGroupGCPPubSubOptions instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns DynamicGroupGCPPubSubOptions instance
-             */
-            public static create(properties?: protos.opts.IDynamicGroupGCPPubSubOptions): protos.opts.DynamicGroupGCPPubSubOptions;
-
-            /**
-             * Encodes the specified DynamicGroupGCPPubSubOptions message. Does not implicitly {@link protos.opts.DynamicGroupGCPPubSubOptions.verify|verify} messages.
-             * @param message DynamicGroupGCPPubSubOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: protos.opts.IDynamicGroupGCPPubSubOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified DynamicGroupGCPPubSubOptions message, length delimited. Does not implicitly {@link protos.opts.DynamicGroupGCPPubSubOptions.verify|verify} messages.
-             * @param message DynamicGroupGCPPubSubOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: protos.opts.IDynamicGroupGCPPubSubOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes a DynamicGroupGCPPubSubOptions message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns DynamicGroupGCPPubSubOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.DynamicGroupGCPPubSubOptions;
-
-            /**
-             * Decodes a DynamicGroupGCPPubSubOptions message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns DynamicGroupGCPPubSubOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.DynamicGroupGCPPubSubOptions;
-
-            /**
-             * Verifies a DynamicGroupGCPPubSubOptions message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates a DynamicGroupGCPPubSubOptions message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns DynamicGroupGCPPubSubOptions
-             */
-            public static fromObject(object: { [k: string]: any }): protos.opts.DynamicGroupGCPPubSubOptions;
-
-            /**
-             * Creates a plain object from a DynamicGroupGCPPubSubOptions message. Also converts values to other types if specified.
-             * @param message DynamicGroupGCPPubSubOptions
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: protos.opts.DynamicGroupGCPPubSubOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this DynamicGroupGCPPubSubOptions to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-        }
-
-        /** Properties of a DynamicGroupKubeMQQueueOptions. */
-        interface IDynamicGroupKubeMQQueueOptions {
-
-            /** DynamicGroupKubeMQQueueOptions _conn */
-            _conn?: (protos.args.IKubeMQQueueConn|null);
-
-            /** DynamicGroupKubeMQQueueOptions args */
-            args?: (protos.args.IKubeMQQueueWriteArgs|null);
-        }
-
-        /** Represents a DynamicGroupKubeMQQueueOptions. */
-        class DynamicGroupKubeMQQueueOptions implements IDynamicGroupKubeMQQueueOptions {
-
-            /**
-             * Constructs a new DynamicGroupKubeMQQueueOptions.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: protos.opts.IDynamicGroupKubeMQQueueOptions);
-
-            /** DynamicGroupKubeMQQueueOptions _conn. */
-            public _conn?: (protos.args.IKubeMQQueueConn|null);
-
-            /** DynamicGroupKubeMQQueueOptions args. */
-            public args?: (protos.args.IKubeMQQueueWriteArgs|null);
-
-            /**
-             * Creates a new DynamicGroupKubeMQQueueOptions instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns DynamicGroupKubeMQQueueOptions instance
-             */
-            public static create(properties?: protos.opts.IDynamicGroupKubeMQQueueOptions): protos.opts.DynamicGroupKubeMQQueueOptions;
-
-            /**
-             * Encodes the specified DynamicGroupKubeMQQueueOptions message. Does not implicitly {@link protos.opts.DynamicGroupKubeMQQueueOptions.verify|verify} messages.
-             * @param message DynamicGroupKubeMQQueueOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: protos.opts.IDynamicGroupKubeMQQueueOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified DynamicGroupKubeMQQueueOptions message, length delimited. Does not implicitly {@link protos.opts.DynamicGroupKubeMQQueueOptions.verify|verify} messages.
-             * @param message DynamicGroupKubeMQQueueOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: protos.opts.IDynamicGroupKubeMQQueueOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes a DynamicGroupKubeMQQueueOptions message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns DynamicGroupKubeMQQueueOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.DynamicGroupKubeMQQueueOptions;
-
-            /**
-             * Decodes a DynamicGroupKubeMQQueueOptions message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns DynamicGroupKubeMQQueueOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.DynamicGroupKubeMQQueueOptions;
-
-            /**
-             * Verifies a DynamicGroupKubeMQQueueOptions message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates a DynamicGroupKubeMQQueueOptions message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns DynamicGroupKubeMQQueueOptions
-             */
-            public static fromObject(object: { [k: string]: any }): protos.opts.DynamicGroupKubeMQQueueOptions;
-
-            /**
-             * Creates a plain object from a DynamicGroupKubeMQQueueOptions message. Also converts values to other types if specified.
-             * @param message DynamicGroupKubeMQQueueOptions
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: protos.opts.DynamicGroupKubeMQQueueOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this DynamicGroupKubeMQQueueOptions to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-        }
-
-        /** Properties of a DynamicGroupPulsarOptions. */
-        interface IDynamicGroupPulsarOptions {
-
-            /** DynamicGroupPulsarOptions _conn */
-            _conn?: (protos.args.IPulsarConn|null);
-
-            /** DynamicGroupPulsarOptions args */
-            args?: (protos.args.IPulsarWriteArgs|null);
-        }
-
-        /** Represents a DynamicGroupPulsarOptions. */
-        class DynamicGroupPulsarOptions implements IDynamicGroupPulsarOptions {
-
-            /**
-             * Constructs a new DynamicGroupPulsarOptions.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: protos.opts.IDynamicGroupPulsarOptions);
-
-            /** DynamicGroupPulsarOptions _conn. */
-            public _conn?: (protos.args.IPulsarConn|null);
-
-            /** DynamicGroupPulsarOptions args. */
-            public args?: (protos.args.IPulsarWriteArgs|null);
-
-            /**
-             * Creates a new DynamicGroupPulsarOptions instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns DynamicGroupPulsarOptions instance
-             */
-            public static create(properties?: protos.opts.IDynamicGroupPulsarOptions): protos.opts.DynamicGroupPulsarOptions;
-
-            /**
-             * Encodes the specified DynamicGroupPulsarOptions message. Does not implicitly {@link protos.opts.DynamicGroupPulsarOptions.verify|verify} messages.
-             * @param message DynamicGroupPulsarOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: protos.opts.IDynamicGroupPulsarOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified DynamicGroupPulsarOptions message, length delimited. Does not implicitly {@link protos.opts.DynamicGroupPulsarOptions.verify|verify} messages.
-             * @param message DynamicGroupPulsarOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: protos.opts.IDynamicGroupPulsarOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes a DynamicGroupPulsarOptions message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns DynamicGroupPulsarOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.DynamicGroupPulsarOptions;
-
-            /**
-             * Decodes a DynamicGroupPulsarOptions message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns DynamicGroupPulsarOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.DynamicGroupPulsarOptions;
-
-            /**
-             * Verifies a DynamicGroupPulsarOptions message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates a DynamicGroupPulsarOptions message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns DynamicGroupPulsarOptions
-             */
-            public static fromObject(object: { [k: string]: any }): protos.opts.DynamicGroupPulsarOptions;
-
-            /**
-             * Creates a plain object from a DynamicGroupPulsarOptions message. Also converts values to other types if specified.
-             * @param message DynamicGroupPulsarOptions
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: protos.opts.DynamicGroupPulsarOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this DynamicGroupPulsarOptions to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-        }
-
-        /** Properties of a DynamicGroupAWSKinesisOptions. */
-        interface IDynamicGroupAWSKinesisOptions {
-
-            /** DynamicGroupAWSKinesisOptions _conn */
-            _conn?: (protos.args.IAWSKinesisConn|null);
-
-            /** DynamicGroupAWSKinesisOptions args */
-            args?: (protos.args.IAWSKinesisWriteArgs|null);
-        }
-
-        /** Represents a DynamicGroupAWSKinesisOptions. */
-        class DynamicGroupAWSKinesisOptions implements IDynamicGroupAWSKinesisOptions {
-
-            /**
-             * Constructs a new DynamicGroupAWSKinesisOptions.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: protos.opts.IDynamicGroupAWSKinesisOptions);
-
-            /** DynamicGroupAWSKinesisOptions _conn. */
-            public _conn?: (protos.args.IAWSKinesisConn|null);
-
-            /** DynamicGroupAWSKinesisOptions args. */
-            public args?: (protos.args.IAWSKinesisWriteArgs|null);
-
-            /**
-             * Creates a new DynamicGroupAWSKinesisOptions instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns DynamicGroupAWSKinesisOptions instance
-             */
-            public static create(properties?: protos.opts.IDynamicGroupAWSKinesisOptions): protos.opts.DynamicGroupAWSKinesisOptions;
-
-            /**
-             * Encodes the specified DynamicGroupAWSKinesisOptions message. Does not implicitly {@link protos.opts.DynamicGroupAWSKinesisOptions.verify|verify} messages.
-             * @param message DynamicGroupAWSKinesisOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: protos.opts.IDynamicGroupAWSKinesisOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified DynamicGroupAWSKinesisOptions message, length delimited. Does not implicitly {@link protos.opts.DynamicGroupAWSKinesisOptions.verify|verify} messages.
-             * @param message DynamicGroupAWSKinesisOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: protos.opts.IDynamicGroupAWSKinesisOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes a DynamicGroupAWSKinesisOptions message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns DynamicGroupAWSKinesisOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.DynamicGroupAWSKinesisOptions;
-
-            /**
-             * Decodes a DynamicGroupAWSKinesisOptions message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns DynamicGroupAWSKinesisOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.DynamicGroupAWSKinesisOptions;
-
-            /**
-             * Verifies a DynamicGroupAWSKinesisOptions message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates a DynamicGroupAWSKinesisOptions message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns DynamicGroupAWSKinesisOptions
-             */
-            public static fromObject(object: { [k: string]: any }): protos.opts.DynamicGroupAWSKinesisOptions;
-
-            /**
-             * Creates a plain object from a DynamicGroupAWSKinesisOptions message. Also converts values to other types if specified.
-             * @param message DynamicGroupAWSKinesisOptions
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: protos.opts.DynamicGroupAWSKinesisOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this DynamicGroupAWSKinesisOptions to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-        }
     }
 
     /** Represents a PlumberServer */
@@ -13833,6 +13833,20 @@ export namespace protos {
          * @returns Promise
          */
         public getAllRelays(request: protos.IGetAllRelaysRequest): Promise<protos.GetAllRelaysResponse>;
+
+        /**
+         * Calls GetRelay.
+         * @param request GetRelayRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and GetRelayResponse
+         */
+        public getRelay(request: protos.IGetRelayRequest, callback: protos.PlumberServer.GetRelayCallback): void;
+
+        /**
+         * Calls GetRelay.
+         * @param request GetRelayRequest message or plain object
+         * @returns Promise
+         */
+        public getRelay(request: protos.IGetRelayRequest): Promise<protos.GetRelayResponse>;
 
         /**
          * Calls DeleteRelay.
@@ -14435,6 +14449,104 @@ export namespace protos {
          * @returns Promise
          */
         public getErrorHistory(request: protos.IGetErrorHistoryRequest): Promise<protos.GetErrorHistoryResponse>;
+
+        /**
+         * Calls GetDynamic.
+         * @param request GetDynamicRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and GetDynamicResponse
+         */
+        public getDynamic(request: protos.IGetDynamicRequest, callback: protos.PlumberServer.GetDynamicCallback): void;
+
+        /**
+         * Calls GetDynamic.
+         * @param request GetDynamicRequest message or plain object
+         * @returns Promise
+         */
+        public getDynamic(request: protos.IGetDynamicRequest): Promise<protos.GetDynamicResponse>;
+
+        /**
+         * Calls GetAllDynamic.
+         * @param request GetAllDynamicRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and GetAllDynamicResponse
+         */
+        public getAllDynamic(request: protos.IGetAllDynamicRequest, callback: protos.PlumberServer.GetAllDynamicCallback): void;
+
+        /**
+         * Calls GetAllDynamic.
+         * @param request GetAllDynamicRequest message or plain object
+         * @returns Promise
+         */
+        public getAllDynamic(request: protos.IGetAllDynamicRequest): Promise<protos.GetAllDynamicResponse>;
+
+        /**
+         * Calls CreateDynamic.
+         * @param request CreateDynamicRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and CreateDynamicResponse
+         */
+        public createDynamic(request: protos.ICreateDynamicRequest, callback: protos.PlumberServer.CreateDynamicCallback): void;
+
+        /**
+         * Calls CreateDynamic.
+         * @param request CreateDynamicRequest message or plain object
+         * @returns Promise
+         */
+        public createDynamic(request: protos.ICreateDynamicRequest): Promise<protos.CreateDynamicResponse>;
+
+        /**
+         * Calls StopDynamic.
+         * @param request StopDynamicRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and StopDynamicResponse
+         */
+        public stopDynamic(request: protos.IStopDynamicRequest, callback: protos.PlumberServer.StopDynamicCallback): void;
+
+        /**
+         * Calls StopDynamic.
+         * @param request StopDynamicRequest message or plain object
+         * @returns Promise
+         */
+        public stopDynamic(request: protos.IStopDynamicRequest): Promise<protos.StopDynamicResponse>;
+
+        /**
+         * Calls ResumeDynamic.
+         * @param request ResumeDynamicRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and ResumeDynamicResponse
+         */
+        public resumeDynamic(request: protos.IResumeDynamicRequest, callback: protos.PlumberServer.ResumeDynamicCallback): void;
+
+        /**
+         * Calls ResumeDynamic.
+         * @param request ResumeDynamicRequest message or plain object
+         * @returns Promise
+         */
+        public resumeDynamic(request: protos.IResumeDynamicRequest): Promise<protos.ResumeDynamicResponse>;
+
+        /**
+         * Calls UpdateDynamic.
+         * @param request UpdateDynamicRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and UpdateDynamicResponse
+         */
+        public updateDynamic(request: protos.IUpdateDynamicRequest, callback: protos.PlumberServer.UpdateDynamicCallback): void;
+
+        /**
+         * Calls UpdateDynamic.
+         * @param request UpdateDynamicRequest message or plain object
+         * @returns Promise
+         */
+        public updateDynamic(request: protos.IUpdateDynamicRequest): Promise<protos.UpdateDynamicResponse>;
+
+        /**
+         * Calls DeleteDynamic.
+         * @param request DeleteDynamicRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and DeleteDynamicResponse
+         */
+        public deleteDynamic(request: protos.IDeleteDynamicRequest, callback: protos.PlumberServer.DeleteDynamicCallback): void;
+
+        /**
+         * Calls DeleteDynamic.
+         * @param request DeleteDynamicRequest message or plain object
+         * @returns Promise
+         */
+        public deleteDynamic(request: protos.IDeleteDynamicRequest): Promise<protos.DeleteDynamicResponse>;
     }
 
     namespace PlumberServer {
@@ -14564,6 +14676,13 @@ export namespace protos {
          * @param [response] GetAllRelaysResponse
          */
         type GetAllRelaysCallback = (error: (Error|null), response?: protos.GetAllRelaysResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#getRelay}.
+         * @param error Error, if any
+         * @param [response] GetRelayResponse
+         */
+        type GetRelayCallback = (error: (Error|null), response?: protos.GetRelayResponse) => void;
 
         /**
          * Callback as used by {@link protos.PlumberServer#deleteRelay}.
@@ -14865,6 +14984,55 @@ export namespace protos {
          * @param [response] GetErrorHistoryResponse
          */
         type GetErrorHistoryCallback = (error: (Error|null), response?: protos.GetErrorHistoryResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#getDynamic}.
+         * @param error Error, if any
+         * @param [response] GetDynamicResponse
+         */
+        type GetDynamicCallback = (error: (Error|null), response?: protos.GetDynamicResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#getAllDynamic}.
+         * @param error Error, if any
+         * @param [response] GetAllDynamicResponse
+         */
+        type GetAllDynamicCallback = (error: (Error|null), response?: protos.GetAllDynamicResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#createDynamic}.
+         * @param error Error, if any
+         * @param [response] CreateDynamicResponse
+         */
+        type CreateDynamicCallback = (error: (Error|null), response?: protos.CreateDynamicResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#stopDynamic}.
+         * @param error Error, if any
+         * @param [response] StopDynamicResponse
+         */
+        type StopDynamicCallback = (error: (Error|null), response?: protos.StopDynamicResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#resumeDynamic}.
+         * @param error Error, if any
+         * @param [response] ResumeDynamicResponse
+         */
+        type ResumeDynamicCallback = (error: (Error|null), response?: protos.ResumeDynamicResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#updateDynamic}.
+         * @param error Error, if any
+         * @param [response] UpdateDynamicResponse
+         */
+        type UpdateDynamicCallback = (error: (Error|null), response?: protos.UpdateDynamicResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#deleteDynamic}.
+         * @param error Error, if any
+         * @param [response] DeleteDynamicResponse
+         */
+        type DeleteDynamicCallback = (error: (Error|null), response?: protos.DeleteDynamicResponse) => void;
     }
 
     /** Properties of a GetAllConnectionsRequest. */
@@ -23177,6 +23345,1326 @@ export namespace protos {
              */
             public toJSON(): { [k: string]: any };
         }
+    }
+
+    /** Properties of a GetAllDynamicRequest. */
+    interface IGetAllDynamicRequest {
+
+        /** GetAllDynamicRequest auth */
+        auth?: (protos.common.IAuth|null);
+    }
+
+    /** Represents a GetAllDynamicRequest. */
+    class GetAllDynamicRequest implements IGetAllDynamicRequest {
+
+        /**
+         * Constructs a new GetAllDynamicRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IGetAllDynamicRequest);
+
+        /** GetAllDynamicRequest auth. */
+        public auth?: (protos.common.IAuth|null);
+
+        /**
+         * Creates a new GetAllDynamicRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns GetAllDynamicRequest instance
+         */
+        public static create(properties?: protos.IGetAllDynamicRequest): protos.GetAllDynamicRequest;
+
+        /**
+         * Encodes the specified GetAllDynamicRequest message. Does not implicitly {@link protos.GetAllDynamicRequest.verify|verify} messages.
+         * @param message GetAllDynamicRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IGetAllDynamicRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified GetAllDynamicRequest message, length delimited. Does not implicitly {@link protos.GetAllDynamicRequest.verify|verify} messages.
+         * @param message GetAllDynamicRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IGetAllDynamicRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a GetAllDynamicRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns GetAllDynamicRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.GetAllDynamicRequest;
+
+        /**
+         * Decodes a GetAllDynamicRequest message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns GetAllDynamicRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.GetAllDynamicRequest;
+
+        /**
+         * Verifies a GetAllDynamicRequest message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a GetAllDynamicRequest message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns GetAllDynamicRequest
+         */
+        public static fromObject(object: { [k: string]: any }): protos.GetAllDynamicRequest;
+
+        /**
+         * Creates a plain object from a GetAllDynamicRequest message. Also converts values to other types if specified.
+         * @param message GetAllDynamicRequest
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.GetAllDynamicRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this GetAllDynamicRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a GetAllDynamicResponse. */
+    interface IGetAllDynamicResponse {
+
+        /** GetAllDynamicResponse status */
+        status?: (protos.common.IStatus|null);
+
+        /** GetAllDynamicResponse opts */
+        opts?: (protos.opts.IDynamicOptions[]|null);
+    }
+
+    /** Represents a GetAllDynamicResponse. */
+    class GetAllDynamicResponse implements IGetAllDynamicResponse {
+
+        /**
+         * Constructs a new GetAllDynamicResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IGetAllDynamicResponse);
+
+        /** GetAllDynamicResponse status. */
+        public status?: (protos.common.IStatus|null);
+
+        /** GetAllDynamicResponse opts. */
+        public opts: protos.opts.IDynamicOptions[];
+
+        /**
+         * Creates a new GetAllDynamicResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns GetAllDynamicResponse instance
+         */
+        public static create(properties?: protos.IGetAllDynamicResponse): protos.GetAllDynamicResponse;
+
+        /**
+         * Encodes the specified GetAllDynamicResponse message. Does not implicitly {@link protos.GetAllDynamicResponse.verify|verify} messages.
+         * @param message GetAllDynamicResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IGetAllDynamicResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified GetAllDynamicResponse message, length delimited. Does not implicitly {@link protos.GetAllDynamicResponse.verify|verify} messages.
+         * @param message GetAllDynamicResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IGetAllDynamicResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a GetAllDynamicResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns GetAllDynamicResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.GetAllDynamicResponse;
+
+        /**
+         * Decodes a GetAllDynamicResponse message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns GetAllDynamicResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.GetAllDynamicResponse;
+
+        /**
+         * Verifies a GetAllDynamicResponse message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a GetAllDynamicResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns GetAllDynamicResponse
+         */
+        public static fromObject(object: { [k: string]: any }): protos.GetAllDynamicResponse;
+
+        /**
+         * Creates a plain object from a GetAllDynamicResponse message. Also converts values to other types if specified.
+         * @param message GetAllDynamicResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.GetAllDynamicResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this GetAllDynamicResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a GetDynamicRequest. */
+    interface IGetDynamicRequest {
+
+        /** GetDynamicRequest auth */
+        auth?: (protos.common.IAuth|null);
+
+        /** GetDynamicRequest dynamicId */
+        dynamicId?: (string|null);
+    }
+
+    /** Represents a GetDynamicRequest. */
+    class GetDynamicRequest implements IGetDynamicRequest {
+
+        /**
+         * Constructs a new GetDynamicRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IGetDynamicRequest);
+
+        /** GetDynamicRequest auth. */
+        public auth?: (protos.common.IAuth|null);
+
+        /** GetDynamicRequest dynamicId. */
+        public dynamicId: string;
+
+        /**
+         * Creates a new GetDynamicRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns GetDynamicRequest instance
+         */
+        public static create(properties?: protos.IGetDynamicRequest): protos.GetDynamicRequest;
+
+        /**
+         * Encodes the specified GetDynamicRequest message. Does not implicitly {@link protos.GetDynamicRequest.verify|verify} messages.
+         * @param message GetDynamicRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IGetDynamicRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified GetDynamicRequest message, length delimited. Does not implicitly {@link protos.GetDynamicRequest.verify|verify} messages.
+         * @param message GetDynamicRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IGetDynamicRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a GetDynamicRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns GetDynamicRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.GetDynamicRequest;
+
+        /**
+         * Decodes a GetDynamicRequest message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns GetDynamicRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.GetDynamicRequest;
+
+        /**
+         * Verifies a GetDynamicRequest message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a GetDynamicRequest message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns GetDynamicRequest
+         */
+        public static fromObject(object: { [k: string]: any }): protos.GetDynamicRequest;
+
+        /**
+         * Creates a plain object from a GetDynamicRequest message. Also converts values to other types if specified.
+         * @param message GetDynamicRequest
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.GetDynamicRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this GetDynamicRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a GetDynamicResponse. */
+    interface IGetDynamicResponse {
+
+        /** GetDynamicResponse status */
+        status?: (protos.common.IStatus|null);
+
+        /** GetDynamicResponse opts */
+        opts?: (protos.opts.IDynamicOptions|null);
+    }
+
+    /** Represents a GetDynamicResponse. */
+    class GetDynamicResponse implements IGetDynamicResponse {
+
+        /**
+         * Constructs a new GetDynamicResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IGetDynamicResponse);
+
+        /** GetDynamicResponse status. */
+        public status?: (protos.common.IStatus|null);
+
+        /** GetDynamicResponse opts. */
+        public opts?: (protos.opts.IDynamicOptions|null);
+
+        /**
+         * Creates a new GetDynamicResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns GetDynamicResponse instance
+         */
+        public static create(properties?: protos.IGetDynamicResponse): protos.GetDynamicResponse;
+
+        /**
+         * Encodes the specified GetDynamicResponse message. Does not implicitly {@link protos.GetDynamicResponse.verify|verify} messages.
+         * @param message GetDynamicResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IGetDynamicResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified GetDynamicResponse message, length delimited. Does not implicitly {@link protos.GetDynamicResponse.verify|verify} messages.
+         * @param message GetDynamicResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IGetDynamicResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a GetDynamicResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns GetDynamicResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.GetDynamicResponse;
+
+        /**
+         * Decodes a GetDynamicResponse message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns GetDynamicResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.GetDynamicResponse;
+
+        /**
+         * Verifies a GetDynamicResponse message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a GetDynamicResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns GetDynamicResponse
+         */
+        public static fromObject(object: { [k: string]: any }): protos.GetDynamicResponse;
+
+        /**
+         * Creates a plain object from a GetDynamicResponse message. Also converts values to other types if specified.
+         * @param message GetDynamicResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.GetDynamicResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this GetDynamicResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a CreateDynamicRequest. */
+    interface ICreateDynamicRequest {
+
+        /** CreateDynamicRequest auth */
+        auth?: (protos.common.IAuth|null);
+
+        /** CreateDynamicRequest opts */
+        opts?: (protos.opts.IDynamicOptions|null);
+    }
+
+    /** Represents a CreateDynamicRequest. */
+    class CreateDynamicRequest implements ICreateDynamicRequest {
+
+        /**
+         * Constructs a new CreateDynamicRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.ICreateDynamicRequest);
+
+        /** CreateDynamicRequest auth. */
+        public auth?: (protos.common.IAuth|null);
+
+        /** CreateDynamicRequest opts. */
+        public opts?: (protos.opts.IDynamicOptions|null);
+
+        /**
+         * Creates a new CreateDynamicRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns CreateDynamicRequest instance
+         */
+        public static create(properties?: protos.ICreateDynamicRequest): protos.CreateDynamicRequest;
+
+        /**
+         * Encodes the specified CreateDynamicRequest message. Does not implicitly {@link protos.CreateDynamicRequest.verify|verify} messages.
+         * @param message CreateDynamicRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.ICreateDynamicRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified CreateDynamicRequest message, length delimited. Does not implicitly {@link protos.CreateDynamicRequest.verify|verify} messages.
+         * @param message CreateDynamicRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.ICreateDynamicRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a CreateDynamicRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns CreateDynamicRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.CreateDynamicRequest;
+
+        /**
+         * Decodes a CreateDynamicRequest message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns CreateDynamicRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.CreateDynamicRequest;
+
+        /**
+         * Verifies a CreateDynamicRequest message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a CreateDynamicRequest message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns CreateDynamicRequest
+         */
+        public static fromObject(object: { [k: string]: any }): protos.CreateDynamicRequest;
+
+        /**
+         * Creates a plain object from a CreateDynamicRequest message. Also converts values to other types if specified.
+         * @param message CreateDynamicRequest
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.CreateDynamicRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this CreateDynamicRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a CreateDynamicResponse. */
+    interface ICreateDynamicResponse {
+
+        /** CreateDynamicResponse status */
+        status?: (protos.common.IStatus|null);
+
+        /** CreateDynamicResponse dynamicId */
+        dynamicId?: (string|null);
+    }
+
+    /** Represents a CreateDynamicResponse. */
+    class CreateDynamicResponse implements ICreateDynamicResponse {
+
+        /**
+         * Constructs a new CreateDynamicResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.ICreateDynamicResponse);
+
+        /** CreateDynamicResponse status. */
+        public status?: (protos.common.IStatus|null);
+
+        /** CreateDynamicResponse dynamicId. */
+        public dynamicId: string;
+
+        /**
+         * Creates a new CreateDynamicResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns CreateDynamicResponse instance
+         */
+        public static create(properties?: protos.ICreateDynamicResponse): protos.CreateDynamicResponse;
+
+        /**
+         * Encodes the specified CreateDynamicResponse message. Does not implicitly {@link protos.CreateDynamicResponse.verify|verify} messages.
+         * @param message CreateDynamicResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.ICreateDynamicResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified CreateDynamicResponse message, length delimited. Does not implicitly {@link protos.CreateDynamicResponse.verify|verify} messages.
+         * @param message CreateDynamicResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.ICreateDynamicResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a CreateDynamicResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns CreateDynamicResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.CreateDynamicResponse;
+
+        /**
+         * Decodes a CreateDynamicResponse message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns CreateDynamicResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.CreateDynamicResponse;
+
+        /**
+         * Verifies a CreateDynamicResponse message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a CreateDynamicResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns CreateDynamicResponse
+         */
+        public static fromObject(object: { [k: string]: any }): protos.CreateDynamicResponse;
+
+        /**
+         * Creates a plain object from a CreateDynamicResponse message. Also converts values to other types if specified.
+         * @param message CreateDynamicResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.CreateDynamicResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this CreateDynamicResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of an UpdateDynamicRequest. */
+    interface IUpdateDynamicRequest {
+
+        /** UpdateDynamicRequest auth */
+        auth?: (protos.common.IAuth|null);
+
+        /** UpdateDynamicRequest dynamicId */
+        dynamicId?: (string|null);
+
+        /** UpdateDynamicRequest opts */
+        opts?: (protos.opts.IDynamicOptions|null);
+    }
+
+    /** Represents an UpdateDynamicRequest. */
+    class UpdateDynamicRequest implements IUpdateDynamicRequest {
+
+        /**
+         * Constructs a new UpdateDynamicRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IUpdateDynamicRequest);
+
+        /** UpdateDynamicRequest auth. */
+        public auth?: (protos.common.IAuth|null);
+
+        /** UpdateDynamicRequest dynamicId. */
+        public dynamicId: string;
+
+        /** UpdateDynamicRequest opts. */
+        public opts?: (protos.opts.IDynamicOptions|null);
+
+        /**
+         * Creates a new UpdateDynamicRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns UpdateDynamicRequest instance
+         */
+        public static create(properties?: protos.IUpdateDynamicRequest): protos.UpdateDynamicRequest;
+
+        /**
+         * Encodes the specified UpdateDynamicRequest message. Does not implicitly {@link protos.UpdateDynamicRequest.verify|verify} messages.
+         * @param message UpdateDynamicRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IUpdateDynamicRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified UpdateDynamicRequest message, length delimited. Does not implicitly {@link protos.UpdateDynamicRequest.verify|verify} messages.
+         * @param message UpdateDynamicRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IUpdateDynamicRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes an UpdateDynamicRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns UpdateDynamicRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.UpdateDynamicRequest;
+
+        /**
+         * Decodes an UpdateDynamicRequest message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns UpdateDynamicRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.UpdateDynamicRequest;
+
+        /**
+         * Verifies an UpdateDynamicRequest message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates an UpdateDynamicRequest message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns UpdateDynamicRequest
+         */
+        public static fromObject(object: { [k: string]: any }): protos.UpdateDynamicRequest;
+
+        /**
+         * Creates a plain object from an UpdateDynamicRequest message. Also converts values to other types if specified.
+         * @param message UpdateDynamicRequest
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.UpdateDynamicRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this UpdateDynamicRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of an UpdateDynamicResponse. */
+    interface IUpdateDynamicResponse {
+
+        /** UpdateDynamicResponse status */
+        status?: (protos.common.IStatus|null);
+    }
+
+    /** Represents an UpdateDynamicResponse. */
+    class UpdateDynamicResponse implements IUpdateDynamicResponse {
+
+        /**
+         * Constructs a new UpdateDynamicResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IUpdateDynamicResponse);
+
+        /** UpdateDynamicResponse status. */
+        public status?: (protos.common.IStatus|null);
+
+        /**
+         * Creates a new UpdateDynamicResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns UpdateDynamicResponse instance
+         */
+        public static create(properties?: protos.IUpdateDynamicResponse): protos.UpdateDynamicResponse;
+
+        /**
+         * Encodes the specified UpdateDynamicResponse message. Does not implicitly {@link protos.UpdateDynamicResponse.verify|verify} messages.
+         * @param message UpdateDynamicResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IUpdateDynamicResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified UpdateDynamicResponse message, length delimited. Does not implicitly {@link protos.UpdateDynamicResponse.verify|verify} messages.
+         * @param message UpdateDynamicResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IUpdateDynamicResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes an UpdateDynamicResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns UpdateDynamicResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.UpdateDynamicResponse;
+
+        /**
+         * Decodes an UpdateDynamicResponse message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns UpdateDynamicResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.UpdateDynamicResponse;
+
+        /**
+         * Verifies an UpdateDynamicResponse message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates an UpdateDynamicResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns UpdateDynamicResponse
+         */
+        public static fromObject(object: { [k: string]: any }): protos.UpdateDynamicResponse;
+
+        /**
+         * Creates a plain object from an UpdateDynamicResponse message. Also converts values to other types if specified.
+         * @param message UpdateDynamicResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.UpdateDynamicResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this UpdateDynamicResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a ResumeDynamicRequest. */
+    interface IResumeDynamicRequest {
+
+        /** ResumeDynamicRequest auth */
+        auth?: (protos.common.IAuth|null);
+
+        /** ResumeDynamicRequest dynamicId */
+        dynamicId?: (string|null);
+    }
+
+    /** Represents a ResumeDynamicRequest. */
+    class ResumeDynamicRequest implements IResumeDynamicRequest {
+
+        /**
+         * Constructs a new ResumeDynamicRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IResumeDynamicRequest);
+
+        /** ResumeDynamicRequest auth. */
+        public auth?: (protos.common.IAuth|null);
+
+        /** ResumeDynamicRequest dynamicId. */
+        public dynamicId: string;
+
+        /**
+         * Creates a new ResumeDynamicRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns ResumeDynamicRequest instance
+         */
+        public static create(properties?: protos.IResumeDynamicRequest): protos.ResumeDynamicRequest;
+
+        /**
+         * Encodes the specified ResumeDynamicRequest message. Does not implicitly {@link protos.ResumeDynamicRequest.verify|verify} messages.
+         * @param message ResumeDynamicRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IResumeDynamicRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified ResumeDynamicRequest message, length delimited. Does not implicitly {@link protos.ResumeDynamicRequest.verify|verify} messages.
+         * @param message ResumeDynamicRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IResumeDynamicRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a ResumeDynamicRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns ResumeDynamicRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.ResumeDynamicRequest;
+
+        /**
+         * Decodes a ResumeDynamicRequest message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns ResumeDynamicRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.ResumeDynamicRequest;
+
+        /**
+         * Verifies a ResumeDynamicRequest message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a ResumeDynamicRequest message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns ResumeDynamicRequest
+         */
+        public static fromObject(object: { [k: string]: any }): protos.ResumeDynamicRequest;
+
+        /**
+         * Creates a plain object from a ResumeDynamicRequest message. Also converts values to other types if specified.
+         * @param message ResumeDynamicRequest
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.ResumeDynamicRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this ResumeDynamicRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a ResumeDynamicResponse. */
+    interface IResumeDynamicResponse {
+
+        /** ResumeDynamicResponse status */
+        status?: (protos.common.IStatus|null);
+    }
+
+    /** Represents a ResumeDynamicResponse. */
+    class ResumeDynamicResponse implements IResumeDynamicResponse {
+
+        /**
+         * Constructs a new ResumeDynamicResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IResumeDynamicResponse);
+
+        /** ResumeDynamicResponse status. */
+        public status?: (protos.common.IStatus|null);
+
+        /**
+         * Creates a new ResumeDynamicResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns ResumeDynamicResponse instance
+         */
+        public static create(properties?: protos.IResumeDynamicResponse): protos.ResumeDynamicResponse;
+
+        /**
+         * Encodes the specified ResumeDynamicResponse message. Does not implicitly {@link protos.ResumeDynamicResponse.verify|verify} messages.
+         * @param message ResumeDynamicResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IResumeDynamicResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified ResumeDynamicResponse message, length delimited. Does not implicitly {@link protos.ResumeDynamicResponse.verify|verify} messages.
+         * @param message ResumeDynamicResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IResumeDynamicResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a ResumeDynamicResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns ResumeDynamicResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.ResumeDynamicResponse;
+
+        /**
+         * Decodes a ResumeDynamicResponse message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns ResumeDynamicResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.ResumeDynamicResponse;
+
+        /**
+         * Verifies a ResumeDynamicResponse message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a ResumeDynamicResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns ResumeDynamicResponse
+         */
+        public static fromObject(object: { [k: string]: any }): protos.ResumeDynamicResponse;
+
+        /**
+         * Creates a plain object from a ResumeDynamicResponse message. Also converts values to other types if specified.
+         * @param message ResumeDynamicResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.ResumeDynamicResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this ResumeDynamicResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a StopDynamicRequest. */
+    interface IStopDynamicRequest {
+
+        /** StopDynamicRequest auth */
+        auth?: (protos.common.IAuth|null);
+
+        /** StopDynamicRequest dynamicId */
+        dynamicId?: (string|null);
+    }
+
+    /** Represents a StopDynamicRequest. */
+    class StopDynamicRequest implements IStopDynamicRequest {
+
+        /**
+         * Constructs a new StopDynamicRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IStopDynamicRequest);
+
+        /** StopDynamicRequest auth. */
+        public auth?: (protos.common.IAuth|null);
+
+        /** StopDynamicRequest dynamicId. */
+        public dynamicId: string;
+
+        /**
+         * Creates a new StopDynamicRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns StopDynamicRequest instance
+         */
+        public static create(properties?: protos.IStopDynamicRequest): protos.StopDynamicRequest;
+
+        /**
+         * Encodes the specified StopDynamicRequest message. Does not implicitly {@link protos.StopDynamicRequest.verify|verify} messages.
+         * @param message StopDynamicRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IStopDynamicRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified StopDynamicRequest message, length delimited. Does not implicitly {@link protos.StopDynamicRequest.verify|verify} messages.
+         * @param message StopDynamicRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IStopDynamicRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a StopDynamicRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns StopDynamicRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.StopDynamicRequest;
+
+        /**
+         * Decodes a StopDynamicRequest message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns StopDynamicRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.StopDynamicRequest;
+
+        /**
+         * Verifies a StopDynamicRequest message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a StopDynamicRequest message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns StopDynamicRequest
+         */
+        public static fromObject(object: { [k: string]: any }): protos.StopDynamicRequest;
+
+        /**
+         * Creates a plain object from a StopDynamicRequest message. Also converts values to other types if specified.
+         * @param message StopDynamicRequest
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.StopDynamicRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this StopDynamicRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a StopDynamicResponse. */
+    interface IStopDynamicResponse {
+
+        /** StopDynamicResponse status */
+        status?: (protos.common.IStatus|null);
+    }
+
+    /** Represents a StopDynamicResponse. */
+    class StopDynamicResponse implements IStopDynamicResponse {
+
+        /**
+         * Constructs a new StopDynamicResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IStopDynamicResponse);
+
+        /** StopDynamicResponse status. */
+        public status?: (protos.common.IStatus|null);
+
+        /**
+         * Creates a new StopDynamicResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns StopDynamicResponse instance
+         */
+        public static create(properties?: protos.IStopDynamicResponse): protos.StopDynamicResponse;
+
+        /**
+         * Encodes the specified StopDynamicResponse message. Does not implicitly {@link protos.StopDynamicResponse.verify|verify} messages.
+         * @param message StopDynamicResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IStopDynamicResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified StopDynamicResponse message, length delimited. Does not implicitly {@link protos.StopDynamicResponse.verify|verify} messages.
+         * @param message StopDynamicResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IStopDynamicResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a StopDynamicResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns StopDynamicResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.StopDynamicResponse;
+
+        /**
+         * Decodes a StopDynamicResponse message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns StopDynamicResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.StopDynamicResponse;
+
+        /**
+         * Verifies a StopDynamicResponse message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a StopDynamicResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns StopDynamicResponse
+         */
+        public static fromObject(object: { [k: string]: any }): protos.StopDynamicResponse;
+
+        /**
+         * Creates a plain object from a StopDynamicResponse message. Also converts values to other types if specified.
+         * @param message StopDynamicResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.StopDynamicResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this StopDynamicResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a DeleteDynamicRequest. */
+    interface IDeleteDynamicRequest {
+
+        /** DeleteDynamicRequest auth */
+        auth?: (protos.common.IAuth|null);
+
+        /** DeleteDynamicRequest dynamicId */
+        dynamicId?: (string|null);
+    }
+
+    /** Represents a DeleteDynamicRequest. */
+    class DeleteDynamicRequest implements IDeleteDynamicRequest {
+
+        /**
+         * Constructs a new DeleteDynamicRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IDeleteDynamicRequest);
+
+        /** DeleteDynamicRequest auth. */
+        public auth?: (protos.common.IAuth|null);
+
+        /** DeleteDynamicRequest dynamicId. */
+        public dynamicId: string;
+
+        /**
+         * Creates a new DeleteDynamicRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns DeleteDynamicRequest instance
+         */
+        public static create(properties?: protos.IDeleteDynamicRequest): protos.DeleteDynamicRequest;
+
+        /**
+         * Encodes the specified DeleteDynamicRequest message. Does not implicitly {@link protos.DeleteDynamicRequest.verify|verify} messages.
+         * @param message DeleteDynamicRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IDeleteDynamicRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified DeleteDynamicRequest message, length delimited. Does not implicitly {@link protos.DeleteDynamicRequest.verify|verify} messages.
+         * @param message DeleteDynamicRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IDeleteDynamicRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a DeleteDynamicRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns DeleteDynamicRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.DeleteDynamicRequest;
+
+        /**
+         * Decodes a DeleteDynamicRequest message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns DeleteDynamicRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.DeleteDynamicRequest;
+
+        /**
+         * Verifies a DeleteDynamicRequest message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a DeleteDynamicRequest message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns DeleteDynamicRequest
+         */
+        public static fromObject(object: { [k: string]: any }): protos.DeleteDynamicRequest;
+
+        /**
+         * Creates a plain object from a DeleteDynamicRequest message. Also converts values to other types if specified.
+         * @param message DeleteDynamicRequest
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.DeleteDynamicRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this DeleteDynamicRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a DeleteDynamicResponse. */
+    interface IDeleteDynamicResponse {
+
+        /** DeleteDynamicResponse status */
+        status?: (protos.common.IStatus|null);
+    }
+
+    /** Represents a DeleteDynamicResponse. */
+    class DeleteDynamicResponse implements IDeleteDynamicResponse {
+
+        /**
+         * Constructs a new DeleteDynamicResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IDeleteDynamicResponse);
+
+        /** DeleteDynamicResponse status. */
+        public status?: (protos.common.IStatus|null);
+
+        /**
+         * Creates a new DeleteDynamicResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns DeleteDynamicResponse instance
+         */
+        public static create(properties?: protos.IDeleteDynamicResponse): protos.DeleteDynamicResponse;
+
+        /**
+         * Encodes the specified DeleteDynamicResponse message. Does not implicitly {@link protos.DeleteDynamicResponse.verify|verify} messages.
+         * @param message DeleteDynamicResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IDeleteDynamicResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified DeleteDynamicResponse message, length delimited. Does not implicitly {@link protos.DeleteDynamicResponse.verify|verify} messages.
+         * @param message DeleteDynamicResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IDeleteDynamicResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a DeleteDynamicResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns DeleteDynamicResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.DeleteDynamicResponse;
+
+        /**
+         * Decodes a DeleteDynamicResponse message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns DeleteDynamicResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.DeleteDynamicResponse;
+
+        /**
+         * Verifies a DeleteDynamicResponse message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a DeleteDynamicResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns DeleteDynamicResponse
+         */
+        public static fromObject(object: { [k: string]: any }): protos.DeleteDynamicResponse;
+
+        /**
+         * Creates a plain object from a DeleteDynamicResponse message. Also converts values to other types if specified.
+         * @param message DeleteDynamicResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.DeleteDynamicResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this DeleteDynamicResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
     }
 
     /** Properties of an ErrorMessage. */

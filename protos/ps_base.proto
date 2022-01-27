@@ -4,6 +4,7 @@ package protos;
 
 import "ps_alert.proto";
 import "ps_connect.proto";
+import "ps_dynamic.proto";
 import "ps_errors.proto";
 import "ps_monitor.proto";
 import "ps_read.proto";
@@ -71,7 +72,7 @@ service PlumberServer {
 
   rpc GetAllRelays(GetAllRelaysRequest) returns (GetAllRelaysResponse);
 
-  // Delete an existing relay
+  rpc GetRelay(GetRelayRequest) returns (GetRelayResponse);// Delete an existing relay
   rpc DeleteRelay(DeleteRelayRequest) returns (DeleteRelayResponse);
 
   // Retrieve a single schema
@@ -179,4 +180,19 @@ service PlumberServer {
 
   // Returns 1000 most recent errors from etcd
   rpc GetErrorHistory(GetErrorHistoryRequest) returns (GetErrorHistoryResponse);
+
+  // --------------------- Dynamic ---------------------
+  rpc GetDynamic(GetDynamicRequest) returns (GetDynamicResponse);
+
+  rpc GetAllDynamic(GetAllDynamicRequest) returns (GetAllDynamicResponse);
+
+  rpc CreateDynamic(CreateDynamicRequest) returns (CreateDynamicResponse);
+
+  rpc StopDynamic(StopDynamicRequest) returns (StopDynamicResponse);
+
+  rpc ResumeDynamic(ResumeDynamicRequest) returns (ResumeDynamicResponse);
+
+  rpc UpdateDynamic(UpdateDynamicRequest) returns (UpdateDynamicResponse);
+
+  rpc DeleteDynamic(DeleteDynamicRequest) returns (DeleteDynamicResponse);
 }
