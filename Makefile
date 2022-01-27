@@ -27,6 +27,10 @@ setup/darwin:
 	# protoc-go-inject-tag
 	go get github.com/favadi/protoc-go-inject-tag
 
+	# Protobuf linting
+	brew tap yoheimuta/protolint
+	brew install protolint
+
 .PHONY: setup/linux
 setup/linux: description = Install protobuf tooling for linux
 setup/linux:

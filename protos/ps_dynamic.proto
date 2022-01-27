@@ -1,0 +1,110 @@
+syntax = "proto3";
+
+package protos;
+
+import "common/ps_common_auth.proto";
+import "common/ps_common_status.proto";
+import "opts/ps_opts_dynamic.proto";
+
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
+
+message GetAllDynamicRequest {
+  // Every gRPC request must have a valid auth config
+  common.Auth auth = 9999;
+}
+
+message GetAllDynamicResponse {
+  common.Status status = 1000;
+
+  // Will be set as empty []Dynamic if no dynamic destinations are configured
+  repeated opts.DynamicOptions opts = 1;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+message GetDynamicRequest {
+  // Every gRPC request must have a valid auth config
+  common.Auth auth = 9999;
+
+  string dynamic_id = 1;
+}
+
+message GetDynamicResponse {
+  common.Status status = 1000;
+
+  // Set only if status is OK
+  opts.DynamicOptions opts = 1;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+message CreateDynamicRequest {
+  // Every gRPC request must have a valid auth config
+  common.Auth auth = 9999;
+
+  opts.DynamicOptions opts = 1;
+}
+
+message CreateDynamicResponse {
+  common.Status status = 1000;
+
+  // ID of the created dynamic destination entry
+  string dynamic_id = 1;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+// WARNING: Updating a destination that is in-use can result in missing data during replay
+message UpdateDynamicRequest {
+  // Every gRPC request must have a valid auth config
+  common.Auth auth = 9999;
+
+  string dynamic_id = 1;
+
+  opts.DynamicOptions opts = 2;
+}
+
+message UpdateDynamicResponse {
+  common.Status status = 1000;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+// Resume a paused relay
+message ResumeDynamicRequest {
+  // Every gRPC request must have a valid auth config
+  common.Auth auth = 9999;
+
+  string dynamic_id = 1;
+}
+
+message ResumeDynamicResponse {
+  common.Status status = 1000;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+// Temporarily stop/pause a relay
+message StopDynamicRequest {
+  // Every gRPC request must have a valid auth config
+  common.Auth auth = 9999;
+
+  string dynamic_id = 1;
+}
+
+message StopDynamicResponse {
+  common.Status status = 1000;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+message DeleteDynamicRequest {
+  // Every gRPC request must have a valid auth config
+  common.Auth auth = 9999;
+
+  string dynamic_id = 1;
+}
+
+message DeleteDynamicResponse {
+  common.Status status = 1000;
+}

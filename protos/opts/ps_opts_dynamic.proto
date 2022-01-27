@@ -28,7 +28,7 @@ message DynamicOptions {
   // @gotags: kong:"help='API token to use for dynamic destination (create here: https://console.batch.sh/account/security)',required"
   string api_token = 1;
 
-  // @gotags: kong:"help='Dynamic destination collector address',default='dproxy.batch.sh:443'"
+  // @gotags: kong:"help='Dynamic destination API address',default='dproxy.batch.sh:443'"
   string _grpc_address = 2;
 
   // @gotags: kong:"help='Dynamic destination collector initial connection timeout',default=5"
