@@ -4,7 +4,6 @@ servers:
     envs:
     - name: "local plumber server"
       urls:
-      - grpcwebs://library-app-grpcweb-uqnits2f5q-uc.a.run.app
       - grpc://localhost:9090
 #documentation:
 #  content:
