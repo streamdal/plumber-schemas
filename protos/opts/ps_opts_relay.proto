@@ -72,7 +72,7 @@ message RelayOptions {
 
   // Populated by plumber server during GetRelay* methods
   // @gotags: kong:"-"
-  string _active  = 1005;
+  bool _active  = 1005;
 
   // --------------------------------------------------------------------- //
   //                       SUPPORTED BACKENDS (100-999)                    //

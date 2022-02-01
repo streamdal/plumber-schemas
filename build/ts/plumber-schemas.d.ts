@@ -7655,7 +7655,7 @@ export namespace protos {
             _cliOptions?: (protos.opts.IRelayCLIOptions|null);
 
             /** RelayOptions _active */
-            _active?: (string|null);
+            _active?: (boolean|null);
 
             /** RelayOptions kafka */
             kafka?: (protos.opts.IRelayGroupKafkaOptions|null);
@@ -7749,7 +7749,7 @@ export namespace protos {
             public _cliOptions?: (protos.opts.IRelayCLIOptions|null);
 
             /** RelayOptions _active. */
-            public _active: string;
+            public _active: boolean;
 
             /** RelayOptions kafka. */
             public kafka?: (protos.opts.IRelayGroupKafkaOptions|null);
