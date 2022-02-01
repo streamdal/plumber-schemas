@@ -96,7 +96,7 @@ generate/go:
 	--proto_path=./protos/records \
 	--go_out=plugins=grpc:$(GO_PROTOS_DIR) \
 	--go_opt=paths=source_relative \
-	-o ./$(GO_DESCRIPTOR_SET_DIR)/base.fds \
+	-o ./$(GO_DESCRIPTOR_SET_DIR)/protos.fds \
 	--include_imports \
 	--include_source_info \
 	protos/*.proto
@@ -114,18 +114,12 @@ generate/go:
 	--proto_path=./protos/common \
 	--go_out=plugins=grpc:$(GO_PROTOS_DIR)/common \
 	--go_opt=paths=source_relative \
-	-o ./$(GO_DESCRIPTOR_SET_DIR)/common.fds \
-	--include_imports \
-	--include_source_info \
 	protos/common/*.proto
 
 	docker run --rm -w $(PWD) -v $(PWD):$(PWD) -w${PWD} jaegertracing/protobuf:0.2.0 \
 	--proto_path=./protos/encoding \
 	--go_out=plugins=grpc:$(GO_PROTOS_DIR)/encoding \
 	--go_opt=paths=source_relative \
-	-o ./$(GO_DESCRIPTOR_SET_DIR)/encoding.fds \
-	--include_imports \
-	--include_source_info \
 	protos/encoding/*.proto
 
 # Because opts imports from base /protos, we have to specify --proto_path=./protos
@@ -134,18 +128,12 @@ generate/go:
 	--proto_path=./protos \
 	--go_out=plugins=grpc:$(GO_PROTOS_DIR) \
 	--go_opt=paths=source_relative \
-	-o ./$(GO_DESCRIPTOR_SET_DIR)/opts.fds \
-	--include_imports \
-	--include_source_info \
 	protos/opts/*.proto
 
 	docker run --rm -w $(PWD) -v $(PWD):$(PWD) -w${PWD} jaegertracing/protobuf:0.2.0 \
 	--proto_path=./protos \
 	--go_out=plugins=grpc:$(GO_PROTOS_DIR) \
 	--go_opt=paths=source_relative \
-	-o ./$(GO_DESCRIPTOR_SET_DIR)/records.fds \
-	--include_imports \
-	--include_source_info \
 	protos/records/*.proto
 
 # Perform any extra steps as part of codegen

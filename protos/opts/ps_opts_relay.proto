@@ -70,6 +70,10 @@ message RelayOptions {
   // @gotags: kong:"embed"
   RelayCLIOptions _cli_options = 1004;
 
+  // Populated by plumber server during GetRelay* methods
+  // @gotags: kong:"-"
+  string _active  = 1005;
+
   // --------------------------------------------------------------------- //
   //                       SUPPORTED BACKENDS (100-999)                    //
   // --------------------------------------------------------------------- //

@@ -28,14 +28,17 @@ message DynamicOptions {
   // @gotags: kong:"help='API token to use for dynamic destination (create here: https://console.batch.sh/account/security)',required"
   string api_token = 1;
 
+  // @gotags: kong:"-"
+  string connection_id = 2;
+
   // @gotags: kong:"help='Dynamic destination API address',default='dproxy.batch.sh:443'"
-  string _grpc_address = 2;
+  string _grpc_address = 3;
 
   // @gotags: kong:"help='Dynamic destination collector initial connection timeout',default=5"
-  uint32 _grpc_timeout_seconds = 3;
+  uint32 _grpc_timeout_seconds = 4;
 
   // @gotags: kong:"help='Use gRPC insecure mode when talking to Batch'"
-  bool _grpc_insecure = 4;
+  bool _grpc_insecure = 5;
 
   // --------------------------------------------------------------------- //
   //                       SUPPORTED BACKENDS (100-999)                    //

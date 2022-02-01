@@ -2304,6 +2304,9 @@ export namespace protos {
             /** DynamicOptions apiToken */
             apiToken?: (string|null);
 
+            /** DynamicOptions connectionId */
+            connectionId?: (string|null);
+
             /** DynamicOptions _grpcAddress */
             _grpcAddress?: (string|null);
 
@@ -2382,6 +2385,9 @@ export namespace protos {
 
             /** DynamicOptions apiToken. */
             public apiToken: string;
+
+            /** DynamicOptions connectionId. */
+            public connectionId: string;
 
             /** DynamicOptions _grpcAddress. */
             public _grpcAddress: string;
@@ -7648,6 +7654,9 @@ export namespace protos {
             /** RelayOptions _cliOptions */
             _cliOptions?: (protos.opts.IRelayCLIOptions|null);
 
+            /** RelayOptions _active */
+            _active?: (string|null);
+
             /** RelayOptions kafka */
             kafka?: (protos.opts.IRelayGroupKafkaOptions|null);
 
@@ -7738,6 +7747,9 @@ export namespace protos {
 
             /** RelayOptions _cliOptions. */
             public _cliOptions?: (protos.opts.IRelayCLIOptions|null);
+
+            /** RelayOptions _active. */
+            public _active: string;
 
             /** RelayOptions kafka. */
             public kafka?: (protos.opts.IRelayGroupKafkaOptions|null);
