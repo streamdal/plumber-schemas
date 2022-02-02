@@ -9357,6 +9357,9 @@ export namespace protos {
 
             /** ServerOptions httpListenAddress */
             httpListenAddress?: (string|null);
+
+            /** ServerOptions storagePath */
+            storagePath?: (string|null);
         }
 
         /** Represents a ServerOptions. */
@@ -9415,6 +9418,9 @@ export namespace protos {
 
             /** ServerOptions httpListenAddress. */
             public httpListenAddress: string;
+
+            /** ServerOptions storagePath. */
+            public storagePath: string;
 
             /**
              * Creates a new ServerOptions instance using the specified properties.
