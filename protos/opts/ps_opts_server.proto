@@ -53,4 +53,7 @@ message ServerOptions {
 
   // @gotags: kong:"help='How often to flush time-series data (in seconds) from memory to storage',default='60'"
   int32 stats_flush_interval_seconds = 15;
+
+  // @gotags: kong:"help='What address to bind the built-in HTTP server to',default='127.0.0.1:9191'"
+  string http_listen_address = 16;
 }

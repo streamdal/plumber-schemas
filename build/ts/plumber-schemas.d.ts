@@ -9354,6 +9354,9 @@ export namespace protos {
 
             /** ServerOptions statsFlushIntervalSeconds */
             statsFlushIntervalSeconds?: (number|null);
+
+            /** ServerOptions httpListenAddress */
+            httpListenAddress?: (string|null);
         }
 
         /** Represents a ServerOptions. */
@@ -9409,6 +9412,9 @@ export namespace protos {
 
             /** ServerOptions statsFlushIntervalSeconds. */
             public statsFlushIntervalSeconds: number;
+
+            /** ServerOptions httpListenAddress. */
+            public httpListenAddress: string;
 
             /**
              * Creates a new ServerOptions instance using the specified properties.
