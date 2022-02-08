@@ -51,4 +51,7 @@ message ServerOptions {
 
   // @gotags: kong:"help='What address to bind the built-in HTTP server to',default='127.0.0.1:9191'"
   string http_listen_address = 16;
+
+  // @gotags: kong:"default='./.plumber',help='Location to store etcd and time series files.',env='PLUMBER_SERVER_STORAGE_PATH'"
+  string storage_path = 17;
 }

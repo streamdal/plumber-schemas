@@ -40,6 +40,14 @@ message DynamicOptions {
   // @gotags: kong:"help='Use gRPC insecure mode when talking to Batch'"
   bool _grpc_insecure = 5;
 
+  // ID of the created dynamic replay entry; populated by plumber.
+  // @gotags: kong:"-"
+  string _dynamic_id = 1000;
+
+  // Set by CreateDynamic() StopDynamic() and ResumeDynamic() methods in Plumber
+  // @gotags: kong:"-"
+  bool _active  = 1001;
+
   // --------------------------------------------------------------------- //
   //                       SUPPORTED BACKENDS (100-999)                    //
   // --------------------------------------------------------------------- //

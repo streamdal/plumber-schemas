@@ -2316,6 +2316,12 @@ export namespace protos {
             /** DynamicOptions _grpcInsecure */
             _grpcInsecure?: (boolean|null);
 
+            /** DynamicOptions _dynamicId */
+            _dynamicId?: (string|null);
+
+            /** DynamicOptions _active */
+            _active?: (boolean|null);
+
             /** DynamicOptions kafka */
             kafka?: (protos.opts.IDynamicGroupKafkaOptions|null);
 
@@ -2397,6 +2403,12 @@ export namespace protos {
 
             /** DynamicOptions _grpcInsecure. */
             public _grpcInsecure: boolean;
+
+            /** DynamicOptions _dynamicId. */
+            public _dynamicId: string;
+
+            /** DynamicOptions _active. */
+            public _active: boolean;
 
             /** DynamicOptions kafka. */
             public kafka?: (protos.opts.IDynamicGroupKafkaOptions|null);
@@ -9354,6 +9366,9 @@ export namespace protos {
 
             /** ServerOptions httpListenAddress */
             httpListenAddress?: (string|null);
+
+            /** ServerOptions storagePath */
+            storagePath?: (string|null);
         }
 
         /** Represents a ServerOptions. */
@@ -9409,6 +9424,9 @@ export namespace protos {
 
             /** ServerOptions httpListenAddress. */
             public httpListenAddress: string;
+
+            /** ServerOptions storagePath. */
+            public storagePath: string;
 
             /**
              * Creates a new ServerOptions instance using the specified properties.
