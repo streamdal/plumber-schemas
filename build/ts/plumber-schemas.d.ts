@@ -9322,23 +9322,20 @@ export namespace protos {
             /** ServerOptions authToken */
             authToken?: (string|null);
 
-            /** ServerOptions initialCluster */
-            initialCluster?: (string|null);
+            /** ServerOptions natsUrl */
+            natsUrl?: (string[]|null);
 
-            /** ServerOptions advertisePeerUrl */
-            advertisePeerUrl?: (string|null);
+            /** ServerOptions tlsCertFile */
+            tlsCertFile?: (string|null);
 
-            /** ServerOptions advertiseClientUrl */
-            advertiseClientUrl?: (string|null);
+            /** ServerOptions tlsKeyFile */
+            tlsKeyFile?: (string|null);
 
-            /** ServerOptions listenerPeerUrl */
-            listenerPeerUrl?: (string|null);
+            /** ServerOptions tlsCaFile */
+            tlsCaFile?: (string|null);
 
-            /** ServerOptions listenerClientUrl */
-            listenerClientUrl?: (string|null);
-
-            /** ServerOptions peerToken */
-            peerToken?: (string|null);
+            /** ServerOptions tlsSkipVerify */
+            tlsSkipVerify?: (boolean|null);
 
             /** ServerOptions vcserviceGrpcAddress */
             vcserviceGrpcAddress?: (string|null);
@@ -9380,23 +9377,20 @@ export namespace protos {
             /** ServerOptions authToken. */
             public authToken: string;
 
-            /** ServerOptions initialCluster. */
-            public initialCluster: string;
+            /** ServerOptions natsUrl. */
+            public natsUrl: string[];
 
-            /** ServerOptions advertisePeerUrl. */
-            public advertisePeerUrl: string;
+            /** ServerOptions tlsCertFile. */
+            public tlsCertFile: string;
 
-            /** ServerOptions advertiseClientUrl. */
-            public advertiseClientUrl: string;
+            /** ServerOptions tlsKeyFile. */
+            public tlsKeyFile: string;
 
-            /** ServerOptions listenerPeerUrl. */
-            public listenerPeerUrl: string;
+            /** ServerOptions tlsCaFile. */
+            public tlsCaFile: string;
 
-            /** ServerOptions listenerClientUrl. */
-            public listenerClientUrl: string;
-
-            /** ServerOptions peerToken. */
-            public peerToken: string;
+            /** ServerOptions tlsSkipVerify. */
+            public tlsSkipVerify: boolean;
 
             /** ServerOptions vcserviceGrpcAddress. */
             public vcserviceGrpcAddress: string;

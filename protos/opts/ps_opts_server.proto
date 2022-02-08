@@ -17,27 +17,22 @@ message ServerOptions {
   // @gotags: kong:"default=batchcorp,help='All gRPC requests require this auth token to be set',env='PLUMBER_SERVER_AUTH_TOKEN',required"
   string auth_token = 4;
 
-  // --------------------------------------------------------------------- //
-  //                          EMBEDDED ETCD SETTINGS                       //
-  // --------------------------------------------------------------------- //
+  // @gotags: kong:"help='Comma separated list of NATS server URLs (can contain user:password if using auth)',env='PLUMBER_SERVER_NATS_URL',default='nats://localhost:4222'"
+  repeated string nats_url = 5;
 
-  // @gotags: kong:"default='plumber1=http://127.0.0.1:2380',help='InitialCluster should contain comma separated list of key=value pairs of host:port entries for ALL peers in the cluster. (Example: server1=http://192.168.1.10:2380,server2=http://192.168.1.11:2380,server3=http://192.168.1.12:2380). IMPORTANT! The list MUST include the address of _this_ instance.',env='PLUMBER_SERVER_INITIAL_CLUSTER',required"
-  string initial_cluster = 5;
+  // @gotags: kong:"help='TLS client cert file',env='PLUMBER_SERVER_TLS_CERT_FILE'"
+  string tls_cert_file = 6;
 
-  // @gotags: kong:"default='http://127.0.0.1:2380',help='Address of _this_ plumber instance etcd server interface. Example: http://local-ip:2380',env='PLUMBER_SERVER_ADVERTISE_PEER_URL'"
-  string advertise_peer_url = 6;
+  // @gotags: kong:"help='TLS client key file',env='PLUMBER_SERVER_TLS_KEY_FILE'"
+  string tls_key_file = 7;
 
-  // @gotags: kong:"default='http://127.0.0.1:2379',help='Address of _this_ plumber instance etcd client interface. Example: http://local-ip:2379',env='PLUMBER_SERVER_ADVERTISE_CLIENT_URL',required"
-  string advertise_client_url = 7;
+  // @gotags: kong:"help='TLS CA certificate file',env='PLUMBER_SERVER_TLS_CA_FILE'"
+  string tls_ca_file = 8;
 
-  // @gotags: kong:"default='http://127.0.0.1:2380',help='Address that _this_ plumber instance etcd server should listen on. Example: http://local-ip:2380',env='PLUMBER_SERVER_LISTENER_PEER_URL'"
-  string listener_peer_url = 8;
+  // @gotags: kong:"help='Skip server cert verification',env='PLUMBER_SERVER_TLS_SKIP_VERIFY',default=false"
+  bool tls_skip_verify = 9;
 
-  // @gotags: kong:"default='http://127.0.0.1:2379',help='Address that _this_ plumber instance etcd client should listen on. Example: http://local-ip:2379',env='PLUMBER_SERVER_LISTENER_CLIENT_URL'"
-  string listener_client_url = 9;
-
-  // @gotags: kong:"default=secret,help='Secret token that ALL cluster members should use/share. This node will NOT be able to join the cluster IF this token does not match on one of the plumber instances.',env='PLUMBER_SERVER_PEER_TOKEN'"
-  string peer_token = 10;
+  // 10 can be used!
 
   // @gotags: kong:"help='VC-Service gRPC server address',default='https://vc-service.batch.sh'"
   string vcservice_grpc_address = 11;
