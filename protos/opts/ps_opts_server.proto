@@ -17,22 +17,23 @@ message ServerOptions {
   // @gotags: kong:"default=batchcorp,help='All gRPC requests require this auth token to be set',env='PLUMBER_SERVER_AUTH_TOKEN',required"
   string auth_token = 4;
 
-  // @gotags: kong:"help='Comma separated list of NATS server URLs (can contain user:password if using auth)',env='PLUMBER_SERVER_NATS_URL',default='nats://localhost:4222'"
+  // @gotags: kong:"help='Comma separated list of NATS server URLs (can contain user:password if using auth; only used if --enable-cluster is true)',env='PLUMBER_SERVER_NATS_URL',default='nats://localhost:4222'"
   repeated string nats_url = 5;
 
-  // @gotags: kong:"help='TLS client cert file',env='PLUMBER_SERVER_TLS_CERT_FILE'"
+  // @gotags: kong:"help='TLS client cert file (only used if --enable-cluster is true)',env='PLUMBER_SERVER_TLS_CERT_FILE'"
   string tls_cert_file = 6;
 
-  // @gotags: kong:"help='TLS client key file',env='PLUMBER_SERVER_TLS_KEY_FILE'"
+  // @gotags: kong:"help='TLS client key file (only used if --enable-cluster is true)',env='PLUMBER_SERVER_TLS_KEY_FILE'"
   string tls_key_file = 7;
 
-  // @gotags: kong:"help='TLS CA certificate file',env='PLUMBER_SERVER_TLS_CA_FILE'"
+  // @gotags: kong:"help='TLS CA certificate file (only used if --enable-cluster is true)',env='PLUMBER_SERVER_TLS_CA_FILE'"
   string tls_ca_file = 8;
 
-  // @gotags: kong:"help='Skip server cert verification',env='PLUMBER_SERVER_TLS_SKIP_VERIFY',default=false"
+  // @gotags: kong:"help='Skip server cert verification (only used if --enable-cluster is true)',env='PLUMBER_SERVER_TLS_SKIP_VERIFY',default=false"
   bool tls_skip_verify = 9;
 
-  // 10 can be used!
+  // @gotags: kong:"help='Run plumber in cluster mode (will use NATS)',env='PLUMBER_SERVER_ENABLE_CLUSTER',default=false"
+  bool enable_cluster = 10;
 
   // @gotags: kong:"help='VC-Service gRPC server address',default='https://vc-service.batch.sh'"
   string vcservice_grpc_address = 11;
