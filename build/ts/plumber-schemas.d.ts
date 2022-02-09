@@ -9349,6 +9349,9 @@ export namespace protos {
             /** ServerOptions tlsSkipVerify */
             tlsSkipVerify?: (boolean|null);
 
+            /** ServerOptions enableCluster */
+            enableCluster?: (boolean|null);
+
             /** ServerOptions vcserviceGrpcAddress */
             vcserviceGrpcAddress?: (string|null);
 
@@ -9406,6 +9409,9 @@ export namespace protos {
 
             /** ServerOptions tlsSkipVerify. */
             public tlsSkipVerify: boolean;
+
+            /** ServerOptions enableCluster. */
+            public enableCluster: boolean;
 
             /** ServerOptions vcserviceGrpcAddress. */
             public vcserviceGrpcAddress: string;
