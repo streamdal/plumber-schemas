@@ -9337,6 +9337,9 @@ export namespace protos {
             /** ServerOptions natsUrl */
             natsUrl?: (string[]|null);
 
+            /** ServerOptions useTls */
+            useTls?: (boolean|null);
+
             /** ServerOptions tlsCertFile */
             tlsCertFile?: (string|null);
 
@@ -9397,6 +9400,9 @@ export namespace protos {
 
             /** ServerOptions natsUrl. */
             public natsUrl: string[];
+
+            /** ServerOptions useTls. */
+            public useTls: boolean;
 
             /** ServerOptions tlsCertFile. */
             public tlsCertFile: string;
