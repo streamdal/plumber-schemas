@@ -2,25 +2,16 @@ syntax = "proto3";
 
 package protos;
 
-import "ps_alert.proto";
 import "ps_connect.proto";
 import "ps_dynamic.proto";
-import "ps_errors.proto";
-import "ps_monitor.proto";
-import "ps_read.proto";
 import "ps_relay.proto";
-import "ps_schema.proto";
-import "ps_schema_validation.proto";
 import "ps_server.proto";
-import "ps_service.proto";
-import "ps_stats.proto";
-import "ps_vc_client.proto";
-import "ps_vc_server.proto";
-import "ps_write.proto";
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
 
 service PlumberServer {
+  // -------------------- Connection ---------------------
+
   // List configured/known connections
   rpc GetAllConnections (GetAllConnectionsRequest) returns (GetAllConnectionsResponse);
 
@@ -39,149 +30,24 @@ service PlumberServer {
   // If there are any active connections, delete will cause them to get closed
   rpc DeleteConnection(DeleteConnectionRequest) returns (DeleteConnectionResponse);
 
-  // Start reading data from a connection
-  rpc CreateRead(CreateReadRequest) returns (CreateReadResponse);
+  // ---------------------- Relay ----------------------
 
-  // Streams messages received off of a read
-  rpc StartRead(StartReadRequest) returns (stream StartReadResponse);
+  rpc GetAllRelays(GetAllRelaysRequest) returns (GetAllRelaysResponse);
 
-  // List all reads that have been created
-  rpc GetAllReads(GetAllReadsRequest) returns (GetAllReadsResponse);
+  rpc GetRelay(GetRelayRequest) returns (GetRelayResponse);
 
-  // Stop reading data from a connection
-  rpc StopRead(StopReadRequest) returns (StopReadResponse);
-
-  // Resume reading data from an existing read
-  rpc ResumeRead(ResumeReadRequest) returns (ResumeReadResponse);
-
-  // Resume reading data from an existing read
-  rpc DeleteRead(DeleteReadRequest) returns (DeleteReadResponse);
-
-  // Write data to a connection
-  rpc Write(WriteRequest) returns (WriteResponse);
-
-  // Create a data relay from plumber server to the Batch platform
   rpc CreateRelay(CreateRelayRequest) returns (CreateRelayResponse);
 
-  // Update a relay (such as API token) - relay will be interrupted!
   rpc UpdateRelay(UpdateRelayRequest) returns (UpdateRelayResponse);
 
   rpc ResumeRelay(ResumeRelayRequest) returns (ResumeRelayResponse);
 
   rpc StopRelay(StopRelayRequest) returns (StopRelayResponse);
 
-  rpc GetAllRelays(GetAllRelaysRequest) returns (GetAllRelaysResponse);
-
-  rpc GetRelay(GetRelayRequest) returns (GetRelayResponse);// Delete an existing relay
   rpc DeleteRelay(DeleteRelayRequest) returns (DeleteRelayResponse);
 
-  // Retrieve a single schema
-  rpc GetSchema(GetSchemaRequest) returns (GetSchemaResponse);
-
-  // Retrieve all schemas
-  rpc GetAllSchemas(GetAllSchemasRequest) returns (GetAllSchemasResponse);
-
-  // Edit an existing schema
-  rpc UpdateSchema(UpdateSchemaRequest) returns (UpdateSchemaResponse);
-
-  // Approve a pending inferred schema
-  rpc ApproveSchema(ApproveSchemaVersionRequest) returns (ApproveSchemaVersionResponse);
-
-  // Import a schema from github
-  rpc ImportGithub(ImportGithubRequest) returns (ImportGithubResponse);
-
-  rpc ImportGithubSelect(ImportGithubSelectRequest) returns (ImportGithubSelectResponse);
-
-  // Import a schema from the local file system
-  rpc ImportLocal(ImportLocalRequest) returns (ImportLocalResponse);
-
-  // Delete a schema
-  rpc DeleteSchema(DeleteSchemaRequest) returns (DeleteSchemaResponse);
-
-  rpc DeleteSchemaVersion(DeleteSchemaVersionRequest) returns (DeleteSchemaVersionResponse);
-
-  rpc GetService(GetServiceRequest) returns (GetServiceResponse);
-
-  rpc GetAllServices(GetAllServicesRequest) returns (GetAllServicesResponse);
-
-  rpc CreateService(CreateServiceRequest) returns (CreateServiceResponse);
-
-  rpc UpdateService(UpdateServiceRequest) returns (UpdateServiceResponse);
-
-  rpc DeleteService(DeleteServiceRequest) returns (DeleteServiceResponse);
-
-  rpc LinkSchemaToService(LinkSchemaToServiceRequest) returns (LinkSchemaToServiceResponse);
-
-  rpc UnlinkSchemaFromService(UnlinkSchemaFromServiceRequest) returns (UnlinkSchemaFromServiceResponse);
-
-  rpc LinkRepoToService(LinkRepoToServiceRequest) returns (LinkRepoToServiceResponse);
-
-  rpc UnlinkRepoFromService(UnlinkRepoFromServiceRequest) returns (UnlinkRepoFromServiceResponse);
-
-  rpc GetServerOptions(GetServerOptionsRequest) returns (GetServerOptionsResponse);
-
-  rpc SetServerOptions(SetServerOptionsRequest) returns (SetServerOptionsResponse);
-
-  // List repos pulls a list of repositories from Github after a user has authorized the app
-  rpc GetRepoList(GetRepoListRequest) returns (GetRepoListResponse);
-
-  // GetVCEvents connects to vc-service backend and returns a stream of events pushed from github/bitbucket/etc
-  rpc GetVCEvents(GetVCEventsRequest) returns (stream VCEvent);
-
-  // --------------------- Pull Request -------------------
-  rpc GetRepoTree(GetRepoTreeRequest) returns (GetRepoTreeResponse);
-
-  rpc GetRepoFile(GetRepoFileRequest) returns (GetRepoFileResponse);
-
-  rpc CreatePullRequest(CreatePRRequest) returns (CreatePRResponse);
-
-  // --------------------- Monitor -------------------
-
-  rpc GetMonitor(GetMonitorRequest) returns (GetMonitorResponse);
-
-  rpc CreateMonitor(CreateMonitorRequest) returns (CreateMonitorResponse);
-
-  rpc DeleteMonitor(DeleteMonitorRequest) returns (DeleteMonitorResponse);
-
-  rpc UpdateMonitor(UpdateMonitorRequest) returns (UpdateMonitorResponse);
-
-  // -------------------- Alert --------------------
-
-  rpc GetAlert(GetMonitorRequest) returns (GetMonitorResponse);
-
-  rpc CreateAlert(CreateAlertRequest) returns (CreateAlertResponse);
-
-  rpc DeleteAlert(DeleteAlertRequest) returns (DeleteAlertResponse);
-
-  rpc UpdateAlert(UpdateAlertRequest) returns (UpdateAlertResponse);
-
-  // -------------------- Schema validations --------------------
-
-  rpc GetValidation(GetValidationRequest) returns (GetValidationResponse);
-
-  rpc GetAllValidations(GetAllValidationsRequest) returns (GetAllValidationsResponse);
-
-  rpc CreateValidation(CreateValidationRequest) returns (CreateValidationResponse);
-
-  rpc UpdateValidation(UpdateValidationRequest) returns (UpdateValidationResponse);
-
-  rpc DeleteValidation(DeleteValidationRequest) returns (DeleteValidationResponse);
-
-  // -------------------- Counters --------------------
-
-  rpc GetCurrentCounters(GetCurrentCountersRequest) returns (GetCurrentCountersResponse);
-
-  rpc GetCounterHistory(GetCounterHistoryRequest) returns (GetCounterHistoryResponse);
-
-  // -------------------- Errors --------------------
-
-  // Returns a stream of errors as they happen
-  rpc GetLiveErrors(GetLiveErrorsRequest) returns (stream GetLiveErrorsResponse);
-
-  // Returns 1000 most recent errors from etcd
-  rpc GetErrorHistory(GetErrorHistoryRequest) returns (GetErrorHistoryResponse);
-
   // --------------------- Dynamic ---------------------
+
   rpc GetDynamic(GetDynamicRequest) returns (GetDynamicResponse);
 
   rpc GetAllDynamic(GetAllDynamicRequest) returns (GetAllDynamicResponse);
@@ -195,4 +61,8 @@ service PlumberServer {
   rpc UpdateDynamic(UpdateDynamicRequest) returns (UpdateDynamicResponse);
 
   rpc DeleteDynamic(DeleteDynamicRequest) returns (DeleteDynamicResponse);
+
+  // ------------------- Server -------------------
+
+  rpc GetServerOptions(GetServerOptionsRequest) returns (GetServerOptionsResponse);
 }
