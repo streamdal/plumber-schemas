@@ -5,6 +5,7 @@ package protos;
 import "ps_connect.proto";
 import "ps_dynamic.proto";
 import "ps_relay.proto";
+import "ps_server.proto";
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
 
@@ -33,7 +34,7 @@ service PlumberServer {
 
   rpc GetAllRelays(GetAllRelaysRequest) returns (GetAllRelaysResponse);
 
-  rpc GetRelay(GetRelayRequest) returns (GetRelayResponse);// Delete an existing relay
+  rpc GetRelay(GetRelayRequest) returns (GetRelayResponse);
 
   rpc CreateRelay(CreateRelayRequest) returns (CreateRelayResponse);
 
@@ -47,8 +48,8 @@ service PlumberServer {
 
   // --------------------- Dynamic ---------------------
 
-  // Get a specific dynamic tunnel
   rpc GetDynamic(GetDynamicRequest) returns (GetDynamicResponse);
+
   rpc GetAllDynamic(GetAllDynamicRequest) returns (GetAllDynamicResponse);
 
   rpc CreateDynamic(CreateDynamicRequest) returns (CreateDynamicResponse);
@@ -60,4 +61,8 @@ service PlumberServer {
   rpc UpdateDynamic(UpdateDynamicRequest) returns (UpdateDynamicResponse);
 
   rpc DeleteDynamic(DeleteDynamicRequest) returns (DeleteDynamicResponse);
+
+  // ------------------- Server -------------------
+
+  rpc GetServerOptions(GetServerOptionsRequest) returns (GetServerOptionsResponse);
 }

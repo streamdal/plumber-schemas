@@ -301,6 +301,20 @@ export namespace protos {
          * @returns Promise
          */
         public deleteDynamic(request: protos.IDeleteDynamicRequest): Promise<protos.DeleteDynamicResponse>;
+
+        /**
+         * Calls GetServerOptions.
+         * @param request GetServerOptionsRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and GetServerOptionsResponse
+         */
+        public getServerOptions(request: protos.IGetServerOptionsRequest, callback: protos.PlumberServer.GetServerOptionsCallback): void;
+
+        /**
+         * Calls GetServerOptions.
+         * @param request GetServerOptionsRequest message or plain object
+         * @returns Promise
+         */
+        public getServerOptions(request: protos.IGetServerOptionsRequest): Promise<protos.GetServerOptionsResponse>;
     }
 
     namespace PlumberServer {
@@ -444,6 +458,13 @@ export namespace protos {
          * @param [response] DeleteDynamicResponse
          */
         type DeleteDynamicCallback = (error: (Error|null), response?: protos.DeleteDynamicResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#getServerOptions}.
+         * @param error Error, if any
+         * @param [response] GetServerOptionsResponse
+         */
+        type GetServerOptionsCallback = (error: (Error|null), response?: protos.GetServerOptionsResponse) => void;
     }
 
     /** Properties of a GetAllConnectionsRequest. */
@@ -6086,6 +6107,198 @@ export namespace protos {
 
             /**
              * Converts this RelayGroupNatsJetStreamOptions to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a ServerOptions. */
+        interface IServerOptions {
+
+            /** ServerOptions nodeId */
+            nodeId?: (string|null);
+
+            /** ServerOptions clusterId */
+            clusterId?: (string|null);
+
+            /** ServerOptions grpcListenAddress */
+            grpcListenAddress?: (string|null);
+
+            /** ServerOptions authToken */
+            authToken?: (string|null);
+
+            /** ServerOptions natsUrl */
+            natsUrl?: (string[]|null);
+
+            /** ServerOptions useTls */
+            useTls?: (boolean|null);
+
+            /** ServerOptions tlsCertFile */
+            tlsCertFile?: (string|null);
+
+            /** ServerOptions tlsKeyFile */
+            tlsKeyFile?: (string|null);
+
+            /** ServerOptions tlsCaFile */
+            tlsCaFile?: (string|null);
+
+            /** ServerOptions tlsSkipVerify */
+            tlsSkipVerify?: (boolean|null);
+
+            /** ServerOptions enableCluster */
+            enableCluster?: (boolean|null);
+
+            /** ServerOptions vcserviceGrpcAddress */
+            vcserviceGrpcAddress?: (string|null);
+
+            /** ServerOptions vcserviceGrpcTimeoutSeconds */
+            vcserviceGrpcTimeoutSeconds?: (number|null);
+
+            /** ServerOptions vcserviceGrpcInsecure */
+            vcserviceGrpcInsecure?: (boolean|null);
+
+            /** ServerOptions statsDatabasePath */
+            statsDatabasePath?: (string|null);
+
+            /** ServerOptions statsFlushIntervalSeconds */
+            statsFlushIntervalSeconds?: (number|null);
+
+            /** ServerOptions httpListenAddress */
+            httpListenAddress?: (string|null);
+
+            /** ServerOptions storagePath */
+            storagePath?: (string|null);
+        }
+
+        /** Represents a ServerOptions. */
+        class ServerOptions implements IServerOptions {
+
+            /**
+             * Constructs a new ServerOptions.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.opts.IServerOptions);
+
+            /** ServerOptions nodeId. */
+            public nodeId: string;
+
+            /** ServerOptions clusterId. */
+            public clusterId: string;
+
+            /** ServerOptions grpcListenAddress. */
+            public grpcListenAddress: string;
+
+            /** ServerOptions authToken. */
+            public authToken: string;
+
+            /** ServerOptions natsUrl. */
+            public natsUrl: string[];
+
+            /** ServerOptions useTls. */
+            public useTls: boolean;
+
+            /** ServerOptions tlsCertFile. */
+            public tlsCertFile: string;
+
+            /** ServerOptions tlsKeyFile. */
+            public tlsKeyFile: string;
+
+            /** ServerOptions tlsCaFile. */
+            public tlsCaFile: string;
+
+            /** ServerOptions tlsSkipVerify. */
+            public tlsSkipVerify: boolean;
+
+            /** ServerOptions enableCluster. */
+            public enableCluster: boolean;
+
+            /** ServerOptions vcserviceGrpcAddress. */
+            public vcserviceGrpcAddress: string;
+
+            /** ServerOptions vcserviceGrpcTimeoutSeconds. */
+            public vcserviceGrpcTimeoutSeconds: number;
+
+            /** ServerOptions vcserviceGrpcInsecure. */
+            public vcserviceGrpcInsecure: boolean;
+
+            /** ServerOptions statsDatabasePath. */
+            public statsDatabasePath: string;
+
+            /** ServerOptions statsFlushIntervalSeconds. */
+            public statsFlushIntervalSeconds: number;
+
+            /** ServerOptions httpListenAddress. */
+            public httpListenAddress: string;
+
+            /** ServerOptions storagePath. */
+            public storagePath: string;
+
+            /**
+             * Creates a new ServerOptions instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns ServerOptions instance
+             */
+            public static create(properties?: protos.opts.IServerOptions): protos.opts.ServerOptions;
+
+            /**
+             * Encodes the specified ServerOptions message. Does not implicitly {@link protos.opts.ServerOptions.verify|verify} messages.
+             * @param message ServerOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.opts.IServerOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified ServerOptions message, length delimited. Does not implicitly {@link protos.opts.ServerOptions.verify|verify} messages.
+             * @param message ServerOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.opts.IServerOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a ServerOptions message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns ServerOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.ServerOptions;
+
+            /**
+             * Decodes a ServerOptions message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns ServerOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.ServerOptions;
+
+            /**
+             * Verifies a ServerOptions message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a ServerOptions message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns ServerOptions
+             */
+            public static fromObject(object: { [k: string]: any }): protos.opts.ServerOptions;
+
+            /**
+             * Creates a plain object from a ServerOptions message. Also converts values to other types if specified.
+             * @param message ServerOptions
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.opts.ServerOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this ServerOptions to JSON.
              * @returns JSON object
              */
             public toJSON(): { [k: string]: any };
@@ -12675,198 +12888,6 @@ export namespace protos {
                 UNSET = 0,
                 JSONSCHEMA = 1
             }
-        }
-
-        /** Properties of a ServerOptions. */
-        interface IServerOptions {
-
-            /** ServerOptions nodeId */
-            nodeId?: (string|null);
-
-            /** ServerOptions clusterId */
-            clusterId?: (string|null);
-
-            /** ServerOptions grpcListenAddress */
-            grpcListenAddress?: (string|null);
-
-            /** ServerOptions authToken */
-            authToken?: (string|null);
-
-            /** ServerOptions natsUrl */
-            natsUrl?: (string[]|null);
-
-            /** ServerOptions useTls */
-            useTls?: (boolean|null);
-
-            /** ServerOptions tlsCertFile */
-            tlsCertFile?: (string|null);
-
-            /** ServerOptions tlsKeyFile */
-            tlsKeyFile?: (string|null);
-
-            /** ServerOptions tlsCaFile */
-            tlsCaFile?: (string|null);
-
-            /** ServerOptions tlsSkipVerify */
-            tlsSkipVerify?: (boolean|null);
-
-            /** ServerOptions enableCluster */
-            enableCluster?: (boolean|null);
-
-            /** ServerOptions vcserviceGrpcAddress */
-            vcserviceGrpcAddress?: (string|null);
-
-            /** ServerOptions vcserviceGrpcTimeoutSeconds */
-            vcserviceGrpcTimeoutSeconds?: (number|null);
-
-            /** ServerOptions vcserviceGrpcInsecure */
-            vcserviceGrpcInsecure?: (boolean|null);
-
-            /** ServerOptions statsDatabasePath */
-            statsDatabasePath?: (string|null);
-
-            /** ServerOptions statsFlushIntervalSeconds */
-            statsFlushIntervalSeconds?: (number|null);
-
-            /** ServerOptions httpListenAddress */
-            httpListenAddress?: (string|null);
-
-            /** ServerOptions storagePath */
-            storagePath?: (string|null);
-        }
-
-        /** Represents a ServerOptions. */
-        class ServerOptions implements IServerOptions {
-
-            /**
-             * Constructs a new ServerOptions.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: protos.opts.IServerOptions);
-
-            /** ServerOptions nodeId. */
-            public nodeId: string;
-
-            /** ServerOptions clusterId. */
-            public clusterId: string;
-
-            /** ServerOptions grpcListenAddress. */
-            public grpcListenAddress: string;
-
-            /** ServerOptions authToken. */
-            public authToken: string;
-
-            /** ServerOptions natsUrl. */
-            public natsUrl: string[];
-
-            /** ServerOptions useTls. */
-            public useTls: boolean;
-
-            /** ServerOptions tlsCertFile. */
-            public tlsCertFile: string;
-
-            /** ServerOptions tlsKeyFile. */
-            public tlsKeyFile: string;
-
-            /** ServerOptions tlsCaFile. */
-            public tlsCaFile: string;
-
-            /** ServerOptions tlsSkipVerify. */
-            public tlsSkipVerify: boolean;
-
-            /** ServerOptions enableCluster. */
-            public enableCluster: boolean;
-
-            /** ServerOptions vcserviceGrpcAddress. */
-            public vcserviceGrpcAddress: string;
-
-            /** ServerOptions vcserviceGrpcTimeoutSeconds. */
-            public vcserviceGrpcTimeoutSeconds: number;
-
-            /** ServerOptions vcserviceGrpcInsecure. */
-            public vcserviceGrpcInsecure: boolean;
-
-            /** ServerOptions statsDatabasePath. */
-            public statsDatabasePath: string;
-
-            /** ServerOptions statsFlushIntervalSeconds. */
-            public statsFlushIntervalSeconds: number;
-
-            /** ServerOptions httpListenAddress. */
-            public httpListenAddress: string;
-
-            /** ServerOptions storagePath. */
-            public storagePath: string;
-
-            /**
-             * Creates a new ServerOptions instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns ServerOptions instance
-             */
-            public static create(properties?: protos.opts.IServerOptions): protos.opts.ServerOptions;
-
-            /**
-             * Encodes the specified ServerOptions message. Does not implicitly {@link protos.opts.ServerOptions.verify|verify} messages.
-             * @param message ServerOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: protos.opts.IServerOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified ServerOptions message, length delimited. Does not implicitly {@link protos.opts.ServerOptions.verify|verify} messages.
-             * @param message ServerOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: protos.opts.IServerOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes a ServerOptions message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns ServerOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.ServerOptions;
-
-            /**
-             * Decodes a ServerOptions message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns ServerOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.ServerOptions;
-
-            /**
-             * Verifies a ServerOptions message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates a ServerOptions message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns ServerOptions
-             */
-            public static fromObject(object: { [k: string]: any }): protos.opts.ServerOptions;
-
-            /**
-             * Creates a plain object from a ServerOptions message. Also converts values to other types if specified.
-             * @param message ServerOptions
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: protos.opts.ServerOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this ServerOptions to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
         }
     }
 
@@ -22701,6 +22722,186 @@ export namespace protos {
 
         /**
          * Converts this DeleteRelayResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a GetServerOptionsRequest. */
+    interface IGetServerOptionsRequest {
+
+        /** GetServerOptionsRequest auth */
+        auth?: (protos.common.IAuth|null);
+    }
+
+    /** Represents a GetServerOptionsRequest. */
+    class GetServerOptionsRequest implements IGetServerOptionsRequest {
+
+        /**
+         * Constructs a new GetServerOptionsRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IGetServerOptionsRequest);
+
+        /** GetServerOptionsRequest auth. */
+        public auth?: (protos.common.IAuth|null);
+
+        /**
+         * Creates a new GetServerOptionsRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns GetServerOptionsRequest instance
+         */
+        public static create(properties?: protos.IGetServerOptionsRequest): protos.GetServerOptionsRequest;
+
+        /**
+         * Encodes the specified GetServerOptionsRequest message. Does not implicitly {@link protos.GetServerOptionsRequest.verify|verify} messages.
+         * @param message GetServerOptionsRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IGetServerOptionsRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified GetServerOptionsRequest message, length delimited. Does not implicitly {@link protos.GetServerOptionsRequest.verify|verify} messages.
+         * @param message GetServerOptionsRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IGetServerOptionsRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a GetServerOptionsRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns GetServerOptionsRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.GetServerOptionsRequest;
+
+        /**
+         * Decodes a GetServerOptionsRequest message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns GetServerOptionsRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.GetServerOptionsRequest;
+
+        /**
+         * Verifies a GetServerOptionsRequest message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a GetServerOptionsRequest message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns GetServerOptionsRequest
+         */
+        public static fromObject(object: { [k: string]: any }): protos.GetServerOptionsRequest;
+
+        /**
+         * Creates a plain object from a GetServerOptionsRequest message. Also converts values to other types if specified.
+         * @param message GetServerOptionsRequest
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.GetServerOptionsRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this GetServerOptionsRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a GetServerOptionsResponse. */
+    interface IGetServerOptionsResponse {
+
+        /** GetServerOptionsResponse serverOptions */
+        serverOptions?: (protos.opts.IServerOptions|null);
+    }
+
+    /** Represents a GetServerOptionsResponse. */
+    class GetServerOptionsResponse implements IGetServerOptionsResponse {
+
+        /**
+         * Constructs a new GetServerOptionsResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IGetServerOptionsResponse);
+
+        /** GetServerOptionsResponse serverOptions. */
+        public serverOptions?: (protos.opts.IServerOptions|null);
+
+        /**
+         * Creates a new GetServerOptionsResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns GetServerOptionsResponse instance
+         */
+        public static create(properties?: protos.IGetServerOptionsResponse): protos.GetServerOptionsResponse;
+
+        /**
+         * Encodes the specified GetServerOptionsResponse message. Does not implicitly {@link protos.GetServerOptionsResponse.verify|verify} messages.
+         * @param message GetServerOptionsResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IGetServerOptionsResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified GetServerOptionsResponse message, length delimited. Does not implicitly {@link protos.GetServerOptionsResponse.verify|verify} messages.
+         * @param message GetServerOptionsResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IGetServerOptionsResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a GetServerOptionsResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns GetServerOptionsResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.GetServerOptionsResponse;
+
+        /**
+         * Decodes a GetServerOptionsResponse message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns GetServerOptionsResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.GetServerOptionsResponse;
+
+        /**
+         * Verifies a GetServerOptionsResponse message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a GetServerOptionsResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns GetServerOptionsResponse
+         */
+        public static fromObject(object: { [k: string]: any }): protos.GetServerOptionsResponse;
+
+        /**
+         * Creates a plain object from a GetServerOptionsResponse message. Also converts values to other types if specified.
+         * @param message GetServerOptionsResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.GetServerOptionsResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this GetServerOptionsResponse to JSON.
          * @returns JSON object
          */
         public toJSON(): { [k: string]: any };

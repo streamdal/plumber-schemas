@@ -710,6 +710,39 @@ $root.protos = (function() {
          * @variation 2
          */
 
+        /**
+         * Callback as used by {@link protos.PlumberServer#getServerOptions}.
+         * @memberof protos.PlumberServer
+         * @typedef GetServerOptionsCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.GetServerOptionsResponse} [response] GetServerOptionsResponse
+         */
+
+        /**
+         * Calls GetServerOptions.
+         * @function getServerOptions
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IGetServerOptionsRequest} request GetServerOptionsRequest message or plain object
+         * @param {protos.PlumberServer.GetServerOptionsCallback} callback Node-style callback called with the error, if any, and GetServerOptionsResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(PlumberServer.prototype.getServerOptions = function getServerOptions(request, callback) {
+            return this.rpcCall(getServerOptions, $root.protos.GetServerOptionsRequest, $root.protos.GetServerOptionsResponse, request, callback);
+        }, "name", { value: "GetServerOptions" });
+
+        /**
+         * Calls GetServerOptions.
+         * @function getServerOptions
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IGetServerOptionsRequest} request GetServerOptionsRequest message or plain object
+         * @returns {Promise<protos.GetServerOptionsResponse>} Promise
+         * @variation 2
+         */
+
         return PlumberServer;
     })();
 
@@ -14609,6 +14642,585 @@ $root.protos = (function() {
             };
 
             return RelayGroupNatsJetStreamOptions;
+        })();
+
+        opts.ServerOptions = (function() {
+
+            /**
+             * Properties of a ServerOptions.
+             * @memberof protos.opts
+             * @interface IServerOptions
+             * @property {string|null} [nodeId] ServerOptions nodeId
+             * @property {string|null} [clusterId] ServerOptions clusterId
+             * @property {string|null} [grpcListenAddress] ServerOptions grpcListenAddress
+             * @property {string|null} [authToken] ServerOptions authToken
+             * @property {Array.<string>|null} [natsUrl] ServerOptions natsUrl
+             * @property {boolean|null} [useTls] ServerOptions useTls
+             * @property {string|null} [tlsCertFile] ServerOptions tlsCertFile
+             * @property {string|null} [tlsKeyFile] ServerOptions tlsKeyFile
+             * @property {string|null} [tlsCaFile] ServerOptions tlsCaFile
+             * @property {boolean|null} [tlsSkipVerify] ServerOptions tlsSkipVerify
+             * @property {boolean|null} [enableCluster] ServerOptions enableCluster
+             * @property {string|null} [vcserviceGrpcAddress] ServerOptions vcserviceGrpcAddress
+             * @property {number|null} [vcserviceGrpcTimeoutSeconds] ServerOptions vcserviceGrpcTimeoutSeconds
+             * @property {boolean|null} [vcserviceGrpcInsecure] ServerOptions vcserviceGrpcInsecure
+             * @property {string|null} [statsDatabasePath] ServerOptions statsDatabasePath
+             * @property {number|null} [statsFlushIntervalSeconds] ServerOptions statsFlushIntervalSeconds
+             * @property {string|null} [httpListenAddress] ServerOptions httpListenAddress
+             * @property {string|null} [storagePath] ServerOptions storagePath
+             */
+
+            /**
+             * Constructs a new ServerOptions.
+             * @memberof protos.opts
+             * @classdesc Represents a ServerOptions.
+             * @implements IServerOptions
+             * @constructor
+             * @param {protos.opts.IServerOptions=} [properties] Properties to set
+             */
+            function ServerOptions(properties) {
+                this.natsUrl = [];
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * ServerOptions nodeId.
+             * @member {string} nodeId
+             * @memberof protos.opts.ServerOptions
+             * @instance
+             */
+            ServerOptions.prototype.nodeId = "";
+
+            /**
+             * ServerOptions clusterId.
+             * @member {string} clusterId
+             * @memberof protos.opts.ServerOptions
+             * @instance
+             */
+            ServerOptions.prototype.clusterId = "";
+
+            /**
+             * ServerOptions grpcListenAddress.
+             * @member {string} grpcListenAddress
+             * @memberof protos.opts.ServerOptions
+             * @instance
+             */
+            ServerOptions.prototype.grpcListenAddress = "";
+
+            /**
+             * ServerOptions authToken.
+             * @member {string} authToken
+             * @memberof protos.opts.ServerOptions
+             * @instance
+             */
+            ServerOptions.prototype.authToken = "";
+
+            /**
+             * ServerOptions natsUrl.
+             * @member {Array.<string>} natsUrl
+             * @memberof protos.opts.ServerOptions
+             * @instance
+             */
+            ServerOptions.prototype.natsUrl = $util.emptyArray;
+
+            /**
+             * ServerOptions useTls.
+             * @member {boolean} useTls
+             * @memberof protos.opts.ServerOptions
+             * @instance
+             */
+            ServerOptions.prototype.useTls = false;
+
+            /**
+             * ServerOptions tlsCertFile.
+             * @member {string} tlsCertFile
+             * @memberof protos.opts.ServerOptions
+             * @instance
+             */
+            ServerOptions.prototype.tlsCertFile = "";
+
+            /**
+             * ServerOptions tlsKeyFile.
+             * @member {string} tlsKeyFile
+             * @memberof protos.opts.ServerOptions
+             * @instance
+             */
+            ServerOptions.prototype.tlsKeyFile = "";
+
+            /**
+             * ServerOptions tlsCaFile.
+             * @member {string} tlsCaFile
+             * @memberof protos.opts.ServerOptions
+             * @instance
+             */
+            ServerOptions.prototype.tlsCaFile = "";
+
+            /**
+             * ServerOptions tlsSkipVerify.
+             * @member {boolean} tlsSkipVerify
+             * @memberof protos.opts.ServerOptions
+             * @instance
+             */
+            ServerOptions.prototype.tlsSkipVerify = false;
+
+            /**
+             * ServerOptions enableCluster.
+             * @member {boolean} enableCluster
+             * @memberof protos.opts.ServerOptions
+             * @instance
+             */
+            ServerOptions.prototype.enableCluster = false;
+
+            /**
+             * ServerOptions vcserviceGrpcAddress.
+             * @member {string} vcserviceGrpcAddress
+             * @memberof protos.opts.ServerOptions
+             * @instance
+             */
+            ServerOptions.prototype.vcserviceGrpcAddress = "";
+
+            /**
+             * ServerOptions vcserviceGrpcTimeoutSeconds.
+             * @member {number} vcserviceGrpcTimeoutSeconds
+             * @memberof protos.opts.ServerOptions
+             * @instance
+             */
+            ServerOptions.prototype.vcserviceGrpcTimeoutSeconds = 0;
+
+            /**
+             * ServerOptions vcserviceGrpcInsecure.
+             * @member {boolean} vcserviceGrpcInsecure
+             * @memberof protos.opts.ServerOptions
+             * @instance
+             */
+            ServerOptions.prototype.vcserviceGrpcInsecure = false;
+
+            /**
+             * ServerOptions statsDatabasePath.
+             * @member {string} statsDatabasePath
+             * @memberof protos.opts.ServerOptions
+             * @instance
+             */
+            ServerOptions.prototype.statsDatabasePath = "";
+
+            /**
+             * ServerOptions statsFlushIntervalSeconds.
+             * @member {number} statsFlushIntervalSeconds
+             * @memberof protos.opts.ServerOptions
+             * @instance
+             */
+            ServerOptions.prototype.statsFlushIntervalSeconds = 0;
+
+            /**
+             * ServerOptions httpListenAddress.
+             * @member {string} httpListenAddress
+             * @memberof protos.opts.ServerOptions
+             * @instance
+             */
+            ServerOptions.prototype.httpListenAddress = "";
+
+            /**
+             * ServerOptions storagePath.
+             * @member {string} storagePath
+             * @memberof protos.opts.ServerOptions
+             * @instance
+             */
+            ServerOptions.prototype.storagePath = "";
+
+            /**
+             * Creates a new ServerOptions instance using the specified properties.
+             * @function create
+             * @memberof protos.opts.ServerOptions
+             * @static
+             * @param {protos.opts.IServerOptions=} [properties] Properties to set
+             * @returns {protos.opts.ServerOptions} ServerOptions instance
+             */
+            ServerOptions.create = function create(properties) {
+                return new ServerOptions(properties);
+            };
+
+            /**
+             * Encodes the specified ServerOptions message. Does not implicitly {@link protos.opts.ServerOptions.verify|verify} messages.
+             * @function encode
+             * @memberof protos.opts.ServerOptions
+             * @static
+             * @param {protos.opts.IServerOptions} message ServerOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            ServerOptions.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.nodeId != null && Object.hasOwnProperty.call(message, "nodeId"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.nodeId);
+                if (message.clusterId != null && Object.hasOwnProperty.call(message, "clusterId"))
+                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.clusterId);
+                if (message.grpcListenAddress != null && Object.hasOwnProperty.call(message, "grpcListenAddress"))
+                    writer.uint32(/* id 3, wireType 2 =*/26).string(message.grpcListenAddress);
+                if (message.authToken != null && Object.hasOwnProperty.call(message, "authToken"))
+                    writer.uint32(/* id 4, wireType 2 =*/34).string(message.authToken);
+                if (message.natsUrl != null && message.natsUrl.length)
+                    for (var i = 0; i < message.natsUrl.length; ++i)
+                        writer.uint32(/* id 5, wireType 2 =*/42).string(message.natsUrl[i]);
+                if (message.tlsCertFile != null && Object.hasOwnProperty.call(message, "tlsCertFile"))
+                    writer.uint32(/* id 6, wireType 2 =*/50).string(message.tlsCertFile);
+                if (message.tlsKeyFile != null && Object.hasOwnProperty.call(message, "tlsKeyFile"))
+                    writer.uint32(/* id 7, wireType 2 =*/58).string(message.tlsKeyFile);
+                if (message.tlsCaFile != null && Object.hasOwnProperty.call(message, "tlsCaFile"))
+                    writer.uint32(/* id 8, wireType 2 =*/66).string(message.tlsCaFile);
+                if (message.tlsSkipVerify != null && Object.hasOwnProperty.call(message, "tlsSkipVerify"))
+                    writer.uint32(/* id 9, wireType 0 =*/72).bool(message.tlsSkipVerify);
+                if (message.enableCluster != null && Object.hasOwnProperty.call(message, "enableCluster"))
+                    writer.uint32(/* id 10, wireType 0 =*/80).bool(message.enableCluster);
+                if (message.vcserviceGrpcAddress != null && Object.hasOwnProperty.call(message, "vcserviceGrpcAddress"))
+                    writer.uint32(/* id 11, wireType 2 =*/90).string(message.vcserviceGrpcAddress);
+                if (message.vcserviceGrpcTimeoutSeconds != null && Object.hasOwnProperty.call(message, "vcserviceGrpcTimeoutSeconds"))
+                    writer.uint32(/* id 12, wireType 0 =*/96).uint32(message.vcserviceGrpcTimeoutSeconds);
+                if (message.vcserviceGrpcInsecure != null && Object.hasOwnProperty.call(message, "vcserviceGrpcInsecure"))
+                    writer.uint32(/* id 13, wireType 0 =*/104).bool(message.vcserviceGrpcInsecure);
+                if (message.statsDatabasePath != null && Object.hasOwnProperty.call(message, "statsDatabasePath"))
+                    writer.uint32(/* id 14, wireType 2 =*/114).string(message.statsDatabasePath);
+                if (message.statsFlushIntervalSeconds != null && Object.hasOwnProperty.call(message, "statsFlushIntervalSeconds"))
+                    writer.uint32(/* id 15, wireType 0 =*/120).int32(message.statsFlushIntervalSeconds);
+                if (message.httpListenAddress != null && Object.hasOwnProperty.call(message, "httpListenAddress"))
+                    writer.uint32(/* id 16, wireType 2 =*/130).string(message.httpListenAddress);
+                if (message.storagePath != null && Object.hasOwnProperty.call(message, "storagePath"))
+                    writer.uint32(/* id 17, wireType 2 =*/138).string(message.storagePath);
+                if (message.useTls != null && Object.hasOwnProperty.call(message, "useTls"))
+                    writer.uint32(/* id 500, wireType 0 =*/4000).bool(message.useTls);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified ServerOptions message, length delimited. Does not implicitly {@link protos.opts.ServerOptions.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.opts.ServerOptions
+             * @static
+             * @param {protos.opts.IServerOptions} message ServerOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            ServerOptions.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a ServerOptions message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.opts.ServerOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.opts.ServerOptions} ServerOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            ServerOptions.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.ServerOptions();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.nodeId = reader.string();
+                        break;
+                    case 2:
+                        message.clusterId = reader.string();
+                        break;
+                    case 3:
+                        message.grpcListenAddress = reader.string();
+                        break;
+                    case 4:
+                        message.authToken = reader.string();
+                        break;
+                    case 5:
+                        if (!(message.natsUrl && message.natsUrl.length))
+                            message.natsUrl = [];
+                        message.natsUrl.push(reader.string());
+                        break;
+                    case 500:
+                        message.useTls = reader.bool();
+                        break;
+                    case 6:
+                        message.tlsCertFile = reader.string();
+                        break;
+                    case 7:
+                        message.tlsKeyFile = reader.string();
+                        break;
+                    case 8:
+                        message.tlsCaFile = reader.string();
+                        break;
+                    case 9:
+                        message.tlsSkipVerify = reader.bool();
+                        break;
+                    case 10:
+                        message.enableCluster = reader.bool();
+                        break;
+                    case 11:
+                        message.vcserviceGrpcAddress = reader.string();
+                        break;
+                    case 12:
+                        message.vcserviceGrpcTimeoutSeconds = reader.uint32();
+                        break;
+                    case 13:
+                        message.vcserviceGrpcInsecure = reader.bool();
+                        break;
+                    case 14:
+                        message.statsDatabasePath = reader.string();
+                        break;
+                    case 15:
+                        message.statsFlushIntervalSeconds = reader.int32();
+                        break;
+                    case 16:
+                        message.httpListenAddress = reader.string();
+                        break;
+                    case 17:
+                        message.storagePath = reader.string();
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a ServerOptions message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.opts.ServerOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.opts.ServerOptions} ServerOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            ServerOptions.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a ServerOptions message.
+             * @function verify
+             * @memberof protos.opts.ServerOptions
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            ServerOptions.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.nodeId != null && message.hasOwnProperty("nodeId"))
+                    if (!$util.isString(message.nodeId))
+                        return "nodeId: string expected";
+                if (message.clusterId != null && message.hasOwnProperty("clusterId"))
+                    if (!$util.isString(message.clusterId))
+                        return "clusterId: string expected";
+                if (message.grpcListenAddress != null && message.hasOwnProperty("grpcListenAddress"))
+                    if (!$util.isString(message.grpcListenAddress))
+                        return "grpcListenAddress: string expected";
+                if (message.authToken != null && message.hasOwnProperty("authToken"))
+                    if (!$util.isString(message.authToken))
+                        return "authToken: string expected";
+                if (message.natsUrl != null && message.hasOwnProperty("natsUrl")) {
+                    if (!Array.isArray(message.natsUrl))
+                        return "natsUrl: array expected";
+                    for (var i = 0; i < message.natsUrl.length; ++i)
+                        if (!$util.isString(message.natsUrl[i]))
+                            return "natsUrl: string[] expected";
+                }
+                if (message.useTls != null && message.hasOwnProperty("useTls"))
+                    if (typeof message.useTls !== "boolean")
+                        return "useTls: boolean expected";
+                if (message.tlsCertFile != null && message.hasOwnProperty("tlsCertFile"))
+                    if (!$util.isString(message.tlsCertFile))
+                        return "tlsCertFile: string expected";
+                if (message.tlsKeyFile != null && message.hasOwnProperty("tlsKeyFile"))
+                    if (!$util.isString(message.tlsKeyFile))
+                        return "tlsKeyFile: string expected";
+                if (message.tlsCaFile != null && message.hasOwnProperty("tlsCaFile"))
+                    if (!$util.isString(message.tlsCaFile))
+                        return "tlsCaFile: string expected";
+                if (message.tlsSkipVerify != null && message.hasOwnProperty("tlsSkipVerify"))
+                    if (typeof message.tlsSkipVerify !== "boolean")
+                        return "tlsSkipVerify: boolean expected";
+                if (message.enableCluster != null && message.hasOwnProperty("enableCluster"))
+                    if (typeof message.enableCluster !== "boolean")
+                        return "enableCluster: boolean expected";
+                if (message.vcserviceGrpcAddress != null && message.hasOwnProperty("vcserviceGrpcAddress"))
+                    if (!$util.isString(message.vcserviceGrpcAddress))
+                        return "vcserviceGrpcAddress: string expected";
+                if (message.vcserviceGrpcTimeoutSeconds != null && message.hasOwnProperty("vcserviceGrpcTimeoutSeconds"))
+                    if (!$util.isInteger(message.vcserviceGrpcTimeoutSeconds))
+                        return "vcserviceGrpcTimeoutSeconds: integer expected";
+                if (message.vcserviceGrpcInsecure != null && message.hasOwnProperty("vcserviceGrpcInsecure"))
+                    if (typeof message.vcserviceGrpcInsecure !== "boolean")
+                        return "vcserviceGrpcInsecure: boolean expected";
+                if (message.statsDatabasePath != null && message.hasOwnProperty("statsDatabasePath"))
+                    if (!$util.isString(message.statsDatabasePath))
+                        return "statsDatabasePath: string expected";
+                if (message.statsFlushIntervalSeconds != null && message.hasOwnProperty("statsFlushIntervalSeconds"))
+                    if (!$util.isInteger(message.statsFlushIntervalSeconds))
+                        return "statsFlushIntervalSeconds: integer expected";
+                if (message.httpListenAddress != null && message.hasOwnProperty("httpListenAddress"))
+                    if (!$util.isString(message.httpListenAddress))
+                        return "httpListenAddress: string expected";
+                if (message.storagePath != null && message.hasOwnProperty("storagePath"))
+                    if (!$util.isString(message.storagePath))
+                        return "storagePath: string expected";
+                return null;
+            };
+
+            /**
+             * Creates a ServerOptions message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.opts.ServerOptions
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.opts.ServerOptions} ServerOptions
+             */
+            ServerOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.ServerOptions)
+                    return object;
+                var message = new $root.protos.opts.ServerOptions();
+                if (object.nodeId != null)
+                    message.nodeId = String(object.nodeId);
+                if (object.clusterId != null)
+                    message.clusterId = String(object.clusterId);
+                if (object.grpcListenAddress != null)
+                    message.grpcListenAddress = String(object.grpcListenAddress);
+                if (object.authToken != null)
+                    message.authToken = String(object.authToken);
+                if (object.natsUrl) {
+                    if (!Array.isArray(object.natsUrl))
+                        throw TypeError(".protos.opts.ServerOptions.natsUrl: array expected");
+                    message.natsUrl = [];
+                    for (var i = 0; i < object.natsUrl.length; ++i)
+                        message.natsUrl[i] = String(object.natsUrl[i]);
+                }
+                if (object.useTls != null)
+                    message.useTls = Boolean(object.useTls);
+                if (object.tlsCertFile != null)
+                    message.tlsCertFile = String(object.tlsCertFile);
+                if (object.tlsKeyFile != null)
+                    message.tlsKeyFile = String(object.tlsKeyFile);
+                if (object.tlsCaFile != null)
+                    message.tlsCaFile = String(object.tlsCaFile);
+                if (object.tlsSkipVerify != null)
+                    message.tlsSkipVerify = Boolean(object.tlsSkipVerify);
+                if (object.enableCluster != null)
+                    message.enableCluster = Boolean(object.enableCluster);
+                if (object.vcserviceGrpcAddress != null)
+                    message.vcserviceGrpcAddress = String(object.vcserviceGrpcAddress);
+                if (object.vcserviceGrpcTimeoutSeconds != null)
+                    message.vcserviceGrpcTimeoutSeconds = object.vcserviceGrpcTimeoutSeconds >>> 0;
+                if (object.vcserviceGrpcInsecure != null)
+                    message.vcserviceGrpcInsecure = Boolean(object.vcserviceGrpcInsecure);
+                if (object.statsDatabasePath != null)
+                    message.statsDatabasePath = String(object.statsDatabasePath);
+                if (object.statsFlushIntervalSeconds != null)
+                    message.statsFlushIntervalSeconds = object.statsFlushIntervalSeconds | 0;
+                if (object.httpListenAddress != null)
+                    message.httpListenAddress = String(object.httpListenAddress);
+                if (object.storagePath != null)
+                    message.storagePath = String(object.storagePath);
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a ServerOptions message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.opts.ServerOptions
+             * @static
+             * @param {protos.opts.ServerOptions} message ServerOptions
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            ServerOptions.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.arrays || options.defaults)
+                    object.natsUrl = [];
+                if (options.defaults) {
+                    object.nodeId = "";
+                    object.clusterId = "";
+                    object.grpcListenAddress = "";
+                    object.authToken = "";
+                    object.tlsCertFile = "";
+                    object.tlsKeyFile = "";
+                    object.tlsCaFile = "";
+                    object.tlsSkipVerify = false;
+                    object.enableCluster = false;
+                    object.vcserviceGrpcAddress = "";
+                    object.vcserviceGrpcTimeoutSeconds = 0;
+                    object.vcserviceGrpcInsecure = false;
+                    object.statsDatabasePath = "";
+                    object.statsFlushIntervalSeconds = 0;
+                    object.httpListenAddress = "";
+                    object.storagePath = "";
+                    object.useTls = false;
+                }
+                if (message.nodeId != null && message.hasOwnProperty("nodeId"))
+                    object.nodeId = message.nodeId;
+                if (message.clusterId != null && message.hasOwnProperty("clusterId"))
+                    object.clusterId = message.clusterId;
+                if (message.grpcListenAddress != null && message.hasOwnProperty("grpcListenAddress"))
+                    object.grpcListenAddress = message.grpcListenAddress;
+                if (message.authToken != null && message.hasOwnProperty("authToken"))
+                    object.authToken = message.authToken;
+                if (message.natsUrl && message.natsUrl.length) {
+                    object.natsUrl = [];
+                    for (var j = 0; j < message.natsUrl.length; ++j)
+                        object.natsUrl[j] = message.natsUrl[j];
+                }
+                if (message.tlsCertFile != null && message.hasOwnProperty("tlsCertFile"))
+                    object.tlsCertFile = message.tlsCertFile;
+                if (message.tlsKeyFile != null && message.hasOwnProperty("tlsKeyFile"))
+                    object.tlsKeyFile = message.tlsKeyFile;
+                if (message.tlsCaFile != null && message.hasOwnProperty("tlsCaFile"))
+                    object.tlsCaFile = message.tlsCaFile;
+                if (message.tlsSkipVerify != null && message.hasOwnProperty("tlsSkipVerify"))
+                    object.tlsSkipVerify = message.tlsSkipVerify;
+                if (message.enableCluster != null && message.hasOwnProperty("enableCluster"))
+                    object.enableCluster = message.enableCluster;
+                if (message.vcserviceGrpcAddress != null && message.hasOwnProperty("vcserviceGrpcAddress"))
+                    object.vcserviceGrpcAddress = message.vcserviceGrpcAddress;
+                if (message.vcserviceGrpcTimeoutSeconds != null && message.hasOwnProperty("vcserviceGrpcTimeoutSeconds"))
+                    object.vcserviceGrpcTimeoutSeconds = message.vcserviceGrpcTimeoutSeconds;
+                if (message.vcserviceGrpcInsecure != null && message.hasOwnProperty("vcserviceGrpcInsecure"))
+                    object.vcserviceGrpcInsecure = message.vcserviceGrpcInsecure;
+                if (message.statsDatabasePath != null && message.hasOwnProperty("statsDatabasePath"))
+                    object.statsDatabasePath = message.statsDatabasePath;
+                if (message.statsFlushIntervalSeconds != null && message.hasOwnProperty("statsFlushIntervalSeconds"))
+                    object.statsFlushIntervalSeconds = message.statsFlushIntervalSeconds;
+                if (message.httpListenAddress != null && message.hasOwnProperty("httpListenAddress"))
+                    object.httpListenAddress = message.httpListenAddress;
+                if (message.storagePath != null && message.hasOwnProperty("storagePath"))
+                    object.storagePath = message.storagePath;
+                if (message.useTls != null && message.hasOwnProperty("useTls"))
+                    object.useTls = message.useTls;
+                return object;
+            };
+
+            /**
+             * Converts this ServerOptions to JSON.
+             * @function toJSON
+             * @memberof protos.opts.ServerOptions
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            ServerOptions.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return ServerOptions;
         })();
 
         /**
@@ -30450,585 +31062,6 @@ $root.protos = (function() {
             })();
 
             return InferSchemaOptions;
-        })();
-
-        opts.ServerOptions = (function() {
-
-            /**
-             * Properties of a ServerOptions.
-             * @memberof protos.opts
-             * @interface IServerOptions
-             * @property {string|null} [nodeId] ServerOptions nodeId
-             * @property {string|null} [clusterId] ServerOptions clusterId
-             * @property {string|null} [grpcListenAddress] ServerOptions grpcListenAddress
-             * @property {string|null} [authToken] ServerOptions authToken
-             * @property {Array.<string>|null} [natsUrl] ServerOptions natsUrl
-             * @property {boolean|null} [useTls] ServerOptions useTls
-             * @property {string|null} [tlsCertFile] ServerOptions tlsCertFile
-             * @property {string|null} [tlsKeyFile] ServerOptions tlsKeyFile
-             * @property {string|null} [tlsCaFile] ServerOptions tlsCaFile
-             * @property {boolean|null} [tlsSkipVerify] ServerOptions tlsSkipVerify
-             * @property {boolean|null} [enableCluster] ServerOptions enableCluster
-             * @property {string|null} [vcserviceGrpcAddress] ServerOptions vcserviceGrpcAddress
-             * @property {number|null} [vcserviceGrpcTimeoutSeconds] ServerOptions vcserviceGrpcTimeoutSeconds
-             * @property {boolean|null} [vcserviceGrpcInsecure] ServerOptions vcserviceGrpcInsecure
-             * @property {string|null} [statsDatabasePath] ServerOptions statsDatabasePath
-             * @property {number|null} [statsFlushIntervalSeconds] ServerOptions statsFlushIntervalSeconds
-             * @property {string|null} [httpListenAddress] ServerOptions httpListenAddress
-             * @property {string|null} [storagePath] ServerOptions storagePath
-             */
-
-            /**
-             * Constructs a new ServerOptions.
-             * @memberof protos.opts
-             * @classdesc Represents a ServerOptions.
-             * @implements IServerOptions
-             * @constructor
-             * @param {protos.opts.IServerOptions=} [properties] Properties to set
-             */
-            function ServerOptions(properties) {
-                this.natsUrl = [];
-                if (properties)
-                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                        if (properties[keys[i]] != null)
-                            this[keys[i]] = properties[keys[i]];
-            }
-
-            /**
-             * ServerOptions nodeId.
-             * @member {string} nodeId
-             * @memberof protos.opts.ServerOptions
-             * @instance
-             */
-            ServerOptions.prototype.nodeId = "";
-
-            /**
-             * ServerOptions clusterId.
-             * @member {string} clusterId
-             * @memberof protos.opts.ServerOptions
-             * @instance
-             */
-            ServerOptions.prototype.clusterId = "";
-
-            /**
-             * ServerOptions grpcListenAddress.
-             * @member {string} grpcListenAddress
-             * @memberof protos.opts.ServerOptions
-             * @instance
-             */
-            ServerOptions.prototype.grpcListenAddress = "";
-
-            /**
-             * ServerOptions authToken.
-             * @member {string} authToken
-             * @memberof protos.opts.ServerOptions
-             * @instance
-             */
-            ServerOptions.prototype.authToken = "";
-
-            /**
-             * ServerOptions natsUrl.
-             * @member {Array.<string>} natsUrl
-             * @memberof protos.opts.ServerOptions
-             * @instance
-             */
-            ServerOptions.prototype.natsUrl = $util.emptyArray;
-
-            /**
-             * ServerOptions useTls.
-             * @member {boolean} useTls
-             * @memberof protos.opts.ServerOptions
-             * @instance
-             */
-            ServerOptions.prototype.useTls = false;
-
-            /**
-             * ServerOptions tlsCertFile.
-             * @member {string} tlsCertFile
-             * @memberof protos.opts.ServerOptions
-             * @instance
-             */
-            ServerOptions.prototype.tlsCertFile = "";
-
-            /**
-             * ServerOptions tlsKeyFile.
-             * @member {string} tlsKeyFile
-             * @memberof protos.opts.ServerOptions
-             * @instance
-             */
-            ServerOptions.prototype.tlsKeyFile = "";
-
-            /**
-             * ServerOptions tlsCaFile.
-             * @member {string} tlsCaFile
-             * @memberof protos.opts.ServerOptions
-             * @instance
-             */
-            ServerOptions.prototype.tlsCaFile = "";
-
-            /**
-             * ServerOptions tlsSkipVerify.
-             * @member {boolean} tlsSkipVerify
-             * @memberof protos.opts.ServerOptions
-             * @instance
-             */
-            ServerOptions.prototype.tlsSkipVerify = false;
-
-            /**
-             * ServerOptions enableCluster.
-             * @member {boolean} enableCluster
-             * @memberof protos.opts.ServerOptions
-             * @instance
-             */
-            ServerOptions.prototype.enableCluster = false;
-
-            /**
-             * ServerOptions vcserviceGrpcAddress.
-             * @member {string} vcserviceGrpcAddress
-             * @memberof protos.opts.ServerOptions
-             * @instance
-             */
-            ServerOptions.prototype.vcserviceGrpcAddress = "";
-
-            /**
-             * ServerOptions vcserviceGrpcTimeoutSeconds.
-             * @member {number} vcserviceGrpcTimeoutSeconds
-             * @memberof protos.opts.ServerOptions
-             * @instance
-             */
-            ServerOptions.prototype.vcserviceGrpcTimeoutSeconds = 0;
-
-            /**
-             * ServerOptions vcserviceGrpcInsecure.
-             * @member {boolean} vcserviceGrpcInsecure
-             * @memberof protos.opts.ServerOptions
-             * @instance
-             */
-            ServerOptions.prototype.vcserviceGrpcInsecure = false;
-
-            /**
-             * ServerOptions statsDatabasePath.
-             * @member {string} statsDatabasePath
-             * @memberof protos.opts.ServerOptions
-             * @instance
-             */
-            ServerOptions.prototype.statsDatabasePath = "";
-
-            /**
-             * ServerOptions statsFlushIntervalSeconds.
-             * @member {number} statsFlushIntervalSeconds
-             * @memberof protos.opts.ServerOptions
-             * @instance
-             */
-            ServerOptions.prototype.statsFlushIntervalSeconds = 0;
-
-            /**
-             * ServerOptions httpListenAddress.
-             * @member {string} httpListenAddress
-             * @memberof protos.opts.ServerOptions
-             * @instance
-             */
-            ServerOptions.prototype.httpListenAddress = "";
-
-            /**
-             * ServerOptions storagePath.
-             * @member {string} storagePath
-             * @memberof protos.opts.ServerOptions
-             * @instance
-             */
-            ServerOptions.prototype.storagePath = "";
-
-            /**
-             * Creates a new ServerOptions instance using the specified properties.
-             * @function create
-             * @memberof protos.opts.ServerOptions
-             * @static
-             * @param {protos.opts.IServerOptions=} [properties] Properties to set
-             * @returns {protos.opts.ServerOptions} ServerOptions instance
-             */
-            ServerOptions.create = function create(properties) {
-                return new ServerOptions(properties);
-            };
-
-            /**
-             * Encodes the specified ServerOptions message. Does not implicitly {@link protos.opts.ServerOptions.verify|verify} messages.
-             * @function encode
-             * @memberof protos.opts.ServerOptions
-             * @static
-             * @param {protos.opts.IServerOptions} message ServerOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            ServerOptions.encode = function encode(message, writer) {
-                if (!writer)
-                    writer = $Writer.create();
-                if (message.nodeId != null && Object.hasOwnProperty.call(message, "nodeId"))
-                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.nodeId);
-                if (message.clusterId != null && Object.hasOwnProperty.call(message, "clusterId"))
-                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.clusterId);
-                if (message.grpcListenAddress != null && Object.hasOwnProperty.call(message, "grpcListenAddress"))
-                    writer.uint32(/* id 3, wireType 2 =*/26).string(message.grpcListenAddress);
-                if (message.authToken != null && Object.hasOwnProperty.call(message, "authToken"))
-                    writer.uint32(/* id 4, wireType 2 =*/34).string(message.authToken);
-                if (message.natsUrl != null && message.natsUrl.length)
-                    for (var i = 0; i < message.natsUrl.length; ++i)
-                        writer.uint32(/* id 5, wireType 2 =*/42).string(message.natsUrl[i]);
-                if (message.tlsCertFile != null && Object.hasOwnProperty.call(message, "tlsCertFile"))
-                    writer.uint32(/* id 6, wireType 2 =*/50).string(message.tlsCertFile);
-                if (message.tlsKeyFile != null && Object.hasOwnProperty.call(message, "tlsKeyFile"))
-                    writer.uint32(/* id 7, wireType 2 =*/58).string(message.tlsKeyFile);
-                if (message.tlsCaFile != null && Object.hasOwnProperty.call(message, "tlsCaFile"))
-                    writer.uint32(/* id 8, wireType 2 =*/66).string(message.tlsCaFile);
-                if (message.tlsSkipVerify != null && Object.hasOwnProperty.call(message, "tlsSkipVerify"))
-                    writer.uint32(/* id 9, wireType 0 =*/72).bool(message.tlsSkipVerify);
-                if (message.enableCluster != null && Object.hasOwnProperty.call(message, "enableCluster"))
-                    writer.uint32(/* id 10, wireType 0 =*/80).bool(message.enableCluster);
-                if (message.vcserviceGrpcAddress != null && Object.hasOwnProperty.call(message, "vcserviceGrpcAddress"))
-                    writer.uint32(/* id 11, wireType 2 =*/90).string(message.vcserviceGrpcAddress);
-                if (message.vcserviceGrpcTimeoutSeconds != null && Object.hasOwnProperty.call(message, "vcserviceGrpcTimeoutSeconds"))
-                    writer.uint32(/* id 12, wireType 0 =*/96).uint32(message.vcserviceGrpcTimeoutSeconds);
-                if (message.vcserviceGrpcInsecure != null && Object.hasOwnProperty.call(message, "vcserviceGrpcInsecure"))
-                    writer.uint32(/* id 13, wireType 0 =*/104).bool(message.vcserviceGrpcInsecure);
-                if (message.statsDatabasePath != null && Object.hasOwnProperty.call(message, "statsDatabasePath"))
-                    writer.uint32(/* id 14, wireType 2 =*/114).string(message.statsDatabasePath);
-                if (message.statsFlushIntervalSeconds != null && Object.hasOwnProperty.call(message, "statsFlushIntervalSeconds"))
-                    writer.uint32(/* id 15, wireType 0 =*/120).int32(message.statsFlushIntervalSeconds);
-                if (message.httpListenAddress != null && Object.hasOwnProperty.call(message, "httpListenAddress"))
-                    writer.uint32(/* id 16, wireType 2 =*/130).string(message.httpListenAddress);
-                if (message.storagePath != null && Object.hasOwnProperty.call(message, "storagePath"))
-                    writer.uint32(/* id 17, wireType 2 =*/138).string(message.storagePath);
-                if (message.useTls != null && Object.hasOwnProperty.call(message, "useTls"))
-                    writer.uint32(/* id 500, wireType 0 =*/4000).bool(message.useTls);
-                return writer;
-            };
-
-            /**
-             * Encodes the specified ServerOptions message, length delimited. Does not implicitly {@link protos.opts.ServerOptions.verify|verify} messages.
-             * @function encodeDelimited
-             * @memberof protos.opts.ServerOptions
-             * @static
-             * @param {protos.opts.IServerOptions} message ServerOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            ServerOptions.encodeDelimited = function encodeDelimited(message, writer) {
-                return this.encode(message, writer).ldelim();
-            };
-
-            /**
-             * Decodes a ServerOptions message from the specified reader or buffer.
-             * @function decode
-             * @memberof protos.opts.ServerOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @param {number} [length] Message length if known beforehand
-             * @returns {protos.opts.ServerOptions} ServerOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            ServerOptions.decode = function decode(reader, length) {
-                if (!(reader instanceof $Reader))
-                    reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.ServerOptions();
-                while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    switch (tag >>> 3) {
-                    case 1:
-                        message.nodeId = reader.string();
-                        break;
-                    case 2:
-                        message.clusterId = reader.string();
-                        break;
-                    case 3:
-                        message.grpcListenAddress = reader.string();
-                        break;
-                    case 4:
-                        message.authToken = reader.string();
-                        break;
-                    case 5:
-                        if (!(message.natsUrl && message.natsUrl.length))
-                            message.natsUrl = [];
-                        message.natsUrl.push(reader.string());
-                        break;
-                    case 500:
-                        message.useTls = reader.bool();
-                        break;
-                    case 6:
-                        message.tlsCertFile = reader.string();
-                        break;
-                    case 7:
-                        message.tlsKeyFile = reader.string();
-                        break;
-                    case 8:
-                        message.tlsCaFile = reader.string();
-                        break;
-                    case 9:
-                        message.tlsSkipVerify = reader.bool();
-                        break;
-                    case 10:
-                        message.enableCluster = reader.bool();
-                        break;
-                    case 11:
-                        message.vcserviceGrpcAddress = reader.string();
-                        break;
-                    case 12:
-                        message.vcserviceGrpcTimeoutSeconds = reader.uint32();
-                        break;
-                    case 13:
-                        message.vcserviceGrpcInsecure = reader.bool();
-                        break;
-                    case 14:
-                        message.statsDatabasePath = reader.string();
-                        break;
-                    case 15:
-                        message.statsFlushIntervalSeconds = reader.int32();
-                        break;
-                    case 16:
-                        message.httpListenAddress = reader.string();
-                        break;
-                    case 17:
-                        message.storagePath = reader.string();
-                        break;
-                    default:
-                        reader.skipType(tag & 7);
-                        break;
-                    }
-                }
-                return message;
-            };
-
-            /**
-             * Decodes a ServerOptions message from the specified reader or buffer, length delimited.
-             * @function decodeDelimited
-             * @memberof protos.opts.ServerOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {protos.opts.ServerOptions} ServerOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            ServerOptions.decodeDelimited = function decodeDelimited(reader) {
-                if (!(reader instanceof $Reader))
-                    reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
-            };
-
-            /**
-             * Verifies a ServerOptions message.
-             * @function verify
-             * @memberof protos.opts.ServerOptions
-             * @static
-             * @param {Object.<string,*>} message Plain object to verify
-             * @returns {string|null} `null` if valid, otherwise the reason why it is not
-             */
-            ServerOptions.verify = function verify(message) {
-                if (typeof message !== "object" || message === null)
-                    return "object expected";
-                if (message.nodeId != null && message.hasOwnProperty("nodeId"))
-                    if (!$util.isString(message.nodeId))
-                        return "nodeId: string expected";
-                if (message.clusterId != null && message.hasOwnProperty("clusterId"))
-                    if (!$util.isString(message.clusterId))
-                        return "clusterId: string expected";
-                if (message.grpcListenAddress != null && message.hasOwnProperty("grpcListenAddress"))
-                    if (!$util.isString(message.grpcListenAddress))
-                        return "grpcListenAddress: string expected";
-                if (message.authToken != null && message.hasOwnProperty("authToken"))
-                    if (!$util.isString(message.authToken))
-                        return "authToken: string expected";
-                if (message.natsUrl != null && message.hasOwnProperty("natsUrl")) {
-                    if (!Array.isArray(message.natsUrl))
-                        return "natsUrl: array expected";
-                    for (var i = 0; i < message.natsUrl.length; ++i)
-                        if (!$util.isString(message.natsUrl[i]))
-                            return "natsUrl: string[] expected";
-                }
-                if (message.useTls != null && message.hasOwnProperty("useTls"))
-                    if (typeof message.useTls !== "boolean")
-                        return "useTls: boolean expected";
-                if (message.tlsCertFile != null && message.hasOwnProperty("tlsCertFile"))
-                    if (!$util.isString(message.tlsCertFile))
-                        return "tlsCertFile: string expected";
-                if (message.tlsKeyFile != null && message.hasOwnProperty("tlsKeyFile"))
-                    if (!$util.isString(message.tlsKeyFile))
-                        return "tlsKeyFile: string expected";
-                if (message.tlsCaFile != null && message.hasOwnProperty("tlsCaFile"))
-                    if (!$util.isString(message.tlsCaFile))
-                        return "tlsCaFile: string expected";
-                if (message.tlsSkipVerify != null && message.hasOwnProperty("tlsSkipVerify"))
-                    if (typeof message.tlsSkipVerify !== "boolean")
-                        return "tlsSkipVerify: boolean expected";
-                if (message.enableCluster != null && message.hasOwnProperty("enableCluster"))
-                    if (typeof message.enableCluster !== "boolean")
-                        return "enableCluster: boolean expected";
-                if (message.vcserviceGrpcAddress != null && message.hasOwnProperty("vcserviceGrpcAddress"))
-                    if (!$util.isString(message.vcserviceGrpcAddress))
-                        return "vcserviceGrpcAddress: string expected";
-                if (message.vcserviceGrpcTimeoutSeconds != null && message.hasOwnProperty("vcserviceGrpcTimeoutSeconds"))
-                    if (!$util.isInteger(message.vcserviceGrpcTimeoutSeconds))
-                        return "vcserviceGrpcTimeoutSeconds: integer expected";
-                if (message.vcserviceGrpcInsecure != null && message.hasOwnProperty("vcserviceGrpcInsecure"))
-                    if (typeof message.vcserviceGrpcInsecure !== "boolean")
-                        return "vcserviceGrpcInsecure: boolean expected";
-                if (message.statsDatabasePath != null && message.hasOwnProperty("statsDatabasePath"))
-                    if (!$util.isString(message.statsDatabasePath))
-                        return "statsDatabasePath: string expected";
-                if (message.statsFlushIntervalSeconds != null && message.hasOwnProperty("statsFlushIntervalSeconds"))
-                    if (!$util.isInteger(message.statsFlushIntervalSeconds))
-                        return "statsFlushIntervalSeconds: integer expected";
-                if (message.httpListenAddress != null && message.hasOwnProperty("httpListenAddress"))
-                    if (!$util.isString(message.httpListenAddress))
-                        return "httpListenAddress: string expected";
-                if (message.storagePath != null && message.hasOwnProperty("storagePath"))
-                    if (!$util.isString(message.storagePath))
-                        return "storagePath: string expected";
-                return null;
-            };
-
-            /**
-             * Creates a ServerOptions message from a plain object. Also converts values to their respective internal types.
-             * @function fromObject
-             * @memberof protos.opts.ServerOptions
-             * @static
-             * @param {Object.<string,*>} object Plain object
-             * @returns {protos.opts.ServerOptions} ServerOptions
-             */
-            ServerOptions.fromObject = function fromObject(object) {
-                if (object instanceof $root.protos.opts.ServerOptions)
-                    return object;
-                var message = new $root.protos.opts.ServerOptions();
-                if (object.nodeId != null)
-                    message.nodeId = String(object.nodeId);
-                if (object.clusterId != null)
-                    message.clusterId = String(object.clusterId);
-                if (object.grpcListenAddress != null)
-                    message.grpcListenAddress = String(object.grpcListenAddress);
-                if (object.authToken != null)
-                    message.authToken = String(object.authToken);
-                if (object.natsUrl) {
-                    if (!Array.isArray(object.natsUrl))
-                        throw TypeError(".protos.opts.ServerOptions.natsUrl: array expected");
-                    message.natsUrl = [];
-                    for (var i = 0; i < object.natsUrl.length; ++i)
-                        message.natsUrl[i] = String(object.natsUrl[i]);
-                }
-                if (object.useTls != null)
-                    message.useTls = Boolean(object.useTls);
-                if (object.tlsCertFile != null)
-                    message.tlsCertFile = String(object.tlsCertFile);
-                if (object.tlsKeyFile != null)
-                    message.tlsKeyFile = String(object.tlsKeyFile);
-                if (object.tlsCaFile != null)
-                    message.tlsCaFile = String(object.tlsCaFile);
-                if (object.tlsSkipVerify != null)
-                    message.tlsSkipVerify = Boolean(object.tlsSkipVerify);
-                if (object.enableCluster != null)
-                    message.enableCluster = Boolean(object.enableCluster);
-                if (object.vcserviceGrpcAddress != null)
-                    message.vcserviceGrpcAddress = String(object.vcserviceGrpcAddress);
-                if (object.vcserviceGrpcTimeoutSeconds != null)
-                    message.vcserviceGrpcTimeoutSeconds = object.vcserviceGrpcTimeoutSeconds >>> 0;
-                if (object.vcserviceGrpcInsecure != null)
-                    message.vcserviceGrpcInsecure = Boolean(object.vcserviceGrpcInsecure);
-                if (object.statsDatabasePath != null)
-                    message.statsDatabasePath = String(object.statsDatabasePath);
-                if (object.statsFlushIntervalSeconds != null)
-                    message.statsFlushIntervalSeconds = object.statsFlushIntervalSeconds | 0;
-                if (object.httpListenAddress != null)
-                    message.httpListenAddress = String(object.httpListenAddress);
-                if (object.storagePath != null)
-                    message.storagePath = String(object.storagePath);
-                return message;
-            };
-
-            /**
-             * Creates a plain object from a ServerOptions message. Also converts values to other types if specified.
-             * @function toObject
-             * @memberof protos.opts.ServerOptions
-             * @static
-             * @param {protos.opts.ServerOptions} message ServerOptions
-             * @param {$protobuf.IConversionOptions} [options] Conversion options
-             * @returns {Object.<string,*>} Plain object
-             */
-            ServerOptions.toObject = function toObject(message, options) {
-                if (!options)
-                    options = {};
-                var object = {};
-                if (options.arrays || options.defaults)
-                    object.natsUrl = [];
-                if (options.defaults) {
-                    object.nodeId = "";
-                    object.clusterId = "";
-                    object.grpcListenAddress = "";
-                    object.authToken = "";
-                    object.tlsCertFile = "";
-                    object.tlsKeyFile = "";
-                    object.tlsCaFile = "";
-                    object.tlsSkipVerify = false;
-                    object.enableCluster = false;
-                    object.vcserviceGrpcAddress = "";
-                    object.vcserviceGrpcTimeoutSeconds = 0;
-                    object.vcserviceGrpcInsecure = false;
-                    object.statsDatabasePath = "";
-                    object.statsFlushIntervalSeconds = 0;
-                    object.httpListenAddress = "";
-                    object.storagePath = "";
-                    object.useTls = false;
-                }
-                if (message.nodeId != null && message.hasOwnProperty("nodeId"))
-                    object.nodeId = message.nodeId;
-                if (message.clusterId != null && message.hasOwnProperty("clusterId"))
-                    object.clusterId = message.clusterId;
-                if (message.grpcListenAddress != null && message.hasOwnProperty("grpcListenAddress"))
-                    object.grpcListenAddress = message.grpcListenAddress;
-                if (message.authToken != null && message.hasOwnProperty("authToken"))
-                    object.authToken = message.authToken;
-                if (message.natsUrl && message.natsUrl.length) {
-                    object.natsUrl = [];
-                    for (var j = 0; j < message.natsUrl.length; ++j)
-                        object.natsUrl[j] = message.natsUrl[j];
-                }
-                if (message.tlsCertFile != null && message.hasOwnProperty("tlsCertFile"))
-                    object.tlsCertFile = message.tlsCertFile;
-                if (message.tlsKeyFile != null && message.hasOwnProperty("tlsKeyFile"))
-                    object.tlsKeyFile = message.tlsKeyFile;
-                if (message.tlsCaFile != null && message.hasOwnProperty("tlsCaFile"))
-                    object.tlsCaFile = message.tlsCaFile;
-                if (message.tlsSkipVerify != null && message.hasOwnProperty("tlsSkipVerify"))
-                    object.tlsSkipVerify = message.tlsSkipVerify;
-                if (message.enableCluster != null && message.hasOwnProperty("enableCluster"))
-                    object.enableCluster = message.enableCluster;
-                if (message.vcserviceGrpcAddress != null && message.hasOwnProperty("vcserviceGrpcAddress"))
-                    object.vcserviceGrpcAddress = message.vcserviceGrpcAddress;
-                if (message.vcserviceGrpcTimeoutSeconds != null && message.hasOwnProperty("vcserviceGrpcTimeoutSeconds"))
-                    object.vcserviceGrpcTimeoutSeconds = message.vcserviceGrpcTimeoutSeconds;
-                if (message.vcserviceGrpcInsecure != null && message.hasOwnProperty("vcserviceGrpcInsecure"))
-                    object.vcserviceGrpcInsecure = message.vcserviceGrpcInsecure;
-                if (message.statsDatabasePath != null && message.hasOwnProperty("statsDatabasePath"))
-                    object.statsDatabasePath = message.statsDatabasePath;
-                if (message.statsFlushIntervalSeconds != null && message.hasOwnProperty("statsFlushIntervalSeconds"))
-                    object.statsFlushIntervalSeconds = message.statsFlushIntervalSeconds;
-                if (message.httpListenAddress != null && message.hasOwnProperty("httpListenAddress"))
-                    object.httpListenAddress = message.httpListenAddress;
-                if (message.storagePath != null && message.hasOwnProperty("storagePath"))
-                    object.storagePath = message.storagePath;
-                if (message.useTls != null && message.hasOwnProperty("useTls"))
-                    object.useTls = message.useTls;
-                return object;
-            };
-
-            /**
-             * Converts this ServerOptions to JSON.
-             * @function toJSON
-             * @memberof protos.opts.ServerOptions
-             * @instance
-             * @returns {Object.<string,*>} JSON object
-             */
-            ServerOptions.prototype.toJSON = function toJSON() {
-                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-            };
-
-            return ServerOptions;
         })();
 
         return opts;
@@ -54266,6 +54299,390 @@ $root.protos = (function() {
         };
 
         return DeleteRelayResponse;
+    })();
+
+    protos.GetServerOptionsRequest = (function() {
+
+        /**
+         * Properties of a GetServerOptionsRequest.
+         * @memberof protos
+         * @interface IGetServerOptionsRequest
+         * @property {protos.common.IAuth|null} [auth] GetServerOptionsRequest auth
+         */
+
+        /**
+         * Constructs a new GetServerOptionsRequest.
+         * @memberof protos
+         * @classdesc Represents a GetServerOptionsRequest.
+         * @implements IGetServerOptionsRequest
+         * @constructor
+         * @param {protos.IGetServerOptionsRequest=} [properties] Properties to set
+         */
+        function GetServerOptionsRequest(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * GetServerOptionsRequest auth.
+         * @member {protos.common.IAuth|null|undefined} auth
+         * @memberof protos.GetServerOptionsRequest
+         * @instance
+         */
+        GetServerOptionsRequest.prototype.auth = null;
+
+        /**
+         * Creates a new GetServerOptionsRequest instance using the specified properties.
+         * @function create
+         * @memberof protos.GetServerOptionsRequest
+         * @static
+         * @param {protos.IGetServerOptionsRequest=} [properties] Properties to set
+         * @returns {protos.GetServerOptionsRequest} GetServerOptionsRequest instance
+         */
+        GetServerOptionsRequest.create = function create(properties) {
+            return new GetServerOptionsRequest(properties);
+        };
+
+        /**
+         * Encodes the specified GetServerOptionsRequest message. Does not implicitly {@link protos.GetServerOptionsRequest.verify|verify} messages.
+         * @function encode
+         * @memberof protos.GetServerOptionsRequest
+         * @static
+         * @param {protos.IGetServerOptionsRequest} message GetServerOptionsRequest message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        GetServerOptionsRequest.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.auth != null && Object.hasOwnProperty.call(message, "auth"))
+                $root.protos.common.Auth.encode(message.auth, writer.uint32(/* id 9999, wireType 2 =*/79994).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Encodes the specified GetServerOptionsRequest message, length delimited. Does not implicitly {@link protos.GetServerOptionsRequest.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.GetServerOptionsRequest
+         * @static
+         * @param {protos.IGetServerOptionsRequest} message GetServerOptionsRequest message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        GetServerOptionsRequest.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a GetServerOptionsRequest message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.GetServerOptionsRequest
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.GetServerOptionsRequest} GetServerOptionsRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        GetServerOptionsRequest.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.GetServerOptionsRequest();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 9999:
+                    message.auth = $root.protos.common.Auth.decode(reader, reader.uint32());
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a GetServerOptionsRequest message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.GetServerOptionsRequest
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.GetServerOptionsRequest} GetServerOptionsRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        GetServerOptionsRequest.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a GetServerOptionsRequest message.
+         * @function verify
+         * @memberof protos.GetServerOptionsRequest
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        GetServerOptionsRequest.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.auth != null && message.hasOwnProperty("auth")) {
+                var error = $root.protos.common.Auth.verify(message.auth);
+                if (error)
+                    return "auth." + error;
+            }
+            return null;
+        };
+
+        /**
+         * Creates a GetServerOptionsRequest message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.GetServerOptionsRequest
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.GetServerOptionsRequest} GetServerOptionsRequest
+         */
+        GetServerOptionsRequest.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.GetServerOptionsRequest)
+                return object;
+            var message = new $root.protos.GetServerOptionsRequest();
+            if (object.auth != null) {
+                if (typeof object.auth !== "object")
+                    throw TypeError(".protos.GetServerOptionsRequest.auth: object expected");
+                message.auth = $root.protos.common.Auth.fromObject(object.auth);
+            }
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a GetServerOptionsRequest message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.GetServerOptionsRequest
+         * @static
+         * @param {protos.GetServerOptionsRequest} message GetServerOptionsRequest
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        GetServerOptionsRequest.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults)
+                object.auth = null;
+            if (message.auth != null && message.hasOwnProperty("auth"))
+                object.auth = $root.protos.common.Auth.toObject(message.auth, options);
+            return object;
+        };
+
+        /**
+         * Converts this GetServerOptionsRequest to JSON.
+         * @function toJSON
+         * @memberof protos.GetServerOptionsRequest
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        GetServerOptionsRequest.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return GetServerOptionsRequest;
+    })();
+
+    protos.GetServerOptionsResponse = (function() {
+
+        /**
+         * Properties of a GetServerOptionsResponse.
+         * @memberof protos
+         * @interface IGetServerOptionsResponse
+         * @property {protos.opts.IServerOptions|null} [serverOptions] GetServerOptionsResponse serverOptions
+         */
+
+        /**
+         * Constructs a new GetServerOptionsResponse.
+         * @memberof protos
+         * @classdesc Represents a GetServerOptionsResponse.
+         * @implements IGetServerOptionsResponse
+         * @constructor
+         * @param {protos.IGetServerOptionsResponse=} [properties] Properties to set
+         */
+        function GetServerOptionsResponse(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * GetServerOptionsResponse serverOptions.
+         * @member {protos.opts.IServerOptions|null|undefined} serverOptions
+         * @memberof protos.GetServerOptionsResponse
+         * @instance
+         */
+        GetServerOptionsResponse.prototype.serverOptions = null;
+
+        /**
+         * Creates a new GetServerOptionsResponse instance using the specified properties.
+         * @function create
+         * @memberof protos.GetServerOptionsResponse
+         * @static
+         * @param {protos.IGetServerOptionsResponse=} [properties] Properties to set
+         * @returns {protos.GetServerOptionsResponse} GetServerOptionsResponse instance
+         */
+        GetServerOptionsResponse.create = function create(properties) {
+            return new GetServerOptionsResponse(properties);
+        };
+
+        /**
+         * Encodes the specified GetServerOptionsResponse message. Does not implicitly {@link protos.GetServerOptionsResponse.verify|verify} messages.
+         * @function encode
+         * @memberof protos.GetServerOptionsResponse
+         * @static
+         * @param {protos.IGetServerOptionsResponse} message GetServerOptionsResponse message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        GetServerOptionsResponse.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.serverOptions != null && Object.hasOwnProperty.call(message, "serverOptions"))
+                $root.protos.opts.ServerOptions.encode(message.serverOptions, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Encodes the specified GetServerOptionsResponse message, length delimited. Does not implicitly {@link protos.GetServerOptionsResponse.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.GetServerOptionsResponse
+         * @static
+         * @param {protos.IGetServerOptionsResponse} message GetServerOptionsResponse message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        GetServerOptionsResponse.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a GetServerOptionsResponse message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.GetServerOptionsResponse
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.GetServerOptionsResponse} GetServerOptionsResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        GetServerOptionsResponse.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.GetServerOptionsResponse();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.serverOptions = $root.protos.opts.ServerOptions.decode(reader, reader.uint32());
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a GetServerOptionsResponse message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.GetServerOptionsResponse
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.GetServerOptionsResponse} GetServerOptionsResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        GetServerOptionsResponse.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a GetServerOptionsResponse message.
+         * @function verify
+         * @memberof protos.GetServerOptionsResponse
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        GetServerOptionsResponse.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.serverOptions != null && message.hasOwnProperty("serverOptions")) {
+                var error = $root.protos.opts.ServerOptions.verify(message.serverOptions);
+                if (error)
+                    return "serverOptions." + error;
+            }
+            return null;
+        };
+
+        /**
+         * Creates a GetServerOptionsResponse message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.GetServerOptionsResponse
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.GetServerOptionsResponse} GetServerOptionsResponse
+         */
+        GetServerOptionsResponse.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.GetServerOptionsResponse)
+                return object;
+            var message = new $root.protos.GetServerOptionsResponse();
+            if (object.serverOptions != null) {
+                if (typeof object.serverOptions !== "object")
+                    throw TypeError(".protos.GetServerOptionsResponse.serverOptions: object expected");
+                message.serverOptions = $root.protos.opts.ServerOptions.fromObject(object.serverOptions);
+            }
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a GetServerOptionsResponse message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.GetServerOptionsResponse
+         * @static
+         * @param {protos.GetServerOptionsResponse} message GetServerOptionsResponse
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        GetServerOptionsResponse.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults)
+                object.serverOptions = null;
+            if (message.serverOptions != null && message.hasOwnProperty("serverOptions"))
+                object.serverOptions = $root.protos.opts.ServerOptions.toObject(message.serverOptions, options);
+            return object;
+        };
+
+        /**
+         * Converts this GetServerOptionsResponse to JSON.
+         * @function toJSON
+         * @memberof protos.GetServerOptionsResponse
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        GetServerOptionsResponse.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return GetServerOptionsResponse;
     })();
 
     protos.encoding = (function() {
