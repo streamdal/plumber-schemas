@@ -107,6 +107,34 @@ export namespace protos {
         public deleteConnection(request: protos.IDeleteConnectionRequest): Promise<protos.DeleteConnectionResponse>;
 
         /**
+         * Calls GetAllRelays.
+         * @param request GetAllRelaysRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and GetAllRelaysResponse
+         */
+        public getAllRelays(request: protos.IGetAllRelaysRequest, callback: protos.PlumberServer.GetAllRelaysCallback): void;
+
+        /**
+         * Calls GetAllRelays.
+         * @param request GetAllRelaysRequest message or plain object
+         * @returns Promise
+         */
+        public getAllRelays(request: protos.IGetAllRelaysRequest): Promise<protos.GetAllRelaysResponse>;
+
+        /**
+         * Calls GetRelay.
+         * @param request GetRelayRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and GetRelayResponse
+         */
+        public getRelay(request: protos.IGetRelayRequest, callback: protos.PlumberServer.GetRelayCallback): void;
+
+        /**
+         * Calls GetRelay.
+         * @param request GetRelayRequest message or plain object
+         * @returns Promise
+         */
+        public getRelay(request: protos.IGetRelayRequest): Promise<protos.GetRelayResponse>;
+
+        /**
          * Calls CreateRelay.
          * @param request CreateRelayRequest message or plain object
          * @param callback Node-style callback called with the error, if any, and CreateRelayResponse
@@ -161,34 +189,6 @@ export namespace protos {
          * @returns Promise
          */
         public stopRelay(request: protos.IStopRelayRequest): Promise<protos.StopRelayResponse>;
-
-        /**
-         * Calls GetAllRelays.
-         * @param request GetAllRelaysRequest message or plain object
-         * @param callback Node-style callback called with the error, if any, and GetAllRelaysResponse
-         */
-        public getAllRelays(request: protos.IGetAllRelaysRequest, callback: protos.PlumberServer.GetAllRelaysCallback): void;
-
-        /**
-         * Calls GetAllRelays.
-         * @param request GetAllRelaysRequest message or plain object
-         * @returns Promise
-         */
-        public getAllRelays(request: protos.IGetAllRelaysRequest): Promise<protos.GetAllRelaysResponse>;
-
-        /**
-         * Calls GetRelay.
-         * @param request GetRelayRequest message or plain object
-         * @param callback Node-style callback called with the error, if any, and GetRelayResponse
-         */
-        public getRelay(request: protos.IGetRelayRequest, callback: protos.PlumberServer.GetRelayCallback): void;
-
-        /**
-         * Calls GetRelay.
-         * @param request GetRelayRequest message or plain object
-         * @returns Promise
-         */
-        public getRelay(request: protos.IGetRelayRequest): Promise<protos.GetRelayResponse>;
 
         /**
          * Calls DeleteRelay.
@@ -348,6 +348,20 @@ export namespace protos {
         type DeleteConnectionCallback = (error: (Error|null), response?: protos.DeleteConnectionResponse) => void;
 
         /**
+         * Callback as used by {@link protos.PlumberServer#getAllRelays}.
+         * @param error Error, if any
+         * @param [response] GetAllRelaysResponse
+         */
+        type GetAllRelaysCallback = (error: (Error|null), response?: protos.GetAllRelaysResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#getRelay}.
+         * @param error Error, if any
+         * @param [response] GetRelayResponse
+         */
+        type GetRelayCallback = (error: (Error|null), response?: protos.GetRelayResponse) => void;
+
+        /**
          * Callback as used by {@link protos.PlumberServer#createRelay}.
          * @param error Error, if any
          * @param [response] CreateRelayResponse
@@ -374,20 +388,6 @@ export namespace protos {
          * @param [response] StopRelayResponse
          */
         type StopRelayCallback = (error: (Error|null), response?: protos.StopRelayResponse) => void;
-
-        /**
-         * Callback as used by {@link protos.PlumberServer#getAllRelays}.
-         * @param error Error, if any
-         * @param [response] GetAllRelaysResponse
-         */
-        type GetAllRelaysCallback = (error: (Error|null), response?: protos.GetAllRelaysResponse) => void;
-
-        /**
-         * Callback as used by {@link protos.PlumberServer#getRelay}.
-         * @param error Error, if any
-         * @param [response] GetRelayResponse
-         */
-        type GetRelayCallback = (error: (Error|null), response?: protos.GetRelayResponse) => void;
 
         /**
          * Callback as used by {@link protos.PlumberServer#deleteRelay}.

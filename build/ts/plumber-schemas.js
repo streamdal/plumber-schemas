@@ -249,6 +249,72 @@ $root.protos = (function() {
          */
 
         /**
+         * Callback as used by {@link protos.PlumberServer#getAllRelays}.
+         * @memberof protos.PlumberServer
+         * @typedef GetAllRelaysCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.GetAllRelaysResponse} [response] GetAllRelaysResponse
+         */
+
+        /**
+         * Calls GetAllRelays.
+         * @function getAllRelays
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IGetAllRelaysRequest} request GetAllRelaysRequest message or plain object
+         * @param {protos.PlumberServer.GetAllRelaysCallback} callback Node-style callback called with the error, if any, and GetAllRelaysResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(PlumberServer.prototype.getAllRelays = function getAllRelays(request, callback) {
+            return this.rpcCall(getAllRelays, $root.protos.GetAllRelaysRequest, $root.protos.GetAllRelaysResponse, request, callback);
+        }, "name", { value: "GetAllRelays" });
+
+        /**
+         * Calls GetAllRelays.
+         * @function getAllRelays
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IGetAllRelaysRequest} request GetAllRelaysRequest message or plain object
+         * @returns {Promise<protos.GetAllRelaysResponse>} Promise
+         * @variation 2
+         */
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#getRelay}.
+         * @memberof protos.PlumberServer
+         * @typedef GetRelayCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.GetRelayResponse} [response] GetRelayResponse
+         */
+
+        /**
+         * Calls GetRelay.
+         * @function getRelay
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IGetRelayRequest} request GetRelayRequest message or plain object
+         * @param {protos.PlumberServer.GetRelayCallback} callback Node-style callback called with the error, if any, and GetRelayResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(PlumberServer.prototype.getRelay = function getRelay(request, callback) {
+            return this.rpcCall(getRelay, $root.protos.GetRelayRequest, $root.protos.GetRelayResponse, request, callback);
+        }, "name", { value: "GetRelay" });
+
+        /**
+         * Calls GetRelay.
+         * @function getRelay
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IGetRelayRequest} request GetRelayRequest message or plain object
+         * @returns {Promise<protos.GetRelayResponse>} Promise
+         * @variation 2
+         */
+
+        /**
          * Callback as used by {@link protos.PlumberServer#createRelay}.
          * @memberof protos.PlumberServer
          * @typedef CreateRelayCallback
@@ -377,72 +443,6 @@ $root.protos = (function() {
          * @instance
          * @param {protos.IStopRelayRequest} request StopRelayRequest message or plain object
          * @returns {Promise<protos.StopRelayResponse>} Promise
-         * @variation 2
-         */
-
-        /**
-         * Callback as used by {@link protos.PlumberServer#getAllRelays}.
-         * @memberof protos.PlumberServer
-         * @typedef GetAllRelaysCallback
-         * @type {function}
-         * @param {Error|null} error Error, if any
-         * @param {protos.GetAllRelaysResponse} [response] GetAllRelaysResponse
-         */
-
-        /**
-         * Calls GetAllRelays.
-         * @function getAllRelays
-         * @memberof protos.PlumberServer
-         * @instance
-         * @param {protos.IGetAllRelaysRequest} request GetAllRelaysRequest message or plain object
-         * @param {protos.PlumberServer.GetAllRelaysCallback} callback Node-style callback called with the error, if any, and GetAllRelaysResponse
-         * @returns {undefined}
-         * @variation 1
-         */
-        Object.defineProperty(PlumberServer.prototype.getAllRelays = function getAllRelays(request, callback) {
-            return this.rpcCall(getAllRelays, $root.protos.GetAllRelaysRequest, $root.protos.GetAllRelaysResponse, request, callback);
-        }, "name", { value: "GetAllRelays" });
-
-        /**
-         * Calls GetAllRelays.
-         * @function getAllRelays
-         * @memberof protos.PlumberServer
-         * @instance
-         * @param {protos.IGetAllRelaysRequest} request GetAllRelaysRequest message or plain object
-         * @returns {Promise<protos.GetAllRelaysResponse>} Promise
-         * @variation 2
-         */
-
-        /**
-         * Callback as used by {@link protos.PlumberServer#getRelay}.
-         * @memberof protos.PlumberServer
-         * @typedef GetRelayCallback
-         * @type {function}
-         * @param {Error|null} error Error, if any
-         * @param {protos.GetRelayResponse} [response] GetRelayResponse
-         */
-
-        /**
-         * Calls GetRelay.
-         * @function getRelay
-         * @memberof protos.PlumberServer
-         * @instance
-         * @param {protos.IGetRelayRequest} request GetRelayRequest message or plain object
-         * @param {protos.PlumberServer.GetRelayCallback} callback Node-style callback called with the error, if any, and GetRelayResponse
-         * @returns {undefined}
-         * @variation 1
-         */
-        Object.defineProperty(PlumberServer.prototype.getRelay = function getRelay(request, callback) {
-            return this.rpcCall(getRelay, $root.protos.GetRelayRequest, $root.protos.GetRelayResponse, request, callback);
-        }, "name", { value: "GetRelay" });
-
-        /**
-         * Calls GetRelay.
-         * @function getRelay
-         * @memberof protos.PlumberServer
-         * @instance
-         * @param {protos.IGetRelayRequest} request GetRelayRequest message or plain object
-         * @returns {Promise<protos.GetRelayResponse>} Promise
          * @variation 2
          */
 
