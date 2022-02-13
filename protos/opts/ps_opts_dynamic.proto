@@ -40,6 +40,11 @@ message DynamicOptions {
   // @gotags: kong:"help='Use gRPC insecure mode when talking to Batch'"
   bool _grpc_insecure = 5;
 
+  // Optional for server, ignored for CLI.
+  // CLI dynamic replays will be treated as ephemeral.
+  // @gotags: kong:"-"
+  string name = 6;
+
   // ID of the created dynamic replay entry; populated by plumber.
   // @gotags: kong:"-"
   string _dynamic_id = 1000;

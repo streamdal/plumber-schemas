@@ -5293,6 +5293,7 @@ $root.protos = (function() {
              * @property {string|null} [_grpcAddress] DynamicOptions _grpcAddress
              * @property {number|null} [_grpcTimeoutSeconds] DynamicOptions _grpcTimeoutSeconds
              * @property {boolean|null} [_grpcInsecure] DynamicOptions _grpcInsecure
+             * @property {string|null} [name] DynamicOptions name
              * @property {string|null} [_dynamicId] DynamicOptions _dynamicId
              * @property {boolean|null} [_active] DynamicOptions _active
              * @property {protos.opts.IDynamicGroupKafkaOptions|null} [kafka] DynamicOptions kafka
@@ -5370,6 +5371,14 @@ $root.protos = (function() {
              * @instance
              */
             DynamicOptions.prototype._grpcInsecure = false;
+
+            /**
+             * DynamicOptions name.
+             * @member {string} name
+             * @memberof protos.opts.DynamicOptions
+             * @instance
+             */
+            DynamicOptions.prototype.name = "";
 
             /**
              * DynamicOptions _dynamicId.
@@ -5573,6 +5582,8 @@ $root.protos = (function() {
                     writer.uint32(/* id 4, wireType 0 =*/32).uint32(message._grpcTimeoutSeconds);
                 if (message._grpcInsecure != null && Object.hasOwnProperty.call(message, "_grpcInsecure"))
                     writer.uint32(/* id 5, wireType 0 =*/40).bool(message._grpcInsecure);
+                if (message.name != null && Object.hasOwnProperty.call(message, "name"))
+                    writer.uint32(/* id 6, wireType 2 =*/50).string(message.name);
                 if (message.kafka != null && Object.hasOwnProperty.call(message, "kafka"))
                     $root.protos.opts.DynamicGroupKafkaOptions.encode(message.kafka, writer.uint32(/* id 100, wireType 2 =*/802).fork()).ldelim();
                 if (message.activemq != null && Object.hasOwnProperty.call(message, "activemq"))
@@ -5663,6 +5674,9 @@ $root.protos = (function() {
                         break;
                     case 5:
                         message._grpcInsecure = reader.bool();
+                        break;
+                    case 6:
+                        message.name = reader.string();
                         break;
                     case 1000:
                         message._dynamicId = reader.string();
@@ -5777,6 +5791,9 @@ $root.protos = (function() {
                 if (message._grpcInsecure != null && message.hasOwnProperty("_grpcInsecure"))
                     if (typeof message._grpcInsecure !== "boolean")
                         return "_grpcInsecure: boolean expected";
+                if (message.name != null && message.hasOwnProperty("name"))
+                    if (!$util.isString(message.name))
+                        return "name: string expected";
                 if (message._dynamicId != null && message.hasOwnProperty("_dynamicId"))
                     if (!$util.isString(message._dynamicId))
                         return "_dynamicId: string expected";
@@ -5903,6 +5920,8 @@ $root.protos = (function() {
                     message._grpcTimeoutSeconds = object._grpcTimeoutSeconds >>> 0;
                 if (object._grpcInsecure != null)
                     message._grpcInsecure = Boolean(object._grpcInsecure);
+                if (object.name != null)
+                    message.name = String(object.name);
                 if (object._dynamicId != null)
                     message._dynamicId = String(object._dynamicId);
                 if (object._active != null)
@@ -6024,6 +6043,7 @@ $root.protos = (function() {
                     object._grpcAddress = "";
                     object._grpcTimeoutSeconds = 0;
                     object._grpcInsecure = false;
+                    object.name = "";
                     object.kafka = null;
                     object.activemq = null;
                     object.awsSqs = null;
@@ -6056,6 +6076,8 @@ $root.protos = (function() {
                     object._grpcTimeoutSeconds = message._grpcTimeoutSeconds;
                 if (message._grpcInsecure != null && message.hasOwnProperty("_grpcInsecure"))
                     object._grpcInsecure = message._grpcInsecure;
+                if (message.name != null && message.hasOwnProperty("name"))
+                    object.name = message.name;
                 if (message.kafka != null && message.hasOwnProperty("kafka"))
                     object.kafka = $root.protos.opts.DynamicGroupKafkaOptions.toObject(message.kafka, options);
                 if (message.activemq != null && message.hasOwnProperty("activemq"))
