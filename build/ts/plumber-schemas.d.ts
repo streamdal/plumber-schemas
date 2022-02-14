@@ -2284,6 +2284,9 @@ export namespace protos {
             /** DynamicOptions _grpcInsecure */
             _grpcInsecure?: (boolean|null);
 
+            /** DynamicOptions name */
+            name?: (string|null);
+
             /** DynamicOptions _dynamicId */
             _dynamicId?: (string|null);
 
@@ -2371,6 +2374,9 @@ export namespace protos {
 
             /** DynamicOptions _grpcInsecure. */
             public _grpcInsecure: boolean;
+
+            /** DynamicOptions name. */
+            public name: string;
 
             /** DynamicOptions _dynamicId. */
             public _dynamicId: string;
