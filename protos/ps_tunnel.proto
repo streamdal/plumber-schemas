@@ -4,107 +4,107 @@ package protos;
 
 import "common/ps_common_auth.proto";
 import "common/ps_common_status.proto";
-import "opts/ps_opts_dynamic.proto";
+import "opts/ps_opts_tunnel.proto";
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
 
-message GetAllDynamicRequest {
+message GetAllTunnelsRequest {
   // Every gRPC request must have a valid auth config
   common.Auth auth = 9999;
 }
 
-message GetAllDynamicResponse {
+message GetAllTunnelsResponse {
   common.Status status = 1000;
 
-  // Will be set as empty []Dynamic if no dynamic destinations are configured
-  repeated opts.DynamicOptions opts = 1;
+  // Will be set as empty []Tunnel if no tunnels are configured
+  repeated opts.TunnelOptions opts = 1;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 
-message GetDynamicRequest {
+message GetTunnelRequest {
   // Every gRPC request must have a valid auth config
   common.Auth auth = 9999;
 
-  string dynamic_id = 1;
+  string tunnel_id = 1;
 }
 
-message GetDynamicResponse {
+message GetTunnelResponse {
   common.Status status = 1000;
 
   // Set only if status is OK
-  opts.DynamicOptions opts = 1;
+  opts.TunnelOptions opts = 1;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 
-message CreateDynamicRequest {
+message CreateTunnelRequest {
   // Every gRPC request must have a valid auth config
   common.Auth auth = 9999;
 
-  opts.DynamicOptions opts = 1;
+  opts.TunnelOptions opts = 1;
 }
 
-message CreateDynamicResponse {
+message CreateTunnelResponse {
   common.Status status = 1000;
 
-  // ID of the created dynamic destination entry
-  string dynamic_id = 1;
+  // ID of the created tunnel entry
+  string tunnel_id = 1;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 
 // WARNING: Updating a destination that is in-use can result in missing data during replay
-message UpdateDynamicRequest {
+message UpdateTunnelRequest {
   // Every gRPC request must have a valid auth config
   common.Auth auth = 9999;
 
-  string dynamic_id = 1;
+  string tunnel_id = 1;
 
-  opts.DynamicOptions opts = 2;
+  opts.TunnelOptions opts = 2;
 }
 
-message UpdateDynamicResponse {
+message UpdateTunnelResponse {
   common.Status status = 1000;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 
 // Resume a paused relay
-message ResumeDynamicRequest {
+message ResumeTunnelRequest {
   // Every gRPC request must have a valid auth config
   common.Auth auth = 9999;
 
-  string dynamic_id = 1;
+  string tunnel_id = 1;
 }
 
-message ResumeDynamicResponse {
+message ResumeTunnelResponse {
   common.Status status = 1000;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 
 // Temporarily stop/pause a relay
-message StopDynamicRequest {
+message StopTunnelRequest {
   // Every gRPC request must have a valid auth config
   common.Auth auth = 9999;
 
-  string dynamic_id = 1;
+  string tunnel_id = 1;
 }
 
-message StopDynamicResponse {
+message StopTunnelResponse {
   common.Status status = 1000;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 
-message DeleteDynamicRequest {
+message DeleteTunnelRequest {
   // Every gRPC request must have a valid auth config
   common.Auth auth = 9999;
 
-  string dynamic_id = 1;
+  string tunnel_id = 1;
 }
 
-message DeleteDynamicResponse {
+message DeleteTunnelResponse {
   common.Status status = 1000;
 }
