@@ -3,10 +3,10 @@ syntax = "proto3";
 package protos.opts;
 
 import "opts/ps_opts_batch.proto";
-import "opts/ps_opts_dynamic.proto";
 import "opts/ps_opts_read.proto";
 import "opts/ps_opts_relay.proto";
 import "opts/ps_opts_server.proto";
+import "opts/ps_opts_tunnel.proto";
 import "opts/ps_opts_write.proto";
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/opts";
@@ -54,8 +54,8 @@ message CLIOptions {
   // @gotags: kong:"cmd,help='Relay message(s) from messaging system to Batch'"
   opts.RelayOptions relay = 4;
 
-  // @gotags: kong:"cmd,help='Use plumber as a replay destination in Batch.sh'"
-  opts.DynamicOptions dynamic = 5;
+  // @gotags: kong:"cmd,help='Use plumber as a destination tunnel in Batch.sh'"
+  opts.TunnelOptions tunnel = 5;
 
   // @gotags: kong:"cmd,help='Control Batch resources via the public API'"
   opts.BatchOptions batch = 6;

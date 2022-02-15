@@ -3,9 +3,9 @@ syntax = "proto3";
 package protos;
 
 import "ps_connect.proto";
-import "ps_dynamic.proto";
 import "ps_relay.proto";
 import "ps_server.proto";
+import "ps_tunnel.proto";
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
 
@@ -46,21 +46,21 @@ service PlumberServer {
 
   rpc DeleteRelay(DeleteRelayRequest) returns (DeleteRelayResponse);
 
-  // --------------------- Dynamic ---------------------
+  // --------------------- Tunnel ---------------------
 
-  rpc GetDynamic(GetDynamicRequest) returns (GetDynamicResponse);
+  rpc GetTunnel(GetTunnelRequest) returns (GetTunnelResponse);
 
-  rpc GetAllDynamic(GetAllDynamicRequest) returns (GetAllDynamicResponse);
+  rpc GetAllTunnels(GetAllTunnelsRequest) returns (GetAllTunnelsResponse);
 
-  rpc CreateDynamic(CreateDynamicRequest) returns (CreateDynamicResponse);
+  rpc CreateTunnel(CreateTunnelRequest) returns (CreateTunnelResponse);
 
-  rpc StopDynamic(StopDynamicRequest) returns (StopDynamicResponse);
+  rpc StopTunnel(StopTunnelRequest) returns (StopTunnelResponse);
 
-  rpc ResumeDynamic(ResumeDynamicRequest) returns (ResumeDynamicResponse);
+  rpc ResumeTunnel(ResumeTunnelRequest) returns (ResumeTunnelResponse);
 
-  rpc UpdateDynamic(UpdateDynamicRequest) returns (UpdateDynamicResponse);
+  rpc UpdateTunnel(UpdateTunnelRequest) returns (UpdateTunnelResponse);
 
-  rpc DeleteDynamic(DeleteDynamicRequest) returns (DeleteDynamicResponse);
+  rpc DeleteTunnel(DeleteTunnelRequest) returns (DeleteTunnelResponse);
 
   // ------------------- Server -------------------
 

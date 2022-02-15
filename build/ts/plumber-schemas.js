@@ -480,233 +480,233 @@ $root.protos = (function() {
          */
 
         /**
-         * Callback as used by {@link protos.PlumberServer#getDynamic}.
+         * Callback as used by {@link protos.PlumberServer#getTunnel}.
          * @memberof protos.PlumberServer
-         * @typedef GetDynamicCallback
+         * @typedef GetTunnelCallback
          * @type {function}
          * @param {Error|null} error Error, if any
-         * @param {protos.GetDynamicResponse} [response] GetDynamicResponse
+         * @param {protos.GetTunnelResponse} [response] GetTunnelResponse
          */
 
         /**
-         * Calls GetDynamic.
-         * @function getDynamic
+         * Calls GetTunnel.
+         * @function getTunnel
          * @memberof protos.PlumberServer
          * @instance
-         * @param {protos.IGetDynamicRequest} request GetDynamicRequest message or plain object
-         * @param {protos.PlumberServer.GetDynamicCallback} callback Node-style callback called with the error, if any, and GetDynamicResponse
+         * @param {protos.IGetTunnelRequest} request GetTunnelRequest message or plain object
+         * @param {protos.PlumberServer.GetTunnelCallback} callback Node-style callback called with the error, if any, and GetTunnelResponse
          * @returns {undefined}
          * @variation 1
          */
-        Object.defineProperty(PlumberServer.prototype.getDynamic = function getDynamic(request, callback) {
-            return this.rpcCall(getDynamic, $root.protos.GetDynamicRequest, $root.protos.GetDynamicResponse, request, callback);
-        }, "name", { value: "GetDynamic" });
+        Object.defineProperty(PlumberServer.prototype.getTunnel = function getTunnel(request, callback) {
+            return this.rpcCall(getTunnel, $root.protos.GetTunnelRequest, $root.protos.GetTunnelResponse, request, callback);
+        }, "name", { value: "GetTunnel" });
 
         /**
-         * Calls GetDynamic.
-         * @function getDynamic
+         * Calls GetTunnel.
+         * @function getTunnel
          * @memberof protos.PlumberServer
          * @instance
-         * @param {protos.IGetDynamicRequest} request GetDynamicRequest message or plain object
-         * @returns {Promise<protos.GetDynamicResponse>} Promise
+         * @param {protos.IGetTunnelRequest} request GetTunnelRequest message or plain object
+         * @returns {Promise<protos.GetTunnelResponse>} Promise
          * @variation 2
          */
 
         /**
-         * Callback as used by {@link protos.PlumberServer#getAllDynamic}.
+         * Callback as used by {@link protos.PlumberServer#getAllTunnels}.
          * @memberof protos.PlumberServer
-         * @typedef GetAllDynamicCallback
+         * @typedef GetAllTunnelsCallback
          * @type {function}
          * @param {Error|null} error Error, if any
-         * @param {protos.GetAllDynamicResponse} [response] GetAllDynamicResponse
+         * @param {protos.GetAllTunnelsResponse} [response] GetAllTunnelsResponse
          */
 
         /**
-         * Calls GetAllDynamic.
-         * @function getAllDynamic
+         * Calls GetAllTunnels.
+         * @function getAllTunnels
          * @memberof protos.PlumberServer
          * @instance
-         * @param {protos.IGetAllDynamicRequest} request GetAllDynamicRequest message or plain object
-         * @param {protos.PlumberServer.GetAllDynamicCallback} callback Node-style callback called with the error, if any, and GetAllDynamicResponse
+         * @param {protos.IGetAllTunnelsRequest} request GetAllTunnelsRequest message or plain object
+         * @param {protos.PlumberServer.GetAllTunnelsCallback} callback Node-style callback called with the error, if any, and GetAllTunnelsResponse
          * @returns {undefined}
          * @variation 1
          */
-        Object.defineProperty(PlumberServer.prototype.getAllDynamic = function getAllDynamic(request, callback) {
-            return this.rpcCall(getAllDynamic, $root.protos.GetAllDynamicRequest, $root.protos.GetAllDynamicResponse, request, callback);
-        }, "name", { value: "GetAllDynamic" });
+        Object.defineProperty(PlumberServer.prototype.getAllTunnels = function getAllTunnels(request, callback) {
+            return this.rpcCall(getAllTunnels, $root.protos.GetAllTunnelsRequest, $root.protos.GetAllTunnelsResponse, request, callback);
+        }, "name", { value: "GetAllTunnels" });
 
         /**
-         * Calls GetAllDynamic.
-         * @function getAllDynamic
+         * Calls GetAllTunnels.
+         * @function getAllTunnels
          * @memberof protos.PlumberServer
          * @instance
-         * @param {protos.IGetAllDynamicRequest} request GetAllDynamicRequest message or plain object
-         * @returns {Promise<protos.GetAllDynamicResponse>} Promise
+         * @param {protos.IGetAllTunnelsRequest} request GetAllTunnelsRequest message or plain object
+         * @returns {Promise<protos.GetAllTunnelsResponse>} Promise
          * @variation 2
          */
 
         /**
-         * Callback as used by {@link protos.PlumberServer#createDynamic}.
+         * Callback as used by {@link protos.PlumberServer#createTunnel}.
          * @memberof protos.PlumberServer
-         * @typedef CreateDynamicCallback
+         * @typedef CreateTunnelCallback
          * @type {function}
          * @param {Error|null} error Error, if any
-         * @param {protos.CreateDynamicResponse} [response] CreateDynamicResponse
+         * @param {protos.CreateTunnelResponse} [response] CreateTunnelResponse
          */
 
         /**
-         * Calls CreateDynamic.
-         * @function createDynamic
+         * Calls CreateTunnel.
+         * @function createTunnel
          * @memberof protos.PlumberServer
          * @instance
-         * @param {protos.ICreateDynamicRequest} request CreateDynamicRequest message or plain object
-         * @param {protos.PlumberServer.CreateDynamicCallback} callback Node-style callback called with the error, if any, and CreateDynamicResponse
+         * @param {protos.ICreateTunnelRequest} request CreateTunnelRequest message or plain object
+         * @param {protos.PlumberServer.CreateTunnelCallback} callback Node-style callback called with the error, if any, and CreateTunnelResponse
          * @returns {undefined}
          * @variation 1
          */
-        Object.defineProperty(PlumberServer.prototype.createDynamic = function createDynamic(request, callback) {
-            return this.rpcCall(createDynamic, $root.protos.CreateDynamicRequest, $root.protos.CreateDynamicResponse, request, callback);
-        }, "name", { value: "CreateDynamic" });
+        Object.defineProperty(PlumberServer.prototype.createTunnel = function createTunnel(request, callback) {
+            return this.rpcCall(createTunnel, $root.protos.CreateTunnelRequest, $root.protos.CreateTunnelResponse, request, callback);
+        }, "name", { value: "CreateTunnel" });
 
         /**
-         * Calls CreateDynamic.
-         * @function createDynamic
+         * Calls CreateTunnel.
+         * @function createTunnel
          * @memberof protos.PlumberServer
          * @instance
-         * @param {protos.ICreateDynamicRequest} request CreateDynamicRequest message or plain object
-         * @returns {Promise<protos.CreateDynamicResponse>} Promise
+         * @param {protos.ICreateTunnelRequest} request CreateTunnelRequest message or plain object
+         * @returns {Promise<protos.CreateTunnelResponse>} Promise
          * @variation 2
          */
 
         /**
-         * Callback as used by {@link protos.PlumberServer#stopDynamic}.
+         * Callback as used by {@link protos.PlumberServer#stopTunnel}.
          * @memberof protos.PlumberServer
-         * @typedef StopDynamicCallback
+         * @typedef StopTunnelCallback
          * @type {function}
          * @param {Error|null} error Error, if any
-         * @param {protos.StopDynamicResponse} [response] StopDynamicResponse
+         * @param {protos.StopTunnelResponse} [response] StopTunnelResponse
          */
 
         /**
-         * Calls StopDynamic.
-         * @function stopDynamic
+         * Calls StopTunnel.
+         * @function stopTunnel
          * @memberof protos.PlumberServer
          * @instance
-         * @param {protos.IStopDynamicRequest} request StopDynamicRequest message or plain object
-         * @param {protos.PlumberServer.StopDynamicCallback} callback Node-style callback called with the error, if any, and StopDynamicResponse
+         * @param {protos.IStopTunnelRequest} request StopTunnelRequest message or plain object
+         * @param {protos.PlumberServer.StopTunnelCallback} callback Node-style callback called with the error, if any, and StopTunnelResponse
          * @returns {undefined}
          * @variation 1
          */
-        Object.defineProperty(PlumberServer.prototype.stopDynamic = function stopDynamic(request, callback) {
-            return this.rpcCall(stopDynamic, $root.protos.StopDynamicRequest, $root.protos.StopDynamicResponse, request, callback);
-        }, "name", { value: "StopDynamic" });
+        Object.defineProperty(PlumberServer.prototype.stopTunnel = function stopTunnel(request, callback) {
+            return this.rpcCall(stopTunnel, $root.protos.StopTunnelRequest, $root.protos.StopTunnelResponse, request, callback);
+        }, "name", { value: "StopTunnel" });
 
         /**
-         * Calls StopDynamic.
-         * @function stopDynamic
+         * Calls StopTunnel.
+         * @function stopTunnel
          * @memberof protos.PlumberServer
          * @instance
-         * @param {protos.IStopDynamicRequest} request StopDynamicRequest message or plain object
-         * @returns {Promise<protos.StopDynamicResponse>} Promise
+         * @param {protos.IStopTunnelRequest} request StopTunnelRequest message or plain object
+         * @returns {Promise<protos.StopTunnelResponse>} Promise
          * @variation 2
          */
 
         /**
-         * Callback as used by {@link protos.PlumberServer#resumeDynamic}.
+         * Callback as used by {@link protos.PlumberServer#resumeTunnel}.
          * @memberof protos.PlumberServer
-         * @typedef ResumeDynamicCallback
+         * @typedef ResumeTunnelCallback
          * @type {function}
          * @param {Error|null} error Error, if any
-         * @param {protos.ResumeDynamicResponse} [response] ResumeDynamicResponse
+         * @param {protos.ResumeTunnelResponse} [response] ResumeTunnelResponse
          */
 
         /**
-         * Calls ResumeDynamic.
-         * @function resumeDynamic
+         * Calls ResumeTunnel.
+         * @function resumeTunnel
          * @memberof protos.PlumberServer
          * @instance
-         * @param {protos.IResumeDynamicRequest} request ResumeDynamicRequest message or plain object
-         * @param {protos.PlumberServer.ResumeDynamicCallback} callback Node-style callback called with the error, if any, and ResumeDynamicResponse
+         * @param {protos.IResumeTunnelRequest} request ResumeTunnelRequest message or plain object
+         * @param {protos.PlumberServer.ResumeTunnelCallback} callback Node-style callback called with the error, if any, and ResumeTunnelResponse
          * @returns {undefined}
          * @variation 1
          */
-        Object.defineProperty(PlumberServer.prototype.resumeDynamic = function resumeDynamic(request, callback) {
-            return this.rpcCall(resumeDynamic, $root.protos.ResumeDynamicRequest, $root.protos.ResumeDynamicResponse, request, callback);
-        }, "name", { value: "ResumeDynamic" });
+        Object.defineProperty(PlumberServer.prototype.resumeTunnel = function resumeTunnel(request, callback) {
+            return this.rpcCall(resumeTunnel, $root.protos.ResumeTunnelRequest, $root.protos.ResumeTunnelResponse, request, callback);
+        }, "name", { value: "ResumeTunnel" });
 
         /**
-         * Calls ResumeDynamic.
-         * @function resumeDynamic
+         * Calls ResumeTunnel.
+         * @function resumeTunnel
          * @memberof protos.PlumberServer
          * @instance
-         * @param {protos.IResumeDynamicRequest} request ResumeDynamicRequest message or plain object
-         * @returns {Promise<protos.ResumeDynamicResponse>} Promise
+         * @param {protos.IResumeTunnelRequest} request ResumeTunnelRequest message or plain object
+         * @returns {Promise<protos.ResumeTunnelResponse>} Promise
          * @variation 2
          */
 
         /**
-         * Callback as used by {@link protos.PlumberServer#updateDynamic}.
+         * Callback as used by {@link protos.PlumberServer#updateTunnel}.
          * @memberof protos.PlumberServer
-         * @typedef UpdateDynamicCallback
+         * @typedef UpdateTunnelCallback
          * @type {function}
          * @param {Error|null} error Error, if any
-         * @param {protos.UpdateDynamicResponse} [response] UpdateDynamicResponse
+         * @param {protos.UpdateTunnelResponse} [response] UpdateTunnelResponse
          */
 
         /**
-         * Calls UpdateDynamic.
-         * @function updateDynamic
+         * Calls UpdateTunnel.
+         * @function updateTunnel
          * @memberof protos.PlumberServer
          * @instance
-         * @param {protos.IUpdateDynamicRequest} request UpdateDynamicRequest message or plain object
-         * @param {protos.PlumberServer.UpdateDynamicCallback} callback Node-style callback called with the error, if any, and UpdateDynamicResponse
+         * @param {protos.IUpdateTunnelRequest} request UpdateTunnelRequest message or plain object
+         * @param {protos.PlumberServer.UpdateTunnelCallback} callback Node-style callback called with the error, if any, and UpdateTunnelResponse
          * @returns {undefined}
          * @variation 1
          */
-        Object.defineProperty(PlumberServer.prototype.updateDynamic = function updateDynamic(request, callback) {
-            return this.rpcCall(updateDynamic, $root.protos.UpdateDynamicRequest, $root.protos.UpdateDynamicResponse, request, callback);
-        }, "name", { value: "UpdateDynamic" });
+        Object.defineProperty(PlumberServer.prototype.updateTunnel = function updateTunnel(request, callback) {
+            return this.rpcCall(updateTunnel, $root.protos.UpdateTunnelRequest, $root.protos.UpdateTunnelResponse, request, callback);
+        }, "name", { value: "UpdateTunnel" });
 
         /**
-         * Calls UpdateDynamic.
-         * @function updateDynamic
+         * Calls UpdateTunnel.
+         * @function updateTunnel
          * @memberof protos.PlumberServer
          * @instance
-         * @param {protos.IUpdateDynamicRequest} request UpdateDynamicRequest message or plain object
-         * @returns {Promise<protos.UpdateDynamicResponse>} Promise
+         * @param {protos.IUpdateTunnelRequest} request UpdateTunnelRequest message or plain object
+         * @returns {Promise<protos.UpdateTunnelResponse>} Promise
          * @variation 2
          */
 
         /**
-         * Callback as used by {@link protos.PlumberServer#deleteDynamic}.
+         * Callback as used by {@link protos.PlumberServer#deleteTunnel}.
          * @memberof protos.PlumberServer
-         * @typedef DeleteDynamicCallback
+         * @typedef DeleteTunnelCallback
          * @type {function}
          * @param {Error|null} error Error, if any
-         * @param {protos.DeleteDynamicResponse} [response] DeleteDynamicResponse
+         * @param {protos.DeleteTunnelResponse} [response] DeleteTunnelResponse
          */
 
         /**
-         * Calls DeleteDynamic.
-         * @function deleteDynamic
+         * Calls DeleteTunnel.
+         * @function deleteTunnel
          * @memberof protos.PlumberServer
          * @instance
-         * @param {protos.IDeleteDynamicRequest} request DeleteDynamicRequest message or plain object
-         * @param {protos.PlumberServer.DeleteDynamicCallback} callback Node-style callback called with the error, if any, and DeleteDynamicResponse
+         * @param {protos.IDeleteTunnelRequest} request DeleteTunnelRequest message or plain object
+         * @param {protos.PlumberServer.DeleteTunnelCallback} callback Node-style callback called with the error, if any, and DeleteTunnelResponse
          * @returns {undefined}
          * @variation 1
          */
-        Object.defineProperty(PlumberServer.prototype.deleteDynamic = function deleteDynamic(request, callback) {
-            return this.rpcCall(deleteDynamic, $root.protos.DeleteDynamicRequest, $root.protos.DeleteDynamicResponse, request, callback);
-        }, "name", { value: "DeleteDynamic" });
+        Object.defineProperty(PlumberServer.prototype.deleteTunnel = function deleteTunnel(request, callback) {
+            return this.rpcCall(deleteTunnel, $root.protos.DeleteTunnelRequest, $root.protos.DeleteTunnelResponse, request, callback);
+        }, "name", { value: "DeleteTunnel" });
 
         /**
-         * Calls DeleteDynamic.
-         * @function deleteDynamic
+         * Calls DeleteTunnel.
+         * @function deleteTunnel
          * @memberof protos.PlumberServer
          * @instance
-         * @param {protos.IDeleteDynamicRequest} request DeleteDynamicRequest message or plain object
-         * @returns {Promise<protos.DeleteDynamicResponse>} Promise
+         * @param {protos.IDeleteTunnelRequest} request DeleteTunnelRequest message or plain object
+         * @returns {Promise<protos.DeleteTunnelResponse>} Promise
          * @variation 2
          */
 
@@ -5282,50 +5282,50 @@ $root.protos = (function() {
             return ConnectionOptions;
         })();
 
-        opts.DynamicOptions = (function() {
+        opts.TunnelOptions = (function() {
 
             /**
-             * Properties of a DynamicOptions.
+             * Properties of a TunnelOptions.
              * @memberof protos.opts
-             * @interface IDynamicOptions
-             * @property {string|null} [apiToken] DynamicOptions apiToken
-             * @property {string|null} [connectionId] DynamicOptions connectionId
-             * @property {string|null} [_grpcAddress] DynamicOptions _grpcAddress
-             * @property {number|null} [_grpcTimeoutSeconds] DynamicOptions _grpcTimeoutSeconds
-             * @property {boolean|null} [_grpcInsecure] DynamicOptions _grpcInsecure
-             * @property {string|null} [name] DynamicOptions name
-             * @property {string|null} [_dynamicId] DynamicOptions _dynamicId
-             * @property {boolean|null} [_active] DynamicOptions _active
-             * @property {protos.opts.IDynamicGroupKafkaOptions|null} [kafka] DynamicOptions kafka
-             * @property {protos.opts.IDynamicGroupActiveMQOptions|null} [activemq] DynamicOptions activemq
-             * @property {protos.opts.IDynamicGroupAWSSQSOptions|null} [awsSqs] DynamicOptions awsSqs
-             * @property {protos.opts.IDynamicGroupAWSSNSOptions|null} [awsSns] DynamicOptions awsSns
-             * @property {protos.opts.IDynamicGroupNatsOptions|null} [nats] DynamicOptions nats
-             * @property {protos.opts.IDynamicGroupNatsStreamingOptions|null} [natsStreaming] DynamicOptions natsStreaming
-             * @property {protos.opts.IDynamicGroupNSQOptions|null} [nsq] DynamicOptions nsq
-             * @property {protos.opts.IDynamicGroupRabbitOptions|null} [rabbit] DynamicOptions rabbit
-             * @property {protos.opts.IDynamicGroupMQTTOptions|null} [mqtt] DynamicOptions mqtt
-             * @property {protos.opts.IDynamicGroupAzureServiceBusOptions|null} [azureServiceBus] DynamicOptions azureServiceBus
-             * @property {protos.opts.IDynamicGroupAzureEventHubOptions|null} [azureEventHub] DynamicOptions azureEventHub
-             * @property {protos.opts.IDynamicGroupGCPPubSubOptions|null} [gcpPubsub] DynamicOptions gcpPubsub
-             * @property {protos.opts.IDynamicGroupKubeMQQueueOptions|null} [kubemqQueue] DynamicOptions kubemqQueue
-             * @property {protos.opts.IDynamicGroupRedisPubSubOptions|null} [redisPubsub] DynamicOptions redisPubsub
-             * @property {protos.opts.IDynamicGroupRedisStreamsOptions|null} [redisStreams] DynamicOptions redisStreams
-             * @property {protos.opts.IDynamicGroupPulsarOptions|null} [pulsar] DynamicOptions pulsar
-             * @property {protos.opts.IDynamicGroupRabbitStreamsOptions|null} [rabbitStreams] DynamicOptions rabbitStreams
-             * @property {protos.opts.IDynamicGroupNatsJetstreamOptions|null} [natsJetstream] DynamicOptions natsJetstream
-             * @property {protos.opts.IDynamicGroupAWSKinesisOptions|null} [awsKinesis] DynamicOptions awsKinesis
+             * @interface ITunnelOptions
+             * @property {string|null} [apiToken] TunnelOptions apiToken
+             * @property {string|null} [connectionId] TunnelOptions connectionId
+             * @property {string|null} [_grpcAddress] TunnelOptions _grpcAddress
+             * @property {number|null} [_grpcTimeoutSeconds] TunnelOptions _grpcTimeoutSeconds
+             * @property {boolean|null} [_grpcInsecure] TunnelOptions _grpcInsecure
+             * @property {string|null} [name] TunnelOptions name
+             * @property {string|null} [_tunnelId] TunnelOptions _tunnelId
+             * @property {boolean|null} [_active] TunnelOptions _active
+             * @property {protos.opts.ITunnelGroupKafkaOptions|null} [kafka] TunnelOptions kafka
+             * @property {protos.opts.ITunnelGroupActiveMQOptions|null} [activemq] TunnelOptions activemq
+             * @property {protos.opts.ITunnelGroupAWSSQSOptions|null} [awsSqs] TunnelOptions awsSqs
+             * @property {protos.opts.ITunnelGroupAWSSNSOptions|null} [awsSns] TunnelOptions awsSns
+             * @property {protos.opts.ITunnelGroupNatsOptions|null} [nats] TunnelOptions nats
+             * @property {protos.opts.ITunnelGroupNatsStreamingOptions|null} [natsStreaming] TunnelOptions natsStreaming
+             * @property {protos.opts.ITunnelGroupNSQOptions|null} [nsq] TunnelOptions nsq
+             * @property {protos.opts.ITunnelGroupRabbitOptions|null} [rabbit] TunnelOptions rabbit
+             * @property {protos.opts.ITunnelGroupMQTTOptions|null} [mqtt] TunnelOptions mqtt
+             * @property {protos.opts.ITunnelGroupAzureServiceBusOptions|null} [azureServiceBus] TunnelOptions azureServiceBus
+             * @property {protos.opts.ITunnelGroupAzureEventHubOptions|null} [azureEventHub] TunnelOptions azureEventHub
+             * @property {protos.opts.ITunnelGroupGCPPubSubOptions|null} [gcpPubsub] TunnelOptions gcpPubsub
+             * @property {protos.opts.ITunnelGroupKubeMQQueueOptions|null} [kubemqQueue] TunnelOptions kubemqQueue
+             * @property {protos.opts.ITunnelGroupRedisPubSubOptions|null} [redisPubsub] TunnelOptions redisPubsub
+             * @property {protos.opts.ITunnelGroupRedisStreamsOptions|null} [redisStreams] TunnelOptions redisStreams
+             * @property {protos.opts.ITunnelGroupPulsarOptions|null} [pulsar] TunnelOptions pulsar
+             * @property {protos.opts.ITunnelGroupRabbitStreamsOptions|null} [rabbitStreams] TunnelOptions rabbitStreams
+             * @property {protos.opts.ITunnelGroupNatsJetstreamOptions|null} [natsJetstream] TunnelOptions natsJetstream
+             * @property {protos.opts.ITunnelGroupAWSKinesisOptions|null} [awsKinesis] TunnelOptions awsKinesis
              */
 
             /**
-             * Constructs a new DynamicOptions.
+             * Constructs a new TunnelOptions.
              * @memberof protos.opts
-             * @classdesc Represents a DynamicOptions.
-             * @implements IDynamicOptions
+             * @classdesc Represents a TunnelOptions.
+             * @implements ITunnelOptions
              * @constructor
-             * @param {protos.opts.IDynamicOptions=} [properties] Properties to set
+             * @param {protos.opts.ITunnelOptions=} [properties] Properties to set
              */
-            function DynamicOptions(properties) {
+            function TunnelOptions(properties) {
                 if (properties)
                     for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                         if (properties[keys[i]] != null)
@@ -5333,243 +5333,243 @@ $root.protos = (function() {
             }
 
             /**
-             * DynamicOptions apiToken.
+             * TunnelOptions apiToken.
              * @member {string} apiToken
-             * @memberof protos.opts.DynamicOptions
+             * @memberof protos.opts.TunnelOptions
              * @instance
              */
-            DynamicOptions.prototype.apiToken = "";
+            TunnelOptions.prototype.apiToken = "";
 
             /**
-             * DynamicOptions connectionId.
+             * TunnelOptions connectionId.
              * @member {string} connectionId
-             * @memberof protos.opts.DynamicOptions
+             * @memberof protos.opts.TunnelOptions
              * @instance
              */
-            DynamicOptions.prototype.connectionId = "";
+            TunnelOptions.prototype.connectionId = "";
 
             /**
-             * DynamicOptions _grpcAddress.
+             * TunnelOptions _grpcAddress.
              * @member {string} _grpcAddress
-             * @memberof protos.opts.DynamicOptions
+             * @memberof protos.opts.TunnelOptions
              * @instance
              */
-            DynamicOptions.prototype._grpcAddress = "";
+            TunnelOptions.prototype._grpcAddress = "";
 
             /**
-             * DynamicOptions _grpcTimeoutSeconds.
+             * TunnelOptions _grpcTimeoutSeconds.
              * @member {number} _grpcTimeoutSeconds
-             * @memberof protos.opts.DynamicOptions
+             * @memberof protos.opts.TunnelOptions
              * @instance
              */
-            DynamicOptions.prototype._grpcTimeoutSeconds = 0;
+            TunnelOptions.prototype._grpcTimeoutSeconds = 0;
 
             /**
-             * DynamicOptions _grpcInsecure.
+             * TunnelOptions _grpcInsecure.
              * @member {boolean} _grpcInsecure
-             * @memberof protos.opts.DynamicOptions
+             * @memberof protos.opts.TunnelOptions
              * @instance
              */
-            DynamicOptions.prototype._grpcInsecure = false;
+            TunnelOptions.prototype._grpcInsecure = false;
 
             /**
-             * DynamicOptions name.
+             * TunnelOptions name.
              * @member {string} name
-             * @memberof protos.opts.DynamicOptions
+             * @memberof protos.opts.TunnelOptions
              * @instance
              */
-            DynamicOptions.prototype.name = "";
+            TunnelOptions.prototype.name = "";
 
             /**
-             * DynamicOptions _dynamicId.
-             * @member {string} _dynamicId
-             * @memberof protos.opts.DynamicOptions
+             * TunnelOptions _tunnelId.
+             * @member {string} _tunnelId
+             * @memberof protos.opts.TunnelOptions
              * @instance
              */
-            DynamicOptions.prototype._dynamicId = "";
+            TunnelOptions.prototype._tunnelId = "";
 
             /**
-             * DynamicOptions _active.
+             * TunnelOptions _active.
              * @member {boolean} _active
-             * @memberof protos.opts.DynamicOptions
+             * @memberof protos.opts.TunnelOptions
              * @instance
              */
-            DynamicOptions.prototype._active = false;
+            TunnelOptions.prototype._active = false;
 
             /**
-             * DynamicOptions kafka.
-             * @member {protos.opts.IDynamicGroupKafkaOptions|null|undefined} kafka
-             * @memberof protos.opts.DynamicOptions
+             * TunnelOptions kafka.
+             * @member {protos.opts.ITunnelGroupKafkaOptions|null|undefined} kafka
+             * @memberof protos.opts.TunnelOptions
              * @instance
              */
-            DynamicOptions.prototype.kafka = null;
+            TunnelOptions.prototype.kafka = null;
 
             /**
-             * DynamicOptions activemq.
-             * @member {protos.opts.IDynamicGroupActiveMQOptions|null|undefined} activemq
-             * @memberof protos.opts.DynamicOptions
+             * TunnelOptions activemq.
+             * @member {protos.opts.ITunnelGroupActiveMQOptions|null|undefined} activemq
+             * @memberof protos.opts.TunnelOptions
              * @instance
              */
-            DynamicOptions.prototype.activemq = null;
+            TunnelOptions.prototype.activemq = null;
 
             /**
-             * DynamicOptions awsSqs.
-             * @member {protos.opts.IDynamicGroupAWSSQSOptions|null|undefined} awsSqs
-             * @memberof protos.opts.DynamicOptions
+             * TunnelOptions awsSqs.
+             * @member {protos.opts.ITunnelGroupAWSSQSOptions|null|undefined} awsSqs
+             * @memberof protos.opts.TunnelOptions
              * @instance
              */
-            DynamicOptions.prototype.awsSqs = null;
+            TunnelOptions.prototype.awsSqs = null;
 
             /**
-             * DynamicOptions awsSns.
-             * @member {protos.opts.IDynamicGroupAWSSNSOptions|null|undefined} awsSns
-             * @memberof protos.opts.DynamicOptions
+             * TunnelOptions awsSns.
+             * @member {protos.opts.ITunnelGroupAWSSNSOptions|null|undefined} awsSns
+             * @memberof protos.opts.TunnelOptions
              * @instance
              */
-            DynamicOptions.prototype.awsSns = null;
+            TunnelOptions.prototype.awsSns = null;
 
             /**
-             * DynamicOptions nats.
-             * @member {protos.opts.IDynamicGroupNatsOptions|null|undefined} nats
-             * @memberof protos.opts.DynamicOptions
+             * TunnelOptions nats.
+             * @member {protos.opts.ITunnelGroupNatsOptions|null|undefined} nats
+             * @memberof protos.opts.TunnelOptions
              * @instance
              */
-            DynamicOptions.prototype.nats = null;
+            TunnelOptions.prototype.nats = null;
 
             /**
-             * DynamicOptions natsStreaming.
-             * @member {protos.opts.IDynamicGroupNatsStreamingOptions|null|undefined} natsStreaming
-             * @memberof protos.opts.DynamicOptions
+             * TunnelOptions natsStreaming.
+             * @member {protos.opts.ITunnelGroupNatsStreamingOptions|null|undefined} natsStreaming
+             * @memberof protos.opts.TunnelOptions
              * @instance
              */
-            DynamicOptions.prototype.natsStreaming = null;
+            TunnelOptions.prototype.natsStreaming = null;
 
             /**
-             * DynamicOptions nsq.
-             * @member {protos.opts.IDynamicGroupNSQOptions|null|undefined} nsq
-             * @memberof protos.opts.DynamicOptions
+             * TunnelOptions nsq.
+             * @member {protos.opts.ITunnelGroupNSQOptions|null|undefined} nsq
+             * @memberof protos.opts.TunnelOptions
              * @instance
              */
-            DynamicOptions.prototype.nsq = null;
+            TunnelOptions.prototype.nsq = null;
 
             /**
-             * DynamicOptions rabbit.
-             * @member {protos.opts.IDynamicGroupRabbitOptions|null|undefined} rabbit
-             * @memberof protos.opts.DynamicOptions
+             * TunnelOptions rabbit.
+             * @member {protos.opts.ITunnelGroupRabbitOptions|null|undefined} rabbit
+             * @memberof protos.opts.TunnelOptions
              * @instance
              */
-            DynamicOptions.prototype.rabbit = null;
+            TunnelOptions.prototype.rabbit = null;
 
             /**
-             * DynamicOptions mqtt.
-             * @member {protos.opts.IDynamicGroupMQTTOptions|null|undefined} mqtt
-             * @memberof protos.opts.DynamicOptions
+             * TunnelOptions mqtt.
+             * @member {protos.opts.ITunnelGroupMQTTOptions|null|undefined} mqtt
+             * @memberof protos.opts.TunnelOptions
              * @instance
              */
-            DynamicOptions.prototype.mqtt = null;
+            TunnelOptions.prototype.mqtt = null;
 
             /**
-             * DynamicOptions azureServiceBus.
-             * @member {protos.opts.IDynamicGroupAzureServiceBusOptions|null|undefined} azureServiceBus
-             * @memberof protos.opts.DynamicOptions
+             * TunnelOptions azureServiceBus.
+             * @member {protos.opts.ITunnelGroupAzureServiceBusOptions|null|undefined} azureServiceBus
+             * @memberof protos.opts.TunnelOptions
              * @instance
              */
-            DynamicOptions.prototype.azureServiceBus = null;
+            TunnelOptions.prototype.azureServiceBus = null;
 
             /**
-             * DynamicOptions azureEventHub.
-             * @member {protos.opts.IDynamicGroupAzureEventHubOptions|null|undefined} azureEventHub
-             * @memberof protos.opts.DynamicOptions
+             * TunnelOptions azureEventHub.
+             * @member {protos.opts.ITunnelGroupAzureEventHubOptions|null|undefined} azureEventHub
+             * @memberof protos.opts.TunnelOptions
              * @instance
              */
-            DynamicOptions.prototype.azureEventHub = null;
+            TunnelOptions.prototype.azureEventHub = null;
 
             /**
-             * DynamicOptions gcpPubsub.
-             * @member {protos.opts.IDynamicGroupGCPPubSubOptions|null|undefined} gcpPubsub
-             * @memberof protos.opts.DynamicOptions
+             * TunnelOptions gcpPubsub.
+             * @member {protos.opts.ITunnelGroupGCPPubSubOptions|null|undefined} gcpPubsub
+             * @memberof protos.opts.TunnelOptions
              * @instance
              */
-            DynamicOptions.prototype.gcpPubsub = null;
+            TunnelOptions.prototype.gcpPubsub = null;
 
             /**
-             * DynamicOptions kubemqQueue.
-             * @member {protos.opts.IDynamicGroupKubeMQQueueOptions|null|undefined} kubemqQueue
-             * @memberof protos.opts.DynamicOptions
+             * TunnelOptions kubemqQueue.
+             * @member {protos.opts.ITunnelGroupKubeMQQueueOptions|null|undefined} kubemqQueue
+             * @memberof protos.opts.TunnelOptions
              * @instance
              */
-            DynamicOptions.prototype.kubemqQueue = null;
+            TunnelOptions.prototype.kubemqQueue = null;
 
             /**
-             * DynamicOptions redisPubsub.
-             * @member {protos.opts.IDynamicGroupRedisPubSubOptions|null|undefined} redisPubsub
-             * @memberof protos.opts.DynamicOptions
+             * TunnelOptions redisPubsub.
+             * @member {protos.opts.ITunnelGroupRedisPubSubOptions|null|undefined} redisPubsub
+             * @memberof protos.opts.TunnelOptions
              * @instance
              */
-            DynamicOptions.prototype.redisPubsub = null;
+            TunnelOptions.prototype.redisPubsub = null;
 
             /**
-             * DynamicOptions redisStreams.
-             * @member {protos.opts.IDynamicGroupRedisStreamsOptions|null|undefined} redisStreams
-             * @memberof protos.opts.DynamicOptions
+             * TunnelOptions redisStreams.
+             * @member {protos.opts.ITunnelGroupRedisStreamsOptions|null|undefined} redisStreams
+             * @memberof protos.opts.TunnelOptions
              * @instance
              */
-            DynamicOptions.prototype.redisStreams = null;
+            TunnelOptions.prototype.redisStreams = null;
 
             /**
-             * DynamicOptions pulsar.
-             * @member {protos.opts.IDynamicGroupPulsarOptions|null|undefined} pulsar
-             * @memberof protos.opts.DynamicOptions
+             * TunnelOptions pulsar.
+             * @member {protos.opts.ITunnelGroupPulsarOptions|null|undefined} pulsar
+             * @memberof protos.opts.TunnelOptions
              * @instance
              */
-            DynamicOptions.prototype.pulsar = null;
+            TunnelOptions.prototype.pulsar = null;
 
             /**
-             * DynamicOptions rabbitStreams.
-             * @member {protos.opts.IDynamicGroupRabbitStreamsOptions|null|undefined} rabbitStreams
-             * @memberof protos.opts.DynamicOptions
+             * TunnelOptions rabbitStreams.
+             * @member {protos.opts.ITunnelGroupRabbitStreamsOptions|null|undefined} rabbitStreams
+             * @memberof protos.opts.TunnelOptions
              * @instance
              */
-            DynamicOptions.prototype.rabbitStreams = null;
+            TunnelOptions.prototype.rabbitStreams = null;
 
             /**
-             * DynamicOptions natsJetstream.
-             * @member {protos.opts.IDynamicGroupNatsJetstreamOptions|null|undefined} natsJetstream
-             * @memberof protos.opts.DynamicOptions
+             * TunnelOptions natsJetstream.
+             * @member {protos.opts.ITunnelGroupNatsJetstreamOptions|null|undefined} natsJetstream
+             * @memberof protos.opts.TunnelOptions
              * @instance
              */
-            DynamicOptions.prototype.natsJetstream = null;
+            TunnelOptions.prototype.natsJetstream = null;
 
             /**
-             * DynamicOptions awsKinesis.
-             * @member {protos.opts.IDynamicGroupAWSKinesisOptions|null|undefined} awsKinesis
-             * @memberof protos.opts.DynamicOptions
+             * TunnelOptions awsKinesis.
+             * @member {protos.opts.ITunnelGroupAWSKinesisOptions|null|undefined} awsKinesis
+             * @memberof protos.opts.TunnelOptions
              * @instance
              */
-            DynamicOptions.prototype.awsKinesis = null;
+            TunnelOptions.prototype.awsKinesis = null;
 
             /**
-             * Creates a new DynamicOptions instance using the specified properties.
+             * Creates a new TunnelOptions instance using the specified properties.
              * @function create
-             * @memberof protos.opts.DynamicOptions
+             * @memberof protos.opts.TunnelOptions
              * @static
-             * @param {protos.opts.IDynamicOptions=} [properties] Properties to set
-             * @returns {protos.opts.DynamicOptions} DynamicOptions instance
+             * @param {protos.opts.ITunnelOptions=} [properties] Properties to set
+             * @returns {protos.opts.TunnelOptions} TunnelOptions instance
              */
-            DynamicOptions.create = function create(properties) {
-                return new DynamicOptions(properties);
+            TunnelOptions.create = function create(properties) {
+                return new TunnelOptions(properties);
             };
 
             /**
-             * Encodes the specified DynamicOptions message. Does not implicitly {@link protos.opts.DynamicOptions.verify|verify} messages.
+             * Encodes the specified TunnelOptions message. Does not implicitly {@link protos.opts.TunnelOptions.verify|verify} messages.
              * @function encode
-             * @memberof protos.opts.DynamicOptions
+             * @memberof protos.opts.TunnelOptions
              * @static
-             * @param {protos.opts.IDynamicOptions} message DynamicOptions message or plain object to encode
+             * @param {protos.opts.ITunnelOptions} message TunnelOptions message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
-            DynamicOptions.encode = function encode(message, writer) {
+            TunnelOptions.encode = function encode(message, writer) {
                 if (!writer)
                     writer = $Writer.create();
                 if (message.apiToken != null && Object.hasOwnProperty.call(message, "apiToken"))
@@ -5585,78 +5585,78 @@ $root.protos = (function() {
                 if (message.name != null && Object.hasOwnProperty.call(message, "name"))
                     writer.uint32(/* id 6, wireType 2 =*/50).string(message.name);
                 if (message.kafka != null && Object.hasOwnProperty.call(message, "kafka"))
-                    $root.protos.opts.DynamicGroupKafkaOptions.encode(message.kafka, writer.uint32(/* id 100, wireType 2 =*/802).fork()).ldelim();
+                    $root.protos.opts.TunnelGroupKafkaOptions.encode(message.kafka, writer.uint32(/* id 100, wireType 2 =*/802).fork()).ldelim();
                 if (message.activemq != null && Object.hasOwnProperty.call(message, "activemq"))
-                    $root.protos.opts.DynamicGroupActiveMQOptions.encode(message.activemq, writer.uint32(/* id 101, wireType 2 =*/810).fork()).ldelim();
+                    $root.protos.opts.TunnelGroupActiveMQOptions.encode(message.activemq, writer.uint32(/* id 101, wireType 2 =*/810).fork()).ldelim();
                 if (message.awsSqs != null && Object.hasOwnProperty.call(message, "awsSqs"))
-                    $root.protos.opts.DynamicGroupAWSSQSOptions.encode(message.awsSqs, writer.uint32(/* id 102, wireType 2 =*/818).fork()).ldelim();
+                    $root.protos.opts.TunnelGroupAWSSQSOptions.encode(message.awsSqs, writer.uint32(/* id 102, wireType 2 =*/818).fork()).ldelim();
                 if (message.awsSns != null && Object.hasOwnProperty.call(message, "awsSns"))
-                    $root.protos.opts.DynamicGroupAWSSNSOptions.encode(message.awsSns, writer.uint32(/* id 103, wireType 2 =*/826).fork()).ldelim();
+                    $root.protos.opts.TunnelGroupAWSSNSOptions.encode(message.awsSns, writer.uint32(/* id 103, wireType 2 =*/826).fork()).ldelim();
                 if (message.nats != null && Object.hasOwnProperty.call(message, "nats"))
-                    $root.protos.opts.DynamicGroupNatsOptions.encode(message.nats, writer.uint32(/* id 104, wireType 2 =*/834).fork()).ldelim();
+                    $root.protos.opts.TunnelGroupNatsOptions.encode(message.nats, writer.uint32(/* id 104, wireType 2 =*/834).fork()).ldelim();
                 if (message.natsStreaming != null && Object.hasOwnProperty.call(message, "natsStreaming"))
-                    $root.protos.opts.DynamicGroupNatsStreamingOptions.encode(message.natsStreaming, writer.uint32(/* id 105, wireType 2 =*/842).fork()).ldelim();
+                    $root.protos.opts.TunnelGroupNatsStreamingOptions.encode(message.natsStreaming, writer.uint32(/* id 105, wireType 2 =*/842).fork()).ldelim();
                 if (message.nsq != null && Object.hasOwnProperty.call(message, "nsq"))
-                    $root.protos.opts.DynamicGroupNSQOptions.encode(message.nsq, writer.uint32(/* id 106, wireType 2 =*/850).fork()).ldelim();
+                    $root.protos.opts.TunnelGroupNSQOptions.encode(message.nsq, writer.uint32(/* id 106, wireType 2 =*/850).fork()).ldelim();
                 if (message.rabbit != null && Object.hasOwnProperty.call(message, "rabbit"))
-                    $root.protos.opts.DynamicGroupRabbitOptions.encode(message.rabbit, writer.uint32(/* id 107, wireType 2 =*/858).fork()).ldelim();
+                    $root.protos.opts.TunnelGroupRabbitOptions.encode(message.rabbit, writer.uint32(/* id 107, wireType 2 =*/858).fork()).ldelim();
                 if (message.mqtt != null && Object.hasOwnProperty.call(message, "mqtt"))
-                    $root.protos.opts.DynamicGroupMQTTOptions.encode(message.mqtt, writer.uint32(/* id 108, wireType 2 =*/866).fork()).ldelim();
+                    $root.protos.opts.TunnelGroupMQTTOptions.encode(message.mqtt, writer.uint32(/* id 108, wireType 2 =*/866).fork()).ldelim();
                 if (message.azureServiceBus != null && Object.hasOwnProperty.call(message, "azureServiceBus"))
-                    $root.protos.opts.DynamicGroupAzureServiceBusOptions.encode(message.azureServiceBus, writer.uint32(/* id 109, wireType 2 =*/874).fork()).ldelim();
+                    $root.protos.opts.TunnelGroupAzureServiceBusOptions.encode(message.azureServiceBus, writer.uint32(/* id 109, wireType 2 =*/874).fork()).ldelim();
                 if (message.azureEventHub != null && Object.hasOwnProperty.call(message, "azureEventHub"))
-                    $root.protos.opts.DynamicGroupAzureEventHubOptions.encode(message.azureEventHub, writer.uint32(/* id 110, wireType 2 =*/882).fork()).ldelim();
+                    $root.protos.opts.TunnelGroupAzureEventHubOptions.encode(message.azureEventHub, writer.uint32(/* id 110, wireType 2 =*/882).fork()).ldelim();
                 if (message.gcpPubsub != null && Object.hasOwnProperty.call(message, "gcpPubsub"))
-                    $root.protos.opts.DynamicGroupGCPPubSubOptions.encode(message.gcpPubsub, writer.uint32(/* id 111, wireType 2 =*/890).fork()).ldelim();
+                    $root.protos.opts.TunnelGroupGCPPubSubOptions.encode(message.gcpPubsub, writer.uint32(/* id 111, wireType 2 =*/890).fork()).ldelim();
                 if (message.kubemqQueue != null && Object.hasOwnProperty.call(message, "kubemqQueue"))
-                    $root.protos.opts.DynamicGroupKubeMQQueueOptions.encode(message.kubemqQueue, writer.uint32(/* id 112, wireType 2 =*/898).fork()).ldelim();
+                    $root.protos.opts.TunnelGroupKubeMQQueueOptions.encode(message.kubemqQueue, writer.uint32(/* id 112, wireType 2 =*/898).fork()).ldelim();
                 if (message.redisPubsub != null && Object.hasOwnProperty.call(message, "redisPubsub"))
-                    $root.protos.opts.DynamicGroupRedisPubSubOptions.encode(message.redisPubsub, writer.uint32(/* id 113, wireType 2 =*/906).fork()).ldelim();
+                    $root.protos.opts.TunnelGroupRedisPubSubOptions.encode(message.redisPubsub, writer.uint32(/* id 113, wireType 2 =*/906).fork()).ldelim();
                 if (message.redisStreams != null && Object.hasOwnProperty.call(message, "redisStreams"))
-                    $root.protos.opts.DynamicGroupRedisStreamsOptions.encode(message.redisStreams, writer.uint32(/* id 114, wireType 2 =*/914).fork()).ldelim();
+                    $root.protos.opts.TunnelGroupRedisStreamsOptions.encode(message.redisStreams, writer.uint32(/* id 114, wireType 2 =*/914).fork()).ldelim();
                 if (message.pulsar != null && Object.hasOwnProperty.call(message, "pulsar"))
-                    $root.protos.opts.DynamicGroupPulsarOptions.encode(message.pulsar, writer.uint32(/* id 115, wireType 2 =*/922).fork()).ldelim();
+                    $root.protos.opts.TunnelGroupPulsarOptions.encode(message.pulsar, writer.uint32(/* id 115, wireType 2 =*/922).fork()).ldelim();
                 if (message.rabbitStreams != null && Object.hasOwnProperty.call(message, "rabbitStreams"))
-                    $root.protos.opts.DynamicGroupRabbitStreamsOptions.encode(message.rabbitStreams, writer.uint32(/* id 116, wireType 2 =*/930).fork()).ldelim();
+                    $root.protos.opts.TunnelGroupRabbitStreamsOptions.encode(message.rabbitStreams, writer.uint32(/* id 116, wireType 2 =*/930).fork()).ldelim();
                 if (message.natsJetstream != null && Object.hasOwnProperty.call(message, "natsJetstream"))
-                    $root.protos.opts.DynamicGroupNatsJetstreamOptions.encode(message.natsJetstream, writer.uint32(/* id 117, wireType 2 =*/938).fork()).ldelim();
+                    $root.protos.opts.TunnelGroupNatsJetstreamOptions.encode(message.natsJetstream, writer.uint32(/* id 117, wireType 2 =*/938).fork()).ldelim();
                 if (message.awsKinesis != null && Object.hasOwnProperty.call(message, "awsKinesis"))
-                    $root.protos.opts.DynamicGroupAWSKinesisOptions.encode(message.awsKinesis, writer.uint32(/* id 118, wireType 2 =*/946).fork()).ldelim();
-                if (message._dynamicId != null && Object.hasOwnProperty.call(message, "_dynamicId"))
-                    writer.uint32(/* id 1000, wireType 2 =*/8002).string(message._dynamicId);
+                    $root.protos.opts.TunnelGroupAWSKinesisOptions.encode(message.awsKinesis, writer.uint32(/* id 118, wireType 2 =*/946).fork()).ldelim();
+                if (message._tunnelId != null && Object.hasOwnProperty.call(message, "_tunnelId"))
+                    writer.uint32(/* id 1000, wireType 2 =*/8002).string(message._tunnelId);
                 if (message._active != null && Object.hasOwnProperty.call(message, "_active"))
                     writer.uint32(/* id 1001, wireType 0 =*/8008).bool(message._active);
                 return writer;
             };
 
             /**
-             * Encodes the specified DynamicOptions message, length delimited. Does not implicitly {@link protos.opts.DynamicOptions.verify|verify} messages.
+             * Encodes the specified TunnelOptions message, length delimited. Does not implicitly {@link protos.opts.TunnelOptions.verify|verify} messages.
              * @function encodeDelimited
-             * @memberof protos.opts.DynamicOptions
+             * @memberof protos.opts.TunnelOptions
              * @static
-             * @param {protos.opts.IDynamicOptions} message DynamicOptions message or plain object to encode
+             * @param {protos.opts.ITunnelOptions} message TunnelOptions message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
-            DynamicOptions.encodeDelimited = function encodeDelimited(message, writer) {
+            TunnelOptions.encodeDelimited = function encodeDelimited(message, writer) {
                 return this.encode(message, writer).ldelim();
             };
 
             /**
-             * Decodes a DynamicOptions message from the specified reader or buffer.
+             * Decodes a TunnelOptions message from the specified reader or buffer.
              * @function decode
-             * @memberof protos.opts.DynamicOptions
+             * @memberof protos.opts.TunnelOptions
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {protos.opts.DynamicOptions} DynamicOptions
+             * @returns {protos.opts.TunnelOptions} TunnelOptions
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            DynamicOptions.decode = function decode(reader, length) {
+            TunnelOptions.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.DynamicOptions();
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.TunnelOptions();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
                     switch (tag >>> 3) {
@@ -5679,67 +5679,67 @@ $root.protos = (function() {
                         message.name = reader.string();
                         break;
                     case 1000:
-                        message._dynamicId = reader.string();
+                        message._tunnelId = reader.string();
                         break;
                     case 1001:
                         message._active = reader.bool();
                         break;
                     case 100:
-                        message.kafka = $root.protos.opts.DynamicGroupKafkaOptions.decode(reader, reader.uint32());
+                        message.kafka = $root.protos.opts.TunnelGroupKafkaOptions.decode(reader, reader.uint32());
                         break;
                     case 101:
-                        message.activemq = $root.protos.opts.DynamicGroupActiveMQOptions.decode(reader, reader.uint32());
+                        message.activemq = $root.protos.opts.TunnelGroupActiveMQOptions.decode(reader, reader.uint32());
                         break;
                     case 102:
-                        message.awsSqs = $root.protos.opts.DynamicGroupAWSSQSOptions.decode(reader, reader.uint32());
+                        message.awsSqs = $root.protos.opts.TunnelGroupAWSSQSOptions.decode(reader, reader.uint32());
                         break;
                     case 103:
-                        message.awsSns = $root.protos.opts.DynamicGroupAWSSNSOptions.decode(reader, reader.uint32());
+                        message.awsSns = $root.protos.opts.TunnelGroupAWSSNSOptions.decode(reader, reader.uint32());
                         break;
                     case 104:
-                        message.nats = $root.protos.opts.DynamicGroupNatsOptions.decode(reader, reader.uint32());
+                        message.nats = $root.protos.opts.TunnelGroupNatsOptions.decode(reader, reader.uint32());
                         break;
                     case 105:
-                        message.natsStreaming = $root.protos.opts.DynamicGroupNatsStreamingOptions.decode(reader, reader.uint32());
+                        message.natsStreaming = $root.protos.opts.TunnelGroupNatsStreamingOptions.decode(reader, reader.uint32());
                         break;
                     case 106:
-                        message.nsq = $root.protos.opts.DynamicGroupNSQOptions.decode(reader, reader.uint32());
+                        message.nsq = $root.protos.opts.TunnelGroupNSQOptions.decode(reader, reader.uint32());
                         break;
                     case 107:
-                        message.rabbit = $root.protos.opts.DynamicGroupRabbitOptions.decode(reader, reader.uint32());
+                        message.rabbit = $root.protos.opts.TunnelGroupRabbitOptions.decode(reader, reader.uint32());
                         break;
                     case 108:
-                        message.mqtt = $root.protos.opts.DynamicGroupMQTTOptions.decode(reader, reader.uint32());
+                        message.mqtt = $root.protos.opts.TunnelGroupMQTTOptions.decode(reader, reader.uint32());
                         break;
                     case 109:
-                        message.azureServiceBus = $root.protos.opts.DynamicGroupAzureServiceBusOptions.decode(reader, reader.uint32());
+                        message.azureServiceBus = $root.protos.opts.TunnelGroupAzureServiceBusOptions.decode(reader, reader.uint32());
                         break;
                     case 110:
-                        message.azureEventHub = $root.protos.opts.DynamicGroupAzureEventHubOptions.decode(reader, reader.uint32());
+                        message.azureEventHub = $root.protos.opts.TunnelGroupAzureEventHubOptions.decode(reader, reader.uint32());
                         break;
                     case 111:
-                        message.gcpPubsub = $root.protos.opts.DynamicGroupGCPPubSubOptions.decode(reader, reader.uint32());
+                        message.gcpPubsub = $root.protos.opts.TunnelGroupGCPPubSubOptions.decode(reader, reader.uint32());
                         break;
                     case 112:
-                        message.kubemqQueue = $root.protos.opts.DynamicGroupKubeMQQueueOptions.decode(reader, reader.uint32());
+                        message.kubemqQueue = $root.protos.opts.TunnelGroupKubeMQQueueOptions.decode(reader, reader.uint32());
                         break;
                     case 113:
-                        message.redisPubsub = $root.protos.opts.DynamicGroupRedisPubSubOptions.decode(reader, reader.uint32());
+                        message.redisPubsub = $root.protos.opts.TunnelGroupRedisPubSubOptions.decode(reader, reader.uint32());
                         break;
                     case 114:
-                        message.redisStreams = $root.protos.opts.DynamicGroupRedisStreamsOptions.decode(reader, reader.uint32());
+                        message.redisStreams = $root.protos.opts.TunnelGroupRedisStreamsOptions.decode(reader, reader.uint32());
                         break;
                     case 115:
-                        message.pulsar = $root.protos.opts.DynamicGroupPulsarOptions.decode(reader, reader.uint32());
+                        message.pulsar = $root.protos.opts.TunnelGroupPulsarOptions.decode(reader, reader.uint32());
                         break;
                     case 116:
-                        message.rabbitStreams = $root.protos.opts.DynamicGroupRabbitStreamsOptions.decode(reader, reader.uint32());
+                        message.rabbitStreams = $root.protos.opts.TunnelGroupRabbitStreamsOptions.decode(reader, reader.uint32());
                         break;
                     case 117:
-                        message.natsJetstream = $root.protos.opts.DynamicGroupNatsJetstreamOptions.decode(reader, reader.uint32());
+                        message.natsJetstream = $root.protos.opts.TunnelGroupNatsJetstreamOptions.decode(reader, reader.uint32());
                         break;
                     case 118:
-                        message.awsKinesis = $root.protos.opts.DynamicGroupAWSKinesisOptions.decode(reader, reader.uint32());
+                        message.awsKinesis = $root.protos.opts.TunnelGroupAWSKinesisOptions.decode(reader, reader.uint32());
                         break;
                     default:
                         reader.skipType(tag & 7);
@@ -5750,30 +5750,30 @@ $root.protos = (function() {
             };
 
             /**
-             * Decodes a DynamicOptions message from the specified reader or buffer, length delimited.
+             * Decodes a TunnelOptions message from the specified reader or buffer, length delimited.
              * @function decodeDelimited
-             * @memberof protos.opts.DynamicOptions
+             * @memberof protos.opts.TunnelOptions
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {protos.opts.DynamicOptions} DynamicOptions
+             * @returns {protos.opts.TunnelOptions} TunnelOptions
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            DynamicOptions.decodeDelimited = function decodeDelimited(reader) {
+            TunnelOptions.decodeDelimited = function decodeDelimited(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
                 return this.decode(reader, reader.uint32());
             };
 
             /**
-             * Verifies a DynamicOptions message.
+             * Verifies a TunnelOptions message.
              * @function verify
-             * @memberof protos.opts.DynamicOptions
+             * @memberof protos.opts.TunnelOptions
              * @static
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            DynamicOptions.verify = function verify(message) {
+            TunnelOptions.verify = function verify(message) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
                 if (message.apiToken != null && message.hasOwnProperty("apiToken"))
@@ -5794,104 +5794,104 @@ $root.protos = (function() {
                 if (message.name != null && message.hasOwnProperty("name"))
                     if (!$util.isString(message.name))
                         return "name: string expected";
-                if (message._dynamicId != null && message.hasOwnProperty("_dynamicId"))
-                    if (!$util.isString(message._dynamicId))
-                        return "_dynamicId: string expected";
+                if (message._tunnelId != null && message.hasOwnProperty("_tunnelId"))
+                    if (!$util.isString(message._tunnelId))
+                        return "_tunnelId: string expected";
                 if (message._active != null && message.hasOwnProperty("_active"))
                     if (typeof message._active !== "boolean")
                         return "_active: boolean expected";
                 if (message.kafka != null && message.hasOwnProperty("kafka")) {
-                    var error = $root.protos.opts.DynamicGroupKafkaOptions.verify(message.kafka);
+                    var error = $root.protos.opts.TunnelGroupKafkaOptions.verify(message.kafka);
                     if (error)
                         return "kafka." + error;
                 }
                 if (message.activemq != null && message.hasOwnProperty("activemq")) {
-                    var error = $root.protos.opts.DynamicGroupActiveMQOptions.verify(message.activemq);
+                    var error = $root.protos.opts.TunnelGroupActiveMQOptions.verify(message.activemq);
                     if (error)
                         return "activemq." + error;
                 }
                 if (message.awsSqs != null && message.hasOwnProperty("awsSqs")) {
-                    var error = $root.protos.opts.DynamicGroupAWSSQSOptions.verify(message.awsSqs);
+                    var error = $root.protos.opts.TunnelGroupAWSSQSOptions.verify(message.awsSqs);
                     if (error)
                         return "awsSqs." + error;
                 }
                 if (message.awsSns != null && message.hasOwnProperty("awsSns")) {
-                    var error = $root.protos.opts.DynamicGroupAWSSNSOptions.verify(message.awsSns);
+                    var error = $root.protos.opts.TunnelGroupAWSSNSOptions.verify(message.awsSns);
                     if (error)
                         return "awsSns." + error;
                 }
                 if (message.nats != null && message.hasOwnProperty("nats")) {
-                    var error = $root.protos.opts.DynamicGroupNatsOptions.verify(message.nats);
+                    var error = $root.protos.opts.TunnelGroupNatsOptions.verify(message.nats);
                     if (error)
                         return "nats." + error;
                 }
                 if (message.natsStreaming != null && message.hasOwnProperty("natsStreaming")) {
-                    var error = $root.protos.opts.DynamicGroupNatsStreamingOptions.verify(message.natsStreaming);
+                    var error = $root.protos.opts.TunnelGroupNatsStreamingOptions.verify(message.natsStreaming);
                     if (error)
                         return "natsStreaming." + error;
                 }
                 if (message.nsq != null && message.hasOwnProperty("nsq")) {
-                    var error = $root.protos.opts.DynamicGroupNSQOptions.verify(message.nsq);
+                    var error = $root.protos.opts.TunnelGroupNSQOptions.verify(message.nsq);
                     if (error)
                         return "nsq." + error;
                 }
                 if (message.rabbit != null && message.hasOwnProperty("rabbit")) {
-                    var error = $root.protos.opts.DynamicGroupRabbitOptions.verify(message.rabbit);
+                    var error = $root.protos.opts.TunnelGroupRabbitOptions.verify(message.rabbit);
                     if (error)
                         return "rabbit." + error;
                 }
                 if (message.mqtt != null && message.hasOwnProperty("mqtt")) {
-                    var error = $root.protos.opts.DynamicGroupMQTTOptions.verify(message.mqtt);
+                    var error = $root.protos.opts.TunnelGroupMQTTOptions.verify(message.mqtt);
                     if (error)
                         return "mqtt." + error;
                 }
                 if (message.azureServiceBus != null && message.hasOwnProperty("azureServiceBus")) {
-                    var error = $root.protos.opts.DynamicGroupAzureServiceBusOptions.verify(message.azureServiceBus);
+                    var error = $root.protos.opts.TunnelGroupAzureServiceBusOptions.verify(message.azureServiceBus);
                     if (error)
                         return "azureServiceBus." + error;
                 }
                 if (message.azureEventHub != null && message.hasOwnProperty("azureEventHub")) {
-                    var error = $root.protos.opts.DynamicGroupAzureEventHubOptions.verify(message.azureEventHub);
+                    var error = $root.protos.opts.TunnelGroupAzureEventHubOptions.verify(message.azureEventHub);
                     if (error)
                         return "azureEventHub." + error;
                 }
                 if (message.gcpPubsub != null && message.hasOwnProperty("gcpPubsub")) {
-                    var error = $root.protos.opts.DynamicGroupGCPPubSubOptions.verify(message.gcpPubsub);
+                    var error = $root.protos.opts.TunnelGroupGCPPubSubOptions.verify(message.gcpPubsub);
                     if (error)
                         return "gcpPubsub." + error;
                 }
                 if (message.kubemqQueue != null && message.hasOwnProperty("kubemqQueue")) {
-                    var error = $root.protos.opts.DynamicGroupKubeMQQueueOptions.verify(message.kubemqQueue);
+                    var error = $root.protos.opts.TunnelGroupKubeMQQueueOptions.verify(message.kubemqQueue);
                     if (error)
                         return "kubemqQueue." + error;
                 }
                 if (message.redisPubsub != null && message.hasOwnProperty("redisPubsub")) {
-                    var error = $root.protos.opts.DynamicGroupRedisPubSubOptions.verify(message.redisPubsub);
+                    var error = $root.protos.opts.TunnelGroupRedisPubSubOptions.verify(message.redisPubsub);
                     if (error)
                         return "redisPubsub." + error;
                 }
                 if (message.redisStreams != null && message.hasOwnProperty("redisStreams")) {
-                    var error = $root.protos.opts.DynamicGroupRedisStreamsOptions.verify(message.redisStreams);
+                    var error = $root.protos.opts.TunnelGroupRedisStreamsOptions.verify(message.redisStreams);
                     if (error)
                         return "redisStreams." + error;
                 }
                 if (message.pulsar != null && message.hasOwnProperty("pulsar")) {
-                    var error = $root.protos.opts.DynamicGroupPulsarOptions.verify(message.pulsar);
+                    var error = $root.protos.opts.TunnelGroupPulsarOptions.verify(message.pulsar);
                     if (error)
                         return "pulsar." + error;
                 }
                 if (message.rabbitStreams != null && message.hasOwnProperty("rabbitStreams")) {
-                    var error = $root.protos.opts.DynamicGroupRabbitStreamsOptions.verify(message.rabbitStreams);
+                    var error = $root.protos.opts.TunnelGroupRabbitStreamsOptions.verify(message.rabbitStreams);
                     if (error)
                         return "rabbitStreams." + error;
                 }
                 if (message.natsJetstream != null && message.hasOwnProperty("natsJetstream")) {
-                    var error = $root.protos.opts.DynamicGroupNatsJetstreamOptions.verify(message.natsJetstream);
+                    var error = $root.protos.opts.TunnelGroupNatsJetstreamOptions.verify(message.natsJetstream);
                     if (error)
                         return "natsJetstream." + error;
                 }
                 if (message.awsKinesis != null && message.hasOwnProperty("awsKinesis")) {
-                    var error = $root.protos.opts.DynamicGroupAWSKinesisOptions.verify(message.awsKinesis);
+                    var error = $root.protos.opts.TunnelGroupAWSKinesisOptions.verify(message.awsKinesis);
                     if (error)
                         return "awsKinesis." + error;
                 }
@@ -5899,17 +5899,17 @@ $root.protos = (function() {
             };
 
             /**
-             * Creates a DynamicOptions message from a plain object. Also converts values to their respective internal types.
+             * Creates a TunnelOptions message from a plain object. Also converts values to their respective internal types.
              * @function fromObject
-             * @memberof protos.opts.DynamicOptions
+             * @memberof protos.opts.TunnelOptions
              * @static
              * @param {Object.<string,*>} object Plain object
-             * @returns {protos.opts.DynamicOptions} DynamicOptions
+             * @returns {protos.opts.TunnelOptions} TunnelOptions
              */
-            DynamicOptions.fromObject = function fromObject(object) {
-                if (object instanceof $root.protos.opts.DynamicOptions)
+            TunnelOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.TunnelOptions)
                     return object;
-                var message = new $root.protos.opts.DynamicOptions();
+                var message = new $root.protos.opts.TunnelOptions();
                 if (object.apiToken != null)
                     message.apiToken = String(object.apiToken);
                 if (object.connectionId != null)
@@ -5922,118 +5922,118 @@ $root.protos = (function() {
                     message._grpcInsecure = Boolean(object._grpcInsecure);
                 if (object.name != null)
                     message.name = String(object.name);
-                if (object._dynamicId != null)
-                    message._dynamicId = String(object._dynamicId);
+                if (object._tunnelId != null)
+                    message._tunnelId = String(object._tunnelId);
                 if (object._active != null)
                     message._active = Boolean(object._active);
                 if (object.kafka != null) {
                     if (typeof object.kafka !== "object")
-                        throw TypeError(".protos.opts.DynamicOptions.kafka: object expected");
-                    message.kafka = $root.protos.opts.DynamicGroupKafkaOptions.fromObject(object.kafka);
+                        throw TypeError(".protos.opts.TunnelOptions.kafka: object expected");
+                    message.kafka = $root.protos.opts.TunnelGroupKafkaOptions.fromObject(object.kafka);
                 }
                 if (object.activemq != null) {
                     if (typeof object.activemq !== "object")
-                        throw TypeError(".protos.opts.DynamicOptions.activemq: object expected");
-                    message.activemq = $root.protos.opts.DynamicGroupActiveMQOptions.fromObject(object.activemq);
+                        throw TypeError(".protos.opts.TunnelOptions.activemq: object expected");
+                    message.activemq = $root.protos.opts.TunnelGroupActiveMQOptions.fromObject(object.activemq);
                 }
                 if (object.awsSqs != null) {
                     if (typeof object.awsSqs !== "object")
-                        throw TypeError(".protos.opts.DynamicOptions.awsSqs: object expected");
-                    message.awsSqs = $root.protos.opts.DynamicGroupAWSSQSOptions.fromObject(object.awsSqs);
+                        throw TypeError(".protos.opts.TunnelOptions.awsSqs: object expected");
+                    message.awsSqs = $root.protos.opts.TunnelGroupAWSSQSOptions.fromObject(object.awsSqs);
                 }
                 if (object.awsSns != null) {
                     if (typeof object.awsSns !== "object")
-                        throw TypeError(".protos.opts.DynamicOptions.awsSns: object expected");
-                    message.awsSns = $root.protos.opts.DynamicGroupAWSSNSOptions.fromObject(object.awsSns);
+                        throw TypeError(".protos.opts.TunnelOptions.awsSns: object expected");
+                    message.awsSns = $root.protos.opts.TunnelGroupAWSSNSOptions.fromObject(object.awsSns);
                 }
                 if (object.nats != null) {
                     if (typeof object.nats !== "object")
-                        throw TypeError(".protos.opts.DynamicOptions.nats: object expected");
-                    message.nats = $root.protos.opts.DynamicGroupNatsOptions.fromObject(object.nats);
+                        throw TypeError(".protos.opts.TunnelOptions.nats: object expected");
+                    message.nats = $root.protos.opts.TunnelGroupNatsOptions.fromObject(object.nats);
                 }
                 if (object.natsStreaming != null) {
                     if (typeof object.natsStreaming !== "object")
-                        throw TypeError(".protos.opts.DynamicOptions.natsStreaming: object expected");
-                    message.natsStreaming = $root.protos.opts.DynamicGroupNatsStreamingOptions.fromObject(object.natsStreaming);
+                        throw TypeError(".protos.opts.TunnelOptions.natsStreaming: object expected");
+                    message.natsStreaming = $root.protos.opts.TunnelGroupNatsStreamingOptions.fromObject(object.natsStreaming);
                 }
                 if (object.nsq != null) {
                     if (typeof object.nsq !== "object")
-                        throw TypeError(".protos.opts.DynamicOptions.nsq: object expected");
-                    message.nsq = $root.protos.opts.DynamicGroupNSQOptions.fromObject(object.nsq);
+                        throw TypeError(".protos.opts.TunnelOptions.nsq: object expected");
+                    message.nsq = $root.protos.opts.TunnelGroupNSQOptions.fromObject(object.nsq);
                 }
                 if (object.rabbit != null) {
                     if (typeof object.rabbit !== "object")
-                        throw TypeError(".protos.opts.DynamicOptions.rabbit: object expected");
-                    message.rabbit = $root.protos.opts.DynamicGroupRabbitOptions.fromObject(object.rabbit);
+                        throw TypeError(".protos.opts.TunnelOptions.rabbit: object expected");
+                    message.rabbit = $root.protos.opts.TunnelGroupRabbitOptions.fromObject(object.rabbit);
                 }
                 if (object.mqtt != null) {
                     if (typeof object.mqtt !== "object")
-                        throw TypeError(".protos.opts.DynamicOptions.mqtt: object expected");
-                    message.mqtt = $root.protos.opts.DynamicGroupMQTTOptions.fromObject(object.mqtt);
+                        throw TypeError(".protos.opts.TunnelOptions.mqtt: object expected");
+                    message.mqtt = $root.protos.opts.TunnelGroupMQTTOptions.fromObject(object.mqtt);
                 }
                 if (object.azureServiceBus != null) {
                     if (typeof object.azureServiceBus !== "object")
-                        throw TypeError(".protos.opts.DynamicOptions.azureServiceBus: object expected");
-                    message.azureServiceBus = $root.protos.opts.DynamicGroupAzureServiceBusOptions.fromObject(object.azureServiceBus);
+                        throw TypeError(".protos.opts.TunnelOptions.azureServiceBus: object expected");
+                    message.azureServiceBus = $root.protos.opts.TunnelGroupAzureServiceBusOptions.fromObject(object.azureServiceBus);
                 }
                 if (object.azureEventHub != null) {
                     if (typeof object.azureEventHub !== "object")
-                        throw TypeError(".protos.opts.DynamicOptions.azureEventHub: object expected");
-                    message.azureEventHub = $root.protos.opts.DynamicGroupAzureEventHubOptions.fromObject(object.azureEventHub);
+                        throw TypeError(".protos.opts.TunnelOptions.azureEventHub: object expected");
+                    message.azureEventHub = $root.protos.opts.TunnelGroupAzureEventHubOptions.fromObject(object.azureEventHub);
                 }
                 if (object.gcpPubsub != null) {
                     if (typeof object.gcpPubsub !== "object")
-                        throw TypeError(".protos.opts.DynamicOptions.gcpPubsub: object expected");
-                    message.gcpPubsub = $root.protos.opts.DynamicGroupGCPPubSubOptions.fromObject(object.gcpPubsub);
+                        throw TypeError(".protos.opts.TunnelOptions.gcpPubsub: object expected");
+                    message.gcpPubsub = $root.protos.opts.TunnelGroupGCPPubSubOptions.fromObject(object.gcpPubsub);
                 }
                 if (object.kubemqQueue != null) {
                     if (typeof object.kubemqQueue !== "object")
-                        throw TypeError(".protos.opts.DynamicOptions.kubemqQueue: object expected");
-                    message.kubemqQueue = $root.protos.opts.DynamicGroupKubeMQQueueOptions.fromObject(object.kubemqQueue);
+                        throw TypeError(".protos.opts.TunnelOptions.kubemqQueue: object expected");
+                    message.kubemqQueue = $root.protos.opts.TunnelGroupKubeMQQueueOptions.fromObject(object.kubemqQueue);
                 }
                 if (object.redisPubsub != null) {
                     if (typeof object.redisPubsub !== "object")
-                        throw TypeError(".protos.opts.DynamicOptions.redisPubsub: object expected");
-                    message.redisPubsub = $root.protos.opts.DynamicGroupRedisPubSubOptions.fromObject(object.redisPubsub);
+                        throw TypeError(".protos.opts.TunnelOptions.redisPubsub: object expected");
+                    message.redisPubsub = $root.protos.opts.TunnelGroupRedisPubSubOptions.fromObject(object.redisPubsub);
                 }
                 if (object.redisStreams != null) {
                     if (typeof object.redisStreams !== "object")
-                        throw TypeError(".protos.opts.DynamicOptions.redisStreams: object expected");
-                    message.redisStreams = $root.protos.opts.DynamicGroupRedisStreamsOptions.fromObject(object.redisStreams);
+                        throw TypeError(".protos.opts.TunnelOptions.redisStreams: object expected");
+                    message.redisStreams = $root.protos.opts.TunnelGroupRedisStreamsOptions.fromObject(object.redisStreams);
                 }
                 if (object.pulsar != null) {
                     if (typeof object.pulsar !== "object")
-                        throw TypeError(".protos.opts.DynamicOptions.pulsar: object expected");
-                    message.pulsar = $root.protos.opts.DynamicGroupPulsarOptions.fromObject(object.pulsar);
+                        throw TypeError(".protos.opts.TunnelOptions.pulsar: object expected");
+                    message.pulsar = $root.protos.opts.TunnelGroupPulsarOptions.fromObject(object.pulsar);
                 }
                 if (object.rabbitStreams != null) {
                     if (typeof object.rabbitStreams !== "object")
-                        throw TypeError(".protos.opts.DynamicOptions.rabbitStreams: object expected");
-                    message.rabbitStreams = $root.protos.opts.DynamicGroupRabbitStreamsOptions.fromObject(object.rabbitStreams);
+                        throw TypeError(".protos.opts.TunnelOptions.rabbitStreams: object expected");
+                    message.rabbitStreams = $root.protos.opts.TunnelGroupRabbitStreamsOptions.fromObject(object.rabbitStreams);
                 }
                 if (object.natsJetstream != null) {
                     if (typeof object.natsJetstream !== "object")
-                        throw TypeError(".protos.opts.DynamicOptions.natsJetstream: object expected");
-                    message.natsJetstream = $root.protos.opts.DynamicGroupNatsJetstreamOptions.fromObject(object.natsJetstream);
+                        throw TypeError(".protos.opts.TunnelOptions.natsJetstream: object expected");
+                    message.natsJetstream = $root.protos.opts.TunnelGroupNatsJetstreamOptions.fromObject(object.natsJetstream);
                 }
                 if (object.awsKinesis != null) {
                     if (typeof object.awsKinesis !== "object")
-                        throw TypeError(".protos.opts.DynamicOptions.awsKinesis: object expected");
-                    message.awsKinesis = $root.protos.opts.DynamicGroupAWSKinesisOptions.fromObject(object.awsKinesis);
+                        throw TypeError(".protos.opts.TunnelOptions.awsKinesis: object expected");
+                    message.awsKinesis = $root.protos.opts.TunnelGroupAWSKinesisOptions.fromObject(object.awsKinesis);
                 }
                 return message;
             };
 
             /**
-             * Creates a plain object from a DynamicOptions message. Also converts values to other types if specified.
+             * Creates a plain object from a TunnelOptions message. Also converts values to other types if specified.
              * @function toObject
-             * @memberof protos.opts.DynamicOptions
+             * @memberof protos.opts.TunnelOptions
              * @static
-             * @param {protos.opts.DynamicOptions} message DynamicOptions
+             * @param {protos.opts.TunnelOptions} message TunnelOptions
              * @param {$protobuf.IConversionOptions} [options] Conversion options
              * @returns {Object.<string,*>} Plain object
              */
-            DynamicOptions.toObject = function toObject(message, options) {
+            TunnelOptions.toObject = function toObject(message, options) {
                 if (!options)
                     options = {};
                 var object = {};
@@ -6063,7 +6063,7 @@ $root.protos = (function() {
                     object.rabbitStreams = null;
                     object.natsJetstream = null;
                     object.awsKinesis = null;
-                    object._dynamicId = "";
+                    object._tunnelId = "";
                     object._active = false;
                 }
                 if (message.apiToken != null && message.hasOwnProperty("apiToken"))
@@ -6079,83 +6079,83 @@ $root.protos = (function() {
                 if (message.name != null && message.hasOwnProperty("name"))
                     object.name = message.name;
                 if (message.kafka != null && message.hasOwnProperty("kafka"))
-                    object.kafka = $root.protos.opts.DynamicGroupKafkaOptions.toObject(message.kafka, options);
+                    object.kafka = $root.protos.opts.TunnelGroupKafkaOptions.toObject(message.kafka, options);
                 if (message.activemq != null && message.hasOwnProperty("activemq"))
-                    object.activemq = $root.protos.opts.DynamicGroupActiveMQOptions.toObject(message.activemq, options);
+                    object.activemq = $root.protos.opts.TunnelGroupActiveMQOptions.toObject(message.activemq, options);
                 if (message.awsSqs != null && message.hasOwnProperty("awsSqs"))
-                    object.awsSqs = $root.protos.opts.DynamicGroupAWSSQSOptions.toObject(message.awsSqs, options);
+                    object.awsSqs = $root.protos.opts.TunnelGroupAWSSQSOptions.toObject(message.awsSqs, options);
                 if (message.awsSns != null && message.hasOwnProperty("awsSns"))
-                    object.awsSns = $root.protos.opts.DynamicGroupAWSSNSOptions.toObject(message.awsSns, options);
+                    object.awsSns = $root.protos.opts.TunnelGroupAWSSNSOptions.toObject(message.awsSns, options);
                 if (message.nats != null && message.hasOwnProperty("nats"))
-                    object.nats = $root.protos.opts.DynamicGroupNatsOptions.toObject(message.nats, options);
+                    object.nats = $root.protos.opts.TunnelGroupNatsOptions.toObject(message.nats, options);
                 if (message.natsStreaming != null && message.hasOwnProperty("natsStreaming"))
-                    object.natsStreaming = $root.protos.opts.DynamicGroupNatsStreamingOptions.toObject(message.natsStreaming, options);
+                    object.natsStreaming = $root.protos.opts.TunnelGroupNatsStreamingOptions.toObject(message.natsStreaming, options);
                 if (message.nsq != null && message.hasOwnProperty("nsq"))
-                    object.nsq = $root.protos.opts.DynamicGroupNSQOptions.toObject(message.nsq, options);
+                    object.nsq = $root.protos.opts.TunnelGroupNSQOptions.toObject(message.nsq, options);
                 if (message.rabbit != null && message.hasOwnProperty("rabbit"))
-                    object.rabbit = $root.protos.opts.DynamicGroupRabbitOptions.toObject(message.rabbit, options);
+                    object.rabbit = $root.protos.opts.TunnelGroupRabbitOptions.toObject(message.rabbit, options);
                 if (message.mqtt != null && message.hasOwnProperty("mqtt"))
-                    object.mqtt = $root.protos.opts.DynamicGroupMQTTOptions.toObject(message.mqtt, options);
+                    object.mqtt = $root.protos.opts.TunnelGroupMQTTOptions.toObject(message.mqtt, options);
                 if (message.azureServiceBus != null && message.hasOwnProperty("azureServiceBus"))
-                    object.azureServiceBus = $root.protos.opts.DynamicGroupAzureServiceBusOptions.toObject(message.azureServiceBus, options);
+                    object.azureServiceBus = $root.protos.opts.TunnelGroupAzureServiceBusOptions.toObject(message.azureServiceBus, options);
                 if (message.azureEventHub != null && message.hasOwnProperty("azureEventHub"))
-                    object.azureEventHub = $root.protos.opts.DynamicGroupAzureEventHubOptions.toObject(message.azureEventHub, options);
+                    object.azureEventHub = $root.protos.opts.TunnelGroupAzureEventHubOptions.toObject(message.azureEventHub, options);
                 if (message.gcpPubsub != null && message.hasOwnProperty("gcpPubsub"))
-                    object.gcpPubsub = $root.protos.opts.DynamicGroupGCPPubSubOptions.toObject(message.gcpPubsub, options);
+                    object.gcpPubsub = $root.protos.opts.TunnelGroupGCPPubSubOptions.toObject(message.gcpPubsub, options);
                 if (message.kubemqQueue != null && message.hasOwnProperty("kubemqQueue"))
-                    object.kubemqQueue = $root.protos.opts.DynamicGroupKubeMQQueueOptions.toObject(message.kubemqQueue, options);
+                    object.kubemqQueue = $root.protos.opts.TunnelGroupKubeMQQueueOptions.toObject(message.kubemqQueue, options);
                 if (message.redisPubsub != null && message.hasOwnProperty("redisPubsub"))
-                    object.redisPubsub = $root.protos.opts.DynamicGroupRedisPubSubOptions.toObject(message.redisPubsub, options);
+                    object.redisPubsub = $root.protos.opts.TunnelGroupRedisPubSubOptions.toObject(message.redisPubsub, options);
                 if (message.redisStreams != null && message.hasOwnProperty("redisStreams"))
-                    object.redisStreams = $root.protos.opts.DynamicGroupRedisStreamsOptions.toObject(message.redisStreams, options);
+                    object.redisStreams = $root.protos.opts.TunnelGroupRedisStreamsOptions.toObject(message.redisStreams, options);
                 if (message.pulsar != null && message.hasOwnProperty("pulsar"))
-                    object.pulsar = $root.protos.opts.DynamicGroupPulsarOptions.toObject(message.pulsar, options);
+                    object.pulsar = $root.protos.opts.TunnelGroupPulsarOptions.toObject(message.pulsar, options);
                 if (message.rabbitStreams != null && message.hasOwnProperty("rabbitStreams"))
-                    object.rabbitStreams = $root.protos.opts.DynamicGroupRabbitStreamsOptions.toObject(message.rabbitStreams, options);
+                    object.rabbitStreams = $root.protos.opts.TunnelGroupRabbitStreamsOptions.toObject(message.rabbitStreams, options);
                 if (message.natsJetstream != null && message.hasOwnProperty("natsJetstream"))
-                    object.natsJetstream = $root.protos.opts.DynamicGroupNatsJetstreamOptions.toObject(message.natsJetstream, options);
+                    object.natsJetstream = $root.protos.opts.TunnelGroupNatsJetstreamOptions.toObject(message.natsJetstream, options);
                 if (message.awsKinesis != null && message.hasOwnProperty("awsKinesis"))
-                    object.awsKinesis = $root.protos.opts.DynamicGroupAWSKinesisOptions.toObject(message.awsKinesis, options);
-                if (message._dynamicId != null && message.hasOwnProperty("_dynamicId"))
-                    object._dynamicId = message._dynamicId;
+                    object.awsKinesis = $root.protos.opts.TunnelGroupAWSKinesisOptions.toObject(message.awsKinesis, options);
+                if (message._tunnelId != null && message.hasOwnProperty("_tunnelId"))
+                    object._tunnelId = message._tunnelId;
                 if (message._active != null && message.hasOwnProperty("_active"))
                     object._active = message._active;
                 return object;
             };
 
             /**
-             * Converts this DynamicOptions to JSON.
+             * Converts this TunnelOptions to JSON.
              * @function toJSON
-             * @memberof protos.opts.DynamicOptions
+             * @memberof protos.opts.TunnelOptions
              * @instance
              * @returns {Object.<string,*>} JSON object
              */
-            DynamicOptions.prototype.toJSON = function toJSON() {
+            TunnelOptions.prototype.toJSON = function toJSON() {
                 return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
             };
 
-            return DynamicOptions;
+            return TunnelOptions;
         })();
 
-        opts.DynamicGroupKafkaOptions = (function() {
+        opts.TunnelGroupKafkaOptions = (function() {
 
             /**
-             * Properties of a DynamicGroupKafkaOptions.
+             * Properties of a TunnelGroupKafkaOptions.
              * @memberof protos.opts
-             * @interface IDynamicGroupKafkaOptions
-             * @property {protos.args.IKafkaConn|null} [_conn] DynamicGroupKafkaOptions _conn
-             * @property {protos.args.IKafkaWriteArgs|null} [args] DynamicGroupKafkaOptions args
+             * @interface ITunnelGroupKafkaOptions
+             * @property {protos.args.IKafkaConn|null} [_conn] TunnelGroupKafkaOptions _conn
+             * @property {protos.args.IKafkaWriteArgs|null} [args] TunnelGroupKafkaOptions args
              */
 
             /**
-             * Constructs a new DynamicGroupKafkaOptions.
+             * Constructs a new TunnelGroupKafkaOptions.
              * @memberof protos.opts
-             * @classdesc Represents a DynamicGroupKafkaOptions.
-             * @implements IDynamicGroupKafkaOptions
+             * @classdesc Represents a TunnelGroupKafkaOptions.
+             * @implements ITunnelGroupKafkaOptions
              * @constructor
-             * @param {protos.opts.IDynamicGroupKafkaOptions=} [properties] Properties to set
+             * @param {protos.opts.ITunnelGroupKafkaOptions=} [properties] Properties to set
              */
-            function DynamicGroupKafkaOptions(properties) {
+            function TunnelGroupKafkaOptions(properties) {
                 if (properties)
                     for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                         if (properties[keys[i]] != null)
@@ -6163,43 +6163,43 @@ $root.protos = (function() {
             }
 
             /**
-             * DynamicGroupKafkaOptions _conn.
+             * TunnelGroupKafkaOptions _conn.
              * @member {protos.args.IKafkaConn|null|undefined} _conn
-             * @memberof protos.opts.DynamicGroupKafkaOptions
+             * @memberof protos.opts.TunnelGroupKafkaOptions
              * @instance
              */
-            DynamicGroupKafkaOptions.prototype._conn = null;
+            TunnelGroupKafkaOptions.prototype._conn = null;
 
             /**
-             * DynamicGroupKafkaOptions args.
+             * TunnelGroupKafkaOptions args.
              * @member {protos.args.IKafkaWriteArgs|null|undefined} args
-             * @memberof protos.opts.DynamicGroupKafkaOptions
+             * @memberof protos.opts.TunnelGroupKafkaOptions
              * @instance
              */
-            DynamicGroupKafkaOptions.prototype.args = null;
+            TunnelGroupKafkaOptions.prototype.args = null;
 
             /**
-             * Creates a new DynamicGroupKafkaOptions instance using the specified properties.
+             * Creates a new TunnelGroupKafkaOptions instance using the specified properties.
              * @function create
-             * @memberof protos.opts.DynamicGroupKafkaOptions
+             * @memberof protos.opts.TunnelGroupKafkaOptions
              * @static
-             * @param {protos.opts.IDynamicGroupKafkaOptions=} [properties] Properties to set
-             * @returns {protos.opts.DynamicGroupKafkaOptions} DynamicGroupKafkaOptions instance
+             * @param {protos.opts.ITunnelGroupKafkaOptions=} [properties] Properties to set
+             * @returns {protos.opts.TunnelGroupKafkaOptions} TunnelGroupKafkaOptions instance
              */
-            DynamicGroupKafkaOptions.create = function create(properties) {
-                return new DynamicGroupKafkaOptions(properties);
+            TunnelGroupKafkaOptions.create = function create(properties) {
+                return new TunnelGroupKafkaOptions(properties);
             };
 
             /**
-             * Encodes the specified DynamicGroupKafkaOptions message. Does not implicitly {@link protos.opts.DynamicGroupKafkaOptions.verify|verify} messages.
+             * Encodes the specified TunnelGroupKafkaOptions message. Does not implicitly {@link protos.opts.TunnelGroupKafkaOptions.verify|verify} messages.
              * @function encode
-             * @memberof protos.opts.DynamicGroupKafkaOptions
+             * @memberof protos.opts.TunnelGroupKafkaOptions
              * @static
-             * @param {protos.opts.IDynamicGroupKafkaOptions} message DynamicGroupKafkaOptions message or plain object to encode
+             * @param {protos.opts.ITunnelGroupKafkaOptions} message TunnelGroupKafkaOptions message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
-            DynamicGroupKafkaOptions.encode = function encode(message, writer) {
+            TunnelGroupKafkaOptions.encode = function encode(message, writer) {
                 if (!writer)
                     writer = $Writer.create();
                 if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
@@ -6210,33 +6210,33 @@ $root.protos = (function() {
             };
 
             /**
-             * Encodes the specified DynamicGroupKafkaOptions message, length delimited. Does not implicitly {@link protos.opts.DynamicGroupKafkaOptions.verify|verify} messages.
+             * Encodes the specified TunnelGroupKafkaOptions message, length delimited. Does not implicitly {@link protos.opts.TunnelGroupKafkaOptions.verify|verify} messages.
              * @function encodeDelimited
-             * @memberof protos.opts.DynamicGroupKafkaOptions
+             * @memberof protos.opts.TunnelGroupKafkaOptions
              * @static
-             * @param {protos.opts.IDynamicGroupKafkaOptions} message DynamicGroupKafkaOptions message or plain object to encode
+             * @param {protos.opts.ITunnelGroupKafkaOptions} message TunnelGroupKafkaOptions message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
-            DynamicGroupKafkaOptions.encodeDelimited = function encodeDelimited(message, writer) {
+            TunnelGroupKafkaOptions.encodeDelimited = function encodeDelimited(message, writer) {
                 return this.encode(message, writer).ldelim();
             };
 
             /**
-             * Decodes a DynamicGroupKafkaOptions message from the specified reader or buffer.
+             * Decodes a TunnelGroupKafkaOptions message from the specified reader or buffer.
              * @function decode
-             * @memberof protos.opts.DynamicGroupKafkaOptions
+             * @memberof protos.opts.TunnelGroupKafkaOptions
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {protos.opts.DynamicGroupKafkaOptions} DynamicGroupKafkaOptions
+             * @returns {protos.opts.TunnelGroupKafkaOptions} TunnelGroupKafkaOptions
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            DynamicGroupKafkaOptions.decode = function decode(reader, length) {
+            TunnelGroupKafkaOptions.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.DynamicGroupKafkaOptions();
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.TunnelGroupKafkaOptions();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
                     switch (tag >>> 3) {
@@ -6255,30 +6255,30 @@ $root.protos = (function() {
             };
 
             /**
-             * Decodes a DynamicGroupKafkaOptions message from the specified reader or buffer, length delimited.
+             * Decodes a TunnelGroupKafkaOptions message from the specified reader or buffer, length delimited.
              * @function decodeDelimited
-             * @memberof protos.opts.DynamicGroupKafkaOptions
+             * @memberof protos.opts.TunnelGroupKafkaOptions
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {protos.opts.DynamicGroupKafkaOptions} DynamicGroupKafkaOptions
+             * @returns {protos.opts.TunnelGroupKafkaOptions} TunnelGroupKafkaOptions
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            DynamicGroupKafkaOptions.decodeDelimited = function decodeDelimited(reader) {
+            TunnelGroupKafkaOptions.decodeDelimited = function decodeDelimited(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
                 return this.decode(reader, reader.uint32());
             };
 
             /**
-             * Verifies a DynamicGroupKafkaOptions message.
+             * Verifies a TunnelGroupKafkaOptions message.
              * @function verify
-             * @memberof protos.opts.DynamicGroupKafkaOptions
+             * @memberof protos.opts.TunnelGroupKafkaOptions
              * @static
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            DynamicGroupKafkaOptions.verify = function verify(message) {
+            TunnelGroupKafkaOptions.verify = function verify(message) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
                 if (message._conn != null && message.hasOwnProperty("_conn")) {
@@ -6295,40 +6295,40 @@ $root.protos = (function() {
             };
 
             /**
-             * Creates a DynamicGroupKafkaOptions message from a plain object. Also converts values to their respective internal types.
+             * Creates a TunnelGroupKafkaOptions message from a plain object. Also converts values to their respective internal types.
              * @function fromObject
-             * @memberof protos.opts.DynamicGroupKafkaOptions
+             * @memberof protos.opts.TunnelGroupKafkaOptions
              * @static
              * @param {Object.<string,*>} object Plain object
-             * @returns {protos.opts.DynamicGroupKafkaOptions} DynamicGroupKafkaOptions
+             * @returns {protos.opts.TunnelGroupKafkaOptions} TunnelGroupKafkaOptions
              */
-            DynamicGroupKafkaOptions.fromObject = function fromObject(object) {
-                if (object instanceof $root.protos.opts.DynamicGroupKafkaOptions)
+            TunnelGroupKafkaOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.TunnelGroupKafkaOptions)
                     return object;
-                var message = new $root.protos.opts.DynamicGroupKafkaOptions();
+                var message = new $root.protos.opts.TunnelGroupKafkaOptions();
                 if (object._conn != null) {
                     if (typeof object._conn !== "object")
-                        throw TypeError(".protos.opts.DynamicGroupKafkaOptions._conn: object expected");
+                        throw TypeError(".protos.opts.TunnelGroupKafkaOptions._conn: object expected");
                     message._conn = $root.protos.args.KafkaConn.fromObject(object._conn);
                 }
                 if (object.args != null) {
                     if (typeof object.args !== "object")
-                        throw TypeError(".protos.opts.DynamicGroupKafkaOptions.args: object expected");
+                        throw TypeError(".protos.opts.TunnelGroupKafkaOptions.args: object expected");
                     message.args = $root.protos.args.KafkaWriteArgs.fromObject(object.args);
                 }
                 return message;
             };
 
             /**
-             * Creates a plain object from a DynamicGroupKafkaOptions message. Also converts values to other types if specified.
+             * Creates a plain object from a TunnelGroupKafkaOptions message. Also converts values to other types if specified.
              * @function toObject
-             * @memberof protos.opts.DynamicGroupKafkaOptions
+             * @memberof protos.opts.TunnelGroupKafkaOptions
              * @static
-             * @param {protos.opts.DynamicGroupKafkaOptions} message DynamicGroupKafkaOptions
+             * @param {protos.opts.TunnelGroupKafkaOptions} message TunnelGroupKafkaOptions
              * @param {$protobuf.IConversionOptions} [options] Conversion options
              * @returns {Object.<string,*>} Plain object
              */
-            DynamicGroupKafkaOptions.toObject = function toObject(message, options) {
+            TunnelGroupKafkaOptions.toObject = function toObject(message, options) {
                 if (!options)
                     options = {};
                 var object = {};
@@ -6344,38 +6344,38 @@ $root.protos = (function() {
             };
 
             /**
-             * Converts this DynamicGroupKafkaOptions to JSON.
+             * Converts this TunnelGroupKafkaOptions to JSON.
              * @function toJSON
-             * @memberof protos.opts.DynamicGroupKafkaOptions
+             * @memberof protos.opts.TunnelGroupKafkaOptions
              * @instance
              * @returns {Object.<string,*>} JSON object
              */
-            DynamicGroupKafkaOptions.prototype.toJSON = function toJSON() {
+            TunnelGroupKafkaOptions.prototype.toJSON = function toJSON() {
                 return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
             };
 
-            return DynamicGroupKafkaOptions;
+            return TunnelGroupKafkaOptions;
         })();
 
-        opts.DynamicGroupActiveMQOptions = (function() {
+        opts.TunnelGroupActiveMQOptions = (function() {
 
             /**
-             * Properties of a DynamicGroupActiveMQOptions.
+             * Properties of a TunnelGroupActiveMQOptions.
              * @memberof protos.opts
-             * @interface IDynamicGroupActiveMQOptions
-             * @property {protos.args.IActiveMQConn|null} [_conn] DynamicGroupActiveMQOptions _conn
-             * @property {protos.args.IActiveMQWriteArgs|null} [args] DynamicGroupActiveMQOptions args
+             * @interface ITunnelGroupActiveMQOptions
+             * @property {protos.args.IActiveMQConn|null} [_conn] TunnelGroupActiveMQOptions _conn
+             * @property {protos.args.IActiveMQWriteArgs|null} [args] TunnelGroupActiveMQOptions args
              */
 
             /**
-             * Constructs a new DynamicGroupActiveMQOptions.
+             * Constructs a new TunnelGroupActiveMQOptions.
              * @memberof protos.opts
-             * @classdesc Represents a DynamicGroupActiveMQOptions.
-             * @implements IDynamicGroupActiveMQOptions
+             * @classdesc Represents a TunnelGroupActiveMQOptions.
+             * @implements ITunnelGroupActiveMQOptions
              * @constructor
-             * @param {protos.opts.IDynamicGroupActiveMQOptions=} [properties] Properties to set
+             * @param {protos.opts.ITunnelGroupActiveMQOptions=} [properties] Properties to set
              */
-            function DynamicGroupActiveMQOptions(properties) {
+            function TunnelGroupActiveMQOptions(properties) {
                 if (properties)
                     for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                         if (properties[keys[i]] != null)
@@ -6383,43 +6383,43 @@ $root.protos = (function() {
             }
 
             /**
-             * DynamicGroupActiveMQOptions _conn.
+             * TunnelGroupActiveMQOptions _conn.
              * @member {protos.args.IActiveMQConn|null|undefined} _conn
-             * @memberof protos.opts.DynamicGroupActiveMQOptions
+             * @memberof protos.opts.TunnelGroupActiveMQOptions
              * @instance
              */
-            DynamicGroupActiveMQOptions.prototype._conn = null;
+            TunnelGroupActiveMQOptions.prototype._conn = null;
 
             /**
-             * DynamicGroupActiveMQOptions args.
+             * TunnelGroupActiveMQOptions args.
              * @member {protos.args.IActiveMQWriteArgs|null|undefined} args
-             * @memberof protos.opts.DynamicGroupActiveMQOptions
+             * @memberof protos.opts.TunnelGroupActiveMQOptions
              * @instance
              */
-            DynamicGroupActiveMQOptions.prototype.args = null;
+            TunnelGroupActiveMQOptions.prototype.args = null;
 
             /**
-             * Creates a new DynamicGroupActiveMQOptions instance using the specified properties.
+             * Creates a new TunnelGroupActiveMQOptions instance using the specified properties.
              * @function create
-             * @memberof protos.opts.DynamicGroupActiveMQOptions
+             * @memberof protos.opts.TunnelGroupActiveMQOptions
              * @static
-             * @param {protos.opts.IDynamicGroupActiveMQOptions=} [properties] Properties to set
-             * @returns {protos.opts.DynamicGroupActiveMQOptions} DynamicGroupActiveMQOptions instance
+             * @param {protos.opts.ITunnelGroupActiveMQOptions=} [properties] Properties to set
+             * @returns {protos.opts.TunnelGroupActiveMQOptions} TunnelGroupActiveMQOptions instance
              */
-            DynamicGroupActiveMQOptions.create = function create(properties) {
-                return new DynamicGroupActiveMQOptions(properties);
+            TunnelGroupActiveMQOptions.create = function create(properties) {
+                return new TunnelGroupActiveMQOptions(properties);
             };
 
             /**
-             * Encodes the specified DynamicGroupActiveMQOptions message. Does not implicitly {@link protos.opts.DynamicGroupActiveMQOptions.verify|verify} messages.
+             * Encodes the specified TunnelGroupActiveMQOptions message. Does not implicitly {@link protos.opts.TunnelGroupActiveMQOptions.verify|verify} messages.
              * @function encode
-             * @memberof protos.opts.DynamicGroupActiveMQOptions
+             * @memberof protos.opts.TunnelGroupActiveMQOptions
              * @static
-             * @param {protos.opts.IDynamicGroupActiveMQOptions} message DynamicGroupActiveMQOptions message or plain object to encode
+             * @param {protos.opts.ITunnelGroupActiveMQOptions} message TunnelGroupActiveMQOptions message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
-            DynamicGroupActiveMQOptions.encode = function encode(message, writer) {
+            TunnelGroupActiveMQOptions.encode = function encode(message, writer) {
                 if (!writer)
                     writer = $Writer.create();
                 if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
@@ -6430,33 +6430,33 @@ $root.protos = (function() {
             };
 
             /**
-             * Encodes the specified DynamicGroupActiveMQOptions message, length delimited. Does not implicitly {@link protos.opts.DynamicGroupActiveMQOptions.verify|verify} messages.
+             * Encodes the specified TunnelGroupActiveMQOptions message, length delimited. Does not implicitly {@link protos.opts.TunnelGroupActiveMQOptions.verify|verify} messages.
              * @function encodeDelimited
-             * @memberof protos.opts.DynamicGroupActiveMQOptions
+             * @memberof protos.opts.TunnelGroupActiveMQOptions
              * @static
-             * @param {protos.opts.IDynamicGroupActiveMQOptions} message DynamicGroupActiveMQOptions message or plain object to encode
+             * @param {protos.opts.ITunnelGroupActiveMQOptions} message TunnelGroupActiveMQOptions message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
-            DynamicGroupActiveMQOptions.encodeDelimited = function encodeDelimited(message, writer) {
+            TunnelGroupActiveMQOptions.encodeDelimited = function encodeDelimited(message, writer) {
                 return this.encode(message, writer).ldelim();
             };
 
             /**
-             * Decodes a DynamicGroupActiveMQOptions message from the specified reader or buffer.
+             * Decodes a TunnelGroupActiveMQOptions message from the specified reader or buffer.
              * @function decode
-             * @memberof protos.opts.DynamicGroupActiveMQOptions
+             * @memberof protos.opts.TunnelGroupActiveMQOptions
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {protos.opts.DynamicGroupActiveMQOptions} DynamicGroupActiveMQOptions
+             * @returns {protos.opts.TunnelGroupActiveMQOptions} TunnelGroupActiveMQOptions
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            DynamicGroupActiveMQOptions.decode = function decode(reader, length) {
+            TunnelGroupActiveMQOptions.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.DynamicGroupActiveMQOptions();
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.TunnelGroupActiveMQOptions();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
                     switch (tag >>> 3) {
@@ -6475,30 +6475,30 @@ $root.protos = (function() {
             };
 
             /**
-             * Decodes a DynamicGroupActiveMQOptions message from the specified reader or buffer, length delimited.
+             * Decodes a TunnelGroupActiveMQOptions message from the specified reader or buffer, length delimited.
              * @function decodeDelimited
-             * @memberof protos.opts.DynamicGroupActiveMQOptions
+             * @memberof protos.opts.TunnelGroupActiveMQOptions
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {protos.opts.DynamicGroupActiveMQOptions} DynamicGroupActiveMQOptions
+             * @returns {protos.opts.TunnelGroupActiveMQOptions} TunnelGroupActiveMQOptions
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            DynamicGroupActiveMQOptions.decodeDelimited = function decodeDelimited(reader) {
+            TunnelGroupActiveMQOptions.decodeDelimited = function decodeDelimited(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
                 return this.decode(reader, reader.uint32());
             };
 
             /**
-             * Verifies a DynamicGroupActiveMQOptions message.
+             * Verifies a TunnelGroupActiveMQOptions message.
              * @function verify
-             * @memberof protos.opts.DynamicGroupActiveMQOptions
+             * @memberof protos.opts.TunnelGroupActiveMQOptions
              * @static
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            DynamicGroupActiveMQOptions.verify = function verify(message) {
+            TunnelGroupActiveMQOptions.verify = function verify(message) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
                 if (message._conn != null && message.hasOwnProperty("_conn")) {
@@ -6515,40 +6515,40 @@ $root.protos = (function() {
             };
 
             /**
-             * Creates a DynamicGroupActiveMQOptions message from a plain object. Also converts values to their respective internal types.
+             * Creates a TunnelGroupActiveMQOptions message from a plain object. Also converts values to their respective internal types.
              * @function fromObject
-             * @memberof protos.opts.DynamicGroupActiveMQOptions
+             * @memberof protos.opts.TunnelGroupActiveMQOptions
              * @static
              * @param {Object.<string,*>} object Plain object
-             * @returns {protos.opts.DynamicGroupActiveMQOptions} DynamicGroupActiveMQOptions
+             * @returns {protos.opts.TunnelGroupActiveMQOptions} TunnelGroupActiveMQOptions
              */
-            DynamicGroupActiveMQOptions.fromObject = function fromObject(object) {
-                if (object instanceof $root.protos.opts.DynamicGroupActiveMQOptions)
+            TunnelGroupActiveMQOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.TunnelGroupActiveMQOptions)
                     return object;
-                var message = new $root.protos.opts.DynamicGroupActiveMQOptions();
+                var message = new $root.protos.opts.TunnelGroupActiveMQOptions();
                 if (object._conn != null) {
                     if (typeof object._conn !== "object")
-                        throw TypeError(".protos.opts.DynamicGroupActiveMQOptions._conn: object expected");
+                        throw TypeError(".protos.opts.TunnelGroupActiveMQOptions._conn: object expected");
                     message._conn = $root.protos.args.ActiveMQConn.fromObject(object._conn);
                 }
                 if (object.args != null) {
                     if (typeof object.args !== "object")
-                        throw TypeError(".protos.opts.DynamicGroupActiveMQOptions.args: object expected");
+                        throw TypeError(".protos.opts.TunnelGroupActiveMQOptions.args: object expected");
                     message.args = $root.protos.args.ActiveMQWriteArgs.fromObject(object.args);
                 }
                 return message;
             };
 
             /**
-             * Creates a plain object from a DynamicGroupActiveMQOptions message. Also converts values to other types if specified.
+             * Creates a plain object from a TunnelGroupActiveMQOptions message. Also converts values to other types if specified.
              * @function toObject
-             * @memberof protos.opts.DynamicGroupActiveMQOptions
+             * @memberof protos.opts.TunnelGroupActiveMQOptions
              * @static
-             * @param {protos.opts.DynamicGroupActiveMQOptions} message DynamicGroupActiveMQOptions
+             * @param {protos.opts.TunnelGroupActiveMQOptions} message TunnelGroupActiveMQOptions
              * @param {$protobuf.IConversionOptions} [options] Conversion options
              * @returns {Object.<string,*>} Plain object
              */
-            DynamicGroupActiveMQOptions.toObject = function toObject(message, options) {
+            TunnelGroupActiveMQOptions.toObject = function toObject(message, options) {
                 if (!options)
                     options = {};
                 var object = {};
@@ -6564,38 +6564,38 @@ $root.protos = (function() {
             };
 
             /**
-             * Converts this DynamicGroupActiveMQOptions to JSON.
+             * Converts this TunnelGroupActiveMQOptions to JSON.
              * @function toJSON
-             * @memberof protos.opts.DynamicGroupActiveMQOptions
+             * @memberof protos.opts.TunnelGroupActiveMQOptions
              * @instance
              * @returns {Object.<string,*>} JSON object
              */
-            DynamicGroupActiveMQOptions.prototype.toJSON = function toJSON() {
+            TunnelGroupActiveMQOptions.prototype.toJSON = function toJSON() {
                 return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
             };
 
-            return DynamicGroupActiveMQOptions;
+            return TunnelGroupActiveMQOptions;
         })();
 
-        opts.DynamicGroupAWSSQSOptions = (function() {
+        opts.TunnelGroupAWSSQSOptions = (function() {
 
             /**
-             * Properties of a DynamicGroupAWSSQSOptions.
+             * Properties of a TunnelGroupAWSSQSOptions.
              * @memberof protos.opts
-             * @interface IDynamicGroupAWSSQSOptions
-             * @property {protos.args.IAWSSQSConn|null} [_conn] DynamicGroupAWSSQSOptions _conn
-             * @property {protos.args.IAWSSQSWriteArgs|null} [args] DynamicGroupAWSSQSOptions args
+             * @interface ITunnelGroupAWSSQSOptions
+             * @property {protos.args.IAWSSQSConn|null} [_conn] TunnelGroupAWSSQSOptions _conn
+             * @property {protos.args.IAWSSQSWriteArgs|null} [args] TunnelGroupAWSSQSOptions args
              */
 
             /**
-             * Constructs a new DynamicGroupAWSSQSOptions.
+             * Constructs a new TunnelGroupAWSSQSOptions.
              * @memberof protos.opts
-             * @classdesc Represents a DynamicGroupAWSSQSOptions.
-             * @implements IDynamicGroupAWSSQSOptions
+             * @classdesc Represents a TunnelGroupAWSSQSOptions.
+             * @implements ITunnelGroupAWSSQSOptions
              * @constructor
-             * @param {protos.opts.IDynamicGroupAWSSQSOptions=} [properties] Properties to set
+             * @param {protos.opts.ITunnelGroupAWSSQSOptions=} [properties] Properties to set
              */
-            function DynamicGroupAWSSQSOptions(properties) {
+            function TunnelGroupAWSSQSOptions(properties) {
                 if (properties)
                     for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                         if (properties[keys[i]] != null)
@@ -6603,43 +6603,43 @@ $root.protos = (function() {
             }
 
             /**
-             * DynamicGroupAWSSQSOptions _conn.
+             * TunnelGroupAWSSQSOptions _conn.
              * @member {protos.args.IAWSSQSConn|null|undefined} _conn
-             * @memberof protos.opts.DynamicGroupAWSSQSOptions
+             * @memberof protos.opts.TunnelGroupAWSSQSOptions
              * @instance
              */
-            DynamicGroupAWSSQSOptions.prototype._conn = null;
+            TunnelGroupAWSSQSOptions.prototype._conn = null;
 
             /**
-             * DynamicGroupAWSSQSOptions args.
+             * TunnelGroupAWSSQSOptions args.
              * @member {protos.args.IAWSSQSWriteArgs|null|undefined} args
-             * @memberof protos.opts.DynamicGroupAWSSQSOptions
+             * @memberof protos.opts.TunnelGroupAWSSQSOptions
              * @instance
              */
-            DynamicGroupAWSSQSOptions.prototype.args = null;
+            TunnelGroupAWSSQSOptions.prototype.args = null;
 
             /**
-             * Creates a new DynamicGroupAWSSQSOptions instance using the specified properties.
+             * Creates a new TunnelGroupAWSSQSOptions instance using the specified properties.
              * @function create
-             * @memberof protos.opts.DynamicGroupAWSSQSOptions
+             * @memberof protos.opts.TunnelGroupAWSSQSOptions
              * @static
-             * @param {protos.opts.IDynamicGroupAWSSQSOptions=} [properties] Properties to set
-             * @returns {protos.opts.DynamicGroupAWSSQSOptions} DynamicGroupAWSSQSOptions instance
+             * @param {protos.opts.ITunnelGroupAWSSQSOptions=} [properties] Properties to set
+             * @returns {protos.opts.TunnelGroupAWSSQSOptions} TunnelGroupAWSSQSOptions instance
              */
-            DynamicGroupAWSSQSOptions.create = function create(properties) {
-                return new DynamicGroupAWSSQSOptions(properties);
+            TunnelGroupAWSSQSOptions.create = function create(properties) {
+                return new TunnelGroupAWSSQSOptions(properties);
             };
 
             /**
-             * Encodes the specified DynamicGroupAWSSQSOptions message. Does not implicitly {@link protos.opts.DynamicGroupAWSSQSOptions.verify|verify} messages.
+             * Encodes the specified TunnelGroupAWSSQSOptions message. Does not implicitly {@link protos.opts.TunnelGroupAWSSQSOptions.verify|verify} messages.
              * @function encode
-             * @memberof protos.opts.DynamicGroupAWSSQSOptions
+             * @memberof protos.opts.TunnelGroupAWSSQSOptions
              * @static
-             * @param {protos.opts.IDynamicGroupAWSSQSOptions} message DynamicGroupAWSSQSOptions message or plain object to encode
+             * @param {protos.opts.ITunnelGroupAWSSQSOptions} message TunnelGroupAWSSQSOptions message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
-            DynamicGroupAWSSQSOptions.encode = function encode(message, writer) {
+            TunnelGroupAWSSQSOptions.encode = function encode(message, writer) {
                 if (!writer)
                     writer = $Writer.create();
                 if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
@@ -6650,33 +6650,33 @@ $root.protos = (function() {
             };
 
             /**
-             * Encodes the specified DynamicGroupAWSSQSOptions message, length delimited. Does not implicitly {@link protos.opts.DynamicGroupAWSSQSOptions.verify|verify} messages.
+             * Encodes the specified TunnelGroupAWSSQSOptions message, length delimited. Does not implicitly {@link protos.opts.TunnelGroupAWSSQSOptions.verify|verify} messages.
              * @function encodeDelimited
-             * @memberof protos.opts.DynamicGroupAWSSQSOptions
+             * @memberof protos.opts.TunnelGroupAWSSQSOptions
              * @static
-             * @param {protos.opts.IDynamicGroupAWSSQSOptions} message DynamicGroupAWSSQSOptions message or plain object to encode
+             * @param {protos.opts.ITunnelGroupAWSSQSOptions} message TunnelGroupAWSSQSOptions message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
-            DynamicGroupAWSSQSOptions.encodeDelimited = function encodeDelimited(message, writer) {
+            TunnelGroupAWSSQSOptions.encodeDelimited = function encodeDelimited(message, writer) {
                 return this.encode(message, writer).ldelim();
             };
 
             /**
-             * Decodes a DynamicGroupAWSSQSOptions message from the specified reader or buffer.
+             * Decodes a TunnelGroupAWSSQSOptions message from the specified reader or buffer.
              * @function decode
-             * @memberof protos.opts.DynamicGroupAWSSQSOptions
+             * @memberof protos.opts.TunnelGroupAWSSQSOptions
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {protos.opts.DynamicGroupAWSSQSOptions} DynamicGroupAWSSQSOptions
+             * @returns {protos.opts.TunnelGroupAWSSQSOptions} TunnelGroupAWSSQSOptions
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            DynamicGroupAWSSQSOptions.decode = function decode(reader, length) {
+            TunnelGroupAWSSQSOptions.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.DynamicGroupAWSSQSOptions();
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.TunnelGroupAWSSQSOptions();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
                     switch (tag >>> 3) {
@@ -6695,30 +6695,30 @@ $root.protos = (function() {
             };
 
             /**
-             * Decodes a DynamicGroupAWSSQSOptions message from the specified reader or buffer, length delimited.
+             * Decodes a TunnelGroupAWSSQSOptions message from the specified reader or buffer, length delimited.
              * @function decodeDelimited
-             * @memberof protos.opts.DynamicGroupAWSSQSOptions
+             * @memberof protos.opts.TunnelGroupAWSSQSOptions
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {protos.opts.DynamicGroupAWSSQSOptions} DynamicGroupAWSSQSOptions
+             * @returns {protos.opts.TunnelGroupAWSSQSOptions} TunnelGroupAWSSQSOptions
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            DynamicGroupAWSSQSOptions.decodeDelimited = function decodeDelimited(reader) {
+            TunnelGroupAWSSQSOptions.decodeDelimited = function decodeDelimited(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
                 return this.decode(reader, reader.uint32());
             };
 
             /**
-             * Verifies a DynamicGroupAWSSQSOptions message.
+             * Verifies a TunnelGroupAWSSQSOptions message.
              * @function verify
-             * @memberof protos.opts.DynamicGroupAWSSQSOptions
+             * @memberof protos.opts.TunnelGroupAWSSQSOptions
              * @static
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            DynamicGroupAWSSQSOptions.verify = function verify(message) {
+            TunnelGroupAWSSQSOptions.verify = function verify(message) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
                 if (message._conn != null && message.hasOwnProperty("_conn")) {
@@ -6735,40 +6735,40 @@ $root.protos = (function() {
             };
 
             /**
-             * Creates a DynamicGroupAWSSQSOptions message from a plain object. Also converts values to their respective internal types.
+             * Creates a TunnelGroupAWSSQSOptions message from a plain object. Also converts values to their respective internal types.
              * @function fromObject
-             * @memberof protos.opts.DynamicGroupAWSSQSOptions
+             * @memberof protos.opts.TunnelGroupAWSSQSOptions
              * @static
              * @param {Object.<string,*>} object Plain object
-             * @returns {protos.opts.DynamicGroupAWSSQSOptions} DynamicGroupAWSSQSOptions
+             * @returns {protos.opts.TunnelGroupAWSSQSOptions} TunnelGroupAWSSQSOptions
              */
-            DynamicGroupAWSSQSOptions.fromObject = function fromObject(object) {
-                if (object instanceof $root.protos.opts.DynamicGroupAWSSQSOptions)
+            TunnelGroupAWSSQSOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.TunnelGroupAWSSQSOptions)
                     return object;
-                var message = new $root.protos.opts.DynamicGroupAWSSQSOptions();
+                var message = new $root.protos.opts.TunnelGroupAWSSQSOptions();
                 if (object._conn != null) {
                     if (typeof object._conn !== "object")
-                        throw TypeError(".protos.opts.DynamicGroupAWSSQSOptions._conn: object expected");
+                        throw TypeError(".protos.opts.TunnelGroupAWSSQSOptions._conn: object expected");
                     message._conn = $root.protos.args.AWSSQSConn.fromObject(object._conn);
                 }
                 if (object.args != null) {
                     if (typeof object.args !== "object")
-                        throw TypeError(".protos.opts.DynamicGroupAWSSQSOptions.args: object expected");
+                        throw TypeError(".protos.opts.TunnelGroupAWSSQSOptions.args: object expected");
                     message.args = $root.protos.args.AWSSQSWriteArgs.fromObject(object.args);
                 }
                 return message;
             };
 
             /**
-             * Creates a plain object from a DynamicGroupAWSSQSOptions message. Also converts values to other types if specified.
+             * Creates a plain object from a TunnelGroupAWSSQSOptions message. Also converts values to other types if specified.
              * @function toObject
-             * @memberof protos.opts.DynamicGroupAWSSQSOptions
+             * @memberof protos.opts.TunnelGroupAWSSQSOptions
              * @static
-             * @param {protos.opts.DynamicGroupAWSSQSOptions} message DynamicGroupAWSSQSOptions
+             * @param {protos.opts.TunnelGroupAWSSQSOptions} message TunnelGroupAWSSQSOptions
              * @param {$protobuf.IConversionOptions} [options] Conversion options
              * @returns {Object.<string,*>} Plain object
              */
-            DynamicGroupAWSSQSOptions.toObject = function toObject(message, options) {
+            TunnelGroupAWSSQSOptions.toObject = function toObject(message, options) {
                 if (!options)
                     options = {};
                 var object = {};
@@ -6784,38 +6784,38 @@ $root.protos = (function() {
             };
 
             /**
-             * Converts this DynamicGroupAWSSQSOptions to JSON.
+             * Converts this TunnelGroupAWSSQSOptions to JSON.
              * @function toJSON
-             * @memberof protos.opts.DynamicGroupAWSSQSOptions
+             * @memberof protos.opts.TunnelGroupAWSSQSOptions
              * @instance
              * @returns {Object.<string,*>} JSON object
              */
-            DynamicGroupAWSSQSOptions.prototype.toJSON = function toJSON() {
+            TunnelGroupAWSSQSOptions.prototype.toJSON = function toJSON() {
                 return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
             };
 
-            return DynamicGroupAWSSQSOptions;
+            return TunnelGroupAWSSQSOptions;
         })();
 
-        opts.DynamicGroupAWSSNSOptions = (function() {
+        opts.TunnelGroupAWSSNSOptions = (function() {
 
             /**
-             * Properties of a DynamicGroupAWSSNSOptions.
+             * Properties of a TunnelGroupAWSSNSOptions.
              * @memberof protos.opts
-             * @interface IDynamicGroupAWSSNSOptions
-             * @property {protos.args.IAWSSNSConn|null} [_conn] DynamicGroupAWSSNSOptions _conn
-             * @property {protos.args.IAWSSNSWriteArgs|null} [args] DynamicGroupAWSSNSOptions args
+             * @interface ITunnelGroupAWSSNSOptions
+             * @property {protos.args.IAWSSNSConn|null} [_conn] TunnelGroupAWSSNSOptions _conn
+             * @property {protos.args.IAWSSNSWriteArgs|null} [args] TunnelGroupAWSSNSOptions args
              */
 
             /**
-             * Constructs a new DynamicGroupAWSSNSOptions.
+             * Constructs a new TunnelGroupAWSSNSOptions.
              * @memberof protos.opts
-             * @classdesc Represents a DynamicGroupAWSSNSOptions.
-             * @implements IDynamicGroupAWSSNSOptions
+             * @classdesc Represents a TunnelGroupAWSSNSOptions.
+             * @implements ITunnelGroupAWSSNSOptions
              * @constructor
-             * @param {protos.opts.IDynamicGroupAWSSNSOptions=} [properties] Properties to set
+             * @param {protos.opts.ITunnelGroupAWSSNSOptions=} [properties] Properties to set
              */
-            function DynamicGroupAWSSNSOptions(properties) {
+            function TunnelGroupAWSSNSOptions(properties) {
                 if (properties)
                     for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                         if (properties[keys[i]] != null)
@@ -6823,43 +6823,43 @@ $root.protos = (function() {
             }
 
             /**
-             * DynamicGroupAWSSNSOptions _conn.
+             * TunnelGroupAWSSNSOptions _conn.
              * @member {protos.args.IAWSSNSConn|null|undefined} _conn
-             * @memberof protos.opts.DynamicGroupAWSSNSOptions
+             * @memberof protos.opts.TunnelGroupAWSSNSOptions
              * @instance
              */
-            DynamicGroupAWSSNSOptions.prototype._conn = null;
+            TunnelGroupAWSSNSOptions.prototype._conn = null;
 
             /**
-             * DynamicGroupAWSSNSOptions args.
+             * TunnelGroupAWSSNSOptions args.
              * @member {protos.args.IAWSSNSWriteArgs|null|undefined} args
-             * @memberof protos.opts.DynamicGroupAWSSNSOptions
+             * @memberof protos.opts.TunnelGroupAWSSNSOptions
              * @instance
              */
-            DynamicGroupAWSSNSOptions.prototype.args = null;
+            TunnelGroupAWSSNSOptions.prototype.args = null;
 
             /**
-             * Creates a new DynamicGroupAWSSNSOptions instance using the specified properties.
+             * Creates a new TunnelGroupAWSSNSOptions instance using the specified properties.
              * @function create
-             * @memberof protos.opts.DynamicGroupAWSSNSOptions
+             * @memberof protos.opts.TunnelGroupAWSSNSOptions
              * @static
-             * @param {protos.opts.IDynamicGroupAWSSNSOptions=} [properties] Properties to set
-             * @returns {protos.opts.DynamicGroupAWSSNSOptions} DynamicGroupAWSSNSOptions instance
+             * @param {protos.opts.ITunnelGroupAWSSNSOptions=} [properties] Properties to set
+             * @returns {protos.opts.TunnelGroupAWSSNSOptions} TunnelGroupAWSSNSOptions instance
              */
-            DynamicGroupAWSSNSOptions.create = function create(properties) {
-                return new DynamicGroupAWSSNSOptions(properties);
+            TunnelGroupAWSSNSOptions.create = function create(properties) {
+                return new TunnelGroupAWSSNSOptions(properties);
             };
 
             /**
-             * Encodes the specified DynamicGroupAWSSNSOptions message. Does not implicitly {@link protos.opts.DynamicGroupAWSSNSOptions.verify|verify} messages.
+             * Encodes the specified TunnelGroupAWSSNSOptions message. Does not implicitly {@link protos.opts.TunnelGroupAWSSNSOptions.verify|verify} messages.
              * @function encode
-             * @memberof protos.opts.DynamicGroupAWSSNSOptions
+             * @memberof protos.opts.TunnelGroupAWSSNSOptions
              * @static
-             * @param {protos.opts.IDynamicGroupAWSSNSOptions} message DynamicGroupAWSSNSOptions message or plain object to encode
+             * @param {protos.opts.ITunnelGroupAWSSNSOptions} message TunnelGroupAWSSNSOptions message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
-            DynamicGroupAWSSNSOptions.encode = function encode(message, writer) {
+            TunnelGroupAWSSNSOptions.encode = function encode(message, writer) {
                 if (!writer)
                     writer = $Writer.create();
                 if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
@@ -6870,33 +6870,33 @@ $root.protos = (function() {
             };
 
             /**
-             * Encodes the specified DynamicGroupAWSSNSOptions message, length delimited. Does not implicitly {@link protos.opts.DynamicGroupAWSSNSOptions.verify|verify} messages.
+             * Encodes the specified TunnelGroupAWSSNSOptions message, length delimited. Does not implicitly {@link protos.opts.TunnelGroupAWSSNSOptions.verify|verify} messages.
              * @function encodeDelimited
-             * @memberof protos.opts.DynamicGroupAWSSNSOptions
+             * @memberof protos.opts.TunnelGroupAWSSNSOptions
              * @static
-             * @param {protos.opts.IDynamicGroupAWSSNSOptions} message DynamicGroupAWSSNSOptions message or plain object to encode
+             * @param {protos.opts.ITunnelGroupAWSSNSOptions} message TunnelGroupAWSSNSOptions message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
-            DynamicGroupAWSSNSOptions.encodeDelimited = function encodeDelimited(message, writer) {
+            TunnelGroupAWSSNSOptions.encodeDelimited = function encodeDelimited(message, writer) {
                 return this.encode(message, writer).ldelim();
             };
 
             /**
-             * Decodes a DynamicGroupAWSSNSOptions message from the specified reader or buffer.
+             * Decodes a TunnelGroupAWSSNSOptions message from the specified reader or buffer.
              * @function decode
-             * @memberof protos.opts.DynamicGroupAWSSNSOptions
+             * @memberof protos.opts.TunnelGroupAWSSNSOptions
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {protos.opts.DynamicGroupAWSSNSOptions} DynamicGroupAWSSNSOptions
+             * @returns {protos.opts.TunnelGroupAWSSNSOptions} TunnelGroupAWSSNSOptions
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            DynamicGroupAWSSNSOptions.decode = function decode(reader, length) {
+            TunnelGroupAWSSNSOptions.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.DynamicGroupAWSSNSOptions();
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.TunnelGroupAWSSNSOptions();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
                     switch (tag >>> 3) {
@@ -6915,30 +6915,30 @@ $root.protos = (function() {
             };
 
             /**
-             * Decodes a DynamicGroupAWSSNSOptions message from the specified reader or buffer, length delimited.
+             * Decodes a TunnelGroupAWSSNSOptions message from the specified reader or buffer, length delimited.
              * @function decodeDelimited
-             * @memberof protos.opts.DynamicGroupAWSSNSOptions
+             * @memberof protos.opts.TunnelGroupAWSSNSOptions
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {protos.opts.DynamicGroupAWSSNSOptions} DynamicGroupAWSSNSOptions
+             * @returns {protos.opts.TunnelGroupAWSSNSOptions} TunnelGroupAWSSNSOptions
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            DynamicGroupAWSSNSOptions.decodeDelimited = function decodeDelimited(reader) {
+            TunnelGroupAWSSNSOptions.decodeDelimited = function decodeDelimited(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
                 return this.decode(reader, reader.uint32());
             };
 
             /**
-             * Verifies a DynamicGroupAWSSNSOptions message.
+             * Verifies a TunnelGroupAWSSNSOptions message.
              * @function verify
-             * @memberof protos.opts.DynamicGroupAWSSNSOptions
+             * @memberof protos.opts.TunnelGroupAWSSNSOptions
              * @static
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            DynamicGroupAWSSNSOptions.verify = function verify(message) {
+            TunnelGroupAWSSNSOptions.verify = function verify(message) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
                 if (message._conn != null && message.hasOwnProperty("_conn")) {
@@ -6955,40 +6955,40 @@ $root.protos = (function() {
             };
 
             /**
-             * Creates a DynamicGroupAWSSNSOptions message from a plain object. Also converts values to their respective internal types.
+             * Creates a TunnelGroupAWSSNSOptions message from a plain object. Also converts values to their respective internal types.
              * @function fromObject
-             * @memberof protos.opts.DynamicGroupAWSSNSOptions
+             * @memberof protos.opts.TunnelGroupAWSSNSOptions
              * @static
              * @param {Object.<string,*>} object Plain object
-             * @returns {protos.opts.DynamicGroupAWSSNSOptions} DynamicGroupAWSSNSOptions
+             * @returns {protos.opts.TunnelGroupAWSSNSOptions} TunnelGroupAWSSNSOptions
              */
-            DynamicGroupAWSSNSOptions.fromObject = function fromObject(object) {
-                if (object instanceof $root.protos.opts.DynamicGroupAWSSNSOptions)
+            TunnelGroupAWSSNSOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.TunnelGroupAWSSNSOptions)
                     return object;
-                var message = new $root.protos.opts.DynamicGroupAWSSNSOptions();
+                var message = new $root.protos.opts.TunnelGroupAWSSNSOptions();
                 if (object._conn != null) {
                     if (typeof object._conn !== "object")
-                        throw TypeError(".protos.opts.DynamicGroupAWSSNSOptions._conn: object expected");
+                        throw TypeError(".protos.opts.TunnelGroupAWSSNSOptions._conn: object expected");
                     message._conn = $root.protos.args.AWSSNSConn.fromObject(object._conn);
                 }
                 if (object.args != null) {
                     if (typeof object.args !== "object")
-                        throw TypeError(".protos.opts.DynamicGroupAWSSNSOptions.args: object expected");
+                        throw TypeError(".protos.opts.TunnelGroupAWSSNSOptions.args: object expected");
                     message.args = $root.protos.args.AWSSNSWriteArgs.fromObject(object.args);
                 }
                 return message;
             };
 
             /**
-             * Creates a plain object from a DynamicGroupAWSSNSOptions message. Also converts values to other types if specified.
+             * Creates a plain object from a TunnelGroupAWSSNSOptions message. Also converts values to other types if specified.
              * @function toObject
-             * @memberof protos.opts.DynamicGroupAWSSNSOptions
+             * @memberof protos.opts.TunnelGroupAWSSNSOptions
              * @static
-             * @param {protos.opts.DynamicGroupAWSSNSOptions} message DynamicGroupAWSSNSOptions
+             * @param {protos.opts.TunnelGroupAWSSNSOptions} message TunnelGroupAWSSNSOptions
              * @param {$protobuf.IConversionOptions} [options] Conversion options
              * @returns {Object.<string,*>} Plain object
              */
-            DynamicGroupAWSSNSOptions.toObject = function toObject(message, options) {
+            TunnelGroupAWSSNSOptions.toObject = function toObject(message, options) {
                 if (!options)
                     options = {};
                 var object = {};
@@ -7004,38 +7004,38 @@ $root.protos = (function() {
             };
 
             /**
-             * Converts this DynamicGroupAWSSNSOptions to JSON.
+             * Converts this TunnelGroupAWSSNSOptions to JSON.
              * @function toJSON
-             * @memberof protos.opts.DynamicGroupAWSSNSOptions
+             * @memberof protos.opts.TunnelGroupAWSSNSOptions
              * @instance
              * @returns {Object.<string,*>} JSON object
              */
-            DynamicGroupAWSSNSOptions.prototype.toJSON = function toJSON() {
+            TunnelGroupAWSSNSOptions.prototype.toJSON = function toJSON() {
                 return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
             };
 
-            return DynamicGroupAWSSNSOptions;
+            return TunnelGroupAWSSNSOptions;
         })();
 
-        opts.DynamicGroupNatsOptions = (function() {
+        opts.TunnelGroupNatsOptions = (function() {
 
             /**
-             * Properties of a DynamicGroupNatsOptions.
+             * Properties of a TunnelGroupNatsOptions.
              * @memberof protos.opts
-             * @interface IDynamicGroupNatsOptions
-             * @property {protos.args.INatsConn|null} [_conn] DynamicGroupNatsOptions _conn
-             * @property {protos.args.INatsWriteArgs|null} [args] DynamicGroupNatsOptions args
+             * @interface ITunnelGroupNatsOptions
+             * @property {protos.args.INatsConn|null} [_conn] TunnelGroupNatsOptions _conn
+             * @property {protos.args.INatsWriteArgs|null} [args] TunnelGroupNatsOptions args
              */
 
             /**
-             * Constructs a new DynamicGroupNatsOptions.
+             * Constructs a new TunnelGroupNatsOptions.
              * @memberof protos.opts
-             * @classdesc Represents a DynamicGroupNatsOptions.
-             * @implements IDynamicGroupNatsOptions
+             * @classdesc Represents a TunnelGroupNatsOptions.
+             * @implements ITunnelGroupNatsOptions
              * @constructor
-             * @param {protos.opts.IDynamicGroupNatsOptions=} [properties] Properties to set
+             * @param {protos.opts.ITunnelGroupNatsOptions=} [properties] Properties to set
              */
-            function DynamicGroupNatsOptions(properties) {
+            function TunnelGroupNatsOptions(properties) {
                 if (properties)
                     for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                         if (properties[keys[i]] != null)
@@ -7043,43 +7043,43 @@ $root.protos = (function() {
             }
 
             /**
-             * DynamicGroupNatsOptions _conn.
+             * TunnelGroupNatsOptions _conn.
              * @member {protos.args.INatsConn|null|undefined} _conn
-             * @memberof protos.opts.DynamicGroupNatsOptions
+             * @memberof protos.opts.TunnelGroupNatsOptions
              * @instance
              */
-            DynamicGroupNatsOptions.prototype._conn = null;
+            TunnelGroupNatsOptions.prototype._conn = null;
 
             /**
-             * DynamicGroupNatsOptions args.
+             * TunnelGroupNatsOptions args.
              * @member {protos.args.INatsWriteArgs|null|undefined} args
-             * @memberof protos.opts.DynamicGroupNatsOptions
+             * @memberof protos.opts.TunnelGroupNatsOptions
              * @instance
              */
-            DynamicGroupNatsOptions.prototype.args = null;
+            TunnelGroupNatsOptions.prototype.args = null;
 
             /**
-             * Creates a new DynamicGroupNatsOptions instance using the specified properties.
+             * Creates a new TunnelGroupNatsOptions instance using the specified properties.
              * @function create
-             * @memberof protos.opts.DynamicGroupNatsOptions
+             * @memberof protos.opts.TunnelGroupNatsOptions
              * @static
-             * @param {protos.opts.IDynamicGroupNatsOptions=} [properties] Properties to set
-             * @returns {protos.opts.DynamicGroupNatsOptions} DynamicGroupNatsOptions instance
+             * @param {protos.opts.ITunnelGroupNatsOptions=} [properties] Properties to set
+             * @returns {protos.opts.TunnelGroupNatsOptions} TunnelGroupNatsOptions instance
              */
-            DynamicGroupNatsOptions.create = function create(properties) {
-                return new DynamicGroupNatsOptions(properties);
+            TunnelGroupNatsOptions.create = function create(properties) {
+                return new TunnelGroupNatsOptions(properties);
             };
 
             /**
-             * Encodes the specified DynamicGroupNatsOptions message. Does not implicitly {@link protos.opts.DynamicGroupNatsOptions.verify|verify} messages.
+             * Encodes the specified TunnelGroupNatsOptions message. Does not implicitly {@link protos.opts.TunnelGroupNatsOptions.verify|verify} messages.
              * @function encode
-             * @memberof protos.opts.DynamicGroupNatsOptions
+             * @memberof protos.opts.TunnelGroupNatsOptions
              * @static
-             * @param {protos.opts.IDynamicGroupNatsOptions} message DynamicGroupNatsOptions message or plain object to encode
+             * @param {protos.opts.ITunnelGroupNatsOptions} message TunnelGroupNatsOptions message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
-            DynamicGroupNatsOptions.encode = function encode(message, writer) {
+            TunnelGroupNatsOptions.encode = function encode(message, writer) {
                 if (!writer)
                     writer = $Writer.create();
                 if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
@@ -7090,33 +7090,33 @@ $root.protos = (function() {
             };
 
             /**
-             * Encodes the specified DynamicGroupNatsOptions message, length delimited. Does not implicitly {@link protos.opts.DynamicGroupNatsOptions.verify|verify} messages.
+             * Encodes the specified TunnelGroupNatsOptions message, length delimited. Does not implicitly {@link protos.opts.TunnelGroupNatsOptions.verify|verify} messages.
              * @function encodeDelimited
-             * @memberof protos.opts.DynamicGroupNatsOptions
+             * @memberof protos.opts.TunnelGroupNatsOptions
              * @static
-             * @param {protos.opts.IDynamicGroupNatsOptions} message DynamicGroupNatsOptions message or plain object to encode
+             * @param {protos.opts.ITunnelGroupNatsOptions} message TunnelGroupNatsOptions message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
-            DynamicGroupNatsOptions.encodeDelimited = function encodeDelimited(message, writer) {
+            TunnelGroupNatsOptions.encodeDelimited = function encodeDelimited(message, writer) {
                 return this.encode(message, writer).ldelim();
             };
 
             /**
-             * Decodes a DynamicGroupNatsOptions message from the specified reader or buffer.
+             * Decodes a TunnelGroupNatsOptions message from the specified reader or buffer.
              * @function decode
-             * @memberof protos.opts.DynamicGroupNatsOptions
+             * @memberof protos.opts.TunnelGroupNatsOptions
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {protos.opts.DynamicGroupNatsOptions} DynamicGroupNatsOptions
+             * @returns {protos.opts.TunnelGroupNatsOptions} TunnelGroupNatsOptions
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            DynamicGroupNatsOptions.decode = function decode(reader, length) {
+            TunnelGroupNatsOptions.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.DynamicGroupNatsOptions();
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.TunnelGroupNatsOptions();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
                     switch (tag >>> 3) {
@@ -7135,30 +7135,30 @@ $root.protos = (function() {
             };
 
             /**
-             * Decodes a DynamicGroupNatsOptions message from the specified reader or buffer, length delimited.
+             * Decodes a TunnelGroupNatsOptions message from the specified reader or buffer, length delimited.
              * @function decodeDelimited
-             * @memberof protos.opts.DynamicGroupNatsOptions
+             * @memberof protos.opts.TunnelGroupNatsOptions
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {protos.opts.DynamicGroupNatsOptions} DynamicGroupNatsOptions
+             * @returns {protos.opts.TunnelGroupNatsOptions} TunnelGroupNatsOptions
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            DynamicGroupNatsOptions.decodeDelimited = function decodeDelimited(reader) {
+            TunnelGroupNatsOptions.decodeDelimited = function decodeDelimited(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
                 return this.decode(reader, reader.uint32());
             };
 
             /**
-             * Verifies a DynamicGroupNatsOptions message.
+             * Verifies a TunnelGroupNatsOptions message.
              * @function verify
-             * @memberof protos.opts.DynamicGroupNatsOptions
+             * @memberof protos.opts.TunnelGroupNatsOptions
              * @static
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            DynamicGroupNatsOptions.verify = function verify(message) {
+            TunnelGroupNatsOptions.verify = function verify(message) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
                 if (message._conn != null && message.hasOwnProperty("_conn")) {
@@ -7175,40 +7175,40 @@ $root.protos = (function() {
             };
 
             /**
-             * Creates a DynamicGroupNatsOptions message from a plain object. Also converts values to their respective internal types.
+             * Creates a TunnelGroupNatsOptions message from a plain object. Also converts values to their respective internal types.
              * @function fromObject
-             * @memberof protos.opts.DynamicGroupNatsOptions
+             * @memberof protos.opts.TunnelGroupNatsOptions
              * @static
              * @param {Object.<string,*>} object Plain object
-             * @returns {protos.opts.DynamicGroupNatsOptions} DynamicGroupNatsOptions
+             * @returns {protos.opts.TunnelGroupNatsOptions} TunnelGroupNatsOptions
              */
-            DynamicGroupNatsOptions.fromObject = function fromObject(object) {
-                if (object instanceof $root.protos.opts.DynamicGroupNatsOptions)
+            TunnelGroupNatsOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.TunnelGroupNatsOptions)
                     return object;
-                var message = new $root.protos.opts.DynamicGroupNatsOptions();
+                var message = new $root.protos.opts.TunnelGroupNatsOptions();
                 if (object._conn != null) {
                     if (typeof object._conn !== "object")
-                        throw TypeError(".protos.opts.DynamicGroupNatsOptions._conn: object expected");
+                        throw TypeError(".protos.opts.TunnelGroupNatsOptions._conn: object expected");
                     message._conn = $root.protos.args.NatsConn.fromObject(object._conn);
                 }
                 if (object.args != null) {
                     if (typeof object.args !== "object")
-                        throw TypeError(".protos.opts.DynamicGroupNatsOptions.args: object expected");
+                        throw TypeError(".protos.opts.TunnelGroupNatsOptions.args: object expected");
                     message.args = $root.protos.args.NatsWriteArgs.fromObject(object.args);
                 }
                 return message;
             };
 
             /**
-             * Creates a plain object from a DynamicGroupNatsOptions message. Also converts values to other types if specified.
+             * Creates a plain object from a TunnelGroupNatsOptions message. Also converts values to other types if specified.
              * @function toObject
-             * @memberof protos.opts.DynamicGroupNatsOptions
+             * @memberof protos.opts.TunnelGroupNatsOptions
              * @static
-             * @param {protos.opts.DynamicGroupNatsOptions} message DynamicGroupNatsOptions
+             * @param {protos.opts.TunnelGroupNatsOptions} message TunnelGroupNatsOptions
              * @param {$protobuf.IConversionOptions} [options] Conversion options
              * @returns {Object.<string,*>} Plain object
              */
-            DynamicGroupNatsOptions.toObject = function toObject(message, options) {
+            TunnelGroupNatsOptions.toObject = function toObject(message, options) {
                 if (!options)
                     options = {};
                 var object = {};
@@ -7224,38 +7224,38 @@ $root.protos = (function() {
             };
 
             /**
-             * Converts this DynamicGroupNatsOptions to JSON.
+             * Converts this TunnelGroupNatsOptions to JSON.
              * @function toJSON
-             * @memberof protos.opts.DynamicGroupNatsOptions
+             * @memberof protos.opts.TunnelGroupNatsOptions
              * @instance
              * @returns {Object.<string,*>} JSON object
              */
-            DynamicGroupNatsOptions.prototype.toJSON = function toJSON() {
+            TunnelGroupNatsOptions.prototype.toJSON = function toJSON() {
                 return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
             };
 
-            return DynamicGroupNatsOptions;
+            return TunnelGroupNatsOptions;
         })();
 
-        opts.DynamicGroupNatsJetstreamOptions = (function() {
+        opts.TunnelGroupNatsJetstreamOptions = (function() {
 
             /**
-             * Properties of a DynamicGroupNatsJetstreamOptions.
+             * Properties of a TunnelGroupNatsJetstreamOptions.
              * @memberof protos.opts
-             * @interface IDynamicGroupNatsJetstreamOptions
-             * @property {protos.args.INatsJetstreamConn|null} [_conn] DynamicGroupNatsJetstreamOptions _conn
-             * @property {protos.args.INatsJetstreamWriteArgs|null} [args] DynamicGroupNatsJetstreamOptions args
+             * @interface ITunnelGroupNatsJetstreamOptions
+             * @property {protos.args.INatsJetstreamConn|null} [_conn] TunnelGroupNatsJetstreamOptions _conn
+             * @property {protos.args.INatsJetstreamWriteArgs|null} [args] TunnelGroupNatsJetstreamOptions args
              */
 
             /**
-             * Constructs a new DynamicGroupNatsJetstreamOptions.
+             * Constructs a new TunnelGroupNatsJetstreamOptions.
              * @memberof protos.opts
-             * @classdesc Represents a DynamicGroupNatsJetstreamOptions.
-             * @implements IDynamicGroupNatsJetstreamOptions
+             * @classdesc Represents a TunnelGroupNatsJetstreamOptions.
+             * @implements ITunnelGroupNatsJetstreamOptions
              * @constructor
-             * @param {protos.opts.IDynamicGroupNatsJetstreamOptions=} [properties] Properties to set
+             * @param {protos.opts.ITunnelGroupNatsJetstreamOptions=} [properties] Properties to set
              */
-            function DynamicGroupNatsJetstreamOptions(properties) {
+            function TunnelGroupNatsJetstreamOptions(properties) {
                 if (properties)
                     for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                         if (properties[keys[i]] != null)
@@ -7263,43 +7263,43 @@ $root.protos = (function() {
             }
 
             /**
-             * DynamicGroupNatsJetstreamOptions _conn.
+             * TunnelGroupNatsJetstreamOptions _conn.
              * @member {protos.args.INatsJetstreamConn|null|undefined} _conn
-             * @memberof protos.opts.DynamicGroupNatsJetstreamOptions
+             * @memberof protos.opts.TunnelGroupNatsJetstreamOptions
              * @instance
              */
-            DynamicGroupNatsJetstreamOptions.prototype._conn = null;
+            TunnelGroupNatsJetstreamOptions.prototype._conn = null;
 
             /**
-             * DynamicGroupNatsJetstreamOptions args.
+             * TunnelGroupNatsJetstreamOptions args.
              * @member {protos.args.INatsJetstreamWriteArgs|null|undefined} args
-             * @memberof protos.opts.DynamicGroupNatsJetstreamOptions
+             * @memberof protos.opts.TunnelGroupNatsJetstreamOptions
              * @instance
              */
-            DynamicGroupNatsJetstreamOptions.prototype.args = null;
+            TunnelGroupNatsJetstreamOptions.prototype.args = null;
 
             /**
-             * Creates a new DynamicGroupNatsJetstreamOptions instance using the specified properties.
+             * Creates a new TunnelGroupNatsJetstreamOptions instance using the specified properties.
              * @function create
-             * @memberof protos.opts.DynamicGroupNatsJetstreamOptions
+             * @memberof protos.opts.TunnelGroupNatsJetstreamOptions
              * @static
-             * @param {protos.opts.IDynamicGroupNatsJetstreamOptions=} [properties] Properties to set
-             * @returns {protos.opts.DynamicGroupNatsJetstreamOptions} DynamicGroupNatsJetstreamOptions instance
+             * @param {protos.opts.ITunnelGroupNatsJetstreamOptions=} [properties] Properties to set
+             * @returns {protos.opts.TunnelGroupNatsJetstreamOptions} TunnelGroupNatsJetstreamOptions instance
              */
-            DynamicGroupNatsJetstreamOptions.create = function create(properties) {
-                return new DynamicGroupNatsJetstreamOptions(properties);
+            TunnelGroupNatsJetstreamOptions.create = function create(properties) {
+                return new TunnelGroupNatsJetstreamOptions(properties);
             };
 
             /**
-             * Encodes the specified DynamicGroupNatsJetstreamOptions message. Does not implicitly {@link protos.opts.DynamicGroupNatsJetstreamOptions.verify|verify} messages.
+             * Encodes the specified TunnelGroupNatsJetstreamOptions message. Does not implicitly {@link protos.opts.TunnelGroupNatsJetstreamOptions.verify|verify} messages.
              * @function encode
-             * @memberof protos.opts.DynamicGroupNatsJetstreamOptions
+             * @memberof protos.opts.TunnelGroupNatsJetstreamOptions
              * @static
-             * @param {protos.opts.IDynamicGroupNatsJetstreamOptions} message DynamicGroupNatsJetstreamOptions message or plain object to encode
+             * @param {protos.opts.ITunnelGroupNatsJetstreamOptions} message TunnelGroupNatsJetstreamOptions message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
-            DynamicGroupNatsJetstreamOptions.encode = function encode(message, writer) {
+            TunnelGroupNatsJetstreamOptions.encode = function encode(message, writer) {
                 if (!writer)
                     writer = $Writer.create();
                 if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
@@ -7310,33 +7310,33 @@ $root.protos = (function() {
             };
 
             /**
-             * Encodes the specified DynamicGroupNatsJetstreamOptions message, length delimited. Does not implicitly {@link protos.opts.DynamicGroupNatsJetstreamOptions.verify|verify} messages.
+             * Encodes the specified TunnelGroupNatsJetstreamOptions message, length delimited. Does not implicitly {@link protos.opts.TunnelGroupNatsJetstreamOptions.verify|verify} messages.
              * @function encodeDelimited
-             * @memberof protos.opts.DynamicGroupNatsJetstreamOptions
+             * @memberof protos.opts.TunnelGroupNatsJetstreamOptions
              * @static
-             * @param {protos.opts.IDynamicGroupNatsJetstreamOptions} message DynamicGroupNatsJetstreamOptions message or plain object to encode
+             * @param {protos.opts.ITunnelGroupNatsJetstreamOptions} message TunnelGroupNatsJetstreamOptions message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
-            DynamicGroupNatsJetstreamOptions.encodeDelimited = function encodeDelimited(message, writer) {
+            TunnelGroupNatsJetstreamOptions.encodeDelimited = function encodeDelimited(message, writer) {
                 return this.encode(message, writer).ldelim();
             };
 
             /**
-             * Decodes a DynamicGroupNatsJetstreamOptions message from the specified reader or buffer.
+             * Decodes a TunnelGroupNatsJetstreamOptions message from the specified reader or buffer.
              * @function decode
-             * @memberof protos.opts.DynamicGroupNatsJetstreamOptions
+             * @memberof protos.opts.TunnelGroupNatsJetstreamOptions
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {protos.opts.DynamicGroupNatsJetstreamOptions} DynamicGroupNatsJetstreamOptions
+             * @returns {protos.opts.TunnelGroupNatsJetstreamOptions} TunnelGroupNatsJetstreamOptions
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            DynamicGroupNatsJetstreamOptions.decode = function decode(reader, length) {
+            TunnelGroupNatsJetstreamOptions.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.DynamicGroupNatsJetstreamOptions();
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.TunnelGroupNatsJetstreamOptions();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
                     switch (tag >>> 3) {
@@ -7355,30 +7355,30 @@ $root.protos = (function() {
             };
 
             /**
-             * Decodes a DynamicGroupNatsJetstreamOptions message from the specified reader or buffer, length delimited.
+             * Decodes a TunnelGroupNatsJetstreamOptions message from the specified reader or buffer, length delimited.
              * @function decodeDelimited
-             * @memberof protos.opts.DynamicGroupNatsJetstreamOptions
+             * @memberof protos.opts.TunnelGroupNatsJetstreamOptions
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {protos.opts.DynamicGroupNatsJetstreamOptions} DynamicGroupNatsJetstreamOptions
+             * @returns {protos.opts.TunnelGroupNatsJetstreamOptions} TunnelGroupNatsJetstreamOptions
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            DynamicGroupNatsJetstreamOptions.decodeDelimited = function decodeDelimited(reader) {
+            TunnelGroupNatsJetstreamOptions.decodeDelimited = function decodeDelimited(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
                 return this.decode(reader, reader.uint32());
             };
 
             /**
-             * Verifies a DynamicGroupNatsJetstreamOptions message.
+             * Verifies a TunnelGroupNatsJetstreamOptions message.
              * @function verify
-             * @memberof protos.opts.DynamicGroupNatsJetstreamOptions
+             * @memberof protos.opts.TunnelGroupNatsJetstreamOptions
              * @static
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            DynamicGroupNatsJetstreamOptions.verify = function verify(message) {
+            TunnelGroupNatsJetstreamOptions.verify = function verify(message) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
                 if (message._conn != null && message.hasOwnProperty("_conn")) {
@@ -7395,40 +7395,40 @@ $root.protos = (function() {
             };
 
             /**
-             * Creates a DynamicGroupNatsJetstreamOptions message from a plain object. Also converts values to their respective internal types.
+             * Creates a TunnelGroupNatsJetstreamOptions message from a plain object. Also converts values to their respective internal types.
              * @function fromObject
-             * @memberof protos.opts.DynamicGroupNatsJetstreamOptions
+             * @memberof protos.opts.TunnelGroupNatsJetstreamOptions
              * @static
              * @param {Object.<string,*>} object Plain object
-             * @returns {protos.opts.DynamicGroupNatsJetstreamOptions} DynamicGroupNatsJetstreamOptions
+             * @returns {protos.opts.TunnelGroupNatsJetstreamOptions} TunnelGroupNatsJetstreamOptions
              */
-            DynamicGroupNatsJetstreamOptions.fromObject = function fromObject(object) {
-                if (object instanceof $root.protos.opts.DynamicGroupNatsJetstreamOptions)
+            TunnelGroupNatsJetstreamOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.TunnelGroupNatsJetstreamOptions)
                     return object;
-                var message = new $root.protos.opts.DynamicGroupNatsJetstreamOptions();
+                var message = new $root.protos.opts.TunnelGroupNatsJetstreamOptions();
                 if (object._conn != null) {
                     if (typeof object._conn !== "object")
-                        throw TypeError(".protos.opts.DynamicGroupNatsJetstreamOptions._conn: object expected");
+                        throw TypeError(".protos.opts.TunnelGroupNatsJetstreamOptions._conn: object expected");
                     message._conn = $root.protos.args.NatsJetstreamConn.fromObject(object._conn);
                 }
                 if (object.args != null) {
                     if (typeof object.args !== "object")
-                        throw TypeError(".protos.opts.DynamicGroupNatsJetstreamOptions.args: object expected");
+                        throw TypeError(".protos.opts.TunnelGroupNatsJetstreamOptions.args: object expected");
                     message.args = $root.protos.args.NatsJetstreamWriteArgs.fromObject(object.args);
                 }
                 return message;
             };
 
             /**
-             * Creates a plain object from a DynamicGroupNatsJetstreamOptions message. Also converts values to other types if specified.
+             * Creates a plain object from a TunnelGroupNatsJetstreamOptions message. Also converts values to other types if specified.
              * @function toObject
-             * @memberof protos.opts.DynamicGroupNatsJetstreamOptions
+             * @memberof protos.opts.TunnelGroupNatsJetstreamOptions
              * @static
-             * @param {protos.opts.DynamicGroupNatsJetstreamOptions} message DynamicGroupNatsJetstreamOptions
+             * @param {protos.opts.TunnelGroupNatsJetstreamOptions} message TunnelGroupNatsJetstreamOptions
              * @param {$protobuf.IConversionOptions} [options] Conversion options
              * @returns {Object.<string,*>} Plain object
              */
-            DynamicGroupNatsJetstreamOptions.toObject = function toObject(message, options) {
+            TunnelGroupNatsJetstreamOptions.toObject = function toObject(message, options) {
                 if (!options)
                     options = {};
                 var object = {};
@@ -7444,38 +7444,38 @@ $root.protos = (function() {
             };
 
             /**
-             * Converts this DynamicGroupNatsJetstreamOptions to JSON.
+             * Converts this TunnelGroupNatsJetstreamOptions to JSON.
              * @function toJSON
-             * @memberof protos.opts.DynamicGroupNatsJetstreamOptions
+             * @memberof protos.opts.TunnelGroupNatsJetstreamOptions
              * @instance
              * @returns {Object.<string,*>} JSON object
              */
-            DynamicGroupNatsJetstreamOptions.prototype.toJSON = function toJSON() {
+            TunnelGroupNatsJetstreamOptions.prototype.toJSON = function toJSON() {
                 return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
             };
 
-            return DynamicGroupNatsJetstreamOptions;
+            return TunnelGroupNatsJetstreamOptions;
         })();
 
-        opts.DynamicGroupNatsStreamingOptions = (function() {
+        opts.TunnelGroupNatsStreamingOptions = (function() {
 
             /**
-             * Properties of a DynamicGroupNatsStreamingOptions.
+             * Properties of a TunnelGroupNatsStreamingOptions.
              * @memberof protos.opts
-             * @interface IDynamicGroupNatsStreamingOptions
-             * @property {protos.args.INatsStreamingConn|null} [_conn] DynamicGroupNatsStreamingOptions _conn
-             * @property {protos.args.INatsStreamingWriteArgs|null} [args] DynamicGroupNatsStreamingOptions args
+             * @interface ITunnelGroupNatsStreamingOptions
+             * @property {protos.args.INatsStreamingConn|null} [_conn] TunnelGroupNatsStreamingOptions _conn
+             * @property {protos.args.INatsStreamingWriteArgs|null} [args] TunnelGroupNatsStreamingOptions args
              */
 
             /**
-             * Constructs a new DynamicGroupNatsStreamingOptions.
+             * Constructs a new TunnelGroupNatsStreamingOptions.
              * @memberof protos.opts
-             * @classdesc Represents a DynamicGroupNatsStreamingOptions.
-             * @implements IDynamicGroupNatsStreamingOptions
+             * @classdesc Represents a TunnelGroupNatsStreamingOptions.
+             * @implements ITunnelGroupNatsStreamingOptions
              * @constructor
-             * @param {protos.opts.IDynamicGroupNatsStreamingOptions=} [properties] Properties to set
+             * @param {protos.opts.ITunnelGroupNatsStreamingOptions=} [properties] Properties to set
              */
-            function DynamicGroupNatsStreamingOptions(properties) {
+            function TunnelGroupNatsStreamingOptions(properties) {
                 if (properties)
                     for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                         if (properties[keys[i]] != null)
@@ -7483,43 +7483,43 @@ $root.protos = (function() {
             }
 
             /**
-             * DynamicGroupNatsStreamingOptions _conn.
+             * TunnelGroupNatsStreamingOptions _conn.
              * @member {protos.args.INatsStreamingConn|null|undefined} _conn
-             * @memberof protos.opts.DynamicGroupNatsStreamingOptions
+             * @memberof protos.opts.TunnelGroupNatsStreamingOptions
              * @instance
              */
-            DynamicGroupNatsStreamingOptions.prototype._conn = null;
+            TunnelGroupNatsStreamingOptions.prototype._conn = null;
 
             /**
-             * DynamicGroupNatsStreamingOptions args.
+             * TunnelGroupNatsStreamingOptions args.
              * @member {protos.args.INatsStreamingWriteArgs|null|undefined} args
-             * @memberof protos.opts.DynamicGroupNatsStreamingOptions
+             * @memberof protos.opts.TunnelGroupNatsStreamingOptions
              * @instance
              */
-            DynamicGroupNatsStreamingOptions.prototype.args = null;
+            TunnelGroupNatsStreamingOptions.prototype.args = null;
 
             /**
-             * Creates a new DynamicGroupNatsStreamingOptions instance using the specified properties.
+             * Creates a new TunnelGroupNatsStreamingOptions instance using the specified properties.
              * @function create
-             * @memberof protos.opts.DynamicGroupNatsStreamingOptions
+             * @memberof protos.opts.TunnelGroupNatsStreamingOptions
              * @static
-             * @param {protos.opts.IDynamicGroupNatsStreamingOptions=} [properties] Properties to set
-             * @returns {protos.opts.DynamicGroupNatsStreamingOptions} DynamicGroupNatsStreamingOptions instance
+             * @param {protos.opts.ITunnelGroupNatsStreamingOptions=} [properties] Properties to set
+             * @returns {protos.opts.TunnelGroupNatsStreamingOptions} TunnelGroupNatsStreamingOptions instance
              */
-            DynamicGroupNatsStreamingOptions.create = function create(properties) {
-                return new DynamicGroupNatsStreamingOptions(properties);
+            TunnelGroupNatsStreamingOptions.create = function create(properties) {
+                return new TunnelGroupNatsStreamingOptions(properties);
             };
 
             /**
-             * Encodes the specified DynamicGroupNatsStreamingOptions message. Does not implicitly {@link protos.opts.DynamicGroupNatsStreamingOptions.verify|verify} messages.
+             * Encodes the specified TunnelGroupNatsStreamingOptions message. Does not implicitly {@link protos.opts.TunnelGroupNatsStreamingOptions.verify|verify} messages.
              * @function encode
-             * @memberof protos.opts.DynamicGroupNatsStreamingOptions
+             * @memberof protos.opts.TunnelGroupNatsStreamingOptions
              * @static
-             * @param {protos.opts.IDynamicGroupNatsStreamingOptions} message DynamicGroupNatsStreamingOptions message or plain object to encode
+             * @param {protos.opts.ITunnelGroupNatsStreamingOptions} message TunnelGroupNatsStreamingOptions message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
-            DynamicGroupNatsStreamingOptions.encode = function encode(message, writer) {
+            TunnelGroupNatsStreamingOptions.encode = function encode(message, writer) {
                 if (!writer)
                     writer = $Writer.create();
                 if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
@@ -7530,33 +7530,33 @@ $root.protos = (function() {
             };
 
             /**
-             * Encodes the specified DynamicGroupNatsStreamingOptions message, length delimited. Does not implicitly {@link protos.opts.DynamicGroupNatsStreamingOptions.verify|verify} messages.
+             * Encodes the specified TunnelGroupNatsStreamingOptions message, length delimited. Does not implicitly {@link protos.opts.TunnelGroupNatsStreamingOptions.verify|verify} messages.
              * @function encodeDelimited
-             * @memberof protos.opts.DynamicGroupNatsStreamingOptions
+             * @memberof protos.opts.TunnelGroupNatsStreamingOptions
              * @static
-             * @param {protos.opts.IDynamicGroupNatsStreamingOptions} message DynamicGroupNatsStreamingOptions message or plain object to encode
+             * @param {protos.opts.ITunnelGroupNatsStreamingOptions} message TunnelGroupNatsStreamingOptions message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
-            DynamicGroupNatsStreamingOptions.encodeDelimited = function encodeDelimited(message, writer) {
+            TunnelGroupNatsStreamingOptions.encodeDelimited = function encodeDelimited(message, writer) {
                 return this.encode(message, writer).ldelim();
             };
 
             /**
-             * Decodes a DynamicGroupNatsStreamingOptions message from the specified reader or buffer.
+             * Decodes a TunnelGroupNatsStreamingOptions message from the specified reader or buffer.
              * @function decode
-             * @memberof protos.opts.DynamicGroupNatsStreamingOptions
+             * @memberof protos.opts.TunnelGroupNatsStreamingOptions
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {protos.opts.DynamicGroupNatsStreamingOptions} DynamicGroupNatsStreamingOptions
+             * @returns {protos.opts.TunnelGroupNatsStreamingOptions} TunnelGroupNatsStreamingOptions
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            DynamicGroupNatsStreamingOptions.decode = function decode(reader, length) {
+            TunnelGroupNatsStreamingOptions.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.DynamicGroupNatsStreamingOptions();
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.TunnelGroupNatsStreamingOptions();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
                     switch (tag >>> 3) {
@@ -7575,30 +7575,30 @@ $root.protos = (function() {
             };
 
             /**
-             * Decodes a DynamicGroupNatsStreamingOptions message from the specified reader or buffer, length delimited.
+             * Decodes a TunnelGroupNatsStreamingOptions message from the specified reader or buffer, length delimited.
              * @function decodeDelimited
-             * @memberof protos.opts.DynamicGroupNatsStreamingOptions
+             * @memberof protos.opts.TunnelGroupNatsStreamingOptions
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {protos.opts.DynamicGroupNatsStreamingOptions} DynamicGroupNatsStreamingOptions
+             * @returns {protos.opts.TunnelGroupNatsStreamingOptions} TunnelGroupNatsStreamingOptions
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            DynamicGroupNatsStreamingOptions.decodeDelimited = function decodeDelimited(reader) {
+            TunnelGroupNatsStreamingOptions.decodeDelimited = function decodeDelimited(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
                 return this.decode(reader, reader.uint32());
             };
 
             /**
-             * Verifies a DynamicGroupNatsStreamingOptions message.
+             * Verifies a TunnelGroupNatsStreamingOptions message.
              * @function verify
-             * @memberof protos.opts.DynamicGroupNatsStreamingOptions
+             * @memberof protos.opts.TunnelGroupNatsStreamingOptions
              * @static
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            DynamicGroupNatsStreamingOptions.verify = function verify(message) {
+            TunnelGroupNatsStreamingOptions.verify = function verify(message) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
                 if (message._conn != null && message.hasOwnProperty("_conn")) {
@@ -7615,40 +7615,40 @@ $root.protos = (function() {
             };
 
             /**
-             * Creates a DynamicGroupNatsStreamingOptions message from a plain object. Also converts values to their respective internal types.
+             * Creates a TunnelGroupNatsStreamingOptions message from a plain object. Also converts values to their respective internal types.
              * @function fromObject
-             * @memberof protos.opts.DynamicGroupNatsStreamingOptions
+             * @memberof protos.opts.TunnelGroupNatsStreamingOptions
              * @static
              * @param {Object.<string,*>} object Plain object
-             * @returns {protos.opts.DynamicGroupNatsStreamingOptions} DynamicGroupNatsStreamingOptions
+             * @returns {protos.opts.TunnelGroupNatsStreamingOptions} TunnelGroupNatsStreamingOptions
              */
-            DynamicGroupNatsStreamingOptions.fromObject = function fromObject(object) {
-                if (object instanceof $root.protos.opts.DynamicGroupNatsStreamingOptions)
+            TunnelGroupNatsStreamingOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.TunnelGroupNatsStreamingOptions)
                     return object;
-                var message = new $root.protos.opts.DynamicGroupNatsStreamingOptions();
+                var message = new $root.protos.opts.TunnelGroupNatsStreamingOptions();
                 if (object._conn != null) {
                     if (typeof object._conn !== "object")
-                        throw TypeError(".protos.opts.DynamicGroupNatsStreamingOptions._conn: object expected");
+                        throw TypeError(".protos.opts.TunnelGroupNatsStreamingOptions._conn: object expected");
                     message._conn = $root.protos.args.NatsStreamingConn.fromObject(object._conn);
                 }
                 if (object.args != null) {
                     if (typeof object.args !== "object")
-                        throw TypeError(".protos.opts.DynamicGroupNatsStreamingOptions.args: object expected");
+                        throw TypeError(".protos.opts.TunnelGroupNatsStreamingOptions.args: object expected");
                     message.args = $root.protos.args.NatsStreamingWriteArgs.fromObject(object.args);
                 }
                 return message;
             };
 
             /**
-             * Creates a plain object from a DynamicGroupNatsStreamingOptions message. Also converts values to other types if specified.
+             * Creates a plain object from a TunnelGroupNatsStreamingOptions message. Also converts values to other types if specified.
              * @function toObject
-             * @memberof protos.opts.DynamicGroupNatsStreamingOptions
+             * @memberof protos.opts.TunnelGroupNatsStreamingOptions
              * @static
-             * @param {protos.opts.DynamicGroupNatsStreamingOptions} message DynamicGroupNatsStreamingOptions
+             * @param {protos.opts.TunnelGroupNatsStreamingOptions} message TunnelGroupNatsStreamingOptions
              * @param {$protobuf.IConversionOptions} [options] Conversion options
              * @returns {Object.<string,*>} Plain object
              */
-            DynamicGroupNatsStreamingOptions.toObject = function toObject(message, options) {
+            TunnelGroupNatsStreamingOptions.toObject = function toObject(message, options) {
                 if (!options)
                     options = {};
                 var object = {};
@@ -7664,38 +7664,38 @@ $root.protos = (function() {
             };
 
             /**
-             * Converts this DynamicGroupNatsStreamingOptions to JSON.
+             * Converts this TunnelGroupNatsStreamingOptions to JSON.
              * @function toJSON
-             * @memberof protos.opts.DynamicGroupNatsStreamingOptions
+             * @memberof protos.opts.TunnelGroupNatsStreamingOptions
              * @instance
              * @returns {Object.<string,*>} JSON object
              */
-            DynamicGroupNatsStreamingOptions.prototype.toJSON = function toJSON() {
+            TunnelGroupNatsStreamingOptions.prototype.toJSON = function toJSON() {
                 return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
             };
 
-            return DynamicGroupNatsStreamingOptions;
+            return TunnelGroupNatsStreamingOptions;
         })();
 
-        opts.DynamicGroupNSQOptions = (function() {
+        opts.TunnelGroupNSQOptions = (function() {
 
             /**
-             * Properties of a DynamicGroupNSQOptions.
+             * Properties of a TunnelGroupNSQOptions.
              * @memberof protos.opts
-             * @interface IDynamicGroupNSQOptions
-             * @property {protos.args.INSQConn|null} [_conn] DynamicGroupNSQOptions _conn
-             * @property {protos.args.INSQWriteArgs|null} [args] DynamicGroupNSQOptions args
+             * @interface ITunnelGroupNSQOptions
+             * @property {protos.args.INSQConn|null} [_conn] TunnelGroupNSQOptions _conn
+             * @property {protos.args.INSQWriteArgs|null} [args] TunnelGroupNSQOptions args
              */
 
             /**
-             * Constructs a new DynamicGroupNSQOptions.
+             * Constructs a new TunnelGroupNSQOptions.
              * @memberof protos.opts
-             * @classdesc Represents a DynamicGroupNSQOptions.
-             * @implements IDynamicGroupNSQOptions
+             * @classdesc Represents a TunnelGroupNSQOptions.
+             * @implements ITunnelGroupNSQOptions
              * @constructor
-             * @param {protos.opts.IDynamicGroupNSQOptions=} [properties] Properties to set
+             * @param {protos.opts.ITunnelGroupNSQOptions=} [properties] Properties to set
              */
-            function DynamicGroupNSQOptions(properties) {
+            function TunnelGroupNSQOptions(properties) {
                 if (properties)
                     for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                         if (properties[keys[i]] != null)
@@ -7703,43 +7703,43 @@ $root.protos = (function() {
             }
 
             /**
-             * DynamicGroupNSQOptions _conn.
+             * TunnelGroupNSQOptions _conn.
              * @member {protos.args.INSQConn|null|undefined} _conn
-             * @memberof protos.opts.DynamicGroupNSQOptions
+             * @memberof protos.opts.TunnelGroupNSQOptions
              * @instance
              */
-            DynamicGroupNSQOptions.prototype._conn = null;
+            TunnelGroupNSQOptions.prototype._conn = null;
 
             /**
-             * DynamicGroupNSQOptions args.
+             * TunnelGroupNSQOptions args.
              * @member {protos.args.INSQWriteArgs|null|undefined} args
-             * @memberof protos.opts.DynamicGroupNSQOptions
+             * @memberof protos.opts.TunnelGroupNSQOptions
              * @instance
              */
-            DynamicGroupNSQOptions.prototype.args = null;
+            TunnelGroupNSQOptions.prototype.args = null;
 
             /**
-             * Creates a new DynamicGroupNSQOptions instance using the specified properties.
+             * Creates a new TunnelGroupNSQOptions instance using the specified properties.
              * @function create
-             * @memberof protos.opts.DynamicGroupNSQOptions
+             * @memberof protos.opts.TunnelGroupNSQOptions
              * @static
-             * @param {protos.opts.IDynamicGroupNSQOptions=} [properties] Properties to set
-             * @returns {protos.opts.DynamicGroupNSQOptions} DynamicGroupNSQOptions instance
+             * @param {protos.opts.ITunnelGroupNSQOptions=} [properties] Properties to set
+             * @returns {protos.opts.TunnelGroupNSQOptions} TunnelGroupNSQOptions instance
              */
-            DynamicGroupNSQOptions.create = function create(properties) {
-                return new DynamicGroupNSQOptions(properties);
+            TunnelGroupNSQOptions.create = function create(properties) {
+                return new TunnelGroupNSQOptions(properties);
             };
 
             /**
-             * Encodes the specified DynamicGroupNSQOptions message. Does not implicitly {@link protos.opts.DynamicGroupNSQOptions.verify|verify} messages.
+             * Encodes the specified TunnelGroupNSQOptions message. Does not implicitly {@link protos.opts.TunnelGroupNSQOptions.verify|verify} messages.
              * @function encode
-             * @memberof protos.opts.DynamicGroupNSQOptions
+             * @memberof protos.opts.TunnelGroupNSQOptions
              * @static
-             * @param {protos.opts.IDynamicGroupNSQOptions} message DynamicGroupNSQOptions message or plain object to encode
+             * @param {protos.opts.ITunnelGroupNSQOptions} message TunnelGroupNSQOptions message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
-            DynamicGroupNSQOptions.encode = function encode(message, writer) {
+            TunnelGroupNSQOptions.encode = function encode(message, writer) {
                 if (!writer)
                     writer = $Writer.create();
                 if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
@@ -7750,33 +7750,33 @@ $root.protos = (function() {
             };
 
             /**
-             * Encodes the specified DynamicGroupNSQOptions message, length delimited. Does not implicitly {@link protos.opts.DynamicGroupNSQOptions.verify|verify} messages.
+             * Encodes the specified TunnelGroupNSQOptions message, length delimited. Does not implicitly {@link protos.opts.TunnelGroupNSQOptions.verify|verify} messages.
              * @function encodeDelimited
-             * @memberof protos.opts.DynamicGroupNSQOptions
+             * @memberof protos.opts.TunnelGroupNSQOptions
              * @static
-             * @param {protos.opts.IDynamicGroupNSQOptions} message DynamicGroupNSQOptions message or plain object to encode
+             * @param {protos.opts.ITunnelGroupNSQOptions} message TunnelGroupNSQOptions message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
-            DynamicGroupNSQOptions.encodeDelimited = function encodeDelimited(message, writer) {
+            TunnelGroupNSQOptions.encodeDelimited = function encodeDelimited(message, writer) {
                 return this.encode(message, writer).ldelim();
             };
 
             /**
-             * Decodes a DynamicGroupNSQOptions message from the specified reader or buffer.
+             * Decodes a TunnelGroupNSQOptions message from the specified reader or buffer.
              * @function decode
-             * @memberof protos.opts.DynamicGroupNSQOptions
+             * @memberof protos.opts.TunnelGroupNSQOptions
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {protos.opts.DynamicGroupNSQOptions} DynamicGroupNSQOptions
+             * @returns {protos.opts.TunnelGroupNSQOptions} TunnelGroupNSQOptions
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            DynamicGroupNSQOptions.decode = function decode(reader, length) {
+            TunnelGroupNSQOptions.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.DynamicGroupNSQOptions();
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.TunnelGroupNSQOptions();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
                     switch (tag >>> 3) {
@@ -7795,30 +7795,30 @@ $root.protos = (function() {
             };
 
             /**
-             * Decodes a DynamicGroupNSQOptions message from the specified reader or buffer, length delimited.
+             * Decodes a TunnelGroupNSQOptions message from the specified reader or buffer, length delimited.
              * @function decodeDelimited
-             * @memberof protos.opts.DynamicGroupNSQOptions
+             * @memberof protos.opts.TunnelGroupNSQOptions
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {protos.opts.DynamicGroupNSQOptions} DynamicGroupNSQOptions
+             * @returns {protos.opts.TunnelGroupNSQOptions} TunnelGroupNSQOptions
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            DynamicGroupNSQOptions.decodeDelimited = function decodeDelimited(reader) {
+            TunnelGroupNSQOptions.decodeDelimited = function decodeDelimited(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
                 return this.decode(reader, reader.uint32());
             };
 
             /**
-             * Verifies a DynamicGroupNSQOptions message.
+             * Verifies a TunnelGroupNSQOptions message.
              * @function verify
-             * @memberof protos.opts.DynamicGroupNSQOptions
+             * @memberof protos.opts.TunnelGroupNSQOptions
              * @static
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            DynamicGroupNSQOptions.verify = function verify(message) {
+            TunnelGroupNSQOptions.verify = function verify(message) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
                 if (message._conn != null && message.hasOwnProperty("_conn")) {
@@ -7835,40 +7835,40 @@ $root.protos = (function() {
             };
 
             /**
-             * Creates a DynamicGroupNSQOptions message from a plain object. Also converts values to their respective internal types.
+             * Creates a TunnelGroupNSQOptions message from a plain object. Also converts values to their respective internal types.
              * @function fromObject
-             * @memberof protos.opts.DynamicGroupNSQOptions
+             * @memberof protos.opts.TunnelGroupNSQOptions
              * @static
              * @param {Object.<string,*>} object Plain object
-             * @returns {protos.opts.DynamicGroupNSQOptions} DynamicGroupNSQOptions
+             * @returns {protos.opts.TunnelGroupNSQOptions} TunnelGroupNSQOptions
              */
-            DynamicGroupNSQOptions.fromObject = function fromObject(object) {
-                if (object instanceof $root.protos.opts.DynamicGroupNSQOptions)
+            TunnelGroupNSQOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.TunnelGroupNSQOptions)
                     return object;
-                var message = new $root.protos.opts.DynamicGroupNSQOptions();
+                var message = new $root.protos.opts.TunnelGroupNSQOptions();
                 if (object._conn != null) {
                     if (typeof object._conn !== "object")
-                        throw TypeError(".protos.opts.DynamicGroupNSQOptions._conn: object expected");
+                        throw TypeError(".protos.opts.TunnelGroupNSQOptions._conn: object expected");
                     message._conn = $root.protos.args.NSQConn.fromObject(object._conn);
                 }
                 if (object.args != null) {
                     if (typeof object.args !== "object")
-                        throw TypeError(".protos.opts.DynamicGroupNSQOptions.args: object expected");
+                        throw TypeError(".protos.opts.TunnelGroupNSQOptions.args: object expected");
                     message.args = $root.protos.args.NSQWriteArgs.fromObject(object.args);
                 }
                 return message;
             };
 
             /**
-             * Creates a plain object from a DynamicGroupNSQOptions message. Also converts values to other types if specified.
+             * Creates a plain object from a TunnelGroupNSQOptions message. Also converts values to other types if specified.
              * @function toObject
-             * @memberof protos.opts.DynamicGroupNSQOptions
+             * @memberof protos.opts.TunnelGroupNSQOptions
              * @static
-             * @param {protos.opts.DynamicGroupNSQOptions} message DynamicGroupNSQOptions
+             * @param {protos.opts.TunnelGroupNSQOptions} message TunnelGroupNSQOptions
              * @param {$protobuf.IConversionOptions} [options] Conversion options
              * @returns {Object.<string,*>} Plain object
              */
-            DynamicGroupNSQOptions.toObject = function toObject(message, options) {
+            TunnelGroupNSQOptions.toObject = function toObject(message, options) {
                 if (!options)
                     options = {};
                 var object = {};
@@ -7884,38 +7884,38 @@ $root.protos = (function() {
             };
 
             /**
-             * Converts this DynamicGroupNSQOptions to JSON.
+             * Converts this TunnelGroupNSQOptions to JSON.
              * @function toJSON
-             * @memberof protos.opts.DynamicGroupNSQOptions
+             * @memberof protos.opts.TunnelGroupNSQOptions
              * @instance
              * @returns {Object.<string,*>} JSON object
              */
-            DynamicGroupNSQOptions.prototype.toJSON = function toJSON() {
+            TunnelGroupNSQOptions.prototype.toJSON = function toJSON() {
                 return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
             };
 
-            return DynamicGroupNSQOptions;
+            return TunnelGroupNSQOptions;
         })();
 
-        opts.DynamicGroupRabbitOptions = (function() {
+        opts.TunnelGroupRabbitOptions = (function() {
 
             /**
-             * Properties of a DynamicGroupRabbitOptions.
+             * Properties of a TunnelGroupRabbitOptions.
              * @memberof protos.opts
-             * @interface IDynamicGroupRabbitOptions
-             * @property {protos.args.IRabbitConn|null} [_conn] DynamicGroupRabbitOptions _conn
-             * @property {protos.args.IRabbitWriteArgs|null} [args] DynamicGroupRabbitOptions args
+             * @interface ITunnelGroupRabbitOptions
+             * @property {protos.args.IRabbitConn|null} [_conn] TunnelGroupRabbitOptions _conn
+             * @property {protos.args.IRabbitWriteArgs|null} [args] TunnelGroupRabbitOptions args
              */
 
             /**
-             * Constructs a new DynamicGroupRabbitOptions.
+             * Constructs a new TunnelGroupRabbitOptions.
              * @memberof protos.opts
-             * @classdesc Represents a DynamicGroupRabbitOptions.
-             * @implements IDynamicGroupRabbitOptions
+             * @classdesc Represents a TunnelGroupRabbitOptions.
+             * @implements ITunnelGroupRabbitOptions
              * @constructor
-             * @param {protos.opts.IDynamicGroupRabbitOptions=} [properties] Properties to set
+             * @param {protos.opts.ITunnelGroupRabbitOptions=} [properties] Properties to set
              */
-            function DynamicGroupRabbitOptions(properties) {
+            function TunnelGroupRabbitOptions(properties) {
                 if (properties)
                     for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                         if (properties[keys[i]] != null)
@@ -7923,43 +7923,43 @@ $root.protos = (function() {
             }
 
             /**
-             * DynamicGroupRabbitOptions _conn.
+             * TunnelGroupRabbitOptions _conn.
              * @member {protos.args.IRabbitConn|null|undefined} _conn
-             * @memberof protos.opts.DynamicGroupRabbitOptions
+             * @memberof protos.opts.TunnelGroupRabbitOptions
              * @instance
              */
-            DynamicGroupRabbitOptions.prototype._conn = null;
+            TunnelGroupRabbitOptions.prototype._conn = null;
 
             /**
-             * DynamicGroupRabbitOptions args.
+             * TunnelGroupRabbitOptions args.
              * @member {protos.args.IRabbitWriteArgs|null|undefined} args
-             * @memberof protos.opts.DynamicGroupRabbitOptions
+             * @memberof protos.opts.TunnelGroupRabbitOptions
              * @instance
              */
-            DynamicGroupRabbitOptions.prototype.args = null;
+            TunnelGroupRabbitOptions.prototype.args = null;
 
             /**
-             * Creates a new DynamicGroupRabbitOptions instance using the specified properties.
+             * Creates a new TunnelGroupRabbitOptions instance using the specified properties.
              * @function create
-             * @memberof protos.opts.DynamicGroupRabbitOptions
+             * @memberof protos.opts.TunnelGroupRabbitOptions
              * @static
-             * @param {protos.opts.IDynamicGroupRabbitOptions=} [properties] Properties to set
-             * @returns {protos.opts.DynamicGroupRabbitOptions} DynamicGroupRabbitOptions instance
+             * @param {protos.opts.ITunnelGroupRabbitOptions=} [properties] Properties to set
+             * @returns {protos.opts.TunnelGroupRabbitOptions} TunnelGroupRabbitOptions instance
              */
-            DynamicGroupRabbitOptions.create = function create(properties) {
-                return new DynamicGroupRabbitOptions(properties);
+            TunnelGroupRabbitOptions.create = function create(properties) {
+                return new TunnelGroupRabbitOptions(properties);
             };
 
             /**
-             * Encodes the specified DynamicGroupRabbitOptions message. Does not implicitly {@link protos.opts.DynamicGroupRabbitOptions.verify|verify} messages.
+             * Encodes the specified TunnelGroupRabbitOptions message. Does not implicitly {@link protos.opts.TunnelGroupRabbitOptions.verify|verify} messages.
              * @function encode
-             * @memberof protos.opts.DynamicGroupRabbitOptions
+             * @memberof protos.opts.TunnelGroupRabbitOptions
              * @static
-             * @param {protos.opts.IDynamicGroupRabbitOptions} message DynamicGroupRabbitOptions message or plain object to encode
+             * @param {protos.opts.ITunnelGroupRabbitOptions} message TunnelGroupRabbitOptions message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
-            DynamicGroupRabbitOptions.encode = function encode(message, writer) {
+            TunnelGroupRabbitOptions.encode = function encode(message, writer) {
                 if (!writer)
                     writer = $Writer.create();
                 if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
@@ -7970,33 +7970,33 @@ $root.protos = (function() {
             };
 
             /**
-             * Encodes the specified DynamicGroupRabbitOptions message, length delimited. Does not implicitly {@link protos.opts.DynamicGroupRabbitOptions.verify|verify} messages.
+             * Encodes the specified TunnelGroupRabbitOptions message, length delimited. Does not implicitly {@link protos.opts.TunnelGroupRabbitOptions.verify|verify} messages.
              * @function encodeDelimited
-             * @memberof protos.opts.DynamicGroupRabbitOptions
+             * @memberof protos.opts.TunnelGroupRabbitOptions
              * @static
-             * @param {protos.opts.IDynamicGroupRabbitOptions} message DynamicGroupRabbitOptions message or plain object to encode
+             * @param {protos.opts.ITunnelGroupRabbitOptions} message TunnelGroupRabbitOptions message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
-            DynamicGroupRabbitOptions.encodeDelimited = function encodeDelimited(message, writer) {
+            TunnelGroupRabbitOptions.encodeDelimited = function encodeDelimited(message, writer) {
                 return this.encode(message, writer).ldelim();
             };
 
             /**
-             * Decodes a DynamicGroupRabbitOptions message from the specified reader or buffer.
+             * Decodes a TunnelGroupRabbitOptions message from the specified reader or buffer.
              * @function decode
-             * @memberof protos.opts.DynamicGroupRabbitOptions
+             * @memberof protos.opts.TunnelGroupRabbitOptions
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {protos.opts.DynamicGroupRabbitOptions} DynamicGroupRabbitOptions
+             * @returns {protos.opts.TunnelGroupRabbitOptions} TunnelGroupRabbitOptions
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            DynamicGroupRabbitOptions.decode = function decode(reader, length) {
+            TunnelGroupRabbitOptions.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.DynamicGroupRabbitOptions();
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.TunnelGroupRabbitOptions();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
                     switch (tag >>> 3) {
@@ -8015,30 +8015,30 @@ $root.protos = (function() {
             };
 
             /**
-             * Decodes a DynamicGroupRabbitOptions message from the specified reader or buffer, length delimited.
+             * Decodes a TunnelGroupRabbitOptions message from the specified reader or buffer, length delimited.
              * @function decodeDelimited
-             * @memberof protos.opts.DynamicGroupRabbitOptions
+             * @memberof protos.opts.TunnelGroupRabbitOptions
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {protos.opts.DynamicGroupRabbitOptions} DynamicGroupRabbitOptions
+             * @returns {protos.opts.TunnelGroupRabbitOptions} TunnelGroupRabbitOptions
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            DynamicGroupRabbitOptions.decodeDelimited = function decodeDelimited(reader) {
+            TunnelGroupRabbitOptions.decodeDelimited = function decodeDelimited(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
                 return this.decode(reader, reader.uint32());
             };
 
             /**
-             * Verifies a DynamicGroupRabbitOptions message.
+             * Verifies a TunnelGroupRabbitOptions message.
              * @function verify
-             * @memberof protos.opts.DynamicGroupRabbitOptions
+             * @memberof protos.opts.TunnelGroupRabbitOptions
              * @static
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            DynamicGroupRabbitOptions.verify = function verify(message) {
+            TunnelGroupRabbitOptions.verify = function verify(message) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
                 if (message._conn != null && message.hasOwnProperty("_conn")) {
@@ -8055,40 +8055,40 @@ $root.protos = (function() {
             };
 
             /**
-             * Creates a DynamicGroupRabbitOptions message from a plain object. Also converts values to their respective internal types.
+             * Creates a TunnelGroupRabbitOptions message from a plain object. Also converts values to their respective internal types.
              * @function fromObject
-             * @memberof protos.opts.DynamicGroupRabbitOptions
+             * @memberof protos.opts.TunnelGroupRabbitOptions
              * @static
              * @param {Object.<string,*>} object Plain object
-             * @returns {protos.opts.DynamicGroupRabbitOptions} DynamicGroupRabbitOptions
+             * @returns {protos.opts.TunnelGroupRabbitOptions} TunnelGroupRabbitOptions
              */
-            DynamicGroupRabbitOptions.fromObject = function fromObject(object) {
-                if (object instanceof $root.protos.opts.DynamicGroupRabbitOptions)
+            TunnelGroupRabbitOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.TunnelGroupRabbitOptions)
                     return object;
-                var message = new $root.protos.opts.DynamicGroupRabbitOptions();
+                var message = new $root.protos.opts.TunnelGroupRabbitOptions();
                 if (object._conn != null) {
                     if (typeof object._conn !== "object")
-                        throw TypeError(".protos.opts.DynamicGroupRabbitOptions._conn: object expected");
+                        throw TypeError(".protos.opts.TunnelGroupRabbitOptions._conn: object expected");
                     message._conn = $root.protos.args.RabbitConn.fromObject(object._conn);
                 }
                 if (object.args != null) {
                     if (typeof object.args !== "object")
-                        throw TypeError(".protos.opts.DynamicGroupRabbitOptions.args: object expected");
+                        throw TypeError(".protos.opts.TunnelGroupRabbitOptions.args: object expected");
                     message.args = $root.protos.args.RabbitWriteArgs.fromObject(object.args);
                 }
                 return message;
             };
 
             /**
-             * Creates a plain object from a DynamicGroupRabbitOptions message. Also converts values to other types if specified.
+             * Creates a plain object from a TunnelGroupRabbitOptions message. Also converts values to other types if specified.
              * @function toObject
-             * @memberof protos.opts.DynamicGroupRabbitOptions
+             * @memberof protos.opts.TunnelGroupRabbitOptions
              * @static
-             * @param {protos.opts.DynamicGroupRabbitOptions} message DynamicGroupRabbitOptions
+             * @param {protos.opts.TunnelGroupRabbitOptions} message TunnelGroupRabbitOptions
              * @param {$protobuf.IConversionOptions} [options] Conversion options
              * @returns {Object.<string,*>} Plain object
              */
-            DynamicGroupRabbitOptions.toObject = function toObject(message, options) {
+            TunnelGroupRabbitOptions.toObject = function toObject(message, options) {
                 if (!options)
                     options = {};
                 var object = {};
@@ -8104,38 +8104,38 @@ $root.protos = (function() {
             };
 
             /**
-             * Converts this DynamicGroupRabbitOptions to JSON.
+             * Converts this TunnelGroupRabbitOptions to JSON.
              * @function toJSON
-             * @memberof protos.opts.DynamicGroupRabbitOptions
+             * @memberof protos.opts.TunnelGroupRabbitOptions
              * @instance
              * @returns {Object.<string,*>} JSON object
              */
-            DynamicGroupRabbitOptions.prototype.toJSON = function toJSON() {
+            TunnelGroupRabbitOptions.prototype.toJSON = function toJSON() {
                 return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
             };
 
-            return DynamicGroupRabbitOptions;
+            return TunnelGroupRabbitOptions;
         })();
 
-        opts.DynamicGroupRabbitStreamsOptions = (function() {
+        opts.TunnelGroupRabbitStreamsOptions = (function() {
 
             /**
-             * Properties of a DynamicGroupRabbitStreamsOptions.
+             * Properties of a TunnelGroupRabbitStreamsOptions.
              * @memberof protos.opts
-             * @interface IDynamicGroupRabbitStreamsOptions
-             * @property {protos.args.IRabbitStreamsConn|null} [_conn] DynamicGroupRabbitStreamsOptions _conn
-             * @property {protos.args.IRabbitStreamsWriteArgs|null} [args] DynamicGroupRabbitStreamsOptions args
+             * @interface ITunnelGroupRabbitStreamsOptions
+             * @property {protos.args.IRabbitStreamsConn|null} [_conn] TunnelGroupRabbitStreamsOptions _conn
+             * @property {protos.args.IRabbitStreamsWriteArgs|null} [args] TunnelGroupRabbitStreamsOptions args
              */
 
             /**
-             * Constructs a new DynamicGroupRabbitStreamsOptions.
+             * Constructs a new TunnelGroupRabbitStreamsOptions.
              * @memberof protos.opts
-             * @classdesc Represents a DynamicGroupRabbitStreamsOptions.
-             * @implements IDynamicGroupRabbitStreamsOptions
+             * @classdesc Represents a TunnelGroupRabbitStreamsOptions.
+             * @implements ITunnelGroupRabbitStreamsOptions
              * @constructor
-             * @param {protos.opts.IDynamicGroupRabbitStreamsOptions=} [properties] Properties to set
+             * @param {protos.opts.ITunnelGroupRabbitStreamsOptions=} [properties] Properties to set
              */
-            function DynamicGroupRabbitStreamsOptions(properties) {
+            function TunnelGroupRabbitStreamsOptions(properties) {
                 if (properties)
                     for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                         if (properties[keys[i]] != null)
@@ -8143,43 +8143,43 @@ $root.protos = (function() {
             }
 
             /**
-             * DynamicGroupRabbitStreamsOptions _conn.
+             * TunnelGroupRabbitStreamsOptions _conn.
              * @member {protos.args.IRabbitStreamsConn|null|undefined} _conn
-             * @memberof protos.opts.DynamicGroupRabbitStreamsOptions
+             * @memberof protos.opts.TunnelGroupRabbitStreamsOptions
              * @instance
              */
-            DynamicGroupRabbitStreamsOptions.prototype._conn = null;
+            TunnelGroupRabbitStreamsOptions.prototype._conn = null;
 
             /**
-             * DynamicGroupRabbitStreamsOptions args.
+             * TunnelGroupRabbitStreamsOptions args.
              * @member {protos.args.IRabbitStreamsWriteArgs|null|undefined} args
-             * @memberof protos.opts.DynamicGroupRabbitStreamsOptions
+             * @memberof protos.opts.TunnelGroupRabbitStreamsOptions
              * @instance
              */
-            DynamicGroupRabbitStreamsOptions.prototype.args = null;
+            TunnelGroupRabbitStreamsOptions.prototype.args = null;
 
             /**
-             * Creates a new DynamicGroupRabbitStreamsOptions instance using the specified properties.
+             * Creates a new TunnelGroupRabbitStreamsOptions instance using the specified properties.
              * @function create
-             * @memberof protos.opts.DynamicGroupRabbitStreamsOptions
+             * @memberof protos.opts.TunnelGroupRabbitStreamsOptions
              * @static
-             * @param {protos.opts.IDynamicGroupRabbitStreamsOptions=} [properties] Properties to set
-             * @returns {protos.opts.DynamicGroupRabbitStreamsOptions} DynamicGroupRabbitStreamsOptions instance
+             * @param {protos.opts.ITunnelGroupRabbitStreamsOptions=} [properties] Properties to set
+             * @returns {protos.opts.TunnelGroupRabbitStreamsOptions} TunnelGroupRabbitStreamsOptions instance
              */
-            DynamicGroupRabbitStreamsOptions.create = function create(properties) {
-                return new DynamicGroupRabbitStreamsOptions(properties);
+            TunnelGroupRabbitStreamsOptions.create = function create(properties) {
+                return new TunnelGroupRabbitStreamsOptions(properties);
             };
 
             /**
-             * Encodes the specified DynamicGroupRabbitStreamsOptions message. Does not implicitly {@link protos.opts.DynamicGroupRabbitStreamsOptions.verify|verify} messages.
+             * Encodes the specified TunnelGroupRabbitStreamsOptions message. Does not implicitly {@link protos.opts.TunnelGroupRabbitStreamsOptions.verify|verify} messages.
              * @function encode
-             * @memberof protos.opts.DynamicGroupRabbitStreamsOptions
+             * @memberof protos.opts.TunnelGroupRabbitStreamsOptions
              * @static
-             * @param {protos.opts.IDynamicGroupRabbitStreamsOptions} message DynamicGroupRabbitStreamsOptions message or plain object to encode
+             * @param {protos.opts.ITunnelGroupRabbitStreamsOptions} message TunnelGroupRabbitStreamsOptions message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
-            DynamicGroupRabbitStreamsOptions.encode = function encode(message, writer) {
+            TunnelGroupRabbitStreamsOptions.encode = function encode(message, writer) {
                 if (!writer)
                     writer = $Writer.create();
                 if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
@@ -8190,33 +8190,33 @@ $root.protos = (function() {
             };
 
             /**
-             * Encodes the specified DynamicGroupRabbitStreamsOptions message, length delimited. Does not implicitly {@link protos.opts.DynamicGroupRabbitStreamsOptions.verify|verify} messages.
+             * Encodes the specified TunnelGroupRabbitStreamsOptions message, length delimited. Does not implicitly {@link protos.opts.TunnelGroupRabbitStreamsOptions.verify|verify} messages.
              * @function encodeDelimited
-             * @memberof protos.opts.DynamicGroupRabbitStreamsOptions
+             * @memberof protos.opts.TunnelGroupRabbitStreamsOptions
              * @static
-             * @param {protos.opts.IDynamicGroupRabbitStreamsOptions} message DynamicGroupRabbitStreamsOptions message or plain object to encode
+             * @param {protos.opts.ITunnelGroupRabbitStreamsOptions} message TunnelGroupRabbitStreamsOptions message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
-            DynamicGroupRabbitStreamsOptions.encodeDelimited = function encodeDelimited(message, writer) {
+            TunnelGroupRabbitStreamsOptions.encodeDelimited = function encodeDelimited(message, writer) {
                 return this.encode(message, writer).ldelim();
             };
 
             /**
-             * Decodes a DynamicGroupRabbitStreamsOptions message from the specified reader or buffer.
+             * Decodes a TunnelGroupRabbitStreamsOptions message from the specified reader or buffer.
              * @function decode
-             * @memberof protos.opts.DynamicGroupRabbitStreamsOptions
+             * @memberof protos.opts.TunnelGroupRabbitStreamsOptions
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {protos.opts.DynamicGroupRabbitStreamsOptions} DynamicGroupRabbitStreamsOptions
+             * @returns {protos.opts.TunnelGroupRabbitStreamsOptions} TunnelGroupRabbitStreamsOptions
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            DynamicGroupRabbitStreamsOptions.decode = function decode(reader, length) {
+            TunnelGroupRabbitStreamsOptions.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.DynamicGroupRabbitStreamsOptions();
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.TunnelGroupRabbitStreamsOptions();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
                     switch (tag >>> 3) {
@@ -8235,30 +8235,30 @@ $root.protos = (function() {
             };
 
             /**
-             * Decodes a DynamicGroupRabbitStreamsOptions message from the specified reader or buffer, length delimited.
+             * Decodes a TunnelGroupRabbitStreamsOptions message from the specified reader or buffer, length delimited.
              * @function decodeDelimited
-             * @memberof protos.opts.DynamicGroupRabbitStreamsOptions
+             * @memberof protos.opts.TunnelGroupRabbitStreamsOptions
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {protos.opts.DynamicGroupRabbitStreamsOptions} DynamicGroupRabbitStreamsOptions
+             * @returns {protos.opts.TunnelGroupRabbitStreamsOptions} TunnelGroupRabbitStreamsOptions
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            DynamicGroupRabbitStreamsOptions.decodeDelimited = function decodeDelimited(reader) {
+            TunnelGroupRabbitStreamsOptions.decodeDelimited = function decodeDelimited(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
                 return this.decode(reader, reader.uint32());
             };
 
             /**
-             * Verifies a DynamicGroupRabbitStreamsOptions message.
+             * Verifies a TunnelGroupRabbitStreamsOptions message.
              * @function verify
-             * @memberof protos.opts.DynamicGroupRabbitStreamsOptions
+             * @memberof protos.opts.TunnelGroupRabbitStreamsOptions
              * @static
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            DynamicGroupRabbitStreamsOptions.verify = function verify(message) {
+            TunnelGroupRabbitStreamsOptions.verify = function verify(message) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
                 if (message._conn != null && message.hasOwnProperty("_conn")) {
@@ -8275,40 +8275,40 @@ $root.protos = (function() {
             };
 
             /**
-             * Creates a DynamicGroupRabbitStreamsOptions message from a plain object. Also converts values to their respective internal types.
+             * Creates a TunnelGroupRabbitStreamsOptions message from a plain object. Also converts values to their respective internal types.
              * @function fromObject
-             * @memberof protos.opts.DynamicGroupRabbitStreamsOptions
+             * @memberof protos.opts.TunnelGroupRabbitStreamsOptions
              * @static
              * @param {Object.<string,*>} object Plain object
-             * @returns {protos.opts.DynamicGroupRabbitStreamsOptions} DynamicGroupRabbitStreamsOptions
+             * @returns {protos.opts.TunnelGroupRabbitStreamsOptions} TunnelGroupRabbitStreamsOptions
              */
-            DynamicGroupRabbitStreamsOptions.fromObject = function fromObject(object) {
-                if (object instanceof $root.protos.opts.DynamicGroupRabbitStreamsOptions)
+            TunnelGroupRabbitStreamsOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.TunnelGroupRabbitStreamsOptions)
                     return object;
-                var message = new $root.protos.opts.DynamicGroupRabbitStreamsOptions();
+                var message = new $root.protos.opts.TunnelGroupRabbitStreamsOptions();
                 if (object._conn != null) {
                     if (typeof object._conn !== "object")
-                        throw TypeError(".protos.opts.DynamicGroupRabbitStreamsOptions._conn: object expected");
+                        throw TypeError(".protos.opts.TunnelGroupRabbitStreamsOptions._conn: object expected");
                     message._conn = $root.protos.args.RabbitStreamsConn.fromObject(object._conn);
                 }
                 if (object.args != null) {
                     if (typeof object.args !== "object")
-                        throw TypeError(".protos.opts.DynamicGroupRabbitStreamsOptions.args: object expected");
+                        throw TypeError(".protos.opts.TunnelGroupRabbitStreamsOptions.args: object expected");
                     message.args = $root.protos.args.RabbitStreamsWriteArgs.fromObject(object.args);
                 }
                 return message;
             };
 
             /**
-             * Creates a plain object from a DynamicGroupRabbitStreamsOptions message. Also converts values to other types if specified.
+             * Creates a plain object from a TunnelGroupRabbitStreamsOptions message. Also converts values to other types if specified.
              * @function toObject
-             * @memberof protos.opts.DynamicGroupRabbitStreamsOptions
+             * @memberof protos.opts.TunnelGroupRabbitStreamsOptions
              * @static
-             * @param {protos.opts.DynamicGroupRabbitStreamsOptions} message DynamicGroupRabbitStreamsOptions
+             * @param {protos.opts.TunnelGroupRabbitStreamsOptions} message TunnelGroupRabbitStreamsOptions
              * @param {$protobuf.IConversionOptions} [options] Conversion options
              * @returns {Object.<string,*>} Plain object
              */
-            DynamicGroupRabbitStreamsOptions.toObject = function toObject(message, options) {
+            TunnelGroupRabbitStreamsOptions.toObject = function toObject(message, options) {
                 if (!options)
                     options = {};
                 var object = {};
@@ -8324,38 +8324,38 @@ $root.protos = (function() {
             };
 
             /**
-             * Converts this DynamicGroupRabbitStreamsOptions to JSON.
+             * Converts this TunnelGroupRabbitStreamsOptions to JSON.
              * @function toJSON
-             * @memberof protos.opts.DynamicGroupRabbitStreamsOptions
+             * @memberof protos.opts.TunnelGroupRabbitStreamsOptions
              * @instance
              * @returns {Object.<string,*>} JSON object
              */
-            DynamicGroupRabbitStreamsOptions.prototype.toJSON = function toJSON() {
+            TunnelGroupRabbitStreamsOptions.prototype.toJSON = function toJSON() {
                 return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
             };
 
-            return DynamicGroupRabbitStreamsOptions;
+            return TunnelGroupRabbitStreamsOptions;
         })();
 
-        opts.DynamicGroupRedisPubSubOptions = (function() {
+        opts.TunnelGroupRedisPubSubOptions = (function() {
 
             /**
-             * Properties of a DynamicGroupRedisPubSubOptions.
+             * Properties of a TunnelGroupRedisPubSubOptions.
              * @memberof protos.opts
-             * @interface IDynamicGroupRedisPubSubOptions
-             * @property {protos.args.IRedisPubSubConn|null} [_conn] DynamicGroupRedisPubSubOptions _conn
-             * @property {protos.args.IRedisPubSubWriteArgs|null} [args] DynamicGroupRedisPubSubOptions args
+             * @interface ITunnelGroupRedisPubSubOptions
+             * @property {protos.args.IRedisPubSubConn|null} [_conn] TunnelGroupRedisPubSubOptions _conn
+             * @property {protos.args.IRedisPubSubWriteArgs|null} [args] TunnelGroupRedisPubSubOptions args
              */
 
             /**
-             * Constructs a new DynamicGroupRedisPubSubOptions.
+             * Constructs a new TunnelGroupRedisPubSubOptions.
              * @memberof protos.opts
-             * @classdesc Represents a DynamicGroupRedisPubSubOptions.
-             * @implements IDynamicGroupRedisPubSubOptions
+             * @classdesc Represents a TunnelGroupRedisPubSubOptions.
+             * @implements ITunnelGroupRedisPubSubOptions
              * @constructor
-             * @param {protos.opts.IDynamicGroupRedisPubSubOptions=} [properties] Properties to set
+             * @param {protos.opts.ITunnelGroupRedisPubSubOptions=} [properties] Properties to set
              */
-            function DynamicGroupRedisPubSubOptions(properties) {
+            function TunnelGroupRedisPubSubOptions(properties) {
                 if (properties)
                     for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                         if (properties[keys[i]] != null)
@@ -8363,43 +8363,43 @@ $root.protos = (function() {
             }
 
             /**
-             * DynamicGroupRedisPubSubOptions _conn.
+             * TunnelGroupRedisPubSubOptions _conn.
              * @member {protos.args.IRedisPubSubConn|null|undefined} _conn
-             * @memberof protos.opts.DynamicGroupRedisPubSubOptions
+             * @memberof protos.opts.TunnelGroupRedisPubSubOptions
              * @instance
              */
-            DynamicGroupRedisPubSubOptions.prototype._conn = null;
+            TunnelGroupRedisPubSubOptions.prototype._conn = null;
 
             /**
-             * DynamicGroupRedisPubSubOptions args.
+             * TunnelGroupRedisPubSubOptions args.
              * @member {protos.args.IRedisPubSubWriteArgs|null|undefined} args
-             * @memberof protos.opts.DynamicGroupRedisPubSubOptions
+             * @memberof protos.opts.TunnelGroupRedisPubSubOptions
              * @instance
              */
-            DynamicGroupRedisPubSubOptions.prototype.args = null;
+            TunnelGroupRedisPubSubOptions.prototype.args = null;
 
             /**
-             * Creates a new DynamicGroupRedisPubSubOptions instance using the specified properties.
+             * Creates a new TunnelGroupRedisPubSubOptions instance using the specified properties.
              * @function create
-             * @memberof protos.opts.DynamicGroupRedisPubSubOptions
+             * @memberof protos.opts.TunnelGroupRedisPubSubOptions
              * @static
-             * @param {protos.opts.IDynamicGroupRedisPubSubOptions=} [properties] Properties to set
-             * @returns {protos.opts.DynamicGroupRedisPubSubOptions} DynamicGroupRedisPubSubOptions instance
+             * @param {protos.opts.ITunnelGroupRedisPubSubOptions=} [properties] Properties to set
+             * @returns {protos.opts.TunnelGroupRedisPubSubOptions} TunnelGroupRedisPubSubOptions instance
              */
-            DynamicGroupRedisPubSubOptions.create = function create(properties) {
-                return new DynamicGroupRedisPubSubOptions(properties);
+            TunnelGroupRedisPubSubOptions.create = function create(properties) {
+                return new TunnelGroupRedisPubSubOptions(properties);
             };
 
             /**
-             * Encodes the specified DynamicGroupRedisPubSubOptions message. Does not implicitly {@link protos.opts.DynamicGroupRedisPubSubOptions.verify|verify} messages.
+             * Encodes the specified TunnelGroupRedisPubSubOptions message. Does not implicitly {@link protos.opts.TunnelGroupRedisPubSubOptions.verify|verify} messages.
              * @function encode
-             * @memberof protos.opts.DynamicGroupRedisPubSubOptions
+             * @memberof protos.opts.TunnelGroupRedisPubSubOptions
              * @static
-             * @param {protos.opts.IDynamicGroupRedisPubSubOptions} message DynamicGroupRedisPubSubOptions message or plain object to encode
+             * @param {protos.opts.ITunnelGroupRedisPubSubOptions} message TunnelGroupRedisPubSubOptions message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
-            DynamicGroupRedisPubSubOptions.encode = function encode(message, writer) {
+            TunnelGroupRedisPubSubOptions.encode = function encode(message, writer) {
                 if (!writer)
                     writer = $Writer.create();
                 if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
@@ -8410,33 +8410,33 @@ $root.protos = (function() {
             };
 
             /**
-             * Encodes the specified DynamicGroupRedisPubSubOptions message, length delimited. Does not implicitly {@link protos.opts.DynamicGroupRedisPubSubOptions.verify|verify} messages.
+             * Encodes the specified TunnelGroupRedisPubSubOptions message, length delimited. Does not implicitly {@link protos.opts.TunnelGroupRedisPubSubOptions.verify|verify} messages.
              * @function encodeDelimited
-             * @memberof protos.opts.DynamicGroupRedisPubSubOptions
+             * @memberof protos.opts.TunnelGroupRedisPubSubOptions
              * @static
-             * @param {protos.opts.IDynamicGroupRedisPubSubOptions} message DynamicGroupRedisPubSubOptions message or plain object to encode
+             * @param {protos.opts.ITunnelGroupRedisPubSubOptions} message TunnelGroupRedisPubSubOptions message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
-            DynamicGroupRedisPubSubOptions.encodeDelimited = function encodeDelimited(message, writer) {
+            TunnelGroupRedisPubSubOptions.encodeDelimited = function encodeDelimited(message, writer) {
                 return this.encode(message, writer).ldelim();
             };
 
             /**
-             * Decodes a DynamicGroupRedisPubSubOptions message from the specified reader or buffer.
+             * Decodes a TunnelGroupRedisPubSubOptions message from the specified reader or buffer.
              * @function decode
-             * @memberof protos.opts.DynamicGroupRedisPubSubOptions
+             * @memberof protos.opts.TunnelGroupRedisPubSubOptions
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {protos.opts.DynamicGroupRedisPubSubOptions} DynamicGroupRedisPubSubOptions
+             * @returns {protos.opts.TunnelGroupRedisPubSubOptions} TunnelGroupRedisPubSubOptions
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            DynamicGroupRedisPubSubOptions.decode = function decode(reader, length) {
+            TunnelGroupRedisPubSubOptions.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.DynamicGroupRedisPubSubOptions();
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.TunnelGroupRedisPubSubOptions();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
                     switch (tag >>> 3) {
@@ -8455,30 +8455,30 @@ $root.protos = (function() {
             };
 
             /**
-             * Decodes a DynamicGroupRedisPubSubOptions message from the specified reader or buffer, length delimited.
+             * Decodes a TunnelGroupRedisPubSubOptions message from the specified reader or buffer, length delimited.
              * @function decodeDelimited
-             * @memberof protos.opts.DynamicGroupRedisPubSubOptions
+             * @memberof protos.opts.TunnelGroupRedisPubSubOptions
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {protos.opts.DynamicGroupRedisPubSubOptions} DynamicGroupRedisPubSubOptions
+             * @returns {protos.opts.TunnelGroupRedisPubSubOptions} TunnelGroupRedisPubSubOptions
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            DynamicGroupRedisPubSubOptions.decodeDelimited = function decodeDelimited(reader) {
+            TunnelGroupRedisPubSubOptions.decodeDelimited = function decodeDelimited(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
                 return this.decode(reader, reader.uint32());
             };
 
             /**
-             * Verifies a DynamicGroupRedisPubSubOptions message.
+             * Verifies a TunnelGroupRedisPubSubOptions message.
              * @function verify
-             * @memberof protos.opts.DynamicGroupRedisPubSubOptions
+             * @memberof protos.opts.TunnelGroupRedisPubSubOptions
              * @static
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            DynamicGroupRedisPubSubOptions.verify = function verify(message) {
+            TunnelGroupRedisPubSubOptions.verify = function verify(message) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
                 if (message._conn != null && message.hasOwnProperty("_conn")) {
@@ -8495,40 +8495,40 @@ $root.protos = (function() {
             };
 
             /**
-             * Creates a DynamicGroupRedisPubSubOptions message from a plain object. Also converts values to their respective internal types.
+             * Creates a TunnelGroupRedisPubSubOptions message from a plain object. Also converts values to their respective internal types.
              * @function fromObject
-             * @memberof protos.opts.DynamicGroupRedisPubSubOptions
+             * @memberof protos.opts.TunnelGroupRedisPubSubOptions
              * @static
              * @param {Object.<string,*>} object Plain object
-             * @returns {protos.opts.DynamicGroupRedisPubSubOptions} DynamicGroupRedisPubSubOptions
+             * @returns {protos.opts.TunnelGroupRedisPubSubOptions} TunnelGroupRedisPubSubOptions
              */
-            DynamicGroupRedisPubSubOptions.fromObject = function fromObject(object) {
-                if (object instanceof $root.protos.opts.DynamicGroupRedisPubSubOptions)
+            TunnelGroupRedisPubSubOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.TunnelGroupRedisPubSubOptions)
                     return object;
-                var message = new $root.protos.opts.DynamicGroupRedisPubSubOptions();
+                var message = new $root.protos.opts.TunnelGroupRedisPubSubOptions();
                 if (object._conn != null) {
                     if (typeof object._conn !== "object")
-                        throw TypeError(".protos.opts.DynamicGroupRedisPubSubOptions._conn: object expected");
+                        throw TypeError(".protos.opts.TunnelGroupRedisPubSubOptions._conn: object expected");
                     message._conn = $root.protos.args.RedisPubSubConn.fromObject(object._conn);
                 }
                 if (object.args != null) {
                     if (typeof object.args !== "object")
-                        throw TypeError(".protos.opts.DynamicGroupRedisPubSubOptions.args: object expected");
+                        throw TypeError(".protos.opts.TunnelGroupRedisPubSubOptions.args: object expected");
                     message.args = $root.protos.args.RedisPubSubWriteArgs.fromObject(object.args);
                 }
                 return message;
             };
 
             /**
-             * Creates a plain object from a DynamicGroupRedisPubSubOptions message. Also converts values to other types if specified.
+             * Creates a plain object from a TunnelGroupRedisPubSubOptions message. Also converts values to other types if specified.
              * @function toObject
-             * @memberof protos.opts.DynamicGroupRedisPubSubOptions
+             * @memberof protos.opts.TunnelGroupRedisPubSubOptions
              * @static
-             * @param {protos.opts.DynamicGroupRedisPubSubOptions} message DynamicGroupRedisPubSubOptions
+             * @param {protos.opts.TunnelGroupRedisPubSubOptions} message TunnelGroupRedisPubSubOptions
              * @param {$protobuf.IConversionOptions} [options] Conversion options
              * @returns {Object.<string,*>} Plain object
              */
-            DynamicGroupRedisPubSubOptions.toObject = function toObject(message, options) {
+            TunnelGroupRedisPubSubOptions.toObject = function toObject(message, options) {
                 if (!options)
                     options = {};
                 var object = {};
@@ -8544,38 +8544,38 @@ $root.protos = (function() {
             };
 
             /**
-             * Converts this DynamicGroupRedisPubSubOptions to JSON.
+             * Converts this TunnelGroupRedisPubSubOptions to JSON.
              * @function toJSON
-             * @memberof protos.opts.DynamicGroupRedisPubSubOptions
+             * @memberof protos.opts.TunnelGroupRedisPubSubOptions
              * @instance
              * @returns {Object.<string,*>} JSON object
              */
-            DynamicGroupRedisPubSubOptions.prototype.toJSON = function toJSON() {
+            TunnelGroupRedisPubSubOptions.prototype.toJSON = function toJSON() {
                 return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
             };
 
-            return DynamicGroupRedisPubSubOptions;
+            return TunnelGroupRedisPubSubOptions;
         })();
 
-        opts.DynamicGroupRedisStreamsOptions = (function() {
+        opts.TunnelGroupRedisStreamsOptions = (function() {
 
             /**
-             * Properties of a DynamicGroupRedisStreamsOptions.
+             * Properties of a TunnelGroupRedisStreamsOptions.
              * @memberof protos.opts
-             * @interface IDynamicGroupRedisStreamsOptions
-             * @property {protos.args.IRedisStreamsConn|null} [_conn] DynamicGroupRedisStreamsOptions _conn
-             * @property {protos.args.IRedisStreamsWriteArgs|null} [args] DynamicGroupRedisStreamsOptions args
+             * @interface ITunnelGroupRedisStreamsOptions
+             * @property {protos.args.IRedisStreamsConn|null} [_conn] TunnelGroupRedisStreamsOptions _conn
+             * @property {protos.args.IRedisStreamsWriteArgs|null} [args] TunnelGroupRedisStreamsOptions args
              */
 
             /**
-             * Constructs a new DynamicGroupRedisStreamsOptions.
+             * Constructs a new TunnelGroupRedisStreamsOptions.
              * @memberof protos.opts
-             * @classdesc Represents a DynamicGroupRedisStreamsOptions.
-             * @implements IDynamicGroupRedisStreamsOptions
+             * @classdesc Represents a TunnelGroupRedisStreamsOptions.
+             * @implements ITunnelGroupRedisStreamsOptions
              * @constructor
-             * @param {protos.opts.IDynamicGroupRedisStreamsOptions=} [properties] Properties to set
+             * @param {protos.opts.ITunnelGroupRedisStreamsOptions=} [properties] Properties to set
              */
-            function DynamicGroupRedisStreamsOptions(properties) {
+            function TunnelGroupRedisStreamsOptions(properties) {
                 if (properties)
                     for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                         if (properties[keys[i]] != null)
@@ -8583,43 +8583,43 @@ $root.protos = (function() {
             }
 
             /**
-             * DynamicGroupRedisStreamsOptions _conn.
+             * TunnelGroupRedisStreamsOptions _conn.
              * @member {protos.args.IRedisStreamsConn|null|undefined} _conn
-             * @memberof protos.opts.DynamicGroupRedisStreamsOptions
+             * @memberof protos.opts.TunnelGroupRedisStreamsOptions
              * @instance
              */
-            DynamicGroupRedisStreamsOptions.prototype._conn = null;
+            TunnelGroupRedisStreamsOptions.prototype._conn = null;
 
             /**
-             * DynamicGroupRedisStreamsOptions args.
+             * TunnelGroupRedisStreamsOptions args.
              * @member {protos.args.IRedisStreamsWriteArgs|null|undefined} args
-             * @memberof protos.opts.DynamicGroupRedisStreamsOptions
+             * @memberof protos.opts.TunnelGroupRedisStreamsOptions
              * @instance
              */
-            DynamicGroupRedisStreamsOptions.prototype.args = null;
+            TunnelGroupRedisStreamsOptions.prototype.args = null;
 
             /**
-             * Creates a new DynamicGroupRedisStreamsOptions instance using the specified properties.
+             * Creates a new TunnelGroupRedisStreamsOptions instance using the specified properties.
              * @function create
-             * @memberof protos.opts.DynamicGroupRedisStreamsOptions
+             * @memberof protos.opts.TunnelGroupRedisStreamsOptions
              * @static
-             * @param {protos.opts.IDynamicGroupRedisStreamsOptions=} [properties] Properties to set
-             * @returns {protos.opts.DynamicGroupRedisStreamsOptions} DynamicGroupRedisStreamsOptions instance
+             * @param {protos.opts.ITunnelGroupRedisStreamsOptions=} [properties] Properties to set
+             * @returns {protos.opts.TunnelGroupRedisStreamsOptions} TunnelGroupRedisStreamsOptions instance
              */
-            DynamicGroupRedisStreamsOptions.create = function create(properties) {
-                return new DynamicGroupRedisStreamsOptions(properties);
+            TunnelGroupRedisStreamsOptions.create = function create(properties) {
+                return new TunnelGroupRedisStreamsOptions(properties);
             };
 
             /**
-             * Encodes the specified DynamicGroupRedisStreamsOptions message. Does not implicitly {@link protos.opts.DynamicGroupRedisStreamsOptions.verify|verify} messages.
+             * Encodes the specified TunnelGroupRedisStreamsOptions message. Does not implicitly {@link protos.opts.TunnelGroupRedisStreamsOptions.verify|verify} messages.
              * @function encode
-             * @memberof protos.opts.DynamicGroupRedisStreamsOptions
+             * @memberof protos.opts.TunnelGroupRedisStreamsOptions
              * @static
-             * @param {protos.opts.IDynamicGroupRedisStreamsOptions} message DynamicGroupRedisStreamsOptions message or plain object to encode
+             * @param {protos.opts.ITunnelGroupRedisStreamsOptions} message TunnelGroupRedisStreamsOptions message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
-            DynamicGroupRedisStreamsOptions.encode = function encode(message, writer) {
+            TunnelGroupRedisStreamsOptions.encode = function encode(message, writer) {
                 if (!writer)
                     writer = $Writer.create();
                 if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
@@ -8630,33 +8630,33 @@ $root.protos = (function() {
             };
 
             /**
-             * Encodes the specified DynamicGroupRedisStreamsOptions message, length delimited. Does not implicitly {@link protos.opts.DynamicGroupRedisStreamsOptions.verify|verify} messages.
+             * Encodes the specified TunnelGroupRedisStreamsOptions message, length delimited. Does not implicitly {@link protos.opts.TunnelGroupRedisStreamsOptions.verify|verify} messages.
              * @function encodeDelimited
-             * @memberof protos.opts.DynamicGroupRedisStreamsOptions
+             * @memberof protos.opts.TunnelGroupRedisStreamsOptions
              * @static
-             * @param {protos.opts.IDynamicGroupRedisStreamsOptions} message DynamicGroupRedisStreamsOptions message or plain object to encode
+             * @param {protos.opts.ITunnelGroupRedisStreamsOptions} message TunnelGroupRedisStreamsOptions message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
-            DynamicGroupRedisStreamsOptions.encodeDelimited = function encodeDelimited(message, writer) {
+            TunnelGroupRedisStreamsOptions.encodeDelimited = function encodeDelimited(message, writer) {
                 return this.encode(message, writer).ldelim();
             };
 
             /**
-             * Decodes a DynamicGroupRedisStreamsOptions message from the specified reader or buffer.
+             * Decodes a TunnelGroupRedisStreamsOptions message from the specified reader or buffer.
              * @function decode
-             * @memberof protos.opts.DynamicGroupRedisStreamsOptions
+             * @memberof protos.opts.TunnelGroupRedisStreamsOptions
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {protos.opts.DynamicGroupRedisStreamsOptions} DynamicGroupRedisStreamsOptions
+             * @returns {protos.opts.TunnelGroupRedisStreamsOptions} TunnelGroupRedisStreamsOptions
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            DynamicGroupRedisStreamsOptions.decode = function decode(reader, length) {
+            TunnelGroupRedisStreamsOptions.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.DynamicGroupRedisStreamsOptions();
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.TunnelGroupRedisStreamsOptions();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
                     switch (tag >>> 3) {
@@ -8675,30 +8675,30 @@ $root.protos = (function() {
             };
 
             /**
-             * Decodes a DynamicGroupRedisStreamsOptions message from the specified reader or buffer, length delimited.
+             * Decodes a TunnelGroupRedisStreamsOptions message from the specified reader or buffer, length delimited.
              * @function decodeDelimited
-             * @memberof protos.opts.DynamicGroupRedisStreamsOptions
+             * @memberof protos.opts.TunnelGroupRedisStreamsOptions
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {protos.opts.DynamicGroupRedisStreamsOptions} DynamicGroupRedisStreamsOptions
+             * @returns {protos.opts.TunnelGroupRedisStreamsOptions} TunnelGroupRedisStreamsOptions
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            DynamicGroupRedisStreamsOptions.decodeDelimited = function decodeDelimited(reader) {
+            TunnelGroupRedisStreamsOptions.decodeDelimited = function decodeDelimited(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
                 return this.decode(reader, reader.uint32());
             };
 
             /**
-             * Verifies a DynamicGroupRedisStreamsOptions message.
+             * Verifies a TunnelGroupRedisStreamsOptions message.
              * @function verify
-             * @memberof protos.opts.DynamicGroupRedisStreamsOptions
+             * @memberof protos.opts.TunnelGroupRedisStreamsOptions
              * @static
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            DynamicGroupRedisStreamsOptions.verify = function verify(message) {
+            TunnelGroupRedisStreamsOptions.verify = function verify(message) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
                 if (message._conn != null && message.hasOwnProperty("_conn")) {
@@ -8715,40 +8715,40 @@ $root.protos = (function() {
             };
 
             /**
-             * Creates a DynamicGroupRedisStreamsOptions message from a plain object. Also converts values to their respective internal types.
+             * Creates a TunnelGroupRedisStreamsOptions message from a plain object. Also converts values to their respective internal types.
              * @function fromObject
-             * @memberof protos.opts.DynamicGroupRedisStreamsOptions
+             * @memberof protos.opts.TunnelGroupRedisStreamsOptions
              * @static
              * @param {Object.<string,*>} object Plain object
-             * @returns {protos.opts.DynamicGroupRedisStreamsOptions} DynamicGroupRedisStreamsOptions
+             * @returns {protos.opts.TunnelGroupRedisStreamsOptions} TunnelGroupRedisStreamsOptions
              */
-            DynamicGroupRedisStreamsOptions.fromObject = function fromObject(object) {
-                if (object instanceof $root.protos.opts.DynamicGroupRedisStreamsOptions)
+            TunnelGroupRedisStreamsOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.TunnelGroupRedisStreamsOptions)
                     return object;
-                var message = new $root.protos.opts.DynamicGroupRedisStreamsOptions();
+                var message = new $root.protos.opts.TunnelGroupRedisStreamsOptions();
                 if (object._conn != null) {
                     if (typeof object._conn !== "object")
-                        throw TypeError(".protos.opts.DynamicGroupRedisStreamsOptions._conn: object expected");
+                        throw TypeError(".protos.opts.TunnelGroupRedisStreamsOptions._conn: object expected");
                     message._conn = $root.protos.args.RedisStreamsConn.fromObject(object._conn);
                 }
                 if (object.args != null) {
                     if (typeof object.args !== "object")
-                        throw TypeError(".protos.opts.DynamicGroupRedisStreamsOptions.args: object expected");
+                        throw TypeError(".protos.opts.TunnelGroupRedisStreamsOptions.args: object expected");
                     message.args = $root.protos.args.RedisStreamsWriteArgs.fromObject(object.args);
                 }
                 return message;
             };
 
             /**
-             * Creates a plain object from a DynamicGroupRedisStreamsOptions message. Also converts values to other types if specified.
+             * Creates a plain object from a TunnelGroupRedisStreamsOptions message. Also converts values to other types if specified.
              * @function toObject
-             * @memberof protos.opts.DynamicGroupRedisStreamsOptions
+             * @memberof protos.opts.TunnelGroupRedisStreamsOptions
              * @static
-             * @param {protos.opts.DynamicGroupRedisStreamsOptions} message DynamicGroupRedisStreamsOptions
+             * @param {protos.opts.TunnelGroupRedisStreamsOptions} message TunnelGroupRedisStreamsOptions
              * @param {$protobuf.IConversionOptions} [options] Conversion options
              * @returns {Object.<string,*>} Plain object
              */
-            DynamicGroupRedisStreamsOptions.toObject = function toObject(message, options) {
+            TunnelGroupRedisStreamsOptions.toObject = function toObject(message, options) {
                 if (!options)
                     options = {};
                 var object = {};
@@ -8764,38 +8764,38 @@ $root.protos = (function() {
             };
 
             /**
-             * Converts this DynamicGroupRedisStreamsOptions to JSON.
+             * Converts this TunnelGroupRedisStreamsOptions to JSON.
              * @function toJSON
-             * @memberof protos.opts.DynamicGroupRedisStreamsOptions
+             * @memberof protos.opts.TunnelGroupRedisStreamsOptions
              * @instance
              * @returns {Object.<string,*>} JSON object
              */
-            DynamicGroupRedisStreamsOptions.prototype.toJSON = function toJSON() {
+            TunnelGroupRedisStreamsOptions.prototype.toJSON = function toJSON() {
                 return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
             };
 
-            return DynamicGroupRedisStreamsOptions;
+            return TunnelGroupRedisStreamsOptions;
         })();
 
-        opts.DynamicGroupAzureEventHubOptions = (function() {
+        opts.TunnelGroupAzureEventHubOptions = (function() {
 
             /**
-             * Properties of a DynamicGroupAzureEventHubOptions.
+             * Properties of a TunnelGroupAzureEventHubOptions.
              * @memberof protos.opts
-             * @interface IDynamicGroupAzureEventHubOptions
-             * @property {protos.args.IAzureEventHubConn|null} [_conn] DynamicGroupAzureEventHubOptions _conn
-             * @property {protos.args.IAzureEventHubWriteArgs|null} [args] DynamicGroupAzureEventHubOptions args
+             * @interface ITunnelGroupAzureEventHubOptions
+             * @property {protos.args.IAzureEventHubConn|null} [_conn] TunnelGroupAzureEventHubOptions _conn
+             * @property {protos.args.IAzureEventHubWriteArgs|null} [args] TunnelGroupAzureEventHubOptions args
              */
 
             /**
-             * Constructs a new DynamicGroupAzureEventHubOptions.
+             * Constructs a new TunnelGroupAzureEventHubOptions.
              * @memberof protos.opts
-             * @classdesc Represents a DynamicGroupAzureEventHubOptions.
-             * @implements IDynamicGroupAzureEventHubOptions
+             * @classdesc Represents a TunnelGroupAzureEventHubOptions.
+             * @implements ITunnelGroupAzureEventHubOptions
              * @constructor
-             * @param {protos.opts.IDynamicGroupAzureEventHubOptions=} [properties] Properties to set
+             * @param {protos.opts.ITunnelGroupAzureEventHubOptions=} [properties] Properties to set
              */
-            function DynamicGroupAzureEventHubOptions(properties) {
+            function TunnelGroupAzureEventHubOptions(properties) {
                 if (properties)
                     for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                         if (properties[keys[i]] != null)
@@ -8803,43 +8803,43 @@ $root.protos = (function() {
             }
 
             /**
-             * DynamicGroupAzureEventHubOptions _conn.
+             * TunnelGroupAzureEventHubOptions _conn.
              * @member {protos.args.IAzureEventHubConn|null|undefined} _conn
-             * @memberof protos.opts.DynamicGroupAzureEventHubOptions
+             * @memberof protos.opts.TunnelGroupAzureEventHubOptions
              * @instance
              */
-            DynamicGroupAzureEventHubOptions.prototype._conn = null;
+            TunnelGroupAzureEventHubOptions.prototype._conn = null;
 
             /**
-             * DynamicGroupAzureEventHubOptions args.
+             * TunnelGroupAzureEventHubOptions args.
              * @member {protos.args.IAzureEventHubWriteArgs|null|undefined} args
-             * @memberof protos.opts.DynamicGroupAzureEventHubOptions
+             * @memberof protos.opts.TunnelGroupAzureEventHubOptions
              * @instance
              */
-            DynamicGroupAzureEventHubOptions.prototype.args = null;
+            TunnelGroupAzureEventHubOptions.prototype.args = null;
 
             /**
-             * Creates a new DynamicGroupAzureEventHubOptions instance using the specified properties.
+             * Creates a new TunnelGroupAzureEventHubOptions instance using the specified properties.
              * @function create
-             * @memberof protos.opts.DynamicGroupAzureEventHubOptions
+             * @memberof protos.opts.TunnelGroupAzureEventHubOptions
              * @static
-             * @param {protos.opts.IDynamicGroupAzureEventHubOptions=} [properties] Properties to set
-             * @returns {protos.opts.DynamicGroupAzureEventHubOptions} DynamicGroupAzureEventHubOptions instance
+             * @param {protos.opts.ITunnelGroupAzureEventHubOptions=} [properties] Properties to set
+             * @returns {protos.opts.TunnelGroupAzureEventHubOptions} TunnelGroupAzureEventHubOptions instance
              */
-            DynamicGroupAzureEventHubOptions.create = function create(properties) {
-                return new DynamicGroupAzureEventHubOptions(properties);
+            TunnelGroupAzureEventHubOptions.create = function create(properties) {
+                return new TunnelGroupAzureEventHubOptions(properties);
             };
 
             /**
-             * Encodes the specified DynamicGroupAzureEventHubOptions message. Does not implicitly {@link protos.opts.DynamicGroupAzureEventHubOptions.verify|verify} messages.
+             * Encodes the specified TunnelGroupAzureEventHubOptions message. Does not implicitly {@link protos.opts.TunnelGroupAzureEventHubOptions.verify|verify} messages.
              * @function encode
-             * @memberof protos.opts.DynamicGroupAzureEventHubOptions
+             * @memberof protos.opts.TunnelGroupAzureEventHubOptions
              * @static
-             * @param {protos.opts.IDynamicGroupAzureEventHubOptions} message DynamicGroupAzureEventHubOptions message or plain object to encode
+             * @param {protos.opts.ITunnelGroupAzureEventHubOptions} message TunnelGroupAzureEventHubOptions message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
-            DynamicGroupAzureEventHubOptions.encode = function encode(message, writer) {
+            TunnelGroupAzureEventHubOptions.encode = function encode(message, writer) {
                 if (!writer)
                     writer = $Writer.create();
                 if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
@@ -8850,33 +8850,33 @@ $root.protos = (function() {
             };
 
             /**
-             * Encodes the specified DynamicGroupAzureEventHubOptions message, length delimited. Does not implicitly {@link protos.opts.DynamicGroupAzureEventHubOptions.verify|verify} messages.
+             * Encodes the specified TunnelGroupAzureEventHubOptions message, length delimited. Does not implicitly {@link protos.opts.TunnelGroupAzureEventHubOptions.verify|verify} messages.
              * @function encodeDelimited
-             * @memberof protos.opts.DynamicGroupAzureEventHubOptions
+             * @memberof protos.opts.TunnelGroupAzureEventHubOptions
              * @static
-             * @param {protos.opts.IDynamicGroupAzureEventHubOptions} message DynamicGroupAzureEventHubOptions message or plain object to encode
+             * @param {protos.opts.ITunnelGroupAzureEventHubOptions} message TunnelGroupAzureEventHubOptions message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
-            DynamicGroupAzureEventHubOptions.encodeDelimited = function encodeDelimited(message, writer) {
+            TunnelGroupAzureEventHubOptions.encodeDelimited = function encodeDelimited(message, writer) {
                 return this.encode(message, writer).ldelim();
             };
 
             /**
-             * Decodes a DynamicGroupAzureEventHubOptions message from the specified reader or buffer.
+             * Decodes a TunnelGroupAzureEventHubOptions message from the specified reader or buffer.
              * @function decode
-             * @memberof protos.opts.DynamicGroupAzureEventHubOptions
+             * @memberof protos.opts.TunnelGroupAzureEventHubOptions
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {protos.opts.DynamicGroupAzureEventHubOptions} DynamicGroupAzureEventHubOptions
+             * @returns {protos.opts.TunnelGroupAzureEventHubOptions} TunnelGroupAzureEventHubOptions
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            DynamicGroupAzureEventHubOptions.decode = function decode(reader, length) {
+            TunnelGroupAzureEventHubOptions.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.DynamicGroupAzureEventHubOptions();
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.TunnelGroupAzureEventHubOptions();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
                     switch (tag >>> 3) {
@@ -8895,30 +8895,30 @@ $root.protos = (function() {
             };
 
             /**
-             * Decodes a DynamicGroupAzureEventHubOptions message from the specified reader or buffer, length delimited.
+             * Decodes a TunnelGroupAzureEventHubOptions message from the specified reader or buffer, length delimited.
              * @function decodeDelimited
-             * @memberof protos.opts.DynamicGroupAzureEventHubOptions
+             * @memberof protos.opts.TunnelGroupAzureEventHubOptions
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {protos.opts.DynamicGroupAzureEventHubOptions} DynamicGroupAzureEventHubOptions
+             * @returns {protos.opts.TunnelGroupAzureEventHubOptions} TunnelGroupAzureEventHubOptions
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            DynamicGroupAzureEventHubOptions.decodeDelimited = function decodeDelimited(reader) {
+            TunnelGroupAzureEventHubOptions.decodeDelimited = function decodeDelimited(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
                 return this.decode(reader, reader.uint32());
             };
 
             /**
-             * Verifies a DynamicGroupAzureEventHubOptions message.
+             * Verifies a TunnelGroupAzureEventHubOptions message.
              * @function verify
-             * @memberof protos.opts.DynamicGroupAzureEventHubOptions
+             * @memberof protos.opts.TunnelGroupAzureEventHubOptions
              * @static
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            DynamicGroupAzureEventHubOptions.verify = function verify(message) {
+            TunnelGroupAzureEventHubOptions.verify = function verify(message) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
                 if (message._conn != null && message.hasOwnProperty("_conn")) {
@@ -8935,40 +8935,40 @@ $root.protos = (function() {
             };
 
             /**
-             * Creates a DynamicGroupAzureEventHubOptions message from a plain object. Also converts values to their respective internal types.
+             * Creates a TunnelGroupAzureEventHubOptions message from a plain object. Also converts values to their respective internal types.
              * @function fromObject
-             * @memberof protos.opts.DynamicGroupAzureEventHubOptions
+             * @memberof protos.opts.TunnelGroupAzureEventHubOptions
              * @static
              * @param {Object.<string,*>} object Plain object
-             * @returns {protos.opts.DynamicGroupAzureEventHubOptions} DynamicGroupAzureEventHubOptions
+             * @returns {protos.opts.TunnelGroupAzureEventHubOptions} TunnelGroupAzureEventHubOptions
              */
-            DynamicGroupAzureEventHubOptions.fromObject = function fromObject(object) {
-                if (object instanceof $root.protos.opts.DynamicGroupAzureEventHubOptions)
+            TunnelGroupAzureEventHubOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.TunnelGroupAzureEventHubOptions)
                     return object;
-                var message = new $root.protos.opts.DynamicGroupAzureEventHubOptions();
+                var message = new $root.protos.opts.TunnelGroupAzureEventHubOptions();
                 if (object._conn != null) {
                     if (typeof object._conn !== "object")
-                        throw TypeError(".protos.opts.DynamicGroupAzureEventHubOptions._conn: object expected");
+                        throw TypeError(".protos.opts.TunnelGroupAzureEventHubOptions._conn: object expected");
                     message._conn = $root.protos.args.AzureEventHubConn.fromObject(object._conn);
                 }
                 if (object.args != null) {
                     if (typeof object.args !== "object")
-                        throw TypeError(".protos.opts.DynamicGroupAzureEventHubOptions.args: object expected");
+                        throw TypeError(".protos.opts.TunnelGroupAzureEventHubOptions.args: object expected");
                     message.args = $root.protos.args.AzureEventHubWriteArgs.fromObject(object.args);
                 }
                 return message;
             };
 
             /**
-             * Creates a plain object from a DynamicGroupAzureEventHubOptions message. Also converts values to other types if specified.
+             * Creates a plain object from a TunnelGroupAzureEventHubOptions message. Also converts values to other types if specified.
              * @function toObject
-             * @memberof protos.opts.DynamicGroupAzureEventHubOptions
+             * @memberof protos.opts.TunnelGroupAzureEventHubOptions
              * @static
-             * @param {protos.opts.DynamicGroupAzureEventHubOptions} message DynamicGroupAzureEventHubOptions
+             * @param {protos.opts.TunnelGroupAzureEventHubOptions} message TunnelGroupAzureEventHubOptions
              * @param {$protobuf.IConversionOptions} [options] Conversion options
              * @returns {Object.<string,*>} Plain object
              */
-            DynamicGroupAzureEventHubOptions.toObject = function toObject(message, options) {
+            TunnelGroupAzureEventHubOptions.toObject = function toObject(message, options) {
                 if (!options)
                     options = {};
                 var object = {};
@@ -8984,38 +8984,38 @@ $root.protos = (function() {
             };
 
             /**
-             * Converts this DynamicGroupAzureEventHubOptions to JSON.
+             * Converts this TunnelGroupAzureEventHubOptions to JSON.
              * @function toJSON
-             * @memberof protos.opts.DynamicGroupAzureEventHubOptions
+             * @memberof protos.opts.TunnelGroupAzureEventHubOptions
              * @instance
              * @returns {Object.<string,*>} JSON object
              */
-            DynamicGroupAzureEventHubOptions.prototype.toJSON = function toJSON() {
+            TunnelGroupAzureEventHubOptions.prototype.toJSON = function toJSON() {
                 return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
             };
 
-            return DynamicGroupAzureEventHubOptions;
+            return TunnelGroupAzureEventHubOptions;
         })();
 
-        opts.DynamicGroupAzureServiceBusOptions = (function() {
+        opts.TunnelGroupAzureServiceBusOptions = (function() {
 
             /**
-             * Properties of a DynamicGroupAzureServiceBusOptions.
+             * Properties of a TunnelGroupAzureServiceBusOptions.
              * @memberof protos.opts
-             * @interface IDynamicGroupAzureServiceBusOptions
-             * @property {protos.args.IAzureServiceBusConn|null} [_conn] DynamicGroupAzureServiceBusOptions _conn
-             * @property {protos.args.IAzureServiceBusWriteArgs|null} [args] DynamicGroupAzureServiceBusOptions args
+             * @interface ITunnelGroupAzureServiceBusOptions
+             * @property {protos.args.IAzureServiceBusConn|null} [_conn] TunnelGroupAzureServiceBusOptions _conn
+             * @property {protos.args.IAzureServiceBusWriteArgs|null} [args] TunnelGroupAzureServiceBusOptions args
              */
 
             /**
-             * Constructs a new DynamicGroupAzureServiceBusOptions.
+             * Constructs a new TunnelGroupAzureServiceBusOptions.
              * @memberof protos.opts
-             * @classdesc Represents a DynamicGroupAzureServiceBusOptions.
-             * @implements IDynamicGroupAzureServiceBusOptions
+             * @classdesc Represents a TunnelGroupAzureServiceBusOptions.
+             * @implements ITunnelGroupAzureServiceBusOptions
              * @constructor
-             * @param {protos.opts.IDynamicGroupAzureServiceBusOptions=} [properties] Properties to set
+             * @param {protos.opts.ITunnelGroupAzureServiceBusOptions=} [properties] Properties to set
              */
-            function DynamicGroupAzureServiceBusOptions(properties) {
+            function TunnelGroupAzureServiceBusOptions(properties) {
                 if (properties)
                     for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                         if (properties[keys[i]] != null)
@@ -9023,43 +9023,43 @@ $root.protos = (function() {
             }
 
             /**
-             * DynamicGroupAzureServiceBusOptions _conn.
+             * TunnelGroupAzureServiceBusOptions _conn.
              * @member {protos.args.IAzureServiceBusConn|null|undefined} _conn
-             * @memberof protos.opts.DynamicGroupAzureServiceBusOptions
+             * @memberof protos.opts.TunnelGroupAzureServiceBusOptions
              * @instance
              */
-            DynamicGroupAzureServiceBusOptions.prototype._conn = null;
+            TunnelGroupAzureServiceBusOptions.prototype._conn = null;
 
             /**
-             * DynamicGroupAzureServiceBusOptions args.
+             * TunnelGroupAzureServiceBusOptions args.
              * @member {protos.args.IAzureServiceBusWriteArgs|null|undefined} args
-             * @memberof protos.opts.DynamicGroupAzureServiceBusOptions
+             * @memberof protos.opts.TunnelGroupAzureServiceBusOptions
              * @instance
              */
-            DynamicGroupAzureServiceBusOptions.prototype.args = null;
+            TunnelGroupAzureServiceBusOptions.prototype.args = null;
 
             /**
-             * Creates a new DynamicGroupAzureServiceBusOptions instance using the specified properties.
+             * Creates a new TunnelGroupAzureServiceBusOptions instance using the specified properties.
              * @function create
-             * @memberof protos.opts.DynamicGroupAzureServiceBusOptions
+             * @memberof protos.opts.TunnelGroupAzureServiceBusOptions
              * @static
-             * @param {protos.opts.IDynamicGroupAzureServiceBusOptions=} [properties] Properties to set
-             * @returns {protos.opts.DynamicGroupAzureServiceBusOptions} DynamicGroupAzureServiceBusOptions instance
+             * @param {protos.opts.ITunnelGroupAzureServiceBusOptions=} [properties] Properties to set
+             * @returns {protos.opts.TunnelGroupAzureServiceBusOptions} TunnelGroupAzureServiceBusOptions instance
              */
-            DynamicGroupAzureServiceBusOptions.create = function create(properties) {
-                return new DynamicGroupAzureServiceBusOptions(properties);
+            TunnelGroupAzureServiceBusOptions.create = function create(properties) {
+                return new TunnelGroupAzureServiceBusOptions(properties);
             };
 
             /**
-             * Encodes the specified DynamicGroupAzureServiceBusOptions message. Does not implicitly {@link protos.opts.DynamicGroupAzureServiceBusOptions.verify|verify} messages.
+             * Encodes the specified TunnelGroupAzureServiceBusOptions message. Does not implicitly {@link protos.opts.TunnelGroupAzureServiceBusOptions.verify|verify} messages.
              * @function encode
-             * @memberof protos.opts.DynamicGroupAzureServiceBusOptions
+             * @memberof protos.opts.TunnelGroupAzureServiceBusOptions
              * @static
-             * @param {protos.opts.IDynamicGroupAzureServiceBusOptions} message DynamicGroupAzureServiceBusOptions message or plain object to encode
+             * @param {protos.opts.ITunnelGroupAzureServiceBusOptions} message TunnelGroupAzureServiceBusOptions message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
-            DynamicGroupAzureServiceBusOptions.encode = function encode(message, writer) {
+            TunnelGroupAzureServiceBusOptions.encode = function encode(message, writer) {
                 if (!writer)
                     writer = $Writer.create();
                 if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
@@ -9070,33 +9070,33 @@ $root.protos = (function() {
             };
 
             /**
-             * Encodes the specified DynamicGroupAzureServiceBusOptions message, length delimited. Does not implicitly {@link protos.opts.DynamicGroupAzureServiceBusOptions.verify|verify} messages.
+             * Encodes the specified TunnelGroupAzureServiceBusOptions message, length delimited. Does not implicitly {@link protos.opts.TunnelGroupAzureServiceBusOptions.verify|verify} messages.
              * @function encodeDelimited
-             * @memberof protos.opts.DynamicGroupAzureServiceBusOptions
+             * @memberof protos.opts.TunnelGroupAzureServiceBusOptions
              * @static
-             * @param {protos.opts.IDynamicGroupAzureServiceBusOptions} message DynamicGroupAzureServiceBusOptions message or plain object to encode
+             * @param {protos.opts.ITunnelGroupAzureServiceBusOptions} message TunnelGroupAzureServiceBusOptions message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
-            DynamicGroupAzureServiceBusOptions.encodeDelimited = function encodeDelimited(message, writer) {
+            TunnelGroupAzureServiceBusOptions.encodeDelimited = function encodeDelimited(message, writer) {
                 return this.encode(message, writer).ldelim();
             };
 
             /**
-             * Decodes a DynamicGroupAzureServiceBusOptions message from the specified reader or buffer.
+             * Decodes a TunnelGroupAzureServiceBusOptions message from the specified reader or buffer.
              * @function decode
-             * @memberof protos.opts.DynamicGroupAzureServiceBusOptions
+             * @memberof protos.opts.TunnelGroupAzureServiceBusOptions
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {protos.opts.DynamicGroupAzureServiceBusOptions} DynamicGroupAzureServiceBusOptions
+             * @returns {protos.opts.TunnelGroupAzureServiceBusOptions} TunnelGroupAzureServiceBusOptions
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            DynamicGroupAzureServiceBusOptions.decode = function decode(reader, length) {
+            TunnelGroupAzureServiceBusOptions.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.DynamicGroupAzureServiceBusOptions();
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.TunnelGroupAzureServiceBusOptions();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
                     switch (tag >>> 3) {
@@ -9115,30 +9115,30 @@ $root.protos = (function() {
             };
 
             /**
-             * Decodes a DynamicGroupAzureServiceBusOptions message from the specified reader or buffer, length delimited.
+             * Decodes a TunnelGroupAzureServiceBusOptions message from the specified reader or buffer, length delimited.
              * @function decodeDelimited
-             * @memberof protos.opts.DynamicGroupAzureServiceBusOptions
+             * @memberof protos.opts.TunnelGroupAzureServiceBusOptions
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {protos.opts.DynamicGroupAzureServiceBusOptions} DynamicGroupAzureServiceBusOptions
+             * @returns {protos.opts.TunnelGroupAzureServiceBusOptions} TunnelGroupAzureServiceBusOptions
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            DynamicGroupAzureServiceBusOptions.decodeDelimited = function decodeDelimited(reader) {
+            TunnelGroupAzureServiceBusOptions.decodeDelimited = function decodeDelimited(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
                 return this.decode(reader, reader.uint32());
             };
 
             /**
-             * Verifies a DynamicGroupAzureServiceBusOptions message.
+             * Verifies a TunnelGroupAzureServiceBusOptions message.
              * @function verify
-             * @memberof protos.opts.DynamicGroupAzureServiceBusOptions
+             * @memberof protos.opts.TunnelGroupAzureServiceBusOptions
              * @static
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            DynamicGroupAzureServiceBusOptions.verify = function verify(message) {
+            TunnelGroupAzureServiceBusOptions.verify = function verify(message) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
                 if (message._conn != null && message.hasOwnProperty("_conn")) {
@@ -9155,40 +9155,40 @@ $root.protos = (function() {
             };
 
             /**
-             * Creates a DynamicGroupAzureServiceBusOptions message from a plain object. Also converts values to their respective internal types.
+             * Creates a TunnelGroupAzureServiceBusOptions message from a plain object. Also converts values to their respective internal types.
              * @function fromObject
-             * @memberof protos.opts.DynamicGroupAzureServiceBusOptions
+             * @memberof protos.opts.TunnelGroupAzureServiceBusOptions
              * @static
              * @param {Object.<string,*>} object Plain object
-             * @returns {protos.opts.DynamicGroupAzureServiceBusOptions} DynamicGroupAzureServiceBusOptions
+             * @returns {protos.opts.TunnelGroupAzureServiceBusOptions} TunnelGroupAzureServiceBusOptions
              */
-            DynamicGroupAzureServiceBusOptions.fromObject = function fromObject(object) {
-                if (object instanceof $root.protos.opts.DynamicGroupAzureServiceBusOptions)
+            TunnelGroupAzureServiceBusOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.TunnelGroupAzureServiceBusOptions)
                     return object;
-                var message = new $root.protos.opts.DynamicGroupAzureServiceBusOptions();
+                var message = new $root.protos.opts.TunnelGroupAzureServiceBusOptions();
                 if (object._conn != null) {
                     if (typeof object._conn !== "object")
-                        throw TypeError(".protos.opts.DynamicGroupAzureServiceBusOptions._conn: object expected");
+                        throw TypeError(".protos.opts.TunnelGroupAzureServiceBusOptions._conn: object expected");
                     message._conn = $root.protos.args.AzureServiceBusConn.fromObject(object._conn);
                 }
                 if (object.args != null) {
                     if (typeof object.args !== "object")
-                        throw TypeError(".protos.opts.DynamicGroupAzureServiceBusOptions.args: object expected");
+                        throw TypeError(".protos.opts.TunnelGroupAzureServiceBusOptions.args: object expected");
                     message.args = $root.protos.args.AzureServiceBusWriteArgs.fromObject(object.args);
                 }
                 return message;
             };
 
             /**
-             * Creates a plain object from a DynamicGroupAzureServiceBusOptions message. Also converts values to other types if specified.
+             * Creates a plain object from a TunnelGroupAzureServiceBusOptions message. Also converts values to other types if specified.
              * @function toObject
-             * @memberof protos.opts.DynamicGroupAzureServiceBusOptions
+             * @memberof protos.opts.TunnelGroupAzureServiceBusOptions
              * @static
-             * @param {protos.opts.DynamicGroupAzureServiceBusOptions} message DynamicGroupAzureServiceBusOptions
+             * @param {protos.opts.TunnelGroupAzureServiceBusOptions} message TunnelGroupAzureServiceBusOptions
              * @param {$protobuf.IConversionOptions} [options] Conversion options
              * @returns {Object.<string,*>} Plain object
              */
-            DynamicGroupAzureServiceBusOptions.toObject = function toObject(message, options) {
+            TunnelGroupAzureServiceBusOptions.toObject = function toObject(message, options) {
                 if (!options)
                     options = {};
                 var object = {};
@@ -9204,38 +9204,38 @@ $root.protos = (function() {
             };
 
             /**
-             * Converts this DynamicGroupAzureServiceBusOptions to JSON.
+             * Converts this TunnelGroupAzureServiceBusOptions to JSON.
              * @function toJSON
-             * @memberof protos.opts.DynamicGroupAzureServiceBusOptions
+             * @memberof protos.opts.TunnelGroupAzureServiceBusOptions
              * @instance
              * @returns {Object.<string,*>} JSON object
              */
-            DynamicGroupAzureServiceBusOptions.prototype.toJSON = function toJSON() {
+            TunnelGroupAzureServiceBusOptions.prototype.toJSON = function toJSON() {
                 return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
             };
 
-            return DynamicGroupAzureServiceBusOptions;
+            return TunnelGroupAzureServiceBusOptions;
         })();
 
-        opts.DynamicGroupMQTTOptions = (function() {
+        opts.TunnelGroupMQTTOptions = (function() {
 
             /**
-             * Properties of a DynamicGroupMQTTOptions.
+             * Properties of a TunnelGroupMQTTOptions.
              * @memberof protos.opts
-             * @interface IDynamicGroupMQTTOptions
-             * @property {protos.args.IMQTTConn|null} [_conn] DynamicGroupMQTTOptions _conn
-             * @property {protos.args.IMQTTWriteArgs|null} [args] DynamicGroupMQTTOptions args
+             * @interface ITunnelGroupMQTTOptions
+             * @property {protos.args.IMQTTConn|null} [_conn] TunnelGroupMQTTOptions _conn
+             * @property {protos.args.IMQTTWriteArgs|null} [args] TunnelGroupMQTTOptions args
              */
 
             /**
-             * Constructs a new DynamicGroupMQTTOptions.
+             * Constructs a new TunnelGroupMQTTOptions.
              * @memberof protos.opts
-             * @classdesc Represents a DynamicGroupMQTTOptions.
-             * @implements IDynamicGroupMQTTOptions
+             * @classdesc Represents a TunnelGroupMQTTOptions.
+             * @implements ITunnelGroupMQTTOptions
              * @constructor
-             * @param {protos.opts.IDynamicGroupMQTTOptions=} [properties] Properties to set
+             * @param {protos.opts.ITunnelGroupMQTTOptions=} [properties] Properties to set
              */
-            function DynamicGroupMQTTOptions(properties) {
+            function TunnelGroupMQTTOptions(properties) {
                 if (properties)
                     for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                         if (properties[keys[i]] != null)
@@ -9243,43 +9243,43 @@ $root.protos = (function() {
             }
 
             /**
-             * DynamicGroupMQTTOptions _conn.
+             * TunnelGroupMQTTOptions _conn.
              * @member {protos.args.IMQTTConn|null|undefined} _conn
-             * @memberof protos.opts.DynamicGroupMQTTOptions
+             * @memberof protos.opts.TunnelGroupMQTTOptions
              * @instance
              */
-            DynamicGroupMQTTOptions.prototype._conn = null;
+            TunnelGroupMQTTOptions.prototype._conn = null;
 
             /**
-             * DynamicGroupMQTTOptions args.
+             * TunnelGroupMQTTOptions args.
              * @member {protos.args.IMQTTWriteArgs|null|undefined} args
-             * @memberof protos.opts.DynamicGroupMQTTOptions
+             * @memberof protos.opts.TunnelGroupMQTTOptions
              * @instance
              */
-            DynamicGroupMQTTOptions.prototype.args = null;
+            TunnelGroupMQTTOptions.prototype.args = null;
 
             /**
-             * Creates a new DynamicGroupMQTTOptions instance using the specified properties.
+             * Creates a new TunnelGroupMQTTOptions instance using the specified properties.
              * @function create
-             * @memberof protos.opts.DynamicGroupMQTTOptions
+             * @memberof protos.opts.TunnelGroupMQTTOptions
              * @static
-             * @param {protos.opts.IDynamicGroupMQTTOptions=} [properties] Properties to set
-             * @returns {protos.opts.DynamicGroupMQTTOptions} DynamicGroupMQTTOptions instance
+             * @param {protos.opts.ITunnelGroupMQTTOptions=} [properties] Properties to set
+             * @returns {protos.opts.TunnelGroupMQTTOptions} TunnelGroupMQTTOptions instance
              */
-            DynamicGroupMQTTOptions.create = function create(properties) {
-                return new DynamicGroupMQTTOptions(properties);
+            TunnelGroupMQTTOptions.create = function create(properties) {
+                return new TunnelGroupMQTTOptions(properties);
             };
 
             /**
-             * Encodes the specified DynamicGroupMQTTOptions message. Does not implicitly {@link protos.opts.DynamicGroupMQTTOptions.verify|verify} messages.
+             * Encodes the specified TunnelGroupMQTTOptions message. Does not implicitly {@link protos.opts.TunnelGroupMQTTOptions.verify|verify} messages.
              * @function encode
-             * @memberof protos.opts.DynamicGroupMQTTOptions
+             * @memberof protos.opts.TunnelGroupMQTTOptions
              * @static
-             * @param {protos.opts.IDynamicGroupMQTTOptions} message DynamicGroupMQTTOptions message or plain object to encode
+             * @param {protos.opts.ITunnelGroupMQTTOptions} message TunnelGroupMQTTOptions message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
-            DynamicGroupMQTTOptions.encode = function encode(message, writer) {
+            TunnelGroupMQTTOptions.encode = function encode(message, writer) {
                 if (!writer)
                     writer = $Writer.create();
                 if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
@@ -9290,33 +9290,33 @@ $root.protos = (function() {
             };
 
             /**
-             * Encodes the specified DynamicGroupMQTTOptions message, length delimited. Does not implicitly {@link protos.opts.DynamicGroupMQTTOptions.verify|verify} messages.
+             * Encodes the specified TunnelGroupMQTTOptions message, length delimited. Does not implicitly {@link protos.opts.TunnelGroupMQTTOptions.verify|verify} messages.
              * @function encodeDelimited
-             * @memberof protos.opts.DynamicGroupMQTTOptions
+             * @memberof protos.opts.TunnelGroupMQTTOptions
              * @static
-             * @param {protos.opts.IDynamicGroupMQTTOptions} message DynamicGroupMQTTOptions message or plain object to encode
+             * @param {protos.opts.ITunnelGroupMQTTOptions} message TunnelGroupMQTTOptions message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
-            DynamicGroupMQTTOptions.encodeDelimited = function encodeDelimited(message, writer) {
+            TunnelGroupMQTTOptions.encodeDelimited = function encodeDelimited(message, writer) {
                 return this.encode(message, writer).ldelim();
             };
 
             /**
-             * Decodes a DynamicGroupMQTTOptions message from the specified reader or buffer.
+             * Decodes a TunnelGroupMQTTOptions message from the specified reader or buffer.
              * @function decode
-             * @memberof protos.opts.DynamicGroupMQTTOptions
+             * @memberof protos.opts.TunnelGroupMQTTOptions
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {protos.opts.DynamicGroupMQTTOptions} DynamicGroupMQTTOptions
+             * @returns {protos.opts.TunnelGroupMQTTOptions} TunnelGroupMQTTOptions
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            DynamicGroupMQTTOptions.decode = function decode(reader, length) {
+            TunnelGroupMQTTOptions.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.DynamicGroupMQTTOptions();
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.TunnelGroupMQTTOptions();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
                     switch (tag >>> 3) {
@@ -9335,30 +9335,30 @@ $root.protos = (function() {
             };
 
             /**
-             * Decodes a DynamicGroupMQTTOptions message from the specified reader or buffer, length delimited.
+             * Decodes a TunnelGroupMQTTOptions message from the specified reader or buffer, length delimited.
              * @function decodeDelimited
-             * @memberof protos.opts.DynamicGroupMQTTOptions
+             * @memberof protos.opts.TunnelGroupMQTTOptions
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {protos.opts.DynamicGroupMQTTOptions} DynamicGroupMQTTOptions
+             * @returns {protos.opts.TunnelGroupMQTTOptions} TunnelGroupMQTTOptions
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            DynamicGroupMQTTOptions.decodeDelimited = function decodeDelimited(reader) {
+            TunnelGroupMQTTOptions.decodeDelimited = function decodeDelimited(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
                 return this.decode(reader, reader.uint32());
             };
 
             /**
-             * Verifies a DynamicGroupMQTTOptions message.
+             * Verifies a TunnelGroupMQTTOptions message.
              * @function verify
-             * @memberof protos.opts.DynamicGroupMQTTOptions
+             * @memberof protos.opts.TunnelGroupMQTTOptions
              * @static
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            DynamicGroupMQTTOptions.verify = function verify(message) {
+            TunnelGroupMQTTOptions.verify = function verify(message) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
                 if (message._conn != null && message.hasOwnProperty("_conn")) {
@@ -9375,40 +9375,40 @@ $root.protos = (function() {
             };
 
             /**
-             * Creates a DynamicGroupMQTTOptions message from a plain object. Also converts values to their respective internal types.
+             * Creates a TunnelGroupMQTTOptions message from a plain object. Also converts values to their respective internal types.
              * @function fromObject
-             * @memberof protos.opts.DynamicGroupMQTTOptions
+             * @memberof protos.opts.TunnelGroupMQTTOptions
              * @static
              * @param {Object.<string,*>} object Plain object
-             * @returns {protos.opts.DynamicGroupMQTTOptions} DynamicGroupMQTTOptions
+             * @returns {protos.opts.TunnelGroupMQTTOptions} TunnelGroupMQTTOptions
              */
-            DynamicGroupMQTTOptions.fromObject = function fromObject(object) {
-                if (object instanceof $root.protos.opts.DynamicGroupMQTTOptions)
+            TunnelGroupMQTTOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.TunnelGroupMQTTOptions)
                     return object;
-                var message = new $root.protos.opts.DynamicGroupMQTTOptions();
+                var message = new $root.protos.opts.TunnelGroupMQTTOptions();
                 if (object._conn != null) {
                     if (typeof object._conn !== "object")
-                        throw TypeError(".protos.opts.DynamicGroupMQTTOptions._conn: object expected");
+                        throw TypeError(".protos.opts.TunnelGroupMQTTOptions._conn: object expected");
                     message._conn = $root.protos.args.MQTTConn.fromObject(object._conn);
                 }
                 if (object.args != null) {
                     if (typeof object.args !== "object")
-                        throw TypeError(".protos.opts.DynamicGroupMQTTOptions.args: object expected");
+                        throw TypeError(".protos.opts.TunnelGroupMQTTOptions.args: object expected");
                     message.args = $root.protos.args.MQTTWriteArgs.fromObject(object.args);
                 }
                 return message;
             };
 
             /**
-             * Creates a plain object from a DynamicGroupMQTTOptions message. Also converts values to other types if specified.
+             * Creates a plain object from a TunnelGroupMQTTOptions message. Also converts values to other types if specified.
              * @function toObject
-             * @memberof protos.opts.DynamicGroupMQTTOptions
+             * @memberof protos.opts.TunnelGroupMQTTOptions
              * @static
-             * @param {protos.opts.DynamicGroupMQTTOptions} message DynamicGroupMQTTOptions
+             * @param {protos.opts.TunnelGroupMQTTOptions} message TunnelGroupMQTTOptions
              * @param {$protobuf.IConversionOptions} [options] Conversion options
              * @returns {Object.<string,*>} Plain object
              */
-            DynamicGroupMQTTOptions.toObject = function toObject(message, options) {
+            TunnelGroupMQTTOptions.toObject = function toObject(message, options) {
                 if (!options)
                     options = {};
                 var object = {};
@@ -9424,38 +9424,38 @@ $root.protos = (function() {
             };
 
             /**
-             * Converts this DynamicGroupMQTTOptions to JSON.
+             * Converts this TunnelGroupMQTTOptions to JSON.
              * @function toJSON
-             * @memberof protos.opts.DynamicGroupMQTTOptions
+             * @memberof protos.opts.TunnelGroupMQTTOptions
              * @instance
              * @returns {Object.<string,*>} JSON object
              */
-            DynamicGroupMQTTOptions.prototype.toJSON = function toJSON() {
+            TunnelGroupMQTTOptions.prototype.toJSON = function toJSON() {
                 return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
             };
 
-            return DynamicGroupMQTTOptions;
+            return TunnelGroupMQTTOptions;
         })();
 
-        opts.DynamicGroupGCPPubSubOptions = (function() {
+        opts.TunnelGroupGCPPubSubOptions = (function() {
 
             /**
-             * Properties of a DynamicGroupGCPPubSubOptions.
+             * Properties of a TunnelGroupGCPPubSubOptions.
              * @memberof protos.opts
-             * @interface IDynamicGroupGCPPubSubOptions
-             * @property {protos.args.IGCPPubSubConn|null} [_conn] DynamicGroupGCPPubSubOptions _conn
-             * @property {protos.args.IGCPPubSubWriteArgs|null} [args] DynamicGroupGCPPubSubOptions args
+             * @interface ITunnelGroupGCPPubSubOptions
+             * @property {protos.args.IGCPPubSubConn|null} [_conn] TunnelGroupGCPPubSubOptions _conn
+             * @property {protos.args.IGCPPubSubWriteArgs|null} [args] TunnelGroupGCPPubSubOptions args
              */
 
             /**
-             * Constructs a new DynamicGroupGCPPubSubOptions.
+             * Constructs a new TunnelGroupGCPPubSubOptions.
              * @memberof protos.opts
-             * @classdesc Represents a DynamicGroupGCPPubSubOptions.
-             * @implements IDynamicGroupGCPPubSubOptions
+             * @classdesc Represents a TunnelGroupGCPPubSubOptions.
+             * @implements ITunnelGroupGCPPubSubOptions
              * @constructor
-             * @param {protos.opts.IDynamicGroupGCPPubSubOptions=} [properties] Properties to set
+             * @param {protos.opts.ITunnelGroupGCPPubSubOptions=} [properties] Properties to set
              */
-            function DynamicGroupGCPPubSubOptions(properties) {
+            function TunnelGroupGCPPubSubOptions(properties) {
                 if (properties)
                     for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                         if (properties[keys[i]] != null)
@@ -9463,43 +9463,43 @@ $root.protos = (function() {
             }
 
             /**
-             * DynamicGroupGCPPubSubOptions _conn.
+             * TunnelGroupGCPPubSubOptions _conn.
              * @member {protos.args.IGCPPubSubConn|null|undefined} _conn
-             * @memberof protos.opts.DynamicGroupGCPPubSubOptions
+             * @memberof protos.opts.TunnelGroupGCPPubSubOptions
              * @instance
              */
-            DynamicGroupGCPPubSubOptions.prototype._conn = null;
+            TunnelGroupGCPPubSubOptions.prototype._conn = null;
 
             /**
-             * DynamicGroupGCPPubSubOptions args.
+             * TunnelGroupGCPPubSubOptions args.
              * @member {protos.args.IGCPPubSubWriteArgs|null|undefined} args
-             * @memberof protos.opts.DynamicGroupGCPPubSubOptions
+             * @memberof protos.opts.TunnelGroupGCPPubSubOptions
              * @instance
              */
-            DynamicGroupGCPPubSubOptions.prototype.args = null;
+            TunnelGroupGCPPubSubOptions.prototype.args = null;
 
             /**
-             * Creates a new DynamicGroupGCPPubSubOptions instance using the specified properties.
+             * Creates a new TunnelGroupGCPPubSubOptions instance using the specified properties.
              * @function create
-             * @memberof protos.opts.DynamicGroupGCPPubSubOptions
+             * @memberof protos.opts.TunnelGroupGCPPubSubOptions
              * @static
-             * @param {protos.opts.IDynamicGroupGCPPubSubOptions=} [properties] Properties to set
-             * @returns {protos.opts.DynamicGroupGCPPubSubOptions} DynamicGroupGCPPubSubOptions instance
+             * @param {protos.opts.ITunnelGroupGCPPubSubOptions=} [properties] Properties to set
+             * @returns {protos.opts.TunnelGroupGCPPubSubOptions} TunnelGroupGCPPubSubOptions instance
              */
-            DynamicGroupGCPPubSubOptions.create = function create(properties) {
-                return new DynamicGroupGCPPubSubOptions(properties);
+            TunnelGroupGCPPubSubOptions.create = function create(properties) {
+                return new TunnelGroupGCPPubSubOptions(properties);
             };
 
             /**
-             * Encodes the specified DynamicGroupGCPPubSubOptions message. Does not implicitly {@link protos.opts.DynamicGroupGCPPubSubOptions.verify|verify} messages.
+             * Encodes the specified TunnelGroupGCPPubSubOptions message. Does not implicitly {@link protos.opts.TunnelGroupGCPPubSubOptions.verify|verify} messages.
              * @function encode
-             * @memberof protos.opts.DynamicGroupGCPPubSubOptions
+             * @memberof protos.opts.TunnelGroupGCPPubSubOptions
              * @static
-             * @param {protos.opts.IDynamicGroupGCPPubSubOptions} message DynamicGroupGCPPubSubOptions message or plain object to encode
+             * @param {protos.opts.ITunnelGroupGCPPubSubOptions} message TunnelGroupGCPPubSubOptions message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
-            DynamicGroupGCPPubSubOptions.encode = function encode(message, writer) {
+            TunnelGroupGCPPubSubOptions.encode = function encode(message, writer) {
                 if (!writer)
                     writer = $Writer.create();
                 if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
@@ -9510,33 +9510,33 @@ $root.protos = (function() {
             };
 
             /**
-             * Encodes the specified DynamicGroupGCPPubSubOptions message, length delimited. Does not implicitly {@link protos.opts.DynamicGroupGCPPubSubOptions.verify|verify} messages.
+             * Encodes the specified TunnelGroupGCPPubSubOptions message, length delimited. Does not implicitly {@link protos.opts.TunnelGroupGCPPubSubOptions.verify|verify} messages.
              * @function encodeDelimited
-             * @memberof protos.opts.DynamicGroupGCPPubSubOptions
+             * @memberof protos.opts.TunnelGroupGCPPubSubOptions
              * @static
-             * @param {protos.opts.IDynamicGroupGCPPubSubOptions} message DynamicGroupGCPPubSubOptions message or plain object to encode
+             * @param {protos.opts.ITunnelGroupGCPPubSubOptions} message TunnelGroupGCPPubSubOptions message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
-            DynamicGroupGCPPubSubOptions.encodeDelimited = function encodeDelimited(message, writer) {
+            TunnelGroupGCPPubSubOptions.encodeDelimited = function encodeDelimited(message, writer) {
                 return this.encode(message, writer).ldelim();
             };
 
             /**
-             * Decodes a DynamicGroupGCPPubSubOptions message from the specified reader or buffer.
+             * Decodes a TunnelGroupGCPPubSubOptions message from the specified reader or buffer.
              * @function decode
-             * @memberof protos.opts.DynamicGroupGCPPubSubOptions
+             * @memberof protos.opts.TunnelGroupGCPPubSubOptions
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {protos.opts.DynamicGroupGCPPubSubOptions} DynamicGroupGCPPubSubOptions
+             * @returns {protos.opts.TunnelGroupGCPPubSubOptions} TunnelGroupGCPPubSubOptions
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            DynamicGroupGCPPubSubOptions.decode = function decode(reader, length) {
+            TunnelGroupGCPPubSubOptions.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.DynamicGroupGCPPubSubOptions();
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.TunnelGroupGCPPubSubOptions();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
                     switch (tag >>> 3) {
@@ -9555,30 +9555,30 @@ $root.protos = (function() {
             };
 
             /**
-             * Decodes a DynamicGroupGCPPubSubOptions message from the specified reader or buffer, length delimited.
+             * Decodes a TunnelGroupGCPPubSubOptions message from the specified reader or buffer, length delimited.
              * @function decodeDelimited
-             * @memberof protos.opts.DynamicGroupGCPPubSubOptions
+             * @memberof protos.opts.TunnelGroupGCPPubSubOptions
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {protos.opts.DynamicGroupGCPPubSubOptions} DynamicGroupGCPPubSubOptions
+             * @returns {protos.opts.TunnelGroupGCPPubSubOptions} TunnelGroupGCPPubSubOptions
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            DynamicGroupGCPPubSubOptions.decodeDelimited = function decodeDelimited(reader) {
+            TunnelGroupGCPPubSubOptions.decodeDelimited = function decodeDelimited(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
                 return this.decode(reader, reader.uint32());
             };
 
             /**
-             * Verifies a DynamicGroupGCPPubSubOptions message.
+             * Verifies a TunnelGroupGCPPubSubOptions message.
              * @function verify
-             * @memberof protos.opts.DynamicGroupGCPPubSubOptions
+             * @memberof protos.opts.TunnelGroupGCPPubSubOptions
              * @static
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            DynamicGroupGCPPubSubOptions.verify = function verify(message) {
+            TunnelGroupGCPPubSubOptions.verify = function verify(message) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
                 if (message._conn != null && message.hasOwnProperty("_conn")) {
@@ -9595,40 +9595,40 @@ $root.protos = (function() {
             };
 
             /**
-             * Creates a DynamicGroupGCPPubSubOptions message from a plain object. Also converts values to their respective internal types.
+             * Creates a TunnelGroupGCPPubSubOptions message from a plain object. Also converts values to their respective internal types.
              * @function fromObject
-             * @memberof protos.opts.DynamicGroupGCPPubSubOptions
+             * @memberof protos.opts.TunnelGroupGCPPubSubOptions
              * @static
              * @param {Object.<string,*>} object Plain object
-             * @returns {protos.opts.DynamicGroupGCPPubSubOptions} DynamicGroupGCPPubSubOptions
+             * @returns {protos.opts.TunnelGroupGCPPubSubOptions} TunnelGroupGCPPubSubOptions
              */
-            DynamicGroupGCPPubSubOptions.fromObject = function fromObject(object) {
-                if (object instanceof $root.protos.opts.DynamicGroupGCPPubSubOptions)
+            TunnelGroupGCPPubSubOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.TunnelGroupGCPPubSubOptions)
                     return object;
-                var message = new $root.protos.opts.DynamicGroupGCPPubSubOptions();
+                var message = new $root.protos.opts.TunnelGroupGCPPubSubOptions();
                 if (object._conn != null) {
                     if (typeof object._conn !== "object")
-                        throw TypeError(".protos.opts.DynamicGroupGCPPubSubOptions._conn: object expected");
+                        throw TypeError(".protos.opts.TunnelGroupGCPPubSubOptions._conn: object expected");
                     message._conn = $root.protos.args.GCPPubSubConn.fromObject(object._conn);
                 }
                 if (object.args != null) {
                     if (typeof object.args !== "object")
-                        throw TypeError(".protos.opts.DynamicGroupGCPPubSubOptions.args: object expected");
+                        throw TypeError(".protos.opts.TunnelGroupGCPPubSubOptions.args: object expected");
                     message.args = $root.protos.args.GCPPubSubWriteArgs.fromObject(object.args);
                 }
                 return message;
             };
 
             /**
-             * Creates a plain object from a DynamicGroupGCPPubSubOptions message. Also converts values to other types if specified.
+             * Creates a plain object from a TunnelGroupGCPPubSubOptions message. Also converts values to other types if specified.
              * @function toObject
-             * @memberof protos.opts.DynamicGroupGCPPubSubOptions
+             * @memberof protos.opts.TunnelGroupGCPPubSubOptions
              * @static
-             * @param {protos.opts.DynamicGroupGCPPubSubOptions} message DynamicGroupGCPPubSubOptions
+             * @param {protos.opts.TunnelGroupGCPPubSubOptions} message TunnelGroupGCPPubSubOptions
              * @param {$protobuf.IConversionOptions} [options] Conversion options
              * @returns {Object.<string,*>} Plain object
              */
-            DynamicGroupGCPPubSubOptions.toObject = function toObject(message, options) {
+            TunnelGroupGCPPubSubOptions.toObject = function toObject(message, options) {
                 if (!options)
                     options = {};
                 var object = {};
@@ -9644,38 +9644,38 @@ $root.protos = (function() {
             };
 
             /**
-             * Converts this DynamicGroupGCPPubSubOptions to JSON.
+             * Converts this TunnelGroupGCPPubSubOptions to JSON.
              * @function toJSON
-             * @memberof protos.opts.DynamicGroupGCPPubSubOptions
+             * @memberof protos.opts.TunnelGroupGCPPubSubOptions
              * @instance
              * @returns {Object.<string,*>} JSON object
              */
-            DynamicGroupGCPPubSubOptions.prototype.toJSON = function toJSON() {
+            TunnelGroupGCPPubSubOptions.prototype.toJSON = function toJSON() {
                 return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
             };
 
-            return DynamicGroupGCPPubSubOptions;
+            return TunnelGroupGCPPubSubOptions;
         })();
 
-        opts.DynamicGroupKubeMQQueueOptions = (function() {
+        opts.TunnelGroupKubeMQQueueOptions = (function() {
 
             /**
-             * Properties of a DynamicGroupKubeMQQueueOptions.
+             * Properties of a TunnelGroupKubeMQQueueOptions.
              * @memberof protos.opts
-             * @interface IDynamicGroupKubeMQQueueOptions
-             * @property {protos.args.IKubeMQQueueConn|null} [_conn] DynamicGroupKubeMQQueueOptions _conn
-             * @property {protos.args.IKubeMQQueueWriteArgs|null} [args] DynamicGroupKubeMQQueueOptions args
+             * @interface ITunnelGroupKubeMQQueueOptions
+             * @property {protos.args.IKubeMQQueueConn|null} [_conn] TunnelGroupKubeMQQueueOptions _conn
+             * @property {protos.args.IKubeMQQueueWriteArgs|null} [args] TunnelGroupKubeMQQueueOptions args
              */
 
             /**
-             * Constructs a new DynamicGroupKubeMQQueueOptions.
+             * Constructs a new TunnelGroupKubeMQQueueOptions.
              * @memberof protos.opts
-             * @classdesc Represents a DynamicGroupKubeMQQueueOptions.
-             * @implements IDynamicGroupKubeMQQueueOptions
+             * @classdesc Represents a TunnelGroupKubeMQQueueOptions.
+             * @implements ITunnelGroupKubeMQQueueOptions
              * @constructor
-             * @param {protos.opts.IDynamicGroupKubeMQQueueOptions=} [properties] Properties to set
+             * @param {protos.opts.ITunnelGroupKubeMQQueueOptions=} [properties] Properties to set
              */
-            function DynamicGroupKubeMQQueueOptions(properties) {
+            function TunnelGroupKubeMQQueueOptions(properties) {
                 if (properties)
                     for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                         if (properties[keys[i]] != null)
@@ -9683,43 +9683,43 @@ $root.protos = (function() {
             }
 
             /**
-             * DynamicGroupKubeMQQueueOptions _conn.
+             * TunnelGroupKubeMQQueueOptions _conn.
              * @member {protos.args.IKubeMQQueueConn|null|undefined} _conn
-             * @memberof protos.opts.DynamicGroupKubeMQQueueOptions
+             * @memberof protos.opts.TunnelGroupKubeMQQueueOptions
              * @instance
              */
-            DynamicGroupKubeMQQueueOptions.prototype._conn = null;
+            TunnelGroupKubeMQQueueOptions.prototype._conn = null;
 
             /**
-             * DynamicGroupKubeMQQueueOptions args.
+             * TunnelGroupKubeMQQueueOptions args.
              * @member {protos.args.IKubeMQQueueWriteArgs|null|undefined} args
-             * @memberof protos.opts.DynamicGroupKubeMQQueueOptions
+             * @memberof protos.opts.TunnelGroupKubeMQQueueOptions
              * @instance
              */
-            DynamicGroupKubeMQQueueOptions.prototype.args = null;
+            TunnelGroupKubeMQQueueOptions.prototype.args = null;
 
             /**
-             * Creates a new DynamicGroupKubeMQQueueOptions instance using the specified properties.
+             * Creates a new TunnelGroupKubeMQQueueOptions instance using the specified properties.
              * @function create
-             * @memberof protos.opts.DynamicGroupKubeMQQueueOptions
+             * @memberof protos.opts.TunnelGroupKubeMQQueueOptions
              * @static
-             * @param {protos.opts.IDynamicGroupKubeMQQueueOptions=} [properties] Properties to set
-             * @returns {protos.opts.DynamicGroupKubeMQQueueOptions} DynamicGroupKubeMQQueueOptions instance
+             * @param {protos.opts.ITunnelGroupKubeMQQueueOptions=} [properties] Properties to set
+             * @returns {protos.opts.TunnelGroupKubeMQQueueOptions} TunnelGroupKubeMQQueueOptions instance
              */
-            DynamicGroupKubeMQQueueOptions.create = function create(properties) {
-                return new DynamicGroupKubeMQQueueOptions(properties);
+            TunnelGroupKubeMQQueueOptions.create = function create(properties) {
+                return new TunnelGroupKubeMQQueueOptions(properties);
             };
 
             /**
-             * Encodes the specified DynamicGroupKubeMQQueueOptions message. Does not implicitly {@link protos.opts.DynamicGroupKubeMQQueueOptions.verify|verify} messages.
+             * Encodes the specified TunnelGroupKubeMQQueueOptions message. Does not implicitly {@link protos.opts.TunnelGroupKubeMQQueueOptions.verify|verify} messages.
              * @function encode
-             * @memberof protos.opts.DynamicGroupKubeMQQueueOptions
+             * @memberof protos.opts.TunnelGroupKubeMQQueueOptions
              * @static
-             * @param {protos.opts.IDynamicGroupKubeMQQueueOptions} message DynamicGroupKubeMQQueueOptions message or plain object to encode
+             * @param {protos.opts.ITunnelGroupKubeMQQueueOptions} message TunnelGroupKubeMQQueueOptions message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
-            DynamicGroupKubeMQQueueOptions.encode = function encode(message, writer) {
+            TunnelGroupKubeMQQueueOptions.encode = function encode(message, writer) {
                 if (!writer)
                     writer = $Writer.create();
                 if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
@@ -9730,33 +9730,33 @@ $root.protos = (function() {
             };
 
             /**
-             * Encodes the specified DynamicGroupKubeMQQueueOptions message, length delimited. Does not implicitly {@link protos.opts.DynamicGroupKubeMQQueueOptions.verify|verify} messages.
+             * Encodes the specified TunnelGroupKubeMQQueueOptions message, length delimited. Does not implicitly {@link protos.opts.TunnelGroupKubeMQQueueOptions.verify|verify} messages.
              * @function encodeDelimited
-             * @memberof protos.opts.DynamicGroupKubeMQQueueOptions
+             * @memberof protos.opts.TunnelGroupKubeMQQueueOptions
              * @static
-             * @param {protos.opts.IDynamicGroupKubeMQQueueOptions} message DynamicGroupKubeMQQueueOptions message or plain object to encode
+             * @param {protos.opts.ITunnelGroupKubeMQQueueOptions} message TunnelGroupKubeMQQueueOptions message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
-            DynamicGroupKubeMQQueueOptions.encodeDelimited = function encodeDelimited(message, writer) {
+            TunnelGroupKubeMQQueueOptions.encodeDelimited = function encodeDelimited(message, writer) {
                 return this.encode(message, writer).ldelim();
             };
 
             /**
-             * Decodes a DynamicGroupKubeMQQueueOptions message from the specified reader or buffer.
+             * Decodes a TunnelGroupKubeMQQueueOptions message from the specified reader or buffer.
              * @function decode
-             * @memberof protos.opts.DynamicGroupKubeMQQueueOptions
+             * @memberof protos.opts.TunnelGroupKubeMQQueueOptions
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {protos.opts.DynamicGroupKubeMQQueueOptions} DynamicGroupKubeMQQueueOptions
+             * @returns {protos.opts.TunnelGroupKubeMQQueueOptions} TunnelGroupKubeMQQueueOptions
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            DynamicGroupKubeMQQueueOptions.decode = function decode(reader, length) {
+            TunnelGroupKubeMQQueueOptions.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.DynamicGroupKubeMQQueueOptions();
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.TunnelGroupKubeMQQueueOptions();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
                     switch (tag >>> 3) {
@@ -9775,30 +9775,30 @@ $root.protos = (function() {
             };
 
             /**
-             * Decodes a DynamicGroupKubeMQQueueOptions message from the specified reader or buffer, length delimited.
+             * Decodes a TunnelGroupKubeMQQueueOptions message from the specified reader or buffer, length delimited.
              * @function decodeDelimited
-             * @memberof protos.opts.DynamicGroupKubeMQQueueOptions
+             * @memberof protos.opts.TunnelGroupKubeMQQueueOptions
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {protos.opts.DynamicGroupKubeMQQueueOptions} DynamicGroupKubeMQQueueOptions
+             * @returns {protos.opts.TunnelGroupKubeMQQueueOptions} TunnelGroupKubeMQQueueOptions
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            DynamicGroupKubeMQQueueOptions.decodeDelimited = function decodeDelimited(reader) {
+            TunnelGroupKubeMQQueueOptions.decodeDelimited = function decodeDelimited(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
                 return this.decode(reader, reader.uint32());
             };
 
             /**
-             * Verifies a DynamicGroupKubeMQQueueOptions message.
+             * Verifies a TunnelGroupKubeMQQueueOptions message.
              * @function verify
-             * @memberof protos.opts.DynamicGroupKubeMQQueueOptions
+             * @memberof protos.opts.TunnelGroupKubeMQQueueOptions
              * @static
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            DynamicGroupKubeMQQueueOptions.verify = function verify(message) {
+            TunnelGroupKubeMQQueueOptions.verify = function verify(message) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
                 if (message._conn != null && message.hasOwnProperty("_conn")) {
@@ -9815,40 +9815,40 @@ $root.protos = (function() {
             };
 
             /**
-             * Creates a DynamicGroupKubeMQQueueOptions message from a plain object. Also converts values to their respective internal types.
+             * Creates a TunnelGroupKubeMQQueueOptions message from a plain object. Also converts values to their respective internal types.
              * @function fromObject
-             * @memberof protos.opts.DynamicGroupKubeMQQueueOptions
+             * @memberof protos.opts.TunnelGroupKubeMQQueueOptions
              * @static
              * @param {Object.<string,*>} object Plain object
-             * @returns {protos.opts.DynamicGroupKubeMQQueueOptions} DynamicGroupKubeMQQueueOptions
+             * @returns {protos.opts.TunnelGroupKubeMQQueueOptions} TunnelGroupKubeMQQueueOptions
              */
-            DynamicGroupKubeMQQueueOptions.fromObject = function fromObject(object) {
-                if (object instanceof $root.protos.opts.DynamicGroupKubeMQQueueOptions)
+            TunnelGroupKubeMQQueueOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.TunnelGroupKubeMQQueueOptions)
                     return object;
-                var message = new $root.protos.opts.DynamicGroupKubeMQQueueOptions();
+                var message = new $root.protos.opts.TunnelGroupKubeMQQueueOptions();
                 if (object._conn != null) {
                     if (typeof object._conn !== "object")
-                        throw TypeError(".protos.opts.DynamicGroupKubeMQQueueOptions._conn: object expected");
+                        throw TypeError(".protos.opts.TunnelGroupKubeMQQueueOptions._conn: object expected");
                     message._conn = $root.protos.args.KubeMQQueueConn.fromObject(object._conn);
                 }
                 if (object.args != null) {
                     if (typeof object.args !== "object")
-                        throw TypeError(".protos.opts.DynamicGroupKubeMQQueueOptions.args: object expected");
+                        throw TypeError(".protos.opts.TunnelGroupKubeMQQueueOptions.args: object expected");
                     message.args = $root.protos.args.KubeMQQueueWriteArgs.fromObject(object.args);
                 }
                 return message;
             };
 
             /**
-             * Creates a plain object from a DynamicGroupKubeMQQueueOptions message. Also converts values to other types if specified.
+             * Creates a plain object from a TunnelGroupKubeMQQueueOptions message. Also converts values to other types if specified.
              * @function toObject
-             * @memberof protos.opts.DynamicGroupKubeMQQueueOptions
+             * @memberof protos.opts.TunnelGroupKubeMQQueueOptions
              * @static
-             * @param {protos.opts.DynamicGroupKubeMQQueueOptions} message DynamicGroupKubeMQQueueOptions
+             * @param {protos.opts.TunnelGroupKubeMQQueueOptions} message TunnelGroupKubeMQQueueOptions
              * @param {$protobuf.IConversionOptions} [options] Conversion options
              * @returns {Object.<string,*>} Plain object
              */
-            DynamicGroupKubeMQQueueOptions.toObject = function toObject(message, options) {
+            TunnelGroupKubeMQQueueOptions.toObject = function toObject(message, options) {
                 if (!options)
                     options = {};
                 var object = {};
@@ -9864,38 +9864,38 @@ $root.protos = (function() {
             };
 
             /**
-             * Converts this DynamicGroupKubeMQQueueOptions to JSON.
+             * Converts this TunnelGroupKubeMQQueueOptions to JSON.
              * @function toJSON
-             * @memberof protos.opts.DynamicGroupKubeMQQueueOptions
+             * @memberof protos.opts.TunnelGroupKubeMQQueueOptions
              * @instance
              * @returns {Object.<string,*>} JSON object
              */
-            DynamicGroupKubeMQQueueOptions.prototype.toJSON = function toJSON() {
+            TunnelGroupKubeMQQueueOptions.prototype.toJSON = function toJSON() {
                 return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
             };
 
-            return DynamicGroupKubeMQQueueOptions;
+            return TunnelGroupKubeMQQueueOptions;
         })();
 
-        opts.DynamicGroupPulsarOptions = (function() {
+        opts.TunnelGroupPulsarOptions = (function() {
 
             /**
-             * Properties of a DynamicGroupPulsarOptions.
+             * Properties of a TunnelGroupPulsarOptions.
              * @memberof protos.opts
-             * @interface IDynamicGroupPulsarOptions
-             * @property {protos.args.IPulsarConn|null} [_conn] DynamicGroupPulsarOptions _conn
-             * @property {protos.args.IPulsarWriteArgs|null} [args] DynamicGroupPulsarOptions args
+             * @interface ITunnelGroupPulsarOptions
+             * @property {protos.args.IPulsarConn|null} [_conn] TunnelGroupPulsarOptions _conn
+             * @property {protos.args.IPulsarWriteArgs|null} [args] TunnelGroupPulsarOptions args
              */
 
             /**
-             * Constructs a new DynamicGroupPulsarOptions.
+             * Constructs a new TunnelGroupPulsarOptions.
              * @memberof protos.opts
-             * @classdesc Represents a DynamicGroupPulsarOptions.
-             * @implements IDynamicGroupPulsarOptions
+             * @classdesc Represents a TunnelGroupPulsarOptions.
+             * @implements ITunnelGroupPulsarOptions
              * @constructor
-             * @param {protos.opts.IDynamicGroupPulsarOptions=} [properties] Properties to set
+             * @param {protos.opts.ITunnelGroupPulsarOptions=} [properties] Properties to set
              */
-            function DynamicGroupPulsarOptions(properties) {
+            function TunnelGroupPulsarOptions(properties) {
                 if (properties)
                     for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                         if (properties[keys[i]] != null)
@@ -9903,43 +9903,43 @@ $root.protos = (function() {
             }
 
             /**
-             * DynamicGroupPulsarOptions _conn.
+             * TunnelGroupPulsarOptions _conn.
              * @member {protos.args.IPulsarConn|null|undefined} _conn
-             * @memberof protos.opts.DynamicGroupPulsarOptions
+             * @memberof protos.opts.TunnelGroupPulsarOptions
              * @instance
              */
-            DynamicGroupPulsarOptions.prototype._conn = null;
+            TunnelGroupPulsarOptions.prototype._conn = null;
 
             /**
-             * DynamicGroupPulsarOptions args.
+             * TunnelGroupPulsarOptions args.
              * @member {protos.args.IPulsarWriteArgs|null|undefined} args
-             * @memberof protos.opts.DynamicGroupPulsarOptions
+             * @memberof protos.opts.TunnelGroupPulsarOptions
              * @instance
              */
-            DynamicGroupPulsarOptions.prototype.args = null;
+            TunnelGroupPulsarOptions.prototype.args = null;
 
             /**
-             * Creates a new DynamicGroupPulsarOptions instance using the specified properties.
+             * Creates a new TunnelGroupPulsarOptions instance using the specified properties.
              * @function create
-             * @memberof protos.opts.DynamicGroupPulsarOptions
+             * @memberof protos.opts.TunnelGroupPulsarOptions
              * @static
-             * @param {protos.opts.IDynamicGroupPulsarOptions=} [properties] Properties to set
-             * @returns {protos.opts.DynamicGroupPulsarOptions} DynamicGroupPulsarOptions instance
+             * @param {protos.opts.ITunnelGroupPulsarOptions=} [properties] Properties to set
+             * @returns {protos.opts.TunnelGroupPulsarOptions} TunnelGroupPulsarOptions instance
              */
-            DynamicGroupPulsarOptions.create = function create(properties) {
-                return new DynamicGroupPulsarOptions(properties);
+            TunnelGroupPulsarOptions.create = function create(properties) {
+                return new TunnelGroupPulsarOptions(properties);
             };
 
             /**
-             * Encodes the specified DynamicGroupPulsarOptions message. Does not implicitly {@link protos.opts.DynamicGroupPulsarOptions.verify|verify} messages.
+             * Encodes the specified TunnelGroupPulsarOptions message. Does not implicitly {@link protos.opts.TunnelGroupPulsarOptions.verify|verify} messages.
              * @function encode
-             * @memberof protos.opts.DynamicGroupPulsarOptions
+             * @memberof protos.opts.TunnelGroupPulsarOptions
              * @static
-             * @param {protos.opts.IDynamicGroupPulsarOptions} message DynamicGroupPulsarOptions message or plain object to encode
+             * @param {protos.opts.ITunnelGroupPulsarOptions} message TunnelGroupPulsarOptions message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
-            DynamicGroupPulsarOptions.encode = function encode(message, writer) {
+            TunnelGroupPulsarOptions.encode = function encode(message, writer) {
                 if (!writer)
                     writer = $Writer.create();
                 if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
@@ -9950,33 +9950,33 @@ $root.protos = (function() {
             };
 
             /**
-             * Encodes the specified DynamicGroupPulsarOptions message, length delimited. Does not implicitly {@link protos.opts.DynamicGroupPulsarOptions.verify|verify} messages.
+             * Encodes the specified TunnelGroupPulsarOptions message, length delimited. Does not implicitly {@link protos.opts.TunnelGroupPulsarOptions.verify|verify} messages.
              * @function encodeDelimited
-             * @memberof protos.opts.DynamicGroupPulsarOptions
+             * @memberof protos.opts.TunnelGroupPulsarOptions
              * @static
-             * @param {protos.opts.IDynamicGroupPulsarOptions} message DynamicGroupPulsarOptions message or plain object to encode
+             * @param {protos.opts.ITunnelGroupPulsarOptions} message TunnelGroupPulsarOptions message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
-            DynamicGroupPulsarOptions.encodeDelimited = function encodeDelimited(message, writer) {
+            TunnelGroupPulsarOptions.encodeDelimited = function encodeDelimited(message, writer) {
                 return this.encode(message, writer).ldelim();
             };
 
             /**
-             * Decodes a DynamicGroupPulsarOptions message from the specified reader or buffer.
+             * Decodes a TunnelGroupPulsarOptions message from the specified reader or buffer.
              * @function decode
-             * @memberof protos.opts.DynamicGroupPulsarOptions
+             * @memberof protos.opts.TunnelGroupPulsarOptions
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {protos.opts.DynamicGroupPulsarOptions} DynamicGroupPulsarOptions
+             * @returns {protos.opts.TunnelGroupPulsarOptions} TunnelGroupPulsarOptions
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            DynamicGroupPulsarOptions.decode = function decode(reader, length) {
+            TunnelGroupPulsarOptions.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.DynamicGroupPulsarOptions();
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.TunnelGroupPulsarOptions();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
                     switch (tag >>> 3) {
@@ -9995,30 +9995,30 @@ $root.protos = (function() {
             };
 
             /**
-             * Decodes a DynamicGroupPulsarOptions message from the specified reader or buffer, length delimited.
+             * Decodes a TunnelGroupPulsarOptions message from the specified reader or buffer, length delimited.
              * @function decodeDelimited
-             * @memberof protos.opts.DynamicGroupPulsarOptions
+             * @memberof protos.opts.TunnelGroupPulsarOptions
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {protos.opts.DynamicGroupPulsarOptions} DynamicGroupPulsarOptions
+             * @returns {protos.opts.TunnelGroupPulsarOptions} TunnelGroupPulsarOptions
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            DynamicGroupPulsarOptions.decodeDelimited = function decodeDelimited(reader) {
+            TunnelGroupPulsarOptions.decodeDelimited = function decodeDelimited(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
                 return this.decode(reader, reader.uint32());
             };
 
             /**
-             * Verifies a DynamicGroupPulsarOptions message.
+             * Verifies a TunnelGroupPulsarOptions message.
              * @function verify
-             * @memberof protos.opts.DynamicGroupPulsarOptions
+             * @memberof protos.opts.TunnelGroupPulsarOptions
              * @static
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            DynamicGroupPulsarOptions.verify = function verify(message) {
+            TunnelGroupPulsarOptions.verify = function verify(message) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
                 if (message._conn != null && message.hasOwnProperty("_conn")) {
@@ -10035,40 +10035,40 @@ $root.protos = (function() {
             };
 
             /**
-             * Creates a DynamicGroupPulsarOptions message from a plain object. Also converts values to their respective internal types.
+             * Creates a TunnelGroupPulsarOptions message from a plain object. Also converts values to their respective internal types.
              * @function fromObject
-             * @memberof protos.opts.DynamicGroupPulsarOptions
+             * @memberof protos.opts.TunnelGroupPulsarOptions
              * @static
              * @param {Object.<string,*>} object Plain object
-             * @returns {protos.opts.DynamicGroupPulsarOptions} DynamicGroupPulsarOptions
+             * @returns {protos.opts.TunnelGroupPulsarOptions} TunnelGroupPulsarOptions
              */
-            DynamicGroupPulsarOptions.fromObject = function fromObject(object) {
-                if (object instanceof $root.protos.opts.DynamicGroupPulsarOptions)
+            TunnelGroupPulsarOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.TunnelGroupPulsarOptions)
                     return object;
-                var message = new $root.protos.opts.DynamicGroupPulsarOptions();
+                var message = new $root.protos.opts.TunnelGroupPulsarOptions();
                 if (object._conn != null) {
                     if (typeof object._conn !== "object")
-                        throw TypeError(".protos.opts.DynamicGroupPulsarOptions._conn: object expected");
+                        throw TypeError(".protos.opts.TunnelGroupPulsarOptions._conn: object expected");
                     message._conn = $root.protos.args.PulsarConn.fromObject(object._conn);
                 }
                 if (object.args != null) {
                     if (typeof object.args !== "object")
-                        throw TypeError(".protos.opts.DynamicGroupPulsarOptions.args: object expected");
+                        throw TypeError(".protos.opts.TunnelGroupPulsarOptions.args: object expected");
                     message.args = $root.protos.args.PulsarWriteArgs.fromObject(object.args);
                 }
                 return message;
             };
 
             /**
-             * Creates a plain object from a DynamicGroupPulsarOptions message. Also converts values to other types if specified.
+             * Creates a plain object from a TunnelGroupPulsarOptions message. Also converts values to other types if specified.
              * @function toObject
-             * @memberof protos.opts.DynamicGroupPulsarOptions
+             * @memberof protos.opts.TunnelGroupPulsarOptions
              * @static
-             * @param {protos.opts.DynamicGroupPulsarOptions} message DynamicGroupPulsarOptions
+             * @param {protos.opts.TunnelGroupPulsarOptions} message TunnelGroupPulsarOptions
              * @param {$protobuf.IConversionOptions} [options] Conversion options
              * @returns {Object.<string,*>} Plain object
              */
-            DynamicGroupPulsarOptions.toObject = function toObject(message, options) {
+            TunnelGroupPulsarOptions.toObject = function toObject(message, options) {
                 if (!options)
                     options = {};
                 var object = {};
@@ -10084,38 +10084,38 @@ $root.protos = (function() {
             };
 
             /**
-             * Converts this DynamicGroupPulsarOptions to JSON.
+             * Converts this TunnelGroupPulsarOptions to JSON.
              * @function toJSON
-             * @memberof protos.opts.DynamicGroupPulsarOptions
+             * @memberof protos.opts.TunnelGroupPulsarOptions
              * @instance
              * @returns {Object.<string,*>} JSON object
              */
-            DynamicGroupPulsarOptions.prototype.toJSON = function toJSON() {
+            TunnelGroupPulsarOptions.prototype.toJSON = function toJSON() {
                 return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
             };
 
-            return DynamicGroupPulsarOptions;
+            return TunnelGroupPulsarOptions;
         })();
 
-        opts.DynamicGroupAWSKinesisOptions = (function() {
+        opts.TunnelGroupAWSKinesisOptions = (function() {
 
             /**
-             * Properties of a DynamicGroupAWSKinesisOptions.
+             * Properties of a TunnelGroupAWSKinesisOptions.
              * @memberof protos.opts
-             * @interface IDynamicGroupAWSKinesisOptions
-             * @property {protos.args.IAWSKinesisConn|null} [_conn] DynamicGroupAWSKinesisOptions _conn
-             * @property {protos.args.IAWSKinesisWriteArgs|null} [args] DynamicGroupAWSKinesisOptions args
+             * @interface ITunnelGroupAWSKinesisOptions
+             * @property {protos.args.IAWSKinesisConn|null} [_conn] TunnelGroupAWSKinesisOptions _conn
+             * @property {protos.args.IAWSKinesisWriteArgs|null} [args] TunnelGroupAWSKinesisOptions args
              */
 
             /**
-             * Constructs a new DynamicGroupAWSKinesisOptions.
+             * Constructs a new TunnelGroupAWSKinesisOptions.
              * @memberof protos.opts
-             * @classdesc Represents a DynamicGroupAWSKinesisOptions.
-             * @implements IDynamicGroupAWSKinesisOptions
+             * @classdesc Represents a TunnelGroupAWSKinesisOptions.
+             * @implements ITunnelGroupAWSKinesisOptions
              * @constructor
-             * @param {protos.opts.IDynamicGroupAWSKinesisOptions=} [properties] Properties to set
+             * @param {protos.opts.ITunnelGroupAWSKinesisOptions=} [properties] Properties to set
              */
-            function DynamicGroupAWSKinesisOptions(properties) {
+            function TunnelGroupAWSKinesisOptions(properties) {
                 if (properties)
                     for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                         if (properties[keys[i]] != null)
@@ -10123,43 +10123,43 @@ $root.protos = (function() {
             }
 
             /**
-             * DynamicGroupAWSKinesisOptions _conn.
+             * TunnelGroupAWSKinesisOptions _conn.
              * @member {protos.args.IAWSKinesisConn|null|undefined} _conn
-             * @memberof protos.opts.DynamicGroupAWSKinesisOptions
+             * @memberof protos.opts.TunnelGroupAWSKinesisOptions
              * @instance
              */
-            DynamicGroupAWSKinesisOptions.prototype._conn = null;
+            TunnelGroupAWSKinesisOptions.prototype._conn = null;
 
             /**
-             * DynamicGroupAWSKinesisOptions args.
+             * TunnelGroupAWSKinesisOptions args.
              * @member {protos.args.IAWSKinesisWriteArgs|null|undefined} args
-             * @memberof protos.opts.DynamicGroupAWSKinesisOptions
+             * @memberof protos.opts.TunnelGroupAWSKinesisOptions
              * @instance
              */
-            DynamicGroupAWSKinesisOptions.prototype.args = null;
+            TunnelGroupAWSKinesisOptions.prototype.args = null;
 
             /**
-             * Creates a new DynamicGroupAWSKinesisOptions instance using the specified properties.
+             * Creates a new TunnelGroupAWSKinesisOptions instance using the specified properties.
              * @function create
-             * @memberof protos.opts.DynamicGroupAWSKinesisOptions
+             * @memberof protos.opts.TunnelGroupAWSKinesisOptions
              * @static
-             * @param {protos.opts.IDynamicGroupAWSKinesisOptions=} [properties] Properties to set
-             * @returns {protos.opts.DynamicGroupAWSKinesisOptions} DynamicGroupAWSKinesisOptions instance
+             * @param {protos.opts.ITunnelGroupAWSKinesisOptions=} [properties] Properties to set
+             * @returns {protos.opts.TunnelGroupAWSKinesisOptions} TunnelGroupAWSKinesisOptions instance
              */
-            DynamicGroupAWSKinesisOptions.create = function create(properties) {
-                return new DynamicGroupAWSKinesisOptions(properties);
+            TunnelGroupAWSKinesisOptions.create = function create(properties) {
+                return new TunnelGroupAWSKinesisOptions(properties);
             };
 
             /**
-             * Encodes the specified DynamicGroupAWSKinesisOptions message. Does not implicitly {@link protos.opts.DynamicGroupAWSKinesisOptions.verify|verify} messages.
+             * Encodes the specified TunnelGroupAWSKinesisOptions message. Does not implicitly {@link protos.opts.TunnelGroupAWSKinesisOptions.verify|verify} messages.
              * @function encode
-             * @memberof protos.opts.DynamicGroupAWSKinesisOptions
+             * @memberof protos.opts.TunnelGroupAWSKinesisOptions
              * @static
-             * @param {protos.opts.IDynamicGroupAWSKinesisOptions} message DynamicGroupAWSKinesisOptions message or plain object to encode
+             * @param {protos.opts.ITunnelGroupAWSKinesisOptions} message TunnelGroupAWSKinesisOptions message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
-            DynamicGroupAWSKinesisOptions.encode = function encode(message, writer) {
+            TunnelGroupAWSKinesisOptions.encode = function encode(message, writer) {
                 if (!writer)
                     writer = $Writer.create();
                 if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
@@ -10170,33 +10170,33 @@ $root.protos = (function() {
             };
 
             /**
-             * Encodes the specified DynamicGroupAWSKinesisOptions message, length delimited. Does not implicitly {@link protos.opts.DynamicGroupAWSKinesisOptions.verify|verify} messages.
+             * Encodes the specified TunnelGroupAWSKinesisOptions message, length delimited. Does not implicitly {@link protos.opts.TunnelGroupAWSKinesisOptions.verify|verify} messages.
              * @function encodeDelimited
-             * @memberof protos.opts.DynamicGroupAWSKinesisOptions
+             * @memberof protos.opts.TunnelGroupAWSKinesisOptions
              * @static
-             * @param {protos.opts.IDynamicGroupAWSKinesisOptions} message DynamicGroupAWSKinesisOptions message or plain object to encode
+             * @param {protos.opts.ITunnelGroupAWSKinesisOptions} message TunnelGroupAWSKinesisOptions message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
-            DynamicGroupAWSKinesisOptions.encodeDelimited = function encodeDelimited(message, writer) {
+            TunnelGroupAWSKinesisOptions.encodeDelimited = function encodeDelimited(message, writer) {
                 return this.encode(message, writer).ldelim();
             };
 
             /**
-             * Decodes a DynamicGroupAWSKinesisOptions message from the specified reader or buffer.
+             * Decodes a TunnelGroupAWSKinesisOptions message from the specified reader or buffer.
              * @function decode
-             * @memberof protos.opts.DynamicGroupAWSKinesisOptions
+             * @memberof protos.opts.TunnelGroupAWSKinesisOptions
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {protos.opts.DynamicGroupAWSKinesisOptions} DynamicGroupAWSKinesisOptions
+             * @returns {protos.opts.TunnelGroupAWSKinesisOptions} TunnelGroupAWSKinesisOptions
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            DynamicGroupAWSKinesisOptions.decode = function decode(reader, length) {
+            TunnelGroupAWSKinesisOptions.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.DynamicGroupAWSKinesisOptions();
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.TunnelGroupAWSKinesisOptions();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
                     switch (tag >>> 3) {
@@ -10215,30 +10215,30 @@ $root.protos = (function() {
             };
 
             /**
-             * Decodes a DynamicGroupAWSKinesisOptions message from the specified reader or buffer, length delimited.
+             * Decodes a TunnelGroupAWSKinesisOptions message from the specified reader or buffer, length delimited.
              * @function decodeDelimited
-             * @memberof protos.opts.DynamicGroupAWSKinesisOptions
+             * @memberof protos.opts.TunnelGroupAWSKinesisOptions
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {protos.opts.DynamicGroupAWSKinesisOptions} DynamicGroupAWSKinesisOptions
+             * @returns {protos.opts.TunnelGroupAWSKinesisOptions} TunnelGroupAWSKinesisOptions
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            DynamicGroupAWSKinesisOptions.decodeDelimited = function decodeDelimited(reader) {
+            TunnelGroupAWSKinesisOptions.decodeDelimited = function decodeDelimited(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
                 return this.decode(reader, reader.uint32());
             };
 
             /**
-             * Verifies a DynamicGroupAWSKinesisOptions message.
+             * Verifies a TunnelGroupAWSKinesisOptions message.
              * @function verify
-             * @memberof protos.opts.DynamicGroupAWSKinesisOptions
+             * @memberof protos.opts.TunnelGroupAWSKinesisOptions
              * @static
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            DynamicGroupAWSKinesisOptions.verify = function verify(message) {
+            TunnelGroupAWSKinesisOptions.verify = function verify(message) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
                 if (message._conn != null && message.hasOwnProperty("_conn")) {
@@ -10255,40 +10255,40 @@ $root.protos = (function() {
             };
 
             /**
-             * Creates a DynamicGroupAWSKinesisOptions message from a plain object. Also converts values to their respective internal types.
+             * Creates a TunnelGroupAWSKinesisOptions message from a plain object. Also converts values to their respective internal types.
              * @function fromObject
-             * @memberof protos.opts.DynamicGroupAWSKinesisOptions
+             * @memberof protos.opts.TunnelGroupAWSKinesisOptions
              * @static
              * @param {Object.<string,*>} object Plain object
-             * @returns {protos.opts.DynamicGroupAWSKinesisOptions} DynamicGroupAWSKinesisOptions
+             * @returns {protos.opts.TunnelGroupAWSKinesisOptions} TunnelGroupAWSKinesisOptions
              */
-            DynamicGroupAWSKinesisOptions.fromObject = function fromObject(object) {
-                if (object instanceof $root.protos.opts.DynamicGroupAWSKinesisOptions)
+            TunnelGroupAWSKinesisOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.TunnelGroupAWSKinesisOptions)
                     return object;
-                var message = new $root.protos.opts.DynamicGroupAWSKinesisOptions();
+                var message = new $root.protos.opts.TunnelGroupAWSKinesisOptions();
                 if (object._conn != null) {
                     if (typeof object._conn !== "object")
-                        throw TypeError(".protos.opts.DynamicGroupAWSKinesisOptions._conn: object expected");
+                        throw TypeError(".protos.opts.TunnelGroupAWSKinesisOptions._conn: object expected");
                     message._conn = $root.protos.args.AWSKinesisConn.fromObject(object._conn);
                 }
                 if (object.args != null) {
                     if (typeof object.args !== "object")
-                        throw TypeError(".protos.opts.DynamicGroupAWSKinesisOptions.args: object expected");
+                        throw TypeError(".protos.opts.TunnelGroupAWSKinesisOptions.args: object expected");
                     message.args = $root.protos.args.AWSKinesisWriteArgs.fromObject(object.args);
                 }
                 return message;
             };
 
             /**
-             * Creates a plain object from a DynamicGroupAWSKinesisOptions message. Also converts values to other types if specified.
+             * Creates a plain object from a TunnelGroupAWSKinesisOptions message. Also converts values to other types if specified.
              * @function toObject
-             * @memberof protos.opts.DynamicGroupAWSKinesisOptions
+             * @memberof protos.opts.TunnelGroupAWSKinesisOptions
              * @static
-             * @param {protos.opts.DynamicGroupAWSKinesisOptions} message DynamicGroupAWSKinesisOptions
+             * @param {protos.opts.TunnelGroupAWSKinesisOptions} message TunnelGroupAWSKinesisOptions
              * @param {$protobuf.IConversionOptions} [options] Conversion options
              * @returns {Object.<string,*>} Plain object
              */
-            DynamicGroupAWSKinesisOptions.toObject = function toObject(message, options) {
+            TunnelGroupAWSKinesisOptions.toObject = function toObject(message, options) {
                 if (!options)
                     options = {};
                 var object = {};
@@ -10304,17 +10304,17 @@ $root.protos = (function() {
             };
 
             /**
-             * Converts this DynamicGroupAWSKinesisOptions to JSON.
+             * Converts this TunnelGroupAWSKinesisOptions to JSON.
              * @function toJSON
-             * @memberof protos.opts.DynamicGroupAWSKinesisOptions
+             * @memberof protos.opts.TunnelGroupAWSKinesisOptions
              * @instance
              * @returns {Object.<string,*>} JSON object
              */
-            DynamicGroupAWSKinesisOptions.prototype.toJSON = function toJSON() {
+            TunnelGroupAWSKinesisOptions.prototype.toJSON = function toJSON() {
                 return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
             };
 
-            return DynamicGroupAWSKinesisOptions;
+            return TunnelGroupAWSKinesisOptions;
         })();
 
         opts.RelayCLIOptions = (function() {
@@ -24468,7 +24468,7 @@ $root.protos = (function() {
              * @property {protos.opts.IReadOptions|null} [read] CLIOptions read
              * @property {protos.opts.IWriteOptions|null} [write] CLIOptions write
              * @property {protos.opts.IRelayOptions|null} [relay] CLIOptions relay
-             * @property {protos.opts.IDynamicOptions|null} [dynamic] CLIOptions dynamic
+             * @property {protos.opts.ITunnelOptions|null} [tunnel] CLIOptions tunnel
              * @property {protos.opts.IBatchOptions|null} [batch] CLIOptions batch
              * @property {protos.opts.IServerOptions|null} [server] CLIOptions server
              */
@@ -24521,12 +24521,12 @@ $root.protos = (function() {
             CLIOptions.prototype.relay = null;
 
             /**
-             * CLIOptions dynamic.
-             * @member {protos.opts.IDynamicOptions|null|undefined} dynamic
+             * CLIOptions tunnel.
+             * @member {protos.opts.ITunnelOptions|null|undefined} tunnel
              * @memberof protos.opts.CLIOptions
              * @instance
              */
-            CLIOptions.prototype.dynamic = null;
+            CLIOptions.prototype.tunnel = null;
 
             /**
              * CLIOptions batch.
@@ -24576,8 +24576,8 @@ $root.protos = (function() {
                     $root.protos.opts.WriteOptions.encode(message.write, writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
                 if (message.relay != null && Object.hasOwnProperty.call(message, "relay"))
                     $root.protos.opts.RelayOptions.encode(message.relay, writer.uint32(/* id 4, wireType 2 =*/34).fork()).ldelim();
-                if (message.dynamic != null && Object.hasOwnProperty.call(message, "dynamic"))
-                    $root.protos.opts.DynamicOptions.encode(message.dynamic, writer.uint32(/* id 5, wireType 2 =*/42).fork()).ldelim();
+                if (message.tunnel != null && Object.hasOwnProperty.call(message, "tunnel"))
+                    $root.protos.opts.TunnelOptions.encode(message.tunnel, writer.uint32(/* id 5, wireType 2 =*/42).fork()).ldelim();
                 if (message.batch != null && Object.hasOwnProperty.call(message, "batch"))
                     $root.protos.opts.BatchOptions.encode(message.batch, writer.uint32(/* id 6, wireType 2 =*/50).fork()).ldelim();
                 if (message.server != null && Object.hasOwnProperty.call(message, "server"))
@@ -24629,7 +24629,7 @@ $root.protos = (function() {
                         message.relay = $root.protos.opts.RelayOptions.decode(reader, reader.uint32());
                         break;
                     case 5:
-                        message.dynamic = $root.protos.opts.DynamicOptions.decode(reader, reader.uint32());
+                        message.tunnel = $root.protos.opts.TunnelOptions.decode(reader, reader.uint32());
                         break;
                     case 6:
                         message.batch = $root.protos.opts.BatchOptions.decode(reader, reader.uint32());
@@ -24692,10 +24692,10 @@ $root.protos = (function() {
                     if (error)
                         return "relay." + error;
                 }
-                if (message.dynamic != null && message.hasOwnProperty("dynamic")) {
-                    var error = $root.protos.opts.DynamicOptions.verify(message.dynamic);
+                if (message.tunnel != null && message.hasOwnProperty("tunnel")) {
+                    var error = $root.protos.opts.TunnelOptions.verify(message.tunnel);
                     if (error)
-                        return "dynamic." + error;
+                        return "tunnel." + error;
                 }
                 if (message.batch != null && message.hasOwnProperty("batch")) {
                     var error = $root.protos.opts.BatchOptions.verify(message.batch);
@@ -24742,10 +24742,10 @@ $root.protos = (function() {
                         throw TypeError(".protos.opts.CLIOptions.relay: object expected");
                     message.relay = $root.protos.opts.RelayOptions.fromObject(object.relay);
                 }
-                if (object.dynamic != null) {
-                    if (typeof object.dynamic !== "object")
-                        throw TypeError(".protos.opts.CLIOptions.dynamic: object expected");
-                    message.dynamic = $root.protos.opts.DynamicOptions.fromObject(object.dynamic);
+                if (object.tunnel != null) {
+                    if (typeof object.tunnel !== "object")
+                        throw TypeError(".protos.opts.CLIOptions.tunnel: object expected");
+                    message.tunnel = $root.protos.opts.TunnelOptions.fromObject(object.tunnel);
                 }
                 if (object.batch != null) {
                     if (typeof object.batch !== "object")
@@ -24778,7 +24778,7 @@ $root.protos = (function() {
                     object.read = null;
                     object.write = null;
                     object.relay = null;
-                    object.dynamic = null;
+                    object.tunnel = null;
                     object.batch = null;
                     object.server = null;
                 }
@@ -24790,8 +24790,8 @@ $root.protos = (function() {
                     object.write = $root.protos.opts.WriteOptions.toObject(message.write, options);
                 if (message.relay != null && message.hasOwnProperty("relay"))
                     object.relay = $root.protos.opts.RelayOptions.toObject(message.relay, options);
-                if (message.dynamic != null && message.hasOwnProperty("dynamic"))
-                    object.dynamic = $root.protos.opts.DynamicOptions.toObject(message.dynamic, options);
+                if (message.tunnel != null && message.hasOwnProperty("tunnel"))
+                    object.tunnel = $root.protos.opts.TunnelOptions.toObject(message.tunnel, options);
                 if (message.batch != null && message.hasOwnProperty("batch"))
                     object.batch = $root.protos.opts.BatchOptions.toObject(message.batch, options);
                 if (message.server != null && message.hasOwnProperty("server"))
@@ -48417,24 +48417,24 @@ $root.protos = (function() {
         return args;
     })();
 
-    protos.GetAllDynamicRequest = (function() {
+    protos.GetAllTunnelsRequest = (function() {
 
         /**
-         * Properties of a GetAllDynamicRequest.
+         * Properties of a GetAllTunnelsRequest.
          * @memberof protos
-         * @interface IGetAllDynamicRequest
-         * @property {protos.common.IAuth|null} [auth] GetAllDynamicRequest auth
+         * @interface IGetAllTunnelsRequest
+         * @property {protos.common.IAuth|null} [auth] GetAllTunnelsRequest auth
          */
 
         /**
-         * Constructs a new GetAllDynamicRequest.
+         * Constructs a new GetAllTunnelsRequest.
          * @memberof protos
-         * @classdesc Represents a GetAllDynamicRequest.
-         * @implements IGetAllDynamicRequest
+         * @classdesc Represents a GetAllTunnelsRequest.
+         * @implements IGetAllTunnelsRequest
          * @constructor
-         * @param {protos.IGetAllDynamicRequest=} [properties] Properties to set
+         * @param {protos.IGetAllTunnelsRequest=} [properties] Properties to set
          */
-        function GetAllDynamicRequest(properties) {
+        function GetAllTunnelsRequest(properties) {
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
@@ -48442,35 +48442,35 @@ $root.protos = (function() {
         }
 
         /**
-         * GetAllDynamicRequest auth.
+         * GetAllTunnelsRequest auth.
          * @member {protos.common.IAuth|null|undefined} auth
-         * @memberof protos.GetAllDynamicRequest
+         * @memberof protos.GetAllTunnelsRequest
          * @instance
          */
-        GetAllDynamicRequest.prototype.auth = null;
+        GetAllTunnelsRequest.prototype.auth = null;
 
         /**
-         * Creates a new GetAllDynamicRequest instance using the specified properties.
+         * Creates a new GetAllTunnelsRequest instance using the specified properties.
          * @function create
-         * @memberof protos.GetAllDynamicRequest
+         * @memberof protos.GetAllTunnelsRequest
          * @static
-         * @param {protos.IGetAllDynamicRequest=} [properties] Properties to set
-         * @returns {protos.GetAllDynamicRequest} GetAllDynamicRequest instance
+         * @param {protos.IGetAllTunnelsRequest=} [properties] Properties to set
+         * @returns {protos.GetAllTunnelsRequest} GetAllTunnelsRequest instance
          */
-        GetAllDynamicRequest.create = function create(properties) {
-            return new GetAllDynamicRequest(properties);
+        GetAllTunnelsRequest.create = function create(properties) {
+            return new GetAllTunnelsRequest(properties);
         };
 
         /**
-         * Encodes the specified GetAllDynamicRequest message. Does not implicitly {@link protos.GetAllDynamicRequest.verify|verify} messages.
+         * Encodes the specified GetAllTunnelsRequest message. Does not implicitly {@link protos.GetAllTunnelsRequest.verify|verify} messages.
          * @function encode
-         * @memberof protos.GetAllDynamicRequest
+         * @memberof protos.GetAllTunnelsRequest
          * @static
-         * @param {protos.IGetAllDynamicRequest} message GetAllDynamicRequest message or plain object to encode
+         * @param {protos.IGetAllTunnelsRequest} message GetAllTunnelsRequest message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        GetAllDynamicRequest.encode = function encode(message, writer) {
+        GetAllTunnelsRequest.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
             if (message.auth != null && Object.hasOwnProperty.call(message, "auth"))
@@ -48479,33 +48479,33 @@ $root.protos = (function() {
         };
 
         /**
-         * Encodes the specified GetAllDynamicRequest message, length delimited. Does not implicitly {@link protos.GetAllDynamicRequest.verify|verify} messages.
+         * Encodes the specified GetAllTunnelsRequest message, length delimited. Does not implicitly {@link protos.GetAllTunnelsRequest.verify|verify} messages.
          * @function encodeDelimited
-         * @memberof protos.GetAllDynamicRequest
+         * @memberof protos.GetAllTunnelsRequest
          * @static
-         * @param {protos.IGetAllDynamicRequest} message GetAllDynamicRequest message or plain object to encode
+         * @param {protos.IGetAllTunnelsRequest} message GetAllTunnelsRequest message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        GetAllDynamicRequest.encodeDelimited = function encodeDelimited(message, writer) {
+        GetAllTunnelsRequest.encodeDelimited = function encodeDelimited(message, writer) {
             return this.encode(message, writer).ldelim();
         };
 
         /**
-         * Decodes a GetAllDynamicRequest message from the specified reader or buffer.
+         * Decodes a GetAllTunnelsRequest message from the specified reader or buffer.
          * @function decode
-         * @memberof protos.GetAllDynamicRequest
+         * @memberof protos.GetAllTunnelsRequest
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {protos.GetAllDynamicRequest} GetAllDynamicRequest
+         * @returns {protos.GetAllTunnelsRequest} GetAllTunnelsRequest
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        GetAllDynamicRequest.decode = function decode(reader, length) {
+        GetAllTunnelsRequest.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.GetAllDynamicRequest();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.GetAllTunnelsRequest();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -48521,30 +48521,30 @@ $root.protos = (function() {
         };
 
         /**
-         * Decodes a GetAllDynamicRequest message from the specified reader or buffer, length delimited.
+         * Decodes a GetAllTunnelsRequest message from the specified reader or buffer, length delimited.
          * @function decodeDelimited
-         * @memberof protos.GetAllDynamicRequest
+         * @memberof protos.GetAllTunnelsRequest
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {protos.GetAllDynamicRequest} GetAllDynamicRequest
+         * @returns {protos.GetAllTunnelsRequest} GetAllTunnelsRequest
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        GetAllDynamicRequest.decodeDelimited = function decodeDelimited(reader) {
+        GetAllTunnelsRequest.decodeDelimited = function decodeDelimited(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
         };
 
         /**
-         * Verifies a GetAllDynamicRequest message.
+         * Verifies a GetAllTunnelsRequest message.
          * @function verify
-         * @memberof protos.GetAllDynamicRequest
+         * @memberof protos.GetAllTunnelsRequest
          * @static
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        GetAllDynamicRequest.verify = function verify(message) {
+        GetAllTunnelsRequest.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
             if (message.auth != null && message.hasOwnProperty("auth")) {
@@ -48556,35 +48556,35 @@ $root.protos = (function() {
         };
 
         /**
-         * Creates a GetAllDynamicRequest message from a plain object. Also converts values to their respective internal types.
+         * Creates a GetAllTunnelsRequest message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof protos.GetAllDynamicRequest
+         * @memberof protos.GetAllTunnelsRequest
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {protos.GetAllDynamicRequest} GetAllDynamicRequest
+         * @returns {protos.GetAllTunnelsRequest} GetAllTunnelsRequest
          */
-        GetAllDynamicRequest.fromObject = function fromObject(object) {
-            if (object instanceof $root.protos.GetAllDynamicRequest)
+        GetAllTunnelsRequest.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.GetAllTunnelsRequest)
                 return object;
-            var message = new $root.protos.GetAllDynamicRequest();
+            var message = new $root.protos.GetAllTunnelsRequest();
             if (object.auth != null) {
                 if (typeof object.auth !== "object")
-                    throw TypeError(".protos.GetAllDynamicRequest.auth: object expected");
+                    throw TypeError(".protos.GetAllTunnelsRequest.auth: object expected");
                 message.auth = $root.protos.common.Auth.fromObject(object.auth);
             }
             return message;
         };
 
         /**
-         * Creates a plain object from a GetAllDynamicRequest message. Also converts values to other types if specified.
+         * Creates a plain object from a GetAllTunnelsRequest message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof protos.GetAllDynamicRequest
+         * @memberof protos.GetAllTunnelsRequest
          * @static
-         * @param {protos.GetAllDynamicRequest} message GetAllDynamicRequest
+         * @param {protos.GetAllTunnelsRequest} message GetAllTunnelsRequest
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        GetAllDynamicRequest.toObject = function toObject(message, options) {
+        GetAllTunnelsRequest.toObject = function toObject(message, options) {
             if (!options)
                 options = {};
             var object = {};
@@ -48596,38 +48596,38 @@ $root.protos = (function() {
         };
 
         /**
-         * Converts this GetAllDynamicRequest to JSON.
+         * Converts this GetAllTunnelsRequest to JSON.
          * @function toJSON
-         * @memberof protos.GetAllDynamicRequest
+         * @memberof protos.GetAllTunnelsRequest
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        GetAllDynamicRequest.prototype.toJSON = function toJSON() {
+        GetAllTunnelsRequest.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
         };
 
-        return GetAllDynamicRequest;
+        return GetAllTunnelsRequest;
     })();
 
-    protos.GetAllDynamicResponse = (function() {
+    protos.GetAllTunnelsResponse = (function() {
 
         /**
-         * Properties of a GetAllDynamicResponse.
+         * Properties of a GetAllTunnelsResponse.
          * @memberof protos
-         * @interface IGetAllDynamicResponse
-         * @property {protos.common.IStatus|null} [status] GetAllDynamicResponse status
-         * @property {Array.<protos.opts.IDynamicOptions>|null} [opts] GetAllDynamicResponse opts
+         * @interface IGetAllTunnelsResponse
+         * @property {protos.common.IStatus|null} [status] GetAllTunnelsResponse status
+         * @property {Array.<protos.opts.ITunnelOptions>|null} [opts] GetAllTunnelsResponse opts
          */
 
         /**
-         * Constructs a new GetAllDynamicResponse.
+         * Constructs a new GetAllTunnelsResponse.
          * @memberof protos
-         * @classdesc Represents a GetAllDynamicResponse.
-         * @implements IGetAllDynamicResponse
+         * @classdesc Represents a GetAllTunnelsResponse.
+         * @implements IGetAllTunnelsResponse
          * @constructor
-         * @param {protos.IGetAllDynamicResponse=} [properties] Properties to set
+         * @param {protos.IGetAllTunnelsResponse=} [properties] Properties to set
          */
-        function GetAllDynamicResponse(properties) {
+        function GetAllTunnelsResponse(properties) {
             this.opts = [];
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
@@ -48636,81 +48636,81 @@ $root.protos = (function() {
         }
 
         /**
-         * GetAllDynamicResponse status.
+         * GetAllTunnelsResponse status.
          * @member {protos.common.IStatus|null|undefined} status
-         * @memberof protos.GetAllDynamicResponse
+         * @memberof protos.GetAllTunnelsResponse
          * @instance
          */
-        GetAllDynamicResponse.prototype.status = null;
+        GetAllTunnelsResponse.prototype.status = null;
 
         /**
-         * GetAllDynamicResponse opts.
-         * @member {Array.<protos.opts.IDynamicOptions>} opts
-         * @memberof protos.GetAllDynamicResponse
+         * GetAllTunnelsResponse opts.
+         * @member {Array.<protos.opts.ITunnelOptions>} opts
+         * @memberof protos.GetAllTunnelsResponse
          * @instance
          */
-        GetAllDynamicResponse.prototype.opts = $util.emptyArray;
+        GetAllTunnelsResponse.prototype.opts = $util.emptyArray;
 
         /**
-         * Creates a new GetAllDynamicResponse instance using the specified properties.
+         * Creates a new GetAllTunnelsResponse instance using the specified properties.
          * @function create
-         * @memberof protos.GetAllDynamicResponse
+         * @memberof protos.GetAllTunnelsResponse
          * @static
-         * @param {protos.IGetAllDynamicResponse=} [properties] Properties to set
-         * @returns {protos.GetAllDynamicResponse} GetAllDynamicResponse instance
+         * @param {protos.IGetAllTunnelsResponse=} [properties] Properties to set
+         * @returns {protos.GetAllTunnelsResponse} GetAllTunnelsResponse instance
          */
-        GetAllDynamicResponse.create = function create(properties) {
-            return new GetAllDynamicResponse(properties);
+        GetAllTunnelsResponse.create = function create(properties) {
+            return new GetAllTunnelsResponse(properties);
         };
 
         /**
-         * Encodes the specified GetAllDynamicResponse message. Does not implicitly {@link protos.GetAllDynamicResponse.verify|verify} messages.
+         * Encodes the specified GetAllTunnelsResponse message. Does not implicitly {@link protos.GetAllTunnelsResponse.verify|verify} messages.
          * @function encode
-         * @memberof protos.GetAllDynamicResponse
+         * @memberof protos.GetAllTunnelsResponse
          * @static
-         * @param {protos.IGetAllDynamicResponse} message GetAllDynamicResponse message or plain object to encode
+         * @param {protos.IGetAllTunnelsResponse} message GetAllTunnelsResponse message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        GetAllDynamicResponse.encode = function encode(message, writer) {
+        GetAllTunnelsResponse.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
             if (message.opts != null && message.opts.length)
                 for (var i = 0; i < message.opts.length; ++i)
-                    $root.protos.opts.DynamicOptions.encode(message.opts[i], writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                    $root.protos.opts.TunnelOptions.encode(message.opts[i], writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
             if (message.status != null && Object.hasOwnProperty.call(message, "status"))
                 $root.protos.common.Status.encode(message.status, writer.uint32(/* id 1000, wireType 2 =*/8002).fork()).ldelim();
             return writer;
         };
 
         /**
-         * Encodes the specified GetAllDynamicResponse message, length delimited. Does not implicitly {@link protos.GetAllDynamicResponse.verify|verify} messages.
+         * Encodes the specified GetAllTunnelsResponse message, length delimited. Does not implicitly {@link protos.GetAllTunnelsResponse.verify|verify} messages.
          * @function encodeDelimited
-         * @memberof protos.GetAllDynamicResponse
+         * @memberof protos.GetAllTunnelsResponse
          * @static
-         * @param {protos.IGetAllDynamicResponse} message GetAllDynamicResponse message or plain object to encode
+         * @param {protos.IGetAllTunnelsResponse} message GetAllTunnelsResponse message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        GetAllDynamicResponse.encodeDelimited = function encodeDelimited(message, writer) {
+        GetAllTunnelsResponse.encodeDelimited = function encodeDelimited(message, writer) {
             return this.encode(message, writer).ldelim();
         };
 
         /**
-         * Decodes a GetAllDynamicResponse message from the specified reader or buffer.
+         * Decodes a GetAllTunnelsResponse message from the specified reader or buffer.
          * @function decode
-         * @memberof protos.GetAllDynamicResponse
+         * @memberof protos.GetAllTunnelsResponse
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {protos.GetAllDynamicResponse} GetAllDynamicResponse
+         * @returns {protos.GetAllTunnelsResponse} GetAllTunnelsResponse
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        GetAllDynamicResponse.decode = function decode(reader, length) {
+        GetAllTunnelsResponse.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.GetAllDynamicResponse();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.GetAllTunnelsResponse();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -48720,7 +48720,7 @@ $root.protos = (function() {
                 case 1:
                     if (!(message.opts && message.opts.length))
                         message.opts = [];
-                    message.opts.push($root.protos.opts.DynamicOptions.decode(reader, reader.uint32()));
+                    message.opts.push($root.protos.opts.TunnelOptions.decode(reader, reader.uint32()));
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -48731,30 +48731,30 @@ $root.protos = (function() {
         };
 
         /**
-         * Decodes a GetAllDynamicResponse message from the specified reader or buffer, length delimited.
+         * Decodes a GetAllTunnelsResponse message from the specified reader or buffer, length delimited.
          * @function decodeDelimited
-         * @memberof protos.GetAllDynamicResponse
+         * @memberof protos.GetAllTunnelsResponse
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {protos.GetAllDynamicResponse} GetAllDynamicResponse
+         * @returns {protos.GetAllTunnelsResponse} GetAllTunnelsResponse
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        GetAllDynamicResponse.decodeDelimited = function decodeDelimited(reader) {
+        GetAllTunnelsResponse.decodeDelimited = function decodeDelimited(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
         };
 
         /**
-         * Verifies a GetAllDynamicResponse message.
+         * Verifies a GetAllTunnelsResponse message.
          * @function verify
-         * @memberof protos.GetAllDynamicResponse
+         * @memberof protos.GetAllTunnelsResponse
          * @static
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        GetAllDynamicResponse.verify = function verify(message) {
+        GetAllTunnelsResponse.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
             if (message.status != null && message.hasOwnProperty("status")) {
@@ -48766,7 +48766,7 @@ $root.protos = (function() {
                 if (!Array.isArray(message.opts))
                     return "opts: array expected";
                 for (var i = 0; i < message.opts.length; ++i) {
-                    var error = $root.protos.opts.DynamicOptions.verify(message.opts[i]);
+                    var error = $root.protos.opts.TunnelOptions.verify(message.opts[i]);
                     if (error)
                         return "opts." + error;
                 }
@@ -48775,45 +48775,45 @@ $root.protos = (function() {
         };
 
         /**
-         * Creates a GetAllDynamicResponse message from a plain object. Also converts values to their respective internal types.
+         * Creates a GetAllTunnelsResponse message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof protos.GetAllDynamicResponse
+         * @memberof protos.GetAllTunnelsResponse
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {protos.GetAllDynamicResponse} GetAllDynamicResponse
+         * @returns {protos.GetAllTunnelsResponse} GetAllTunnelsResponse
          */
-        GetAllDynamicResponse.fromObject = function fromObject(object) {
-            if (object instanceof $root.protos.GetAllDynamicResponse)
+        GetAllTunnelsResponse.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.GetAllTunnelsResponse)
                 return object;
-            var message = new $root.protos.GetAllDynamicResponse();
+            var message = new $root.protos.GetAllTunnelsResponse();
             if (object.status != null) {
                 if (typeof object.status !== "object")
-                    throw TypeError(".protos.GetAllDynamicResponse.status: object expected");
+                    throw TypeError(".protos.GetAllTunnelsResponse.status: object expected");
                 message.status = $root.protos.common.Status.fromObject(object.status);
             }
             if (object.opts) {
                 if (!Array.isArray(object.opts))
-                    throw TypeError(".protos.GetAllDynamicResponse.opts: array expected");
+                    throw TypeError(".protos.GetAllTunnelsResponse.opts: array expected");
                 message.opts = [];
                 for (var i = 0; i < object.opts.length; ++i) {
                     if (typeof object.opts[i] !== "object")
-                        throw TypeError(".protos.GetAllDynamicResponse.opts: object expected");
-                    message.opts[i] = $root.protos.opts.DynamicOptions.fromObject(object.opts[i]);
+                        throw TypeError(".protos.GetAllTunnelsResponse.opts: object expected");
+                    message.opts[i] = $root.protos.opts.TunnelOptions.fromObject(object.opts[i]);
                 }
             }
             return message;
         };
 
         /**
-         * Creates a plain object from a GetAllDynamicResponse message. Also converts values to other types if specified.
+         * Creates a plain object from a GetAllTunnelsResponse message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof protos.GetAllDynamicResponse
+         * @memberof protos.GetAllTunnelsResponse
          * @static
-         * @param {protos.GetAllDynamicResponse} message GetAllDynamicResponse
+         * @param {protos.GetAllTunnelsResponse} message GetAllTunnelsResponse
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        GetAllDynamicResponse.toObject = function toObject(message, options) {
+        GetAllTunnelsResponse.toObject = function toObject(message, options) {
             if (!options)
                 options = {};
             var object = {};
@@ -48824,7 +48824,7 @@ $root.protos = (function() {
             if (message.opts && message.opts.length) {
                 object.opts = [];
                 for (var j = 0; j < message.opts.length; ++j)
-                    object.opts[j] = $root.protos.opts.DynamicOptions.toObject(message.opts[j], options);
+                    object.opts[j] = $root.protos.opts.TunnelOptions.toObject(message.opts[j], options);
             }
             if (message.status != null && message.hasOwnProperty("status"))
                 object.status = $root.protos.common.Status.toObject(message.status, options);
@@ -48832,38 +48832,38 @@ $root.protos = (function() {
         };
 
         /**
-         * Converts this GetAllDynamicResponse to JSON.
+         * Converts this GetAllTunnelsResponse to JSON.
          * @function toJSON
-         * @memberof protos.GetAllDynamicResponse
+         * @memberof protos.GetAllTunnelsResponse
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        GetAllDynamicResponse.prototype.toJSON = function toJSON() {
+        GetAllTunnelsResponse.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
         };
 
-        return GetAllDynamicResponse;
+        return GetAllTunnelsResponse;
     })();
 
-    protos.GetDynamicRequest = (function() {
+    protos.GetTunnelRequest = (function() {
 
         /**
-         * Properties of a GetDynamicRequest.
+         * Properties of a GetTunnelRequest.
          * @memberof protos
-         * @interface IGetDynamicRequest
-         * @property {protos.common.IAuth|null} [auth] GetDynamicRequest auth
-         * @property {string|null} [dynamicId] GetDynamicRequest dynamicId
+         * @interface IGetTunnelRequest
+         * @property {protos.common.IAuth|null} [auth] GetTunnelRequest auth
+         * @property {string|null} [tunnelId] GetTunnelRequest tunnelId
          */
 
         /**
-         * Constructs a new GetDynamicRequest.
+         * Constructs a new GetTunnelRequest.
          * @memberof protos
-         * @classdesc Represents a GetDynamicRequest.
-         * @implements IGetDynamicRequest
+         * @classdesc Represents a GetTunnelRequest.
+         * @implements IGetTunnelRequest
          * @constructor
-         * @param {protos.IGetDynamicRequest=} [properties] Properties to set
+         * @param {protos.IGetTunnelRequest=} [properties] Properties to set
          */
-        function GetDynamicRequest(properties) {
+        function GetTunnelRequest(properties) {
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
@@ -48871,80 +48871,80 @@ $root.protos = (function() {
         }
 
         /**
-         * GetDynamicRequest auth.
+         * GetTunnelRequest auth.
          * @member {protos.common.IAuth|null|undefined} auth
-         * @memberof protos.GetDynamicRequest
+         * @memberof protos.GetTunnelRequest
          * @instance
          */
-        GetDynamicRequest.prototype.auth = null;
+        GetTunnelRequest.prototype.auth = null;
 
         /**
-         * GetDynamicRequest dynamicId.
-         * @member {string} dynamicId
-         * @memberof protos.GetDynamicRequest
+         * GetTunnelRequest tunnelId.
+         * @member {string} tunnelId
+         * @memberof protos.GetTunnelRequest
          * @instance
          */
-        GetDynamicRequest.prototype.dynamicId = "";
+        GetTunnelRequest.prototype.tunnelId = "";
 
         /**
-         * Creates a new GetDynamicRequest instance using the specified properties.
+         * Creates a new GetTunnelRequest instance using the specified properties.
          * @function create
-         * @memberof protos.GetDynamicRequest
+         * @memberof protos.GetTunnelRequest
          * @static
-         * @param {protos.IGetDynamicRequest=} [properties] Properties to set
-         * @returns {protos.GetDynamicRequest} GetDynamicRequest instance
+         * @param {protos.IGetTunnelRequest=} [properties] Properties to set
+         * @returns {protos.GetTunnelRequest} GetTunnelRequest instance
          */
-        GetDynamicRequest.create = function create(properties) {
-            return new GetDynamicRequest(properties);
+        GetTunnelRequest.create = function create(properties) {
+            return new GetTunnelRequest(properties);
         };
 
         /**
-         * Encodes the specified GetDynamicRequest message. Does not implicitly {@link protos.GetDynamicRequest.verify|verify} messages.
+         * Encodes the specified GetTunnelRequest message. Does not implicitly {@link protos.GetTunnelRequest.verify|verify} messages.
          * @function encode
-         * @memberof protos.GetDynamicRequest
+         * @memberof protos.GetTunnelRequest
          * @static
-         * @param {protos.IGetDynamicRequest} message GetDynamicRequest message or plain object to encode
+         * @param {protos.IGetTunnelRequest} message GetTunnelRequest message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        GetDynamicRequest.encode = function encode(message, writer) {
+        GetTunnelRequest.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
-            if (message.dynamicId != null && Object.hasOwnProperty.call(message, "dynamicId"))
-                writer.uint32(/* id 1, wireType 2 =*/10).string(message.dynamicId);
+            if (message.tunnelId != null && Object.hasOwnProperty.call(message, "tunnelId"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.tunnelId);
             if (message.auth != null && Object.hasOwnProperty.call(message, "auth"))
                 $root.protos.common.Auth.encode(message.auth, writer.uint32(/* id 9999, wireType 2 =*/79994).fork()).ldelim();
             return writer;
         };
 
         /**
-         * Encodes the specified GetDynamicRequest message, length delimited. Does not implicitly {@link protos.GetDynamicRequest.verify|verify} messages.
+         * Encodes the specified GetTunnelRequest message, length delimited. Does not implicitly {@link protos.GetTunnelRequest.verify|verify} messages.
          * @function encodeDelimited
-         * @memberof protos.GetDynamicRequest
+         * @memberof protos.GetTunnelRequest
          * @static
-         * @param {protos.IGetDynamicRequest} message GetDynamicRequest message or plain object to encode
+         * @param {protos.IGetTunnelRequest} message GetTunnelRequest message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        GetDynamicRequest.encodeDelimited = function encodeDelimited(message, writer) {
+        GetTunnelRequest.encodeDelimited = function encodeDelimited(message, writer) {
             return this.encode(message, writer).ldelim();
         };
 
         /**
-         * Decodes a GetDynamicRequest message from the specified reader or buffer.
+         * Decodes a GetTunnelRequest message from the specified reader or buffer.
          * @function decode
-         * @memberof protos.GetDynamicRequest
+         * @memberof protos.GetTunnelRequest
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {protos.GetDynamicRequest} GetDynamicRequest
+         * @returns {protos.GetTunnelRequest} GetTunnelRequest
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        GetDynamicRequest.decode = function decode(reader, length) {
+        GetTunnelRequest.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.GetDynamicRequest();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.GetTunnelRequest();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -48952,7 +48952,7 @@ $root.protos = (function() {
                     message.auth = $root.protos.common.Auth.decode(reader, reader.uint32());
                     break;
                 case 1:
-                    message.dynamicId = reader.string();
+                    message.tunnelId = reader.string();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -48963,30 +48963,30 @@ $root.protos = (function() {
         };
 
         /**
-         * Decodes a GetDynamicRequest message from the specified reader or buffer, length delimited.
+         * Decodes a GetTunnelRequest message from the specified reader or buffer, length delimited.
          * @function decodeDelimited
-         * @memberof protos.GetDynamicRequest
+         * @memberof protos.GetTunnelRequest
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {protos.GetDynamicRequest} GetDynamicRequest
+         * @returns {protos.GetTunnelRequest} GetTunnelRequest
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        GetDynamicRequest.decodeDelimited = function decodeDelimited(reader) {
+        GetTunnelRequest.decodeDelimited = function decodeDelimited(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
         };
 
         /**
-         * Verifies a GetDynamicRequest message.
+         * Verifies a GetTunnelRequest message.
          * @function verify
-         * @memberof protos.GetDynamicRequest
+         * @memberof protos.GetTunnelRequest
          * @static
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        GetDynamicRequest.verify = function verify(message) {
+        GetTunnelRequest.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
             if (message.auth != null && message.hasOwnProperty("auth")) {
@@ -48994,91 +48994,91 @@ $root.protos = (function() {
                 if (error)
                     return "auth." + error;
             }
-            if (message.dynamicId != null && message.hasOwnProperty("dynamicId"))
-                if (!$util.isString(message.dynamicId))
-                    return "dynamicId: string expected";
+            if (message.tunnelId != null && message.hasOwnProperty("tunnelId"))
+                if (!$util.isString(message.tunnelId))
+                    return "tunnelId: string expected";
             return null;
         };
 
         /**
-         * Creates a GetDynamicRequest message from a plain object. Also converts values to their respective internal types.
+         * Creates a GetTunnelRequest message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof protos.GetDynamicRequest
+         * @memberof protos.GetTunnelRequest
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {protos.GetDynamicRequest} GetDynamicRequest
+         * @returns {protos.GetTunnelRequest} GetTunnelRequest
          */
-        GetDynamicRequest.fromObject = function fromObject(object) {
-            if (object instanceof $root.protos.GetDynamicRequest)
+        GetTunnelRequest.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.GetTunnelRequest)
                 return object;
-            var message = new $root.protos.GetDynamicRequest();
+            var message = new $root.protos.GetTunnelRequest();
             if (object.auth != null) {
                 if (typeof object.auth !== "object")
-                    throw TypeError(".protos.GetDynamicRequest.auth: object expected");
+                    throw TypeError(".protos.GetTunnelRequest.auth: object expected");
                 message.auth = $root.protos.common.Auth.fromObject(object.auth);
             }
-            if (object.dynamicId != null)
-                message.dynamicId = String(object.dynamicId);
+            if (object.tunnelId != null)
+                message.tunnelId = String(object.tunnelId);
             return message;
         };
 
         /**
-         * Creates a plain object from a GetDynamicRequest message. Also converts values to other types if specified.
+         * Creates a plain object from a GetTunnelRequest message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof protos.GetDynamicRequest
+         * @memberof protos.GetTunnelRequest
          * @static
-         * @param {protos.GetDynamicRequest} message GetDynamicRequest
+         * @param {protos.GetTunnelRequest} message GetTunnelRequest
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        GetDynamicRequest.toObject = function toObject(message, options) {
+        GetTunnelRequest.toObject = function toObject(message, options) {
             if (!options)
                 options = {};
             var object = {};
             if (options.defaults) {
-                object.dynamicId = "";
+                object.tunnelId = "";
                 object.auth = null;
             }
-            if (message.dynamicId != null && message.hasOwnProperty("dynamicId"))
-                object.dynamicId = message.dynamicId;
+            if (message.tunnelId != null && message.hasOwnProperty("tunnelId"))
+                object.tunnelId = message.tunnelId;
             if (message.auth != null && message.hasOwnProperty("auth"))
                 object.auth = $root.protos.common.Auth.toObject(message.auth, options);
             return object;
         };
 
         /**
-         * Converts this GetDynamicRequest to JSON.
+         * Converts this GetTunnelRequest to JSON.
          * @function toJSON
-         * @memberof protos.GetDynamicRequest
+         * @memberof protos.GetTunnelRequest
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        GetDynamicRequest.prototype.toJSON = function toJSON() {
+        GetTunnelRequest.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
         };
 
-        return GetDynamicRequest;
+        return GetTunnelRequest;
     })();
 
-    protos.GetDynamicResponse = (function() {
+    protos.GetTunnelResponse = (function() {
 
         /**
-         * Properties of a GetDynamicResponse.
+         * Properties of a GetTunnelResponse.
          * @memberof protos
-         * @interface IGetDynamicResponse
-         * @property {protos.common.IStatus|null} [status] GetDynamicResponse status
-         * @property {protos.opts.IDynamicOptions|null} [opts] GetDynamicResponse opts
+         * @interface IGetTunnelResponse
+         * @property {protos.common.IStatus|null} [status] GetTunnelResponse status
+         * @property {protos.opts.ITunnelOptions|null} [opts] GetTunnelResponse opts
          */
 
         /**
-         * Constructs a new GetDynamicResponse.
+         * Constructs a new GetTunnelResponse.
          * @memberof protos
-         * @classdesc Represents a GetDynamicResponse.
-         * @implements IGetDynamicResponse
+         * @classdesc Represents a GetTunnelResponse.
+         * @implements IGetTunnelResponse
          * @constructor
-         * @param {protos.IGetDynamicResponse=} [properties] Properties to set
+         * @param {protos.IGetTunnelResponse=} [properties] Properties to set
          */
-        function GetDynamicResponse(properties) {
+        function GetTunnelResponse(properties) {
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
@@ -49086,80 +49086,80 @@ $root.protos = (function() {
         }
 
         /**
-         * GetDynamicResponse status.
+         * GetTunnelResponse status.
          * @member {protos.common.IStatus|null|undefined} status
-         * @memberof protos.GetDynamicResponse
+         * @memberof protos.GetTunnelResponse
          * @instance
          */
-        GetDynamicResponse.prototype.status = null;
+        GetTunnelResponse.prototype.status = null;
 
         /**
-         * GetDynamicResponse opts.
-         * @member {protos.opts.IDynamicOptions|null|undefined} opts
-         * @memberof protos.GetDynamicResponse
+         * GetTunnelResponse opts.
+         * @member {protos.opts.ITunnelOptions|null|undefined} opts
+         * @memberof protos.GetTunnelResponse
          * @instance
          */
-        GetDynamicResponse.prototype.opts = null;
+        GetTunnelResponse.prototype.opts = null;
 
         /**
-         * Creates a new GetDynamicResponse instance using the specified properties.
+         * Creates a new GetTunnelResponse instance using the specified properties.
          * @function create
-         * @memberof protos.GetDynamicResponse
+         * @memberof protos.GetTunnelResponse
          * @static
-         * @param {protos.IGetDynamicResponse=} [properties] Properties to set
-         * @returns {protos.GetDynamicResponse} GetDynamicResponse instance
+         * @param {protos.IGetTunnelResponse=} [properties] Properties to set
+         * @returns {protos.GetTunnelResponse} GetTunnelResponse instance
          */
-        GetDynamicResponse.create = function create(properties) {
-            return new GetDynamicResponse(properties);
+        GetTunnelResponse.create = function create(properties) {
+            return new GetTunnelResponse(properties);
         };
 
         /**
-         * Encodes the specified GetDynamicResponse message. Does not implicitly {@link protos.GetDynamicResponse.verify|verify} messages.
+         * Encodes the specified GetTunnelResponse message. Does not implicitly {@link protos.GetTunnelResponse.verify|verify} messages.
          * @function encode
-         * @memberof protos.GetDynamicResponse
+         * @memberof protos.GetTunnelResponse
          * @static
-         * @param {protos.IGetDynamicResponse} message GetDynamicResponse message or plain object to encode
+         * @param {protos.IGetTunnelResponse} message GetTunnelResponse message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        GetDynamicResponse.encode = function encode(message, writer) {
+        GetTunnelResponse.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
             if (message.opts != null && Object.hasOwnProperty.call(message, "opts"))
-                $root.protos.opts.DynamicOptions.encode(message.opts, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                $root.protos.opts.TunnelOptions.encode(message.opts, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
             if (message.status != null && Object.hasOwnProperty.call(message, "status"))
                 $root.protos.common.Status.encode(message.status, writer.uint32(/* id 1000, wireType 2 =*/8002).fork()).ldelim();
             return writer;
         };
 
         /**
-         * Encodes the specified GetDynamicResponse message, length delimited. Does not implicitly {@link protos.GetDynamicResponse.verify|verify} messages.
+         * Encodes the specified GetTunnelResponse message, length delimited. Does not implicitly {@link protos.GetTunnelResponse.verify|verify} messages.
          * @function encodeDelimited
-         * @memberof protos.GetDynamicResponse
+         * @memberof protos.GetTunnelResponse
          * @static
-         * @param {protos.IGetDynamicResponse} message GetDynamicResponse message or plain object to encode
+         * @param {protos.IGetTunnelResponse} message GetTunnelResponse message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        GetDynamicResponse.encodeDelimited = function encodeDelimited(message, writer) {
+        GetTunnelResponse.encodeDelimited = function encodeDelimited(message, writer) {
             return this.encode(message, writer).ldelim();
         };
 
         /**
-         * Decodes a GetDynamicResponse message from the specified reader or buffer.
+         * Decodes a GetTunnelResponse message from the specified reader or buffer.
          * @function decode
-         * @memberof protos.GetDynamicResponse
+         * @memberof protos.GetTunnelResponse
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {protos.GetDynamicResponse} GetDynamicResponse
+         * @returns {protos.GetTunnelResponse} GetTunnelResponse
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        GetDynamicResponse.decode = function decode(reader, length) {
+        GetTunnelResponse.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.GetDynamicResponse();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.GetTunnelResponse();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -49167,7 +49167,7 @@ $root.protos = (function() {
                     message.status = $root.protos.common.Status.decode(reader, reader.uint32());
                     break;
                 case 1:
-                    message.opts = $root.protos.opts.DynamicOptions.decode(reader, reader.uint32());
+                    message.opts = $root.protos.opts.TunnelOptions.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -49178,30 +49178,30 @@ $root.protos = (function() {
         };
 
         /**
-         * Decodes a GetDynamicResponse message from the specified reader or buffer, length delimited.
+         * Decodes a GetTunnelResponse message from the specified reader or buffer, length delimited.
          * @function decodeDelimited
-         * @memberof protos.GetDynamicResponse
+         * @memberof protos.GetTunnelResponse
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {protos.GetDynamicResponse} GetDynamicResponse
+         * @returns {protos.GetTunnelResponse} GetTunnelResponse
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        GetDynamicResponse.decodeDelimited = function decodeDelimited(reader) {
+        GetTunnelResponse.decodeDelimited = function decodeDelimited(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
         };
 
         /**
-         * Verifies a GetDynamicResponse message.
+         * Verifies a GetTunnelResponse message.
          * @function verify
-         * @memberof protos.GetDynamicResponse
+         * @memberof protos.GetTunnelResponse
          * @static
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        GetDynamicResponse.verify = function verify(message) {
+        GetTunnelResponse.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
             if (message.status != null && message.hasOwnProperty("status")) {
@@ -49210,7 +49210,7 @@ $root.protos = (function() {
                     return "status." + error;
             }
             if (message.opts != null && message.hasOwnProperty("opts")) {
-                var error = $root.protos.opts.DynamicOptions.verify(message.opts);
+                var error = $root.protos.opts.TunnelOptions.verify(message.opts);
                 if (error)
                     return "opts." + error;
             }
@@ -49218,40 +49218,40 @@ $root.protos = (function() {
         };
 
         /**
-         * Creates a GetDynamicResponse message from a plain object. Also converts values to their respective internal types.
+         * Creates a GetTunnelResponse message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof protos.GetDynamicResponse
+         * @memberof protos.GetTunnelResponse
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {protos.GetDynamicResponse} GetDynamicResponse
+         * @returns {protos.GetTunnelResponse} GetTunnelResponse
          */
-        GetDynamicResponse.fromObject = function fromObject(object) {
-            if (object instanceof $root.protos.GetDynamicResponse)
+        GetTunnelResponse.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.GetTunnelResponse)
                 return object;
-            var message = new $root.protos.GetDynamicResponse();
+            var message = new $root.protos.GetTunnelResponse();
             if (object.status != null) {
                 if (typeof object.status !== "object")
-                    throw TypeError(".protos.GetDynamicResponse.status: object expected");
+                    throw TypeError(".protos.GetTunnelResponse.status: object expected");
                 message.status = $root.protos.common.Status.fromObject(object.status);
             }
             if (object.opts != null) {
                 if (typeof object.opts !== "object")
-                    throw TypeError(".protos.GetDynamicResponse.opts: object expected");
-                message.opts = $root.protos.opts.DynamicOptions.fromObject(object.opts);
+                    throw TypeError(".protos.GetTunnelResponse.opts: object expected");
+                message.opts = $root.protos.opts.TunnelOptions.fromObject(object.opts);
             }
             return message;
         };
 
         /**
-         * Creates a plain object from a GetDynamicResponse message. Also converts values to other types if specified.
+         * Creates a plain object from a GetTunnelResponse message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof protos.GetDynamicResponse
+         * @memberof protos.GetTunnelResponse
          * @static
-         * @param {protos.GetDynamicResponse} message GetDynamicResponse
+         * @param {protos.GetTunnelResponse} message GetTunnelResponse
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        GetDynamicResponse.toObject = function toObject(message, options) {
+        GetTunnelResponse.toObject = function toObject(message, options) {
             if (!options)
                 options = {};
             var object = {};
@@ -49260,45 +49260,45 @@ $root.protos = (function() {
                 object.status = null;
             }
             if (message.opts != null && message.hasOwnProperty("opts"))
-                object.opts = $root.protos.opts.DynamicOptions.toObject(message.opts, options);
+                object.opts = $root.protos.opts.TunnelOptions.toObject(message.opts, options);
             if (message.status != null && message.hasOwnProperty("status"))
                 object.status = $root.protos.common.Status.toObject(message.status, options);
             return object;
         };
 
         /**
-         * Converts this GetDynamicResponse to JSON.
+         * Converts this GetTunnelResponse to JSON.
          * @function toJSON
-         * @memberof protos.GetDynamicResponse
+         * @memberof protos.GetTunnelResponse
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        GetDynamicResponse.prototype.toJSON = function toJSON() {
+        GetTunnelResponse.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
         };
 
-        return GetDynamicResponse;
+        return GetTunnelResponse;
     })();
 
-    protos.CreateDynamicRequest = (function() {
+    protos.CreateTunnelRequest = (function() {
 
         /**
-         * Properties of a CreateDynamicRequest.
+         * Properties of a CreateTunnelRequest.
          * @memberof protos
-         * @interface ICreateDynamicRequest
-         * @property {protos.common.IAuth|null} [auth] CreateDynamicRequest auth
-         * @property {protos.opts.IDynamicOptions|null} [opts] CreateDynamicRequest opts
+         * @interface ICreateTunnelRequest
+         * @property {protos.common.IAuth|null} [auth] CreateTunnelRequest auth
+         * @property {protos.opts.ITunnelOptions|null} [opts] CreateTunnelRequest opts
          */
 
         /**
-         * Constructs a new CreateDynamicRequest.
+         * Constructs a new CreateTunnelRequest.
          * @memberof protos
-         * @classdesc Represents a CreateDynamicRequest.
-         * @implements ICreateDynamicRequest
+         * @classdesc Represents a CreateTunnelRequest.
+         * @implements ICreateTunnelRequest
          * @constructor
-         * @param {protos.ICreateDynamicRequest=} [properties] Properties to set
+         * @param {protos.ICreateTunnelRequest=} [properties] Properties to set
          */
-        function CreateDynamicRequest(properties) {
+        function CreateTunnelRequest(properties) {
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
@@ -49306,80 +49306,80 @@ $root.protos = (function() {
         }
 
         /**
-         * CreateDynamicRequest auth.
+         * CreateTunnelRequest auth.
          * @member {protos.common.IAuth|null|undefined} auth
-         * @memberof protos.CreateDynamicRequest
+         * @memberof protos.CreateTunnelRequest
          * @instance
          */
-        CreateDynamicRequest.prototype.auth = null;
+        CreateTunnelRequest.prototype.auth = null;
 
         /**
-         * CreateDynamicRequest opts.
-         * @member {protos.opts.IDynamicOptions|null|undefined} opts
-         * @memberof protos.CreateDynamicRequest
+         * CreateTunnelRequest opts.
+         * @member {protos.opts.ITunnelOptions|null|undefined} opts
+         * @memberof protos.CreateTunnelRequest
          * @instance
          */
-        CreateDynamicRequest.prototype.opts = null;
+        CreateTunnelRequest.prototype.opts = null;
 
         /**
-         * Creates a new CreateDynamicRequest instance using the specified properties.
+         * Creates a new CreateTunnelRequest instance using the specified properties.
          * @function create
-         * @memberof protos.CreateDynamicRequest
+         * @memberof protos.CreateTunnelRequest
          * @static
-         * @param {protos.ICreateDynamicRequest=} [properties] Properties to set
-         * @returns {protos.CreateDynamicRequest} CreateDynamicRequest instance
+         * @param {protos.ICreateTunnelRequest=} [properties] Properties to set
+         * @returns {protos.CreateTunnelRequest} CreateTunnelRequest instance
          */
-        CreateDynamicRequest.create = function create(properties) {
-            return new CreateDynamicRequest(properties);
+        CreateTunnelRequest.create = function create(properties) {
+            return new CreateTunnelRequest(properties);
         };
 
         /**
-         * Encodes the specified CreateDynamicRequest message. Does not implicitly {@link protos.CreateDynamicRequest.verify|verify} messages.
+         * Encodes the specified CreateTunnelRequest message. Does not implicitly {@link protos.CreateTunnelRequest.verify|verify} messages.
          * @function encode
-         * @memberof protos.CreateDynamicRequest
+         * @memberof protos.CreateTunnelRequest
          * @static
-         * @param {protos.ICreateDynamicRequest} message CreateDynamicRequest message or plain object to encode
+         * @param {protos.ICreateTunnelRequest} message CreateTunnelRequest message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        CreateDynamicRequest.encode = function encode(message, writer) {
+        CreateTunnelRequest.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
             if (message.opts != null && Object.hasOwnProperty.call(message, "opts"))
-                $root.protos.opts.DynamicOptions.encode(message.opts, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                $root.protos.opts.TunnelOptions.encode(message.opts, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
             if (message.auth != null && Object.hasOwnProperty.call(message, "auth"))
                 $root.protos.common.Auth.encode(message.auth, writer.uint32(/* id 9999, wireType 2 =*/79994).fork()).ldelim();
             return writer;
         };
 
         /**
-         * Encodes the specified CreateDynamicRequest message, length delimited. Does not implicitly {@link protos.CreateDynamicRequest.verify|verify} messages.
+         * Encodes the specified CreateTunnelRequest message, length delimited. Does not implicitly {@link protos.CreateTunnelRequest.verify|verify} messages.
          * @function encodeDelimited
-         * @memberof protos.CreateDynamicRequest
+         * @memberof protos.CreateTunnelRequest
          * @static
-         * @param {protos.ICreateDynamicRequest} message CreateDynamicRequest message or plain object to encode
+         * @param {protos.ICreateTunnelRequest} message CreateTunnelRequest message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        CreateDynamicRequest.encodeDelimited = function encodeDelimited(message, writer) {
+        CreateTunnelRequest.encodeDelimited = function encodeDelimited(message, writer) {
             return this.encode(message, writer).ldelim();
         };
 
         /**
-         * Decodes a CreateDynamicRequest message from the specified reader or buffer.
+         * Decodes a CreateTunnelRequest message from the specified reader or buffer.
          * @function decode
-         * @memberof protos.CreateDynamicRequest
+         * @memberof protos.CreateTunnelRequest
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {protos.CreateDynamicRequest} CreateDynamicRequest
+         * @returns {protos.CreateTunnelRequest} CreateTunnelRequest
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        CreateDynamicRequest.decode = function decode(reader, length) {
+        CreateTunnelRequest.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.CreateDynamicRequest();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.CreateTunnelRequest();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -49387,7 +49387,7 @@ $root.protos = (function() {
                     message.auth = $root.protos.common.Auth.decode(reader, reader.uint32());
                     break;
                 case 1:
-                    message.opts = $root.protos.opts.DynamicOptions.decode(reader, reader.uint32());
+                    message.opts = $root.protos.opts.TunnelOptions.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -49398,30 +49398,30 @@ $root.protos = (function() {
         };
 
         /**
-         * Decodes a CreateDynamicRequest message from the specified reader or buffer, length delimited.
+         * Decodes a CreateTunnelRequest message from the specified reader or buffer, length delimited.
          * @function decodeDelimited
-         * @memberof protos.CreateDynamicRequest
+         * @memberof protos.CreateTunnelRequest
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {protos.CreateDynamicRequest} CreateDynamicRequest
+         * @returns {protos.CreateTunnelRequest} CreateTunnelRequest
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        CreateDynamicRequest.decodeDelimited = function decodeDelimited(reader) {
+        CreateTunnelRequest.decodeDelimited = function decodeDelimited(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
         };
 
         /**
-         * Verifies a CreateDynamicRequest message.
+         * Verifies a CreateTunnelRequest message.
          * @function verify
-         * @memberof protos.CreateDynamicRequest
+         * @memberof protos.CreateTunnelRequest
          * @static
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        CreateDynamicRequest.verify = function verify(message) {
+        CreateTunnelRequest.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
             if (message.auth != null && message.hasOwnProperty("auth")) {
@@ -49430,7 +49430,7 @@ $root.protos = (function() {
                     return "auth." + error;
             }
             if (message.opts != null && message.hasOwnProperty("opts")) {
-                var error = $root.protos.opts.DynamicOptions.verify(message.opts);
+                var error = $root.protos.opts.TunnelOptions.verify(message.opts);
                 if (error)
                     return "opts." + error;
             }
@@ -49438,40 +49438,40 @@ $root.protos = (function() {
         };
 
         /**
-         * Creates a CreateDynamicRequest message from a plain object. Also converts values to their respective internal types.
+         * Creates a CreateTunnelRequest message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof protos.CreateDynamicRequest
+         * @memberof protos.CreateTunnelRequest
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {protos.CreateDynamicRequest} CreateDynamicRequest
+         * @returns {protos.CreateTunnelRequest} CreateTunnelRequest
          */
-        CreateDynamicRequest.fromObject = function fromObject(object) {
-            if (object instanceof $root.protos.CreateDynamicRequest)
+        CreateTunnelRequest.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.CreateTunnelRequest)
                 return object;
-            var message = new $root.protos.CreateDynamicRequest();
+            var message = new $root.protos.CreateTunnelRequest();
             if (object.auth != null) {
                 if (typeof object.auth !== "object")
-                    throw TypeError(".protos.CreateDynamicRequest.auth: object expected");
+                    throw TypeError(".protos.CreateTunnelRequest.auth: object expected");
                 message.auth = $root.protos.common.Auth.fromObject(object.auth);
             }
             if (object.opts != null) {
                 if (typeof object.opts !== "object")
-                    throw TypeError(".protos.CreateDynamicRequest.opts: object expected");
-                message.opts = $root.protos.opts.DynamicOptions.fromObject(object.opts);
+                    throw TypeError(".protos.CreateTunnelRequest.opts: object expected");
+                message.opts = $root.protos.opts.TunnelOptions.fromObject(object.opts);
             }
             return message;
         };
 
         /**
-         * Creates a plain object from a CreateDynamicRequest message. Also converts values to other types if specified.
+         * Creates a plain object from a CreateTunnelRequest message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof protos.CreateDynamicRequest
+         * @memberof protos.CreateTunnelRequest
          * @static
-         * @param {protos.CreateDynamicRequest} message CreateDynamicRequest
+         * @param {protos.CreateTunnelRequest} message CreateTunnelRequest
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        CreateDynamicRequest.toObject = function toObject(message, options) {
+        CreateTunnelRequest.toObject = function toObject(message, options) {
             if (!options)
                 options = {};
             var object = {};
@@ -49480,45 +49480,45 @@ $root.protos = (function() {
                 object.auth = null;
             }
             if (message.opts != null && message.hasOwnProperty("opts"))
-                object.opts = $root.protos.opts.DynamicOptions.toObject(message.opts, options);
+                object.opts = $root.protos.opts.TunnelOptions.toObject(message.opts, options);
             if (message.auth != null && message.hasOwnProperty("auth"))
                 object.auth = $root.protos.common.Auth.toObject(message.auth, options);
             return object;
         };
 
         /**
-         * Converts this CreateDynamicRequest to JSON.
+         * Converts this CreateTunnelRequest to JSON.
          * @function toJSON
-         * @memberof protos.CreateDynamicRequest
+         * @memberof protos.CreateTunnelRequest
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        CreateDynamicRequest.prototype.toJSON = function toJSON() {
+        CreateTunnelRequest.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
         };
 
-        return CreateDynamicRequest;
+        return CreateTunnelRequest;
     })();
 
-    protos.CreateDynamicResponse = (function() {
+    protos.CreateTunnelResponse = (function() {
 
         /**
-         * Properties of a CreateDynamicResponse.
+         * Properties of a CreateTunnelResponse.
          * @memberof protos
-         * @interface ICreateDynamicResponse
-         * @property {protos.common.IStatus|null} [status] CreateDynamicResponse status
-         * @property {string|null} [dynamicId] CreateDynamicResponse dynamicId
+         * @interface ICreateTunnelResponse
+         * @property {protos.common.IStatus|null} [status] CreateTunnelResponse status
+         * @property {string|null} [tunnelId] CreateTunnelResponse tunnelId
          */
 
         /**
-         * Constructs a new CreateDynamicResponse.
+         * Constructs a new CreateTunnelResponse.
          * @memberof protos
-         * @classdesc Represents a CreateDynamicResponse.
-         * @implements ICreateDynamicResponse
+         * @classdesc Represents a CreateTunnelResponse.
+         * @implements ICreateTunnelResponse
          * @constructor
-         * @param {protos.ICreateDynamicResponse=} [properties] Properties to set
+         * @param {protos.ICreateTunnelResponse=} [properties] Properties to set
          */
-        function CreateDynamicResponse(properties) {
+        function CreateTunnelResponse(properties) {
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
@@ -49526,80 +49526,80 @@ $root.protos = (function() {
         }
 
         /**
-         * CreateDynamicResponse status.
+         * CreateTunnelResponse status.
          * @member {protos.common.IStatus|null|undefined} status
-         * @memberof protos.CreateDynamicResponse
+         * @memberof protos.CreateTunnelResponse
          * @instance
          */
-        CreateDynamicResponse.prototype.status = null;
+        CreateTunnelResponse.prototype.status = null;
 
         /**
-         * CreateDynamicResponse dynamicId.
-         * @member {string} dynamicId
-         * @memberof protos.CreateDynamicResponse
+         * CreateTunnelResponse tunnelId.
+         * @member {string} tunnelId
+         * @memberof protos.CreateTunnelResponse
          * @instance
          */
-        CreateDynamicResponse.prototype.dynamicId = "";
+        CreateTunnelResponse.prototype.tunnelId = "";
 
         /**
-         * Creates a new CreateDynamicResponse instance using the specified properties.
+         * Creates a new CreateTunnelResponse instance using the specified properties.
          * @function create
-         * @memberof protos.CreateDynamicResponse
+         * @memberof protos.CreateTunnelResponse
          * @static
-         * @param {protos.ICreateDynamicResponse=} [properties] Properties to set
-         * @returns {protos.CreateDynamicResponse} CreateDynamicResponse instance
+         * @param {protos.ICreateTunnelResponse=} [properties] Properties to set
+         * @returns {protos.CreateTunnelResponse} CreateTunnelResponse instance
          */
-        CreateDynamicResponse.create = function create(properties) {
-            return new CreateDynamicResponse(properties);
+        CreateTunnelResponse.create = function create(properties) {
+            return new CreateTunnelResponse(properties);
         };
 
         /**
-         * Encodes the specified CreateDynamicResponse message. Does not implicitly {@link protos.CreateDynamicResponse.verify|verify} messages.
+         * Encodes the specified CreateTunnelResponse message. Does not implicitly {@link protos.CreateTunnelResponse.verify|verify} messages.
          * @function encode
-         * @memberof protos.CreateDynamicResponse
+         * @memberof protos.CreateTunnelResponse
          * @static
-         * @param {protos.ICreateDynamicResponse} message CreateDynamicResponse message or plain object to encode
+         * @param {protos.ICreateTunnelResponse} message CreateTunnelResponse message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        CreateDynamicResponse.encode = function encode(message, writer) {
+        CreateTunnelResponse.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
-            if (message.dynamicId != null && Object.hasOwnProperty.call(message, "dynamicId"))
-                writer.uint32(/* id 1, wireType 2 =*/10).string(message.dynamicId);
+            if (message.tunnelId != null && Object.hasOwnProperty.call(message, "tunnelId"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.tunnelId);
             if (message.status != null && Object.hasOwnProperty.call(message, "status"))
                 $root.protos.common.Status.encode(message.status, writer.uint32(/* id 1000, wireType 2 =*/8002).fork()).ldelim();
             return writer;
         };
 
         /**
-         * Encodes the specified CreateDynamicResponse message, length delimited. Does not implicitly {@link protos.CreateDynamicResponse.verify|verify} messages.
+         * Encodes the specified CreateTunnelResponse message, length delimited. Does not implicitly {@link protos.CreateTunnelResponse.verify|verify} messages.
          * @function encodeDelimited
-         * @memberof protos.CreateDynamicResponse
+         * @memberof protos.CreateTunnelResponse
          * @static
-         * @param {protos.ICreateDynamicResponse} message CreateDynamicResponse message or plain object to encode
+         * @param {protos.ICreateTunnelResponse} message CreateTunnelResponse message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        CreateDynamicResponse.encodeDelimited = function encodeDelimited(message, writer) {
+        CreateTunnelResponse.encodeDelimited = function encodeDelimited(message, writer) {
             return this.encode(message, writer).ldelim();
         };
 
         /**
-         * Decodes a CreateDynamicResponse message from the specified reader or buffer.
+         * Decodes a CreateTunnelResponse message from the specified reader or buffer.
          * @function decode
-         * @memberof protos.CreateDynamicResponse
+         * @memberof protos.CreateTunnelResponse
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {protos.CreateDynamicResponse} CreateDynamicResponse
+         * @returns {protos.CreateTunnelResponse} CreateTunnelResponse
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        CreateDynamicResponse.decode = function decode(reader, length) {
+        CreateTunnelResponse.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.CreateDynamicResponse();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.CreateTunnelResponse();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -49607,7 +49607,7 @@ $root.protos = (function() {
                     message.status = $root.protos.common.Status.decode(reader, reader.uint32());
                     break;
                 case 1:
-                    message.dynamicId = reader.string();
+                    message.tunnelId = reader.string();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -49618,30 +49618,30 @@ $root.protos = (function() {
         };
 
         /**
-         * Decodes a CreateDynamicResponse message from the specified reader or buffer, length delimited.
+         * Decodes a CreateTunnelResponse message from the specified reader or buffer, length delimited.
          * @function decodeDelimited
-         * @memberof protos.CreateDynamicResponse
+         * @memberof protos.CreateTunnelResponse
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {protos.CreateDynamicResponse} CreateDynamicResponse
+         * @returns {protos.CreateTunnelResponse} CreateTunnelResponse
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        CreateDynamicResponse.decodeDelimited = function decodeDelimited(reader) {
+        CreateTunnelResponse.decodeDelimited = function decodeDelimited(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
         };
 
         /**
-         * Verifies a CreateDynamicResponse message.
+         * Verifies a CreateTunnelResponse message.
          * @function verify
-         * @memberof protos.CreateDynamicResponse
+         * @memberof protos.CreateTunnelResponse
          * @static
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        CreateDynamicResponse.verify = function verify(message) {
+        CreateTunnelResponse.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
             if (message.status != null && message.hasOwnProperty("status")) {
@@ -49649,92 +49649,92 @@ $root.protos = (function() {
                 if (error)
                     return "status." + error;
             }
-            if (message.dynamicId != null && message.hasOwnProperty("dynamicId"))
-                if (!$util.isString(message.dynamicId))
-                    return "dynamicId: string expected";
+            if (message.tunnelId != null && message.hasOwnProperty("tunnelId"))
+                if (!$util.isString(message.tunnelId))
+                    return "tunnelId: string expected";
             return null;
         };
 
         /**
-         * Creates a CreateDynamicResponse message from a plain object. Also converts values to their respective internal types.
+         * Creates a CreateTunnelResponse message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof protos.CreateDynamicResponse
+         * @memberof protos.CreateTunnelResponse
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {protos.CreateDynamicResponse} CreateDynamicResponse
+         * @returns {protos.CreateTunnelResponse} CreateTunnelResponse
          */
-        CreateDynamicResponse.fromObject = function fromObject(object) {
-            if (object instanceof $root.protos.CreateDynamicResponse)
+        CreateTunnelResponse.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.CreateTunnelResponse)
                 return object;
-            var message = new $root.protos.CreateDynamicResponse();
+            var message = new $root.protos.CreateTunnelResponse();
             if (object.status != null) {
                 if (typeof object.status !== "object")
-                    throw TypeError(".protos.CreateDynamicResponse.status: object expected");
+                    throw TypeError(".protos.CreateTunnelResponse.status: object expected");
                 message.status = $root.protos.common.Status.fromObject(object.status);
             }
-            if (object.dynamicId != null)
-                message.dynamicId = String(object.dynamicId);
+            if (object.tunnelId != null)
+                message.tunnelId = String(object.tunnelId);
             return message;
         };
 
         /**
-         * Creates a plain object from a CreateDynamicResponse message. Also converts values to other types if specified.
+         * Creates a plain object from a CreateTunnelResponse message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof protos.CreateDynamicResponse
+         * @memberof protos.CreateTunnelResponse
          * @static
-         * @param {protos.CreateDynamicResponse} message CreateDynamicResponse
+         * @param {protos.CreateTunnelResponse} message CreateTunnelResponse
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        CreateDynamicResponse.toObject = function toObject(message, options) {
+        CreateTunnelResponse.toObject = function toObject(message, options) {
             if (!options)
                 options = {};
             var object = {};
             if (options.defaults) {
-                object.dynamicId = "";
+                object.tunnelId = "";
                 object.status = null;
             }
-            if (message.dynamicId != null && message.hasOwnProperty("dynamicId"))
-                object.dynamicId = message.dynamicId;
+            if (message.tunnelId != null && message.hasOwnProperty("tunnelId"))
+                object.tunnelId = message.tunnelId;
             if (message.status != null && message.hasOwnProperty("status"))
                 object.status = $root.protos.common.Status.toObject(message.status, options);
             return object;
         };
 
         /**
-         * Converts this CreateDynamicResponse to JSON.
+         * Converts this CreateTunnelResponse to JSON.
          * @function toJSON
-         * @memberof protos.CreateDynamicResponse
+         * @memberof protos.CreateTunnelResponse
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        CreateDynamicResponse.prototype.toJSON = function toJSON() {
+        CreateTunnelResponse.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
         };
 
-        return CreateDynamicResponse;
+        return CreateTunnelResponse;
     })();
 
-    protos.UpdateDynamicRequest = (function() {
+    protos.UpdateTunnelRequest = (function() {
 
         /**
-         * Properties of an UpdateDynamicRequest.
+         * Properties of an UpdateTunnelRequest.
          * @memberof protos
-         * @interface IUpdateDynamicRequest
-         * @property {protos.common.IAuth|null} [auth] UpdateDynamicRequest auth
-         * @property {string|null} [dynamicId] UpdateDynamicRequest dynamicId
-         * @property {protos.opts.IDynamicOptions|null} [opts] UpdateDynamicRequest opts
+         * @interface IUpdateTunnelRequest
+         * @property {protos.common.IAuth|null} [auth] UpdateTunnelRequest auth
+         * @property {string|null} [tunnelId] UpdateTunnelRequest tunnelId
+         * @property {protos.opts.ITunnelOptions|null} [opts] UpdateTunnelRequest opts
          */
 
         /**
-         * Constructs a new UpdateDynamicRequest.
+         * Constructs a new UpdateTunnelRequest.
          * @memberof protos
-         * @classdesc Represents an UpdateDynamicRequest.
-         * @implements IUpdateDynamicRequest
+         * @classdesc Represents an UpdateTunnelRequest.
+         * @implements IUpdateTunnelRequest
          * @constructor
-         * @param {protos.IUpdateDynamicRequest=} [properties] Properties to set
+         * @param {protos.IUpdateTunnelRequest=} [properties] Properties to set
          */
-        function UpdateDynamicRequest(properties) {
+        function UpdateTunnelRequest(properties) {
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
@@ -49742,90 +49742,90 @@ $root.protos = (function() {
         }
 
         /**
-         * UpdateDynamicRequest auth.
+         * UpdateTunnelRequest auth.
          * @member {protos.common.IAuth|null|undefined} auth
-         * @memberof protos.UpdateDynamicRequest
+         * @memberof protos.UpdateTunnelRequest
          * @instance
          */
-        UpdateDynamicRequest.prototype.auth = null;
+        UpdateTunnelRequest.prototype.auth = null;
 
         /**
-         * UpdateDynamicRequest dynamicId.
-         * @member {string} dynamicId
-         * @memberof protos.UpdateDynamicRequest
+         * UpdateTunnelRequest tunnelId.
+         * @member {string} tunnelId
+         * @memberof protos.UpdateTunnelRequest
          * @instance
          */
-        UpdateDynamicRequest.prototype.dynamicId = "";
+        UpdateTunnelRequest.prototype.tunnelId = "";
 
         /**
-         * UpdateDynamicRequest opts.
-         * @member {protos.opts.IDynamicOptions|null|undefined} opts
-         * @memberof protos.UpdateDynamicRequest
+         * UpdateTunnelRequest opts.
+         * @member {protos.opts.ITunnelOptions|null|undefined} opts
+         * @memberof protos.UpdateTunnelRequest
          * @instance
          */
-        UpdateDynamicRequest.prototype.opts = null;
+        UpdateTunnelRequest.prototype.opts = null;
 
         /**
-         * Creates a new UpdateDynamicRequest instance using the specified properties.
+         * Creates a new UpdateTunnelRequest instance using the specified properties.
          * @function create
-         * @memberof protos.UpdateDynamicRequest
+         * @memberof protos.UpdateTunnelRequest
          * @static
-         * @param {protos.IUpdateDynamicRequest=} [properties] Properties to set
-         * @returns {protos.UpdateDynamicRequest} UpdateDynamicRequest instance
+         * @param {protos.IUpdateTunnelRequest=} [properties] Properties to set
+         * @returns {protos.UpdateTunnelRequest} UpdateTunnelRequest instance
          */
-        UpdateDynamicRequest.create = function create(properties) {
-            return new UpdateDynamicRequest(properties);
+        UpdateTunnelRequest.create = function create(properties) {
+            return new UpdateTunnelRequest(properties);
         };
 
         /**
-         * Encodes the specified UpdateDynamicRequest message. Does not implicitly {@link protos.UpdateDynamicRequest.verify|verify} messages.
+         * Encodes the specified UpdateTunnelRequest message. Does not implicitly {@link protos.UpdateTunnelRequest.verify|verify} messages.
          * @function encode
-         * @memberof protos.UpdateDynamicRequest
+         * @memberof protos.UpdateTunnelRequest
          * @static
-         * @param {protos.IUpdateDynamicRequest} message UpdateDynamicRequest message or plain object to encode
+         * @param {protos.IUpdateTunnelRequest} message UpdateTunnelRequest message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        UpdateDynamicRequest.encode = function encode(message, writer) {
+        UpdateTunnelRequest.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
-            if (message.dynamicId != null && Object.hasOwnProperty.call(message, "dynamicId"))
-                writer.uint32(/* id 1, wireType 2 =*/10).string(message.dynamicId);
+            if (message.tunnelId != null && Object.hasOwnProperty.call(message, "tunnelId"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.tunnelId);
             if (message.opts != null && Object.hasOwnProperty.call(message, "opts"))
-                $root.protos.opts.DynamicOptions.encode(message.opts, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                $root.protos.opts.TunnelOptions.encode(message.opts, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
             if (message.auth != null && Object.hasOwnProperty.call(message, "auth"))
                 $root.protos.common.Auth.encode(message.auth, writer.uint32(/* id 9999, wireType 2 =*/79994).fork()).ldelim();
             return writer;
         };
 
         /**
-         * Encodes the specified UpdateDynamicRequest message, length delimited. Does not implicitly {@link protos.UpdateDynamicRequest.verify|verify} messages.
+         * Encodes the specified UpdateTunnelRequest message, length delimited. Does not implicitly {@link protos.UpdateTunnelRequest.verify|verify} messages.
          * @function encodeDelimited
-         * @memberof protos.UpdateDynamicRequest
+         * @memberof protos.UpdateTunnelRequest
          * @static
-         * @param {protos.IUpdateDynamicRequest} message UpdateDynamicRequest message or plain object to encode
+         * @param {protos.IUpdateTunnelRequest} message UpdateTunnelRequest message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        UpdateDynamicRequest.encodeDelimited = function encodeDelimited(message, writer) {
+        UpdateTunnelRequest.encodeDelimited = function encodeDelimited(message, writer) {
             return this.encode(message, writer).ldelim();
         };
 
         /**
-         * Decodes an UpdateDynamicRequest message from the specified reader or buffer.
+         * Decodes an UpdateTunnelRequest message from the specified reader or buffer.
          * @function decode
-         * @memberof protos.UpdateDynamicRequest
+         * @memberof protos.UpdateTunnelRequest
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {protos.UpdateDynamicRequest} UpdateDynamicRequest
+         * @returns {protos.UpdateTunnelRequest} UpdateTunnelRequest
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        UpdateDynamicRequest.decode = function decode(reader, length) {
+        UpdateTunnelRequest.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.UpdateDynamicRequest();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.UpdateTunnelRequest();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -49833,10 +49833,10 @@ $root.protos = (function() {
                     message.auth = $root.protos.common.Auth.decode(reader, reader.uint32());
                     break;
                 case 1:
-                    message.dynamicId = reader.string();
+                    message.tunnelId = reader.string();
                     break;
                 case 2:
-                    message.opts = $root.protos.opts.DynamicOptions.decode(reader, reader.uint32());
+                    message.opts = $root.protos.opts.TunnelOptions.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -49847,30 +49847,30 @@ $root.protos = (function() {
         };
 
         /**
-         * Decodes an UpdateDynamicRequest message from the specified reader or buffer, length delimited.
+         * Decodes an UpdateTunnelRequest message from the specified reader or buffer, length delimited.
          * @function decodeDelimited
-         * @memberof protos.UpdateDynamicRequest
+         * @memberof protos.UpdateTunnelRequest
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {protos.UpdateDynamicRequest} UpdateDynamicRequest
+         * @returns {protos.UpdateTunnelRequest} UpdateTunnelRequest
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        UpdateDynamicRequest.decodeDelimited = function decodeDelimited(reader) {
+        UpdateTunnelRequest.decodeDelimited = function decodeDelimited(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
         };
 
         /**
-         * Verifies an UpdateDynamicRequest message.
+         * Verifies an UpdateTunnelRequest message.
          * @function verify
-         * @memberof protos.UpdateDynamicRequest
+         * @memberof protos.UpdateTunnelRequest
          * @static
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        UpdateDynamicRequest.verify = function verify(message) {
+        UpdateTunnelRequest.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
             if (message.auth != null && message.hasOwnProperty("auth")) {
@@ -49878,11 +49878,11 @@ $root.protos = (function() {
                 if (error)
                     return "auth." + error;
             }
-            if (message.dynamicId != null && message.hasOwnProperty("dynamicId"))
-                if (!$util.isString(message.dynamicId))
-                    return "dynamicId: string expected";
+            if (message.tunnelId != null && message.hasOwnProperty("tunnelId"))
+                if (!$util.isString(message.tunnelId))
+                    return "tunnelId: string expected";
             if (message.opts != null && message.hasOwnProperty("opts")) {
-                var error = $root.protos.opts.DynamicOptions.verify(message.opts);
+                var error = $root.protos.opts.TunnelOptions.verify(message.opts);
                 if (error)
                     return "opts." + error;
             }
@@ -49890,91 +49890,91 @@ $root.protos = (function() {
         };
 
         /**
-         * Creates an UpdateDynamicRequest message from a plain object. Also converts values to their respective internal types.
+         * Creates an UpdateTunnelRequest message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof protos.UpdateDynamicRequest
+         * @memberof protos.UpdateTunnelRequest
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {protos.UpdateDynamicRequest} UpdateDynamicRequest
+         * @returns {protos.UpdateTunnelRequest} UpdateTunnelRequest
          */
-        UpdateDynamicRequest.fromObject = function fromObject(object) {
-            if (object instanceof $root.protos.UpdateDynamicRequest)
+        UpdateTunnelRequest.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.UpdateTunnelRequest)
                 return object;
-            var message = new $root.protos.UpdateDynamicRequest();
+            var message = new $root.protos.UpdateTunnelRequest();
             if (object.auth != null) {
                 if (typeof object.auth !== "object")
-                    throw TypeError(".protos.UpdateDynamicRequest.auth: object expected");
+                    throw TypeError(".protos.UpdateTunnelRequest.auth: object expected");
                 message.auth = $root.protos.common.Auth.fromObject(object.auth);
             }
-            if (object.dynamicId != null)
-                message.dynamicId = String(object.dynamicId);
+            if (object.tunnelId != null)
+                message.tunnelId = String(object.tunnelId);
             if (object.opts != null) {
                 if (typeof object.opts !== "object")
-                    throw TypeError(".protos.UpdateDynamicRequest.opts: object expected");
-                message.opts = $root.protos.opts.DynamicOptions.fromObject(object.opts);
+                    throw TypeError(".protos.UpdateTunnelRequest.opts: object expected");
+                message.opts = $root.protos.opts.TunnelOptions.fromObject(object.opts);
             }
             return message;
         };
 
         /**
-         * Creates a plain object from an UpdateDynamicRequest message. Also converts values to other types if specified.
+         * Creates a plain object from an UpdateTunnelRequest message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof protos.UpdateDynamicRequest
+         * @memberof protos.UpdateTunnelRequest
          * @static
-         * @param {protos.UpdateDynamicRequest} message UpdateDynamicRequest
+         * @param {protos.UpdateTunnelRequest} message UpdateTunnelRequest
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        UpdateDynamicRequest.toObject = function toObject(message, options) {
+        UpdateTunnelRequest.toObject = function toObject(message, options) {
             if (!options)
                 options = {};
             var object = {};
             if (options.defaults) {
-                object.dynamicId = "";
+                object.tunnelId = "";
                 object.opts = null;
                 object.auth = null;
             }
-            if (message.dynamicId != null && message.hasOwnProperty("dynamicId"))
-                object.dynamicId = message.dynamicId;
+            if (message.tunnelId != null && message.hasOwnProperty("tunnelId"))
+                object.tunnelId = message.tunnelId;
             if (message.opts != null && message.hasOwnProperty("opts"))
-                object.opts = $root.protos.opts.DynamicOptions.toObject(message.opts, options);
+                object.opts = $root.protos.opts.TunnelOptions.toObject(message.opts, options);
             if (message.auth != null && message.hasOwnProperty("auth"))
                 object.auth = $root.protos.common.Auth.toObject(message.auth, options);
             return object;
         };
 
         /**
-         * Converts this UpdateDynamicRequest to JSON.
+         * Converts this UpdateTunnelRequest to JSON.
          * @function toJSON
-         * @memberof protos.UpdateDynamicRequest
+         * @memberof protos.UpdateTunnelRequest
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        UpdateDynamicRequest.prototype.toJSON = function toJSON() {
+        UpdateTunnelRequest.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
         };
 
-        return UpdateDynamicRequest;
+        return UpdateTunnelRequest;
     })();
 
-    protos.UpdateDynamicResponse = (function() {
+    protos.UpdateTunnelResponse = (function() {
 
         /**
-         * Properties of an UpdateDynamicResponse.
+         * Properties of an UpdateTunnelResponse.
          * @memberof protos
-         * @interface IUpdateDynamicResponse
-         * @property {protos.common.IStatus|null} [status] UpdateDynamicResponse status
+         * @interface IUpdateTunnelResponse
+         * @property {protos.common.IStatus|null} [status] UpdateTunnelResponse status
          */
 
         /**
-         * Constructs a new UpdateDynamicResponse.
+         * Constructs a new UpdateTunnelResponse.
          * @memberof protos
-         * @classdesc Represents an UpdateDynamicResponse.
-         * @implements IUpdateDynamicResponse
+         * @classdesc Represents an UpdateTunnelResponse.
+         * @implements IUpdateTunnelResponse
          * @constructor
-         * @param {protos.IUpdateDynamicResponse=} [properties] Properties to set
+         * @param {protos.IUpdateTunnelResponse=} [properties] Properties to set
          */
-        function UpdateDynamicResponse(properties) {
+        function UpdateTunnelResponse(properties) {
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
@@ -49982,35 +49982,35 @@ $root.protos = (function() {
         }
 
         /**
-         * UpdateDynamicResponse status.
+         * UpdateTunnelResponse status.
          * @member {protos.common.IStatus|null|undefined} status
-         * @memberof protos.UpdateDynamicResponse
+         * @memberof protos.UpdateTunnelResponse
          * @instance
          */
-        UpdateDynamicResponse.prototype.status = null;
+        UpdateTunnelResponse.prototype.status = null;
 
         /**
-         * Creates a new UpdateDynamicResponse instance using the specified properties.
+         * Creates a new UpdateTunnelResponse instance using the specified properties.
          * @function create
-         * @memberof protos.UpdateDynamicResponse
+         * @memberof protos.UpdateTunnelResponse
          * @static
-         * @param {protos.IUpdateDynamicResponse=} [properties] Properties to set
-         * @returns {protos.UpdateDynamicResponse} UpdateDynamicResponse instance
+         * @param {protos.IUpdateTunnelResponse=} [properties] Properties to set
+         * @returns {protos.UpdateTunnelResponse} UpdateTunnelResponse instance
          */
-        UpdateDynamicResponse.create = function create(properties) {
-            return new UpdateDynamicResponse(properties);
+        UpdateTunnelResponse.create = function create(properties) {
+            return new UpdateTunnelResponse(properties);
         };
 
         /**
-         * Encodes the specified UpdateDynamicResponse message. Does not implicitly {@link protos.UpdateDynamicResponse.verify|verify} messages.
+         * Encodes the specified UpdateTunnelResponse message. Does not implicitly {@link protos.UpdateTunnelResponse.verify|verify} messages.
          * @function encode
-         * @memberof protos.UpdateDynamicResponse
+         * @memberof protos.UpdateTunnelResponse
          * @static
-         * @param {protos.IUpdateDynamicResponse} message UpdateDynamicResponse message or plain object to encode
+         * @param {protos.IUpdateTunnelResponse} message UpdateTunnelResponse message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        UpdateDynamicResponse.encode = function encode(message, writer) {
+        UpdateTunnelResponse.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
             if (message.status != null && Object.hasOwnProperty.call(message, "status"))
@@ -50019,33 +50019,33 @@ $root.protos = (function() {
         };
 
         /**
-         * Encodes the specified UpdateDynamicResponse message, length delimited. Does not implicitly {@link protos.UpdateDynamicResponse.verify|verify} messages.
+         * Encodes the specified UpdateTunnelResponse message, length delimited. Does not implicitly {@link protos.UpdateTunnelResponse.verify|verify} messages.
          * @function encodeDelimited
-         * @memberof protos.UpdateDynamicResponse
+         * @memberof protos.UpdateTunnelResponse
          * @static
-         * @param {protos.IUpdateDynamicResponse} message UpdateDynamicResponse message or plain object to encode
+         * @param {protos.IUpdateTunnelResponse} message UpdateTunnelResponse message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        UpdateDynamicResponse.encodeDelimited = function encodeDelimited(message, writer) {
+        UpdateTunnelResponse.encodeDelimited = function encodeDelimited(message, writer) {
             return this.encode(message, writer).ldelim();
         };
 
         /**
-         * Decodes an UpdateDynamicResponse message from the specified reader or buffer.
+         * Decodes an UpdateTunnelResponse message from the specified reader or buffer.
          * @function decode
-         * @memberof protos.UpdateDynamicResponse
+         * @memberof protos.UpdateTunnelResponse
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {protos.UpdateDynamicResponse} UpdateDynamicResponse
+         * @returns {protos.UpdateTunnelResponse} UpdateTunnelResponse
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        UpdateDynamicResponse.decode = function decode(reader, length) {
+        UpdateTunnelResponse.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.UpdateDynamicResponse();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.UpdateTunnelResponse();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -50061,30 +50061,30 @@ $root.protos = (function() {
         };
 
         /**
-         * Decodes an UpdateDynamicResponse message from the specified reader or buffer, length delimited.
+         * Decodes an UpdateTunnelResponse message from the specified reader or buffer, length delimited.
          * @function decodeDelimited
-         * @memberof protos.UpdateDynamicResponse
+         * @memberof protos.UpdateTunnelResponse
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {protos.UpdateDynamicResponse} UpdateDynamicResponse
+         * @returns {protos.UpdateTunnelResponse} UpdateTunnelResponse
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        UpdateDynamicResponse.decodeDelimited = function decodeDelimited(reader) {
+        UpdateTunnelResponse.decodeDelimited = function decodeDelimited(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
         };
 
         /**
-         * Verifies an UpdateDynamicResponse message.
+         * Verifies an UpdateTunnelResponse message.
          * @function verify
-         * @memberof protos.UpdateDynamicResponse
+         * @memberof protos.UpdateTunnelResponse
          * @static
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        UpdateDynamicResponse.verify = function verify(message) {
+        UpdateTunnelResponse.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
             if (message.status != null && message.hasOwnProperty("status")) {
@@ -50096,35 +50096,35 @@ $root.protos = (function() {
         };
 
         /**
-         * Creates an UpdateDynamicResponse message from a plain object. Also converts values to their respective internal types.
+         * Creates an UpdateTunnelResponse message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof protos.UpdateDynamicResponse
+         * @memberof protos.UpdateTunnelResponse
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {protos.UpdateDynamicResponse} UpdateDynamicResponse
+         * @returns {protos.UpdateTunnelResponse} UpdateTunnelResponse
          */
-        UpdateDynamicResponse.fromObject = function fromObject(object) {
-            if (object instanceof $root.protos.UpdateDynamicResponse)
+        UpdateTunnelResponse.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.UpdateTunnelResponse)
                 return object;
-            var message = new $root.protos.UpdateDynamicResponse();
+            var message = new $root.protos.UpdateTunnelResponse();
             if (object.status != null) {
                 if (typeof object.status !== "object")
-                    throw TypeError(".protos.UpdateDynamicResponse.status: object expected");
+                    throw TypeError(".protos.UpdateTunnelResponse.status: object expected");
                 message.status = $root.protos.common.Status.fromObject(object.status);
             }
             return message;
         };
 
         /**
-         * Creates a plain object from an UpdateDynamicResponse message. Also converts values to other types if specified.
+         * Creates a plain object from an UpdateTunnelResponse message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof protos.UpdateDynamicResponse
+         * @memberof protos.UpdateTunnelResponse
          * @static
-         * @param {protos.UpdateDynamicResponse} message UpdateDynamicResponse
+         * @param {protos.UpdateTunnelResponse} message UpdateTunnelResponse
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        UpdateDynamicResponse.toObject = function toObject(message, options) {
+        UpdateTunnelResponse.toObject = function toObject(message, options) {
             if (!options)
                 options = {};
             var object = {};
@@ -50136,38 +50136,38 @@ $root.protos = (function() {
         };
 
         /**
-         * Converts this UpdateDynamicResponse to JSON.
+         * Converts this UpdateTunnelResponse to JSON.
          * @function toJSON
-         * @memberof protos.UpdateDynamicResponse
+         * @memberof protos.UpdateTunnelResponse
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        UpdateDynamicResponse.prototype.toJSON = function toJSON() {
+        UpdateTunnelResponse.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
         };
 
-        return UpdateDynamicResponse;
+        return UpdateTunnelResponse;
     })();
 
-    protos.ResumeDynamicRequest = (function() {
+    protos.ResumeTunnelRequest = (function() {
 
         /**
-         * Properties of a ResumeDynamicRequest.
+         * Properties of a ResumeTunnelRequest.
          * @memberof protos
-         * @interface IResumeDynamicRequest
-         * @property {protos.common.IAuth|null} [auth] ResumeDynamicRequest auth
-         * @property {string|null} [dynamicId] ResumeDynamicRequest dynamicId
+         * @interface IResumeTunnelRequest
+         * @property {protos.common.IAuth|null} [auth] ResumeTunnelRequest auth
+         * @property {string|null} [tunnelId] ResumeTunnelRequest tunnelId
          */
 
         /**
-         * Constructs a new ResumeDynamicRequest.
+         * Constructs a new ResumeTunnelRequest.
          * @memberof protos
-         * @classdesc Represents a ResumeDynamicRequest.
-         * @implements IResumeDynamicRequest
+         * @classdesc Represents a ResumeTunnelRequest.
+         * @implements IResumeTunnelRequest
          * @constructor
-         * @param {protos.IResumeDynamicRequest=} [properties] Properties to set
+         * @param {protos.IResumeTunnelRequest=} [properties] Properties to set
          */
-        function ResumeDynamicRequest(properties) {
+        function ResumeTunnelRequest(properties) {
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
@@ -50175,80 +50175,80 @@ $root.protos = (function() {
         }
 
         /**
-         * ResumeDynamicRequest auth.
+         * ResumeTunnelRequest auth.
          * @member {protos.common.IAuth|null|undefined} auth
-         * @memberof protos.ResumeDynamicRequest
+         * @memberof protos.ResumeTunnelRequest
          * @instance
          */
-        ResumeDynamicRequest.prototype.auth = null;
+        ResumeTunnelRequest.prototype.auth = null;
 
         /**
-         * ResumeDynamicRequest dynamicId.
-         * @member {string} dynamicId
-         * @memberof protos.ResumeDynamicRequest
+         * ResumeTunnelRequest tunnelId.
+         * @member {string} tunnelId
+         * @memberof protos.ResumeTunnelRequest
          * @instance
          */
-        ResumeDynamicRequest.prototype.dynamicId = "";
+        ResumeTunnelRequest.prototype.tunnelId = "";
 
         /**
-         * Creates a new ResumeDynamicRequest instance using the specified properties.
+         * Creates a new ResumeTunnelRequest instance using the specified properties.
          * @function create
-         * @memberof protos.ResumeDynamicRequest
+         * @memberof protos.ResumeTunnelRequest
          * @static
-         * @param {protos.IResumeDynamicRequest=} [properties] Properties to set
-         * @returns {protos.ResumeDynamicRequest} ResumeDynamicRequest instance
+         * @param {protos.IResumeTunnelRequest=} [properties] Properties to set
+         * @returns {protos.ResumeTunnelRequest} ResumeTunnelRequest instance
          */
-        ResumeDynamicRequest.create = function create(properties) {
-            return new ResumeDynamicRequest(properties);
+        ResumeTunnelRequest.create = function create(properties) {
+            return new ResumeTunnelRequest(properties);
         };
 
         /**
-         * Encodes the specified ResumeDynamicRequest message. Does not implicitly {@link protos.ResumeDynamicRequest.verify|verify} messages.
+         * Encodes the specified ResumeTunnelRequest message. Does not implicitly {@link protos.ResumeTunnelRequest.verify|verify} messages.
          * @function encode
-         * @memberof protos.ResumeDynamicRequest
+         * @memberof protos.ResumeTunnelRequest
          * @static
-         * @param {protos.IResumeDynamicRequest} message ResumeDynamicRequest message or plain object to encode
+         * @param {protos.IResumeTunnelRequest} message ResumeTunnelRequest message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        ResumeDynamicRequest.encode = function encode(message, writer) {
+        ResumeTunnelRequest.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
-            if (message.dynamicId != null && Object.hasOwnProperty.call(message, "dynamicId"))
-                writer.uint32(/* id 1, wireType 2 =*/10).string(message.dynamicId);
+            if (message.tunnelId != null && Object.hasOwnProperty.call(message, "tunnelId"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.tunnelId);
             if (message.auth != null && Object.hasOwnProperty.call(message, "auth"))
                 $root.protos.common.Auth.encode(message.auth, writer.uint32(/* id 9999, wireType 2 =*/79994).fork()).ldelim();
             return writer;
         };
 
         /**
-         * Encodes the specified ResumeDynamicRequest message, length delimited. Does not implicitly {@link protos.ResumeDynamicRequest.verify|verify} messages.
+         * Encodes the specified ResumeTunnelRequest message, length delimited. Does not implicitly {@link protos.ResumeTunnelRequest.verify|verify} messages.
          * @function encodeDelimited
-         * @memberof protos.ResumeDynamicRequest
+         * @memberof protos.ResumeTunnelRequest
          * @static
-         * @param {protos.IResumeDynamicRequest} message ResumeDynamicRequest message or plain object to encode
+         * @param {protos.IResumeTunnelRequest} message ResumeTunnelRequest message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        ResumeDynamicRequest.encodeDelimited = function encodeDelimited(message, writer) {
+        ResumeTunnelRequest.encodeDelimited = function encodeDelimited(message, writer) {
             return this.encode(message, writer).ldelim();
         };
 
         /**
-         * Decodes a ResumeDynamicRequest message from the specified reader or buffer.
+         * Decodes a ResumeTunnelRequest message from the specified reader or buffer.
          * @function decode
-         * @memberof protos.ResumeDynamicRequest
+         * @memberof protos.ResumeTunnelRequest
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {protos.ResumeDynamicRequest} ResumeDynamicRequest
+         * @returns {protos.ResumeTunnelRequest} ResumeTunnelRequest
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        ResumeDynamicRequest.decode = function decode(reader, length) {
+        ResumeTunnelRequest.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.ResumeDynamicRequest();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.ResumeTunnelRequest();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -50256,7 +50256,7 @@ $root.protos = (function() {
                     message.auth = $root.protos.common.Auth.decode(reader, reader.uint32());
                     break;
                 case 1:
-                    message.dynamicId = reader.string();
+                    message.tunnelId = reader.string();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -50267,30 +50267,30 @@ $root.protos = (function() {
         };
 
         /**
-         * Decodes a ResumeDynamicRequest message from the specified reader or buffer, length delimited.
+         * Decodes a ResumeTunnelRequest message from the specified reader or buffer, length delimited.
          * @function decodeDelimited
-         * @memberof protos.ResumeDynamicRequest
+         * @memberof protos.ResumeTunnelRequest
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {protos.ResumeDynamicRequest} ResumeDynamicRequest
+         * @returns {protos.ResumeTunnelRequest} ResumeTunnelRequest
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        ResumeDynamicRequest.decodeDelimited = function decodeDelimited(reader) {
+        ResumeTunnelRequest.decodeDelimited = function decodeDelimited(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
         };
 
         /**
-         * Verifies a ResumeDynamicRequest message.
+         * Verifies a ResumeTunnelRequest message.
          * @function verify
-         * @memberof protos.ResumeDynamicRequest
+         * @memberof protos.ResumeTunnelRequest
          * @static
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        ResumeDynamicRequest.verify = function verify(message) {
+        ResumeTunnelRequest.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
             if (message.auth != null && message.hasOwnProperty("auth")) {
@@ -50298,90 +50298,90 @@ $root.protos = (function() {
                 if (error)
                     return "auth." + error;
             }
-            if (message.dynamicId != null && message.hasOwnProperty("dynamicId"))
-                if (!$util.isString(message.dynamicId))
-                    return "dynamicId: string expected";
+            if (message.tunnelId != null && message.hasOwnProperty("tunnelId"))
+                if (!$util.isString(message.tunnelId))
+                    return "tunnelId: string expected";
             return null;
         };
 
         /**
-         * Creates a ResumeDynamicRequest message from a plain object. Also converts values to their respective internal types.
+         * Creates a ResumeTunnelRequest message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof protos.ResumeDynamicRequest
+         * @memberof protos.ResumeTunnelRequest
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {protos.ResumeDynamicRequest} ResumeDynamicRequest
+         * @returns {protos.ResumeTunnelRequest} ResumeTunnelRequest
          */
-        ResumeDynamicRequest.fromObject = function fromObject(object) {
-            if (object instanceof $root.protos.ResumeDynamicRequest)
+        ResumeTunnelRequest.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.ResumeTunnelRequest)
                 return object;
-            var message = new $root.protos.ResumeDynamicRequest();
+            var message = new $root.protos.ResumeTunnelRequest();
             if (object.auth != null) {
                 if (typeof object.auth !== "object")
-                    throw TypeError(".protos.ResumeDynamicRequest.auth: object expected");
+                    throw TypeError(".protos.ResumeTunnelRequest.auth: object expected");
                 message.auth = $root.protos.common.Auth.fromObject(object.auth);
             }
-            if (object.dynamicId != null)
-                message.dynamicId = String(object.dynamicId);
+            if (object.tunnelId != null)
+                message.tunnelId = String(object.tunnelId);
             return message;
         };
 
         /**
-         * Creates a plain object from a ResumeDynamicRequest message. Also converts values to other types if specified.
+         * Creates a plain object from a ResumeTunnelRequest message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof protos.ResumeDynamicRequest
+         * @memberof protos.ResumeTunnelRequest
          * @static
-         * @param {protos.ResumeDynamicRequest} message ResumeDynamicRequest
+         * @param {protos.ResumeTunnelRequest} message ResumeTunnelRequest
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        ResumeDynamicRequest.toObject = function toObject(message, options) {
+        ResumeTunnelRequest.toObject = function toObject(message, options) {
             if (!options)
                 options = {};
             var object = {};
             if (options.defaults) {
-                object.dynamicId = "";
+                object.tunnelId = "";
                 object.auth = null;
             }
-            if (message.dynamicId != null && message.hasOwnProperty("dynamicId"))
-                object.dynamicId = message.dynamicId;
+            if (message.tunnelId != null && message.hasOwnProperty("tunnelId"))
+                object.tunnelId = message.tunnelId;
             if (message.auth != null && message.hasOwnProperty("auth"))
                 object.auth = $root.protos.common.Auth.toObject(message.auth, options);
             return object;
         };
 
         /**
-         * Converts this ResumeDynamicRequest to JSON.
+         * Converts this ResumeTunnelRequest to JSON.
          * @function toJSON
-         * @memberof protos.ResumeDynamicRequest
+         * @memberof protos.ResumeTunnelRequest
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        ResumeDynamicRequest.prototype.toJSON = function toJSON() {
+        ResumeTunnelRequest.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
         };
 
-        return ResumeDynamicRequest;
+        return ResumeTunnelRequest;
     })();
 
-    protos.ResumeDynamicResponse = (function() {
+    protos.ResumeTunnelResponse = (function() {
 
         /**
-         * Properties of a ResumeDynamicResponse.
+         * Properties of a ResumeTunnelResponse.
          * @memberof protos
-         * @interface IResumeDynamicResponse
-         * @property {protos.common.IStatus|null} [status] ResumeDynamicResponse status
+         * @interface IResumeTunnelResponse
+         * @property {protos.common.IStatus|null} [status] ResumeTunnelResponse status
          */
 
         /**
-         * Constructs a new ResumeDynamicResponse.
+         * Constructs a new ResumeTunnelResponse.
          * @memberof protos
-         * @classdesc Represents a ResumeDynamicResponse.
-         * @implements IResumeDynamicResponse
+         * @classdesc Represents a ResumeTunnelResponse.
+         * @implements IResumeTunnelResponse
          * @constructor
-         * @param {protos.IResumeDynamicResponse=} [properties] Properties to set
+         * @param {protos.IResumeTunnelResponse=} [properties] Properties to set
          */
-        function ResumeDynamicResponse(properties) {
+        function ResumeTunnelResponse(properties) {
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
@@ -50389,35 +50389,35 @@ $root.protos = (function() {
         }
 
         /**
-         * ResumeDynamicResponse status.
+         * ResumeTunnelResponse status.
          * @member {protos.common.IStatus|null|undefined} status
-         * @memberof protos.ResumeDynamicResponse
+         * @memberof protos.ResumeTunnelResponse
          * @instance
          */
-        ResumeDynamicResponse.prototype.status = null;
+        ResumeTunnelResponse.prototype.status = null;
 
         /**
-         * Creates a new ResumeDynamicResponse instance using the specified properties.
+         * Creates a new ResumeTunnelResponse instance using the specified properties.
          * @function create
-         * @memberof protos.ResumeDynamicResponse
+         * @memberof protos.ResumeTunnelResponse
          * @static
-         * @param {protos.IResumeDynamicResponse=} [properties] Properties to set
-         * @returns {protos.ResumeDynamicResponse} ResumeDynamicResponse instance
+         * @param {protos.IResumeTunnelResponse=} [properties] Properties to set
+         * @returns {protos.ResumeTunnelResponse} ResumeTunnelResponse instance
          */
-        ResumeDynamicResponse.create = function create(properties) {
-            return new ResumeDynamicResponse(properties);
+        ResumeTunnelResponse.create = function create(properties) {
+            return new ResumeTunnelResponse(properties);
         };
 
         /**
-         * Encodes the specified ResumeDynamicResponse message. Does not implicitly {@link protos.ResumeDynamicResponse.verify|verify} messages.
+         * Encodes the specified ResumeTunnelResponse message. Does not implicitly {@link protos.ResumeTunnelResponse.verify|verify} messages.
          * @function encode
-         * @memberof protos.ResumeDynamicResponse
+         * @memberof protos.ResumeTunnelResponse
          * @static
-         * @param {protos.IResumeDynamicResponse} message ResumeDynamicResponse message or plain object to encode
+         * @param {protos.IResumeTunnelResponse} message ResumeTunnelResponse message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        ResumeDynamicResponse.encode = function encode(message, writer) {
+        ResumeTunnelResponse.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
             if (message.status != null && Object.hasOwnProperty.call(message, "status"))
@@ -50426,33 +50426,33 @@ $root.protos = (function() {
         };
 
         /**
-         * Encodes the specified ResumeDynamicResponse message, length delimited. Does not implicitly {@link protos.ResumeDynamicResponse.verify|verify} messages.
+         * Encodes the specified ResumeTunnelResponse message, length delimited. Does not implicitly {@link protos.ResumeTunnelResponse.verify|verify} messages.
          * @function encodeDelimited
-         * @memberof protos.ResumeDynamicResponse
+         * @memberof protos.ResumeTunnelResponse
          * @static
-         * @param {protos.IResumeDynamicResponse} message ResumeDynamicResponse message or plain object to encode
+         * @param {protos.IResumeTunnelResponse} message ResumeTunnelResponse message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        ResumeDynamicResponse.encodeDelimited = function encodeDelimited(message, writer) {
+        ResumeTunnelResponse.encodeDelimited = function encodeDelimited(message, writer) {
             return this.encode(message, writer).ldelim();
         };
 
         /**
-         * Decodes a ResumeDynamicResponse message from the specified reader or buffer.
+         * Decodes a ResumeTunnelResponse message from the specified reader or buffer.
          * @function decode
-         * @memberof protos.ResumeDynamicResponse
+         * @memberof protos.ResumeTunnelResponse
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {protos.ResumeDynamicResponse} ResumeDynamicResponse
+         * @returns {protos.ResumeTunnelResponse} ResumeTunnelResponse
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        ResumeDynamicResponse.decode = function decode(reader, length) {
+        ResumeTunnelResponse.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.ResumeDynamicResponse();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.ResumeTunnelResponse();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -50468,30 +50468,30 @@ $root.protos = (function() {
         };
 
         /**
-         * Decodes a ResumeDynamicResponse message from the specified reader or buffer, length delimited.
+         * Decodes a ResumeTunnelResponse message from the specified reader or buffer, length delimited.
          * @function decodeDelimited
-         * @memberof protos.ResumeDynamicResponse
+         * @memberof protos.ResumeTunnelResponse
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {protos.ResumeDynamicResponse} ResumeDynamicResponse
+         * @returns {protos.ResumeTunnelResponse} ResumeTunnelResponse
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        ResumeDynamicResponse.decodeDelimited = function decodeDelimited(reader) {
+        ResumeTunnelResponse.decodeDelimited = function decodeDelimited(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
         };
 
         /**
-         * Verifies a ResumeDynamicResponse message.
+         * Verifies a ResumeTunnelResponse message.
          * @function verify
-         * @memberof protos.ResumeDynamicResponse
+         * @memberof protos.ResumeTunnelResponse
          * @static
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        ResumeDynamicResponse.verify = function verify(message) {
+        ResumeTunnelResponse.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
             if (message.status != null && message.hasOwnProperty("status")) {
@@ -50503,35 +50503,35 @@ $root.protos = (function() {
         };
 
         /**
-         * Creates a ResumeDynamicResponse message from a plain object. Also converts values to their respective internal types.
+         * Creates a ResumeTunnelResponse message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof protos.ResumeDynamicResponse
+         * @memberof protos.ResumeTunnelResponse
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {protos.ResumeDynamicResponse} ResumeDynamicResponse
+         * @returns {protos.ResumeTunnelResponse} ResumeTunnelResponse
          */
-        ResumeDynamicResponse.fromObject = function fromObject(object) {
-            if (object instanceof $root.protos.ResumeDynamicResponse)
+        ResumeTunnelResponse.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.ResumeTunnelResponse)
                 return object;
-            var message = new $root.protos.ResumeDynamicResponse();
+            var message = new $root.protos.ResumeTunnelResponse();
             if (object.status != null) {
                 if (typeof object.status !== "object")
-                    throw TypeError(".protos.ResumeDynamicResponse.status: object expected");
+                    throw TypeError(".protos.ResumeTunnelResponse.status: object expected");
                 message.status = $root.protos.common.Status.fromObject(object.status);
             }
             return message;
         };
 
         /**
-         * Creates a plain object from a ResumeDynamicResponse message. Also converts values to other types if specified.
+         * Creates a plain object from a ResumeTunnelResponse message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof protos.ResumeDynamicResponse
+         * @memberof protos.ResumeTunnelResponse
          * @static
-         * @param {protos.ResumeDynamicResponse} message ResumeDynamicResponse
+         * @param {protos.ResumeTunnelResponse} message ResumeTunnelResponse
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        ResumeDynamicResponse.toObject = function toObject(message, options) {
+        ResumeTunnelResponse.toObject = function toObject(message, options) {
             if (!options)
                 options = {};
             var object = {};
@@ -50543,38 +50543,38 @@ $root.protos = (function() {
         };
 
         /**
-         * Converts this ResumeDynamicResponse to JSON.
+         * Converts this ResumeTunnelResponse to JSON.
          * @function toJSON
-         * @memberof protos.ResumeDynamicResponse
+         * @memberof protos.ResumeTunnelResponse
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        ResumeDynamicResponse.prototype.toJSON = function toJSON() {
+        ResumeTunnelResponse.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
         };
 
-        return ResumeDynamicResponse;
+        return ResumeTunnelResponse;
     })();
 
-    protos.StopDynamicRequest = (function() {
+    protos.StopTunnelRequest = (function() {
 
         /**
-         * Properties of a StopDynamicRequest.
+         * Properties of a StopTunnelRequest.
          * @memberof protos
-         * @interface IStopDynamicRequest
-         * @property {protos.common.IAuth|null} [auth] StopDynamicRequest auth
-         * @property {string|null} [dynamicId] StopDynamicRequest dynamicId
+         * @interface IStopTunnelRequest
+         * @property {protos.common.IAuth|null} [auth] StopTunnelRequest auth
+         * @property {string|null} [tunnelId] StopTunnelRequest tunnelId
          */
 
         /**
-         * Constructs a new StopDynamicRequest.
+         * Constructs a new StopTunnelRequest.
          * @memberof protos
-         * @classdesc Represents a StopDynamicRequest.
-         * @implements IStopDynamicRequest
+         * @classdesc Represents a StopTunnelRequest.
+         * @implements IStopTunnelRequest
          * @constructor
-         * @param {protos.IStopDynamicRequest=} [properties] Properties to set
+         * @param {protos.IStopTunnelRequest=} [properties] Properties to set
          */
-        function StopDynamicRequest(properties) {
+        function StopTunnelRequest(properties) {
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
@@ -50582,80 +50582,80 @@ $root.protos = (function() {
         }
 
         /**
-         * StopDynamicRequest auth.
+         * StopTunnelRequest auth.
          * @member {protos.common.IAuth|null|undefined} auth
-         * @memberof protos.StopDynamicRequest
+         * @memberof protos.StopTunnelRequest
          * @instance
          */
-        StopDynamicRequest.prototype.auth = null;
+        StopTunnelRequest.prototype.auth = null;
 
         /**
-         * StopDynamicRequest dynamicId.
-         * @member {string} dynamicId
-         * @memberof protos.StopDynamicRequest
+         * StopTunnelRequest tunnelId.
+         * @member {string} tunnelId
+         * @memberof protos.StopTunnelRequest
          * @instance
          */
-        StopDynamicRequest.prototype.dynamicId = "";
+        StopTunnelRequest.prototype.tunnelId = "";
 
         /**
-         * Creates a new StopDynamicRequest instance using the specified properties.
+         * Creates a new StopTunnelRequest instance using the specified properties.
          * @function create
-         * @memberof protos.StopDynamicRequest
+         * @memberof protos.StopTunnelRequest
          * @static
-         * @param {protos.IStopDynamicRequest=} [properties] Properties to set
-         * @returns {protos.StopDynamicRequest} StopDynamicRequest instance
+         * @param {protos.IStopTunnelRequest=} [properties] Properties to set
+         * @returns {protos.StopTunnelRequest} StopTunnelRequest instance
          */
-        StopDynamicRequest.create = function create(properties) {
-            return new StopDynamicRequest(properties);
+        StopTunnelRequest.create = function create(properties) {
+            return new StopTunnelRequest(properties);
         };
 
         /**
-         * Encodes the specified StopDynamicRequest message. Does not implicitly {@link protos.StopDynamicRequest.verify|verify} messages.
+         * Encodes the specified StopTunnelRequest message. Does not implicitly {@link protos.StopTunnelRequest.verify|verify} messages.
          * @function encode
-         * @memberof protos.StopDynamicRequest
+         * @memberof protos.StopTunnelRequest
          * @static
-         * @param {protos.IStopDynamicRequest} message StopDynamicRequest message or plain object to encode
+         * @param {protos.IStopTunnelRequest} message StopTunnelRequest message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        StopDynamicRequest.encode = function encode(message, writer) {
+        StopTunnelRequest.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
-            if (message.dynamicId != null && Object.hasOwnProperty.call(message, "dynamicId"))
-                writer.uint32(/* id 1, wireType 2 =*/10).string(message.dynamicId);
+            if (message.tunnelId != null && Object.hasOwnProperty.call(message, "tunnelId"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.tunnelId);
             if (message.auth != null && Object.hasOwnProperty.call(message, "auth"))
                 $root.protos.common.Auth.encode(message.auth, writer.uint32(/* id 9999, wireType 2 =*/79994).fork()).ldelim();
             return writer;
         };
 
         /**
-         * Encodes the specified StopDynamicRequest message, length delimited. Does not implicitly {@link protos.StopDynamicRequest.verify|verify} messages.
+         * Encodes the specified StopTunnelRequest message, length delimited. Does not implicitly {@link protos.StopTunnelRequest.verify|verify} messages.
          * @function encodeDelimited
-         * @memberof protos.StopDynamicRequest
+         * @memberof protos.StopTunnelRequest
          * @static
-         * @param {protos.IStopDynamicRequest} message StopDynamicRequest message or plain object to encode
+         * @param {protos.IStopTunnelRequest} message StopTunnelRequest message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        StopDynamicRequest.encodeDelimited = function encodeDelimited(message, writer) {
+        StopTunnelRequest.encodeDelimited = function encodeDelimited(message, writer) {
             return this.encode(message, writer).ldelim();
         };
 
         /**
-         * Decodes a StopDynamicRequest message from the specified reader or buffer.
+         * Decodes a StopTunnelRequest message from the specified reader or buffer.
          * @function decode
-         * @memberof protos.StopDynamicRequest
+         * @memberof protos.StopTunnelRequest
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {protos.StopDynamicRequest} StopDynamicRequest
+         * @returns {protos.StopTunnelRequest} StopTunnelRequest
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        StopDynamicRequest.decode = function decode(reader, length) {
+        StopTunnelRequest.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.StopDynamicRequest();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.StopTunnelRequest();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -50663,7 +50663,7 @@ $root.protos = (function() {
                     message.auth = $root.protos.common.Auth.decode(reader, reader.uint32());
                     break;
                 case 1:
-                    message.dynamicId = reader.string();
+                    message.tunnelId = reader.string();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -50674,30 +50674,30 @@ $root.protos = (function() {
         };
 
         /**
-         * Decodes a StopDynamicRequest message from the specified reader or buffer, length delimited.
+         * Decodes a StopTunnelRequest message from the specified reader or buffer, length delimited.
          * @function decodeDelimited
-         * @memberof protos.StopDynamicRequest
+         * @memberof protos.StopTunnelRequest
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {protos.StopDynamicRequest} StopDynamicRequest
+         * @returns {protos.StopTunnelRequest} StopTunnelRequest
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        StopDynamicRequest.decodeDelimited = function decodeDelimited(reader) {
+        StopTunnelRequest.decodeDelimited = function decodeDelimited(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
         };
 
         /**
-         * Verifies a StopDynamicRequest message.
+         * Verifies a StopTunnelRequest message.
          * @function verify
-         * @memberof protos.StopDynamicRequest
+         * @memberof protos.StopTunnelRequest
          * @static
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        StopDynamicRequest.verify = function verify(message) {
+        StopTunnelRequest.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
             if (message.auth != null && message.hasOwnProperty("auth")) {
@@ -50705,90 +50705,90 @@ $root.protos = (function() {
                 if (error)
                     return "auth." + error;
             }
-            if (message.dynamicId != null && message.hasOwnProperty("dynamicId"))
-                if (!$util.isString(message.dynamicId))
-                    return "dynamicId: string expected";
+            if (message.tunnelId != null && message.hasOwnProperty("tunnelId"))
+                if (!$util.isString(message.tunnelId))
+                    return "tunnelId: string expected";
             return null;
         };
 
         /**
-         * Creates a StopDynamicRequest message from a plain object. Also converts values to their respective internal types.
+         * Creates a StopTunnelRequest message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof protos.StopDynamicRequest
+         * @memberof protos.StopTunnelRequest
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {protos.StopDynamicRequest} StopDynamicRequest
+         * @returns {protos.StopTunnelRequest} StopTunnelRequest
          */
-        StopDynamicRequest.fromObject = function fromObject(object) {
-            if (object instanceof $root.protos.StopDynamicRequest)
+        StopTunnelRequest.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.StopTunnelRequest)
                 return object;
-            var message = new $root.protos.StopDynamicRequest();
+            var message = new $root.protos.StopTunnelRequest();
             if (object.auth != null) {
                 if (typeof object.auth !== "object")
-                    throw TypeError(".protos.StopDynamicRequest.auth: object expected");
+                    throw TypeError(".protos.StopTunnelRequest.auth: object expected");
                 message.auth = $root.protos.common.Auth.fromObject(object.auth);
             }
-            if (object.dynamicId != null)
-                message.dynamicId = String(object.dynamicId);
+            if (object.tunnelId != null)
+                message.tunnelId = String(object.tunnelId);
             return message;
         };
 
         /**
-         * Creates a plain object from a StopDynamicRequest message. Also converts values to other types if specified.
+         * Creates a plain object from a StopTunnelRequest message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof protos.StopDynamicRequest
+         * @memberof protos.StopTunnelRequest
          * @static
-         * @param {protos.StopDynamicRequest} message StopDynamicRequest
+         * @param {protos.StopTunnelRequest} message StopTunnelRequest
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        StopDynamicRequest.toObject = function toObject(message, options) {
+        StopTunnelRequest.toObject = function toObject(message, options) {
             if (!options)
                 options = {};
             var object = {};
             if (options.defaults) {
-                object.dynamicId = "";
+                object.tunnelId = "";
                 object.auth = null;
             }
-            if (message.dynamicId != null && message.hasOwnProperty("dynamicId"))
-                object.dynamicId = message.dynamicId;
+            if (message.tunnelId != null && message.hasOwnProperty("tunnelId"))
+                object.tunnelId = message.tunnelId;
             if (message.auth != null && message.hasOwnProperty("auth"))
                 object.auth = $root.protos.common.Auth.toObject(message.auth, options);
             return object;
         };
 
         /**
-         * Converts this StopDynamicRequest to JSON.
+         * Converts this StopTunnelRequest to JSON.
          * @function toJSON
-         * @memberof protos.StopDynamicRequest
+         * @memberof protos.StopTunnelRequest
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        StopDynamicRequest.prototype.toJSON = function toJSON() {
+        StopTunnelRequest.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
         };
 
-        return StopDynamicRequest;
+        return StopTunnelRequest;
     })();
 
-    protos.StopDynamicResponse = (function() {
+    protos.StopTunnelResponse = (function() {
 
         /**
-         * Properties of a StopDynamicResponse.
+         * Properties of a StopTunnelResponse.
          * @memberof protos
-         * @interface IStopDynamicResponse
-         * @property {protos.common.IStatus|null} [status] StopDynamicResponse status
+         * @interface IStopTunnelResponse
+         * @property {protos.common.IStatus|null} [status] StopTunnelResponse status
          */
 
         /**
-         * Constructs a new StopDynamicResponse.
+         * Constructs a new StopTunnelResponse.
          * @memberof protos
-         * @classdesc Represents a StopDynamicResponse.
-         * @implements IStopDynamicResponse
+         * @classdesc Represents a StopTunnelResponse.
+         * @implements IStopTunnelResponse
          * @constructor
-         * @param {protos.IStopDynamicResponse=} [properties] Properties to set
+         * @param {protos.IStopTunnelResponse=} [properties] Properties to set
          */
-        function StopDynamicResponse(properties) {
+        function StopTunnelResponse(properties) {
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
@@ -50796,35 +50796,35 @@ $root.protos = (function() {
         }
 
         /**
-         * StopDynamicResponse status.
+         * StopTunnelResponse status.
          * @member {protos.common.IStatus|null|undefined} status
-         * @memberof protos.StopDynamicResponse
+         * @memberof protos.StopTunnelResponse
          * @instance
          */
-        StopDynamicResponse.prototype.status = null;
+        StopTunnelResponse.prototype.status = null;
 
         /**
-         * Creates a new StopDynamicResponse instance using the specified properties.
+         * Creates a new StopTunnelResponse instance using the specified properties.
          * @function create
-         * @memberof protos.StopDynamicResponse
+         * @memberof protos.StopTunnelResponse
          * @static
-         * @param {protos.IStopDynamicResponse=} [properties] Properties to set
-         * @returns {protos.StopDynamicResponse} StopDynamicResponse instance
+         * @param {protos.IStopTunnelResponse=} [properties] Properties to set
+         * @returns {protos.StopTunnelResponse} StopTunnelResponse instance
          */
-        StopDynamicResponse.create = function create(properties) {
-            return new StopDynamicResponse(properties);
+        StopTunnelResponse.create = function create(properties) {
+            return new StopTunnelResponse(properties);
         };
 
         /**
-         * Encodes the specified StopDynamicResponse message. Does not implicitly {@link protos.StopDynamicResponse.verify|verify} messages.
+         * Encodes the specified StopTunnelResponse message. Does not implicitly {@link protos.StopTunnelResponse.verify|verify} messages.
          * @function encode
-         * @memberof protos.StopDynamicResponse
+         * @memberof protos.StopTunnelResponse
          * @static
-         * @param {protos.IStopDynamicResponse} message StopDynamicResponse message or plain object to encode
+         * @param {protos.IStopTunnelResponse} message StopTunnelResponse message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        StopDynamicResponse.encode = function encode(message, writer) {
+        StopTunnelResponse.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
             if (message.status != null && Object.hasOwnProperty.call(message, "status"))
@@ -50833,33 +50833,33 @@ $root.protos = (function() {
         };
 
         /**
-         * Encodes the specified StopDynamicResponse message, length delimited. Does not implicitly {@link protos.StopDynamicResponse.verify|verify} messages.
+         * Encodes the specified StopTunnelResponse message, length delimited. Does not implicitly {@link protos.StopTunnelResponse.verify|verify} messages.
          * @function encodeDelimited
-         * @memberof protos.StopDynamicResponse
+         * @memberof protos.StopTunnelResponse
          * @static
-         * @param {protos.IStopDynamicResponse} message StopDynamicResponse message or plain object to encode
+         * @param {protos.IStopTunnelResponse} message StopTunnelResponse message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        StopDynamicResponse.encodeDelimited = function encodeDelimited(message, writer) {
+        StopTunnelResponse.encodeDelimited = function encodeDelimited(message, writer) {
             return this.encode(message, writer).ldelim();
         };
 
         /**
-         * Decodes a StopDynamicResponse message from the specified reader or buffer.
+         * Decodes a StopTunnelResponse message from the specified reader or buffer.
          * @function decode
-         * @memberof protos.StopDynamicResponse
+         * @memberof protos.StopTunnelResponse
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {protos.StopDynamicResponse} StopDynamicResponse
+         * @returns {protos.StopTunnelResponse} StopTunnelResponse
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        StopDynamicResponse.decode = function decode(reader, length) {
+        StopTunnelResponse.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.StopDynamicResponse();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.StopTunnelResponse();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -50875,30 +50875,30 @@ $root.protos = (function() {
         };
 
         /**
-         * Decodes a StopDynamicResponse message from the specified reader or buffer, length delimited.
+         * Decodes a StopTunnelResponse message from the specified reader or buffer, length delimited.
          * @function decodeDelimited
-         * @memberof protos.StopDynamicResponse
+         * @memberof protos.StopTunnelResponse
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {protos.StopDynamicResponse} StopDynamicResponse
+         * @returns {protos.StopTunnelResponse} StopTunnelResponse
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        StopDynamicResponse.decodeDelimited = function decodeDelimited(reader) {
+        StopTunnelResponse.decodeDelimited = function decodeDelimited(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
         };
 
         /**
-         * Verifies a StopDynamicResponse message.
+         * Verifies a StopTunnelResponse message.
          * @function verify
-         * @memberof protos.StopDynamicResponse
+         * @memberof protos.StopTunnelResponse
          * @static
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        StopDynamicResponse.verify = function verify(message) {
+        StopTunnelResponse.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
             if (message.status != null && message.hasOwnProperty("status")) {
@@ -50910,35 +50910,35 @@ $root.protos = (function() {
         };
 
         /**
-         * Creates a StopDynamicResponse message from a plain object. Also converts values to their respective internal types.
+         * Creates a StopTunnelResponse message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof protos.StopDynamicResponse
+         * @memberof protos.StopTunnelResponse
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {protos.StopDynamicResponse} StopDynamicResponse
+         * @returns {protos.StopTunnelResponse} StopTunnelResponse
          */
-        StopDynamicResponse.fromObject = function fromObject(object) {
-            if (object instanceof $root.protos.StopDynamicResponse)
+        StopTunnelResponse.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.StopTunnelResponse)
                 return object;
-            var message = new $root.protos.StopDynamicResponse();
+            var message = new $root.protos.StopTunnelResponse();
             if (object.status != null) {
                 if (typeof object.status !== "object")
-                    throw TypeError(".protos.StopDynamicResponse.status: object expected");
+                    throw TypeError(".protos.StopTunnelResponse.status: object expected");
                 message.status = $root.protos.common.Status.fromObject(object.status);
             }
             return message;
         };
 
         /**
-         * Creates a plain object from a StopDynamicResponse message. Also converts values to other types if specified.
+         * Creates a plain object from a StopTunnelResponse message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof protos.StopDynamicResponse
+         * @memberof protos.StopTunnelResponse
          * @static
-         * @param {protos.StopDynamicResponse} message StopDynamicResponse
+         * @param {protos.StopTunnelResponse} message StopTunnelResponse
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        StopDynamicResponse.toObject = function toObject(message, options) {
+        StopTunnelResponse.toObject = function toObject(message, options) {
             if (!options)
                 options = {};
             var object = {};
@@ -50950,38 +50950,38 @@ $root.protos = (function() {
         };
 
         /**
-         * Converts this StopDynamicResponse to JSON.
+         * Converts this StopTunnelResponse to JSON.
          * @function toJSON
-         * @memberof protos.StopDynamicResponse
+         * @memberof protos.StopTunnelResponse
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        StopDynamicResponse.prototype.toJSON = function toJSON() {
+        StopTunnelResponse.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
         };
 
-        return StopDynamicResponse;
+        return StopTunnelResponse;
     })();
 
-    protos.DeleteDynamicRequest = (function() {
+    protos.DeleteTunnelRequest = (function() {
 
         /**
-         * Properties of a DeleteDynamicRequest.
+         * Properties of a DeleteTunnelRequest.
          * @memberof protos
-         * @interface IDeleteDynamicRequest
-         * @property {protos.common.IAuth|null} [auth] DeleteDynamicRequest auth
-         * @property {string|null} [dynamicId] DeleteDynamicRequest dynamicId
+         * @interface IDeleteTunnelRequest
+         * @property {protos.common.IAuth|null} [auth] DeleteTunnelRequest auth
+         * @property {string|null} [tunnelId] DeleteTunnelRequest tunnelId
          */
 
         /**
-         * Constructs a new DeleteDynamicRequest.
+         * Constructs a new DeleteTunnelRequest.
          * @memberof protos
-         * @classdesc Represents a DeleteDynamicRequest.
-         * @implements IDeleteDynamicRequest
+         * @classdesc Represents a DeleteTunnelRequest.
+         * @implements IDeleteTunnelRequest
          * @constructor
-         * @param {protos.IDeleteDynamicRequest=} [properties] Properties to set
+         * @param {protos.IDeleteTunnelRequest=} [properties] Properties to set
          */
-        function DeleteDynamicRequest(properties) {
+        function DeleteTunnelRequest(properties) {
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
@@ -50989,80 +50989,80 @@ $root.protos = (function() {
         }
 
         /**
-         * DeleteDynamicRequest auth.
+         * DeleteTunnelRequest auth.
          * @member {protos.common.IAuth|null|undefined} auth
-         * @memberof protos.DeleteDynamicRequest
+         * @memberof protos.DeleteTunnelRequest
          * @instance
          */
-        DeleteDynamicRequest.prototype.auth = null;
+        DeleteTunnelRequest.prototype.auth = null;
 
         /**
-         * DeleteDynamicRequest dynamicId.
-         * @member {string} dynamicId
-         * @memberof protos.DeleteDynamicRequest
+         * DeleteTunnelRequest tunnelId.
+         * @member {string} tunnelId
+         * @memberof protos.DeleteTunnelRequest
          * @instance
          */
-        DeleteDynamicRequest.prototype.dynamicId = "";
+        DeleteTunnelRequest.prototype.tunnelId = "";
 
         /**
-         * Creates a new DeleteDynamicRequest instance using the specified properties.
+         * Creates a new DeleteTunnelRequest instance using the specified properties.
          * @function create
-         * @memberof protos.DeleteDynamicRequest
+         * @memberof protos.DeleteTunnelRequest
          * @static
-         * @param {protos.IDeleteDynamicRequest=} [properties] Properties to set
-         * @returns {protos.DeleteDynamicRequest} DeleteDynamicRequest instance
+         * @param {protos.IDeleteTunnelRequest=} [properties] Properties to set
+         * @returns {protos.DeleteTunnelRequest} DeleteTunnelRequest instance
          */
-        DeleteDynamicRequest.create = function create(properties) {
-            return new DeleteDynamicRequest(properties);
+        DeleteTunnelRequest.create = function create(properties) {
+            return new DeleteTunnelRequest(properties);
         };
 
         /**
-         * Encodes the specified DeleteDynamicRequest message. Does not implicitly {@link protos.DeleteDynamicRequest.verify|verify} messages.
+         * Encodes the specified DeleteTunnelRequest message. Does not implicitly {@link protos.DeleteTunnelRequest.verify|verify} messages.
          * @function encode
-         * @memberof protos.DeleteDynamicRequest
+         * @memberof protos.DeleteTunnelRequest
          * @static
-         * @param {protos.IDeleteDynamicRequest} message DeleteDynamicRequest message or plain object to encode
+         * @param {protos.IDeleteTunnelRequest} message DeleteTunnelRequest message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        DeleteDynamicRequest.encode = function encode(message, writer) {
+        DeleteTunnelRequest.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
-            if (message.dynamicId != null && Object.hasOwnProperty.call(message, "dynamicId"))
-                writer.uint32(/* id 1, wireType 2 =*/10).string(message.dynamicId);
+            if (message.tunnelId != null && Object.hasOwnProperty.call(message, "tunnelId"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.tunnelId);
             if (message.auth != null && Object.hasOwnProperty.call(message, "auth"))
                 $root.protos.common.Auth.encode(message.auth, writer.uint32(/* id 9999, wireType 2 =*/79994).fork()).ldelim();
             return writer;
         };
 
         /**
-         * Encodes the specified DeleteDynamicRequest message, length delimited. Does not implicitly {@link protos.DeleteDynamicRequest.verify|verify} messages.
+         * Encodes the specified DeleteTunnelRequest message, length delimited. Does not implicitly {@link protos.DeleteTunnelRequest.verify|verify} messages.
          * @function encodeDelimited
-         * @memberof protos.DeleteDynamicRequest
+         * @memberof protos.DeleteTunnelRequest
          * @static
-         * @param {protos.IDeleteDynamicRequest} message DeleteDynamicRequest message or plain object to encode
+         * @param {protos.IDeleteTunnelRequest} message DeleteTunnelRequest message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        DeleteDynamicRequest.encodeDelimited = function encodeDelimited(message, writer) {
+        DeleteTunnelRequest.encodeDelimited = function encodeDelimited(message, writer) {
             return this.encode(message, writer).ldelim();
         };
 
         /**
-         * Decodes a DeleteDynamicRequest message from the specified reader or buffer.
+         * Decodes a DeleteTunnelRequest message from the specified reader or buffer.
          * @function decode
-         * @memberof protos.DeleteDynamicRequest
+         * @memberof protos.DeleteTunnelRequest
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {protos.DeleteDynamicRequest} DeleteDynamicRequest
+         * @returns {protos.DeleteTunnelRequest} DeleteTunnelRequest
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        DeleteDynamicRequest.decode = function decode(reader, length) {
+        DeleteTunnelRequest.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.DeleteDynamicRequest();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.DeleteTunnelRequest();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -51070,7 +51070,7 @@ $root.protos = (function() {
                     message.auth = $root.protos.common.Auth.decode(reader, reader.uint32());
                     break;
                 case 1:
-                    message.dynamicId = reader.string();
+                    message.tunnelId = reader.string();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -51081,30 +51081,30 @@ $root.protos = (function() {
         };
 
         /**
-         * Decodes a DeleteDynamicRequest message from the specified reader or buffer, length delimited.
+         * Decodes a DeleteTunnelRequest message from the specified reader or buffer, length delimited.
          * @function decodeDelimited
-         * @memberof protos.DeleteDynamicRequest
+         * @memberof protos.DeleteTunnelRequest
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {protos.DeleteDynamicRequest} DeleteDynamicRequest
+         * @returns {protos.DeleteTunnelRequest} DeleteTunnelRequest
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        DeleteDynamicRequest.decodeDelimited = function decodeDelimited(reader) {
+        DeleteTunnelRequest.decodeDelimited = function decodeDelimited(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
         };
 
         /**
-         * Verifies a DeleteDynamicRequest message.
+         * Verifies a DeleteTunnelRequest message.
          * @function verify
-         * @memberof protos.DeleteDynamicRequest
+         * @memberof protos.DeleteTunnelRequest
          * @static
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        DeleteDynamicRequest.verify = function verify(message) {
+        DeleteTunnelRequest.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
             if (message.auth != null && message.hasOwnProperty("auth")) {
@@ -51112,90 +51112,90 @@ $root.protos = (function() {
                 if (error)
                     return "auth." + error;
             }
-            if (message.dynamicId != null && message.hasOwnProperty("dynamicId"))
-                if (!$util.isString(message.dynamicId))
-                    return "dynamicId: string expected";
+            if (message.tunnelId != null && message.hasOwnProperty("tunnelId"))
+                if (!$util.isString(message.tunnelId))
+                    return "tunnelId: string expected";
             return null;
         };
 
         /**
-         * Creates a DeleteDynamicRequest message from a plain object. Also converts values to their respective internal types.
+         * Creates a DeleteTunnelRequest message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof protos.DeleteDynamicRequest
+         * @memberof protos.DeleteTunnelRequest
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {protos.DeleteDynamicRequest} DeleteDynamicRequest
+         * @returns {protos.DeleteTunnelRequest} DeleteTunnelRequest
          */
-        DeleteDynamicRequest.fromObject = function fromObject(object) {
-            if (object instanceof $root.protos.DeleteDynamicRequest)
+        DeleteTunnelRequest.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.DeleteTunnelRequest)
                 return object;
-            var message = new $root.protos.DeleteDynamicRequest();
+            var message = new $root.protos.DeleteTunnelRequest();
             if (object.auth != null) {
                 if (typeof object.auth !== "object")
-                    throw TypeError(".protos.DeleteDynamicRequest.auth: object expected");
+                    throw TypeError(".protos.DeleteTunnelRequest.auth: object expected");
                 message.auth = $root.protos.common.Auth.fromObject(object.auth);
             }
-            if (object.dynamicId != null)
-                message.dynamicId = String(object.dynamicId);
+            if (object.tunnelId != null)
+                message.tunnelId = String(object.tunnelId);
             return message;
         };
 
         /**
-         * Creates a plain object from a DeleteDynamicRequest message. Also converts values to other types if specified.
+         * Creates a plain object from a DeleteTunnelRequest message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof protos.DeleteDynamicRequest
+         * @memberof protos.DeleteTunnelRequest
          * @static
-         * @param {protos.DeleteDynamicRequest} message DeleteDynamicRequest
+         * @param {protos.DeleteTunnelRequest} message DeleteTunnelRequest
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        DeleteDynamicRequest.toObject = function toObject(message, options) {
+        DeleteTunnelRequest.toObject = function toObject(message, options) {
             if (!options)
                 options = {};
             var object = {};
             if (options.defaults) {
-                object.dynamicId = "";
+                object.tunnelId = "";
                 object.auth = null;
             }
-            if (message.dynamicId != null && message.hasOwnProperty("dynamicId"))
-                object.dynamicId = message.dynamicId;
+            if (message.tunnelId != null && message.hasOwnProperty("tunnelId"))
+                object.tunnelId = message.tunnelId;
             if (message.auth != null && message.hasOwnProperty("auth"))
                 object.auth = $root.protos.common.Auth.toObject(message.auth, options);
             return object;
         };
 
         /**
-         * Converts this DeleteDynamicRequest to JSON.
+         * Converts this DeleteTunnelRequest to JSON.
          * @function toJSON
-         * @memberof protos.DeleteDynamicRequest
+         * @memberof protos.DeleteTunnelRequest
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        DeleteDynamicRequest.prototype.toJSON = function toJSON() {
+        DeleteTunnelRequest.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
         };
 
-        return DeleteDynamicRequest;
+        return DeleteTunnelRequest;
     })();
 
-    protos.DeleteDynamicResponse = (function() {
+    protos.DeleteTunnelResponse = (function() {
 
         /**
-         * Properties of a DeleteDynamicResponse.
+         * Properties of a DeleteTunnelResponse.
          * @memberof protos
-         * @interface IDeleteDynamicResponse
-         * @property {protos.common.IStatus|null} [status] DeleteDynamicResponse status
+         * @interface IDeleteTunnelResponse
+         * @property {protos.common.IStatus|null} [status] DeleteTunnelResponse status
          */
 
         /**
-         * Constructs a new DeleteDynamicResponse.
+         * Constructs a new DeleteTunnelResponse.
          * @memberof protos
-         * @classdesc Represents a DeleteDynamicResponse.
-         * @implements IDeleteDynamicResponse
+         * @classdesc Represents a DeleteTunnelResponse.
+         * @implements IDeleteTunnelResponse
          * @constructor
-         * @param {protos.IDeleteDynamicResponse=} [properties] Properties to set
+         * @param {protos.IDeleteTunnelResponse=} [properties] Properties to set
          */
-        function DeleteDynamicResponse(properties) {
+        function DeleteTunnelResponse(properties) {
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
@@ -51203,35 +51203,35 @@ $root.protos = (function() {
         }
 
         /**
-         * DeleteDynamicResponse status.
+         * DeleteTunnelResponse status.
          * @member {protos.common.IStatus|null|undefined} status
-         * @memberof protos.DeleteDynamicResponse
+         * @memberof protos.DeleteTunnelResponse
          * @instance
          */
-        DeleteDynamicResponse.prototype.status = null;
+        DeleteTunnelResponse.prototype.status = null;
 
         /**
-         * Creates a new DeleteDynamicResponse instance using the specified properties.
+         * Creates a new DeleteTunnelResponse instance using the specified properties.
          * @function create
-         * @memberof protos.DeleteDynamicResponse
+         * @memberof protos.DeleteTunnelResponse
          * @static
-         * @param {protos.IDeleteDynamicResponse=} [properties] Properties to set
-         * @returns {protos.DeleteDynamicResponse} DeleteDynamicResponse instance
+         * @param {protos.IDeleteTunnelResponse=} [properties] Properties to set
+         * @returns {protos.DeleteTunnelResponse} DeleteTunnelResponse instance
          */
-        DeleteDynamicResponse.create = function create(properties) {
-            return new DeleteDynamicResponse(properties);
+        DeleteTunnelResponse.create = function create(properties) {
+            return new DeleteTunnelResponse(properties);
         };
 
         /**
-         * Encodes the specified DeleteDynamicResponse message. Does not implicitly {@link protos.DeleteDynamicResponse.verify|verify} messages.
+         * Encodes the specified DeleteTunnelResponse message. Does not implicitly {@link protos.DeleteTunnelResponse.verify|verify} messages.
          * @function encode
-         * @memberof protos.DeleteDynamicResponse
+         * @memberof protos.DeleteTunnelResponse
          * @static
-         * @param {protos.IDeleteDynamicResponse} message DeleteDynamicResponse message or plain object to encode
+         * @param {protos.IDeleteTunnelResponse} message DeleteTunnelResponse message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        DeleteDynamicResponse.encode = function encode(message, writer) {
+        DeleteTunnelResponse.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
             if (message.status != null && Object.hasOwnProperty.call(message, "status"))
@@ -51240,33 +51240,33 @@ $root.protos = (function() {
         };
 
         /**
-         * Encodes the specified DeleteDynamicResponse message, length delimited. Does not implicitly {@link protos.DeleteDynamicResponse.verify|verify} messages.
+         * Encodes the specified DeleteTunnelResponse message, length delimited. Does not implicitly {@link protos.DeleteTunnelResponse.verify|verify} messages.
          * @function encodeDelimited
-         * @memberof protos.DeleteDynamicResponse
+         * @memberof protos.DeleteTunnelResponse
          * @static
-         * @param {protos.IDeleteDynamicResponse} message DeleteDynamicResponse message or plain object to encode
+         * @param {protos.IDeleteTunnelResponse} message DeleteTunnelResponse message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        DeleteDynamicResponse.encodeDelimited = function encodeDelimited(message, writer) {
+        DeleteTunnelResponse.encodeDelimited = function encodeDelimited(message, writer) {
             return this.encode(message, writer).ldelim();
         };
 
         /**
-         * Decodes a DeleteDynamicResponse message from the specified reader or buffer.
+         * Decodes a DeleteTunnelResponse message from the specified reader or buffer.
          * @function decode
-         * @memberof protos.DeleteDynamicResponse
+         * @memberof protos.DeleteTunnelResponse
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {protos.DeleteDynamicResponse} DeleteDynamicResponse
+         * @returns {protos.DeleteTunnelResponse} DeleteTunnelResponse
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        DeleteDynamicResponse.decode = function decode(reader, length) {
+        DeleteTunnelResponse.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.DeleteDynamicResponse();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.DeleteTunnelResponse();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -51282,30 +51282,30 @@ $root.protos = (function() {
         };
 
         /**
-         * Decodes a DeleteDynamicResponse message from the specified reader or buffer, length delimited.
+         * Decodes a DeleteTunnelResponse message from the specified reader or buffer, length delimited.
          * @function decodeDelimited
-         * @memberof protos.DeleteDynamicResponse
+         * @memberof protos.DeleteTunnelResponse
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {protos.DeleteDynamicResponse} DeleteDynamicResponse
+         * @returns {protos.DeleteTunnelResponse} DeleteTunnelResponse
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        DeleteDynamicResponse.decodeDelimited = function decodeDelimited(reader) {
+        DeleteTunnelResponse.decodeDelimited = function decodeDelimited(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
         };
 
         /**
-         * Verifies a DeleteDynamicResponse message.
+         * Verifies a DeleteTunnelResponse message.
          * @function verify
-         * @memberof protos.DeleteDynamicResponse
+         * @memberof protos.DeleteTunnelResponse
          * @static
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        DeleteDynamicResponse.verify = function verify(message) {
+        DeleteTunnelResponse.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
             if (message.status != null && message.hasOwnProperty("status")) {
@@ -51317,35 +51317,35 @@ $root.protos = (function() {
         };
 
         /**
-         * Creates a DeleteDynamicResponse message from a plain object. Also converts values to their respective internal types.
+         * Creates a DeleteTunnelResponse message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof protos.DeleteDynamicResponse
+         * @memberof protos.DeleteTunnelResponse
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {protos.DeleteDynamicResponse} DeleteDynamicResponse
+         * @returns {protos.DeleteTunnelResponse} DeleteTunnelResponse
          */
-        DeleteDynamicResponse.fromObject = function fromObject(object) {
-            if (object instanceof $root.protos.DeleteDynamicResponse)
+        DeleteTunnelResponse.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.DeleteTunnelResponse)
                 return object;
-            var message = new $root.protos.DeleteDynamicResponse();
+            var message = new $root.protos.DeleteTunnelResponse();
             if (object.status != null) {
                 if (typeof object.status !== "object")
-                    throw TypeError(".protos.DeleteDynamicResponse.status: object expected");
+                    throw TypeError(".protos.DeleteTunnelResponse.status: object expected");
                 message.status = $root.protos.common.Status.fromObject(object.status);
             }
             return message;
         };
 
         /**
-         * Creates a plain object from a DeleteDynamicResponse message. Also converts values to other types if specified.
+         * Creates a plain object from a DeleteTunnelResponse message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof protos.DeleteDynamicResponse
+         * @memberof protos.DeleteTunnelResponse
          * @static
-         * @param {protos.DeleteDynamicResponse} message DeleteDynamicResponse
+         * @param {protos.DeleteTunnelResponse} message DeleteTunnelResponse
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        DeleteDynamicResponse.toObject = function toObject(message, options) {
+        DeleteTunnelResponse.toObject = function toObject(message, options) {
             if (!options)
                 options = {};
             var object = {};
@@ -51357,17 +51357,17 @@ $root.protos = (function() {
         };
 
         /**
-         * Converts this DeleteDynamicResponse to JSON.
+         * Converts this DeleteTunnelResponse to JSON.
          * @function toJSON
-         * @memberof protos.DeleteDynamicResponse
+         * @memberof protos.DeleteTunnelResponse
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        DeleteDynamicResponse.prototype.toJSON = function toJSON() {
+        DeleteTunnelResponse.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
         };
 
-        return DeleteDynamicResponse;
+        return DeleteTunnelResponse;
     })();
 
     protos.GetAllRelaysRequest = (function() {
