@@ -5282,6 +5282,4934 @@ $root.protos = (function() {
             return ConnectionOptions;
         })();
 
+        opts.RelayCLIOptions = (function() {
+
+            /**
+             * Properties of a RelayCLIOptions.
+             * @memberof protos.opts
+             * @interface IRelayCLIOptions
+             * @property {string|null} [httpListenAddress] RelayCLIOptions httpListenAddress
+             */
+
+            /**
+             * Constructs a new RelayCLIOptions.
+             * @memberof protos.opts
+             * @classdesc Represents a RelayCLIOptions.
+             * @implements IRelayCLIOptions
+             * @constructor
+             * @param {protos.opts.IRelayCLIOptions=} [properties] Properties to set
+             */
+            function RelayCLIOptions(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * RelayCLIOptions httpListenAddress.
+             * @member {string} httpListenAddress
+             * @memberof protos.opts.RelayCLIOptions
+             * @instance
+             */
+            RelayCLIOptions.prototype.httpListenAddress = "";
+
+            /**
+             * Creates a new RelayCLIOptions instance using the specified properties.
+             * @function create
+             * @memberof protos.opts.RelayCLIOptions
+             * @static
+             * @param {protos.opts.IRelayCLIOptions=} [properties] Properties to set
+             * @returns {protos.opts.RelayCLIOptions} RelayCLIOptions instance
+             */
+            RelayCLIOptions.create = function create(properties) {
+                return new RelayCLIOptions(properties);
+            };
+
+            /**
+             * Encodes the specified RelayCLIOptions message. Does not implicitly {@link protos.opts.RelayCLIOptions.verify|verify} messages.
+             * @function encode
+             * @memberof protos.opts.RelayCLIOptions
+             * @static
+             * @param {protos.opts.IRelayCLIOptions} message RelayCLIOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            RelayCLIOptions.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.httpListenAddress != null && Object.hasOwnProperty.call(message, "httpListenAddress"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.httpListenAddress);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified RelayCLIOptions message, length delimited. Does not implicitly {@link protos.opts.RelayCLIOptions.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.opts.RelayCLIOptions
+             * @static
+             * @param {protos.opts.IRelayCLIOptions} message RelayCLIOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            RelayCLIOptions.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a RelayCLIOptions message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.opts.RelayCLIOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.opts.RelayCLIOptions} RelayCLIOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            RelayCLIOptions.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.RelayCLIOptions();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.httpListenAddress = reader.string();
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a RelayCLIOptions message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.opts.RelayCLIOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.opts.RelayCLIOptions} RelayCLIOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            RelayCLIOptions.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a RelayCLIOptions message.
+             * @function verify
+             * @memberof protos.opts.RelayCLIOptions
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            RelayCLIOptions.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.httpListenAddress != null && message.hasOwnProperty("httpListenAddress"))
+                    if (!$util.isString(message.httpListenAddress))
+                        return "httpListenAddress: string expected";
+                return null;
+            };
+
+            /**
+             * Creates a RelayCLIOptions message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.opts.RelayCLIOptions
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.opts.RelayCLIOptions} RelayCLIOptions
+             */
+            RelayCLIOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.RelayCLIOptions)
+                    return object;
+                var message = new $root.protos.opts.RelayCLIOptions();
+                if (object.httpListenAddress != null)
+                    message.httpListenAddress = String(object.httpListenAddress);
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a RelayCLIOptions message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.opts.RelayCLIOptions
+             * @static
+             * @param {protos.opts.RelayCLIOptions} message RelayCLIOptions
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            RelayCLIOptions.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults)
+                    object.httpListenAddress = "";
+                if (message.httpListenAddress != null && message.hasOwnProperty("httpListenAddress"))
+                    object.httpListenAddress = message.httpListenAddress;
+                return object;
+            };
+
+            /**
+             * Converts this RelayCLIOptions to JSON.
+             * @function toJSON
+             * @memberof protos.opts.RelayCLIOptions
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            RelayCLIOptions.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return RelayCLIOptions;
+        })();
+
+        opts.RelayOptions = (function() {
+
+            /**
+             * Properties of a RelayOptions.
+             * @memberof protos.opts
+             * @interface IRelayOptions
+             * @property {string|null} [collectionToken] RelayOptions collectionToken
+             * @property {number|null} [batchSize] RelayOptions batchSize
+             * @property {number|null} [batchMaxRetry] RelayOptions batchMaxRetry
+             * @property {string|null} [connectionId] RelayOptions connectionId
+             * @property {number|null} [numWorkers] RelayOptions numWorkers
+             * @property {boolean|null} [statsEnable] RelayOptions statsEnable
+             * @property {number|null} [statsReportIntervalSec] RelayOptions statsReportIntervalSec
+             * @property {string|null} [_batchshGrpcAddress] RelayOptions _batchshGrpcAddress
+             * @property {boolean|null} [_batchshGrpcDisableTls] RelayOptions _batchshGrpcDisableTls
+             * @property {number|null} [_batchshGrpcTimeoutSeconds] RelayOptions _batchshGrpcTimeoutSeconds
+             * @property {string|null} [_relayId] RelayOptions _relayId
+             * @property {protos.opts.IRelayCLIOptions|null} [_cliOptions] RelayOptions _cliOptions
+             * @property {boolean|null} [_active] RelayOptions _active
+             * @property {protos.opts.IRelayGroupKafkaOptions|null} [kafka] RelayOptions kafka
+             * @property {protos.opts.IRelayGroupAWSSQSOptions|null} [awsSqs] RelayOptions awsSqs
+             * @property {protos.opts.IRelayGroupMongoOptions|null} [mongo] RelayOptions mongo
+             * @property {protos.opts.IRelayGroupNSQOptions|null} [nsq] RelayOptions nsq
+             * @property {protos.opts.IRelayGroupRabbitOptions|null} [rabbit] RelayOptions rabbit
+             * @property {protos.opts.IRelayGroupMQTTOptions|null} [mqtt] RelayOptions mqtt
+             * @property {protos.opts.IRelayGroupAzureServiceBusOptions|null} [azureServiceBus] RelayOptions azureServiceBus
+             * @property {protos.opts.IRelayGroupGCPPubSubOptions|null} [gcpPubsub] RelayOptions gcpPubsub
+             * @property {protos.opts.IRelayGroupKubeMQQueueOptions|null} [kubemqQueue] RelayOptions kubemqQueue
+             * @property {protos.opts.IRelayGroupRedisPubSubOptions|null} [redisPubsub] RelayOptions redisPubsub
+             * @property {protos.opts.IRelayGroupRedisStreamsOptions|null} [redisStreams] RelayOptions redisStreams
+             * @property {protos.opts.IRelayGroupPostgresOptions|null} [postgres] RelayOptions postgres
+             * @property {protos.opts.IRelayGroupNatsOptions|null} [nats] RelayOptions nats
+             * @property {protos.opts.IRelayGroupNatsStreamingOptions|null} [natsStreaming] RelayOptions natsStreaming
+             * @property {protos.opts.IRelayGroupNatsJetStreamOptions|null} [natsJetstream] RelayOptions natsJetstream
+             */
+
+            /**
+             * Constructs a new RelayOptions.
+             * @memberof protos.opts
+             * @classdesc Represents a RelayOptions.
+             * @implements IRelayOptions
+             * @constructor
+             * @param {protos.opts.IRelayOptions=} [properties] Properties to set
+             */
+            function RelayOptions(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * RelayOptions collectionToken.
+             * @member {string} collectionToken
+             * @memberof protos.opts.RelayOptions
+             * @instance
+             */
+            RelayOptions.prototype.collectionToken = "";
+
+            /**
+             * RelayOptions batchSize.
+             * @member {number} batchSize
+             * @memberof protos.opts.RelayOptions
+             * @instance
+             */
+            RelayOptions.prototype.batchSize = 0;
+
+            /**
+             * RelayOptions batchMaxRetry.
+             * @member {number} batchMaxRetry
+             * @memberof protos.opts.RelayOptions
+             * @instance
+             */
+            RelayOptions.prototype.batchMaxRetry = 0;
+
+            /**
+             * RelayOptions connectionId.
+             * @member {string} connectionId
+             * @memberof protos.opts.RelayOptions
+             * @instance
+             */
+            RelayOptions.prototype.connectionId = "";
+
+            /**
+             * RelayOptions numWorkers.
+             * @member {number} numWorkers
+             * @memberof protos.opts.RelayOptions
+             * @instance
+             */
+            RelayOptions.prototype.numWorkers = 0;
+
+            /**
+             * RelayOptions statsEnable.
+             * @member {boolean} statsEnable
+             * @memberof protos.opts.RelayOptions
+             * @instance
+             */
+            RelayOptions.prototype.statsEnable = false;
+
+            /**
+             * RelayOptions statsReportIntervalSec.
+             * @member {number} statsReportIntervalSec
+             * @memberof protos.opts.RelayOptions
+             * @instance
+             */
+            RelayOptions.prototype.statsReportIntervalSec = 0;
+
+            /**
+             * RelayOptions _batchshGrpcAddress.
+             * @member {string} _batchshGrpcAddress
+             * @memberof protos.opts.RelayOptions
+             * @instance
+             */
+            RelayOptions.prototype._batchshGrpcAddress = "";
+
+            /**
+             * RelayOptions _batchshGrpcDisableTls.
+             * @member {boolean} _batchshGrpcDisableTls
+             * @memberof protos.opts.RelayOptions
+             * @instance
+             */
+            RelayOptions.prototype._batchshGrpcDisableTls = false;
+
+            /**
+             * RelayOptions _batchshGrpcTimeoutSeconds.
+             * @member {number} _batchshGrpcTimeoutSeconds
+             * @memberof protos.opts.RelayOptions
+             * @instance
+             */
+            RelayOptions.prototype._batchshGrpcTimeoutSeconds = 0;
+
+            /**
+             * RelayOptions _relayId.
+             * @member {string} _relayId
+             * @memberof protos.opts.RelayOptions
+             * @instance
+             */
+            RelayOptions.prototype._relayId = "";
+
+            /**
+             * RelayOptions _cliOptions.
+             * @member {protos.opts.IRelayCLIOptions|null|undefined} _cliOptions
+             * @memberof protos.opts.RelayOptions
+             * @instance
+             */
+            RelayOptions.prototype._cliOptions = null;
+
+            /**
+             * RelayOptions _active.
+             * @member {boolean} _active
+             * @memberof protos.opts.RelayOptions
+             * @instance
+             */
+            RelayOptions.prototype._active = false;
+
+            /**
+             * RelayOptions kafka.
+             * @member {protos.opts.IRelayGroupKafkaOptions|null|undefined} kafka
+             * @memberof protos.opts.RelayOptions
+             * @instance
+             */
+            RelayOptions.prototype.kafka = null;
+
+            /**
+             * RelayOptions awsSqs.
+             * @member {protos.opts.IRelayGroupAWSSQSOptions|null|undefined} awsSqs
+             * @memberof protos.opts.RelayOptions
+             * @instance
+             */
+            RelayOptions.prototype.awsSqs = null;
+
+            /**
+             * RelayOptions mongo.
+             * @member {protos.opts.IRelayGroupMongoOptions|null|undefined} mongo
+             * @memberof protos.opts.RelayOptions
+             * @instance
+             */
+            RelayOptions.prototype.mongo = null;
+
+            /**
+             * RelayOptions nsq.
+             * @member {protos.opts.IRelayGroupNSQOptions|null|undefined} nsq
+             * @memberof protos.opts.RelayOptions
+             * @instance
+             */
+            RelayOptions.prototype.nsq = null;
+
+            /**
+             * RelayOptions rabbit.
+             * @member {protos.opts.IRelayGroupRabbitOptions|null|undefined} rabbit
+             * @memberof protos.opts.RelayOptions
+             * @instance
+             */
+            RelayOptions.prototype.rabbit = null;
+
+            /**
+             * RelayOptions mqtt.
+             * @member {protos.opts.IRelayGroupMQTTOptions|null|undefined} mqtt
+             * @memberof protos.opts.RelayOptions
+             * @instance
+             */
+            RelayOptions.prototype.mqtt = null;
+
+            /**
+             * RelayOptions azureServiceBus.
+             * @member {protos.opts.IRelayGroupAzureServiceBusOptions|null|undefined} azureServiceBus
+             * @memberof protos.opts.RelayOptions
+             * @instance
+             */
+            RelayOptions.prototype.azureServiceBus = null;
+
+            /**
+             * RelayOptions gcpPubsub.
+             * @member {protos.opts.IRelayGroupGCPPubSubOptions|null|undefined} gcpPubsub
+             * @memberof protos.opts.RelayOptions
+             * @instance
+             */
+            RelayOptions.prototype.gcpPubsub = null;
+
+            /**
+             * RelayOptions kubemqQueue.
+             * @member {protos.opts.IRelayGroupKubeMQQueueOptions|null|undefined} kubemqQueue
+             * @memberof protos.opts.RelayOptions
+             * @instance
+             */
+            RelayOptions.prototype.kubemqQueue = null;
+
+            /**
+             * RelayOptions redisPubsub.
+             * @member {protos.opts.IRelayGroupRedisPubSubOptions|null|undefined} redisPubsub
+             * @memberof protos.opts.RelayOptions
+             * @instance
+             */
+            RelayOptions.prototype.redisPubsub = null;
+
+            /**
+             * RelayOptions redisStreams.
+             * @member {protos.opts.IRelayGroupRedisStreamsOptions|null|undefined} redisStreams
+             * @memberof protos.opts.RelayOptions
+             * @instance
+             */
+            RelayOptions.prototype.redisStreams = null;
+
+            /**
+             * RelayOptions postgres.
+             * @member {protos.opts.IRelayGroupPostgresOptions|null|undefined} postgres
+             * @memberof protos.opts.RelayOptions
+             * @instance
+             */
+            RelayOptions.prototype.postgres = null;
+
+            /**
+             * RelayOptions nats.
+             * @member {protos.opts.IRelayGroupNatsOptions|null|undefined} nats
+             * @memberof protos.opts.RelayOptions
+             * @instance
+             */
+            RelayOptions.prototype.nats = null;
+
+            /**
+             * RelayOptions natsStreaming.
+             * @member {protos.opts.IRelayGroupNatsStreamingOptions|null|undefined} natsStreaming
+             * @memberof protos.opts.RelayOptions
+             * @instance
+             */
+            RelayOptions.prototype.natsStreaming = null;
+
+            /**
+             * RelayOptions natsJetstream.
+             * @member {protos.opts.IRelayGroupNatsJetStreamOptions|null|undefined} natsJetstream
+             * @memberof protos.opts.RelayOptions
+             * @instance
+             */
+            RelayOptions.prototype.natsJetstream = null;
+
+            /**
+             * Creates a new RelayOptions instance using the specified properties.
+             * @function create
+             * @memberof protos.opts.RelayOptions
+             * @static
+             * @param {protos.opts.IRelayOptions=} [properties] Properties to set
+             * @returns {protos.opts.RelayOptions} RelayOptions instance
+             */
+            RelayOptions.create = function create(properties) {
+                return new RelayOptions(properties);
+            };
+
+            /**
+             * Encodes the specified RelayOptions message. Does not implicitly {@link protos.opts.RelayOptions.verify|verify} messages.
+             * @function encode
+             * @memberof protos.opts.RelayOptions
+             * @static
+             * @param {protos.opts.IRelayOptions} message RelayOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            RelayOptions.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.collectionToken != null && Object.hasOwnProperty.call(message, "collectionToken"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.collectionToken);
+                if (message.batchSize != null && Object.hasOwnProperty.call(message, "batchSize"))
+                    writer.uint32(/* id 2, wireType 0 =*/16).int32(message.batchSize);
+                if (message.batchMaxRetry != null && Object.hasOwnProperty.call(message, "batchMaxRetry"))
+                    writer.uint32(/* id 3, wireType 0 =*/24).int32(message.batchMaxRetry);
+                if (message.connectionId != null && Object.hasOwnProperty.call(message, "connectionId"))
+                    writer.uint32(/* id 4, wireType 2 =*/34).string(message.connectionId);
+                if (message.numWorkers != null && Object.hasOwnProperty.call(message, "numWorkers"))
+                    writer.uint32(/* id 5, wireType 0 =*/40).int32(message.numWorkers);
+                if (message.statsEnable != null && Object.hasOwnProperty.call(message, "statsEnable"))
+                    writer.uint32(/* id 6, wireType 0 =*/48).bool(message.statsEnable);
+                if (message.statsReportIntervalSec != null && Object.hasOwnProperty.call(message, "statsReportIntervalSec"))
+                    writer.uint32(/* id 7, wireType 0 =*/56).int32(message.statsReportIntervalSec);
+                if (message.kafka != null && Object.hasOwnProperty.call(message, "kafka"))
+                    $root.protos.opts.RelayGroupKafkaOptions.encode(message.kafka, writer.uint32(/* id 100, wireType 2 =*/802).fork()).ldelim();
+                if (message.awsSqs != null && Object.hasOwnProperty.call(message, "awsSqs"))
+                    $root.protos.opts.RelayGroupAWSSQSOptions.encode(message.awsSqs, writer.uint32(/* id 101, wireType 2 =*/810).fork()).ldelim();
+                if (message.mongo != null && Object.hasOwnProperty.call(message, "mongo"))
+                    $root.protos.opts.RelayGroupMongoOptions.encode(message.mongo, writer.uint32(/* id 102, wireType 2 =*/818).fork()).ldelim();
+                if (message.nsq != null && Object.hasOwnProperty.call(message, "nsq"))
+                    $root.protos.opts.RelayGroupNSQOptions.encode(message.nsq, writer.uint32(/* id 103, wireType 2 =*/826).fork()).ldelim();
+                if (message.rabbit != null && Object.hasOwnProperty.call(message, "rabbit"))
+                    $root.protos.opts.RelayGroupRabbitOptions.encode(message.rabbit, writer.uint32(/* id 104, wireType 2 =*/834).fork()).ldelim();
+                if (message.mqtt != null && Object.hasOwnProperty.call(message, "mqtt"))
+                    $root.protos.opts.RelayGroupMQTTOptions.encode(message.mqtt, writer.uint32(/* id 105, wireType 2 =*/842).fork()).ldelim();
+                if (message.azureServiceBus != null && Object.hasOwnProperty.call(message, "azureServiceBus"))
+                    $root.protos.opts.RelayGroupAzureServiceBusOptions.encode(message.azureServiceBus, writer.uint32(/* id 106, wireType 2 =*/850).fork()).ldelim();
+                if (message.gcpPubsub != null && Object.hasOwnProperty.call(message, "gcpPubsub"))
+                    $root.protos.opts.RelayGroupGCPPubSubOptions.encode(message.gcpPubsub, writer.uint32(/* id 107, wireType 2 =*/858).fork()).ldelim();
+                if (message.kubemqQueue != null && Object.hasOwnProperty.call(message, "kubemqQueue"))
+                    $root.protos.opts.RelayGroupKubeMQQueueOptions.encode(message.kubemqQueue, writer.uint32(/* id 108, wireType 2 =*/866).fork()).ldelim();
+                if (message.redisPubsub != null && Object.hasOwnProperty.call(message, "redisPubsub"))
+                    $root.protos.opts.RelayGroupRedisPubSubOptions.encode(message.redisPubsub, writer.uint32(/* id 109, wireType 2 =*/874).fork()).ldelim();
+                if (message.redisStreams != null && Object.hasOwnProperty.call(message, "redisStreams"))
+                    $root.protos.opts.RelayGroupRedisStreamsOptions.encode(message.redisStreams, writer.uint32(/* id 111, wireType 2 =*/890).fork()).ldelim();
+                if (message.postgres != null && Object.hasOwnProperty.call(message, "postgres"))
+                    $root.protos.opts.RelayGroupPostgresOptions.encode(message.postgres, writer.uint32(/* id 112, wireType 2 =*/898).fork()).ldelim();
+                if (message.nats != null && Object.hasOwnProperty.call(message, "nats"))
+                    $root.protos.opts.RelayGroupNatsOptions.encode(message.nats, writer.uint32(/* id 113, wireType 2 =*/906).fork()).ldelim();
+                if (message.natsStreaming != null && Object.hasOwnProperty.call(message, "natsStreaming"))
+                    $root.protos.opts.RelayGroupNatsStreamingOptions.encode(message.natsStreaming, writer.uint32(/* id 114, wireType 2 =*/914).fork()).ldelim();
+                if (message.natsJetstream != null && Object.hasOwnProperty.call(message, "natsJetstream"))
+                    $root.protos.opts.RelayGroupNatsJetStreamOptions.encode(message.natsJetstream, writer.uint32(/* id 115, wireType 2 =*/922).fork()).ldelim();
+                if (message._batchshGrpcAddress != null && Object.hasOwnProperty.call(message, "_batchshGrpcAddress"))
+                    writer.uint32(/* id 1000, wireType 2 =*/8002).string(message._batchshGrpcAddress);
+                if (message._batchshGrpcDisableTls != null && Object.hasOwnProperty.call(message, "_batchshGrpcDisableTls"))
+                    writer.uint32(/* id 1001, wireType 0 =*/8008).bool(message._batchshGrpcDisableTls);
+                if (message._batchshGrpcTimeoutSeconds != null && Object.hasOwnProperty.call(message, "_batchshGrpcTimeoutSeconds"))
+                    writer.uint32(/* id 1002, wireType 0 =*/8016).int32(message._batchshGrpcTimeoutSeconds);
+                if (message._relayId != null && Object.hasOwnProperty.call(message, "_relayId"))
+                    writer.uint32(/* id 1003, wireType 2 =*/8026).string(message._relayId);
+                if (message._cliOptions != null && Object.hasOwnProperty.call(message, "_cliOptions"))
+                    $root.protos.opts.RelayCLIOptions.encode(message._cliOptions, writer.uint32(/* id 1004, wireType 2 =*/8034).fork()).ldelim();
+                if (message._active != null && Object.hasOwnProperty.call(message, "_active"))
+                    writer.uint32(/* id 1005, wireType 0 =*/8040).bool(message._active);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified RelayOptions message, length delimited. Does not implicitly {@link protos.opts.RelayOptions.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.opts.RelayOptions
+             * @static
+             * @param {protos.opts.IRelayOptions} message RelayOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            RelayOptions.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a RelayOptions message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.opts.RelayOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.opts.RelayOptions} RelayOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            RelayOptions.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.RelayOptions();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.collectionToken = reader.string();
+                        break;
+                    case 2:
+                        message.batchSize = reader.int32();
+                        break;
+                    case 3:
+                        message.batchMaxRetry = reader.int32();
+                        break;
+                    case 4:
+                        message.connectionId = reader.string();
+                        break;
+                    case 5:
+                        message.numWorkers = reader.int32();
+                        break;
+                    case 6:
+                        message.statsEnable = reader.bool();
+                        break;
+                    case 7:
+                        message.statsReportIntervalSec = reader.int32();
+                        break;
+                    case 1000:
+                        message._batchshGrpcAddress = reader.string();
+                        break;
+                    case 1001:
+                        message._batchshGrpcDisableTls = reader.bool();
+                        break;
+                    case 1002:
+                        message._batchshGrpcTimeoutSeconds = reader.int32();
+                        break;
+                    case 1003:
+                        message._relayId = reader.string();
+                        break;
+                    case 1004:
+                        message._cliOptions = $root.protos.opts.RelayCLIOptions.decode(reader, reader.uint32());
+                        break;
+                    case 1005:
+                        message._active = reader.bool();
+                        break;
+                    case 100:
+                        message.kafka = $root.protos.opts.RelayGroupKafkaOptions.decode(reader, reader.uint32());
+                        break;
+                    case 101:
+                        message.awsSqs = $root.protos.opts.RelayGroupAWSSQSOptions.decode(reader, reader.uint32());
+                        break;
+                    case 102:
+                        message.mongo = $root.protos.opts.RelayGroupMongoOptions.decode(reader, reader.uint32());
+                        break;
+                    case 103:
+                        message.nsq = $root.protos.opts.RelayGroupNSQOptions.decode(reader, reader.uint32());
+                        break;
+                    case 104:
+                        message.rabbit = $root.protos.opts.RelayGroupRabbitOptions.decode(reader, reader.uint32());
+                        break;
+                    case 105:
+                        message.mqtt = $root.protos.opts.RelayGroupMQTTOptions.decode(reader, reader.uint32());
+                        break;
+                    case 106:
+                        message.azureServiceBus = $root.protos.opts.RelayGroupAzureServiceBusOptions.decode(reader, reader.uint32());
+                        break;
+                    case 107:
+                        message.gcpPubsub = $root.protos.opts.RelayGroupGCPPubSubOptions.decode(reader, reader.uint32());
+                        break;
+                    case 108:
+                        message.kubemqQueue = $root.protos.opts.RelayGroupKubeMQQueueOptions.decode(reader, reader.uint32());
+                        break;
+                    case 109:
+                        message.redisPubsub = $root.protos.opts.RelayGroupRedisPubSubOptions.decode(reader, reader.uint32());
+                        break;
+                    case 111:
+                        message.redisStreams = $root.protos.opts.RelayGroupRedisStreamsOptions.decode(reader, reader.uint32());
+                        break;
+                    case 112:
+                        message.postgres = $root.protos.opts.RelayGroupPostgresOptions.decode(reader, reader.uint32());
+                        break;
+                    case 113:
+                        message.nats = $root.protos.opts.RelayGroupNatsOptions.decode(reader, reader.uint32());
+                        break;
+                    case 114:
+                        message.natsStreaming = $root.protos.opts.RelayGroupNatsStreamingOptions.decode(reader, reader.uint32());
+                        break;
+                    case 115:
+                        message.natsJetstream = $root.protos.opts.RelayGroupNatsJetStreamOptions.decode(reader, reader.uint32());
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a RelayOptions message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.opts.RelayOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.opts.RelayOptions} RelayOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            RelayOptions.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a RelayOptions message.
+             * @function verify
+             * @memberof protos.opts.RelayOptions
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            RelayOptions.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.collectionToken != null && message.hasOwnProperty("collectionToken"))
+                    if (!$util.isString(message.collectionToken))
+                        return "collectionToken: string expected";
+                if (message.batchSize != null && message.hasOwnProperty("batchSize"))
+                    if (!$util.isInteger(message.batchSize))
+                        return "batchSize: integer expected";
+                if (message.batchMaxRetry != null && message.hasOwnProperty("batchMaxRetry"))
+                    if (!$util.isInteger(message.batchMaxRetry))
+                        return "batchMaxRetry: integer expected";
+                if (message.connectionId != null && message.hasOwnProperty("connectionId"))
+                    if (!$util.isString(message.connectionId))
+                        return "connectionId: string expected";
+                if (message.numWorkers != null && message.hasOwnProperty("numWorkers"))
+                    if (!$util.isInteger(message.numWorkers))
+                        return "numWorkers: integer expected";
+                if (message.statsEnable != null && message.hasOwnProperty("statsEnable"))
+                    if (typeof message.statsEnable !== "boolean")
+                        return "statsEnable: boolean expected";
+                if (message.statsReportIntervalSec != null && message.hasOwnProperty("statsReportIntervalSec"))
+                    if (!$util.isInteger(message.statsReportIntervalSec))
+                        return "statsReportIntervalSec: integer expected";
+                if (message._batchshGrpcAddress != null && message.hasOwnProperty("_batchshGrpcAddress"))
+                    if (!$util.isString(message._batchshGrpcAddress))
+                        return "_batchshGrpcAddress: string expected";
+                if (message._batchshGrpcDisableTls != null && message.hasOwnProperty("_batchshGrpcDisableTls"))
+                    if (typeof message._batchshGrpcDisableTls !== "boolean")
+                        return "_batchshGrpcDisableTls: boolean expected";
+                if (message._batchshGrpcTimeoutSeconds != null && message.hasOwnProperty("_batchshGrpcTimeoutSeconds"))
+                    if (!$util.isInteger(message._batchshGrpcTimeoutSeconds))
+                        return "_batchshGrpcTimeoutSeconds: integer expected";
+                if (message._relayId != null && message.hasOwnProperty("_relayId"))
+                    if (!$util.isString(message._relayId))
+                        return "_relayId: string expected";
+                if (message._cliOptions != null && message.hasOwnProperty("_cliOptions")) {
+                    var error = $root.protos.opts.RelayCLIOptions.verify(message._cliOptions);
+                    if (error)
+                        return "_cliOptions." + error;
+                }
+                if (message._active != null && message.hasOwnProperty("_active"))
+                    if (typeof message._active !== "boolean")
+                        return "_active: boolean expected";
+                if (message.kafka != null && message.hasOwnProperty("kafka")) {
+                    var error = $root.protos.opts.RelayGroupKafkaOptions.verify(message.kafka);
+                    if (error)
+                        return "kafka." + error;
+                }
+                if (message.awsSqs != null && message.hasOwnProperty("awsSqs")) {
+                    var error = $root.protos.opts.RelayGroupAWSSQSOptions.verify(message.awsSqs);
+                    if (error)
+                        return "awsSqs." + error;
+                }
+                if (message.mongo != null && message.hasOwnProperty("mongo")) {
+                    var error = $root.protos.opts.RelayGroupMongoOptions.verify(message.mongo);
+                    if (error)
+                        return "mongo." + error;
+                }
+                if (message.nsq != null && message.hasOwnProperty("nsq")) {
+                    var error = $root.protos.opts.RelayGroupNSQOptions.verify(message.nsq);
+                    if (error)
+                        return "nsq." + error;
+                }
+                if (message.rabbit != null && message.hasOwnProperty("rabbit")) {
+                    var error = $root.protos.opts.RelayGroupRabbitOptions.verify(message.rabbit);
+                    if (error)
+                        return "rabbit." + error;
+                }
+                if (message.mqtt != null && message.hasOwnProperty("mqtt")) {
+                    var error = $root.protos.opts.RelayGroupMQTTOptions.verify(message.mqtt);
+                    if (error)
+                        return "mqtt." + error;
+                }
+                if (message.azureServiceBus != null && message.hasOwnProperty("azureServiceBus")) {
+                    var error = $root.protos.opts.RelayGroupAzureServiceBusOptions.verify(message.azureServiceBus);
+                    if (error)
+                        return "azureServiceBus." + error;
+                }
+                if (message.gcpPubsub != null && message.hasOwnProperty("gcpPubsub")) {
+                    var error = $root.protos.opts.RelayGroupGCPPubSubOptions.verify(message.gcpPubsub);
+                    if (error)
+                        return "gcpPubsub." + error;
+                }
+                if (message.kubemqQueue != null && message.hasOwnProperty("kubemqQueue")) {
+                    var error = $root.protos.opts.RelayGroupKubeMQQueueOptions.verify(message.kubemqQueue);
+                    if (error)
+                        return "kubemqQueue." + error;
+                }
+                if (message.redisPubsub != null && message.hasOwnProperty("redisPubsub")) {
+                    var error = $root.protos.opts.RelayGroupRedisPubSubOptions.verify(message.redisPubsub);
+                    if (error)
+                        return "redisPubsub." + error;
+                }
+                if (message.redisStreams != null && message.hasOwnProperty("redisStreams")) {
+                    var error = $root.protos.opts.RelayGroupRedisStreamsOptions.verify(message.redisStreams);
+                    if (error)
+                        return "redisStreams." + error;
+                }
+                if (message.postgres != null && message.hasOwnProperty("postgres")) {
+                    var error = $root.protos.opts.RelayGroupPostgresOptions.verify(message.postgres);
+                    if (error)
+                        return "postgres." + error;
+                }
+                if (message.nats != null && message.hasOwnProperty("nats")) {
+                    var error = $root.protos.opts.RelayGroupNatsOptions.verify(message.nats);
+                    if (error)
+                        return "nats." + error;
+                }
+                if (message.natsStreaming != null && message.hasOwnProperty("natsStreaming")) {
+                    var error = $root.protos.opts.RelayGroupNatsStreamingOptions.verify(message.natsStreaming);
+                    if (error)
+                        return "natsStreaming." + error;
+                }
+                if (message.natsJetstream != null && message.hasOwnProperty("natsJetstream")) {
+                    var error = $root.protos.opts.RelayGroupNatsJetStreamOptions.verify(message.natsJetstream);
+                    if (error)
+                        return "natsJetstream." + error;
+                }
+                return null;
+            };
+
+            /**
+             * Creates a RelayOptions message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.opts.RelayOptions
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.opts.RelayOptions} RelayOptions
+             */
+            RelayOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.RelayOptions)
+                    return object;
+                var message = new $root.protos.opts.RelayOptions();
+                if (object.collectionToken != null)
+                    message.collectionToken = String(object.collectionToken);
+                if (object.batchSize != null)
+                    message.batchSize = object.batchSize | 0;
+                if (object.batchMaxRetry != null)
+                    message.batchMaxRetry = object.batchMaxRetry | 0;
+                if (object.connectionId != null)
+                    message.connectionId = String(object.connectionId);
+                if (object.numWorkers != null)
+                    message.numWorkers = object.numWorkers | 0;
+                if (object.statsEnable != null)
+                    message.statsEnable = Boolean(object.statsEnable);
+                if (object.statsReportIntervalSec != null)
+                    message.statsReportIntervalSec = object.statsReportIntervalSec | 0;
+                if (object._batchshGrpcAddress != null)
+                    message._batchshGrpcAddress = String(object._batchshGrpcAddress);
+                if (object._batchshGrpcDisableTls != null)
+                    message._batchshGrpcDisableTls = Boolean(object._batchshGrpcDisableTls);
+                if (object._batchshGrpcTimeoutSeconds != null)
+                    message._batchshGrpcTimeoutSeconds = object._batchshGrpcTimeoutSeconds | 0;
+                if (object._relayId != null)
+                    message._relayId = String(object._relayId);
+                if (object._cliOptions != null) {
+                    if (typeof object._cliOptions !== "object")
+                        throw TypeError(".protos.opts.RelayOptions._cliOptions: object expected");
+                    message._cliOptions = $root.protos.opts.RelayCLIOptions.fromObject(object._cliOptions);
+                }
+                if (object._active != null)
+                    message._active = Boolean(object._active);
+                if (object.kafka != null) {
+                    if (typeof object.kafka !== "object")
+                        throw TypeError(".protos.opts.RelayOptions.kafka: object expected");
+                    message.kafka = $root.protos.opts.RelayGroupKafkaOptions.fromObject(object.kafka);
+                }
+                if (object.awsSqs != null) {
+                    if (typeof object.awsSqs !== "object")
+                        throw TypeError(".protos.opts.RelayOptions.awsSqs: object expected");
+                    message.awsSqs = $root.protos.opts.RelayGroupAWSSQSOptions.fromObject(object.awsSqs);
+                }
+                if (object.mongo != null) {
+                    if (typeof object.mongo !== "object")
+                        throw TypeError(".protos.opts.RelayOptions.mongo: object expected");
+                    message.mongo = $root.protos.opts.RelayGroupMongoOptions.fromObject(object.mongo);
+                }
+                if (object.nsq != null) {
+                    if (typeof object.nsq !== "object")
+                        throw TypeError(".protos.opts.RelayOptions.nsq: object expected");
+                    message.nsq = $root.protos.opts.RelayGroupNSQOptions.fromObject(object.nsq);
+                }
+                if (object.rabbit != null) {
+                    if (typeof object.rabbit !== "object")
+                        throw TypeError(".protos.opts.RelayOptions.rabbit: object expected");
+                    message.rabbit = $root.protos.opts.RelayGroupRabbitOptions.fromObject(object.rabbit);
+                }
+                if (object.mqtt != null) {
+                    if (typeof object.mqtt !== "object")
+                        throw TypeError(".protos.opts.RelayOptions.mqtt: object expected");
+                    message.mqtt = $root.protos.opts.RelayGroupMQTTOptions.fromObject(object.mqtt);
+                }
+                if (object.azureServiceBus != null) {
+                    if (typeof object.azureServiceBus !== "object")
+                        throw TypeError(".protos.opts.RelayOptions.azureServiceBus: object expected");
+                    message.azureServiceBus = $root.protos.opts.RelayGroupAzureServiceBusOptions.fromObject(object.azureServiceBus);
+                }
+                if (object.gcpPubsub != null) {
+                    if (typeof object.gcpPubsub !== "object")
+                        throw TypeError(".protos.opts.RelayOptions.gcpPubsub: object expected");
+                    message.gcpPubsub = $root.protos.opts.RelayGroupGCPPubSubOptions.fromObject(object.gcpPubsub);
+                }
+                if (object.kubemqQueue != null) {
+                    if (typeof object.kubemqQueue !== "object")
+                        throw TypeError(".protos.opts.RelayOptions.kubemqQueue: object expected");
+                    message.kubemqQueue = $root.protos.opts.RelayGroupKubeMQQueueOptions.fromObject(object.kubemqQueue);
+                }
+                if (object.redisPubsub != null) {
+                    if (typeof object.redisPubsub !== "object")
+                        throw TypeError(".protos.opts.RelayOptions.redisPubsub: object expected");
+                    message.redisPubsub = $root.protos.opts.RelayGroupRedisPubSubOptions.fromObject(object.redisPubsub);
+                }
+                if (object.redisStreams != null) {
+                    if (typeof object.redisStreams !== "object")
+                        throw TypeError(".protos.opts.RelayOptions.redisStreams: object expected");
+                    message.redisStreams = $root.protos.opts.RelayGroupRedisStreamsOptions.fromObject(object.redisStreams);
+                }
+                if (object.postgres != null) {
+                    if (typeof object.postgres !== "object")
+                        throw TypeError(".protos.opts.RelayOptions.postgres: object expected");
+                    message.postgres = $root.protos.opts.RelayGroupPostgresOptions.fromObject(object.postgres);
+                }
+                if (object.nats != null) {
+                    if (typeof object.nats !== "object")
+                        throw TypeError(".protos.opts.RelayOptions.nats: object expected");
+                    message.nats = $root.protos.opts.RelayGroupNatsOptions.fromObject(object.nats);
+                }
+                if (object.natsStreaming != null) {
+                    if (typeof object.natsStreaming !== "object")
+                        throw TypeError(".protos.opts.RelayOptions.natsStreaming: object expected");
+                    message.natsStreaming = $root.protos.opts.RelayGroupNatsStreamingOptions.fromObject(object.natsStreaming);
+                }
+                if (object.natsJetstream != null) {
+                    if (typeof object.natsJetstream !== "object")
+                        throw TypeError(".protos.opts.RelayOptions.natsJetstream: object expected");
+                    message.natsJetstream = $root.protos.opts.RelayGroupNatsJetStreamOptions.fromObject(object.natsJetstream);
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a RelayOptions message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.opts.RelayOptions
+             * @static
+             * @param {protos.opts.RelayOptions} message RelayOptions
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            RelayOptions.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    object.collectionToken = "";
+                    object.batchSize = 0;
+                    object.batchMaxRetry = 0;
+                    object.connectionId = "";
+                    object.numWorkers = 0;
+                    object.statsEnable = false;
+                    object.statsReportIntervalSec = 0;
+                    object.kafka = null;
+                    object.awsSqs = null;
+                    object.mongo = null;
+                    object.nsq = null;
+                    object.rabbit = null;
+                    object.mqtt = null;
+                    object.azureServiceBus = null;
+                    object.gcpPubsub = null;
+                    object.kubemqQueue = null;
+                    object.redisPubsub = null;
+                    object.redisStreams = null;
+                    object.postgres = null;
+                    object.nats = null;
+                    object.natsStreaming = null;
+                    object.natsJetstream = null;
+                    object._batchshGrpcAddress = "";
+                    object._batchshGrpcDisableTls = false;
+                    object._batchshGrpcTimeoutSeconds = 0;
+                    object._relayId = "";
+                    object._cliOptions = null;
+                    object._active = false;
+                }
+                if (message.collectionToken != null && message.hasOwnProperty("collectionToken"))
+                    object.collectionToken = message.collectionToken;
+                if (message.batchSize != null && message.hasOwnProperty("batchSize"))
+                    object.batchSize = message.batchSize;
+                if (message.batchMaxRetry != null && message.hasOwnProperty("batchMaxRetry"))
+                    object.batchMaxRetry = message.batchMaxRetry;
+                if (message.connectionId != null && message.hasOwnProperty("connectionId"))
+                    object.connectionId = message.connectionId;
+                if (message.numWorkers != null && message.hasOwnProperty("numWorkers"))
+                    object.numWorkers = message.numWorkers;
+                if (message.statsEnable != null && message.hasOwnProperty("statsEnable"))
+                    object.statsEnable = message.statsEnable;
+                if (message.statsReportIntervalSec != null && message.hasOwnProperty("statsReportIntervalSec"))
+                    object.statsReportIntervalSec = message.statsReportIntervalSec;
+                if (message.kafka != null && message.hasOwnProperty("kafka"))
+                    object.kafka = $root.protos.opts.RelayGroupKafkaOptions.toObject(message.kafka, options);
+                if (message.awsSqs != null && message.hasOwnProperty("awsSqs"))
+                    object.awsSqs = $root.protos.opts.RelayGroupAWSSQSOptions.toObject(message.awsSqs, options);
+                if (message.mongo != null && message.hasOwnProperty("mongo"))
+                    object.mongo = $root.protos.opts.RelayGroupMongoOptions.toObject(message.mongo, options);
+                if (message.nsq != null && message.hasOwnProperty("nsq"))
+                    object.nsq = $root.protos.opts.RelayGroupNSQOptions.toObject(message.nsq, options);
+                if (message.rabbit != null && message.hasOwnProperty("rabbit"))
+                    object.rabbit = $root.protos.opts.RelayGroupRabbitOptions.toObject(message.rabbit, options);
+                if (message.mqtt != null && message.hasOwnProperty("mqtt"))
+                    object.mqtt = $root.protos.opts.RelayGroupMQTTOptions.toObject(message.mqtt, options);
+                if (message.azureServiceBus != null && message.hasOwnProperty("azureServiceBus"))
+                    object.azureServiceBus = $root.protos.opts.RelayGroupAzureServiceBusOptions.toObject(message.azureServiceBus, options);
+                if (message.gcpPubsub != null && message.hasOwnProperty("gcpPubsub"))
+                    object.gcpPubsub = $root.protos.opts.RelayGroupGCPPubSubOptions.toObject(message.gcpPubsub, options);
+                if (message.kubemqQueue != null && message.hasOwnProperty("kubemqQueue"))
+                    object.kubemqQueue = $root.protos.opts.RelayGroupKubeMQQueueOptions.toObject(message.kubemqQueue, options);
+                if (message.redisPubsub != null && message.hasOwnProperty("redisPubsub"))
+                    object.redisPubsub = $root.protos.opts.RelayGroupRedisPubSubOptions.toObject(message.redisPubsub, options);
+                if (message.redisStreams != null && message.hasOwnProperty("redisStreams"))
+                    object.redisStreams = $root.protos.opts.RelayGroupRedisStreamsOptions.toObject(message.redisStreams, options);
+                if (message.postgres != null && message.hasOwnProperty("postgres"))
+                    object.postgres = $root.protos.opts.RelayGroupPostgresOptions.toObject(message.postgres, options);
+                if (message.nats != null && message.hasOwnProperty("nats"))
+                    object.nats = $root.protos.opts.RelayGroupNatsOptions.toObject(message.nats, options);
+                if (message.natsStreaming != null && message.hasOwnProperty("natsStreaming"))
+                    object.natsStreaming = $root.protos.opts.RelayGroupNatsStreamingOptions.toObject(message.natsStreaming, options);
+                if (message.natsJetstream != null && message.hasOwnProperty("natsJetstream"))
+                    object.natsJetstream = $root.protos.opts.RelayGroupNatsJetStreamOptions.toObject(message.natsJetstream, options);
+                if (message._batchshGrpcAddress != null && message.hasOwnProperty("_batchshGrpcAddress"))
+                    object._batchshGrpcAddress = message._batchshGrpcAddress;
+                if (message._batchshGrpcDisableTls != null && message.hasOwnProperty("_batchshGrpcDisableTls"))
+                    object._batchshGrpcDisableTls = message._batchshGrpcDisableTls;
+                if (message._batchshGrpcTimeoutSeconds != null && message.hasOwnProperty("_batchshGrpcTimeoutSeconds"))
+                    object._batchshGrpcTimeoutSeconds = message._batchshGrpcTimeoutSeconds;
+                if (message._relayId != null && message.hasOwnProperty("_relayId"))
+                    object._relayId = message._relayId;
+                if (message._cliOptions != null && message.hasOwnProperty("_cliOptions"))
+                    object._cliOptions = $root.protos.opts.RelayCLIOptions.toObject(message._cliOptions, options);
+                if (message._active != null && message.hasOwnProperty("_active"))
+                    object._active = message._active;
+                return object;
+            };
+
+            /**
+             * Converts this RelayOptions to JSON.
+             * @function toJSON
+             * @memberof protos.opts.RelayOptions
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            RelayOptions.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return RelayOptions;
+        })();
+
+        opts.RelayGroupKafkaOptions = (function() {
+
+            /**
+             * Properties of a RelayGroupKafkaOptions.
+             * @memberof protos.opts
+             * @interface IRelayGroupKafkaOptions
+             * @property {protos.args.IKafkaConn|null} [_conn] RelayGroupKafkaOptions _conn
+             * @property {protos.args.IKafkaRelayArgs|null} [args] RelayGroupKafkaOptions args
+             */
+
+            /**
+             * Constructs a new RelayGroupKafkaOptions.
+             * @memberof protos.opts
+             * @classdesc Represents a RelayGroupKafkaOptions.
+             * @implements IRelayGroupKafkaOptions
+             * @constructor
+             * @param {protos.opts.IRelayGroupKafkaOptions=} [properties] Properties to set
+             */
+            function RelayGroupKafkaOptions(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * RelayGroupKafkaOptions _conn.
+             * @member {protos.args.IKafkaConn|null|undefined} _conn
+             * @memberof protos.opts.RelayGroupKafkaOptions
+             * @instance
+             */
+            RelayGroupKafkaOptions.prototype._conn = null;
+
+            /**
+             * RelayGroupKafkaOptions args.
+             * @member {protos.args.IKafkaRelayArgs|null|undefined} args
+             * @memberof protos.opts.RelayGroupKafkaOptions
+             * @instance
+             */
+            RelayGroupKafkaOptions.prototype.args = null;
+
+            /**
+             * Creates a new RelayGroupKafkaOptions instance using the specified properties.
+             * @function create
+             * @memberof protos.opts.RelayGroupKafkaOptions
+             * @static
+             * @param {protos.opts.IRelayGroupKafkaOptions=} [properties] Properties to set
+             * @returns {protos.opts.RelayGroupKafkaOptions} RelayGroupKafkaOptions instance
+             */
+            RelayGroupKafkaOptions.create = function create(properties) {
+                return new RelayGroupKafkaOptions(properties);
+            };
+
+            /**
+             * Encodes the specified RelayGroupKafkaOptions message. Does not implicitly {@link protos.opts.RelayGroupKafkaOptions.verify|verify} messages.
+             * @function encode
+             * @memberof protos.opts.RelayGroupKafkaOptions
+             * @static
+             * @param {protos.opts.IRelayGroupKafkaOptions} message RelayGroupKafkaOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            RelayGroupKafkaOptions.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
+                    $root.protos.args.KafkaConn.encode(message._conn, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                if (message.args != null && Object.hasOwnProperty.call(message, "args"))
+                    $root.protos.args.KafkaRelayArgs.encode(message.args, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                return writer;
+            };
+
+            /**
+             * Encodes the specified RelayGroupKafkaOptions message, length delimited. Does not implicitly {@link protos.opts.RelayGroupKafkaOptions.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.opts.RelayGroupKafkaOptions
+             * @static
+             * @param {protos.opts.IRelayGroupKafkaOptions} message RelayGroupKafkaOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            RelayGroupKafkaOptions.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a RelayGroupKafkaOptions message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.opts.RelayGroupKafkaOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.opts.RelayGroupKafkaOptions} RelayGroupKafkaOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            RelayGroupKafkaOptions.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.RelayGroupKafkaOptions();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message._conn = $root.protos.args.KafkaConn.decode(reader, reader.uint32());
+                        break;
+                    case 2:
+                        message.args = $root.protos.args.KafkaRelayArgs.decode(reader, reader.uint32());
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a RelayGroupKafkaOptions message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.opts.RelayGroupKafkaOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.opts.RelayGroupKafkaOptions} RelayGroupKafkaOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            RelayGroupKafkaOptions.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a RelayGroupKafkaOptions message.
+             * @function verify
+             * @memberof protos.opts.RelayGroupKafkaOptions
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            RelayGroupKafkaOptions.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message._conn != null && message.hasOwnProperty("_conn")) {
+                    var error = $root.protos.args.KafkaConn.verify(message._conn);
+                    if (error)
+                        return "_conn." + error;
+                }
+                if (message.args != null && message.hasOwnProperty("args")) {
+                    var error = $root.protos.args.KafkaRelayArgs.verify(message.args);
+                    if (error)
+                        return "args." + error;
+                }
+                return null;
+            };
+
+            /**
+             * Creates a RelayGroupKafkaOptions message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.opts.RelayGroupKafkaOptions
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.opts.RelayGroupKafkaOptions} RelayGroupKafkaOptions
+             */
+            RelayGroupKafkaOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.RelayGroupKafkaOptions)
+                    return object;
+                var message = new $root.protos.opts.RelayGroupKafkaOptions();
+                if (object._conn != null) {
+                    if (typeof object._conn !== "object")
+                        throw TypeError(".protos.opts.RelayGroupKafkaOptions._conn: object expected");
+                    message._conn = $root.protos.args.KafkaConn.fromObject(object._conn);
+                }
+                if (object.args != null) {
+                    if (typeof object.args !== "object")
+                        throw TypeError(".protos.opts.RelayGroupKafkaOptions.args: object expected");
+                    message.args = $root.protos.args.KafkaRelayArgs.fromObject(object.args);
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a RelayGroupKafkaOptions message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.opts.RelayGroupKafkaOptions
+             * @static
+             * @param {protos.opts.RelayGroupKafkaOptions} message RelayGroupKafkaOptions
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            RelayGroupKafkaOptions.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    object._conn = null;
+                    object.args = null;
+                }
+                if (message._conn != null && message.hasOwnProperty("_conn"))
+                    object._conn = $root.protos.args.KafkaConn.toObject(message._conn, options);
+                if (message.args != null && message.hasOwnProperty("args"))
+                    object.args = $root.protos.args.KafkaRelayArgs.toObject(message.args, options);
+                return object;
+            };
+
+            /**
+             * Converts this RelayGroupKafkaOptions to JSON.
+             * @function toJSON
+             * @memberof protos.opts.RelayGroupKafkaOptions
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            RelayGroupKafkaOptions.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return RelayGroupKafkaOptions;
+        })();
+
+        opts.RelayGroupAWSSQSOptions = (function() {
+
+            /**
+             * Properties of a RelayGroupAWSSQSOptions.
+             * @memberof protos.opts
+             * @interface IRelayGroupAWSSQSOptions
+             * @property {protos.args.IAWSSQSConn|null} [_conn] RelayGroupAWSSQSOptions _conn
+             * @property {protos.args.IAWSSQSRelayArgs|null} [args] RelayGroupAWSSQSOptions args
+             */
+
+            /**
+             * Constructs a new RelayGroupAWSSQSOptions.
+             * @memberof protos.opts
+             * @classdesc Represents a RelayGroupAWSSQSOptions.
+             * @implements IRelayGroupAWSSQSOptions
+             * @constructor
+             * @param {protos.opts.IRelayGroupAWSSQSOptions=} [properties] Properties to set
+             */
+            function RelayGroupAWSSQSOptions(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * RelayGroupAWSSQSOptions _conn.
+             * @member {protos.args.IAWSSQSConn|null|undefined} _conn
+             * @memberof protos.opts.RelayGroupAWSSQSOptions
+             * @instance
+             */
+            RelayGroupAWSSQSOptions.prototype._conn = null;
+
+            /**
+             * RelayGroupAWSSQSOptions args.
+             * @member {protos.args.IAWSSQSRelayArgs|null|undefined} args
+             * @memberof protos.opts.RelayGroupAWSSQSOptions
+             * @instance
+             */
+            RelayGroupAWSSQSOptions.prototype.args = null;
+
+            /**
+             * Creates a new RelayGroupAWSSQSOptions instance using the specified properties.
+             * @function create
+             * @memberof protos.opts.RelayGroupAWSSQSOptions
+             * @static
+             * @param {protos.opts.IRelayGroupAWSSQSOptions=} [properties] Properties to set
+             * @returns {protos.opts.RelayGroupAWSSQSOptions} RelayGroupAWSSQSOptions instance
+             */
+            RelayGroupAWSSQSOptions.create = function create(properties) {
+                return new RelayGroupAWSSQSOptions(properties);
+            };
+
+            /**
+             * Encodes the specified RelayGroupAWSSQSOptions message. Does not implicitly {@link protos.opts.RelayGroupAWSSQSOptions.verify|verify} messages.
+             * @function encode
+             * @memberof protos.opts.RelayGroupAWSSQSOptions
+             * @static
+             * @param {protos.opts.IRelayGroupAWSSQSOptions} message RelayGroupAWSSQSOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            RelayGroupAWSSQSOptions.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
+                    $root.protos.args.AWSSQSConn.encode(message._conn, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                if (message.args != null && Object.hasOwnProperty.call(message, "args"))
+                    $root.protos.args.AWSSQSRelayArgs.encode(message.args, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                return writer;
+            };
+
+            /**
+             * Encodes the specified RelayGroupAWSSQSOptions message, length delimited. Does not implicitly {@link protos.opts.RelayGroupAWSSQSOptions.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.opts.RelayGroupAWSSQSOptions
+             * @static
+             * @param {protos.opts.IRelayGroupAWSSQSOptions} message RelayGroupAWSSQSOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            RelayGroupAWSSQSOptions.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a RelayGroupAWSSQSOptions message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.opts.RelayGroupAWSSQSOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.opts.RelayGroupAWSSQSOptions} RelayGroupAWSSQSOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            RelayGroupAWSSQSOptions.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.RelayGroupAWSSQSOptions();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message._conn = $root.protos.args.AWSSQSConn.decode(reader, reader.uint32());
+                        break;
+                    case 2:
+                        message.args = $root.protos.args.AWSSQSRelayArgs.decode(reader, reader.uint32());
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a RelayGroupAWSSQSOptions message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.opts.RelayGroupAWSSQSOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.opts.RelayGroupAWSSQSOptions} RelayGroupAWSSQSOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            RelayGroupAWSSQSOptions.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a RelayGroupAWSSQSOptions message.
+             * @function verify
+             * @memberof protos.opts.RelayGroupAWSSQSOptions
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            RelayGroupAWSSQSOptions.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message._conn != null && message.hasOwnProperty("_conn")) {
+                    var error = $root.protos.args.AWSSQSConn.verify(message._conn);
+                    if (error)
+                        return "_conn." + error;
+                }
+                if (message.args != null && message.hasOwnProperty("args")) {
+                    var error = $root.protos.args.AWSSQSRelayArgs.verify(message.args);
+                    if (error)
+                        return "args." + error;
+                }
+                return null;
+            };
+
+            /**
+             * Creates a RelayGroupAWSSQSOptions message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.opts.RelayGroupAWSSQSOptions
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.opts.RelayGroupAWSSQSOptions} RelayGroupAWSSQSOptions
+             */
+            RelayGroupAWSSQSOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.RelayGroupAWSSQSOptions)
+                    return object;
+                var message = new $root.protos.opts.RelayGroupAWSSQSOptions();
+                if (object._conn != null) {
+                    if (typeof object._conn !== "object")
+                        throw TypeError(".protos.opts.RelayGroupAWSSQSOptions._conn: object expected");
+                    message._conn = $root.protos.args.AWSSQSConn.fromObject(object._conn);
+                }
+                if (object.args != null) {
+                    if (typeof object.args !== "object")
+                        throw TypeError(".protos.opts.RelayGroupAWSSQSOptions.args: object expected");
+                    message.args = $root.protos.args.AWSSQSRelayArgs.fromObject(object.args);
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a RelayGroupAWSSQSOptions message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.opts.RelayGroupAWSSQSOptions
+             * @static
+             * @param {protos.opts.RelayGroupAWSSQSOptions} message RelayGroupAWSSQSOptions
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            RelayGroupAWSSQSOptions.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    object._conn = null;
+                    object.args = null;
+                }
+                if (message._conn != null && message.hasOwnProperty("_conn"))
+                    object._conn = $root.protos.args.AWSSQSConn.toObject(message._conn, options);
+                if (message.args != null && message.hasOwnProperty("args"))
+                    object.args = $root.protos.args.AWSSQSRelayArgs.toObject(message.args, options);
+                return object;
+            };
+
+            /**
+             * Converts this RelayGroupAWSSQSOptions to JSON.
+             * @function toJSON
+             * @memberof protos.opts.RelayGroupAWSSQSOptions
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            RelayGroupAWSSQSOptions.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return RelayGroupAWSSQSOptions;
+        })();
+
+        opts.RelayGroupMongoOptions = (function() {
+
+            /**
+             * Properties of a RelayGroupMongoOptions.
+             * @memberof protos.opts
+             * @interface IRelayGroupMongoOptions
+             * @property {protos.args.IMongoConn|null} [_conn] RelayGroupMongoOptions _conn
+             * @property {protos.args.IMongoReadArgs|null} [args] RelayGroupMongoOptions args
+             */
+
+            /**
+             * Constructs a new RelayGroupMongoOptions.
+             * @memberof protos.opts
+             * @classdesc Represents a RelayGroupMongoOptions.
+             * @implements IRelayGroupMongoOptions
+             * @constructor
+             * @param {protos.opts.IRelayGroupMongoOptions=} [properties] Properties to set
+             */
+            function RelayGroupMongoOptions(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * RelayGroupMongoOptions _conn.
+             * @member {protos.args.IMongoConn|null|undefined} _conn
+             * @memberof protos.opts.RelayGroupMongoOptions
+             * @instance
+             */
+            RelayGroupMongoOptions.prototype._conn = null;
+
+            /**
+             * RelayGroupMongoOptions args.
+             * @member {protos.args.IMongoReadArgs|null|undefined} args
+             * @memberof protos.opts.RelayGroupMongoOptions
+             * @instance
+             */
+            RelayGroupMongoOptions.prototype.args = null;
+
+            /**
+             * Creates a new RelayGroupMongoOptions instance using the specified properties.
+             * @function create
+             * @memberof protos.opts.RelayGroupMongoOptions
+             * @static
+             * @param {protos.opts.IRelayGroupMongoOptions=} [properties] Properties to set
+             * @returns {protos.opts.RelayGroupMongoOptions} RelayGroupMongoOptions instance
+             */
+            RelayGroupMongoOptions.create = function create(properties) {
+                return new RelayGroupMongoOptions(properties);
+            };
+
+            /**
+             * Encodes the specified RelayGroupMongoOptions message. Does not implicitly {@link protos.opts.RelayGroupMongoOptions.verify|verify} messages.
+             * @function encode
+             * @memberof protos.opts.RelayGroupMongoOptions
+             * @static
+             * @param {protos.opts.IRelayGroupMongoOptions} message RelayGroupMongoOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            RelayGroupMongoOptions.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
+                    $root.protos.args.MongoConn.encode(message._conn, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                if (message.args != null && Object.hasOwnProperty.call(message, "args"))
+                    $root.protos.args.MongoReadArgs.encode(message.args, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                return writer;
+            };
+
+            /**
+             * Encodes the specified RelayGroupMongoOptions message, length delimited. Does not implicitly {@link protos.opts.RelayGroupMongoOptions.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.opts.RelayGroupMongoOptions
+             * @static
+             * @param {protos.opts.IRelayGroupMongoOptions} message RelayGroupMongoOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            RelayGroupMongoOptions.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a RelayGroupMongoOptions message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.opts.RelayGroupMongoOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.opts.RelayGroupMongoOptions} RelayGroupMongoOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            RelayGroupMongoOptions.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.RelayGroupMongoOptions();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message._conn = $root.protos.args.MongoConn.decode(reader, reader.uint32());
+                        break;
+                    case 2:
+                        message.args = $root.protos.args.MongoReadArgs.decode(reader, reader.uint32());
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a RelayGroupMongoOptions message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.opts.RelayGroupMongoOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.opts.RelayGroupMongoOptions} RelayGroupMongoOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            RelayGroupMongoOptions.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a RelayGroupMongoOptions message.
+             * @function verify
+             * @memberof protos.opts.RelayGroupMongoOptions
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            RelayGroupMongoOptions.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message._conn != null && message.hasOwnProperty("_conn")) {
+                    var error = $root.protos.args.MongoConn.verify(message._conn);
+                    if (error)
+                        return "_conn." + error;
+                }
+                if (message.args != null && message.hasOwnProperty("args")) {
+                    var error = $root.protos.args.MongoReadArgs.verify(message.args);
+                    if (error)
+                        return "args." + error;
+                }
+                return null;
+            };
+
+            /**
+             * Creates a RelayGroupMongoOptions message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.opts.RelayGroupMongoOptions
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.opts.RelayGroupMongoOptions} RelayGroupMongoOptions
+             */
+            RelayGroupMongoOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.RelayGroupMongoOptions)
+                    return object;
+                var message = new $root.protos.opts.RelayGroupMongoOptions();
+                if (object._conn != null) {
+                    if (typeof object._conn !== "object")
+                        throw TypeError(".protos.opts.RelayGroupMongoOptions._conn: object expected");
+                    message._conn = $root.protos.args.MongoConn.fromObject(object._conn);
+                }
+                if (object.args != null) {
+                    if (typeof object.args !== "object")
+                        throw TypeError(".protos.opts.RelayGroupMongoOptions.args: object expected");
+                    message.args = $root.protos.args.MongoReadArgs.fromObject(object.args);
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a RelayGroupMongoOptions message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.opts.RelayGroupMongoOptions
+             * @static
+             * @param {protos.opts.RelayGroupMongoOptions} message RelayGroupMongoOptions
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            RelayGroupMongoOptions.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    object._conn = null;
+                    object.args = null;
+                }
+                if (message._conn != null && message.hasOwnProperty("_conn"))
+                    object._conn = $root.protos.args.MongoConn.toObject(message._conn, options);
+                if (message.args != null && message.hasOwnProperty("args"))
+                    object.args = $root.protos.args.MongoReadArgs.toObject(message.args, options);
+                return object;
+            };
+
+            /**
+             * Converts this RelayGroupMongoOptions to JSON.
+             * @function toJSON
+             * @memberof protos.opts.RelayGroupMongoOptions
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            RelayGroupMongoOptions.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return RelayGroupMongoOptions;
+        })();
+
+        opts.RelayGroupNSQOptions = (function() {
+
+            /**
+             * Properties of a RelayGroupNSQOptions.
+             * @memberof protos.opts
+             * @interface IRelayGroupNSQOptions
+             * @property {protos.args.INSQConn|null} [_conn] RelayGroupNSQOptions _conn
+             * @property {protos.args.INSQReadArgs|null} [args] RelayGroupNSQOptions args
+             */
+
+            /**
+             * Constructs a new RelayGroupNSQOptions.
+             * @memberof protos.opts
+             * @classdesc Represents a RelayGroupNSQOptions.
+             * @implements IRelayGroupNSQOptions
+             * @constructor
+             * @param {protos.opts.IRelayGroupNSQOptions=} [properties] Properties to set
+             */
+            function RelayGroupNSQOptions(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * RelayGroupNSQOptions _conn.
+             * @member {protos.args.INSQConn|null|undefined} _conn
+             * @memberof protos.opts.RelayGroupNSQOptions
+             * @instance
+             */
+            RelayGroupNSQOptions.prototype._conn = null;
+
+            /**
+             * RelayGroupNSQOptions args.
+             * @member {protos.args.INSQReadArgs|null|undefined} args
+             * @memberof protos.opts.RelayGroupNSQOptions
+             * @instance
+             */
+            RelayGroupNSQOptions.prototype.args = null;
+
+            /**
+             * Creates a new RelayGroupNSQOptions instance using the specified properties.
+             * @function create
+             * @memberof protos.opts.RelayGroupNSQOptions
+             * @static
+             * @param {protos.opts.IRelayGroupNSQOptions=} [properties] Properties to set
+             * @returns {protos.opts.RelayGroupNSQOptions} RelayGroupNSQOptions instance
+             */
+            RelayGroupNSQOptions.create = function create(properties) {
+                return new RelayGroupNSQOptions(properties);
+            };
+
+            /**
+             * Encodes the specified RelayGroupNSQOptions message. Does not implicitly {@link protos.opts.RelayGroupNSQOptions.verify|verify} messages.
+             * @function encode
+             * @memberof protos.opts.RelayGroupNSQOptions
+             * @static
+             * @param {protos.opts.IRelayGroupNSQOptions} message RelayGroupNSQOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            RelayGroupNSQOptions.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
+                    $root.protos.args.NSQConn.encode(message._conn, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                if (message.args != null && Object.hasOwnProperty.call(message, "args"))
+                    $root.protos.args.NSQReadArgs.encode(message.args, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                return writer;
+            };
+
+            /**
+             * Encodes the specified RelayGroupNSQOptions message, length delimited. Does not implicitly {@link protos.opts.RelayGroupNSQOptions.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.opts.RelayGroupNSQOptions
+             * @static
+             * @param {protos.opts.IRelayGroupNSQOptions} message RelayGroupNSQOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            RelayGroupNSQOptions.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a RelayGroupNSQOptions message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.opts.RelayGroupNSQOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.opts.RelayGroupNSQOptions} RelayGroupNSQOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            RelayGroupNSQOptions.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.RelayGroupNSQOptions();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message._conn = $root.protos.args.NSQConn.decode(reader, reader.uint32());
+                        break;
+                    case 2:
+                        message.args = $root.protos.args.NSQReadArgs.decode(reader, reader.uint32());
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a RelayGroupNSQOptions message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.opts.RelayGroupNSQOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.opts.RelayGroupNSQOptions} RelayGroupNSQOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            RelayGroupNSQOptions.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a RelayGroupNSQOptions message.
+             * @function verify
+             * @memberof protos.opts.RelayGroupNSQOptions
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            RelayGroupNSQOptions.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message._conn != null && message.hasOwnProperty("_conn")) {
+                    var error = $root.protos.args.NSQConn.verify(message._conn);
+                    if (error)
+                        return "_conn." + error;
+                }
+                if (message.args != null && message.hasOwnProperty("args")) {
+                    var error = $root.protos.args.NSQReadArgs.verify(message.args);
+                    if (error)
+                        return "args." + error;
+                }
+                return null;
+            };
+
+            /**
+             * Creates a RelayGroupNSQOptions message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.opts.RelayGroupNSQOptions
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.opts.RelayGroupNSQOptions} RelayGroupNSQOptions
+             */
+            RelayGroupNSQOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.RelayGroupNSQOptions)
+                    return object;
+                var message = new $root.protos.opts.RelayGroupNSQOptions();
+                if (object._conn != null) {
+                    if (typeof object._conn !== "object")
+                        throw TypeError(".protos.opts.RelayGroupNSQOptions._conn: object expected");
+                    message._conn = $root.protos.args.NSQConn.fromObject(object._conn);
+                }
+                if (object.args != null) {
+                    if (typeof object.args !== "object")
+                        throw TypeError(".protos.opts.RelayGroupNSQOptions.args: object expected");
+                    message.args = $root.protos.args.NSQReadArgs.fromObject(object.args);
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a RelayGroupNSQOptions message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.opts.RelayGroupNSQOptions
+             * @static
+             * @param {protos.opts.RelayGroupNSQOptions} message RelayGroupNSQOptions
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            RelayGroupNSQOptions.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    object._conn = null;
+                    object.args = null;
+                }
+                if (message._conn != null && message.hasOwnProperty("_conn"))
+                    object._conn = $root.protos.args.NSQConn.toObject(message._conn, options);
+                if (message.args != null && message.hasOwnProperty("args"))
+                    object.args = $root.protos.args.NSQReadArgs.toObject(message.args, options);
+                return object;
+            };
+
+            /**
+             * Converts this RelayGroupNSQOptions to JSON.
+             * @function toJSON
+             * @memberof protos.opts.RelayGroupNSQOptions
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            RelayGroupNSQOptions.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return RelayGroupNSQOptions;
+        })();
+
+        opts.RelayGroupPostgresOptions = (function() {
+
+            /**
+             * Properties of a RelayGroupPostgresOptions.
+             * @memberof protos.opts
+             * @interface IRelayGroupPostgresOptions
+             * @property {protos.args.IPostgresConn|null} [_conn] RelayGroupPostgresOptions _conn
+             * @property {protos.args.IPostgresReadArgs|null} [args] RelayGroupPostgresOptions args
+             */
+
+            /**
+             * Constructs a new RelayGroupPostgresOptions.
+             * @memberof protos.opts
+             * @classdesc Represents a RelayGroupPostgresOptions.
+             * @implements IRelayGroupPostgresOptions
+             * @constructor
+             * @param {protos.opts.IRelayGroupPostgresOptions=} [properties] Properties to set
+             */
+            function RelayGroupPostgresOptions(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * RelayGroupPostgresOptions _conn.
+             * @member {protos.args.IPostgresConn|null|undefined} _conn
+             * @memberof protos.opts.RelayGroupPostgresOptions
+             * @instance
+             */
+            RelayGroupPostgresOptions.prototype._conn = null;
+
+            /**
+             * RelayGroupPostgresOptions args.
+             * @member {protos.args.IPostgresReadArgs|null|undefined} args
+             * @memberof protos.opts.RelayGroupPostgresOptions
+             * @instance
+             */
+            RelayGroupPostgresOptions.prototype.args = null;
+
+            /**
+             * Creates a new RelayGroupPostgresOptions instance using the specified properties.
+             * @function create
+             * @memberof protos.opts.RelayGroupPostgresOptions
+             * @static
+             * @param {protos.opts.IRelayGroupPostgresOptions=} [properties] Properties to set
+             * @returns {protos.opts.RelayGroupPostgresOptions} RelayGroupPostgresOptions instance
+             */
+            RelayGroupPostgresOptions.create = function create(properties) {
+                return new RelayGroupPostgresOptions(properties);
+            };
+
+            /**
+             * Encodes the specified RelayGroupPostgresOptions message. Does not implicitly {@link protos.opts.RelayGroupPostgresOptions.verify|verify} messages.
+             * @function encode
+             * @memberof protos.opts.RelayGroupPostgresOptions
+             * @static
+             * @param {protos.opts.IRelayGroupPostgresOptions} message RelayGroupPostgresOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            RelayGroupPostgresOptions.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
+                    $root.protos.args.PostgresConn.encode(message._conn, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                if (message.args != null && Object.hasOwnProperty.call(message, "args"))
+                    $root.protos.args.PostgresReadArgs.encode(message.args, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                return writer;
+            };
+
+            /**
+             * Encodes the specified RelayGroupPostgresOptions message, length delimited. Does not implicitly {@link protos.opts.RelayGroupPostgresOptions.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.opts.RelayGroupPostgresOptions
+             * @static
+             * @param {protos.opts.IRelayGroupPostgresOptions} message RelayGroupPostgresOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            RelayGroupPostgresOptions.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a RelayGroupPostgresOptions message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.opts.RelayGroupPostgresOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.opts.RelayGroupPostgresOptions} RelayGroupPostgresOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            RelayGroupPostgresOptions.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.RelayGroupPostgresOptions();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message._conn = $root.protos.args.PostgresConn.decode(reader, reader.uint32());
+                        break;
+                    case 2:
+                        message.args = $root.protos.args.PostgresReadArgs.decode(reader, reader.uint32());
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a RelayGroupPostgresOptions message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.opts.RelayGroupPostgresOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.opts.RelayGroupPostgresOptions} RelayGroupPostgresOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            RelayGroupPostgresOptions.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a RelayGroupPostgresOptions message.
+             * @function verify
+             * @memberof protos.opts.RelayGroupPostgresOptions
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            RelayGroupPostgresOptions.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message._conn != null && message.hasOwnProperty("_conn")) {
+                    var error = $root.protos.args.PostgresConn.verify(message._conn);
+                    if (error)
+                        return "_conn." + error;
+                }
+                if (message.args != null && message.hasOwnProperty("args")) {
+                    var error = $root.protos.args.PostgresReadArgs.verify(message.args);
+                    if (error)
+                        return "args." + error;
+                }
+                return null;
+            };
+
+            /**
+             * Creates a RelayGroupPostgresOptions message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.opts.RelayGroupPostgresOptions
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.opts.RelayGroupPostgresOptions} RelayGroupPostgresOptions
+             */
+            RelayGroupPostgresOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.RelayGroupPostgresOptions)
+                    return object;
+                var message = new $root.protos.opts.RelayGroupPostgresOptions();
+                if (object._conn != null) {
+                    if (typeof object._conn !== "object")
+                        throw TypeError(".protos.opts.RelayGroupPostgresOptions._conn: object expected");
+                    message._conn = $root.protos.args.PostgresConn.fromObject(object._conn);
+                }
+                if (object.args != null) {
+                    if (typeof object.args !== "object")
+                        throw TypeError(".protos.opts.RelayGroupPostgresOptions.args: object expected");
+                    message.args = $root.protos.args.PostgresReadArgs.fromObject(object.args);
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a RelayGroupPostgresOptions message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.opts.RelayGroupPostgresOptions
+             * @static
+             * @param {protos.opts.RelayGroupPostgresOptions} message RelayGroupPostgresOptions
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            RelayGroupPostgresOptions.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    object._conn = null;
+                    object.args = null;
+                }
+                if (message._conn != null && message.hasOwnProperty("_conn"))
+                    object._conn = $root.protos.args.PostgresConn.toObject(message._conn, options);
+                if (message.args != null && message.hasOwnProperty("args"))
+                    object.args = $root.protos.args.PostgresReadArgs.toObject(message.args, options);
+                return object;
+            };
+
+            /**
+             * Converts this RelayGroupPostgresOptions to JSON.
+             * @function toJSON
+             * @memberof protos.opts.RelayGroupPostgresOptions
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            RelayGroupPostgresOptions.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return RelayGroupPostgresOptions;
+        })();
+
+        opts.RelayGroupRabbitOptions = (function() {
+
+            /**
+             * Properties of a RelayGroupRabbitOptions.
+             * @memberof protos.opts
+             * @interface IRelayGroupRabbitOptions
+             * @property {protos.args.IRabbitConn|null} [_conn] RelayGroupRabbitOptions _conn
+             * @property {protos.args.IRabbitReadArgs|null} [args] RelayGroupRabbitOptions args
+             */
+
+            /**
+             * Constructs a new RelayGroupRabbitOptions.
+             * @memberof protos.opts
+             * @classdesc Represents a RelayGroupRabbitOptions.
+             * @implements IRelayGroupRabbitOptions
+             * @constructor
+             * @param {protos.opts.IRelayGroupRabbitOptions=} [properties] Properties to set
+             */
+            function RelayGroupRabbitOptions(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * RelayGroupRabbitOptions _conn.
+             * @member {protos.args.IRabbitConn|null|undefined} _conn
+             * @memberof protos.opts.RelayGroupRabbitOptions
+             * @instance
+             */
+            RelayGroupRabbitOptions.prototype._conn = null;
+
+            /**
+             * RelayGroupRabbitOptions args.
+             * @member {protos.args.IRabbitReadArgs|null|undefined} args
+             * @memberof protos.opts.RelayGroupRabbitOptions
+             * @instance
+             */
+            RelayGroupRabbitOptions.prototype.args = null;
+
+            /**
+             * Creates a new RelayGroupRabbitOptions instance using the specified properties.
+             * @function create
+             * @memberof protos.opts.RelayGroupRabbitOptions
+             * @static
+             * @param {protos.opts.IRelayGroupRabbitOptions=} [properties] Properties to set
+             * @returns {protos.opts.RelayGroupRabbitOptions} RelayGroupRabbitOptions instance
+             */
+            RelayGroupRabbitOptions.create = function create(properties) {
+                return new RelayGroupRabbitOptions(properties);
+            };
+
+            /**
+             * Encodes the specified RelayGroupRabbitOptions message. Does not implicitly {@link protos.opts.RelayGroupRabbitOptions.verify|verify} messages.
+             * @function encode
+             * @memberof protos.opts.RelayGroupRabbitOptions
+             * @static
+             * @param {protos.opts.IRelayGroupRabbitOptions} message RelayGroupRabbitOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            RelayGroupRabbitOptions.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
+                    $root.protos.args.RabbitConn.encode(message._conn, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                if (message.args != null && Object.hasOwnProperty.call(message, "args"))
+                    $root.protos.args.RabbitReadArgs.encode(message.args, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                return writer;
+            };
+
+            /**
+             * Encodes the specified RelayGroupRabbitOptions message, length delimited. Does not implicitly {@link protos.opts.RelayGroupRabbitOptions.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.opts.RelayGroupRabbitOptions
+             * @static
+             * @param {protos.opts.IRelayGroupRabbitOptions} message RelayGroupRabbitOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            RelayGroupRabbitOptions.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a RelayGroupRabbitOptions message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.opts.RelayGroupRabbitOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.opts.RelayGroupRabbitOptions} RelayGroupRabbitOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            RelayGroupRabbitOptions.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.RelayGroupRabbitOptions();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message._conn = $root.protos.args.RabbitConn.decode(reader, reader.uint32());
+                        break;
+                    case 2:
+                        message.args = $root.protos.args.RabbitReadArgs.decode(reader, reader.uint32());
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a RelayGroupRabbitOptions message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.opts.RelayGroupRabbitOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.opts.RelayGroupRabbitOptions} RelayGroupRabbitOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            RelayGroupRabbitOptions.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a RelayGroupRabbitOptions message.
+             * @function verify
+             * @memberof protos.opts.RelayGroupRabbitOptions
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            RelayGroupRabbitOptions.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message._conn != null && message.hasOwnProperty("_conn")) {
+                    var error = $root.protos.args.RabbitConn.verify(message._conn);
+                    if (error)
+                        return "_conn." + error;
+                }
+                if (message.args != null && message.hasOwnProperty("args")) {
+                    var error = $root.protos.args.RabbitReadArgs.verify(message.args);
+                    if (error)
+                        return "args." + error;
+                }
+                return null;
+            };
+
+            /**
+             * Creates a RelayGroupRabbitOptions message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.opts.RelayGroupRabbitOptions
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.opts.RelayGroupRabbitOptions} RelayGroupRabbitOptions
+             */
+            RelayGroupRabbitOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.RelayGroupRabbitOptions)
+                    return object;
+                var message = new $root.protos.opts.RelayGroupRabbitOptions();
+                if (object._conn != null) {
+                    if (typeof object._conn !== "object")
+                        throw TypeError(".protos.opts.RelayGroupRabbitOptions._conn: object expected");
+                    message._conn = $root.protos.args.RabbitConn.fromObject(object._conn);
+                }
+                if (object.args != null) {
+                    if (typeof object.args !== "object")
+                        throw TypeError(".protos.opts.RelayGroupRabbitOptions.args: object expected");
+                    message.args = $root.protos.args.RabbitReadArgs.fromObject(object.args);
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a RelayGroupRabbitOptions message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.opts.RelayGroupRabbitOptions
+             * @static
+             * @param {protos.opts.RelayGroupRabbitOptions} message RelayGroupRabbitOptions
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            RelayGroupRabbitOptions.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    object._conn = null;
+                    object.args = null;
+                }
+                if (message._conn != null && message.hasOwnProperty("_conn"))
+                    object._conn = $root.protos.args.RabbitConn.toObject(message._conn, options);
+                if (message.args != null && message.hasOwnProperty("args"))
+                    object.args = $root.protos.args.RabbitReadArgs.toObject(message.args, options);
+                return object;
+            };
+
+            /**
+             * Converts this RelayGroupRabbitOptions to JSON.
+             * @function toJSON
+             * @memberof protos.opts.RelayGroupRabbitOptions
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            RelayGroupRabbitOptions.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return RelayGroupRabbitOptions;
+        })();
+
+        opts.RelayGroupRedisPubSubOptions = (function() {
+
+            /**
+             * Properties of a RelayGroupRedisPubSubOptions.
+             * @memberof protos.opts
+             * @interface IRelayGroupRedisPubSubOptions
+             * @property {protos.args.IRedisPubSubConn|null} [_conn] RelayGroupRedisPubSubOptions _conn
+             * @property {protos.args.IRedisPubSubReadArgs|null} [args] RelayGroupRedisPubSubOptions args
+             */
+
+            /**
+             * Constructs a new RelayGroupRedisPubSubOptions.
+             * @memberof protos.opts
+             * @classdesc Represents a RelayGroupRedisPubSubOptions.
+             * @implements IRelayGroupRedisPubSubOptions
+             * @constructor
+             * @param {protos.opts.IRelayGroupRedisPubSubOptions=} [properties] Properties to set
+             */
+            function RelayGroupRedisPubSubOptions(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * RelayGroupRedisPubSubOptions _conn.
+             * @member {protos.args.IRedisPubSubConn|null|undefined} _conn
+             * @memberof protos.opts.RelayGroupRedisPubSubOptions
+             * @instance
+             */
+            RelayGroupRedisPubSubOptions.prototype._conn = null;
+
+            /**
+             * RelayGroupRedisPubSubOptions args.
+             * @member {protos.args.IRedisPubSubReadArgs|null|undefined} args
+             * @memberof protos.opts.RelayGroupRedisPubSubOptions
+             * @instance
+             */
+            RelayGroupRedisPubSubOptions.prototype.args = null;
+
+            /**
+             * Creates a new RelayGroupRedisPubSubOptions instance using the specified properties.
+             * @function create
+             * @memberof protos.opts.RelayGroupRedisPubSubOptions
+             * @static
+             * @param {protos.opts.IRelayGroupRedisPubSubOptions=} [properties] Properties to set
+             * @returns {protos.opts.RelayGroupRedisPubSubOptions} RelayGroupRedisPubSubOptions instance
+             */
+            RelayGroupRedisPubSubOptions.create = function create(properties) {
+                return new RelayGroupRedisPubSubOptions(properties);
+            };
+
+            /**
+             * Encodes the specified RelayGroupRedisPubSubOptions message. Does not implicitly {@link protos.opts.RelayGroupRedisPubSubOptions.verify|verify} messages.
+             * @function encode
+             * @memberof protos.opts.RelayGroupRedisPubSubOptions
+             * @static
+             * @param {protos.opts.IRelayGroupRedisPubSubOptions} message RelayGroupRedisPubSubOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            RelayGroupRedisPubSubOptions.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
+                    $root.protos.args.RedisPubSubConn.encode(message._conn, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                if (message.args != null && Object.hasOwnProperty.call(message, "args"))
+                    $root.protos.args.RedisPubSubReadArgs.encode(message.args, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                return writer;
+            };
+
+            /**
+             * Encodes the specified RelayGroupRedisPubSubOptions message, length delimited. Does not implicitly {@link protos.opts.RelayGroupRedisPubSubOptions.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.opts.RelayGroupRedisPubSubOptions
+             * @static
+             * @param {protos.opts.IRelayGroupRedisPubSubOptions} message RelayGroupRedisPubSubOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            RelayGroupRedisPubSubOptions.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a RelayGroupRedisPubSubOptions message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.opts.RelayGroupRedisPubSubOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.opts.RelayGroupRedisPubSubOptions} RelayGroupRedisPubSubOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            RelayGroupRedisPubSubOptions.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.RelayGroupRedisPubSubOptions();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message._conn = $root.protos.args.RedisPubSubConn.decode(reader, reader.uint32());
+                        break;
+                    case 2:
+                        message.args = $root.protos.args.RedisPubSubReadArgs.decode(reader, reader.uint32());
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a RelayGroupRedisPubSubOptions message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.opts.RelayGroupRedisPubSubOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.opts.RelayGroupRedisPubSubOptions} RelayGroupRedisPubSubOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            RelayGroupRedisPubSubOptions.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a RelayGroupRedisPubSubOptions message.
+             * @function verify
+             * @memberof protos.opts.RelayGroupRedisPubSubOptions
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            RelayGroupRedisPubSubOptions.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message._conn != null && message.hasOwnProperty("_conn")) {
+                    var error = $root.protos.args.RedisPubSubConn.verify(message._conn);
+                    if (error)
+                        return "_conn." + error;
+                }
+                if (message.args != null && message.hasOwnProperty("args")) {
+                    var error = $root.protos.args.RedisPubSubReadArgs.verify(message.args);
+                    if (error)
+                        return "args." + error;
+                }
+                return null;
+            };
+
+            /**
+             * Creates a RelayGroupRedisPubSubOptions message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.opts.RelayGroupRedisPubSubOptions
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.opts.RelayGroupRedisPubSubOptions} RelayGroupRedisPubSubOptions
+             */
+            RelayGroupRedisPubSubOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.RelayGroupRedisPubSubOptions)
+                    return object;
+                var message = new $root.protos.opts.RelayGroupRedisPubSubOptions();
+                if (object._conn != null) {
+                    if (typeof object._conn !== "object")
+                        throw TypeError(".protos.opts.RelayGroupRedisPubSubOptions._conn: object expected");
+                    message._conn = $root.protos.args.RedisPubSubConn.fromObject(object._conn);
+                }
+                if (object.args != null) {
+                    if (typeof object.args !== "object")
+                        throw TypeError(".protos.opts.RelayGroupRedisPubSubOptions.args: object expected");
+                    message.args = $root.protos.args.RedisPubSubReadArgs.fromObject(object.args);
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a RelayGroupRedisPubSubOptions message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.opts.RelayGroupRedisPubSubOptions
+             * @static
+             * @param {protos.opts.RelayGroupRedisPubSubOptions} message RelayGroupRedisPubSubOptions
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            RelayGroupRedisPubSubOptions.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    object._conn = null;
+                    object.args = null;
+                }
+                if (message._conn != null && message.hasOwnProperty("_conn"))
+                    object._conn = $root.protos.args.RedisPubSubConn.toObject(message._conn, options);
+                if (message.args != null && message.hasOwnProperty("args"))
+                    object.args = $root.protos.args.RedisPubSubReadArgs.toObject(message.args, options);
+                return object;
+            };
+
+            /**
+             * Converts this RelayGroupRedisPubSubOptions to JSON.
+             * @function toJSON
+             * @memberof protos.opts.RelayGroupRedisPubSubOptions
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            RelayGroupRedisPubSubOptions.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return RelayGroupRedisPubSubOptions;
+        })();
+
+        opts.RelayGroupRedisStreamsOptions = (function() {
+
+            /**
+             * Properties of a RelayGroupRedisStreamsOptions.
+             * @memberof protos.opts
+             * @interface IRelayGroupRedisStreamsOptions
+             * @property {protos.args.IRedisStreamsConn|null} [_conn] RelayGroupRedisStreamsOptions _conn
+             * @property {protos.args.IRedisStreamsReadArgs|null} [args] RelayGroupRedisStreamsOptions args
+             */
+
+            /**
+             * Constructs a new RelayGroupRedisStreamsOptions.
+             * @memberof protos.opts
+             * @classdesc Represents a RelayGroupRedisStreamsOptions.
+             * @implements IRelayGroupRedisStreamsOptions
+             * @constructor
+             * @param {protos.opts.IRelayGroupRedisStreamsOptions=} [properties] Properties to set
+             */
+            function RelayGroupRedisStreamsOptions(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * RelayGroupRedisStreamsOptions _conn.
+             * @member {protos.args.IRedisStreamsConn|null|undefined} _conn
+             * @memberof protos.opts.RelayGroupRedisStreamsOptions
+             * @instance
+             */
+            RelayGroupRedisStreamsOptions.prototype._conn = null;
+
+            /**
+             * RelayGroupRedisStreamsOptions args.
+             * @member {protos.args.IRedisStreamsReadArgs|null|undefined} args
+             * @memberof protos.opts.RelayGroupRedisStreamsOptions
+             * @instance
+             */
+            RelayGroupRedisStreamsOptions.prototype.args = null;
+
+            /**
+             * Creates a new RelayGroupRedisStreamsOptions instance using the specified properties.
+             * @function create
+             * @memberof protos.opts.RelayGroupRedisStreamsOptions
+             * @static
+             * @param {protos.opts.IRelayGroupRedisStreamsOptions=} [properties] Properties to set
+             * @returns {protos.opts.RelayGroupRedisStreamsOptions} RelayGroupRedisStreamsOptions instance
+             */
+            RelayGroupRedisStreamsOptions.create = function create(properties) {
+                return new RelayGroupRedisStreamsOptions(properties);
+            };
+
+            /**
+             * Encodes the specified RelayGroupRedisStreamsOptions message. Does not implicitly {@link protos.opts.RelayGroupRedisStreamsOptions.verify|verify} messages.
+             * @function encode
+             * @memberof protos.opts.RelayGroupRedisStreamsOptions
+             * @static
+             * @param {protos.opts.IRelayGroupRedisStreamsOptions} message RelayGroupRedisStreamsOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            RelayGroupRedisStreamsOptions.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
+                    $root.protos.args.RedisStreamsConn.encode(message._conn, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                if (message.args != null && Object.hasOwnProperty.call(message, "args"))
+                    $root.protos.args.RedisStreamsReadArgs.encode(message.args, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                return writer;
+            };
+
+            /**
+             * Encodes the specified RelayGroupRedisStreamsOptions message, length delimited. Does not implicitly {@link protos.opts.RelayGroupRedisStreamsOptions.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.opts.RelayGroupRedisStreamsOptions
+             * @static
+             * @param {protos.opts.IRelayGroupRedisStreamsOptions} message RelayGroupRedisStreamsOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            RelayGroupRedisStreamsOptions.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a RelayGroupRedisStreamsOptions message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.opts.RelayGroupRedisStreamsOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.opts.RelayGroupRedisStreamsOptions} RelayGroupRedisStreamsOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            RelayGroupRedisStreamsOptions.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.RelayGroupRedisStreamsOptions();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message._conn = $root.protos.args.RedisStreamsConn.decode(reader, reader.uint32());
+                        break;
+                    case 2:
+                        message.args = $root.protos.args.RedisStreamsReadArgs.decode(reader, reader.uint32());
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a RelayGroupRedisStreamsOptions message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.opts.RelayGroupRedisStreamsOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.opts.RelayGroupRedisStreamsOptions} RelayGroupRedisStreamsOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            RelayGroupRedisStreamsOptions.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a RelayGroupRedisStreamsOptions message.
+             * @function verify
+             * @memberof protos.opts.RelayGroupRedisStreamsOptions
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            RelayGroupRedisStreamsOptions.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message._conn != null && message.hasOwnProperty("_conn")) {
+                    var error = $root.protos.args.RedisStreamsConn.verify(message._conn);
+                    if (error)
+                        return "_conn." + error;
+                }
+                if (message.args != null && message.hasOwnProperty("args")) {
+                    var error = $root.protos.args.RedisStreamsReadArgs.verify(message.args);
+                    if (error)
+                        return "args." + error;
+                }
+                return null;
+            };
+
+            /**
+             * Creates a RelayGroupRedisStreamsOptions message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.opts.RelayGroupRedisStreamsOptions
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.opts.RelayGroupRedisStreamsOptions} RelayGroupRedisStreamsOptions
+             */
+            RelayGroupRedisStreamsOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.RelayGroupRedisStreamsOptions)
+                    return object;
+                var message = new $root.protos.opts.RelayGroupRedisStreamsOptions();
+                if (object._conn != null) {
+                    if (typeof object._conn !== "object")
+                        throw TypeError(".protos.opts.RelayGroupRedisStreamsOptions._conn: object expected");
+                    message._conn = $root.protos.args.RedisStreamsConn.fromObject(object._conn);
+                }
+                if (object.args != null) {
+                    if (typeof object.args !== "object")
+                        throw TypeError(".protos.opts.RelayGroupRedisStreamsOptions.args: object expected");
+                    message.args = $root.protos.args.RedisStreamsReadArgs.fromObject(object.args);
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a RelayGroupRedisStreamsOptions message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.opts.RelayGroupRedisStreamsOptions
+             * @static
+             * @param {protos.opts.RelayGroupRedisStreamsOptions} message RelayGroupRedisStreamsOptions
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            RelayGroupRedisStreamsOptions.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    object._conn = null;
+                    object.args = null;
+                }
+                if (message._conn != null && message.hasOwnProperty("_conn"))
+                    object._conn = $root.protos.args.RedisStreamsConn.toObject(message._conn, options);
+                if (message.args != null && message.hasOwnProperty("args"))
+                    object.args = $root.protos.args.RedisStreamsReadArgs.toObject(message.args, options);
+                return object;
+            };
+
+            /**
+             * Converts this RelayGroupRedisStreamsOptions to JSON.
+             * @function toJSON
+             * @memberof protos.opts.RelayGroupRedisStreamsOptions
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            RelayGroupRedisStreamsOptions.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return RelayGroupRedisStreamsOptions;
+        })();
+
+        opts.RelayGroupAzureServiceBusOptions = (function() {
+
+            /**
+             * Properties of a RelayGroupAzureServiceBusOptions.
+             * @memberof protos.opts
+             * @interface IRelayGroupAzureServiceBusOptions
+             * @property {protos.args.IAzureServiceBusConn|null} [_conn] RelayGroupAzureServiceBusOptions _conn
+             * @property {protos.args.IAzureServiceBusReadArgs|null} [args] RelayGroupAzureServiceBusOptions args
+             */
+
+            /**
+             * Constructs a new RelayGroupAzureServiceBusOptions.
+             * @memberof protos.opts
+             * @classdesc Represents a RelayGroupAzureServiceBusOptions.
+             * @implements IRelayGroupAzureServiceBusOptions
+             * @constructor
+             * @param {protos.opts.IRelayGroupAzureServiceBusOptions=} [properties] Properties to set
+             */
+            function RelayGroupAzureServiceBusOptions(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * RelayGroupAzureServiceBusOptions _conn.
+             * @member {protos.args.IAzureServiceBusConn|null|undefined} _conn
+             * @memberof protos.opts.RelayGroupAzureServiceBusOptions
+             * @instance
+             */
+            RelayGroupAzureServiceBusOptions.prototype._conn = null;
+
+            /**
+             * RelayGroupAzureServiceBusOptions args.
+             * @member {protos.args.IAzureServiceBusReadArgs|null|undefined} args
+             * @memberof protos.opts.RelayGroupAzureServiceBusOptions
+             * @instance
+             */
+            RelayGroupAzureServiceBusOptions.prototype.args = null;
+
+            /**
+             * Creates a new RelayGroupAzureServiceBusOptions instance using the specified properties.
+             * @function create
+             * @memberof protos.opts.RelayGroupAzureServiceBusOptions
+             * @static
+             * @param {protos.opts.IRelayGroupAzureServiceBusOptions=} [properties] Properties to set
+             * @returns {protos.opts.RelayGroupAzureServiceBusOptions} RelayGroupAzureServiceBusOptions instance
+             */
+            RelayGroupAzureServiceBusOptions.create = function create(properties) {
+                return new RelayGroupAzureServiceBusOptions(properties);
+            };
+
+            /**
+             * Encodes the specified RelayGroupAzureServiceBusOptions message. Does not implicitly {@link protos.opts.RelayGroupAzureServiceBusOptions.verify|verify} messages.
+             * @function encode
+             * @memberof protos.opts.RelayGroupAzureServiceBusOptions
+             * @static
+             * @param {protos.opts.IRelayGroupAzureServiceBusOptions} message RelayGroupAzureServiceBusOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            RelayGroupAzureServiceBusOptions.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
+                    $root.protos.args.AzureServiceBusConn.encode(message._conn, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                if (message.args != null && Object.hasOwnProperty.call(message, "args"))
+                    $root.protos.args.AzureServiceBusReadArgs.encode(message.args, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                return writer;
+            };
+
+            /**
+             * Encodes the specified RelayGroupAzureServiceBusOptions message, length delimited. Does not implicitly {@link protos.opts.RelayGroupAzureServiceBusOptions.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.opts.RelayGroupAzureServiceBusOptions
+             * @static
+             * @param {protos.opts.IRelayGroupAzureServiceBusOptions} message RelayGroupAzureServiceBusOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            RelayGroupAzureServiceBusOptions.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a RelayGroupAzureServiceBusOptions message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.opts.RelayGroupAzureServiceBusOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.opts.RelayGroupAzureServiceBusOptions} RelayGroupAzureServiceBusOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            RelayGroupAzureServiceBusOptions.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.RelayGroupAzureServiceBusOptions();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message._conn = $root.protos.args.AzureServiceBusConn.decode(reader, reader.uint32());
+                        break;
+                    case 2:
+                        message.args = $root.protos.args.AzureServiceBusReadArgs.decode(reader, reader.uint32());
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a RelayGroupAzureServiceBusOptions message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.opts.RelayGroupAzureServiceBusOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.opts.RelayGroupAzureServiceBusOptions} RelayGroupAzureServiceBusOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            RelayGroupAzureServiceBusOptions.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a RelayGroupAzureServiceBusOptions message.
+             * @function verify
+             * @memberof protos.opts.RelayGroupAzureServiceBusOptions
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            RelayGroupAzureServiceBusOptions.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message._conn != null && message.hasOwnProperty("_conn")) {
+                    var error = $root.protos.args.AzureServiceBusConn.verify(message._conn);
+                    if (error)
+                        return "_conn." + error;
+                }
+                if (message.args != null && message.hasOwnProperty("args")) {
+                    var error = $root.protos.args.AzureServiceBusReadArgs.verify(message.args);
+                    if (error)
+                        return "args." + error;
+                }
+                return null;
+            };
+
+            /**
+             * Creates a RelayGroupAzureServiceBusOptions message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.opts.RelayGroupAzureServiceBusOptions
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.opts.RelayGroupAzureServiceBusOptions} RelayGroupAzureServiceBusOptions
+             */
+            RelayGroupAzureServiceBusOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.RelayGroupAzureServiceBusOptions)
+                    return object;
+                var message = new $root.protos.opts.RelayGroupAzureServiceBusOptions();
+                if (object._conn != null) {
+                    if (typeof object._conn !== "object")
+                        throw TypeError(".protos.opts.RelayGroupAzureServiceBusOptions._conn: object expected");
+                    message._conn = $root.protos.args.AzureServiceBusConn.fromObject(object._conn);
+                }
+                if (object.args != null) {
+                    if (typeof object.args !== "object")
+                        throw TypeError(".protos.opts.RelayGroupAzureServiceBusOptions.args: object expected");
+                    message.args = $root.protos.args.AzureServiceBusReadArgs.fromObject(object.args);
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a RelayGroupAzureServiceBusOptions message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.opts.RelayGroupAzureServiceBusOptions
+             * @static
+             * @param {protos.opts.RelayGroupAzureServiceBusOptions} message RelayGroupAzureServiceBusOptions
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            RelayGroupAzureServiceBusOptions.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    object._conn = null;
+                    object.args = null;
+                }
+                if (message._conn != null && message.hasOwnProperty("_conn"))
+                    object._conn = $root.protos.args.AzureServiceBusConn.toObject(message._conn, options);
+                if (message.args != null && message.hasOwnProperty("args"))
+                    object.args = $root.protos.args.AzureServiceBusReadArgs.toObject(message.args, options);
+                return object;
+            };
+
+            /**
+             * Converts this RelayGroupAzureServiceBusOptions to JSON.
+             * @function toJSON
+             * @memberof protos.opts.RelayGroupAzureServiceBusOptions
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            RelayGroupAzureServiceBusOptions.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return RelayGroupAzureServiceBusOptions;
+        })();
+
+        opts.RelayGroupMQTTOptions = (function() {
+
+            /**
+             * Properties of a RelayGroupMQTTOptions.
+             * @memberof protos.opts
+             * @interface IRelayGroupMQTTOptions
+             * @property {protos.args.IMQTTConn|null} [_conn] RelayGroupMQTTOptions _conn
+             * @property {protos.args.IMQTTReadArgs|null} [args] RelayGroupMQTTOptions args
+             */
+
+            /**
+             * Constructs a new RelayGroupMQTTOptions.
+             * @memberof protos.opts
+             * @classdesc Represents a RelayGroupMQTTOptions.
+             * @implements IRelayGroupMQTTOptions
+             * @constructor
+             * @param {protos.opts.IRelayGroupMQTTOptions=} [properties] Properties to set
+             */
+            function RelayGroupMQTTOptions(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * RelayGroupMQTTOptions _conn.
+             * @member {protos.args.IMQTTConn|null|undefined} _conn
+             * @memberof protos.opts.RelayGroupMQTTOptions
+             * @instance
+             */
+            RelayGroupMQTTOptions.prototype._conn = null;
+
+            /**
+             * RelayGroupMQTTOptions args.
+             * @member {protos.args.IMQTTReadArgs|null|undefined} args
+             * @memberof protos.opts.RelayGroupMQTTOptions
+             * @instance
+             */
+            RelayGroupMQTTOptions.prototype.args = null;
+
+            /**
+             * Creates a new RelayGroupMQTTOptions instance using the specified properties.
+             * @function create
+             * @memberof protos.opts.RelayGroupMQTTOptions
+             * @static
+             * @param {protos.opts.IRelayGroupMQTTOptions=} [properties] Properties to set
+             * @returns {protos.opts.RelayGroupMQTTOptions} RelayGroupMQTTOptions instance
+             */
+            RelayGroupMQTTOptions.create = function create(properties) {
+                return new RelayGroupMQTTOptions(properties);
+            };
+
+            /**
+             * Encodes the specified RelayGroupMQTTOptions message. Does not implicitly {@link protos.opts.RelayGroupMQTTOptions.verify|verify} messages.
+             * @function encode
+             * @memberof protos.opts.RelayGroupMQTTOptions
+             * @static
+             * @param {protos.opts.IRelayGroupMQTTOptions} message RelayGroupMQTTOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            RelayGroupMQTTOptions.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
+                    $root.protos.args.MQTTConn.encode(message._conn, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                if (message.args != null && Object.hasOwnProperty.call(message, "args"))
+                    $root.protos.args.MQTTReadArgs.encode(message.args, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                return writer;
+            };
+
+            /**
+             * Encodes the specified RelayGroupMQTTOptions message, length delimited. Does not implicitly {@link protos.opts.RelayGroupMQTTOptions.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.opts.RelayGroupMQTTOptions
+             * @static
+             * @param {protos.opts.IRelayGroupMQTTOptions} message RelayGroupMQTTOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            RelayGroupMQTTOptions.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a RelayGroupMQTTOptions message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.opts.RelayGroupMQTTOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.opts.RelayGroupMQTTOptions} RelayGroupMQTTOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            RelayGroupMQTTOptions.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.RelayGroupMQTTOptions();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message._conn = $root.protos.args.MQTTConn.decode(reader, reader.uint32());
+                        break;
+                    case 2:
+                        message.args = $root.protos.args.MQTTReadArgs.decode(reader, reader.uint32());
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a RelayGroupMQTTOptions message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.opts.RelayGroupMQTTOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.opts.RelayGroupMQTTOptions} RelayGroupMQTTOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            RelayGroupMQTTOptions.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a RelayGroupMQTTOptions message.
+             * @function verify
+             * @memberof protos.opts.RelayGroupMQTTOptions
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            RelayGroupMQTTOptions.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message._conn != null && message.hasOwnProperty("_conn")) {
+                    var error = $root.protos.args.MQTTConn.verify(message._conn);
+                    if (error)
+                        return "_conn." + error;
+                }
+                if (message.args != null && message.hasOwnProperty("args")) {
+                    var error = $root.protos.args.MQTTReadArgs.verify(message.args);
+                    if (error)
+                        return "args." + error;
+                }
+                return null;
+            };
+
+            /**
+             * Creates a RelayGroupMQTTOptions message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.opts.RelayGroupMQTTOptions
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.opts.RelayGroupMQTTOptions} RelayGroupMQTTOptions
+             */
+            RelayGroupMQTTOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.RelayGroupMQTTOptions)
+                    return object;
+                var message = new $root.protos.opts.RelayGroupMQTTOptions();
+                if (object._conn != null) {
+                    if (typeof object._conn !== "object")
+                        throw TypeError(".protos.opts.RelayGroupMQTTOptions._conn: object expected");
+                    message._conn = $root.protos.args.MQTTConn.fromObject(object._conn);
+                }
+                if (object.args != null) {
+                    if (typeof object.args !== "object")
+                        throw TypeError(".protos.opts.RelayGroupMQTTOptions.args: object expected");
+                    message.args = $root.protos.args.MQTTReadArgs.fromObject(object.args);
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a RelayGroupMQTTOptions message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.opts.RelayGroupMQTTOptions
+             * @static
+             * @param {protos.opts.RelayGroupMQTTOptions} message RelayGroupMQTTOptions
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            RelayGroupMQTTOptions.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    object._conn = null;
+                    object.args = null;
+                }
+                if (message._conn != null && message.hasOwnProperty("_conn"))
+                    object._conn = $root.protos.args.MQTTConn.toObject(message._conn, options);
+                if (message.args != null && message.hasOwnProperty("args"))
+                    object.args = $root.protos.args.MQTTReadArgs.toObject(message.args, options);
+                return object;
+            };
+
+            /**
+             * Converts this RelayGroupMQTTOptions to JSON.
+             * @function toJSON
+             * @memberof protos.opts.RelayGroupMQTTOptions
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            RelayGroupMQTTOptions.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return RelayGroupMQTTOptions;
+        })();
+
+        opts.RelayGroupGCPPubSubOptions = (function() {
+
+            /**
+             * Properties of a RelayGroupGCPPubSubOptions.
+             * @memberof protos.opts
+             * @interface IRelayGroupGCPPubSubOptions
+             * @property {protos.args.IGCPPubSubConn|null} [_conn] RelayGroupGCPPubSubOptions _conn
+             * @property {protos.args.IGCPPubSubReadArgs|null} [args] RelayGroupGCPPubSubOptions args
+             */
+
+            /**
+             * Constructs a new RelayGroupGCPPubSubOptions.
+             * @memberof protos.opts
+             * @classdesc Represents a RelayGroupGCPPubSubOptions.
+             * @implements IRelayGroupGCPPubSubOptions
+             * @constructor
+             * @param {protos.opts.IRelayGroupGCPPubSubOptions=} [properties] Properties to set
+             */
+            function RelayGroupGCPPubSubOptions(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * RelayGroupGCPPubSubOptions _conn.
+             * @member {protos.args.IGCPPubSubConn|null|undefined} _conn
+             * @memberof protos.opts.RelayGroupGCPPubSubOptions
+             * @instance
+             */
+            RelayGroupGCPPubSubOptions.prototype._conn = null;
+
+            /**
+             * RelayGroupGCPPubSubOptions args.
+             * @member {protos.args.IGCPPubSubReadArgs|null|undefined} args
+             * @memberof protos.opts.RelayGroupGCPPubSubOptions
+             * @instance
+             */
+            RelayGroupGCPPubSubOptions.prototype.args = null;
+
+            /**
+             * Creates a new RelayGroupGCPPubSubOptions instance using the specified properties.
+             * @function create
+             * @memberof protos.opts.RelayGroupGCPPubSubOptions
+             * @static
+             * @param {protos.opts.IRelayGroupGCPPubSubOptions=} [properties] Properties to set
+             * @returns {protos.opts.RelayGroupGCPPubSubOptions} RelayGroupGCPPubSubOptions instance
+             */
+            RelayGroupGCPPubSubOptions.create = function create(properties) {
+                return new RelayGroupGCPPubSubOptions(properties);
+            };
+
+            /**
+             * Encodes the specified RelayGroupGCPPubSubOptions message. Does not implicitly {@link protos.opts.RelayGroupGCPPubSubOptions.verify|verify} messages.
+             * @function encode
+             * @memberof protos.opts.RelayGroupGCPPubSubOptions
+             * @static
+             * @param {protos.opts.IRelayGroupGCPPubSubOptions} message RelayGroupGCPPubSubOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            RelayGroupGCPPubSubOptions.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
+                    $root.protos.args.GCPPubSubConn.encode(message._conn, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                if (message.args != null && Object.hasOwnProperty.call(message, "args"))
+                    $root.protos.args.GCPPubSubReadArgs.encode(message.args, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                return writer;
+            };
+
+            /**
+             * Encodes the specified RelayGroupGCPPubSubOptions message, length delimited. Does not implicitly {@link protos.opts.RelayGroupGCPPubSubOptions.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.opts.RelayGroupGCPPubSubOptions
+             * @static
+             * @param {protos.opts.IRelayGroupGCPPubSubOptions} message RelayGroupGCPPubSubOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            RelayGroupGCPPubSubOptions.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a RelayGroupGCPPubSubOptions message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.opts.RelayGroupGCPPubSubOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.opts.RelayGroupGCPPubSubOptions} RelayGroupGCPPubSubOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            RelayGroupGCPPubSubOptions.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.RelayGroupGCPPubSubOptions();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message._conn = $root.protos.args.GCPPubSubConn.decode(reader, reader.uint32());
+                        break;
+                    case 2:
+                        message.args = $root.protos.args.GCPPubSubReadArgs.decode(reader, reader.uint32());
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a RelayGroupGCPPubSubOptions message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.opts.RelayGroupGCPPubSubOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.opts.RelayGroupGCPPubSubOptions} RelayGroupGCPPubSubOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            RelayGroupGCPPubSubOptions.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a RelayGroupGCPPubSubOptions message.
+             * @function verify
+             * @memberof protos.opts.RelayGroupGCPPubSubOptions
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            RelayGroupGCPPubSubOptions.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message._conn != null && message.hasOwnProperty("_conn")) {
+                    var error = $root.protos.args.GCPPubSubConn.verify(message._conn);
+                    if (error)
+                        return "_conn." + error;
+                }
+                if (message.args != null && message.hasOwnProperty("args")) {
+                    var error = $root.protos.args.GCPPubSubReadArgs.verify(message.args);
+                    if (error)
+                        return "args." + error;
+                }
+                return null;
+            };
+
+            /**
+             * Creates a RelayGroupGCPPubSubOptions message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.opts.RelayGroupGCPPubSubOptions
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.opts.RelayGroupGCPPubSubOptions} RelayGroupGCPPubSubOptions
+             */
+            RelayGroupGCPPubSubOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.RelayGroupGCPPubSubOptions)
+                    return object;
+                var message = new $root.protos.opts.RelayGroupGCPPubSubOptions();
+                if (object._conn != null) {
+                    if (typeof object._conn !== "object")
+                        throw TypeError(".protos.opts.RelayGroupGCPPubSubOptions._conn: object expected");
+                    message._conn = $root.protos.args.GCPPubSubConn.fromObject(object._conn);
+                }
+                if (object.args != null) {
+                    if (typeof object.args !== "object")
+                        throw TypeError(".protos.opts.RelayGroupGCPPubSubOptions.args: object expected");
+                    message.args = $root.protos.args.GCPPubSubReadArgs.fromObject(object.args);
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a RelayGroupGCPPubSubOptions message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.opts.RelayGroupGCPPubSubOptions
+             * @static
+             * @param {protos.opts.RelayGroupGCPPubSubOptions} message RelayGroupGCPPubSubOptions
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            RelayGroupGCPPubSubOptions.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    object._conn = null;
+                    object.args = null;
+                }
+                if (message._conn != null && message.hasOwnProperty("_conn"))
+                    object._conn = $root.protos.args.GCPPubSubConn.toObject(message._conn, options);
+                if (message.args != null && message.hasOwnProperty("args"))
+                    object.args = $root.protos.args.GCPPubSubReadArgs.toObject(message.args, options);
+                return object;
+            };
+
+            /**
+             * Converts this RelayGroupGCPPubSubOptions to JSON.
+             * @function toJSON
+             * @memberof protos.opts.RelayGroupGCPPubSubOptions
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            RelayGroupGCPPubSubOptions.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return RelayGroupGCPPubSubOptions;
+        })();
+
+        opts.RelayGroupKubeMQQueueOptions = (function() {
+
+            /**
+             * Properties of a RelayGroupKubeMQQueueOptions.
+             * @memberof protos.opts
+             * @interface IRelayGroupKubeMQQueueOptions
+             * @property {protos.args.IKubeMQQueueConn|null} [_conn] RelayGroupKubeMQQueueOptions _conn
+             * @property {protos.args.IKubeMQQueueReadArgs|null} [args] RelayGroupKubeMQQueueOptions args
+             */
+
+            /**
+             * Constructs a new RelayGroupKubeMQQueueOptions.
+             * @memberof protos.opts
+             * @classdesc Represents a RelayGroupKubeMQQueueOptions.
+             * @implements IRelayGroupKubeMQQueueOptions
+             * @constructor
+             * @param {protos.opts.IRelayGroupKubeMQQueueOptions=} [properties] Properties to set
+             */
+            function RelayGroupKubeMQQueueOptions(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * RelayGroupKubeMQQueueOptions _conn.
+             * @member {protos.args.IKubeMQQueueConn|null|undefined} _conn
+             * @memberof protos.opts.RelayGroupKubeMQQueueOptions
+             * @instance
+             */
+            RelayGroupKubeMQQueueOptions.prototype._conn = null;
+
+            /**
+             * RelayGroupKubeMQQueueOptions args.
+             * @member {protos.args.IKubeMQQueueReadArgs|null|undefined} args
+             * @memberof protos.opts.RelayGroupKubeMQQueueOptions
+             * @instance
+             */
+            RelayGroupKubeMQQueueOptions.prototype.args = null;
+
+            /**
+             * Creates a new RelayGroupKubeMQQueueOptions instance using the specified properties.
+             * @function create
+             * @memberof protos.opts.RelayGroupKubeMQQueueOptions
+             * @static
+             * @param {protos.opts.IRelayGroupKubeMQQueueOptions=} [properties] Properties to set
+             * @returns {protos.opts.RelayGroupKubeMQQueueOptions} RelayGroupKubeMQQueueOptions instance
+             */
+            RelayGroupKubeMQQueueOptions.create = function create(properties) {
+                return new RelayGroupKubeMQQueueOptions(properties);
+            };
+
+            /**
+             * Encodes the specified RelayGroupKubeMQQueueOptions message. Does not implicitly {@link protos.opts.RelayGroupKubeMQQueueOptions.verify|verify} messages.
+             * @function encode
+             * @memberof protos.opts.RelayGroupKubeMQQueueOptions
+             * @static
+             * @param {protos.opts.IRelayGroupKubeMQQueueOptions} message RelayGroupKubeMQQueueOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            RelayGroupKubeMQQueueOptions.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
+                    $root.protos.args.KubeMQQueueConn.encode(message._conn, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                if (message.args != null && Object.hasOwnProperty.call(message, "args"))
+                    $root.protos.args.KubeMQQueueReadArgs.encode(message.args, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                return writer;
+            };
+
+            /**
+             * Encodes the specified RelayGroupKubeMQQueueOptions message, length delimited. Does not implicitly {@link protos.opts.RelayGroupKubeMQQueueOptions.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.opts.RelayGroupKubeMQQueueOptions
+             * @static
+             * @param {protos.opts.IRelayGroupKubeMQQueueOptions} message RelayGroupKubeMQQueueOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            RelayGroupKubeMQQueueOptions.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a RelayGroupKubeMQQueueOptions message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.opts.RelayGroupKubeMQQueueOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.opts.RelayGroupKubeMQQueueOptions} RelayGroupKubeMQQueueOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            RelayGroupKubeMQQueueOptions.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.RelayGroupKubeMQQueueOptions();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message._conn = $root.protos.args.KubeMQQueueConn.decode(reader, reader.uint32());
+                        break;
+                    case 2:
+                        message.args = $root.protos.args.KubeMQQueueReadArgs.decode(reader, reader.uint32());
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a RelayGroupKubeMQQueueOptions message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.opts.RelayGroupKubeMQQueueOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.opts.RelayGroupKubeMQQueueOptions} RelayGroupKubeMQQueueOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            RelayGroupKubeMQQueueOptions.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a RelayGroupKubeMQQueueOptions message.
+             * @function verify
+             * @memberof protos.opts.RelayGroupKubeMQQueueOptions
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            RelayGroupKubeMQQueueOptions.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message._conn != null && message.hasOwnProperty("_conn")) {
+                    var error = $root.protos.args.KubeMQQueueConn.verify(message._conn);
+                    if (error)
+                        return "_conn." + error;
+                }
+                if (message.args != null && message.hasOwnProperty("args")) {
+                    var error = $root.protos.args.KubeMQQueueReadArgs.verify(message.args);
+                    if (error)
+                        return "args." + error;
+                }
+                return null;
+            };
+
+            /**
+             * Creates a RelayGroupKubeMQQueueOptions message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.opts.RelayGroupKubeMQQueueOptions
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.opts.RelayGroupKubeMQQueueOptions} RelayGroupKubeMQQueueOptions
+             */
+            RelayGroupKubeMQQueueOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.RelayGroupKubeMQQueueOptions)
+                    return object;
+                var message = new $root.protos.opts.RelayGroupKubeMQQueueOptions();
+                if (object._conn != null) {
+                    if (typeof object._conn !== "object")
+                        throw TypeError(".protos.opts.RelayGroupKubeMQQueueOptions._conn: object expected");
+                    message._conn = $root.protos.args.KubeMQQueueConn.fromObject(object._conn);
+                }
+                if (object.args != null) {
+                    if (typeof object.args !== "object")
+                        throw TypeError(".protos.opts.RelayGroupKubeMQQueueOptions.args: object expected");
+                    message.args = $root.protos.args.KubeMQQueueReadArgs.fromObject(object.args);
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a RelayGroupKubeMQQueueOptions message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.opts.RelayGroupKubeMQQueueOptions
+             * @static
+             * @param {protos.opts.RelayGroupKubeMQQueueOptions} message RelayGroupKubeMQQueueOptions
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            RelayGroupKubeMQQueueOptions.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    object._conn = null;
+                    object.args = null;
+                }
+                if (message._conn != null && message.hasOwnProperty("_conn"))
+                    object._conn = $root.protos.args.KubeMQQueueConn.toObject(message._conn, options);
+                if (message.args != null && message.hasOwnProperty("args"))
+                    object.args = $root.protos.args.KubeMQQueueReadArgs.toObject(message.args, options);
+                return object;
+            };
+
+            /**
+             * Converts this RelayGroupKubeMQQueueOptions to JSON.
+             * @function toJSON
+             * @memberof protos.opts.RelayGroupKubeMQQueueOptions
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            RelayGroupKubeMQQueueOptions.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return RelayGroupKubeMQQueueOptions;
+        })();
+
+        opts.RelayGroupNatsOptions = (function() {
+
+            /**
+             * Properties of a RelayGroupNatsOptions.
+             * @memberof protos.opts
+             * @interface IRelayGroupNatsOptions
+             * @property {protos.args.INatsConn|null} [_conn] RelayGroupNatsOptions _conn
+             * @property {protos.args.INatsReadArgs|null} [args] RelayGroupNatsOptions args
+             */
+
+            /**
+             * Constructs a new RelayGroupNatsOptions.
+             * @memberof protos.opts
+             * @classdesc Represents a RelayGroupNatsOptions.
+             * @implements IRelayGroupNatsOptions
+             * @constructor
+             * @param {protos.opts.IRelayGroupNatsOptions=} [properties] Properties to set
+             */
+            function RelayGroupNatsOptions(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * RelayGroupNatsOptions _conn.
+             * @member {protos.args.INatsConn|null|undefined} _conn
+             * @memberof protos.opts.RelayGroupNatsOptions
+             * @instance
+             */
+            RelayGroupNatsOptions.prototype._conn = null;
+
+            /**
+             * RelayGroupNatsOptions args.
+             * @member {protos.args.INatsReadArgs|null|undefined} args
+             * @memberof protos.opts.RelayGroupNatsOptions
+             * @instance
+             */
+            RelayGroupNatsOptions.prototype.args = null;
+
+            /**
+             * Creates a new RelayGroupNatsOptions instance using the specified properties.
+             * @function create
+             * @memberof protos.opts.RelayGroupNatsOptions
+             * @static
+             * @param {protos.opts.IRelayGroupNatsOptions=} [properties] Properties to set
+             * @returns {protos.opts.RelayGroupNatsOptions} RelayGroupNatsOptions instance
+             */
+            RelayGroupNatsOptions.create = function create(properties) {
+                return new RelayGroupNatsOptions(properties);
+            };
+
+            /**
+             * Encodes the specified RelayGroupNatsOptions message. Does not implicitly {@link protos.opts.RelayGroupNatsOptions.verify|verify} messages.
+             * @function encode
+             * @memberof protos.opts.RelayGroupNatsOptions
+             * @static
+             * @param {protos.opts.IRelayGroupNatsOptions} message RelayGroupNatsOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            RelayGroupNatsOptions.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
+                    $root.protos.args.NatsConn.encode(message._conn, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                if (message.args != null && Object.hasOwnProperty.call(message, "args"))
+                    $root.protos.args.NatsReadArgs.encode(message.args, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                return writer;
+            };
+
+            /**
+             * Encodes the specified RelayGroupNatsOptions message, length delimited. Does not implicitly {@link protos.opts.RelayGroupNatsOptions.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.opts.RelayGroupNatsOptions
+             * @static
+             * @param {protos.opts.IRelayGroupNatsOptions} message RelayGroupNatsOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            RelayGroupNatsOptions.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a RelayGroupNatsOptions message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.opts.RelayGroupNatsOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.opts.RelayGroupNatsOptions} RelayGroupNatsOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            RelayGroupNatsOptions.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.RelayGroupNatsOptions();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message._conn = $root.protos.args.NatsConn.decode(reader, reader.uint32());
+                        break;
+                    case 2:
+                        message.args = $root.protos.args.NatsReadArgs.decode(reader, reader.uint32());
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a RelayGroupNatsOptions message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.opts.RelayGroupNatsOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.opts.RelayGroupNatsOptions} RelayGroupNatsOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            RelayGroupNatsOptions.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a RelayGroupNatsOptions message.
+             * @function verify
+             * @memberof protos.opts.RelayGroupNatsOptions
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            RelayGroupNatsOptions.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message._conn != null && message.hasOwnProperty("_conn")) {
+                    var error = $root.protos.args.NatsConn.verify(message._conn);
+                    if (error)
+                        return "_conn." + error;
+                }
+                if (message.args != null && message.hasOwnProperty("args")) {
+                    var error = $root.protos.args.NatsReadArgs.verify(message.args);
+                    if (error)
+                        return "args." + error;
+                }
+                return null;
+            };
+
+            /**
+             * Creates a RelayGroupNatsOptions message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.opts.RelayGroupNatsOptions
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.opts.RelayGroupNatsOptions} RelayGroupNatsOptions
+             */
+            RelayGroupNatsOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.RelayGroupNatsOptions)
+                    return object;
+                var message = new $root.protos.opts.RelayGroupNatsOptions();
+                if (object._conn != null) {
+                    if (typeof object._conn !== "object")
+                        throw TypeError(".protos.opts.RelayGroupNatsOptions._conn: object expected");
+                    message._conn = $root.protos.args.NatsConn.fromObject(object._conn);
+                }
+                if (object.args != null) {
+                    if (typeof object.args !== "object")
+                        throw TypeError(".protos.opts.RelayGroupNatsOptions.args: object expected");
+                    message.args = $root.protos.args.NatsReadArgs.fromObject(object.args);
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a RelayGroupNatsOptions message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.opts.RelayGroupNatsOptions
+             * @static
+             * @param {protos.opts.RelayGroupNatsOptions} message RelayGroupNatsOptions
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            RelayGroupNatsOptions.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    object._conn = null;
+                    object.args = null;
+                }
+                if (message._conn != null && message.hasOwnProperty("_conn"))
+                    object._conn = $root.protos.args.NatsConn.toObject(message._conn, options);
+                if (message.args != null && message.hasOwnProperty("args"))
+                    object.args = $root.protos.args.NatsReadArgs.toObject(message.args, options);
+                return object;
+            };
+
+            /**
+             * Converts this RelayGroupNatsOptions to JSON.
+             * @function toJSON
+             * @memberof protos.opts.RelayGroupNatsOptions
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            RelayGroupNatsOptions.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return RelayGroupNatsOptions;
+        })();
+
+        opts.RelayGroupNatsStreamingOptions = (function() {
+
+            /**
+             * Properties of a RelayGroupNatsStreamingOptions.
+             * @memberof protos.opts
+             * @interface IRelayGroupNatsStreamingOptions
+             * @property {protos.args.INatsStreamingConn|null} [_conn] RelayGroupNatsStreamingOptions _conn
+             * @property {protos.args.INatsStreamingReadArgs|null} [args] RelayGroupNatsStreamingOptions args
+             */
+
+            /**
+             * Constructs a new RelayGroupNatsStreamingOptions.
+             * @memberof protos.opts
+             * @classdesc Represents a RelayGroupNatsStreamingOptions.
+             * @implements IRelayGroupNatsStreamingOptions
+             * @constructor
+             * @param {protos.opts.IRelayGroupNatsStreamingOptions=} [properties] Properties to set
+             */
+            function RelayGroupNatsStreamingOptions(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * RelayGroupNatsStreamingOptions _conn.
+             * @member {protos.args.INatsStreamingConn|null|undefined} _conn
+             * @memberof protos.opts.RelayGroupNatsStreamingOptions
+             * @instance
+             */
+            RelayGroupNatsStreamingOptions.prototype._conn = null;
+
+            /**
+             * RelayGroupNatsStreamingOptions args.
+             * @member {protos.args.INatsStreamingReadArgs|null|undefined} args
+             * @memberof protos.opts.RelayGroupNatsStreamingOptions
+             * @instance
+             */
+            RelayGroupNatsStreamingOptions.prototype.args = null;
+
+            /**
+             * Creates a new RelayGroupNatsStreamingOptions instance using the specified properties.
+             * @function create
+             * @memberof protos.opts.RelayGroupNatsStreamingOptions
+             * @static
+             * @param {protos.opts.IRelayGroupNatsStreamingOptions=} [properties] Properties to set
+             * @returns {protos.opts.RelayGroupNatsStreamingOptions} RelayGroupNatsStreamingOptions instance
+             */
+            RelayGroupNatsStreamingOptions.create = function create(properties) {
+                return new RelayGroupNatsStreamingOptions(properties);
+            };
+
+            /**
+             * Encodes the specified RelayGroupNatsStreamingOptions message. Does not implicitly {@link protos.opts.RelayGroupNatsStreamingOptions.verify|verify} messages.
+             * @function encode
+             * @memberof protos.opts.RelayGroupNatsStreamingOptions
+             * @static
+             * @param {protos.opts.IRelayGroupNatsStreamingOptions} message RelayGroupNatsStreamingOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            RelayGroupNatsStreamingOptions.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
+                    $root.protos.args.NatsStreamingConn.encode(message._conn, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                if (message.args != null && Object.hasOwnProperty.call(message, "args"))
+                    $root.protos.args.NatsStreamingReadArgs.encode(message.args, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                return writer;
+            };
+
+            /**
+             * Encodes the specified RelayGroupNatsStreamingOptions message, length delimited. Does not implicitly {@link protos.opts.RelayGroupNatsStreamingOptions.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.opts.RelayGroupNatsStreamingOptions
+             * @static
+             * @param {protos.opts.IRelayGroupNatsStreamingOptions} message RelayGroupNatsStreamingOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            RelayGroupNatsStreamingOptions.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a RelayGroupNatsStreamingOptions message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.opts.RelayGroupNatsStreamingOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.opts.RelayGroupNatsStreamingOptions} RelayGroupNatsStreamingOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            RelayGroupNatsStreamingOptions.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.RelayGroupNatsStreamingOptions();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message._conn = $root.protos.args.NatsStreamingConn.decode(reader, reader.uint32());
+                        break;
+                    case 2:
+                        message.args = $root.protos.args.NatsStreamingReadArgs.decode(reader, reader.uint32());
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a RelayGroupNatsStreamingOptions message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.opts.RelayGroupNatsStreamingOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.opts.RelayGroupNatsStreamingOptions} RelayGroupNatsStreamingOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            RelayGroupNatsStreamingOptions.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a RelayGroupNatsStreamingOptions message.
+             * @function verify
+             * @memberof protos.opts.RelayGroupNatsStreamingOptions
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            RelayGroupNatsStreamingOptions.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message._conn != null && message.hasOwnProperty("_conn")) {
+                    var error = $root.protos.args.NatsStreamingConn.verify(message._conn);
+                    if (error)
+                        return "_conn." + error;
+                }
+                if (message.args != null && message.hasOwnProperty("args")) {
+                    var error = $root.protos.args.NatsStreamingReadArgs.verify(message.args);
+                    if (error)
+                        return "args." + error;
+                }
+                return null;
+            };
+
+            /**
+             * Creates a RelayGroupNatsStreamingOptions message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.opts.RelayGroupNatsStreamingOptions
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.opts.RelayGroupNatsStreamingOptions} RelayGroupNatsStreamingOptions
+             */
+            RelayGroupNatsStreamingOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.RelayGroupNatsStreamingOptions)
+                    return object;
+                var message = new $root.protos.opts.RelayGroupNatsStreamingOptions();
+                if (object._conn != null) {
+                    if (typeof object._conn !== "object")
+                        throw TypeError(".protos.opts.RelayGroupNatsStreamingOptions._conn: object expected");
+                    message._conn = $root.protos.args.NatsStreamingConn.fromObject(object._conn);
+                }
+                if (object.args != null) {
+                    if (typeof object.args !== "object")
+                        throw TypeError(".protos.opts.RelayGroupNatsStreamingOptions.args: object expected");
+                    message.args = $root.protos.args.NatsStreamingReadArgs.fromObject(object.args);
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a RelayGroupNatsStreamingOptions message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.opts.RelayGroupNatsStreamingOptions
+             * @static
+             * @param {protos.opts.RelayGroupNatsStreamingOptions} message RelayGroupNatsStreamingOptions
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            RelayGroupNatsStreamingOptions.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    object._conn = null;
+                    object.args = null;
+                }
+                if (message._conn != null && message.hasOwnProperty("_conn"))
+                    object._conn = $root.protos.args.NatsStreamingConn.toObject(message._conn, options);
+                if (message.args != null && message.hasOwnProperty("args"))
+                    object.args = $root.protos.args.NatsStreamingReadArgs.toObject(message.args, options);
+                return object;
+            };
+
+            /**
+             * Converts this RelayGroupNatsStreamingOptions to JSON.
+             * @function toJSON
+             * @memberof protos.opts.RelayGroupNatsStreamingOptions
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            RelayGroupNatsStreamingOptions.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return RelayGroupNatsStreamingOptions;
+        })();
+
+        opts.RelayGroupNatsJetStreamOptions = (function() {
+
+            /**
+             * Properties of a RelayGroupNatsJetStreamOptions.
+             * @memberof protos.opts
+             * @interface IRelayGroupNatsJetStreamOptions
+             * @property {protos.args.INatsJetstreamConn|null} [_conn] RelayGroupNatsJetStreamOptions _conn
+             * @property {protos.args.INatsJetstreamReadArgs|null} [args] RelayGroupNatsJetStreamOptions args
+             */
+
+            /**
+             * Constructs a new RelayGroupNatsJetStreamOptions.
+             * @memberof protos.opts
+             * @classdesc Represents a RelayGroupNatsJetStreamOptions.
+             * @implements IRelayGroupNatsJetStreamOptions
+             * @constructor
+             * @param {protos.opts.IRelayGroupNatsJetStreamOptions=} [properties] Properties to set
+             */
+            function RelayGroupNatsJetStreamOptions(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * RelayGroupNatsJetStreamOptions _conn.
+             * @member {protos.args.INatsJetstreamConn|null|undefined} _conn
+             * @memberof protos.opts.RelayGroupNatsJetStreamOptions
+             * @instance
+             */
+            RelayGroupNatsJetStreamOptions.prototype._conn = null;
+
+            /**
+             * RelayGroupNatsJetStreamOptions args.
+             * @member {protos.args.INatsJetstreamReadArgs|null|undefined} args
+             * @memberof protos.opts.RelayGroupNatsJetStreamOptions
+             * @instance
+             */
+            RelayGroupNatsJetStreamOptions.prototype.args = null;
+
+            /**
+             * Creates a new RelayGroupNatsJetStreamOptions instance using the specified properties.
+             * @function create
+             * @memberof protos.opts.RelayGroupNatsJetStreamOptions
+             * @static
+             * @param {protos.opts.IRelayGroupNatsJetStreamOptions=} [properties] Properties to set
+             * @returns {protos.opts.RelayGroupNatsJetStreamOptions} RelayGroupNatsJetStreamOptions instance
+             */
+            RelayGroupNatsJetStreamOptions.create = function create(properties) {
+                return new RelayGroupNatsJetStreamOptions(properties);
+            };
+
+            /**
+             * Encodes the specified RelayGroupNatsJetStreamOptions message. Does not implicitly {@link protos.opts.RelayGroupNatsJetStreamOptions.verify|verify} messages.
+             * @function encode
+             * @memberof protos.opts.RelayGroupNatsJetStreamOptions
+             * @static
+             * @param {protos.opts.IRelayGroupNatsJetStreamOptions} message RelayGroupNatsJetStreamOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            RelayGroupNatsJetStreamOptions.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
+                    $root.protos.args.NatsJetstreamConn.encode(message._conn, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                if (message.args != null && Object.hasOwnProperty.call(message, "args"))
+                    $root.protos.args.NatsJetstreamReadArgs.encode(message.args, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                return writer;
+            };
+
+            /**
+             * Encodes the specified RelayGroupNatsJetStreamOptions message, length delimited. Does not implicitly {@link protos.opts.RelayGroupNatsJetStreamOptions.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.opts.RelayGroupNatsJetStreamOptions
+             * @static
+             * @param {protos.opts.IRelayGroupNatsJetStreamOptions} message RelayGroupNatsJetStreamOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            RelayGroupNatsJetStreamOptions.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a RelayGroupNatsJetStreamOptions message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.opts.RelayGroupNatsJetStreamOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.opts.RelayGroupNatsJetStreamOptions} RelayGroupNatsJetStreamOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            RelayGroupNatsJetStreamOptions.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.RelayGroupNatsJetStreamOptions();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message._conn = $root.protos.args.NatsJetstreamConn.decode(reader, reader.uint32());
+                        break;
+                    case 2:
+                        message.args = $root.protos.args.NatsJetstreamReadArgs.decode(reader, reader.uint32());
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a RelayGroupNatsJetStreamOptions message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.opts.RelayGroupNatsJetStreamOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.opts.RelayGroupNatsJetStreamOptions} RelayGroupNatsJetStreamOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            RelayGroupNatsJetStreamOptions.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a RelayGroupNatsJetStreamOptions message.
+             * @function verify
+             * @memberof protos.opts.RelayGroupNatsJetStreamOptions
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            RelayGroupNatsJetStreamOptions.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message._conn != null && message.hasOwnProperty("_conn")) {
+                    var error = $root.protos.args.NatsJetstreamConn.verify(message._conn);
+                    if (error)
+                        return "_conn." + error;
+                }
+                if (message.args != null && message.hasOwnProperty("args")) {
+                    var error = $root.protos.args.NatsJetstreamReadArgs.verify(message.args);
+                    if (error)
+                        return "args." + error;
+                }
+                return null;
+            };
+
+            /**
+             * Creates a RelayGroupNatsJetStreamOptions message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.opts.RelayGroupNatsJetStreamOptions
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.opts.RelayGroupNatsJetStreamOptions} RelayGroupNatsJetStreamOptions
+             */
+            RelayGroupNatsJetStreamOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.RelayGroupNatsJetStreamOptions)
+                    return object;
+                var message = new $root.protos.opts.RelayGroupNatsJetStreamOptions();
+                if (object._conn != null) {
+                    if (typeof object._conn !== "object")
+                        throw TypeError(".protos.opts.RelayGroupNatsJetStreamOptions._conn: object expected");
+                    message._conn = $root.protos.args.NatsJetstreamConn.fromObject(object._conn);
+                }
+                if (object.args != null) {
+                    if (typeof object.args !== "object")
+                        throw TypeError(".protos.opts.RelayGroupNatsJetStreamOptions.args: object expected");
+                    message.args = $root.protos.args.NatsJetstreamReadArgs.fromObject(object.args);
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a RelayGroupNatsJetStreamOptions message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.opts.RelayGroupNatsJetStreamOptions
+             * @static
+             * @param {protos.opts.RelayGroupNatsJetStreamOptions} message RelayGroupNatsJetStreamOptions
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            RelayGroupNatsJetStreamOptions.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    object._conn = null;
+                    object.args = null;
+                }
+                if (message._conn != null && message.hasOwnProperty("_conn"))
+                    object._conn = $root.protos.args.NatsJetstreamConn.toObject(message._conn, options);
+                if (message.args != null && message.hasOwnProperty("args"))
+                    object.args = $root.protos.args.NatsJetstreamReadArgs.toObject(message.args, options);
+                return object;
+            };
+
+            /**
+             * Converts this RelayGroupNatsJetStreamOptions to JSON.
+             * @function toJSON
+             * @memberof protos.opts.RelayGroupNatsJetStreamOptions
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            RelayGroupNatsJetStreamOptions.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return RelayGroupNatsJetStreamOptions;
+        })();
+
+        opts.ServerOptions = (function() {
+
+            /**
+             * Properties of a ServerOptions.
+             * @memberof protos.opts
+             * @interface IServerOptions
+             * @property {string|null} [nodeId] ServerOptions nodeId
+             * @property {string|null} [clusterId] ServerOptions clusterId
+             * @property {string|null} [grpcListenAddress] ServerOptions grpcListenAddress
+             * @property {string|null} [authToken] ServerOptions authToken
+             * @property {Array.<string>|null} [natsUrl] ServerOptions natsUrl
+             * @property {boolean|null} [useTls] ServerOptions useTls
+             * @property {string|null} [tlsCertFile] ServerOptions tlsCertFile
+             * @property {string|null} [tlsKeyFile] ServerOptions tlsKeyFile
+             * @property {string|null} [tlsCaFile] ServerOptions tlsCaFile
+             * @property {boolean|null} [tlsSkipVerify] ServerOptions tlsSkipVerify
+             * @property {boolean|null} [enableCluster] ServerOptions enableCluster
+             * @property {string|null} [vcserviceGrpcAddress] ServerOptions vcserviceGrpcAddress
+             * @property {number|null} [vcserviceGrpcTimeoutSeconds] ServerOptions vcserviceGrpcTimeoutSeconds
+             * @property {boolean|null} [vcserviceGrpcInsecure] ServerOptions vcserviceGrpcInsecure
+             * @property {string|null} [statsDatabasePath] ServerOptions statsDatabasePath
+             * @property {number|null} [statsFlushIntervalSeconds] ServerOptions statsFlushIntervalSeconds
+             * @property {string|null} [httpListenAddress] ServerOptions httpListenAddress
+             * @property {string|null} [storagePath] ServerOptions storagePath
+             */
+
+            /**
+             * Constructs a new ServerOptions.
+             * @memberof protos.opts
+             * @classdesc Represents a ServerOptions.
+             * @implements IServerOptions
+             * @constructor
+             * @param {protos.opts.IServerOptions=} [properties] Properties to set
+             */
+            function ServerOptions(properties) {
+                this.natsUrl = [];
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * ServerOptions nodeId.
+             * @member {string} nodeId
+             * @memberof protos.opts.ServerOptions
+             * @instance
+             */
+            ServerOptions.prototype.nodeId = "";
+
+            /**
+             * ServerOptions clusterId.
+             * @member {string} clusterId
+             * @memberof protos.opts.ServerOptions
+             * @instance
+             */
+            ServerOptions.prototype.clusterId = "";
+
+            /**
+             * ServerOptions grpcListenAddress.
+             * @member {string} grpcListenAddress
+             * @memberof protos.opts.ServerOptions
+             * @instance
+             */
+            ServerOptions.prototype.grpcListenAddress = "";
+
+            /**
+             * ServerOptions authToken.
+             * @member {string} authToken
+             * @memberof protos.opts.ServerOptions
+             * @instance
+             */
+            ServerOptions.prototype.authToken = "";
+
+            /**
+             * ServerOptions natsUrl.
+             * @member {Array.<string>} natsUrl
+             * @memberof protos.opts.ServerOptions
+             * @instance
+             */
+            ServerOptions.prototype.natsUrl = $util.emptyArray;
+
+            /**
+             * ServerOptions useTls.
+             * @member {boolean} useTls
+             * @memberof protos.opts.ServerOptions
+             * @instance
+             */
+            ServerOptions.prototype.useTls = false;
+
+            /**
+             * ServerOptions tlsCertFile.
+             * @member {string} tlsCertFile
+             * @memberof protos.opts.ServerOptions
+             * @instance
+             */
+            ServerOptions.prototype.tlsCertFile = "";
+
+            /**
+             * ServerOptions tlsKeyFile.
+             * @member {string} tlsKeyFile
+             * @memberof protos.opts.ServerOptions
+             * @instance
+             */
+            ServerOptions.prototype.tlsKeyFile = "";
+
+            /**
+             * ServerOptions tlsCaFile.
+             * @member {string} tlsCaFile
+             * @memberof protos.opts.ServerOptions
+             * @instance
+             */
+            ServerOptions.prototype.tlsCaFile = "";
+
+            /**
+             * ServerOptions tlsSkipVerify.
+             * @member {boolean} tlsSkipVerify
+             * @memberof protos.opts.ServerOptions
+             * @instance
+             */
+            ServerOptions.prototype.tlsSkipVerify = false;
+
+            /**
+             * ServerOptions enableCluster.
+             * @member {boolean} enableCluster
+             * @memberof protos.opts.ServerOptions
+             * @instance
+             */
+            ServerOptions.prototype.enableCluster = false;
+
+            /**
+             * ServerOptions vcserviceGrpcAddress.
+             * @member {string} vcserviceGrpcAddress
+             * @memberof protos.opts.ServerOptions
+             * @instance
+             */
+            ServerOptions.prototype.vcserviceGrpcAddress = "";
+
+            /**
+             * ServerOptions vcserviceGrpcTimeoutSeconds.
+             * @member {number} vcserviceGrpcTimeoutSeconds
+             * @memberof protos.opts.ServerOptions
+             * @instance
+             */
+            ServerOptions.prototype.vcserviceGrpcTimeoutSeconds = 0;
+
+            /**
+             * ServerOptions vcserviceGrpcInsecure.
+             * @member {boolean} vcserviceGrpcInsecure
+             * @memberof protos.opts.ServerOptions
+             * @instance
+             */
+            ServerOptions.prototype.vcserviceGrpcInsecure = false;
+
+            /**
+             * ServerOptions statsDatabasePath.
+             * @member {string} statsDatabasePath
+             * @memberof protos.opts.ServerOptions
+             * @instance
+             */
+            ServerOptions.prototype.statsDatabasePath = "";
+
+            /**
+             * ServerOptions statsFlushIntervalSeconds.
+             * @member {number} statsFlushIntervalSeconds
+             * @memberof protos.opts.ServerOptions
+             * @instance
+             */
+            ServerOptions.prototype.statsFlushIntervalSeconds = 0;
+
+            /**
+             * ServerOptions httpListenAddress.
+             * @member {string} httpListenAddress
+             * @memberof protos.opts.ServerOptions
+             * @instance
+             */
+            ServerOptions.prototype.httpListenAddress = "";
+
+            /**
+             * ServerOptions storagePath.
+             * @member {string} storagePath
+             * @memberof protos.opts.ServerOptions
+             * @instance
+             */
+            ServerOptions.prototype.storagePath = "";
+
+            /**
+             * Creates a new ServerOptions instance using the specified properties.
+             * @function create
+             * @memberof protos.opts.ServerOptions
+             * @static
+             * @param {protos.opts.IServerOptions=} [properties] Properties to set
+             * @returns {protos.opts.ServerOptions} ServerOptions instance
+             */
+            ServerOptions.create = function create(properties) {
+                return new ServerOptions(properties);
+            };
+
+            /**
+             * Encodes the specified ServerOptions message. Does not implicitly {@link protos.opts.ServerOptions.verify|verify} messages.
+             * @function encode
+             * @memberof protos.opts.ServerOptions
+             * @static
+             * @param {protos.opts.IServerOptions} message ServerOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            ServerOptions.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.nodeId != null && Object.hasOwnProperty.call(message, "nodeId"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.nodeId);
+                if (message.clusterId != null && Object.hasOwnProperty.call(message, "clusterId"))
+                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.clusterId);
+                if (message.grpcListenAddress != null && Object.hasOwnProperty.call(message, "grpcListenAddress"))
+                    writer.uint32(/* id 3, wireType 2 =*/26).string(message.grpcListenAddress);
+                if (message.authToken != null && Object.hasOwnProperty.call(message, "authToken"))
+                    writer.uint32(/* id 4, wireType 2 =*/34).string(message.authToken);
+                if (message.natsUrl != null && message.natsUrl.length)
+                    for (var i = 0; i < message.natsUrl.length; ++i)
+                        writer.uint32(/* id 5, wireType 2 =*/42).string(message.natsUrl[i]);
+                if (message.tlsCertFile != null && Object.hasOwnProperty.call(message, "tlsCertFile"))
+                    writer.uint32(/* id 6, wireType 2 =*/50).string(message.tlsCertFile);
+                if (message.tlsKeyFile != null && Object.hasOwnProperty.call(message, "tlsKeyFile"))
+                    writer.uint32(/* id 7, wireType 2 =*/58).string(message.tlsKeyFile);
+                if (message.tlsCaFile != null && Object.hasOwnProperty.call(message, "tlsCaFile"))
+                    writer.uint32(/* id 8, wireType 2 =*/66).string(message.tlsCaFile);
+                if (message.tlsSkipVerify != null && Object.hasOwnProperty.call(message, "tlsSkipVerify"))
+                    writer.uint32(/* id 9, wireType 0 =*/72).bool(message.tlsSkipVerify);
+                if (message.enableCluster != null && Object.hasOwnProperty.call(message, "enableCluster"))
+                    writer.uint32(/* id 10, wireType 0 =*/80).bool(message.enableCluster);
+                if (message.vcserviceGrpcAddress != null && Object.hasOwnProperty.call(message, "vcserviceGrpcAddress"))
+                    writer.uint32(/* id 11, wireType 2 =*/90).string(message.vcserviceGrpcAddress);
+                if (message.vcserviceGrpcTimeoutSeconds != null && Object.hasOwnProperty.call(message, "vcserviceGrpcTimeoutSeconds"))
+                    writer.uint32(/* id 12, wireType 0 =*/96).uint32(message.vcserviceGrpcTimeoutSeconds);
+                if (message.vcserviceGrpcInsecure != null && Object.hasOwnProperty.call(message, "vcserviceGrpcInsecure"))
+                    writer.uint32(/* id 13, wireType 0 =*/104).bool(message.vcserviceGrpcInsecure);
+                if (message.statsDatabasePath != null && Object.hasOwnProperty.call(message, "statsDatabasePath"))
+                    writer.uint32(/* id 14, wireType 2 =*/114).string(message.statsDatabasePath);
+                if (message.statsFlushIntervalSeconds != null && Object.hasOwnProperty.call(message, "statsFlushIntervalSeconds"))
+                    writer.uint32(/* id 15, wireType 0 =*/120).int32(message.statsFlushIntervalSeconds);
+                if (message.httpListenAddress != null && Object.hasOwnProperty.call(message, "httpListenAddress"))
+                    writer.uint32(/* id 16, wireType 2 =*/130).string(message.httpListenAddress);
+                if (message.storagePath != null && Object.hasOwnProperty.call(message, "storagePath"))
+                    writer.uint32(/* id 17, wireType 2 =*/138).string(message.storagePath);
+                if (message.useTls != null && Object.hasOwnProperty.call(message, "useTls"))
+                    writer.uint32(/* id 500, wireType 0 =*/4000).bool(message.useTls);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified ServerOptions message, length delimited. Does not implicitly {@link protos.opts.ServerOptions.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.opts.ServerOptions
+             * @static
+             * @param {protos.opts.IServerOptions} message ServerOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            ServerOptions.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a ServerOptions message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.opts.ServerOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.opts.ServerOptions} ServerOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            ServerOptions.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.ServerOptions();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.nodeId = reader.string();
+                        break;
+                    case 2:
+                        message.clusterId = reader.string();
+                        break;
+                    case 3:
+                        message.grpcListenAddress = reader.string();
+                        break;
+                    case 4:
+                        message.authToken = reader.string();
+                        break;
+                    case 5:
+                        if (!(message.natsUrl && message.natsUrl.length))
+                            message.natsUrl = [];
+                        message.natsUrl.push(reader.string());
+                        break;
+                    case 500:
+                        message.useTls = reader.bool();
+                        break;
+                    case 6:
+                        message.tlsCertFile = reader.string();
+                        break;
+                    case 7:
+                        message.tlsKeyFile = reader.string();
+                        break;
+                    case 8:
+                        message.tlsCaFile = reader.string();
+                        break;
+                    case 9:
+                        message.tlsSkipVerify = reader.bool();
+                        break;
+                    case 10:
+                        message.enableCluster = reader.bool();
+                        break;
+                    case 11:
+                        message.vcserviceGrpcAddress = reader.string();
+                        break;
+                    case 12:
+                        message.vcserviceGrpcTimeoutSeconds = reader.uint32();
+                        break;
+                    case 13:
+                        message.vcserviceGrpcInsecure = reader.bool();
+                        break;
+                    case 14:
+                        message.statsDatabasePath = reader.string();
+                        break;
+                    case 15:
+                        message.statsFlushIntervalSeconds = reader.int32();
+                        break;
+                    case 16:
+                        message.httpListenAddress = reader.string();
+                        break;
+                    case 17:
+                        message.storagePath = reader.string();
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a ServerOptions message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.opts.ServerOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.opts.ServerOptions} ServerOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            ServerOptions.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a ServerOptions message.
+             * @function verify
+             * @memberof protos.opts.ServerOptions
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            ServerOptions.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.nodeId != null && message.hasOwnProperty("nodeId"))
+                    if (!$util.isString(message.nodeId))
+                        return "nodeId: string expected";
+                if (message.clusterId != null && message.hasOwnProperty("clusterId"))
+                    if (!$util.isString(message.clusterId))
+                        return "clusterId: string expected";
+                if (message.grpcListenAddress != null && message.hasOwnProperty("grpcListenAddress"))
+                    if (!$util.isString(message.grpcListenAddress))
+                        return "grpcListenAddress: string expected";
+                if (message.authToken != null && message.hasOwnProperty("authToken"))
+                    if (!$util.isString(message.authToken))
+                        return "authToken: string expected";
+                if (message.natsUrl != null && message.hasOwnProperty("natsUrl")) {
+                    if (!Array.isArray(message.natsUrl))
+                        return "natsUrl: array expected";
+                    for (var i = 0; i < message.natsUrl.length; ++i)
+                        if (!$util.isString(message.natsUrl[i]))
+                            return "natsUrl: string[] expected";
+                }
+                if (message.useTls != null && message.hasOwnProperty("useTls"))
+                    if (typeof message.useTls !== "boolean")
+                        return "useTls: boolean expected";
+                if (message.tlsCertFile != null && message.hasOwnProperty("tlsCertFile"))
+                    if (!$util.isString(message.tlsCertFile))
+                        return "tlsCertFile: string expected";
+                if (message.tlsKeyFile != null && message.hasOwnProperty("tlsKeyFile"))
+                    if (!$util.isString(message.tlsKeyFile))
+                        return "tlsKeyFile: string expected";
+                if (message.tlsCaFile != null && message.hasOwnProperty("tlsCaFile"))
+                    if (!$util.isString(message.tlsCaFile))
+                        return "tlsCaFile: string expected";
+                if (message.tlsSkipVerify != null && message.hasOwnProperty("tlsSkipVerify"))
+                    if (typeof message.tlsSkipVerify !== "boolean")
+                        return "tlsSkipVerify: boolean expected";
+                if (message.enableCluster != null && message.hasOwnProperty("enableCluster"))
+                    if (typeof message.enableCluster !== "boolean")
+                        return "enableCluster: boolean expected";
+                if (message.vcserviceGrpcAddress != null && message.hasOwnProperty("vcserviceGrpcAddress"))
+                    if (!$util.isString(message.vcserviceGrpcAddress))
+                        return "vcserviceGrpcAddress: string expected";
+                if (message.vcserviceGrpcTimeoutSeconds != null && message.hasOwnProperty("vcserviceGrpcTimeoutSeconds"))
+                    if (!$util.isInteger(message.vcserviceGrpcTimeoutSeconds))
+                        return "vcserviceGrpcTimeoutSeconds: integer expected";
+                if (message.vcserviceGrpcInsecure != null && message.hasOwnProperty("vcserviceGrpcInsecure"))
+                    if (typeof message.vcserviceGrpcInsecure !== "boolean")
+                        return "vcserviceGrpcInsecure: boolean expected";
+                if (message.statsDatabasePath != null && message.hasOwnProperty("statsDatabasePath"))
+                    if (!$util.isString(message.statsDatabasePath))
+                        return "statsDatabasePath: string expected";
+                if (message.statsFlushIntervalSeconds != null && message.hasOwnProperty("statsFlushIntervalSeconds"))
+                    if (!$util.isInteger(message.statsFlushIntervalSeconds))
+                        return "statsFlushIntervalSeconds: integer expected";
+                if (message.httpListenAddress != null && message.hasOwnProperty("httpListenAddress"))
+                    if (!$util.isString(message.httpListenAddress))
+                        return "httpListenAddress: string expected";
+                if (message.storagePath != null && message.hasOwnProperty("storagePath"))
+                    if (!$util.isString(message.storagePath))
+                        return "storagePath: string expected";
+                return null;
+            };
+
+            /**
+             * Creates a ServerOptions message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.opts.ServerOptions
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.opts.ServerOptions} ServerOptions
+             */
+            ServerOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.ServerOptions)
+                    return object;
+                var message = new $root.protos.opts.ServerOptions();
+                if (object.nodeId != null)
+                    message.nodeId = String(object.nodeId);
+                if (object.clusterId != null)
+                    message.clusterId = String(object.clusterId);
+                if (object.grpcListenAddress != null)
+                    message.grpcListenAddress = String(object.grpcListenAddress);
+                if (object.authToken != null)
+                    message.authToken = String(object.authToken);
+                if (object.natsUrl) {
+                    if (!Array.isArray(object.natsUrl))
+                        throw TypeError(".protos.opts.ServerOptions.natsUrl: array expected");
+                    message.natsUrl = [];
+                    for (var i = 0; i < object.natsUrl.length; ++i)
+                        message.natsUrl[i] = String(object.natsUrl[i]);
+                }
+                if (object.useTls != null)
+                    message.useTls = Boolean(object.useTls);
+                if (object.tlsCertFile != null)
+                    message.tlsCertFile = String(object.tlsCertFile);
+                if (object.tlsKeyFile != null)
+                    message.tlsKeyFile = String(object.tlsKeyFile);
+                if (object.tlsCaFile != null)
+                    message.tlsCaFile = String(object.tlsCaFile);
+                if (object.tlsSkipVerify != null)
+                    message.tlsSkipVerify = Boolean(object.tlsSkipVerify);
+                if (object.enableCluster != null)
+                    message.enableCluster = Boolean(object.enableCluster);
+                if (object.vcserviceGrpcAddress != null)
+                    message.vcserviceGrpcAddress = String(object.vcserviceGrpcAddress);
+                if (object.vcserviceGrpcTimeoutSeconds != null)
+                    message.vcserviceGrpcTimeoutSeconds = object.vcserviceGrpcTimeoutSeconds >>> 0;
+                if (object.vcserviceGrpcInsecure != null)
+                    message.vcserviceGrpcInsecure = Boolean(object.vcserviceGrpcInsecure);
+                if (object.statsDatabasePath != null)
+                    message.statsDatabasePath = String(object.statsDatabasePath);
+                if (object.statsFlushIntervalSeconds != null)
+                    message.statsFlushIntervalSeconds = object.statsFlushIntervalSeconds | 0;
+                if (object.httpListenAddress != null)
+                    message.httpListenAddress = String(object.httpListenAddress);
+                if (object.storagePath != null)
+                    message.storagePath = String(object.storagePath);
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a ServerOptions message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.opts.ServerOptions
+             * @static
+             * @param {protos.opts.ServerOptions} message ServerOptions
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            ServerOptions.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.arrays || options.defaults)
+                    object.natsUrl = [];
+                if (options.defaults) {
+                    object.nodeId = "";
+                    object.clusterId = "";
+                    object.grpcListenAddress = "";
+                    object.authToken = "";
+                    object.tlsCertFile = "";
+                    object.tlsKeyFile = "";
+                    object.tlsCaFile = "";
+                    object.tlsSkipVerify = false;
+                    object.enableCluster = false;
+                    object.vcserviceGrpcAddress = "";
+                    object.vcserviceGrpcTimeoutSeconds = 0;
+                    object.vcserviceGrpcInsecure = false;
+                    object.statsDatabasePath = "";
+                    object.statsFlushIntervalSeconds = 0;
+                    object.httpListenAddress = "";
+                    object.storagePath = "";
+                    object.useTls = false;
+                }
+                if (message.nodeId != null && message.hasOwnProperty("nodeId"))
+                    object.nodeId = message.nodeId;
+                if (message.clusterId != null && message.hasOwnProperty("clusterId"))
+                    object.clusterId = message.clusterId;
+                if (message.grpcListenAddress != null && message.hasOwnProperty("grpcListenAddress"))
+                    object.grpcListenAddress = message.grpcListenAddress;
+                if (message.authToken != null && message.hasOwnProperty("authToken"))
+                    object.authToken = message.authToken;
+                if (message.natsUrl && message.natsUrl.length) {
+                    object.natsUrl = [];
+                    for (var j = 0; j < message.natsUrl.length; ++j)
+                        object.natsUrl[j] = message.natsUrl[j];
+                }
+                if (message.tlsCertFile != null && message.hasOwnProperty("tlsCertFile"))
+                    object.tlsCertFile = message.tlsCertFile;
+                if (message.tlsKeyFile != null && message.hasOwnProperty("tlsKeyFile"))
+                    object.tlsKeyFile = message.tlsKeyFile;
+                if (message.tlsCaFile != null && message.hasOwnProperty("tlsCaFile"))
+                    object.tlsCaFile = message.tlsCaFile;
+                if (message.tlsSkipVerify != null && message.hasOwnProperty("tlsSkipVerify"))
+                    object.tlsSkipVerify = message.tlsSkipVerify;
+                if (message.enableCluster != null && message.hasOwnProperty("enableCluster"))
+                    object.enableCluster = message.enableCluster;
+                if (message.vcserviceGrpcAddress != null && message.hasOwnProperty("vcserviceGrpcAddress"))
+                    object.vcserviceGrpcAddress = message.vcserviceGrpcAddress;
+                if (message.vcserviceGrpcTimeoutSeconds != null && message.hasOwnProperty("vcserviceGrpcTimeoutSeconds"))
+                    object.vcserviceGrpcTimeoutSeconds = message.vcserviceGrpcTimeoutSeconds;
+                if (message.vcserviceGrpcInsecure != null && message.hasOwnProperty("vcserviceGrpcInsecure"))
+                    object.vcserviceGrpcInsecure = message.vcserviceGrpcInsecure;
+                if (message.statsDatabasePath != null && message.hasOwnProperty("statsDatabasePath"))
+                    object.statsDatabasePath = message.statsDatabasePath;
+                if (message.statsFlushIntervalSeconds != null && message.hasOwnProperty("statsFlushIntervalSeconds"))
+                    object.statsFlushIntervalSeconds = message.statsFlushIntervalSeconds;
+                if (message.httpListenAddress != null && message.hasOwnProperty("httpListenAddress"))
+                    object.httpListenAddress = message.httpListenAddress;
+                if (message.storagePath != null && message.hasOwnProperty("storagePath"))
+                    object.storagePath = message.storagePath;
+                if (message.useTls != null && message.hasOwnProperty("useTls"))
+                    object.useTls = message.useTls;
+                return object;
+            };
+
+            /**
+             * Converts this ServerOptions to JSON.
+             * @function toJSON
+             * @memberof protos.opts.ServerOptions
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            ServerOptions.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return ServerOptions;
+        })();
+
         opts.TunnelOptions = (function() {
 
             /**
@@ -10315,4934 +15243,6 @@ $root.protos = (function() {
             };
 
             return TunnelGroupAWSKinesisOptions;
-        })();
-
-        opts.RelayCLIOptions = (function() {
-
-            /**
-             * Properties of a RelayCLIOptions.
-             * @memberof protos.opts
-             * @interface IRelayCLIOptions
-             * @property {string|null} [httpListenAddress] RelayCLIOptions httpListenAddress
-             */
-
-            /**
-             * Constructs a new RelayCLIOptions.
-             * @memberof protos.opts
-             * @classdesc Represents a RelayCLIOptions.
-             * @implements IRelayCLIOptions
-             * @constructor
-             * @param {protos.opts.IRelayCLIOptions=} [properties] Properties to set
-             */
-            function RelayCLIOptions(properties) {
-                if (properties)
-                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                        if (properties[keys[i]] != null)
-                            this[keys[i]] = properties[keys[i]];
-            }
-
-            /**
-             * RelayCLIOptions httpListenAddress.
-             * @member {string} httpListenAddress
-             * @memberof protos.opts.RelayCLIOptions
-             * @instance
-             */
-            RelayCLIOptions.prototype.httpListenAddress = "";
-
-            /**
-             * Creates a new RelayCLIOptions instance using the specified properties.
-             * @function create
-             * @memberof protos.opts.RelayCLIOptions
-             * @static
-             * @param {protos.opts.IRelayCLIOptions=} [properties] Properties to set
-             * @returns {protos.opts.RelayCLIOptions} RelayCLIOptions instance
-             */
-            RelayCLIOptions.create = function create(properties) {
-                return new RelayCLIOptions(properties);
-            };
-
-            /**
-             * Encodes the specified RelayCLIOptions message. Does not implicitly {@link protos.opts.RelayCLIOptions.verify|verify} messages.
-             * @function encode
-             * @memberof protos.opts.RelayCLIOptions
-             * @static
-             * @param {protos.opts.IRelayCLIOptions} message RelayCLIOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            RelayCLIOptions.encode = function encode(message, writer) {
-                if (!writer)
-                    writer = $Writer.create();
-                if (message.httpListenAddress != null && Object.hasOwnProperty.call(message, "httpListenAddress"))
-                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.httpListenAddress);
-                return writer;
-            };
-
-            /**
-             * Encodes the specified RelayCLIOptions message, length delimited. Does not implicitly {@link protos.opts.RelayCLIOptions.verify|verify} messages.
-             * @function encodeDelimited
-             * @memberof protos.opts.RelayCLIOptions
-             * @static
-             * @param {protos.opts.IRelayCLIOptions} message RelayCLIOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            RelayCLIOptions.encodeDelimited = function encodeDelimited(message, writer) {
-                return this.encode(message, writer).ldelim();
-            };
-
-            /**
-             * Decodes a RelayCLIOptions message from the specified reader or buffer.
-             * @function decode
-             * @memberof protos.opts.RelayCLIOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @param {number} [length] Message length if known beforehand
-             * @returns {protos.opts.RelayCLIOptions} RelayCLIOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            RelayCLIOptions.decode = function decode(reader, length) {
-                if (!(reader instanceof $Reader))
-                    reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.RelayCLIOptions();
-                while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    switch (tag >>> 3) {
-                    case 1:
-                        message.httpListenAddress = reader.string();
-                        break;
-                    default:
-                        reader.skipType(tag & 7);
-                        break;
-                    }
-                }
-                return message;
-            };
-
-            /**
-             * Decodes a RelayCLIOptions message from the specified reader or buffer, length delimited.
-             * @function decodeDelimited
-             * @memberof protos.opts.RelayCLIOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {protos.opts.RelayCLIOptions} RelayCLIOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            RelayCLIOptions.decodeDelimited = function decodeDelimited(reader) {
-                if (!(reader instanceof $Reader))
-                    reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
-            };
-
-            /**
-             * Verifies a RelayCLIOptions message.
-             * @function verify
-             * @memberof protos.opts.RelayCLIOptions
-             * @static
-             * @param {Object.<string,*>} message Plain object to verify
-             * @returns {string|null} `null` if valid, otherwise the reason why it is not
-             */
-            RelayCLIOptions.verify = function verify(message) {
-                if (typeof message !== "object" || message === null)
-                    return "object expected";
-                if (message.httpListenAddress != null && message.hasOwnProperty("httpListenAddress"))
-                    if (!$util.isString(message.httpListenAddress))
-                        return "httpListenAddress: string expected";
-                return null;
-            };
-
-            /**
-             * Creates a RelayCLIOptions message from a plain object. Also converts values to their respective internal types.
-             * @function fromObject
-             * @memberof protos.opts.RelayCLIOptions
-             * @static
-             * @param {Object.<string,*>} object Plain object
-             * @returns {protos.opts.RelayCLIOptions} RelayCLIOptions
-             */
-            RelayCLIOptions.fromObject = function fromObject(object) {
-                if (object instanceof $root.protos.opts.RelayCLIOptions)
-                    return object;
-                var message = new $root.protos.opts.RelayCLIOptions();
-                if (object.httpListenAddress != null)
-                    message.httpListenAddress = String(object.httpListenAddress);
-                return message;
-            };
-
-            /**
-             * Creates a plain object from a RelayCLIOptions message. Also converts values to other types if specified.
-             * @function toObject
-             * @memberof protos.opts.RelayCLIOptions
-             * @static
-             * @param {protos.opts.RelayCLIOptions} message RelayCLIOptions
-             * @param {$protobuf.IConversionOptions} [options] Conversion options
-             * @returns {Object.<string,*>} Plain object
-             */
-            RelayCLIOptions.toObject = function toObject(message, options) {
-                if (!options)
-                    options = {};
-                var object = {};
-                if (options.defaults)
-                    object.httpListenAddress = "";
-                if (message.httpListenAddress != null && message.hasOwnProperty("httpListenAddress"))
-                    object.httpListenAddress = message.httpListenAddress;
-                return object;
-            };
-
-            /**
-             * Converts this RelayCLIOptions to JSON.
-             * @function toJSON
-             * @memberof protos.opts.RelayCLIOptions
-             * @instance
-             * @returns {Object.<string,*>} JSON object
-             */
-            RelayCLIOptions.prototype.toJSON = function toJSON() {
-                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-            };
-
-            return RelayCLIOptions;
-        })();
-
-        opts.RelayOptions = (function() {
-
-            /**
-             * Properties of a RelayOptions.
-             * @memberof protos.opts
-             * @interface IRelayOptions
-             * @property {string|null} [collectionToken] RelayOptions collectionToken
-             * @property {number|null} [batchSize] RelayOptions batchSize
-             * @property {number|null} [batchMaxRetry] RelayOptions batchMaxRetry
-             * @property {string|null} [connectionId] RelayOptions connectionId
-             * @property {number|null} [numWorkers] RelayOptions numWorkers
-             * @property {boolean|null} [statsEnable] RelayOptions statsEnable
-             * @property {number|null} [statsReportIntervalSec] RelayOptions statsReportIntervalSec
-             * @property {string|null} [_batchshGrpcAddress] RelayOptions _batchshGrpcAddress
-             * @property {boolean|null} [_batchshGrpcDisableTls] RelayOptions _batchshGrpcDisableTls
-             * @property {number|null} [_batchshGrpcTimeoutSeconds] RelayOptions _batchshGrpcTimeoutSeconds
-             * @property {string|null} [_relayId] RelayOptions _relayId
-             * @property {protos.opts.IRelayCLIOptions|null} [_cliOptions] RelayOptions _cliOptions
-             * @property {boolean|null} [_active] RelayOptions _active
-             * @property {protos.opts.IRelayGroupKafkaOptions|null} [kafka] RelayOptions kafka
-             * @property {protos.opts.IRelayGroupAWSSQSOptions|null} [awsSqs] RelayOptions awsSqs
-             * @property {protos.opts.IRelayGroupMongoOptions|null} [mongo] RelayOptions mongo
-             * @property {protos.opts.IRelayGroupNSQOptions|null} [nsq] RelayOptions nsq
-             * @property {protos.opts.IRelayGroupRabbitOptions|null} [rabbit] RelayOptions rabbit
-             * @property {protos.opts.IRelayGroupMQTTOptions|null} [mqtt] RelayOptions mqtt
-             * @property {protos.opts.IRelayGroupAzureServiceBusOptions|null} [azureServiceBus] RelayOptions azureServiceBus
-             * @property {protos.opts.IRelayGroupGCPPubSubOptions|null} [gcpPubsub] RelayOptions gcpPubsub
-             * @property {protos.opts.IRelayGroupKubeMQQueueOptions|null} [kubemqQueue] RelayOptions kubemqQueue
-             * @property {protos.opts.IRelayGroupRedisPubSubOptions|null} [redisPubsub] RelayOptions redisPubsub
-             * @property {protos.opts.IRelayGroupRedisStreamsOptions|null} [redisStreams] RelayOptions redisStreams
-             * @property {protos.opts.IRelayGroupPostgresOptions|null} [postgres] RelayOptions postgres
-             * @property {protos.opts.IRelayGroupNatsOptions|null} [nats] RelayOptions nats
-             * @property {protos.opts.IRelayGroupNatsStreamingOptions|null} [natsStreaming] RelayOptions natsStreaming
-             * @property {protos.opts.IRelayGroupNatsJetStreamOptions|null} [natsJetstream] RelayOptions natsJetstream
-             */
-
-            /**
-             * Constructs a new RelayOptions.
-             * @memberof protos.opts
-             * @classdesc Represents a RelayOptions.
-             * @implements IRelayOptions
-             * @constructor
-             * @param {protos.opts.IRelayOptions=} [properties] Properties to set
-             */
-            function RelayOptions(properties) {
-                if (properties)
-                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                        if (properties[keys[i]] != null)
-                            this[keys[i]] = properties[keys[i]];
-            }
-
-            /**
-             * RelayOptions collectionToken.
-             * @member {string} collectionToken
-             * @memberof protos.opts.RelayOptions
-             * @instance
-             */
-            RelayOptions.prototype.collectionToken = "";
-
-            /**
-             * RelayOptions batchSize.
-             * @member {number} batchSize
-             * @memberof protos.opts.RelayOptions
-             * @instance
-             */
-            RelayOptions.prototype.batchSize = 0;
-
-            /**
-             * RelayOptions batchMaxRetry.
-             * @member {number} batchMaxRetry
-             * @memberof protos.opts.RelayOptions
-             * @instance
-             */
-            RelayOptions.prototype.batchMaxRetry = 0;
-
-            /**
-             * RelayOptions connectionId.
-             * @member {string} connectionId
-             * @memberof protos.opts.RelayOptions
-             * @instance
-             */
-            RelayOptions.prototype.connectionId = "";
-
-            /**
-             * RelayOptions numWorkers.
-             * @member {number} numWorkers
-             * @memberof protos.opts.RelayOptions
-             * @instance
-             */
-            RelayOptions.prototype.numWorkers = 0;
-
-            /**
-             * RelayOptions statsEnable.
-             * @member {boolean} statsEnable
-             * @memberof protos.opts.RelayOptions
-             * @instance
-             */
-            RelayOptions.prototype.statsEnable = false;
-
-            /**
-             * RelayOptions statsReportIntervalSec.
-             * @member {number} statsReportIntervalSec
-             * @memberof protos.opts.RelayOptions
-             * @instance
-             */
-            RelayOptions.prototype.statsReportIntervalSec = 0;
-
-            /**
-             * RelayOptions _batchshGrpcAddress.
-             * @member {string} _batchshGrpcAddress
-             * @memberof protos.opts.RelayOptions
-             * @instance
-             */
-            RelayOptions.prototype._batchshGrpcAddress = "";
-
-            /**
-             * RelayOptions _batchshGrpcDisableTls.
-             * @member {boolean} _batchshGrpcDisableTls
-             * @memberof protos.opts.RelayOptions
-             * @instance
-             */
-            RelayOptions.prototype._batchshGrpcDisableTls = false;
-
-            /**
-             * RelayOptions _batchshGrpcTimeoutSeconds.
-             * @member {number} _batchshGrpcTimeoutSeconds
-             * @memberof protos.opts.RelayOptions
-             * @instance
-             */
-            RelayOptions.prototype._batchshGrpcTimeoutSeconds = 0;
-
-            /**
-             * RelayOptions _relayId.
-             * @member {string} _relayId
-             * @memberof protos.opts.RelayOptions
-             * @instance
-             */
-            RelayOptions.prototype._relayId = "";
-
-            /**
-             * RelayOptions _cliOptions.
-             * @member {protos.opts.IRelayCLIOptions|null|undefined} _cliOptions
-             * @memberof protos.opts.RelayOptions
-             * @instance
-             */
-            RelayOptions.prototype._cliOptions = null;
-
-            /**
-             * RelayOptions _active.
-             * @member {boolean} _active
-             * @memberof protos.opts.RelayOptions
-             * @instance
-             */
-            RelayOptions.prototype._active = false;
-
-            /**
-             * RelayOptions kafka.
-             * @member {protos.opts.IRelayGroupKafkaOptions|null|undefined} kafka
-             * @memberof protos.opts.RelayOptions
-             * @instance
-             */
-            RelayOptions.prototype.kafka = null;
-
-            /**
-             * RelayOptions awsSqs.
-             * @member {protos.opts.IRelayGroupAWSSQSOptions|null|undefined} awsSqs
-             * @memberof protos.opts.RelayOptions
-             * @instance
-             */
-            RelayOptions.prototype.awsSqs = null;
-
-            /**
-             * RelayOptions mongo.
-             * @member {protos.opts.IRelayGroupMongoOptions|null|undefined} mongo
-             * @memberof protos.opts.RelayOptions
-             * @instance
-             */
-            RelayOptions.prototype.mongo = null;
-
-            /**
-             * RelayOptions nsq.
-             * @member {protos.opts.IRelayGroupNSQOptions|null|undefined} nsq
-             * @memberof protos.opts.RelayOptions
-             * @instance
-             */
-            RelayOptions.prototype.nsq = null;
-
-            /**
-             * RelayOptions rabbit.
-             * @member {protos.opts.IRelayGroupRabbitOptions|null|undefined} rabbit
-             * @memberof protos.opts.RelayOptions
-             * @instance
-             */
-            RelayOptions.prototype.rabbit = null;
-
-            /**
-             * RelayOptions mqtt.
-             * @member {protos.opts.IRelayGroupMQTTOptions|null|undefined} mqtt
-             * @memberof protos.opts.RelayOptions
-             * @instance
-             */
-            RelayOptions.prototype.mqtt = null;
-
-            /**
-             * RelayOptions azureServiceBus.
-             * @member {protos.opts.IRelayGroupAzureServiceBusOptions|null|undefined} azureServiceBus
-             * @memberof protos.opts.RelayOptions
-             * @instance
-             */
-            RelayOptions.prototype.azureServiceBus = null;
-
-            /**
-             * RelayOptions gcpPubsub.
-             * @member {protos.opts.IRelayGroupGCPPubSubOptions|null|undefined} gcpPubsub
-             * @memberof protos.opts.RelayOptions
-             * @instance
-             */
-            RelayOptions.prototype.gcpPubsub = null;
-
-            /**
-             * RelayOptions kubemqQueue.
-             * @member {protos.opts.IRelayGroupKubeMQQueueOptions|null|undefined} kubemqQueue
-             * @memberof protos.opts.RelayOptions
-             * @instance
-             */
-            RelayOptions.prototype.kubemqQueue = null;
-
-            /**
-             * RelayOptions redisPubsub.
-             * @member {protos.opts.IRelayGroupRedisPubSubOptions|null|undefined} redisPubsub
-             * @memberof protos.opts.RelayOptions
-             * @instance
-             */
-            RelayOptions.prototype.redisPubsub = null;
-
-            /**
-             * RelayOptions redisStreams.
-             * @member {protos.opts.IRelayGroupRedisStreamsOptions|null|undefined} redisStreams
-             * @memberof protos.opts.RelayOptions
-             * @instance
-             */
-            RelayOptions.prototype.redisStreams = null;
-
-            /**
-             * RelayOptions postgres.
-             * @member {protos.opts.IRelayGroupPostgresOptions|null|undefined} postgres
-             * @memberof protos.opts.RelayOptions
-             * @instance
-             */
-            RelayOptions.prototype.postgres = null;
-
-            /**
-             * RelayOptions nats.
-             * @member {protos.opts.IRelayGroupNatsOptions|null|undefined} nats
-             * @memberof protos.opts.RelayOptions
-             * @instance
-             */
-            RelayOptions.prototype.nats = null;
-
-            /**
-             * RelayOptions natsStreaming.
-             * @member {protos.opts.IRelayGroupNatsStreamingOptions|null|undefined} natsStreaming
-             * @memberof protos.opts.RelayOptions
-             * @instance
-             */
-            RelayOptions.prototype.natsStreaming = null;
-
-            /**
-             * RelayOptions natsJetstream.
-             * @member {protos.opts.IRelayGroupNatsJetStreamOptions|null|undefined} natsJetstream
-             * @memberof protos.opts.RelayOptions
-             * @instance
-             */
-            RelayOptions.prototype.natsJetstream = null;
-
-            /**
-             * Creates a new RelayOptions instance using the specified properties.
-             * @function create
-             * @memberof protos.opts.RelayOptions
-             * @static
-             * @param {protos.opts.IRelayOptions=} [properties] Properties to set
-             * @returns {protos.opts.RelayOptions} RelayOptions instance
-             */
-            RelayOptions.create = function create(properties) {
-                return new RelayOptions(properties);
-            };
-
-            /**
-             * Encodes the specified RelayOptions message. Does not implicitly {@link protos.opts.RelayOptions.verify|verify} messages.
-             * @function encode
-             * @memberof protos.opts.RelayOptions
-             * @static
-             * @param {protos.opts.IRelayOptions} message RelayOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            RelayOptions.encode = function encode(message, writer) {
-                if (!writer)
-                    writer = $Writer.create();
-                if (message.collectionToken != null && Object.hasOwnProperty.call(message, "collectionToken"))
-                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.collectionToken);
-                if (message.batchSize != null && Object.hasOwnProperty.call(message, "batchSize"))
-                    writer.uint32(/* id 2, wireType 0 =*/16).int32(message.batchSize);
-                if (message.batchMaxRetry != null && Object.hasOwnProperty.call(message, "batchMaxRetry"))
-                    writer.uint32(/* id 3, wireType 0 =*/24).int32(message.batchMaxRetry);
-                if (message.connectionId != null && Object.hasOwnProperty.call(message, "connectionId"))
-                    writer.uint32(/* id 4, wireType 2 =*/34).string(message.connectionId);
-                if (message.numWorkers != null && Object.hasOwnProperty.call(message, "numWorkers"))
-                    writer.uint32(/* id 5, wireType 0 =*/40).int32(message.numWorkers);
-                if (message.statsEnable != null && Object.hasOwnProperty.call(message, "statsEnable"))
-                    writer.uint32(/* id 6, wireType 0 =*/48).bool(message.statsEnable);
-                if (message.statsReportIntervalSec != null && Object.hasOwnProperty.call(message, "statsReportIntervalSec"))
-                    writer.uint32(/* id 7, wireType 0 =*/56).int32(message.statsReportIntervalSec);
-                if (message.kafka != null && Object.hasOwnProperty.call(message, "kafka"))
-                    $root.protos.opts.RelayGroupKafkaOptions.encode(message.kafka, writer.uint32(/* id 100, wireType 2 =*/802).fork()).ldelim();
-                if (message.awsSqs != null && Object.hasOwnProperty.call(message, "awsSqs"))
-                    $root.protos.opts.RelayGroupAWSSQSOptions.encode(message.awsSqs, writer.uint32(/* id 101, wireType 2 =*/810).fork()).ldelim();
-                if (message.mongo != null && Object.hasOwnProperty.call(message, "mongo"))
-                    $root.protos.opts.RelayGroupMongoOptions.encode(message.mongo, writer.uint32(/* id 102, wireType 2 =*/818).fork()).ldelim();
-                if (message.nsq != null && Object.hasOwnProperty.call(message, "nsq"))
-                    $root.protos.opts.RelayGroupNSQOptions.encode(message.nsq, writer.uint32(/* id 103, wireType 2 =*/826).fork()).ldelim();
-                if (message.rabbit != null && Object.hasOwnProperty.call(message, "rabbit"))
-                    $root.protos.opts.RelayGroupRabbitOptions.encode(message.rabbit, writer.uint32(/* id 104, wireType 2 =*/834).fork()).ldelim();
-                if (message.mqtt != null && Object.hasOwnProperty.call(message, "mqtt"))
-                    $root.protos.opts.RelayGroupMQTTOptions.encode(message.mqtt, writer.uint32(/* id 105, wireType 2 =*/842).fork()).ldelim();
-                if (message.azureServiceBus != null && Object.hasOwnProperty.call(message, "azureServiceBus"))
-                    $root.protos.opts.RelayGroupAzureServiceBusOptions.encode(message.azureServiceBus, writer.uint32(/* id 106, wireType 2 =*/850).fork()).ldelim();
-                if (message.gcpPubsub != null && Object.hasOwnProperty.call(message, "gcpPubsub"))
-                    $root.protos.opts.RelayGroupGCPPubSubOptions.encode(message.gcpPubsub, writer.uint32(/* id 107, wireType 2 =*/858).fork()).ldelim();
-                if (message.kubemqQueue != null && Object.hasOwnProperty.call(message, "kubemqQueue"))
-                    $root.protos.opts.RelayGroupKubeMQQueueOptions.encode(message.kubemqQueue, writer.uint32(/* id 108, wireType 2 =*/866).fork()).ldelim();
-                if (message.redisPubsub != null && Object.hasOwnProperty.call(message, "redisPubsub"))
-                    $root.protos.opts.RelayGroupRedisPubSubOptions.encode(message.redisPubsub, writer.uint32(/* id 109, wireType 2 =*/874).fork()).ldelim();
-                if (message.redisStreams != null && Object.hasOwnProperty.call(message, "redisStreams"))
-                    $root.protos.opts.RelayGroupRedisStreamsOptions.encode(message.redisStreams, writer.uint32(/* id 111, wireType 2 =*/890).fork()).ldelim();
-                if (message.postgres != null && Object.hasOwnProperty.call(message, "postgres"))
-                    $root.protos.opts.RelayGroupPostgresOptions.encode(message.postgres, writer.uint32(/* id 112, wireType 2 =*/898).fork()).ldelim();
-                if (message.nats != null && Object.hasOwnProperty.call(message, "nats"))
-                    $root.protos.opts.RelayGroupNatsOptions.encode(message.nats, writer.uint32(/* id 113, wireType 2 =*/906).fork()).ldelim();
-                if (message.natsStreaming != null && Object.hasOwnProperty.call(message, "natsStreaming"))
-                    $root.protos.opts.RelayGroupNatsStreamingOptions.encode(message.natsStreaming, writer.uint32(/* id 114, wireType 2 =*/914).fork()).ldelim();
-                if (message.natsJetstream != null && Object.hasOwnProperty.call(message, "natsJetstream"))
-                    $root.protos.opts.RelayGroupNatsJetStreamOptions.encode(message.natsJetstream, writer.uint32(/* id 115, wireType 2 =*/922).fork()).ldelim();
-                if (message._batchshGrpcAddress != null && Object.hasOwnProperty.call(message, "_batchshGrpcAddress"))
-                    writer.uint32(/* id 1000, wireType 2 =*/8002).string(message._batchshGrpcAddress);
-                if (message._batchshGrpcDisableTls != null && Object.hasOwnProperty.call(message, "_batchshGrpcDisableTls"))
-                    writer.uint32(/* id 1001, wireType 0 =*/8008).bool(message._batchshGrpcDisableTls);
-                if (message._batchshGrpcTimeoutSeconds != null && Object.hasOwnProperty.call(message, "_batchshGrpcTimeoutSeconds"))
-                    writer.uint32(/* id 1002, wireType 0 =*/8016).int32(message._batchshGrpcTimeoutSeconds);
-                if (message._relayId != null && Object.hasOwnProperty.call(message, "_relayId"))
-                    writer.uint32(/* id 1003, wireType 2 =*/8026).string(message._relayId);
-                if (message._cliOptions != null && Object.hasOwnProperty.call(message, "_cliOptions"))
-                    $root.protos.opts.RelayCLIOptions.encode(message._cliOptions, writer.uint32(/* id 1004, wireType 2 =*/8034).fork()).ldelim();
-                if (message._active != null && Object.hasOwnProperty.call(message, "_active"))
-                    writer.uint32(/* id 1005, wireType 0 =*/8040).bool(message._active);
-                return writer;
-            };
-
-            /**
-             * Encodes the specified RelayOptions message, length delimited. Does not implicitly {@link protos.opts.RelayOptions.verify|verify} messages.
-             * @function encodeDelimited
-             * @memberof protos.opts.RelayOptions
-             * @static
-             * @param {protos.opts.IRelayOptions} message RelayOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            RelayOptions.encodeDelimited = function encodeDelimited(message, writer) {
-                return this.encode(message, writer).ldelim();
-            };
-
-            /**
-             * Decodes a RelayOptions message from the specified reader or buffer.
-             * @function decode
-             * @memberof protos.opts.RelayOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @param {number} [length] Message length if known beforehand
-             * @returns {protos.opts.RelayOptions} RelayOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            RelayOptions.decode = function decode(reader, length) {
-                if (!(reader instanceof $Reader))
-                    reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.RelayOptions();
-                while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    switch (tag >>> 3) {
-                    case 1:
-                        message.collectionToken = reader.string();
-                        break;
-                    case 2:
-                        message.batchSize = reader.int32();
-                        break;
-                    case 3:
-                        message.batchMaxRetry = reader.int32();
-                        break;
-                    case 4:
-                        message.connectionId = reader.string();
-                        break;
-                    case 5:
-                        message.numWorkers = reader.int32();
-                        break;
-                    case 6:
-                        message.statsEnable = reader.bool();
-                        break;
-                    case 7:
-                        message.statsReportIntervalSec = reader.int32();
-                        break;
-                    case 1000:
-                        message._batchshGrpcAddress = reader.string();
-                        break;
-                    case 1001:
-                        message._batchshGrpcDisableTls = reader.bool();
-                        break;
-                    case 1002:
-                        message._batchshGrpcTimeoutSeconds = reader.int32();
-                        break;
-                    case 1003:
-                        message._relayId = reader.string();
-                        break;
-                    case 1004:
-                        message._cliOptions = $root.protos.opts.RelayCLIOptions.decode(reader, reader.uint32());
-                        break;
-                    case 1005:
-                        message._active = reader.bool();
-                        break;
-                    case 100:
-                        message.kafka = $root.protos.opts.RelayGroupKafkaOptions.decode(reader, reader.uint32());
-                        break;
-                    case 101:
-                        message.awsSqs = $root.protos.opts.RelayGroupAWSSQSOptions.decode(reader, reader.uint32());
-                        break;
-                    case 102:
-                        message.mongo = $root.protos.opts.RelayGroupMongoOptions.decode(reader, reader.uint32());
-                        break;
-                    case 103:
-                        message.nsq = $root.protos.opts.RelayGroupNSQOptions.decode(reader, reader.uint32());
-                        break;
-                    case 104:
-                        message.rabbit = $root.protos.opts.RelayGroupRabbitOptions.decode(reader, reader.uint32());
-                        break;
-                    case 105:
-                        message.mqtt = $root.protos.opts.RelayGroupMQTTOptions.decode(reader, reader.uint32());
-                        break;
-                    case 106:
-                        message.azureServiceBus = $root.protos.opts.RelayGroupAzureServiceBusOptions.decode(reader, reader.uint32());
-                        break;
-                    case 107:
-                        message.gcpPubsub = $root.protos.opts.RelayGroupGCPPubSubOptions.decode(reader, reader.uint32());
-                        break;
-                    case 108:
-                        message.kubemqQueue = $root.protos.opts.RelayGroupKubeMQQueueOptions.decode(reader, reader.uint32());
-                        break;
-                    case 109:
-                        message.redisPubsub = $root.protos.opts.RelayGroupRedisPubSubOptions.decode(reader, reader.uint32());
-                        break;
-                    case 111:
-                        message.redisStreams = $root.protos.opts.RelayGroupRedisStreamsOptions.decode(reader, reader.uint32());
-                        break;
-                    case 112:
-                        message.postgres = $root.protos.opts.RelayGroupPostgresOptions.decode(reader, reader.uint32());
-                        break;
-                    case 113:
-                        message.nats = $root.protos.opts.RelayGroupNatsOptions.decode(reader, reader.uint32());
-                        break;
-                    case 114:
-                        message.natsStreaming = $root.protos.opts.RelayGroupNatsStreamingOptions.decode(reader, reader.uint32());
-                        break;
-                    case 115:
-                        message.natsJetstream = $root.protos.opts.RelayGroupNatsJetStreamOptions.decode(reader, reader.uint32());
-                        break;
-                    default:
-                        reader.skipType(tag & 7);
-                        break;
-                    }
-                }
-                return message;
-            };
-
-            /**
-             * Decodes a RelayOptions message from the specified reader or buffer, length delimited.
-             * @function decodeDelimited
-             * @memberof protos.opts.RelayOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {protos.opts.RelayOptions} RelayOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            RelayOptions.decodeDelimited = function decodeDelimited(reader) {
-                if (!(reader instanceof $Reader))
-                    reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
-            };
-
-            /**
-             * Verifies a RelayOptions message.
-             * @function verify
-             * @memberof protos.opts.RelayOptions
-             * @static
-             * @param {Object.<string,*>} message Plain object to verify
-             * @returns {string|null} `null` if valid, otherwise the reason why it is not
-             */
-            RelayOptions.verify = function verify(message) {
-                if (typeof message !== "object" || message === null)
-                    return "object expected";
-                if (message.collectionToken != null && message.hasOwnProperty("collectionToken"))
-                    if (!$util.isString(message.collectionToken))
-                        return "collectionToken: string expected";
-                if (message.batchSize != null && message.hasOwnProperty("batchSize"))
-                    if (!$util.isInteger(message.batchSize))
-                        return "batchSize: integer expected";
-                if (message.batchMaxRetry != null && message.hasOwnProperty("batchMaxRetry"))
-                    if (!$util.isInteger(message.batchMaxRetry))
-                        return "batchMaxRetry: integer expected";
-                if (message.connectionId != null && message.hasOwnProperty("connectionId"))
-                    if (!$util.isString(message.connectionId))
-                        return "connectionId: string expected";
-                if (message.numWorkers != null && message.hasOwnProperty("numWorkers"))
-                    if (!$util.isInteger(message.numWorkers))
-                        return "numWorkers: integer expected";
-                if (message.statsEnable != null && message.hasOwnProperty("statsEnable"))
-                    if (typeof message.statsEnable !== "boolean")
-                        return "statsEnable: boolean expected";
-                if (message.statsReportIntervalSec != null && message.hasOwnProperty("statsReportIntervalSec"))
-                    if (!$util.isInteger(message.statsReportIntervalSec))
-                        return "statsReportIntervalSec: integer expected";
-                if (message._batchshGrpcAddress != null && message.hasOwnProperty("_batchshGrpcAddress"))
-                    if (!$util.isString(message._batchshGrpcAddress))
-                        return "_batchshGrpcAddress: string expected";
-                if (message._batchshGrpcDisableTls != null && message.hasOwnProperty("_batchshGrpcDisableTls"))
-                    if (typeof message._batchshGrpcDisableTls !== "boolean")
-                        return "_batchshGrpcDisableTls: boolean expected";
-                if (message._batchshGrpcTimeoutSeconds != null && message.hasOwnProperty("_batchshGrpcTimeoutSeconds"))
-                    if (!$util.isInteger(message._batchshGrpcTimeoutSeconds))
-                        return "_batchshGrpcTimeoutSeconds: integer expected";
-                if (message._relayId != null && message.hasOwnProperty("_relayId"))
-                    if (!$util.isString(message._relayId))
-                        return "_relayId: string expected";
-                if (message._cliOptions != null && message.hasOwnProperty("_cliOptions")) {
-                    var error = $root.protos.opts.RelayCLIOptions.verify(message._cliOptions);
-                    if (error)
-                        return "_cliOptions." + error;
-                }
-                if (message._active != null && message.hasOwnProperty("_active"))
-                    if (typeof message._active !== "boolean")
-                        return "_active: boolean expected";
-                if (message.kafka != null && message.hasOwnProperty("kafka")) {
-                    var error = $root.protos.opts.RelayGroupKafkaOptions.verify(message.kafka);
-                    if (error)
-                        return "kafka." + error;
-                }
-                if (message.awsSqs != null && message.hasOwnProperty("awsSqs")) {
-                    var error = $root.protos.opts.RelayGroupAWSSQSOptions.verify(message.awsSqs);
-                    if (error)
-                        return "awsSqs." + error;
-                }
-                if (message.mongo != null && message.hasOwnProperty("mongo")) {
-                    var error = $root.protos.opts.RelayGroupMongoOptions.verify(message.mongo);
-                    if (error)
-                        return "mongo." + error;
-                }
-                if (message.nsq != null && message.hasOwnProperty("nsq")) {
-                    var error = $root.protos.opts.RelayGroupNSQOptions.verify(message.nsq);
-                    if (error)
-                        return "nsq." + error;
-                }
-                if (message.rabbit != null && message.hasOwnProperty("rabbit")) {
-                    var error = $root.protos.opts.RelayGroupRabbitOptions.verify(message.rabbit);
-                    if (error)
-                        return "rabbit." + error;
-                }
-                if (message.mqtt != null && message.hasOwnProperty("mqtt")) {
-                    var error = $root.protos.opts.RelayGroupMQTTOptions.verify(message.mqtt);
-                    if (error)
-                        return "mqtt." + error;
-                }
-                if (message.azureServiceBus != null && message.hasOwnProperty("azureServiceBus")) {
-                    var error = $root.protos.opts.RelayGroupAzureServiceBusOptions.verify(message.azureServiceBus);
-                    if (error)
-                        return "azureServiceBus." + error;
-                }
-                if (message.gcpPubsub != null && message.hasOwnProperty("gcpPubsub")) {
-                    var error = $root.protos.opts.RelayGroupGCPPubSubOptions.verify(message.gcpPubsub);
-                    if (error)
-                        return "gcpPubsub." + error;
-                }
-                if (message.kubemqQueue != null && message.hasOwnProperty("kubemqQueue")) {
-                    var error = $root.protos.opts.RelayGroupKubeMQQueueOptions.verify(message.kubemqQueue);
-                    if (error)
-                        return "kubemqQueue." + error;
-                }
-                if (message.redisPubsub != null && message.hasOwnProperty("redisPubsub")) {
-                    var error = $root.protos.opts.RelayGroupRedisPubSubOptions.verify(message.redisPubsub);
-                    if (error)
-                        return "redisPubsub." + error;
-                }
-                if (message.redisStreams != null && message.hasOwnProperty("redisStreams")) {
-                    var error = $root.protos.opts.RelayGroupRedisStreamsOptions.verify(message.redisStreams);
-                    if (error)
-                        return "redisStreams." + error;
-                }
-                if (message.postgres != null && message.hasOwnProperty("postgres")) {
-                    var error = $root.protos.opts.RelayGroupPostgresOptions.verify(message.postgres);
-                    if (error)
-                        return "postgres." + error;
-                }
-                if (message.nats != null && message.hasOwnProperty("nats")) {
-                    var error = $root.protos.opts.RelayGroupNatsOptions.verify(message.nats);
-                    if (error)
-                        return "nats." + error;
-                }
-                if (message.natsStreaming != null && message.hasOwnProperty("natsStreaming")) {
-                    var error = $root.protos.opts.RelayGroupNatsStreamingOptions.verify(message.natsStreaming);
-                    if (error)
-                        return "natsStreaming." + error;
-                }
-                if (message.natsJetstream != null && message.hasOwnProperty("natsJetstream")) {
-                    var error = $root.protos.opts.RelayGroupNatsJetStreamOptions.verify(message.natsJetstream);
-                    if (error)
-                        return "natsJetstream." + error;
-                }
-                return null;
-            };
-
-            /**
-             * Creates a RelayOptions message from a plain object. Also converts values to their respective internal types.
-             * @function fromObject
-             * @memberof protos.opts.RelayOptions
-             * @static
-             * @param {Object.<string,*>} object Plain object
-             * @returns {protos.opts.RelayOptions} RelayOptions
-             */
-            RelayOptions.fromObject = function fromObject(object) {
-                if (object instanceof $root.protos.opts.RelayOptions)
-                    return object;
-                var message = new $root.protos.opts.RelayOptions();
-                if (object.collectionToken != null)
-                    message.collectionToken = String(object.collectionToken);
-                if (object.batchSize != null)
-                    message.batchSize = object.batchSize | 0;
-                if (object.batchMaxRetry != null)
-                    message.batchMaxRetry = object.batchMaxRetry | 0;
-                if (object.connectionId != null)
-                    message.connectionId = String(object.connectionId);
-                if (object.numWorkers != null)
-                    message.numWorkers = object.numWorkers | 0;
-                if (object.statsEnable != null)
-                    message.statsEnable = Boolean(object.statsEnable);
-                if (object.statsReportIntervalSec != null)
-                    message.statsReportIntervalSec = object.statsReportIntervalSec | 0;
-                if (object._batchshGrpcAddress != null)
-                    message._batchshGrpcAddress = String(object._batchshGrpcAddress);
-                if (object._batchshGrpcDisableTls != null)
-                    message._batchshGrpcDisableTls = Boolean(object._batchshGrpcDisableTls);
-                if (object._batchshGrpcTimeoutSeconds != null)
-                    message._batchshGrpcTimeoutSeconds = object._batchshGrpcTimeoutSeconds | 0;
-                if (object._relayId != null)
-                    message._relayId = String(object._relayId);
-                if (object._cliOptions != null) {
-                    if (typeof object._cliOptions !== "object")
-                        throw TypeError(".protos.opts.RelayOptions._cliOptions: object expected");
-                    message._cliOptions = $root.protos.opts.RelayCLIOptions.fromObject(object._cliOptions);
-                }
-                if (object._active != null)
-                    message._active = Boolean(object._active);
-                if (object.kafka != null) {
-                    if (typeof object.kafka !== "object")
-                        throw TypeError(".protos.opts.RelayOptions.kafka: object expected");
-                    message.kafka = $root.protos.opts.RelayGroupKafkaOptions.fromObject(object.kafka);
-                }
-                if (object.awsSqs != null) {
-                    if (typeof object.awsSqs !== "object")
-                        throw TypeError(".protos.opts.RelayOptions.awsSqs: object expected");
-                    message.awsSqs = $root.protos.opts.RelayGroupAWSSQSOptions.fromObject(object.awsSqs);
-                }
-                if (object.mongo != null) {
-                    if (typeof object.mongo !== "object")
-                        throw TypeError(".protos.opts.RelayOptions.mongo: object expected");
-                    message.mongo = $root.protos.opts.RelayGroupMongoOptions.fromObject(object.mongo);
-                }
-                if (object.nsq != null) {
-                    if (typeof object.nsq !== "object")
-                        throw TypeError(".protos.opts.RelayOptions.nsq: object expected");
-                    message.nsq = $root.protos.opts.RelayGroupNSQOptions.fromObject(object.nsq);
-                }
-                if (object.rabbit != null) {
-                    if (typeof object.rabbit !== "object")
-                        throw TypeError(".protos.opts.RelayOptions.rabbit: object expected");
-                    message.rabbit = $root.protos.opts.RelayGroupRabbitOptions.fromObject(object.rabbit);
-                }
-                if (object.mqtt != null) {
-                    if (typeof object.mqtt !== "object")
-                        throw TypeError(".protos.opts.RelayOptions.mqtt: object expected");
-                    message.mqtt = $root.protos.opts.RelayGroupMQTTOptions.fromObject(object.mqtt);
-                }
-                if (object.azureServiceBus != null) {
-                    if (typeof object.azureServiceBus !== "object")
-                        throw TypeError(".protos.opts.RelayOptions.azureServiceBus: object expected");
-                    message.azureServiceBus = $root.protos.opts.RelayGroupAzureServiceBusOptions.fromObject(object.azureServiceBus);
-                }
-                if (object.gcpPubsub != null) {
-                    if (typeof object.gcpPubsub !== "object")
-                        throw TypeError(".protos.opts.RelayOptions.gcpPubsub: object expected");
-                    message.gcpPubsub = $root.protos.opts.RelayGroupGCPPubSubOptions.fromObject(object.gcpPubsub);
-                }
-                if (object.kubemqQueue != null) {
-                    if (typeof object.kubemqQueue !== "object")
-                        throw TypeError(".protos.opts.RelayOptions.kubemqQueue: object expected");
-                    message.kubemqQueue = $root.protos.opts.RelayGroupKubeMQQueueOptions.fromObject(object.kubemqQueue);
-                }
-                if (object.redisPubsub != null) {
-                    if (typeof object.redisPubsub !== "object")
-                        throw TypeError(".protos.opts.RelayOptions.redisPubsub: object expected");
-                    message.redisPubsub = $root.protos.opts.RelayGroupRedisPubSubOptions.fromObject(object.redisPubsub);
-                }
-                if (object.redisStreams != null) {
-                    if (typeof object.redisStreams !== "object")
-                        throw TypeError(".protos.opts.RelayOptions.redisStreams: object expected");
-                    message.redisStreams = $root.protos.opts.RelayGroupRedisStreamsOptions.fromObject(object.redisStreams);
-                }
-                if (object.postgres != null) {
-                    if (typeof object.postgres !== "object")
-                        throw TypeError(".protos.opts.RelayOptions.postgres: object expected");
-                    message.postgres = $root.protos.opts.RelayGroupPostgresOptions.fromObject(object.postgres);
-                }
-                if (object.nats != null) {
-                    if (typeof object.nats !== "object")
-                        throw TypeError(".protos.opts.RelayOptions.nats: object expected");
-                    message.nats = $root.protos.opts.RelayGroupNatsOptions.fromObject(object.nats);
-                }
-                if (object.natsStreaming != null) {
-                    if (typeof object.natsStreaming !== "object")
-                        throw TypeError(".protos.opts.RelayOptions.natsStreaming: object expected");
-                    message.natsStreaming = $root.protos.opts.RelayGroupNatsStreamingOptions.fromObject(object.natsStreaming);
-                }
-                if (object.natsJetstream != null) {
-                    if (typeof object.natsJetstream !== "object")
-                        throw TypeError(".protos.opts.RelayOptions.natsJetstream: object expected");
-                    message.natsJetstream = $root.protos.opts.RelayGroupNatsJetStreamOptions.fromObject(object.natsJetstream);
-                }
-                return message;
-            };
-
-            /**
-             * Creates a plain object from a RelayOptions message. Also converts values to other types if specified.
-             * @function toObject
-             * @memberof protos.opts.RelayOptions
-             * @static
-             * @param {protos.opts.RelayOptions} message RelayOptions
-             * @param {$protobuf.IConversionOptions} [options] Conversion options
-             * @returns {Object.<string,*>} Plain object
-             */
-            RelayOptions.toObject = function toObject(message, options) {
-                if (!options)
-                    options = {};
-                var object = {};
-                if (options.defaults) {
-                    object.collectionToken = "";
-                    object.batchSize = 0;
-                    object.batchMaxRetry = 0;
-                    object.connectionId = "";
-                    object.numWorkers = 0;
-                    object.statsEnable = false;
-                    object.statsReportIntervalSec = 0;
-                    object.kafka = null;
-                    object.awsSqs = null;
-                    object.mongo = null;
-                    object.nsq = null;
-                    object.rabbit = null;
-                    object.mqtt = null;
-                    object.azureServiceBus = null;
-                    object.gcpPubsub = null;
-                    object.kubemqQueue = null;
-                    object.redisPubsub = null;
-                    object.redisStreams = null;
-                    object.postgres = null;
-                    object.nats = null;
-                    object.natsStreaming = null;
-                    object.natsJetstream = null;
-                    object._batchshGrpcAddress = "";
-                    object._batchshGrpcDisableTls = false;
-                    object._batchshGrpcTimeoutSeconds = 0;
-                    object._relayId = "";
-                    object._cliOptions = null;
-                    object._active = false;
-                }
-                if (message.collectionToken != null && message.hasOwnProperty("collectionToken"))
-                    object.collectionToken = message.collectionToken;
-                if (message.batchSize != null && message.hasOwnProperty("batchSize"))
-                    object.batchSize = message.batchSize;
-                if (message.batchMaxRetry != null && message.hasOwnProperty("batchMaxRetry"))
-                    object.batchMaxRetry = message.batchMaxRetry;
-                if (message.connectionId != null && message.hasOwnProperty("connectionId"))
-                    object.connectionId = message.connectionId;
-                if (message.numWorkers != null && message.hasOwnProperty("numWorkers"))
-                    object.numWorkers = message.numWorkers;
-                if (message.statsEnable != null && message.hasOwnProperty("statsEnable"))
-                    object.statsEnable = message.statsEnable;
-                if (message.statsReportIntervalSec != null && message.hasOwnProperty("statsReportIntervalSec"))
-                    object.statsReportIntervalSec = message.statsReportIntervalSec;
-                if (message.kafka != null && message.hasOwnProperty("kafka"))
-                    object.kafka = $root.protos.opts.RelayGroupKafkaOptions.toObject(message.kafka, options);
-                if (message.awsSqs != null && message.hasOwnProperty("awsSqs"))
-                    object.awsSqs = $root.protos.opts.RelayGroupAWSSQSOptions.toObject(message.awsSqs, options);
-                if (message.mongo != null && message.hasOwnProperty("mongo"))
-                    object.mongo = $root.protos.opts.RelayGroupMongoOptions.toObject(message.mongo, options);
-                if (message.nsq != null && message.hasOwnProperty("nsq"))
-                    object.nsq = $root.protos.opts.RelayGroupNSQOptions.toObject(message.nsq, options);
-                if (message.rabbit != null && message.hasOwnProperty("rabbit"))
-                    object.rabbit = $root.protos.opts.RelayGroupRabbitOptions.toObject(message.rabbit, options);
-                if (message.mqtt != null && message.hasOwnProperty("mqtt"))
-                    object.mqtt = $root.protos.opts.RelayGroupMQTTOptions.toObject(message.mqtt, options);
-                if (message.azureServiceBus != null && message.hasOwnProperty("azureServiceBus"))
-                    object.azureServiceBus = $root.protos.opts.RelayGroupAzureServiceBusOptions.toObject(message.azureServiceBus, options);
-                if (message.gcpPubsub != null && message.hasOwnProperty("gcpPubsub"))
-                    object.gcpPubsub = $root.protos.opts.RelayGroupGCPPubSubOptions.toObject(message.gcpPubsub, options);
-                if (message.kubemqQueue != null && message.hasOwnProperty("kubemqQueue"))
-                    object.kubemqQueue = $root.protos.opts.RelayGroupKubeMQQueueOptions.toObject(message.kubemqQueue, options);
-                if (message.redisPubsub != null && message.hasOwnProperty("redisPubsub"))
-                    object.redisPubsub = $root.protos.opts.RelayGroupRedisPubSubOptions.toObject(message.redisPubsub, options);
-                if (message.redisStreams != null && message.hasOwnProperty("redisStreams"))
-                    object.redisStreams = $root.protos.opts.RelayGroupRedisStreamsOptions.toObject(message.redisStreams, options);
-                if (message.postgres != null && message.hasOwnProperty("postgres"))
-                    object.postgres = $root.protos.opts.RelayGroupPostgresOptions.toObject(message.postgres, options);
-                if (message.nats != null && message.hasOwnProperty("nats"))
-                    object.nats = $root.protos.opts.RelayGroupNatsOptions.toObject(message.nats, options);
-                if (message.natsStreaming != null && message.hasOwnProperty("natsStreaming"))
-                    object.natsStreaming = $root.protos.opts.RelayGroupNatsStreamingOptions.toObject(message.natsStreaming, options);
-                if (message.natsJetstream != null && message.hasOwnProperty("natsJetstream"))
-                    object.natsJetstream = $root.protos.opts.RelayGroupNatsJetStreamOptions.toObject(message.natsJetstream, options);
-                if (message._batchshGrpcAddress != null && message.hasOwnProperty("_batchshGrpcAddress"))
-                    object._batchshGrpcAddress = message._batchshGrpcAddress;
-                if (message._batchshGrpcDisableTls != null && message.hasOwnProperty("_batchshGrpcDisableTls"))
-                    object._batchshGrpcDisableTls = message._batchshGrpcDisableTls;
-                if (message._batchshGrpcTimeoutSeconds != null && message.hasOwnProperty("_batchshGrpcTimeoutSeconds"))
-                    object._batchshGrpcTimeoutSeconds = message._batchshGrpcTimeoutSeconds;
-                if (message._relayId != null && message.hasOwnProperty("_relayId"))
-                    object._relayId = message._relayId;
-                if (message._cliOptions != null && message.hasOwnProperty("_cliOptions"))
-                    object._cliOptions = $root.protos.opts.RelayCLIOptions.toObject(message._cliOptions, options);
-                if (message._active != null && message.hasOwnProperty("_active"))
-                    object._active = message._active;
-                return object;
-            };
-
-            /**
-             * Converts this RelayOptions to JSON.
-             * @function toJSON
-             * @memberof protos.opts.RelayOptions
-             * @instance
-             * @returns {Object.<string,*>} JSON object
-             */
-            RelayOptions.prototype.toJSON = function toJSON() {
-                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-            };
-
-            return RelayOptions;
-        })();
-
-        opts.RelayGroupKafkaOptions = (function() {
-
-            /**
-             * Properties of a RelayGroupKafkaOptions.
-             * @memberof protos.opts
-             * @interface IRelayGroupKafkaOptions
-             * @property {protos.args.IKafkaConn|null} [_conn] RelayGroupKafkaOptions _conn
-             * @property {protos.args.IKafkaRelayArgs|null} [args] RelayGroupKafkaOptions args
-             */
-
-            /**
-             * Constructs a new RelayGroupKafkaOptions.
-             * @memberof protos.opts
-             * @classdesc Represents a RelayGroupKafkaOptions.
-             * @implements IRelayGroupKafkaOptions
-             * @constructor
-             * @param {protos.opts.IRelayGroupKafkaOptions=} [properties] Properties to set
-             */
-            function RelayGroupKafkaOptions(properties) {
-                if (properties)
-                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                        if (properties[keys[i]] != null)
-                            this[keys[i]] = properties[keys[i]];
-            }
-
-            /**
-             * RelayGroupKafkaOptions _conn.
-             * @member {protos.args.IKafkaConn|null|undefined} _conn
-             * @memberof protos.opts.RelayGroupKafkaOptions
-             * @instance
-             */
-            RelayGroupKafkaOptions.prototype._conn = null;
-
-            /**
-             * RelayGroupKafkaOptions args.
-             * @member {protos.args.IKafkaRelayArgs|null|undefined} args
-             * @memberof protos.opts.RelayGroupKafkaOptions
-             * @instance
-             */
-            RelayGroupKafkaOptions.prototype.args = null;
-
-            /**
-             * Creates a new RelayGroupKafkaOptions instance using the specified properties.
-             * @function create
-             * @memberof protos.opts.RelayGroupKafkaOptions
-             * @static
-             * @param {protos.opts.IRelayGroupKafkaOptions=} [properties] Properties to set
-             * @returns {protos.opts.RelayGroupKafkaOptions} RelayGroupKafkaOptions instance
-             */
-            RelayGroupKafkaOptions.create = function create(properties) {
-                return new RelayGroupKafkaOptions(properties);
-            };
-
-            /**
-             * Encodes the specified RelayGroupKafkaOptions message. Does not implicitly {@link protos.opts.RelayGroupKafkaOptions.verify|verify} messages.
-             * @function encode
-             * @memberof protos.opts.RelayGroupKafkaOptions
-             * @static
-             * @param {protos.opts.IRelayGroupKafkaOptions} message RelayGroupKafkaOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            RelayGroupKafkaOptions.encode = function encode(message, writer) {
-                if (!writer)
-                    writer = $Writer.create();
-                if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
-                    $root.protos.args.KafkaConn.encode(message._conn, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
-                if (message.args != null && Object.hasOwnProperty.call(message, "args"))
-                    $root.protos.args.KafkaRelayArgs.encode(message.args, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
-                return writer;
-            };
-
-            /**
-             * Encodes the specified RelayGroupKafkaOptions message, length delimited. Does not implicitly {@link protos.opts.RelayGroupKafkaOptions.verify|verify} messages.
-             * @function encodeDelimited
-             * @memberof protos.opts.RelayGroupKafkaOptions
-             * @static
-             * @param {protos.opts.IRelayGroupKafkaOptions} message RelayGroupKafkaOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            RelayGroupKafkaOptions.encodeDelimited = function encodeDelimited(message, writer) {
-                return this.encode(message, writer).ldelim();
-            };
-
-            /**
-             * Decodes a RelayGroupKafkaOptions message from the specified reader or buffer.
-             * @function decode
-             * @memberof protos.opts.RelayGroupKafkaOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @param {number} [length] Message length if known beforehand
-             * @returns {protos.opts.RelayGroupKafkaOptions} RelayGroupKafkaOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            RelayGroupKafkaOptions.decode = function decode(reader, length) {
-                if (!(reader instanceof $Reader))
-                    reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.RelayGroupKafkaOptions();
-                while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    switch (tag >>> 3) {
-                    case 1:
-                        message._conn = $root.protos.args.KafkaConn.decode(reader, reader.uint32());
-                        break;
-                    case 2:
-                        message.args = $root.protos.args.KafkaRelayArgs.decode(reader, reader.uint32());
-                        break;
-                    default:
-                        reader.skipType(tag & 7);
-                        break;
-                    }
-                }
-                return message;
-            };
-
-            /**
-             * Decodes a RelayGroupKafkaOptions message from the specified reader or buffer, length delimited.
-             * @function decodeDelimited
-             * @memberof protos.opts.RelayGroupKafkaOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {protos.opts.RelayGroupKafkaOptions} RelayGroupKafkaOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            RelayGroupKafkaOptions.decodeDelimited = function decodeDelimited(reader) {
-                if (!(reader instanceof $Reader))
-                    reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
-            };
-
-            /**
-             * Verifies a RelayGroupKafkaOptions message.
-             * @function verify
-             * @memberof protos.opts.RelayGroupKafkaOptions
-             * @static
-             * @param {Object.<string,*>} message Plain object to verify
-             * @returns {string|null} `null` if valid, otherwise the reason why it is not
-             */
-            RelayGroupKafkaOptions.verify = function verify(message) {
-                if (typeof message !== "object" || message === null)
-                    return "object expected";
-                if (message._conn != null && message.hasOwnProperty("_conn")) {
-                    var error = $root.protos.args.KafkaConn.verify(message._conn);
-                    if (error)
-                        return "_conn." + error;
-                }
-                if (message.args != null && message.hasOwnProperty("args")) {
-                    var error = $root.protos.args.KafkaRelayArgs.verify(message.args);
-                    if (error)
-                        return "args." + error;
-                }
-                return null;
-            };
-
-            /**
-             * Creates a RelayGroupKafkaOptions message from a plain object. Also converts values to their respective internal types.
-             * @function fromObject
-             * @memberof protos.opts.RelayGroupKafkaOptions
-             * @static
-             * @param {Object.<string,*>} object Plain object
-             * @returns {protos.opts.RelayGroupKafkaOptions} RelayGroupKafkaOptions
-             */
-            RelayGroupKafkaOptions.fromObject = function fromObject(object) {
-                if (object instanceof $root.protos.opts.RelayGroupKafkaOptions)
-                    return object;
-                var message = new $root.protos.opts.RelayGroupKafkaOptions();
-                if (object._conn != null) {
-                    if (typeof object._conn !== "object")
-                        throw TypeError(".protos.opts.RelayGroupKafkaOptions._conn: object expected");
-                    message._conn = $root.protos.args.KafkaConn.fromObject(object._conn);
-                }
-                if (object.args != null) {
-                    if (typeof object.args !== "object")
-                        throw TypeError(".protos.opts.RelayGroupKafkaOptions.args: object expected");
-                    message.args = $root.protos.args.KafkaRelayArgs.fromObject(object.args);
-                }
-                return message;
-            };
-
-            /**
-             * Creates a plain object from a RelayGroupKafkaOptions message. Also converts values to other types if specified.
-             * @function toObject
-             * @memberof protos.opts.RelayGroupKafkaOptions
-             * @static
-             * @param {protos.opts.RelayGroupKafkaOptions} message RelayGroupKafkaOptions
-             * @param {$protobuf.IConversionOptions} [options] Conversion options
-             * @returns {Object.<string,*>} Plain object
-             */
-            RelayGroupKafkaOptions.toObject = function toObject(message, options) {
-                if (!options)
-                    options = {};
-                var object = {};
-                if (options.defaults) {
-                    object._conn = null;
-                    object.args = null;
-                }
-                if (message._conn != null && message.hasOwnProperty("_conn"))
-                    object._conn = $root.protos.args.KafkaConn.toObject(message._conn, options);
-                if (message.args != null && message.hasOwnProperty("args"))
-                    object.args = $root.protos.args.KafkaRelayArgs.toObject(message.args, options);
-                return object;
-            };
-
-            /**
-             * Converts this RelayGroupKafkaOptions to JSON.
-             * @function toJSON
-             * @memberof protos.opts.RelayGroupKafkaOptions
-             * @instance
-             * @returns {Object.<string,*>} JSON object
-             */
-            RelayGroupKafkaOptions.prototype.toJSON = function toJSON() {
-                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-            };
-
-            return RelayGroupKafkaOptions;
-        })();
-
-        opts.RelayGroupAWSSQSOptions = (function() {
-
-            /**
-             * Properties of a RelayGroupAWSSQSOptions.
-             * @memberof protos.opts
-             * @interface IRelayGroupAWSSQSOptions
-             * @property {protos.args.IAWSSQSConn|null} [_conn] RelayGroupAWSSQSOptions _conn
-             * @property {protos.args.IAWSSQSRelayArgs|null} [args] RelayGroupAWSSQSOptions args
-             */
-
-            /**
-             * Constructs a new RelayGroupAWSSQSOptions.
-             * @memberof protos.opts
-             * @classdesc Represents a RelayGroupAWSSQSOptions.
-             * @implements IRelayGroupAWSSQSOptions
-             * @constructor
-             * @param {protos.opts.IRelayGroupAWSSQSOptions=} [properties] Properties to set
-             */
-            function RelayGroupAWSSQSOptions(properties) {
-                if (properties)
-                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                        if (properties[keys[i]] != null)
-                            this[keys[i]] = properties[keys[i]];
-            }
-
-            /**
-             * RelayGroupAWSSQSOptions _conn.
-             * @member {protos.args.IAWSSQSConn|null|undefined} _conn
-             * @memberof protos.opts.RelayGroupAWSSQSOptions
-             * @instance
-             */
-            RelayGroupAWSSQSOptions.prototype._conn = null;
-
-            /**
-             * RelayGroupAWSSQSOptions args.
-             * @member {protos.args.IAWSSQSRelayArgs|null|undefined} args
-             * @memberof protos.opts.RelayGroupAWSSQSOptions
-             * @instance
-             */
-            RelayGroupAWSSQSOptions.prototype.args = null;
-
-            /**
-             * Creates a new RelayGroupAWSSQSOptions instance using the specified properties.
-             * @function create
-             * @memberof protos.opts.RelayGroupAWSSQSOptions
-             * @static
-             * @param {protos.opts.IRelayGroupAWSSQSOptions=} [properties] Properties to set
-             * @returns {protos.opts.RelayGroupAWSSQSOptions} RelayGroupAWSSQSOptions instance
-             */
-            RelayGroupAWSSQSOptions.create = function create(properties) {
-                return new RelayGroupAWSSQSOptions(properties);
-            };
-
-            /**
-             * Encodes the specified RelayGroupAWSSQSOptions message. Does not implicitly {@link protos.opts.RelayGroupAWSSQSOptions.verify|verify} messages.
-             * @function encode
-             * @memberof protos.opts.RelayGroupAWSSQSOptions
-             * @static
-             * @param {protos.opts.IRelayGroupAWSSQSOptions} message RelayGroupAWSSQSOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            RelayGroupAWSSQSOptions.encode = function encode(message, writer) {
-                if (!writer)
-                    writer = $Writer.create();
-                if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
-                    $root.protos.args.AWSSQSConn.encode(message._conn, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
-                if (message.args != null && Object.hasOwnProperty.call(message, "args"))
-                    $root.protos.args.AWSSQSRelayArgs.encode(message.args, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
-                return writer;
-            };
-
-            /**
-             * Encodes the specified RelayGroupAWSSQSOptions message, length delimited. Does not implicitly {@link protos.opts.RelayGroupAWSSQSOptions.verify|verify} messages.
-             * @function encodeDelimited
-             * @memberof protos.opts.RelayGroupAWSSQSOptions
-             * @static
-             * @param {protos.opts.IRelayGroupAWSSQSOptions} message RelayGroupAWSSQSOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            RelayGroupAWSSQSOptions.encodeDelimited = function encodeDelimited(message, writer) {
-                return this.encode(message, writer).ldelim();
-            };
-
-            /**
-             * Decodes a RelayGroupAWSSQSOptions message from the specified reader or buffer.
-             * @function decode
-             * @memberof protos.opts.RelayGroupAWSSQSOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @param {number} [length] Message length if known beforehand
-             * @returns {protos.opts.RelayGroupAWSSQSOptions} RelayGroupAWSSQSOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            RelayGroupAWSSQSOptions.decode = function decode(reader, length) {
-                if (!(reader instanceof $Reader))
-                    reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.RelayGroupAWSSQSOptions();
-                while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    switch (tag >>> 3) {
-                    case 1:
-                        message._conn = $root.protos.args.AWSSQSConn.decode(reader, reader.uint32());
-                        break;
-                    case 2:
-                        message.args = $root.protos.args.AWSSQSRelayArgs.decode(reader, reader.uint32());
-                        break;
-                    default:
-                        reader.skipType(tag & 7);
-                        break;
-                    }
-                }
-                return message;
-            };
-
-            /**
-             * Decodes a RelayGroupAWSSQSOptions message from the specified reader or buffer, length delimited.
-             * @function decodeDelimited
-             * @memberof protos.opts.RelayGroupAWSSQSOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {protos.opts.RelayGroupAWSSQSOptions} RelayGroupAWSSQSOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            RelayGroupAWSSQSOptions.decodeDelimited = function decodeDelimited(reader) {
-                if (!(reader instanceof $Reader))
-                    reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
-            };
-
-            /**
-             * Verifies a RelayGroupAWSSQSOptions message.
-             * @function verify
-             * @memberof protos.opts.RelayGroupAWSSQSOptions
-             * @static
-             * @param {Object.<string,*>} message Plain object to verify
-             * @returns {string|null} `null` if valid, otherwise the reason why it is not
-             */
-            RelayGroupAWSSQSOptions.verify = function verify(message) {
-                if (typeof message !== "object" || message === null)
-                    return "object expected";
-                if (message._conn != null && message.hasOwnProperty("_conn")) {
-                    var error = $root.protos.args.AWSSQSConn.verify(message._conn);
-                    if (error)
-                        return "_conn." + error;
-                }
-                if (message.args != null && message.hasOwnProperty("args")) {
-                    var error = $root.protos.args.AWSSQSRelayArgs.verify(message.args);
-                    if (error)
-                        return "args." + error;
-                }
-                return null;
-            };
-
-            /**
-             * Creates a RelayGroupAWSSQSOptions message from a plain object. Also converts values to their respective internal types.
-             * @function fromObject
-             * @memberof protos.opts.RelayGroupAWSSQSOptions
-             * @static
-             * @param {Object.<string,*>} object Plain object
-             * @returns {protos.opts.RelayGroupAWSSQSOptions} RelayGroupAWSSQSOptions
-             */
-            RelayGroupAWSSQSOptions.fromObject = function fromObject(object) {
-                if (object instanceof $root.protos.opts.RelayGroupAWSSQSOptions)
-                    return object;
-                var message = new $root.protos.opts.RelayGroupAWSSQSOptions();
-                if (object._conn != null) {
-                    if (typeof object._conn !== "object")
-                        throw TypeError(".protos.opts.RelayGroupAWSSQSOptions._conn: object expected");
-                    message._conn = $root.protos.args.AWSSQSConn.fromObject(object._conn);
-                }
-                if (object.args != null) {
-                    if (typeof object.args !== "object")
-                        throw TypeError(".protos.opts.RelayGroupAWSSQSOptions.args: object expected");
-                    message.args = $root.protos.args.AWSSQSRelayArgs.fromObject(object.args);
-                }
-                return message;
-            };
-
-            /**
-             * Creates a plain object from a RelayGroupAWSSQSOptions message. Also converts values to other types if specified.
-             * @function toObject
-             * @memberof protos.opts.RelayGroupAWSSQSOptions
-             * @static
-             * @param {protos.opts.RelayGroupAWSSQSOptions} message RelayGroupAWSSQSOptions
-             * @param {$protobuf.IConversionOptions} [options] Conversion options
-             * @returns {Object.<string,*>} Plain object
-             */
-            RelayGroupAWSSQSOptions.toObject = function toObject(message, options) {
-                if (!options)
-                    options = {};
-                var object = {};
-                if (options.defaults) {
-                    object._conn = null;
-                    object.args = null;
-                }
-                if (message._conn != null && message.hasOwnProperty("_conn"))
-                    object._conn = $root.protos.args.AWSSQSConn.toObject(message._conn, options);
-                if (message.args != null && message.hasOwnProperty("args"))
-                    object.args = $root.protos.args.AWSSQSRelayArgs.toObject(message.args, options);
-                return object;
-            };
-
-            /**
-             * Converts this RelayGroupAWSSQSOptions to JSON.
-             * @function toJSON
-             * @memberof protos.opts.RelayGroupAWSSQSOptions
-             * @instance
-             * @returns {Object.<string,*>} JSON object
-             */
-            RelayGroupAWSSQSOptions.prototype.toJSON = function toJSON() {
-                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-            };
-
-            return RelayGroupAWSSQSOptions;
-        })();
-
-        opts.RelayGroupMongoOptions = (function() {
-
-            /**
-             * Properties of a RelayGroupMongoOptions.
-             * @memberof protos.opts
-             * @interface IRelayGroupMongoOptions
-             * @property {protos.args.IMongoConn|null} [_conn] RelayGroupMongoOptions _conn
-             * @property {protos.args.IMongoReadArgs|null} [args] RelayGroupMongoOptions args
-             */
-
-            /**
-             * Constructs a new RelayGroupMongoOptions.
-             * @memberof protos.opts
-             * @classdesc Represents a RelayGroupMongoOptions.
-             * @implements IRelayGroupMongoOptions
-             * @constructor
-             * @param {protos.opts.IRelayGroupMongoOptions=} [properties] Properties to set
-             */
-            function RelayGroupMongoOptions(properties) {
-                if (properties)
-                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                        if (properties[keys[i]] != null)
-                            this[keys[i]] = properties[keys[i]];
-            }
-
-            /**
-             * RelayGroupMongoOptions _conn.
-             * @member {protos.args.IMongoConn|null|undefined} _conn
-             * @memberof protos.opts.RelayGroupMongoOptions
-             * @instance
-             */
-            RelayGroupMongoOptions.prototype._conn = null;
-
-            /**
-             * RelayGroupMongoOptions args.
-             * @member {protos.args.IMongoReadArgs|null|undefined} args
-             * @memberof protos.opts.RelayGroupMongoOptions
-             * @instance
-             */
-            RelayGroupMongoOptions.prototype.args = null;
-
-            /**
-             * Creates a new RelayGroupMongoOptions instance using the specified properties.
-             * @function create
-             * @memberof protos.opts.RelayGroupMongoOptions
-             * @static
-             * @param {protos.opts.IRelayGroupMongoOptions=} [properties] Properties to set
-             * @returns {protos.opts.RelayGroupMongoOptions} RelayGroupMongoOptions instance
-             */
-            RelayGroupMongoOptions.create = function create(properties) {
-                return new RelayGroupMongoOptions(properties);
-            };
-
-            /**
-             * Encodes the specified RelayGroupMongoOptions message. Does not implicitly {@link protos.opts.RelayGroupMongoOptions.verify|verify} messages.
-             * @function encode
-             * @memberof protos.opts.RelayGroupMongoOptions
-             * @static
-             * @param {protos.opts.IRelayGroupMongoOptions} message RelayGroupMongoOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            RelayGroupMongoOptions.encode = function encode(message, writer) {
-                if (!writer)
-                    writer = $Writer.create();
-                if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
-                    $root.protos.args.MongoConn.encode(message._conn, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
-                if (message.args != null && Object.hasOwnProperty.call(message, "args"))
-                    $root.protos.args.MongoReadArgs.encode(message.args, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
-                return writer;
-            };
-
-            /**
-             * Encodes the specified RelayGroupMongoOptions message, length delimited. Does not implicitly {@link protos.opts.RelayGroupMongoOptions.verify|verify} messages.
-             * @function encodeDelimited
-             * @memberof protos.opts.RelayGroupMongoOptions
-             * @static
-             * @param {protos.opts.IRelayGroupMongoOptions} message RelayGroupMongoOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            RelayGroupMongoOptions.encodeDelimited = function encodeDelimited(message, writer) {
-                return this.encode(message, writer).ldelim();
-            };
-
-            /**
-             * Decodes a RelayGroupMongoOptions message from the specified reader or buffer.
-             * @function decode
-             * @memberof protos.opts.RelayGroupMongoOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @param {number} [length] Message length if known beforehand
-             * @returns {protos.opts.RelayGroupMongoOptions} RelayGroupMongoOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            RelayGroupMongoOptions.decode = function decode(reader, length) {
-                if (!(reader instanceof $Reader))
-                    reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.RelayGroupMongoOptions();
-                while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    switch (tag >>> 3) {
-                    case 1:
-                        message._conn = $root.protos.args.MongoConn.decode(reader, reader.uint32());
-                        break;
-                    case 2:
-                        message.args = $root.protos.args.MongoReadArgs.decode(reader, reader.uint32());
-                        break;
-                    default:
-                        reader.skipType(tag & 7);
-                        break;
-                    }
-                }
-                return message;
-            };
-
-            /**
-             * Decodes a RelayGroupMongoOptions message from the specified reader or buffer, length delimited.
-             * @function decodeDelimited
-             * @memberof protos.opts.RelayGroupMongoOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {protos.opts.RelayGroupMongoOptions} RelayGroupMongoOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            RelayGroupMongoOptions.decodeDelimited = function decodeDelimited(reader) {
-                if (!(reader instanceof $Reader))
-                    reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
-            };
-
-            /**
-             * Verifies a RelayGroupMongoOptions message.
-             * @function verify
-             * @memberof protos.opts.RelayGroupMongoOptions
-             * @static
-             * @param {Object.<string,*>} message Plain object to verify
-             * @returns {string|null} `null` if valid, otherwise the reason why it is not
-             */
-            RelayGroupMongoOptions.verify = function verify(message) {
-                if (typeof message !== "object" || message === null)
-                    return "object expected";
-                if (message._conn != null && message.hasOwnProperty("_conn")) {
-                    var error = $root.protos.args.MongoConn.verify(message._conn);
-                    if (error)
-                        return "_conn." + error;
-                }
-                if (message.args != null && message.hasOwnProperty("args")) {
-                    var error = $root.protos.args.MongoReadArgs.verify(message.args);
-                    if (error)
-                        return "args." + error;
-                }
-                return null;
-            };
-
-            /**
-             * Creates a RelayGroupMongoOptions message from a plain object. Also converts values to their respective internal types.
-             * @function fromObject
-             * @memberof protos.opts.RelayGroupMongoOptions
-             * @static
-             * @param {Object.<string,*>} object Plain object
-             * @returns {protos.opts.RelayGroupMongoOptions} RelayGroupMongoOptions
-             */
-            RelayGroupMongoOptions.fromObject = function fromObject(object) {
-                if (object instanceof $root.protos.opts.RelayGroupMongoOptions)
-                    return object;
-                var message = new $root.protos.opts.RelayGroupMongoOptions();
-                if (object._conn != null) {
-                    if (typeof object._conn !== "object")
-                        throw TypeError(".protos.opts.RelayGroupMongoOptions._conn: object expected");
-                    message._conn = $root.protos.args.MongoConn.fromObject(object._conn);
-                }
-                if (object.args != null) {
-                    if (typeof object.args !== "object")
-                        throw TypeError(".protos.opts.RelayGroupMongoOptions.args: object expected");
-                    message.args = $root.protos.args.MongoReadArgs.fromObject(object.args);
-                }
-                return message;
-            };
-
-            /**
-             * Creates a plain object from a RelayGroupMongoOptions message. Also converts values to other types if specified.
-             * @function toObject
-             * @memberof protos.opts.RelayGroupMongoOptions
-             * @static
-             * @param {protos.opts.RelayGroupMongoOptions} message RelayGroupMongoOptions
-             * @param {$protobuf.IConversionOptions} [options] Conversion options
-             * @returns {Object.<string,*>} Plain object
-             */
-            RelayGroupMongoOptions.toObject = function toObject(message, options) {
-                if (!options)
-                    options = {};
-                var object = {};
-                if (options.defaults) {
-                    object._conn = null;
-                    object.args = null;
-                }
-                if (message._conn != null && message.hasOwnProperty("_conn"))
-                    object._conn = $root.protos.args.MongoConn.toObject(message._conn, options);
-                if (message.args != null && message.hasOwnProperty("args"))
-                    object.args = $root.protos.args.MongoReadArgs.toObject(message.args, options);
-                return object;
-            };
-
-            /**
-             * Converts this RelayGroupMongoOptions to JSON.
-             * @function toJSON
-             * @memberof protos.opts.RelayGroupMongoOptions
-             * @instance
-             * @returns {Object.<string,*>} JSON object
-             */
-            RelayGroupMongoOptions.prototype.toJSON = function toJSON() {
-                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-            };
-
-            return RelayGroupMongoOptions;
-        })();
-
-        opts.RelayGroupNSQOptions = (function() {
-
-            /**
-             * Properties of a RelayGroupNSQOptions.
-             * @memberof protos.opts
-             * @interface IRelayGroupNSQOptions
-             * @property {protos.args.INSQConn|null} [_conn] RelayGroupNSQOptions _conn
-             * @property {protos.args.INSQReadArgs|null} [args] RelayGroupNSQOptions args
-             */
-
-            /**
-             * Constructs a new RelayGroupNSQOptions.
-             * @memberof protos.opts
-             * @classdesc Represents a RelayGroupNSQOptions.
-             * @implements IRelayGroupNSQOptions
-             * @constructor
-             * @param {protos.opts.IRelayGroupNSQOptions=} [properties] Properties to set
-             */
-            function RelayGroupNSQOptions(properties) {
-                if (properties)
-                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                        if (properties[keys[i]] != null)
-                            this[keys[i]] = properties[keys[i]];
-            }
-
-            /**
-             * RelayGroupNSQOptions _conn.
-             * @member {protos.args.INSQConn|null|undefined} _conn
-             * @memberof protos.opts.RelayGroupNSQOptions
-             * @instance
-             */
-            RelayGroupNSQOptions.prototype._conn = null;
-
-            /**
-             * RelayGroupNSQOptions args.
-             * @member {protos.args.INSQReadArgs|null|undefined} args
-             * @memberof protos.opts.RelayGroupNSQOptions
-             * @instance
-             */
-            RelayGroupNSQOptions.prototype.args = null;
-
-            /**
-             * Creates a new RelayGroupNSQOptions instance using the specified properties.
-             * @function create
-             * @memberof protos.opts.RelayGroupNSQOptions
-             * @static
-             * @param {protos.opts.IRelayGroupNSQOptions=} [properties] Properties to set
-             * @returns {protos.opts.RelayGroupNSQOptions} RelayGroupNSQOptions instance
-             */
-            RelayGroupNSQOptions.create = function create(properties) {
-                return new RelayGroupNSQOptions(properties);
-            };
-
-            /**
-             * Encodes the specified RelayGroupNSQOptions message. Does not implicitly {@link protos.opts.RelayGroupNSQOptions.verify|verify} messages.
-             * @function encode
-             * @memberof protos.opts.RelayGroupNSQOptions
-             * @static
-             * @param {protos.opts.IRelayGroupNSQOptions} message RelayGroupNSQOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            RelayGroupNSQOptions.encode = function encode(message, writer) {
-                if (!writer)
-                    writer = $Writer.create();
-                if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
-                    $root.protos.args.NSQConn.encode(message._conn, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
-                if (message.args != null && Object.hasOwnProperty.call(message, "args"))
-                    $root.protos.args.NSQReadArgs.encode(message.args, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
-                return writer;
-            };
-
-            /**
-             * Encodes the specified RelayGroupNSQOptions message, length delimited. Does not implicitly {@link protos.opts.RelayGroupNSQOptions.verify|verify} messages.
-             * @function encodeDelimited
-             * @memberof protos.opts.RelayGroupNSQOptions
-             * @static
-             * @param {protos.opts.IRelayGroupNSQOptions} message RelayGroupNSQOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            RelayGroupNSQOptions.encodeDelimited = function encodeDelimited(message, writer) {
-                return this.encode(message, writer).ldelim();
-            };
-
-            /**
-             * Decodes a RelayGroupNSQOptions message from the specified reader or buffer.
-             * @function decode
-             * @memberof protos.opts.RelayGroupNSQOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @param {number} [length] Message length if known beforehand
-             * @returns {protos.opts.RelayGroupNSQOptions} RelayGroupNSQOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            RelayGroupNSQOptions.decode = function decode(reader, length) {
-                if (!(reader instanceof $Reader))
-                    reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.RelayGroupNSQOptions();
-                while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    switch (tag >>> 3) {
-                    case 1:
-                        message._conn = $root.protos.args.NSQConn.decode(reader, reader.uint32());
-                        break;
-                    case 2:
-                        message.args = $root.protos.args.NSQReadArgs.decode(reader, reader.uint32());
-                        break;
-                    default:
-                        reader.skipType(tag & 7);
-                        break;
-                    }
-                }
-                return message;
-            };
-
-            /**
-             * Decodes a RelayGroupNSQOptions message from the specified reader or buffer, length delimited.
-             * @function decodeDelimited
-             * @memberof protos.opts.RelayGroupNSQOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {protos.opts.RelayGroupNSQOptions} RelayGroupNSQOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            RelayGroupNSQOptions.decodeDelimited = function decodeDelimited(reader) {
-                if (!(reader instanceof $Reader))
-                    reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
-            };
-
-            /**
-             * Verifies a RelayGroupNSQOptions message.
-             * @function verify
-             * @memberof protos.opts.RelayGroupNSQOptions
-             * @static
-             * @param {Object.<string,*>} message Plain object to verify
-             * @returns {string|null} `null` if valid, otherwise the reason why it is not
-             */
-            RelayGroupNSQOptions.verify = function verify(message) {
-                if (typeof message !== "object" || message === null)
-                    return "object expected";
-                if (message._conn != null && message.hasOwnProperty("_conn")) {
-                    var error = $root.protos.args.NSQConn.verify(message._conn);
-                    if (error)
-                        return "_conn." + error;
-                }
-                if (message.args != null && message.hasOwnProperty("args")) {
-                    var error = $root.protos.args.NSQReadArgs.verify(message.args);
-                    if (error)
-                        return "args." + error;
-                }
-                return null;
-            };
-
-            /**
-             * Creates a RelayGroupNSQOptions message from a plain object. Also converts values to their respective internal types.
-             * @function fromObject
-             * @memberof protos.opts.RelayGroupNSQOptions
-             * @static
-             * @param {Object.<string,*>} object Plain object
-             * @returns {protos.opts.RelayGroupNSQOptions} RelayGroupNSQOptions
-             */
-            RelayGroupNSQOptions.fromObject = function fromObject(object) {
-                if (object instanceof $root.protos.opts.RelayGroupNSQOptions)
-                    return object;
-                var message = new $root.protos.opts.RelayGroupNSQOptions();
-                if (object._conn != null) {
-                    if (typeof object._conn !== "object")
-                        throw TypeError(".protos.opts.RelayGroupNSQOptions._conn: object expected");
-                    message._conn = $root.protos.args.NSQConn.fromObject(object._conn);
-                }
-                if (object.args != null) {
-                    if (typeof object.args !== "object")
-                        throw TypeError(".protos.opts.RelayGroupNSQOptions.args: object expected");
-                    message.args = $root.protos.args.NSQReadArgs.fromObject(object.args);
-                }
-                return message;
-            };
-
-            /**
-             * Creates a plain object from a RelayGroupNSQOptions message. Also converts values to other types if specified.
-             * @function toObject
-             * @memberof protos.opts.RelayGroupNSQOptions
-             * @static
-             * @param {protos.opts.RelayGroupNSQOptions} message RelayGroupNSQOptions
-             * @param {$protobuf.IConversionOptions} [options] Conversion options
-             * @returns {Object.<string,*>} Plain object
-             */
-            RelayGroupNSQOptions.toObject = function toObject(message, options) {
-                if (!options)
-                    options = {};
-                var object = {};
-                if (options.defaults) {
-                    object._conn = null;
-                    object.args = null;
-                }
-                if (message._conn != null && message.hasOwnProperty("_conn"))
-                    object._conn = $root.protos.args.NSQConn.toObject(message._conn, options);
-                if (message.args != null && message.hasOwnProperty("args"))
-                    object.args = $root.protos.args.NSQReadArgs.toObject(message.args, options);
-                return object;
-            };
-
-            /**
-             * Converts this RelayGroupNSQOptions to JSON.
-             * @function toJSON
-             * @memberof protos.opts.RelayGroupNSQOptions
-             * @instance
-             * @returns {Object.<string,*>} JSON object
-             */
-            RelayGroupNSQOptions.prototype.toJSON = function toJSON() {
-                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-            };
-
-            return RelayGroupNSQOptions;
-        })();
-
-        opts.RelayGroupPostgresOptions = (function() {
-
-            /**
-             * Properties of a RelayGroupPostgresOptions.
-             * @memberof protos.opts
-             * @interface IRelayGroupPostgresOptions
-             * @property {protos.args.IPostgresConn|null} [_conn] RelayGroupPostgresOptions _conn
-             * @property {protos.args.IPostgresReadArgs|null} [args] RelayGroupPostgresOptions args
-             */
-
-            /**
-             * Constructs a new RelayGroupPostgresOptions.
-             * @memberof protos.opts
-             * @classdesc Represents a RelayGroupPostgresOptions.
-             * @implements IRelayGroupPostgresOptions
-             * @constructor
-             * @param {protos.opts.IRelayGroupPostgresOptions=} [properties] Properties to set
-             */
-            function RelayGroupPostgresOptions(properties) {
-                if (properties)
-                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                        if (properties[keys[i]] != null)
-                            this[keys[i]] = properties[keys[i]];
-            }
-
-            /**
-             * RelayGroupPostgresOptions _conn.
-             * @member {protos.args.IPostgresConn|null|undefined} _conn
-             * @memberof protos.opts.RelayGroupPostgresOptions
-             * @instance
-             */
-            RelayGroupPostgresOptions.prototype._conn = null;
-
-            /**
-             * RelayGroupPostgresOptions args.
-             * @member {protos.args.IPostgresReadArgs|null|undefined} args
-             * @memberof protos.opts.RelayGroupPostgresOptions
-             * @instance
-             */
-            RelayGroupPostgresOptions.prototype.args = null;
-
-            /**
-             * Creates a new RelayGroupPostgresOptions instance using the specified properties.
-             * @function create
-             * @memberof protos.opts.RelayGroupPostgresOptions
-             * @static
-             * @param {protos.opts.IRelayGroupPostgresOptions=} [properties] Properties to set
-             * @returns {protos.opts.RelayGroupPostgresOptions} RelayGroupPostgresOptions instance
-             */
-            RelayGroupPostgresOptions.create = function create(properties) {
-                return new RelayGroupPostgresOptions(properties);
-            };
-
-            /**
-             * Encodes the specified RelayGroupPostgresOptions message. Does not implicitly {@link protos.opts.RelayGroupPostgresOptions.verify|verify} messages.
-             * @function encode
-             * @memberof protos.opts.RelayGroupPostgresOptions
-             * @static
-             * @param {protos.opts.IRelayGroupPostgresOptions} message RelayGroupPostgresOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            RelayGroupPostgresOptions.encode = function encode(message, writer) {
-                if (!writer)
-                    writer = $Writer.create();
-                if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
-                    $root.protos.args.PostgresConn.encode(message._conn, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
-                if (message.args != null && Object.hasOwnProperty.call(message, "args"))
-                    $root.protos.args.PostgresReadArgs.encode(message.args, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
-                return writer;
-            };
-
-            /**
-             * Encodes the specified RelayGroupPostgresOptions message, length delimited. Does not implicitly {@link protos.opts.RelayGroupPostgresOptions.verify|verify} messages.
-             * @function encodeDelimited
-             * @memberof protos.opts.RelayGroupPostgresOptions
-             * @static
-             * @param {protos.opts.IRelayGroupPostgresOptions} message RelayGroupPostgresOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            RelayGroupPostgresOptions.encodeDelimited = function encodeDelimited(message, writer) {
-                return this.encode(message, writer).ldelim();
-            };
-
-            /**
-             * Decodes a RelayGroupPostgresOptions message from the specified reader or buffer.
-             * @function decode
-             * @memberof protos.opts.RelayGroupPostgresOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @param {number} [length] Message length if known beforehand
-             * @returns {protos.opts.RelayGroupPostgresOptions} RelayGroupPostgresOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            RelayGroupPostgresOptions.decode = function decode(reader, length) {
-                if (!(reader instanceof $Reader))
-                    reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.RelayGroupPostgresOptions();
-                while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    switch (tag >>> 3) {
-                    case 1:
-                        message._conn = $root.protos.args.PostgresConn.decode(reader, reader.uint32());
-                        break;
-                    case 2:
-                        message.args = $root.protos.args.PostgresReadArgs.decode(reader, reader.uint32());
-                        break;
-                    default:
-                        reader.skipType(tag & 7);
-                        break;
-                    }
-                }
-                return message;
-            };
-
-            /**
-             * Decodes a RelayGroupPostgresOptions message from the specified reader or buffer, length delimited.
-             * @function decodeDelimited
-             * @memberof protos.opts.RelayGroupPostgresOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {protos.opts.RelayGroupPostgresOptions} RelayGroupPostgresOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            RelayGroupPostgresOptions.decodeDelimited = function decodeDelimited(reader) {
-                if (!(reader instanceof $Reader))
-                    reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
-            };
-
-            /**
-             * Verifies a RelayGroupPostgresOptions message.
-             * @function verify
-             * @memberof protos.opts.RelayGroupPostgresOptions
-             * @static
-             * @param {Object.<string,*>} message Plain object to verify
-             * @returns {string|null} `null` if valid, otherwise the reason why it is not
-             */
-            RelayGroupPostgresOptions.verify = function verify(message) {
-                if (typeof message !== "object" || message === null)
-                    return "object expected";
-                if (message._conn != null && message.hasOwnProperty("_conn")) {
-                    var error = $root.protos.args.PostgresConn.verify(message._conn);
-                    if (error)
-                        return "_conn." + error;
-                }
-                if (message.args != null && message.hasOwnProperty("args")) {
-                    var error = $root.protos.args.PostgresReadArgs.verify(message.args);
-                    if (error)
-                        return "args." + error;
-                }
-                return null;
-            };
-
-            /**
-             * Creates a RelayGroupPostgresOptions message from a plain object. Also converts values to their respective internal types.
-             * @function fromObject
-             * @memberof protos.opts.RelayGroupPostgresOptions
-             * @static
-             * @param {Object.<string,*>} object Plain object
-             * @returns {protos.opts.RelayGroupPostgresOptions} RelayGroupPostgresOptions
-             */
-            RelayGroupPostgresOptions.fromObject = function fromObject(object) {
-                if (object instanceof $root.protos.opts.RelayGroupPostgresOptions)
-                    return object;
-                var message = new $root.protos.opts.RelayGroupPostgresOptions();
-                if (object._conn != null) {
-                    if (typeof object._conn !== "object")
-                        throw TypeError(".protos.opts.RelayGroupPostgresOptions._conn: object expected");
-                    message._conn = $root.protos.args.PostgresConn.fromObject(object._conn);
-                }
-                if (object.args != null) {
-                    if (typeof object.args !== "object")
-                        throw TypeError(".protos.opts.RelayGroupPostgresOptions.args: object expected");
-                    message.args = $root.protos.args.PostgresReadArgs.fromObject(object.args);
-                }
-                return message;
-            };
-
-            /**
-             * Creates a plain object from a RelayGroupPostgresOptions message. Also converts values to other types if specified.
-             * @function toObject
-             * @memberof protos.opts.RelayGroupPostgresOptions
-             * @static
-             * @param {protos.opts.RelayGroupPostgresOptions} message RelayGroupPostgresOptions
-             * @param {$protobuf.IConversionOptions} [options] Conversion options
-             * @returns {Object.<string,*>} Plain object
-             */
-            RelayGroupPostgresOptions.toObject = function toObject(message, options) {
-                if (!options)
-                    options = {};
-                var object = {};
-                if (options.defaults) {
-                    object._conn = null;
-                    object.args = null;
-                }
-                if (message._conn != null && message.hasOwnProperty("_conn"))
-                    object._conn = $root.protos.args.PostgresConn.toObject(message._conn, options);
-                if (message.args != null && message.hasOwnProperty("args"))
-                    object.args = $root.protos.args.PostgresReadArgs.toObject(message.args, options);
-                return object;
-            };
-
-            /**
-             * Converts this RelayGroupPostgresOptions to JSON.
-             * @function toJSON
-             * @memberof protos.opts.RelayGroupPostgresOptions
-             * @instance
-             * @returns {Object.<string,*>} JSON object
-             */
-            RelayGroupPostgresOptions.prototype.toJSON = function toJSON() {
-                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-            };
-
-            return RelayGroupPostgresOptions;
-        })();
-
-        opts.RelayGroupRabbitOptions = (function() {
-
-            /**
-             * Properties of a RelayGroupRabbitOptions.
-             * @memberof protos.opts
-             * @interface IRelayGroupRabbitOptions
-             * @property {protos.args.IRabbitConn|null} [_conn] RelayGroupRabbitOptions _conn
-             * @property {protos.args.IRabbitReadArgs|null} [args] RelayGroupRabbitOptions args
-             */
-
-            /**
-             * Constructs a new RelayGroupRabbitOptions.
-             * @memberof protos.opts
-             * @classdesc Represents a RelayGroupRabbitOptions.
-             * @implements IRelayGroupRabbitOptions
-             * @constructor
-             * @param {protos.opts.IRelayGroupRabbitOptions=} [properties] Properties to set
-             */
-            function RelayGroupRabbitOptions(properties) {
-                if (properties)
-                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                        if (properties[keys[i]] != null)
-                            this[keys[i]] = properties[keys[i]];
-            }
-
-            /**
-             * RelayGroupRabbitOptions _conn.
-             * @member {protos.args.IRabbitConn|null|undefined} _conn
-             * @memberof protos.opts.RelayGroupRabbitOptions
-             * @instance
-             */
-            RelayGroupRabbitOptions.prototype._conn = null;
-
-            /**
-             * RelayGroupRabbitOptions args.
-             * @member {protos.args.IRabbitReadArgs|null|undefined} args
-             * @memberof protos.opts.RelayGroupRabbitOptions
-             * @instance
-             */
-            RelayGroupRabbitOptions.prototype.args = null;
-
-            /**
-             * Creates a new RelayGroupRabbitOptions instance using the specified properties.
-             * @function create
-             * @memberof protos.opts.RelayGroupRabbitOptions
-             * @static
-             * @param {protos.opts.IRelayGroupRabbitOptions=} [properties] Properties to set
-             * @returns {protos.opts.RelayGroupRabbitOptions} RelayGroupRabbitOptions instance
-             */
-            RelayGroupRabbitOptions.create = function create(properties) {
-                return new RelayGroupRabbitOptions(properties);
-            };
-
-            /**
-             * Encodes the specified RelayGroupRabbitOptions message. Does not implicitly {@link protos.opts.RelayGroupRabbitOptions.verify|verify} messages.
-             * @function encode
-             * @memberof protos.opts.RelayGroupRabbitOptions
-             * @static
-             * @param {protos.opts.IRelayGroupRabbitOptions} message RelayGroupRabbitOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            RelayGroupRabbitOptions.encode = function encode(message, writer) {
-                if (!writer)
-                    writer = $Writer.create();
-                if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
-                    $root.protos.args.RabbitConn.encode(message._conn, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
-                if (message.args != null && Object.hasOwnProperty.call(message, "args"))
-                    $root.protos.args.RabbitReadArgs.encode(message.args, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
-                return writer;
-            };
-
-            /**
-             * Encodes the specified RelayGroupRabbitOptions message, length delimited. Does not implicitly {@link protos.opts.RelayGroupRabbitOptions.verify|verify} messages.
-             * @function encodeDelimited
-             * @memberof protos.opts.RelayGroupRabbitOptions
-             * @static
-             * @param {protos.opts.IRelayGroupRabbitOptions} message RelayGroupRabbitOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            RelayGroupRabbitOptions.encodeDelimited = function encodeDelimited(message, writer) {
-                return this.encode(message, writer).ldelim();
-            };
-
-            /**
-             * Decodes a RelayGroupRabbitOptions message from the specified reader or buffer.
-             * @function decode
-             * @memberof protos.opts.RelayGroupRabbitOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @param {number} [length] Message length if known beforehand
-             * @returns {protos.opts.RelayGroupRabbitOptions} RelayGroupRabbitOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            RelayGroupRabbitOptions.decode = function decode(reader, length) {
-                if (!(reader instanceof $Reader))
-                    reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.RelayGroupRabbitOptions();
-                while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    switch (tag >>> 3) {
-                    case 1:
-                        message._conn = $root.protos.args.RabbitConn.decode(reader, reader.uint32());
-                        break;
-                    case 2:
-                        message.args = $root.protos.args.RabbitReadArgs.decode(reader, reader.uint32());
-                        break;
-                    default:
-                        reader.skipType(tag & 7);
-                        break;
-                    }
-                }
-                return message;
-            };
-
-            /**
-             * Decodes a RelayGroupRabbitOptions message from the specified reader or buffer, length delimited.
-             * @function decodeDelimited
-             * @memberof protos.opts.RelayGroupRabbitOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {protos.opts.RelayGroupRabbitOptions} RelayGroupRabbitOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            RelayGroupRabbitOptions.decodeDelimited = function decodeDelimited(reader) {
-                if (!(reader instanceof $Reader))
-                    reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
-            };
-
-            /**
-             * Verifies a RelayGroupRabbitOptions message.
-             * @function verify
-             * @memberof protos.opts.RelayGroupRabbitOptions
-             * @static
-             * @param {Object.<string,*>} message Plain object to verify
-             * @returns {string|null} `null` if valid, otherwise the reason why it is not
-             */
-            RelayGroupRabbitOptions.verify = function verify(message) {
-                if (typeof message !== "object" || message === null)
-                    return "object expected";
-                if (message._conn != null && message.hasOwnProperty("_conn")) {
-                    var error = $root.protos.args.RabbitConn.verify(message._conn);
-                    if (error)
-                        return "_conn." + error;
-                }
-                if (message.args != null && message.hasOwnProperty("args")) {
-                    var error = $root.protos.args.RabbitReadArgs.verify(message.args);
-                    if (error)
-                        return "args." + error;
-                }
-                return null;
-            };
-
-            /**
-             * Creates a RelayGroupRabbitOptions message from a plain object. Also converts values to their respective internal types.
-             * @function fromObject
-             * @memberof protos.opts.RelayGroupRabbitOptions
-             * @static
-             * @param {Object.<string,*>} object Plain object
-             * @returns {protos.opts.RelayGroupRabbitOptions} RelayGroupRabbitOptions
-             */
-            RelayGroupRabbitOptions.fromObject = function fromObject(object) {
-                if (object instanceof $root.protos.opts.RelayGroupRabbitOptions)
-                    return object;
-                var message = new $root.protos.opts.RelayGroupRabbitOptions();
-                if (object._conn != null) {
-                    if (typeof object._conn !== "object")
-                        throw TypeError(".protos.opts.RelayGroupRabbitOptions._conn: object expected");
-                    message._conn = $root.protos.args.RabbitConn.fromObject(object._conn);
-                }
-                if (object.args != null) {
-                    if (typeof object.args !== "object")
-                        throw TypeError(".protos.opts.RelayGroupRabbitOptions.args: object expected");
-                    message.args = $root.protos.args.RabbitReadArgs.fromObject(object.args);
-                }
-                return message;
-            };
-
-            /**
-             * Creates a plain object from a RelayGroupRabbitOptions message. Also converts values to other types if specified.
-             * @function toObject
-             * @memberof protos.opts.RelayGroupRabbitOptions
-             * @static
-             * @param {protos.opts.RelayGroupRabbitOptions} message RelayGroupRabbitOptions
-             * @param {$protobuf.IConversionOptions} [options] Conversion options
-             * @returns {Object.<string,*>} Plain object
-             */
-            RelayGroupRabbitOptions.toObject = function toObject(message, options) {
-                if (!options)
-                    options = {};
-                var object = {};
-                if (options.defaults) {
-                    object._conn = null;
-                    object.args = null;
-                }
-                if (message._conn != null && message.hasOwnProperty("_conn"))
-                    object._conn = $root.protos.args.RabbitConn.toObject(message._conn, options);
-                if (message.args != null && message.hasOwnProperty("args"))
-                    object.args = $root.protos.args.RabbitReadArgs.toObject(message.args, options);
-                return object;
-            };
-
-            /**
-             * Converts this RelayGroupRabbitOptions to JSON.
-             * @function toJSON
-             * @memberof protos.opts.RelayGroupRabbitOptions
-             * @instance
-             * @returns {Object.<string,*>} JSON object
-             */
-            RelayGroupRabbitOptions.prototype.toJSON = function toJSON() {
-                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-            };
-
-            return RelayGroupRabbitOptions;
-        })();
-
-        opts.RelayGroupRedisPubSubOptions = (function() {
-
-            /**
-             * Properties of a RelayGroupRedisPubSubOptions.
-             * @memberof protos.opts
-             * @interface IRelayGroupRedisPubSubOptions
-             * @property {protos.args.IRedisPubSubConn|null} [_conn] RelayGroupRedisPubSubOptions _conn
-             * @property {protos.args.IRedisPubSubReadArgs|null} [args] RelayGroupRedisPubSubOptions args
-             */
-
-            /**
-             * Constructs a new RelayGroupRedisPubSubOptions.
-             * @memberof protos.opts
-             * @classdesc Represents a RelayGroupRedisPubSubOptions.
-             * @implements IRelayGroupRedisPubSubOptions
-             * @constructor
-             * @param {protos.opts.IRelayGroupRedisPubSubOptions=} [properties] Properties to set
-             */
-            function RelayGroupRedisPubSubOptions(properties) {
-                if (properties)
-                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                        if (properties[keys[i]] != null)
-                            this[keys[i]] = properties[keys[i]];
-            }
-
-            /**
-             * RelayGroupRedisPubSubOptions _conn.
-             * @member {protos.args.IRedisPubSubConn|null|undefined} _conn
-             * @memberof protos.opts.RelayGroupRedisPubSubOptions
-             * @instance
-             */
-            RelayGroupRedisPubSubOptions.prototype._conn = null;
-
-            /**
-             * RelayGroupRedisPubSubOptions args.
-             * @member {protos.args.IRedisPubSubReadArgs|null|undefined} args
-             * @memberof protos.opts.RelayGroupRedisPubSubOptions
-             * @instance
-             */
-            RelayGroupRedisPubSubOptions.prototype.args = null;
-
-            /**
-             * Creates a new RelayGroupRedisPubSubOptions instance using the specified properties.
-             * @function create
-             * @memberof protos.opts.RelayGroupRedisPubSubOptions
-             * @static
-             * @param {protos.opts.IRelayGroupRedisPubSubOptions=} [properties] Properties to set
-             * @returns {protos.opts.RelayGroupRedisPubSubOptions} RelayGroupRedisPubSubOptions instance
-             */
-            RelayGroupRedisPubSubOptions.create = function create(properties) {
-                return new RelayGroupRedisPubSubOptions(properties);
-            };
-
-            /**
-             * Encodes the specified RelayGroupRedisPubSubOptions message. Does not implicitly {@link protos.opts.RelayGroupRedisPubSubOptions.verify|verify} messages.
-             * @function encode
-             * @memberof protos.opts.RelayGroupRedisPubSubOptions
-             * @static
-             * @param {protos.opts.IRelayGroupRedisPubSubOptions} message RelayGroupRedisPubSubOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            RelayGroupRedisPubSubOptions.encode = function encode(message, writer) {
-                if (!writer)
-                    writer = $Writer.create();
-                if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
-                    $root.protos.args.RedisPubSubConn.encode(message._conn, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
-                if (message.args != null && Object.hasOwnProperty.call(message, "args"))
-                    $root.protos.args.RedisPubSubReadArgs.encode(message.args, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
-                return writer;
-            };
-
-            /**
-             * Encodes the specified RelayGroupRedisPubSubOptions message, length delimited. Does not implicitly {@link protos.opts.RelayGroupRedisPubSubOptions.verify|verify} messages.
-             * @function encodeDelimited
-             * @memberof protos.opts.RelayGroupRedisPubSubOptions
-             * @static
-             * @param {protos.opts.IRelayGroupRedisPubSubOptions} message RelayGroupRedisPubSubOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            RelayGroupRedisPubSubOptions.encodeDelimited = function encodeDelimited(message, writer) {
-                return this.encode(message, writer).ldelim();
-            };
-
-            /**
-             * Decodes a RelayGroupRedisPubSubOptions message from the specified reader or buffer.
-             * @function decode
-             * @memberof protos.opts.RelayGroupRedisPubSubOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @param {number} [length] Message length if known beforehand
-             * @returns {protos.opts.RelayGroupRedisPubSubOptions} RelayGroupRedisPubSubOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            RelayGroupRedisPubSubOptions.decode = function decode(reader, length) {
-                if (!(reader instanceof $Reader))
-                    reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.RelayGroupRedisPubSubOptions();
-                while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    switch (tag >>> 3) {
-                    case 1:
-                        message._conn = $root.protos.args.RedisPubSubConn.decode(reader, reader.uint32());
-                        break;
-                    case 2:
-                        message.args = $root.protos.args.RedisPubSubReadArgs.decode(reader, reader.uint32());
-                        break;
-                    default:
-                        reader.skipType(tag & 7);
-                        break;
-                    }
-                }
-                return message;
-            };
-
-            /**
-             * Decodes a RelayGroupRedisPubSubOptions message from the specified reader or buffer, length delimited.
-             * @function decodeDelimited
-             * @memberof protos.opts.RelayGroupRedisPubSubOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {protos.opts.RelayGroupRedisPubSubOptions} RelayGroupRedisPubSubOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            RelayGroupRedisPubSubOptions.decodeDelimited = function decodeDelimited(reader) {
-                if (!(reader instanceof $Reader))
-                    reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
-            };
-
-            /**
-             * Verifies a RelayGroupRedisPubSubOptions message.
-             * @function verify
-             * @memberof protos.opts.RelayGroupRedisPubSubOptions
-             * @static
-             * @param {Object.<string,*>} message Plain object to verify
-             * @returns {string|null} `null` if valid, otherwise the reason why it is not
-             */
-            RelayGroupRedisPubSubOptions.verify = function verify(message) {
-                if (typeof message !== "object" || message === null)
-                    return "object expected";
-                if (message._conn != null && message.hasOwnProperty("_conn")) {
-                    var error = $root.protos.args.RedisPubSubConn.verify(message._conn);
-                    if (error)
-                        return "_conn." + error;
-                }
-                if (message.args != null && message.hasOwnProperty("args")) {
-                    var error = $root.protos.args.RedisPubSubReadArgs.verify(message.args);
-                    if (error)
-                        return "args." + error;
-                }
-                return null;
-            };
-
-            /**
-             * Creates a RelayGroupRedisPubSubOptions message from a plain object. Also converts values to their respective internal types.
-             * @function fromObject
-             * @memberof protos.opts.RelayGroupRedisPubSubOptions
-             * @static
-             * @param {Object.<string,*>} object Plain object
-             * @returns {protos.opts.RelayGroupRedisPubSubOptions} RelayGroupRedisPubSubOptions
-             */
-            RelayGroupRedisPubSubOptions.fromObject = function fromObject(object) {
-                if (object instanceof $root.protos.opts.RelayGroupRedisPubSubOptions)
-                    return object;
-                var message = new $root.protos.opts.RelayGroupRedisPubSubOptions();
-                if (object._conn != null) {
-                    if (typeof object._conn !== "object")
-                        throw TypeError(".protos.opts.RelayGroupRedisPubSubOptions._conn: object expected");
-                    message._conn = $root.protos.args.RedisPubSubConn.fromObject(object._conn);
-                }
-                if (object.args != null) {
-                    if (typeof object.args !== "object")
-                        throw TypeError(".protos.opts.RelayGroupRedisPubSubOptions.args: object expected");
-                    message.args = $root.protos.args.RedisPubSubReadArgs.fromObject(object.args);
-                }
-                return message;
-            };
-
-            /**
-             * Creates a plain object from a RelayGroupRedisPubSubOptions message. Also converts values to other types if specified.
-             * @function toObject
-             * @memberof protos.opts.RelayGroupRedisPubSubOptions
-             * @static
-             * @param {protos.opts.RelayGroupRedisPubSubOptions} message RelayGroupRedisPubSubOptions
-             * @param {$protobuf.IConversionOptions} [options] Conversion options
-             * @returns {Object.<string,*>} Plain object
-             */
-            RelayGroupRedisPubSubOptions.toObject = function toObject(message, options) {
-                if (!options)
-                    options = {};
-                var object = {};
-                if (options.defaults) {
-                    object._conn = null;
-                    object.args = null;
-                }
-                if (message._conn != null && message.hasOwnProperty("_conn"))
-                    object._conn = $root.protos.args.RedisPubSubConn.toObject(message._conn, options);
-                if (message.args != null && message.hasOwnProperty("args"))
-                    object.args = $root.protos.args.RedisPubSubReadArgs.toObject(message.args, options);
-                return object;
-            };
-
-            /**
-             * Converts this RelayGroupRedisPubSubOptions to JSON.
-             * @function toJSON
-             * @memberof protos.opts.RelayGroupRedisPubSubOptions
-             * @instance
-             * @returns {Object.<string,*>} JSON object
-             */
-            RelayGroupRedisPubSubOptions.prototype.toJSON = function toJSON() {
-                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-            };
-
-            return RelayGroupRedisPubSubOptions;
-        })();
-
-        opts.RelayGroupRedisStreamsOptions = (function() {
-
-            /**
-             * Properties of a RelayGroupRedisStreamsOptions.
-             * @memberof protos.opts
-             * @interface IRelayGroupRedisStreamsOptions
-             * @property {protos.args.IRedisStreamsConn|null} [_conn] RelayGroupRedisStreamsOptions _conn
-             * @property {protos.args.IRedisStreamsReadArgs|null} [args] RelayGroupRedisStreamsOptions args
-             */
-
-            /**
-             * Constructs a new RelayGroupRedisStreamsOptions.
-             * @memberof protos.opts
-             * @classdesc Represents a RelayGroupRedisStreamsOptions.
-             * @implements IRelayGroupRedisStreamsOptions
-             * @constructor
-             * @param {protos.opts.IRelayGroupRedisStreamsOptions=} [properties] Properties to set
-             */
-            function RelayGroupRedisStreamsOptions(properties) {
-                if (properties)
-                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                        if (properties[keys[i]] != null)
-                            this[keys[i]] = properties[keys[i]];
-            }
-
-            /**
-             * RelayGroupRedisStreamsOptions _conn.
-             * @member {protos.args.IRedisStreamsConn|null|undefined} _conn
-             * @memberof protos.opts.RelayGroupRedisStreamsOptions
-             * @instance
-             */
-            RelayGroupRedisStreamsOptions.prototype._conn = null;
-
-            /**
-             * RelayGroupRedisStreamsOptions args.
-             * @member {protos.args.IRedisStreamsReadArgs|null|undefined} args
-             * @memberof protos.opts.RelayGroupRedisStreamsOptions
-             * @instance
-             */
-            RelayGroupRedisStreamsOptions.prototype.args = null;
-
-            /**
-             * Creates a new RelayGroupRedisStreamsOptions instance using the specified properties.
-             * @function create
-             * @memberof protos.opts.RelayGroupRedisStreamsOptions
-             * @static
-             * @param {protos.opts.IRelayGroupRedisStreamsOptions=} [properties] Properties to set
-             * @returns {protos.opts.RelayGroupRedisStreamsOptions} RelayGroupRedisStreamsOptions instance
-             */
-            RelayGroupRedisStreamsOptions.create = function create(properties) {
-                return new RelayGroupRedisStreamsOptions(properties);
-            };
-
-            /**
-             * Encodes the specified RelayGroupRedisStreamsOptions message. Does not implicitly {@link protos.opts.RelayGroupRedisStreamsOptions.verify|verify} messages.
-             * @function encode
-             * @memberof protos.opts.RelayGroupRedisStreamsOptions
-             * @static
-             * @param {protos.opts.IRelayGroupRedisStreamsOptions} message RelayGroupRedisStreamsOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            RelayGroupRedisStreamsOptions.encode = function encode(message, writer) {
-                if (!writer)
-                    writer = $Writer.create();
-                if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
-                    $root.protos.args.RedisStreamsConn.encode(message._conn, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
-                if (message.args != null && Object.hasOwnProperty.call(message, "args"))
-                    $root.protos.args.RedisStreamsReadArgs.encode(message.args, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
-                return writer;
-            };
-
-            /**
-             * Encodes the specified RelayGroupRedisStreamsOptions message, length delimited. Does not implicitly {@link protos.opts.RelayGroupRedisStreamsOptions.verify|verify} messages.
-             * @function encodeDelimited
-             * @memberof protos.opts.RelayGroupRedisStreamsOptions
-             * @static
-             * @param {protos.opts.IRelayGroupRedisStreamsOptions} message RelayGroupRedisStreamsOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            RelayGroupRedisStreamsOptions.encodeDelimited = function encodeDelimited(message, writer) {
-                return this.encode(message, writer).ldelim();
-            };
-
-            /**
-             * Decodes a RelayGroupRedisStreamsOptions message from the specified reader or buffer.
-             * @function decode
-             * @memberof protos.opts.RelayGroupRedisStreamsOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @param {number} [length] Message length if known beforehand
-             * @returns {protos.opts.RelayGroupRedisStreamsOptions} RelayGroupRedisStreamsOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            RelayGroupRedisStreamsOptions.decode = function decode(reader, length) {
-                if (!(reader instanceof $Reader))
-                    reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.RelayGroupRedisStreamsOptions();
-                while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    switch (tag >>> 3) {
-                    case 1:
-                        message._conn = $root.protos.args.RedisStreamsConn.decode(reader, reader.uint32());
-                        break;
-                    case 2:
-                        message.args = $root.protos.args.RedisStreamsReadArgs.decode(reader, reader.uint32());
-                        break;
-                    default:
-                        reader.skipType(tag & 7);
-                        break;
-                    }
-                }
-                return message;
-            };
-
-            /**
-             * Decodes a RelayGroupRedisStreamsOptions message from the specified reader or buffer, length delimited.
-             * @function decodeDelimited
-             * @memberof protos.opts.RelayGroupRedisStreamsOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {protos.opts.RelayGroupRedisStreamsOptions} RelayGroupRedisStreamsOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            RelayGroupRedisStreamsOptions.decodeDelimited = function decodeDelimited(reader) {
-                if (!(reader instanceof $Reader))
-                    reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
-            };
-
-            /**
-             * Verifies a RelayGroupRedisStreamsOptions message.
-             * @function verify
-             * @memberof protos.opts.RelayGroupRedisStreamsOptions
-             * @static
-             * @param {Object.<string,*>} message Plain object to verify
-             * @returns {string|null} `null` if valid, otherwise the reason why it is not
-             */
-            RelayGroupRedisStreamsOptions.verify = function verify(message) {
-                if (typeof message !== "object" || message === null)
-                    return "object expected";
-                if (message._conn != null && message.hasOwnProperty("_conn")) {
-                    var error = $root.protos.args.RedisStreamsConn.verify(message._conn);
-                    if (error)
-                        return "_conn." + error;
-                }
-                if (message.args != null && message.hasOwnProperty("args")) {
-                    var error = $root.protos.args.RedisStreamsReadArgs.verify(message.args);
-                    if (error)
-                        return "args." + error;
-                }
-                return null;
-            };
-
-            /**
-             * Creates a RelayGroupRedisStreamsOptions message from a plain object. Also converts values to their respective internal types.
-             * @function fromObject
-             * @memberof protos.opts.RelayGroupRedisStreamsOptions
-             * @static
-             * @param {Object.<string,*>} object Plain object
-             * @returns {protos.opts.RelayGroupRedisStreamsOptions} RelayGroupRedisStreamsOptions
-             */
-            RelayGroupRedisStreamsOptions.fromObject = function fromObject(object) {
-                if (object instanceof $root.protos.opts.RelayGroupRedisStreamsOptions)
-                    return object;
-                var message = new $root.protos.opts.RelayGroupRedisStreamsOptions();
-                if (object._conn != null) {
-                    if (typeof object._conn !== "object")
-                        throw TypeError(".protos.opts.RelayGroupRedisStreamsOptions._conn: object expected");
-                    message._conn = $root.protos.args.RedisStreamsConn.fromObject(object._conn);
-                }
-                if (object.args != null) {
-                    if (typeof object.args !== "object")
-                        throw TypeError(".protos.opts.RelayGroupRedisStreamsOptions.args: object expected");
-                    message.args = $root.protos.args.RedisStreamsReadArgs.fromObject(object.args);
-                }
-                return message;
-            };
-
-            /**
-             * Creates a plain object from a RelayGroupRedisStreamsOptions message. Also converts values to other types if specified.
-             * @function toObject
-             * @memberof protos.opts.RelayGroupRedisStreamsOptions
-             * @static
-             * @param {protos.opts.RelayGroupRedisStreamsOptions} message RelayGroupRedisStreamsOptions
-             * @param {$protobuf.IConversionOptions} [options] Conversion options
-             * @returns {Object.<string,*>} Plain object
-             */
-            RelayGroupRedisStreamsOptions.toObject = function toObject(message, options) {
-                if (!options)
-                    options = {};
-                var object = {};
-                if (options.defaults) {
-                    object._conn = null;
-                    object.args = null;
-                }
-                if (message._conn != null && message.hasOwnProperty("_conn"))
-                    object._conn = $root.protos.args.RedisStreamsConn.toObject(message._conn, options);
-                if (message.args != null && message.hasOwnProperty("args"))
-                    object.args = $root.protos.args.RedisStreamsReadArgs.toObject(message.args, options);
-                return object;
-            };
-
-            /**
-             * Converts this RelayGroupRedisStreamsOptions to JSON.
-             * @function toJSON
-             * @memberof protos.opts.RelayGroupRedisStreamsOptions
-             * @instance
-             * @returns {Object.<string,*>} JSON object
-             */
-            RelayGroupRedisStreamsOptions.prototype.toJSON = function toJSON() {
-                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-            };
-
-            return RelayGroupRedisStreamsOptions;
-        })();
-
-        opts.RelayGroupAzureServiceBusOptions = (function() {
-
-            /**
-             * Properties of a RelayGroupAzureServiceBusOptions.
-             * @memberof protos.opts
-             * @interface IRelayGroupAzureServiceBusOptions
-             * @property {protos.args.IAzureServiceBusConn|null} [_conn] RelayGroupAzureServiceBusOptions _conn
-             * @property {protos.args.IAzureServiceBusReadArgs|null} [args] RelayGroupAzureServiceBusOptions args
-             */
-
-            /**
-             * Constructs a new RelayGroupAzureServiceBusOptions.
-             * @memberof protos.opts
-             * @classdesc Represents a RelayGroupAzureServiceBusOptions.
-             * @implements IRelayGroupAzureServiceBusOptions
-             * @constructor
-             * @param {protos.opts.IRelayGroupAzureServiceBusOptions=} [properties] Properties to set
-             */
-            function RelayGroupAzureServiceBusOptions(properties) {
-                if (properties)
-                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                        if (properties[keys[i]] != null)
-                            this[keys[i]] = properties[keys[i]];
-            }
-
-            /**
-             * RelayGroupAzureServiceBusOptions _conn.
-             * @member {protos.args.IAzureServiceBusConn|null|undefined} _conn
-             * @memberof protos.opts.RelayGroupAzureServiceBusOptions
-             * @instance
-             */
-            RelayGroupAzureServiceBusOptions.prototype._conn = null;
-
-            /**
-             * RelayGroupAzureServiceBusOptions args.
-             * @member {protos.args.IAzureServiceBusReadArgs|null|undefined} args
-             * @memberof protos.opts.RelayGroupAzureServiceBusOptions
-             * @instance
-             */
-            RelayGroupAzureServiceBusOptions.prototype.args = null;
-
-            /**
-             * Creates a new RelayGroupAzureServiceBusOptions instance using the specified properties.
-             * @function create
-             * @memberof protos.opts.RelayGroupAzureServiceBusOptions
-             * @static
-             * @param {protos.opts.IRelayGroupAzureServiceBusOptions=} [properties] Properties to set
-             * @returns {protos.opts.RelayGroupAzureServiceBusOptions} RelayGroupAzureServiceBusOptions instance
-             */
-            RelayGroupAzureServiceBusOptions.create = function create(properties) {
-                return new RelayGroupAzureServiceBusOptions(properties);
-            };
-
-            /**
-             * Encodes the specified RelayGroupAzureServiceBusOptions message. Does not implicitly {@link protos.opts.RelayGroupAzureServiceBusOptions.verify|verify} messages.
-             * @function encode
-             * @memberof protos.opts.RelayGroupAzureServiceBusOptions
-             * @static
-             * @param {protos.opts.IRelayGroupAzureServiceBusOptions} message RelayGroupAzureServiceBusOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            RelayGroupAzureServiceBusOptions.encode = function encode(message, writer) {
-                if (!writer)
-                    writer = $Writer.create();
-                if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
-                    $root.protos.args.AzureServiceBusConn.encode(message._conn, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
-                if (message.args != null && Object.hasOwnProperty.call(message, "args"))
-                    $root.protos.args.AzureServiceBusReadArgs.encode(message.args, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
-                return writer;
-            };
-
-            /**
-             * Encodes the specified RelayGroupAzureServiceBusOptions message, length delimited. Does not implicitly {@link protos.opts.RelayGroupAzureServiceBusOptions.verify|verify} messages.
-             * @function encodeDelimited
-             * @memberof protos.opts.RelayGroupAzureServiceBusOptions
-             * @static
-             * @param {protos.opts.IRelayGroupAzureServiceBusOptions} message RelayGroupAzureServiceBusOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            RelayGroupAzureServiceBusOptions.encodeDelimited = function encodeDelimited(message, writer) {
-                return this.encode(message, writer).ldelim();
-            };
-
-            /**
-             * Decodes a RelayGroupAzureServiceBusOptions message from the specified reader or buffer.
-             * @function decode
-             * @memberof protos.opts.RelayGroupAzureServiceBusOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @param {number} [length] Message length if known beforehand
-             * @returns {protos.opts.RelayGroupAzureServiceBusOptions} RelayGroupAzureServiceBusOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            RelayGroupAzureServiceBusOptions.decode = function decode(reader, length) {
-                if (!(reader instanceof $Reader))
-                    reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.RelayGroupAzureServiceBusOptions();
-                while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    switch (tag >>> 3) {
-                    case 1:
-                        message._conn = $root.protos.args.AzureServiceBusConn.decode(reader, reader.uint32());
-                        break;
-                    case 2:
-                        message.args = $root.protos.args.AzureServiceBusReadArgs.decode(reader, reader.uint32());
-                        break;
-                    default:
-                        reader.skipType(tag & 7);
-                        break;
-                    }
-                }
-                return message;
-            };
-
-            /**
-             * Decodes a RelayGroupAzureServiceBusOptions message from the specified reader or buffer, length delimited.
-             * @function decodeDelimited
-             * @memberof protos.opts.RelayGroupAzureServiceBusOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {protos.opts.RelayGroupAzureServiceBusOptions} RelayGroupAzureServiceBusOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            RelayGroupAzureServiceBusOptions.decodeDelimited = function decodeDelimited(reader) {
-                if (!(reader instanceof $Reader))
-                    reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
-            };
-
-            /**
-             * Verifies a RelayGroupAzureServiceBusOptions message.
-             * @function verify
-             * @memberof protos.opts.RelayGroupAzureServiceBusOptions
-             * @static
-             * @param {Object.<string,*>} message Plain object to verify
-             * @returns {string|null} `null` if valid, otherwise the reason why it is not
-             */
-            RelayGroupAzureServiceBusOptions.verify = function verify(message) {
-                if (typeof message !== "object" || message === null)
-                    return "object expected";
-                if (message._conn != null && message.hasOwnProperty("_conn")) {
-                    var error = $root.protos.args.AzureServiceBusConn.verify(message._conn);
-                    if (error)
-                        return "_conn." + error;
-                }
-                if (message.args != null && message.hasOwnProperty("args")) {
-                    var error = $root.protos.args.AzureServiceBusReadArgs.verify(message.args);
-                    if (error)
-                        return "args." + error;
-                }
-                return null;
-            };
-
-            /**
-             * Creates a RelayGroupAzureServiceBusOptions message from a plain object. Also converts values to their respective internal types.
-             * @function fromObject
-             * @memberof protos.opts.RelayGroupAzureServiceBusOptions
-             * @static
-             * @param {Object.<string,*>} object Plain object
-             * @returns {protos.opts.RelayGroupAzureServiceBusOptions} RelayGroupAzureServiceBusOptions
-             */
-            RelayGroupAzureServiceBusOptions.fromObject = function fromObject(object) {
-                if (object instanceof $root.protos.opts.RelayGroupAzureServiceBusOptions)
-                    return object;
-                var message = new $root.protos.opts.RelayGroupAzureServiceBusOptions();
-                if (object._conn != null) {
-                    if (typeof object._conn !== "object")
-                        throw TypeError(".protos.opts.RelayGroupAzureServiceBusOptions._conn: object expected");
-                    message._conn = $root.protos.args.AzureServiceBusConn.fromObject(object._conn);
-                }
-                if (object.args != null) {
-                    if (typeof object.args !== "object")
-                        throw TypeError(".protos.opts.RelayGroupAzureServiceBusOptions.args: object expected");
-                    message.args = $root.protos.args.AzureServiceBusReadArgs.fromObject(object.args);
-                }
-                return message;
-            };
-
-            /**
-             * Creates a plain object from a RelayGroupAzureServiceBusOptions message. Also converts values to other types if specified.
-             * @function toObject
-             * @memberof protos.opts.RelayGroupAzureServiceBusOptions
-             * @static
-             * @param {protos.opts.RelayGroupAzureServiceBusOptions} message RelayGroupAzureServiceBusOptions
-             * @param {$protobuf.IConversionOptions} [options] Conversion options
-             * @returns {Object.<string,*>} Plain object
-             */
-            RelayGroupAzureServiceBusOptions.toObject = function toObject(message, options) {
-                if (!options)
-                    options = {};
-                var object = {};
-                if (options.defaults) {
-                    object._conn = null;
-                    object.args = null;
-                }
-                if (message._conn != null && message.hasOwnProperty("_conn"))
-                    object._conn = $root.protos.args.AzureServiceBusConn.toObject(message._conn, options);
-                if (message.args != null && message.hasOwnProperty("args"))
-                    object.args = $root.protos.args.AzureServiceBusReadArgs.toObject(message.args, options);
-                return object;
-            };
-
-            /**
-             * Converts this RelayGroupAzureServiceBusOptions to JSON.
-             * @function toJSON
-             * @memberof protos.opts.RelayGroupAzureServiceBusOptions
-             * @instance
-             * @returns {Object.<string,*>} JSON object
-             */
-            RelayGroupAzureServiceBusOptions.prototype.toJSON = function toJSON() {
-                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-            };
-
-            return RelayGroupAzureServiceBusOptions;
-        })();
-
-        opts.RelayGroupMQTTOptions = (function() {
-
-            /**
-             * Properties of a RelayGroupMQTTOptions.
-             * @memberof protos.opts
-             * @interface IRelayGroupMQTTOptions
-             * @property {protos.args.IMQTTConn|null} [_conn] RelayGroupMQTTOptions _conn
-             * @property {protos.args.IMQTTReadArgs|null} [args] RelayGroupMQTTOptions args
-             */
-
-            /**
-             * Constructs a new RelayGroupMQTTOptions.
-             * @memberof protos.opts
-             * @classdesc Represents a RelayGroupMQTTOptions.
-             * @implements IRelayGroupMQTTOptions
-             * @constructor
-             * @param {protos.opts.IRelayGroupMQTTOptions=} [properties] Properties to set
-             */
-            function RelayGroupMQTTOptions(properties) {
-                if (properties)
-                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                        if (properties[keys[i]] != null)
-                            this[keys[i]] = properties[keys[i]];
-            }
-
-            /**
-             * RelayGroupMQTTOptions _conn.
-             * @member {protos.args.IMQTTConn|null|undefined} _conn
-             * @memberof protos.opts.RelayGroupMQTTOptions
-             * @instance
-             */
-            RelayGroupMQTTOptions.prototype._conn = null;
-
-            /**
-             * RelayGroupMQTTOptions args.
-             * @member {protos.args.IMQTTReadArgs|null|undefined} args
-             * @memberof protos.opts.RelayGroupMQTTOptions
-             * @instance
-             */
-            RelayGroupMQTTOptions.prototype.args = null;
-
-            /**
-             * Creates a new RelayGroupMQTTOptions instance using the specified properties.
-             * @function create
-             * @memberof protos.opts.RelayGroupMQTTOptions
-             * @static
-             * @param {protos.opts.IRelayGroupMQTTOptions=} [properties] Properties to set
-             * @returns {protos.opts.RelayGroupMQTTOptions} RelayGroupMQTTOptions instance
-             */
-            RelayGroupMQTTOptions.create = function create(properties) {
-                return new RelayGroupMQTTOptions(properties);
-            };
-
-            /**
-             * Encodes the specified RelayGroupMQTTOptions message. Does not implicitly {@link protos.opts.RelayGroupMQTTOptions.verify|verify} messages.
-             * @function encode
-             * @memberof protos.opts.RelayGroupMQTTOptions
-             * @static
-             * @param {protos.opts.IRelayGroupMQTTOptions} message RelayGroupMQTTOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            RelayGroupMQTTOptions.encode = function encode(message, writer) {
-                if (!writer)
-                    writer = $Writer.create();
-                if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
-                    $root.protos.args.MQTTConn.encode(message._conn, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
-                if (message.args != null && Object.hasOwnProperty.call(message, "args"))
-                    $root.protos.args.MQTTReadArgs.encode(message.args, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
-                return writer;
-            };
-
-            /**
-             * Encodes the specified RelayGroupMQTTOptions message, length delimited. Does not implicitly {@link protos.opts.RelayGroupMQTTOptions.verify|verify} messages.
-             * @function encodeDelimited
-             * @memberof protos.opts.RelayGroupMQTTOptions
-             * @static
-             * @param {protos.opts.IRelayGroupMQTTOptions} message RelayGroupMQTTOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            RelayGroupMQTTOptions.encodeDelimited = function encodeDelimited(message, writer) {
-                return this.encode(message, writer).ldelim();
-            };
-
-            /**
-             * Decodes a RelayGroupMQTTOptions message from the specified reader or buffer.
-             * @function decode
-             * @memberof protos.opts.RelayGroupMQTTOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @param {number} [length] Message length if known beforehand
-             * @returns {protos.opts.RelayGroupMQTTOptions} RelayGroupMQTTOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            RelayGroupMQTTOptions.decode = function decode(reader, length) {
-                if (!(reader instanceof $Reader))
-                    reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.RelayGroupMQTTOptions();
-                while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    switch (tag >>> 3) {
-                    case 1:
-                        message._conn = $root.protos.args.MQTTConn.decode(reader, reader.uint32());
-                        break;
-                    case 2:
-                        message.args = $root.protos.args.MQTTReadArgs.decode(reader, reader.uint32());
-                        break;
-                    default:
-                        reader.skipType(tag & 7);
-                        break;
-                    }
-                }
-                return message;
-            };
-
-            /**
-             * Decodes a RelayGroupMQTTOptions message from the specified reader or buffer, length delimited.
-             * @function decodeDelimited
-             * @memberof protos.opts.RelayGroupMQTTOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {protos.opts.RelayGroupMQTTOptions} RelayGroupMQTTOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            RelayGroupMQTTOptions.decodeDelimited = function decodeDelimited(reader) {
-                if (!(reader instanceof $Reader))
-                    reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
-            };
-
-            /**
-             * Verifies a RelayGroupMQTTOptions message.
-             * @function verify
-             * @memberof protos.opts.RelayGroupMQTTOptions
-             * @static
-             * @param {Object.<string,*>} message Plain object to verify
-             * @returns {string|null} `null` if valid, otherwise the reason why it is not
-             */
-            RelayGroupMQTTOptions.verify = function verify(message) {
-                if (typeof message !== "object" || message === null)
-                    return "object expected";
-                if (message._conn != null && message.hasOwnProperty("_conn")) {
-                    var error = $root.protos.args.MQTTConn.verify(message._conn);
-                    if (error)
-                        return "_conn." + error;
-                }
-                if (message.args != null && message.hasOwnProperty("args")) {
-                    var error = $root.protos.args.MQTTReadArgs.verify(message.args);
-                    if (error)
-                        return "args." + error;
-                }
-                return null;
-            };
-
-            /**
-             * Creates a RelayGroupMQTTOptions message from a plain object. Also converts values to their respective internal types.
-             * @function fromObject
-             * @memberof protos.opts.RelayGroupMQTTOptions
-             * @static
-             * @param {Object.<string,*>} object Plain object
-             * @returns {protos.opts.RelayGroupMQTTOptions} RelayGroupMQTTOptions
-             */
-            RelayGroupMQTTOptions.fromObject = function fromObject(object) {
-                if (object instanceof $root.protos.opts.RelayGroupMQTTOptions)
-                    return object;
-                var message = new $root.protos.opts.RelayGroupMQTTOptions();
-                if (object._conn != null) {
-                    if (typeof object._conn !== "object")
-                        throw TypeError(".protos.opts.RelayGroupMQTTOptions._conn: object expected");
-                    message._conn = $root.protos.args.MQTTConn.fromObject(object._conn);
-                }
-                if (object.args != null) {
-                    if (typeof object.args !== "object")
-                        throw TypeError(".protos.opts.RelayGroupMQTTOptions.args: object expected");
-                    message.args = $root.protos.args.MQTTReadArgs.fromObject(object.args);
-                }
-                return message;
-            };
-
-            /**
-             * Creates a plain object from a RelayGroupMQTTOptions message. Also converts values to other types if specified.
-             * @function toObject
-             * @memberof protos.opts.RelayGroupMQTTOptions
-             * @static
-             * @param {protos.opts.RelayGroupMQTTOptions} message RelayGroupMQTTOptions
-             * @param {$protobuf.IConversionOptions} [options] Conversion options
-             * @returns {Object.<string,*>} Plain object
-             */
-            RelayGroupMQTTOptions.toObject = function toObject(message, options) {
-                if (!options)
-                    options = {};
-                var object = {};
-                if (options.defaults) {
-                    object._conn = null;
-                    object.args = null;
-                }
-                if (message._conn != null && message.hasOwnProperty("_conn"))
-                    object._conn = $root.protos.args.MQTTConn.toObject(message._conn, options);
-                if (message.args != null && message.hasOwnProperty("args"))
-                    object.args = $root.protos.args.MQTTReadArgs.toObject(message.args, options);
-                return object;
-            };
-
-            /**
-             * Converts this RelayGroupMQTTOptions to JSON.
-             * @function toJSON
-             * @memberof protos.opts.RelayGroupMQTTOptions
-             * @instance
-             * @returns {Object.<string,*>} JSON object
-             */
-            RelayGroupMQTTOptions.prototype.toJSON = function toJSON() {
-                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-            };
-
-            return RelayGroupMQTTOptions;
-        })();
-
-        opts.RelayGroupGCPPubSubOptions = (function() {
-
-            /**
-             * Properties of a RelayGroupGCPPubSubOptions.
-             * @memberof protos.opts
-             * @interface IRelayGroupGCPPubSubOptions
-             * @property {protos.args.IGCPPubSubConn|null} [_conn] RelayGroupGCPPubSubOptions _conn
-             * @property {protos.args.IGCPPubSubReadArgs|null} [args] RelayGroupGCPPubSubOptions args
-             */
-
-            /**
-             * Constructs a new RelayGroupGCPPubSubOptions.
-             * @memberof protos.opts
-             * @classdesc Represents a RelayGroupGCPPubSubOptions.
-             * @implements IRelayGroupGCPPubSubOptions
-             * @constructor
-             * @param {protos.opts.IRelayGroupGCPPubSubOptions=} [properties] Properties to set
-             */
-            function RelayGroupGCPPubSubOptions(properties) {
-                if (properties)
-                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                        if (properties[keys[i]] != null)
-                            this[keys[i]] = properties[keys[i]];
-            }
-
-            /**
-             * RelayGroupGCPPubSubOptions _conn.
-             * @member {protos.args.IGCPPubSubConn|null|undefined} _conn
-             * @memberof protos.opts.RelayGroupGCPPubSubOptions
-             * @instance
-             */
-            RelayGroupGCPPubSubOptions.prototype._conn = null;
-
-            /**
-             * RelayGroupGCPPubSubOptions args.
-             * @member {protos.args.IGCPPubSubReadArgs|null|undefined} args
-             * @memberof protos.opts.RelayGroupGCPPubSubOptions
-             * @instance
-             */
-            RelayGroupGCPPubSubOptions.prototype.args = null;
-
-            /**
-             * Creates a new RelayGroupGCPPubSubOptions instance using the specified properties.
-             * @function create
-             * @memberof protos.opts.RelayGroupGCPPubSubOptions
-             * @static
-             * @param {protos.opts.IRelayGroupGCPPubSubOptions=} [properties] Properties to set
-             * @returns {protos.opts.RelayGroupGCPPubSubOptions} RelayGroupGCPPubSubOptions instance
-             */
-            RelayGroupGCPPubSubOptions.create = function create(properties) {
-                return new RelayGroupGCPPubSubOptions(properties);
-            };
-
-            /**
-             * Encodes the specified RelayGroupGCPPubSubOptions message. Does not implicitly {@link protos.opts.RelayGroupGCPPubSubOptions.verify|verify} messages.
-             * @function encode
-             * @memberof protos.opts.RelayGroupGCPPubSubOptions
-             * @static
-             * @param {protos.opts.IRelayGroupGCPPubSubOptions} message RelayGroupGCPPubSubOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            RelayGroupGCPPubSubOptions.encode = function encode(message, writer) {
-                if (!writer)
-                    writer = $Writer.create();
-                if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
-                    $root.protos.args.GCPPubSubConn.encode(message._conn, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
-                if (message.args != null && Object.hasOwnProperty.call(message, "args"))
-                    $root.protos.args.GCPPubSubReadArgs.encode(message.args, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
-                return writer;
-            };
-
-            /**
-             * Encodes the specified RelayGroupGCPPubSubOptions message, length delimited. Does not implicitly {@link protos.opts.RelayGroupGCPPubSubOptions.verify|verify} messages.
-             * @function encodeDelimited
-             * @memberof protos.opts.RelayGroupGCPPubSubOptions
-             * @static
-             * @param {protos.opts.IRelayGroupGCPPubSubOptions} message RelayGroupGCPPubSubOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            RelayGroupGCPPubSubOptions.encodeDelimited = function encodeDelimited(message, writer) {
-                return this.encode(message, writer).ldelim();
-            };
-
-            /**
-             * Decodes a RelayGroupGCPPubSubOptions message from the specified reader or buffer.
-             * @function decode
-             * @memberof protos.opts.RelayGroupGCPPubSubOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @param {number} [length] Message length if known beforehand
-             * @returns {protos.opts.RelayGroupGCPPubSubOptions} RelayGroupGCPPubSubOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            RelayGroupGCPPubSubOptions.decode = function decode(reader, length) {
-                if (!(reader instanceof $Reader))
-                    reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.RelayGroupGCPPubSubOptions();
-                while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    switch (tag >>> 3) {
-                    case 1:
-                        message._conn = $root.protos.args.GCPPubSubConn.decode(reader, reader.uint32());
-                        break;
-                    case 2:
-                        message.args = $root.protos.args.GCPPubSubReadArgs.decode(reader, reader.uint32());
-                        break;
-                    default:
-                        reader.skipType(tag & 7);
-                        break;
-                    }
-                }
-                return message;
-            };
-
-            /**
-             * Decodes a RelayGroupGCPPubSubOptions message from the specified reader or buffer, length delimited.
-             * @function decodeDelimited
-             * @memberof protos.opts.RelayGroupGCPPubSubOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {protos.opts.RelayGroupGCPPubSubOptions} RelayGroupGCPPubSubOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            RelayGroupGCPPubSubOptions.decodeDelimited = function decodeDelimited(reader) {
-                if (!(reader instanceof $Reader))
-                    reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
-            };
-
-            /**
-             * Verifies a RelayGroupGCPPubSubOptions message.
-             * @function verify
-             * @memberof protos.opts.RelayGroupGCPPubSubOptions
-             * @static
-             * @param {Object.<string,*>} message Plain object to verify
-             * @returns {string|null} `null` if valid, otherwise the reason why it is not
-             */
-            RelayGroupGCPPubSubOptions.verify = function verify(message) {
-                if (typeof message !== "object" || message === null)
-                    return "object expected";
-                if (message._conn != null && message.hasOwnProperty("_conn")) {
-                    var error = $root.protos.args.GCPPubSubConn.verify(message._conn);
-                    if (error)
-                        return "_conn." + error;
-                }
-                if (message.args != null && message.hasOwnProperty("args")) {
-                    var error = $root.protos.args.GCPPubSubReadArgs.verify(message.args);
-                    if (error)
-                        return "args." + error;
-                }
-                return null;
-            };
-
-            /**
-             * Creates a RelayGroupGCPPubSubOptions message from a plain object. Also converts values to their respective internal types.
-             * @function fromObject
-             * @memberof protos.opts.RelayGroupGCPPubSubOptions
-             * @static
-             * @param {Object.<string,*>} object Plain object
-             * @returns {protos.opts.RelayGroupGCPPubSubOptions} RelayGroupGCPPubSubOptions
-             */
-            RelayGroupGCPPubSubOptions.fromObject = function fromObject(object) {
-                if (object instanceof $root.protos.opts.RelayGroupGCPPubSubOptions)
-                    return object;
-                var message = new $root.protos.opts.RelayGroupGCPPubSubOptions();
-                if (object._conn != null) {
-                    if (typeof object._conn !== "object")
-                        throw TypeError(".protos.opts.RelayGroupGCPPubSubOptions._conn: object expected");
-                    message._conn = $root.protos.args.GCPPubSubConn.fromObject(object._conn);
-                }
-                if (object.args != null) {
-                    if (typeof object.args !== "object")
-                        throw TypeError(".protos.opts.RelayGroupGCPPubSubOptions.args: object expected");
-                    message.args = $root.protos.args.GCPPubSubReadArgs.fromObject(object.args);
-                }
-                return message;
-            };
-
-            /**
-             * Creates a plain object from a RelayGroupGCPPubSubOptions message. Also converts values to other types if specified.
-             * @function toObject
-             * @memberof protos.opts.RelayGroupGCPPubSubOptions
-             * @static
-             * @param {protos.opts.RelayGroupGCPPubSubOptions} message RelayGroupGCPPubSubOptions
-             * @param {$protobuf.IConversionOptions} [options] Conversion options
-             * @returns {Object.<string,*>} Plain object
-             */
-            RelayGroupGCPPubSubOptions.toObject = function toObject(message, options) {
-                if (!options)
-                    options = {};
-                var object = {};
-                if (options.defaults) {
-                    object._conn = null;
-                    object.args = null;
-                }
-                if (message._conn != null && message.hasOwnProperty("_conn"))
-                    object._conn = $root.protos.args.GCPPubSubConn.toObject(message._conn, options);
-                if (message.args != null && message.hasOwnProperty("args"))
-                    object.args = $root.protos.args.GCPPubSubReadArgs.toObject(message.args, options);
-                return object;
-            };
-
-            /**
-             * Converts this RelayGroupGCPPubSubOptions to JSON.
-             * @function toJSON
-             * @memberof protos.opts.RelayGroupGCPPubSubOptions
-             * @instance
-             * @returns {Object.<string,*>} JSON object
-             */
-            RelayGroupGCPPubSubOptions.prototype.toJSON = function toJSON() {
-                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-            };
-
-            return RelayGroupGCPPubSubOptions;
-        })();
-
-        opts.RelayGroupKubeMQQueueOptions = (function() {
-
-            /**
-             * Properties of a RelayGroupKubeMQQueueOptions.
-             * @memberof protos.opts
-             * @interface IRelayGroupKubeMQQueueOptions
-             * @property {protos.args.IKubeMQQueueConn|null} [_conn] RelayGroupKubeMQQueueOptions _conn
-             * @property {protos.args.IKubeMQQueueReadArgs|null} [args] RelayGroupKubeMQQueueOptions args
-             */
-
-            /**
-             * Constructs a new RelayGroupKubeMQQueueOptions.
-             * @memberof protos.opts
-             * @classdesc Represents a RelayGroupKubeMQQueueOptions.
-             * @implements IRelayGroupKubeMQQueueOptions
-             * @constructor
-             * @param {protos.opts.IRelayGroupKubeMQQueueOptions=} [properties] Properties to set
-             */
-            function RelayGroupKubeMQQueueOptions(properties) {
-                if (properties)
-                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                        if (properties[keys[i]] != null)
-                            this[keys[i]] = properties[keys[i]];
-            }
-
-            /**
-             * RelayGroupKubeMQQueueOptions _conn.
-             * @member {protos.args.IKubeMQQueueConn|null|undefined} _conn
-             * @memberof protos.opts.RelayGroupKubeMQQueueOptions
-             * @instance
-             */
-            RelayGroupKubeMQQueueOptions.prototype._conn = null;
-
-            /**
-             * RelayGroupKubeMQQueueOptions args.
-             * @member {protos.args.IKubeMQQueueReadArgs|null|undefined} args
-             * @memberof protos.opts.RelayGroupKubeMQQueueOptions
-             * @instance
-             */
-            RelayGroupKubeMQQueueOptions.prototype.args = null;
-
-            /**
-             * Creates a new RelayGroupKubeMQQueueOptions instance using the specified properties.
-             * @function create
-             * @memberof protos.opts.RelayGroupKubeMQQueueOptions
-             * @static
-             * @param {protos.opts.IRelayGroupKubeMQQueueOptions=} [properties] Properties to set
-             * @returns {protos.opts.RelayGroupKubeMQQueueOptions} RelayGroupKubeMQQueueOptions instance
-             */
-            RelayGroupKubeMQQueueOptions.create = function create(properties) {
-                return new RelayGroupKubeMQQueueOptions(properties);
-            };
-
-            /**
-             * Encodes the specified RelayGroupKubeMQQueueOptions message. Does not implicitly {@link protos.opts.RelayGroupKubeMQQueueOptions.verify|verify} messages.
-             * @function encode
-             * @memberof protos.opts.RelayGroupKubeMQQueueOptions
-             * @static
-             * @param {protos.opts.IRelayGroupKubeMQQueueOptions} message RelayGroupKubeMQQueueOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            RelayGroupKubeMQQueueOptions.encode = function encode(message, writer) {
-                if (!writer)
-                    writer = $Writer.create();
-                if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
-                    $root.protos.args.KubeMQQueueConn.encode(message._conn, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
-                if (message.args != null && Object.hasOwnProperty.call(message, "args"))
-                    $root.protos.args.KubeMQQueueReadArgs.encode(message.args, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
-                return writer;
-            };
-
-            /**
-             * Encodes the specified RelayGroupKubeMQQueueOptions message, length delimited. Does not implicitly {@link protos.opts.RelayGroupKubeMQQueueOptions.verify|verify} messages.
-             * @function encodeDelimited
-             * @memberof protos.opts.RelayGroupKubeMQQueueOptions
-             * @static
-             * @param {protos.opts.IRelayGroupKubeMQQueueOptions} message RelayGroupKubeMQQueueOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            RelayGroupKubeMQQueueOptions.encodeDelimited = function encodeDelimited(message, writer) {
-                return this.encode(message, writer).ldelim();
-            };
-
-            /**
-             * Decodes a RelayGroupKubeMQQueueOptions message from the specified reader or buffer.
-             * @function decode
-             * @memberof protos.opts.RelayGroupKubeMQQueueOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @param {number} [length] Message length if known beforehand
-             * @returns {protos.opts.RelayGroupKubeMQQueueOptions} RelayGroupKubeMQQueueOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            RelayGroupKubeMQQueueOptions.decode = function decode(reader, length) {
-                if (!(reader instanceof $Reader))
-                    reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.RelayGroupKubeMQQueueOptions();
-                while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    switch (tag >>> 3) {
-                    case 1:
-                        message._conn = $root.protos.args.KubeMQQueueConn.decode(reader, reader.uint32());
-                        break;
-                    case 2:
-                        message.args = $root.protos.args.KubeMQQueueReadArgs.decode(reader, reader.uint32());
-                        break;
-                    default:
-                        reader.skipType(tag & 7);
-                        break;
-                    }
-                }
-                return message;
-            };
-
-            /**
-             * Decodes a RelayGroupKubeMQQueueOptions message from the specified reader or buffer, length delimited.
-             * @function decodeDelimited
-             * @memberof protos.opts.RelayGroupKubeMQQueueOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {protos.opts.RelayGroupKubeMQQueueOptions} RelayGroupKubeMQQueueOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            RelayGroupKubeMQQueueOptions.decodeDelimited = function decodeDelimited(reader) {
-                if (!(reader instanceof $Reader))
-                    reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
-            };
-
-            /**
-             * Verifies a RelayGroupKubeMQQueueOptions message.
-             * @function verify
-             * @memberof protos.opts.RelayGroupKubeMQQueueOptions
-             * @static
-             * @param {Object.<string,*>} message Plain object to verify
-             * @returns {string|null} `null` if valid, otherwise the reason why it is not
-             */
-            RelayGroupKubeMQQueueOptions.verify = function verify(message) {
-                if (typeof message !== "object" || message === null)
-                    return "object expected";
-                if (message._conn != null && message.hasOwnProperty("_conn")) {
-                    var error = $root.protos.args.KubeMQQueueConn.verify(message._conn);
-                    if (error)
-                        return "_conn." + error;
-                }
-                if (message.args != null && message.hasOwnProperty("args")) {
-                    var error = $root.protos.args.KubeMQQueueReadArgs.verify(message.args);
-                    if (error)
-                        return "args." + error;
-                }
-                return null;
-            };
-
-            /**
-             * Creates a RelayGroupKubeMQQueueOptions message from a plain object. Also converts values to their respective internal types.
-             * @function fromObject
-             * @memberof protos.opts.RelayGroupKubeMQQueueOptions
-             * @static
-             * @param {Object.<string,*>} object Plain object
-             * @returns {protos.opts.RelayGroupKubeMQQueueOptions} RelayGroupKubeMQQueueOptions
-             */
-            RelayGroupKubeMQQueueOptions.fromObject = function fromObject(object) {
-                if (object instanceof $root.protos.opts.RelayGroupKubeMQQueueOptions)
-                    return object;
-                var message = new $root.protos.opts.RelayGroupKubeMQQueueOptions();
-                if (object._conn != null) {
-                    if (typeof object._conn !== "object")
-                        throw TypeError(".protos.opts.RelayGroupKubeMQQueueOptions._conn: object expected");
-                    message._conn = $root.protos.args.KubeMQQueueConn.fromObject(object._conn);
-                }
-                if (object.args != null) {
-                    if (typeof object.args !== "object")
-                        throw TypeError(".protos.opts.RelayGroupKubeMQQueueOptions.args: object expected");
-                    message.args = $root.protos.args.KubeMQQueueReadArgs.fromObject(object.args);
-                }
-                return message;
-            };
-
-            /**
-             * Creates a plain object from a RelayGroupKubeMQQueueOptions message. Also converts values to other types if specified.
-             * @function toObject
-             * @memberof protos.opts.RelayGroupKubeMQQueueOptions
-             * @static
-             * @param {protos.opts.RelayGroupKubeMQQueueOptions} message RelayGroupKubeMQQueueOptions
-             * @param {$protobuf.IConversionOptions} [options] Conversion options
-             * @returns {Object.<string,*>} Plain object
-             */
-            RelayGroupKubeMQQueueOptions.toObject = function toObject(message, options) {
-                if (!options)
-                    options = {};
-                var object = {};
-                if (options.defaults) {
-                    object._conn = null;
-                    object.args = null;
-                }
-                if (message._conn != null && message.hasOwnProperty("_conn"))
-                    object._conn = $root.protos.args.KubeMQQueueConn.toObject(message._conn, options);
-                if (message.args != null && message.hasOwnProperty("args"))
-                    object.args = $root.protos.args.KubeMQQueueReadArgs.toObject(message.args, options);
-                return object;
-            };
-
-            /**
-             * Converts this RelayGroupKubeMQQueueOptions to JSON.
-             * @function toJSON
-             * @memberof protos.opts.RelayGroupKubeMQQueueOptions
-             * @instance
-             * @returns {Object.<string,*>} JSON object
-             */
-            RelayGroupKubeMQQueueOptions.prototype.toJSON = function toJSON() {
-                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-            };
-
-            return RelayGroupKubeMQQueueOptions;
-        })();
-
-        opts.RelayGroupNatsOptions = (function() {
-
-            /**
-             * Properties of a RelayGroupNatsOptions.
-             * @memberof protos.opts
-             * @interface IRelayGroupNatsOptions
-             * @property {protos.args.INatsConn|null} [_conn] RelayGroupNatsOptions _conn
-             * @property {protos.args.INatsReadArgs|null} [args] RelayGroupNatsOptions args
-             */
-
-            /**
-             * Constructs a new RelayGroupNatsOptions.
-             * @memberof protos.opts
-             * @classdesc Represents a RelayGroupNatsOptions.
-             * @implements IRelayGroupNatsOptions
-             * @constructor
-             * @param {protos.opts.IRelayGroupNatsOptions=} [properties] Properties to set
-             */
-            function RelayGroupNatsOptions(properties) {
-                if (properties)
-                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                        if (properties[keys[i]] != null)
-                            this[keys[i]] = properties[keys[i]];
-            }
-
-            /**
-             * RelayGroupNatsOptions _conn.
-             * @member {protos.args.INatsConn|null|undefined} _conn
-             * @memberof protos.opts.RelayGroupNatsOptions
-             * @instance
-             */
-            RelayGroupNatsOptions.prototype._conn = null;
-
-            /**
-             * RelayGroupNatsOptions args.
-             * @member {protos.args.INatsReadArgs|null|undefined} args
-             * @memberof protos.opts.RelayGroupNatsOptions
-             * @instance
-             */
-            RelayGroupNatsOptions.prototype.args = null;
-
-            /**
-             * Creates a new RelayGroupNatsOptions instance using the specified properties.
-             * @function create
-             * @memberof protos.opts.RelayGroupNatsOptions
-             * @static
-             * @param {protos.opts.IRelayGroupNatsOptions=} [properties] Properties to set
-             * @returns {protos.opts.RelayGroupNatsOptions} RelayGroupNatsOptions instance
-             */
-            RelayGroupNatsOptions.create = function create(properties) {
-                return new RelayGroupNatsOptions(properties);
-            };
-
-            /**
-             * Encodes the specified RelayGroupNatsOptions message. Does not implicitly {@link protos.opts.RelayGroupNatsOptions.verify|verify} messages.
-             * @function encode
-             * @memberof protos.opts.RelayGroupNatsOptions
-             * @static
-             * @param {protos.opts.IRelayGroupNatsOptions} message RelayGroupNatsOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            RelayGroupNatsOptions.encode = function encode(message, writer) {
-                if (!writer)
-                    writer = $Writer.create();
-                if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
-                    $root.protos.args.NatsConn.encode(message._conn, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
-                if (message.args != null && Object.hasOwnProperty.call(message, "args"))
-                    $root.protos.args.NatsReadArgs.encode(message.args, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
-                return writer;
-            };
-
-            /**
-             * Encodes the specified RelayGroupNatsOptions message, length delimited. Does not implicitly {@link protos.opts.RelayGroupNatsOptions.verify|verify} messages.
-             * @function encodeDelimited
-             * @memberof protos.opts.RelayGroupNatsOptions
-             * @static
-             * @param {protos.opts.IRelayGroupNatsOptions} message RelayGroupNatsOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            RelayGroupNatsOptions.encodeDelimited = function encodeDelimited(message, writer) {
-                return this.encode(message, writer).ldelim();
-            };
-
-            /**
-             * Decodes a RelayGroupNatsOptions message from the specified reader or buffer.
-             * @function decode
-             * @memberof protos.opts.RelayGroupNatsOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @param {number} [length] Message length if known beforehand
-             * @returns {protos.opts.RelayGroupNatsOptions} RelayGroupNatsOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            RelayGroupNatsOptions.decode = function decode(reader, length) {
-                if (!(reader instanceof $Reader))
-                    reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.RelayGroupNatsOptions();
-                while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    switch (tag >>> 3) {
-                    case 1:
-                        message._conn = $root.protos.args.NatsConn.decode(reader, reader.uint32());
-                        break;
-                    case 2:
-                        message.args = $root.protos.args.NatsReadArgs.decode(reader, reader.uint32());
-                        break;
-                    default:
-                        reader.skipType(tag & 7);
-                        break;
-                    }
-                }
-                return message;
-            };
-
-            /**
-             * Decodes a RelayGroupNatsOptions message from the specified reader or buffer, length delimited.
-             * @function decodeDelimited
-             * @memberof protos.opts.RelayGroupNatsOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {protos.opts.RelayGroupNatsOptions} RelayGroupNatsOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            RelayGroupNatsOptions.decodeDelimited = function decodeDelimited(reader) {
-                if (!(reader instanceof $Reader))
-                    reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
-            };
-
-            /**
-             * Verifies a RelayGroupNatsOptions message.
-             * @function verify
-             * @memberof protos.opts.RelayGroupNatsOptions
-             * @static
-             * @param {Object.<string,*>} message Plain object to verify
-             * @returns {string|null} `null` if valid, otherwise the reason why it is not
-             */
-            RelayGroupNatsOptions.verify = function verify(message) {
-                if (typeof message !== "object" || message === null)
-                    return "object expected";
-                if (message._conn != null && message.hasOwnProperty("_conn")) {
-                    var error = $root.protos.args.NatsConn.verify(message._conn);
-                    if (error)
-                        return "_conn." + error;
-                }
-                if (message.args != null && message.hasOwnProperty("args")) {
-                    var error = $root.protos.args.NatsReadArgs.verify(message.args);
-                    if (error)
-                        return "args." + error;
-                }
-                return null;
-            };
-
-            /**
-             * Creates a RelayGroupNatsOptions message from a plain object. Also converts values to their respective internal types.
-             * @function fromObject
-             * @memberof protos.opts.RelayGroupNatsOptions
-             * @static
-             * @param {Object.<string,*>} object Plain object
-             * @returns {protos.opts.RelayGroupNatsOptions} RelayGroupNatsOptions
-             */
-            RelayGroupNatsOptions.fromObject = function fromObject(object) {
-                if (object instanceof $root.protos.opts.RelayGroupNatsOptions)
-                    return object;
-                var message = new $root.protos.opts.RelayGroupNatsOptions();
-                if (object._conn != null) {
-                    if (typeof object._conn !== "object")
-                        throw TypeError(".protos.opts.RelayGroupNatsOptions._conn: object expected");
-                    message._conn = $root.protos.args.NatsConn.fromObject(object._conn);
-                }
-                if (object.args != null) {
-                    if (typeof object.args !== "object")
-                        throw TypeError(".protos.opts.RelayGroupNatsOptions.args: object expected");
-                    message.args = $root.protos.args.NatsReadArgs.fromObject(object.args);
-                }
-                return message;
-            };
-
-            /**
-             * Creates a plain object from a RelayGroupNatsOptions message. Also converts values to other types if specified.
-             * @function toObject
-             * @memberof protos.opts.RelayGroupNatsOptions
-             * @static
-             * @param {protos.opts.RelayGroupNatsOptions} message RelayGroupNatsOptions
-             * @param {$protobuf.IConversionOptions} [options] Conversion options
-             * @returns {Object.<string,*>} Plain object
-             */
-            RelayGroupNatsOptions.toObject = function toObject(message, options) {
-                if (!options)
-                    options = {};
-                var object = {};
-                if (options.defaults) {
-                    object._conn = null;
-                    object.args = null;
-                }
-                if (message._conn != null && message.hasOwnProperty("_conn"))
-                    object._conn = $root.protos.args.NatsConn.toObject(message._conn, options);
-                if (message.args != null && message.hasOwnProperty("args"))
-                    object.args = $root.protos.args.NatsReadArgs.toObject(message.args, options);
-                return object;
-            };
-
-            /**
-             * Converts this RelayGroupNatsOptions to JSON.
-             * @function toJSON
-             * @memberof protos.opts.RelayGroupNatsOptions
-             * @instance
-             * @returns {Object.<string,*>} JSON object
-             */
-            RelayGroupNatsOptions.prototype.toJSON = function toJSON() {
-                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-            };
-
-            return RelayGroupNatsOptions;
-        })();
-
-        opts.RelayGroupNatsStreamingOptions = (function() {
-
-            /**
-             * Properties of a RelayGroupNatsStreamingOptions.
-             * @memberof protos.opts
-             * @interface IRelayGroupNatsStreamingOptions
-             * @property {protos.args.INatsStreamingConn|null} [_conn] RelayGroupNatsStreamingOptions _conn
-             * @property {protos.args.INatsStreamingReadArgs|null} [args] RelayGroupNatsStreamingOptions args
-             */
-
-            /**
-             * Constructs a new RelayGroupNatsStreamingOptions.
-             * @memberof protos.opts
-             * @classdesc Represents a RelayGroupNatsStreamingOptions.
-             * @implements IRelayGroupNatsStreamingOptions
-             * @constructor
-             * @param {protos.opts.IRelayGroupNatsStreamingOptions=} [properties] Properties to set
-             */
-            function RelayGroupNatsStreamingOptions(properties) {
-                if (properties)
-                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                        if (properties[keys[i]] != null)
-                            this[keys[i]] = properties[keys[i]];
-            }
-
-            /**
-             * RelayGroupNatsStreamingOptions _conn.
-             * @member {protos.args.INatsStreamingConn|null|undefined} _conn
-             * @memberof protos.opts.RelayGroupNatsStreamingOptions
-             * @instance
-             */
-            RelayGroupNatsStreamingOptions.prototype._conn = null;
-
-            /**
-             * RelayGroupNatsStreamingOptions args.
-             * @member {protos.args.INatsStreamingReadArgs|null|undefined} args
-             * @memberof protos.opts.RelayGroupNatsStreamingOptions
-             * @instance
-             */
-            RelayGroupNatsStreamingOptions.prototype.args = null;
-
-            /**
-             * Creates a new RelayGroupNatsStreamingOptions instance using the specified properties.
-             * @function create
-             * @memberof protos.opts.RelayGroupNatsStreamingOptions
-             * @static
-             * @param {protos.opts.IRelayGroupNatsStreamingOptions=} [properties] Properties to set
-             * @returns {protos.opts.RelayGroupNatsStreamingOptions} RelayGroupNatsStreamingOptions instance
-             */
-            RelayGroupNatsStreamingOptions.create = function create(properties) {
-                return new RelayGroupNatsStreamingOptions(properties);
-            };
-
-            /**
-             * Encodes the specified RelayGroupNatsStreamingOptions message. Does not implicitly {@link protos.opts.RelayGroupNatsStreamingOptions.verify|verify} messages.
-             * @function encode
-             * @memberof protos.opts.RelayGroupNatsStreamingOptions
-             * @static
-             * @param {protos.opts.IRelayGroupNatsStreamingOptions} message RelayGroupNatsStreamingOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            RelayGroupNatsStreamingOptions.encode = function encode(message, writer) {
-                if (!writer)
-                    writer = $Writer.create();
-                if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
-                    $root.protos.args.NatsStreamingConn.encode(message._conn, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
-                if (message.args != null && Object.hasOwnProperty.call(message, "args"))
-                    $root.protos.args.NatsStreamingReadArgs.encode(message.args, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
-                return writer;
-            };
-
-            /**
-             * Encodes the specified RelayGroupNatsStreamingOptions message, length delimited. Does not implicitly {@link protos.opts.RelayGroupNatsStreamingOptions.verify|verify} messages.
-             * @function encodeDelimited
-             * @memberof protos.opts.RelayGroupNatsStreamingOptions
-             * @static
-             * @param {protos.opts.IRelayGroupNatsStreamingOptions} message RelayGroupNatsStreamingOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            RelayGroupNatsStreamingOptions.encodeDelimited = function encodeDelimited(message, writer) {
-                return this.encode(message, writer).ldelim();
-            };
-
-            /**
-             * Decodes a RelayGroupNatsStreamingOptions message from the specified reader or buffer.
-             * @function decode
-             * @memberof protos.opts.RelayGroupNatsStreamingOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @param {number} [length] Message length if known beforehand
-             * @returns {protos.opts.RelayGroupNatsStreamingOptions} RelayGroupNatsStreamingOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            RelayGroupNatsStreamingOptions.decode = function decode(reader, length) {
-                if (!(reader instanceof $Reader))
-                    reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.RelayGroupNatsStreamingOptions();
-                while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    switch (tag >>> 3) {
-                    case 1:
-                        message._conn = $root.protos.args.NatsStreamingConn.decode(reader, reader.uint32());
-                        break;
-                    case 2:
-                        message.args = $root.protos.args.NatsStreamingReadArgs.decode(reader, reader.uint32());
-                        break;
-                    default:
-                        reader.skipType(tag & 7);
-                        break;
-                    }
-                }
-                return message;
-            };
-
-            /**
-             * Decodes a RelayGroupNatsStreamingOptions message from the specified reader or buffer, length delimited.
-             * @function decodeDelimited
-             * @memberof protos.opts.RelayGroupNatsStreamingOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {protos.opts.RelayGroupNatsStreamingOptions} RelayGroupNatsStreamingOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            RelayGroupNatsStreamingOptions.decodeDelimited = function decodeDelimited(reader) {
-                if (!(reader instanceof $Reader))
-                    reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
-            };
-
-            /**
-             * Verifies a RelayGroupNatsStreamingOptions message.
-             * @function verify
-             * @memberof protos.opts.RelayGroupNatsStreamingOptions
-             * @static
-             * @param {Object.<string,*>} message Plain object to verify
-             * @returns {string|null} `null` if valid, otherwise the reason why it is not
-             */
-            RelayGroupNatsStreamingOptions.verify = function verify(message) {
-                if (typeof message !== "object" || message === null)
-                    return "object expected";
-                if (message._conn != null && message.hasOwnProperty("_conn")) {
-                    var error = $root.protos.args.NatsStreamingConn.verify(message._conn);
-                    if (error)
-                        return "_conn." + error;
-                }
-                if (message.args != null && message.hasOwnProperty("args")) {
-                    var error = $root.protos.args.NatsStreamingReadArgs.verify(message.args);
-                    if (error)
-                        return "args." + error;
-                }
-                return null;
-            };
-
-            /**
-             * Creates a RelayGroupNatsStreamingOptions message from a plain object. Also converts values to their respective internal types.
-             * @function fromObject
-             * @memberof protos.opts.RelayGroupNatsStreamingOptions
-             * @static
-             * @param {Object.<string,*>} object Plain object
-             * @returns {protos.opts.RelayGroupNatsStreamingOptions} RelayGroupNatsStreamingOptions
-             */
-            RelayGroupNatsStreamingOptions.fromObject = function fromObject(object) {
-                if (object instanceof $root.protos.opts.RelayGroupNatsStreamingOptions)
-                    return object;
-                var message = new $root.protos.opts.RelayGroupNatsStreamingOptions();
-                if (object._conn != null) {
-                    if (typeof object._conn !== "object")
-                        throw TypeError(".protos.opts.RelayGroupNatsStreamingOptions._conn: object expected");
-                    message._conn = $root.protos.args.NatsStreamingConn.fromObject(object._conn);
-                }
-                if (object.args != null) {
-                    if (typeof object.args !== "object")
-                        throw TypeError(".protos.opts.RelayGroupNatsStreamingOptions.args: object expected");
-                    message.args = $root.protos.args.NatsStreamingReadArgs.fromObject(object.args);
-                }
-                return message;
-            };
-
-            /**
-             * Creates a plain object from a RelayGroupNatsStreamingOptions message. Also converts values to other types if specified.
-             * @function toObject
-             * @memberof protos.opts.RelayGroupNatsStreamingOptions
-             * @static
-             * @param {protos.opts.RelayGroupNatsStreamingOptions} message RelayGroupNatsStreamingOptions
-             * @param {$protobuf.IConversionOptions} [options] Conversion options
-             * @returns {Object.<string,*>} Plain object
-             */
-            RelayGroupNatsStreamingOptions.toObject = function toObject(message, options) {
-                if (!options)
-                    options = {};
-                var object = {};
-                if (options.defaults) {
-                    object._conn = null;
-                    object.args = null;
-                }
-                if (message._conn != null && message.hasOwnProperty("_conn"))
-                    object._conn = $root.protos.args.NatsStreamingConn.toObject(message._conn, options);
-                if (message.args != null && message.hasOwnProperty("args"))
-                    object.args = $root.protos.args.NatsStreamingReadArgs.toObject(message.args, options);
-                return object;
-            };
-
-            /**
-             * Converts this RelayGroupNatsStreamingOptions to JSON.
-             * @function toJSON
-             * @memberof protos.opts.RelayGroupNatsStreamingOptions
-             * @instance
-             * @returns {Object.<string,*>} JSON object
-             */
-            RelayGroupNatsStreamingOptions.prototype.toJSON = function toJSON() {
-                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-            };
-
-            return RelayGroupNatsStreamingOptions;
-        })();
-
-        opts.RelayGroupNatsJetStreamOptions = (function() {
-
-            /**
-             * Properties of a RelayGroupNatsJetStreamOptions.
-             * @memberof protos.opts
-             * @interface IRelayGroupNatsJetStreamOptions
-             * @property {protos.args.INatsJetstreamConn|null} [_conn] RelayGroupNatsJetStreamOptions _conn
-             * @property {protos.args.INatsJetstreamReadArgs|null} [args] RelayGroupNatsJetStreamOptions args
-             */
-
-            /**
-             * Constructs a new RelayGroupNatsJetStreamOptions.
-             * @memberof protos.opts
-             * @classdesc Represents a RelayGroupNatsJetStreamOptions.
-             * @implements IRelayGroupNatsJetStreamOptions
-             * @constructor
-             * @param {protos.opts.IRelayGroupNatsJetStreamOptions=} [properties] Properties to set
-             */
-            function RelayGroupNatsJetStreamOptions(properties) {
-                if (properties)
-                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                        if (properties[keys[i]] != null)
-                            this[keys[i]] = properties[keys[i]];
-            }
-
-            /**
-             * RelayGroupNatsJetStreamOptions _conn.
-             * @member {protos.args.INatsJetstreamConn|null|undefined} _conn
-             * @memberof protos.opts.RelayGroupNatsJetStreamOptions
-             * @instance
-             */
-            RelayGroupNatsJetStreamOptions.prototype._conn = null;
-
-            /**
-             * RelayGroupNatsJetStreamOptions args.
-             * @member {protos.args.INatsJetstreamReadArgs|null|undefined} args
-             * @memberof protos.opts.RelayGroupNatsJetStreamOptions
-             * @instance
-             */
-            RelayGroupNatsJetStreamOptions.prototype.args = null;
-
-            /**
-             * Creates a new RelayGroupNatsJetStreamOptions instance using the specified properties.
-             * @function create
-             * @memberof protos.opts.RelayGroupNatsJetStreamOptions
-             * @static
-             * @param {protos.opts.IRelayGroupNatsJetStreamOptions=} [properties] Properties to set
-             * @returns {protos.opts.RelayGroupNatsJetStreamOptions} RelayGroupNatsJetStreamOptions instance
-             */
-            RelayGroupNatsJetStreamOptions.create = function create(properties) {
-                return new RelayGroupNatsJetStreamOptions(properties);
-            };
-
-            /**
-             * Encodes the specified RelayGroupNatsJetStreamOptions message. Does not implicitly {@link protos.opts.RelayGroupNatsJetStreamOptions.verify|verify} messages.
-             * @function encode
-             * @memberof protos.opts.RelayGroupNatsJetStreamOptions
-             * @static
-             * @param {protos.opts.IRelayGroupNatsJetStreamOptions} message RelayGroupNatsJetStreamOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            RelayGroupNatsJetStreamOptions.encode = function encode(message, writer) {
-                if (!writer)
-                    writer = $Writer.create();
-                if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
-                    $root.protos.args.NatsJetstreamConn.encode(message._conn, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
-                if (message.args != null && Object.hasOwnProperty.call(message, "args"))
-                    $root.protos.args.NatsJetstreamReadArgs.encode(message.args, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
-                return writer;
-            };
-
-            /**
-             * Encodes the specified RelayGroupNatsJetStreamOptions message, length delimited. Does not implicitly {@link protos.opts.RelayGroupNatsJetStreamOptions.verify|verify} messages.
-             * @function encodeDelimited
-             * @memberof protos.opts.RelayGroupNatsJetStreamOptions
-             * @static
-             * @param {protos.opts.IRelayGroupNatsJetStreamOptions} message RelayGroupNatsJetStreamOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            RelayGroupNatsJetStreamOptions.encodeDelimited = function encodeDelimited(message, writer) {
-                return this.encode(message, writer).ldelim();
-            };
-
-            /**
-             * Decodes a RelayGroupNatsJetStreamOptions message from the specified reader or buffer.
-             * @function decode
-             * @memberof protos.opts.RelayGroupNatsJetStreamOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @param {number} [length] Message length if known beforehand
-             * @returns {protos.opts.RelayGroupNatsJetStreamOptions} RelayGroupNatsJetStreamOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            RelayGroupNatsJetStreamOptions.decode = function decode(reader, length) {
-                if (!(reader instanceof $Reader))
-                    reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.RelayGroupNatsJetStreamOptions();
-                while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    switch (tag >>> 3) {
-                    case 1:
-                        message._conn = $root.protos.args.NatsJetstreamConn.decode(reader, reader.uint32());
-                        break;
-                    case 2:
-                        message.args = $root.protos.args.NatsJetstreamReadArgs.decode(reader, reader.uint32());
-                        break;
-                    default:
-                        reader.skipType(tag & 7);
-                        break;
-                    }
-                }
-                return message;
-            };
-
-            /**
-             * Decodes a RelayGroupNatsJetStreamOptions message from the specified reader or buffer, length delimited.
-             * @function decodeDelimited
-             * @memberof protos.opts.RelayGroupNatsJetStreamOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {protos.opts.RelayGroupNatsJetStreamOptions} RelayGroupNatsJetStreamOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            RelayGroupNatsJetStreamOptions.decodeDelimited = function decodeDelimited(reader) {
-                if (!(reader instanceof $Reader))
-                    reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
-            };
-
-            /**
-             * Verifies a RelayGroupNatsJetStreamOptions message.
-             * @function verify
-             * @memberof protos.opts.RelayGroupNatsJetStreamOptions
-             * @static
-             * @param {Object.<string,*>} message Plain object to verify
-             * @returns {string|null} `null` if valid, otherwise the reason why it is not
-             */
-            RelayGroupNatsJetStreamOptions.verify = function verify(message) {
-                if (typeof message !== "object" || message === null)
-                    return "object expected";
-                if (message._conn != null && message.hasOwnProperty("_conn")) {
-                    var error = $root.protos.args.NatsJetstreamConn.verify(message._conn);
-                    if (error)
-                        return "_conn." + error;
-                }
-                if (message.args != null && message.hasOwnProperty("args")) {
-                    var error = $root.protos.args.NatsJetstreamReadArgs.verify(message.args);
-                    if (error)
-                        return "args." + error;
-                }
-                return null;
-            };
-
-            /**
-             * Creates a RelayGroupNatsJetStreamOptions message from a plain object. Also converts values to their respective internal types.
-             * @function fromObject
-             * @memberof protos.opts.RelayGroupNatsJetStreamOptions
-             * @static
-             * @param {Object.<string,*>} object Plain object
-             * @returns {protos.opts.RelayGroupNatsJetStreamOptions} RelayGroupNatsJetStreamOptions
-             */
-            RelayGroupNatsJetStreamOptions.fromObject = function fromObject(object) {
-                if (object instanceof $root.protos.opts.RelayGroupNatsJetStreamOptions)
-                    return object;
-                var message = new $root.protos.opts.RelayGroupNatsJetStreamOptions();
-                if (object._conn != null) {
-                    if (typeof object._conn !== "object")
-                        throw TypeError(".protos.opts.RelayGroupNatsJetStreamOptions._conn: object expected");
-                    message._conn = $root.protos.args.NatsJetstreamConn.fromObject(object._conn);
-                }
-                if (object.args != null) {
-                    if (typeof object.args !== "object")
-                        throw TypeError(".protos.opts.RelayGroupNatsJetStreamOptions.args: object expected");
-                    message.args = $root.protos.args.NatsJetstreamReadArgs.fromObject(object.args);
-                }
-                return message;
-            };
-
-            /**
-             * Creates a plain object from a RelayGroupNatsJetStreamOptions message. Also converts values to other types if specified.
-             * @function toObject
-             * @memberof protos.opts.RelayGroupNatsJetStreamOptions
-             * @static
-             * @param {protos.opts.RelayGroupNatsJetStreamOptions} message RelayGroupNatsJetStreamOptions
-             * @param {$protobuf.IConversionOptions} [options] Conversion options
-             * @returns {Object.<string,*>} Plain object
-             */
-            RelayGroupNatsJetStreamOptions.toObject = function toObject(message, options) {
-                if (!options)
-                    options = {};
-                var object = {};
-                if (options.defaults) {
-                    object._conn = null;
-                    object.args = null;
-                }
-                if (message._conn != null && message.hasOwnProperty("_conn"))
-                    object._conn = $root.protos.args.NatsJetstreamConn.toObject(message._conn, options);
-                if (message.args != null && message.hasOwnProperty("args"))
-                    object.args = $root.protos.args.NatsJetstreamReadArgs.toObject(message.args, options);
-                return object;
-            };
-
-            /**
-             * Converts this RelayGroupNatsJetStreamOptions to JSON.
-             * @function toJSON
-             * @memberof protos.opts.RelayGroupNatsJetStreamOptions
-             * @instance
-             * @returns {Object.<string,*>} JSON object
-             */
-            RelayGroupNatsJetStreamOptions.prototype.toJSON = function toJSON() {
-                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-            };
-
-            return RelayGroupNatsJetStreamOptions;
-        })();
-
-        opts.ServerOptions = (function() {
-
-            /**
-             * Properties of a ServerOptions.
-             * @memberof protos.opts
-             * @interface IServerOptions
-             * @property {string|null} [nodeId] ServerOptions nodeId
-             * @property {string|null} [clusterId] ServerOptions clusterId
-             * @property {string|null} [grpcListenAddress] ServerOptions grpcListenAddress
-             * @property {string|null} [authToken] ServerOptions authToken
-             * @property {Array.<string>|null} [natsUrl] ServerOptions natsUrl
-             * @property {boolean|null} [useTls] ServerOptions useTls
-             * @property {string|null} [tlsCertFile] ServerOptions tlsCertFile
-             * @property {string|null} [tlsKeyFile] ServerOptions tlsKeyFile
-             * @property {string|null} [tlsCaFile] ServerOptions tlsCaFile
-             * @property {boolean|null} [tlsSkipVerify] ServerOptions tlsSkipVerify
-             * @property {boolean|null} [enableCluster] ServerOptions enableCluster
-             * @property {string|null} [vcserviceGrpcAddress] ServerOptions vcserviceGrpcAddress
-             * @property {number|null} [vcserviceGrpcTimeoutSeconds] ServerOptions vcserviceGrpcTimeoutSeconds
-             * @property {boolean|null} [vcserviceGrpcInsecure] ServerOptions vcserviceGrpcInsecure
-             * @property {string|null} [statsDatabasePath] ServerOptions statsDatabasePath
-             * @property {number|null} [statsFlushIntervalSeconds] ServerOptions statsFlushIntervalSeconds
-             * @property {string|null} [httpListenAddress] ServerOptions httpListenAddress
-             * @property {string|null} [storagePath] ServerOptions storagePath
-             */
-
-            /**
-             * Constructs a new ServerOptions.
-             * @memberof protos.opts
-             * @classdesc Represents a ServerOptions.
-             * @implements IServerOptions
-             * @constructor
-             * @param {protos.opts.IServerOptions=} [properties] Properties to set
-             */
-            function ServerOptions(properties) {
-                this.natsUrl = [];
-                if (properties)
-                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                        if (properties[keys[i]] != null)
-                            this[keys[i]] = properties[keys[i]];
-            }
-
-            /**
-             * ServerOptions nodeId.
-             * @member {string} nodeId
-             * @memberof protos.opts.ServerOptions
-             * @instance
-             */
-            ServerOptions.prototype.nodeId = "";
-
-            /**
-             * ServerOptions clusterId.
-             * @member {string} clusterId
-             * @memberof protos.opts.ServerOptions
-             * @instance
-             */
-            ServerOptions.prototype.clusterId = "";
-
-            /**
-             * ServerOptions grpcListenAddress.
-             * @member {string} grpcListenAddress
-             * @memberof protos.opts.ServerOptions
-             * @instance
-             */
-            ServerOptions.prototype.grpcListenAddress = "";
-
-            /**
-             * ServerOptions authToken.
-             * @member {string} authToken
-             * @memberof protos.opts.ServerOptions
-             * @instance
-             */
-            ServerOptions.prototype.authToken = "";
-
-            /**
-             * ServerOptions natsUrl.
-             * @member {Array.<string>} natsUrl
-             * @memberof protos.opts.ServerOptions
-             * @instance
-             */
-            ServerOptions.prototype.natsUrl = $util.emptyArray;
-
-            /**
-             * ServerOptions useTls.
-             * @member {boolean} useTls
-             * @memberof protos.opts.ServerOptions
-             * @instance
-             */
-            ServerOptions.prototype.useTls = false;
-
-            /**
-             * ServerOptions tlsCertFile.
-             * @member {string} tlsCertFile
-             * @memberof protos.opts.ServerOptions
-             * @instance
-             */
-            ServerOptions.prototype.tlsCertFile = "";
-
-            /**
-             * ServerOptions tlsKeyFile.
-             * @member {string} tlsKeyFile
-             * @memberof protos.opts.ServerOptions
-             * @instance
-             */
-            ServerOptions.prototype.tlsKeyFile = "";
-
-            /**
-             * ServerOptions tlsCaFile.
-             * @member {string} tlsCaFile
-             * @memberof protos.opts.ServerOptions
-             * @instance
-             */
-            ServerOptions.prototype.tlsCaFile = "";
-
-            /**
-             * ServerOptions tlsSkipVerify.
-             * @member {boolean} tlsSkipVerify
-             * @memberof protos.opts.ServerOptions
-             * @instance
-             */
-            ServerOptions.prototype.tlsSkipVerify = false;
-
-            /**
-             * ServerOptions enableCluster.
-             * @member {boolean} enableCluster
-             * @memberof protos.opts.ServerOptions
-             * @instance
-             */
-            ServerOptions.prototype.enableCluster = false;
-
-            /**
-             * ServerOptions vcserviceGrpcAddress.
-             * @member {string} vcserviceGrpcAddress
-             * @memberof protos.opts.ServerOptions
-             * @instance
-             */
-            ServerOptions.prototype.vcserviceGrpcAddress = "";
-
-            /**
-             * ServerOptions vcserviceGrpcTimeoutSeconds.
-             * @member {number} vcserviceGrpcTimeoutSeconds
-             * @memberof protos.opts.ServerOptions
-             * @instance
-             */
-            ServerOptions.prototype.vcserviceGrpcTimeoutSeconds = 0;
-
-            /**
-             * ServerOptions vcserviceGrpcInsecure.
-             * @member {boolean} vcserviceGrpcInsecure
-             * @memberof protos.opts.ServerOptions
-             * @instance
-             */
-            ServerOptions.prototype.vcserviceGrpcInsecure = false;
-
-            /**
-             * ServerOptions statsDatabasePath.
-             * @member {string} statsDatabasePath
-             * @memberof protos.opts.ServerOptions
-             * @instance
-             */
-            ServerOptions.prototype.statsDatabasePath = "";
-
-            /**
-             * ServerOptions statsFlushIntervalSeconds.
-             * @member {number} statsFlushIntervalSeconds
-             * @memberof protos.opts.ServerOptions
-             * @instance
-             */
-            ServerOptions.prototype.statsFlushIntervalSeconds = 0;
-
-            /**
-             * ServerOptions httpListenAddress.
-             * @member {string} httpListenAddress
-             * @memberof protos.opts.ServerOptions
-             * @instance
-             */
-            ServerOptions.prototype.httpListenAddress = "";
-
-            /**
-             * ServerOptions storagePath.
-             * @member {string} storagePath
-             * @memberof protos.opts.ServerOptions
-             * @instance
-             */
-            ServerOptions.prototype.storagePath = "";
-
-            /**
-             * Creates a new ServerOptions instance using the specified properties.
-             * @function create
-             * @memberof protos.opts.ServerOptions
-             * @static
-             * @param {protos.opts.IServerOptions=} [properties] Properties to set
-             * @returns {protos.opts.ServerOptions} ServerOptions instance
-             */
-            ServerOptions.create = function create(properties) {
-                return new ServerOptions(properties);
-            };
-
-            /**
-             * Encodes the specified ServerOptions message. Does not implicitly {@link protos.opts.ServerOptions.verify|verify} messages.
-             * @function encode
-             * @memberof protos.opts.ServerOptions
-             * @static
-             * @param {protos.opts.IServerOptions} message ServerOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            ServerOptions.encode = function encode(message, writer) {
-                if (!writer)
-                    writer = $Writer.create();
-                if (message.nodeId != null && Object.hasOwnProperty.call(message, "nodeId"))
-                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.nodeId);
-                if (message.clusterId != null && Object.hasOwnProperty.call(message, "clusterId"))
-                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.clusterId);
-                if (message.grpcListenAddress != null && Object.hasOwnProperty.call(message, "grpcListenAddress"))
-                    writer.uint32(/* id 3, wireType 2 =*/26).string(message.grpcListenAddress);
-                if (message.authToken != null && Object.hasOwnProperty.call(message, "authToken"))
-                    writer.uint32(/* id 4, wireType 2 =*/34).string(message.authToken);
-                if (message.natsUrl != null && message.natsUrl.length)
-                    for (var i = 0; i < message.natsUrl.length; ++i)
-                        writer.uint32(/* id 5, wireType 2 =*/42).string(message.natsUrl[i]);
-                if (message.tlsCertFile != null && Object.hasOwnProperty.call(message, "tlsCertFile"))
-                    writer.uint32(/* id 6, wireType 2 =*/50).string(message.tlsCertFile);
-                if (message.tlsKeyFile != null && Object.hasOwnProperty.call(message, "tlsKeyFile"))
-                    writer.uint32(/* id 7, wireType 2 =*/58).string(message.tlsKeyFile);
-                if (message.tlsCaFile != null && Object.hasOwnProperty.call(message, "tlsCaFile"))
-                    writer.uint32(/* id 8, wireType 2 =*/66).string(message.tlsCaFile);
-                if (message.tlsSkipVerify != null && Object.hasOwnProperty.call(message, "tlsSkipVerify"))
-                    writer.uint32(/* id 9, wireType 0 =*/72).bool(message.tlsSkipVerify);
-                if (message.enableCluster != null && Object.hasOwnProperty.call(message, "enableCluster"))
-                    writer.uint32(/* id 10, wireType 0 =*/80).bool(message.enableCluster);
-                if (message.vcserviceGrpcAddress != null && Object.hasOwnProperty.call(message, "vcserviceGrpcAddress"))
-                    writer.uint32(/* id 11, wireType 2 =*/90).string(message.vcserviceGrpcAddress);
-                if (message.vcserviceGrpcTimeoutSeconds != null && Object.hasOwnProperty.call(message, "vcserviceGrpcTimeoutSeconds"))
-                    writer.uint32(/* id 12, wireType 0 =*/96).uint32(message.vcserviceGrpcTimeoutSeconds);
-                if (message.vcserviceGrpcInsecure != null && Object.hasOwnProperty.call(message, "vcserviceGrpcInsecure"))
-                    writer.uint32(/* id 13, wireType 0 =*/104).bool(message.vcserviceGrpcInsecure);
-                if (message.statsDatabasePath != null && Object.hasOwnProperty.call(message, "statsDatabasePath"))
-                    writer.uint32(/* id 14, wireType 2 =*/114).string(message.statsDatabasePath);
-                if (message.statsFlushIntervalSeconds != null && Object.hasOwnProperty.call(message, "statsFlushIntervalSeconds"))
-                    writer.uint32(/* id 15, wireType 0 =*/120).int32(message.statsFlushIntervalSeconds);
-                if (message.httpListenAddress != null && Object.hasOwnProperty.call(message, "httpListenAddress"))
-                    writer.uint32(/* id 16, wireType 2 =*/130).string(message.httpListenAddress);
-                if (message.storagePath != null && Object.hasOwnProperty.call(message, "storagePath"))
-                    writer.uint32(/* id 17, wireType 2 =*/138).string(message.storagePath);
-                if (message.useTls != null && Object.hasOwnProperty.call(message, "useTls"))
-                    writer.uint32(/* id 500, wireType 0 =*/4000).bool(message.useTls);
-                return writer;
-            };
-
-            /**
-             * Encodes the specified ServerOptions message, length delimited. Does not implicitly {@link protos.opts.ServerOptions.verify|verify} messages.
-             * @function encodeDelimited
-             * @memberof protos.opts.ServerOptions
-             * @static
-             * @param {protos.opts.IServerOptions} message ServerOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            ServerOptions.encodeDelimited = function encodeDelimited(message, writer) {
-                return this.encode(message, writer).ldelim();
-            };
-
-            /**
-             * Decodes a ServerOptions message from the specified reader or buffer.
-             * @function decode
-             * @memberof protos.opts.ServerOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @param {number} [length] Message length if known beforehand
-             * @returns {protos.opts.ServerOptions} ServerOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            ServerOptions.decode = function decode(reader, length) {
-                if (!(reader instanceof $Reader))
-                    reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.ServerOptions();
-                while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    switch (tag >>> 3) {
-                    case 1:
-                        message.nodeId = reader.string();
-                        break;
-                    case 2:
-                        message.clusterId = reader.string();
-                        break;
-                    case 3:
-                        message.grpcListenAddress = reader.string();
-                        break;
-                    case 4:
-                        message.authToken = reader.string();
-                        break;
-                    case 5:
-                        if (!(message.natsUrl && message.natsUrl.length))
-                            message.natsUrl = [];
-                        message.natsUrl.push(reader.string());
-                        break;
-                    case 500:
-                        message.useTls = reader.bool();
-                        break;
-                    case 6:
-                        message.tlsCertFile = reader.string();
-                        break;
-                    case 7:
-                        message.tlsKeyFile = reader.string();
-                        break;
-                    case 8:
-                        message.tlsCaFile = reader.string();
-                        break;
-                    case 9:
-                        message.tlsSkipVerify = reader.bool();
-                        break;
-                    case 10:
-                        message.enableCluster = reader.bool();
-                        break;
-                    case 11:
-                        message.vcserviceGrpcAddress = reader.string();
-                        break;
-                    case 12:
-                        message.vcserviceGrpcTimeoutSeconds = reader.uint32();
-                        break;
-                    case 13:
-                        message.vcserviceGrpcInsecure = reader.bool();
-                        break;
-                    case 14:
-                        message.statsDatabasePath = reader.string();
-                        break;
-                    case 15:
-                        message.statsFlushIntervalSeconds = reader.int32();
-                        break;
-                    case 16:
-                        message.httpListenAddress = reader.string();
-                        break;
-                    case 17:
-                        message.storagePath = reader.string();
-                        break;
-                    default:
-                        reader.skipType(tag & 7);
-                        break;
-                    }
-                }
-                return message;
-            };
-
-            /**
-             * Decodes a ServerOptions message from the specified reader or buffer, length delimited.
-             * @function decodeDelimited
-             * @memberof protos.opts.ServerOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {protos.opts.ServerOptions} ServerOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            ServerOptions.decodeDelimited = function decodeDelimited(reader) {
-                if (!(reader instanceof $Reader))
-                    reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
-            };
-
-            /**
-             * Verifies a ServerOptions message.
-             * @function verify
-             * @memberof protos.opts.ServerOptions
-             * @static
-             * @param {Object.<string,*>} message Plain object to verify
-             * @returns {string|null} `null` if valid, otherwise the reason why it is not
-             */
-            ServerOptions.verify = function verify(message) {
-                if (typeof message !== "object" || message === null)
-                    return "object expected";
-                if (message.nodeId != null && message.hasOwnProperty("nodeId"))
-                    if (!$util.isString(message.nodeId))
-                        return "nodeId: string expected";
-                if (message.clusterId != null && message.hasOwnProperty("clusterId"))
-                    if (!$util.isString(message.clusterId))
-                        return "clusterId: string expected";
-                if (message.grpcListenAddress != null && message.hasOwnProperty("grpcListenAddress"))
-                    if (!$util.isString(message.grpcListenAddress))
-                        return "grpcListenAddress: string expected";
-                if (message.authToken != null && message.hasOwnProperty("authToken"))
-                    if (!$util.isString(message.authToken))
-                        return "authToken: string expected";
-                if (message.natsUrl != null && message.hasOwnProperty("natsUrl")) {
-                    if (!Array.isArray(message.natsUrl))
-                        return "natsUrl: array expected";
-                    for (var i = 0; i < message.natsUrl.length; ++i)
-                        if (!$util.isString(message.natsUrl[i]))
-                            return "natsUrl: string[] expected";
-                }
-                if (message.useTls != null && message.hasOwnProperty("useTls"))
-                    if (typeof message.useTls !== "boolean")
-                        return "useTls: boolean expected";
-                if (message.tlsCertFile != null && message.hasOwnProperty("tlsCertFile"))
-                    if (!$util.isString(message.tlsCertFile))
-                        return "tlsCertFile: string expected";
-                if (message.tlsKeyFile != null && message.hasOwnProperty("tlsKeyFile"))
-                    if (!$util.isString(message.tlsKeyFile))
-                        return "tlsKeyFile: string expected";
-                if (message.tlsCaFile != null && message.hasOwnProperty("tlsCaFile"))
-                    if (!$util.isString(message.tlsCaFile))
-                        return "tlsCaFile: string expected";
-                if (message.tlsSkipVerify != null && message.hasOwnProperty("tlsSkipVerify"))
-                    if (typeof message.tlsSkipVerify !== "boolean")
-                        return "tlsSkipVerify: boolean expected";
-                if (message.enableCluster != null && message.hasOwnProperty("enableCluster"))
-                    if (typeof message.enableCluster !== "boolean")
-                        return "enableCluster: boolean expected";
-                if (message.vcserviceGrpcAddress != null && message.hasOwnProperty("vcserviceGrpcAddress"))
-                    if (!$util.isString(message.vcserviceGrpcAddress))
-                        return "vcserviceGrpcAddress: string expected";
-                if (message.vcserviceGrpcTimeoutSeconds != null && message.hasOwnProperty("vcserviceGrpcTimeoutSeconds"))
-                    if (!$util.isInteger(message.vcserviceGrpcTimeoutSeconds))
-                        return "vcserviceGrpcTimeoutSeconds: integer expected";
-                if (message.vcserviceGrpcInsecure != null && message.hasOwnProperty("vcserviceGrpcInsecure"))
-                    if (typeof message.vcserviceGrpcInsecure !== "boolean")
-                        return "vcserviceGrpcInsecure: boolean expected";
-                if (message.statsDatabasePath != null && message.hasOwnProperty("statsDatabasePath"))
-                    if (!$util.isString(message.statsDatabasePath))
-                        return "statsDatabasePath: string expected";
-                if (message.statsFlushIntervalSeconds != null && message.hasOwnProperty("statsFlushIntervalSeconds"))
-                    if (!$util.isInteger(message.statsFlushIntervalSeconds))
-                        return "statsFlushIntervalSeconds: integer expected";
-                if (message.httpListenAddress != null && message.hasOwnProperty("httpListenAddress"))
-                    if (!$util.isString(message.httpListenAddress))
-                        return "httpListenAddress: string expected";
-                if (message.storagePath != null && message.hasOwnProperty("storagePath"))
-                    if (!$util.isString(message.storagePath))
-                        return "storagePath: string expected";
-                return null;
-            };
-
-            /**
-             * Creates a ServerOptions message from a plain object. Also converts values to their respective internal types.
-             * @function fromObject
-             * @memberof protos.opts.ServerOptions
-             * @static
-             * @param {Object.<string,*>} object Plain object
-             * @returns {protos.opts.ServerOptions} ServerOptions
-             */
-            ServerOptions.fromObject = function fromObject(object) {
-                if (object instanceof $root.protos.opts.ServerOptions)
-                    return object;
-                var message = new $root.protos.opts.ServerOptions();
-                if (object.nodeId != null)
-                    message.nodeId = String(object.nodeId);
-                if (object.clusterId != null)
-                    message.clusterId = String(object.clusterId);
-                if (object.grpcListenAddress != null)
-                    message.grpcListenAddress = String(object.grpcListenAddress);
-                if (object.authToken != null)
-                    message.authToken = String(object.authToken);
-                if (object.natsUrl) {
-                    if (!Array.isArray(object.natsUrl))
-                        throw TypeError(".protos.opts.ServerOptions.natsUrl: array expected");
-                    message.natsUrl = [];
-                    for (var i = 0; i < object.natsUrl.length; ++i)
-                        message.natsUrl[i] = String(object.natsUrl[i]);
-                }
-                if (object.useTls != null)
-                    message.useTls = Boolean(object.useTls);
-                if (object.tlsCertFile != null)
-                    message.tlsCertFile = String(object.tlsCertFile);
-                if (object.tlsKeyFile != null)
-                    message.tlsKeyFile = String(object.tlsKeyFile);
-                if (object.tlsCaFile != null)
-                    message.tlsCaFile = String(object.tlsCaFile);
-                if (object.tlsSkipVerify != null)
-                    message.tlsSkipVerify = Boolean(object.tlsSkipVerify);
-                if (object.enableCluster != null)
-                    message.enableCluster = Boolean(object.enableCluster);
-                if (object.vcserviceGrpcAddress != null)
-                    message.vcserviceGrpcAddress = String(object.vcserviceGrpcAddress);
-                if (object.vcserviceGrpcTimeoutSeconds != null)
-                    message.vcserviceGrpcTimeoutSeconds = object.vcserviceGrpcTimeoutSeconds >>> 0;
-                if (object.vcserviceGrpcInsecure != null)
-                    message.vcserviceGrpcInsecure = Boolean(object.vcserviceGrpcInsecure);
-                if (object.statsDatabasePath != null)
-                    message.statsDatabasePath = String(object.statsDatabasePath);
-                if (object.statsFlushIntervalSeconds != null)
-                    message.statsFlushIntervalSeconds = object.statsFlushIntervalSeconds | 0;
-                if (object.httpListenAddress != null)
-                    message.httpListenAddress = String(object.httpListenAddress);
-                if (object.storagePath != null)
-                    message.storagePath = String(object.storagePath);
-                return message;
-            };
-
-            /**
-             * Creates a plain object from a ServerOptions message. Also converts values to other types if specified.
-             * @function toObject
-             * @memberof protos.opts.ServerOptions
-             * @static
-             * @param {protos.opts.ServerOptions} message ServerOptions
-             * @param {$protobuf.IConversionOptions} [options] Conversion options
-             * @returns {Object.<string,*>} Plain object
-             */
-            ServerOptions.toObject = function toObject(message, options) {
-                if (!options)
-                    options = {};
-                var object = {};
-                if (options.arrays || options.defaults)
-                    object.natsUrl = [];
-                if (options.defaults) {
-                    object.nodeId = "";
-                    object.clusterId = "";
-                    object.grpcListenAddress = "";
-                    object.authToken = "";
-                    object.tlsCertFile = "";
-                    object.tlsKeyFile = "";
-                    object.tlsCaFile = "";
-                    object.tlsSkipVerify = false;
-                    object.enableCluster = false;
-                    object.vcserviceGrpcAddress = "";
-                    object.vcserviceGrpcTimeoutSeconds = 0;
-                    object.vcserviceGrpcInsecure = false;
-                    object.statsDatabasePath = "";
-                    object.statsFlushIntervalSeconds = 0;
-                    object.httpListenAddress = "";
-                    object.storagePath = "";
-                    object.useTls = false;
-                }
-                if (message.nodeId != null && message.hasOwnProperty("nodeId"))
-                    object.nodeId = message.nodeId;
-                if (message.clusterId != null && message.hasOwnProperty("clusterId"))
-                    object.clusterId = message.clusterId;
-                if (message.grpcListenAddress != null && message.hasOwnProperty("grpcListenAddress"))
-                    object.grpcListenAddress = message.grpcListenAddress;
-                if (message.authToken != null && message.hasOwnProperty("authToken"))
-                    object.authToken = message.authToken;
-                if (message.natsUrl && message.natsUrl.length) {
-                    object.natsUrl = [];
-                    for (var j = 0; j < message.natsUrl.length; ++j)
-                        object.natsUrl[j] = message.natsUrl[j];
-                }
-                if (message.tlsCertFile != null && message.hasOwnProperty("tlsCertFile"))
-                    object.tlsCertFile = message.tlsCertFile;
-                if (message.tlsKeyFile != null && message.hasOwnProperty("tlsKeyFile"))
-                    object.tlsKeyFile = message.tlsKeyFile;
-                if (message.tlsCaFile != null && message.hasOwnProperty("tlsCaFile"))
-                    object.tlsCaFile = message.tlsCaFile;
-                if (message.tlsSkipVerify != null && message.hasOwnProperty("tlsSkipVerify"))
-                    object.tlsSkipVerify = message.tlsSkipVerify;
-                if (message.enableCluster != null && message.hasOwnProperty("enableCluster"))
-                    object.enableCluster = message.enableCluster;
-                if (message.vcserviceGrpcAddress != null && message.hasOwnProperty("vcserviceGrpcAddress"))
-                    object.vcserviceGrpcAddress = message.vcserviceGrpcAddress;
-                if (message.vcserviceGrpcTimeoutSeconds != null && message.hasOwnProperty("vcserviceGrpcTimeoutSeconds"))
-                    object.vcserviceGrpcTimeoutSeconds = message.vcserviceGrpcTimeoutSeconds;
-                if (message.vcserviceGrpcInsecure != null && message.hasOwnProperty("vcserviceGrpcInsecure"))
-                    object.vcserviceGrpcInsecure = message.vcserviceGrpcInsecure;
-                if (message.statsDatabasePath != null && message.hasOwnProperty("statsDatabasePath"))
-                    object.statsDatabasePath = message.statsDatabasePath;
-                if (message.statsFlushIntervalSeconds != null && message.hasOwnProperty("statsFlushIntervalSeconds"))
-                    object.statsFlushIntervalSeconds = message.statsFlushIntervalSeconds;
-                if (message.httpListenAddress != null && message.hasOwnProperty("httpListenAddress"))
-                    object.httpListenAddress = message.httpListenAddress;
-                if (message.storagePath != null && message.hasOwnProperty("storagePath"))
-                    object.storagePath = message.storagePath;
-                if (message.useTls != null && message.hasOwnProperty("useTls"))
-                    object.useTls = message.useTls;
-                return object;
-            };
-
-            /**
-             * Converts this ServerOptions to JSON.
-             * @function toJSON
-             * @memberof protos.opts.ServerOptions
-             * @instance
-             * @returns {Object.<string,*>} JSON object
-             */
-            ServerOptions.prototype.toJSON = function toJSON() {
-                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-            };
-
-            return ServerOptions;
         })();
 
         /**
@@ -39945,6 +39945,7 @@ $root.protos = (function() {
              * @property {Uint8Array|null} [tlsCaCert] NatsTLSOptions tlsCaCert
              * @property {Uint8Array|null} [tlsClientCert] NatsTLSOptions tlsClientCert
              * @property {Uint8Array|null} [tlsClientKey] NatsTLSOptions tlsClientKey
+             * @property {boolean|null} [useTls] NatsTLSOptions useTls
              */
 
             /**
@@ -39995,6 +39996,14 @@ $root.protos = (function() {
             NatsTLSOptions.prototype.tlsClientKey = $util.newBuffer([]);
 
             /**
+             * NatsTLSOptions useTls.
+             * @member {boolean} useTls
+             * @memberof protos.args.NatsTLSOptions
+             * @instance
+             */
+            NatsTLSOptions.prototype.useTls = false;
+
+            /**
              * Creates a new NatsTLSOptions instance using the specified properties.
              * @function create
              * @memberof protos.args.NatsTLSOptions
@@ -40026,6 +40035,8 @@ $root.protos = (function() {
                     writer.uint32(/* id 3, wireType 2 =*/26).bytes(message.tlsClientCert);
                 if (message.tlsClientKey != null && Object.hasOwnProperty.call(message, "tlsClientKey"))
                     writer.uint32(/* id 4, wireType 2 =*/34).bytes(message.tlsClientKey);
+                if (message.useTls != null && Object.hasOwnProperty.call(message, "useTls"))
+                    writer.uint32(/* id 5, wireType 0 =*/40).bool(message.useTls);
                 return writer;
             };
 
@@ -40071,6 +40082,9 @@ $root.protos = (function() {
                         break;
                     case 4:
                         message.tlsClientKey = reader.bytes();
+                        break;
+                    case 5:
+                        message.useTls = reader.bool();
                         break;
                     default:
                         reader.skipType(tag & 7);
@@ -40119,6 +40133,9 @@ $root.protos = (function() {
                 if (message.tlsClientKey != null && message.hasOwnProperty("tlsClientKey"))
                     if (!(message.tlsClientKey && typeof message.tlsClientKey.length === "number" || $util.isString(message.tlsClientKey)))
                         return "tlsClientKey: buffer expected";
+                if (message.useTls != null && message.hasOwnProperty("useTls"))
+                    if (typeof message.useTls !== "boolean")
+                        return "useTls: boolean expected";
                 return null;
             };
 
@@ -40151,6 +40168,8 @@ $root.protos = (function() {
                         $util.base64.decode(object.tlsClientKey, message.tlsClientKey = $util.newBuffer($util.base64.length(object.tlsClientKey)), 0);
                     else if (object.tlsClientKey.length)
                         message.tlsClientKey = object.tlsClientKey;
+                if (object.useTls != null)
+                    message.useTls = Boolean(object.useTls);
                 return message;
             };
 
@@ -40190,6 +40209,7 @@ $root.protos = (function() {
                         if (options.bytes !== Array)
                             object.tlsClientKey = $util.newBuffer(object.tlsClientKey);
                     }
+                    object.useTls = false;
                 }
                 if (message.tlsSkipVerify != null && message.hasOwnProperty("tlsSkipVerify"))
                     object.tlsSkipVerify = message.tlsSkipVerify;
@@ -40199,6 +40219,8 @@ $root.protos = (function() {
                     object.tlsClientCert = options.bytes === String ? $util.base64.encode(message.tlsClientCert, 0, message.tlsClientCert.length) : options.bytes === Array ? Array.prototype.slice.call(message.tlsClientCert) : message.tlsClientCert;
                 if (message.tlsClientKey != null && message.hasOwnProperty("tlsClientKey"))
                     object.tlsClientKey = options.bytes === String ? $util.base64.encode(message.tlsClientKey, 0, message.tlsClientKey.length) : options.bytes === Array ? Array.prototype.slice.call(message.tlsClientKey) : message.tlsClientKey;
+                if (message.useTls != null && message.hasOwnProperty("useTls"))
+                    object.useTls = message.useTls;
                 return object;
             };
 
@@ -40600,6 +40622,7 @@ $root.protos = (function() {
              * @property {Uint8Array|null} [tlsClientCert] NatsJetstreamTLSOptions tlsClientCert
              * @property {Uint8Array|null} [tlsClientKey] NatsJetstreamTLSOptions tlsClientKey
              * @property {boolean|null} [tlsSkipVerify] NatsJetstreamTLSOptions tlsSkipVerify
+             * @property {boolean|null} [useTls] NatsJetstreamTLSOptions useTls
              */
 
             /**
@@ -40650,6 +40673,14 @@ $root.protos = (function() {
             NatsJetstreamTLSOptions.prototype.tlsSkipVerify = false;
 
             /**
+             * NatsJetstreamTLSOptions useTls.
+             * @member {boolean} useTls
+             * @memberof protos.args.NatsJetstreamTLSOptions
+             * @instance
+             */
+            NatsJetstreamTLSOptions.prototype.useTls = false;
+
+            /**
              * Creates a new NatsJetstreamTLSOptions instance using the specified properties.
              * @function create
              * @memberof protos.args.NatsJetstreamTLSOptions
@@ -40681,6 +40712,8 @@ $root.protos = (function() {
                     writer.uint32(/* id 3, wireType 2 =*/26).bytes(message.tlsClientKey);
                 if (message.tlsSkipVerify != null && Object.hasOwnProperty.call(message, "tlsSkipVerify"))
                     writer.uint32(/* id 4, wireType 0 =*/32).bool(message.tlsSkipVerify);
+                if (message.useTls != null && Object.hasOwnProperty.call(message, "useTls"))
+                    writer.uint32(/* id 5, wireType 0 =*/40).bool(message.useTls);
                 return writer;
             };
 
@@ -40726,6 +40759,9 @@ $root.protos = (function() {
                         break;
                     case 4:
                         message.tlsSkipVerify = reader.bool();
+                        break;
+                    case 5:
+                        message.useTls = reader.bool();
                         break;
                     default:
                         reader.skipType(tag & 7);
@@ -40774,6 +40810,9 @@ $root.protos = (function() {
                 if (message.tlsSkipVerify != null && message.hasOwnProperty("tlsSkipVerify"))
                     if (typeof message.tlsSkipVerify !== "boolean")
                         return "tlsSkipVerify: boolean expected";
+                if (message.useTls != null && message.hasOwnProperty("useTls"))
+                    if (typeof message.useTls !== "boolean")
+                        return "useTls: boolean expected";
                 return null;
             };
 
@@ -40806,6 +40845,8 @@ $root.protos = (function() {
                         message.tlsClientKey = object.tlsClientKey;
                 if (object.tlsSkipVerify != null)
                     message.tlsSkipVerify = Boolean(object.tlsSkipVerify);
+                if (object.useTls != null)
+                    message.useTls = Boolean(object.useTls);
                 return message;
             };
 
@@ -40845,6 +40886,7 @@ $root.protos = (function() {
                             object.tlsClientKey = $util.newBuffer(object.tlsClientKey);
                     }
                     object.tlsSkipVerify = false;
+                    object.useTls = false;
                 }
                 if (message.tlsCaCert != null && message.hasOwnProperty("tlsCaCert"))
                     object.tlsCaCert = options.bytes === String ? $util.base64.encode(message.tlsCaCert, 0, message.tlsCaCert.length) : options.bytes === Array ? Array.prototype.slice.call(message.tlsCaCert) : message.tlsCaCert;
@@ -40854,6 +40896,8 @@ $root.protos = (function() {
                     object.tlsClientKey = options.bytes === String ? $util.base64.encode(message.tlsClientKey, 0, message.tlsClientKey.length) : options.bytes === Array ? Array.prototype.slice.call(message.tlsClientKey) : message.tlsClientKey;
                 if (message.tlsSkipVerify != null && message.hasOwnProperty("tlsSkipVerify"))
                     object.tlsSkipVerify = message.tlsSkipVerify;
+                if (message.useTls != null && message.hasOwnProperty("useTls"))
+                    object.useTls = message.useTls;
                 return object;
             };
 
@@ -41523,6 +41567,7 @@ $root.protos = (function() {
              * @property {Uint8Array|null} [tlsClientCert] NatsStreamingTLSOptions tlsClientCert
              * @property {Uint8Array|null} [tlsClientKey] NatsStreamingTLSOptions tlsClientKey
              * @property {boolean|null} [tlsSkipVerify] NatsStreamingTLSOptions tlsSkipVerify
+             * @property {boolean|null} [useTls] NatsStreamingTLSOptions useTls
              */
 
             /**
@@ -41573,6 +41618,14 @@ $root.protos = (function() {
             NatsStreamingTLSOptions.prototype.tlsSkipVerify = false;
 
             /**
+             * NatsStreamingTLSOptions useTls.
+             * @member {boolean} useTls
+             * @memberof protos.args.NatsStreamingTLSOptions
+             * @instance
+             */
+            NatsStreamingTLSOptions.prototype.useTls = false;
+
+            /**
              * Creates a new NatsStreamingTLSOptions instance using the specified properties.
              * @function create
              * @memberof protos.args.NatsStreamingTLSOptions
@@ -41604,6 +41657,8 @@ $root.protos = (function() {
                     writer.uint32(/* id 3, wireType 2 =*/26).bytes(message.tlsClientKey);
                 if (message.tlsSkipVerify != null && Object.hasOwnProperty.call(message, "tlsSkipVerify"))
                     writer.uint32(/* id 4, wireType 0 =*/32).bool(message.tlsSkipVerify);
+                if (message.useTls != null && Object.hasOwnProperty.call(message, "useTls"))
+                    writer.uint32(/* id 5, wireType 0 =*/40).bool(message.useTls);
                 return writer;
             };
 
@@ -41649,6 +41704,9 @@ $root.protos = (function() {
                         break;
                     case 4:
                         message.tlsSkipVerify = reader.bool();
+                        break;
+                    case 5:
+                        message.useTls = reader.bool();
                         break;
                     default:
                         reader.skipType(tag & 7);
@@ -41697,6 +41755,9 @@ $root.protos = (function() {
                 if (message.tlsSkipVerify != null && message.hasOwnProperty("tlsSkipVerify"))
                     if (typeof message.tlsSkipVerify !== "boolean")
                         return "tlsSkipVerify: boolean expected";
+                if (message.useTls != null && message.hasOwnProperty("useTls"))
+                    if (typeof message.useTls !== "boolean")
+                        return "useTls: boolean expected";
                 return null;
             };
 
@@ -41729,6 +41790,8 @@ $root.protos = (function() {
                         message.tlsClientKey = object.tlsClientKey;
                 if (object.tlsSkipVerify != null)
                     message.tlsSkipVerify = Boolean(object.tlsSkipVerify);
+                if (object.useTls != null)
+                    message.useTls = Boolean(object.useTls);
                 return message;
             };
 
@@ -41768,6 +41831,7 @@ $root.protos = (function() {
                             object.tlsClientKey = $util.newBuffer(object.tlsClientKey);
                     }
                     object.tlsSkipVerify = false;
+                    object.useTls = false;
                 }
                 if (message.tlsCaCert != null && message.hasOwnProperty("tlsCaCert"))
                     object.tlsCaCert = options.bytes === String ? $util.base64.encode(message.tlsCaCert, 0, message.tlsCaCert.length) : options.bytes === Array ? Array.prototype.slice.call(message.tlsCaCert) : message.tlsCaCert;
@@ -41777,6 +41841,8 @@ $root.protos = (function() {
                     object.tlsClientKey = options.bytes === String ? $util.base64.encode(message.tlsClientKey, 0, message.tlsClientKey.length) : options.bytes === Array ? Array.prototype.slice.call(message.tlsClientKey) : message.tlsClientKey;
                 if (message.tlsSkipVerify != null && message.hasOwnProperty("tlsSkipVerify"))
                     object.tlsSkipVerify = message.tlsSkipVerify;
+                if (message.useTls != null && message.hasOwnProperty("useTls"))
+                    object.useTls = message.useTls;
                 return object;
             };
 
@@ -48417,2959 +48483,6 @@ $root.protos = (function() {
         return args;
     })();
 
-    protos.GetAllTunnelsRequest = (function() {
-
-        /**
-         * Properties of a GetAllTunnelsRequest.
-         * @memberof protos
-         * @interface IGetAllTunnelsRequest
-         * @property {protos.common.IAuth|null} [auth] GetAllTunnelsRequest auth
-         */
-
-        /**
-         * Constructs a new GetAllTunnelsRequest.
-         * @memberof protos
-         * @classdesc Represents a GetAllTunnelsRequest.
-         * @implements IGetAllTunnelsRequest
-         * @constructor
-         * @param {protos.IGetAllTunnelsRequest=} [properties] Properties to set
-         */
-        function GetAllTunnelsRequest(properties) {
-            if (properties)
-                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                    if (properties[keys[i]] != null)
-                        this[keys[i]] = properties[keys[i]];
-        }
-
-        /**
-         * GetAllTunnelsRequest auth.
-         * @member {protos.common.IAuth|null|undefined} auth
-         * @memberof protos.GetAllTunnelsRequest
-         * @instance
-         */
-        GetAllTunnelsRequest.prototype.auth = null;
-
-        /**
-         * Creates a new GetAllTunnelsRequest instance using the specified properties.
-         * @function create
-         * @memberof protos.GetAllTunnelsRequest
-         * @static
-         * @param {protos.IGetAllTunnelsRequest=} [properties] Properties to set
-         * @returns {protos.GetAllTunnelsRequest} GetAllTunnelsRequest instance
-         */
-        GetAllTunnelsRequest.create = function create(properties) {
-            return new GetAllTunnelsRequest(properties);
-        };
-
-        /**
-         * Encodes the specified GetAllTunnelsRequest message. Does not implicitly {@link protos.GetAllTunnelsRequest.verify|verify} messages.
-         * @function encode
-         * @memberof protos.GetAllTunnelsRequest
-         * @static
-         * @param {protos.IGetAllTunnelsRequest} message GetAllTunnelsRequest message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
-         * @returns {$protobuf.Writer} Writer
-         */
-        GetAllTunnelsRequest.encode = function encode(message, writer) {
-            if (!writer)
-                writer = $Writer.create();
-            if (message.auth != null && Object.hasOwnProperty.call(message, "auth"))
-                $root.protos.common.Auth.encode(message.auth, writer.uint32(/* id 9999, wireType 2 =*/79994).fork()).ldelim();
-            return writer;
-        };
-
-        /**
-         * Encodes the specified GetAllTunnelsRequest message, length delimited. Does not implicitly {@link protos.GetAllTunnelsRequest.verify|verify} messages.
-         * @function encodeDelimited
-         * @memberof protos.GetAllTunnelsRequest
-         * @static
-         * @param {protos.IGetAllTunnelsRequest} message GetAllTunnelsRequest message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
-         * @returns {$protobuf.Writer} Writer
-         */
-        GetAllTunnelsRequest.encodeDelimited = function encodeDelimited(message, writer) {
-            return this.encode(message, writer).ldelim();
-        };
-
-        /**
-         * Decodes a GetAllTunnelsRequest message from the specified reader or buffer.
-         * @function decode
-         * @memberof protos.GetAllTunnelsRequest
-         * @static
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @param {number} [length] Message length if known beforehand
-         * @returns {protos.GetAllTunnelsRequest} GetAllTunnelsRequest
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        GetAllTunnelsRequest.decode = function decode(reader, length) {
-            if (!(reader instanceof $Reader))
-                reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.GetAllTunnelsRequest();
-            while (reader.pos < end) {
-                var tag = reader.uint32();
-                switch (tag >>> 3) {
-                case 9999:
-                    message.auth = $root.protos.common.Auth.decode(reader, reader.uint32());
-                    break;
-                default:
-                    reader.skipType(tag & 7);
-                    break;
-                }
-            }
-            return message;
-        };
-
-        /**
-         * Decodes a GetAllTunnelsRequest message from the specified reader or buffer, length delimited.
-         * @function decodeDelimited
-         * @memberof protos.GetAllTunnelsRequest
-         * @static
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {protos.GetAllTunnelsRequest} GetAllTunnelsRequest
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        GetAllTunnelsRequest.decodeDelimited = function decodeDelimited(reader) {
-            if (!(reader instanceof $Reader))
-                reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
-        };
-
-        /**
-         * Verifies a GetAllTunnelsRequest message.
-         * @function verify
-         * @memberof protos.GetAllTunnelsRequest
-         * @static
-         * @param {Object.<string,*>} message Plain object to verify
-         * @returns {string|null} `null` if valid, otherwise the reason why it is not
-         */
-        GetAllTunnelsRequest.verify = function verify(message) {
-            if (typeof message !== "object" || message === null)
-                return "object expected";
-            if (message.auth != null && message.hasOwnProperty("auth")) {
-                var error = $root.protos.common.Auth.verify(message.auth);
-                if (error)
-                    return "auth." + error;
-            }
-            return null;
-        };
-
-        /**
-         * Creates a GetAllTunnelsRequest message from a plain object. Also converts values to their respective internal types.
-         * @function fromObject
-         * @memberof protos.GetAllTunnelsRequest
-         * @static
-         * @param {Object.<string,*>} object Plain object
-         * @returns {protos.GetAllTunnelsRequest} GetAllTunnelsRequest
-         */
-        GetAllTunnelsRequest.fromObject = function fromObject(object) {
-            if (object instanceof $root.protos.GetAllTunnelsRequest)
-                return object;
-            var message = new $root.protos.GetAllTunnelsRequest();
-            if (object.auth != null) {
-                if (typeof object.auth !== "object")
-                    throw TypeError(".protos.GetAllTunnelsRequest.auth: object expected");
-                message.auth = $root.protos.common.Auth.fromObject(object.auth);
-            }
-            return message;
-        };
-
-        /**
-         * Creates a plain object from a GetAllTunnelsRequest message. Also converts values to other types if specified.
-         * @function toObject
-         * @memberof protos.GetAllTunnelsRequest
-         * @static
-         * @param {protos.GetAllTunnelsRequest} message GetAllTunnelsRequest
-         * @param {$protobuf.IConversionOptions} [options] Conversion options
-         * @returns {Object.<string,*>} Plain object
-         */
-        GetAllTunnelsRequest.toObject = function toObject(message, options) {
-            if (!options)
-                options = {};
-            var object = {};
-            if (options.defaults)
-                object.auth = null;
-            if (message.auth != null && message.hasOwnProperty("auth"))
-                object.auth = $root.protos.common.Auth.toObject(message.auth, options);
-            return object;
-        };
-
-        /**
-         * Converts this GetAllTunnelsRequest to JSON.
-         * @function toJSON
-         * @memberof protos.GetAllTunnelsRequest
-         * @instance
-         * @returns {Object.<string,*>} JSON object
-         */
-        GetAllTunnelsRequest.prototype.toJSON = function toJSON() {
-            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-        };
-
-        return GetAllTunnelsRequest;
-    })();
-
-    protos.GetAllTunnelsResponse = (function() {
-
-        /**
-         * Properties of a GetAllTunnelsResponse.
-         * @memberof protos
-         * @interface IGetAllTunnelsResponse
-         * @property {protos.common.IStatus|null} [status] GetAllTunnelsResponse status
-         * @property {Array.<protos.opts.ITunnelOptions>|null} [opts] GetAllTunnelsResponse opts
-         */
-
-        /**
-         * Constructs a new GetAllTunnelsResponse.
-         * @memberof protos
-         * @classdesc Represents a GetAllTunnelsResponse.
-         * @implements IGetAllTunnelsResponse
-         * @constructor
-         * @param {protos.IGetAllTunnelsResponse=} [properties] Properties to set
-         */
-        function GetAllTunnelsResponse(properties) {
-            this.opts = [];
-            if (properties)
-                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                    if (properties[keys[i]] != null)
-                        this[keys[i]] = properties[keys[i]];
-        }
-
-        /**
-         * GetAllTunnelsResponse status.
-         * @member {protos.common.IStatus|null|undefined} status
-         * @memberof protos.GetAllTunnelsResponse
-         * @instance
-         */
-        GetAllTunnelsResponse.prototype.status = null;
-
-        /**
-         * GetAllTunnelsResponse opts.
-         * @member {Array.<protos.opts.ITunnelOptions>} opts
-         * @memberof protos.GetAllTunnelsResponse
-         * @instance
-         */
-        GetAllTunnelsResponse.prototype.opts = $util.emptyArray;
-
-        /**
-         * Creates a new GetAllTunnelsResponse instance using the specified properties.
-         * @function create
-         * @memberof protos.GetAllTunnelsResponse
-         * @static
-         * @param {protos.IGetAllTunnelsResponse=} [properties] Properties to set
-         * @returns {protos.GetAllTunnelsResponse} GetAllTunnelsResponse instance
-         */
-        GetAllTunnelsResponse.create = function create(properties) {
-            return new GetAllTunnelsResponse(properties);
-        };
-
-        /**
-         * Encodes the specified GetAllTunnelsResponse message. Does not implicitly {@link protos.GetAllTunnelsResponse.verify|verify} messages.
-         * @function encode
-         * @memberof protos.GetAllTunnelsResponse
-         * @static
-         * @param {protos.IGetAllTunnelsResponse} message GetAllTunnelsResponse message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
-         * @returns {$protobuf.Writer} Writer
-         */
-        GetAllTunnelsResponse.encode = function encode(message, writer) {
-            if (!writer)
-                writer = $Writer.create();
-            if (message.opts != null && message.opts.length)
-                for (var i = 0; i < message.opts.length; ++i)
-                    $root.protos.opts.TunnelOptions.encode(message.opts[i], writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
-            if (message.status != null && Object.hasOwnProperty.call(message, "status"))
-                $root.protos.common.Status.encode(message.status, writer.uint32(/* id 1000, wireType 2 =*/8002).fork()).ldelim();
-            return writer;
-        };
-
-        /**
-         * Encodes the specified GetAllTunnelsResponse message, length delimited. Does not implicitly {@link protos.GetAllTunnelsResponse.verify|verify} messages.
-         * @function encodeDelimited
-         * @memberof protos.GetAllTunnelsResponse
-         * @static
-         * @param {protos.IGetAllTunnelsResponse} message GetAllTunnelsResponse message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
-         * @returns {$protobuf.Writer} Writer
-         */
-        GetAllTunnelsResponse.encodeDelimited = function encodeDelimited(message, writer) {
-            return this.encode(message, writer).ldelim();
-        };
-
-        /**
-         * Decodes a GetAllTunnelsResponse message from the specified reader or buffer.
-         * @function decode
-         * @memberof protos.GetAllTunnelsResponse
-         * @static
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @param {number} [length] Message length if known beforehand
-         * @returns {protos.GetAllTunnelsResponse} GetAllTunnelsResponse
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        GetAllTunnelsResponse.decode = function decode(reader, length) {
-            if (!(reader instanceof $Reader))
-                reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.GetAllTunnelsResponse();
-            while (reader.pos < end) {
-                var tag = reader.uint32();
-                switch (tag >>> 3) {
-                case 1000:
-                    message.status = $root.protos.common.Status.decode(reader, reader.uint32());
-                    break;
-                case 1:
-                    if (!(message.opts && message.opts.length))
-                        message.opts = [];
-                    message.opts.push($root.protos.opts.TunnelOptions.decode(reader, reader.uint32()));
-                    break;
-                default:
-                    reader.skipType(tag & 7);
-                    break;
-                }
-            }
-            return message;
-        };
-
-        /**
-         * Decodes a GetAllTunnelsResponse message from the specified reader or buffer, length delimited.
-         * @function decodeDelimited
-         * @memberof protos.GetAllTunnelsResponse
-         * @static
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {protos.GetAllTunnelsResponse} GetAllTunnelsResponse
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        GetAllTunnelsResponse.decodeDelimited = function decodeDelimited(reader) {
-            if (!(reader instanceof $Reader))
-                reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
-        };
-
-        /**
-         * Verifies a GetAllTunnelsResponse message.
-         * @function verify
-         * @memberof protos.GetAllTunnelsResponse
-         * @static
-         * @param {Object.<string,*>} message Plain object to verify
-         * @returns {string|null} `null` if valid, otherwise the reason why it is not
-         */
-        GetAllTunnelsResponse.verify = function verify(message) {
-            if (typeof message !== "object" || message === null)
-                return "object expected";
-            if (message.status != null && message.hasOwnProperty("status")) {
-                var error = $root.protos.common.Status.verify(message.status);
-                if (error)
-                    return "status." + error;
-            }
-            if (message.opts != null && message.hasOwnProperty("opts")) {
-                if (!Array.isArray(message.opts))
-                    return "opts: array expected";
-                for (var i = 0; i < message.opts.length; ++i) {
-                    var error = $root.protos.opts.TunnelOptions.verify(message.opts[i]);
-                    if (error)
-                        return "opts." + error;
-                }
-            }
-            return null;
-        };
-
-        /**
-         * Creates a GetAllTunnelsResponse message from a plain object. Also converts values to their respective internal types.
-         * @function fromObject
-         * @memberof protos.GetAllTunnelsResponse
-         * @static
-         * @param {Object.<string,*>} object Plain object
-         * @returns {protos.GetAllTunnelsResponse} GetAllTunnelsResponse
-         */
-        GetAllTunnelsResponse.fromObject = function fromObject(object) {
-            if (object instanceof $root.protos.GetAllTunnelsResponse)
-                return object;
-            var message = new $root.protos.GetAllTunnelsResponse();
-            if (object.status != null) {
-                if (typeof object.status !== "object")
-                    throw TypeError(".protos.GetAllTunnelsResponse.status: object expected");
-                message.status = $root.protos.common.Status.fromObject(object.status);
-            }
-            if (object.opts) {
-                if (!Array.isArray(object.opts))
-                    throw TypeError(".protos.GetAllTunnelsResponse.opts: array expected");
-                message.opts = [];
-                for (var i = 0; i < object.opts.length; ++i) {
-                    if (typeof object.opts[i] !== "object")
-                        throw TypeError(".protos.GetAllTunnelsResponse.opts: object expected");
-                    message.opts[i] = $root.protos.opts.TunnelOptions.fromObject(object.opts[i]);
-                }
-            }
-            return message;
-        };
-
-        /**
-         * Creates a plain object from a GetAllTunnelsResponse message. Also converts values to other types if specified.
-         * @function toObject
-         * @memberof protos.GetAllTunnelsResponse
-         * @static
-         * @param {protos.GetAllTunnelsResponse} message GetAllTunnelsResponse
-         * @param {$protobuf.IConversionOptions} [options] Conversion options
-         * @returns {Object.<string,*>} Plain object
-         */
-        GetAllTunnelsResponse.toObject = function toObject(message, options) {
-            if (!options)
-                options = {};
-            var object = {};
-            if (options.arrays || options.defaults)
-                object.opts = [];
-            if (options.defaults)
-                object.status = null;
-            if (message.opts && message.opts.length) {
-                object.opts = [];
-                for (var j = 0; j < message.opts.length; ++j)
-                    object.opts[j] = $root.protos.opts.TunnelOptions.toObject(message.opts[j], options);
-            }
-            if (message.status != null && message.hasOwnProperty("status"))
-                object.status = $root.protos.common.Status.toObject(message.status, options);
-            return object;
-        };
-
-        /**
-         * Converts this GetAllTunnelsResponse to JSON.
-         * @function toJSON
-         * @memberof protos.GetAllTunnelsResponse
-         * @instance
-         * @returns {Object.<string,*>} JSON object
-         */
-        GetAllTunnelsResponse.prototype.toJSON = function toJSON() {
-            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-        };
-
-        return GetAllTunnelsResponse;
-    })();
-
-    protos.GetTunnelRequest = (function() {
-
-        /**
-         * Properties of a GetTunnelRequest.
-         * @memberof protos
-         * @interface IGetTunnelRequest
-         * @property {protos.common.IAuth|null} [auth] GetTunnelRequest auth
-         * @property {string|null} [tunnelId] GetTunnelRequest tunnelId
-         */
-
-        /**
-         * Constructs a new GetTunnelRequest.
-         * @memberof protos
-         * @classdesc Represents a GetTunnelRequest.
-         * @implements IGetTunnelRequest
-         * @constructor
-         * @param {protos.IGetTunnelRequest=} [properties] Properties to set
-         */
-        function GetTunnelRequest(properties) {
-            if (properties)
-                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                    if (properties[keys[i]] != null)
-                        this[keys[i]] = properties[keys[i]];
-        }
-
-        /**
-         * GetTunnelRequest auth.
-         * @member {protos.common.IAuth|null|undefined} auth
-         * @memberof protos.GetTunnelRequest
-         * @instance
-         */
-        GetTunnelRequest.prototype.auth = null;
-
-        /**
-         * GetTunnelRequest tunnelId.
-         * @member {string} tunnelId
-         * @memberof protos.GetTunnelRequest
-         * @instance
-         */
-        GetTunnelRequest.prototype.tunnelId = "";
-
-        /**
-         * Creates a new GetTunnelRequest instance using the specified properties.
-         * @function create
-         * @memberof protos.GetTunnelRequest
-         * @static
-         * @param {protos.IGetTunnelRequest=} [properties] Properties to set
-         * @returns {protos.GetTunnelRequest} GetTunnelRequest instance
-         */
-        GetTunnelRequest.create = function create(properties) {
-            return new GetTunnelRequest(properties);
-        };
-
-        /**
-         * Encodes the specified GetTunnelRequest message. Does not implicitly {@link protos.GetTunnelRequest.verify|verify} messages.
-         * @function encode
-         * @memberof protos.GetTunnelRequest
-         * @static
-         * @param {protos.IGetTunnelRequest} message GetTunnelRequest message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
-         * @returns {$protobuf.Writer} Writer
-         */
-        GetTunnelRequest.encode = function encode(message, writer) {
-            if (!writer)
-                writer = $Writer.create();
-            if (message.tunnelId != null && Object.hasOwnProperty.call(message, "tunnelId"))
-                writer.uint32(/* id 1, wireType 2 =*/10).string(message.tunnelId);
-            if (message.auth != null && Object.hasOwnProperty.call(message, "auth"))
-                $root.protos.common.Auth.encode(message.auth, writer.uint32(/* id 9999, wireType 2 =*/79994).fork()).ldelim();
-            return writer;
-        };
-
-        /**
-         * Encodes the specified GetTunnelRequest message, length delimited. Does not implicitly {@link protos.GetTunnelRequest.verify|verify} messages.
-         * @function encodeDelimited
-         * @memberof protos.GetTunnelRequest
-         * @static
-         * @param {protos.IGetTunnelRequest} message GetTunnelRequest message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
-         * @returns {$protobuf.Writer} Writer
-         */
-        GetTunnelRequest.encodeDelimited = function encodeDelimited(message, writer) {
-            return this.encode(message, writer).ldelim();
-        };
-
-        /**
-         * Decodes a GetTunnelRequest message from the specified reader or buffer.
-         * @function decode
-         * @memberof protos.GetTunnelRequest
-         * @static
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @param {number} [length] Message length if known beforehand
-         * @returns {protos.GetTunnelRequest} GetTunnelRequest
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        GetTunnelRequest.decode = function decode(reader, length) {
-            if (!(reader instanceof $Reader))
-                reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.GetTunnelRequest();
-            while (reader.pos < end) {
-                var tag = reader.uint32();
-                switch (tag >>> 3) {
-                case 9999:
-                    message.auth = $root.protos.common.Auth.decode(reader, reader.uint32());
-                    break;
-                case 1:
-                    message.tunnelId = reader.string();
-                    break;
-                default:
-                    reader.skipType(tag & 7);
-                    break;
-                }
-            }
-            return message;
-        };
-
-        /**
-         * Decodes a GetTunnelRequest message from the specified reader or buffer, length delimited.
-         * @function decodeDelimited
-         * @memberof protos.GetTunnelRequest
-         * @static
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {protos.GetTunnelRequest} GetTunnelRequest
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        GetTunnelRequest.decodeDelimited = function decodeDelimited(reader) {
-            if (!(reader instanceof $Reader))
-                reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
-        };
-
-        /**
-         * Verifies a GetTunnelRequest message.
-         * @function verify
-         * @memberof protos.GetTunnelRequest
-         * @static
-         * @param {Object.<string,*>} message Plain object to verify
-         * @returns {string|null} `null` if valid, otherwise the reason why it is not
-         */
-        GetTunnelRequest.verify = function verify(message) {
-            if (typeof message !== "object" || message === null)
-                return "object expected";
-            if (message.auth != null && message.hasOwnProperty("auth")) {
-                var error = $root.protos.common.Auth.verify(message.auth);
-                if (error)
-                    return "auth." + error;
-            }
-            if (message.tunnelId != null && message.hasOwnProperty("tunnelId"))
-                if (!$util.isString(message.tunnelId))
-                    return "tunnelId: string expected";
-            return null;
-        };
-
-        /**
-         * Creates a GetTunnelRequest message from a plain object. Also converts values to their respective internal types.
-         * @function fromObject
-         * @memberof protos.GetTunnelRequest
-         * @static
-         * @param {Object.<string,*>} object Plain object
-         * @returns {protos.GetTunnelRequest} GetTunnelRequest
-         */
-        GetTunnelRequest.fromObject = function fromObject(object) {
-            if (object instanceof $root.protos.GetTunnelRequest)
-                return object;
-            var message = new $root.protos.GetTunnelRequest();
-            if (object.auth != null) {
-                if (typeof object.auth !== "object")
-                    throw TypeError(".protos.GetTunnelRequest.auth: object expected");
-                message.auth = $root.protos.common.Auth.fromObject(object.auth);
-            }
-            if (object.tunnelId != null)
-                message.tunnelId = String(object.tunnelId);
-            return message;
-        };
-
-        /**
-         * Creates a plain object from a GetTunnelRequest message. Also converts values to other types if specified.
-         * @function toObject
-         * @memberof protos.GetTunnelRequest
-         * @static
-         * @param {protos.GetTunnelRequest} message GetTunnelRequest
-         * @param {$protobuf.IConversionOptions} [options] Conversion options
-         * @returns {Object.<string,*>} Plain object
-         */
-        GetTunnelRequest.toObject = function toObject(message, options) {
-            if (!options)
-                options = {};
-            var object = {};
-            if (options.defaults) {
-                object.tunnelId = "";
-                object.auth = null;
-            }
-            if (message.tunnelId != null && message.hasOwnProperty("tunnelId"))
-                object.tunnelId = message.tunnelId;
-            if (message.auth != null && message.hasOwnProperty("auth"))
-                object.auth = $root.protos.common.Auth.toObject(message.auth, options);
-            return object;
-        };
-
-        /**
-         * Converts this GetTunnelRequest to JSON.
-         * @function toJSON
-         * @memberof protos.GetTunnelRequest
-         * @instance
-         * @returns {Object.<string,*>} JSON object
-         */
-        GetTunnelRequest.prototype.toJSON = function toJSON() {
-            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-        };
-
-        return GetTunnelRequest;
-    })();
-
-    protos.GetTunnelResponse = (function() {
-
-        /**
-         * Properties of a GetTunnelResponse.
-         * @memberof protos
-         * @interface IGetTunnelResponse
-         * @property {protos.common.IStatus|null} [status] GetTunnelResponse status
-         * @property {protos.opts.ITunnelOptions|null} [opts] GetTunnelResponse opts
-         */
-
-        /**
-         * Constructs a new GetTunnelResponse.
-         * @memberof protos
-         * @classdesc Represents a GetTunnelResponse.
-         * @implements IGetTunnelResponse
-         * @constructor
-         * @param {protos.IGetTunnelResponse=} [properties] Properties to set
-         */
-        function GetTunnelResponse(properties) {
-            if (properties)
-                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                    if (properties[keys[i]] != null)
-                        this[keys[i]] = properties[keys[i]];
-        }
-
-        /**
-         * GetTunnelResponse status.
-         * @member {protos.common.IStatus|null|undefined} status
-         * @memberof protos.GetTunnelResponse
-         * @instance
-         */
-        GetTunnelResponse.prototype.status = null;
-
-        /**
-         * GetTunnelResponse opts.
-         * @member {protos.opts.ITunnelOptions|null|undefined} opts
-         * @memberof protos.GetTunnelResponse
-         * @instance
-         */
-        GetTunnelResponse.prototype.opts = null;
-
-        /**
-         * Creates a new GetTunnelResponse instance using the specified properties.
-         * @function create
-         * @memberof protos.GetTunnelResponse
-         * @static
-         * @param {protos.IGetTunnelResponse=} [properties] Properties to set
-         * @returns {protos.GetTunnelResponse} GetTunnelResponse instance
-         */
-        GetTunnelResponse.create = function create(properties) {
-            return new GetTunnelResponse(properties);
-        };
-
-        /**
-         * Encodes the specified GetTunnelResponse message. Does not implicitly {@link protos.GetTunnelResponse.verify|verify} messages.
-         * @function encode
-         * @memberof protos.GetTunnelResponse
-         * @static
-         * @param {protos.IGetTunnelResponse} message GetTunnelResponse message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
-         * @returns {$protobuf.Writer} Writer
-         */
-        GetTunnelResponse.encode = function encode(message, writer) {
-            if (!writer)
-                writer = $Writer.create();
-            if (message.opts != null && Object.hasOwnProperty.call(message, "opts"))
-                $root.protos.opts.TunnelOptions.encode(message.opts, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
-            if (message.status != null && Object.hasOwnProperty.call(message, "status"))
-                $root.protos.common.Status.encode(message.status, writer.uint32(/* id 1000, wireType 2 =*/8002).fork()).ldelim();
-            return writer;
-        };
-
-        /**
-         * Encodes the specified GetTunnelResponse message, length delimited. Does not implicitly {@link protos.GetTunnelResponse.verify|verify} messages.
-         * @function encodeDelimited
-         * @memberof protos.GetTunnelResponse
-         * @static
-         * @param {protos.IGetTunnelResponse} message GetTunnelResponse message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
-         * @returns {$protobuf.Writer} Writer
-         */
-        GetTunnelResponse.encodeDelimited = function encodeDelimited(message, writer) {
-            return this.encode(message, writer).ldelim();
-        };
-
-        /**
-         * Decodes a GetTunnelResponse message from the specified reader or buffer.
-         * @function decode
-         * @memberof protos.GetTunnelResponse
-         * @static
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @param {number} [length] Message length if known beforehand
-         * @returns {protos.GetTunnelResponse} GetTunnelResponse
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        GetTunnelResponse.decode = function decode(reader, length) {
-            if (!(reader instanceof $Reader))
-                reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.GetTunnelResponse();
-            while (reader.pos < end) {
-                var tag = reader.uint32();
-                switch (tag >>> 3) {
-                case 1000:
-                    message.status = $root.protos.common.Status.decode(reader, reader.uint32());
-                    break;
-                case 1:
-                    message.opts = $root.protos.opts.TunnelOptions.decode(reader, reader.uint32());
-                    break;
-                default:
-                    reader.skipType(tag & 7);
-                    break;
-                }
-            }
-            return message;
-        };
-
-        /**
-         * Decodes a GetTunnelResponse message from the specified reader or buffer, length delimited.
-         * @function decodeDelimited
-         * @memberof protos.GetTunnelResponse
-         * @static
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {protos.GetTunnelResponse} GetTunnelResponse
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        GetTunnelResponse.decodeDelimited = function decodeDelimited(reader) {
-            if (!(reader instanceof $Reader))
-                reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
-        };
-
-        /**
-         * Verifies a GetTunnelResponse message.
-         * @function verify
-         * @memberof protos.GetTunnelResponse
-         * @static
-         * @param {Object.<string,*>} message Plain object to verify
-         * @returns {string|null} `null` if valid, otherwise the reason why it is not
-         */
-        GetTunnelResponse.verify = function verify(message) {
-            if (typeof message !== "object" || message === null)
-                return "object expected";
-            if (message.status != null && message.hasOwnProperty("status")) {
-                var error = $root.protos.common.Status.verify(message.status);
-                if (error)
-                    return "status." + error;
-            }
-            if (message.opts != null && message.hasOwnProperty("opts")) {
-                var error = $root.protos.opts.TunnelOptions.verify(message.opts);
-                if (error)
-                    return "opts." + error;
-            }
-            return null;
-        };
-
-        /**
-         * Creates a GetTunnelResponse message from a plain object. Also converts values to their respective internal types.
-         * @function fromObject
-         * @memberof protos.GetTunnelResponse
-         * @static
-         * @param {Object.<string,*>} object Plain object
-         * @returns {protos.GetTunnelResponse} GetTunnelResponse
-         */
-        GetTunnelResponse.fromObject = function fromObject(object) {
-            if (object instanceof $root.protos.GetTunnelResponse)
-                return object;
-            var message = new $root.protos.GetTunnelResponse();
-            if (object.status != null) {
-                if (typeof object.status !== "object")
-                    throw TypeError(".protos.GetTunnelResponse.status: object expected");
-                message.status = $root.protos.common.Status.fromObject(object.status);
-            }
-            if (object.opts != null) {
-                if (typeof object.opts !== "object")
-                    throw TypeError(".protos.GetTunnelResponse.opts: object expected");
-                message.opts = $root.protos.opts.TunnelOptions.fromObject(object.opts);
-            }
-            return message;
-        };
-
-        /**
-         * Creates a plain object from a GetTunnelResponse message. Also converts values to other types if specified.
-         * @function toObject
-         * @memberof protos.GetTunnelResponse
-         * @static
-         * @param {protos.GetTunnelResponse} message GetTunnelResponse
-         * @param {$protobuf.IConversionOptions} [options] Conversion options
-         * @returns {Object.<string,*>} Plain object
-         */
-        GetTunnelResponse.toObject = function toObject(message, options) {
-            if (!options)
-                options = {};
-            var object = {};
-            if (options.defaults) {
-                object.opts = null;
-                object.status = null;
-            }
-            if (message.opts != null && message.hasOwnProperty("opts"))
-                object.opts = $root.protos.opts.TunnelOptions.toObject(message.opts, options);
-            if (message.status != null && message.hasOwnProperty("status"))
-                object.status = $root.protos.common.Status.toObject(message.status, options);
-            return object;
-        };
-
-        /**
-         * Converts this GetTunnelResponse to JSON.
-         * @function toJSON
-         * @memberof protos.GetTunnelResponse
-         * @instance
-         * @returns {Object.<string,*>} JSON object
-         */
-        GetTunnelResponse.prototype.toJSON = function toJSON() {
-            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-        };
-
-        return GetTunnelResponse;
-    })();
-
-    protos.CreateTunnelRequest = (function() {
-
-        /**
-         * Properties of a CreateTunnelRequest.
-         * @memberof protos
-         * @interface ICreateTunnelRequest
-         * @property {protos.common.IAuth|null} [auth] CreateTunnelRequest auth
-         * @property {protos.opts.ITunnelOptions|null} [opts] CreateTunnelRequest opts
-         */
-
-        /**
-         * Constructs a new CreateTunnelRequest.
-         * @memberof protos
-         * @classdesc Represents a CreateTunnelRequest.
-         * @implements ICreateTunnelRequest
-         * @constructor
-         * @param {protos.ICreateTunnelRequest=} [properties] Properties to set
-         */
-        function CreateTunnelRequest(properties) {
-            if (properties)
-                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                    if (properties[keys[i]] != null)
-                        this[keys[i]] = properties[keys[i]];
-        }
-
-        /**
-         * CreateTunnelRequest auth.
-         * @member {protos.common.IAuth|null|undefined} auth
-         * @memberof protos.CreateTunnelRequest
-         * @instance
-         */
-        CreateTunnelRequest.prototype.auth = null;
-
-        /**
-         * CreateTunnelRequest opts.
-         * @member {protos.opts.ITunnelOptions|null|undefined} opts
-         * @memberof protos.CreateTunnelRequest
-         * @instance
-         */
-        CreateTunnelRequest.prototype.opts = null;
-
-        /**
-         * Creates a new CreateTunnelRequest instance using the specified properties.
-         * @function create
-         * @memberof protos.CreateTunnelRequest
-         * @static
-         * @param {protos.ICreateTunnelRequest=} [properties] Properties to set
-         * @returns {protos.CreateTunnelRequest} CreateTunnelRequest instance
-         */
-        CreateTunnelRequest.create = function create(properties) {
-            return new CreateTunnelRequest(properties);
-        };
-
-        /**
-         * Encodes the specified CreateTunnelRequest message. Does not implicitly {@link protos.CreateTunnelRequest.verify|verify} messages.
-         * @function encode
-         * @memberof protos.CreateTunnelRequest
-         * @static
-         * @param {protos.ICreateTunnelRequest} message CreateTunnelRequest message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
-         * @returns {$protobuf.Writer} Writer
-         */
-        CreateTunnelRequest.encode = function encode(message, writer) {
-            if (!writer)
-                writer = $Writer.create();
-            if (message.opts != null && Object.hasOwnProperty.call(message, "opts"))
-                $root.protos.opts.TunnelOptions.encode(message.opts, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
-            if (message.auth != null && Object.hasOwnProperty.call(message, "auth"))
-                $root.protos.common.Auth.encode(message.auth, writer.uint32(/* id 9999, wireType 2 =*/79994).fork()).ldelim();
-            return writer;
-        };
-
-        /**
-         * Encodes the specified CreateTunnelRequest message, length delimited. Does not implicitly {@link protos.CreateTunnelRequest.verify|verify} messages.
-         * @function encodeDelimited
-         * @memberof protos.CreateTunnelRequest
-         * @static
-         * @param {protos.ICreateTunnelRequest} message CreateTunnelRequest message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
-         * @returns {$protobuf.Writer} Writer
-         */
-        CreateTunnelRequest.encodeDelimited = function encodeDelimited(message, writer) {
-            return this.encode(message, writer).ldelim();
-        };
-
-        /**
-         * Decodes a CreateTunnelRequest message from the specified reader or buffer.
-         * @function decode
-         * @memberof protos.CreateTunnelRequest
-         * @static
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @param {number} [length] Message length if known beforehand
-         * @returns {protos.CreateTunnelRequest} CreateTunnelRequest
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        CreateTunnelRequest.decode = function decode(reader, length) {
-            if (!(reader instanceof $Reader))
-                reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.CreateTunnelRequest();
-            while (reader.pos < end) {
-                var tag = reader.uint32();
-                switch (tag >>> 3) {
-                case 9999:
-                    message.auth = $root.protos.common.Auth.decode(reader, reader.uint32());
-                    break;
-                case 1:
-                    message.opts = $root.protos.opts.TunnelOptions.decode(reader, reader.uint32());
-                    break;
-                default:
-                    reader.skipType(tag & 7);
-                    break;
-                }
-            }
-            return message;
-        };
-
-        /**
-         * Decodes a CreateTunnelRequest message from the specified reader or buffer, length delimited.
-         * @function decodeDelimited
-         * @memberof protos.CreateTunnelRequest
-         * @static
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {protos.CreateTunnelRequest} CreateTunnelRequest
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        CreateTunnelRequest.decodeDelimited = function decodeDelimited(reader) {
-            if (!(reader instanceof $Reader))
-                reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
-        };
-
-        /**
-         * Verifies a CreateTunnelRequest message.
-         * @function verify
-         * @memberof protos.CreateTunnelRequest
-         * @static
-         * @param {Object.<string,*>} message Plain object to verify
-         * @returns {string|null} `null` if valid, otherwise the reason why it is not
-         */
-        CreateTunnelRequest.verify = function verify(message) {
-            if (typeof message !== "object" || message === null)
-                return "object expected";
-            if (message.auth != null && message.hasOwnProperty("auth")) {
-                var error = $root.protos.common.Auth.verify(message.auth);
-                if (error)
-                    return "auth." + error;
-            }
-            if (message.opts != null && message.hasOwnProperty("opts")) {
-                var error = $root.protos.opts.TunnelOptions.verify(message.opts);
-                if (error)
-                    return "opts." + error;
-            }
-            return null;
-        };
-
-        /**
-         * Creates a CreateTunnelRequest message from a plain object. Also converts values to their respective internal types.
-         * @function fromObject
-         * @memberof protos.CreateTunnelRequest
-         * @static
-         * @param {Object.<string,*>} object Plain object
-         * @returns {protos.CreateTunnelRequest} CreateTunnelRequest
-         */
-        CreateTunnelRequest.fromObject = function fromObject(object) {
-            if (object instanceof $root.protos.CreateTunnelRequest)
-                return object;
-            var message = new $root.protos.CreateTunnelRequest();
-            if (object.auth != null) {
-                if (typeof object.auth !== "object")
-                    throw TypeError(".protos.CreateTunnelRequest.auth: object expected");
-                message.auth = $root.protos.common.Auth.fromObject(object.auth);
-            }
-            if (object.opts != null) {
-                if (typeof object.opts !== "object")
-                    throw TypeError(".protos.CreateTunnelRequest.opts: object expected");
-                message.opts = $root.protos.opts.TunnelOptions.fromObject(object.opts);
-            }
-            return message;
-        };
-
-        /**
-         * Creates a plain object from a CreateTunnelRequest message. Also converts values to other types if specified.
-         * @function toObject
-         * @memberof protos.CreateTunnelRequest
-         * @static
-         * @param {protos.CreateTunnelRequest} message CreateTunnelRequest
-         * @param {$protobuf.IConversionOptions} [options] Conversion options
-         * @returns {Object.<string,*>} Plain object
-         */
-        CreateTunnelRequest.toObject = function toObject(message, options) {
-            if (!options)
-                options = {};
-            var object = {};
-            if (options.defaults) {
-                object.opts = null;
-                object.auth = null;
-            }
-            if (message.opts != null && message.hasOwnProperty("opts"))
-                object.opts = $root.protos.opts.TunnelOptions.toObject(message.opts, options);
-            if (message.auth != null && message.hasOwnProperty("auth"))
-                object.auth = $root.protos.common.Auth.toObject(message.auth, options);
-            return object;
-        };
-
-        /**
-         * Converts this CreateTunnelRequest to JSON.
-         * @function toJSON
-         * @memberof protos.CreateTunnelRequest
-         * @instance
-         * @returns {Object.<string,*>} JSON object
-         */
-        CreateTunnelRequest.prototype.toJSON = function toJSON() {
-            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-        };
-
-        return CreateTunnelRequest;
-    })();
-
-    protos.CreateTunnelResponse = (function() {
-
-        /**
-         * Properties of a CreateTunnelResponse.
-         * @memberof protos
-         * @interface ICreateTunnelResponse
-         * @property {protos.common.IStatus|null} [status] CreateTunnelResponse status
-         * @property {string|null} [tunnelId] CreateTunnelResponse tunnelId
-         */
-
-        /**
-         * Constructs a new CreateTunnelResponse.
-         * @memberof protos
-         * @classdesc Represents a CreateTunnelResponse.
-         * @implements ICreateTunnelResponse
-         * @constructor
-         * @param {protos.ICreateTunnelResponse=} [properties] Properties to set
-         */
-        function CreateTunnelResponse(properties) {
-            if (properties)
-                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                    if (properties[keys[i]] != null)
-                        this[keys[i]] = properties[keys[i]];
-        }
-
-        /**
-         * CreateTunnelResponse status.
-         * @member {protos.common.IStatus|null|undefined} status
-         * @memberof protos.CreateTunnelResponse
-         * @instance
-         */
-        CreateTunnelResponse.prototype.status = null;
-
-        /**
-         * CreateTunnelResponse tunnelId.
-         * @member {string} tunnelId
-         * @memberof protos.CreateTunnelResponse
-         * @instance
-         */
-        CreateTunnelResponse.prototype.tunnelId = "";
-
-        /**
-         * Creates a new CreateTunnelResponse instance using the specified properties.
-         * @function create
-         * @memberof protos.CreateTunnelResponse
-         * @static
-         * @param {protos.ICreateTunnelResponse=} [properties] Properties to set
-         * @returns {protos.CreateTunnelResponse} CreateTunnelResponse instance
-         */
-        CreateTunnelResponse.create = function create(properties) {
-            return new CreateTunnelResponse(properties);
-        };
-
-        /**
-         * Encodes the specified CreateTunnelResponse message. Does not implicitly {@link protos.CreateTunnelResponse.verify|verify} messages.
-         * @function encode
-         * @memberof protos.CreateTunnelResponse
-         * @static
-         * @param {protos.ICreateTunnelResponse} message CreateTunnelResponse message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
-         * @returns {$protobuf.Writer} Writer
-         */
-        CreateTunnelResponse.encode = function encode(message, writer) {
-            if (!writer)
-                writer = $Writer.create();
-            if (message.tunnelId != null && Object.hasOwnProperty.call(message, "tunnelId"))
-                writer.uint32(/* id 1, wireType 2 =*/10).string(message.tunnelId);
-            if (message.status != null && Object.hasOwnProperty.call(message, "status"))
-                $root.protos.common.Status.encode(message.status, writer.uint32(/* id 1000, wireType 2 =*/8002).fork()).ldelim();
-            return writer;
-        };
-
-        /**
-         * Encodes the specified CreateTunnelResponse message, length delimited. Does not implicitly {@link protos.CreateTunnelResponse.verify|verify} messages.
-         * @function encodeDelimited
-         * @memberof protos.CreateTunnelResponse
-         * @static
-         * @param {protos.ICreateTunnelResponse} message CreateTunnelResponse message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
-         * @returns {$protobuf.Writer} Writer
-         */
-        CreateTunnelResponse.encodeDelimited = function encodeDelimited(message, writer) {
-            return this.encode(message, writer).ldelim();
-        };
-
-        /**
-         * Decodes a CreateTunnelResponse message from the specified reader or buffer.
-         * @function decode
-         * @memberof protos.CreateTunnelResponse
-         * @static
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @param {number} [length] Message length if known beforehand
-         * @returns {protos.CreateTunnelResponse} CreateTunnelResponse
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        CreateTunnelResponse.decode = function decode(reader, length) {
-            if (!(reader instanceof $Reader))
-                reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.CreateTunnelResponse();
-            while (reader.pos < end) {
-                var tag = reader.uint32();
-                switch (tag >>> 3) {
-                case 1000:
-                    message.status = $root.protos.common.Status.decode(reader, reader.uint32());
-                    break;
-                case 1:
-                    message.tunnelId = reader.string();
-                    break;
-                default:
-                    reader.skipType(tag & 7);
-                    break;
-                }
-            }
-            return message;
-        };
-
-        /**
-         * Decodes a CreateTunnelResponse message from the specified reader or buffer, length delimited.
-         * @function decodeDelimited
-         * @memberof protos.CreateTunnelResponse
-         * @static
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {protos.CreateTunnelResponse} CreateTunnelResponse
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        CreateTunnelResponse.decodeDelimited = function decodeDelimited(reader) {
-            if (!(reader instanceof $Reader))
-                reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
-        };
-
-        /**
-         * Verifies a CreateTunnelResponse message.
-         * @function verify
-         * @memberof protos.CreateTunnelResponse
-         * @static
-         * @param {Object.<string,*>} message Plain object to verify
-         * @returns {string|null} `null` if valid, otherwise the reason why it is not
-         */
-        CreateTunnelResponse.verify = function verify(message) {
-            if (typeof message !== "object" || message === null)
-                return "object expected";
-            if (message.status != null && message.hasOwnProperty("status")) {
-                var error = $root.protos.common.Status.verify(message.status);
-                if (error)
-                    return "status." + error;
-            }
-            if (message.tunnelId != null && message.hasOwnProperty("tunnelId"))
-                if (!$util.isString(message.tunnelId))
-                    return "tunnelId: string expected";
-            return null;
-        };
-
-        /**
-         * Creates a CreateTunnelResponse message from a plain object. Also converts values to their respective internal types.
-         * @function fromObject
-         * @memberof protos.CreateTunnelResponse
-         * @static
-         * @param {Object.<string,*>} object Plain object
-         * @returns {protos.CreateTunnelResponse} CreateTunnelResponse
-         */
-        CreateTunnelResponse.fromObject = function fromObject(object) {
-            if (object instanceof $root.protos.CreateTunnelResponse)
-                return object;
-            var message = new $root.protos.CreateTunnelResponse();
-            if (object.status != null) {
-                if (typeof object.status !== "object")
-                    throw TypeError(".protos.CreateTunnelResponse.status: object expected");
-                message.status = $root.protos.common.Status.fromObject(object.status);
-            }
-            if (object.tunnelId != null)
-                message.tunnelId = String(object.tunnelId);
-            return message;
-        };
-
-        /**
-         * Creates a plain object from a CreateTunnelResponse message. Also converts values to other types if specified.
-         * @function toObject
-         * @memberof protos.CreateTunnelResponse
-         * @static
-         * @param {protos.CreateTunnelResponse} message CreateTunnelResponse
-         * @param {$protobuf.IConversionOptions} [options] Conversion options
-         * @returns {Object.<string,*>} Plain object
-         */
-        CreateTunnelResponse.toObject = function toObject(message, options) {
-            if (!options)
-                options = {};
-            var object = {};
-            if (options.defaults) {
-                object.tunnelId = "";
-                object.status = null;
-            }
-            if (message.tunnelId != null && message.hasOwnProperty("tunnelId"))
-                object.tunnelId = message.tunnelId;
-            if (message.status != null && message.hasOwnProperty("status"))
-                object.status = $root.protos.common.Status.toObject(message.status, options);
-            return object;
-        };
-
-        /**
-         * Converts this CreateTunnelResponse to JSON.
-         * @function toJSON
-         * @memberof protos.CreateTunnelResponse
-         * @instance
-         * @returns {Object.<string,*>} JSON object
-         */
-        CreateTunnelResponse.prototype.toJSON = function toJSON() {
-            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-        };
-
-        return CreateTunnelResponse;
-    })();
-
-    protos.UpdateTunnelRequest = (function() {
-
-        /**
-         * Properties of an UpdateTunnelRequest.
-         * @memberof protos
-         * @interface IUpdateTunnelRequest
-         * @property {protos.common.IAuth|null} [auth] UpdateTunnelRequest auth
-         * @property {string|null} [tunnelId] UpdateTunnelRequest tunnelId
-         * @property {protos.opts.ITunnelOptions|null} [opts] UpdateTunnelRequest opts
-         */
-
-        /**
-         * Constructs a new UpdateTunnelRequest.
-         * @memberof protos
-         * @classdesc Represents an UpdateTunnelRequest.
-         * @implements IUpdateTunnelRequest
-         * @constructor
-         * @param {protos.IUpdateTunnelRequest=} [properties] Properties to set
-         */
-        function UpdateTunnelRequest(properties) {
-            if (properties)
-                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                    if (properties[keys[i]] != null)
-                        this[keys[i]] = properties[keys[i]];
-        }
-
-        /**
-         * UpdateTunnelRequest auth.
-         * @member {protos.common.IAuth|null|undefined} auth
-         * @memberof protos.UpdateTunnelRequest
-         * @instance
-         */
-        UpdateTunnelRequest.prototype.auth = null;
-
-        /**
-         * UpdateTunnelRequest tunnelId.
-         * @member {string} tunnelId
-         * @memberof protos.UpdateTunnelRequest
-         * @instance
-         */
-        UpdateTunnelRequest.prototype.tunnelId = "";
-
-        /**
-         * UpdateTunnelRequest opts.
-         * @member {protos.opts.ITunnelOptions|null|undefined} opts
-         * @memberof protos.UpdateTunnelRequest
-         * @instance
-         */
-        UpdateTunnelRequest.prototype.opts = null;
-
-        /**
-         * Creates a new UpdateTunnelRequest instance using the specified properties.
-         * @function create
-         * @memberof protos.UpdateTunnelRequest
-         * @static
-         * @param {protos.IUpdateTunnelRequest=} [properties] Properties to set
-         * @returns {protos.UpdateTunnelRequest} UpdateTunnelRequest instance
-         */
-        UpdateTunnelRequest.create = function create(properties) {
-            return new UpdateTunnelRequest(properties);
-        };
-
-        /**
-         * Encodes the specified UpdateTunnelRequest message. Does not implicitly {@link protos.UpdateTunnelRequest.verify|verify} messages.
-         * @function encode
-         * @memberof protos.UpdateTunnelRequest
-         * @static
-         * @param {protos.IUpdateTunnelRequest} message UpdateTunnelRequest message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
-         * @returns {$protobuf.Writer} Writer
-         */
-        UpdateTunnelRequest.encode = function encode(message, writer) {
-            if (!writer)
-                writer = $Writer.create();
-            if (message.tunnelId != null && Object.hasOwnProperty.call(message, "tunnelId"))
-                writer.uint32(/* id 1, wireType 2 =*/10).string(message.tunnelId);
-            if (message.opts != null && Object.hasOwnProperty.call(message, "opts"))
-                $root.protos.opts.TunnelOptions.encode(message.opts, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
-            if (message.auth != null && Object.hasOwnProperty.call(message, "auth"))
-                $root.protos.common.Auth.encode(message.auth, writer.uint32(/* id 9999, wireType 2 =*/79994).fork()).ldelim();
-            return writer;
-        };
-
-        /**
-         * Encodes the specified UpdateTunnelRequest message, length delimited. Does not implicitly {@link protos.UpdateTunnelRequest.verify|verify} messages.
-         * @function encodeDelimited
-         * @memberof protos.UpdateTunnelRequest
-         * @static
-         * @param {protos.IUpdateTunnelRequest} message UpdateTunnelRequest message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
-         * @returns {$protobuf.Writer} Writer
-         */
-        UpdateTunnelRequest.encodeDelimited = function encodeDelimited(message, writer) {
-            return this.encode(message, writer).ldelim();
-        };
-
-        /**
-         * Decodes an UpdateTunnelRequest message from the specified reader or buffer.
-         * @function decode
-         * @memberof protos.UpdateTunnelRequest
-         * @static
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @param {number} [length] Message length if known beforehand
-         * @returns {protos.UpdateTunnelRequest} UpdateTunnelRequest
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        UpdateTunnelRequest.decode = function decode(reader, length) {
-            if (!(reader instanceof $Reader))
-                reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.UpdateTunnelRequest();
-            while (reader.pos < end) {
-                var tag = reader.uint32();
-                switch (tag >>> 3) {
-                case 9999:
-                    message.auth = $root.protos.common.Auth.decode(reader, reader.uint32());
-                    break;
-                case 1:
-                    message.tunnelId = reader.string();
-                    break;
-                case 2:
-                    message.opts = $root.protos.opts.TunnelOptions.decode(reader, reader.uint32());
-                    break;
-                default:
-                    reader.skipType(tag & 7);
-                    break;
-                }
-            }
-            return message;
-        };
-
-        /**
-         * Decodes an UpdateTunnelRequest message from the specified reader or buffer, length delimited.
-         * @function decodeDelimited
-         * @memberof protos.UpdateTunnelRequest
-         * @static
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {protos.UpdateTunnelRequest} UpdateTunnelRequest
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        UpdateTunnelRequest.decodeDelimited = function decodeDelimited(reader) {
-            if (!(reader instanceof $Reader))
-                reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
-        };
-
-        /**
-         * Verifies an UpdateTunnelRequest message.
-         * @function verify
-         * @memberof protos.UpdateTunnelRequest
-         * @static
-         * @param {Object.<string,*>} message Plain object to verify
-         * @returns {string|null} `null` if valid, otherwise the reason why it is not
-         */
-        UpdateTunnelRequest.verify = function verify(message) {
-            if (typeof message !== "object" || message === null)
-                return "object expected";
-            if (message.auth != null && message.hasOwnProperty("auth")) {
-                var error = $root.protos.common.Auth.verify(message.auth);
-                if (error)
-                    return "auth." + error;
-            }
-            if (message.tunnelId != null && message.hasOwnProperty("tunnelId"))
-                if (!$util.isString(message.tunnelId))
-                    return "tunnelId: string expected";
-            if (message.opts != null && message.hasOwnProperty("opts")) {
-                var error = $root.protos.opts.TunnelOptions.verify(message.opts);
-                if (error)
-                    return "opts." + error;
-            }
-            return null;
-        };
-
-        /**
-         * Creates an UpdateTunnelRequest message from a plain object. Also converts values to their respective internal types.
-         * @function fromObject
-         * @memberof protos.UpdateTunnelRequest
-         * @static
-         * @param {Object.<string,*>} object Plain object
-         * @returns {protos.UpdateTunnelRequest} UpdateTunnelRequest
-         */
-        UpdateTunnelRequest.fromObject = function fromObject(object) {
-            if (object instanceof $root.protos.UpdateTunnelRequest)
-                return object;
-            var message = new $root.protos.UpdateTunnelRequest();
-            if (object.auth != null) {
-                if (typeof object.auth !== "object")
-                    throw TypeError(".protos.UpdateTunnelRequest.auth: object expected");
-                message.auth = $root.protos.common.Auth.fromObject(object.auth);
-            }
-            if (object.tunnelId != null)
-                message.tunnelId = String(object.tunnelId);
-            if (object.opts != null) {
-                if (typeof object.opts !== "object")
-                    throw TypeError(".protos.UpdateTunnelRequest.opts: object expected");
-                message.opts = $root.protos.opts.TunnelOptions.fromObject(object.opts);
-            }
-            return message;
-        };
-
-        /**
-         * Creates a plain object from an UpdateTunnelRequest message. Also converts values to other types if specified.
-         * @function toObject
-         * @memberof protos.UpdateTunnelRequest
-         * @static
-         * @param {protos.UpdateTunnelRequest} message UpdateTunnelRequest
-         * @param {$protobuf.IConversionOptions} [options] Conversion options
-         * @returns {Object.<string,*>} Plain object
-         */
-        UpdateTunnelRequest.toObject = function toObject(message, options) {
-            if (!options)
-                options = {};
-            var object = {};
-            if (options.defaults) {
-                object.tunnelId = "";
-                object.opts = null;
-                object.auth = null;
-            }
-            if (message.tunnelId != null && message.hasOwnProperty("tunnelId"))
-                object.tunnelId = message.tunnelId;
-            if (message.opts != null && message.hasOwnProperty("opts"))
-                object.opts = $root.protos.opts.TunnelOptions.toObject(message.opts, options);
-            if (message.auth != null && message.hasOwnProperty("auth"))
-                object.auth = $root.protos.common.Auth.toObject(message.auth, options);
-            return object;
-        };
-
-        /**
-         * Converts this UpdateTunnelRequest to JSON.
-         * @function toJSON
-         * @memberof protos.UpdateTunnelRequest
-         * @instance
-         * @returns {Object.<string,*>} JSON object
-         */
-        UpdateTunnelRequest.prototype.toJSON = function toJSON() {
-            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-        };
-
-        return UpdateTunnelRequest;
-    })();
-
-    protos.UpdateTunnelResponse = (function() {
-
-        /**
-         * Properties of an UpdateTunnelResponse.
-         * @memberof protos
-         * @interface IUpdateTunnelResponse
-         * @property {protos.common.IStatus|null} [status] UpdateTunnelResponse status
-         */
-
-        /**
-         * Constructs a new UpdateTunnelResponse.
-         * @memberof protos
-         * @classdesc Represents an UpdateTunnelResponse.
-         * @implements IUpdateTunnelResponse
-         * @constructor
-         * @param {protos.IUpdateTunnelResponse=} [properties] Properties to set
-         */
-        function UpdateTunnelResponse(properties) {
-            if (properties)
-                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                    if (properties[keys[i]] != null)
-                        this[keys[i]] = properties[keys[i]];
-        }
-
-        /**
-         * UpdateTunnelResponse status.
-         * @member {protos.common.IStatus|null|undefined} status
-         * @memberof protos.UpdateTunnelResponse
-         * @instance
-         */
-        UpdateTunnelResponse.prototype.status = null;
-
-        /**
-         * Creates a new UpdateTunnelResponse instance using the specified properties.
-         * @function create
-         * @memberof protos.UpdateTunnelResponse
-         * @static
-         * @param {protos.IUpdateTunnelResponse=} [properties] Properties to set
-         * @returns {protos.UpdateTunnelResponse} UpdateTunnelResponse instance
-         */
-        UpdateTunnelResponse.create = function create(properties) {
-            return new UpdateTunnelResponse(properties);
-        };
-
-        /**
-         * Encodes the specified UpdateTunnelResponse message. Does not implicitly {@link protos.UpdateTunnelResponse.verify|verify} messages.
-         * @function encode
-         * @memberof protos.UpdateTunnelResponse
-         * @static
-         * @param {protos.IUpdateTunnelResponse} message UpdateTunnelResponse message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
-         * @returns {$protobuf.Writer} Writer
-         */
-        UpdateTunnelResponse.encode = function encode(message, writer) {
-            if (!writer)
-                writer = $Writer.create();
-            if (message.status != null && Object.hasOwnProperty.call(message, "status"))
-                $root.protos.common.Status.encode(message.status, writer.uint32(/* id 1000, wireType 2 =*/8002).fork()).ldelim();
-            return writer;
-        };
-
-        /**
-         * Encodes the specified UpdateTunnelResponse message, length delimited. Does not implicitly {@link protos.UpdateTunnelResponse.verify|verify} messages.
-         * @function encodeDelimited
-         * @memberof protos.UpdateTunnelResponse
-         * @static
-         * @param {protos.IUpdateTunnelResponse} message UpdateTunnelResponse message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
-         * @returns {$protobuf.Writer} Writer
-         */
-        UpdateTunnelResponse.encodeDelimited = function encodeDelimited(message, writer) {
-            return this.encode(message, writer).ldelim();
-        };
-
-        /**
-         * Decodes an UpdateTunnelResponse message from the specified reader or buffer.
-         * @function decode
-         * @memberof protos.UpdateTunnelResponse
-         * @static
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @param {number} [length] Message length if known beforehand
-         * @returns {protos.UpdateTunnelResponse} UpdateTunnelResponse
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        UpdateTunnelResponse.decode = function decode(reader, length) {
-            if (!(reader instanceof $Reader))
-                reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.UpdateTunnelResponse();
-            while (reader.pos < end) {
-                var tag = reader.uint32();
-                switch (tag >>> 3) {
-                case 1000:
-                    message.status = $root.protos.common.Status.decode(reader, reader.uint32());
-                    break;
-                default:
-                    reader.skipType(tag & 7);
-                    break;
-                }
-            }
-            return message;
-        };
-
-        /**
-         * Decodes an UpdateTunnelResponse message from the specified reader or buffer, length delimited.
-         * @function decodeDelimited
-         * @memberof protos.UpdateTunnelResponse
-         * @static
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {protos.UpdateTunnelResponse} UpdateTunnelResponse
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        UpdateTunnelResponse.decodeDelimited = function decodeDelimited(reader) {
-            if (!(reader instanceof $Reader))
-                reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
-        };
-
-        /**
-         * Verifies an UpdateTunnelResponse message.
-         * @function verify
-         * @memberof protos.UpdateTunnelResponse
-         * @static
-         * @param {Object.<string,*>} message Plain object to verify
-         * @returns {string|null} `null` if valid, otherwise the reason why it is not
-         */
-        UpdateTunnelResponse.verify = function verify(message) {
-            if (typeof message !== "object" || message === null)
-                return "object expected";
-            if (message.status != null && message.hasOwnProperty("status")) {
-                var error = $root.protos.common.Status.verify(message.status);
-                if (error)
-                    return "status." + error;
-            }
-            return null;
-        };
-
-        /**
-         * Creates an UpdateTunnelResponse message from a plain object. Also converts values to their respective internal types.
-         * @function fromObject
-         * @memberof protos.UpdateTunnelResponse
-         * @static
-         * @param {Object.<string,*>} object Plain object
-         * @returns {protos.UpdateTunnelResponse} UpdateTunnelResponse
-         */
-        UpdateTunnelResponse.fromObject = function fromObject(object) {
-            if (object instanceof $root.protos.UpdateTunnelResponse)
-                return object;
-            var message = new $root.protos.UpdateTunnelResponse();
-            if (object.status != null) {
-                if (typeof object.status !== "object")
-                    throw TypeError(".protos.UpdateTunnelResponse.status: object expected");
-                message.status = $root.protos.common.Status.fromObject(object.status);
-            }
-            return message;
-        };
-
-        /**
-         * Creates a plain object from an UpdateTunnelResponse message. Also converts values to other types if specified.
-         * @function toObject
-         * @memberof protos.UpdateTunnelResponse
-         * @static
-         * @param {protos.UpdateTunnelResponse} message UpdateTunnelResponse
-         * @param {$protobuf.IConversionOptions} [options] Conversion options
-         * @returns {Object.<string,*>} Plain object
-         */
-        UpdateTunnelResponse.toObject = function toObject(message, options) {
-            if (!options)
-                options = {};
-            var object = {};
-            if (options.defaults)
-                object.status = null;
-            if (message.status != null && message.hasOwnProperty("status"))
-                object.status = $root.protos.common.Status.toObject(message.status, options);
-            return object;
-        };
-
-        /**
-         * Converts this UpdateTunnelResponse to JSON.
-         * @function toJSON
-         * @memberof protos.UpdateTunnelResponse
-         * @instance
-         * @returns {Object.<string,*>} JSON object
-         */
-        UpdateTunnelResponse.prototype.toJSON = function toJSON() {
-            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-        };
-
-        return UpdateTunnelResponse;
-    })();
-
-    protos.ResumeTunnelRequest = (function() {
-
-        /**
-         * Properties of a ResumeTunnelRequest.
-         * @memberof protos
-         * @interface IResumeTunnelRequest
-         * @property {protos.common.IAuth|null} [auth] ResumeTunnelRequest auth
-         * @property {string|null} [tunnelId] ResumeTunnelRequest tunnelId
-         */
-
-        /**
-         * Constructs a new ResumeTunnelRequest.
-         * @memberof protos
-         * @classdesc Represents a ResumeTunnelRequest.
-         * @implements IResumeTunnelRequest
-         * @constructor
-         * @param {protos.IResumeTunnelRequest=} [properties] Properties to set
-         */
-        function ResumeTunnelRequest(properties) {
-            if (properties)
-                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                    if (properties[keys[i]] != null)
-                        this[keys[i]] = properties[keys[i]];
-        }
-
-        /**
-         * ResumeTunnelRequest auth.
-         * @member {protos.common.IAuth|null|undefined} auth
-         * @memberof protos.ResumeTunnelRequest
-         * @instance
-         */
-        ResumeTunnelRequest.prototype.auth = null;
-
-        /**
-         * ResumeTunnelRequest tunnelId.
-         * @member {string} tunnelId
-         * @memberof protos.ResumeTunnelRequest
-         * @instance
-         */
-        ResumeTunnelRequest.prototype.tunnelId = "";
-
-        /**
-         * Creates a new ResumeTunnelRequest instance using the specified properties.
-         * @function create
-         * @memberof protos.ResumeTunnelRequest
-         * @static
-         * @param {protos.IResumeTunnelRequest=} [properties] Properties to set
-         * @returns {protos.ResumeTunnelRequest} ResumeTunnelRequest instance
-         */
-        ResumeTunnelRequest.create = function create(properties) {
-            return new ResumeTunnelRequest(properties);
-        };
-
-        /**
-         * Encodes the specified ResumeTunnelRequest message. Does not implicitly {@link protos.ResumeTunnelRequest.verify|verify} messages.
-         * @function encode
-         * @memberof protos.ResumeTunnelRequest
-         * @static
-         * @param {protos.IResumeTunnelRequest} message ResumeTunnelRequest message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
-         * @returns {$protobuf.Writer} Writer
-         */
-        ResumeTunnelRequest.encode = function encode(message, writer) {
-            if (!writer)
-                writer = $Writer.create();
-            if (message.tunnelId != null && Object.hasOwnProperty.call(message, "tunnelId"))
-                writer.uint32(/* id 1, wireType 2 =*/10).string(message.tunnelId);
-            if (message.auth != null && Object.hasOwnProperty.call(message, "auth"))
-                $root.protos.common.Auth.encode(message.auth, writer.uint32(/* id 9999, wireType 2 =*/79994).fork()).ldelim();
-            return writer;
-        };
-
-        /**
-         * Encodes the specified ResumeTunnelRequest message, length delimited. Does not implicitly {@link protos.ResumeTunnelRequest.verify|verify} messages.
-         * @function encodeDelimited
-         * @memberof protos.ResumeTunnelRequest
-         * @static
-         * @param {protos.IResumeTunnelRequest} message ResumeTunnelRequest message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
-         * @returns {$protobuf.Writer} Writer
-         */
-        ResumeTunnelRequest.encodeDelimited = function encodeDelimited(message, writer) {
-            return this.encode(message, writer).ldelim();
-        };
-
-        /**
-         * Decodes a ResumeTunnelRequest message from the specified reader or buffer.
-         * @function decode
-         * @memberof protos.ResumeTunnelRequest
-         * @static
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @param {number} [length] Message length if known beforehand
-         * @returns {protos.ResumeTunnelRequest} ResumeTunnelRequest
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        ResumeTunnelRequest.decode = function decode(reader, length) {
-            if (!(reader instanceof $Reader))
-                reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.ResumeTunnelRequest();
-            while (reader.pos < end) {
-                var tag = reader.uint32();
-                switch (tag >>> 3) {
-                case 9999:
-                    message.auth = $root.protos.common.Auth.decode(reader, reader.uint32());
-                    break;
-                case 1:
-                    message.tunnelId = reader.string();
-                    break;
-                default:
-                    reader.skipType(tag & 7);
-                    break;
-                }
-            }
-            return message;
-        };
-
-        /**
-         * Decodes a ResumeTunnelRequest message from the specified reader or buffer, length delimited.
-         * @function decodeDelimited
-         * @memberof protos.ResumeTunnelRequest
-         * @static
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {protos.ResumeTunnelRequest} ResumeTunnelRequest
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        ResumeTunnelRequest.decodeDelimited = function decodeDelimited(reader) {
-            if (!(reader instanceof $Reader))
-                reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
-        };
-
-        /**
-         * Verifies a ResumeTunnelRequest message.
-         * @function verify
-         * @memberof protos.ResumeTunnelRequest
-         * @static
-         * @param {Object.<string,*>} message Plain object to verify
-         * @returns {string|null} `null` if valid, otherwise the reason why it is not
-         */
-        ResumeTunnelRequest.verify = function verify(message) {
-            if (typeof message !== "object" || message === null)
-                return "object expected";
-            if (message.auth != null && message.hasOwnProperty("auth")) {
-                var error = $root.protos.common.Auth.verify(message.auth);
-                if (error)
-                    return "auth." + error;
-            }
-            if (message.tunnelId != null && message.hasOwnProperty("tunnelId"))
-                if (!$util.isString(message.tunnelId))
-                    return "tunnelId: string expected";
-            return null;
-        };
-
-        /**
-         * Creates a ResumeTunnelRequest message from a plain object. Also converts values to their respective internal types.
-         * @function fromObject
-         * @memberof protos.ResumeTunnelRequest
-         * @static
-         * @param {Object.<string,*>} object Plain object
-         * @returns {protos.ResumeTunnelRequest} ResumeTunnelRequest
-         */
-        ResumeTunnelRequest.fromObject = function fromObject(object) {
-            if (object instanceof $root.protos.ResumeTunnelRequest)
-                return object;
-            var message = new $root.protos.ResumeTunnelRequest();
-            if (object.auth != null) {
-                if (typeof object.auth !== "object")
-                    throw TypeError(".protos.ResumeTunnelRequest.auth: object expected");
-                message.auth = $root.protos.common.Auth.fromObject(object.auth);
-            }
-            if (object.tunnelId != null)
-                message.tunnelId = String(object.tunnelId);
-            return message;
-        };
-
-        /**
-         * Creates a plain object from a ResumeTunnelRequest message. Also converts values to other types if specified.
-         * @function toObject
-         * @memberof protos.ResumeTunnelRequest
-         * @static
-         * @param {protos.ResumeTunnelRequest} message ResumeTunnelRequest
-         * @param {$protobuf.IConversionOptions} [options] Conversion options
-         * @returns {Object.<string,*>} Plain object
-         */
-        ResumeTunnelRequest.toObject = function toObject(message, options) {
-            if (!options)
-                options = {};
-            var object = {};
-            if (options.defaults) {
-                object.tunnelId = "";
-                object.auth = null;
-            }
-            if (message.tunnelId != null && message.hasOwnProperty("tunnelId"))
-                object.tunnelId = message.tunnelId;
-            if (message.auth != null && message.hasOwnProperty("auth"))
-                object.auth = $root.protos.common.Auth.toObject(message.auth, options);
-            return object;
-        };
-
-        /**
-         * Converts this ResumeTunnelRequest to JSON.
-         * @function toJSON
-         * @memberof protos.ResumeTunnelRequest
-         * @instance
-         * @returns {Object.<string,*>} JSON object
-         */
-        ResumeTunnelRequest.prototype.toJSON = function toJSON() {
-            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-        };
-
-        return ResumeTunnelRequest;
-    })();
-
-    protos.ResumeTunnelResponse = (function() {
-
-        /**
-         * Properties of a ResumeTunnelResponse.
-         * @memberof protos
-         * @interface IResumeTunnelResponse
-         * @property {protos.common.IStatus|null} [status] ResumeTunnelResponse status
-         */
-
-        /**
-         * Constructs a new ResumeTunnelResponse.
-         * @memberof protos
-         * @classdesc Represents a ResumeTunnelResponse.
-         * @implements IResumeTunnelResponse
-         * @constructor
-         * @param {protos.IResumeTunnelResponse=} [properties] Properties to set
-         */
-        function ResumeTunnelResponse(properties) {
-            if (properties)
-                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                    if (properties[keys[i]] != null)
-                        this[keys[i]] = properties[keys[i]];
-        }
-
-        /**
-         * ResumeTunnelResponse status.
-         * @member {protos.common.IStatus|null|undefined} status
-         * @memberof protos.ResumeTunnelResponse
-         * @instance
-         */
-        ResumeTunnelResponse.prototype.status = null;
-
-        /**
-         * Creates a new ResumeTunnelResponse instance using the specified properties.
-         * @function create
-         * @memberof protos.ResumeTunnelResponse
-         * @static
-         * @param {protos.IResumeTunnelResponse=} [properties] Properties to set
-         * @returns {protos.ResumeTunnelResponse} ResumeTunnelResponse instance
-         */
-        ResumeTunnelResponse.create = function create(properties) {
-            return new ResumeTunnelResponse(properties);
-        };
-
-        /**
-         * Encodes the specified ResumeTunnelResponse message. Does not implicitly {@link protos.ResumeTunnelResponse.verify|verify} messages.
-         * @function encode
-         * @memberof protos.ResumeTunnelResponse
-         * @static
-         * @param {protos.IResumeTunnelResponse} message ResumeTunnelResponse message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
-         * @returns {$protobuf.Writer} Writer
-         */
-        ResumeTunnelResponse.encode = function encode(message, writer) {
-            if (!writer)
-                writer = $Writer.create();
-            if (message.status != null && Object.hasOwnProperty.call(message, "status"))
-                $root.protos.common.Status.encode(message.status, writer.uint32(/* id 1000, wireType 2 =*/8002).fork()).ldelim();
-            return writer;
-        };
-
-        /**
-         * Encodes the specified ResumeTunnelResponse message, length delimited. Does not implicitly {@link protos.ResumeTunnelResponse.verify|verify} messages.
-         * @function encodeDelimited
-         * @memberof protos.ResumeTunnelResponse
-         * @static
-         * @param {protos.IResumeTunnelResponse} message ResumeTunnelResponse message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
-         * @returns {$protobuf.Writer} Writer
-         */
-        ResumeTunnelResponse.encodeDelimited = function encodeDelimited(message, writer) {
-            return this.encode(message, writer).ldelim();
-        };
-
-        /**
-         * Decodes a ResumeTunnelResponse message from the specified reader or buffer.
-         * @function decode
-         * @memberof protos.ResumeTunnelResponse
-         * @static
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @param {number} [length] Message length if known beforehand
-         * @returns {protos.ResumeTunnelResponse} ResumeTunnelResponse
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        ResumeTunnelResponse.decode = function decode(reader, length) {
-            if (!(reader instanceof $Reader))
-                reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.ResumeTunnelResponse();
-            while (reader.pos < end) {
-                var tag = reader.uint32();
-                switch (tag >>> 3) {
-                case 1000:
-                    message.status = $root.protos.common.Status.decode(reader, reader.uint32());
-                    break;
-                default:
-                    reader.skipType(tag & 7);
-                    break;
-                }
-            }
-            return message;
-        };
-
-        /**
-         * Decodes a ResumeTunnelResponse message from the specified reader or buffer, length delimited.
-         * @function decodeDelimited
-         * @memberof protos.ResumeTunnelResponse
-         * @static
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {protos.ResumeTunnelResponse} ResumeTunnelResponse
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        ResumeTunnelResponse.decodeDelimited = function decodeDelimited(reader) {
-            if (!(reader instanceof $Reader))
-                reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
-        };
-
-        /**
-         * Verifies a ResumeTunnelResponse message.
-         * @function verify
-         * @memberof protos.ResumeTunnelResponse
-         * @static
-         * @param {Object.<string,*>} message Plain object to verify
-         * @returns {string|null} `null` if valid, otherwise the reason why it is not
-         */
-        ResumeTunnelResponse.verify = function verify(message) {
-            if (typeof message !== "object" || message === null)
-                return "object expected";
-            if (message.status != null && message.hasOwnProperty("status")) {
-                var error = $root.protos.common.Status.verify(message.status);
-                if (error)
-                    return "status." + error;
-            }
-            return null;
-        };
-
-        /**
-         * Creates a ResumeTunnelResponse message from a plain object. Also converts values to their respective internal types.
-         * @function fromObject
-         * @memberof protos.ResumeTunnelResponse
-         * @static
-         * @param {Object.<string,*>} object Plain object
-         * @returns {protos.ResumeTunnelResponse} ResumeTunnelResponse
-         */
-        ResumeTunnelResponse.fromObject = function fromObject(object) {
-            if (object instanceof $root.protos.ResumeTunnelResponse)
-                return object;
-            var message = new $root.protos.ResumeTunnelResponse();
-            if (object.status != null) {
-                if (typeof object.status !== "object")
-                    throw TypeError(".protos.ResumeTunnelResponse.status: object expected");
-                message.status = $root.protos.common.Status.fromObject(object.status);
-            }
-            return message;
-        };
-
-        /**
-         * Creates a plain object from a ResumeTunnelResponse message. Also converts values to other types if specified.
-         * @function toObject
-         * @memberof protos.ResumeTunnelResponse
-         * @static
-         * @param {protos.ResumeTunnelResponse} message ResumeTunnelResponse
-         * @param {$protobuf.IConversionOptions} [options] Conversion options
-         * @returns {Object.<string,*>} Plain object
-         */
-        ResumeTunnelResponse.toObject = function toObject(message, options) {
-            if (!options)
-                options = {};
-            var object = {};
-            if (options.defaults)
-                object.status = null;
-            if (message.status != null && message.hasOwnProperty("status"))
-                object.status = $root.protos.common.Status.toObject(message.status, options);
-            return object;
-        };
-
-        /**
-         * Converts this ResumeTunnelResponse to JSON.
-         * @function toJSON
-         * @memberof protos.ResumeTunnelResponse
-         * @instance
-         * @returns {Object.<string,*>} JSON object
-         */
-        ResumeTunnelResponse.prototype.toJSON = function toJSON() {
-            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-        };
-
-        return ResumeTunnelResponse;
-    })();
-
-    protos.StopTunnelRequest = (function() {
-
-        /**
-         * Properties of a StopTunnelRequest.
-         * @memberof protos
-         * @interface IStopTunnelRequest
-         * @property {protos.common.IAuth|null} [auth] StopTunnelRequest auth
-         * @property {string|null} [tunnelId] StopTunnelRequest tunnelId
-         */
-
-        /**
-         * Constructs a new StopTunnelRequest.
-         * @memberof protos
-         * @classdesc Represents a StopTunnelRequest.
-         * @implements IStopTunnelRequest
-         * @constructor
-         * @param {protos.IStopTunnelRequest=} [properties] Properties to set
-         */
-        function StopTunnelRequest(properties) {
-            if (properties)
-                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                    if (properties[keys[i]] != null)
-                        this[keys[i]] = properties[keys[i]];
-        }
-
-        /**
-         * StopTunnelRequest auth.
-         * @member {protos.common.IAuth|null|undefined} auth
-         * @memberof protos.StopTunnelRequest
-         * @instance
-         */
-        StopTunnelRequest.prototype.auth = null;
-
-        /**
-         * StopTunnelRequest tunnelId.
-         * @member {string} tunnelId
-         * @memberof protos.StopTunnelRequest
-         * @instance
-         */
-        StopTunnelRequest.prototype.tunnelId = "";
-
-        /**
-         * Creates a new StopTunnelRequest instance using the specified properties.
-         * @function create
-         * @memberof protos.StopTunnelRequest
-         * @static
-         * @param {protos.IStopTunnelRequest=} [properties] Properties to set
-         * @returns {protos.StopTunnelRequest} StopTunnelRequest instance
-         */
-        StopTunnelRequest.create = function create(properties) {
-            return new StopTunnelRequest(properties);
-        };
-
-        /**
-         * Encodes the specified StopTunnelRequest message. Does not implicitly {@link protos.StopTunnelRequest.verify|verify} messages.
-         * @function encode
-         * @memberof protos.StopTunnelRequest
-         * @static
-         * @param {protos.IStopTunnelRequest} message StopTunnelRequest message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
-         * @returns {$protobuf.Writer} Writer
-         */
-        StopTunnelRequest.encode = function encode(message, writer) {
-            if (!writer)
-                writer = $Writer.create();
-            if (message.tunnelId != null && Object.hasOwnProperty.call(message, "tunnelId"))
-                writer.uint32(/* id 1, wireType 2 =*/10).string(message.tunnelId);
-            if (message.auth != null && Object.hasOwnProperty.call(message, "auth"))
-                $root.protos.common.Auth.encode(message.auth, writer.uint32(/* id 9999, wireType 2 =*/79994).fork()).ldelim();
-            return writer;
-        };
-
-        /**
-         * Encodes the specified StopTunnelRequest message, length delimited. Does not implicitly {@link protos.StopTunnelRequest.verify|verify} messages.
-         * @function encodeDelimited
-         * @memberof protos.StopTunnelRequest
-         * @static
-         * @param {protos.IStopTunnelRequest} message StopTunnelRequest message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
-         * @returns {$protobuf.Writer} Writer
-         */
-        StopTunnelRequest.encodeDelimited = function encodeDelimited(message, writer) {
-            return this.encode(message, writer).ldelim();
-        };
-
-        /**
-         * Decodes a StopTunnelRequest message from the specified reader or buffer.
-         * @function decode
-         * @memberof protos.StopTunnelRequest
-         * @static
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @param {number} [length] Message length if known beforehand
-         * @returns {protos.StopTunnelRequest} StopTunnelRequest
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        StopTunnelRequest.decode = function decode(reader, length) {
-            if (!(reader instanceof $Reader))
-                reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.StopTunnelRequest();
-            while (reader.pos < end) {
-                var tag = reader.uint32();
-                switch (tag >>> 3) {
-                case 9999:
-                    message.auth = $root.protos.common.Auth.decode(reader, reader.uint32());
-                    break;
-                case 1:
-                    message.tunnelId = reader.string();
-                    break;
-                default:
-                    reader.skipType(tag & 7);
-                    break;
-                }
-            }
-            return message;
-        };
-
-        /**
-         * Decodes a StopTunnelRequest message from the specified reader or buffer, length delimited.
-         * @function decodeDelimited
-         * @memberof protos.StopTunnelRequest
-         * @static
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {protos.StopTunnelRequest} StopTunnelRequest
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        StopTunnelRequest.decodeDelimited = function decodeDelimited(reader) {
-            if (!(reader instanceof $Reader))
-                reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
-        };
-
-        /**
-         * Verifies a StopTunnelRequest message.
-         * @function verify
-         * @memberof protos.StopTunnelRequest
-         * @static
-         * @param {Object.<string,*>} message Plain object to verify
-         * @returns {string|null} `null` if valid, otherwise the reason why it is not
-         */
-        StopTunnelRequest.verify = function verify(message) {
-            if (typeof message !== "object" || message === null)
-                return "object expected";
-            if (message.auth != null && message.hasOwnProperty("auth")) {
-                var error = $root.protos.common.Auth.verify(message.auth);
-                if (error)
-                    return "auth." + error;
-            }
-            if (message.tunnelId != null && message.hasOwnProperty("tunnelId"))
-                if (!$util.isString(message.tunnelId))
-                    return "tunnelId: string expected";
-            return null;
-        };
-
-        /**
-         * Creates a StopTunnelRequest message from a plain object. Also converts values to their respective internal types.
-         * @function fromObject
-         * @memberof protos.StopTunnelRequest
-         * @static
-         * @param {Object.<string,*>} object Plain object
-         * @returns {protos.StopTunnelRequest} StopTunnelRequest
-         */
-        StopTunnelRequest.fromObject = function fromObject(object) {
-            if (object instanceof $root.protos.StopTunnelRequest)
-                return object;
-            var message = new $root.protos.StopTunnelRequest();
-            if (object.auth != null) {
-                if (typeof object.auth !== "object")
-                    throw TypeError(".protos.StopTunnelRequest.auth: object expected");
-                message.auth = $root.protos.common.Auth.fromObject(object.auth);
-            }
-            if (object.tunnelId != null)
-                message.tunnelId = String(object.tunnelId);
-            return message;
-        };
-
-        /**
-         * Creates a plain object from a StopTunnelRequest message. Also converts values to other types if specified.
-         * @function toObject
-         * @memberof protos.StopTunnelRequest
-         * @static
-         * @param {protos.StopTunnelRequest} message StopTunnelRequest
-         * @param {$protobuf.IConversionOptions} [options] Conversion options
-         * @returns {Object.<string,*>} Plain object
-         */
-        StopTunnelRequest.toObject = function toObject(message, options) {
-            if (!options)
-                options = {};
-            var object = {};
-            if (options.defaults) {
-                object.tunnelId = "";
-                object.auth = null;
-            }
-            if (message.tunnelId != null && message.hasOwnProperty("tunnelId"))
-                object.tunnelId = message.tunnelId;
-            if (message.auth != null && message.hasOwnProperty("auth"))
-                object.auth = $root.protos.common.Auth.toObject(message.auth, options);
-            return object;
-        };
-
-        /**
-         * Converts this StopTunnelRequest to JSON.
-         * @function toJSON
-         * @memberof protos.StopTunnelRequest
-         * @instance
-         * @returns {Object.<string,*>} JSON object
-         */
-        StopTunnelRequest.prototype.toJSON = function toJSON() {
-            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-        };
-
-        return StopTunnelRequest;
-    })();
-
-    protos.StopTunnelResponse = (function() {
-
-        /**
-         * Properties of a StopTunnelResponse.
-         * @memberof protos
-         * @interface IStopTunnelResponse
-         * @property {protos.common.IStatus|null} [status] StopTunnelResponse status
-         */
-
-        /**
-         * Constructs a new StopTunnelResponse.
-         * @memberof protos
-         * @classdesc Represents a StopTunnelResponse.
-         * @implements IStopTunnelResponse
-         * @constructor
-         * @param {protos.IStopTunnelResponse=} [properties] Properties to set
-         */
-        function StopTunnelResponse(properties) {
-            if (properties)
-                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                    if (properties[keys[i]] != null)
-                        this[keys[i]] = properties[keys[i]];
-        }
-
-        /**
-         * StopTunnelResponse status.
-         * @member {protos.common.IStatus|null|undefined} status
-         * @memberof protos.StopTunnelResponse
-         * @instance
-         */
-        StopTunnelResponse.prototype.status = null;
-
-        /**
-         * Creates a new StopTunnelResponse instance using the specified properties.
-         * @function create
-         * @memberof protos.StopTunnelResponse
-         * @static
-         * @param {protos.IStopTunnelResponse=} [properties] Properties to set
-         * @returns {protos.StopTunnelResponse} StopTunnelResponse instance
-         */
-        StopTunnelResponse.create = function create(properties) {
-            return new StopTunnelResponse(properties);
-        };
-
-        /**
-         * Encodes the specified StopTunnelResponse message. Does not implicitly {@link protos.StopTunnelResponse.verify|verify} messages.
-         * @function encode
-         * @memberof protos.StopTunnelResponse
-         * @static
-         * @param {protos.IStopTunnelResponse} message StopTunnelResponse message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
-         * @returns {$protobuf.Writer} Writer
-         */
-        StopTunnelResponse.encode = function encode(message, writer) {
-            if (!writer)
-                writer = $Writer.create();
-            if (message.status != null && Object.hasOwnProperty.call(message, "status"))
-                $root.protos.common.Status.encode(message.status, writer.uint32(/* id 1000, wireType 2 =*/8002).fork()).ldelim();
-            return writer;
-        };
-
-        /**
-         * Encodes the specified StopTunnelResponse message, length delimited. Does not implicitly {@link protos.StopTunnelResponse.verify|verify} messages.
-         * @function encodeDelimited
-         * @memberof protos.StopTunnelResponse
-         * @static
-         * @param {protos.IStopTunnelResponse} message StopTunnelResponse message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
-         * @returns {$protobuf.Writer} Writer
-         */
-        StopTunnelResponse.encodeDelimited = function encodeDelimited(message, writer) {
-            return this.encode(message, writer).ldelim();
-        };
-
-        /**
-         * Decodes a StopTunnelResponse message from the specified reader or buffer.
-         * @function decode
-         * @memberof protos.StopTunnelResponse
-         * @static
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @param {number} [length] Message length if known beforehand
-         * @returns {protos.StopTunnelResponse} StopTunnelResponse
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        StopTunnelResponse.decode = function decode(reader, length) {
-            if (!(reader instanceof $Reader))
-                reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.StopTunnelResponse();
-            while (reader.pos < end) {
-                var tag = reader.uint32();
-                switch (tag >>> 3) {
-                case 1000:
-                    message.status = $root.protos.common.Status.decode(reader, reader.uint32());
-                    break;
-                default:
-                    reader.skipType(tag & 7);
-                    break;
-                }
-            }
-            return message;
-        };
-
-        /**
-         * Decodes a StopTunnelResponse message from the specified reader or buffer, length delimited.
-         * @function decodeDelimited
-         * @memberof protos.StopTunnelResponse
-         * @static
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {protos.StopTunnelResponse} StopTunnelResponse
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        StopTunnelResponse.decodeDelimited = function decodeDelimited(reader) {
-            if (!(reader instanceof $Reader))
-                reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
-        };
-
-        /**
-         * Verifies a StopTunnelResponse message.
-         * @function verify
-         * @memberof protos.StopTunnelResponse
-         * @static
-         * @param {Object.<string,*>} message Plain object to verify
-         * @returns {string|null} `null` if valid, otherwise the reason why it is not
-         */
-        StopTunnelResponse.verify = function verify(message) {
-            if (typeof message !== "object" || message === null)
-                return "object expected";
-            if (message.status != null && message.hasOwnProperty("status")) {
-                var error = $root.protos.common.Status.verify(message.status);
-                if (error)
-                    return "status." + error;
-            }
-            return null;
-        };
-
-        /**
-         * Creates a StopTunnelResponse message from a plain object. Also converts values to their respective internal types.
-         * @function fromObject
-         * @memberof protos.StopTunnelResponse
-         * @static
-         * @param {Object.<string,*>} object Plain object
-         * @returns {protos.StopTunnelResponse} StopTunnelResponse
-         */
-        StopTunnelResponse.fromObject = function fromObject(object) {
-            if (object instanceof $root.protos.StopTunnelResponse)
-                return object;
-            var message = new $root.protos.StopTunnelResponse();
-            if (object.status != null) {
-                if (typeof object.status !== "object")
-                    throw TypeError(".protos.StopTunnelResponse.status: object expected");
-                message.status = $root.protos.common.Status.fromObject(object.status);
-            }
-            return message;
-        };
-
-        /**
-         * Creates a plain object from a StopTunnelResponse message. Also converts values to other types if specified.
-         * @function toObject
-         * @memberof protos.StopTunnelResponse
-         * @static
-         * @param {protos.StopTunnelResponse} message StopTunnelResponse
-         * @param {$protobuf.IConversionOptions} [options] Conversion options
-         * @returns {Object.<string,*>} Plain object
-         */
-        StopTunnelResponse.toObject = function toObject(message, options) {
-            if (!options)
-                options = {};
-            var object = {};
-            if (options.defaults)
-                object.status = null;
-            if (message.status != null && message.hasOwnProperty("status"))
-                object.status = $root.protos.common.Status.toObject(message.status, options);
-            return object;
-        };
-
-        /**
-         * Converts this StopTunnelResponse to JSON.
-         * @function toJSON
-         * @memberof protos.StopTunnelResponse
-         * @instance
-         * @returns {Object.<string,*>} JSON object
-         */
-        StopTunnelResponse.prototype.toJSON = function toJSON() {
-            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-        };
-
-        return StopTunnelResponse;
-    })();
-
-    protos.DeleteTunnelRequest = (function() {
-
-        /**
-         * Properties of a DeleteTunnelRequest.
-         * @memberof protos
-         * @interface IDeleteTunnelRequest
-         * @property {protos.common.IAuth|null} [auth] DeleteTunnelRequest auth
-         * @property {string|null} [tunnelId] DeleteTunnelRequest tunnelId
-         */
-
-        /**
-         * Constructs a new DeleteTunnelRequest.
-         * @memberof protos
-         * @classdesc Represents a DeleteTunnelRequest.
-         * @implements IDeleteTunnelRequest
-         * @constructor
-         * @param {protos.IDeleteTunnelRequest=} [properties] Properties to set
-         */
-        function DeleteTunnelRequest(properties) {
-            if (properties)
-                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                    if (properties[keys[i]] != null)
-                        this[keys[i]] = properties[keys[i]];
-        }
-
-        /**
-         * DeleteTunnelRequest auth.
-         * @member {protos.common.IAuth|null|undefined} auth
-         * @memberof protos.DeleteTunnelRequest
-         * @instance
-         */
-        DeleteTunnelRequest.prototype.auth = null;
-
-        /**
-         * DeleteTunnelRequest tunnelId.
-         * @member {string} tunnelId
-         * @memberof protos.DeleteTunnelRequest
-         * @instance
-         */
-        DeleteTunnelRequest.prototype.tunnelId = "";
-
-        /**
-         * Creates a new DeleteTunnelRequest instance using the specified properties.
-         * @function create
-         * @memberof protos.DeleteTunnelRequest
-         * @static
-         * @param {protos.IDeleteTunnelRequest=} [properties] Properties to set
-         * @returns {protos.DeleteTunnelRequest} DeleteTunnelRequest instance
-         */
-        DeleteTunnelRequest.create = function create(properties) {
-            return new DeleteTunnelRequest(properties);
-        };
-
-        /**
-         * Encodes the specified DeleteTunnelRequest message. Does not implicitly {@link protos.DeleteTunnelRequest.verify|verify} messages.
-         * @function encode
-         * @memberof protos.DeleteTunnelRequest
-         * @static
-         * @param {protos.IDeleteTunnelRequest} message DeleteTunnelRequest message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
-         * @returns {$protobuf.Writer} Writer
-         */
-        DeleteTunnelRequest.encode = function encode(message, writer) {
-            if (!writer)
-                writer = $Writer.create();
-            if (message.tunnelId != null && Object.hasOwnProperty.call(message, "tunnelId"))
-                writer.uint32(/* id 1, wireType 2 =*/10).string(message.tunnelId);
-            if (message.auth != null && Object.hasOwnProperty.call(message, "auth"))
-                $root.protos.common.Auth.encode(message.auth, writer.uint32(/* id 9999, wireType 2 =*/79994).fork()).ldelim();
-            return writer;
-        };
-
-        /**
-         * Encodes the specified DeleteTunnelRequest message, length delimited. Does not implicitly {@link protos.DeleteTunnelRequest.verify|verify} messages.
-         * @function encodeDelimited
-         * @memberof protos.DeleteTunnelRequest
-         * @static
-         * @param {protos.IDeleteTunnelRequest} message DeleteTunnelRequest message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
-         * @returns {$protobuf.Writer} Writer
-         */
-        DeleteTunnelRequest.encodeDelimited = function encodeDelimited(message, writer) {
-            return this.encode(message, writer).ldelim();
-        };
-
-        /**
-         * Decodes a DeleteTunnelRequest message from the specified reader or buffer.
-         * @function decode
-         * @memberof protos.DeleteTunnelRequest
-         * @static
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @param {number} [length] Message length if known beforehand
-         * @returns {protos.DeleteTunnelRequest} DeleteTunnelRequest
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        DeleteTunnelRequest.decode = function decode(reader, length) {
-            if (!(reader instanceof $Reader))
-                reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.DeleteTunnelRequest();
-            while (reader.pos < end) {
-                var tag = reader.uint32();
-                switch (tag >>> 3) {
-                case 9999:
-                    message.auth = $root.protos.common.Auth.decode(reader, reader.uint32());
-                    break;
-                case 1:
-                    message.tunnelId = reader.string();
-                    break;
-                default:
-                    reader.skipType(tag & 7);
-                    break;
-                }
-            }
-            return message;
-        };
-
-        /**
-         * Decodes a DeleteTunnelRequest message from the specified reader or buffer, length delimited.
-         * @function decodeDelimited
-         * @memberof protos.DeleteTunnelRequest
-         * @static
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {protos.DeleteTunnelRequest} DeleteTunnelRequest
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        DeleteTunnelRequest.decodeDelimited = function decodeDelimited(reader) {
-            if (!(reader instanceof $Reader))
-                reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
-        };
-
-        /**
-         * Verifies a DeleteTunnelRequest message.
-         * @function verify
-         * @memberof protos.DeleteTunnelRequest
-         * @static
-         * @param {Object.<string,*>} message Plain object to verify
-         * @returns {string|null} `null` if valid, otherwise the reason why it is not
-         */
-        DeleteTunnelRequest.verify = function verify(message) {
-            if (typeof message !== "object" || message === null)
-                return "object expected";
-            if (message.auth != null && message.hasOwnProperty("auth")) {
-                var error = $root.protos.common.Auth.verify(message.auth);
-                if (error)
-                    return "auth." + error;
-            }
-            if (message.tunnelId != null && message.hasOwnProperty("tunnelId"))
-                if (!$util.isString(message.tunnelId))
-                    return "tunnelId: string expected";
-            return null;
-        };
-
-        /**
-         * Creates a DeleteTunnelRequest message from a plain object. Also converts values to their respective internal types.
-         * @function fromObject
-         * @memberof protos.DeleteTunnelRequest
-         * @static
-         * @param {Object.<string,*>} object Plain object
-         * @returns {protos.DeleteTunnelRequest} DeleteTunnelRequest
-         */
-        DeleteTunnelRequest.fromObject = function fromObject(object) {
-            if (object instanceof $root.protos.DeleteTunnelRequest)
-                return object;
-            var message = new $root.protos.DeleteTunnelRequest();
-            if (object.auth != null) {
-                if (typeof object.auth !== "object")
-                    throw TypeError(".protos.DeleteTunnelRequest.auth: object expected");
-                message.auth = $root.protos.common.Auth.fromObject(object.auth);
-            }
-            if (object.tunnelId != null)
-                message.tunnelId = String(object.tunnelId);
-            return message;
-        };
-
-        /**
-         * Creates a plain object from a DeleteTunnelRequest message. Also converts values to other types if specified.
-         * @function toObject
-         * @memberof protos.DeleteTunnelRequest
-         * @static
-         * @param {protos.DeleteTunnelRequest} message DeleteTunnelRequest
-         * @param {$protobuf.IConversionOptions} [options] Conversion options
-         * @returns {Object.<string,*>} Plain object
-         */
-        DeleteTunnelRequest.toObject = function toObject(message, options) {
-            if (!options)
-                options = {};
-            var object = {};
-            if (options.defaults) {
-                object.tunnelId = "";
-                object.auth = null;
-            }
-            if (message.tunnelId != null && message.hasOwnProperty("tunnelId"))
-                object.tunnelId = message.tunnelId;
-            if (message.auth != null && message.hasOwnProperty("auth"))
-                object.auth = $root.protos.common.Auth.toObject(message.auth, options);
-            return object;
-        };
-
-        /**
-         * Converts this DeleteTunnelRequest to JSON.
-         * @function toJSON
-         * @memberof protos.DeleteTunnelRequest
-         * @instance
-         * @returns {Object.<string,*>} JSON object
-         */
-        DeleteTunnelRequest.prototype.toJSON = function toJSON() {
-            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-        };
-
-        return DeleteTunnelRequest;
-    })();
-
-    protos.DeleteTunnelResponse = (function() {
-
-        /**
-         * Properties of a DeleteTunnelResponse.
-         * @memberof protos
-         * @interface IDeleteTunnelResponse
-         * @property {protos.common.IStatus|null} [status] DeleteTunnelResponse status
-         */
-
-        /**
-         * Constructs a new DeleteTunnelResponse.
-         * @memberof protos
-         * @classdesc Represents a DeleteTunnelResponse.
-         * @implements IDeleteTunnelResponse
-         * @constructor
-         * @param {protos.IDeleteTunnelResponse=} [properties] Properties to set
-         */
-        function DeleteTunnelResponse(properties) {
-            if (properties)
-                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                    if (properties[keys[i]] != null)
-                        this[keys[i]] = properties[keys[i]];
-        }
-
-        /**
-         * DeleteTunnelResponse status.
-         * @member {protos.common.IStatus|null|undefined} status
-         * @memberof protos.DeleteTunnelResponse
-         * @instance
-         */
-        DeleteTunnelResponse.prototype.status = null;
-
-        /**
-         * Creates a new DeleteTunnelResponse instance using the specified properties.
-         * @function create
-         * @memberof protos.DeleteTunnelResponse
-         * @static
-         * @param {protos.IDeleteTunnelResponse=} [properties] Properties to set
-         * @returns {protos.DeleteTunnelResponse} DeleteTunnelResponse instance
-         */
-        DeleteTunnelResponse.create = function create(properties) {
-            return new DeleteTunnelResponse(properties);
-        };
-
-        /**
-         * Encodes the specified DeleteTunnelResponse message. Does not implicitly {@link protos.DeleteTunnelResponse.verify|verify} messages.
-         * @function encode
-         * @memberof protos.DeleteTunnelResponse
-         * @static
-         * @param {protos.IDeleteTunnelResponse} message DeleteTunnelResponse message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
-         * @returns {$protobuf.Writer} Writer
-         */
-        DeleteTunnelResponse.encode = function encode(message, writer) {
-            if (!writer)
-                writer = $Writer.create();
-            if (message.status != null && Object.hasOwnProperty.call(message, "status"))
-                $root.protos.common.Status.encode(message.status, writer.uint32(/* id 1000, wireType 2 =*/8002).fork()).ldelim();
-            return writer;
-        };
-
-        /**
-         * Encodes the specified DeleteTunnelResponse message, length delimited. Does not implicitly {@link protos.DeleteTunnelResponse.verify|verify} messages.
-         * @function encodeDelimited
-         * @memberof protos.DeleteTunnelResponse
-         * @static
-         * @param {protos.IDeleteTunnelResponse} message DeleteTunnelResponse message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
-         * @returns {$protobuf.Writer} Writer
-         */
-        DeleteTunnelResponse.encodeDelimited = function encodeDelimited(message, writer) {
-            return this.encode(message, writer).ldelim();
-        };
-
-        /**
-         * Decodes a DeleteTunnelResponse message from the specified reader or buffer.
-         * @function decode
-         * @memberof protos.DeleteTunnelResponse
-         * @static
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @param {number} [length] Message length if known beforehand
-         * @returns {protos.DeleteTunnelResponse} DeleteTunnelResponse
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        DeleteTunnelResponse.decode = function decode(reader, length) {
-            if (!(reader instanceof $Reader))
-                reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.DeleteTunnelResponse();
-            while (reader.pos < end) {
-                var tag = reader.uint32();
-                switch (tag >>> 3) {
-                case 1000:
-                    message.status = $root.protos.common.Status.decode(reader, reader.uint32());
-                    break;
-                default:
-                    reader.skipType(tag & 7);
-                    break;
-                }
-            }
-            return message;
-        };
-
-        /**
-         * Decodes a DeleteTunnelResponse message from the specified reader or buffer, length delimited.
-         * @function decodeDelimited
-         * @memberof protos.DeleteTunnelResponse
-         * @static
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {protos.DeleteTunnelResponse} DeleteTunnelResponse
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        DeleteTunnelResponse.decodeDelimited = function decodeDelimited(reader) {
-            if (!(reader instanceof $Reader))
-                reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
-        };
-
-        /**
-         * Verifies a DeleteTunnelResponse message.
-         * @function verify
-         * @memberof protos.DeleteTunnelResponse
-         * @static
-         * @param {Object.<string,*>} message Plain object to verify
-         * @returns {string|null} `null` if valid, otherwise the reason why it is not
-         */
-        DeleteTunnelResponse.verify = function verify(message) {
-            if (typeof message !== "object" || message === null)
-                return "object expected";
-            if (message.status != null && message.hasOwnProperty("status")) {
-                var error = $root.protos.common.Status.verify(message.status);
-                if (error)
-                    return "status." + error;
-            }
-            return null;
-        };
-
-        /**
-         * Creates a DeleteTunnelResponse message from a plain object. Also converts values to their respective internal types.
-         * @function fromObject
-         * @memberof protos.DeleteTunnelResponse
-         * @static
-         * @param {Object.<string,*>} object Plain object
-         * @returns {protos.DeleteTunnelResponse} DeleteTunnelResponse
-         */
-        DeleteTunnelResponse.fromObject = function fromObject(object) {
-            if (object instanceof $root.protos.DeleteTunnelResponse)
-                return object;
-            var message = new $root.protos.DeleteTunnelResponse();
-            if (object.status != null) {
-                if (typeof object.status !== "object")
-                    throw TypeError(".protos.DeleteTunnelResponse.status: object expected");
-                message.status = $root.protos.common.Status.fromObject(object.status);
-            }
-            return message;
-        };
-
-        /**
-         * Creates a plain object from a DeleteTunnelResponse message. Also converts values to other types if specified.
-         * @function toObject
-         * @memberof protos.DeleteTunnelResponse
-         * @static
-         * @param {protos.DeleteTunnelResponse} message DeleteTunnelResponse
-         * @param {$protobuf.IConversionOptions} [options] Conversion options
-         * @returns {Object.<string,*>} Plain object
-         */
-        DeleteTunnelResponse.toObject = function toObject(message, options) {
-            if (!options)
-                options = {};
-            var object = {};
-            if (options.defaults)
-                object.status = null;
-            if (message.status != null && message.hasOwnProperty("status"))
-                object.status = $root.protos.common.Status.toObject(message.status, options);
-            return object;
-        };
-
-        /**
-         * Converts this DeleteTunnelResponse to JSON.
-         * @function toJSON
-         * @memberof protos.DeleteTunnelResponse
-         * @instance
-         * @returns {Object.<string,*>} JSON object
-         */
-        DeleteTunnelResponse.prototype.toJSON = function toJSON() {
-            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-        };
-
-        return DeleteTunnelResponse;
-    })();
-
     protos.GetAllRelaysRequest = (function() {
 
         /**
@@ -54705,6 +51818,2959 @@ $root.protos = (function() {
         };
 
         return GetServerOptionsResponse;
+    })();
+
+    protos.GetAllTunnelsRequest = (function() {
+
+        /**
+         * Properties of a GetAllTunnelsRequest.
+         * @memberof protos
+         * @interface IGetAllTunnelsRequest
+         * @property {protos.common.IAuth|null} [auth] GetAllTunnelsRequest auth
+         */
+
+        /**
+         * Constructs a new GetAllTunnelsRequest.
+         * @memberof protos
+         * @classdesc Represents a GetAllTunnelsRequest.
+         * @implements IGetAllTunnelsRequest
+         * @constructor
+         * @param {protos.IGetAllTunnelsRequest=} [properties] Properties to set
+         */
+        function GetAllTunnelsRequest(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * GetAllTunnelsRequest auth.
+         * @member {protos.common.IAuth|null|undefined} auth
+         * @memberof protos.GetAllTunnelsRequest
+         * @instance
+         */
+        GetAllTunnelsRequest.prototype.auth = null;
+
+        /**
+         * Creates a new GetAllTunnelsRequest instance using the specified properties.
+         * @function create
+         * @memberof protos.GetAllTunnelsRequest
+         * @static
+         * @param {protos.IGetAllTunnelsRequest=} [properties] Properties to set
+         * @returns {protos.GetAllTunnelsRequest} GetAllTunnelsRequest instance
+         */
+        GetAllTunnelsRequest.create = function create(properties) {
+            return new GetAllTunnelsRequest(properties);
+        };
+
+        /**
+         * Encodes the specified GetAllTunnelsRequest message. Does not implicitly {@link protos.GetAllTunnelsRequest.verify|verify} messages.
+         * @function encode
+         * @memberof protos.GetAllTunnelsRequest
+         * @static
+         * @param {protos.IGetAllTunnelsRequest} message GetAllTunnelsRequest message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        GetAllTunnelsRequest.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.auth != null && Object.hasOwnProperty.call(message, "auth"))
+                $root.protos.common.Auth.encode(message.auth, writer.uint32(/* id 9999, wireType 2 =*/79994).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Encodes the specified GetAllTunnelsRequest message, length delimited. Does not implicitly {@link protos.GetAllTunnelsRequest.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.GetAllTunnelsRequest
+         * @static
+         * @param {protos.IGetAllTunnelsRequest} message GetAllTunnelsRequest message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        GetAllTunnelsRequest.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a GetAllTunnelsRequest message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.GetAllTunnelsRequest
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.GetAllTunnelsRequest} GetAllTunnelsRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        GetAllTunnelsRequest.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.GetAllTunnelsRequest();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 9999:
+                    message.auth = $root.protos.common.Auth.decode(reader, reader.uint32());
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a GetAllTunnelsRequest message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.GetAllTunnelsRequest
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.GetAllTunnelsRequest} GetAllTunnelsRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        GetAllTunnelsRequest.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a GetAllTunnelsRequest message.
+         * @function verify
+         * @memberof protos.GetAllTunnelsRequest
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        GetAllTunnelsRequest.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.auth != null && message.hasOwnProperty("auth")) {
+                var error = $root.protos.common.Auth.verify(message.auth);
+                if (error)
+                    return "auth." + error;
+            }
+            return null;
+        };
+
+        /**
+         * Creates a GetAllTunnelsRequest message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.GetAllTunnelsRequest
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.GetAllTunnelsRequest} GetAllTunnelsRequest
+         */
+        GetAllTunnelsRequest.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.GetAllTunnelsRequest)
+                return object;
+            var message = new $root.protos.GetAllTunnelsRequest();
+            if (object.auth != null) {
+                if (typeof object.auth !== "object")
+                    throw TypeError(".protos.GetAllTunnelsRequest.auth: object expected");
+                message.auth = $root.protos.common.Auth.fromObject(object.auth);
+            }
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a GetAllTunnelsRequest message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.GetAllTunnelsRequest
+         * @static
+         * @param {protos.GetAllTunnelsRequest} message GetAllTunnelsRequest
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        GetAllTunnelsRequest.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults)
+                object.auth = null;
+            if (message.auth != null && message.hasOwnProperty("auth"))
+                object.auth = $root.protos.common.Auth.toObject(message.auth, options);
+            return object;
+        };
+
+        /**
+         * Converts this GetAllTunnelsRequest to JSON.
+         * @function toJSON
+         * @memberof protos.GetAllTunnelsRequest
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        GetAllTunnelsRequest.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return GetAllTunnelsRequest;
+    })();
+
+    protos.GetAllTunnelsResponse = (function() {
+
+        /**
+         * Properties of a GetAllTunnelsResponse.
+         * @memberof protos
+         * @interface IGetAllTunnelsResponse
+         * @property {protos.common.IStatus|null} [status] GetAllTunnelsResponse status
+         * @property {Array.<protos.opts.ITunnelOptions>|null} [opts] GetAllTunnelsResponse opts
+         */
+
+        /**
+         * Constructs a new GetAllTunnelsResponse.
+         * @memberof protos
+         * @classdesc Represents a GetAllTunnelsResponse.
+         * @implements IGetAllTunnelsResponse
+         * @constructor
+         * @param {protos.IGetAllTunnelsResponse=} [properties] Properties to set
+         */
+        function GetAllTunnelsResponse(properties) {
+            this.opts = [];
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * GetAllTunnelsResponse status.
+         * @member {protos.common.IStatus|null|undefined} status
+         * @memberof protos.GetAllTunnelsResponse
+         * @instance
+         */
+        GetAllTunnelsResponse.prototype.status = null;
+
+        /**
+         * GetAllTunnelsResponse opts.
+         * @member {Array.<protos.opts.ITunnelOptions>} opts
+         * @memberof protos.GetAllTunnelsResponse
+         * @instance
+         */
+        GetAllTunnelsResponse.prototype.opts = $util.emptyArray;
+
+        /**
+         * Creates a new GetAllTunnelsResponse instance using the specified properties.
+         * @function create
+         * @memberof protos.GetAllTunnelsResponse
+         * @static
+         * @param {protos.IGetAllTunnelsResponse=} [properties] Properties to set
+         * @returns {protos.GetAllTunnelsResponse} GetAllTunnelsResponse instance
+         */
+        GetAllTunnelsResponse.create = function create(properties) {
+            return new GetAllTunnelsResponse(properties);
+        };
+
+        /**
+         * Encodes the specified GetAllTunnelsResponse message. Does not implicitly {@link protos.GetAllTunnelsResponse.verify|verify} messages.
+         * @function encode
+         * @memberof protos.GetAllTunnelsResponse
+         * @static
+         * @param {protos.IGetAllTunnelsResponse} message GetAllTunnelsResponse message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        GetAllTunnelsResponse.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.opts != null && message.opts.length)
+                for (var i = 0; i < message.opts.length; ++i)
+                    $root.protos.opts.TunnelOptions.encode(message.opts[i], writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+            if (message.status != null && Object.hasOwnProperty.call(message, "status"))
+                $root.protos.common.Status.encode(message.status, writer.uint32(/* id 1000, wireType 2 =*/8002).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Encodes the specified GetAllTunnelsResponse message, length delimited. Does not implicitly {@link protos.GetAllTunnelsResponse.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.GetAllTunnelsResponse
+         * @static
+         * @param {protos.IGetAllTunnelsResponse} message GetAllTunnelsResponse message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        GetAllTunnelsResponse.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a GetAllTunnelsResponse message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.GetAllTunnelsResponse
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.GetAllTunnelsResponse} GetAllTunnelsResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        GetAllTunnelsResponse.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.GetAllTunnelsResponse();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1000:
+                    message.status = $root.protos.common.Status.decode(reader, reader.uint32());
+                    break;
+                case 1:
+                    if (!(message.opts && message.opts.length))
+                        message.opts = [];
+                    message.opts.push($root.protos.opts.TunnelOptions.decode(reader, reader.uint32()));
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a GetAllTunnelsResponse message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.GetAllTunnelsResponse
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.GetAllTunnelsResponse} GetAllTunnelsResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        GetAllTunnelsResponse.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a GetAllTunnelsResponse message.
+         * @function verify
+         * @memberof protos.GetAllTunnelsResponse
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        GetAllTunnelsResponse.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.status != null && message.hasOwnProperty("status")) {
+                var error = $root.protos.common.Status.verify(message.status);
+                if (error)
+                    return "status." + error;
+            }
+            if (message.opts != null && message.hasOwnProperty("opts")) {
+                if (!Array.isArray(message.opts))
+                    return "opts: array expected";
+                for (var i = 0; i < message.opts.length; ++i) {
+                    var error = $root.protos.opts.TunnelOptions.verify(message.opts[i]);
+                    if (error)
+                        return "opts." + error;
+                }
+            }
+            return null;
+        };
+
+        /**
+         * Creates a GetAllTunnelsResponse message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.GetAllTunnelsResponse
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.GetAllTunnelsResponse} GetAllTunnelsResponse
+         */
+        GetAllTunnelsResponse.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.GetAllTunnelsResponse)
+                return object;
+            var message = new $root.protos.GetAllTunnelsResponse();
+            if (object.status != null) {
+                if (typeof object.status !== "object")
+                    throw TypeError(".protos.GetAllTunnelsResponse.status: object expected");
+                message.status = $root.protos.common.Status.fromObject(object.status);
+            }
+            if (object.opts) {
+                if (!Array.isArray(object.opts))
+                    throw TypeError(".protos.GetAllTunnelsResponse.opts: array expected");
+                message.opts = [];
+                for (var i = 0; i < object.opts.length; ++i) {
+                    if (typeof object.opts[i] !== "object")
+                        throw TypeError(".protos.GetAllTunnelsResponse.opts: object expected");
+                    message.opts[i] = $root.protos.opts.TunnelOptions.fromObject(object.opts[i]);
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a GetAllTunnelsResponse message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.GetAllTunnelsResponse
+         * @static
+         * @param {protos.GetAllTunnelsResponse} message GetAllTunnelsResponse
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        GetAllTunnelsResponse.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.arrays || options.defaults)
+                object.opts = [];
+            if (options.defaults)
+                object.status = null;
+            if (message.opts && message.opts.length) {
+                object.opts = [];
+                for (var j = 0; j < message.opts.length; ++j)
+                    object.opts[j] = $root.protos.opts.TunnelOptions.toObject(message.opts[j], options);
+            }
+            if (message.status != null && message.hasOwnProperty("status"))
+                object.status = $root.protos.common.Status.toObject(message.status, options);
+            return object;
+        };
+
+        /**
+         * Converts this GetAllTunnelsResponse to JSON.
+         * @function toJSON
+         * @memberof protos.GetAllTunnelsResponse
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        GetAllTunnelsResponse.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return GetAllTunnelsResponse;
+    })();
+
+    protos.GetTunnelRequest = (function() {
+
+        /**
+         * Properties of a GetTunnelRequest.
+         * @memberof protos
+         * @interface IGetTunnelRequest
+         * @property {protos.common.IAuth|null} [auth] GetTunnelRequest auth
+         * @property {string|null} [tunnelId] GetTunnelRequest tunnelId
+         */
+
+        /**
+         * Constructs a new GetTunnelRequest.
+         * @memberof protos
+         * @classdesc Represents a GetTunnelRequest.
+         * @implements IGetTunnelRequest
+         * @constructor
+         * @param {protos.IGetTunnelRequest=} [properties] Properties to set
+         */
+        function GetTunnelRequest(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * GetTunnelRequest auth.
+         * @member {protos.common.IAuth|null|undefined} auth
+         * @memberof protos.GetTunnelRequest
+         * @instance
+         */
+        GetTunnelRequest.prototype.auth = null;
+
+        /**
+         * GetTunnelRequest tunnelId.
+         * @member {string} tunnelId
+         * @memberof protos.GetTunnelRequest
+         * @instance
+         */
+        GetTunnelRequest.prototype.tunnelId = "";
+
+        /**
+         * Creates a new GetTunnelRequest instance using the specified properties.
+         * @function create
+         * @memberof protos.GetTunnelRequest
+         * @static
+         * @param {protos.IGetTunnelRequest=} [properties] Properties to set
+         * @returns {protos.GetTunnelRequest} GetTunnelRequest instance
+         */
+        GetTunnelRequest.create = function create(properties) {
+            return new GetTunnelRequest(properties);
+        };
+
+        /**
+         * Encodes the specified GetTunnelRequest message. Does not implicitly {@link protos.GetTunnelRequest.verify|verify} messages.
+         * @function encode
+         * @memberof protos.GetTunnelRequest
+         * @static
+         * @param {protos.IGetTunnelRequest} message GetTunnelRequest message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        GetTunnelRequest.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.tunnelId != null && Object.hasOwnProperty.call(message, "tunnelId"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.tunnelId);
+            if (message.auth != null && Object.hasOwnProperty.call(message, "auth"))
+                $root.protos.common.Auth.encode(message.auth, writer.uint32(/* id 9999, wireType 2 =*/79994).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Encodes the specified GetTunnelRequest message, length delimited. Does not implicitly {@link protos.GetTunnelRequest.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.GetTunnelRequest
+         * @static
+         * @param {protos.IGetTunnelRequest} message GetTunnelRequest message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        GetTunnelRequest.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a GetTunnelRequest message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.GetTunnelRequest
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.GetTunnelRequest} GetTunnelRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        GetTunnelRequest.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.GetTunnelRequest();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 9999:
+                    message.auth = $root.protos.common.Auth.decode(reader, reader.uint32());
+                    break;
+                case 1:
+                    message.tunnelId = reader.string();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a GetTunnelRequest message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.GetTunnelRequest
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.GetTunnelRequest} GetTunnelRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        GetTunnelRequest.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a GetTunnelRequest message.
+         * @function verify
+         * @memberof protos.GetTunnelRequest
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        GetTunnelRequest.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.auth != null && message.hasOwnProperty("auth")) {
+                var error = $root.protos.common.Auth.verify(message.auth);
+                if (error)
+                    return "auth." + error;
+            }
+            if (message.tunnelId != null && message.hasOwnProperty("tunnelId"))
+                if (!$util.isString(message.tunnelId))
+                    return "tunnelId: string expected";
+            return null;
+        };
+
+        /**
+         * Creates a GetTunnelRequest message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.GetTunnelRequest
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.GetTunnelRequest} GetTunnelRequest
+         */
+        GetTunnelRequest.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.GetTunnelRequest)
+                return object;
+            var message = new $root.protos.GetTunnelRequest();
+            if (object.auth != null) {
+                if (typeof object.auth !== "object")
+                    throw TypeError(".protos.GetTunnelRequest.auth: object expected");
+                message.auth = $root.protos.common.Auth.fromObject(object.auth);
+            }
+            if (object.tunnelId != null)
+                message.tunnelId = String(object.tunnelId);
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a GetTunnelRequest message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.GetTunnelRequest
+         * @static
+         * @param {protos.GetTunnelRequest} message GetTunnelRequest
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        GetTunnelRequest.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.tunnelId = "";
+                object.auth = null;
+            }
+            if (message.tunnelId != null && message.hasOwnProperty("tunnelId"))
+                object.tunnelId = message.tunnelId;
+            if (message.auth != null && message.hasOwnProperty("auth"))
+                object.auth = $root.protos.common.Auth.toObject(message.auth, options);
+            return object;
+        };
+
+        /**
+         * Converts this GetTunnelRequest to JSON.
+         * @function toJSON
+         * @memberof protos.GetTunnelRequest
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        GetTunnelRequest.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return GetTunnelRequest;
+    })();
+
+    protos.GetTunnelResponse = (function() {
+
+        /**
+         * Properties of a GetTunnelResponse.
+         * @memberof protos
+         * @interface IGetTunnelResponse
+         * @property {protos.common.IStatus|null} [status] GetTunnelResponse status
+         * @property {protos.opts.ITunnelOptions|null} [opts] GetTunnelResponse opts
+         */
+
+        /**
+         * Constructs a new GetTunnelResponse.
+         * @memberof protos
+         * @classdesc Represents a GetTunnelResponse.
+         * @implements IGetTunnelResponse
+         * @constructor
+         * @param {protos.IGetTunnelResponse=} [properties] Properties to set
+         */
+        function GetTunnelResponse(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * GetTunnelResponse status.
+         * @member {protos.common.IStatus|null|undefined} status
+         * @memberof protos.GetTunnelResponse
+         * @instance
+         */
+        GetTunnelResponse.prototype.status = null;
+
+        /**
+         * GetTunnelResponse opts.
+         * @member {protos.opts.ITunnelOptions|null|undefined} opts
+         * @memberof protos.GetTunnelResponse
+         * @instance
+         */
+        GetTunnelResponse.prototype.opts = null;
+
+        /**
+         * Creates a new GetTunnelResponse instance using the specified properties.
+         * @function create
+         * @memberof protos.GetTunnelResponse
+         * @static
+         * @param {protos.IGetTunnelResponse=} [properties] Properties to set
+         * @returns {protos.GetTunnelResponse} GetTunnelResponse instance
+         */
+        GetTunnelResponse.create = function create(properties) {
+            return new GetTunnelResponse(properties);
+        };
+
+        /**
+         * Encodes the specified GetTunnelResponse message. Does not implicitly {@link protos.GetTunnelResponse.verify|verify} messages.
+         * @function encode
+         * @memberof protos.GetTunnelResponse
+         * @static
+         * @param {protos.IGetTunnelResponse} message GetTunnelResponse message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        GetTunnelResponse.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.opts != null && Object.hasOwnProperty.call(message, "opts"))
+                $root.protos.opts.TunnelOptions.encode(message.opts, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+            if (message.status != null && Object.hasOwnProperty.call(message, "status"))
+                $root.protos.common.Status.encode(message.status, writer.uint32(/* id 1000, wireType 2 =*/8002).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Encodes the specified GetTunnelResponse message, length delimited. Does not implicitly {@link protos.GetTunnelResponse.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.GetTunnelResponse
+         * @static
+         * @param {protos.IGetTunnelResponse} message GetTunnelResponse message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        GetTunnelResponse.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a GetTunnelResponse message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.GetTunnelResponse
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.GetTunnelResponse} GetTunnelResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        GetTunnelResponse.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.GetTunnelResponse();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1000:
+                    message.status = $root.protos.common.Status.decode(reader, reader.uint32());
+                    break;
+                case 1:
+                    message.opts = $root.protos.opts.TunnelOptions.decode(reader, reader.uint32());
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a GetTunnelResponse message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.GetTunnelResponse
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.GetTunnelResponse} GetTunnelResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        GetTunnelResponse.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a GetTunnelResponse message.
+         * @function verify
+         * @memberof protos.GetTunnelResponse
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        GetTunnelResponse.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.status != null && message.hasOwnProperty("status")) {
+                var error = $root.protos.common.Status.verify(message.status);
+                if (error)
+                    return "status." + error;
+            }
+            if (message.opts != null && message.hasOwnProperty("opts")) {
+                var error = $root.protos.opts.TunnelOptions.verify(message.opts);
+                if (error)
+                    return "opts." + error;
+            }
+            return null;
+        };
+
+        /**
+         * Creates a GetTunnelResponse message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.GetTunnelResponse
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.GetTunnelResponse} GetTunnelResponse
+         */
+        GetTunnelResponse.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.GetTunnelResponse)
+                return object;
+            var message = new $root.protos.GetTunnelResponse();
+            if (object.status != null) {
+                if (typeof object.status !== "object")
+                    throw TypeError(".protos.GetTunnelResponse.status: object expected");
+                message.status = $root.protos.common.Status.fromObject(object.status);
+            }
+            if (object.opts != null) {
+                if (typeof object.opts !== "object")
+                    throw TypeError(".protos.GetTunnelResponse.opts: object expected");
+                message.opts = $root.protos.opts.TunnelOptions.fromObject(object.opts);
+            }
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a GetTunnelResponse message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.GetTunnelResponse
+         * @static
+         * @param {protos.GetTunnelResponse} message GetTunnelResponse
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        GetTunnelResponse.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.opts = null;
+                object.status = null;
+            }
+            if (message.opts != null && message.hasOwnProperty("opts"))
+                object.opts = $root.protos.opts.TunnelOptions.toObject(message.opts, options);
+            if (message.status != null && message.hasOwnProperty("status"))
+                object.status = $root.protos.common.Status.toObject(message.status, options);
+            return object;
+        };
+
+        /**
+         * Converts this GetTunnelResponse to JSON.
+         * @function toJSON
+         * @memberof protos.GetTunnelResponse
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        GetTunnelResponse.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return GetTunnelResponse;
+    })();
+
+    protos.CreateTunnelRequest = (function() {
+
+        /**
+         * Properties of a CreateTunnelRequest.
+         * @memberof protos
+         * @interface ICreateTunnelRequest
+         * @property {protos.common.IAuth|null} [auth] CreateTunnelRequest auth
+         * @property {protos.opts.ITunnelOptions|null} [opts] CreateTunnelRequest opts
+         */
+
+        /**
+         * Constructs a new CreateTunnelRequest.
+         * @memberof protos
+         * @classdesc Represents a CreateTunnelRequest.
+         * @implements ICreateTunnelRequest
+         * @constructor
+         * @param {protos.ICreateTunnelRequest=} [properties] Properties to set
+         */
+        function CreateTunnelRequest(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * CreateTunnelRequest auth.
+         * @member {protos.common.IAuth|null|undefined} auth
+         * @memberof protos.CreateTunnelRequest
+         * @instance
+         */
+        CreateTunnelRequest.prototype.auth = null;
+
+        /**
+         * CreateTunnelRequest opts.
+         * @member {protos.opts.ITunnelOptions|null|undefined} opts
+         * @memberof protos.CreateTunnelRequest
+         * @instance
+         */
+        CreateTunnelRequest.prototype.opts = null;
+
+        /**
+         * Creates a new CreateTunnelRequest instance using the specified properties.
+         * @function create
+         * @memberof protos.CreateTunnelRequest
+         * @static
+         * @param {protos.ICreateTunnelRequest=} [properties] Properties to set
+         * @returns {protos.CreateTunnelRequest} CreateTunnelRequest instance
+         */
+        CreateTunnelRequest.create = function create(properties) {
+            return new CreateTunnelRequest(properties);
+        };
+
+        /**
+         * Encodes the specified CreateTunnelRequest message. Does not implicitly {@link protos.CreateTunnelRequest.verify|verify} messages.
+         * @function encode
+         * @memberof protos.CreateTunnelRequest
+         * @static
+         * @param {protos.ICreateTunnelRequest} message CreateTunnelRequest message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        CreateTunnelRequest.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.opts != null && Object.hasOwnProperty.call(message, "opts"))
+                $root.protos.opts.TunnelOptions.encode(message.opts, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+            if (message.auth != null && Object.hasOwnProperty.call(message, "auth"))
+                $root.protos.common.Auth.encode(message.auth, writer.uint32(/* id 9999, wireType 2 =*/79994).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Encodes the specified CreateTunnelRequest message, length delimited. Does not implicitly {@link protos.CreateTunnelRequest.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.CreateTunnelRequest
+         * @static
+         * @param {protos.ICreateTunnelRequest} message CreateTunnelRequest message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        CreateTunnelRequest.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a CreateTunnelRequest message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.CreateTunnelRequest
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.CreateTunnelRequest} CreateTunnelRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        CreateTunnelRequest.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.CreateTunnelRequest();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 9999:
+                    message.auth = $root.protos.common.Auth.decode(reader, reader.uint32());
+                    break;
+                case 1:
+                    message.opts = $root.protos.opts.TunnelOptions.decode(reader, reader.uint32());
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a CreateTunnelRequest message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.CreateTunnelRequest
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.CreateTunnelRequest} CreateTunnelRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        CreateTunnelRequest.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a CreateTunnelRequest message.
+         * @function verify
+         * @memberof protos.CreateTunnelRequest
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        CreateTunnelRequest.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.auth != null && message.hasOwnProperty("auth")) {
+                var error = $root.protos.common.Auth.verify(message.auth);
+                if (error)
+                    return "auth." + error;
+            }
+            if (message.opts != null && message.hasOwnProperty("opts")) {
+                var error = $root.protos.opts.TunnelOptions.verify(message.opts);
+                if (error)
+                    return "opts." + error;
+            }
+            return null;
+        };
+
+        /**
+         * Creates a CreateTunnelRequest message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.CreateTunnelRequest
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.CreateTunnelRequest} CreateTunnelRequest
+         */
+        CreateTunnelRequest.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.CreateTunnelRequest)
+                return object;
+            var message = new $root.protos.CreateTunnelRequest();
+            if (object.auth != null) {
+                if (typeof object.auth !== "object")
+                    throw TypeError(".protos.CreateTunnelRequest.auth: object expected");
+                message.auth = $root.protos.common.Auth.fromObject(object.auth);
+            }
+            if (object.opts != null) {
+                if (typeof object.opts !== "object")
+                    throw TypeError(".protos.CreateTunnelRequest.opts: object expected");
+                message.opts = $root.protos.opts.TunnelOptions.fromObject(object.opts);
+            }
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a CreateTunnelRequest message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.CreateTunnelRequest
+         * @static
+         * @param {protos.CreateTunnelRequest} message CreateTunnelRequest
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        CreateTunnelRequest.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.opts = null;
+                object.auth = null;
+            }
+            if (message.opts != null && message.hasOwnProperty("opts"))
+                object.opts = $root.protos.opts.TunnelOptions.toObject(message.opts, options);
+            if (message.auth != null && message.hasOwnProperty("auth"))
+                object.auth = $root.protos.common.Auth.toObject(message.auth, options);
+            return object;
+        };
+
+        /**
+         * Converts this CreateTunnelRequest to JSON.
+         * @function toJSON
+         * @memberof protos.CreateTunnelRequest
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        CreateTunnelRequest.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return CreateTunnelRequest;
+    })();
+
+    protos.CreateTunnelResponse = (function() {
+
+        /**
+         * Properties of a CreateTunnelResponse.
+         * @memberof protos
+         * @interface ICreateTunnelResponse
+         * @property {protos.common.IStatus|null} [status] CreateTunnelResponse status
+         * @property {string|null} [tunnelId] CreateTunnelResponse tunnelId
+         */
+
+        /**
+         * Constructs a new CreateTunnelResponse.
+         * @memberof protos
+         * @classdesc Represents a CreateTunnelResponse.
+         * @implements ICreateTunnelResponse
+         * @constructor
+         * @param {protos.ICreateTunnelResponse=} [properties] Properties to set
+         */
+        function CreateTunnelResponse(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * CreateTunnelResponse status.
+         * @member {protos.common.IStatus|null|undefined} status
+         * @memberof protos.CreateTunnelResponse
+         * @instance
+         */
+        CreateTunnelResponse.prototype.status = null;
+
+        /**
+         * CreateTunnelResponse tunnelId.
+         * @member {string} tunnelId
+         * @memberof protos.CreateTunnelResponse
+         * @instance
+         */
+        CreateTunnelResponse.prototype.tunnelId = "";
+
+        /**
+         * Creates a new CreateTunnelResponse instance using the specified properties.
+         * @function create
+         * @memberof protos.CreateTunnelResponse
+         * @static
+         * @param {protos.ICreateTunnelResponse=} [properties] Properties to set
+         * @returns {protos.CreateTunnelResponse} CreateTunnelResponse instance
+         */
+        CreateTunnelResponse.create = function create(properties) {
+            return new CreateTunnelResponse(properties);
+        };
+
+        /**
+         * Encodes the specified CreateTunnelResponse message. Does not implicitly {@link protos.CreateTunnelResponse.verify|verify} messages.
+         * @function encode
+         * @memberof protos.CreateTunnelResponse
+         * @static
+         * @param {protos.ICreateTunnelResponse} message CreateTunnelResponse message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        CreateTunnelResponse.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.tunnelId != null && Object.hasOwnProperty.call(message, "tunnelId"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.tunnelId);
+            if (message.status != null && Object.hasOwnProperty.call(message, "status"))
+                $root.protos.common.Status.encode(message.status, writer.uint32(/* id 1000, wireType 2 =*/8002).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Encodes the specified CreateTunnelResponse message, length delimited. Does not implicitly {@link protos.CreateTunnelResponse.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.CreateTunnelResponse
+         * @static
+         * @param {protos.ICreateTunnelResponse} message CreateTunnelResponse message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        CreateTunnelResponse.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a CreateTunnelResponse message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.CreateTunnelResponse
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.CreateTunnelResponse} CreateTunnelResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        CreateTunnelResponse.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.CreateTunnelResponse();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1000:
+                    message.status = $root.protos.common.Status.decode(reader, reader.uint32());
+                    break;
+                case 1:
+                    message.tunnelId = reader.string();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a CreateTunnelResponse message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.CreateTunnelResponse
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.CreateTunnelResponse} CreateTunnelResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        CreateTunnelResponse.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a CreateTunnelResponse message.
+         * @function verify
+         * @memberof protos.CreateTunnelResponse
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        CreateTunnelResponse.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.status != null && message.hasOwnProperty("status")) {
+                var error = $root.protos.common.Status.verify(message.status);
+                if (error)
+                    return "status." + error;
+            }
+            if (message.tunnelId != null && message.hasOwnProperty("tunnelId"))
+                if (!$util.isString(message.tunnelId))
+                    return "tunnelId: string expected";
+            return null;
+        };
+
+        /**
+         * Creates a CreateTunnelResponse message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.CreateTunnelResponse
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.CreateTunnelResponse} CreateTunnelResponse
+         */
+        CreateTunnelResponse.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.CreateTunnelResponse)
+                return object;
+            var message = new $root.protos.CreateTunnelResponse();
+            if (object.status != null) {
+                if (typeof object.status !== "object")
+                    throw TypeError(".protos.CreateTunnelResponse.status: object expected");
+                message.status = $root.protos.common.Status.fromObject(object.status);
+            }
+            if (object.tunnelId != null)
+                message.tunnelId = String(object.tunnelId);
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a CreateTunnelResponse message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.CreateTunnelResponse
+         * @static
+         * @param {protos.CreateTunnelResponse} message CreateTunnelResponse
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        CreateTunnelResponse.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.tunnelId = "";
+                object.status = null;
+            }
+            if (message.tunnelId != null && message.hasOwnProperty("tunnelId"))
+                object.tunnelId = message.tunnelId;
+            if (message.status != null && message.hasOwnProperty("status"))
+                object.status = $root.protos.common.Status.toObject(message.status, options);
+            return object;
+        };
+
+        /**
+         * Converts this CreateTunnelResponse to JSON.
+         * @function toJSON
+         * @memberof protos.CreateTunnelResponse
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        CreateTunnelResponse.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return CreateTunnelResponse;
+    })();
+
+    protos.UpdateTunnelRequest = (function() {
+
+        /**
+         * Properties of an UpdateTunnelRequest.
+         * @memberof protos
+         * @interface IUpdateTunnelRequest
+         * @property {protos.common.IAuth|null} [auth] UpdateTunnelRequest auth
+         * @property {string|null} [tunnelId] UpdateTunnelRequest tunnelId
+         * @property {protos.opts.ITunnelOptions|null} [opts] UpdateTunnelRequest opts
+         */
+
+        /**
+         * Constructs a new UpdateTunnelRequest.
+         * @memberof protos
+         * @classdesc Represents an UpdateTunnelRequest.
+         * @implements IUpdateTunnelRequest
+         * @constructor
+         * @param {protos.IUpdateTunnelRequest=} [properties] Properties to set
+         */
+        function UpdateTunnelRequest(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * UpdateTunnelRequest auth.
+         * @member {protos.common.IAuth|null|undefined} auth
+         * @memberof protos.UpdateTunnelRequest
+         * @instance
+         */
+        UpdateTunnelRequest.prototype.auth = null;
+
+        /**
+         * UpdateTunnelRequest tunnelId.
+         * @member {string} tunnelId
+         * @memberof protos.UpdateTunnelRequest
+         * @instance
+         */
+        UpdateTunnelRequest.prototype.tunnelId = "";
+
+        /**
+         * UpdateTunnelRequest opts.
+         * @member {protos.opts.ITunnelOptions|null|undefined} opts
+         * @memberof protos.UpdateTunnelRequest
+         * @instance
+         */
+        UpdateTunnelRequest.prototype.opts = null;
+
+        /**
+         * Creates a new UpdateTunnelRequest instance using the specified properties.
+         * @function create
+         * @memberof protos.UpdateTunnelRequest
+         * @static
+         * @param {protos.IUpdateTunnelRequest=} [properties] Properties to set
+         * @returns {protos.UpdateTunnelRequest} UpdateTunnelRequest instance
+         */
+        UpdateTunnelRequest.create = function create(properties) {
+            return new UpdateTunnelRequest(properties);
+        };
+
+        /**
+         * Encodes the specified UpdateTunnelRequest message. Does not implicitly {@link protos.UpdateTunnelRequest.verify|verify} messages.
+         * @function encode
+         * @memberof protos.UpdateTunnelRequest
+         * @static
+         * @param {protos.IUpdateTunnelRequest} message UpdateTunnelRequest message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        UpdateTunnelRequest.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.tunnelId != null && Object.hasOwnProperty.call(message, "tunnelId"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.tunnelId);
+            if (message.opts != null && Object.hasOwnProperty.call(message, "opts"))
+                $root.protos.opts.TunnelOptions.encode(message.opts, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+            if (message.auth != null && Object.hasOwnProperty.call(message, "auth"))
+                $root.protos.common.Auth.encode(message.auth, writer.uint32(/* id 9999, wireType 2 =*/79994).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Encodes the specified UpdateTunnelRequest message, length delimited. Does not implicitly {@link protos.UpdateTunnelRequest.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.UpdateTunnelRequest
+         * @static
+         * @param {protos.IUpdateTunnelRequest} message UpdateTunnelRequest message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        UpdateTunnelRequest.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes an UpdateTunnelRequest message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.UpdateTunnelRequest
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.UpdateTunnelRequest} UpdateTunnelRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        UpdateTunnelRequest.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.UpdateTunnelRequest();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 9999:
+                    message.auth = $root.protos.common.Auth.decode(reader, reader.uint32());
+                    break;
+                case 1:
+                    message.tunnelId = reader.string();
+                    break;
+                case 2:
+                    message.opts = $root.protos.opts.TunnelOptions.decode(reader, reader.uint32());
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes an UpdateTunnelRequest message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.UpdateTunnelRequest
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.UpdateTunnelRequest} UpdateTunnelRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        UpdateTunnelRequest.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies an UpdateTunnelRequest message.
+         * @function verify
+         * @memberof protos.UpdateTunnelRequest
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        UpdateTunnelRequest.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.auth != null && message.hasOwnProperty("auth")) {
+                var error = $root.protos.common.Auth.verify(message.auth);
+                if (error)
+                    return "auth." + error;
+            }
+            if (message.tunnelId != null && message.hasOwnProperty("tunnelId"))
+                if (!$util.isString(message.tunnelId))
+                    return "tunnelId: string expected";
+            if (message.opts != null && message.hasOwnProperty("opts")) {
+                var error = $root.protos.opts.TunnelOptions.verify(message.opts);
+                if (error)
+                    return "opts." + error;
+            }
+            return null;
+        };
+
+        /**
+         * Creates an UpdateTunnelRequest message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.UpdateTunnelRequest
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.UpdateTunnelRequest} UpdateTunnelRequest
+         */
+        UpdateTunnelRequest.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.UpdateTunnelRequest)
+                return object;
+            var message = new $root.protos.UpdateTunnelRequest();
+            if (object.auth != null) {
+                if (typeof object.auth !== "object")
+                    throw TypeError(".protos.UpdateTunnelRequest.auth: object expected");
+                message.auth = $root.protos.common.Auth.fromObject(object.auth);
+            }
+            if (object.tunnelId != null)
+                message.tunnelId = String(object.tunnelId);
+            if (object.opts != null) {
+                if (typeof object.opts !== "object")
+                    throw TypeError(".protos.UpdateTunnelRequest.opts: object expected");
+                message.opts = $root.protos.opts.TunnelOptions.fromObject(object.opts);
+            }
+            return message;
+        };
+
+        /**
+         * Creates a plain object from an UpdateTunnelRequest message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.UpdateTunnelRequest
+         * @static
+         * @param {protos.UpdateTunnelRequest} message UpdateTunnelRequest
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        UpdateTunnelRequest.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.tunnelId = "";
+                object.opts = null;
+                object.auth = null;
+            }
+            if (message.tunnelId != null && message.hasOwnProperty("tunnelId"))
+                object.tunnelId = message.tunnelId;
+            if (message.opts != null && message.hasOwnProperty("opts"))
+                object.opts = $root.protos.opts.TunnelOptions.toObject(message.opts, options);
+            if (message.auth != null && message.hasOwnProperty("auth"))
+                object.auth = $root.protos.common.Auth.toObject(message.auth, options);
+            return object;
+        };
+
+        /**
+         * Converts this UpdateTunnelRequest to JSON.
+         * @function toJSON
+         * @memberof protos.UpdateTunnelRequest
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        UpdateTunnelRequest.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return UpdateTunnelRequest;
+    })();
+
+    protos.UpdateTunnelResponse = (function() {
+
+        /**
+         * Properties of an UpdateTunnelResponse.
+         * @memberof protos
+         * @interface IUpdateTunnelResponse
+         * @property {protos.common.IStatus|null} [status] UpdateTunnelResponse status
+         */
+
+        /**
+         * Constructs a new UpdateTunnelResponse.
+         * @memberof protos
+         * @classdesc Represents an UpdateTunnelResponse.
+         * @implements IUpdateTunnelResponse
+         * @constructor
+         * @param {protos.IUpdateTunnelResponse=} [properties] Properties to set
+         */
+        function UpdateTunnelResponse(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * UpdateTunnelResponse status.
+         * @member {protos.common.IStatus|null|undefined} status
+         * @memberof protos.UpdateTunnelResponse
+         * @instance
+         */
+        UpdateTunnelResponse.prototype.status = null;
+
+        /**
+         * Creates a new UpdateTunnelResponse instance using the specified properties.
+         * @function create
+         * @memberof protos.UpdateTunnelResponse
+         * @static
+         * @param {protos.IUpdateTunnelResponse=} [properties] Properties to set
+         * @returns {protos.UpdateTunnelResponse} UpdateTunnelResponse instance
+         */
+        UpdateTunnelResponse.create = function create(properties) {
+            return new UpdateTunnelResponse(properties);
+        };
+
+        /**
+         * Encodes the specified UpdateTunnelResponse message. Does not implicitly {@link protos.UpdateTunnelResponse.verify|verify} messages.
+         * @function encode
+         * @memberof protos.UpdateTunnelResponse
+         * @static
+         * @param {protos.IUpdateTunnelResponse} message UpdateTunnelResponse message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        UpdateTunnelResponse.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.status != null && Object.hasOwnProperty.call(message, "status"))
+                $root.protos.common.Status.encode(message.status, writer.uint32(/* id 1000, wireType 2 =*/8002).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Encodes the specified UpdateTunnelResponse message, length delimited. Does not implicitly {@link protos.UpdateTunnelResponse.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.UpdateTunnelResponse
+         * @static
+         * @param {protos.IUpdateTunnelResponse} message UpdateTunnelResponse message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        UpdateTunnelResponse.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes an UpdateTunnelResponse message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.UpdateTunnelResponse
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.UpdateTunnelResponse} UpdateTunnelResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        UpdateTunnelResponse.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.UpdateTunnelResponse();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1000:
+                    message.status = $root.protos.common.Status.decode(reader, reader.uint32());
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes an UpdateTunnelResponse message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.UpdateTunnelResponse
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.UpdateTunnelResponse} UpdateTunnelResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        UpdateTunnelResponse.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies an UpdateTunnelResponse message.
+         * @function verify
+         * @memberof protos.UpdateTunnelResponse
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        UpdateTunnelResponse.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.status != null && message.hasOwnProperty("status")) {
+                var error = $root.protos.common.Status.verify(message.status);
+                if (error)
+                    return "status." + error;
+            }
+            return null;
+        };
+
+        /**
+         * Creates an UpdateTunnelResponse message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.UpdateTunnelResponse
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.UpdateTunnelResponse} UpdateTunnelResponse
+         */
+        UpdateTunnelResponse.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.UpdateTunnelResponse)
+                return object;
+            var message = new $root.protos.UpdateTunnelResponse();
+            if (object.status != null) {
+                if (typeof object.status !== "object")
+                    throw TypeError(".protos.UpdateTunnelResponse.status: object expected");
+                message.status = $root.protos.common.Status.fromObject(object.status);
+            }
+            return message;
+        };
+
+        /**
+         * Creates a plain object from an UpdateTunnelResponse message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.UpdateTunnelResponse
+         * @static
+         * @param {protos.UpdateTunnelResponse} message UpdateTunnelResponse
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        UpdateTunnelResponse.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults)
+                object.status = null;
+            if (message.status != null && message.hasOwnProperty("status"))
+                object.status = $root.protos.common.Status.toObject(message.status, options);
+            return object;
+        };
+
+        /**
+         * Converts this UpdateTunnelResponse to JSON.
+         * @function toJSON
+         * @memberof protos.UpdateTunnelResponse
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        UpdateTunnelResponse.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return UpdateTunnelResponse;
+    })();
+
+    protos.ResumeTunnelRequest = (function() {
+
+        /**
+         * Properties of a ResumeTunnelRequest.
+         * @memberof protos
+         * @interface IResumeTunnelRequest
+         * @property {protos.common.IAuth|null} [auth] ResumeTunnelRequest auth
+         * @property {string|null} [tunnelId] ResumeTunnelRequest tunnelId
+         */
+
+        /**
+         * Constructs a new ResumeTunnelRequest.
+         * @memberof protos
+         * @classdesc Represents a ResumeTunnelRequest.
+         * @implements IResumeTunnelRequest
+         * @constructor
+         * @param {protos.IResumeTunnelRequest=} [properties] Properties to set
+         */
+        function ResumeTunnelRequest(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * ResumeTunnelRequest auth.
+         * @member {protos.common.IAuth|null|undefined} auth
+         * @memberof protos.ResumeTunnelRequest
+         * @instance
+         */
+        ResumeTunnelRequest.prototype.auth = null;
+
+        /**
+         * ResumeTunnelRequest tunnelId.
+         * @member {string} tunnelId
+         * @memberof protos.ResumeTunnelRequest
+         * @instance
+         */
+        ResumeTunnelRequest.prototype.tunnelId = "";
+
+        /**
+         * Creates a new ResumeTunnelRequest instance using the specified properties.
+         * @function create
+         * @memberof protos.ResumeTunnelRequest
+         * @static
+         * @param {protos.IResumeTunnelRequest=} [properties] Properties to set
+         * @returns {protos.ResumeTunnelRequest} ResumeTunnelRequest instance
+         */
+        ResumeTunnelRequest.create = function create(properties) {
+            return new ResumeTunnelRequest(properties);
+        };
+
+        /**
+         * Encodes the specified ResumeTunnelRequest message. Does not implicitly {@link protos.ResumeTunnelRequest.verify|verify} messages.
+         * @function encode
+         * @memberof protos.ResumeTunnelRequest
+         * @static
+         * @param {protos.IResumeTunnelRequest} message ResumeTunnelRequest message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        ResumeTunnelRequest.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.tunnelId != null && Object.hasOwnProperty.call(message, "tunnelId"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.tunnelId);
+            if (message.auth != null && Object.hasOwnProperty.call(message, "auth"))
+                $root.protos.common.Auth.encode(message.auth, writer.uint32(/* id 9999, wireType 2 =*/79994).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Encodes the specified ResumeTunnelRequest message, length delimited. Does not implicitly {@link protos.ResumeTunnelRequest.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.ResumeTunnelRequest
+         * @static
+         * @param {protos.IResumeTunnelRequest} message ResumeTunnelRequest message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        ResumeTunnelRequest.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a ResumeTunnelRequest message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.ResumeTunnelRequest
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.ResumeTunnelRequest} ResumeTunnelRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        ResumeTunnelRequest.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.ResumeTunnelRequest();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 9999:
+                    message.auth = $root.protos.common.Auth.decode(reader, reader.uint32());
+                    break;
+                case 1:
+                    message.tunnelId = reader.string();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a ResumeTunnelRequest message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.ResumeTunnelRequest
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.ResumeTunnelRequest} ResumeTunnelRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        ResumeTunnelRequest.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a ResumeTunnelRequest message.
+         * @function verify
+         * @memberof protos.ResumeTunnelRequest
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        ResumeTunnelRequest.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.auth != null && message.hasOwnProperty("auth")) {
+                var error = $root.protos.common.Auth.verify(message.auth);
+                if (error)
+                    return "auth." + error;
+            }
+            if (message.tunnelId != null && message.hasOwnProperty("tunnelId"))
+                if (!$util.isString(message.tunnelId))
+                    return "tunnelId: string expected";
+            return null;
+        };
+
+        /**
+         * Creates a ResumeTunnelRequest message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.ResumeTunnelRequest
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.ResumeTunnelRequest} ResumeTunnelRequest
+         */
+        ResumeTunnelRequest.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.ResumeTunnelRequest)
+                return object;
+            var message = new $root.protos.ResumeTunnelRequest();
+            if (object.auth != null) {
+                if (typeof object.auth !== "object")
+                    throw TypeError(".protos.ResumeTunnelRequest.auth: object expected");
+                message.auth = $root.protos.common.Auth.fromObject(object.auth);
+            }
+            if (object.tunnelId != null)
+                message.tunnelId = String(object.tunnelId);
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a ResumeTunnelRequest message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.ResumeTunnelRequest
+         * @static
+         * @param {protos.ResumeTunnelRequest} message ResumeTunnelRequest
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        ResumeTunnelRequest.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.tunnelId = "";
+                object.auth = null;
+            }
+            if (message.tunnelId != null && message.hasOwnProperty("tunnelId"))
+                object.tunnelId = message.tunnelId;
+            if (message.auth != null && message.hasOwnProperty("auth"))
+                object.auth = $root.protos.common.Auth.toObject(message.auth, options);
+            return object;
+        };
+
+        /**
+         * Converts this ResumeTunnelRequest to JSON.
+         * @function toJSON
+         * @memberof protos.ResumeTunnelRequest
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        ResumeTunnelRequest.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return ResumeTunnelRequest;
+    })();
+
+    protos.ResumeTunnelResponse = (function() {
+
+        /**
+         * Properties of a ResumeTunnelResponse.
+         * @memberof protos
+         * @interface IResumeTunnelResponse
+         * @property {protos.common.IStatus|null} [status] ResumeTunnelResponse status
+         */
+
+        /**
+         * Constructs a new ResumeTunnelResponse.
+         * @memberof protos
+         * @classdesc Represents a ResumeTunnelResponse.
+         * @implements IResumeTunnelResponse
+         * @constructor
+         * @param {protos.IResumeTunnelResponse=} [properties] Properties to set
+         */
+        function ResumeTunnelResponse(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * ResumeTunnelResponse status.
+         * @member {protos.common.IStatus|null|undefined} status
+         * @memberof protos.ResumeTunnelResponse
+         * @instance
+         */
+        ResumeTunnelResponse.prototype.status = null;
+
+        /**
+         * Creates a new ResumeTunnelResponse instance using the specified properties.
+         * @function create
+         * @memberof protos.ResumeTunnelResponse
+         * @static
+         * @param {protos.IResumeTunnelResponse=} [properties] Properties to set
+         * @returns {protos.ResumeTunnelResponse} ResumeTunnelResponse instance
+         */
+        ResumeTunnelResponse.create = function create(properties) {
+            return new ResumeTunnelResponse(properties);
+        };
+
+        /**
+         * Encodes the specified ResumeTunnelResponse message. Does not implicitly {@link protos.ResumeTunnelResponse.verify|verify} messages.
+         * @function encode
+         * @memberof protos.ResumeTunnelResponse
+         * @static
+         * @param {protos.IResumeTunnelResponse} message ResumeTunnelResponse message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        ResumeTunnelResponse.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.status != null && Object.hasOwnProperty.call(message, "status"))
+                $root.protos.common.Status.encode(message.status, writer.uint32(/* id 1000, wireType 2 =*/8002).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Encodes the specified ResumeTunnelResponse message, length delimited. Does not implicitly {@link protos.ResumeTunnelResponse.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.ResumeTunnelResponse
+         * @static
+         * @param {protos.IResumeTunnelResponse} message ResumeTunnelResponse message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        ResumeTunnelResponse.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a ResumeTunnelResponse message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.ResumeTunnelResponse
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.ResumeTunnelResponse} ResumeTunnelResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        ResumeTunnelResponse.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.ResumeTunnelResponse();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1000:
+                    message.status = $root.protos.common.Status.decode(reader, reader.uint32());
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a ResumeTunnelResponse message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.ResumeTunnelResponse
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.ResumeTunnelResponse} ResumeTunnelResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        ResumeTunnelResponse.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a ResumeTunnelResponse message.
+         * @function verify
+         * @memberof protos.ResumeTunnelResponse
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        ResumeTunnelResponse.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.status != null && message.hasOwnProperty("status")) {
+                var error = $root.protos.common.Status.verify(message.status);
+                if (error)
+                    return "status." + error;
+            }
+            return null;
+        };
+
+        /**
+         * Creates a ResumeTunnelResponse message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.ResumeTunnelResponse
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.ResumeTunnelResponse} ResumeTunnelResponse
+         */
+        ResumeTunnelResponse.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.ResumeTunnelResponse)
+                return object;
+            var message = new $root.protos.ResumeTunnelResponse();
+            if (object.status != null) {
+                if (typeof object.status !== "object")
+                    throw TypeError(".protos.ResumeTunnelResponse.status: object expected");
+                message.status = $root.protos.common.Status.fromObject(object.status);
+            }
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a ResumeTunnelResponse message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.ResumeTunnelResponse
+         * @static
+         * @param {protos.ResumeTunnelResponse} message ResumeTunnelResponse
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        ResumeTunnelResponse.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults)
+                object.status = null;
+            if (message.status != null && message.hasOwnProperty("status"))
+                object.status = $root.protos.common.Status.toObject(message.status, options);
+            return object;
+        };
+
+        /**
+         * Converts this ResumeTunnelResponse to JSON.
+         * @function toJSON
+         * @memberof protos.ResumeTunnelResponse
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        ResumeTunnelResponse.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return ResumeTunnelResponse;
+    })();
+
+    protos.StopTunnelRequest = (function() {
+
+        /**
+         * Properties of a StopTunnelRequest.
+         * @memberof protos
+         * @interface IStopTunnelRequest
+         * @property {protos.common.IAuth|null} [auth] StopTunnelRequest auth
+         * @property {string|null} [tunnelId] StopTunnelRequest tunnelId
+         */
+
+        /**
+         * Constructs a new StopTunnelRequest.
+         * @memberof protos
+         * @classdesc Represents a StopTunnelRequest.
+         * @implements IStopTunnelRequest
+         * @constructor
+         * @param {protos.IStopTunnelRequest=} [properties] Properties to set
+         */
+        function StopTunnelRequest(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * StopTunnelRequest auth.
+         * @member {protos.common.IAuth|null|undefined} auth
+         * @memberof protos.StopTunnelRequest
+         * @instance
+         */
+        StopTunnelRequest.prototype.auth = null;
+
+        /**
+         * StopTunnelRequest tunnelId.
+         * @member {string} tunnelId
+         * @memberof protos.StopTunnelRequest
+         * @instance
+         */
+        StopTunnelRequest.prototype.tunnelId = "";
+
+        /**
+         * Creates a new StopTunnelRequest instance using the specified properties.
+         * @function create
+         * @memberof protos.StopTunnelRequest
+         * @static
+         * @param {protos.IStopTunnelRequest=} [properties] Properties to set
+         * @returns {protos.StopTunnelRequest} StopTunnelRequest instance
+         */
+        StopTunnelRequest.create = function create(properties) {
+            return new StopTunnelRequest(properties);
+        };
+
+        /**
+         * Encodes the specified StopTunnelRequest message. Does not implicitly {@link protos.StopTunnelRequest.verify|verify} messages.
+         * @function encode
+         * @memberof protos.StopTunnelRequest
+         * @static
+         * @param {protos.IStopTunnelRequest} message StopTunnelRequest message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        StopTunnelRequest.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.tunnelId != null && Object.hasOwnProperty.call(message, "tunnelId"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.tunnelId);
+            if (message.auth != null && Object.hasOwnProperty.call(message, "auth"))
+                $root.protos.common.Auth.encode(message.auth, writer.uint32(/* id 9999, wireType 2 =*/79994).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Encodes the specified StopTunnelRequest message, length delimited. Does not implicitly {@link protos.StopTunnelRequest.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.StopTunnelRequest
+         * @static
+         * @param {protos.IStopTunnelRequest} message StopTunnelRequest message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        StopTunnelRequest.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a StopTunnelRequest message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.StopTunnelRequest
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.StopTunnelRequest} StopTunnelRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        StopTunnelRequest.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.StopTunnelRequest();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 9999:
+                    message.auth = $root.protos.common.Auth.decode(reader, reader.uint32());
+                    break;
+                case 1:
+                    message.tunnelId = reader.string();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a StopTunnelRequest message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.StopTunnelRequest
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.StopTunnelRequest} StopTunnelRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        StopTunnelRequest.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a StopTunnelRequest message.
+         * @function verify
+         * @memberof protos.StopTunnelRequest
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        StopTunnelRequest.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.auth != null && message.hasOwnProperty("auth")) {
+                var error = $root.protos.common.Auth.verify(message.auth);
+                if (error)
+                    return "auth." + error;
+            }
+            if (message.tunnelId != null && message.hasOwnProperty("tunnelId"))
+                if (!$util.isString(message.tunnelId))
+                    return "tunnelId: string expected";
+            return null;
+        };
+
+        /**
+         * Creates a StopTunnelRequest message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.StopTunnelRequest
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.StopTunnelRequest} StopTunnelRequest
+         */
+        StopTunnelRequest.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.StopTunnelRequest)
+                return object;
+            var message = new $root.protos.StopTunnelRequest();
+            if (object.auth != null) {
+                if (typeof object.auth !== "object")
+                    throw TypeError(".protos.StopTunnelRequest.auth: object expected");
+                message.auth = $root.protos.common.Auth.fromObject(object.auth);
+            }
+            if (object.tunnelId != null)
+                message.tunnelId = String(object.tunnelId);
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a StopTunnelRequest message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.StopTunnelRequest
+         * @static
+         * @param {protos.StopTunnelRequest} message StopTunnelRequest
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        StopTunnelRequest.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.tunnelId = "";
+                object.auth = null;
+            }
+            if (message.tunnelId != null && message.hasOwnProperty("tunnelId"))
+                object.tunnelId = message.tunnelId;
+            if (message.auth != null && message.hasOwnProperty("auth"))
+                object.auth = $root.protos.common.Auth.toObject(message.auth, options);
+            return object;
+        };
+
+        /**
+         * Converts this StopTunnelRequest to JSON.
+         * @function toJSON
+         * @memberof protos.StopTunnelRequest
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        StopTunnelRequest.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return StopTunnelRequest;
+    })();
+
+    protos.StopTunnelResponse = (function() {
+
+        /**
+         * Properties of a StopTunnelResponse.
+         * @memberof protos
+         * @interface IStopTunnelResponse
+         * @property {protos.common.IStatus|null} [status] StopTunnelResponse status
+         */
+
+        /**
+         * Constructs a new StopTunnelResponse.
+         * @memberof protos
+         * @classdesc Represents a StopTunnelResponse.
+         * @implements IStopTunnelResponse
+         * @constructor
+         * @param {protos.IStopTunnelResponse=} [properties] Properties to set
+         */
+        function StopTunnelResponse(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * StopTunnelResponse status.
+         * @member {protos.common.IStatus|null|undefined} status
+         * @memberof protos.StopTunnelResponse
+         * @instance
+         */
+        StopTunnelResponse.prototype.status = null;
+
+        /**
+         * Creates a new StopTunnelResponse instance using the specified properties.
+         * @function create
+         * @memberof protos.StopTunnelResponse
+         * @static
+         * @param {protos.IStopTunnelResponse=} [properties] Properties to set
+         * @returns {protos.StopTunnelResponse} StopTunnelResponse instance
+         */
+        StopTunnelResponse.create = function create(properties) {
+            return new StopTunnelResponse(properties);
+        };
+
+        /**
+         * Encodes the specified StopTunnelResponse message. Does not implicitly {@link protos.StopTunnelResponse.verify|verify} messages.
+         * @function encode
+         * @memberof protos.StopTunnelResponse
+         * @static
+         * @param {protos.IStopTunnelResponse} message StopTunnelResponse message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        StopTunnelResponse.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.status != null && Object.hasOwnProperty.call(message, "status"))
+                $root.protos.common.Status.encode(message.status, writer.uint32(/* id 1000, wireType 2 =*/8002).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Encodes the specified StopTunnelResponse message, length delimited. Does not implicitly {@link protos.StopTunnelResponse.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.StopTunnelResponse
+         * @static
+         * @param {protos.IStopTunnelResponse} message StopTunnelResponse message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        StopTunnelResponse.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a StopTunnelResponse message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.StopTunnelResponse
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.StopTunnelResponse} StopTunnelResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        StopTunnelResponse.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.StopTunnelResponse();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1000:
+                    message.status = $root.protos.common.Status.decode(reader, reader.uint32());
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a StopTunnelResponse message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.StopTunnelResponse
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.StopTunnelResponse} StopTunnelResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        StopTunnelResponse.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a StopTunnelResponse message.
+         * @function verify
+         * @memberof protos.StopTunnelResponse
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        StopTunnelResponse.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.status != null && message.hasOwnProperty("status")) {
+                var error = $root.protos.common.Status.verify(message.status);
+                if (error)
+                    return "status." + error;
+            }
+            return null;
+        };
+
+        /**
+         * Creates a StopTunnelResponse message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.StopTunnelResponse
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.StopTunnelResponse} StopTunnelResponse
+         */
+        StopTunnelResponse.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.StopTunnelResponse)
+                return object;
+            var message = new $root.protos.StopTunnelResponse();
+            if (object.status != null) {
+                if (typeof object.status !== "object")
+                    throw TypeError(".protos.StopTunnelResponse.status: object expected");
+                message.status = $root.protos.common.Status.fromObject(object.status);
+            }
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a StopTunnelResponse message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.StopTunnelResponse
+         * @static
+         * @param {protos.StopTunnelResponse} message StopTunnelResponse
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        StopTunnelResponse.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults)
+                object.status = null;
+            if (message.status != null && message.hasOwnProperty("status"))
+                object.status = $root.protos.common.Status.toObject(message.status, options);
+            return object;
+        };
+
+        /**
+         * Converts this StopTunnelResponse to JSON.
+         * @function toJSON
+         * @memberof protos.StopTunnelResponse
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        StopTunnelResponse.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return StopTunnelResponse;
+    })();
+
+    protos.DeleteTunnelRequest = (function() {
+
+        /**
+         * Properties of a DeleteTunnelRequest.
+         * @memberof protos
+         * @interface IDeleteTunnelRequest
+         * @property {protos.common.IAuth|null} [auth] DeleteTunnelRequest auth
+         * @property {string|null} [tunnelId] DeleteTunnelRequest tunnelId
+         */
+
+        /**
+         * Constructs a new DeleteTunnelRequest.
+         * @memberof protos
+         * @classdesc Represents a DeleteTunnelRequest.
+         * @implements IDeleteTunnelRequest
+         * @constructor
+         * @param {protos.IDeleteTunnelRequest=} [properties] Properties to set
+         */
+        function DeleteTunnelRequest(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * DeleteTunnelRequest auth.
+         * @member {protos.common.IAuth|null|undefined} auth
+         * @memberof protos.DeleteTunnelRequest
+         * @instance
+         */
+        DeleteTunnelRequest.prototype.auth = null;
+
+        /**
+         * DeleteTunnelRequest tunnelId.
+         * @member {string} tunnelId
+         * @memberof protos.DeleteTunnelRequest
+         * @instance
+         */
+        DeleteTunnelRequest.prototype.tunnelId = "";
+
+        /**
+         * Creates a new DeleteTunnelRequest instance using the specified properties.
+         * @function create
+         * @memberof protos.DeleteTunnelRequest
+         * @static
+         * @param {protos.IDeleteTunnelRequest=} [properties] Properties to set
+         * @returns {protos.DeleteTunnelRequest} DeleteTunnelRequest instance
+         */
+        DeleteTunnelRequest.create = function create(properties) {
+            return new DeleteTunnelRequest(properties);
+        };
+
+        /**
+         * Encodes the specified DeleteTunnelRequest message. Does not implicitly {@link protos.DeleteTunnelRequest.verify|verify} messages.
+         * @function encode
+         * @memberof protos.DeleteTunnelRequest
+         * @static
+         * @param {protos.IDeleteTunnelRequest} message DeleteTunnelRequest message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        DeleteTunnelRequest.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.tunnelId != null && Object.hasOwnProperty.call(message, "tunnelId"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.tunnelId);
+            if (message.auth != null && Object.hasOwnProperty.call(message, "auth"))
+                $root.protos.common.Auth.encode(message.auth, writer.uint32(/* id 9999, wireType 2 =*/79994).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Encodes the specified DeleteTunnelRequest message, length delimited. Does not implicitly {@link protos.DeleteTunnelRequest.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.DeleteTunnelRequest
+         * @static
+         * @param {protos.IDeleteTunnelRequest} message DeleteTunnelRequest message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        DeleteTunnelRequest.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a DeleteTunnelRequest message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.DeleteTunnelRequest
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.DeleteTunnelRequest} DeleteTunnelRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        DeleteTunnelRequest.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.DeleteTunnelRequest();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 9999:
+                    message.auth = $root.protos.common.Auth.decode(reader, reader.uint32());
+                    break;
+                case 1:
+                    message.tunnelId = reader.string();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a DeleteTunnelRequest message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.DeleteTunnelRequest
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.DeleteTunnelRequest} DeleteTunnelRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        DeleteTunnelRequest.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a DeleteTunnelRequest message.
+         * @function verify
+         * @memberof protos.DeleteTunnelRequest
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        DeleteTunnelRequest.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.auth != null && message.hasOwnProperty("auth")) {
+                var error = $root.protos.common.Auth.verify(message.auth);
+                if (error)
+                    return "auth." + error;
+            }
+            if (message.tunnelId != null && message.hasOwnProperty("tunnelId"))
+                if (!$util.isString(message.tunnelId))
+                    return "tunnelId: string expected";
+            return null;
+        };
+
+        /**
+         * Creates a DeleteTunnelRequest message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.DeleteTunnelRequest
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.DeleteTunnelRequest} DeleteTunnelRequest
+         */
+        DeleteTunnelRequest.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.DeleteTunnelRequest)
+                return object;
+            var message = new $root.protos.DeleteTunnelRequest();
+            if (object.auth != null) {
+                if (typeof object.auth !== "object")
+                    throw TypeError(".protos.DeleteTunnelRequest.auth: object expected");
+                message.auth = $root.protos.common.Auth.fromObject(object.auth);
+            }
+            if (object.tunnelId != null)
+                message.tunnelId = String(object.tunnelId);
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a DeleteTunnelRequest message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.DeleteTunnelRequest
+         * @static
+         * @param {protos.DeleteTunnelRequest} message DeleteTunnelRequest
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        DeleteTunnelRequest.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.tunnelId = "";
+                object.auth = null;
+            }
+            if (message.tunnelId != null && message.hasOwnProperty("tunnelId"))
+                object.tunnelId = message.tunnelId;
+            if (message.auth != null && message.hasOwnProperty("auth"))
+                object.auth = $root.protos.common.Auth.toObject(message.auth, options);
+            return object;
+        };
+
+        /**
+         * Converts this DeleteTunnelRequest to JSON.
+         * @function toJSON
+         * @memberof protos.DeleteTunnelRequest
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        DeleteTunnelRequest.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return DeleteTunnelRequest;
+    })();
+
+    protos.DeleteTunnelResponse = (function() {
+
+        /**
+         * Properties of a DeleteTunnelResponse.
+         * @memberof protos
+         * @interface IDeleteTunnelResponse
+         * @property {protos.common.IStatus|null} [status] DeleteTunnelResponse status
+         */
+
+        /**
+         * Constructs a new DeleteTunnelResponse.
+         * @memberof protos
+         * @classdesc Represents a DeleteTunnelResponse.
+         * @implements IDeleteTunnelResponse
+         * @constructor
+         * @param {protos.IDeleteTunnelResponse=} [properties] Properties to set
+         */
+        function DeleteTunnelResponse(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * DeleteTunnelResponse status.
+         * @member {protos.common.IStatus|null|undefined} status
+         * @memberof protos.DeleteTunnelResponse
+         * @instance
+         */
+        DeleteTunnelResponse.prototype.status = null;
+
+        /**
+         * Creates a new DeleteTunnelResponse instance using the specified properties.
+         * @function create
+         * @memberof protos.DeleteTunnelResponse
+         * @static
+         * @param {protos.IDeleteTunnelResponse=} [properties] Properties to set
+         * @returns {protos.DeleteTunnelResponse} DeleteTunnelResponse instance
+         */
+        DeleteTunnelResponse.create = function create(properties) {
+            return new DeleteTunnelResponse(properties);
+        };
+
+        /**
+         * Encodes the specified DeleteTunnelResponse message. Does not implicitly {@link protos.DeleteTunnelResponse.verify|verify} messages.
+         * @function encode
+         * @memberof protos.DeleteTunnelResponse
+         * @static
+         * @param {protos.IDeleteTunnelResponse} message DeleteTunnelResponse message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        DeleteTunnelResponse.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.status != null && Object.hasOwnProperty.call(message, "status"))
+                $root.protos.common.Status.encode(message.status, writer.uint32(/* id 1000, wireType 2 =*/8002).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Encodes the specified DeleteTunnelResponse message, length delimited. Does not implicitly {@link protos.DeleteTunnelResponse.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.DeleteTunnelResponse
+         * @static
+         * @param {protos.IDeleteTunnelResponse} message DeleteTunnelResponse message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        DeleteTunnelResponse.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a DeleteTunnelResponse message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.DeleteTunnelResponse
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.DeleteTunnelResponse} DeleteTunnelResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        DeleteTunnelResponse.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.DeleteTunnelResponse();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1000:
+                    message.status = $root.protos.common.Status.decode(reader, reader.uint32());
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a DeleteTunnelResponse message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.DeleteTunnelResponse
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.DeleteTunnelResponse} DeleteTunnelResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        DeleteTunnelResponse.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a DeleteTunnelResponse message.
+         * @function verify
+         * @memberof protos.DeleteTunnelResponse
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        DeleteTunnelResponse.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.status != null && message.hasOwnProperty("status")) {
+                var error = $root.protos.common.Status.verify(message.status);
+                if (error)
+                    return "status." + error;
+            }
+            return null;
+        };
+
+        /**
+         * Creates a DeleteTunnelResponse message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.DeleteTunnelResponse
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.DeleteTunnelResponse} DeleteTunnelResponse
+         */
+        DeleteTunnelResponse.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.DeleteTunnelResponse)
+                return object;
+            var message = new $root.protos.DeleteTunnelResponse();
+            if (object.status != null) {
+                if (typeof object.status !== "object")
+                    throw TypeError(".protos.DeleteTunnelResponse.status: object expected");
+                message.status = $root.protos.common.Status.fromObject(object.status);
+            }
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a DeleteTunnelResponse message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.DeleteTunnelResponse
+         * @static
+         * @param {protos.DeleteTunnelResponse} message DeleteTunnelResponse
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        DeleteTunnelResponse.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults)
+                object.status = null;
+            if (message.status != null && message.hasOwnProperty("status"))
+                object.status = $root.protos.common.Status.toObject(message.status, options);
+            return object;
+        };
+
+        /**
+         * Converts this DeleteTunnelResponse to JSON.
+         * @function toJSON
+         * @memberof protos.DeleteTunnelResponse
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        DeleteTunnelResponse.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return DeleteTunnelResponse;
     })();
 
     protos.encoding = (function() {

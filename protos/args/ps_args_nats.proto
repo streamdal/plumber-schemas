@@ -27,6 +27,9 @@ message NatsTLSOptions {
 
   // @gotags: kong:"help='client key file (only needed if addr is tls://)',env='PLUMBER_RELAY_NATS_TLS_CLIENT_KEY'"
   bytes tls_client_key = 4;
+
+  // @gotags: kong:"help='Connect using TLS',env='PLUMBER_RELAY_NATS_USE_TLS'"
+  bool use_tls = 5;
 }
 
 message NatsReadArgs {
