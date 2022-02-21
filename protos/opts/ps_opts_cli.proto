@@ -3,6 +3,7 @@ syntax = "proto3";
 package protos.opts;
 
 import "opts/ps_opts_batch.proto";
+import "opts/ps_opts_manage.proto";
 import "opts/ps_opts_read.proto";
 import "opts/ps_opts_relay.proto";
 import "opts/ps_opts_server.proto";
@@ -62,4 +63,7 @@ message CLIOptions {
 
   // @gotags: kong:"cmd,help='Run plumber in server mode'"
   opts.ServerOptions server = 7;
+
+  // @gotags: kong:"cmd,help='Manage plumber server'"
+  opts.ManageOptions manage = 8;
 }
