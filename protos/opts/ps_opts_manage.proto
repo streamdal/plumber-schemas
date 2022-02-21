@@ -33,16 +33,16 @@ message ManageOptions {
 
 message GlobalManageOptions {
   // @gotags: kong:"help='Plumber server gRPC API address',default='localhost:9090'"
-  string address = 1;
+  string server_address = 1;
 
-  // @gotags: kong:"help='Plumber server auth token',default='bathcorp'"
-  string auth = 2;
+  // @gotags: kong:"help='Plumber server auth token',default='batchcorp'"
+  string server_token = 2;
 
   // @gotags: kong:"help='Use TLS when talking to plumber server',default='false'"
-  bool use_tls = 3;
+  bool server_use_tls = 3;
 
   // @gotags: kong:"help='Skip TLS server certificate verification',default='false'"
-  bool tls_skip_verify = 4;
+  bool server_insecure_tls = 4;
 }
 
 message GetOptions {

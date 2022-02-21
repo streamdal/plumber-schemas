@@ -25152,10 +25152,10 @@ $root.protos = (function() {
              * Properties of a GlobalManageOptions.
              * @memberof protos.opts
              * @interface IGlobalManageOptions
-             * @property {string|null} [address] GlobalManageOptions address
-             * @property {string|null} [auth] GlobalManageOptions auth
-             * @property {boolean|null} [useTls] GlobalManageOptions useTls
-             * @property {boolean|null} [tlsSkipVerify] GlobalManageOptions tlsSkipVerify
+             * @property {string|null} [serverAddress] GlobalManageOptions serverAddress
+             * @property {string|null} [serverToken] GlobalManageOptions serverToken
+             * @property {boolean|null} [serverUseTls] GlobalManageOptions serverUseTls
+             * @property {boolean|null} [serverInsecureTls] GlobalManageOptions serverInsecureTls
              */
 
             /**
@@ -25174,36 +25174,36 @@ $root.protos = (function() {
             }
 
             /**
-             * GlobalManageOptions address.
-             * @member {string} address
+             * GlobalManageOptions serverAddress.
+             * @member {string} serverAddress
              * @memberof protos.opts.GlobalManageOptions
              * @instance
              */
-            GlobalManageOptions.prototype.address = "";
+            GlobalManageOptions.prototype.serverAddress = "";
 
             /**
-             * GlobalManageOptions auth.
-             * @member {string} auth
+             * GlobalManageOptions serverToken.
+             * @member {string} serverToken
              * @memberof protos.opts.GlobalManageOptions
              * @instance
              */
-            GlobalManageOptions.prototype.auth = "";
+            GlobalManageOptions.prototype.serverToken = "";
 
             /**
-             * GlobalManageOptions useTls.
-             * @member {boolean} useTls
+             * GlobalManageOptions serverUseTls.
+             * @member {boolean} serverUseTls
              * @memberof protos.opts.GlobalManageOptions
              * @instance
              */
-            GlobalManageOptions.prototype.useTls = false;
+            GlobalManageOptions.prototype.serverUseTls = false;
 
             /**
-             * GlobalManageOptions tlsSkipVerify.
-             * @member {boolean} tlsSkipVerify
+             * GlobalManageOptions serverInsecureTls.
+             * @member {boolean} serverInsecureTls
              * @memberof protos.opts.GlobalManageOptions
              * @instance
              */
-            GlobalManageOptions.prototype.tlsSkipVerify = false;
+            GlobalManageOptions.prototype.serverInsecureTls = false;
 
             /**
              * Creates a new GlobalManageOptions instance using the specified properties.
@@ -25229,14 +25229,14 @@ $root.protos = (function() {
             GlobalManageOptions.encode = function encode(message, writer) {
                 if (!writer)
                     writer = $Writer.create();
-                if (message.address != null && Object.hasOwnProperty.call(message, "address"))
-                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.address);
-                if (message.auth != null && Object.hasOwnProperty.call(message, "auth"))
-                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.auth);
-                if (message.useTls != null && Object.hasOwnProperty.call(message, "useTls"))
-                    writer.uint32(/* id 3, wireType 0 =*/24).bool(message.useTls);
-                if (message.tlsSkipVerify != null && Object.hasOwnProperty.call(message, "tlsSkipVerify"))
-                    writer.uint32(/* id 4, wireType 0 =*/32).bool(message.tlsSkipVerify);
+                if (message.serverAddress != null && Object.hasOwnProperty.call(message, "serverAddress"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.serverAddress);
+                if (message.serverToken != null && Object.hasOwnProperty.call(message, "serverToken"))
+                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.serverToken);
+                if (message.serverUseTls != null && Object.hasOwnProperty.call(message, "serverUseTls"))
+                    writer.uint32(/* id 3, wireType 0 =*/24).bool(message.serverUseTls);
+                if (message.serverInsecureTls != null && Object.hasOwnProperty.call(message, "serverInsecureTls"))
+                    writer.uint32(/* id 4, wireType 0 =*/32).bool(message.serverInsecureTls);
                 return writer;
             };
 
@@ -25272,16 +25272,16 @@ $root.protos = (function() {
                     var tag = reader.uint32();
                     switch (tag >>> 3) {
                     case 1:
-                        message.address = reader.string();
+                        message.serverAddress = reader.string();
                         break;
                     case 2:
-                        message.auth = reader.string();
+                        message.serverToken = reader.string();
                         break;
                     case 3:
-                        message.useTls = reader.bool();
+                        message.serverUseTls = reader.bool();
                         break;
                     case 4:
-                        message.tlsSkipVerify = reader.bool();
+                        message.serverInsecureTls = reader.bool();
                         break;
                     default:
                         reader.skipType(tag & 7);
@@ -25318,18 +25318,18 @@ $root.protos = (function() {
             GlobalManageOptions.verify = function verify(message) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (message.address != null && message.hasOwnProperty("address"))
-                    if (!$util.isString(message.address))
-                        return "address: string expected";
-                if (message.auth != null && message.hasOwnProperty("auth"))
-                    if (!$util.isString(message.auth))
-                        return "auth: string expected";
-                if (message.useTls != null && message.hasOwnProperty("useTls"))
-                    if (typeof message.useTls !== "boolean")
-                        return "useTls: boolean expected";
-                if (message.tlsSkipVerify != null && message.hasOwnProperty("tlsSkipVerify"))
-                    if (typeof message.tlsSkipVerify !== "boolean")
-                        return "tlsSkipVerify: boolean expected";
+                if (message.serverAddress != null && message.hasOwnProperty("serverAddress"))
+                    if (!$util.isString(message.serverAddress))
+                        return "serverAddress: string expected";
+                if (message.serverToken != null && message.hasOwnProperty("serverToken"))
+                    if (!$util.isString(message.serverToken))
+                        return "serverToken: string expected";
+                if (message.serverUseTls != null && message.hasOwnProperty("serverUseTls"))
+                    if (typeof message.serverUseTls !== "boolean")
+                        return "serverUseTls: boolean expected";
+                if (message.serverInsecureTls != null && message.hasOwnProperty("serverInsecureTls"))
+                    if (typeof message.serverInsecureTls !== "boolean")
+                        return "serverInsecureTls: boolean expected";
                 return null;
             };
 
@@ -25345,14 +25345,14 @@ $root.protos = (function() {
                 if (object instanceof $root.protos.opts.GlobalManageOptions)
                     return object;
                 var message = new $root.protos.opts.GlobalManageOptions();
-                if (object.address != null)
-                    message.address = String(object.address);
-                if (object.auth != null)
-                    message.auth = String(object.auth);
-                if (object.useTls != null)
-                    message.useTls = Boolean(object.useTls);
-                if (object.tlsSkipVerify != null)
-                    message.tlsSkipVerify = Boolean(object.tlsSkipVerify);
+                if (object.serverAddress != null)
+                    message.serverAddress = String(object.serverAddress);
+                if (object.serverToken != null)
+                    message.serverToken = String(object.serverToken);
+                if (object.serverUseTls != null)
+                    message.serverUseTls = Boolean(object.serverUseTls);
+                if (object.serverInsecureTls != null)
+                    message.serverInsecureTls = Boolean(object.serverInsecureTls);
                 return message;
             };
 
@@ -25370,19 +25370,19 @@ $root.protos = (function() {
                     options = {};
                 var object = {};
                 if (options.defaults) {
-                    object.address = "";
-                    object.auth = "";
-                    object.useTls = false;
-                    object.tlsSkipVerify = false;
+                    object.serverAddress = "";
+                    object.serverToken = "";
+                    object.serverUseTls = false;
+                    object.serverInsecureTls = false;
                 }
-                if (message.address != null && message.hasOwnProperty("address"))
-                    object.address = message.address;
-                if (message.auth != null && message.hasOwnProperty("auth"))
-                    object.auth = message.auth;
-                if (message.useTls != null && message.hasOwnProperty("useTls"))
-                    object.useTls = message.useTls;
-                if (message.tlsSkipVerify != null && message.hasOwnProperty("tlsSkipVerify"))
-                    object.tlsSkipVerify = message.tlsSkipVerify;
+                if (message.serverAddress != null && message.hasOwnProperty("serverAddress"))
+                    object.serverAddress = message.serverAddress;
+                if (message.serverToken != null && message.hasOwnProperty("serverToken"))
+                    object.serverToken = message.serverToken;
+                if (message.serverUseTls != null && message.hasOwnProperty("serverUseTls"))
+                    object.serverUseTls = message.serverUseTls;
+                if (message.serverInsecureTls != null && message.hasOwnProperty("serverInsecureTls"))
+                    object.serverInsecureTls = message.serverInsecureTls;
                 return object;
             };
 

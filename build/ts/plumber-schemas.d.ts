@@ -10429,17 +10429,17 @@ export namespace protos {
         /** Properties of a GlobalManageOptions. */
         interface IGlobalManageOptions {
 
-            /** GlobalManageOptions address */
-            address?: (string|null);
+            /** GlobalManageOptions serverAddress */
+            serverAddress?: (string|null);
 
-            /** GlobalManageOptions auth */
-            auth?: (string|null);
+            /** GlobalManageOptions serverToken */
+            serverToken?: (string|null);
 
-            /** GlobalManageOptions useTls */
-            useTls?: (boolean|null);
+            /** GlobalManageOptions serverUseTls */
+            serverUseTls?: (boolean|null);
 
-            /** GlobalManageOptions tlsSkipVerify */
-            tlsSkipVerify?: (boolean|null);
+            /** GlobalManageOptions serverInsecureTls */
+            serverInsecureTls?: (boolean|null);
         }
 
         /** Represents a GlobalManageOptions. */
@@ -10451,17 +10451,17 @@ export namespace protos {
              */
             constructor(properties?: protos.opts.IGlobalManageOptions);
 
-            /** GlobalManageOptions address. */
-            public address: string;
+            /** GlobalManageOptions serverAddress. */
+            public serverAddress: string;
 
-            /** GlobalManageOptions auth. */
-            public auth: string;
+            /** GlobalManageOptions serverToken. */
+            public serverToken: string;
 
-            /** GlobalManageOptions useTls. */
-            public useTls: boolean;
+            /** GlobalManageOptions serverUseTls. */
+            public serverUseTls: boolean;
 
-            /** GlobalManageOptions tlsSkipVerify. */
-            public tlsSkipVerify: boolean;
+            /** GlobalManageOptions serverInsecureTls. */
+            public serverInsecureTls: boolean;
 
             /**
              * Creates a new GlobalManageOptions instance using the specified properties.
