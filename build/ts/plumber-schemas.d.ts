@@ -4101,9 +4101,6 @@ export namespace protos {
 
             /** ServerOptions httpListenAddress */
             httpListenAddress?: (string|null);
-
-            /** ServerOptions storagePath */
-            storagePath?: (string|null);
         }
 
         /** Represents a ServerOptions. */
@@ -4165,9 +4162,6 @@ export namespace protos {
 
             /** ServerOptions httpListenAddress. */
             public httpListenAddress: string;
-
-            /** ServerOptions storagePath. */
-            public storagePath: string;
 
             /**
              * Creates a new ServerOptions instance using the specified properties.
@@ -18886,6 +18880,9 @@ export namespace protos {
 
             /** NatsTLSOptions tlsClientKey */
             tlsClientKey?: (Uint8Array|null);
+
+            /** NatsTLSOptions useTls */
+            useTls?: (boolean|null);
         }
 
         /** Represents a NatsTLSOptions. */
@@ -18908,6 +18905,9 @@ export namespace protos {
 
             /** NatsTLSOptions tlsClientKey. */
             public tlsClientKey: Uint8Array;
+
+            /** NatsTLSOptions useTls. */
+            public useTls: boolean;
 
             /**
              * Creates a new NatsTLSOptions instance using the specified properties.
@@ -19174,6 +19174,9 @@ export namespace protos {
 
             /** NatsJetstreamTLSOptions tlsSkipVerify */
             tlsSkipVerify?: (boolean|null);
+
+            /** NatsJetstreamTLSOptions useTls */
+            useTls?: (boolean|null);
         }
 
         /** Represents a NatsJetstreamTLSOptions. */
@@ -19196,6 +19199,9 @@ export namespace protos {
 
             /** NatsJetstreamTLSOptions tlsSkipVerify. */
             public tlsSkipVerify: boolean;
+
+            /** NatsJetstreamTLSOptions useTls. */
+            public useTls: boolean;
 
             /**
              * Creates a new NatsJetstreamTLSOptions instance using the specified properties.
@@ -19570,6 +19576,9 @@ export namespace protos {
 
             /** NatsStreamingTLSOptions tlsSkipVerify */
             tlsSkipVerify?: (boolean|null);
+
+            /** NatsStreamingTLSOptions useTls */
+            useTls?: (boolean|null);
         }
 
         /** Represents a NatsStreamingTLSOptions. */
@@ -19592,6 +19601,9 @@ export namespace protos {
 
             /** NatsStreamingTLSOptions tlsSkipVerify. */
             public tlsSkipVerify: boolean;
+
+            /** NatsStreamingTLSOptions useTls. */
+            public useTls: boolean;
 
             /**
              * Creates a new NatsStreamingTLSOptions instance using the specified properties.

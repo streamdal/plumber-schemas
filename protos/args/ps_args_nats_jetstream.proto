@@ -16,6 +16,9 @@ message NatsJetstreamTLSOptions {
 
   // @gotags: kong:"help='Whether to verify server certificate',env='PLUMBER_RELAY_NATS_JETSTREAM_SKIP_VERIFY_TLS'"
   bool tls_skip_verify = 4;
+
+  // @gotags: kong:"help='Enable TLS',env='PLUMBER_RELAY_NATS_JETSTREAM_USE_TLS'"
+  bool use_tls = 5;
 }
 
 message NatsJetstreamConn {
