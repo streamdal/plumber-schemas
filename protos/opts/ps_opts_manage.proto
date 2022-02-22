@@ -32,17 +32,35 @@ message ManageOptions {
 }
 
 message GlobalManageOptions {
+  // Fields are namespaced with 'manage_' so they don't cause conflicts with
+  // embedded kong entries.
+
   // @gotags: kong:"help='Plumber server gRPC API address',default='localhost:9090'"
-  string server_address = 1;
+  string manage_address = 1;
 
   // @gotags: kong:"help='Plumber server auth token',default='batchcorp'"
-  string server_token = 2;
+  string manage_token = 2;
+
+  // @gotags: kong:"help='gRPC call timeout seconds',default=5"
+  int64 manage_timeout_seconds = 3;
 
   // @gotags: kong:"help='Use TLS when talking to plumber server',default='false'"
-  bool server_use_tls = 3;
+  bool manage_use_tls = 4;
 
   // @gotags: kong:"help='Skip TLS server certificate verification',default='false'"
-  bool server_insecure_tls = 4;
+  bool manage_insecure_tls = 5;
+
+  // @gotags: kong:"help='TLS CA file'"
+  string manage_tls_ca_file = 6;
+
+  // @gotags: kong:"help='TLS client cert file'"
+  string manage_tls_cert_file = 7;
+
+  // @gotags: kong:"help='TLS client key file'"
+  string manage_tls_key_file =8;
+
+  // @gotags: kong:"help='Make output pretty (colorized)',default='false'"
+  bool manage_pretty = 9;
 }
 
 message GetOptions {

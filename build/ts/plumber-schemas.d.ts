@@ -10074,6 +10074,9 @@ export namespace protos {
 
             /** GlobalCLIOptions _backend */
             _backend?: (string|null);
+
+            /** GlobalCLIOptions _commands */
+            _commands?: (string[]|null);
         }
 
         /** Represents a GlobalCLIOptions. */
@@ -10102,6 +10105,9 @@ export namespace protos {
 
             /** GlobalCLIOptions _backend. */
             public _backend: string;
+
+            /** GlobalCLIOptions _commands. */
+            public _commands: string[];
 
             /**
              * Creates a new GlobalCLIOptions instance using the specified properties.
@@ -10429,17 +10435,32 @@ export namespace protos {
         /** Properties of a GlobalManageOptions. */
         interface IGlobalManageOptions {
 
-            /** GlobalManageOptions serverAddress */
-            serverAddress?: (string|null);
+            /** GlobalManageOptions manageAddress */
+            manageAddress?: (string|null);
 
-            /** GlobalManageOptions serverToken */
-            serverToken?: (string|null);
+            /** GlobalManageOptions manageToken */
+            manageToken?: (string|null);
 
-            /** GlobalManageOptions serverUseTls */
-            serverUseTls?: (boolean|null);
+            /** GlobalManageOptions manageTimeoutSeconds */
+            manageTimeoutSeconds?: (number|Long|null);
 
-            /** GlobalManageOptions serverInsecureTls */
-            serverInsecureTls?: (boolean|null);
+            /** GlobalManageOptions manageUseTls */
+            manageUseTls?: (boolean|null);
+
+            /** GlobalManageOptions manageInsecureTls */
+            manageInsecureTls?: (boolean|null);
+
+            /** GlobalManageOptions manageTlsCaFile */
+            manageTlsCaFile?: (string|null);
+
+            /** GlobalManageOptions manageTlsCertFile */
+            manageTlsCertFile?: (string|null);
+
+            /** GlobalManageOptions manageTlsKeyFile */
+            manageTlsKeyFile?: (string|null);
+
+            /** GlobalManageOptions managePretty */
+            managePretty?: (boolean|null);
         }
 
         /** Represents a GlobalManageOptions. */
@@ -10451,17 +10472,32 @@ export namespace protos {
              */
             constructor(properties?: protos.opts.IGlobalManageOptions);
 
-            /** GlobalManageOptions serverAddress. */
-            public serverAddress: string;
+            /** GlobalManageOptions manageAddress. */
+            public manageAddress: string;
 
-            /** GlobalManageOptions serverToken. */
-            public serverToken: string;
+            /** GlobalManageOptions manageToken. */
+            public manageToken: string;
 
-            /** GlobalManageOptions serverUseTls. */
-            public serverUseTls: boolean;
+            /** GlobalManageOptions manageTimeoutSeconds. */
+            public manageTimeoutSeconds: (number|Long);
 
-            /** GlobalManageOptions serverInsecureTls. */
-            public serverInsecureTls: boolean;
+            /** GlobalManageOptions manageUseTls. */
+            public manageUseTls: boolean;
+
+            /** GlobalManageOptions manageInsecureTls. */
+            public manageInsecureTls: boolean;
+
+            /** GlobalManageOptions manageTlsCaFile. */
+            public manageTlsCaFile: string;
+
+            /** GlobalManageOptions manageTlsCertFile. */
+            public manageTlsCertFile: string;
+
+            /** GlobalManageOptions manageTlsKeyFile. */
+            public manageTlsKeyFile: string;
+
+            /** GlobalManageOptions managePretty. */
+            public managePretty: boolean;
 
             /**
              * Creates a new GlobalManageOptions instance using the specified properties.

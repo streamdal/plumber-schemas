@@ -24150,6 +24150,7 @@ $root.protos = (function() {
              * @property {string|null} [_fullCommand] GlobalCLIOptions _fullCommand
              * @property {string|null} [_action] GlobalCLIOptions _action
              * @property {string|null} [_backend] GlobalCLIOptions _backend
+             * @property {Array.<string>|null} [_commands] GlobalCLIOptions _commands
              */
 
             /**
@@ -24161,6 +24162,7 @@ $root.protos = (function() {
              * @param {protos.opts.IGlobalCLIOptions=} [properties] Properties to set
              */
             function GlobalCLIOptions(properties) {
+                this._commands = [];
                 if (properties)
                     for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                         if (properties[keys[i]] != null)
@@ -24216,6 +24218,14 @@ $root.protos = (function() {
             GlobalCLIOptions.prototype._backend = "";
 
             /**
+             * GlobalCLIOptions _commands.
+             * @member {Array.<string>} _commands
+             * @memberof protos.opts.GlobalCLIOptions
+             * @instance
+             */
+            GlobalCLIOptions.prototype._commands = $util.emptyArray;
+
+            /**
              * Creates a new GlobalCLIOptions instance using the specified properties.
              * @function create
              * @memberof protos.opts.GlobalCLIOptions
@@ -24251,6 +24261,9 @@ $root.protos = (function() {
                     writer.uint32(/* id 1001, wireType 2 =*/8010).string(message._action);
                 if (message._backend != null && Object.hasOwnProperty.call(message, "_backend"))
                     writer.uint32(/* id 1002, wireType 2 =*/8018).string(message._backend);
+                if (message._commands != null && message._commands.length)
+                    for (var i = 0; i < message._commands.length; ++i)
+                        writer.uint32(/* id 1003, wireType 2 =*/8026).string(message._commands[i]);
                 return writer;
             };
 
@@ -24302,6 +24315,11 @@ $root.protos = (function() {
                         break;
                     case 1002:
                         message._backend = reader.string();
+                        break;
+                    case 1003:
+                        if (!(message._commands && message._commands.length))
+                            message._commands = [];
+                        message._commands.push(reader.string());
                         break;
                     default:
                         reader.skipType(tag & 7);
@@ -24356,6 +24374,13 @@ $root.protos = (function() {
                 if (message._backend != null && message.hasOwnProperty("_backend"))
                     if (!$util.isString(message._backend))
                         return "_backend: string expected";
+                if (message._commands != null && message.hasOwnProperty("_commands")) {
+                    if (!Array.isArray(message._commands))
+                        return "_commands: array expected";
+                    for (var i = 0; i < message._commands.length; ++i)
+                        if (!$util.isString(message._commands[i]))
+                            return "_commands: string[] expected";
+                }
                 return null;
             };
 
@@ -24383,6 +24408,13 @@ $root.protos = (function() {
                     message._action = String(object._action);
                 if (object._backend != null)
                     message._backend = String(object._backend);
+                if (object._commands) {
+                    if (!Array.isArray(object._commands))
+                        throw TypeError(".protos.opts.GlobalCLIOptions._commands: array expected");
+                    message._commands = [];
+                    for (var i = 0; i < object._commands.length; ++i)
+                        message._commands[i] = String(object._commands[i]);
+                }
                 return message;
             };
 
@@ -24399,6 +24431,8 @@ $root.protos = (function() {
                 if (!options)
                     options = {};
                 var object = {};
+                if (options.arrays || options.defaults)
+                    object._commands = [];
                 if (options.defaults) {
                     object.debug = false;
                     object.quiet = false;
@@ -24419,6 +24453,11 @@ $root.protos = (function() {
                     object._action = message._action;
                 if (message._backend != null && message.hasOwnProperty("_backend"))
                     object._backend = message._backend;
+                if (message._commands && message._commands.length) {
+                    object._commands = [];
+                    for (var j = 0; j < message._commands.length; ++j)
+                        object._commands[j] = message._commands[j];
+                }
                 return object;
             };
 
@@ -25152,10 +25191,15 @@ $root.protos = (function() {
              * Properties of a GlobalManageOptions.
              * @memberof protos.opts
              * @interface IGlobalManageOptions
-             * @property {string|null} [serverAddress] GlobalManageOptions serverAddress
-             * @property {string|null} [serverToken] GlobalManageOptions serverToken
-             * @property {boolean|null} [serverUseTls] GlobalManageOptions serverUseTls
-             * @property {boolean|null} [serverInsecureTls] GlobalManageOptions serverInsecureTls
+             * @property {string|null} [manageAddress] GlobalManageOptions manageAddress
+             * @property {string|null} [manageToken] GlobalManageOptions manageToken
+             * @property {number|Long|null} [manageTimeoutSeconds] GlobalManageOptions manageTimeoutSeconds
+             * @property {boolean|null} [manageUseTls] GlobalManageOptions manageUseTls
+             * @property {boolean|null} [manageInsecureTls] GlobalManageOptions manageInsecureTls
+             * @property {string|null} [manageTlsCaFile] GlobalManageOptions manageTlsCaFile
+             * @property {string|null} [manageTlsCertFile] GlobalManageOptions manageTlsCertFile
+             * @property {string|null} [manageTlsKeyFile] GlobalManageOptions manageTlsKeyFile
+             * @property {boolean|null} [managePretty] GlobalManageOptions managePretty
              */
 
             /**
@@ -25174,36 +25218,76 @@ $root.protos = (function() {
             }
 
             /**
-             * GlobalManageOptions serverAddress.
-             * @member {string} serverAddress
+             * GlobalManageOptions manageAddress.
+             * @member {string} manageAddress
              * @memberof protos.opts.GlobalManageOptions
              * @instance
              */
-            GlobalManageOptions.prototype.serverAddress = "";
+            GlobalManageOptions.prototype.manageAddress = "";
 
             /**
-             * GlobalManageOptions serverToken.
-             * @member {string} serverToken
+             * GlobalManageOptions manageToken.
+             * @member {string} manageToken
              * @memberof protos.opts.GlobalManageOptions
              * @instance
              */
-            GlobalManageOptions.prototype.serverToken = "";
+            GlobalManageOptions.prototype.manageToken = "";
 
             /**
-             * GlobalManageOptions serverUseTls.
-             * @member {boolean} serverUseTls
+             * GlobalManageOptions manageTimeoutSeconds.
+             * @member {number|Long} manageTimeoutSeconds
              * @memberof protos.opts.GlobalManageOptions
              * @instance
              */
-            GlobalManageOptions.prototype.serverUseTls = false;
+            GlobalManageOptions.prototype.manageTimeoutSeconds = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
 
             /**
-             * GlobalManageOptions serverInsecureTls.
-             * @member {boolean} serverInsecureTls
+             * GlobalManageOptions manageUseTls.
+             * @member {boolean} manageUseTls
              * @memberof protos.opts.GlobalManageOptions
              * @instance
              */
-            GlobalManageOptions.prototype.serverInsecureTls = false;
+            GlobalManageOptions.prototype.manageUseTls = false;
+
+            /**
+             * GlobalManageOptions manageInsecureTls.
+             * @member {boolean} manageInsecureTls
+             * @memberof protos.opts.GlobalManageOptions
+             * @instance
+             */
+            GlobalManageOptions.prototype.manageInsecureTls = false;
+
+            /**
+             * GlobalManageOptions manageTlsCaFile.
+             * @member {string} manageTlsCaFile
+             * @memberof protos.opts.GlobalManageOptions
+             * @instance
+             */
+            GlobalManageOptions.prototype.manageTlsCaFile = "";
+
+            /**
+             * GlobalManageOptions manageTlsCertFile.
+             * @member {string} manageTlsCertFile
+             * @memberof protos.opts.GlobalManageOptions
+             * @instance
+             */
+            GlobalManageOptions.prototype.manageTlsCertFile = "";
+
+            /**
+             * GlobalManageOptions manageTlsKeyFile.
+             * @member {string} manageTlsKeyFile
+             * @memberof protos.opts.GlobalManageOptions
+             * @instance
+             */
+            GlobalManageOptions.prototype.manageTlsKeyFile = "";
+
+            /**
+             * GlobalManageOptions managePretty.
+             * @member {boolean} managePretty
+             * @memberof protos.opts.GlobalManageOptions
+             * @instance
+             */
+            GlobalManageOptions.prototype.managePretty = false;
 
             /**
              * Creates a new GlobalManageOptions instance using the specified properties.
@@ -25229,14 +25313,24 @@ $root.protos = (function() {
             GlobalManageOptions.encode = function encode(message, writer) {
                 if (!writer)
                     writer = $Writer.create();
-                if (message.serverAddress != null && Object.hasOwnProperty.call(message, "serverAddress"))
-                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.serverAddress);
-                if (message.serverToken != null && Object.hasOwnProperty.call(message, "serverToken"))
-                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.serverToken);
-                if (message.serverUseTls != null && Object.hasOwnProperty.call(message, "serverUseTls"))
-                    writer.uint32(/* id 3, wireType 0 =*/24).bool(message.serverUseTls);
-                if (message.serverInsecureTls != null && Object.hasOwnProperty.call(message, "serverInsecureTls"))
-                    writer.uint32(/* id 4, wireType 0 =*/32).bool(message.serverInsecureTls);
+                if (message.manageAddress != null && Object.hasOwnProperty.call(message, "manageAddress"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.manageAddress);
+                if (message.manageToken != null && Object.hasOwnProperty.call(message, "manageToken"))
+                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.manageToken);
+                if (message.manageTimeoutSeconds != null && Object.hasOwnProperty.call(message, "manageTimeoutSeconds"))
+                    writer.uint32(/* id 3, wireType 0 =*/24).int64(message.manageTimeoutSeconds);
+                if (message.manageUseTls != null && Object.hasOwnProperty.call(message, "manageUseTls"))
+                    writer.uint32(/* id 4, wireType 0 =*/32).bool(message.manageUseTls);
+                if (message.manageInsecureTls != null && Object.hasOwnProperty.call(message, "manageInsecureTls"))
+                    writer.uint32(/* id 5, wireType 0 =*/40).bool(message.manageInsecureTls);
+                if (message.manageTlsCaFile != null && Object.hasOwnProperty.call(message, "manageTlsCaFile"))
+                    writer.uint32(/* id 6, wireType 2 =*/50).string(message.manageTlsCaFile);
+                if (message.manageTlsCertFile != null && Object.hasOwnProperty.call(message, "manageTlsCertFile"))
+                    writer.uint32(/* id 7, wireType 2 =*/58).string(message.manageTlsCertFile);
+                if (message.manageTlsKeyFile != null && Object.hasOwnProperty.call(message, "manageTlsKeyFile"))
+                    writer.uint32(/* id 8, wireType 2 =*/66).string(message.manageTlsKeyFile);
+                if (message.managePretty != null && Object.hasOwnProperty.call(message, "managePretty"))
+                    writer.uint32(/* id 9, wireType 0 =*/72).bool(message.managePretty);
                 return writer;
             };
 
@@ -25272,16 +25366,31 @@ $root.protos = (function() {
                     var tag = reader.uint32();
                     switch (tag >>> 3) {
                     case 1:
-                        message.serverAddress = reader.string();
+                        message.manageAddress = reader.string();
                         break;
                     case 2:
-                        message.serverToken = reader.string();
+                        message.manageToken = reader.string();
                         break;
                     case 3:
-                        message.serverUseTls = reader.bool();
+                        message.manageTimeoutSeconds = reader.int64();
                         break;
                     case 4:
-                        message.serverInsecureTls = reader.bool();
+                        message.manageUseTls = reader.bool();
+                        break;
+                    case 5:
+                        message.manageInsecureTls = reader.bool();
+                        break;
+                    case 6:
+                        message.manageTlsCaFile = reader.string();
+                        break;
+                    case 7:
+                        message.manageTlsCertFile = reader.string();
+                        break;
+                    case 8:
+                        message.manageTlsKeyFile = reader.string();
+                        break;
+                    case 9:
+                        message.managePretty = reader.bool();
                         break;
                     default:
                         reader.skipType(tag & 7);
@@ -25318,18 +25427,33 @@ $root.protos = (function() {
             GlobalManageOptions.verify = function verify(message) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (message.serverAddress != null && message.hasOwnProperty("serverAddress"))
-                    if (!$util.isString(message.serverAddress))
-                        return "serverAddress: string expected";
-                if (message.serverToken != null && message.hasOwnProperty("serverToken"))
-                    if (!$util.isString(message.serverToken))
-                        return "serverToken: string expected";
-                if (message.serverUseTls != null && message.hasOwnProperty("serverUseTls"))
-                    if (typeof message.serverUseTls !== "boolean")
-                        return "serverUseTls: boolean expected";
-                if (message.serverInsecureTls != null && message.hasOwnProperty("serverInsecureTls"))
-                    if (typeof message.serverInsecureTls !== "boolean")
-                        return "serverInsecureTls: boolean expected";
+                if (message.manageAddress != null && message.hasOwnProperty("manageAddress"))
+                    if (!$util.isString(message.manageAddress))
+                        return "manageAddress: string expected";
+                if (message.manageToken != null && message.hasOwnProperty("manageToken"))
+                    if (!$util.isString(message.manageToken))
+                        return "manageToken: string expected";
+                if (message.manageTimeoutSeconds != null && message.hasOwnProperty("manageTimeoutSeconds"))
+                    if (!$util.isInteger(message.manageTimeoutSeconds) && !(message.manageTimeoutSeconds && $util.isInteger(message.manageTimeoutSeconds.low) && $util.isInteger(message.manageTimeoutSeconds.high)))
+                        return "manageTimeoutSeconds: integer|Long expected";
+                if (message.manageUseTls != null && message.hasOwnProperty("manageUseTls"))
+                    if (typeof message.manageUseTls !== "boolean")
+                        return "manageUseTls: boolean expected";
+                if (message.manageInsecureTls != null && message.hasOwnProperty("manageInsecureTls"))
+                    if (typeof message.manageInsecureTls !== "boolean")
+                        return "manageInsecureTls: boolean expected";
+                if (message.manageTlsCaFile != null && message.hasOwnProperty("manageTlsCaFile"))
+                    if (!$util.isString(message.manageTlsCaFile))
+                        return "manageTlsCaFile: string expected";
+                if (message.manageTlsCertFile != null && message.hasOwnProperty("manageTlsCertFile"))
+                    if (!$util.isString(message.manageTlsCertFile))
+                        return "manageTlsCertFile: string expected";
+                if (message.manageTlsKeyFile != null && message.hasOwnProperty("manageTlsKeyFile"))
+                    if (!$util.isString(message.manageTlsKeyFile))
+                        return "manageTlsKeyFile: string expected";
+                if (message.managePretty != null && message.hasOwnProperty("managePretty"))
+                    if (typeof message.managePretty !== "boolean")
+                        return "managePretty: boolean expected";
                 return null;
             };
 
@@ -25345,14 +25469,31 @@ $root.protos = (function() {
                 if (object instanceof $root.protos.opts.GlobalManageOptions)
                     return object;
                 var message = new $root.protos.opts.GlobalManageOptions();
-                if (object.serverAddress != null)
-                    message.serverAddress = String(object.serverAddress);
-                if (object.serverToken != null)
-                    message.serverToken = String(object.serverToken);
-                if (object.serverUseTls != null)
-                    message.serverUseTls = Boolean(object.serverUseTls);
-                if (object.serverInsecureTls != null)
-                    message.serverInsecureTls = Boolean(object.serverInsecureTls);
+                if (object.manageAddress != null)
+                    message.manageAddress = String(object.manageAddress);
+                if (object.manageToken != null)
+                    message.manageToken = String(object.manageToken);
+                if (object.manageTimeoutSeconds != null)
+                    if ($util.Long)
+                        (message.manageTimeoutSeconds = $util.Long.fromValue(object.manageTimeoutSeconds)).unsigned = false;
+                    else if (typeof object.manageTimeoutSeconds === "string")
+                        message.manageTimeoutSeconds = parseInt(object.manageTimeoutSeconds, 10);
+                    else if (typeof object.manageTimeoutSeconds === "number")
+                        message.manageTimeoutSeconds = object.manageTimeoutSeconds;
+                    else if (typeof object.manageTimeoutSeconds === "object")
+                        message.manageTimeoutSeconds = new $util.LongBits(object.manageTimeoutSeconds.low >>> 0, object.manageTimeoutSeconds.high >>> 0).toNumber();
+                if (object.manageUseTls != null)
+                    message.manageUseTls = Boolean(object.manageUseTls);
+                if (object.manageInsecureTls != null)
+                    message.manageInsecureTls = Boolean(object.manageInsecureTls);
+                if (object.manageTlsCaFile != null)
+                    message.manageTlsCaFile = String(object.manageTlsCaFile);
+                if (object.manageTlsCertFile != null)
+                    message.manageTlsCertFile = String(object.manageTlsCertFile);
+                if (object.manageTlsKeyFile != null)
+                    message.manageTlsKeyFile = String(object.manageTlsKeyFile);
+                if (object.managePretty != null)
+                    message.managePretty = Boolean(object.managePretty);
                 return message;
             };
 
@@ -25370,19 +25511,41 @@ $root.protos = (function() {
                     options = {};
                 var object = {};
                 if (options.defaults) {
-                    object.serverAddress = "";
-                    object.serverToken = "";
-                    object.serverUseTls = false;
-                    object.serverInsecureTls = false;
+                    object.manageAddress = "";
+                    object.manageToken = "";
+                    if ($util.Long) {
+                        var long = new $util.Long(0, 0, false);
+                        object.manageTimeoutSeconds = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                    } else
+                        object.manageTimeoutSeconds = options.longs === String ? "0" : 0;
+                    object.manageUseTls = false;
+                    object.manageInsecureTls = false;
+                    object.manageTlsCaFile = "";
+                    object.manageTlsCertFile = "";
+                    object.manageTlsKeyFile = "";
+                    object.managePretty = false;
                 }
-                if (message.serverAddress != null && message.hasOwnProperty("serverAddress"))
-                    object.serverAddress = message.serverAddress;
-                if (message.serverToken != null && message.hasOwnProperty("serverToken"))
-                    object.serverToken = message.serverToken;
-                if (message.serverUseTls != null && message.hasOwnProperty("serverUseTls"))
-                    object.serverUseTls = message.serverUseTls;
-                if (message.serverInsecureTls != null && message.hasOwnProperty("serverInsecureTls"))
-                    object.serverInsecureTls = message.serverInsecureTls;
+                if (message.manageAddress != null && message.hasOwnProperty("manageAddress"))
+                    object.manageAddress = message.manageAddress;
+                if (message.manageToken != null && message.hasOwnProperty("manageToken"))
+                    object.manageToken = message.manageToken;
+                if (message.manageTimeoutSeconds != null && message.hasOwnProperty("manageTimeoutSeconds"))
+                    if (typeof message.manageTimeoutSeconds === "number")
+                        object.manageTimeoutSeconds = options.longs === String ? String(message.manageTimeoutSeconds) : message.manageTimeoutSeconds;
+                    else
+                        object.manageTimeoutSeconds = options.longs === String ? $util.Long.prototype.toString.call(message.manageTimeoutSeconds) : options.longs === Number ? new $util.LongBits(message.manageTimeoutSeconds.low >>> 0, message.manageTimeoutSeconds.high >>> 0).toNumber() : message.manageTimeoutSeconds;
+                if (message.manageUseTls != null && message.hasOwnProperty("manageUseTls"))
+                    object.manageUseTls = message.manageUseTls;
+                if (message.manageInsecureTls != null && message.hasOwnProperty("manageInsecureTls"))
+                    object.manageInsecureTls = message.manageInsecureTls;
+                if (message.manageTlsCaFile != null && message.hasOwnProperty("manageTlsCaFile"))
+                    object.manageTlsCaFile = message.manageTlsCaFile;
+                if (message.manageTlsCertFile != null && message.hasOwnProperty("manageTlsCertFile"))
+                    object.manageTlsCertFile = message.manageTlsCertFile;
+                if (message.manageTlsKeyFile != null && message.hasOwnProperty("manageTlsKeyFile"))
+                    object.manageTlsKeyFile = message.manageTlsKeyFile;
+                if (message.managePretty != null && message.hasOwnProperty("managePretty"))
+                    object.managePretty = message.managePretty;
                 return object;
             };
 
