@@ -34,6 +34,9 @@ message GlobalCLIOptions {
 
   // @gotags: kong:"-"
   string _backend = 1002;
+
+  // @gotags: kong:"-"
+  repeated string _commands = 1003;
 }
 
 // CLI options in plumber are derived 100% from the protobuf schemas.
