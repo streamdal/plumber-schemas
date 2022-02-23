@@ -59,8 +59,8 @@ message GlobalManageOptions {
   // @gotags: kong:"help='TLS client key file'"
   string manage_tls_key_file =8;
 
-  // @gotags: kong:"help='Make output pretty (colorized)',default='false'"
-  bool manage_pretty = 9;
+  // @gotags: kong:"help='Disable pretty/colorized output',default='false'"
+  bool disable_pretty = 9;
 }
 
 message GetOptions {

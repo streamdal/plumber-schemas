@@ -25199,7 +25199,7 @@ $root.protos = (function() {
              * @property {string|null} [manageTlsCaFile] GlobalManageOptions manageTlsCaFile
              * @property {string|null} [manageTlsCertFile] GlobalManageOptions manageTlsCertFile
              * @property {string|null} [manageTlsKeyFile] GlobalManageOptions manageTlsKeyFile
-             * @property {boolean|null} [managePretty] GlobalManageOptions managePretty
+             * @property {boolean|null} [disablePretty] GlobalManageOptions disablePretty
              */
 
             /**
@@ -25282,12 +25282,12 @@ $root.protos = (function() {
             GlobalManageOptions.prototype.manageTlsKeyFile = "";
 
             /**
-             * GlobalManageOptions managePretty.
-             * @member {boolean} managePretty
+             * GlobalManageOptions disablePretty.
+             * @member {boolean} disablePretty
              * @memberof protos.opts.GlobalManageOptions
              * @instance
              */
-            GlobalManageOptions.prototype.managePretty = false;
+            GlobalManageOptions.prototype.disablePretty = false;
 
             /**
              * Creates a new GlobalManageOptions instance using the specified properties.
@@ -25329,8 +25329,8 @@ $root.protos = (function() {
                     writer.uint32(/* id 7, wireType 2 =*/58).string(message.manageTlsCertFile);
                 if (message.manageTlsKeyFile != null && Object.hasOwnProperty.call(message, "manageTlsKeyFile"))
                     writer.uint32(/* id 8, wireType 2 =*/66).string(message.manageTlsKeyFile);
-                if (message.managePretty != null && Object.hasOwnProperty.call(message, "managePretty"))
-                    writer.uint32(/* id 9, wireType 0 =*/72).bool(message.managePretty);
+                if (message.disablePretty != null && Object.hasOwnProperty.call(message, "disablePretty"))
+                    writer.uint32(/* id 9, wireType 0 =*/72).bool(message.disablePretty);
                 return writer;
             };
 
@@ -25390,7 +25390,7 @@ $root.protos = (function() {
                         message.manageTlsKeyFile = reader.string();
                         break;
                     case 9:
-                        message.managePretty = reader.bool();
+                        message.disablePretty = reader.bool();
                         break;
                     default:
                         reader.skipType(tag & 7);
@@ -25451,9 +25451,9 @@ $root.protos = (function() {
                 if (message.manageTlsKeyFile != null && message.hasOwnProperty("manageTlsKeyFile"))
                     if (!$util.isString(message.manageTlsKeyFile))
                         return "manageTlsKeyFile: string expected";
-                if (message.managePretty != null && message.hasOwnProperty("managePretty"))
-                    if (typeof message.managePretty !== "boolean")
-                        return "managePretty: boolean expected";
+                if (message.disablePretty != null && message.hasOwnProperty("disablePretty"))
+                    if (typeof message.disablePretty !== "boolean")
+                        return "disablePretty: boolean expected";
                 return null;
             };
 
@@ -25492,8 +25492,8 @@ $root.protos = (function() {
                     message.manageTlsCertFile = String(object.manageTlsCertFile);
                 if (object.manageTlsKeyFile != null)
                     message.manageTlsKeyFile = String(object.manageTlsKeyFile);
-                if (object.managePretty != null)
-                    message.managePretty = Boolean(object.managePretty);
+                if (object.disablePretty != null)
+                    message.disablePretty = Boolean(object.disablePretty);
                 return message;
             };
 
@@ -25523,7 +25523,7 @@ $root.protos = (function() {
                     object.manageTlsCaFile = "";
                     object.manageTlsCertFile = "";
                     object.manageTlsKeyFile = "";
-                    object.managePretty = false;
+                    object.disablePretty = false;
                 }
                 if (message.manageAddress != null && message.hasOwnProperty("manageAddress"))
                     object.manageAddress = message.manageAddress;
@@ -25544,8 +25544,8 @@ $root.protos = (function() {
                     object.manageTlsCertFile = message.manageTlsCertFile;
                 if (message.manageTlsKeyFile != null && message.hasOwnProperty("manageTlsKeyFile"))
                     object.manageTlsKeyFile = message.manageTlsKeyFile;
-                if (message.managePretty != null && message.hasOwnProperty("managePretty"))
-                    object.managePretty = message.managePretty;
+                if (message.disablePretty != null && message.hasOwnProperty("disablePretty"))
+                    object.disablePretty = message.disablePretty;
                 return object;
             };
 

@@ -10459,8 +10459,8 @@ export namespace protos {
             /** GlobalManageOptions manageTlsKeyFile */
             manageTlsKeyFile?: (string|null);
 
-            /** GlobalManageOptions managePretty */
-            managePretty?: (boolean|null);
+            /** GlobalManageOptions disablePretty */
+            disablePretty?: (boolean|null);
         }
 
         /** Represents a GlobalManageOptions. */
@@ -10496,8 +10496,8 @@ export namespace protos {
             /** GlobalManageOptions manageTlsKeyFile. */
             public manageTlsKeyFile: string;
 
-            /** GlobalManageOptions managePretty. */
-            public managePretty: boolean;
+            /** GlobalManageOptions disablePretty. */
+            public disablePretty: boolean;
 
             /**
              * Creates a new GlobalManageOptions instance using the specified properties.
