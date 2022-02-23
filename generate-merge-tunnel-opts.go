@@ -14,7 +14,7 @@ import (
 
 const (
 	tunnelGrepFile   = "build/go/protos/opts/ps_opts_tunnel.pb.go"
-	tunnelOutputFile = "./build/go/protos/opts/batch_merge_relay_opts.pb.go"
+	tunnelOutputFile = "./build/go/protos/opts/batch_merge_tunnel_opts.pb.go"
 )
 
 type TunnelMapping struct {
@@ -80,13 +80,11 @@ func main() {
 		log.Fatalf("unable to create file contents: %s", err)
 	}
 
-	fmt.Println(string(fileContents))
+	if err := writeTunnelCode(tunnelOutputFile, fileContents); err != nil {
+		log.Fatalf("unable to write file '%s': %s", tunnelOutputFile, err)
+	}
 
-	//if err := writeTunnelCode(tunnelOutputFile, fileContents); err != nil {
-	//	log.Fatalf("unable to write file '%s': %s", tunnelOutputFile, err)
-	//}
-
-	fmt.Printf("Successfully generated file '%s' with '%d' relays\n", tunnelOutputFile, len(mappings))
+	fmt.Printf("Successfully generated file '%s' with '%d' tunnels\n", tunnelOutputFile, len(mappings))
 }
 
 func createTunnelCode(mappings map[string]TunnelMapping) ([]byte, error) {
