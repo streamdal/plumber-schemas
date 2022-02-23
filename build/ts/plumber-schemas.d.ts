@@ -11578,6 +11578,15 @@ export namespace protos {
             /** CreateRelayOptions numWorkers */
             numWorkers?: (number|null);
 
+            /** CreateRelayOptions batchshGrpcAddress */
+            batchshGrpcAddress?: (string|null);
+
+            /** CreateRelayOptions batchshGrpcDisableTls */
+            batchshGrpcDisableTls?: (boolean|null);
+
+            /** CreateRelayOptions batchshGrpcTimeoutSeconds */
+            batchshGrpcTimeoutSeconds?: (number|null);
+
             /** CreateRelayOptions kafka */
             kafka?: (protos.args.IKafkaRelayArgs|null);
 
@@ -11647,6 +11656,15 @@ export namespace protos {
 
             /** CreateRelayOptions numWorkers. */
             public numWorkers: number;
+
+            /** CreateRelayOptions batchshGrpcAddress. */
+            public batchshGrpcAddress: string;
+
+            /** CreateRelayOptions batchshGrpcDisableTls. */
+            public batchshGrpcDisableTls: boolean;
+
+            /** CreateRelayOptions batchshGrpcTimeoutSeconds. */
+            public batchshGrpcTimeoutSeconds: number;
 
             /** CreateRelayOptions kafka. */
             public kafka?: (protos.args.IKafkaRelayArgs|null);

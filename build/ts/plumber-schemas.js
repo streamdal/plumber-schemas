@@ -28093,6 +28093,9 @@ $root.protos = (function() {
              * @property {number|null} [batchSize] CreateRelayOptions batchSize
              * @property {number|null} [batchMaxRetry] CreateRelayOptions batchMaxRetry
              * @property {number|null} [numWorkers] CreateRelayOptions numWorkers
+             * @property {string|null} [batchshGrpcAddress] CreateRelayOptions batchshGrpcAddress
+             * @property {boolean|null} [batchshGrpcDisableTls] CreateRelayOptions batchshGrpcDisableTls
+             * @property {number|null} [batchshGrpcTimeoutSeconds] CreateRelayOptions batchshGrpcTimeoutSeconds
              * @property {protos.args.IKafkaRelayArgs|null} [kafka] CreateRelayOptions kafka
              * @property {protos.args.IAWSSQSRelayArgs|null} [awsSqs] CreateRelayOptions awsSqs
              * @property {protos.args.IMongoReadArgs|null} [mongo] CreateRelayOptions mongo
@@ -28164,6 +28167,30 @@ $root.protos = (function() {
              * @instance
              */
             CreateRelayOptions.prototype.numWorkers = 0;
+
+            /**
+             * CreateRelayOptions batchshGrpcAddress.
+             * @member {string} batchshGrpcAddress
+             * @memberof protos.opts.CreateRelayOptions
+             * @instance
+             */
+            CreateRelayOptions.prototype.batchshGrpcAddress = "";
+
+            /**
+             * CreateRelayOptions batchshGrpcDisableTls.
+             * @member {boolean} batchshGrpcDisableTls
+             * @memberof protos.opts.CreateRelayOptions
+             * @instance
+             */
+            CreateRelayOptions.prototype.batchshGrpcDisableTls = false;
+
+            /**
+             * CreateRelayOptions batchshGrpcTimeoutSeconds.
+             * @member {number} batchshGrpcTimeoutSeconds
+             * @memberof protos.opts.CreateRelayOptions
+             * @instance
+             */
+            CreateRelayOptions.prototype.batchshGrpcTimeoutSeconds = 0;
 
             /**
              * CreateRelayOptions kafka.
@@ -28319,6 +28346,12 @@ $root.protos = (function() {
                     writer.uint32(/* id 4, wireType 0 =*/32).int32(message.batchMaxRetry);
                 if (message.numWorkers != null && Object.hasOwnProperty.call(message, "numWorkers"))
                     writer.uint32(/* id 5, wireType 0 =*/40).int32(message.numWorkers);
+                if (message.batchshGrpcAddress != null && Object.hasOwnProperty.call(message, "batchshGrpcAddress"))
+                    writer.uint32(/* id 6, wireType 2 =*/50).string(message.batchshGrpcAddress);
+                if (message.batchshGrpcDisableTls != null && Object.hasOwnProperty.call(message, "batchshGrpcDisableTls"))
+                    writer.uint32(/* id 7, wireType 0 =*/56).bool(message.batchshGrpcDisableTls);
+                if (message.batchshGrpcTimeoutSeconds != null && Object.hasOwnProperty.call(message, "batchshGrpcTimeoutSeconds"))
+                    writer.uint32(/* id 8, wireType 0 =*/64).int32(message.batchshGrpcTimeoutSeconds);
                 if (message.kafka != null && Object.hasOwnProperty.call(message, "kafka"))
                     $root.protos.args.KafkaRelayArgs.encode(message.kafka, writer.uint32(/* id 100, wireType 2 =*/802).fork()).ldelim();
                 if (message.awsSqs != null && Object.hasOwnProperty.call(message, "awsSqs"))
@@ -28397,6 +28430,15 @@ $root.protos = (function() {
                         break;
                     case 5:
                         message.numWorkers = reader.int32();
+                        break;
+                    case 6:
+                        message.batchshGrpcAddress = reader.string();
+                        break;
+                    case 7:
+                        message.batchshGrpcDisableTls = reader.bool();
+                        break;
+                    case 8:
+                        message.batchshGrpcTimeoutSeconds = reader.int32();
                         break;
                     case 100:
                         message.kafka = $root.protos.args.KafkaRelayArgs.decode(reader, reader.uint32());
@@ -28493,6 +28535,15 @@ $root.protos = (function() {
                 if (message.numWorkers != null && message.hasOwnProperty("numWorkers"))
                     if (!$util.isInteger(message.numWorkers))
                         return "numWorkers: integer expected";
+                if (message.batchshGrpcAddress != null && message.hasOwnProperty("batchshGrpcAddress"))
+                    if (!$util.isString(message.batchshGrpcAddress))
+                        return "batchshGrpcAddress: string expected";
+                if (message.batchshGrpcDisableTls != null && message.hasOwnProperty("batchshGrpcDisableTls"))
+                    if (typeof message.batchshGrpcDisableTls !== "boolean")
+                        return "batchshGrpcDisableTls: boolean expected";
+                if (message.batchshGrpcTimeoutSeconds != null && message.hasOwnProperty("batchshGrpcTimeoutSeconds"))
+                    if (!$util.isInteger(message.batchshGrpcTimeoutSeconds))
+                        return "batchshGrpcTimeoutSeconds: integer expected";
                 if (message.kafka != null && message.hasOwnProperty("kafka")) {
                     var error = $root.protos.args.KafkaRelayArgs.verify(message.kafka);
                     if (error)
@@ -28593,6 +28644,12 @@ $root.protos = (function() {
                     message.batchMaxRetry = object.batchMaxRetry | 0;
                 if (object.numWorkers != null)
                     message.numWorkers = object.numWorkers | 0;
+                if (object.batchshGrpcAddress != null)
+                    message.batchshGrpcAddress = String(object.batchshGrpcAddress);
+                if (object.batchshGrpcDisableTls != null)
+                    message.batchshGrpcDisableTls = Boolean(object.batchshGrpcDisableTls);
+                if (object.batchshGrpcTimeoutSeconds != null)
+                    message.batchshGrpcTimeoutSeconds = object.batchshGrpcTimeoutSeconds | 0;
                 if (object.kafka != null) {
                     if (typeof object.kafka !== "object")
                         throw TypeError(".protos.opts.CreateRelayOptions.kafka: object expected");
@@ -28690,6 +28747,9 @@ $root.protos = (function() {
                     object.batchSize = 0;
                     object.batchMaxRetry = 0;
                     object.numWorkers = 0;
+                    object.batchshGrpcAddress = "";
+                    object.batchshGrpcDisableTls = false;
+                    object.batchshGrpcTimeoutSeconds = 0;
                     object.kafka = null;
                     object.awsSqs = null;
                     object.mongo = null;
@@ -28716,6 +28776,12 @@ $root.protos = (function() {
                     object.batchMaxRetry = message.batchMaxRetry;
                 if (message.numWorkers != null && message.hasOwnProperty("numWorkers"))
                     object.numWorkers = message.numWorkers;
+                if (message.batchshGrpcAddress != null && message.hasOwnProperty("batchshGrpcAddress"))
+                    object.batchshGrpcAddress = message.batchshGrpcAddress;
+                if (message.batchshGrpcDisableTls != null && message.hasOwnProperty("batchshGrpcDisableTls"))
+                    object.batchshGrpcDisableTls = message.batchshGrpcDisableTls;
+                if (message.batchshGrpcTimeoutSeconds != null && message.hasOwnProperty("batchshGrpcTimeoutSeconds"))
+                    object.batchshGrpcTimeoutSeconds = message.batchshGrpcTimeoutSeconds;
                 if (message.kafka != null && message.hasOwnProperty("kafka"))
                     object.kafka = $root.protos.args.KafkaRelayArgs.toObject(message.kafka, options);
                 if (message.awsSqs != null && message.hasOwnProperty("awsSqs"))
