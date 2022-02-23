@@ -140,6 +140,7 @@ generate/go:
 	# Running code generation tasks
 	go run generate-type-aliases.go
 	go run generate-conn-opts-func.go
+	go run generate-merge-relay-opts.go
 
 .PHONY: inject-tags
 inject-tags: description = Inject tags for CLI
