@@ -12148,6 +12148,9 @@ export namespace protos {
             /** CreateTunnelOptions connectionId */
             connectionId?: (string|null);
 
+            /** CreateTunnelOptions tunnelToken */
+            tunnelToken?: (string|null);
+
             /** CreateTunnelOptions name */
             name?: (string|null);
 
@@ -12232,6 +12235,9 @@ export namespace protos {
 
             /** CreateTunnelOptions connectionId. */
             public connectionId: string;
+
+            /** CreateTunnelOptions tunnelToken. */
+            public tunnelToken: string;
 
             /** CreateTunnelOptions name. */
             public name: string;

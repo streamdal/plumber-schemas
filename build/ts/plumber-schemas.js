@@ -29584,6 +29584,7 @@ $root.protos = (function() {
              * @memberof protos.opts
              * @interface ICreateTunnelOptions
              * @property {string|null} [connectionId] CreateTunnelOptions connectionId
+             * @property {string|null} [tunnelToken] CreateTunnelOptions tunnelToken
              * @property {string|null} [name] CreateTunnelOptions name
              * @property {string|null} [notes] CreateTunnelOptions notes
              * @property {string|null} [_tunnelAddress] CreateTunnelOptions _tunnelAddress
@@ -29632,6 +29633,14 @@ $root.protos = (function() {
              * @instance
              */
             CreateTunnelOptions.prototype.connectionId = "";
+
+            /**
+             * CreateTunnelOptions tunnelToken.
+             * @member {string} tunnelToken
+             * @memberof protos.opts.CreateTunnelOptions
+             * @instance
+             */
+            CreateTunnelOptions.prototype.tunnelToken = "";
 
             /**
              * CreateTunnelOptions name.
@@ -29851,16 +29860,18 @@ $root.protos = (function() {
                     writer = $Writer.create();
                 if (message.connectionId != null && Object.hasOwnProperty.call(message, "connectionId"))
                     writer.uint32(/* id 1, wireType 2 =*/10).string(message.connectionId);
+                if (message.tunnelToken != null && Object.hasOwnProperty.call(message, "tunnelToken"))
+                    writer.uint32(/* id 3, wireType 2 =*/26).string(message.tunnelToken);
                 if (message.name != null && Object.hasOwnProperty.call(message, "name"))
-                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.name);
+                    writer.uint32(/* id 4, wireType 2 =*/34).string(message.name);
                 if (message.notes != null && Object.hasOwnProperty.call(message, "notes"))
-                    writer.uint32(/* id 3, wireType 2 =*/26).string(message.notes);
+                    writer.uint32(/* id 5, wireType 2 =*/42).string(message.notes);
                 if (message._tunnelAddress != null && Object.hasOwnProperty.call(message, "_tunnelAddress"))
-                    writer.uint32(/* id 4, wireType 2 =*/34).string(message._tunnelAddress);
+                    writer.uint32(/* id 6, wireType 2 =*/50).string(message._tunnelAddress);
                 if (message._tunnelTimeoutSeconds != null && Object.hasOwnProperty.call(message, "_tunnelTimeoutSeconds"))
-                    writer.uint32(/* id 5, wireType 0 =*/40).uint32(message._tunnelTimeoutSeconds);
+                    writer.uint32(/* id 7, wireType 0 =*/56).uint32(message._tunnelTimeoutSeconds);
                 if (message._tunnelInsecure != null && Object.hasOwnProperty.call(message, "_tunnelInsecure"))
-                    writer.uint32(/* id 6, wireType 0 =*/48).bool(message._tunnelInsecure);
+                    writer.uint32(/* id 8, wireType 0 =*/64).bool(message._tunnelInsecure);
                 if (message.kafka != null && Object.hasOwnProperty.call(message, "kafka"))
                     $root.protos.args.KafkaWriteArgs.encode(message.kafka, writer.uint32(/* id 100, wireType 2 =*/802).fork()).ldelim();
                 if (message.activemq != null && Object.hasOwnProperty.call(message, "activemq"))
@@ -29936,19 +29947,22 @@ $root.protos = (function() {
                     case 1:
                         message.connectionId = reader.string();
                         break;
-                    case 2:
-                        message.name = reader.string();
-                        break;
                     case 3:
-                        message.notes = reader.string();
+                        message.tunnelToken = reader.string();
                         break;
                     case 4:
-                        message._tunnelAddress = reader.string();
+                        message.name = reader.string();
                         break;
                     case 5:
-                        message._tunnelTimeoutSeconds = reader.uint32();
+                        message.notes = reader.string();
                         break;
                     case 6:
+                        message._tunnelAddress = reader.string();
+                        break;
+                    case 7:
+                        message._tunnelTimeoutSeconds = reader.uint32();
+                        break;
+                    case 8:
                         message._tunnelInsecure = reader.bool();
                         break;
                     case 100:
@@ -30046,6 +30060,9 @@ $root.protos = (function() {
                 if (message.connectionId != null && message.hasOwnProperty("connectionId"))
                     if (!$util.isString(message.connectionId))
                         return "connectionId: string expected";
+                if (message.tunnelToken != null && message.hasOwnProperty("tunnelToken"))
+                    if (!$util.isString(message.tunnelToken))
+                        return "tunnelToken: string expected";
                 if (message.name != null && message.hasOwnProperty("name"))
                     if (!$util.isString(message.name))
                         return "name: string expected";
@@ -30173,6 +30190,8 @@ $root.protos = (function() {
                 var message = new $root.protos.opts.CreateTunnelOptions();
                 if (object.connectionId != null)
                     message.connectionId = String(object.connectionId);
+                if (object.tunnelToken != null)
+                    message.tunnelToken = String(object.tunnelToken);
                 if (object.name != null)
                     message.name = String(object.name);
                 if (object.notes != null)
@@ -30296,6 +30315,7 @@ $root.protos = (function() {
                 var object = {};
                 if (options.defaults) {
                     object.connectionId = "";
+                    object.tunnelToken = "";
                     object.name = "";
                     object.notes = "";
                     object._tunnelAddress = "";
@@ -30323,6 +30343,8 @@ $root.protos = (function() {
                 }
                 if (message.connectionId != null && message.hasOwnProperty("connectionId"))
                     object.connectionId = message.connectionId;
+                if (message.tunnelToken != null && message.hasOwnProperty("tunnelToken"))
+                    object.tunnelToken = message.tunnelToken;
                 if (message.name != null && message.hasOwnProperty("name"))
                     object.name = message.name;
                 if (message.notes != null && message.hasOwnProperty("notes"))
