@@ -55,4 +55,10 @@ message ServerOptions {
 
   // @gotags: kong:"help='What address to bind the built-in HTTP server to',default='0.0.0.0:9191'"
   string http_listen_address = 16;
+
+  // @gotags: kong:"help='Allow plumber to be controlled from https://console.batch.sh',env='PLUMBER_REMOTE_CONTROL_ENABLED',default=false"
+  bool remote_control_enabled = 17;
+
+  // @gotags: kong:"help='Address of Batch.sh Plumber remote control service',env='PLUMBER_REMOTE_CONTROL_ADDRESS',default='0.0.0.0:9897'"
+  string remote_control_address = 18;
 }

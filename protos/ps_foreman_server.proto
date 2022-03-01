@@ -1,0 +1,99 @@
+syntax = "proto3";
+
+package protos;
+
+import "ps_connect.proto";
+import "ps_relay.proto";
+import "ps_server.proto";
+import "ps_tunnel.proto";
+
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
+
+service ForemanServer {
+  // -------------------- Foreman specific RPCs --------------------
+
+  // ListPlumbers is called by ui-bff, received by Foreman
+  // It returns all connected plumber instances for a given team
+  rpc ListPlumbers(ListPlumbersRequest) returns (ListPlumbersResponse);
+
+
+  // Below are all Proxy methods for talking to plumber instances
+
+  // -------------------- Connection ---------------------
+
+  // List configured/known connections
+  rpc GetAllConnections (GetAllConnectionsRequest) returns (GetAllConnectionsResponse);
+
+  // Fetch a specific connection by ID
+  rpc GetConnection(GetConnectionRequest) returns (GetConnectionResponse);
+
+  // Create a connection in plumber
+  rpc CreateConnection(CreateConnectionRequest) returns (CreateConnectionResponse);
+
+  // Test a connection before saving its configuration
+  rpc TestConnection(TestConnectionRequest) returns (TestConnectionResponse);
+
+  // Any active connections will be restarted
+  rpc UpdateConnection(UpdateConnectionRequest) returns (UpdateConnectionResponse);
+
+  // If there are any active connections, delete will cause them to get closed
+  rpc DeleteConnection(DeleteConnectionRequest) returns (DeleteConnectionResponse);
+
+  // ---------------------- Relay ----------------------
+
+  rpc GetAllRelays(GetAllRelaysRequest) returns (GetAllRelaysResponse);
+
+  rpc GetRelay(GetRelayRequest) returns (GetRelayResponse);
+
+  rpc CreateRelay(CreateRelayRequest) returns (CreateRelayResponse);
+
+  rpc UpdateRelay(UpdateRelayRequest) returns (UpdateRelayResponse);
+
+  rpc ResumeRelay(ResumeRelayRequest) returns (ResumeRelayResponse);
+
+  rpc StopRelay(StopRelayRequest) returns (StopRelayResponse);
+
+  rpc DeleteRelay(DeleteRelayRequest) returns (DeleteRelayResponse);
+
+  // --------------------- Tunnel ---------------------
+
+  rpc GetTunnel(GetTunnelRequest) returns (GetTunnelResponse);
+
+  rpc GetAllTunnels(GetAllTunnelsRequest) returns (GetAllTunnelsResponse);
+
+  rpc CreateTunnel(CreateTunnelRequest) returns (CreateTunnelResponse);
+
+  rpc StopTunnel(StopTunnelRequest) returns (StopTunnelResponse);
+
+  rpc ResumeTunnel(ResumeTunnelRequest) returns (ResumeTunnelResponse);
+
+  rpc UpdateTunnel(UpdateTunnelRequest) returns (UpdateTunnelResponse);
+
+  rpc DeleteTunnel(DeleteTunnelRequest) returns (DeleteTunnelResponse);
+
+  // ------------------- Server -------------------
+
+  rpc GetServerOptions(GetServerOptionsRequest) returns (GetServerOptionsResponse);
+}
+
+message PlumberInfo {
+  string team_id = 1;
+
+  string cluster_id = 2;
+
+  string ip = 3;
+}
+
+message ListPlumbersRequest {
+  // Authenticate between ui-bff and Foreman
+  string auth_token = 1;
+
+  // Team ID to list connected plumbers for
+  string team_id = 2;
+}
+
+message ListPlumbersResponse {
+  // List of plumbers
+  repeated PlumberInfo plumbers = 1;
+}
+
