@@ -22,6 +22,9 @@ message RegisterRequest {
   // This is filled out by plumber, and then stored in memory while it is connected
   // All requests back to plumber need to provide this token
   string plumber_token = 3;
+
+  // Individual plumber instance ID
+  string node_id = 4;
 }
 
 message RegisterResponse {

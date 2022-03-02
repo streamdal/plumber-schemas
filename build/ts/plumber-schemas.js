@@ -61312,6 +61312,7 @@ $root.protos = (function() {
          * @property {string|null} [apiToken] RegisterRequest apiToken
          * @property {string|null} [clusterId] RegisterRequest clusterId
          * @property {string|null} [plumberToken] RegisterRequest plumberToken
+         * @property {string|null} [nodeId] RegisterRequest nodeId
          */
 
         /**
@@ -61354,6 +61355,14 @@ $root.protos = (function() {
         RegisterRequest.prototype.plumberToken = "";
 
         /**
+         * RegisterRequest nodeId.
+         * @member {string} nodeId
+         * @memberof protos.RegisterRequest
+         * @instance
+         */
+        RegisterRequest.prototype.nodeId = "";
+
+        /**
          * Creates a new RegisterRequest instance using the specified properties.
          * @function create
          * @memberof protos.RegisterRequest
@@ -61383,6 +61392,8 @@ $root.protos = (function() {
                 writer.uint32(/* id 2, wireType 2 =*/18).string(message.clusterId);
             if (message.plumberToken != null && Object.hasOwnProperty.call(message, "plumberToken"))
                 writer.uint32(/* id 3, wireType 2 =*/26).string(message.plumberToken);
+            if (message.nodeId != null && Object.hasOwnProperty.call(message, "nodeId"))
+                writer.uint32(/* id 4, wireType 2 =*/34).string(message.nodeId);
             return writer;
         };
 
@@ -61425,6 +61436,9 @@ $root.protos = (function() {
                     break;
                 case 3:
                     message.plumberToken = reader.string();
+                    break;
+                case 4:
+                    message.nodeId = reader.string();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -61470,6 +61484,9 @@ $root.protos = (function() {
             if (message.plumberToken != null && message.hasOwnProperty("plumberToken"))
                 if (!$util.isString(message.plumberToken))
                     return "plumberToken: string expected";
+            if (message.nodeId != null && message.hasOwnProperty("nodeId"))
+                if (!$util.isString(message.nodeId))
+                    return "nodeId: string expected";
             return null;
         };
 
@@ -61491,6 +61508,8 @@ $root.protos = (function() {
                 message.clusterId = String(object.clusterId);
             if (object.plumberToken != null)
                 message.plumberToken = String(object.plumberToken);
+            if (object.nodeId != null)
+                message.nodeId = String(object.nodeId);
             return message;
         };
 
@@ -61511,6 +61530,7 @@ $root.protos = (function() {
                 object.apiToken = "";
                 object.clusterId = "";
                 object.plumberToken = "";
+                object.nodeId = "";
             }
             if (message.apiToken != null && message.hasOwnProperty("apiToken"))
                 object.apiToken = message.apiToken;
@@ -61518,6 +61538,8 @@ $root.protos = (function() {
                 object.clusterId = message.clusterId;
             if (message.plumberToken != null && message.hasOwnProperty("plumberToken"))
                 object.plumberToken = message.plumberToken;
+            if (message.nodeId != null && message.hasOwnProperty("nodeId"))
+                object.nodeId = message.nodeId;
             return object;
         };
 
@@ -62514,7 +62536,6 @@ $root.protos = (function() {
          * @interface IPlumberInfo
          * @property {string|null} [teamId] PlumberInfo teamId
          * @property {string|null} [clusterId] PlumberInfo clusterId
-         * @property {string|null} [ip] PlumberInfo ip
          */
 
         /**
@@ -62549,14 +62570,6 @@ $root.protos = (function() {
         PlumberInfo.prototype.clusterId = "";
 
         /**
-         * PlumberInfo ip.
-         * @member {string} ip
-         * @memberof protos.PlumberInfo
-         * @instance
-         */
-        PlumberInfo.prototype.ip = "";
-
-        /**
          * Creates a new PlumberInfo instance using the specified properties.
          * @function create
          * @memberof protos.PlumberInfo
@@ -62584,8 +62597,6 @@ $root.protos = (function() {
                 writer.uint32(/* id 1, wireType 2 =*/10).string(message.teamId);
             if (message.clusterId != null && Object.hasOwnProperty.call(message, "clusterId"))
                 writer.uint32(/* id 2, wireType 2 =*/18).string(message.clusterId);
-            if (message.ip != null && Object.hasOwnProperty.call(message, "ip"))
-                writer.uint32(/* id 3, wireType 2 =*/26).string(message.ip);
             return writer;
         };
 
@@ -62625,9 +62636,6 @@ $root.protos = (function() {
                     break;
                 case 2:
                     message.clusterId = reader.string();
-                    break;
-                case 3:
-                    message.ip = reader.string();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -62670,9 +62678,6 @@ $root.protos = (function() {
             if (message.clusterId != null && message.hasOwnProperty("clusterId"))
                 if (!$util.isString(message.clusterId))
                     return "clusterId: string expected";
-            if (message.ip != null && message.hasOwnProperty("ip"))
-                if (!$util.isString(message.ip))
-                    return "ip: string expected";
             return null;
         };
 
@@ -62692,8 +62697,6 @@ $root.protos = (function() {
                 message.teamId = String(object.teamId);
             if (object.clusterId != null)
                 message.clusterId = String(object.clusterId);
-            if (object.ip != null)
-                message.ip = String(object.ip);
             return message;
         };
 
@@ -62713,14 +62716,11 @@ $root.protos = (function() {
             if (options.defaults) {
                 object.teamId = "";
                 object.clusterId = "";
-                object.ip = "";
             }
             if (message.teamId != null && message.hasOwnProperty("teamId"))
                 object.teamId = message.teamId;
             if (message.clusterId != null && message.hasOwnProperty("clusterId"))
                 object.clusterId = message.clusterId;
-            if (message.ip != null && message.hasOwnProperty("ip"))
-                object.ip = message.ip;
             return object;
         };
 

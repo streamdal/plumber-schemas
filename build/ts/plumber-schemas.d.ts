@@ -25453,6 +25453,9 @@ export namespace protos {
 
         /** RegisterRequest plumberToken */
         plumberToken?: (string|null);
+
+        /** RegisterRequest nodeId */
+        nodeId?: (string|null);
     }
 
     /** Represents a RegisterRequest. */
@@ -25472,6 +25475,9 @@ export namespace protos {
 
         /** RegisterRequest plumberToken. */
         public plumberToken: string;
+
+        /** RegisterRequest nodeId. */
+        public nodeId: string;
 
         /**
          * Creates a new RegisterRequest instance using the specified properties.
@@ -26134,9 +26140,6 @@ export namespace protos {
 
         /** PlumberInfo clusterId */
         clusterId?: (string|null);
-
-        /** PlumberInfo ip */
-        ip?: (string|null);
     }
 
     /** Represents a PlumberInfo. */
@@ -26153,9 +26156,6 @@ export namespace protos {
 
         /** PlumberInfo clusterId. */
         public clusterId: string;
-
-        /** PlumberInfo ip. */
-        public ip: string;
 
         /**
          * Creates a new PlumberInfo instance using the specified properties.

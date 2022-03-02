@@ -80,8 +80,6 @@ message PlumberInfo {
   string team_id = 1;
 
   string cluster_id = 2;
-
-  string ip = 3;
 }
 
 message ListPlumbersRequest {
