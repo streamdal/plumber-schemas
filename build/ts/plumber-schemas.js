@@ -9917,6 +9917,7 @@ $root.protos = (function() {
              * @property {boolean|null} [remoteControlEnabled] ServerOptions remoteControlEnabled
              * @property {string|null} [remoteControlAddress] ServerOptions remoteControlAddress
              * @property {string|null} [remoteControlApiToken] ServerOptions remoteControlApiToken
+             * @property {boolean|null} [remoteControlDisableTls] ServerOptions remoteControlDisableTls
              */
 
             /**
@@ -10096,6 +10097,14 @@ $root.protos = (function() {
             ServerOptions.prototype.remoteControlApiToken = "";
 
             /**
+             * ServerOptions remoteControlDisableTls.
+             * @member {boolean} remoteControlDisableTls
+             * @memberof protos.opts.ServerOptions
+             * @instance
+             */
+            ServerOptions.prototype.remoteControlDisableTls = false;
+
+            /**
              * Creates a new ServerOptions instance using the specified properties.
              * @function create
              * @memberof protos.opts.ServerOptions
@@ -10158,6 +10167,8 @@ $root.protos = (function() {
                     writer.uint32(/* id 18, wireType 2 =*/146).string(message.remoteControlAddress);
                 if (message.remoteControlApiToken != null && Object.hasOwnProperty.call(message, "remoteControlApiToken"))
                     writer.uint32(/* id 19, wireType 2 =*/154).string(message.remoteControlApiToken);
+                if (message.remoteControlDisableTls != null && Object.hasOwnProperty.call(message, "remoteControlDisableTls"))
+                    writer.uint32(/* id 20, wireType 0 =*/160).bool(message.remoteControlDisableTls);
                 if (message.useTls != null && Object.hasOwnProperty.call(message, "useTls"))
                     writer.uint32(/* id 500, wireType 0 =*/4000).bool(message.useTls);
                 return writer;
@@ -10255,6 +10266,9 @@ $root.protos = (function() {
                         break;
                     case 19:
                         message.remoteControlApiToken = reader.string();
+                        break;
+                    case 20:
+                        message.remoteControlDisableTls = reader.bool();
                         break;
                     default:
                         reader.skipType(tag & 7);
@@ -10355,6 +10369,9 @@ $root.protos = (function() {
                 if (message.remoteControlApiToken != null && message.hasOwnProperty("remoteControlApiToken"))
                     if (!$util.isString(message.remoteControlApiToken))
                         return "remoteControlApiToken: string expected";
+                if (message.remoteControlDisableTls != null && message.hasOwnProperty("remoteControlDisableTls"))
+                    if (typeof message.remoteControlDisableTls !== "boolean")
+                        return "remoteControlDisableTls: boolean expected";
                 return null;
             };
 
@@ -10415,6 +10432,8 @@ $root.protos = (function() {
                     message.remoteControlAddress = String(object.remoteControlAddress);
                 if (object.remoteControlApiToken != null)
                     message.remoteControlApiToken = String(object.remoteControlApiToken);
+                if (object.remoteControlDisableTls != null)
+                    message.remoteControlDisableTls = Boolean(object.remoteControlDisableTls);
                 return message;
             };
 
@@ -10452,6 +10471,7 @@ $root.protos = (function() {
                     object.remoteControlEnabled = false;
                     object.remoteControlAddress = "";
                     object.remoteControlApiToken = "";
+                    object.remoteControlDisableTls = false;
                     object.useTls = false;
                 }
                 if (message.nodeId != null && message.hasOwnProperty("nodeId"))
@@ -10495,6 +10515,8 @@ $root.protos = (function() {
                     object.remoteControlAddress = message.remoteControlAddress;
                 if (message.remoteControlApiToken != null && message.hasOwnProperty("remoteControlApiToken"))
                     object.remoteControlApiToken = message.remoteControlApiToken;
+                if (message.remoteControlDisableTls != null && message.hasOwnProperty("remoteControlDisableTls"))
+                    object.remoteControlDisableTls = message.remoteControlDisableTls;
                 if (message.useTls != null && message.hasOwnProperty("useTls"))
                     object.useTls = message.useTls;
                 return object;

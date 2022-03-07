@@ -64,4 +64,7 @@ message ServerOptions {
 
   // @gotags: kong:"help='Batch.sh API token, needed to access remote control service',env='PLUMBER_REMOTE_CONTROL_API_TOKEN'"
   string remote_control_api_token = 19;
+
+  // @gotags: kong:"help='Connect to remove control server without TLS',default=false"
+  bool remote_control_disable_tls = 20;
 }

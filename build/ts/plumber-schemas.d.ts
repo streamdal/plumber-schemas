@@ -4218,6 +4218,9 @@ export namespace protos {
 
             /** ServerOptions remoteControlApiToken */
             remoteControlApiToken?: (string|null);
+
+            /** ServerOptions remoteControlDisableTls */
+            remoteControlDisableTls?: (boolean|null);
         }
 
         /** Represents a ServerOptions. */
@@ -4288,6 +4291,9 @@ export namespace protos {
 
             /** ServerOptions remoteControlApiToken. */
             public remoteControlApiToken: string;
+
+            /** ServerOptions remoteControlDisableTls. */
+            public remoteControlDisableTls: boolean;
 
             /**
              * Creates a new ServerOptions instance using the specified properties.
