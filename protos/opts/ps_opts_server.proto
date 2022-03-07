@@ -61,4 +61,7 @@ message ServerOptions {
 
   // @gotags: kong:"help='Address of Batch.sh Plumber remote control service',env='PLUMBER_REMOTE_CONTROL_ADDRESS',default='0.0.0.0:9897'"
   string remote_control_address = 18;
+
+  // @gotags: kong:"help='Batch.sh API token, needed to access remote control service',env='PLUMBER_REMOTE_CONTROL_API_TOKEN'"
+  string remote_control_api_token = 19;
 }

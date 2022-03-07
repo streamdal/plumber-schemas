@@ -4215,6 +4215,9 @@ export namespace protos {
 
             /** ServerOptions remoteControlAddress */
             remoteControlAddress?: (string|null);
+
+            /** ServerOptions remoteControlApiToken */
+            remoteControlApiToken?: (string|null);
         }
 
         /** Represents a ServerOptions. */
@@ -4282,6 +4285,9 @@ export namespace protos {
 
             /** ServerOptions remoteControlAddress. */
             public remoteControlAddress: string;
+
+            /** ServerOptions remoteControlApiToken. */
+            public remoteControlApiToken: string;
 
             /**
              * Creates a new ServerOptions instance using the specified properties.
