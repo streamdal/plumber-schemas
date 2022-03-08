@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+package protos;
+
+
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
+
+// ForemanClient is a service used to connect to Foreman from a Plumber server cluster
+service ForemanClient {
+  // Used by plumber to connect to Foreman and announce its presence.
+  rpc Register(RegisterRequest) returns (RegisterResponse);
+}
+
+message RegisterRequest {
+  // API token obtained from https://console.batch.sh/account/security
+  string api_token = 1;
+
+  // Plumber cluster ID
+  string cluster_id = 2;
+
+  // Token used to authenticate calls to this plumber instance
+  // This is filled out by plumber, and then stored in memory while it is connected
+  // All requests back to plumber need to provide this token
+  string plumber_token = 3;
+
+  // Individual plumber instance ID
+  string node_id = 4;
+}
+
+message RegisterResponse {
+  // Authorized or not
+  bool success = 1;
+
+  // Error message if any
+  // Will be empty on success
+  string message = 2;
+}

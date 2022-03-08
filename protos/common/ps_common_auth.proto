@@ -4,6 +4,17 @@ package protos.common;
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/common";
 
+message Foreman {
+  string auth_token = 1;
+
+  string plumber_cluster_id = 2;
+
+  string team_id = 3;
+}
+
 message Auth {
   string token = 1;
+
+  // Filled out by batch. Not intended to be used by plumber.
+  Foreman _foreman = 2;
 }

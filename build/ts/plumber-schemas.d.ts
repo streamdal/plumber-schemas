@@ -1586,11 +1586,116 @@ export namespace protos {
     /** Namespace common. */
     namespace common {
 
+        /** Properties of a Foreman. */
+        interface IForeman {
+
+            /** Foreman authToken */
+            authToken?: (string|null);
+
+            /** Foreman plumberClusterId */
+            plumberClusterId?: (string|null);
+
+            /** Foreman teamId */
+            teamId?: (string|null);
+        }
+
+        /** Represents a Foreman. */
+        class Foreman implements IForeman {
+
+            /**
+             * Constructs a new Foreman.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.common.IForeman);
+
+            /** Foreman authToken. */
+            public authToken: string;
+
+            /** Foreman plumberClusterId. */
+            public plumberClusterId: string;
+
+            /** Foreman teamId. */
+            public teamId: string;
+
+            /**
+             * Creates a new Foreman instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns Foreman instance
+             */
+            public static create(properties?: protos.common.IForeman): protos.common.Foreman;
+
+            /**
+             * Encodes the specified Foreman message. Does not implicitly {@link protos.common.Foreman.verify|verify} messages.
+             * @param message Foreman message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.common.IForeman, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified Foreman message, length delimited. Does not implicitly {@link protos.common.Foreman.verify|verify} messages.
+             * @param message Foreman message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.common.IForeman, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a Foreman message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns Foreman
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.common.Foreman;
+
+            /**
+             * Decodes a Foreman message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns Foreman
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.common.Foreman;
+
+            /**
+             * Verifies a Foreman message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a Foreman message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns Foreman
+             */
+            public static fromObject(object: { [k: string]: any }): protos.common.Foreman;
+
+            /**
+             * Creates a plain object from a Foreman message. Also converts values to other types if specified.
+             * @param message Foreman
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.common.Foreman, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this Foreman to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
         /** Properties of an Auth. */
         interface IAuth {
 
             /** Auth token */
             token?: (string|null);
+
+            /** Auth _foreman */
+            _foreman?: (protos.common.IForeman|null);
         }
 
         /** Represents an Auth. */
@@ -1604,6 +1709,9 @@ export namespace protos {
 
             /** Auth token. */
             public token: string;
+
+            /** Auth _foreman. */
+            public _foreman?: (protos.common.IForeman|null);
 
             /**
              * Creates a new Auth instance using the specified properties.
@@ -4101,6 +4209,18 @@ export namespace protos {
 
             /** ServerOptions httpListenAddress */
             httpListenAddress?: (string|null);
+
+            /** ServerOptions remoteControlEnabled */
+            remoteControlEnabled?: (boolean|null);
+
+            /** ServerOptions remoteControlAddress */
+            remoteControlAddress?: (string|null);
+
+            /** ServerOptions remoteControlApiToken */
+            remoteControlApiToken?: (string|null);
+
+            /** ServerOptions remoteControlDisableTls */
+            remoteControlDisableTls?: (boolean|null);
         }
 
         /** Represents a ServerOptions. */
@@ -4162,6 +4282,18 @@ export namespace protos {
 
             /** ServerOptions httpListenAddress. */
             public httpListenAddress: string;
+
+            /** ServerOptions remoteControlEnabled. */
+            public remoteControlEnabled: boolean;
+
+            /** ServerOptions remoteControlAddress. */
+            public remoteControlAddress: string;
+
+            /** ServerOptions remoteControlApiToken. */
+            public remoteControlApiToken: string;
+
+            /** ServerOptions remoteControlDisableTls. */
+            public remoteControlDisableTls: boolean;
 
             /**
              * Creates a new ServerOptions instance using the specified properties.
@@ -25272,6 +25404,1023 @@ export namespace protos {
 
         /**
          * Converts this DeleteTunnelResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Represents a ForemanClient */
+    class ForemanClient extends $protobuf.rpc.Service {
+
+        /**
+         * Constructs a new ForemanClient service.
+         * @param rpcImpl RPC implementation
+         * @param [requestDelimited=false] Whether requests are length-delimited
+         * @param [responseDelimited=false] Whether responses are length-delimited
+         */
+        constructor(rpcImpl: $protobuf.RPCImpl, requestDelimited?: boolean, responseDelimited?: boolean);
+
+        /**
+         * Creates new ForemanClient service using the specified rpc implementation.
+         * @param rpcImpl RPC implementation
+         * @param [requestDelimited=false] Whether requests are length-delimited
+         * @param [responseDelimited=false] Whether responses are length-delimited
+         * @returns RPC service. Useful where requests and/or responses are streamed.
+         */
+        public static create(rpcImpl: $protobuf.RPCImpl, requestDelimited?: boolean, responseDelimited?: boolean): ForemanClient;
+
+        /**
+         * Calls Register.
+         * @param request RegisterRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and RegisterResponse
+         */
+        public register(request: protos.IRegisterRequest, callback: protos.ForemanClient.RegisterCallback): void;
+
+        /**
+         * Calls Register.
+         * @param request RegisterRequest message or plain object
+         * @returns Promise
+         */
+        public register(request: protos.IRegisterRequest): Promise<protos.RegisterResponse>;
+    }
+
+    namespace ForemanClient {
+
+        /**
+         * Callback as used by {@link protos.ForemanClient#register}.
+         * @param error Error, if any
+         * @param [response] RegisterResponse
+         */
+        type RegisterCallback = (error: (Error|null), response?: protos.RegisterResponse) => void;
+    }
+
+    /** Properties of a RegisterRequest. */
+    interface IRegisterRequest {
+
+        /** RegisterRequest apiToken */
+        apiToken?: (string|null);
+
+        /** RegisterRequest clusterId */
+        clusterId?: (string|null);
+
+        /** RegisterRequest plumberToken */
+        plumberToken?: (string|null);
+
+        /** RegisterRequest nodeId */
+        nodeId?: (string|null);
+    }
+
+    /** Represents a RegisterRequest. */
+    class RegisterRequest implements IRegisterRequest {
+
+        /**
+         * Constructs a new RegisterRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IRegisterRequest);
+
+        /** RegisterRequest apiToken. */
+        public apiToken: string;
+
+        /** RegisterRequest clusterId. */
+        public clusterId: string;
+
+        /** RegisterRequest plumberToken. */
+        public plumberToken: string;
+
+        /** RegisterRequest nodeId. */
+        public nodeId: string;
+
+        /**
+         * Creates a new RegisterRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns RegisterRequest instance
+         */
+        public static create(properties?: protos.IRegisterRequest): protos.RegisterRequest;
+
+        /**
+         * Encodes the specified RegisterRequest message. Does not implicitly {@link protos.RegisterRequest.verify|verify} messages.
+         * @param message RegisterRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IRegisterRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified RegisterRequest message, length delimited. Does not implicitly {@link protos.RegisterRequest.verify|verify} messages.
+         * @param message RegisterRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IRegisterRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a RegisterRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns RegisterRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.RegisterRequest;
+
+        /**
+         * Decodes a RegisterRequest message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns RegisterRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.RegisterRequest;
+
+        /**
+         * Verifies a RegisterRequest message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a RegisterRequest message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns RegisterRequest
+         */
+        public static fromObject(object: { [k: string]: any }): protos.RegisterRequest;
+
+        /**
+         * Creates a plain object from a RegisterRequest message. Also converts values to other types if specified.
+         * @param message RegisterRequest
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.RegisterRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this RegisterRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a RegisterResponse. */
+    interface IRegisterResponse {
+
+        /** RegisterResponse success */
+        success?: (boolean|null);
+
+        /** RegisterResponse message */
+        message?: (string|null);
+    }
+
+    /** Represents a RegisterResponse. */
+    class RegisterResponse implements IRegisterResponse {
+
+        /**
+         * Constructs a new RegisterResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IRegisterResponse);
+
+        /** RegisterResponse success. */
+        public success: boolean;
+
+        /** RegisterResponse message. */
+        public message: string;
+
+        /**
+         * Creates a new RegisterResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns RegisterResponse instance
+         */
+        public static create(properties?: protos.IRegisterResponse): protos.RegisterResponse;
+
+        /**
+         * Encodes the specified RegisterResponse message. Does not implicitly {@link protos.RegisterResponse.verify|verify} messages.
+         * @param message RegisterResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IRegisterResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified RegisterResponse message, length delimited. Does not implicitly {@link protos.RegisterResponse.verify|verify} messages.
+         * @param message RegisterResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IRegisterResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a RegisterResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns RegisterResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.RegisterResponse;
+
+        /**
+         * Decodes a RegisterResponse message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns RegisterResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.RegisterResponse;
+
+        /**
+         * Verifies a RegisterResponse message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a RegisterResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns RegisterResponse
+         */
+        public static fromObject(object: { [k: string]: any }): protos.RegisterResponse;
+
+        /**
+         * Creates a plain object from a RegisterResponse message. Also converts values to other types if specified.
+         * @param message RegisterResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.RegisterResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this RegisterResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Represents a ForemanServer */
+    class ForemanServer extends $protobuf.rpc.Service {
+
+        /**
+         * Constructs a new ForemanServer service.
+         * @param rpcImpl RPC implementation
+         * @param [requestDelimited=false] Whether requests are length-delimited
+         * @param [responseDelimited=false] Whether responses are length-delimited
+         */
+        constructor(rpcImpl: $protobuf.RPCImpl, requestDelimited?: boolean, responseDelimited?: boolean);
+
+        /**
+         * Creates new ForemanServer service using the specified rpc implementation.
+         * @param rpcImpl RPC implementation
+         * @param [requestDelimited=false] Whether requests are length-delimited
+         * @param [responseDelimited=false] Whether responses are length-delimited
+         * @returns RPC service. Useful where requests and/or responses are streamed.
+         */
+        public static create(rpcImpl: $protobuf.RPCImpl, requestDelimited?: boolean, responseDelimited?: boolean): ForemanServer;
+
+        /**
+         * Calls ListPlumbers.
+         * @param request ListPlumbersRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and ListPlumbersResponse
+         */
+        public listPlumbers(request: protos.IListPlumbersRequest, callback: protos.ForemanServer.ListPlumbersCallback): void;
+
+        /**
+         * Calls ListPlumbers.
+         * @param request ListPlumbersRequest message or plain object
+         * @returns Promise
+         */
+        public listPlumbers(request: protos.IListPlumbersRequest): Promise<protos.ListPlumbersResponse>;
+
+        /**
+         * Calls GetAllConnections.
+         * @param request GetAllConnectionsRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and GetAllConnectionsResponse
+         */
+        public getAllConnections(request: protos.IGetAllConnectionsRequest, callback: protos.ForemanServer.GetAllConnectionsCallback): void;
+
+        /**
+         * Calls GetAllConnections.
+         * @param request GetAllConnectionsRequest message or plain object
+         * @returns Promise
+         */
+        public getAllConnections(request: protos.IGetAllConnectionsRequest): Promise<protos.GetAllConnectionsResponse>;
+
+        /**
+         * Calls GetConnection.
+         * @param request GetConnectionRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and GetConnectionResponse
+         */
+        public getConnection(request: protos.IGetConnectionRequest, callback: protos.ForemanServer.GetConnectionCallback): void;
+
+        /**
+         * Calls GetConnection.
+         * @param request GetConnectionRequest message or plain object
+         * @returns Promise
+         */
+        public getConnection(request: protos.IGetConnectionRequest): Promise<protos.GetConnectionResponse>;
+
+        /**
+         * Calls CreateConnection.
+         * @param request CreateConnectionRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and CreateConnectionResponse
+         */
+        public createConnection(request: protos.ICreateConnectionRequest, callback: protos.ForemanServer.CreateConnectionCallback): void;
+
+        /**
+         * Calls CreateConnection.
+         * @param request CreateConnectionRequest message or plain object
+         * @returns Promise
+         */
+        public createConnection(request: protos.ICreateConnectionRequest): Promise<protos.CreateConnectionResponse>;
+
+        /**
+         * Calls TestConnection.
+         * @param request TestConnectionRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and TestConnectionResponse
+         */
+        public testConnection(request: protos.ITestConnectionRequest, callback: protos.ForemanServer.TestConnectionCallback): void;
+
+        /**
+         * Calls TestConnection.
+         * @param request TestConnectionRequest message or plain object
+         * @returns Promise
+         */
+        public testConnection(request: protos.ITestConnectionRequest): Promise<protos.TestConnectionResponse>;
+
+        /**
+         * Calls UpdateConnection.
+         * @param request UpdateConnectionRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and UpdateConnectionResponse
+         */
+        public updateConnection(request: protos.IUpdateConnectionRequest, callback: protos.ForemanServer.UpdateConnectionCallback): void;
+
+        /**
+         * Calls UpdateConnection.
+         * @param request UpdateConnectionRequest message or plain object
+         * @returns Promise
+         */
+        public updateConnection(request: protos.IUpdateConnectionRequest): Promise<protos.UpdateConnectionResponse>;
+
+        /**
+         * Calls DeleteConnection.
+         * @param request DeleteConnectionRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and DeleteConnectionResponse
+         */
+        public deleteConnection(request: protos.IDeleteConnectionRequest, callback: protos.ForemanServer.DeleteConnectionCallback): void;
+
+        /**
+         * Calls DeleteConnection.
+         * @param request DeleteConnectionRequest message or plain object
+         * @returns Promise
+         */
+        public deleteConnection(request: protos.IDeleteConnectionRequest): Promise<protos.DeleteConnectionResponse>;
+
+        /**
+         * Calls GetAllRelays.
+         * @param request GetAllRelaysRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and GetAllRelaysResponse
+         */
+        public getAllRelays(request: protos.IGetAllRelaysRequest, callback: protos.ForemanServer.GetAllRelaysCallback): void;
+
+        /**
+         * Calls GetAllRelays.
+         * @param request GetAllRelaysRequest message or plain object
+         * @returns Promise
+         */
+        public getAllRelays(request: protos.IGetAllRelaysRequest): Promise<protos.GetAllRelaysResponse>;
+
+        /**
+         * Calls GetRelay.
+         * @param request GetRelayRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and GetRelayResponse
+         */
+        public getRelay(request: protos.IGetRelayRequest, callback: protos.ForemanServer.GetRelayCallback): void;
+
+        /**
+         * Calls GetRelay.
+         * @param request GetRelayRequest message or plain object
+         * @returns Promise
+         */
+        public getRelay(request: protos.IGetRelayRequest): Promise<protos.GetRelayResponse>;
+
+        /**
+         * Calls CreateRelay.
+         * @param request CreateRelayRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and CreateRelayResponse
+         */
+        public createRelay(request: protos.ICreateRelayRequest, callback: protos.ForemanServer.CreateRelayCallback): void;
+
+        /**
+         * Calls CreateRelay.
+         * @param request CreateRelayRequest message or plain object
+         * @returns Promise
+         */
+        public createRelay(request: protos.ICreateRelayRequest): Promise<protos.CreateRelayResponse>;
+
+        /**
+         * Calls UpdateRelay.
+         * @param request UpdateRelayRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and UpdateRelayResponse
+         */
+        public updateRelay(request: protos.IUpdateRelayRequest, callback: protos.ForemanServer.UpdateRelayCallback): void;
+
+        /**
+         * Calls UpdateRelay.
+         * @param request UpdateRelayRequest message or plain object
+         * @returns Promise
+         */
+        public updateRelay(request: protos.IUpdateRelayRequest): Promise<protos.UpdateRelayResponse>;
+
+        /**
+         * Calls ResumeRelay.
+         * @param request ResumeRelayRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and ResumeRelayResponse
+         */
+        public resumeRelay(request: protos.IResumeRelayRequest, callback: protos.ForemanServer.ResumeRelayCallback): void;
+
+        /**
+         * Calls ResumeRelay.
+         * @param request ResumeRelayRequest message or plain object
+         * @returns Promise
+         */
+        public resumeRelay(request: protos.IResumeRelayRequest): Promise<protos.ResumeRelayResponse>;
+
+        /**
+         * Calls StopRelay.
+         * @param request StopRelayRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and StopRelayResponse
+         */
+        public stopRelay(request: protos.IStopRelayRequest, callback: protos.ForemanServer.StopRelayCallback): void;
+
+        /**
+         * Calls StopRelay.
+         * @param request StopRelayRequest message or plain object
+         * @returns Promise
+         */
+        public stopRelay(request: protos.IStopRelayRequest): Promise<protos.StopRelayResponse>;
+
+        /**
+         * Calls DeleteRelay.
+         * @param request DeleteRelayRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and DeleteRelayResponse
+         */
+        public deleteRelay(request: protos.IDeleteRelayRequest, callback: protos.ForemanServer.DeleteRelayCallback): void;
+
+        /**
+         * Calls DeleteRelay.
+         * @param request DeleteRelayRequest message or plain object
+         * @returns Promise
+         */
+        public deleteRelay(request: protos.IDeleteRelayRequest): Promise<protos.DeleteRelayResponse>;
+
+        /**
+         * Calls GetTunnel.
+         * @param request GetTunnelRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and GetTunnelResponse
+         */
+        public getTunnel(request: protos.IGetTunnelRequest, callback: protos.ForemanServer.GetTunnelCallback): void;
+
+        /**
+         * Calls GetTunnel.
+         * @param request GetTunnelRequest message or plain object
+         * @returns Promise
+         */
+        public getTunnel(request: protos.IGetTunnelRequest): Promise<protos.GetTunnelResponse>;
+
+        /**
+         * Calls GetAllTunnels.
+         * @param request GetAllTunnelsRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and GetAllTunnelsResponse
+         */
+        public getAllTunnels(request: protos.IGetAllTunnelsRequest, callback: protos.ForemanServer.GetAllTunnelsCallback): void;
+
+        /**
+         * Calls GetAllTunnels.
+         * @param request GetAllTunnelsRequest message or plain object
+         * @returns Promise
+         */
+        public getAllTunnels(request: protos.IGetAllTunnelsRequest): Promise<protos.GetAllTunnelsResponse>;
+
+        /**
+         * Calls CreateTunnel.
+         * @param request CreateTunnelRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and CreateTunnelResponse
+         */
+        public createTunnel(request: protos.ICreateTunnelRequest, callback: protos.ForemanServer.CreateTunnelCallback): void;
+
+        /**
+         * Calls CreateTunnel.
+         * @param request CreateTunnelRequest message or plain object
+         * @returns Promise
+         */
+        public createTunnel(request: protos.ICreateTunnelRequest): Promise<protos.CreateTunnelResponse>;
+
+        /**
+         * Calls StopTunnel.
+         * @param request StopTunnelRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and StopTunnelResponse
+         */
+        public stopTunnel(request: protos.IStopTunnelRequest, callback: protos.ForemanServer.StopTunnelCallback): void;
+
+        /**
+         * Calls StopTunnel.
+         * @param request StopTunnelRequest message or plain object
+         * @returns Promise
+         */
+        public stopTunnel(request: protos.IStopTunnelRequest): Promise<protos.StopTunnelResponse>;
+
+        /**
+         * Calls ResumeTunnel.
+         * @param request ResumeTunnelRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and ResumeTunnelResponse
+         */
+        public resumeTunnel(request: protos.IResumeTunnelRequest, callback: protos.ForemanServer.ResumeTunnelCallback): void;
+
+        /**
+         * Calls ResumeTunnel.
+         * @param request ResumeTunnelRequest message or plain object
+         * @returns Promise
+         */
+        public resumeTunnel(request: protos.IResumeTunnelRequest): Promise<protos.ResumeTunnelResponse>;
+
+        /**
+         * Calls UpdateTunnel.
+         * @param request UpdateTunnelRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and UpdateTunnelResponse
+         */
+        public updateTunnel(request: protos.IUpdateTunnelRequest, callback: protos.ForemanServer.UpdateTunnelCallback): void;
+
+        /**
+         * Calls UpdateTunnel.
+         * @param request UpdateTunnelRequest message or plain object
+         * @returns Promise
+         */
+        public updateTunnel(request: protos.IUpdateTunnelRequest): Promise<protos.UpdateTunnelResponse>;
+
+        /**
+         * Calls DeleteTunnel.
+         * @param request DeleteTunnelRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and DeleteTunnelResponse
+         */
+        public deleteTunnel(request: protos.IDeleteTunnelRequest, callback: protos.ForemanServer.DeleteTunnelCallback): void;
+
+        /**
+         * Calls DeleteTunnel.
+         * @param request DeleteTunnelRequest message or plain object
+         * @returns Promise
+         */
+        public deleteTunnel(request: protos.IDeleteTunnelRequest): Promise<protos.DeleteTunnelResponse>;
+
+        /**
+         * Calls GetServerOptions.
+         * @param request GetServerOptionsRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and GetServerOptionsResponse
+         */
+        public getServerOptions(request: protos.IGetServerOptionsRequest, callback: protos.ForemanServer.GetServerOptionsCallback): void;
+
+        /**
+         * Calls GetServerOptions.
+         * @param request GetServerOptionsRequest message or plain object
+         * @returns Promise
+         */
+        public getServerOptions(request: protos.IGetServerOptionsRequest): Promise<protos.GetServerOptionsResponse>;
+    }
+
+    namespace ForemanServer {
+
+        /**
+         * Callback as used by {@link protos.ForemanServer#listPlumbers}.
+         * @param error Error, if any
+         * @param [response] ListPlumbersResponse
+         */
+        type ListPlumbersCallback = (error: (Error|null), response?: protos.ListPlumbersResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.ForemanServer#getAllConnections}.
+         * @param error Error, if any
+         * @param [response] GetAllConnectionsResponse
+         */
+        type GetAllConnectionsCallback = (error: (Error|null), response?: protos.GetAllConnectionsResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.ForemanServer#getConnection}.
+         * @param error Error, if any
+         * @param [response] GetConnectionResponse
+         */
+        type GetConnectionCallback = (error: (Error|null), response?: protos.GetConnectionResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.ForemanServer#createConnection}.
+         * @param error Error, if any
+         * @param [response] CreateConnectionResponse
+         */
+        type CreateConnectionCallback = (error: (Error|null), response?: protos.CreateConnectionResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.ForemanServer#testConnection}.
+         * @param error Error, if any
+         * @param [response] TestConnectionResponse
+         */
+        type TestConnectionCallback = (error: (Error|null), response?: protos.TestConnectionResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.ForemanServer#updateConnection}.
+         * @param error Error, if any
+         * @param [response] UpdateConnectionResponse
+         */
+        type UpdateConnectionCallback = (error: (Error|null), response?: protos.UpdateConnectionResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.ForemanServer#deleteConnection}.
+         * @param error Error, if any
+         * @param [response] DeleteConnectionResponse
+         */
+        type DeleteConnectionCallback = (error: (Error|null), response?: protos.DeleteConnectionResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.ForemanServer#getAllRelays}.
+         * @param error Error, if any
+         * @param [response] GetAllRelaysResponse
+         */
+        type GetAllRelaysCallback = (error: (Error|null), response?: protos.GetAllRelaysResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.ForemanServer#getRelay}.
+         * @param error Error, if any
+         * @param [response] GetRelayResponse
+         */
+        type GetRelayCallback = (error: (Error|null), response?: protos.GetRelayResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.ForemanServer#createRelay}.
+         * @param error Error, if any
+         * @param [response] CreateRelayResponse
+         */
+        type CreateRelayCallback = (error: (Error|null), response?: protos.CreateRelayResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.ForemanServer#updateRelay}.
+         * @param error Error, if any
+         * @param [response] UpdateRelayResponse
+         */
+        type UpdateRelayCallback = (error: (Error|null), response?: protos.UpdateRelayResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.ForemanServer#resumeRelay}.
+         * @param error Error, if any
+         * @param [response] ResumeRelayResponse
+         */
+        type ResumeRelayCallback = (error: (Error|null), response?: protos.ResumeRelayResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.ForemanServer#stopRelay}.
+         * @param error Error, if any
+         * @param [response] StopRelayResponse
+         */
+        type StopRelayCallback = (error: (Error|null), response?: protos.StopRelayResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.ForemanServer#deleteRelay}.
+         * @param error Error, if any
+         * @param [response] DeleteRelayResponse
+         */
+        type DeleteRelayCallback = (error: (Error|null), response?: protos.DeleteRelayResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.ForemanServer#getTunnel}.
+         * @param error Error, if any
+         * @param [response] GetTunnelResponse
+         */
+        type GetTunnelCallback = (error: (Error|null), response?: protos.GetTunnelResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.ForemanServer#getAllTunnels}.
+         * @param error Error, if any
+         * @param [response] GetAllTunnelsResponse
+         */
+        type GetAllTunnelsCallback = (error: (Error|null), response?: protos.GetAllTunnelsResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.ForemanServer#createTunnel}.
+         * @param error Error, if any
+         * @param [response] CreateTunnelResponse
+         */
+        type CreateTunnelCallback = (error: (Error|null), response?: protos.CreateTunnelResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.ForemanServer#stopTunnel}.
+         * @param error Error, if any
+         * @param [response] StopTunnelResponse
+         */
+        type StopTunnelCallback = (error: (Error|null), response?: protos.StopTunnelResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.ForemanServer#resumeTunnel}.
+         * @param error Error, if any
+         * @param [response] ResumeTunnelResponse
+         */
+        type ResumeTunnelCallback = (error: (Error|null), response?: protos.ResumeTunnelResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.ForemanServer#updateTunnel}.
+         * @param error Error, if any
+         * @param [response] UpdateTunnelResponse
+         */
+        type UpdateTunnelCallback = (error: (Error|null), response?: protos.UpdateTunnelResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.ForemanServer#deleteTunnel}.
+         * @param error Error, if any
+         * @param [response] DeleteTunnelResponse
+         */
+        type DeleteTunnelCallback = (error: (Error|null), response?: protos.DeleteTunnelResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.ForemanServer#getServerOptions}.
+         * @param error Error, if any
+         * @param [response] GetServerOptionsResponse
+         */
+        type GetServerOptionsCallback = (error: (Error|null), response?: protos.GetServerOptionsResponse) => void;
+    }
+
+    /** Properties of a PlumberInfo. */
+    interface IPlumberInfo {
+
+        /** PlumberInfo teamId */
+        teamId?: (string|null);
+
+        /** PlumberInfo clusterId */
+        clusterId?: (string|null);
+    }
+
+    /** Represents a PlumberInfo. */
+    class PlumberInfo implements IPlumberInfo {
+
+        /**
+         * Constructs a new PlumberInfo.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IPlumberInfo);
+
+        /** PlumberInfo teamId. */
+        public teamId: string;
+
+        /** PlumberInfo clusterId. */
+        public clusterId: string;
+
+        /**
+         * Creates a new PlumberInfo instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns PlumberInfo instance
+         */
+        public static create(properties?: protos.IPlumberInfo): protos.PlumberInfo;
+
+        /**
+         * Encodes the specified PlumberInfo message. Does not implicitly {@link protos.PlumberInfo.verify|verify} messages.
+         * @param message PlumberInfo message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IPlumberInfo, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified PlumberInfo message, length delimited. Does not implicitly {@link protos.PlumberInfo.verify|verify} messages.
+         * @param message PlumberInfo message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IPlumberInfo, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a PlumberInfo message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns PlumberInfo
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.PlumberInfo;
+
+        /**
+         * Decodes a PlumberInfo message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns PlumberInfo
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.PlumberInfo;
+
+        /**
+         * Verifies a PlumberInfo message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a PlumberInfo message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns PlumberInfo
+         */
+        public static fromObject(object: { [k: string]: any }): protos.PlumberInfo;
+
+        /**
+         * Creates a plain object from a PlumberInfo message. Also converts values to other types if specified.
+         * @param message PlumberInfo
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.PlumberInfo, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this PlumberInfo to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a ListPlumbersRequest. */
+    interface IListPlumbersRequest {
+
+        /** ListPlumbersRequest authToken */
+        authToken?: (string|null);
+
+        /** ListPlumbersRequest teamId */
+        teamId?: (string|null);
+    }
+
+    /** Represents a ListPlumbersRequest. */
+    class ListPlumbersRequest implements IListPlumbersRequest {
+
+        /**
+         * Constructs a new ListPlumbersRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IListPlumbersRequest);
+
+        /** ListPlumbersRequest authToken. */
+        public authToken: string;
+
+        /** ListPlumbersRequest teamId. */
+        public teamId: string;
+
+        /**
+         * Creates a new ListPlumbersRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns ListPlumbersRequest instance
+         */
+        public static create(properties?: protos.IListPlumbersRequest): protos.ListPlumbersRequest;
+
+        /**
+         * Encodes the specified ListPlumbersRequest message. Does not implicitly {@link protos.ListPlumbersRequest.verify|verify} messages.
+         * @param message ListPlumbersRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IListPlumbersRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified ListPlumbersRequest message, length delimited. Does not implicitly {@link protos.ListPlumbersRequest.verify|verify} messages.
+         * @param message ListPlumbersRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IListPlumbersRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a ListPlumbersRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns ListPlumbersRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.ListPlumbersRequest;
+
+        /**
+         * Decodes a ListPlumbersRequest message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns ListPlumbersRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.ListPlumbersRequest;
+
+        /**
+         * Verifies a ListPlumbersRequest message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a ListPlumbersRequest message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns ListPlumbersRequest
+         */
+        public static fromObject(object: { [k: string]: any }): protos.ListPlumbersRequest;
+
+        /**
+         * Creates a plain object from a ListPlumbersRequest message. Also converts values to other types if specified.
+         * @param message ListPlumbersRequest
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.ListPlumbersRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this ListPlumbersRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a ListPlumbersResponse. */
+    interface IListPlumbersResponse {
+
+        /** ListPlumbersResponse plumbers */
+        plumbers?: (protos.IPlumberInfo[]|null);
+    }
+
+    /** Represents a ListPlumbersResponse. */
+    class ListPlumbersResponse implements IListPlumbersResponse {
+
+        /**
+         * Constructs a new ListPlumbersResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IListPlumbersResponse);
+
+        /** ListPlumbersResponse plumbers. */
+        public plumbers: protos.IPlumberInfo[];
+
+        /**
+         * Creates a new ListPlumbersResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns ListPlumbersResponse instance
+         */
+        public static create(properties?: protos.IListPlumbersResponse): protos.ListPlumbersResponse;
+
+        /**
+         * Encodes the specified ListPlumbersResponse message. Does not implicitly {@link protos.ListPlumbersResponse.verify|verify} messages.
+         * @param message ListPlumbersResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IListPlumbersResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified ListPlumbersResponse message, length delimited. Does not implicitly {@link protos.ListPlumbersResponse.verify|verify} messages.
+         * @param message ListPlumbersResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IListPlumbersResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a ListPlumbersResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns ListPlumbersResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.ListPlumbersResponse;
+
+        /**
+         * Decodes a ListPlumbersResponse message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns ListPlumbersResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.ListPlumbersResponse;
+
+        /**
+         * Verifies a ListPlumbersResponse message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a ListPlumbersResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns ListPlumbersResponse
+         */
+        public static fromObject(object: { [k: string]: any }): protos.ListPlumbersResponse;
+
+        /**
+         * Creates a plain object from a ListPlumbersResponse message. Also converts values to other types if specified.
+         * @param message ListPlumbersResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.ListPlumbersResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this ListPlumbersResponse to JSON.
          * @returns JSON object
          */
         public toJSON(): { [k: string]: any };

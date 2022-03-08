@@ -3222,6 +3222,238 @@ $root.protos = (function() {
          */
         var common = {};
 
+        common.Foreman = (function() {
+
+            /**
+             * Properties of a Foreman.
+             * @memberof protos.common
+             * @interface IForeman
+             * @property {string|null} [authToken] Foreman authToken
+             * @property {string|null} [plumberClusterId] Foreman plumberClusterId
+             * @property {string|null} [teamId] Foreman teamId
+             */
+
+            /**
+             * Constructs a new Foreman.
+             * @memberof protos.common
+             * @classdesc Represents a Foreman.
+             * @implements IForeman
+             * @constructor
+             * @param {protos.common.IForeman=} [properties] Properties to set
+             */
+            function Foreman(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * Foreman authToken.
+             * @member {string} authToken
+             * @memberof protos.common.Foreman
+             * @instance
+             */
+            Foreman.prototype.authToken = "";
+
+            /**
+             * Foreman plumberClusterId.
+             * @member {string} plumberClusterId
+             * @memberof protos.common.Foreman
+             * @instance
+             */
+            Foreman.prototype.plumberClusterId = "";
+
+            /**
+             * Foreman teamId.
+             * @member {string} teamId
+             * @memberof protos.common.Foreman
+             * @instance
+             */
+            Foreman.prototype.teamId = "";
+
+            /**
+             * Creates a new Foreman instance using the specified properties.
+             * @function create
+             * @memberof protos.common.Foreman
+             * @static
+             * @param {protos.common.IForeman=} [properties] Properties to set
+             * @returns {protos.common.Foreman} Foreman instance
+             */
+            Foreman.create = function create(properties) {
+                return new Foreman(properties);
+            };
+
+            /**
+             * Encodes the specified Foreman message. Does not implicitly {@link protos.common.Foreman.verify|verify} messages.
+             * @function encode
+             * @memberof protos.common.Foreman
+             * @static
+             * @param {protos.common.IForeman} message Foreman message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            Foreman.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.authToken != null && Object.hasOwnProperty.call(message, "authToken"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.authToken);
+                if (message.plumberClusterId != null && Object.hasOwnProperty.call(message, "plumberClusterId"))
+                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.plumberClusterId);
+                if (message.teamId != null && Object.hasOwnProperty.call(message, "teamId"))
+                    writer.uint32(/* id 3, wireType 2 =*/26).string(message.teamId);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified Foreman message, length delimited. Does not implicitly {@link protos.common.Foreman.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.common.Foreman
+             * @static
+             * @param {protos.common.IForeman} message Foreman message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            Foreman.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a Foreman message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.common.Foreman
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.common.Foreman} Foreman
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            Foreman.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.common.Foreman();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.authToken = reader.string();
+                        break;
+                    case 2:
+                        message.plumberClusterId = reader.string();
+                        break;
+                    case 3:
+                        message.teamId = reader.string();
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a Foreman message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.common.Foreman
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.common.Foreman} Foreman
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            Foreman.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a Foreman message.
+             * @function verify
+             * @memberof protos.common.Foreman
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            Foreman.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.authToken != null && message.hasOwnProperty("authToken"))
+                    if (!$util.isString(message.authToken))
+                        return "authToken: string expected";
+                if (message.plumberClusterId != null && message.hasOwnProperty("plumberClusterId"))
+                    if (!$util.isString(message.plumberClusterId))
+                        return "plumberClusterId: string expected";
+                if (message.teamId != null && message.hasOwnProperty("teamId"))
+                    if (!$util.isString(message.teamId))
+                        return "teamId: string expected";
+                return null;
+            };
+
+            /**
+             * Creates a Foreman message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.common.Foreman
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.common.Foreman} Foreman
+             */
+            Foreman.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.common.Foreman)
+                    return object;
+                var message = new $root.protos.common.Foreman();
+                if (object.authToken != null)
+                    message.authToken = String(object.authToken);
+                if (object.plumberClusterId != null)
+                    message.plumberClusterId = String(object.plumberClusterId);
+                if (object.teamId != null)
+                    message.teamId = String(object.teamId);
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a Foreman message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.common.Foreman
+             * @static
+             * @param {protos.common.Foreman} message Foreman
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            Foreman.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    object.authToken = "";
+                    object.plumberClusterId = "";
+                    object.teamId = "";
+                }
+                if (message.authToken != null && message.hasOwnProperty("authToken"))
+                    object.authToken = message.authToken;
+                if (message.plumberClusterId != null && message.hasOwnProperty("plumberClusterId"))
+                    object.plumberClusterId = message.plumberClusterId;
+                if (message.teamId != null && message.hasOwnProperty("teamId"))
+                    object.teamId = message.teamId;
+                return object;
+            };
+
+            /**
+             * Converts this Foreman to JSON.
+             * @function toJSON
+             * @memberof protos.common.Foreman
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            Foreman.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return Foreman;
+        })();
+
         common.Auth = (function() {
 
             /**
@@ -3229,6 +3461,7 @@ $root.protos = (function() {
              * @memberof protos.common
              * @interface IAuth
              * @property {string|null} [token] Auth token
+             * @property {protos.common.IForeman|null} [_foreman] Auth _foreman
              */
 
             /**
@@ -3253,6 +3486,14 @@ $root.protos = (function() {
              * @instance
              */
             Auth.prototype.token = "";
+
+            /**
+             * Auth _foreman.
+             * @member {protos.common.IForeman|null|undefined} _foreman
+             * @memberof protos.common.Auth
+             * @instance
+             */
+            Auth.prototype._foreman = null;
 
             /**
              * Creates a new Auth instance using the specified properties.
@@ -3280,6 +3521,8 @@ $root.protos = (function() {
                     writer = $Writer.create();
                 if (message.token != null && Object.hasOwnProperty.call(message, "token"))
                     writer.uint32(/* id 1, wireType 2 =*/10).string(message.token);
+                if (message._foreman != null && Object.hasOwnProperty.call(message, "_foreman"))
+                    $root.protos.common.Foreman.encode(message._foreman, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
                 return writer;
             };
 
@@ -3316,6 +3559,9 @@ $root.protos = (function() {
                     switch (tag >>> 3) {
                     case 1:
                         message.token = reader.string();
+                        break;
+                    case 2:
+                        message._foreman = $root.protos.common.Foreman.decode(reader, reader.uint32());
                         break;
                     default:
                         reader.skipType(tag & 7);
@@ -3355,6 +3601,11 @@ $root.protos = (function() {
                 if (message.token != null && message.hasOwnProperty("token"))
                     if (!$util.isString(message.token))
                         return "token: string expected";
+                if (message._foreman != null && message.hasOwnProperty("_foreman")) {
+                    var error = $root.protos.common.Foreman.verify(message._foreman);
+                    if (error)
+                        return "_foreman." + error;
+                }
                 return null;
             };
 
@@ -3372,6 +3623,11 @@ $root.protos = (function() {
                 var message = new $root.protos.common.Auth();
                 if (object.token != null)
                     message.token = String(object.token);
+                if (object._foreman != null) {
+                    if (typeof object._foreman !== "object")
+                        throw TypeError(".protos.common.Auth._foreman: object expected");
+                    message._foreman = $root.protos.common.Foreman.fromObject(object._foreman);
+                }
                 return message;
             };
 
@@ -3388,10 +3644,14 @@ $root.protos = (function() {
                 if (!options)
                     options = {};
                 var object = {};
-                if (options.defaults)
+                if (options.defaults) {
                     object.token = "";
+                    object._foreman = null;
+                }
                 if (message.token != null && message.hasOwnProperty("token"))
                     object.token = message.token;
+                if (message._foreman != null && message.hasOwnProperty("_foreman"))
+                    object._foreman = $root.protos.common.Foreman.toObject(message._foreman, options);
                 return object;
             };
 
@@ -9654,6 +9914,10 @@ $root.protos = (function() {
              * @property {string|null} [statsDatabasePath] ServerOptions statsDatabasePath
              * @property {number|null} [statsFlushIntervalSeconds] ServerOptions statsFlushIntervalSeconds
              * @property {string|null} [httpListenAddress] ServerOptions httpListenAddress
+             * @property {boolean|null} [remoteControlEnabled] ServerOptions remoteControlEnabled
+             * @property {string|null} [remoteControlAddress] ServerOptions remoteControlAddress
+             * @property {string|null} [remoteControlApiToken] ServerOptions remoteControlApiToken
+             * @property {boolean|null} [remoteControlDisableTls] ServerOptions remoteControlDisableTls
              */
 
             /**
@@ -9809,6 +10073,38 @@ $root.protos = (function() {
             ServerOptions.prototype.httpListenAddress = "";
 
             /**
+             * ServerOptions remoteControlEnabled.
+             * @member {boolean} remoteControlEnabled
+             * @memberof protos.opts.ServerOptions
+             * @instance
+             */
+            ServerOptions.prototype.remoteControlEnabled = false;
+
+            /**
+             * ServerOptions remoteControlAddress.
+             * @member {string} remoteControlAddress
+             * @memberof protos.opts.ServerOptions
+             * @instance
+             */
+            ServerOptions.prototype.remoteControlAddress = "";
+
+            /**
+             * ServerOptions remoteControlApiToken.
+             * @member {string} remoteControlApiToken
+             * @memberof protos.opts.ServerOptions
+             * @instance
+             */
+            ServerOptions.prototype.remoteControlApiToken = "";
+
+            /**
+             * ServerOptions remoteControlDisableTls.
+             * @member {boolean} remoteControlDisableTls
+             * @memberof protos.opts.ServerOptions
+             * @instance
+             */
+            ServerOptions.prototype.remoteControlDisableTls = false;
+
+            /**
              * Creates a new ServerOptions instance using the specified properties.
              * @function create
              * @memberof protos.opts.ServerOptions
@@ -9865,6 +10161,14 @@ $root.protos = (function() {
                     writer.uint32(/* id 15, wireType 0 =*/120).int32(message.statsFlushIntervalSeconds);
                 if (message.httpListenAddress != null && Object.hasOwnProperty.call(message, "httpListenAddress"))
                     writer.uint32(/* id 16, wireType 2 =*/130).string(message.httpListenAddress);
+                if (message.remoteControlEnabled != null && Object.hasOwnProperty.call(message, "remoteControlEnabled"))
+                    writer.uint32(/* id 17, wireType 0 =*/136).bool(message.remoteControlEnabled);
+                if (message.remoteControlAddress != null && Object.hasOwnProperty.call(message, "remoteControlAddress"))
+                    writer.uint32(/* id 18, wireType 2 =*/146).string(message.remoteControlAddress);
+                if (message.remoteControlApiToken != null && Object.hasOwnProperty.call(message, "remoteControlApiToken"))
+                    writer.uint32(/* id 19, wireType 2 =*/154).string(message.remoteControlApiToken);
+                if (message.remoteControlDisableTls != null && Object.hasOwnProperty.call(message, "remoteControlDisableTls"))
+                    writer.uint32(/* id 20, wireType 0 =*/160).bool(message.remoteControlDisableTls);
                 if (message.useTls != null && Object.hasOwnProperty.call(message, "useTls"))
                     writer.uint32(/* id 500, wireType 0 =*/4000).bool(message.useTls);
                 return writer;
@@ -9953,6 +10257,18 @@ $root.protos = (function() {
                         break;
                     case 16:
                         message.httpListenAddress = reader.string();
+                        break;
+                    case 17:
+                        message.remoteControlEnabled = reader.bool();
+                        break;
+                    case 18:
+                        message.remoteControlAddress = reader.string();
+                        break;
+                    case 19:
+                        message.remoteControlApiToken = reader.string();
+                        break;
+                    case 20:
+                        message.remoteControlDisableTls = reader.bool();
                         break;
                     default:
                         reader.skipType(tag & 7);
@@ -10044,6 +10360,18 @@ $root.protos = (function() {
                 if (message.httpListenAddress != null && message.hasOwnProperty("httpListenAddress"))
                     if (!$util.isString(message.httpListenAddress))
                         return "httpListenAddress: string expected";
+                if (message.remoteControlEnabled != null && message.hasOwnProperty("remoteControlEnabled"))
+                    if (typeof message.remoteControlEnabled !== "boolean")
+                        return "remoteControlEnabled: boolean expected";
+                if (message.remoteControlAddress != null && message.hasOwnProperty("remoteControlAddress"))
+                    if (!$util.isString(message.remoteControlAddress))
+                        return "remoteControlAddress: string expected";
+                if (message.remoteControlApiToken != null && message.hasOwnProperty("remoteControlApiToken"))
+                    if (!$util.isString(message.remoteControlApiToken))
+                        return "remoteControlApiToken: string expected";
+                if (message.remoteControlDisableTls != null && message.hasOwnProperty("remoteControlDisableTls"))
+                    if (typeof message.remoteControlDisableTls !== "boolean")
+                        return "remoteControlDisableTls: boolean expected";
                 return null;
             };
 
@@ -10098,6 +10426,14 @@ $root.protos = (function() {
                     message.statsFlushIntervalSeconds = object.statsFlushIntervalSeconds | 0;
                 if (object.httpListenAddress != null)
                     message.httpListenAddress = String(object.httpListenAddress);
+                if (object.remoteControlEnabled != null)
+                    message.remoteControlEnabled = Boolean(object.remoteControlEnabled);
+                if (object.remoteControlAddress != null)
+                    message.remoteControlAddress = String(object.remoteControlAddress);
+                if (object.remoteControlApiToken != null)
+                    message.remoteControlApiToken = String(object.remoteControlApiToken);
+                if (object.remoteControlDisableTls != null)
+                    message.remoteControlDisableTls = Boolean(object.remoteControlDisableTls);
                 return message;
             };
 
@@ -10132,6 +10468,10 @@ $root.protos = (function() {
                     object.statsDatabasePath = "";
                     object.statsFlushIntervalSeconds = 0;
                     object.httpListenAddress = "";
+                    object.remoteControlEnabled = false;
+                    object.remoteControlAddress = "";
+                    object.remoteControlApiToken = "";
+                    object.remoteControlDisableTls = false;
                     object.useTls = false;
                 }
                 if (message.nodeId != null && message.hasOwnProperty("nodeId"))
@@ -10169,6 +10509,14 @@ $root.protos = (function() {
                     object.statsFlushIntervalSeconds = message.statsFlushIntervalSeconds;
                 if (message.httpListenAddress != null && message.hasOwnProperty("httpListenAddress"))
                     object.httpListenAddress = message.httpListenAddress;
+                if (message.remoteControlEnabled != null && message.hasOwnProperty("remoteControlEnabled"))
+                    object.remoteControlEnabled = message.remoteControlEnabled;
+                if (message.remoteControlAddress != null && message.hasOwnProperty("remoteControlAddress"))
+                    object.remoteControlAddress = message.remoteControlAddress;
+                if (message.remoteControlApiToken != null && message.hasOwnProperty("remoteControlApiToken"))
+                    object.remoteControlApiToken = message.remoteControlApiToken;
+                if (message.remoteControlDisableTls != null && message.hasOwnProperty("remoteControlDisableTls"))
+                    object.remoteControlDisableTls = message.remoteControlDisableTls;
                 if (message.useTls != null && message.hasOwnProperty("useTls"))
                     object.useTls = message.useTls;
                 return object;
@@ -60929,6 +61277,1927 @@ $root.protos = (function() {
         };
 
         return DeleteTunnelResponse;
+    })();
+
+    protos.ForemanClient = (function() {
+
+        /**
+         * Constructs a new ForemanClient service.
+         * @memberof protos
+         * @classdesc Represents a ForemanClient
+         * @extends $protobuf.rpc.Service
+         * @constructor
+         * @param {$protobuf.RPCImpl} rpcImpl RPC implementation
+         * @param {boolean} [requestDelimited=false] Whether requests are length-delimited
+         * @param {boolean} [responseDelimited=false] Whether responses are length-delimited
+         */
+        function ForemanClient(rpcImpl, requestDelimited, responseDelimited) {
+            $protobuf.rpc.Service.call(this, rpcImpl, requestDelimited, responseDelimited);
+        }
+
+        (ForemanClient.prototype = Object.create($protobuf.rpc.Service.prototype)).constructor = ForemanClient;
+
+        /**
+         * Creates new ForemanClient service using the specified rpc implementation.
+         * @function create
+         * @memberof protos.ForemanClient
+         * @static
+         * @param {$protobuf.RPCImpl} rpcImpl RPC implementation
+         * @param {boolean} [requestDelimited=false] Whether requests are length-delimited
+         * @param {boolean} [responseDelimited=false] Whether responses are length-delimited
+         * @returns {ForemanClient} RPC service. Useful where requests and/or responses are streamed.
+         */
+        ForemanClient.create = function create(rpcImpl, requestDelimited, responseDelimited) {
+            return new this(rpcImpl, requestDelimited, responseDelimited);
+        };
+
+        /**
+         * Callback as used by {@link protos.ForemanClient#register}.
+         * @memberof protos.ForemanClient
+         * @typedef RegisterCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.RegisterResponse} [response] RegisterResponse
+         */
+
+        /**
+         * Calls Register.
+         * @function register
+         * @memberof protos.ForemanClient
+         * @instance
+         * @param {protos.IRegisterRequest} request RegisterRequest message or plain object
+         * @param {protos.ForemanClient.RegisterCallback} callback Node-style callback called with the error, if any, and RegisterResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(ForemanClient.prototype.register = function register(request, callback) {
+            return this.rpcCall(register, $root.protos.RegisterRequest, $root.protos.RegisterResponse, request, callback);
+        }, "name", { value: "Register" });
+
+        /**
+         * Calls Register.
+         * @function register
+         * @memberof protos.ForemanClient
+         * @instance
+         * @param {protos.IRegisterRequest} request RegisterRequest message or plain object
+         * @returns {Promise<protos.RegisterResponse>} Promise
+         * @variation 2
+         */
+
+        return ForemanClient;
+    })();
+
+    protos.RegisterRequest = (function() {
+
+        /**
+         * Properties of a RegisterRequest.
+         * @memberof protos
+         * @interface IRegisterRequest
+         * @property {string|null} [apiToken] RegisterRequest apiToken
+         * @property {string|null} [clusterId] RegisterRequest clusterId
+         * @property {string|null} [plumberToken] RegisterRequest plumberToken
+         * @property {string|null} [nodeId] RegisterRequest nodeId
+         */
+
+        /**
+         * Constructs a new RegisterRequest.
+         * @memberof protos
+         * @classdesc Represents a RegisterRequest.
+         * @implements IRegisterRequest
+         * @constructor
+         * @param {protos.IRegisterRequest=} [properties] Properties to set
+         */
+        function RegisterRequest(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * RegisterRequest apiToken.
+         * @member {string} apiToken
+         * @memberof protos.RegisterRequest
+         * @instance
+         */
+        RegisterRequest.prototype.apiToken = "";
+
+        /**
+         * RegisterRequest clusterId.
+         * @member {string} clusterId
+         * @memberof protos.RegisterRequest
+         * @instance
+         */
+        RegisterRequest.prototype.clusterId = "";
+
+        /**
+         * RegisterRequest plumberToken.
+         * @member {string} plumberToken
+         * @memberof protos.RegisterRequest
+         * @instance
+         */
+        RegisterRequest.prototype.plumberToken = "";
+
+        /**
+         * RegisterRequest nodeId.
+         * @member {string} nodeId
+         * @memberof protos.RegisterRequest
+         * @instance
+         */
+        RegisterRequest.prototype.nodeId = "";
+
+        /**
+         * Creates a new RegisterRequest instance using the specified properties.
+         * @function create
+         * @memberof protos.RegisterRequest
+         * @static
+         * @param {protos.IRegisterRequest=} [properties] Properties to set
+         * @returns {protos.RegisterRequest} RegisterRequest instance
+         */
+        RegisterRequest.create = function create(properties) {
+            return new RegisterRequest(properties);
+        };
+
+        /**
+         * Encodes the specified RegisterRequest message. Does not implicitly {@link protos.RegisterRequest.verify|verify} messages.
+         * @function encode
+         * @memberof protos.RegisterRequest
+         * @static
+         * @param {protos.IRegisterRequest} message RegisterRequest message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        RegisterRequest.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.apiToken != null && Object.hasOwnProperty.call(message, "apiToken"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.apiToken);
+            if (message.clusterId != null && Object.hasOwnProperty.call(message, "clusterId"))
+                writer.uint32(/* id 2, wireType 2 =*/18).string(message.clusterId);
+            if (message.plumberToken != null && Object.hasOwnProperty.call(message, "plumberToken"))
+                writer.uint32(/* id 3, wireType 2 =*/26).string(message.plumberToken);
+            if (message.nodeId != null && Object.hasOwnProperty.call(message, "nodeId"))
+                writer.uint32(/* id 4, wireType 2 =*/34).string(message.nodeId);
+            return writer;
+        };
+
+        /**
+         * Encodes the specified RegisterRequest message, length delimited. Does not implicitly {@link protos.RegisterRequest.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.RegisterRequest
+         * @static
+         * @param {protos.IRegisterRequest} message RegisterRequest message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        RegisterRequest.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a RegisterRequest message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.RegisterRequest
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.RegisterRequest} RegisterRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        RegisterRequest.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.RegisterRequest();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.apiToken = reader.string();
+                    break;
+                case 2:
+                    message.clusterId = reader.string();
+                    break;
+                case 3:
+                    message.plumberToken = reader.string();
+                    break;
+                case 4:
+                    message.nodeId = reader.string();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a RegisterRequest message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.RegisterRequest
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.RegisterRequest} RegisterRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        RegisterRequest.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a RegisterRequest message.
+         * @function verify
+         * @memberof protos.RegisterRequest
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        RegisterRequest.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.apiToken != null && message.hasOwnProperty("apiToken"))
+                if (!$util.isString(message.apiToken))
+                    return "apiToken: string expected";
+            if (message.clusterId != null && message.hasOwnProperty("clusterId"))
+                if (!$util.isString(message.clusterId))
+                    return "clusterId: string expected";
+            if (message.plumberToken != null && message.hasOwnProperty("plumberToken"))
+                if (!$util.isString(message.plumberToken))
+                    return "plumberToken: string expected";
+            if (message.nodeId != null && message.hasOwnProperty("nodeId"))
+                if (!$util.isString(message.nodeId))
+                    return "nodeId: string expected";
+            return null;
+        };
+
+        /**
+         * Creates a RegisterRequest message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.RegisterRequest
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.RegisterRequest} RegisterRequest
+         */
+        RegisterRequest.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.RegisterRequest)
+                return object;
+            var message = new $root.protos.RegisterRequest();
+            if (object.apiToken != null)
+                message.apiToken = String(object.apiToken);
+            if (object.clusterId != null)
+                message.clusterId = String(object.clusterId);
+            if (object.plumberToken != null)
+                message.plumberToken = String(object.plumberToken);
+            if (object.nodeId != null)
+                message.nodeId = String(object.nodeId);
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a RegisterRequest message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.RegisterRequest
+         * @static
+         * @param {protos.RegisterRequest} message RegisterRequest
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        RegisterRequest.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.apiToken = "";
+                object.clusterId = "";
+                object.plumberToken = "";
+                object.nodeId = "";
+            }
+            if (message.apiToken != null && message.hasOwnProperty("apiToken"))
+                object.apiToken = message.apiToken;
+            if (message.clusterId != null && message.hasOwnProperty("clusterId"))
+                object.clusterId = message.clusterId;
+            if (message.plumberToken != null && message.hasOwnProperty("plumberToken"))
+                object.plumberToken = message.plumberToken;
+            if (message.nodeId != null && message.hasOwnProperty("nodeId"))
+                object.nodeId = message.nodeId;
+            return object;
+        };
+
+        /**
+         * Converts this RegisterRequest to JSON.
+         * @function toJSON
+         * @memberof protos.RegisterRequest
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        RegisterRequest.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return RegisterRequest;
+    })();
+
+    protos.RegisterResponse = (function() {
+
+        /**
+         * Properties of a RegisterResponse.
+         * @memberof protos
+         * @interface IRegisterResponse
+         * @property {boolean|null} [success] RegisterResponse success
+         * @property {string|null} [message] RegisterResponse message
+         */
+
+        /**
+         * Constructs a new RegisterResponse.
+         * @memberof protos
+         * @classdesc Represents a RegisterResponse.
+         * @implements IRegisterResponse
+         * @constructor
+         * @param {protos.IRegisterResponse=} [properties] Properties to set
+         */
+        function RegisterResponse(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * RegisterResponse success.
+         * @member {boolean} success
+         * @memberof protos.RegisterResponse
+         * @instance
+         */
+        RegisterResponse.prototype.success = false;
+
+        /**
+         * RegisterResponse message.
+         * @member {string} message
+         * @memberof protos.RegisterResponse
+         * @instance
+         */
+        RegisterResponse.prototype.message = "";
+
+        /**
+         * Creates a new RegisterResponse instance using the specified properties.
+         * @function create
+         * @memberof protos.RegisterResponse
+         * @static
+         * @param {protos.IRegisterResponse=} [properties] Properties to set
+         * @returns {protos.RegisterResponse} RegisterResponse instance
+         */
+        RegisterResponse.create = function create(properties) {
+            return new RegisterResponse(properties);
+        };
+
+        /**
+         * Encodes the specified RegisterResponse message. Does not implicitly {@link protos.RegisterResponse.verify|verify} messages.
+         * @function encode
+         * @memberof protos.RegisterResponse
+         * @static
+         * @param {protos.IRegisterResponse} message RegisterResponse message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        RegisterResponse.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.success != null && Object.hasOwnProperty.call(message, "success"))
+                writer.uint32(/* id 1, wireType 0 =*/8).bool(message.success);
+            if (message.message != null && Object.hasOwnProperty.call(message, "message"))
+                writer.uint32(/* id 2, wireType 2 =*/18).string(message.message);
+            return writer;
+        };
+
+        /**
+         * Encodes the specified RegisterResponse message, length delimited. Does not implicitly {@link protos.RegisterResponse.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.RegisterResponse
+         * @static
+         * @param {protos.IRegisterResponse} message RegisterResponse message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        RegisterResponse.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a RegisterResponse message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.RegisterResponse
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.RegisterResponse} RegisterResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        RegisterResponse.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.RegisterResponse();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.success = reader.bool();
+                    break;
+                case 2:
+                    message.message = reader.string();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a RegisterResponse message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.RegisterResponse
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.RegisterResponse} RegisterResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        RegisterResponse.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a RegisterResponse message.
+         * @function verify
+         * @memberof protos.RegisterResponse
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        RegisterResponse.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.success != null && message.hasOwnProperty("success"))
+                if (typeof message.success !== "boolean")
+                    return "success: boolean expected";
+            if (message.message != null && message.hasOwnProperty("message"))
+                if (!$util.isString(message.message))
+                    return "message: string expected";
+            return null;
+        };
+
+        /**
+         * Creates a RegisterResponse message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.RegisterResponse
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.RegisterResponse} RegisterResponse
+         */
+        RegisterResponse.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.RegisterResponse)
+                return object;
+            var message = new $root.protos.RegisterResponse();
+            if (object.success != null)
+                message.success = Boolean(object.success);
+            if (object.message != null)
+                message.message = String(object.message);
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a RegisterResponse message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.RegisterResponse
+         * @static
+         * @param {protos.RegisterResponse} message RegisterResponse
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        RegisterResponse.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.success = false;
+                object.message = "";
+            }
+            if (message.success != null && message.hasOwnProperty("success"))
+                object.success = message.success;
+            if (message.message != null && message.hasOwnProperty("message"))
+                object.message = message.message;
+            return object;
+        };
+
+        /**
+         * Converts this RegisterResponse to JSON.
+         * @function toJSON
+         * @memberof protos.RegisterResponse
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        RegisterResponse.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return RegisterResponse;
+    })();
+
+    protos.ForemanServer = (function() {
+
+        /**
+         * Constructs a new ForemanServer service.
+         * @memberof protos
+         * @classdesc Represents a ForemanServer
+         * @extends $protobuf.rpc.Service
+         * @constructor
+         * @param {$protobuf.RPCImpl} rpcImpl RPC implementation
+         * @param {boolean} [requestDelimited=false] Whether requests are length-delimited
+         * @param {boolean} [responseDelimited=false] Whether responses are length-delimited
+         */
+        function ForemanServer(rpcImpl, requestDelimited, responseDelimited) {
+            $protobuf.rpc.Service.call(this, rpcImpl, requestDelimited, responseDelimited);
+        }
+
+        (ForemanServer.prototype = Object.create($protobuf.rpc.Service.prototype)).constructor = ForemanServer;
+
+        /**
+         * Creates new ForemanServer service using the specified rpc implementation.
+         * @function create
+         * @memberof protos.ForemanServer
+         * @static
+         * @param {$protobuf.RPCImpl} rpcImpl RPC implementation
+         * @param {boolean} [requestDelimited=false] Whether requests are length-delimited
+         * @param {boolean} [responseDelimited=false] Whether responses are length-delimited
+         * @returns {ForemanServer} RPC service. Useful where requests and/or responses are streamed.
+         */
+        ForemanServer.create = function create(rpcImpl, requestDelimited, responseDelimited) {
+            return new this(rpcImpl, requestDelimited, responseDelimited);
+        };
+
+        /**
+         * Callback as used by {@link protos.ForemanServer#listPlumbers}.
+         * @memberof protos.ForemanServer
+         * @typedef ListPlumbersCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.ListPlumbersResponse} [response] ListPlumbersResponse
+         */
+
+        /**
+         * Calls ListPlumbers.
+         * @function listPlumbers
+         * @memberof protos.ForemanServer
+         * @instance
+         * @param {protos.IListPlumbersRequest} request ListPlumbersRequest message or plain object
+         * @param {protos.ForemanServer.ListPlumbersCallback} callback Node-style callback called with the error, if any, and ListPlumbersResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(ForemanServer.prototype.listPlumbers = function listPlumbers(request, callback) {
+            return this.rpcCall(listPlumbers, $root.protos.ListPlumbersRequest, $root.protos.ListPlumbersResponse, request, callback);
+        }, "name", { value: "ListPlumbers" });
+
+        /**
+         * Calls ListPlumbers.
+         * @function listPlumbers
+         * @memberof protos.ForemanServer
+         * @instance
+         * @param {protos.IListPlumbersRequest} request ListPlumbersRequest message or plain object
+         * @returns {Promise<protos.ListPlumbersResponse>} Promise
+         * @variation 2
+         */
+
+        /**
+         * Callback as used by {@link protos.ForemanServer#getAllConnections}.
+         * @memberof protos.ForemanServer
+         * @typedef GetAllConnectionsCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.GetAllConnectionsResponse} [response] GetAllConnectionsResponse
+         */
+
+        /**
+         * Calls GetAllConnections.
+         * @function getAllConnections
+         * @memberof protos.ForemanServer
+         * @instance
+         * @param {protos.IGetAllConnectionsRequest} request GetAllConnectionsRequest message or plain object
+         * @param {protos.ForemanServer.GetAllConnectionsCallback} callback Node-style callback called with the error, if any, and GetAllConnectionsResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(ForemanServer.prototype.getAllConnections = function getAllConnections(request, callback) {
+            return this.rpcCall(getAllConnections, $root.protos.GetAllConnectionsRequest, $root.protos.GetAllConnectionsResponse, request, callback);
+        }, "name", { value: "GetAllConnections" });
+
+        /**
+         * Calls GetAllConnections.
+         * @function getAllConnections
+         * @memberof protos.ForemanServer
+         * @instance
+         * @param {protos.IGetAllConnectionsRequest} request GetAllConnectionsRequest message or plain object
+         * @returns {Promise<protos.GetAllConnectionsResponse>} Promise
+         * @variation 2
+         */
+
+        /**
+         * Callback as used by {@link protos.ForemanServer#getConnection}.
+         * @memberof protos.ForemanServer
+         * @typedef GetConnectionCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.GetConnectionResponse} [response] GetConnectionResponse
+         */
+
+        /**
+         * Calls GetConnection.
+         * @function getConnection
+         * @memberof protos.ForemanServer
+         * @instance
+         * @param {protos.IGetConnectionRequest} request GetConnectionRequest message or plain object
+         * @param {protos.ForemanServer.GetConnectionCallback} callback Node-style callback called with the error, if any, and GetConnectionResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(ForemanServer.prototype.getConnection = function getConnection(request, callback) {
+            return this.rpcCall(getConnection, $root.protos.GetConnectionRequest, $root.protos.GetConnectionResponse, request, callback);
+        }, "name", { value: "GetConnection" });
+
+        /**
+         * Calls GetConnection.
+         * @function getConnection
+         * @memberof protos.ForemanServer
+         * @instance
+         * @param {protos.IGetConnectionRequest} request GetConnectionRequest message or plain object
+         * @returns {Promise<protos.GetConnectionResponse>} Promise
+         * @variation 2
+         */
+
+        /**
+         * Callback as used by {@link protos.ForemanServer#createConnection}.
+         * @memberof protos.ForemanServer
+         * @typedef CreateConnectionCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.CreateConnectionResponse} [response] CreateConnectionResponse
+         */
+
+        /**
+         * Calls CreateConnection.
+         * @function createConnection
+         * @memberof protos.ForemanServer
+         * @instance
+         * @param {protos.ICreateConnectionRequest} request CreateConnectionRequest message or plain object
+         * @param {protos.ForemanServer.CreateConnectionCallback} callback Node-style callback called with the error, if any, and CreateConnectionResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(ForemanServer.prototype.createConnection = function createConnection(request, callback) {
+            return this.rpcCall(createConnection, $root.protos.CreateConnectionRequest, $root.protos.CreateConnectionResponse, request, callback);
+        }, "name", { value: "CreateConnection" });
+
+        /**
+         * Calls CreateConnection.
+         * @function createConnection
+         * @memberof protos.ForemanServer
+         * @instance
+         * @param {protos.ICreateConnectionRequest} request CreateConnectionRequest message or plain object
+         * @returns {Promise<protos.CreateConnectionResponse>} Promise
+         * @variation 2
+         */
+
+        /**
+         * Callback as used by {@link protos.ForemanServer#testConnection}.
+         * @memberof protos.ForemanServer
+         * @typedef TestConnectionCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.TestConnectionResponse} [response] TestConnectionResponse
+         */
+
+        /**
+         * Calls TestConnection.
+         * @function testConnection
+         * @memberof protos.ForemanServer
+         * @instance
+         * @param {protos.ITestConnectionRequest} request TestConnectionRequest message or plain object
+         * @param {protos.ForemanServer.TestConnectionCallback} callback Node-style callback called with the error, if any, and TestConnectionResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(ForemanServer.prototype.testConnection = function testConnection(request, callback) {
+            return this.rpcCall(testConnection, $root.protos.TestConnectionRequest, $root.protos.TestConnectionResponse, request, callback);
+        }, "name", { value: "TestConnection" });
+
+        /**
+         * Calls TestConnection.
+         * @function testConnection
+         * @memberof protos.ForemanServer
+         * @instance
+         * @param {protos.ITestConnectionRequest} request TestConnectionRequest message or plain object
+         * @returns {Promise<protos.TestConnectionResponse>} Promise
+         * @variation 2
+         */
+
+        /**
+         * Callback as used by {@link protos.ForemanServer#updateConnection}.
+         * @memberof protos.ForemanServer
+         * @typedef UpdateConnectionCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.UpdateConnectionResponse} [response] UpdateConnectionResponse
+         */
+
+        /**
+         * Calls UpdateConnection.
+         * @function updateConnection
+         * @memberof protos.ForemanServer
+         * @instance
+         * @param {protos.IUpdateConnectionRequest} request UpdateConnectionRequest message or plain object
+         * @param {protos.ForemanServer.UpdateConnectionCallback} callback Node-style callback called with the error, if any, and UpdateConnectionResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(ForemanServer.prototype.updateConnection = function updateConnection(request, callback) {
+            return this.rpcCall(updateConnection, $root.protos.UpdateConnectionRequest, $root.protos.UpdateConnectionResponse, request, callback);
+        }, "name", { value: "UpdateConnection" });
+
+        /**
+         * Calls UpdateConnection.
+         * @function updateConnection
+         * @memberof protos.ForemanServer
+         * @instance
+         * @param {protos.IUpdateConnectionRequest} request UpdateConnectionRequest message or plain object
+         * @returns {Promise<protos.UpdateConnectionResponse>} Promise
+         * @variation 2
+         */
+
+        /**
+         * Callback as used by {@link protos.ForemanServer#deleteConnection}.
+         * @memberof protos.ForemanServer
+         * @typedef DeleteConnectionCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.DeleteConnectionResponse} [response] DeleteConnectionResponse
+         */
+
+        /**
+         * Calls DeleteConnection.
+         * @function deleteConnection
+         * @memberof protos.ForemanServer
+         * @instance
+         * @param {protos.IDeleteConnectionRequest} request DeleteConnectionRequest message or plain object
+         * @param {protos.ForemanServer.DeleteConnectionCallback} callback Node-style callback called with the error, if any, and DeleteConnectionResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(ForemanServer.prototype.deleteConnection = function deleteConnection(request, callback) {
+            return this.rpcCall(deleteConnection, $root.protos.DeleteConnectionRequest, $root.protos.DeleteConnectionResponse, request, callback);
+        }, "name", { value: "DeleteConnection" });
+
+        /**
+         * Calls DeleteConnection.
+         * @function deleteConnection
+         * @memberof protos.ForemanServer
+         * @instance
+         * @param {protos.IDeleteConnectionRequest} request DeleteConnectionRequest message or plain object
+         * @returns {Promise<protos.DeleteConnectionResponse>} Promise
+         * @variation 2
+         */
+
+        /**
+         * Callback as used by {@link protos.ForemanServer#getAllRelays}.
+         * @memberof protos.ForemanServer
+         * @typedef GetAllRelaysCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.GetAllRelaysResponse} [response] GetAllRelaysResponse
+         */
+
+        /**
+         * Calls GetAllRelays.
+         * @function getAllRelays
+         * @memberof protos.ForemanServer
+         * @instance
+         * @param {protos.IGetAllRelaysRequest} request GetAllRelaysRequest message or plain object
+         * @param {protos.ForemanServer.GetAllRelaysCallback} callback Node-style callback called with the error, if any, and GetAllRelaysResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(ForemanServer.prototype.getAllRelays = function getAllRelays(request, callback) {
+            return this.rpcCall(getAllRelays, $root.protos.GetAllRelaysRequest, $root.protos.GetAllRelaysResponse, request, callback);
+        }, "name", { value: "GetAllRelays" });
+
+        /**
+         * Calls GetAllRelays.
+         * @function getAllRelays
+         * @memberof protos.ForemanServer
+         * @instance
+         * @param {protos.IGetAllRelaysRequest} request GetAllRelaysRequest message or plain object
+         * @returns {Promise<protos.GetAllRelaysResponse>} Promise
+         * @variation 2
+         */
+
+        /**
+         * Callback as used by {@link protos.ForemanServer#getRelay}.
+         * @memberof protos.ForemanServer
+         * @typedef GetRelayCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.GetRelayResponse} [response] GetRelayResponse
+         */
+
+        /**
+         * Calls GetRelay.
+         * @function getRelay
+         * @memberof protos.ForemanServer
+         * @instance
+         * @param {protos.IGetRelayRequest} request GetRelayRequest message or plain object
+         * @param {protos.ForemanServer.GetRelayCallback} callback Node-style callback called with the error, if any, and GetRelayResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(ForemanServer.prototype.getRelay = function getRelay(request, callback) {
+            return this.rpcCall(getRelay, $root.protos.GetRelayRequest, $root.protos.GetRelayResponse, request, callback);
+        }, "name", { value: "GetRelay" });
+
+        /**
+         * Calls GetRelay.
+         * @function getRelay
+         * @memberof protos.ForemanServer
+         * @instance
+         * @param {protos.IGetRelayRequest} request GetRelayRequest message or plain object
+         * @returns {Promise<protos.GetRelayResponse>} Promise
+         * @variation 2
+         */
+
+        /**
+         * Callback as used by {@link protos.ForemanServer#createRelay}.
+         * @memberof protos.ForemanServer
+         * @typedef CreateRelayCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.CreateRelayResponse} [response] CreateRelayResponse
+         */
+
+        /**
+         * Calls CreateRelay.
+         * @function createRelay
+         * @memberof protos.ForemanServer
+         * @instance
+         * @param {protos.ICreateRelayRequest} request CreateRelayRequest message or plain object
+         * @param {protos.ForemanServer.CreateRelayCallback} callback Node-style callback called with the error, if any, and CreateRelayResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(ForemanServer.prototype.createRelay = function createRelay(request, callback) {
+            return this.rpcCall(createRelay, $root.protos.CreateRelayRequest, $root.protos.CreateRelayResponse, request, callback);
+        }, "name", { value: "CreateRelay" });
+
+        /**
+         * Calls CreateRelay.
+         * @function createRelay
+         * @memberof protos.ForemanServer
+         * @instance
+         * @param {protos.ICreateRelayRequest} request CreateRelayRequest message or plain object
+         * @returns {Promise<protos.CreateRelayResponse>} Promise
+         * @variation 2
+         */
+
+        /**
+         * Callback as used by {@link protos.ForemanServer#updateRelay}.
+         * @memberof protos.ForemanServer
+         * @typedef UpdateRelayCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.UpdateRelayResponse} [response] UpdateRelayResponse
+         */
+
+        /**
+         * Calls UpdateRelay.
+         * @function updateRelay
+         * @memberof protos.ForemanServer
+         * @instance
+         * @param {protos.IUpdateRelayRequest} request UpdateRelayRequest message or plain object
+         * @param {protos.ForemanServer.UpdateRelayCallback} callback Node-style callback called with the error, if any, and UpdateRelayResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(ForemanServer.prototype.updateRelay = function updateRelay(request, callback) {
+            return this.rpcCall(updateRelay, $root.protos.UpdateRelayRequest, $root.protos.UpdateRelayResponse, request, callback);
+        }, "name", { value: "UpdateRelay" });
+
+        /**
+         * Calls UpdateRelay.
+         * @function updateRelay
+         * @memberof protos.ForemanServer
+         * @instance
+         * @param {protos.IUpdateRelayRequest} request UpdateRelayRequest message or plain object
+         * @returns {Promise<protos.UpdateRelayResponse>} Promise
+         * @variation 2
+         */
+
+        /**
+         * Callback as used by {@link protos.ForemanServer#resumeRelay}.
+         * @memberof protos.ForemanServer
+         * @typedef ResumeRelayCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.ResumeRelayResponse} [response] ResumeRelayResponse
+         */
+
+        /**
+         * Calls ResumeRelay.
+         * @function resumeRelay
+         * @memberof protos.ForemanServer
+         * @instance
+         * @param {protos.IResumeRelayRequest} request ResumeRelayRequest message or plain object
+         * @param {protos.ForemanServer.ResumeRelayCallback} callback Node-style callback called with the error, if any, and ResumeRelayResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(ForemanServer.prototype.resumeRelay = function resumeRelay(request, callback) {
+            return this.rpcCall(resumeRelay, $root.protos.ResumeRelayRequest, $root.protos.ResumeRelayResponse, request, callback);
+        }, "name", { value: "ResumeRelay" });
+
+        /**
+         * Calls ResumeRelay.
+         * @function resumeRelay
+         * @memberof protos.ForemanServer
+         * @instance
+         * @param {protos.IResumeRelayRequest} request ResumeRelayRequest message or plain object
+         * @returns {Promise<protos.ResumeRelayResponse>} Promise
+         * @variation 2
+         */
+
+        /**
+         * Callback as used by {@link protos.ForemanServer#stopRelay}.
+         * @memberof protos.ForemanServer
+         * @typedef StopRelayCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.StopRelayResponse} [response] StopRelayResponse
+         */
+
+        /**
+         * Calls StopRelay.
+         * @function stopRelay
+         * @memberof protos.ForemanServer
+         * @instance
+         * @param {protos.IStopRelayRequest} request StopRelayRequest message or plain object
+         * @param {protos.ForemanServer.StopRelayCallback} callback Node-style callback called with the error, if any, and StopRelayResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(ForemanServer.prototype.stopRelay = function stopRelay(request, callback) {
+            return this.rpcCall(stopRelay, $root.protos.StopRelayRequest, $root.protos.StopRelayResponse, request, callback);
+        }, "name", { value: "StopRelay" });
+
+        /**
+         * Calls StopRelay.
+         * @function stopRelay
+         * @memberof protos.ForemanServer
+         * @instance
+         * @param {protos.IStopRelayRequest} request StopRelayRequest message or plain object
+         * @returns {Promise<protos.StopRelayResponse>} Promise
+         * @variation 2
+         */
+
+        /**
+         * Callback as used by {@link protos.ForemanServer#deleteRelay}.
+         * @memberof protos.ForemanServer
+         * @typedef DeleteRelayCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.DeleteRelayResponse} [response] DeleteRelayResponse
+         */
+
+        /**
+         * Calls DeleteRelay.
+         * @function deleteRelay
+         * @memberof protos.ForemanServer
+         * @instance
+         * @param {protos.IDeleteRelayRequest} request DeleteRelayRequest message or plain object
+         * @param {protos.ForemanServer.DeleteRelayCallback} callback Node-style callback called with the error, if any, and DeleteRelayResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(ForemanServer.prototype.deleteRelay = function deleteRelay(request, callback) {
+            return this.rpcCall(deleteRelay, $root.protos.DeleteRelayRequest, $root.protos.DeleteRelayResponse, request, callback);
+        }, "name", { value: "DeleteRelay" });
+
+        /**
+         * Calls DeleteRelay.
+         * @function deleteRelay
+         * @memberof protos.ForemanServer
+         * @instance
+         * @param {protos.IDeleteRelayRequest} request DeleteRelayRequest message or plain object
+         * @returns {Promise<protos.DeleteRelayResponse>} Promise
+         * @variation 2
+         */
+
+        /**
+         * Callback as used by {@link protos.ForemanServer#getTunnel}.
+         * @memberof protos.ForemanServer
+         * @typedef GetTunnelCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.GetTunnelResponse} [response] GetTunnelResponse
+         */
+
+        /**
+         * Calls GetTunnel.
+         * @function getTunnel
+         * @memberof protos.ForemanServer
+         * @instance
+         * @param {protos.IGetTunnelRequest} request GetTunnelRequest message or plain object
+         * @param {protos.ForemanServer.GetTunnelCallback} callback Node-style callback called with the error, if any, and GetTunnelResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(ForemanServer.prototype.getTunnel = function getTunnel(request, callback) {
+            return this.rpcCall(getTunnel, $root.protos.GetTunnelRequest, $root.protos.GetTunnelResponse, request, callback);
+        }, "name", { value: "GetTunnel" });
+
+        /**
+         * Calls GetTunnel.
+         * @function getTunnel
+         * @memberof protos.ForemanServer
+         * @instance
+         * @param {protos.IGetTunnelRequest} request GetTunnelRequest message or plain object
+         * @returns {Promise<protos.GetTunnelResponse>} Promise
+         * @variation 2
+         */
+
+        /**
+         * Callback as used by {@link protos.ForemanServer#getAllTunnels}.
+         * @memberof protos.ForemanServer
+         * @typedef GetAllTunnelsCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.GetAllTunnelsResponse} [response] GetAllTunnelsResponse
+         */
+
+        /**
+         * Calls GetAllTunnels.
+         * @function getAllTunnels
+         * @memberof protos.ForemanServer
+         * @instance
+         * @param {protos.IGetAllTunnelsRequest} request GetAllTunnelsRequest message or plain object
+         * @param {protos.ForemanServer.GetAllTunnelsCallback} callback Node-style callback called with the error, if any, and GetAllTunnelsResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(ForemanServer.prototype.getAllTunnels = function getAllTunnels(request, callback) {
+            return this.rpcCall(getAllTunnels, $root.protos.GetAllTunnelsRequest, $root.protos.GetAllTunnelsResponse, request, callback);
+        }, "name", { value: "GetAllTunnels" });
+
+        /**
+         * Calls GetAllTunnels.
+         * @function getAllTunnels
+         * @memberof protos.ForemanServer
+         * @instance
+         * @param {protos.IGetAllTunnelsRequest} request GetAllTunnelsRequest message or plain object
+         * @returns {Promise<protos.GetAllTunnelsResponse>} Promise
+         * @variation 2
+         */
+
+        /**
+         * Callback as used by {@link protos.ForemanServer#createTunnel}.
+         * @memberof protos.ForemanServer
+         * @typedef CreateTunnelCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.CreateTunnelResponse} [response] CreateTunnelResponse
+         */
+
+        /**
+         * Calls CreateTunnel.
+         * @function createTunnel
+         * @memberof protos.ForemanServer
+         * @instance
+         * @param {protos.ICreateTunnelRequest} request CreateTunnelRequest message or plain object
+         * @param {protos.ForemanServer.CreateTunnelCallback} callback Node-style callback called with the error, if any, and CreateTunnelResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(ForemanServer.prototype.createTunnel = function createTunnel(request, callback) {
+            return this.rpcCall(createTunnel, $root.protos.CreateTunnelRequest, $root.protos.CreateTunnelResponse, request, callback);
+        }, "name", { value: "CreateTunnel" });
+
+        /**
+         * Calls CreateTunnel.
+         * @function createTunnel
+         * @memberof protos.ForemanServer
+         * @instance
+         * @param {protos.ICreateTunnelRequest} request CreateTunnelRequest message or plain object
+         * @returns {Promise<protos.CreateTunnelResponse>} Promise
+         * @variation 2
+         */
+
+        /**
+         * Callback as used by {@link protos.ForemanServer#stopTunnel}.
+         * @memberof protos.ForemanServer
+         * @typedef StopTunnelCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.StopTunnelResponse} [response] StopTunnelResponse
+         */
+
+        /**
+         * Calls StopTunnel.
+         * @function stopTunnel
+         * @memberof protos.ForemanServer
+         * @instance
+         * @param {protos.IStopTunnelRequest} request StopTunnelRequest message or plain object
+         * @param {protos.ForemanServer.StopTunnelCallback} callback Node-style callback called with the error, if any, and StopTunnelResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(ForemanServer.prototype.stopTunnel = function stopTunnel(request, callback) {
+            return this.rpcCall(stopTunnel, $root.protos.StopTunnelRequest, $root.protos.StopTunnelResponse, request, callback);
+        }, "name", { value: "StopTunnel" });
+
+        /**
+         * Calls StopTunnel.
+         * @function stopTunnel
+         * @memberof protos.ForemanServer
+         * @instance
+         * @param {protos.IStopTunnelRequest} request StopTunnelRequest message or plain object
+         * @returns {Promise<protos.StopTunnelResponse>} Promise
+         * @variation 2
+         */
+
+        /**
+         * Callback as used by {@link protos.ForemanServer#resumeTunnel}.
+         * @memberof protos.ForemanServer
+         * @typedef ResumeTunnelCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.ResumeTunnelResponse} [response] ResumeTunnelResponse
+         */
+
+        /**
+         * Calls ResumeTunnel.
+         * @function resumeTunnel
+         * @memberof protos.ForemanServer
+         * @instance
+         * @param {protos.IResumeTunnelRequest} request ResumeTunnelRequest message or plain object
+         * @param {protos.ForemanServer.ResumeTunnelCallback} callback Node-style callback called with the error, if any, and ResumeTunnelResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(ForemanServer.prototype.resumeTunnel = function resumeTunnel(request, callback) {
+            return this.rpcCall(resumeTunnel, $root.protos.ResumeTunnelRequest, $root.protos.ResumeTunnelResponse, request, callback);
+        }, "name", { value: "ResumeTunnel" });
+
+        /**
+         * Calls ResumeTunnel.
+         * @function resumeTunnel
+         * @memberof protos.ForemanServer
+         * @instance
+         * @param {protos.IResumeTunnelRequest} request ResumeTunnelRequest message or plain object
+         * @returns {Promise<protos.ResumeTunnelResponse>} Promise
+         * @variation 2
+         */
+
+        /**
+         * Callback as used by {@link protos.ForemanServer#updateTunnel}.
+         * @memberof protos.ForemanServer
+         * @typedef UpdateTunnelCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.UpdateTunnelResponse} [response] UpdateTunnelResponse
+         */
+
+        /**
+         * Calls UpdateTunnel.
+         * @function updateTunnel
+         * @memberof protos.ForemanServer
+         * @instance
+         * @param {protos.IUpdateTunnelRequest} request UpdateTunnelRequest message or plain object
+         * @param {protos.ForemanServer.UpdateTunnelCallback} callback Node-style callback called with the error, if any, and UpdateTunnelResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(ForemanServer.prototype.updateTunnel = function updateTunnel(request, callback) {
+            return this.rpcCall(updateTunnel, $root.protos.UpdateTunnelRequest, $root.protos.UpdateTunnelResponse, request, callback);
+        }, "name", { value: "UpdateTunnel" });
+
+        /**
+         * Calls UpdateTunnel.
+         * @function updateTunnel
+         * @memberof protos.ForemanServer
+         * @instance
+         * @param {protos.IUpdateTunnelRequest} request UpdateTunnelRequest message or plain object
+         * @returns {Promise<protos.UpdateTunnelResponse>} Promise
+         * @variation 2
+         */
+
+        /**
+         * Callback as used by {@link protos.ForemanServer#deleteTunnel}.
+         * @memberof protos.ForemanServer
+         * @typedef DeleteTunnelCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.DeleteTunnelResponse} [response] DeleteTunnelResponse
+         */
+
+        /**
+         * Calls DeleteTunnel.
+         * @function deleteTunnel
+         * @memberof protos.ForemanServer
+         * @instance
+         * @param {protos.IDeleteTunnelRequest} request DeleteTunnelRequest message or plain object
+         * @param {protos.ForemanServer.DeleteTunnelCallback} callback Node-style callback called with the error, if any, and DeleteTunnelResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(ForemanServer.prototype.deleteTunnel = function deleteTunnel(request, callback) {
+            return this.rpcCall(deleteTunnel, $root.protos.DeleteTunnelRequest, $root.protos.DeleteTunnelResponse, request, callback);
+        }, "name", { value: "DeleteTunnel" });
+
+        /**
+         * Calls DeleteTunnel.
+         * @function deleteTunnel
+         * @memberof protos.ForemanServer
+         * @instance
+         * @param {protos.IDeleteTunnelRequest} request DeleteTunnelRequest message or plain object
+         * @returns {Promise<protos.DeleteTunnelResponse>} Promise
+         * @variation 2
+         */
+
+        /**
+         * Callback as used by {@link protos.ForemanServer#getServerOptions}.
+         * @memberof protos.ForemanServer
+         * @typedef GetServerOptionsCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.GetServerOptionsResponse} [response] GetServerOptionsResponse
+         */
+
+        /**
+         * Calls GetServerOptions.
+         * @function getServerOptions
+         * @memberof protos.ForemanServer
+         * @instance
+         * @param {protos.IGetServerOptionsRequest} request GetServerOptionsRequest message or plain object
+         * @param {protos.ForemanServer.GetServerOptionsCallback} callback Node-style callback called with the error, if any, and GetServerOptionsResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(ForemanServer.prototype.getServerOptions = function getServerOptions(request, callback) {
+            return this.rpcCall(getServerOptions, $root.protos.GetServerOptionsRequest, $root.protos.GetServerOptionsResponse, request, callback);
+        }, "name", { value: "GetServerOptions" });
+
+        /**
+         * Calls GetServerOptions.
+         * @function getServerOptions
+         * @memberof protos.ForemanServer
+         * @instance
+         * @param {protos.IGetServerOptionsRequest} request GetServerOptionsRequest message or plain object
+         * @returns {Promise<protos.GetServerOptionsResponse>} Promise
+         * @variation 2
+         */
+
+        return ForemanServer;
+    })();
+
+    protos.PlumberInfo = (function() {
+
+        /**
+         * Properties of a PlumberInfo.
+         * @memberof protos
+         * @interface IPlumberInfo
+         * @property {string|null} [teamId] PlumberInfo teamId
+         * @property {string|null} [clusterId] PlumberInfo clusterId
+         */
+
+        /**
+         * Constructs a new PlumberInfo.
+         * @memberof protos
+         * @classdesc Represents a PlumberInfo.
+         * @implements IPlumberInfo
+         * @constructor
+         * @param {protos.IPlumberInfo=} [properties] Properties to set
+         */
+        function PlumberInfo(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * PlumberInfo teamId.
+         * @member {string} teamId
+         * @memberof protos.PlumberInfo
+         * @instance
+         */
+        PlumberInfo.prototype.teamId = "";
+
+        /**
+         * PlumberInfo clusterId.
+         * @member {string} clusterId
+         * @memberof protos.PlumberInfo
+         * @instance
+         */
+        PlumberInfo.prototype.clusterId = "";
+
+        /**
+         * Creates a new PlumberInfo instance using the specified properties.
+         * @function create
+         * @memberof protos.PlumberInfo
+         * @static
+         * @param {protos.IPlumberInfo=} [properties] Properties to set
+         * @returns {protos.PlumberInfo} PlumberInfo instance
+         */
+        PlumberInfo.create = function create(properties) {
+            return new PlumberInfo(properties);
+        };
+
+        /**
+         * Encodes the specified PlumberInfo message. Does not implicitly {@link protos.PlumberInfo.verify|verify} messages.
+         * @function encode
+         * @memberof protos.PlumberInfo
+         * @static
+         * @param {protos.IPlumberInfo} message PlumberInfo message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        PlumberInfo.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.teamId != null && Object.hasOwnProperty.call(message, "teamId"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.teamId);
+            if (message.clusterId != null && Object.hasOwnProperty.call(message, "clusterId"))
+                writer.uint32(/* id 2, wireType 2 =*/18).string(message.clusterId);
+            return writer;
+        };
+
+        /**
+         * Encodes the specified PlumberInfo message, length delimited. Does not implicitly {@link protos.PlumberInfo.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.PlumberInfo
+         * @static
+         * @param {protos.IPlumberInfo} message PlumberInfo message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        PlumberInfo.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a PlumberInfo message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.PlumberInfo
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.PlumberInfo} PlumberInfo
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        PlumberInfo.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.PlumberInfo();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.teamId = reader.string();
+                    break;
+                case 2:
+                    message.clusterId = reader.string();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a PlumberInfo message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.PlumberInfo
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.PlumberInfo} PlumberInfo
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        PlumberInfo.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a PlumberInfo message.
+         * @function verify
+         * @memberof protos.PlumberInfo
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        PlumberInfo.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.teamId != null && message.hasOwnProperty("teamId"))
+                if (!$util.isString(message.teamId))
+                    return "teamId: string expected";
+            if (message.clusterId != null && message.hasOwnProperty("clusterId"))
+                if (!$util.isString(message.clusterId))
+                    return "clusterId: string expected";
+            return null;
+        };
+
+        /**
+         * Creates a PlumberInfo message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.PlumberInfo
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.PlumberInfo} PlumberInfo
+         */
+        PlumberInfo.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.PlumberInfo)
+                return object;
+            var message = new $root.protos.PlumberInfo();
+            if (object.teamId != null)
+                message.teamId = String(object.teamId);
+            if (object.clusterId != null)
+                message.clusterId = String(object.clusterId);
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a PlumberInfo message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.PlumberInfo
+         * @static
+         * @param {protos.PlumberInfo} message PlumberInfo
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        PlumberInfo.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.teamId = "";
+                object.clusterId = "";
+            }
+            if (message.teamId != null && message.hasOwnProperty("teamId"))
+                object.teamId = message.teamId;
+            if (message.clusterId != null && message.hasOwnProperty("clusterId"))
+                object.clusterId = message.clusterId;
+            return object;
+        };
+
+        /**
+         * Converts this PlumberInfo to JSON.
+         * @function toJSON
+         * @memberof protos.PlumberInfo
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        PlumberInfo.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return PlumberInfo;
+    })();
+
+    protos.ListPlumbersRequest = (function() {
+
+        /**
+         * Properties of a ListPlumbersRequest.
+         * @memberof protos
+         * @interface IListPlumbersRequest
+         * @property {string|null} [authToken] ListPlumbersRequest authToken
+         * @property {string|null} [teamId] ListPlumbersRequest teamId
+         */
+
+        /**
+         * Constructs a new ListPlumbersRequest.
+         * @memberof protos
+         * @classdesc Represents a ListPlumbersRequest.
+         * @implements IListPlumbersRequest
+         * @constructor
+         * @param {protos.IListPlumbersRequest=} [properties] Properties to set
+         */
+        function ListPlumbersRequest(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * ListPlumbersRequest authToken.
+         * @member {string} authToken
+         * @memberof protos.ListPlumbersRequest
+         * @instance
+         */
+        ListPlumbersRequest.prototype.authToken = "";
+
+        /**
+         * ListPlumbersRequest teamId.
+         * @member {string} teamId
+         * @memberof protos.ListPlumbersRequest
+         * @instance
+         */
+        ListPlumbersRequest.prototype.teamId = "";
+
+        /**
+         * Creates a new ListPlumbersRequest instance using the specified properties.
+         * @function create
+         * @memberof protos.ListPlumbersRequest
+         * @static
+         * @param {protos.IListPlumbersRequest=} [properties] Properties to set
+         * @returns {protos.ListPlumbersRequest} ListPlumbersRequest instance
+         */
+        ListPlumbersRequest.create = function create(properties) {
+            return new ListPlumbersRequest(properties);
+        };
+
+        /**
+         * Encodes the specified ListPlumbersRequest message. Does not implicitly {@link protos.ListPlumbersRequest.verify|verify} messages.
+         * @function encode
+         * @memberof protos.ListPlumbersRequest
+         * @static
+         * @param {protos.IListPlumbersRequest} message ListPlumbersRequest message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        ListPlumbersRequest.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.authToken != null && Object.hasOwnProperty.call(message, "authToken"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.authToken);
+            if (message.teamId != null && Object.hasOwnProperty.call(message, "teamId"))
+                writer.uint32(/* id 2, wireType 2 =*/18).string(message.teamId);
+            return writer;
+        };
+
+        /**
+         * Encodes the specified ListPlumbersRequest message, length delimited. Does not implicitly {@link protos.ListPlumbersRequest.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.ListPlumbersRequest
+         * @static
+         * @param {protos.IListPlumbersRequest} message ListPlumbersRequest message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        ListPlumbersRequest.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a ListPlumbersRequest message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.ListPlumbersRequest
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.ListPlumbersRequest} ListPlumbersRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        ListPlumbersRequest.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.ListPlumbersRequest();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.authToken = reader.string();
+                    break;
+                case 2:
+                    message.teamId = reader.string();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a ListPlumbersRequest message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.ListPlumbersRequest
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.ListPlumbersRequest} ListPlumbersRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        ListPlumbersRequest.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a ListPlumbersRequest message.
+         * @function verify
+         * @memberof protos.ListPlumbersRequest
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        ListPlumbersRequest.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.authToken != null && message.hasOwnProperty("authToken"))
+                if (!$util.isString(message.authToken))
+                    return "authToken: string expected";
+            if (message.teamId != null && message.hasOwnProperty("teamId"))
+                if (!$util.isString(message.teamId))
+                    return "teamId: string expected";
+            return null;
+        };
+
+        /**
+         * Creates a ListPlumbersRequest message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.ListPlumbersRequest
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.ListPlumbersRequest} ListPlumbersRequest
+         */
+        ListPlumbersRequest.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.ListPlumbersRequest)
+                return object;
+            var message = new $root.protos.ListPlumbersRequest();
+            if (object.authToken != null)
+                message.authToken = String(object.authToken);
+            if (object.teamId != null)
+                message.teamId = String(object.teamId);
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a ListPlumbersRequest message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.ListPlumbersRequest
+         * @static
+         * @param {protos.ListPlumbersRequest} message ListPlumbersRequest
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        ListPlumbersRequest.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.authToken = "";
+                object.teamId = "";
+            }
+            if (message.authToken != null && message.hasOwnProperty("authToken"))
+                object.authToken = message.authToken;
+            if (message.teamId != null && message.hasOwnProperty("teamId"))
+                object.teamId = message.teamId;
+            return object;
+        };
+
+        /**
+         * Converts this ListPlumbersRequest to JSON.
+         * @function toJSON
+         * @memberof protos.ListPlumbersRequest
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        ListPlumbersRequest.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return ListPlumbersRequest;
+    })();
+
+    protos.ListPlumbersResponse = (function() {
+
+        /**
+         * Properties of a ListPlumbersResponse.
+         * @memberof protos
+         * @interface IListPlumbersResponse
+         * @property {Array.<protos.IPlumberInfo>|null} [plumbers] ListPlumbersResponse plumbers
+         */
+
+        /**
+         * Constructs a new ListPlumbersResponse.
+         * @memberof protos
+         * @classdesc Represents a ListPlumbersResponse.
+         * @implements IListPlumbersResponse
+         * @constructor
+         * @param {protos.IListPlumbersResponse=} [properties] Properties to set
+         */
+        function ListPlumbersResponse(properties) {
+            this.plumbers = [];
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * ListPlumbersResponse plumbers.
+         * @member {Array.<protos.IPlumberInfo>} plumbers
+         * @memberof protos.ListPlumbersResponse
+         * @instance
+         */
+        ListPlumbersResponse.prototype.plumbers = $util.emptyArray;
+
+        /**
+         * Creates a new ListPlumbersResponse instance using the specified properties.
+         * @function create
+         * @memberof protos.ListPlumbersResponse
+         * @static
+         * @param {protos.IListPlumbersResponse=} [properties] Properties to set
+         * @returns {protos.ListPlumbersResponse} ListPlumbersResponse instance
+         */
+        ListPlumbersResponse.create = function create(properties) {
+            return new ListPlumbersResponse(properties);
+        };
+
+        /**
+         * Encodes the specified ListPlumbersResponse message. Does not implicitly {@link protos.ListPlumbersResponse.verify|verify} messages.
+         * @function encode
+         * @memberof protos.ListPlumbersResponse
+         * @static
+         * @param {protos.IListPlumbersResponse} message ListPlumbersResponse message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        ListPlumbersResponse.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.plumbers != null && message.plumbers.length)
+                for (var i = 0; i < message.plumbers.length; ++i)
+                    $root.protos.PlumberInfo.encode(message.plumbers[i], writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Encodes the specified ListPlumbersResponse message, length delimited. Does not implicitly {@link protos.ListPlumbersResponse.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.ListPlumbersResponse
+         * @static
+         * @param {protos.IListPlumbersResponse} message ListPlumbersResponse message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        ListPlumbersResponse.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a ListPlumbersResponse message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.ListPlumbersResponse
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.ListPlumbersResponse} ListPlumbersResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        ListPlumbersResponse.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.ListPlumbersResponse();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    if (!(message.plumbers && message.plumbers.length))
+                        message.plumbers = [];
+                    message.plumbers.push($root.protos.PlumberInfo.decode(reader, reader.uint32()));
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a ListPlumbersResponse message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.ListPlumbersResponse
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.ListPlumbersResponse} ListPlumbersResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        ListPlumbersResponse.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a ListPlumbersResponse message.
+         * @function verify
+         * @memberof protos.ListPlumbersResponse
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        ListPlumbersResponse.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.plumbers != null && message.hasOwnProperty("plumbers")) {
+                if (!Array.isArray(message.plumbers))
+                    return "plumbers: array expected";
+                for (var i = 0; i < message.plumbers.length; ++i) {
+                    var error = $root.protos.PlumberInfo.verify(message.plumbers[i]);
+                    if (error)
+                        return "plumbers." + error;
+                }
+            }
+            return null;
+        };
+
+        /**
+         * Creates a ListPlumbersResponse message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.ListPlumbersResponse
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.ListPlumbersResponse} ListPlumbersResponse
+         */
+        ListPlumbersResponse.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.ListPlumbersResponse)
+                return object;
+            var message = new $root.protos.ListPlumbersResponse();
+            if (object.plumbers) {
+                if (!Array.isArray(object.plumbers))
+                    throw TypeError(".protos.ListPlumbersResponse.plumbers: array expected");
+                message.plumbers = [];
+                for (var i = 0; i < object.plumbers.length; ++i) {
+                    if (typeof object.plumbers[i] !== "object")
+                        throw TypeError(".protos.ListPlumbersResponse.plumbers: object expected");
+                    message.plumbers[i] = $root.protos.PlumberInfo.fromObject(object.plumbers[i]);
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a ListPlumbersResponse message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.ListPlumbersResponse
+         * @static
+         * @param {protos.ListPlumbersResponse} message ListPlumbersResponse
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        ListPlumbersResponse.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.arrays || options.defaults)
+                object.plumbers = [];
+            if (message.plumbers && message.plumbers.length) {
+                object.plumbers = [];
+                for (var j = 0; j < message.plumbers.length; ++j)
+                    object.plumbers[j] = $root.protos.PlumberInfo.toObject(message.plumbers[j], options);
+            }
+            return object;
+        };
+
+        /**
+         * Converts this ListPlumbersResponse to JSON.
+         * @function toJSON
+         * @memberof protos.ListPlumbersResponse
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        ListPlumbersResponse.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return ListPlumbersResponse;
     })();
 
     protos.encoding = (function() {
