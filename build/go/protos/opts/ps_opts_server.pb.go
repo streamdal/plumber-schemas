@@ -43,12 +43,12 @@ type ServerOptions struct {
 	TlsSkipVerify bool `protobuf:"varint,9,opt,name=tls_skip_verify,json=tlsSkipVerify,proto3" json:"tls_skip_verify,omitempty" kong:"help='Skip server cert verification (only used if --enable-cluster is true)',env='PLUMBER_SERVER_TLS_SKIP_VERIFY',default=false"`
 	// @gotags: kong:"help='Run plumber in cluster mode (will use NATS)',env='PLUMBER_SERVER_ENABLE_CLUSTER',default=false"
 	EnableCluster bool `protobuf:"varint,10,opt,name=enable_cluster,json=enableCluster,proto3" json:"enable_cluster,omitempty" kong:"help='Run plumber in cluster mode (will use NATS)',env='PLUMBER_SERVER_ENABLE_CLUSTER',default=false"`
-	// @gotags: kong:"help='VC-Service gRPC server address',default='https://vc-service.batch.sh'"
-	VcserviceGrpcAddress string `protobuf:"bytes,11,opt,name=vcservice_grpc_address,json=vcserviceGrpcAddress,proto3" json:"vcservice_grpc_address,omitempty" kong:"help='VC-Service gRPC server address',default='https://vc-service.batch.sh'"`
-	// @gotags: kong:"help='VC-Service gRPC  server initial connection timeout',default=5"
-	VcserviceGrpcTimeoutSeconds uint32 `protobuf:"varint,12,opt,name=vcservice_grpc_timeout_seconds,json=vcserviceGrpcTimeoutSeconds,proto3" json:"vcservice_grpc_timeout_seconds,omitempty" kong:"help='VC-Service gRPC  server initial connection timeout',default=5"`
-	// @gotags: kong:"help='Use gRPC insecure mode when talking to VC-Service'"
-	VcserviceGrpcInsecure bool `protobuf:"varint,13,opt,name=vcservice_grpc_insecure,json=vcserviceGrpcInsecure,proto3" json:"vcservice_grpc_insecure,omitempty" kong:"help='Use gRPC insecure mode when talking to VC-Service'"`
+	// @gotags: kong:"help='VC-Service gRPC server address',default='https://vc-service.batch.sh',hidden"
+	VcserviceGrpcAddress string `protobuf:"bytes,11,opt,name=vcservice_grpc_address,json=vcserviceGrpcAddress,proto3" json:"vcservice_grpc_address,omitempty" kong:"help='VC-Service gRPC server address',default='https://vc-service.batch.sh',hidden"`
+	// @gotags: kong:"help='VC-Service gRPC  server initial connection timeout',default=5,hidden"
+	VcserviceGrpcTimeoutSeconds uint32 `protobuf:"varint,12,opt,name=vcservice_grpc_timeout_seconds,json=vcserviceGrpcTimeoutSeconds,proto3" json:"vcservice_grpc_timeout_seconds,omitempty" kong:"help='VC-Service gRPC  server initial connection timeout',default=5,hidden"`
+	// @gotags: kong:"help='Use gRPC insecure mode when talking to VC-Service',hidden"
+	VcserviceGrpcInsecure bool `protobuf:"varint,13,opt,name=vcservice_grpc_insecure,json=vcserviceGrpcInsecure,proto3" json:"vcservice_grpc_insecure,omitempty" kong:"help='Use gRPC insecure mode when talking to VC-Service',hidden"`
 	// @gotags: kong:"help='Location to store time-series data for counters',default='./.tsdata'"
 	StatsDatabasePath string `protobuf:"bytes,14,opt,name=stats_database_path,json=statsDatabasePath,proto3" json:"stats_database_path,omitempty" kong:"help='Location to store time-series data for counters',default='./.tsdata'"`
 	// @gotags: kong:"help='How often to flush time-series data (in seconds) from memory to storage',default='60'"

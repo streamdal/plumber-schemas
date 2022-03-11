@@ -10,6 +10,11 @@ import "ps_tunnel.proto";
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
 
 service ForemanServer {
+  // IMPORTANT!
+  // Any changes to methods in this service must be duplicated to ps_base.proto:PlumberServer
+  // IMPORTANT!
+
+
   // -------------------- Foreman specific RPCs --------------------
 
   // ListPlumbers is called by ui-bff, received by Foreman

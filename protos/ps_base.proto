@@ -10,6 +10,10 @@ import "ps_tunnel.proto";
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
 
 service PlumberServer {
+  // IMPORTANT!
+  // Any changes to methods in this service must be duplicated to ps_foreman_server.proto:ForemanServer
+  // IMPORTANT!
+
   // -------------------- Connection ---------------------
 
   // List configured/known connections
