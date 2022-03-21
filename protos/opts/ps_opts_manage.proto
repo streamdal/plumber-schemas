@@ -41,7 +41,7 @@ message GlobalManageOptions {
   // @gotags: kong:"help='Plumber server auth token',default='batchcorp'"
   string manage_token = 2;
 
-  // @gotags: kong:"help='gRPC call timeout seconds',default=5"
+  // @gotags: kong:"help='gRPC call timeout seconds',default=10"
   int64 manage_timeout_seconds = 3;
 
   // @gotags: kong:"help='Use TLS when talking to plumber server',default='false'"
