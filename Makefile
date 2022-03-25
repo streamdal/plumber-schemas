@@ -16,7 +16,7 @@ help:
 setup/darwin: description = Install protobuf tooling for macOS
 setup/darwin:
 	# Protocol compiler
-	brew install protobuf@3.11.4
+	brew install protobuf@3.6
 
 	# Go plugin used by the protocol compiler
 	go get -u github.com/golang/protobuf/protoc-gen-go
