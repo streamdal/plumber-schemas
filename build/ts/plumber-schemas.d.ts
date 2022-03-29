@@ -4192,15 +4192,6 @@ export namespace protos {
             /** ServerOptions enableCluster */
             enableCluster?: (boolean|null);
 
-            /** ServerOptions vcserviceGrpcAddress */
-            vcserviceGrpcAddress?: (string|null);
-
-            /** ServerOptions vcserviceGrpcTimeoutSeconds */
-            vcserviceGrpcTimeoutSeconds?: (number|null);
-
-            /** ServerOptions vcserviceGrpcInsecure */
-            vcserviceGrpcInsecure?: (boolean|null);
-
             /** ServerOptions statsDatabasePath */
             statsDatabasePath?: (string|null);
 
@@ -4264,15 +4255,6 @@ export namespace protos {
 
             /** ServerOptions enableCluster. */
             public enableCluster: boolean;
-
-            /** ServerOptions vcserviceGrpcAddress. */
-            public vcserviceGrpcAddress: string;
-
-            /** ServerOptions vcserviceGrpcTimeoutSeconds. */
-            public vcserviceGrpcTimeoutSeconds: number;
-
-            /** ServerOptions vcserviceGrpcInsecure. */
-            public vcserviceGrpcInsecure: boolean;
 
             /** ServerOptions statsDatabasePath. */
             public statsDatabasePath: string;
