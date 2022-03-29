@@ -9908,9 +9908,6 @@ $root.protos = (function() {
              * @property {string|null} [tlsCaFile] ServerOptions tlsCaFile
              * @property {boolean|null} [tlsSkipVerify] ServerOptions tlsSkipVerify
              * @property {boolean|null} [enableCluster] ServerOptions enableCluster
-             * @property {string|null} [vcserviceGrpcAddress] ServerOptions vcserviceGrpcAddress
-             * @property {number|null} [vcserviceGrpcTimeoutSeconds] ServerOptions vcserviceGrpcTimeoutSeconds
-             * @property {boolean|null} [vcserviceGrpcInsecure] ServerOptions vcserviceGrpcInsecure
              * @property {string|null} [statsDatabasePath] ServerOptions statsDatabasePath
              * @property {number|null} [statsFlushIntervalSeconds] ServerOptions statsFlushIntervalSeconds
              * @property {string|null} [httpListenAddress] ServerOptions httpListenAddress
@@ -10025,30 +10022,6 @@ $root.protos = (function() {
             ServerOptions.prototype.enableCluster = false;
 
             /**
-             * ServerOptions vcserviceGrpcAddress.
-             * @member {string} vcserviceGrpcAddress
-             * @memberof protos.opts.ServerOptions
-             * @instance
-             */
-            ServerOptions.prototype.vcserviceGrpcAddress = "";
-
-            /**
-             * ServerOptions vcserviceGrpcTimeoutSeconds.
-             * @member {number} vcserviceGrpcTimeoutSeconds
-             * @memberof protos.opts.ServerOptions
-             * @instance
-             */
-            ServerOptions.prototype.vcserviceGrpcTimeoutSeconds = 0;
-
-            /**
-             * ServerOptions vcserviceGrpcInsecure.
-             * @member {boolean} vcserviceGrpcInsecure
-             * @memberof protos.opts.ServerOptions
-             * @instance
-             */
-            ServerOptions.prototype.vcserviceGrpcInsecure = false;
-
-            /**
              * ServerOptions statsDatabasePath.
              * @member {string} statsDatabasePath
              * @memberof protos.opts.ServerOptions
@@ -10149,12 +10122,6 @@ $root.protos = (function() {
                     writer.uint32(/* id 9, wireType 0 =*/72).bool(message.tlsSkipVerify);
                 if (message.enableCluster != null && Object.hasOwnProperty.call(message, "enableCluster"))
                     writer.uint32(/* id 10, wireType 0 =*/80).bool(message.enableCluster);
-                if (message.vcserviceGrpcAddress != null && Object.hasOwnProperty.call(message, "vcserviceGrpcAddress"))
-                    writer.uint32(/* id 11, wireType 2 =*/90).string(message.vcserviceGrpcAddress);
-                if (message.vcserviceGrpcTimeoutSeconds != null && Object.hasOwnProperty.call(message, "vcserviceGrpcTimeoutSeconds"))
-                    writer.uint32(/* id 12, wireType 0 =*/96).uint32(message.vcserviceGrpcTimeoutSeconds);
-                if (message.vcserviceGrpcInsecure != null && Object.hasOwnProperty.call(message, "vcserviceGrpcInsecure"))
-                    writer.uint32(/* id 13, wireType 0 =*/104).bool(message.vcserviceGrpcInsecure);
                 if (message.statsDatabasePath != null && Object.hasOwnProperty.call(message, "statsDatabasePath"))
                     writer.uint32(/* id 14, wireType 2 =*/114).string(message.statsDatabasePath);
                 if (message.statsFlushIntervalSeconds != null && Object.hasOwnProperty.call(message, "statsFlushIntervalSeconds"))
@@ -10239,15 +10206,6 @@ $root.protos = (function() {
                         break;
                     case 10:
                         message.enableCluster = reader.bool();
-                        break;
-                    case 11:
-                        message.vcserviceGrpcAddress = reader.string();
-                        break;
-                    case 12:
-                        message.vcserviceGrpcTimeoutSeconds = reader.uint32();
-                        break;
-                    case 13:
-                        message.vcserviceGrpcInsecure = reader.bool();
                         break;
                     case 14:
                         message.statsDatabasePath = reader.string();
@@ -10342,15 +10300,6 @@ $root.protos = (function() {
                 if (message.enableCluster != null && message.hasOwnProperty("enableCluster"))
                     if (typeof message.enableCluster !== "boolean")
                         return "enableCluster: boolean expected";
-                if (message.vcserviceGrpcAddress != null && message.hasOwnProperty("vcserviceGrpcAddress"))
-                    if (!$util.isString(message.vcserviceGrpcAddress))
-                        return "vcserviceGrpcAddress: string expected";
-                if (message.vcserviceGrpcTimeoutSeconds != null && message.hasOwnProperty("vcserviceGrpcTimeoutSeconds"))
-                    if (!$util.isInteger(message.vcserviceGrpcTimeoutSeconds))
-                        return "vcserviceGrpcTimeoutSeconds: integer expected";
-                if (message.vcserviceGrpcInsecure != null && message.hasOwnProperty("vcserviceGrpcInsecure"))
-                    if (typeof message.vcserviceGrpcInsecure !== "boolean")
-                        return "vcserviceGrpcInsecure: boolean expected";
                 if (message.statsDatabasePath != null && message.hasOwnProperty("statsDatabasePath"))
                     if (!$util.isString(message.statsDatabasePath))
                         return "statsDatabasePath: string expected";
@@ -10414,12 +10363,6 @@ $root.protos = (function() {
                     message.tlsSkipVerify = Boolean(object.tlsSkipVerify);
                 if (object.enableCluster != null)
                     message.enableCluster = Boolean(object.enableCluster);
-                if (object.vcserviceGrpcAddress != null)
-                    message.vcserviceGrpcAddress = String(object.vcserviceGrpcAddress);
-                if (object.vcserviceGrpcTimeoutSeconds != null)
-                    message.vcserviceGrpcTimeoutSeconds = object.vcserviceGrpcTimeoutSeconds >>> 0;
-                if (object.vcserviceGrpcInsecure != null)
-                    message.vcserviceGrpcInsecure = Boolean(object.vcserviceGrpcInsecure);
                 if (object.statsDatabasePath != null)
                     message.statsDatabasePath = String(object.statsDatabasePath);
                 if (object.statsFlushIntervalSeconds != null)
@@ -10462,9 +10405,6 @@ $root.protos = (function() {
                     object.tlsCaFile = "";
                     object.tlsSkipVerify = false;
                     object.enableCluster = false;
-                    object.vcserviceGrpcAddress = "";
-                    object.vcserviceGrpcTimeoutSeconds = 0;
-                    object.vcserviceGrpcInsecure = false;
                     object.statsDatabasePath = "";
                     object.statsFlushIntervalSeconds = 0;
                     object.httpListenAddress = "";
@@ -10497,12 +10437,6 @@ $root.protos = (function() {
                     object.tlsSkipVerify = message.tlsSkipVerify;
                 if (message.enableCluster != null && message.hasOwnProperty("enableCluster"))
                     object.enableCluster = message.enableCluster;
-                if (message.vcserviceGrpcAddress != null && message.hasOwnProperty("vcserviceGrpcAddress"))
-                    object.vcserviceGrpcAddress = message.vcserviceGrpcAddress;
-                if (message.vcserviceGrpcTimeoutSeconds != null && message.hasOwnProperty("vcserviceGrpcTimeoutSeconds"))
-                    object.vcserviceGrpcTimeoutSeconds = message.vcserviceGrpcTimeoutSeconds;
-                if (message.vcserviceGrpcInsecure != null && message.hasOwnProperty("vcserviceGrpcInsecure"))
-                    object.vcserviceGrpcInsecure = message.vcserviceGrpcInsecure;
                 if (message.statsDatabasePath != null && message.hasOwnProperty("statsDatabasePath"))
                     object.statsDatabasePath = message.statsDatabasePath;
                 if (message.statsFlushIntervalSeconds != null && message.hasOwnProperty("statsFlushIntervalSeconds"))

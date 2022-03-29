@@ -38,14 +38,8 @@ message ServerOptions {
   // @gotags: kong:"help='Run plumber in cluster mode (will use NATS)',env='PLUMBER_SERVER_ENABLE_CLUSTER',default=false"
   bool enable_cluster = 10;
 
-  // @gotags: kong:"help='VC-Service gRPC server address',default='https://vc-service.batch.sh'"
-  string vcservice_grpc_address = 11;
-
-  // @gotags: kong:"help='VC-Service gRPC  server initial connection timeout',default=5"
-  uint32 vcservice_grpc_timeout_seconds = 12;
-
-  // @gotags: kong:"help='Use gRPC insecure mode when talking to VC-Service'"
-  bool vcservice_grpc_insecure = 13;
+  // old vc-service flags
+  reserved 11 to 13;
 
   // @gotags: kong:"help='Location to store time-series data for counters',default='./.tsdata'"
   string stats_database_path = 14;
