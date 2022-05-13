@@ -6,13 +6,13 @@ option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/args";
 
 message NatsStreamingTLSOptions {
   // @gotags: kong:"help='CA file (only needed if addr is tls://*)',env='PLUMBER_RELAY_NATS_STREAMING_TLS_CA_CERT'"
-  bytes tls_ca_cert = 1;
+  string tls_ca_cert = 1;
 
   // @gotags: kong:"help='Client cert file (only needed if addr is tls://*)',env='PLUMBER_RELAY_NATS_STREAMING_TLS_CLIENT_CERT'"
-  bytes tls_client_cert = 2;
+  string tls_client_cert = 2;
 
   // @gotags: kong:"help='Client key file (only needed if addr is tls://*)',env='PLUMBER_RELAY_NATS_STREAMING_TLS_CLIENT_KEY'"
-  bytes tls_client_key = 3;
+  string tls_client_key = 3;
 
   // @gotags: kong:"help='Whether to verify server certificate',env='PLUMBER_RELAY_NATS_STREAMING_SKIP_VERIFY_TLS'"
   bool tls_skip_verify = 4;
@@ -26,7 +26,7 @@ message NatsStreamingConn {
   string dsn = 1;
 
   // @gotags: kong:"help='NATS .creds file containing authentication credentials',env='PLUMBER_RELAY_NATS_STREAMING_CREDENTIALS'"
-  bytes user_credentials = 2;
+  string user_credentials = 2;
 
   // @gotags: kong:"help='Cluster ID of the Nats server',required,env='PLUMBER_RELAY_NATS_STREAMING_CLUSTER_ID'"
   string cluster_id = 3;

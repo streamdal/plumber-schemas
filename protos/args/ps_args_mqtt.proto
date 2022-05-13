@@ -12,13 +12,13 @@ enum MQTTQoSLevel {
 
 message MQTTTLSOptions {
   // @gotags: kong:"help='CA cert (only needed if addr is ssl://)',env=PLUMBER_RELAY_MQTT_TLS_CA_CERT"
-  bytes tls_ca_cert = 1;
+  string tls_ca_cert = 1;
 
   // @gotags: kong:"help='Client cert file (only needed if addr is ssl://)',env=PLUMBER_RELAY_MQTT_TLS_CLIENT_CERT"
-  bytes tls_client_cert = 2;
+  string tls_client_cert = 2;
 
   // @gotags: kong:"help='Client key file (only needed if addr is ssl://)',env=PLUMBER_RELAY_MQTT_TLS_CLIENT_KEY"
-  bytes tls_client_key = 3;
+  string tls_client_key = 3;
 
   // @gotags: kong:"help='Whether to verify server certificate',env=PLUMBER_RELAY_MQTT_SKIP_VERIFY_TLS"
   bool tls_skip_verify = 4;
