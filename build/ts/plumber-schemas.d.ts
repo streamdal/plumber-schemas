@@ -18528,13 +18528,13 @@ export namespace protos {
         interface IMQTTTLSOptions {
 
             /** MQTTTLSOptions tlsCaCert */
-            tlsCaCert?: (Uint8Array|null);
+            tlsCaCert?: (string|null);
 
             /** MQTTTLSOptions tlsClientCert */
-            tlsClientCert?: (Uint8Array|null);
+            tlsClientCert?: (string|null);
 
             /** MQTTTLSOptions tlsClientKey */
-            tlsClientKey?: (Uint8Array|null);
+            tlsClientKey?: (string|null);
 
             /** MQTTTLSOptions tlsSkipVerify */
             tlsSkipVerify?: (boolean|null);
@@ -18550,13 +18550,13 @@ export namespace protos {
             constructor(properties?: protos.args.IMQTTTLSOptions);
 
             /** MQTTTLSOptions tlsCaCert. */
-            public tlsCaCert: Uint8Array;
+            public tlsCaCert: string;
 
             /** MQTTTLSOptions tlsClientCert. */
-            public tlsClientCert: Uint8Array;
+            public tlsClientCert: string;
 
             /** MQTTTLSOptions tlsClientKey. */
-            public tlsClientKey: Uint8Array;
+            public tlsClientKey: string;
 
             /** MQTTTLSOptions tlsSkipVerify. */
             public tlsSkipVerify: boolean;
@@ -18945,7 +18945,7 @@ export namespace protos {
             dsn?: (string|null);
 
             /** NatsConn userCredentials */
-            userCredentials?: (Uint8Array|null);
+            userCredentials?: (string|null);
 
             /** NatsConn tlsOptions */
             tlsOptions?: (protos.args.INatsTLSOptions|null);
@@ -18964,7 +18964,7 @@ export namespace protos {
             public dsn: string;
 
             /** NatsConn userCredentials. */
-            public userCredentials: Uint8Array;
+            public userCredentials: string;
 
             /** NatsConn tlsOptions. */
             public tlsOptions?: (protos.args.INatsTLSOptions|null);
@@ -19047,13 +19047,13 @@ export namespace protos {
             tlsSkipVerify?: (boolean|null);
 
             /** NatsTLSOptions tlsCaCert */
-            tlsCaCert?: (Uint8Array|null);
+            tlsCaCert?: (string|null);
 
             /** NatsTLSOptions tlsClientCert */
-            tlsClientCert?: (Uint8Array|null);
+            tlsClientCert?: (string|null);
 
             /** NatsTLSOptions tlsClientKey */
-            tlsClientKey?: (Uint8Array|null);
+            tlsClientKey?: (string|null);
 
             /** NatsTLSOptions useTls */
             useTls?: (boolean|null);
@@ -19072,13 +19072,13 @@ export namespace protos {
             public tlsSkipVerify: boolean;
 
             /** NatsTLSOptions tlsCaCert. */
-            public tlsCaCert: Uint8Array;
+            public tlsCaCert: string;
 
             /** NatsTLSOptions tlsClientCert. */
-            public tlsClientCert: Uint8Array;
+            public tlsClientCert: string;
 
             /** NatsTLSOptions tlsClientKey. */
-            public tlsClientKey: Uint8Array;
+            public tlsClientKey: string;
 
             /** NatsTLSOptions useTls. */
             public useTls: boolean;
@@ -19338,13 +19338,13 @@ export namespace protos {
         interface INatsJetstreamTLSOptions {
 
             /** NatsJetstreamTLSOptions tlsCaCert */
-            tlsCaCert?: (Uint8Array|null);
+            tlsCaCert?: (string|null);
 
             /** NatsJetstreamTLSOptions tlsClientCert */
-            tlsClientCert?: (Uint8Array|null);
+            tlsClientCert?: (string|null);
 
             /** NatsJetstreamTLSOptions tlsClientKey */
-            tlsClientKey?: (Uint8Array|null);
+            tlsClientKey?: (string|null);
 
             /** NatsJetstreamTLSOptions tlsSkipVerify */
             tlsSkipVerify?: (boolean|null);
@@ -19363,13 +19363,13 @@ export namespace protos {
             constructor(properties?: protos.args.INatsJetstreamTLSOptions);
 
             /** NatsJetstreamTLSOptions tlsCaCert. */
-            public tlsCaCert: Uint8Array;
+            public tlsCaCert: string;
 
             /** NatsJetstreamTLSOptions tlsClientCert. */
-            public tlsClientCert: Uint8Array;
+            public tlsClientCert: string;
 
             /** NatsJetstreamTLSOptions tlsClientKey. */
-            public tlsClientKey: Uint8Array;
+            public tlsClientKey: string;
 
             /** NatsJetstreamTLSOptions tlsSkipVerify. */
             public tlsSkipVerify: boolean;
@@ -19455,7 +19455,7 @@ export namespace protos {
             dsn?: (string|null);
 
             /** NatsJetstreamConn userCredentials */
-            userCredentials?: (Uint8Array|null);
+            userCredentials?: (string|null);
 
             /** NatsJetstreamConn clientId */
             clientId?: (string|null);
@@ -19477,7 +19477,7 @@ export namespace protos {
             public dsn: string;
 
             /** NatsJetstreamConn userCredentials. */
-            public userCredentials: Uint8Array;
+            public userCredentials: string;
 
             /** NatsJetstreamConn clientId. */
             public clientId: string;
@@ -19740,13 +19740,13 @@ export namespace protos {
         interface INatsStreamingTLSOptions {
 
             /** NatsStreamingTLSOptions tlsCaCert */
-            tlsCaCert?: (Uint8Array|null);
+            tlsCaCert?: (string|null);
 
             /** NatsStreamingTLSOptions tlsClientCert */
-            tlsClientCert?: (Uint8Array|null);
+            tlsClientCert?: (string|null);
 
             /** NatsStreamingTLSOptions tlsClientKey */
-            tlsClientKey?: (Uint8Array|null);
+            tlsClientKey?: (string|null);
 
             /** NatsStreamingTLSOptions tlsSkipVerify */
             tlsSkipVerify?: (boolean|null);
@@ -19765,13 +19765,13 @@ export namespace protos {
             constructor(properties?: protos.args.INatsStreamingTLSOptions);
 
             /** NatsStreamingTLSOptions tlsCaCert. */
-            public tlsCaCert: Uint8Array;
+            public tlsCaCert: string;
 
             /** NatsStreamingTLSOptions tlsClientCert. */
-            public tlsClientCert: Uint8Array;
+            public tlsClientCert: string;
 
             /** NatsStreamingTLSOptions tlsClientKey. */
-            public tlsClientKey: Uint8Array;
+            public tlsClientKey: string;
 
             /** NatsStreamingTLSOptions tlsSkipVerify. */
             public tlsSkipVerify: boolean;
@@ -19857,7 +19857,7 @@ export namespace protos {
             dsn?: (string|null);
 
             /** NatsStreamingConn userCredentials */
-            userCredentials?: (Uint8Array|null);
+            userCredentials?: (string|null);
 
             /** NatsStreamingConn clusterId */
             clusterId?: (string|null);
@@ -19882,7 +19882,7 @@ export namespace protos {
             public dsn: string;
 
             /** NatsStreamingConn userCredentials. */
-            public userCredentials: Uint8Array;
+            public userCredentials: string;
 
             /** NatsStreamingConn clusterId. */
             public clusterId: string;
@@ -20190,13 +20190,13 @@ export namespace protos {
             tlsSkipVerify?: (boolean|null);
 
             /** NSQConn tlsCaCert */
-            tlsCaCert?: (Uint8Array|null);
+            tlsCaCert?: (string|null);
 
             /** NSQConn tlsClientCert */
-            tlsClientCert?: (Uint8Array|null);
+            tlsClientCert?: (string|null);
 
             /** NSQConn tlsClientKey */
-            tlsClientKey?: (Uint8Array|null);
+            tlsClientKey?: (string|null);
 
             /** NSQConn authSecret */
             authSecret?: (string|null);
@@ -20227,13 +20227,13 @@ export namespace protos {
             public tlsSkipVerify: boolean;
 
             /** NSQConn tlsCaCert. */
-            public tlsCaCert: Uint8Array;
+            public tlsCaCert: string;
 
             /** NSQConn tlsClientCert. */
-            public tlsClientCert: Uint8Array;
+            public tlsClientCert: string;
 
             /** NSQConn tlsClientKey. */
-            public tlsClientKey: Uint8Array;
+            public tlsClientKey: string;
 
             /** NSQConn authSecret. */
             public authSecret: string;
@@ -20741,10 +20741,10 @@ export namespace protos {
             tlsSkipVerify?: (boolean|null);
 
             /** PulsarConn tlsClientCert */
-            tlsClientCert?: (Uint8Array|null);
+            tlsClientCert?: (string|null);
 
             /** PulsarConn tlsClientKey */
-            tlsClientKey?: (Uint8Array|null);
+            tlsClientKey?: (string|null);
         }
 
         /** Represents a PulsarConn. */
@@ -20766,10 +20766,10 @@ export namespace protos {
             public tlsSkipVerify: boolean;
 
             /** PulsarConn tlsClientCert. */
-            public tlsClientCert: Uint8Array;
+            public tlsClientCert: string;
 
             /** PulsarConn tlsClientKey. */
-            public tlsClientKey: Uint8Array;
+            public tlsClientKey: string;
 
             /**
              * Creates a new PulsarConn instance using the specified properties.

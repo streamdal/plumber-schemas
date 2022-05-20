@@ -45135,9 +45135,9 @@ $root.protos = (function() {
              * Properties of a MQTTTLSOptions.
              * @memberof protos.args
              * @interface IMQTTTLSOptions
-             * @property {Uint8Array|null} [tlsCaCert] MQTTTLSOptions tlsCaCert
-             * @property {Uint8Array|null} [tlsClientCert] MQTTTLSOptions tlsClientCert
-             * @property {Uint8Array|null} [tlsClientKey] MQTTTLSOptions tlsClientKey
+             * @property {string|null} [tlsCaCert] MQTTTLSOptions tlsCaCert
+             * @property {string|null} [tlsClientCert] MQTTTLSOptions tlsClientCert
+             * @property {string|null} [tlsClientKey] MQTTTLSOptions tlsClientKey
              * @property {boolean|null} [tlsSkipVerify] MQTTTLSOptions tlsSkipVerify
              */
 
@@ -45158,27 +45158,27 @@ $root.protos = (function() {
 
             /**
              * MQTTTLSOptions tlsCaCert.
-             * @member {Uint8Array} tlsCaCert
+             * @member {string} tlsCaCert
              * @memberof protos.args.MQTTTLSOptions
              * @instance
              */
-            MQTTTLSOptions.prototype.tlsCaCert = $util.newBuffer([]);
+            MQTTTLSOptions.prototype.tlsCaCert = "";
 
             /**
              * MQTTTLSOptions tlsClientCert.
-             * @member {Uint8Array} tlsClientCert
+             * @member {string} tlsClientCert
              * @memberof protos.args.MQTTTLSOptions
              * @instance
              */
-            MQTTTLSOptions.prototype.tlsClientCert = $util.newBuffer([]);
+            MQTTTLSOptions.prototype.tlsClientCert = "";
 
             /**
              * MQTTTLSOptions tlsClientKey.
-             * @member {Uint8Array} tlsClientKey
+             * @member {string} tlsClientKey
              * @memberof protos.args.MQTTTLSOptions
              * @instance
              */
-            MQTTTLSOptions.prototype.tlsClientKey = $util.newBuffer([]);
+            MQTTTLSOptions.prototype.tlsClientKey = "";
 
             /**
              * MQTTTLSOptions tlsSkipVerify.
@@ -45213,11 +45213,11 @@ $root.protos = (function() {
                 if (!writer)
                     writer = $Writer.create();
                 if (message.tlsCaCert != null && Object.hasOwnProperty.call(message, "tlsCaCert"))
-                    writer.uint32(/* id 1, wireType 2 =*/10).bytes(message.tlsCaCert);
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.tlsCaCert);
                 if (message.tlsClientCert != null && Object.hasOwnProperty.call(message, "tlsClientCert"))
-                    writer.uint32(/* id 2, wireType 2 =*/18).bytes(message.tlsClientCert);
+                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.tlsClientCert);
                 if (message.tlsClientKey != null && Object.hasOwnProperty.call(message, "tlsClientKey"))
-                    writer.uint32(/* id 3, wireType 2 =*/26).bytes(message.tlsClientKey);
+                    writer.uint32(/* id 3, wireType 2 =*/26).string(message.tlsClientKey);
                 if (message.tlsSkipVerify != null && Object.hasOwnProperty.call(message, "tlsSkipVerify"))
                     writer.uint32(/* id 4, wireType 0 =*/32).bool(message.tlsSkipVerify);
                 return writer;
@@ -45255,13 +45255,13 @@ $root.protos = (function() {
                     var tag = reader.uint32();
                     switch (tag >>> 3) {
                     case 1:
-                        message.tlsCaCert = reader.bytes();
+                        message.tlsCaCert = reader.string();
                         break;
                     case 2:
-                        message.tlsClientCert = reader.bytes();
+                        message.tlsClientCert = reader.string();
                         break;
                     case 3:
-                        message.tlsClientKey = reader.bytes();
+                        message.tlsClientKey = reader.string();
                         break;
                     case 4:
                         message.tlsSkipVerify = reader.bool();
@@ -45302,14 +45302,14 @@ $root.protos = (function() {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
                 if (message.tlsCaCert != null && message.hasOwnProperty("tlsCaCert"))
-                    if (!(message.tlsCaCert && typeof message.tlsCaCert.length === "number" || $util.isString(message.tlsCaCert)))
-                        return "tlsCaCert: buffer expected";
+                    if (!$util.isString(message.tlsCaCert))
+                        return "tlsCaCert: string expected";
                 if (message.tlsClientCert != null && message.hasOwnProperty("tlsClientCert"))
-                    if (!(message.tlsClientCert && typeof message.tlsClientCert.length === "number" || $util.isString(message.tlsClientCert)))
-                        return "tlsClientCert: buffer expected";
+                    if (!$util.isString(message.tlsClientCert))
+                        return "tlsClientCert: string expected";
                 if (message.tlsClientKey != null && message.hasOwnProperty("tlsClientKey"))
-                    if (!(message.tlsClientKey && typeof message.tlsClientKey.length === "number" || $util.isString(message.tlsClientKey)))
-                        return "tlsClientKey: buffer expected";
+                    if (!$util.isString(message.tlsClientKey))
+                        return "tlsClientKey: string expected";
                 if (message.tlsSkipVerify != null && message.hasOwnProperty("tlsSkipVerify"))
                     if (typeof message.tlsSkipVerify !== "boolean")
                         return "tlsSkipVerify: boolean expected";
@@ -45329,20 +45329,11 @@ $root.protos = (function() {
                     return object;
                 var message = new $root.protos.args.MQTTTLSOptions();
                 if (object.tlsCaCert != null)
-                    if (typeof object.tlsCaCert === "string")
-                        $util.base64.decode(object.tlsCaCert, message.tlsCaCert = $util.newBuffer($util.base64.length(object.tlsCaCert)), 0);
-                    else if (object.tlsCaCert.length)
-                        message.tlsCaCert = object.tlsCaCert;
+                    message.tlsCaCert = String(object.tlsCaCert);
                 if (object.tlsClientCert != null)
-                    if (typeof object.tlsClientCert === "string")
-                        $util.base64.decode(object.tlsClientCert, message.tlsClientCert = $util.newBuffer($util.base64.length(object.tlsClientCert)), 0);
-                    else if (object.tlsClientCert.length)
-                        message.tlsClientCert = object.tlsClientCert;
+                    message.tlsClientCert = String(object.tlsClientCert);
                 if (object.tlsClientKey != null)
-                    if (typeof object.tlsClientKey === "string")
-                        $util.base64.decode(object.tlsClientKey, message.tlsClientKey = $util.newBuffer($util.base64.length(object.tlsClientKey)), 0);
-                    else if (object.tlsClientKey.length)
-                        message.tlsClientKey = object.tlsClientKey;
+                    message.tlsClientKey = String(object.tlsClientKey);
                 if (object.tlsSkipVerify != null)
                     message.tlsSkipVerify = Boolean(object.tlsSkipVerify);
                 return message;
@@ -45362,35 +45353,17 @@ $root.protos = (function() {
                     options = {};
                 var object = {};
                 if (options.defaults) {
-                    if (options.bytes === String)
-                        object.tlsCaCert = "";
-                    else {
-                        object.tlsCaCert = [];
-                        if (options.bytes !== Array)
-                            object.tlsCaCert = $util.newBuffer(object.tlsCaCert);
-                    }
-                    if (options.bytes === String)
-                        object.tlsClientCert = "";
-                    else {
-                        object.tlsClientCert = [];
-                        if (options.bytes !== Array)
-                            object.tlsClientCert = $util.newBuffer(object.tlsClientCert);
-                    }
-                    if (options.bytes === String)
-                        object.tlsClientKey = "";
-                    else {
-                        object.tlsClientKey = [];
-                        if (options.bytes !== Array)
-                            object.tlsClientKey = $util.newBuffer(object.tlsClientKey);
-                    }
+                    object.tlsCaCert = "";
+                    object.tlsClientCert = "";
+                    object.tlsClientKey = "";
                     object.tlsSkipVerify = false;
                 }
                 if (message.tlsCaCert != null && message.hasOwnProperty("tlsCaCert"))
-                    object.tlsCaCert = options.bytes === String ? $util.base64.encode(message.tlsCaCert, 0, message.tlsCaCert.length) : options.bytes === Array ? Array.prototype.slice.call(message.tlsCaCert) : message.tlsCaCert;
+                    object.tlsCaCert = message.tlsCaCert;
                 if (message.tlsClientCert != null && message.hasOwnProperty("tlsClientCert"))
-                    object.tlsClientCert = options.bytes === String ? $util.base64.encode(message.tlsClientCert, 0, message.tlsClientCert.length) : options.bytes === Array ? Array.prototype.slice.call(message.tlsClientCert) : message.tlsClientCert;
+                    object.tlsClientCert = message.tlsClientCert;
                 if (message.tlsClientKey != null && message.hasOwnProperty("tlsClientKey"))
-                    object.tlsClientKey = options.bytes === String ? $util.base64.encode(message.tlsClientKey, 0, message.tlsClientKey.length) : options.bytes === Array ? Array.prototype.slice.call(message.tlsClientKey) : message.tlsClientKey;
+                    object.tlsClientKey = message.tlsClientKey;
                 if (message.tlsSkipVerify != null && message.hasOwnProperty("tlsSkipVerify"))
                     object.tlsSkipVerify = message.tlsSkipVerify;
                 return object;
@@ -46136,7 +46109,7 @@ $root.protos = (function() {
              * @memberof protos.args
              * @interface INatsConn
              * @property {string|null} [dsn] NatsConn dsn
-             * @property {Uint8Array|null} [userCredentials] NatsConn userCredentials
+             * @property {string|null} [userCredentials] NatsConn userCredentials
              * @property {protos.args.INatsTLSOptions|null} [tlsOptions] NatsConn tlsOptions
              */
 
@@ -46165,11 +46138,11 @@ $root.protos = (function() {
 
             /**
              * NatsConn userCredentials.
-             * @member {Uint8Array} userCredentials
+             * @member {string} userCredentials
              * @memberof protos.args.NatsConn
              * @instance
              */
-            NatsConn.prototype.userCredentials = $util.newBuffer([]);
+            NatsConn.prototype.userCredentials = "";
 
             /**
              * NatsConn tlsOptions.
@@ -46206,7 +46179,7 @@ $root.protos = (function() {
                 if (message.dsn != null && Object.hasOwnProperty.call(message, "dsn"))
                     writer.uint32(/* id 1, wireType 2 =*/10).string(message.dsn);
                 if (message.userCredentials != null && Object.hasOwnProperty.call(message, "userCredentials"))
-                    writer.uint32(/* id 2, wireType 2 =*/18).bytes(message.userCredentials);
+                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.userCredentials);
                 if (message.tlsOptions != null && Object.hasOwnProperty.call(message, "tlsOptions"))
                     $root.protos.args.NatsTLSOptions.encode(message.tlsOptions, writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
                 return writer;
@@ -46247,7 +46220,7 @@ $root.protos = (function() {
                         message.dsn = reader.string();
                         break;
                     case 2:
-                        message.userCredentials = reader.bytes();
+                        message.userCredentials = reader.string();
                         break;
                     case 3:
                         message.tlsOptions = $root.protos.args.NatsTLSOptions.decode(reader, reader.uint32());
@@ -46291,8 +46264,8 @@ $root.protos = (function() {
                     if (!$util.isString(message.dsn))
                         return "dsn: string expected";
                 if (message.userCredentials != null && message.hasOwnProperty("userCredentials"))
-                    if (!(message.userCredentials && typeof message.userCredentials.length === "number" || $util.isString(message.userCredentials)))
-                        return "userCredentials: buffer expected";
+                    if (!$util.isString(message.userCredentials))
+                        return "userCredentials: string expected";
                 if (message.tlsOptions != null && message.hasOwnProperty("tlsOptions")) {
                     var error = $root.protos.args.NatsTLSOptions.verify(message.tlsOptions);
                     if (error)
@@ -46316,10 +46289,7 @@ $root.protos = (function() {
                 if (object.dsn != null)
                     message.dsn = String(object.dsn);
                 if (object.userCredentials != null)
-                    if (typeof object.userCredentials === "string")
-                        $util.base64.decode(object.userCredentials, message.userCredentials = $util.newBuffer($util.base64.length(object.userCredentials)), 0);
-                    else if (object.userCredentials.length)
-                        message.userCredentials = object.userCredentials;
+                    message.userCredentials = String(object.userCredentials);
                 if (object.tlsOptions != null) {
                     if (typeof object.tlsOptions !== "object")
                         throw TypeError(".protos.args.NatsConn.tlsOptions: object expected");
@@ -46343,19 +46313,13 @@ $root.protos = (function() {
                 var object = {};
                 if (options.defaults) {
                     object.dsn = "";
-                    if (options.bytes === String)
-                        object.userCredentials = "";
-                    else {
-                        object.userCredentials = [];
-                        if (options.bytes !== Array)
-                            object.userCredentials = $util.newBuffer(object.userCredentials);
-                    }
+                    object.userCredentials = "";
                     object.tlsOptions = null;
                 }
                 if (message.dsn != null && message.hasOwnProperty("dsn"))
                     object.dsn = message.dsn;
                 if (message.userCredentials != null && message.hasOwnProperty("userCredentials"))
-                    object.userCredentials = options.bytes === String ? $util.base64.encode(message.userCredentials, 0, message.userCredentials.length) : options.bytes === Array ? Array.prototype.slice.call(message.userCredentials) : message.userCredentials;
+                    object.userCredentials = message.userCredentials;
                 if (message.tlsOptions != null && message.hasOwnProperty("tlsOptions"))
                     object.tlsOptions = $root.protos.args.NatsTLSOptions.toObject(message.tlsOptions, options);
                 return object;
@@ -46382,9 +46346,9 @@ $root.protos = (function() {
              * @memberof protos.args
              * @interface INatsTLSOptions
              * @property {boolean|null} [tlsSkipVerify] NatsTLSOptions tlsSkipVerify
-             * @property {Uint8Array|null} [tlsCaCert] NatsTLSOptions tlsCaCert
-             * @property {Uint8Array|null} [tlsClientCert] NatsTLSOptions tlsClientCert
-             * @property {Uint8Array|null} [tlsClientKey] NatsTLSOptions tlsClientKey
+             * @property {string|null} [tlsCaCert] NatsTLSOptions tlsCaCert
+             * @property {string|null} [tlsClientCert] NatsTLSOptions tlsClientCert
+             * @property {string|null} [tlsClientKey] NatsTLSOptions tlsClientKey
              * @property {boolean|null} [useTls] NatsTLSOptions useTls
              */
 
@@ -46413,27 +46377,27 @@ $root.protos = (function() {
 
             /**
              * NatsTLSOptions tlsCaCert.
-             * @member {Uint8Array} tlsCaCert
+             * @member {string} tlsCaCert
              * @memberof protos.args.NatsTLSOptions
              * @instance
              */
-            NatsTLSOptions.prototype.tlsCaCert = $util.newBuffer([]);
+            NatsTLSOptions.prototype.tlsCaCert = "";
 
             /**
              * NatsTLSOptions tlsClientCert.
-             * @member {Uint8Array} tlsClientCert
+             * @member {string} tlsClientCert
              * @memberof protos.args.NatsTLSOptions
              * @instance
              */
-            NatsTLSOptions.prototype.tlsClientCert = $util.newBuffer([]);
+            NatsTLSOptions.prototype.tlsClientCert = "";
 
             /**
              * NatsTLSOptions tlsClientKey.
-             * @member {Uint8Array} tlsClientKey
+             * @member {string} tlsClientKey
              * @memberof protos.args.NatsTLSOptions
              * @instance
              */
-            NatsTLSOptions.prototype.tlsClientKey = $util.newBuffer([]);
+            NatsTLSOptions.prototype.tlsClientKey = "";
 
             /**
              * NatsTLSOptions useTls.
@@ -46470,11 +46434,11 @@ $root.protos = (function() {
                 if (message.tlsSkipVerify != null && Object.hasOwnProperty.call(message, "tlsSkipVerify"))
                     writer.uint32(/* id 1, wireType 0 =*/8).bool(message.tlsSkipVerify);
                 if (message.tlsCaCert != null && Object.hasOwnProperty.call(message, "tlsCaCert"))
-                    writer.uint32(/* id 2, wireType 2 =*/18).bytes(message.tlsCaCert);
+                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.tlsCaCert);
                 if (message.tlsClientCert != null && Object.hasOwnProperty.call(message, "tlsClientCert"))
-                    writer.uint32(/* id 3, wireType 2 =*/26).bytes(message.tlsClientCert);
+                    writer.uint32(/* id 3, wireType 2 =*/26).string(message.tlsClientCert);
                 if (message.tlsClientKey != null && Object.hasOwnProperty.call(message, "tlsClientKey"))
-                    writer.uint32(/* id 4, wireType 2 =*/34).bytes(message.tlsClientKey);
+                    writer.uint32(/* id 4, wireType 2 =*/34).string(message.tlsClientKey);
                 if (message.useTls != null && Object.hasOwnProperty.call(message, "useTls"))
                     writer.uint32(/* id 5, wireType 0 =*/40).bool(message.useTls);
                 return writer;
@@ -46515,13 +46479,13 @@ $root.protos = (function() {
                         message.tlsSkipVerify = reader.bool();
                         break;
                     case 2:
-                        message.tlsCaCert = reader.bytes();
+                        message.tlsCaCert = reader.string();
                         break;
                     case 3:
-                        message.tlsClientCert = reader.bytes();
+                        message.tlsClientCert = reader.string();
                         break;
                     case 4:
-                        message.tlsClientKey = reader.bytes();
+                        message.tlsClientKey = reader.string();
                         break;
                     case 5:
                         message.useTls = reader.bool();
@@ -46565,14 +46529,14 @@ $root.protos = (function() {
                     if (typeof message.tlsSkipVerify !== "boolean")
                         return "tlsSkipVerify: boolean expected";
                 if (message.tlsCaCert != null && message.hasOwnProperty("tlsCaCert"))
-                    if (!(message.tlsCaCert && typeof message.tlsCaCert.length === "number" || $util.isString(message.tlsCaCert)))
-                        return "tlsCaCert: buffer expected";
+                    if (!$util.isString(message.tlsCaCert))
+                        return "tlsCaCert: string expected";
                 if (message.tlsClientCert != null && message.hasOwnProperty("tlsClientCert"))
-                    if (!(message.tlsClientCert && typeof message.tlsClientCert.length === "number" || $util.isString(message.tlsClientCert)))
-                        return "tlsClientCert: buffer expected";
+                    if (!$util.isString(message.tlsClientCert))
+                        return "tlsClientCert: string expected";
                 if (message.tlsClientKey != null && message.hasOwnProperty("tlsClientKey"))
-                    if (!(message.tlsClientKey && typeof message.tlsClientKey.length === "number" || $util.isString(message.tlsClientKey)))
-                        return "tlsClientKey: buffer expected";
+                    if (!$util.isString(message.tlsClientKey))
+                        return "tlsClientKey: string expected";
                 if (message.useTls != null && message.hasOwnProperty("useTls"))
                     if (typeof message.useTls !== "boolean")
                         return "useTls: boolean expected";
@@ -46594,20 +46558,11 @@ $root.protos = (function() {
                 if (object.tlsSkipVerify != null)
                     message.tlsSkipVerify = Boolean(object.tlsSkipVerify);
                 if (object.tlsCaCert != null)
-                    if (typeof object.tlsCaCert === "string")
-                        $util.base64.decode(object.tlsCaCert, message.tlsCaCert = $util.newBuffer($util.base64.length(object.tlsCaCert)), 0);
-                    else if (object.tlsCaCert.length)
-                        message.tlsCaCert = object.tlsCaCert;
+                    message.tlsCaCert = String(object.tlsCaCert);
                 if (object.tlsClientCert != null)
-                    if (typeof object.tlsClientCert === "string")
-                        $util.base64.decode(object.tlsClientCert, message.tlsClientCert = $util.newBuffer($util.base64.length(object.tlsClientCert)), 0);
-                    else if (object.tlsClientCert.length)
-                        message.tlsClientCert = object.tlsClientCert;
+                    message.tlsClientCert = String(object.tlsClientCert);
                 if (object.tlsClientKey != null)
-                    if (typeof object.tlsClientKey === "string")
-                        $util.base64.decode(object.tlsClientKey, message.tlsClientKey = $util.newBuffer($util.base64.length(object.tlsClientKey)), 0);
-                    else if (object.tlsClientKey.length)
-                        message.tlsClientKey = object.tlsClientKey;
+                    message.tlsClientKey = String(object.tlsClientKey);
                 if (object.useTls != null)
                     message.useTls = Boolean(object.useTls);
                 return message;
@@ -46628,37 +46583,19 @@ $root.protos = (function() {
                 var object = {};
                 if (options.defaults) {
                     object.tlsSkipVerify = false;
-                    if (options.bytes === String)
-                        object.tlsCaCert = "";
-                    else {
-                        object.tlsCaCert = [];
-                        if (options.bytes !== Array)
-                            object.tlsCaCert = $util.newBuffer(object.tlsCaCert);
-                    }
-                    if (options.bytes === String)
-                        object.tlsClientCert = "";
-                    else {
-                        object.tlsClientCert = [];
-                        if (options.bytes !== Array)
-                            object.tlsClientCert = $util.newBuffer(object.tlsClientCert);
-                    }
-                    if (options.bytes === String)
-                        object.tlsClientKey = "";
-                    else {
-                        object.tlsClientKey = [];
-                        if (options.bytes !== Array)
-                            object.tlsClientKey = $util.newBuffer(object.tlsClientKey);
-                    }
+                    object.tlsCaCert = "";
+                    object.tlsClientCert = "";
+                    object.tlsClientKey = "";
                     object.useTls = false;
                 }
                 if (message.tlsSkipVerify != null && message.hasOwnProperty("tlsSkipVerify"))
                     object.tlsSkipVerify = message.tlsSkipVerify;
                 if (message.tlsCaCert != null && message.hasOwnProperty("tlsCaCert"))
-                    object.tlsCaCert = options.bytes === String ? $util.base64.encode(message.tlsCaCert, 0, message.tlsCaCert.length) : options.bytes === Array ? Array.prototype.slice.call(message.tlsCaCert) : message.tlsCaCert;
+                    object.tlsCaCert = message.tlsCaCert;
                 if (message.tlsClientCert != null && message.hasOwnProperty("tlsClientCert"))
-                    object.tlsClientCert = options.bytes === String ? $util.base64.encode(message.tlsClientCert, 0, message.tlsClientCert.length) : options.bytes === Array ? Array.prototype.slice.call(message.tlsClientCert) : message.tlsClientCert;
+                    object.tlsClientCert = message.tlsClientCert;
                 if (message.tlsClientKey != null && message.hasOwnProperty("tlsClientKey"))
-                    object.tlsClientKey = options.bytes === String ? $util.base64.encode(message.tlsClientKey, 0, message.tlsClientKey.length) : options.bytes === Array ? Array.prototype.slice.call(message.tlsClientKey) : message.tlsClientKey;
+                    object.tlsClientKey = message.tlsClientKey;
                 if (message.useTls != null && message.hasOwnProperty("useTls"))
                     object.useTls = message.useTls;
                 return object;
@@ -47058,9 +46995,9 @@ $root.protos = (function() {
              * Properties of a NatsJetstreamTLSOptions.
              * @memberof protos.args
              * @interface INatsJetstreamTLSOptions
-             * @property {Uint8Array|null} [tlsCaCert] NatsJetstreamTLSOptions tlsCaCert
-             * @property {Uint8Array|null} [tlsClientCert] NatsJetstreamTLSOptions tlsClientCert
-             * @property {Uint8Array|null} [tlsClientKey] NatsJetstreamTLSOptions tlsClientKey
+             * @property {string|null} [tlsCaCert] NatsJetstreamTLSOptions tlsCaCert
+             * @property {string|null} [tlsClientCert] NatsJetstreamTLSOptions tlsClientCert
+             * @property {string|null} [tlsClientKey] NatsJetstreamTLSOptions tlsClientKey
              * @property {boolean|null} [tlsSkipVerify] NatsJetstreamTLSOptions tlsSkipVerify
              * @property {boolean|null} [useTls] NatsJetstreamTLSOptions useTls
              */
@@ -47082,27 +47019,27 @@ $root.protos = (function() {
 
             /**
              * NatsJetstreamTLSOptions tlsCaCert.
-             * @member {Uint8Array} tlsCaCert
+             * @member {string} tlsCaCert
              * @memberof protos.args.NatsJetstreamTLSOptions
              * @instance
              */
-            NatsJetstreamTLSOptions.prototype.tlsCaCert = $util.newBuffer([]);
+            NatsJetstreamTLSOptions.prototype.tlsCaCert = "";
 
             /**
              * NatsJetstreamTLSOptions tlsClientCert.
-             * @member {Uint8Array} tlsClientCert
+             * @member {string} tlsClientCert
              * @memberof protos.args.NatsJetstreamTLSOptions
              * @instance
              */
-            NatsJetstreamTLSOptions.prototype.tlsClientCert = $util.newBuffer([]);
+            NatsJetstreamTLSOptions.prototype.tlsClientCert = "";
 
             /**
              * NatsJetstreamTLSOptions tlsClientKey.
-             * @member {Uint8Array} tlsClientKey
+             * @member {string} tlsClientKey
              * @memberof protos.args.NatsJetstreamTLSOptions
              * @instance
              */
-            NatsJetstreamTLSOptions.prototype.tlsClientKey = $util.newBuffer([]);
+            NatsJetstreamTLSOptions.prototype.tlsClientKey = "";
 
             /**
              * NatsJetstreamTLSOptions tlsSkipVerify.
@@ -47145,11 +47082,11 @@ $root.protos = (function() {
                 if (!writer)
                     writer = $Writer.create();
                 if (message.tlsCaCert != null && Object.hasOwnProperty.call(message, "tlsCaCert"))
-                    writer.uint32(/* id 1, wireType 2 =*/10).bytes(message.tlsCaCert);
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.tlsCaCert);
                 if (message.tlsClientCert != null && Object.hasOwnProperty.call(message, "tlsClientCert"))
-                    writer.uint32(/* id 2, wireType 2 =*/18).bytes(message.tlsClientCert);
+                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.tlsClientCert);
                 if (message.tlsClientKey != null && Object.hasOwnProperty.call(message, "tlsClientKey"))
-                    writer.uint32(/* id 3, wireType 2 =*/26).bytes(message.tlsClientKey);
+                    writer.uint32(/* id 3, wireType 2 =*/26).string(message.tlsClientKey);
                 if (message.tlsSkipVerify != null && Object.hasOwnProperty.call(message, "tlsSkipVerify"))
                     writer.uint32(/* id 4, wireType 0 =*/32).bool(message.tlsSkipVerify);
                 if (message.useTls != null && Object.hasOwnProperty.call(message, "useTls"))
@@ -47189,13 +47126,13 @@ $root.protos = (function() {
                     var tag = reader.uint32();
                     switch (tag >>> 3) {
                     case 1:
-                        message.tlsCaCert = reader.bytes();
+                        message.tlsCaCert = reader.string();
                         break;
                     case 2:
-                        message.tlsClientCert = reader.bytes();
+                        message.tlsClientCert = reader.string();
                         break;
                     case 3:
-                        message.tlsClientKey = reader.bytes();
+                        message.tlsClientKey = reader.string();
                         break;
                     case 4:
                         message.tlsSkipVerify = reader.bool();
@@ -47239,14 +47176,14 @@ $root.protos = (function() {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
                 if (message.tlsCaCert != null && message.hasOwnProperty("tlsCaCert"))
-                    if (!(message.tlsCaCert && typeof message.tlsCaCert.length === "number" || $util.isString(message.tlsCaCert)))
-                        return "tlsCaCert: buffer expected";
+                    if (!$util.isString(message.tlsCaCert))
+                        return "tlsCaCert: string expected";
                 if (message.tlsClientCert != null && message.hasOwnProperty("tlsClientCert"))
-                    if (!(message.tlsClientCert && typeof message.tlsClientCert.length === "number" || $util.isString(message.tlsClientCert)))
-                        return "tlsClientCert: buffer expected";
+                    if (!$util.isString(message.tlsClientCert))
+                        return "tlsClientCert: string expected";
                 if (message.tlsClientKey != null && message.hasOwnProperty("tlsClientKey"))
-                    if (!(message.tlsClientKey && typeof message.tlsClientKey.length === "number" || $util.isString(message.tlsClientKey)))
-                        return "tlsClientKey: buffer expected";
+                    if (!$util.isString(message.tlsClientKey))
+                        return "tlsClientKey: string expected";
                 if (message.tlsSkipVerify != null && message.hasOwnProperty("tlsSkipVerify"))
                     if (typeof message.tlsSkipVerify !== "boolean")
                         return "tlsSkipVerify: boolean expected";
@@ -47269,20 +47206,11 @@ $root.protos = (function() {
                     return object;
                 var message = new $root.protos.args.NatsJetstreamTLSOptions();
                 if (object.tlsCaCert != null)
-                    if (typeof object.tlsCaCert === "string")
-                        $util.base64.decode(object.tlsCaCert, message.tlsCaCert = $util.newBuffer($util.base64.length(object.tlsCaCert)), 0);
-                    else if (object.tlsCaCert.length)
-                        message.tlsCaCert = object.tlsCaCert;
+                    message.tlsCaCert = String(object.tlsCaCert);
                 if (object.tlsClientCert != null)
-                    if (typeof object.tlsClientCert === "string")
-                        $util.base64.decode(object.tlsClientCert, message.tlsClientCert = $util.newBuffer($util.base64.length(object.tlsClientCert)), 0);
-                    else if (object.tlsClientCert.length)
-                        message.tlsClientCert = object.tlsClientCert;
+                    message.tlsClientCert = String(object.tlsClientCert);
                 if (object.tlsClientKey != null)
-                    if (typeof object.tlsClientKey === "string")
-                        $util.base64.decode(object.tlsClientKey, message.tlsClientKey = $util.newBuffer($util.base64.length(object.tlsClientKey)), 0);
-                    else if (object.tlsClientKey.length)
-                        message.tlsClientKey = object.tlsClientKey;
+                    message.tlsClientKey = String(object.tlsClientKey);
                 if (object.tlsSkipVerify != null)
                     message.tlsSkipVerify = Boolean(object.tlsSkipVerify);
                 if (object.useTls != null)
@@ -47304,36 +47232,18 @@ $root.protos = (function() {
                     options = {};
                 var object = {};
                 if (options.defaults) {
-                    if (options.bytes === String)
-                        object.tlsCaCert = "";
-                    else {
-                        object.tlsCaCert = [];
-                        if (options.bytes !== Array)
-                            object.tlsCaCert = $util.newBuffer(object.tlsCaCert);
-                    }
-                    if (options.bytes === String)
-                        object.tlsClientCert = "";
-                    else {
-                        object.tlsClientCert = [];
-                        if (options.bytes !== Array)
-                            object.tlsClientCert = $util.newBuffer(object.tlsClientCert);
-                    }
-                    if (options.bytes === String)
-                        object.tlsClientKey = "";
-                    else {
-                        object.tlsClientKey = [];
-                        if (options.bytes !== Array)
-                            object.tlsClientKey = $util.newBuffer(object.tlsClientKey);
-                    }
+                    object.tlsCaCert = "";
+                    object.tlsClientCert = "";
+                    object.tlsClientKey = "";
                     object.tlsSkipVerify = false;
                     object.useTls = false;
                 }
                 if (message.tlsCaCert != null && message.hasOwnProperty("tlsCaCert"))
-                    object.tlsCaCert = options.bytes === String ? $util.base64.encode(message.tlsCaCert, 0, message.tlsCaCert.length) : options.bytes === Array ? Array.prototype.slice.call(message.tlsCaCert) : message.tlsCaCert;
+                    object.tlsCaCert = message.tlsCaCert;
                 if (message.tlsClientCert != null && message.hasOwnProperty("tlsClientCert"))
-                    object.tlsClientCert = options.bytes === String ? $util.base64.encode(message.tlsClientCert, 0, message.tlsClientCert.length) : options.bytes === Array ? Array.prototype.slice.call(message.tlsClientCert) : message.tlsClientCert;
+                    object.tlsClientCert = message.tlsClientCert;
                 if (message.tlsClientKey != null && message.hasOwnProperty("tlsClientKey"))
-                    object.tlsClientKey = options.bytes === String ? $util.base64.encode(message.tlsClientKey, 0, message.tlsClientKey.length) : options.bytes === Array ? Array.prototype.slice.call(message.tlsClientKey) : message.tlsClientKey;
+                    object.tlsClientKey = message.tlsClientKey;
                 if (message.tlsSkipVerify != null && message.hasOwnProperty("tlsSkipVerify"))
                     object.tlsSkipVerify = message.tlsSkipVerify;
                 if (message.useTls != null && message.hasOwnProperty("useTls"))
@@ -47362,7 +47272,7 @@ $root.protos = (function() {
              * @memberof protos.args
              * @interface INatsJetstreamConn
              * @property {string|null} [dsn] NatsJetstreamConn dsn
-             * @property {Uint8Array|null} [userCredentials] NatsJetstreamConn userCredentials
+             * @property {string|null} [userCredentials] NatsJetstreamConn userCredentials
              * @property {string|null} [clientId] NatsJetstreamConn clientId
              * @property {protos.args.INatsJetstreamTLSOptions|null} [tlsOptions] NatsJetstreamConn tlsOptions
              */
@@ -47392,11 +47302,11 @@ $root.protos = (function() {
 
             /**
              * NatsJetstreamConn userCredentials.
-             * @member {Uint8Array} userCredentials
+             * @member {string} userCredentials
              * @memberof protos.args.NatsJetstreamConn
              * @instance
              */
-            NatsJetstreamConn.prototype.userCredentials = $util.newBuffer([]);
+            NatsJetstreamConn.prototype.userCredentials = "";
 
             /**
              * NatsJetstreamConn clientId.
@@ -47441,7 +47351,7 @@ $root.protos = (function() {
                 if (message.dsn != null && Object.hasOwnProperty.call(message, "dsn"))
                     writer.uint32(/* id 1, wireType 2 =*/10).string(message.dsn);
                 if (message.userCredentials != null && Object.hasOwnProperty.call(message, "userCredentials"))
-                    writer.uint32(/* id 2, wireType 2 =*/18).bytes(message.userCredentials);
+                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.userCredentials);
                 if (message.clientId != null && Object.hasOwnProperty.call(message, "clientId"))
                     writer.uint32(/* id 3, wireType 2 =*/26).string(message.clientId);
                 if (message.tlsOptions != null && Object.hasOwnProperty.call(message, "tlsOptions"))
@@ -47484,7 +47394,7 @@ $root.protos = (function() {
                         message.dsn = reader.string();
                         break;
                     case 2:
-                        message.userCredentials = reader.bytes();
+                        message.userCredentials = reader.string();
                         break;
                     case 3:
                         message.clientId = reader.string();
@@ -47531,8 +47441,8 @@ $root.protos = (function() {
                     if (!$util.isString(message.dsn))
                         return "dsn: string expected";
                 if (message.userCredentials != null && message.hasOwnProperty("userCredentials"))
-                    if (!(message.userCredentials && typeof message.userCredentials.length === "number" || $util.isString(message.userCredentials)))
-                        return "userCredentials: buffer expected";
+                    if (!$util.isString(message.userCredentials))
+                        return "userCredentials: string expected";
                 if (message.clientId != null && message.hasOwnProperty("clientId"))
                     if (!$util.isString(message.clientId))
                         return "clientId: string expected";
@@ -47559,10 +47469,7 @@ $root.protos = (function() {
                 if (object.dsn != null)
                     message.dsn = String(object.dsn);
                 if (object.userCredentials != null)
-                    if (typeof object.userCredentials === "string")
-                        $util.base64.decode(object.userCredentials, message.userCredentials = $util.newBuffer($util.base64.length(object.userCredentials)), 0);
-                    else if (object.userCredentials.length)
-                        message.userCredentials = object.userCredentials;
+                    message.userCredentials = String(object.userCredentials);
                 if (object.clientId != null)
                     message.clientId = String(object.clientId);
                 if (object.tlsOptions != null) {
@@ -47588,20 +47495,14 @@ $root.protos = (function() {
                 var object = {};
                 if (options.defaults) {
                     object.dsn = "";
-                    if (options.bytes === String)
-                        object.userCredentials = "";
-                    else {
-                        object.userCredentials = [];
-                        if (options.bytes !== Array)
-                            object.userCredentials = $util.newBuffer(object.userCredentials);
-                    }
+                    object.userCredentials = "";
                     object.clientId = "";
                     object.tlsOptions = null;
                 }
                 if (message.dsn != null && message.hasOwnProperty("dsn"))
                     object.dsn = message.dsn;
                 if (message.userCredentials != null && message.hasOwnProperty("userCredentials"))
-                    object.userCredentials = options.bytes === String ? $util.base64.encode(message.userCredentials, 0, message.userCredentials.length) : options.bytes === Array ? Array.prototype.slice.call(message.userCredentials) : message.userCredentials;
+                    object.userCredentials = message.userCredentials;
                 if (message.clientId != null && message.hasOwnProperty("clientId"))
                     object.clientId = message.clientId;
                 if (message.tlsOptions != null && message.hasOwnProperty("tlsOptions"))
@@ -48003,9 +47904,9 @@ $root.protos = (function() {
              * Properties of a NatsStreamingTLSOptions.
              * @memberof protos.args
              * @interface INatsStreamingTLSOptions
-             * @property {Uint8Array|null} [tlsCaCert] NatsStreamingTLSOptions tlsCaCert
-             * @property {Uint8Array|null} [tlsClientCert] NatsStreamingTLSOptions tlsClientCert
-             * @property {Uint8Array|null} [tlsClientKey] NatsStreamingTLSOptions tlsClientKey
+             * @property {string|null} [tlsCaCert] NatsStreamingTLSOptions tlsCaCert
+             * @property {string|null} [tlsClientCert] NatsStreamingTLSOptions tlsClientCert
+             * @property {string|null} [tlsClientKey] NatsStreamingTLSOptions tlsClientKey
              * @property {boolean|null} [tlsSkipVerify] NatsStreamingTLSOptions tlsSkipVerify
              * @property {boolean|null} [useTls] NatsStreamingTLSOptions useTls
              */
@@ -48027,27 +47928,27 @@ $root.protos = (function() {
 
             /**
              * NatsStreamingTLSOptions tlsCaCert.
-             * @member {Uint8Array} tlsCaCert
+             * @member {string} tlsCaCert
              * @memberof protos.args.NatsStreamingTLSOptions
              * @instance
              */
-            NatsStreamingTLSOptions.prototype.tlsCaCert = $util.newBuffer([]);
+            NatsStreamingTLSOptions.prototype.tlsCaCert = "";
 
             /**
              * NatsStreamingTLSOptions tlsClientCert.
-             * @member {Uint8Array} tlsClientCert
+             * @member {string} tlsClientCert
              * @memberof protos.args.NatsStreamingTLSOptions
              * @instance
              */
-            NatsStreamingTLSOptions.prototype.tlsClientCert = $util.newBuffer([]);
+            NatsStreamingTLSOptions.prototype.tlsClientCert = "";
 
             /**
              * NatsStreamingTLSOptions tlsClientKey.
-             * @member {Uint8Array} tlsClientKey
+             * @member {string} tlsClientKey
              * @memberof protos.args.NatsStreamingTLSOptions
              * @instance
              */
-            NatsStreamingTLSOptions.prototype.tlsClientKey = $util.newBuffer([]);
+            NatsStreamingTLSOptions.prototype.tlsClientKey = "";
 
             /**
              * NatsStreamingTLSOptions tlsSkipVerify.
@@ -48090,11 +47991,11 @@ $root.protos = (function() {
                 if (!writer)
                     writer = $Writer.create();
                 if (message.tlsCaCert != null && Object.hasOwnProperty.call(message, "tlsCaCert"))
-                    writer.uint32(/* id 1, wireType 2 =*/10).bytes(message.tlsCaCert);
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.tlsCaCert);
                 if (message.tlsClientCert != null && Object.hasOwnProperty.call(message, "tlsClientCert"))
-                    writer.uint32(/* id 2, wireType 2 =*/18).bytes(message.tlsClientCert);
+                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.tlsClientCert);
                 if (message.tlsClientKey != null && Object.hasOwnProperty.call(message, "tlsClientKey"))
-                    writer.uint32(/* id 3, wireType 2 =*/26).bytes(message.tlsClientKey);
+                    writer.uint32(/* id 3, wireType 2 =*/26).string(message.tlsClientKey);
                 if (message.tlsSkipVerify != null && Object.hasOwnProperty.call(message, "tlsSkipVerify"))
                     writer.uint32(/* id 4, wireType 0 =*/32).bool(message.tlsSkipVerify);
                 if (message.useTls != null && Object.hasOwnProperty.call(message, "useTls"))
@@ -48134,13 +48035,13 @@ $root.protos = (function() {
                     var tag = reader.uint32();
                     switch (tag >>> 3) {
                     case 1:
-                        message.tlsCaCert = reader.bytes();
+                        message.tlsCaCert = reader.string();
                         break;
                     case 2:
-                        message.tlsClientCert = reader.bytes();
+                        message.tlsClientCert = reader.string();
                         break;
                     case 3:
-                        message.tlsClientKey = reader.bytes();
+                        message.tlsClientKey = reader.string();
                         break;
                     case 4:
                         message.tlsSkipVerify = reader.bool();
@@ -48184,14 +48085,14 @@ $root.protos = (function() {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
                 if (message.tlsCaCert != null && message.hasOwnProperty("tlsCaCert"))
-                    if (!(message.tlsCaCert && typeof message.tlsCaCert.length === "number" || $util.isString(message.tlsCaCert)))
-                        return "tlsCaCert: buffer expected";
+                    if (!$util.isString(message.tlsCaCert))
+                        return "tlsCaCert: string expected";
                 if (message.tlsClientCert != null && message.hasOwnProperty("tlsClientCert"))
-                    if (!(message.tlsClientCert && typeof message.tlsClientCert.length === "number" || $util.isString(message.tlsClientCert)))
-                        return "tlsClientCert: buffer expected";
+                    if (!$util.isString(message.tlsClientCert))
+                        return "tlsClientCert: string expected";
                 if (message.tlsClientKey != null && message.hasOwnProperty("tlsClientKey"))
-                    if (!(message.tlsClientKey && typeof message.tlsClientKey.length === "number" || $util.isString(message.tlsClientKey)))
-                        return "tlsClientKey: buffer expected";
+                    if (!$util.isString(message.tlsClientKey))
+                        return "tlsClientKey: string expected";
                 if (message.tlsSkipVerify != null && message.hasOwnProperty("tlsSkipVerify"))
                     if (typeof message.tlsSkipVerify !== "boolean")
                         return "tlsSkipVerify: boolean expected";
@@ -48214,20 +48115,11 @@ $root.protos = (function() {
                     return object;
                 var message = new $root.protos.args.NatsStreamingTLSOptions();
                 if (object.tlsCaCert != null)
-                    if (typeof object.tlsCaCert === "string")
-                        $util.base64.decode(object.tlsCaCert, message.tlsCaCert = $util.newBuffer($util.base64.length(object.tlsCaCert)), 0);
-                    else if (object.tlsCaCert.length)
-                        message.tlsCaCert = object.tlsCaCert;
+                    message.tlsCaCert = String(object.tlsCaCert);
                 if (object.tlsClientCert != null)
-                    if (typeof object.tlsClientCert === "string")
-                        $util.base64.decode(object.tlsClientCert, message.tlsClientCert = $util.newBuffer($util.base64.length(object.tlsClientCert)), 0);
-                    else if (object.tlsClientCert.length)
-                        message.tlsClientCert = object.tlsClientCert;
+                    message.tlsClientCert = String(object.tlsClientCert);
                 if (object.tlsClientKey != null)
-                    if (typeof object.tlsClientKey === "string")
-                        $util.base64.decode(object.tlsClientKey, message.tlsClientKey = $util.newBuffer($util.base64.length(object.tlsClientKey)), 0);
-                    else if (object.tlsClientKey.length)
-                        message.tlsClientKey = object.tlsClientKey;
+                    message.tlsClientKey = String(object.tlsClientKey);
                 if (object.tlsSkipVerify != null)
                     message.tlsSkipVerify = Boolean(object.tlsSkipVerify);
                 if (object.useTls != null)
@@ -48249,36 +48141,18 @@ $root.protos = (function() {
                     options = {};
                 var object = {};
                 if (options.defaults) {
-                    if (options.bytes === String)
-                        object.tlsCaCert = "";
-                    else {
-                        object.tlsCaCert = [];
-                        if (options.bytes !== Array)
-                            object.tlsCaCert = $util.newBuffer(object.tlsCaCert);
-                    }
-                    if (options.bytes === String)
-                        object.tlsClientCert = "";
-                    else {
-                        object.tlsClientCert = [];
-                        if (options.bytes !== Array)
-                            object.tlsClientCert = $util.newBuffer(object.tlsClientCert);
-                    }
-                    if (options.bytes === String)
-                        object.tlsClientKey = "";
-                    else {
-                        object.tlsClientKey = [];
-                        if (options.bytes !== Array)
-                            object.tlsClientKey = $util.newBuffer(object.tlsClientKey);
-                    }
+                    object.tlsCaCert = "";
+                    object.tlsClientCert = "";
+                    object.tlsClientKey = "";
                     object.tlsSkipVerify = false;
                     object.useTls = false;
                 }
                 if (message.tlsCaCert != null && message.hasOwnProperty("tlsCaCert"))
-                    object.tlsCaCert = options.bytes === String ? $util.base64.encode(message.tlsCaCert, 0, message.tlsCaCert.length) : options.bytes === Array ? Array.prototype.slice.call(message.tlsCaCert) : message.tlsCaCert;
+                    object.tlsCaCert = message.tlsCaCert;
                 if (message.tlsClientCert != null && message.hasOwnProperty("tlsClientCert"))
-                    object.tlsClientCert = options.bytes === String ? $util.base64.encode(message.tlsClientCert, 0, message.tlsClientCert.length) : options.bytes === Array ? Array.prototype.slice.call(message.tlsClientCert) : message.tlsClientCert;
+                    object.tlsClientCert = message.tlsClientCert;
                 if (message.tlsClientKey != null && message.hasOwnProperty("tlsClientKey"))
-                    object.tlsClientKey = options.bytes === String ? $util.base64.encode(message.tlsClientKey, 0, message.tlsClientKey.length) : options.bytes === Array ? Array.prototype.slice.call(message.tlsClientKey) : message.tlsClientKey;
+                    object.tlsClientKey = message.tlsClientKey;
                 if (message.tlsSkipVerify != null && message.hasOwnProperty("tlsSkipVerify"))
                     object.tlsSkipVerify = message.tlsSkipVerify;
                 if (message.useTls != null && message.hasOwnProperty("useTls"))
@@ -48307,7 +48181,7 @@ $root.protos = (function() {
              * @memberof protos.args
              * @interface INatsStreamingConn
              * @property {string|null} [dsn] NatsStreamingConn dsn
-             * @property {Uint8Array|null} [userCredentials] NatsStreamingConn userCredentials
+             * @property {string|null} [userCredentials] NatsStreamingConn userCredentials
              * @property {string|null} [clusterId] NatsStreamingConn clusterId
              * @property {string|null} [clientId] NatsStreamingConn clientId
              * @property {protos.args.INatsStreamingTLSOptions|null} [tlsOptions] NatsStreamingConn tlsOptions
@@ -48338,11 +48212,11 @@ $root.protos = (function() {
 
             /**
              * NatsStreamingConn userCredentials.
-             * @member {Uint8Array} userCredentials
+             * @member {string} userCredentials
              * @memberof protos.args.NatsStreamingConn
              * @instance
              */
-            NatsStreamingConn.prototype.userCredentials = $util.newBuffer([]);
+            NatsStreamingConn.prototype.userCredentials = "";
 
             /**
              * NatsStreamingConn clusterId.
@@ -48395,7 +48269,7 @@ $root.protos = (function() {
                 if (message.dsn != null && Object.hasOwnProperty.call(message, "dsn"))
                     writer.uint32(/* id 1, wireType 2 =*/10).string(message.dsn);
                 if (message.userCredentials != null && Object.hasOwnProperty.call(message, "userCredentials"))
-                    writer.uint32(/* id 2, wireType 2 =*/18).bytes(message.userCredentials);
+                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.userCredentials);
                 if (message.clusterId != null && Object.hasOwnProperty.call(message, "clusterId"))
                     writer.uint32(/* id 3, wireType 2 =*/26).string(message.clusterId);
                 if (message.clientId != null && Object.hasOwnProperty.call(message, "clientId"))
@@ -48440,7 +48314,7 @@ $root.protos = (function() {
                         message.dsn = reader.string();
                         break;
                     case 2:
-                        message.userCredentials = reader.bytes();
+                        message.userCredentials = reader.string();
                         break;
                     case 3:
                         message.clusterId = reader.string();
@@ -48490,8 +48364,8 @@ $root.protos = (function() {
                     if (!$util.isString(message.dsn))
                         return "dsn: string expected";
                 if (message.userCredentials != null && message.hasOwnProperty("userCredentials"))
-                    if (!(message.userCredentials && typeof message.userCredentials.length === "number" || $util.isString(message.userCredentials)))
-                        return "userCredentials: buffer expected";
+                    if (!$util.isString(message.userCredentials))
+                        return "userCredentials: string expected";
                 if (message.clusterId != null && message.hasOwnProperty("clusterId"))
                     if (!$util.isString(message.clusterId))
                         return "clusterId: string expected";
@@ -48521,10 +48395,7 @@ $root.protos = (function() {
                 if (object.dsn != null)
                     message.dsn = String(object.dsn);
                 if (object.userCredentials != null)
-                    if (typeof object.userCredentials === "string")
-                        $util.base64.decode(object.userCredentials, message.userCredentials = $util.newBuffer($util.base64.length(object.userCredentials)), 0);
-                    else if (object.userCredentials.length)
-                        message.userCredentials = object.userCredentials;
+                    message.userCredentials = String(object.userCredentials);
                 if (object.clusterId != null)
                     message.clusterId = String(object.clusterId);
                 if (object.clientId != null)
@@ -48552,13 +48423,7 @@ $root.protos = (function() {
                 var object = {};
                 if (options.defaults) {
                     object.dsn = "";
-                    if (options.bytes === String)
-                        object.userCredentials = "";
-                    else {
-                        object.userCredentials = [];
-                        if (options.bytes !== Array)
-                            object.userCredentials = $util.newBuffer(object.userCredentials);
-                    }
+                    object.userCredentials = "";
                     object.clusterId = "";
                     object.clientId = "";
                     object.tlsOptions = null;
@@ -48566,7 +48431,7 @@ $root.protos = (function() {
                 if (message.dsn != null && message.hasOwnProperty("dsn"))
                     object.dsn = message.dsn;
                 if (message.userCredentials != null && message.hasOwnProperty("userCredentials"))
-                    object.userCredentials = options.bytes === String ? $util.base64.encode(message.userCredentials, 0, message.userCredentials.length) : options.bytes === Array ? Array.prototype.slice.call(message.userCredentials) : message.userCredentials;
+                    object.userCredentials = message.userCredentials;
                 if (message.clusterId != null && message.hasOwnProperty("clusterId"))
                     object.clusterId = message.clusterId;
                 if (message.clientId != null && message.hasOwnProperty("clientId"))
@@ -49085,9 +48950,9 @@ $root.protos = (function() {
              * @property {string|null} [lookupdAddress] NSQConn lookupdAddress
              * @property {boolean|null} [useTls] NSQConn useTls
              * @property {boolean|null} [tlsSkipVerify] NSQConn tlsSkipVerify
-             * @property {Uint8Array|null} [tlsCaCert] NSQConn tlsCaCert
-             * @property {Uint8Array|null} [tlsClientCert] NSQConn tlsClientCert
-             * @property {Uint8Array|null} [tlsClientKey] NSQConn tlsClientKey
+             * @property {string|null} [tlsCaCert] NSQConn tlsCaCert
+             * @property {string|null} [tlsClientCert] NSQConn tlsClientCert
+             * @property {string|null} [tlsClientKey] NSQConn tlsClientKey
              * @property {string|null} [authSecret] NSQConn authSecret
              * @property {string|null} [clientId] NSQConn clientId
              */
@@ -49141,27 +49006,27 @@ $root.protos = (function() {
 
             /**
              * NSQConn tlsCaCert.
-             * @member {Uint8Array} tlsCaCert
+             * @member {string} tlsCaCert
              * @memberof protos.args.NSQConn
              * @instance
              */
-            NSQConn.prototype.tlsCaCert = $util.newBuffer([]);
+            NSQConn.prototype.tlsCaCert = "";
 
             /**
              * NSQConn tlsClientCert.
-             * @member {Uint8Array} tlsClientCert
+             * @member {string} tlsClientCert
              * @memberof protos.args.NSQConn
              * @instance
              */
-            NSQConn.prototype.tlsClientCert = $util.newBuffer([]);
+            NSQConn.prototype.tlsClientCert = "";
 
             /**
              * NSQConn tlsClientKey.
-             * @member {Uint8Array} tlsClientKey
+             * @member {string} tlsClientKey
              * @memberof protos.args.NSQConn
              * @instance
              */
-            NSQConn.prototype.tlsClientKey = $util.newBuffer([]);
+            NSQConn.prototype.tlsClientKey = "";
 
             /**
              * NSQConn authSecret.
@@ -49212,11 +49077,11 @@ $root.protos = (function() {
                 if (message.tlsSkipVerify != null && Object.hasOwnProperty.call(message, "tlsSkipVerify"))
                     writer.uint32(/* id 4, wireType 0 =*/32).bool(message.tlsSkipVerify);
                 if (message.tlsCaCert != null && Object.hasOwnProperty.call(message, "tlsCaCert"))
-                    writer.uint32(/* id 5, wireType 2 =*/42).bytes(message.tlsCaCert);
+                    writer.uint32(/* id 5, wireType 2 =*/42).string(message.tlsCaCert);
                 if (message.tlsClientCert != null && Object.hasOwnProperty.call(message, "tlsClientCert"))
-                    writer.uint32(/* id 6, wireType 2 =*/50).bytes(message.tlsClientCert);
+                    writer.uint32(/* id 6, wireType 2 =*/50).string(message.tlsClientCert);
                 if (message.tlsClientKey != null && Object.hasOwnProperty.call(message, "tlsClientKey"))
-                    writer.uint32(/* id 7, wireType 2 =*/58).bytes(message.tlsClientKey);
+                    writer.uint32(/* id 7, wireType 2 =*/58).string(message.tlsClientKey);
                 if (message.authSecret != null && Object.hasOwnProperty.call(message, "authSecret"))
                     writer.uint32(/* id 8, wireType 2 =*/66).string(message.authSecret);
                 if (message.clientId != null && Object.hasOwnProperty.call(message, "clientId"))
@@ -49268,13 +49133,13 @@ $root.protos = (function() {
                         message.tlsSkipVerify = reader.bool();
                         break;
                     case 5:
-                        message.tlsCaCert = reader.bytes();
+                        message.tlsCaCert = reader.string();
                         break;
                     case 6:
-                        message.tlsClientCert = reader.bytes();
+                        message.tlsClientCert = reader.string();
                         break;
                     case 7:
-                        message.tlsClientKey = reader.bytes();
+                        message.tlsClientKey = reader.string();
                         break;
                     case 8:
                         message.authSecret = reader.string();
@@ -49330,14 +49195,14 @@ $root.protos = (function() {
                     if (typeof message.tlsSkipVerify !== "boolean")
                         return "tlsSkipVerify: boolean expected";
                 if (message.tlsCaCert != null && message.hasOwnProperty("tlsCaCert"))
-                    if (!(message.tlsCaCert && typeof message.tlsCaCert.length === "number" || $util.isString(message.tlsCaCert)))
-                        return "tlsCaCert: buffer expected";
+                    if (!$util.isString(message.tlsCaCert))
+                        return "tlsCaCert: string expected";
                 if (message.tlsClientCert != null && message.hasOwnProperty("tlsClientCert"))
-                    if (!(message.tlsClientCert && typeof message.tlsClientCert.length === "number" || $util.isString(message.tlsClientCert)))
-                        return "tlsClientCert: buffer expected";
+                    if (!$util.isString(message.tlsClientCert))
+                        return "tlsClientCert: string expected";
                 if (message.tlsClientKey != null && message.hasOwnProperty("tlsClientKey"))
-                    if (!(message.tlsClientKey && typeof message.tlsClientKey.length === "number" || $util.isString(message.tlsClientKey)))
-                        return "tlsClientKey: buffer expected";
+                    if (!$util.isString(message.tlsClientKey))
+                        return "tlsClientKey: string expected";
                 if (message.authSecret != null && message.hasOwnProperty("authSecret"))
                     if (!$util.isString(message.authSecret))
                         return "authSecret: string expected";
@@ -49368,20 +49233,11 @@ $root.protos = (function() {
                 if (object.tlsSkipVerify != null)
                     message.tlsSkipVerify = Boolean(object.tlsSkipVerify);
                 if (object.tlsCaCert != null)
-                    if (typeof object.tlsCaCert === "string")
-                        $util.base64.decode(object.tlsCaCert, message.tlsCaCert = $util.newBuffer($util.base64.length(object.tlsCaCert)), 0);
-                    else if (object.tlsCaCert.length)
-                        message.tlsCaCert = object.tlsCaCert;
+                    message.tlsCaCert = String(object.tlsCaCert);
                 if (object.tlsClientCert != null)
-                    if (typeof object.tlsClientCert === "string")
-                        $util.base64.decode(object.tlsClientCert, message.tlsClientCert = $util.newBuffer($util.base64.length(object.tlsClientCert)), 0);
-                    else if (object.tlsClientCert.length)
-                        message.tlsClientCert = object.tlsClientCert;
+                    message.tlsClientCert = String(object.tlsClientCert);
                 if (object.tlsClientKey != null)
-                    if (typeof object.tlsClientKey === "string")
-                        $util.base64.decode(object.tlsClientKey, message.tlsClientKey = $util.newBuffer($util.base64.length(object.tlsClientKey)), 0);
-                    else if (object.tlsClientKey.length)
-                        message.tlsClientKey = object.tlsClientKey;
+                    message.tlsClientKey = String(object.tlsClientKey);
                 if (object.authSecret != null)
                     message.authSecret = String(object.authSecret);
                 if (object.clientId != null)
@@ -49407,27 +49263,9 @@ $root.protos = (function() {
                     object.lookupdAddress = "";
                     object.useTls = false;
                     object.tlsSkipVerify = false;
-                    if (options.bytes === String)
-                        object.tlsCaCert = "";
-                    else {
-                        object.tlsCaCert = [];
-                        if (options.bytes !== Array)
-                            object.tlsCaCert = $util.newBuffer(object.tlsCaCert);
-                    }
-                    if (options.bytes === String)
-                        object.tlsClientCert = "";
-                    else {
-                        object.tlsClientCert = [];
-                        if (options.bytes !== Array)
-                            object.tlsClientCert = $util.newBuffer(object.tlsClientCert);
-                    }
-                    if (options.bytes === String)
-                        object.tlsClientKey = "";
-                    else {
-                        object.tlsClientKey = [];
-                        if (options.bytes !== Array)
-                            object.tlsClientKey = $util.newBuffer(object.tlsClientKey);
-                    }
+                    object.tlsCaCert = "";
+                    object.tlsClientCert = "";
+                    object.tlsClientKey = "";
                     object.authSecret = "";
                     object.clientId = "";
                 }
@@ -49440,11 +49278,11 @@ $root.protos = (function() {
                 if (message.tlsSkipVerify != null && message.hasOwnProperty("tlsSkipVerify"))
                     object.tlsSkipVerify = message.tlsSkipVerify;
                 if (message.tlsCaCert != null && message.hasOwnProperty("tlsCaCert"))
-                    object.tlsCaCert = options.bytes === String ? $util.base64.encode(message.tlsCaCert, 0, message.tlsCaCert.length) : options.bytes === Array ? Array.prototype.slice.call(message.tlsCaCert) : message.tlsCaCert;
+                    object.tlsCaCert = message.tlsCaCert;
                 if (message.tlsClientCert != null && message.hasOwnProperty("tlsClientCert"))
-                    object.tlsClientCert = options.bytes === String ? $util.base64.encode(message.tlsClientCert, 0, message.tlsClientCert.length) : options.bytes === Array ? Array.prototype.slice.call(message.tlsClientCert) : message.tlsClientCert;
+                    object.tlsClientCert = message.tlsClientCert;
                 if (message.tlsClientKey != null && message.hasOwnProperty("tlsClientKey"))
-                    object.tlsClientKey = options.bytes === String ? $util.base64.encode(message.tlsClientKey, 0, message.tlsClientKey.length) : options.bytes === Array ? Array.prototype.slice.call(message.tlsClientKey) : message.tlsClientKey;
+                    object.tlsClientKey = message.tlsClientKey;
                 if (message.authSecret != null && message.hasOwnProperty("authSecret"))
                     object.authSecret = message.authSecret;
                 if (message.clientId != null && message.hasOwnProperty("clientId"))
@@ -50420,8 +50258,8 @@ $root.protos = (function() {
              * @property {string|null} [dsn] PulsarConn dsn
              * @property {number|null} [connectTimeoutSeconds] PulsarConn connectTimeoutSeconds
              * @property {boolean|null} [tlsSkipVerify] PulsarConn tlsSkipVerify
-             * @property {Uint8Array|null} [tlsClientCert] PulsarConn tlsClientCert
-             * @property {Uint8Array|null} [tlsClientKey] PulsarConn tlsClientKey
+             * @property {string|null} [tlsClientCert] PulsarConn tlsClientCert
+             * @property {string|null} [tlsClientKey] PulsarConn tlsClientKey
              */
 
             /**
@@ -50465,19 +50303,19 @@ $root.protos = (function() {
 
             /**
              * PulsarConn tlsClientCert.
-             * @member {Uint8Array} tlsClientCert
+             * @member {string} tlsClientCert
              * @memberof protos.args.PulsarConn
              * @instance
              */
-            PulsarConn.prototype.tlsClientCert = $util.newBuffer([]);
+            PulsarConn.prototype.tlsClientCert = "";
 
             /**
              * PulsarConn tlsClientKey.
-             * @member {Uint8Array} tlsClientKey
+             * @member {string} tlsClientKey
              * @memberof protos.args.PulsarConn
              * @instance
              */
-            PulsarConn.prototype.tlsClientKey = $util.newBuffer([]);
+            PulsarConn.prototype.tlsClientKey = "";
 
             /**
              * Creates a new PulsarConn instance using the specified properties.
@@ -50510,9 +50348,9 @@ $root.protos = (function() {
                 if (message.tlsSkipVerify != null && Object.hasOwnProperty.call(message, "tlsSkipVerify"))
                     writer.uint32(/* id 3, wireType 0 =*/24).bool(message.tlsSkipVerify);
                 if (message.tlsClientCert != null && Object.hasOwnProperty.call(message, "tlsClientCert"))
-                    writer.uint32(/* id 4, wireType 2 =*/34).bytes(message.tlsClientCert);
+                    writer.uint32(/* id 4, wireType 2 =*/34).string(message.tlsClientCert);
                 if (message.tlsClientKey != null && Object.hasOwnProperty.call(message, "tlsClientKey"))
-                    writer.uint32(/* id 5, wireType 2 =*/42).bytes(message.tlsClientKey);
+                    writer.uint32(/* id 5, wireType 2 =*/42).string(message.tlsClientKey);
                 return writer;
             };
 
@@ -50557,10 +50395,10 @@ $root.protos = (function() {
                         message.tlsSkipVerify = reader.bool();
                         break;
                     case 4:
-                        message.tlsClientCert = reader.bytes();
+                        message.tlsClientCert = reader.string();
                         break;
                     case 5:
-                        message.tlsClientKey = reader.bytes();
+                        message.tlsClientKey = reader.string();
                         break;
                     default:
                         reader.skipType(tag & 7);
@@ -50607,11 +50445,11 @@ $root.protos = (function() {
                     if (typeof message.tlsSkipVerify !== "boolean")
                         return "tlsSkipVerify: boolean expected";
                 if (message.tlsClientCert != null && message.hasOwnProperty("tlsClientCert"))
-                    if (!(message.tlsClientCert && typeof message.tlsClientCert.length === "number" || $util.isString(message.tlsClientCert)))
-                        return "tlsClientCert: buffer expected";
+                    if (!$util.isString(message.tlsClientCert))
+                        return "tlsClientCert: string expected";
                 if (message.tlsClientKey != null && message.hasOwnProperty("tlsClientKey"))
-                    if (!(message.tlsClientKey && typeof message.tlsClientKey.length === "number" || $util.isString(message.tlsClientKey)))
-                        return "tlsClientKey: buffer expected";
+                    if (!$util.isString(message.tlsClientKey))
+                        return "tlsClientKey: string expected";
                 return null;
             };
 
@@ -50634,15 +50472,9 @@ $root.protos = (function() {
                 if (object.tlsSkipVerify != null)
                     message.tlsSkipVerify = Boolean(object.tlsSkipVerify);
                 if (object.tlsClientCert != null)
-                    if (typeof object.tlsClientCert === "string")
-                        $util.base64.decode(object.tlsClientCert, message.tlsClientCert = $util.newBuffer($util.base64.length(object.tlsClientCert)), 0);
-                    else if (object.tlsClientCert.length)
-                        message.tlsClientCert = object.tlsClientCert;
+                    message.tlsClientCert = String(object.tlsClientCert);
                 if (object.tlsClientKey != null)
-                    if (typeof object.tlsClientKey === "string")
-                        $util.base64.decode(object.tlsClientKey, message.tlsClientKey = $util.newBuffer($util.base64.length(object.tlsClientKey)), 0);
-                    else if (object.tlsClientKey.length)
-                        message.tlsClientKey = object.tlsClientKey;
+                    message.tlsClientKey = String(object.tlsClientKey);
                 return message;
             };
 
@@ -50663,20 +50495,8 @@ $root.protos = (function() {
                     object.dsn = "";
                     object.connectTimeoutSeconds = 0;
                     object.tlsSkipVerify = false;
-                    if (options.bytes === String)
-                        object.tlsClientCert = "";
-                    else {
-                        object.tlsClientCert = [];
-                        if (options.bytes !== Array)
-                            object.tlsClientCert = $util.newBuffer(object.tlsClientCert);
-                    }
-                    if (options.bytes === String)
-                        object.tlsClientKey = "";
-                    else {
-                        object.tlsClientKey = [];
-                        if (options.bytes !== Array)
-                            object.tlsClientKey = $util.newBuffer(object.tlsClientKey);
-                    }
+                    object.tlsClientCert = "";
+                    object.tlsClientKey = "";
                 }
                 if (message.dsn != null && message.hasOwnProperty("dsn"))
                     object.dsn = message.dsn;
@@ -50685,9 +50505,9 @@ $root.protos = (function() {
                 if (message.tlsSkipVerify != null && message.hasOwnProperty("tlsSkipVerify"))
                     object.tlsSkipVerify = message.tlsSkipVerify;
                 if (message.tlsClientCert != null && message.hasOwnProperty("tlsClientCert"))
-                    object.tlsClientCert = options.bytes === String ? $util.base64.encode(message.tlsClientCert, 0, message.tlsClientCert.length) : options.bytes === Array ? Array.prototype.slice.call(message.tlsClientCert) : message.tlsClientCert;
+                    object.tlsClientCert = message.tlsClientCert;
                 if (message.tlsClientKey != null && message.hasOwnProperty("tlsClientKey"))
-                    object.tlsClientKey = options.bytes === String ? $util.base64.encode(message.tlsClientKey, 0, message.tlsClientKey.length) : options.bytes === Array ? Array.prototype.slice.call(message.tlsClientKey) : message.tlsClientKey;
+                    object.tlsClientKey = message.tlsClientKey;
                 return object;
             };
 
