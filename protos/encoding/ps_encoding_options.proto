@@ -60,6 +60,9 @@ message ProtobufSettings {
   // Used internally by the server
   // @gotags: kong:"-"
   bytes _shallow_envelope_message_descriptor = 9;
+
+  // @gotags: kong:"help='Protobuf descriptor set(.protoset or .fds file)'"
+  string protobuf_descriptor_set = 10;
 }
 
 message AvroSettings {

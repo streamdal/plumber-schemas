@@ -63030,6 +63030,7 @@ $root.protos = (function() {
              * @property {string|null} [shallowEnvelopeMessage] ProtobufSettings shallowEnvelopeMessage
              * @property {number|null} [shallowEnvelopeFieldNumber] ProtobufSettings shallowEnvelopeFieldNumber
              * @property {Uint8Array|null} [_shallowEnvelopeMessageDescriptor] ProtobufSettings _shallowEnvelopeMessageDescriptor
+             * @property {string|null} [protobufDescriptorSet] ProtobufSettings protobufDescriptorSet
              */
 
             /**
@@ -63121,6 +63122,14 @@ $root.protos = (function() {
             ProtobufSettings.prototype._shallowEnvelopeMessageDescriptor = $util.newBuffer([]);
 
             /**
+             * ProtobufSettings protobufDescriptorSet.
+             * @member {string} protobufDescriptorSet
+             * @memberof protos.encoding.ProtobufSettings
+             * @instance
+             */
+            ProtobufSettings.prototype.protobufDescriptorSet = "";
+
+            /**
              * Creates a new ProtobufSettings instance using the specified properties.
              * @function create
              * @memberof protos.encoding.ProtobufSettings
@@ -63163,6 +63172,8 @@ $root.protos = (function() {
                     writer.uint32(/* id 8, wireType 0 =*/64).int32(message.shallowEnvelopeFieldNumber);
                 if (message._shallowEnvelopeMessageDescriptor != null && Object.hasOwnProperty.call(message, "_shallowEnvelopeMessageDescriptor"))
                     writer.uint32(/* id 9, wireType 2 =*/74).bytes(message._shallowEnvelopeMessageDescriptor);
+                if (message.protobufDescriptorSet != null && Object.hasOwnProperty.call(message, "protobufDescriptorSet"))
+                    writer.uint32(/* id 10, wireType 2 =*/82).string(message.protobufDescriptorSet);
                 return writer;
             };
 
@@ -63225,6 +63236,9 @@ $root.protos = (function() {
                         break;
                     case 9:
                         message._shallowEnvelopeMessageDescriptor = reader.bytes();
+                        break;
+                    case 10:
+                        message.protobufDescriptorSet = reader.string();
                         break;
                     default:
                         reader.skipType(tag & 7);
@@ -63298,6 +63312,9 @@ $root.protos = (function() {
                 if (message._shallowEnvelopeMessageDescriptor != null && message.hasOwnProperty("_shallowEnvelopeMessageDescriptor"))
                     if (!(message._shallowEnvelopeMessageDescriptor && typeof message._shallowEnvelopeMessageDescriptor.length === "number" || $util.isString(message._shallowEnvelopeMessageDescriptor)))
                         return "_shallowEnvelopeMessageDescriptor: buffer expected";
+                if (message.protobufDescriptorSet != null && message.hasOwnProperty("protobufDescriptorSet"))
+                    if (!$util.isString(message.protobufDescriptorSet))
+                        return "protobufDescriptorSet: string expected";
                 return null;
             };
 
@@ -63357,6 +63374,8 @@ $root.protos = (function() {
                         $util.base64.decode(object._shallowEnvelopeMessageDescriptor, message._shallowEnvelopeMessageDescriptor = $util.newBuffer($util.base64.length(object._shallowEnvelopeMessageDescriptor)), 0);
                     else if (object._shallowEnvelopeMessageDescriptor.length)
                         message._shallowEnvelopeMessageDescriptor = object._shallowEnvelopeMessageDescriptor;
+                if (object.protobufDescriptorSet != null)
+                    message.protobufDescriptorSet = String(object.protobufDescriptorSet);
                 return message;
             };
 
@@ -63402,6 +63421,7 @@ $root.protos = (function() {
                         if (options.bytes !== Array)
                             object._shallowEnvelopeMessageDescriptor = $util.newBuffer(object._shallowEnvelopeMessageDescriptor);
                     }
+                    object.protobufDescriptorSet = "";
                 }
                 if (message.protobufRootMessage != null && message.hasOwnProperty("protobufRootMessage"))
                     object.protobufRootMessage = message.protobufRootMessage;
@@ -63424,6 +63444,8 @@ $root.protos = (function() {
                     object.shallowEnvelopeFieldNumber = message.shallowEnvelopeFieldNumber;
                 if (message._shallowEnvelopeMessageDescriptor != null && message.hasOwnProperty("_shallowEnvelopeMessageDescriptor"))
                     object._shallowEnvelopeMessageDescriptor = options.bytes === String ? $util.base64.encode(message._shallowEnvelopeMessageDescriptor, 0, message._shallowEnvelopeMessageDescriptor.length) : options.bytes === Array ? Array.prototype.slice.call(message._shallowEnvelopeMessageDescriptor) : message._shallowEnvelopeMessageDescriptor;
+                if (message.protobufDescriptorSet != null && message.hasOwnProperty("protobufDescriptorSet"))
+                    object.protobufDescriptorSet = message.protobufDescriptorSet;
                 return object;
             };
 
