@@ -26463,6 +26463,9 @@ export namespace protos {
 
             /** ProtobufSettings _shallowEnvelopeMessageDescriptor */
             _shallowEnvelopeMessageDescriptor?: (Uint8Array|null);
+
+            /** ProtobufSettings protobufDescriptorSet */
+            protobufDescriptorSet?: (string|null);
         }
 
         /** Represents a ProtobufSettings. */
@@ -26500,6 +26503,9 @@ export namespace protos {
 
             /** ProtobufSettings _shallowEnvelopeMessageDescriptor. */
             public _shallowEnvelopeMessageDescriptor: Uint8Array;
+
+            /** ProtobufSettings protobufDescriptorSet. */
+            public protobufDescriptorSet: string;
 
             /**
              * Creates a new ProtobufSettings instance using the specified properties.
