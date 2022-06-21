@@ -29035,6 +29035,12 @@ export namespace protos {
 
             /** NatsJetstream value */
             value?: (Uint8Array|null);
+
+            /** NatsJetstream consumerName */
+            consumerName?: (string|null);
+
+            /** NatsJetstream sequence */
+            sequence?: (number|Long|null);
         }
 
         /** Represents a NatsJetstream. */
@@ -29051,6 +29057,12 @@ export namespace protos {
 
             /** NatsJetstream value. */
             public value: Uint8Array;
+
+            /** NatsJetstream consumerName. */
+            public consumerName: string;
+
+            /** NatsJetstream sequence. */
+            public sequence: (number|Long);
 
             /**
              * Creates a new NatsJetstream instance using the specified properties.

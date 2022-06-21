@@ -70657,6 +70657,8 @@ $root.protos = (function() {
              * @interface INatsJetstream
              * @property {string|null} [stream] NatsJetstream stream
              * @property {Uint8Array|null} [value] NatsJetstream value
+             * @property {string|null} [consumerName] NatsJetstream consumerName
+             * @property {number|Long|null} [sequence] NatsJetstream sequence
              */
 
             /**
@@ -70691,6 +70693,22 @@ $root.protos = (function() {
             NatsJetstream.prototype.value = $util.newBuffer([]);
 
             /**
+             * NatsJetstream consumerName.
+             * @member {string} consumerName
+             * @memberof protos.records.NatsJetstream
+             * @instance
+             */
+            NatsJetstream.prototype.consumerName = "";
+
+            /**
+             * NatsJetstream sequence.
+             * @member {number|Long} sequence
+             * @memberof protos.records.NatsJetstream
+             * @instance
+             */
+            NatsJetstream.prototype.sequence = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
+
+            /**
              * Creates a new NatsJetstream instance using the specified properties.
              * @function create
              * @memberof protos.records.NatsJetstream
@@ -70718,6 +70736,10 @@ $root.protos = (function() {
                     writer.uint32(/* id 1, wireType 2 =*/10).string(message.stream);
                 if (message.value != null && Object.hasOwnProperty.call(message, "value"))
                     writer.uint32(/* id 2, wireType 2 =*/18).bytes(message.value);
+                if (message.consumerName != null && Object.hasOwnProperty.call(message, "consumerName"))
+                    writer.uint32(/* id 3, wireType 2 =*/26).string(message.consumerName);
+                if (message.sequence != null && Object.hasOwnProperty.call(message, "sequence"))
+                    writer.uint32(/* id 4, wireType 0 =*/32).int64(message.sequence);
                 return writer;
             };
 
@@ -70757,6 +70779,12 @@ $root.protos = (function() {
                         break;
                     case 2:
                         message.value = reader.bytes();
+                        break;
+                    case 3:
+                        message.consumerName = reader.string();
+                        break;
+                    case 4:
+                        message.sequence = reader.int64();
                         break;
                     default:
                         reader.skipType(tag & 7);
@@ -70799,6 +70827,12 @@ $root.protos = (function() {
                 if (message.value != null && message.hasOwnProperty("value"))
                     if (!(message.value && typeof message.value.length === "number" || $util.isString(message.value)))
                         return "value: buffer expected";
+                if (message.consumerName != null && message.hasOwnProperty("consumerName"))
+                    if (!$util.isString(message.consumerName))
+                        return "consumerName: string expected";
+                if (message.sequence != null && message.hasOwnProperty("sequence"))
+                    if (!$util.isInteger(message.sequence) && !(message.sequence && $util.isInteger(message.sequence.low) && $util.isInteger(message.sequence.high)))
+                        return "sequence: integer|Long expected";
                 return null;
             };
 
@@ -70821,6 +70855,17 @@ $root.protos = (function() {
                         $util.base64.decode(object.value, message.value = $util.newBuffer($util.base64.length(object.value)), 0);
                     else if (object.value.length)
                         message.value = object.value;
+                if (object.consumerName != null)
+                    message.consumerName = String(object.consumerName);
+                if (object.sequence != null)
+                    if ($util.Long)
+                        (message.sequence = $util.Long.fromValue(object.sequence)).unsigned = false;
+                    else if (typeof object.sequence === "string")
+                        message.sequence = parseInt(object.sequence, 10);
+                    else if (typeof object.sequence === "number")
+                        message.sequence = object.sequence;
+                    else if (typeof object.sequence === "object")
+                        message.sequence = new $util.LongBits(object.sequence.low >>> 0, object.sequence.high >>> 0).toNumber();
                 return message;
             };
 
@@ -70846,11 +70891,24 @@ $root.protos = (function() {
                         if (options.bytes !== Array)
                             object.value = $util.newBuffer(object.value);
                     }
+                    object.consumerName = "";
+                    if ($util.Long) {
+                        var long = new $util.Long(0, 0, false);
+                        object.sequence = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                    } else
+                        object.sequence = options.longs === String ? "0" : 0;
                 }
                 if (message.stream != null && message.hasOwnProperty("stream"))
                     object.stream = message.stream;
                 if (message.value != null && message.hasOwnProperty("value"))
                     object.value = options.bytes === String ? $util.base64.encode(message.value, 0, message.value.length) : options.bytes === Array ? Array.prototype.slice.call(message.value) : message.value;
+                if (message.consumerName != null && message.hasOwnProperty("consumerName"))
+                    object.consumerName = message.consumerName;
+                if (message.sequence != null && message.hasOwnProperty("sequence"))
+                    if (typeof message.sequence === "number")
+                        object.sequence = options.longs === String ? String(message.sequence) : message.sequence;
+                    else
+                        object.sequence = options.longs === String ? $util.Long.prototype.toString.call(message.sequence) : options.longs === Number ? new $util.LongBits(message.sequence.low >>> 0, message.sequence.high >>> 0).toNumber() : message.sequence;
                 return object;
             };
 
