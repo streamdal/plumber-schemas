@@ -7,4 +7,6 @@ option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/record
 message NatsJetstream {
   string stream = 1;
   bytes value = 2;
+  string consumer_name = 3;
+  int64 sequence = 4;
 }
