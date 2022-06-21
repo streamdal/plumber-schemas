@@ -56,8 +56,8 @@ local: description = Compile protos for all languages and copy to local plumber
 local: generate/ts generate/go inject-tags
 local:
 	cp -R $(GO_PROTOS_DIR)/ ~/Code/plumber/vendor/github.com/batchcorp/plumber-schemas/$(GO_PROTOS_DIR)/
-	cp -R $(GO_PROTOS_DIR)/ ~/Code/foreman/vendor/github.com/batchcorp/plumber-schemas/$(GO_PROTOS_DIR)/
-	cp -R $(GO_PROTOS_DIR)/ ~/Code/ui-bff/vendor/github.com/batchcorp/plumber-schemas/$(GO_PROTOS_DIR)/
+#	cp -R $(GO_PROTOS_DIR)/ ~/Code/foreman/vendor/github.com/batchcorp/plumber-schemas/$(GO_PROTOS_DIR)/
+#	cp -R $(GO_PROTOS_DIR)/ ~/Code/ui-bff/vendor/github.com/batchcorp/plumber-schemas/$(GO_PROTOS_DIR)/
 
 .PHONY: generate/ts
 generate/ts: description = Compile TypeScript Interfaces for UI

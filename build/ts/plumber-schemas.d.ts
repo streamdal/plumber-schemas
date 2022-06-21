@@ -19561,6 +19561,24 @@ export namespace protos {
 
             /** NatsJetstreamReadArgs stream */
             stream?: (string|null);
+
+            /** NatsJetstreamReadArgs useDurableConsumer */
+            useDurableConsumer?: (boolean|null);
+
+            /** NatsJetstreamReadArgs consumerName */
+            consumerName?: (string|null);
+
+            /** NatsJetstreamReadArgs keepConsumer */
+            keepConsumer?: (boolean|null);
+
+            /** NatsJetstreamReadArgs consumerStartSequence */
+            consumerStartSequence?: (number|Long|null);
+
+            /** NatsJetstreamReadArgs consumerStartTime */
+            consumerStartTime?: (string|null);
+
+            /** NatsJetstreamReadArgs consumerFilterSubject */
+            consumerFilterSubject?: (string|null);
         }
 
         /** Represents a NatsJetstreamReadArgs. */
@@ -19574,6 +19592,24 @@ export namespace protos {
 
             /** NatsJetstreamReadArgs stream. */
             public stream: string;
+
+            /** NatsJetstreamReadArgs useDurableConsumer. */
+            public useDurableConsumer: boolean;
+
+            /** NatsJetstreamReadArgs consumerName. */
+            public consumerName: string;
+
+            /** NatsJetstreamReadArgs keepConsumer. */
+            public keepConsumer: boolean;
+
+            /** NatsJetstreamReadArgs consumerStartSequence. */
+            public consumerStartSequence: (number|Long);
+
+            /** NatsJetstreamReadArgs consumerStartTime. */
+            public consumerStartTime: string;
+
+            /** NatsJetstreamReadArgs consumerFilterSubject. */
+            public consumerFilterSubject: string;
 
             /**
              * Creates a new NatsJetstreamReadArgs instance using the specified properties.

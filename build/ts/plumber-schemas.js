@@ -47531,6 +47531,12 @@ $root.protos = (function() {
              * @memberof protos.args
              * @interface INatsJetstreamReadArgs
              * @property {string|null} [stream] NatsJetstreamReadArgs stream
+             * @property {boolean|null} [useDurableConsumer] NatsJetstreamReadArgs useDurableConsumer
+             * @property {string|null} [consumerName] NatsJetstreamReadArgs consumerName
+             * @property {boolean|null} [keepConsumer] NatsJetstreamReadArgs keepConsumer
+             * @property {number|Long|null} [consumerStartSequence] NatsJetstreamReadArgs consumerStartSequence
+             * @property {string|null} [consumerStartTime] NatsJetstreamReadArgs consumerStartTime
+             * @property {string|null} [consumerFilterSubject] NatsJetstreamReadArgs consumerFilterSubject
              */
 
             /**
@@ -47555,6 +47561,54 @@ $root.protos = (function() {
              * @instance
              */
             NatsJetstreamReadArgs.prototype.stream = "";
+
+            /**
+             * NatsJetstreamReadArgs useDurableConsumer.
+             * @member {boolean} useDurableConsumer
+             * @memberof protos.args.NatsJetstreamReadArgs
+             * @instance
+             */
+            NatsJetstreamReadArgs.prototype.useDurableConsumer = false;
+
+            /**
+             * NatsJetstreamReadArgs consumerName.
+             * @member {string} consumerName
+             * @memberof protos.args.NatsJetstreamReadArgs
+             * @instance
+             */
+            NatsJetstreamReadArgs.prototype.consumerName = "";
+
+            /**
+             * NatsJetstreamReadArgs keepConsumer.
+             * @member {boolean} keepConsumer
+             * @memberof protos.args.NatsJetstreamReadArgs
+             * @instance
+             */
+            NatsJetstreamReadArgs.prototype.keepConsumer = false;
+
+            /**
+             * NatsJetstreamReadArgs consumerStartSequence.
+             * @member {number|Long} consumerStartSequence
+             * @memberof protos.args.NatsJetstreamReadArgs
+             * @instance
+             */
+            NatsJetstreamReadArgs.prototype.consumerStartSequence = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
+
+            /**
+             * NatsJetstreamReadArgs consumerStartTime.
+             * @member {string} consumerStartTime
+             * @memberof protos.args.NatsJetstreamReadArgs
+             * @instance
+             */
+            NatsJetstreamReadArgs.prototype.consumerStartTime = "";
+
+            /**
+             * NatsJetstreamReadArgs consumerFilterSubject.
+             * @member {string} consumerFilterSubject
+             * @memberof protos.args.NatsJetstreamReadArgs
+             * @instance
+             */
+            NatsJetstreamReadArgs.prototype.consumerFilterSubject = "";
 
             /**
              * Creates a new NatsJetstreamReadArgs instance using the specified properties.
@@ -47582,6 +47636,18 @@ $root.protos = (function() {
                     writer = $Writer.create();
                 if (message.stream != null && Object.hasOwnProperty.call(message, "stream"))
                     writer.uint32(/* id 1, wireType 2 =*/10).string(message.stream);
+                if (message.useDurableConsumer != null && Object.hasOwnProperty.call(message, "useDurableConsumer"))
+                    writer.uint32(/* id 2, wireType 0 =*/16).bool(message.useDurableConsumer);
+                if (message.consumerName != null && Object.hasOwnProperty.call(message, "consumerName"))
+                    writer.uint32(/* id 3, wireType 2 =*/26).string(message.consumerName);
+                if (message.keepConsumer != null && Object.hasOwnProperty.call(message, "keepConsumer"))
+                    writer.uint32(/* id 4, wireType 0 =*/32).bool(message.keepConsumer);
+                if (message.consumerStartSequence != null && Object.hasOwnProperty.call(message, "consumerStartSequence"))
+                    writer.uint32(/* id 5, wireType 0 =*/40).int64(message.consumerStartSequence);
+                if (message.consumerStartTime != null && Object.hasOwnProperty.call(message, "consumerStartTime"))
+                    writer.uint32(/* id 6, wireType 2 =*/50).string(message.consumerStartTime);
+                if (message.consumerFilterSubject != null && Object.hasOwnProperty.call(message, "consumerFilterSubject"))
+                    writer.uint32(/* id 7, wireType 2 =*/58).string(message.consumerFilterSubject);
                 return writer;
             };
 
@@ -47618,6 +47684,24 @@ $root.protos = (function() {
                     switch (tag >>> 3) {
                     case 1:
                         message.stream = reader.string();
+                        break;
+                    case 2:
+                        message.useDurableConsumer = reader.bool();
+                        break;
+                    case 3:
+                        message.consumerName = reader.string();
+                        break;
+                    case 4:
+                        message.keepConsumer = reader.bool();
+                        break;
+                    case 5:
+                        message.consumerStartSequence = reader.int64();
+                        break;
+                    case 6:
+                        message.consumerStartTime = reader.string();
+                        break;
+                    case 7:
+                        message.consumerFilterSubject = reader.string();
                         break;
                     default:
                         reader.skipType(tag & 7);
@@ -47657,6 +47741,24 @@ $root.protos = (function() {
                 if (message.stream != null && message.hasOwnProperty("stream"))
                     if (!$util.isString(message.stream))
                         return "stream: string expected";
+                if (message.useDurableConsumer != null && message.hasOwnProperty("useDurableConsumer"))
+                    if (typeof message.useDurableConsumer !== "boolean")
+                        return "useDurableConsumer: boolean expected";
+                if (message.consumerName != null && message.hasOwnProperty("consumerName"))
+                    if (!$util.isString(message.consumerName))
+                        return "consumerName: string expected";
+                if (message.keepConsumer != null && message.hasOwnProperty("keepConsumer"))
+                    if (typeof message.keepConsumer !== "boolean")
+                        return "keepConsumer: boolean expected";
+                if (message.consumerStartSequence != null && message.hasOwnProperty("consumerStartSequence"))
+                    if (!$util.isInteger(message.consumerStartSequence) && !(message.consumerStartSequence && $util.isInteger(message.consumerStartSequence.low) && $util.isInteger(message.consumerStartSequence.high)))
+                        return "consumerStartSequence: integer|Long expected";
+                if (message.consumerStartTime != null && message.hasOwnProperty("consumerStartTime"))
+                    if (!$util.isString(message.consumerStartTime))
+                        return "consumerStartTime: string expected";
+                if (message.consumerFilterSubject != null && message.hasOwnProperty("consumerFilterSubject"))
+                    if (!$util.isString(message.consumerFilterSubject))
+                        return "consumerFilterSubject: string expected";
                 return null;
             };
 
@@ -47674,6 +47776,25 @@ $root.protos = (function() {
                 var message = new $root.protos.args.NatsJetstreamReadArgs();
                 if (object.stream != null)
                     message.stream = String(object.stream);
+                if (object.useDurableConsumer != null)
+                    message.useDurableConsumer = Boolean(object.useDurableConsumer);
+                if (object.consumerName != null)
+                    message.consumerName = String(object.consumerName);
+                if (object.keepConsumer != null)
+                    message.keepConsumer = Boolean(object.keepConsumer);
+                if (object.consumerStartSequence != null)
+                    if ($util.Long)
+                        (message.consumerStartSequence = $util.Long.fromValue(object.consumerStartSequence)).unsigned = false;
+                    else if (typeof object.consumerStartSequence === "string")
+                        message.consumerStartSequence = parseInt(object.consumerStartSequence, 10);
+                    else if (typeof object.consumerStartSequence === "number")
+                        message.consumerStartSequence = object.consumerStartSequence;
+                    else if (typeof object.consumerStartSequence === "object")
+                        message.consumerStartSequence = new $util.LongBits(object.consumerStartSequence.low >>> 0, object.consumerStartSequence.high >>> 0).toNumber();
+                if (object.consumerStartTime != null)
+                    message.consumerStartTime = String(object.consumerStartTime);
+                if (object.consumerFilterSubject != null)
+                    message.consumerFilterSubject = String(object.consumerFilterSubject);
                 return message;
             };
 
@@ -47690,10 +47811,36 @@ $root.protos = (function() {
                 if (!options)
                     options = {};
                 var object = {};
-                if (options.defaults)
+                if (options.defaults) {
                     object.stream = "";
+                    object.useDurableConsumer = false;
+                    object.consumerName = "";
+                    object.keepConsumer = false;
+                    if ($util.Long) {
+                        var long = new $util.Long(0, 0, false);
+                        object.consumerStartSequence = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                    } else
+                        object.consumerStartSequence = options.longs === String ? "0" : 0;
+                    object.consumerStartTime = "";
+                    object.consumerFilterSubject = "";
+                }
                 if (message.stream != null && message.hasOwnProperty("stream"))
                     object.stream = message.stream;
+                if (message.useDurableConsumer != null && message.hasOwnProperty("useDurableConsumer"))
+                    object.useDurableConsumer = message.useDurableConsumer;
+                if (message.consumerName != null && message.hasOwnProperty("consumerName"))
+                    object.consumerName = message.consumerName;
+                if (message.keepConsumer != null && message.hasOwnProperty("keepConsumer"))
+                    object.keepConsumer = message.keepConsumer;
+                if (message.consumerStartSequence != null && message.hasOwnProperty("consumerStartSequence"))
+                    if (typeof message.consumerStartSequence === "number")
+                        object.consumerStartSequence = options.longs === String ? String(message.consumerStartSequence) : message.consumerStartSequence;
+                    else
+                        object.consumerStartSequence = options.longs === String ? $util.Long.prototype.toString.call(message.consumerStartSequence) : options.longs === Number ? new $util.LongBits(message.consumerStartSequence.low >>> 0, message.consumerStartSequence.high >>> 0).toNumber() : message.consumerStartSequence;
+                if (message.consumerStartTime != null && message.hasOwnProperty("consumerStartTime"))
+                    object.consumerStartTime = message.consumerStartTime;
+                if (message.consumerFilterSubject != null && message.hasOwnProperty("consumerFilterSubject"))
+                    object.consumerFilterSubject = message.consumerFilterSubject;
                 return object;
             };
 

@@ -38,6 +38,24 @@ message NatsJetstreamConn {
 message NatsJetstreamReadArgs {
   // @gotags: kong:"help='NATS JetStream stream name. Ex: orders.>',env='PLUMBER_RELAY_NATS_JETSTREAM_STREAM'"
   string stream = 1;
+
+  // @gotags: kong:"help='Whether to use a durable consumer (default: use ephemeral consumer)',env='PLUMBER_RELAY_NATS_JETSTREAM_USE_DURABLE_CONSUMER'"
+  bool use_durable_consumer = 2;
+
+  // @gotags: kong:"help='Consumer name (default: random consumer name)',env='PLUMBER_RELAY_NATS_JETSTREAM_CONSUMER_NAME'"
+  string consumer_name = 3;
+
+  // @gotags: kong:"help='Do not delete consumer config after read operation is done (default: delete on exit)',env='PLUMBER_RELAY_NATS_JETSTREAM_KEEP_CONSUMER'"
+  bool keep_consumer = 4;
+
+  // @gotags: kong:"help='Where to start read in stream (default: from start)',env='PLUMBER_RELAY_NATS_JETSTREAM_CONSUMER_START_SEQUENCE'"
+  int64 consumer_start_sequence = 5;
+
+  // @gotags: kong:"help='At what time to start stream (RFC3339 format, Ex: 2016-06-20T12:41:45.14Z)',env='PLUMBER_RELAY_NATS_JETSTREAM_CONSUMER_START_TIME'"
+  string consumer_start_time = 6;
+
+  // @gotags: kong:"help='Only receive a subset of messages from the Stream based on the subject',env='PLUMBER_RELAY_NATS_JETSTREAM_CONSUMER_FILTER_SUBJECT'"
+  string consumer_filter_subject = 7;
 }
 
 message NatsJetstreamWriteArgs {
