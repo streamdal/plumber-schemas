@@ -19562,11 +19562,14 @@ export namespace protos {
             /** NatsJetstreamReadArgs stream */
             stream?: (string|null);
 
-            /** NatsJetstreamReadArgs useDurableConsumer */
-            useDurableConsumer?: (boolean|null);
-
             /** NatsJetstreamReadArgs consumerName */
             consumerName?: (string|null);
+
+            /** NatsJetstreamReadArgs createDurableConsumer */
+            createDurableConsumer?: (boolean|null);
+
+            /** NatsJetstreamReadArgs existingDurableConsumer */
+            existingDurableConsumer?: (boolean|null);
 
             /** NatsJetstreamReadArgs keepConsumer */
             keepConsumer?: (boolean|null);
@@ -19593,11 +19596,14 @@ export namespace protos {
             /** NatsJetstreamReadArgs stream. */
             public stream: string;
 
-            /** NatsJetstreamReadArgs useDurableConsumer. */
-            public useDurableConsumer: boolean;
-
             /** NatsJetstreamReadArgs consumerName. */
             public consumerName: string;
+
+            /** NatsJetstreamReadArgs createDurableConsumer. */
+            public createDurableConsumer: boolean;
+
+            /** NatsJetstreamReadArgs existingDurableConsumer. */
+            public existingDurableConsumer: boolean;
 
             /** NatsJetstreamReadArgs keepConsumer. */
             public keepConsumer: boolean;
