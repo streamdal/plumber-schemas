@@ -47531,8 +47531,9 @@ $root.protos = (function() {
              * @memberof protos.args
              * @interface INatsJetstreamReadArgs
              * @property {string|null} [stream] NatsJetstreamReadArgs stream
-             * @property {boolean|null} [useDurableConsumer] NatsJetstreamReadArgs useDurableConsumer
              * @property {string|null} [consumerName] NatsJetstreamReadArgs consumerName
+             * @property {boolean|null} [createDurableConsumer] NatsJetstreamReadArgs createDurableConsumer
+             * @property {boolean|null} [existingDurableConsumer] NatsJetstreamReadArgs existingDurableConsumer
              * @property {boolean|null} [keepConsumer] NatsJetstreamReadArgs keepConsumer
              * @property {number|Long|null} [consumerStartSequence] NatsJetstreamReadArgs consumerStartSequence
              * @property {string|null} [consumerStartTime] NatsJetstreamReadArgs consumerStartTime
@@ -47563,20 +47564,28 @@ $root.protos = (function() {
             NatsJetstreamReadArgs.prototype.stream = "";
 
             /**
-             * NatsJetstreamReadArgs useDurableConsumer.
-             * @member {boolean} useDurableConsumer
-             * @memberof protos.args.NatsJetstreamReadArgs
-             * @instance
-             */
-            NatsJetstreamReadArgs.prototype.useDurableConsumer = false;
-
-            /**
              * NatsJetstreamReadArgs consumerName.
              * @member {string} consumerName
              * @memberof protos.args.NatsJetstreamReadArgs
              * @instance
              */
             NatsJetstreamReadArgs.prototype.consumerName = "";
+
+            /**
+             * NatsJetstreamReadArgs createDurableConsumer.
+             * @member {boolean} createDurableConsumer
+             * @memberof protos.args.NatsJetstreamReadArgs
+             * @instance
+             */
+            NatsJetstreamReadArgs.prototype.createDurableConsumer = false;
+
+            /**
+             * NatsJetstreamReadArgs existingDurableConsumer.
+             * @member {boolean} existingDurableConsumer
+             * @memberof protos.args.NatsJetstreamReadArgs
+             * @instance
+             */
+            NatsJetstreamReadArgs.prototype.existingDurableConsumer = false;
 
             /**
              * NatsJetstreamReadArgs keepConsumer.
@@ -47636,18 +47645,20 @@ $root.protos = (function() {
                     writer = $Writer.create();
                 if (message.stream != null && Object.hasOwnProperty.call(message, "stream"))
                     writer.uint32(/* id 1, wireType 2 =*/10).string(message.stream);
-                if (message.useDurableConsumer != null && Object.hasOwnProperty.call(message, "useDurableConsumer"))
-                    writer.uint32(/* id 2, wireType 0 =*/16).bool(message.useDurableConsumer);
                 if (message.consumerName != null && Object.hasOwnProperty.call(message, "consumerName"))
-                    writer.uint32(/* id 3, wireType 2 =*/26).string(message.consumerName);
+                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.consumerName);
+                if (message.createDurableConsumer != null && Object.hasOwnProperty.call(message, "createDurableConsumer"))
+                    writer.uint32(/* id 3, wireType 0 =*/24).bool(message.createDurableConsumer);
+                if (message.existingDurableConsumer != null && Object.hasOwnProperty.call(message, "existingDurableConsumer"))
+                    writer.uint32(/* id 4, wireType 0 =*/32).bool(message.existingDurableConsumer);
                 if (message.keepConsumer != null && Object.hasOwnProperty.call(message, "keepConsumer"))
-                    writer.uint32(/* id 4, wireType 0 =*/32).bool(message.keepConsumer);
+                    writer.uint32(/* id 5, wireType 0 =*/40).bool(message.keepConsumer);
                 if (message.consumerStartSequence != null && Object.hasOwnProperty.call(message, "consumerStartSequence"))
-                    writer.uint32(/* id 5, wireType 0 =*/40).int64(message.consumerStartSequence);
+                    writer.uint32(/* id 6, wireType 0 =*/48).int64(message.consumerStartSequence);
                 if (message.consumerStartTime != null && Object.hasOwnProperty.call(message, "consumerStartTime"))
-                    writer.uint32(/* id 6, wireType 2 =*/50).string(message.consumerStartTime);
+                    writer.uint32(/* id 7, wireType 2 =*/58).string(message.consumerStartTime);
                 if (message.consumerFilterSubject != null && Object.hasOwnProperty.call(message, "consumerFilterSubject"))
-                    writer.uint32(/* id 7, wireType 2 =*/58).string(message.consumerFilterSubject);
+                    writer.uint32(/* id 8, wireType 2 =*/66).string(message.consumerFilterSubject);
                 return writer;
             };
 
@@ -47686,21 +47697,24 @@ $root.protos = (function() {
                         message.stream = reader.string();
                         break;
                     case 2:
-                        message.useDurableConsumer = reader.bool();
-                        break;
-                    case 3:
                         message.consumerName = reader.string();
                         break;
+                    case 3:
+                        message.createDurableConsumer = reader.bool();
+                        break;
                     case 4:
-                        message.keepConsumer = reader.bool();
+                        message.existingDurableConsumer = reader.bool();
                         break;
                     case 5:
-                        message.consumerStartSequence = reader.int64();
+                        message.keepConsumer = reader.bool();
                         break;
                     case 6:
-                        message.consumerStartTime = reader.string();
+                        message.consumerStartSequence = reader.int64();
                         break;
                     case 7:
+                        message.consumerStartTime = reader.string();
+                        break;
+                    case 8:
                         message.consumerFilterSubject = reader.string();
                         break;
                     default:
@@ -47741,12 +47755,15 @@ $root.protos = (function() {
                 if (message.stream != null && message.hasOwnProperty("stream"))
                     if (!$util.isString(message.stream))
                         return "stream: string expected";
-                if (message.useDurableConsumer != null && message.hasOwnProperty("useDurableConsumer"))
-                    if (typeof message.useDurableConsumer !== "boolean")
-                        return "useDurableConsumer: boolean expected";
                 if (message.consumerName != null && message.hasOwnProperty("consumerName"))
                     if (!$util.isString(message.consumerName))
                         return "consumerName: string expected";
+                if (message.createDurableConsumer != null && message.hasOwnProperty("createDurableConsumer"))
+                    if (typeof message.createDurableConsumer !== "boolean")
+                        return "createDurableConsumer: boolean expected";
+                if (message.existingDurableConsumer != null && message.hasOwnProperty("existingDurableConsumer"))
+                    if (typeof message.existingDurableConsumer !== "boolean")
+                        return "existingDurableConsumer: boolean expected";
                 if (message.keepConsumer != null && message.hasOwnProperty("keepConsumer"))
                     if (typeof message.keepConsumer !== "boolean")
                         return "keepConsumer: boolean expected";
@@ -47776,10 +47793,12 @@ $root.protos = (function() {
                 var message = new $root.protos.args.NatsJetstreamReadArgs();
                 if (object.stream != null)
                     message.stream = String(object.stream);
-                if (object.useDurableConsumer != null)
-                    message.useDurableConsumer = Boolean(object.useDurableConsumer);
                 if (object.consumerName != null)
                     message.consumerName = String(object.consumerName);
+                if (object.createDurableConsumer != null)
+                    message.createDurableConsumer = Boolean(object.createDurableConsumer);
+                if (object.existingDurableConsumer != null)
+                    message.existingDurableConsumer = Boolean(object.existingDurableConsumer);
                 if (object.keepConsumer != null)
                     message.keepConsumer = Boolean(object.keepConsumer);
                 if (object.consumerStartSequence != null)
@@ -47813,8 +47832,9 @@ $root.protos = (function() {
                 var object = {};
                 if (options.defaults) {
                     object.stream = "";
-                    object.useDurableConsumer = false;
                     object.consumerName = "";
+                    object.createDurableConsumer = false;
+                    object.existingDurableConsumer = false;
                     object.keepConsumer = false;
                     if ($util.Long) {
                         var long = new $util.Long(0, 0, false);
@@ -47826,10 +47846,12 @@ $root.protos = (function() {
                 }
                 if (message.stream != null && message.hasOwnProperty("stream"))
                     object.stream = message.stream;
-                if (message.useDurableConsumer != null && message.hasOwnProperty("useDurableConsumer"))
-                    object.useDurableConsumer = message.useDurableConsumer;
                 if (message.consumerName != null && message.hasOwnProperty("consumerName"))
                     object.consumerName = message.consumerName;
+                if (message.createDurableConsumer != null && message.hasOwnProperty("createDurableConsumer"))
+                    object.createDurableConsumer = message.createDurableConsumer;
+                if (message.existingDurableConsumer != null && message.hasOwnProperty("existingDurableConsumer"))
+                    object.existingDurableConsumer = message.existingDurableConsumer;
                 if (message.keepConsumer != null && message.hasOwnProperty("keepConsumer"))
                     object.keepConsumer = message.keepConsumer;
                 if (message.consumerStartSequence != null && message.hasOwnProperty("consumerStartSequence"))
