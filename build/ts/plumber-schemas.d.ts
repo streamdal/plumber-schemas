@@ -19691,8 +19691,8 @@ export namespace protos {
         /** Properties of a NatsJetstreamWriteArgs. */
         interface INatsJetstreamWriteArgs {
 
-            /** NatsJetstreamWriteArgs stream */
-            stream?: (string|null);
+            /** NatsJetstreamWriteArgs subject */
+            subject?: (string|null);
         }
 
         /** Represents a NatsJetstreamWriteArgs. */
@@ -19704,8 +19704,8 @@ export namespace protos {
              */
             constructor(properties?: protos.args.INatsJetstreamWriteArgs);
 
-            /** NatsJetstreamWriteArgs stream. */
-            public stream: string;
+            /** NatsJetstreamWriteArgs subject. */
+            public subject: string;
 
             /**
              * Creates a new NatsJetstreamWriteArgs instance using the specified properties.

@@ -62,6 +62,6 @@ message NatsJetstreamReadArgs {
 }
 
 message NatsJetstreamWriteArgs {
-  // @gotags: kong:"help='NATS JetStream stream name. Ex: orders.>'"
-  string stream = 1;
+  // @gotags: kong:"help='NATS JetStream subject name to write to. Ex: orders.>'"
+  string subject = 1;
 }
