@@ -47886,7 +47886,7 @@ $root.protos = (function() {
              * Properties of a NatsJetstreamWriteArgs.
              * @memberof protos.args
              * @interface INatsJetstreamWriteArgs
-             * @property {string|null} [stream] NatsJetstreamWriteArgs stream
+             * @property {string|null} [subject] NatsJetstreamWriteArgs subject
              */
 
             /**
@@ -47905,12 +47905,12 @@ $root.protos = (function() {
             }
 
             /**
-             * NatsJetstreamWriteArgs stream.
-             * @member {string} stream
+             * NatsJetstreamWriteArgs subject.
+             * @member {string} subject
              * @memberof protos.args.NatsJetstreamWriteArgs
              * @instance
              */
-            NatsJetstreamWriteArgs.prototype.stream = "";
+            NatsJetstreamWriteArgs.prototype.subject = "";
 
             /**
              * Creates a new NatsJetstreamWriteArgs instance using the specified properties.
@@ -47936,8 +47936,8 @@ $root.protos = (function() {
             NatsJetstreamWriteArgs.encode = function encode(message, writer) {
                 if (!writer)
                     writer = $Writer.create();
-                if (message.stream != null && Object.hasOwnProperty.call(message, "stream"))
-                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.stream);
+                if (message.subject != null && Object.hasOwnProperty.call(message, "subject"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.subject);
                 return writer;
             };
 
@@ -47973,7 +47973,7 @@ $root.protos = (function() {
                     var tag = reader.uint32();
                     switch (tag >>> 3) {
                     case 1:
-                        message.stream = reader.string();
+                        message.subject = reader.string();
                         break;
                     default:
                         reader.skipType(tag & 7);
@@ -48010,9 +48010,9 @@ $root.protos = (function() {
             NatsJetstreamWriteArgs.verify = function verify(message) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (message.stream != null && message.hasOwnProperty("stream"))
-                    if (!$util.isString(message.stream))
-                        return "stream: string expected";
+                if (message.subject != null && message.hasOwnProperty("subject"))
+                    if (!$util.isString(message.subject))
+                        return "subject: string expected";
                 return null;
             };
 
@@ -48028,8 +48028,8 @@ $root.protos = (function() {
                 if (object instanceof $root.protos.args.NatsJetstreamWriteArgs)
                     return object;
                 var message = new $root.protos.args.NatsJetstreamWriteArgs();
-                if (object.stream != null)
-                    message.stream = String(object.stream);
+                if (object.subject != null)
+                    message.subject = String(object.subject);
                 return message;
             };
 
@@ -48047,9 +48047,9 @@ $root.protos = (function() {
                     options = {};
                 var object = {};
                 if (options.defaults)
-                    object.stream = "";
-                if (message.stream != null && message.hasOwnProperty("stream"))
-                    object.stream = message.stream;
+                    object.subject = "";
+                if (message.subject != null && message.hasOwnProperty("subject"))
+                    object.subject = message.subject;
                 return object;
             };
 
