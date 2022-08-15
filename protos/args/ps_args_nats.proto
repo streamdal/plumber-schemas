@@ -13,6 +13,9 @@ message NatsConn {
 
   // @gotags: kong:"embed"
   NatsTLSOptions tls_options = 3;
+
+  // @gotags: kong:"help='File containing NATS NKey',env='pLUMBER_RELAY_NATS_NKEY'"
+  string nkey = 4;
 }
 
 message NatsTLSOptions {

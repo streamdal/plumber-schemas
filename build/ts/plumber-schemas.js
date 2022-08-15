@@ -46111,6 +46111,7 @@ $root.protos = (function() {
              * @property {string|null} [dsn] NatsConn dsn
              * @property {string|null} [userCredentials] NatsConn userCredentials
              * @property {protos.args.INatsTLSOptions|null} [tlsOptions] NatsConn tlsOptions
+             * @property {string|null} [nkey] NatsConn nkey
              */
 
             /**
@@ -46153,6 +46154,14 @@ $root.protos = (function() {
             NatsConn.prototype.tlsOptions = null;
 
             /**
+             * NatsConn nkey.
+             * @member {string} nkey
+             * @memberof protos.args.NatsConn
+             * @instance
+             */
+            NatsConn.prototype.nkey = "";
+
+            /**
              * Creates a new NatsConn instance using the specified properties.
              * @function create
              * @memberof protos.args.NatsConn
@@ -46182,6 +46191,8 @@ $root.protos = (function() {
                     writer.uint32(/* id 2, wireType 2 =*/18).string(message.userCredentials);
                 if (message.tlsOptions != null && Object.hasOwnProperty.call(message, "tlsOptions"))
                     $root.protos.args.NatsTLSOptions.encode(message.tlsOptions, writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
+                if (message.nkey != null && Object.hasOwnProperty.call(message, "nkey"))
+                    writer.uint32(/* id 4, wireType 2 =*/34).string(message.nkey);
                 return writer;
             };
 
@@ -46224,6 +46235,9 @@ $root.protos = (function() {
                         break;
                     case 3:
                         message.tlsOptions = $root.protos.args.NatsTLSOptions.decode(reader, reader.uint32());
+                        break;
+                    case 4:
+                        message.nkey = reader.string();
                         break;
                     default:
                         reader.skipType(tag & 7);
@@ -46271,6 +46285,9 @@ $root.protos = (function() {
                     if (error)
                         return "tlsOptions." + error;
                 }
+                if (message.nkey != null && message.hasOwnProperty("nkey"))
+                    if (!$util.isString(message.nkey))
+                        return "nkey: string expected";
                 return null;
             };
 
@@ -46295,6 +46312,8 @@ $root.protos = (function() {
                         throw TypeError(".protos.args.NatsConn.tlsOptions: object expected");
                     message.tlsOptions = $root.protos.args.NatsTLSOptions.fromObject(object.tlsOptions);
                 }
+                if (object.nkey != null)
+                    message.nkey = String(object.nkey);
                 return message;
             };
 
@@ -46315,6 +46334,7 @@ $root.protos = (function() {
                     object.dsn = "";
                     object.userCredentials = "";
                     object.tlsOptions = null;
+                    object.nkey = "";
                 }
                 if (message.dsn != null && message.hasOwnProperty("dsn"))
                     object.dsn = message.dsn;
@@ -46322,6 +46342,8 @@ $root.protos = (function() {
                     object.userCredentials = message.userCredentials;
                 if (message.tlsOptions != null && message.hasOwnProperty("tlsOptions"))
                     object.tlsOptions = $root.protos.args.NatsTLSOptions.toObject(message.tlsOptions, options);
+                if (message.nkey != null && message.hasOwnProperty("nkey"))
+                    object.nkey = message.nkey;
                 return object;
             };
 
@@ -47275,6 +47297,7 @@ $root.protos = (function() {
              * @property {string|null} [userCredentials] NatsJetstreamConn userCredentials
              * @property {string|null} [clientId] NatsJetstreamConn clientId
              * @property {protos.args.INatsJetstreamTLSOptions|null} [tlsOptions] NatsJetstreamConn tlsOptions
+             * @property {string|null} [nkey] NatsJetstreamConn nkey
              */
 
             /**
@@ -47325,6 +47348,14 @@ $root.protos = (function() {
             NatsJetstreamConn.prototype.tlsOptions = null;
 
             /**
+             * NatsJetstreamConn nkey.
+             * @member {string} nkey
+             * @memberof protos.args.NatsJetstreamConn
+             * @instance
+             */
+            NatsJetstreamConn.prototype.nkey = "";
+
+            /**
              * Creates a new NatsJetstreamConn instance using the specified properties.
              * @function create
              * @memberof protos.args.NatsJetstreamConn
@@ -47356,6 +47387,8 @@ $root.protos = (function() {
                     writer.uint32(/* id 3, wireType 2 =*/26).string(message.clientId);
                 if (message.tlsOptions != null && Object.hasOwnProperty.call(message, "tlsOptions"))
                     $root.protos.args.NatsJetstreamTLSOptions.encode(message.tlsOptions, writer.uint32(/* id 4, wireType 2 =*/34).fork()).ldelim();
+                if (message.nkey != null && Object.hasOwnProperty.call(message, "nkey"))
+                    writer.uint32(/* id 5, wireType 2 =*/42).string(message.nkey);
                 return writer;
             };
 
@@ -47401,6 +47434,9 @@ $root.protos = (function() {
                         break;
                     case 4:
                         message.tlsOptions = $root.protos.args.NatsJetstreamTLSOptions.decode(reader, reader.uint32());
+                        break;
+                    case 5:
+                        message.nkey = reader.string();
                         break;
                     default:
                         reader.skipType(tag & 7);
@@ -47451,6 +47487,9 @@ $root.protos = (function() {
                     if (error)
                         return "tlsOptions." + error;
                 }
+                if (message.nkey != null && message.hasOwnProperty("nkey"))
+                    if (!$util.isString(message.nkey))
+                        return "nkey: string expected";
                 return null;
             };
 
@@ -47477,6 +47516,8 @@ $root.protos = (function() {
                         throw TypeError(".protos.args.NatsJetstreamConn.tlsOptions: object expected");
                     message.tlsOptions = $root.protos.args.NatsJetstreamTLSOptions.fromObject(object.tlsOptions);
                 }
+                if (object.nkey != null)
+                    message.nkey = String(object.nkey);
                 return message;
             };
 
@@ -47498,6 +47539,7 @@ $root.protos = (function() {
                     object.userCredentials = "";
                     object.clientId = "";
                     object.tlsOptions = null;
+                    object.nkey = "";
                 }
                 if (message.dsn != null && message.hasOwnProperty("dsn"))
                     object.dsn = message.dsn;
@@ -47507,6 +47549,8 @@ $root.protos = (function() {
                     object.clientId = message.clientId;
                 if (message.tlsOptions != null && message.hasOwnProperty("tlsOptions"))
                     object.tlsOptions = $root.protos.args.NatsJetstreamTLSOptions.toObject(message.tlsOptions, options);
+                if (message.nkey != null && message.hasOwnProperty("nkey"))
+                    object.nkey = message.nkey;
                 return object;
             };
 
