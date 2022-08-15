@@ -34,7 +34,7 @@ message NatsJetstreamConn {
   // @gotags: kong:"embed"
   NatsJetstreamTLSOptions tls_options = 4;
 
-  // @gotags: kong:"help='File containing NATS NKey',env='pLUMBER_RELAY_NATS_JETSTREAM_NKEY'"
+  // @gotags: kong:"help='File containing NATS NKey',env='PLUMBER_RELAY_NATS_JETSTREAM_NKEY'"
   string nkey = 5;
 }
 
