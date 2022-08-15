@@ -18949,6 +18949,9 @@ export namespace protos {
 
             /** NatsConn tlsOptions */
             tlsOptions?: (protos.args.INatsTLSOptions|null);
+
+            /** NatsConn nkey */
+            nkey?: (string|null);
         }
 
         /** Represents a NatsConn. */
@@ -18968,6 +18971,9 @@ export namespace protos {
 
             /** NatsConn tlsOptions. */
             public tlsOptions?: (protos.args.INatsTLSOptions|null);
+
+            /** NatsConn nkey. */
+            public nkey: string;
 
             /**
              * Creates a new NatsConn instance using the specified properties.
@@ -19462,6 +19468,9 @@ export namespace protos {
 
             /** NatsJetstreamConn tlsOptions */
             tlsOptions?: (protos.args.INatsJetstreamTLSOptions|null);
+
+            /** NatsJetstreamConn nkey */
+            nkey?: (string|null);
         }
 
         /** Represents a NatsJetstreamConn. */
@@ -19484,6 +19493,9 @@ export namespace protos {
 
             /** NatsJetstreamConn tlsOptions. */
             public tlsOptions?: (protos.args.INatsJetstreamTLSOptions|null);
+
+            /** NatsJetstreamConn nkey. */
+            public nkey: string;
 
             /**
              * Creates a new NatsJetstreamConn instance using the specified properties.
