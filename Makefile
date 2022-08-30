@@ -149,12 +149,12 @@ generate/go:
 inject-tags: description = Inject tags for CLI
 inject-tags:
 	# Injecting tags into *.pb.go files...
-	sudo $(GOPATH)/bin/protoc-go-inject-tag -input="$(GO_PROTOS_DIR)/*.pb.go"
-	sudo $(GOPATH)/bin/protoc-go-inject-tag -input="$(GO_PROTOS_DIR)/args/*.pb.go"
-	sudo $(GOPATH)/bin/protoc-go-inject-tag -input="$(GO_PROTOS_DIR)/common/*.pb.go"
-	sudo $(GOPATH)/bin/protoc-go-inject-tag -input="$(GO_PROTOS_DIR)/encoding/*.pb.go"
-	sudo $(GOPATH)/bin/protoc-go-inject-tag -input="$(GO_PROTOS_DIR)/opts/*.pb.go"
-	sudo $(GOPATH)/bin/protoc-go-inject-tag -input="$(GO_PROTOS_DIR)/records/*.pb.go"
+	sudo $(GOBIN)/protoc-go-inject-tag -input="$(GO_PROTOS_DIR)/*.pb.go"
+	sudo $(GOBIN)/protoc-go-inject-tag -input="$(GO_PROTOS_DIR)/args/*.pb.go"
+	sudo $(GOBIN)/protoc-go-inject-tag -input="$(GO_PROTOS_DIR)/common/*.pb.go"
+	sudo $(GOBIN)/protoc-go-inject-tag -input="$(GO_PROTOS_DIR)/encoding/*.pb.go"
+	sudo $(GOBIN)/protoc-go-inject-tag -input="$(GO_PROTOS_DIR)/opts/*.pb.go"
+	sudo $(GOBIN)/protoc-go-inject-tag -input="$(GO_PROTOS_DIR)/records/*.pb.go"
 
 .PHONY: clean-go
 clean-go: description = Remove all go build artifacts
