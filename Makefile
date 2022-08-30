@@ -140,7 +140,7 @@ generate/go:
 
 # Perform any extra steps as part of codegen
 	# Running code generation tasks
-	echo \$GOPATH
+	echo $(GOPATH)
 	go run generate-type-aliases.go
 	go run generate-conn-opts-func.go
 	go run generate-merge-relay-opts.go
