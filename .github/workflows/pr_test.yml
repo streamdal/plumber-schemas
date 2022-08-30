@@ -10,3 +10,7 @@ jobs:
         uses: plexsystems/protolint-action@v0.4.0
         with:
           configDirectory: ./
+      - name: Compile protos
+        run: |
+          npm install
+          make generate/all
