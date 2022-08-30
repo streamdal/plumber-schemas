@@ -10,10 +10,10 @@ jobs:
         uses: plexsystems/protolint-action@v0.4.0
         with:
           configDirectory: ./
-      - name: Compile protos
-        uses: actions/setup-go@v3
+      - uses: actions/setup-go@v3
         with:
           go-version: '~1.16'
+      - name: Compile protos
         run: |
           go install github.com/favadi/protoc-go-inject-tag
           npm install
