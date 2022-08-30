@@ -1688,6 +1688,102 @@ export namespace protos {
             public toJSON(): { [k: string]: any };
         }
 
+        /** Properties of a SourceManager. */
+        interface ISourceManager {
+
+            /** SourceManager authToken */
+            authToken?: (string|null);
+
+            /** SourceManager sourceId */
+            sourceId?: (string|null);
+        }
+
+        /** Represents a SourceManager. */
+        class SourceManager implements ISourceManager {
+
+            /**
+             * Constructs a new SourceManager.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.common.ISourceManager);
+
+            /** SourceManager authToken. */
+            public authToken: string;
+
+            /** SourceManager sourceId. */
+            public sourceId: string;
+
+            /**
+             * Creates a new SourceManager instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns SourceManager instance
+             */
+            public static create(properties?: protos.common.ISourceManager): protos.common.SourceManager;
+
+            /**
+             * Encodes the specified SourceManager message. Does not implicitly {@link protos.common.SourceManager.verify|verify} messages.
+             * @param message SourceManager message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.common.ISourceManager, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified SourceManager message, length delimited. Does not implicitly {@link protos.common.SourceManager.verify|verify} messages.
+             * @param message SourceManager message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.common.ISourceManager, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a SourceManager message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns SourceManager
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.common.SourceManager;
+
+            /**
+             * Decodes a SourceManager message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns SourceManager
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.common.SourceManager;
+
+            /**
+             * Verifies a SourceManager message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a SourceManager message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns SourceManager
+             */
+            public static fromObject(object: { [k: string]: any }): protos.common.SourceManager;
+
+            /**
+             * Creates a plain object from a SourceManager message. Also converts values to other types if specified.
+             * @param message SourceManager
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.common.SourceManager, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this SourceManager to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
         /** Properties of an Auth. */
         interface IAuth {
 
@@ -1696,6 +1792,9 @@ export namespace protos {
 
             /** Auth _foreman */
             _foreman?: (protos.common.IForeman|null);
+
+            /** Auth _sourceManager */
+            _sourceManager?: (protos.common.ISourceManager|null);
         }
 
         /** Represents an Auth. */
@@ -1712,6 +1811,9 @@ export namespace protos {
 
             /** Auth _foreman. */
             public _foreman?: (protos.common.IForeman|null);
+
+            /** Auth _sourceManager. */
+            public _sourceManager?: (protos.common.ISourceManager|null);
 
             /**
              * Creates a new Auth instance using the specified properties.
