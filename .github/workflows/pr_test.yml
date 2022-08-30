@@ -17,4 +17,4 @@ jobs:
         run: |
           go install github.com/favadi/protoc-go-inject-tag
           npm install
-          make generate/all
+          sudo make generate/all
