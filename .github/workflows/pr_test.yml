@@ -12,5 +12,6 @@ jobs:
           configDirectory: ./
       - name: Compile protos
         run: |
+          go install github.com/favadi/protoc-go-inject-tag
           npm install
           make generate/all
