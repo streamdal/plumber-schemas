@@ -148,7 +148,7 @@ generate/go:
 .PHONY: inject-tags
 inject-tags: description = Inject tags for CLI
 inject-tags:
-	sudo chmod -R 777 build/go/*
+	sudo chmod -R 644 build/go
 	# Injecting tags into *.pb.go files...
 	protoc-go-inject-tag -input="$(GO_PROTOS_DIR)/*.pb.go"
 	protoc-go-inject-tag -input="$(GO_PROTOS_DIR)/args/*.pb.go"
