@@ -3454,6 +3454,216 @@ $root.protos = (function() {
             return Foreman;
         })();
 
+        common.SourceManager = (function() {
+
+            /**
+             * Properties of a SourceManager.
+             * @memberof protos.common
+             * @interface ISourceManager
+             * @property {string|null} [authToken] SourceManager authToken
+             * @property {string|null} [sourceId] SourceManager sourceId
+             */
+
+            /**
+             * Constructs a new SourceManager.
+             * @memberof protos.common
+             * @classdesc Represents a SourceManager.
+             * @implements ISourceManager
+             * @constructor
+             * @param {protos.common.ISourceManager=} [properties] Properties to set
+             */
+            function SourceManager(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * SourceManager authToken.
+             * @member {string} authToken
+             * @memberof protos.common.SourceManager
+             * @instance
+             */
+            SourceManager.prototype.authToken = "";
+
+            /**
+             * SourceManager sourceId.
+             * @member {string} sourceId
+             * @memberof protos.common.SourceManager
+             * @instance
+             */
+            SourceManager.prototype.sourceId = "";
+
+            /**
+             * Creates a new SourceManager instance using the specified properties.
+             * @function create
+             * @memberof protos.common.SourceManager
+             * @static
+             * @param {protos.common.ISourceManager=} [properties] Properties to set
+             * @returns {protos.common.SourceManager} SourceManager instance
+             */
+            SourceManager.create = function create(properties) {
+                return new SourceManager(properties);
+            };
+
+            /**
+             * Encodes the specified SourceManager message. Does not implicitly {@link protos.common.SourceManager.verify|verify} messages.
+             * @function encode
+             * @memberof protos.common.SourceManager
+             * @static
+             * @param {protos.common.ISourceManager} message SourceManager message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            SourceManager.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.authToken != null && Object.hasOwnProperty.call(message, "authToken"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.authToken);
+                if (message.sourceId != null && Object.hasOwnProperty.call(message, "sourceId"))
+                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.sourceId);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified SourceManager message, length delimited. Does not implicitly {@link protos.common.SourceManager.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.common.SourceManager
+             * @static
+             * @param {protos.common.ISourceManager} message SourceManager message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            SourceManager.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a SourceManager message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.common.SourceManager
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.common.SourceManager} SourceManager
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            SourceManager.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.common.SourceManager();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.authToken = reader.string();
+                        break;
+                    case 2:
+                        message.sourceId = reader.string();
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a SourceManager message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.common.SourceManager
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.common.SourceManager} SourceManager
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            SourceManager.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a SourceManager message.
+             * @function verify
+             * @memberof protos.common.SourceManager
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            SourceManager.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.authToken != null && message.hasOwnProperty("authToken"))
+                    if (!$util.isString(message.authToken))
+                        return "authToken: string expected";
+                if (message.sourceId != null && message.hasOwnProperty("sourceId"))
+                    if (!$util.isString(message.sourceId))
+                        return "sourceId: string expected";
+                return null;
+            };
+
+            /**
+             * Creates a SourceManager message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.common.SourceManager
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.common.SourceManager} SourceManager
+             */
+            SourceManager.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.common.SourceManager)
+                    return object;
+                var message = new $root.protos.common.SourceManager();
+                if (object.authToken != null)
+                    message.authToken = String(object.authToken);
+                if (object.sourceId != null)
+                    message.sourceId = String(object.sourceId);
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a SourceManager message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.common.SourceManager
+             * @static
+             * @param {protos.common.SourceManager} message SourceManager
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            SourceManager.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    object.authToken = "";
+                    object.sourceId = "";
+                }
+                if (message.authToken != null && message.hasOwnProperty("authToken"))
+                    object.authToken = message.authToken;
+                if (message.sourceId != null && message.hasOwnProperty("sourceId"))
+                    object.sourceId = message.sourceId;
+                return object;
+            };
+
+            /**
+             * Converts this SourceManager to JSON.
+             * @function toJSON
+             * @memberof protos.common.SourceManager
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            SourceManager.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return SourceManager;
+        })();
+
         common.Auth = (function() {
 
             /**
@@ -3462,6 +3672,7 @@ $root.protos = (function() {
              * @interface IAuth
              * @property {string|null} [token] Auth token
              * @property {protos.common.IForeman|null} [_foreman] Auth _foreman
+             * @property {protos.common.ISourceManager|null} [_sourceManager] Auth _sourceManager
              */
 
             /**
@@ -3496,6 +3707,14 @@ $root.protos = (function() {
             Auth.prototype._foreman = null;
 
             /**
+             * Auth _sourceManager.
+             * @member {protos.common.ISourceManager|null|undefined} _sourceManager
+             * @memberof protos.common.Auth
+             * @instance
+             */
+            Auth.prototype._sourceManager = null;
+
+            /**
              * Creates a new Auth instance using the specified properties.
              * @function create
              * @memberof protos.common.Auth
@@ -3523,6 +3742,8 @@ $root.protos = (function() {
                     writer.uint32(/* id 1, wireType 2 =*/10).string(message.token);
                 if (message._foreman != null && Object.hasOwnProperty.call(message, "_foreman"))
                     $root.protos.common.Foreman.encode(message._foreman, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                if (message._sourceManager != null && Object.hasOwnProperty.call(message, "_sourceManager"))
+                    $root.protos.common.SourceManager.encode(message._sourceManager, writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
                 return writer;
             };
 
@@ -3562,6 +3783,9 @@ $root.protos = (function() {
                         break;
                     case 2:
                         message._foreman = $root.protos.common.Foreman.decode(reader, reader.uint32());
+                        break;
+                    case 3:
+                        message._sourceManager = $root.protos.common.SourceManager.decode(reader, reader.uint32());
                         break;
                     default:
                         reader.skipType(tag & 7);
@@ -3606,6 +3830,11 @@ $root.protos = (function() {
                     if (error)
                         return "_foreman." + error;
                 }
+                if (message._sourceManager != null && message.hasOwnProperty("_sourceManager")) {
+                    var error = $root.protos.common.SourceManager.verify(message._sourceManager);
+                    if (error)
+                        return "_sourceManager." + error;
+                }
                 return null;
             };
 
@@ -3628,6 +3857,11 @@ $root.protos = (function() {
                         throw TypeError(".protos.common.Auth._foreman: object expected");
                     message._foreman = $root.protos.common.Foreman.fromObject(object._foreman);
                 }
+                if (object._sourceManager != null) {
+                    if (typeof object._sourceManager !== "object")
+                        throw TypeError(".protos.common.Auth._sourceManager: object expected");
+                    message._sourceManager = $root.protos.common.SourceManager.fromObject(object._sourceManager);
+                }
                 return message;
             };
 
@@ -3647,11 +3881,14 @@ $root.protos = (function() {
                 if (options.defaults) {
                     object.token = "";
                     object._foreman = null;
+                    object._sourceManager = null;
                 }
                 if (message.token != null && message.hasOwnProperty("token"))
                     object.token = message.token;
                 if (message._foreman != null && message.hasOwnProperty("_foreman"))
                     object._foreman = $root.protos.common.Foreman.toObject(message._foreman, options);
+                if (message._sourceManager != null && message.hasOwnProperty("_sourceManager"))
+                    object._sourceManager = $root.protos.common.SourceManager.toObject(message._sourceManager, options);
                 return object;
             };
 
