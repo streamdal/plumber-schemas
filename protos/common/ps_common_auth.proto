@@ -12,9 +12,18 @@ message Foreman {
   string team_id = 3;
 }
 
+message SourceManager {
+  string server_token = 1;
+
+  string source_id = 2;
+}
+
 message Auth {
   string token = 1;
 
   // Filled out by batch. Not intended to be used by plumber.
   Foreman _foreman = 2;
+
+  // Filled out by batch. Not intended to be used by Plumber.
+  SourceManager _source_manager = 3;
 }

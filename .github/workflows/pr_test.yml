@@ -10,3 +10,14 @@ jobs:
         uses: plexsystems/protolint-action@v0.4.0
         with:
           configDirectory: ./
+      - uses: actions/setup-go@v3
+        with:
+          go-version: '~1.16'
+      - name: Compile protos
+        run: |
+          make setup/linux
+          npm install
+          make generate/all
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Automated protobuf compilation

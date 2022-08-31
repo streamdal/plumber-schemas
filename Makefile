@@ -35,11 +35,10 @@ setup/darwin:
 setup/linux: description = Install protobuf tooling for linux
 setup/linux:
 	# Protocol compiler
-	PROTOC_ZIP=protoc-3.10.1-linux-x86_64.zip
-	curl -OL https://github.com/protocolbuffers/protobuf/releases/download/v3.10.1/$PROTOC_ZIP
-	sudo unzip -o $PROTOC_ZIP -d /usr/local bin/protoc
-	sudo unzip -o $PROTOC_ZIP -d /usr/local 'include/*'
-	rm -f $PROTOC_ZIP
+	curl -OL https://github.com/protocolbuffers/protobuf/releases/download/v3.10.1/protoc-3.10.1-linux-x86_64.zip
+	sudo unzip -o protoc-3.10.1-linux-x86_64.zip -d /usr/local bin/protoc
+	sudo unzip -o protoc-3.10.1-linux-x86_64.zip -d /usr/local 'include/*'
+	rm -f protoc-3.10.1-linux-x86_64.zip
 
 	# Go plugin used by the protocol compiler
 	go get -u github.com/golang/protobuf/protoc-gen-go
@@ -148,6 +147,7 @@ generate/go:
 .PHONY: inject-tags
 inject-tags: description = Inject tags for CLI
 inject-tags:
+	sudo chown -R runner:runner build/go
 	# Injecting tags into *.pb.go files...
 	protoc-go-inject-tag -input="$(GO_PROTOS_DIR)/*.pb.go"
 	protoc-go-inject-tag -input="$(GO_PROTOS_DIR)/args/*.pb.go"
