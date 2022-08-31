@@ -149,7 +149,7 @@ generate/go:
 inject-tags: description = Inject tags for CLI
 inject-tags:
 	whoami
-	#sudo chown -R build/go
+	sudo chown -R runner:runner build/go
 	# Injecting tags into *.pb.go files...
 	protoc-go-inject-tag -input="$(GO_PROTOS_DIR)/*.pb.go"
 	protoc-go-inject-tag -input="$(GO_PROTOS_DIR)/args/*.pb.go"
