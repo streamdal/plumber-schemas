@@ -61,4 +61,7 @@ message ServerOptions {
 
   // @gotags: kong:"help='Connect to remote control server without TLS',default=false"
   bool remote_control_disable_tls = 20;
+
+  // @gotags: kong:"help='Override default path for plumber.json config file when in server mode',env='PLUMBER_REMOTE_CONTROL_ADDRESS',default=''"
+  string _config_path = 21;
 }
