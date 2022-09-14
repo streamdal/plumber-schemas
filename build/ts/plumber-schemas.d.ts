@@ -4314,6 +4314,9 @@ export namespace protos {
 
             /** ServerOptions remoteControlDisableTls */
             remoteControlDisableTls?: (boolean|null);
+
+            /** ServerOptions _configPath */
+            _configPath?: (string|null);
         }
 
         /** Represents a ServerOptions. */
@@ -4378,6 +4381,9 @@ export namespace protos {
 
             /** ServerOptions remoteControlDisableTls. */
             public remoteControlDisableTls: boolean;
+
+            /** ServerOptions _configPath. */
+            public _configPath: string;
 
             /**
              * Creates a new ServerOptions instance using the specified properties.
