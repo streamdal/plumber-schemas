@@ -26836,8 +26836,8 @@ export namespace protos {
             /** ThriftSettings thriftDirs */
             thriftDirs?: (string[]|null);
 
-            /** ThriftSettings structName */
-            structName?: (string|null);
+            /** ThriftSettings thriftStruct */
+            thriftStruct?: (string|null);
         }
 
         /** Represents a ThriftSettings. */
@@ -26852,8 +26852,8 @@ export namespace protos {
             /** ThriftSettings thriftDirs. */
             public thriftDirs: string[];
 
-            /** ThriftSettings structName. */
-            public structName: string;
+            /** ThriftSettings thriftStruct. */
+            public thriftStruct: string;
 
             /**
              * Creates a new ThriftSettings instance using the specified properties.

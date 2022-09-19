@@ -64139,7 +64139,7 @@ $root.protos = (function() {
              * @memberof protos.encoding
              * @interface IThriftSettings
              * @property {Array.<string>|null} [thriftDirs] ThriftSettings thriftDirs
-             * @property {string|null} [structName] ThriftSettings structName
+             * @property {string|null} [thriftStruct] ThriftSettings thriftStruct
              */
 
             /**
@@ -64167,12 +64167,12 @@ $root.protos = (function() {
             ThriftSettings.prototype.thriftDirs = $util.emptyArray;
 
             /**
-             * ThriftSettings structName.
-             * @member {string} structName
+             * ThriftSettings thriftStruct.
+             * @member {string} thriftStruct
              * @memberof protos.encoding.ThriftSettings
              * @instance
              */
-            ThriftSettings.prototype.structName = "";
+            ThriftSettings.prototype.thriftStruct = "";
 
             /**
              * Creates a new ThriftSettings instance using the specified properties.
@@ -64201,8 +64201,8 @@ $root.protos = (function() {
                 if (message.thriftDirs != null && message.thriftDirs.length)
                     for (var i = 0; i < message.thriftDirs.length; ++i)
                         writer.uint32(/* id 1, wireType 2 =*/10).string(message.thriftDirs[i]);
-                if (message.structName != null && Object.hasOwnProperty.call(message, "structName"))
-                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.structName);
+                if (message.thriftStruct != null && Object.hasOwnProperty.call(message, "thriftStruct"))
+                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.thriftStruct);
                 return writer;
             };
 
@@ -64243,7 +64243,7 @@ $root.protos = (function() {
                         message.thriftDirs.push(reader.string());
                         break;
                     case 2:
-                        message.structName = reader.string();
+                        message.thriftStruct = reader.string();
                         break;
                     default:
                         reader.skipType(tag & 7);
@@ -64287,9 +64287,9 @@ $root.protos = (function() {
                         if (!$util.isString(message.thriftDirs[i]))
                             return "thriftDirs: string[] expected";
                 }
-                if (message.structName != null && message.hasOwnProperty("structName"))
-                    if (!$util.isString(message.structName))
-                        return "structName: string expected";
+                if (message.thriftStruct != null && message.hasOwnProperty("thriftStruct"))
+                    if (!$util.isString(message.thriftStruct))
+                        return "thriftStruct: string expected";
                 return null;
             };
 
@@ -64312,8 +64312,8 @@ $root.protos = (function() {
                     for (var i = 0; i < object.thriftDirs.length; ++i)
                         message.thriftDirs[i] = String(object.thriftDirs[i]);
                 }
-                if (object.structName != null)
-                    message.structName = String(object.structName);
+                if (object.thriftStruct != null)
+                    message.thriftStruct = String(object.thriftStruct);
                 return message;
             };
 
@@ -64333,14 +64333,14 @@ $root.protos = (function() {
                 if (options.arrays || options.defaults)
                     object.thriftDirs = [];
                 if (options.defaults)
-                    object.structName = "";
+                    object.thriftStruct = "";
                 if (message.thriftDirs && message.thriftDirs.length) {
                     object.thriftDirs = [];
                     for (var j = 0; j < message.thriftDirs.length; ++j)
                         object.thriftDirs[j] = message.thriftDirs[j];
                 }
-                if (message.structName != null && message.hasOwnProperty("structName"))
-                    object.structName = message.structName;
+                if (message.thriftStruct != null && message.hasOwnProperty("thriftStruct"))
+                    object.thriftStruct = message.thriftStruct;
                 return object;
             };
 
