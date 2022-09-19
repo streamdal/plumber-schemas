@@ -64132,6 +64132,232 @@ $root.protos = (function() {
             return AvroSettings;
         })();
 
+        encoding.ThriftSettings = (function() {
+
+            /**
+             * Properties of a ThriftSettings.
+             * @memberof protos.encoding
+             * @interface IThriftSettings
+             * @property {Array.<string>|null} [thriftDirs] ThriftSettings thriftDirs
+             * @property {string|null} [thriftStruct] ThriftSettings thriftStruct
+             */
+
+            /**
+             * Constructs a new ThriftSettings.
+             * @memberof protos.encoding
+             * @classdesc Represents a ThriftSettings.
+             * @implements IThriftSettings
+             * @constructor
+             * @param {protos.encoding.IThriftSettings=} [properties] Properties to set
+             */
+            function ThriftSettings(properties) {
+                this.thriftDirs = [];
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * ThriftSettings thriftDirs.
+             * @member {Array.<string>} thriftDirs
+             * @memberof protos.encoding.ThriftSettings
+             * @instance
+             */
+            ThriftSettings.prototype.thriftDirs = $util.emptyArray;
+
+            /**
+             * ThriftSettings thriftStruct.
+             * @member {string} thriftStruct
+             * @memberof protos.encoding.ThriftSettings
+             * @instance
+             */
+            ThriftSettings.prototype.thriftStruct = "";
+
+            /**
+             * Creates a new ThriftSettings instance using the specified properties.
+             * @function create
+             * @memberof protos.encoding.ThriftSettings
+             * @static
+             * @param {protos.encoding.IThriftSettings=} [properties] Properties to set
+             * @returns {protos.encoding.ThriftSettings} ThriftSettings instance
+             */
+            ThriftSettings.create = function create(properties) {
+                return new ThriftSettings(properties);
+            };
+
+            /**
+             * Encodes the specified ThriftSettings message. Does not implicitly {@link protos.encoding.ThriftSettings.verify|verify} messages.
+             * @function encode
+             * @memberof protos.encoding.ThriftSettings
+             * @static
+             * @param {protos.encoding.IThriftSettings} message ThriftSettings message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            ThriftSettings.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.thriftDirs != null && message.thriftDirs.length)
+                    for (var i = 0; i < message.thriftDirs.length; ++i)
+                        writer.uint32(/* id 1, wireType 2 =*/10).string(message.thriftDirs[i]);
+                if (message.thriftStruct != null && Object.hasOwnProperty.call(message, "thriftStruct"))
+                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.thriftStruct);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified ThriftSettings message, length delimited. Does not implicitly {@link protos.encoding.ThriftSettings.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.encoding.ThriftSettings
+             * @static
+             * @param {protos.encoding.IThriftSettings} message ThriftSettings message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            ThriftSettings.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a ThriftSettings message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.encoding.ThriftSettings
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.encoding.ThriftSettings} ThriftSettings
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            ThriftSettings.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.encoding.ThriftSettings();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        if (!(message.thriftDirs && message.thriftDirs.length))
+                            message.thriftDirs = [];
+                        message.thriftDirs.push(reader.string());
+                        break;
+                    case 2:
+                        message.thriftStruct = reader.string();
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a ThriftSettings message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.encoding.ThriftSettings
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.encoding.ThriftSettings} ThriftSettings
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            ThriftSettings.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a ThriftSettings message.
+             * @function verify
+             * @memberof protos.encoding.ThriftSettings
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            ThriftSettings.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.thriftDirs != null && message.hasOwnProperty("thriftDirs")) {
+                    if (!Array.isArray(message.thriftDirs))
+                        return "thriftDirs: array expected";
+                    for (var i = 0; i < message.thriftDirs.length; ++i)
+                        if (!$util.isString(message.thriftDirs[i]))
+                            return "thriftDirs: string[] expected";
+                }
+                if (message.thriftStruct != null && message.hasOwnProperty("thriftStruct"))
+                    if (!$util.isString(message.thriftStruct))
+                        return "thriftStruct: string expected";
+                return null;
+            };
+
+            /**
+             * Creates a ThriftSettings message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.encoding.ThriftSettings
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.encoding.ThriftSettings} ThriftSettings
+             */
+            ThriftSettings.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.encoding.ThriftSettings)
+                    return object;
+                var message = new $root.protos.encoding.ThriftSettings();
+                if (object.thriftDirs) {
+                    if (!Array.isArray(object.thriftDirs))
+                        throw TypeError(".protos.encoding.ThriftSettings.thriftDirs: array expected");
+                    message.thriftDirs = [];
+                    for (var i = 0; i < object.thriftDirs.length; ++i)
+                        message.thriftDirs[i] = String(object.thriftDirs[i]);
+                }
+                if (object.thriftStruct != null)
+                    message.thriftStruct = String(object.thriftStruct);
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a ThriftSettings message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.encoding.ThriftSettings
+             * @static
+             * @param {protos.encoding.ThriftSettings} message ThriftSettings
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            ThriftSettings.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.arrays || options.defaults)
+                    object.thriftDirs = [];
+                if (options.defaults)
+                    object.thriftStruct = "";
+                if (message.thriftDirs && message.thriftDirs.length) {
+                    object.thriftDirs = [];
+                    for (var j = 0; j < message.thriftDirs.length; ++j)
+                        object.thriftDirs[j] = message.thriftDirs[j];
+                }
+                if (message.thriftStruct != null && message.hasOwnProperty("thriftStruct"))
+                    object.thriftStruct = message.thriftStruct;
+                return object;
+            };
+
+            /**
+             * Converts this ThriftSettings to JSON.
+             * @function toJSON
+             * @memberof protos.encoding.ThriftSettings
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            ThriftSettings.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return ThriftSettings;
+        })();
+
         encoding.JSONSchemaSettings = (function() {
 
             /**
@@ -64620,6 +64846,7 @@ $root.protos = (function() {
              * @property {protos.encoding.DecodeType|null} [decodeType] DecodeOptions decodeType
              * @property {protos.encoding.IProtobufSettings|null} [protobufSettings] DecodeOptions protobufSettings
              * @property {protos.encoding.IAvroSettings|null} [avroSettings] DecodeOptions avroSettings
+             * @property {protos.encoding.IThriftSettings|null} [thriftSettings] DecodeOptions thriftSettings
              */
 
             /**
@@ -64670,6 +64897,14 @@ $root.protos = (function() {
             DecodeOptions.prototype.avroSettings = null;
 
             /**
+             * DecodeOptions thriftSettings.
+             * @member {protos.encoding.IThriftSettings|null|undefined} thriftSettings
+             * @memberof protos.encoding.DecodeOptions
+             * @instance
+             */
+            DecodeOptions.prototype.thriftSettings = null;
+
+            /**
              * Creates a new DecodeOptions instance using the specified properties.
              * @function create
              * @memberof protos.encoding.DecodeOptions
@@ -64701,6 +64936,8 @@ $root.protos = (function() {
                     $root.protos.encoding.ProtobufSettings.encode(message.protobufSettings, writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
                 if (message.avroSettings != null && Object.hasOwnProperty.call(message, "avroSettings"))
                     $root.protos.encoding.AvroSettings.encode(message.avroSettings, writer.uint32(/* id 4, wireType 2 =*/34).fork()).ldelim();
+                if (message.thriftSettings != null && Object.hasOwnProperty.call(message, "thriftSettings"))
+                    $root.protos.encoding.ThriftSettings.encode(message.thriftSettings, writer.uint32(/* id 5, wireType 2 =*/42).fork()).ldelim();
                 return writer;
             };
 
@@ -64746,6 +64983,9 @@ $root.protos = (function() {
                         break;
                     case 4:
                         message.avroSettings = $root.protos.encoding.AvroSettings.decode(reader, reader.uint32());
+                        break;
+                    case 5:
+                        message.thriftSettings = $root.protos.encoding.ThriftSettings.decode(reader, reader.uint32());
                         break;
                     default:
                         reader.skipType(tag & 7);
@@ -64806,6 +65046,11 @@ $root.protos = (function() {
                     if (error)
                         return "avroSettings." + error;
                 }
+                if (message.thriftSettings != null && message.hasOwnProperty("thriftSettings")) {
+                    var error = $root.protos.encoding.ThriftSettings.verify(message.thriftSettings);
+                    if (error)
+                        return "thriftSettings." + error;
+                }
                 return null;
             };
 
@@ -64855,6 +65100,11 @@ $root.protos = (function() {
                         throw TypeError(".protos.encoding.DecodeOptions.avroSettings: object expected");
                     message.avroSettings = $root.protos.encoding.AvroSettings.fromObject(object.avroSettings);
                 }
+                if (object.thriftSettings != null) {
+                    if (typeof object.thriftSettings !== "object")
+                        throw TypeError(".protos.encoding.DecodeOptions.thriftSettings: object expected");
+                    message.thriftSettings = $root.protos.encoding.ThriftSettings.fromObject(object.thriftSettings);
+                }
                 return message;
             };
 
@@ -64876,6 +65126,7 @@ $root.protos = (function() {
                     object.decodeType = options.enums === String ? "DECODE_TYPE_UNSET" : 0;
                     object.protobufSettings = null;
                     object.avroSettings = null;
+                    object.thriftSettings = null;
                 }
                 if (message.schemaId != null && message.hasOwnProperty("schemaId"))
                     object.schemaId = message.schemaId;
@@ -64885,6 +65136,8 @@ $root.protos = (function() {
                     object.protobufSettings = $root.protos.encoding.ProtobufSettings.toObject(message.protobufSettings, options);
                 if (message.avroSettings != null && message.hasOwnProperty("avroSettings"))
                     object.avroSettings = $root.protos.encoding.AvroSettings.toObject(message.avroSettings, options);
+                if (message.thriftSettings != null && message.hasOwnProperty("thriftSettings"))
+                    object.thriftSettings = $root.protos.encoding.ThriftSettings.toObject(message.thriftSettings, options);
                 return object;
             };
 

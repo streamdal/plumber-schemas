@@ -75,6 +75,14 @@ message AvroSettings {
   bytes schema = 2;
 }
 
+message ThriftSettings {
+  // @gotags: kong:"help='One or more directories containing Thrift IDL files'"
+  repeated string thrift_dirs = 1;
+
+  // @gotags: kong:"help='Namespace and struct name to decode the message with. Ex: com.mycompany.Account'"
+  string thrift_struct = 2;
+}
+
 message JSONSchemaSettings {
   // Used by desktop; CLI should not set/use this.
   // @gotags: kong:"-"
@@ -109,4 +117,7 @@ message DecodeOptions {
 
   // @gotags: kong:"embed,group=avro"
   AvroSettings avro_settings = 4;
+
+  // @gotags: kong:"embed,group=thrift"
+  ThriftSettings thrift_settings = 5;
 }

@@ -26830,6 +26830,102 @@ export namespace protos {
             public toJSON(): { [k: string]: any };
         }
 
+        /** Properties of a ThriftSettings. */
+        interface IThriftSettings {
+
+            /** ThriftSettings thriftDirs */
+            thriftDirs?: (string[]|null);
+
+            /** ThriftSettings thriftStruct */
+            thriftStruct?: (string|null);
+        }
+
+        /** Represents a ThriftSettings. */
+        class ThriftSettings implements IThriftSettings {
+
+            /**
+             * Constructs a new ThriftSettings.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.encoding.IThriftSettings);
+
+            /** ThriftSettings thriftDirs. */
+            public thriftDirs: string[];
+
+            /** ThriftSettings thriftStruct. */
+            public thriftStruct: string;
+
+            /**
+             * Creates a new ThriftSettings instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns ThriftSettings instance
+             */
+            public static create(properties?: protos.encoding.IThriftSettings): protos.encoding.ThriftSettings;
+
+            /**
+             * Encodes the specified ThriftSettings message. Does not implicitly {@link protos.encoding.ThriftSettings.verify|verify} messages.
+             * @param message ThriftSettings message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.encoding.IThriftSettings, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified ThriftSettings message, length delimited. Does not implicitly {@link protos.encoding.ThriftSettings.verify|verify} messages.
+             * @param message ThriftSettings message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.encoding.IThriftSettings, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a ThriftSettings message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns ThriftSettings
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.encoding.ThriftSettings;
+
+            /**
+             * Decodes a ThriftSettings message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns ThriftSettings
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.encoding.ThriftSettings;
+
+            /**
+             * Verifies a ThriftSettings message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a ThriftSettings message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns ThriftSettings
+             */
+            public static fromObject(object: { [k: string]: any }): protos.encoding.ThriftSettings;
+
+            /**
+             * Creates a plain object from a ThriftSettings message. Also converts values to other types if specified.
+             * @param message ThriftSettings
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.encoding.ThriftSettings, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this ThriftSettings to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
         /** Properties of a JSONSchemaSettings. */
         interface IJSONSchemaSettings {
 
@@ -27042,6 +27138,9 @@ export namespace protos {
 
             /** DecodeOptions avroSettings */
             avroSettings?: (protos.encoding.IAvroSettings|null);
+
+            /** DecodeOptions thriftSettings */
+            thriftSettings?: (protos.encoding.IThriftSettings|null);
         }
 
         /** Represents a DecodeOptions. */
@@ -27064,6 +27163,9 @@ export namespace protos {
 
             /** DecodeOptions avroSettings. */
             public avroSettings?: (protos.encoding.IAvroSettings|null);
+
+            /** DecodeOptions thriftSettings. */
+            public thriftSettings?: (protos.encoding.IThriftSettings|null);
 
             /**
              * Creates a new DecodeOptions instance using the specified properties.
