@@ -80,7 +80,7 @@ message ThriftSettings {
   repeated string thrift_dirs = 1;
 
   // @gotags: kong:"help='Namespace and struct name to decode the message with. Ex: com.mycompany.Account'"
-  string struct_name = 2;
+  string thrift_struct = 2;
 }
 
 message JSONSchemaSettings {
