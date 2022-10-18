@@ -25385,6 +25385,7 @@ $root.protos = (function() {
              * @property {protos.opts.IGlobalManageOptions|null} [globalOptions] ManageOptions globalOptions
              * @property {protos.opts.IGetOptions|null} [get] ManageOptions get
              * @property {protos.opts.ICreateOptions|null} [create] ManageOptions create
+             * @property {protos.opts.IUpdateOptions|null} [update] ManageOptions update
              * @property {protos.opts.IDeleteOptions|null} ["delete"] ManageOptions delete
              * @property {protos.opts.IStopOptions|null} [stop] ManageOptions stop
              * @property {protos.opts.IResumeOptions|null} [resume] ManageOptions resume
@@ -25428,6 +25429,14 @@ $root.protos = (function() {
              * @instance
              */
             ManageOptions.prototype.create = null;
+
+            /**
+             * ManageOptions update.
+             * @member {protos.opts.IUpdateOptions|null|undefined} update
+             * @memberof protos.opts.ManageOptions
+             * @instance
+             */
+            ManageOptions.prototype.update = null;
 
             /**
              * ManageOptions delete.
@@ -25483,6 +25492,8 @@ $root.protos = (function() {
                     $root.protos.opts.GetOptions.encode(message.get, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
                 if (message.create != null && Object.hasOwnProperty.call(message, "create"))
                     $root.protos.opts.CreateOptions.encode(message.create, writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
+                if (message.update != null && Object.hasOwnProperty.call(message, "update"))
+                    $root.protos.opts.UpdateOptions.encode(message.update, writer.uint32(/* id 4, wireType 2 =*/34).fork()).ldelim();
                 if (message["delete"] != null && Object.hasOwnProperty.call(message, "delete"))
                     $root.protos.opts.DeleteOptions.encode(message["delete"], writer.uint32(/* id 5, wireType 2 =*/42).fork()).ldelim();
                 if (message.stop != null && Object.hasOwnProperty.call(message, "stop"))
@@ -25531,6 +25542,9 @@ $root.protos = (function() {
                         break;
                     case 3:
                         message.create = $root.protos.opts.CreateOptions.decode(reader, reader.uint32());
+                        break;
+                    case 4:
+                        message.update = $root.protos.opts.UpdateOptions.decode(reader, reader.uint32());
                         break;
                     case 5:
                         message["delete"] = $root.protos.opts.DeleteOptions.decode(reader, reader.uint32());
@@ -25591,6 +25605,11 @@ $root.protos = (function() {
                     if (error)
                         return "create." + error;
                 }
+                if (message.update != null && message.hasOwnProperty("update")) {
+                    var error = $root.protos.opts.UpdateOptions.verify(message.update);
+                    if (error)
+                        return "update." + error;
+                }
                 if (message["delete"] != null && message.hasOwnProperty("delete")) {
                     var error = $root.protos.opts.DeleteOptions.verify(message["delete"]);
                     if (error)
@@ -25636,6 +25655,11 @@ $root.protos = (function() {
                         throw TypeError(".protos.opts.ManageOptions.create: object expected");
                     message.create = $root.protos.opts.CreateOptions.fromObject(object.create);
                 }
+                if (object.update != null) {
+                    if (typeof object.update !== "object")
+                        throw TypeError(".protos.opts.ManageOptions.update: object expected");
+                    message.update = $root.protos.opts.UpdateOptions.fromObject(object.update);
+                }
                 if (object["delete"] != null) {
                     if (typeof object["delete"] !== "object")
                         throw TypeError(".protos.opts.ManageOptions.delete: object expected");
@@ -25671,6 +25695,7 @@ $root.protos = (function() {
                     object.globalOptions = null;
                     object.get = null;
                     object.create = null;
+                    object.update = null;
                     object["delete"] = null;
                     object.stop = null;
                     object.resume = null;
@@ -25681,6 +25706,8 @@ $root.protos = (function() {
                     object.get = $root.protos.opts.GetOptions.toObject(message.get, options);
                 if (message.create != null && message.hasOwnProperty("create"))
                     object.create = $root.protos.opts.CreateOptions.toObject(message.create, options);
+                if (message.update != null && message.hasOwnProperty("update"))
+                    object.update = $root.protos.opts.UpdateOptions.toObject(message.update, options);
                 if (message["delete"] != null && message.hasOwnProperty("delete"))
                     object["delete"] = $root.protos.opts.DeleteOptions.toObject(message["delete"], options);
                 if (message.stop != null && message.hasOwnProperty("stop"))
@@ -26574,6 +26601,253 @@ $root.protos = (function() {
             };
 
             return CreateOptions;
+        })();
+
+        opts.UpdateOptions = (function() {
+
+            /**
+             * Properties of an UpdateOptions.
+             * @memberof protos.opts
+             * @interface IUpdateOptions
+             * @property {protos.opts.IUpdateConnectionOptions|null} [connection] UpdateOptions connection
+             * @property {protos.opts.IUpdateRelayOptions|null} [relay] UpdateOptions relay
+             * @property {protos.opts.IUpdateTunnelOptions|null} [tunnel] UpdateOptions tunnel
+             */
+
+            /**
+             * Constructs a new UpdateOptions.
+             * @memberof protos.opts
+             * @classdesc Represents an UpdateOptions.
+             * @implements IUpdateOptions
+             * @constructor
+             * @param {protos.opts.IUpdateOptions=} [properties] Properties to set
+             */
+            function UpdateOptions(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * UpdateOptions connection.
+             * @member {protos.opts.IUpdateConnectionOptions|null|undefined} connection
+             * @memberof protos.opts.UpdateOptions
+             * @instance
+             */
+            UpdateOptions.prototype.connection = null;
+
+            /**
+             * UpdateOptions relay.
+             * @member {protos.opts.IUpdateRelayOptions|null|undefined} relay
+             * @memberof protos.opts.UpdateOptions
+             * @instance
+             */
+            UpdateOptions.prototype.relay = null;
+
+            /**
+             * UpdateOptions tunnel.
+             * @member {protos.opts.IUpdateTunnelOptions|null|undefined} tunnel
+             * @memberof protos.opts.UpdateOptions
+             * @instance
+             */
+            UpdateOptions.prototype.tunnel = null;
+
+            /**
+             * Creates a new UpdateOptions instance using the specified properties.
+             * @function create
+             * @memberof protos.opts.UpdateOptions
+             * @static
+             * @param {protos.opts.IUpdateOptions=} [properties] Properties to set
+             * @returns {protos.opts.UpdateOptions} UpdateOptions instance
+             */
+            UpdateOptions.create = function create(properties) {
+                return new UpdateOptions(properties);
+            };
+
+            /**
+             * Encodes the specified UpdateOptions message. Does not implicitly {@link protos.opts.UpdateOptions.verify|verify} messages.
+             * @function encode
+             * @memberof protos.opts.UpdateOptions
+             * @static
+             * @param {protos.opts.IUpdateOptions} message UpdateOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            UpdateOptions.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.connection != null && Object.hasOwnProperty.call(message, "connection"))
+                    $root.protos.opts.UpdateConnectionOptions.encode(message.connection, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                if (message.relay != null && Object.hasOwnProperty.call(message, "relay"))
+                    $root.protos.opts.UpdateRelayOptions.encode(message.relay, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                if (message.tunnel != null && Object.hasOwnProperty.call(message, "tunnel"))
+                    $root.protos.opts.UpdateTunnelOptions.encode(message.tunnel, writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
+                return writer;
+            };
+
+            /**
+             * Encodes the specified UpdateOptions message, length delimited. Does not implicitly {@link protos.opts.UpdateOptions.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.opts.UpdateOptions
+             * @static
+             * @param {protos.opts.IUpdateOptions} message UpdateOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            UpdateOptions.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes an UpdateOptions message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.opts.UpdateOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.opts.UpdateOptions} UpdateOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            UpdateOptions.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.UpdateOptions();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.connection = $root.protos.opts.UpdateConnectionOptions.decode(reader, reader.uint32());
+                        break;
+                    case 2:
+                        message.relay = $root.protos.opts.UpdateRelayOptions.decode(reader, reader.uint32());
+                        break;
+                    case 3:
+                        message.tunnel = $root.protos.opts.UpdateTunnelOptions.decode(reader, reader.uint32());
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes an UpdateOptions message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.opts.UpdateOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.opts.UpdateOptions} UpdateOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            UpdateOptions.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies an UpdateOptions message.
+             * @function verify
+             * @memberof protos.opts.UpdateOptions
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            UpdateOptions.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.connection != null && message.hasOwnProperty("connection")) {
+                    var error = $root.protos.opts.UpdateConnectionOptions.verify(message.connection);
+                    if (error)
+                        return "connection." + error;
+                }
+                if (message.relay != null && message.hasOwnProperty("relay")) {
+                    var error = $root.protos.opts.UpdateRelayOptions.verify(message.relay);
+                    if (error)
+                        return "relay." + error;
+                }
+                if (message.tunnel != null && message.hasOwnProperty("tunnel")) {
+                    var error = $root.protos.opts.UpdateTunnelOptions.verify(message.tunnel);
+                    if (error)
+                        return "tunnel." + error;
+                }
+                return null;
+            };
+
+            /**
+             * Creates an UpdateOptions message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.opts.UpdateOptions
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.opts.UpdateOptions} UpdateOptions
+             */
+            UpdateOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.UpdateOptions)
+                    return object;
+                var message = new $root.protos.opts.UpdateOptions();
+                if (object.connection != null) {
+                    if (typeof object.connection !== "object")
+                        throw TypeError(".protos.opts.UpdateOptions.connection: object expected");
+                    message.connection = $root.protos.opts.UpdateConnectionOptions.fromObject(object.connection);
+                }
+                if (object.relay != null) {
+                    if (typeof object.relay !== "object")
+                        throw TypeError(".protos.opts.UpdateOptions.relay: object expected");
+                    message.relay = $root.protos.opts.UpdateRelayOptions.fromObject(object.relay);
+                }
+                if (object.tunnel != null) {
+                    if (typeof object.tunnel !== "object")
+                        throw TypeError(".protos.opts.UpdateOptions.tunnel: object expected");
+                    message.tunnel = $root.protos.opts.UpdateTunnelOptions.fromObject(object.tunnel);
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from an UpdateOptions message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.opts.UpdateOptions
+             * @static
+             * @param {protos.opts.UpdateOptions} message UpdateOptions
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            UpdateOptions.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    object.connection = null;
+                    object.relay = null;
+                    object.tunnel = null;
+                }
+                if (message.connection != null && message.hasOwnProperty("connection"))
+                    object.connection = $root.protos.opts.UpdateConnectionOptions.toObject(message.connection, options);
+                if (message.relay != null && message.hasOwnProperty("relay"))
+                    object.relay = $root.protos.opts.UpdateRelayOptions.toObject(message.relay, options);
+                if (message.tunnel != null && message.hasOwnProperty("tunnel"))
+                    object.tunnel = $root.protos.opts.UpdateTunnelOptions.toObject(message.tunnel, options);
+                return object;
+            };
+
+            /**
+             * Converts this UpdateOptions to JSON.
+             * @function toJSON
+             * @memberof protos.opts.UpdateOptions
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            UpdateOptions.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return UpdateOptions;
         })();
 
         opts.DeleteOptions = (function() {
@@ -28227,6 +28501,805 @@ $root.protos = (function() {
             return CreateConnectionOptions;
         })();
 
+        opts.UpdateConnectionOptions = (function() {
+
+            /**
+             * Properties of an UpdateConnectionOptions.
+             * @memberof protos.opts
+             * @interface IUpdateConnectionOptions
+             * @property {string|null} [id] UpdateConnectionOptions id
+             * @property {string|null} [name] UpdateConnectionOptions name
+             * @property {string|null} [notes] UpdateConnectionOptions notes
+             * @property {protos.args.IKafkaConn|null} [kafka] UpdateConnectionOptions kafka
+             * @property {protos.args.IActiveMQConn|null} [activeMq] UpdateConnectionOptions activeMq
+             * @property {protos.args.IAWSSQSConn|null} [awsSqs] UpdateConnectionOptions awsSqs
+             * @property {protos.args.IAWSSNSConn|null} [awsSns] UpdateConnectionOptions awsSns
+             * @property {protos.args.IMongoConn|null} [mongo] UpdateConnectionOptions mongo
+             * @property {protos.args.INatsConn|null} [nats] UpdateConnectionOptions nats
+             * @property {protos.args.INatsStreamingConn|null} [natsStreaming] UpdateConnectionOptions natsStreaming
+             * @property {protos.args.INSQConn|null} [nsq] UpdateConnectionOptions nsq
+             * @property {protos.args.IPostgresConn|null} [postgres] UpdateConnectionOptions postgres
+             * @property {protos.args.IPulsarConn|null} [pulsar] UpdateConnectionOptions pulsar
+             * @property {protos.args.IRabbitConn|null} [rabbit] UpdateConnectionOptions rabbit
+             * @property {protos.args.IRabbitStreamsConn|null} [rabbitStreams] UpdateConnectionOptions rabbitStreams
+             * @property {protos.args.IRedisPubSubConn|null} [redisPubsub] UpdateConnectionOptions redisPubsub
+             * @property {protos.args.IRedisStreamsConn|null} [redisStreams] UpdateConnectionOptions redisStreams
+             * @property {protos.args.IAzureEventHubConn|null} [azureEventHub] UpdateConnectionOptions azureEventHub
+             * @property {protos.args.IAzureServiceBusConn|null} [azureServiceBus] UpdateConnectionOptions azureServiceBus
+             * @property {protos.args.IMQTTConn|null} [mqtt] UpdateConnectionOptions mqtt
+             * @property {protos.args.IKubeMQQueueConn|null} [kubemqQueue] UpdateConnectionOptions kubemqQueue
+             * @property {protos.args.IGCPPubSubConn|null} [gcpPubsub] UpdateConnectionOptions gcpPubsub
+             * @property {protos.args.INatsJetstreamConn|null} [natsJetstream] UpdateConnectionOptions natsJetstream
+             * @property {protos.args.IAWSKinesisConn|null} [awsKinesis] UpdateConnectionOptions awsKinesis
+             */
+
+            /**
+             * Constructs a new UpdateConnectionOptions.
+             * @memberof protos.opts
+             * @classdesc Represents an UpdateConnectionOptions.
+             * @implements IUpdateConnectionOptions
+             * @constructor
+             * @param {protos.opts.IUpdateConnectionOptions=} [properties] Properties to set
+             */
+            function UpdateConnectionOptions(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * UpdateConnectionOptions id.
+             * @member {string} id
+             * @memberof protos.opts.UpdateConnectionOptions
+             * @instance
+             */
+            UpdateConnectionOptions.prototype.id = "";
+
+            /**
+             * UpdateConnectionOptions name.
+             * @member {string} name
+             * @memberof protos.opts.UpdateConnectionOptions
+             * @instance
+             */
+            UpdateConnectionOptions.prototype.name = "";
+
+            /**
+             * UpdateConnectionOptions notes.
+             * @member {string} notes
+             * @memberof protos.opts.UpdateConnectionOptions
+             * @instance
+             */
+            UpdateConnectionOptions.prototype.notes = "";
+
+            /**
+             * UpdateConnectionOptions kafka.
+             * @member {protos.args.IKafkaConn|null|undefined} kafka
+             * @memberof protos.opts.UpdateConnectionOptions
+             * @instance
+             */
+            UpdateConnectionOptions.prototype.kafka = null;
+
+            /**
+             * UpdateConnectionOptions activeMq.
+             * @member {protos.args.IActiveMQConn|null|undefined} activeMq
+             * @memberof protos.opts.UpdateConnectionOptions
+             * @instance
+             */
+            UpdateConnectionOptions.prototype.activeMq = null;
+
+            /**
+             * UpdateConnectionOptions awsSqs.
+             * @member {protos.args.IAWSSQSConn|null|undefined} awsSqs
+             * @memberof protos.opts.UpdateConnectionOptions
+             * @instance
+             */
+            UpdateConnectionOptions.prototype.awsSqs = null;
+
+            /**
+             * UpdateConnectionOptions awsSns.
+             * @member {protos.args.IAWSSNSConn|null|undefined} awsSns
+             * @memberof protos.opts.UpdateConnectionOptions
+             * @instance
+             */
+            UpdateConnectionOptions.prototype.awsSns = null;
+
+            /**
+             * UpdateConnectionOptions mongo.
+             * @member {protos.args.IMongoConn|null|undefined} mongo
+             * @memberof protos.opts.UpdateConnectionOptions
+             * @instance
+             */
+            UpdateConnectionOptions.prototype.mongo = null;
+
+            /**
+             * UpdateConnectionOptions nats.
+             * @member {protos.args.INatsConn|null|undefined} nats
+             * @memberof protos.opts.UpdateConnectionOptions
+             * @instance
+             */
+            UpdateConnectionOptions.prototype.nats = null;
+
+            /**
+             * UpdateConnectionOptions natsStreaming.
+             * @member {protos.args.INatsStreamingConn|null|undefined} natsStreaming
+             * @memberof protos.opts.UpdateConnectionOptions
+             * @instance
+             */
+            UpdateConnectionOptions.prototype.natsStreaming = null;
+
+            /**
+             * UpdateConnectionOptions nsq.
+             * @member {protos.args.INSQConn|null|undefined} nsq
+             * @memberof protos.opts.UpdateConnectionOptions
+             * @instance
+             */
+            UpdateConnectionOptions.prototype.nsq = null;
+
+            /**
+             * UpdateConnectionOptions postgres.
+             * @member {protos.args.IPostgresConn|null|undefined} postgres
+             * @memberof protos.opts.UpdateConnectionOptions
+             * @instance
+             */
+            UpdateConnectionOptions.prototype.postgres = null;
+
+            /**
+             * UpdateConnectionOptions pulsar.
+             * @member {protos.args.IPulsarConn|null|undefined} pulsar
+             * @memberof protos.opts.UpdateConnectionOptions
+             * @instance
+             */
+            UpdateConnectionOptions.prototype.pulsar = null;
+
+            /**
+             * UpdateConnectionOptions rabbit.
+             * @member {protos.args.IRabbitConn|null|undefined} rabbit
+             * @memberof protos.opts.UpdateConnectionOptions
+             * @instance
+             */
+            UpdateConnectionOptions.prototype.rabbit = null;
+
+            /**
+             * UpdateConnectionOptions rabbitStreams.
+             * @member {protos.args.IRabbitStreamsConn|null|undefined} rabbitStreams
+             * @memberof protos.opts.UpdateConnectionOptions
+             * @instance
+             */
+            UpdateConnectionOptions.prototype.rabbitStreams = null;
+
+            /**
+             * UpdateConnectionOptions redisPubsub.
+             * @member {protos.args.IRedisPubSubConn|null|undefined} redisPubsub
+             * @memberof protos.opts.UpdateConnectionOptions
+             * @instance
+             */
+            UpdateConnectionOptions.prototype.redisPubsub = null;
+
+            /**
+             * UpdateConnectionOptions redisStreams.
+             * @member {protos.args.IRedisStreamsConn|null|undefined} redisStreams
+             * @memberof protos.opts.UpdateConnectionOptions
+             * @instance
+             */
+            UpdateConnectionOptions.prototype.redisStreams = null;
+
+            /**
+             * UpdateConnectionOptions azureEventHub.
+             * @member {protos.args.IAzureEventHubConn|null|undefined} azureEventHub
+             * @memberof protos.opts.UpdateConnectionOptions
+             * @instance
+             */
+            UpdateConnectionOptions.prototype.azureEventHub = null;
+
+            /**
+             * UpdateConnectionOptions azureServiceBus.
+             * @member {protos.args.IAzureServiceBusConn|null|undefined} azureServiceBus
+             * @memberof protos.opts.UpdateConnectionOptions
+             * @instance
+             */
+            UpdateConnectionOptions.prototype.azureServiceBus = null;
+
+            /**
+             * UpdateConnectionOptions mqtt.
+             * @member {protos.args.IMQTTConn|null|undefined} mqtt
+             * @memberof protos.opts.UpdateConnectionOptions
+             * @instance
+             */
+            UpdateConnectionOptions.prototype.mqtt = null;
+
+            /**
+             * UpdateConnectionOptions kubemqQueue.
+             * @member {protos.args.IKubeMQQueueConn|null|undefined} kubemqQueue
+             * @memberof protos.opts.UpdateConnectionOptions
+             * @instance
+             */
+            UpdateConnectionOptions.prototype.kubemqQueue = null;
+
+            /**
+             * UpdateConnectionOptions gcpPubsub.
+             * @member {protos.args.IGCPPubSubConn|null|undefined} gcpPubsub
+             * @memberof protos.opts.UpdateConnectionOptions
+             * @instance
+             */
+            UpdateConnectionOptions.prototype.gcpPubsub = null;
+
+            /**
+             * UpdateConnectionOptions natsJetstream.
+             * @member {protos.args.INatsJetstreamConn|null|undefined} natsJetstream
+             * @memberof protos.opts.UpdateConnectionOptions
+             * @instance
+             */
+            UpdateConnectionOptions.prototype.natsJetstream = null;
+
+            /**
+             * UpdateConnectionOptions awsKinesis.
+             * @member {protos.args.IAWSKinesisConn|null|undefined} awsKinesis
+             * @memberof protos.opts.UpdateConnectionOptions
+             * @instance
+             */
+            UpdateConnectionOptions.prototype.awsKinesis = null;
+
+            /**
+             * Creates a new UpdateConnectionOptions instance using the specified properties.
+             * @function create
+             * @memberof protos.opts.UpdateConnectionOptions
+             * @static
+             * @param {protos.opts.IUpdateConnectionOptions=} [properties] Properties to set
+             * @returns {protos.opts.UpdateConnectionOptions} UpdateConnectionOptions instance
+             */
+            UpdateConnectionOptions.create = function create(properties) {
+                return new UpdateConnectionOptions(properties);
+            };
+
+            /**
+             * Encodes the specified UpdateConnectionOptions message. Does not implicitly {@link protos.opts.UpdateConnectionOptions.verify|verify} messages.
+             * @function encode
+             * @memberof protos.opts.UpdateConnectionOptions
+             * @static
+             * @param {protos.opts.IUpdateConnectionOptions} message UpdateConnectionOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            UpdateConnectionOptions.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.id != null && Object.hasOwnProperty.call(message, "id"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.id);
+                if (message.name != null && Object.hasOwnProperty.call(message, "name"))
+                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.name);
+                if (message.notes != null && Object.hasOwnProperty.call(message, "notes"))
+                    writer.uint32(/* id 3, wireType 2 =*/26).string(message.notes);
+                if (message.kafka != null && Object.hasOwnProperty.call(message, "kafka"))
+                    $root.protos.args.KafkaConn.encode(message.kafka, writer.uint32(/* id 100, wireType 2 =*/802).fork()).ldelim();
+                if (message.activeMq != null && Object.hasOwnProperty.call(message, "activeMq"))
+                    $root.protos.args.ActiveMQConn.encode(message.activeMq, writer.uint32(/* id 101, wireType 2 =*/810).fork()).ldelim();
+                if (message.awsSqs != null && Object.hasOwnProperty.call(message, "awsSqs"))
+                    $root.protos.args.AWSSQSConn.encode(message.awsSqs, writer.uint32(/* id 102, wireType 2 =*/818).fork()).ldelim();
+                if (message.awsSns != null && Object.hasOwnProperty.call(message, "awsSns"))
+                    $root.protos.args.AWSSNSConn.encode(message.awsSns, writer.uint32(/* id 103, wireType 2 =*/826).fork()).ldelim();
+                if (message.mongo != null && Object.hasOwnProperty.call(message, "mongo"))
+                    $root.protos.args.MongoConn.encode(message.mongo, writer.uint32(/* id 104, wireType 2 =*/834).fork()).ldelim();
+                if (message.nats != null && Object.hasOwnProperty.call(message, "nats"))
+                    $root.protos.args.NatsConn.encode(message.nats, writer.uint32(/* id 105, wireType 2 =*/842).fork()).ldelim();
+                if (message.natsStreaming != null && Object.hasOwnProperty.call(message, "natsStreaming"))
+                    $root.protos.args.NatsStreamingConn.encode(message.natsStreaming, writer.uint32(/* id 106, wireType 2 =*/850).fork()).ldelim();
+                if (message.nsq != null && Object.hasOwnProperty.call(message, "nsq"))
+                    $root.protos.args.NSQConn.encode(message.nsq, writer.uint32(/* id 107, wireType 2 =*/858).fork()).ldelim();
+                if (message.postgres != null && Object.hasOwnProperty.call(message, "postgres"))
+                    $root.protos.args.PostgresConn.encode(message.postgres, writer.uint32(/* id 108, wireType 2 =*/866).fork()).ldelim();
+                if (message.pulsar != null && Object.hasOwnProperty.call(message, "pulsar"))
+                    $root.protos.args.PulsarConn.encode(message.pulsar, writer.uint32(/* id 109, wireType 2 =*/874).fork()).ldelim();
+                if (message.rabbit != null && Object.hasOwnProperty.call(message, "rabbit"))
+                    $root.protos.args.RabbitConn.encode(message.rabbit, writer.uint32(/* id 110, wireType 2 =*/882).fork()).ldelim();
+                if (message.rabbitStreams != null && Object.hasOwnProperty.call(message, "rabbitStreams"))
+                    $root.protos.args.RabbitStreamsConn.encode(message.rabbitStreams, writer.uint32(/* id 111, wireType 2 =*/890).fork()).ldelim();
+                if (message.redisPubsub != null && Object.hasOwnProperty.call(message, "redisPubsub"))
+                    $root.protos.args.RedisPubSubConn.encode(message.redisPubsub, writer.uint32(/* id 112, wireType 2 =*/898).fork()).ldelim();
+                if (message.redisStreams != null && Object.hasOwnProperty.call(message, "redisStreams"))
+                    $root.protos.args.RedisStreamsConn.encode(message.redisStreams, writer.uint32(/* id 113, wireType 2 =*/906).fork()).ldelim();
+                if (message.azureEventHub != null && Object.hasOwnProperty.call(message, "azureEventHub"))
+                    $root.protos.args.AzureEventHubConn.encode(message.azureEventHub, writer.uint32(/* id 114, wireType 2 =*/914).fork()).ldelim();
+                if (message.azureServiceBus != null && Object.hasOwnProperty.call(message, "azureServiceBus"))
+                    $root.protos.args.AzureServiceBusConn.encode(message.azureServiceBus, writer.uint32(/* id 115, wireType 2 =*/922).fork()).ldelim();
+                if (message.mqtt != null && Object.hasOwnProperty.call(message, "mqtt"))
+                    $root.protos.args.MQTTConn.encode(message.mqtt, writer.uint32(/* id 116, wireType 2 =*/930).fork()).ldelim();
+                if (message.kubemqQueue != null && Object.hasOwnProperty.call(message, "kubemqQueue"))
+                    $root.protos.args.KubeMQQueueConn.encode(message.kubemqQueue, writer.uint32(/* id 117, wireType 2 =*/938).fork()).ldelim();
+                if (message.gcpPubsub != null && Object.hasOwnProperty.call(message, "gcpPubsub"))
+                    $root.protos.args.GCPPubSubConn.encode(message.gcpPubsub, writer.uint32(/* id 118, wireType 2 =*/946).fork()).ldelim();
+                if (message.natsJetstream != null && Object.hasOwnProperty.call(message, "natsJetstream"))
+                    $root.protos.args.NatsJetstreamConn.encode(message.natsJetstream, writer.uint32(/* id 119, wireType 2 =*/954).fork()).ldelim();
+                if (message.awsKinesis != null && Object.hasOwnProperty.call(message, "awsKinesis"))
+                    $root.protos.args.AWSKinesisConn.encode(message.awsKinesis, writer.uint32(/* id 120, wireType 2 =*/962).fork()).ldelim();
+                return writer;
+            };
+
+            /**
+             * Encodes the specified UpdateConnectionOptions message, length delimited. Does not implicitly {@link protos.opts.UpdateConnectionOptions.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.opts.UpdateConnectionOptions
+             * @static
+             * @param {protos.opts.IUpdateConnectionOptions} message UpdateConnectionOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            UpdateConnectionOptions.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes an UpdateConnectionOptions message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.opts.UpdateConnectionOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.opts.UpdateConnectionOptions} UpdateConnectionOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            UpdateConnectionOptions.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.UpdateConnectionOptions();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.id = reader.string();
+                        break;
+                    case 2:
+                        message.name = reader.string();
+                        break;
+                    case 3:
+                        message.notes = reader.string();
+                        break;
+                    case 100:
+                        message.kafka = $root.protos.args.KafkaConn.decode(reader, reader.uint32());
+                        break;
+                    case 101:
+                        message.activeMq = $root.protos.args.ActiveMQConn.decode(reader, reader.uint32());
+                        break;
+                    case 102:
+                        message.awsSqs = $root.protos.args.AWSSQSConn.decode(reader, reader.uint32());
+                        break;
+                    case 103:
+                        message.awsSns = $root.protos.args.AWSSNSConn.decode(reader, reader.uint32());
+                        break;
+                    case 104:
+                        message.mongo = $root.protos.args.MongoConn.decode(reader, reader.uint32());
+                        break;
+                    case 105:
+                        message.nats = $root.protos.args.NatsConn.decode(reader, reader.uint32());
+                        break;
+                    case 106:
+                        message.natsStreaming = $root.protos.args.NatsStreamingConn.decode(reader, reader.uint32());
+                        break;
+                    case 107:
+                        message.nsq = $root.protos.args.NSQConn.decode(reader, reader.uint32());
+                        break;
+                    case 108:
+                        message.postgres = $root.protos.args.PostgresConn.decode(reader, reader.uint32());
+                        break;
+                    case 109:
+                        message.pulsar = $root.protos.args.PulsarConn.decode(reader, reader.uint32());
+                        break;
+                    case 110:
+                        message.rabbit = $root.protos.args.RabbitConn.decode(reader, reader.uint32());
+                        break;
+                    case 111:
+                        message.rabbitStreams = $root.protos.args.RabbitStreamsConn.decode(reader, reader.uint32());
+                        break;
+                    case 112:
+                        message.redisPubsub = $root.protos.args.RedisPubSubConn.decode(reader, reader.uint32());
+                        break;
+                    case 113:
+                        message.redisStreams = $root.protos.args.RedisStreamsConn.decode(reader, reader.uint32());
+                        break;
+                    case 114:
+                        message.azureEventHub = $root.protos.args.AzureEventHubConn.decode(reader, reader.uint32());
+                        break;
+                    case 115:
+                        message.azureServiceBus = $root.protos.args.AzureServiceBusConn.decode(reader, reader.uint32());
+                        break;
+                    case 116:
+                        message.mqtt = $root.protos.args.MQTTConn.decode(reader, reader.uint32());
+                        break;
+                    case 117:
+                        message.kubemqQueue = $root.protos.args.KubeMQQueueConn.decode(reader, reader.uint32());
+                        break;
+                    case 118:
+                        message.gcpPubsub = $root.protos.args.GCPPubSubConn.decode(reader, reader.uint32());
+                        break;
+                    case 119:
+                        message.natsJetstream = $root.protos.args.NatsJetstreamConn.decode(reader, reader.uint32());
+                        break;
+                    case 120:
+                        message.awsKinesis = $root.protos.args.AWSKinesisConn.decode(reader, reader.uint32());
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes an UpdateConnectionOptions message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.opts.UpdateConnectionOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.opts.UpdateConnectionOptions} UpdateConnectionOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            UpdateConnectionOptions.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies an UpdateConnectionOptions message.
+             * @function verify
+             * @memberof protos.opts.UpdateConnectionOptions
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            UpdateConnectionOptions.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.id != null && message.hasOwnProperty("id"))
+                    if (!$util.isString(message.id))
+                        return "id: string expected";
+                if (message.name != null && message.hasOwnProperty("name"))
+                    if (!$util.isString(message.name))
+                        return "name: string expected";
+                if (message.notes != null && message.hasOwnProperty("notes"))
+                    if (!$util.isString(message.notes))
+                        return "notes: string expected";
+                if (message.kafka != null && message.hasOwnProperty("kafka")) {
+                    var error = $root.protos.args.KafkaConn.verify(message.kafka);
+                    if (error)
+                        return "kafka." + error;
+                }
+                if (message.activeMq != null && message.hasOwnProperty("activeMq")) {
+                    var error = $root.protos.args.ActiveMQConn.verify(message.activeMq);
+                    if (error)
+                        return "activeMq." + error;
+                }
+                if (message.awsSqs != null && message.hasOwnProperty("awsSqs")) {
+                    var error = $root.protos.args.AWSSQSConn.verify(message.awsSqs);
+                    if (error)
+                        return "awsSqs." + error;
+                }
+                if (message.awsSns != null && message.hasOwnProperty("awsSns")) {
+                    var error = $root.protos.args.AWSSNSConn.verify(message.awsSns);
+                    if (error)
+                        return "awsSns." + error;
+                }
+                if (message.mongo != null && message.hasOwnProperty("mongo")) {
+                    var error = $root.protos.args.MongoConn.verify(message.mongo);
+                    if (error)
+                        return "mongo." + error;
+                }
+                if (message.nats != null && message.hasOwnProperty("nats")) {
+                    var error = $root.protos.args.NatsConn.verify(message.nats);
+                    if (error)
+                        return "nats." + error;
+                }
+                if (message.natsStreaming != null && message.hasOwnProperty("natsStreaming")) {
+                    var error = $root.protos.args.NatsStreamingConn.verify(message.natsStreaming);
+                    if (error)
+                        return "natsStreaming." + error;
+                }
+                if (message.nsq != null && message.hasOwnProperty("nsq")) {
+                    var error = $root.protos.args.NSQConn.verify(message.nsq);
+                    if (error)
+                        return "nsq." + error;
+                }
+                if (message.postgres != null && message.hasOwnProperty("postgres")) {
+                    var error = $root.protos.args.PostgresConn.verify(message.postgres);
+                    if (error)
+                        return "postgres." + error;
+                }
+                if (message.pulsar != null && message.hasOwnProperty("pulsar")) {
+                    var error = $root.protos.args.PulsarConn.verify(message.pulsar);
+                    if (error)
+                        return "pulsar." + error;
+                }
+                if (message.rabbit != null && message.hasOwnProperty("rabbit")) {
+                    var error = $root.protos.args.RabbitConn.verify(message.rabbit);
+                    if (error)
+                        return "rabbit." + error;
+                }
+                if (message.rabbitStreams != null && message.hasOwnProperty("rabbitStreams")) {
+                    var error = $root.protos.args.RabbitStreamsConn.verify(message.rabbitStreams);
+                    if (error)
+                        return "rabbitStreams." + error;
+                }
+                if (message.redisPubsub != null && message.hasOwnProperty("redisPubsub")) {
+                    var error = $root.protos.args.RedisPubSubConn.verify(message.redisPubsub);
+                    if (error)
+                        return "redisPubsub." + error;
+                }
+                if (message.redisStreams != null && message.hasOwnProperty("redisStreams")) {
+                    var error = $root.protos.args.RedisStreamsConn.verify(message.redisStreams);
+                    if (error)
+                        return "redisStreams." + error;
+                }
+                if (message.azureEventHub != null && message.hasOwnProperty("azureEventHub")) {
+                    var error = $root.protos.args.AzureEventHubConn.verify(message.azureEventHub);
+                    if (error)
+                        return "azureEventHub." + error;
+                }
+                if (message.azureServiceBus != null && message.hasOwnProperty("azureServiceBus")) {
+                    var error = $root.protos.args.AzureServiceBusConn.verify(message.azureServiceBus);
+                    if (error)
+                        return "azureServiceBus." + error;
+                }
+                if (message.mqtt != null && message.hasOwnProperty("mqtt")) {
+                    var error = $root.protos.args.MQTTConn.verify(message.mqtt);
+                    if (error)
+                        return "mqtt." + error;
+                }
+                if (message.kubemqQueue != null && message.hasOwnProperty("kubemqQueue")) {
+                    var error = $root.protos.args.KubeMQQueueConn.verify(message.kubemqQueue);
+                    if (error)
+                        return "kubemqQueue." + error;
+                }
+                if (message.gcpPubsub != null && message.hasOwnProperty("gcpPubsub")) {
+                    var error = $root.protos.args.GCPPubSubConn.verify(message.gcpPubsub);
+                    if (error)
+                        return "gcpPubsub." + error;
+                }
+                if (message.natsJetstream != null && message.hasOwnProperty("natsJetstream")) {
+                    var error = $root.protos.args.NatsJetstreamConn.verify(message.natsJetstream);
+                    if (error)
+                        return "natsJetstream." + error;
+                }
+                if (message.awsKinesis != null && message.hasOwnProperty("awsKinesis")) {
+                    var error = $root.protos.args.AWSKinesisConn.verify(message.awsKinesis);
+                    if (error)
+                        return "awsKinesis." + error;
+                }
+                return null;
+            };
+
+            /**
+             * Creates an UpdateConnectionOptions message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.opts.UpdateConnectionOptions
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.opts.UpdateConnectionOptions} UpdateConnectionOptions
+             */
+            UpdateConnectionOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.UpdateConnectionOptions)
+                    return object;
+                var message = new $root.protos.opts.UpdateConnectionOptions();
+                if (object.id != null)
+                    message.id = String(object.id);
+                if (object.name != null)
+                    message.name = String(object.name);
+                if (object.notes != null)
+                    message.notes = String(object.notes);
+                if (object.kafka != null) {
+                    if (typeof object.kafka !== "object")
+                        throw TypeError(".protos.opts.UpdateConnectionOptions.kafka: object expected");
+                    message.kafka = $root.protos.args.KafkaConn.fromObject(object.kafka);
+                }
+                if (object.activeMq != null) {
+                    if (typeof object.activeMq !== "object")
+                        throw TypeError(".protos.opts.UpdateConnectionOptions.activeMq: object expected");
+                    message.activeMq = $root.protos.args.ActiveMQConn.fromObject(object.activeMq);
+                }
+                if (object.awsSqs != null) {
+                    if (typeof object.awsSqs !== "object")
+                        throw TypeError(".protos.opts.UpdateConnectionOptions.awsSqs: object expected");
+                    message.awsSqs = $root.protos.args.AWSSQSConn.fromObject(object.awsSqs);
+                }
+                if (object.awsSns != null) {
+                    if (typeof object.awsSns !== "object")
+                        throw TypeError(".protos.opts.UpdateConnectionOptions.awsSns: object expected");
+                    message.awsSns = $root.protos.args.AWSSNSConn.fromObject(object.awsSns);
+                }
+                if (object.mongo != null) {
+                    if (typeof object.mongo !== "object")
+                        throw TypeError(".protos.opts.UpdateConnectionOptions.mongo: object expected");
+                    message.mongo = $root.protos.args.MongoConn.fromObject(object.mongo);
+                }
+                if (object.nats != null) {
+                    if (typeof object.nats !== "object")
+                        throw TypeError(".protos.opts.UpdateConnectionOptions.nats: object expected");
+                    message.nats = $root.protos.args.NatsConn.fromObject(object.nats);
+                }
+                if (object.natsStreaming != null) {
+                    if (typeof object.natsStreaming !== "object")
+                        throw TypeError(".protos.opts.UpdateConnectionOptions.natsStreaming: object expected");
+                    message.natsStreaming = $root.protos.args.NatsStreamingConn.fromObject(object.natsStreaming);
+                }
+                if (object.nsq != null) {
+                    if (typeof object.nsq !== "object")
+                        throw TypeError(".protos.opts.UpdateConnectionOptions.nsq: object expected");
+                    message.nsq = $root.protos.args.NSQConn.fromObject(object.nsq);
+                }
+                if (object.postgres != null) {
+                    if (typeof object.postgres !== "object")
+                        throw TypeError(".protos.opts.UpdateConnectionOptions.postgres: object expected");
+                    message.postgres = $root.protos.args.PostgresConn.fromObject(object.postgres);
+                }
+                if (object.pulsar != null) {
+                    if (typeof object.pulsar !== "object")
+                        throw TypeError(".protos.opts.UpdateConnectionOptions.pulsar: object expected");
+                    message.pulsar = $root.protos.args.PulsarConn.fromObject(object.pulsar);
+                }
+                if (object.rabbit != null) {
+                    if (typeof object.rabbit !== "object")
+                        throw TypeError(".protos.opts.UpdateConnectionOptions.rabbit: object expected");
+                    message.rabbit = $root.protos.args.RabbitConn.fromObject(object.rabbit);
+                }
+                if (object.rabbitStreams != null) {
+                    if (typeof object.rabbitStreams !== "object")
+                        throw TypeError(".protos.opts.UpdateConnectionOptions.rabbitStreams: object expected");
+                    message.rabbitStreams = $root.protos.args.RabbitStreamsConn.fromObject(object.rabbitStreams);
+                }
+                if (object.redisPubsub != null) {
+                    if (typeof object.redisPubsub !== "object")
+                        throw TypeError(".protos.opts.UpdateConnectionOptions.redisPubsub: object expected");
+                    message.redisPubsub = $root.protos.args.RedisPubSubConn.fromObject(object.redisPubsub);
+                }
+                if (object.redisStreams != null) {
+                    if (typeof object.redisStreams !== "object")
+                        throw TypeError(".protos.opts.UpdateConnectionOptions.redisStreams: object expected");
+                    message.redisStreams = $root.protos.args.RedisStreamsConn.fromObject(object.redisStreams);
+                }
+                if (object.azureEventHub != null) {
+                    if (typeof object.azureEventHub !== "object")
+                        throw TypeError(".protos.opts.UpdateConnectionOptions.azureEventHub: object expected");
+                    message.azureEventHub = $root.protos.args.AzureEventHubConn.fromObject(object.azureEventHub);
+                }
+                if (object.azureServiceBus != null) {
+                    if (typeof object.azureServiceBus !== "object")
+                        throw TypeError(".protos.opts.UpdateConnectionOptions.azureServiceBus: object expected");
+                    message.azureServiceBus = $root.protos.args.AzureServiceBusConn.fromObject(object.azureServiceBus);
+                }
+                if (object.mqtt != null) {
+                    if (typeof object.mqtt !== "object")
+                        throw TypeError(".protos.opts.UpdateConnectionOptions.mqtt: object expected");
+                    message.mqtt = $root.protos.args.MQTTConn.fromObject(object.mqtt);
+                }
+                if (object.kubemqQueue != null) {
+                    if (typeof object.kubemqQueue !== "object")
+                        throw TypeError(".protos.opts.UpdateConnectionOptions.kubemqQueue: object expected");
+                    message.kubemqQueue = $root.protos.args.KubeMQQueueConn.fromObject(object.kubemqQueue);
+                }
+                if (object.gcpPubsub != null) {
+                    if (typeof object.gcpPubsub !== "object")
+                        throw TypeError(".protos.opts.UpdateConnectionOptions.gcpPubsub: object expected");
+                    message.gcpPubsub = $root.protos.args.GCPPubSubConn.fromObject(object.gcpPubsub);
+                }
+                if (object.natsJetstream != null) {
+                    if (typeof object.natsJetstream !== "object")
+                        throw TypeError(".protos.opts.UpdateConnectionOptions.natsJetstream: object expected");
+                    message.natsJetstream = $root.protos.args.NatsJetstreamConn.fromObject(object.natsJetstream);
+                }
+                if (object.awsKinesis != null) {
+                    if (typeof object.awsKinesis !== "object")
+                        throw TypeError(".protos.opts.UpdateConnectionOptions.awsKinesis: object expected");
+                    message.awsKinesis = $root.protos.args.AWSKinesisConn.fromObject(object.awsKinesis);
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from an UpdateConnectionOptions message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.opts.UpdateConnectionOptions
+             * @static
+             * @param {protos.opts.UpdateConnectionOptions} message UpdateConnectionOptions
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            UpdateConnectionOptions.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    object.id = "";
+                    object.name = "";
+                    object.notes = "";
+                    object.kafka = null;
+                    object.activeMq = null;
+                    object.awsSqs = null;
+                    object.awsSns = null;
+                    object.mongo = null;
+                    object.nats = null;
+                    object.natsStreaming = null;
+                    object.nsq = null;
+                    object.postgres = null;
+                    object.pulsar = null;
+                    object.rabbit = null;
+                    object.rabbitStreams = null;
+                    object.redisPubsub = null;
+                    object.redisStreams = null;
+                    object.azureEventHub = null;
+                    object.azureServiceBus = null;
+                    object.mqtt = null;
+                    object.kubemqQueue = null;
+                    object.gcpPubsub = null;
+                    object.natsJetstream = null;
+                    object.awsKinesis = null;
+                }
+                if (message.id != null && message.hasOwnProperty("id"))
+                    object.id = message.id;
+                if (message.name != null && message.hasOwnProperty("name"))
+                    object.name = message.name;
+                if (message.notes != null && message.hasOwnProperty("notes"))
+                    object.notes = message.notes;
+                if (message.kafka != null && message.hasOwnProperty("kafka"))
+                    object.kafka = $root.protos.args.KafkaConn.toObject(message.kafka, options);
+                if (message.activeMq != null && message.hasOwnProperty("activeMq"))
+                    object.activeMq = $root.protos.args.ActiveMQConn.toObject(message.activeMq, options);
+                if (message.awsSqs != null && message.hasOwnProperty("awsSqs"))
+                    object.awsSqs = $root.protos.args.AWSSQSConn.toObject(message.awsSqs, options);
+                if (message.awsSns != null && message.hasOwnProperty("awsSns"))
+                    object.awsSns = $root.protos.args.AWSSNSConn.toObject(message.awsSns, options);
+                if (message.mongo != null && message.hasOwnProperty("mongo"))
+                    object.mongo = $root.protos.args.MongoConn.toObject(message.mongo, options);
+                if (message.nats != null && message.hasOwnProperty("nats"))
+                    object.nats = $root.protos.args.NatsConn.toObject(message.nats, options);
+                if (message.natsStreaming != null && message.hasOwnProperty("natsStreaming"))
+                    object.natsStreaming = $root.protos.args.NatsStreamingConn.toObject(message.natsStreaming, options);
+                if (message.nsq != null && message.hasOwnProperty("nsq"))
+                    object.nsq = $root.protos.args.NSQConn.toObject(message.nsq, options);
+                if (message.postgres != null && message.hasOwnProperty("postgres"))
+                    object.postgres = $root.protos.args.PostgresConn.toObject(message.postgres, options);
+                if (message.pulsar != null && message.hasOwnProperty("pulsar"))
+                    object.pulsar = $root.protos.args.PulsarConn.toObject(message.pulsar, options);
+                if (message.rabbit != null && message.hasOwnProperty("rabbit"))
+                    object.rabbit = $root.protos.args.RabbitConn.toObject(message.rabbit, options);
+                if (message.rabbitStreams != null && message.hasOwnProperty("rabbitStreams"))
+                    object.rabbitStreams = $root.protos.args.RabbitStreamsConn.toObject(message.rabbitStreams, options);
+                if (message.redisPubsub != null && message.hasOwnProperty("redisPubsub"))
+                    object.redisPubsub = $root.protos.args.RedisPubSubConn.toObject(message.redisPubsub, options);
+                if (message.redisStreams != null && message.hasOwnProperty("redisStreams"))
+                    object.redisStreams = $root.protos.args.RedisStreamsConn.toObject(message.redisStreams, options);
+                if (message.azureEventHub != null && message.hasOwnProperty("azureEventHub"))
+                    object.azureEventHub = $root.protos.args.AzureEventHubConn.toObject(message.azureEventHub, options);
+                if (message.azureServiceBus != null && message.hasOwnProperty("azureServiceBus"))
+                    object.azureServiceBus = $root.protos.args.AzureServiceBusConn.toObject(message.azureServiceBus, options);
+                if (message.mqtt != null && message.hasOwnProperty("mqtt"))
+                    object.mqtt = $root.protos.args.MQTTConn.toObject(message.mqtt, options);
+                if (message.kubemqQueue != null && message.hasOwnProperty("kubemqQueue"))
+                    object.kubemqQueue = $root.protos.args.KubeMQQueueConn.toObject(message.kubemqQueue, options);
+                if (message.gcpPubsub != null && message.hasOwnProperty("gcpPubsub"))
+                    object.gcpPubsub = $root.protos.args.GCPPubSubConn.toObject(message.gcpPubsub, options);
+                if (message.natsJetstream != null && message.hasOwnProperty("natsJetstream"))
+                    object.natsJetstream = $root.protos.args.NatsJetstreamConn.toObject(message.natsJetstream, options);
+                if (message.awsKinesis != null && message.hasOwnProperty("awsKinesis"))
+                    object.awsKinesis = $root.protos.args.AWSKinesisConn.toObject(message.awsKinesis, options);
+                return object;
+            };
+
+            /**
+             * Converts this UpdateConnectionOptions to JSON.
+             * @function toJSON
+             * @memberof protos.opts.UpdateConnectionOptions
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            UpdateConnectionOptions.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return UpdateConnectionOptions;
+        })();
+
         opts.DeleteConnectionOptions = (function() {
 
             /**
@@ -29346,6 +30419,775 @@ $root.protos = (function() {
             };
 
             return CreateRelayOptions;
+        })();
+
+        opts.UpdateRelayOptions = (function() {
+
+            /**
+             * Properties of an UpdateRelayOptions.
+             * @memberof protos.opts
+             * @interface IUpdateRelayOptions
+             * @property {string|null} [id] UpdateRelayOptions id
+             * @property {string|null} [connectionId] UpdateRelayOptions connectionId
+             * @property {string|null} [collectionToken] UpdateRelayOptions collectionToken
+             * @property {number|null} [batchSize] UpdateRelayOptions batchSize
+             * @property {number|null} [batchMaxRetry] UpdateRelayOptions batchMaxRetry
+             * @property {number|null} [numWorkers] UpdateRelayOptions numWorkers
+             * @property {string|null} [batchshGrpcAddress] UpdateRelayOptions batchshGrpcAddress
+             * @property {boolean|null} [batchshGrpcDisableTls] UpdateRelayOptions batchshGrpcDisableTls
+             * @property {number|null} [batchshGrpcTimeoutSeconds] UpdateRelayOptions batchshGrpcTimeoutSeconds
+             * @property {protos.args.IKafkaRelayArgs|null} [kafka] UpdateRelayOptions kafka
+             * @property {protos.args.IAWSSQSRelayArgs|null} [awsSqs] UpdateRelayOptions awsSqs
+             * @property {protos.args.IMongoReadArgs|null} [mongo] UpdateRelayOptions mongo
+             * @property {protos.args.INSQReadArgs|null} [nsq] UpdateRelayOptions nsq
+             * @property {protos.args.IRabbitReadArgs|null} [rabbit] UpdateRelayOptions rabbit
+             * @property {protos.args.IMQTTReadArgs|null} [mqtt] UpdateRelayOptions mqtt
+             * @property {protos.args.IAzureServiceBusReadArgs|null} [azureServiceBus] UpdateRelayOptions azureServiceBus
+             * @property {protos.args.IGCPPubSubReadArgs|null} [gcpPubsub] UpdateRelayOptions gcpPubsub
+             * @property {protos.args.IKubeMQQueueReadArgs|null} [kubemqQueue] UpdateRelayOptions kubemqQueue
+             * @property {protos.args.IRedisPubSubReadArgs|null} [redisPubsub] UpdateRelayOptions redisPubsub
+             * @property {protos.args.IRedisStreamsReadArgs|null} [redisStreams] UpdateRelayOptions redisStreams
+             * @property {protos.args.IPostgresReadArgs|null} [postgres] UpdateRelayOptions postgres
+             * @property {protos.args.INatsReadArgs|null} [nats] UpdateRelayOptions nats
+             * @property {protos.args.INatsStreamingReadArgs|null} [natsStreaming] UpdateRelayOptions natsStreaming
+             * @property {protos.args.INatsJetstreamReadArgs|null} [natsJetstream] UpdateRelayOptions natsJetstream
+             */
+
+            /**
+             * Constructs a new UpdateRelayOptions.
+             * @memberof protos.opts
+             * @classdesc Represents an UpdateRelayOptions.
+             * @implements IUpdateRelayOptions
+             * @constructor
+             * @param {protos.opts.IUpdateRelayOptions=} [properties] Properties to set
+             */
+            function UpdateRelayOptions(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * UpdateRelayOptions id.
+             * @member {string} id
+             * @memberof protos.opts.UpdateRelayOptions
+             * @instance
+             */
+            UpdateRelayOptions.prototype.id = "";
+
+            /**
+             * UpdateRelayOptions connectionId.
+             * @member {string} connectionId
+             * @memberof protos.opts.UpdateRelayOptions
+             * @instance
+             */
+            UpdateRelayOptions.prototype.connectionId = "";
+
+            /**
+             * UpdateRelayOptions collectionToken.
+             * @member {string} collectionToken
+             * @memberof protos.opts.UpdateRelayOptions
+             * @instance
+             */
+            UpdateRelayOptions.prototype.collectionToken = "";
+
+            /**
+             * UpdateRelayOptions batchSize.
+             * @member {number} batchSize
+             * @memberof protos.opts.UpdateRelayOptions
+             * @instance
+             */
+            UpdateRelayOptions.prototype.batchSize = 0;
+
+            /**
+             * UpdateRelayOptions batchMaxRetry.
+             * @member {number} batchMaxRetry
+             * @memberof protos.opts.UpdateRelayOptions
+             * @instance
+             */
+            UpdateRelayOptions.prototype.batchMaxRetry = 0;
+
+            /**
+             * UpdateRelayOptions numWorkers.
+             * @member {number} numWorkers
+             * @memberof protos.opts.UpdateRelayOptions
+             * @instance
+             */
+            UpdateRelayOptions.prototype.numWorkers = 0;
+
+            /**
+             * UpdateRelayOptions batchshGrpcAddress.
+             * @member {string} batchshGrpcAddress
+             * @memberof protos.opts.UpdateRelayOptions
+             * @instance
+             */
+            UpdateRelayOptions.prototype.batchshGrpcAddress = "";
+
+            /**
+             * UpdateRelayOptions batchshGrpcDisableTls.
+             * @member {boolean} batchshGrpcDisableTls
+             * @memberof protos.opts.UpdateRelayOptions
+             * @instance
+             */
+            UpdateRelayOptions.prototype.batchshGrpcDisableTls = false;
+
+            /**
+             * UpdateRelayOptions batchshGrpcTimeoutSeconds.
+             * @member {number} batchshGrpcTimeoutSeconds
+             * @memberof protos.opts.UpdateRelayOptions
+             * @instance
+             */
+            UpdateRelayOptions.prototype.batchshGrpcTimeoutSeconds = 0;
+
+            /**
+             * UpdateRelayOptions kafka.
+             * @member {protos.args.IKafkaRelayArgs|null|undefined} kafka
+             * @memberof protos.opts.UpdateRelayOptions
+             * @instance
+             */
+            UpdateRelayOptions.prototype.kafka = null;
+
+            /**
+             * UpdateRelayOptions awsSqs.
+             * @member {protos.args.IAWSSQSRelayArgs|null|undefined} awsSqs
+             * @memberof protos.opts.UpdateRelayOptions
+             * @instance
+             */
+            UpdateRelayOptions.prototype.awsSqs = null;
+
+            /**
+             * UpdateRelayOptions mongo.
+             * @member {protos.args.IMongoReadArgs|null|undefined} mongo
+             * @memberof protos.opts.UpdateRelayOptions
+             * @instance
+             */
+            UpdateRelayOptions.prototype.mongo = null;
+
+            /**
+             * UpdateRelayOptions nsq.
+             * @member {protos.args.INSQReadArgs|null|undefined} nsq
+             * @memberof protos.opts.UpdateRelayOptions
+             * @instance
+             */
+            UpdateRelayOptions.prototype.nsq = null;
+
+            /**
+             * UpdateRelayOptions rabbit.
+             * @member {protos.args.IRabbitReadArgs|null|undefined} rabbit
+             * @memberof protos.opts.UpdateRelayOptions
+             * @instance
+             */
+            UpdateRelayOptions.prototype.rabbit = null;
+
+            /**
+             * UpdateRelayOptions mqtt.
+             * @member {protos.args.IMQTTReadArgs|null|undefined} mqtt
+             * @memberof protos.opts.UpdateRelayOptions
+             * @instance
+             */
+            UpdateRelayOptions.prototype.mqtt = null;
+
+            /**
+             * UpdateRelayOptions azureServiceBus.
+             * @member {protos.args.IAzureServiceBusReadArgs|null|undefined} azureServiceBus
+             * @memberof protos.opts.UpdateRelayOptions
+             * @instance
+             */
+            UpdateRelayOptions.prototype.azureServiceBus = null;
+
+            /**
+             * UpdateRelayOptions gcpPubsub.
+             * @member {protos.args.IGCPPubSubReadArgs|null|undefined} gcpPubsub
+             * @memberof protos.opts.UpdateRelayOptions
+             * @instance
+             */
+            UpdateRelayOptions.prototype.gcpPubsub = null;
+
+            /**
+             * UpdateRelayOptions kubemqQueue.
+             * @member {protos.args.IKubeMQQueueReadArgs|null|undefined} kubemqQueue
+             * @memberof protos.opts.UpdateRelayOptions
+             * @instance
+             */
+            UpdateRelayOptions.prototype.kubemqQueue = null;
+
+            /**
+             * UpdateRelayOptions redisPubsub.
+             * @member {protos.args.IRedisPubSubReadArgs|null|undefined} redisPubsub
+             * @memberof protos.opts.UpdateRelayOptions
+             * @instance
+             */
+            UpdateRelayOptions.prototype.redisPubsub = null;
+
+            /**
+             * UpdateRelayOptions redisStreams.
+             * @member {protos.args.IRedisStreamsReadArgs|null|undefined} redisStreams
+             * @memberof protos.opts.UpdateRelayOptions
+             * @instance
+             */
+            UpdateRelayOptions.prototype.redisStreams = null;
+
+            /**
+             * UpdateRelayOptions postgres.
+             * @member {protos.args.IPostgresReadArgs|null|undefined} postgres
+             * @memberof protos.opts.UpdateRelayOptions
+             * @instance
+             */
+            UpdateRelayOptions.prototype.postgres = null;
+
+            /**
+             * UpdateRelayOptions nats.
+             * @member {protos.args.INatsReadArgs|null|undefined} nats
+             * @memberof protos.opts.UpdateRelayOptions
+             * @instance
+             */
+            UpdateRelayOptions.prototype.nats = null;
+
+            /**
+             * UpdateRelayOptions natsStreaming.
+             * @member {protos.args.INatsStreamingReadArgs|null|undefined} natsStreaming
+             * @memberof protos.opts.UpdateRelayOptions
+             * @instance
+             */
+            UpdateRelayOptions.prototype.natsStreaming = null;
+
+            /**
+             * UpdateRelayOptions natsJetstream.
+             * @member {protos.args.INatsJetstreamReadArgs|null|undefined} natsJetstream
+             * @memberof protos.opts.UpdateRelayOptions
+             * @instance
+             */
+            UpdateRelayOptions.prototype.natsJetstream = null;
+
+            /**
+             * Creates a new UpdateRelayOptions instance using the specified properties.
+             * @function create
+             * @memberof protos.opts.UpdateRelayOptions
+             * @static
+             * @param {protos.opts.IUpdateRelayOptions=} [properties] Properties to set
+             * @returns {protos.opts.UpdateRelayOptions} UpdateRelayOptions instance
+             */
+            UpdateRelayOptions.create = function create(properties) {
+                return new UpdateRelayOptions(properties);
+            };
+
+            /**
+             * Encodes the specified UpdateRelayOptions message. Does not implicitly {@link protos.opts.UpdateRelayOptions.verify|verify} messages.
+             * @function encode
+             * @memberof protos.opts.UpdateRelayOptions
+             * @static
+             * @param {protos.opts.IUpdateRelayOptions} message UpdateRelayOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            UpdateRelayOptions.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.id != null && Object.hasOwnProperty.call(message, "id"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.id);
+                if (message.connectionId != null && Object.hasOwnProperty.call(message, "connectionId"))
+                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.connectionId);
+                if (message.collectionToken != null && Object.hasOwnProperty.call(message, "collectionToken"))
+                    writer.uint32(/* id 3, wireType 2 =*/26).string(message.collectionToken);
+                if (message.batchSize != null && Object.hasOwnProperty.call(message, "batchSize"))
+                    writer.uint32(/* id 4, wireType 0 =*/32).int32(message.batchSize);
+                if (message.batchMaxRetry != null && Object.hasOwnProperty.call(message, "batchMaxRetry"))
+                    writer.uint32(/* id 5, wireType 0 =*/40).int32(message.batchMaxRetry);
+                if (message.numWorkers != null && Object.hasOwnProperty.call(message, "numWorkers"))
+                    writer.uint32(/* id 6, wireType 0 =*/48).int32(message.numWorkers);
+                if (message.batchshGrpcAddress != null && Object.hasOwnProperty.call(message, "batchshGrpcAddress"))
+                    writer.uint32(/* id 7, wireType 2 =*/58).string(message.batchshGrpcAddress);
+                if (message.batchshGrpcDisableTls != null && Object.hasOwnProperty.call(message, "batchshGrpcDisableTls"))
+                    writer.uint32(/* id 8, wireType 0 =*/64).bool(message.batchshGrpcDisableTls);
+                if (message.batchshGrpcTimeoutSeconds != null && Object.hasOwnProperty.call(message, "batchshGrpcTimeoutSeconds"))
+                    writer.uint32(/* id 9, wireType 0 =*/72).int32(message.batchshGrpcTimeoutSeconds);
+                if (message.kafka != null && Object.hasOwnProperty.call(message, "kafka"))
+                    $root.protos.args.KafkaRelayArgs.encode(message.kafka, writer.uint32(/* id 100, wireType 2 =*/802).fork()).ldelim();
+                if (message.awsSqs != null && Object.hasOwnProperty.call(message, "awsSqs"))
+                    $root.protos.args.AWSSQSRelayArgs.encode(message.awsSqs, writer.uint32(/* id 101, wireType 2 =*/810).fork()).ldelim();
+                if (message.mongo != null && Object.hasOwnProperty.call(message, "mongo"))
+                    $root.protos.args.MongoReadArgs.encode(message.mongo, writer.uint32(/* id 102, wireType 2 =*/818).fork()).ldelim();
+                if (message.nsq != null && Object.hasOwnProperty.call(message, "nsq"))
+                    $root.protos.args.NSQReadArgs.encode(message.nsq, writer.uint32(/* id 103, wireType 2 =*/826).fork()).ldelim();
+                if (message.rabbit != null && Object.hasOwnProperty.call(message, "rabbit"))
+                    $root.protos.args.RabbitReadArgs.encode(message.rabbit, writer.uint32(/* id 104, wireType 2 =*/834).fork()).ldelim();
+                if (message.mqtt != null && Object.hasOwnProperty.call(message, "mqtt"))
+                    $root.protos.args.MQTTReadArgs.encode(message.mqtt, writer.uint32(/* id 105, wireType 2 =*/842).fork()).ldelim();
+                if (message.azureServiceBus != null && Object.hasOwnProperty.call(message, "azureServiceBus"))
+                    $root.protos.args.AzureServiceBusReadArgs.encode(message.azureServiceBus, writer.uint32(/* id 106, wireType 2 =*/850).fork()).ldelim();
+                if (message.gcpPubsub != null && Object.hasOwnProperty.call(message, "gcpPubsub"))
+                    $root.protos.args.GCPPubSubReadArgs.encode(message.gcpPubsub, writer.uint32(/* id 107, wireType 2 =*/858).fork()).ldelim();
+                if (message.kubemqQueue != null && Object.hasOwnProperty.call(message, "kubemqQueue"))
+                    $root.protos.args.KubeMQQueueReadArgs.encode(message.kubemqQueue, writer.uint32(/* id 108, wireType 2 =*/866).fork()).ldelim();
+                if (message.redisPubsub != null && Object.hasOwnProperty.call(message, "redisPubsub"))
+                    $root.protos.args.RedisPubSubReadArgs.encode(message.redisPubsub, writer.uint32(/* id 109, wireType 2 =*/874).fork()).ldelim();
+                if (message.redisStreams != null && Object.hasOwnProperty.call(message, "redisStreams"))
+                    $root.protos.args.RedisStreamsReadArgs.encode(message.redisStreams, writer.uint32(/* id 111, wireType 2 =*/890).fork()).ldelim();
+                if (message.postgres != null && Object.hasOwnProperty.call(message, "postgres"))
+                    $root.protos.args.PostgresReadArgs.encode(message.postgres, writer.uint32(/* id 112, wireType 2 =*/898).fork()).ldelim();
+                if (message.nats != null && Object.hasOwnProperty.call(message, "nats"))
+                    $root.protos.args.NatsReadArgs.encode(message.nats, writer.uint32(/* id 113, wireType 2 =*/906).fork()).ldelim();
+                if (message.natsStreaming != null && Object.hasOwnProperty.call(message, "natsStreaming"))
+                    $root.protos.args.NatsStreamingReadArgs.encode(message.natsStreaming, writer.uint32(/* id 114, wireType 2 =*/914).fork()).ldelim();
+                if (message.natsJetstream != null && Object.hasOwnProperty.call(message, "natsJetstream"))
+                    $root.protos.args.NatsJetstreamReadArgs.encode(message.natsJetstream, writer.uint32(/* id 115, wireType 2 =*/922).fork()).ldelim();
+                return writer;
+            };
+
+            /**
+             * Encodes the specified UpdateRelayOptions message, length delimited. Does not implicitly {@link protos.opts.UpdateRelayOptions.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.opts.UpdateRelayOptions
+             * @static
+             * @param {protos.opts.IUpdateRelayOptions} message UpdateRelayOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            UpdateRelayOptions.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes an UpdateRelayOptions message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.opts.UpdateRelayOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.opts.UpdateRelayOptions} UpdateRelayOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            UpdateRelayOptions.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.UpdateRelayOptions();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.id = reader.string();
+                        break;
+                    case 2:
+                        message.connectionId = reader.string();
+                        break;
+                    case 3:
+                        message.collectionToken = reader.string();
+                        break;
+                    case 4:
+                        message.batchSize = reader.int32();
+                        break;
+                    case 5:
+                        message.batchMaxRetry = reader.int32();
+                        break;
+                    case 6:
+                        message.numWorkers = reader.int32();
+                        break;
+                    case 7:
+                        message.batchshGrpcAddress = reader.string();
+                        break;
+                    case 8:
+                        message.batchshGrpcDisableTls = reader.bool();
+                        break;
+                    case 9:
+                        message.batchshGrpcTimeoutSeconds = reader.int32();
+                        break;
+                    case 100:
+                        message.kafka = $root.protos.args.KafkaRelayArgs.decode(reader, reader.uint32());
+                        break;
+                    case 101:
+                        message.awsSqs = $root.protos.args.AWSSQSRelayArgs.decode(reader, reader.uint32());
+                        break;
+                    case 102:
+                        message.mongo = $root.protos.args.MongoReadArgs.decode(reader, reader.uint32());
+                        break;
+                    case 103:
+                        message.nsq = $root.protos.args.NSQReadArgs.decode(reader, reader.uint32());
+                        break;
+                    case 104:
+                        message.rabbit = $root.protos.args.RabbitReadArgs.decode(reader, reader.uint32());
+                        break;
+                    case 105:
+                        message.mqtt = $root.protos.args.MQTTReadArgs.decode(reader, reader.uint32());
+                        break;
+                    case 106:
+                        message.azureServiceBus = $root.protos.args.AzureServiceBusReadArgs.decode(reader, reader.uint32());
+                        break;
+                    case 107:
+                        message.gcpPubsub = $root.protos.args.GCPPubSubReadArgs.decode(reader, reader.uint32());
+                        break;
+                    case 108:
+                        message.kubemqQueue = $root.protos.args.KubeMQQueueReadArgs.decode(reader, reader.uint32());
+                        break;
+                    case 109:
+                        message.redisPubsub = $root.protos.args.RedisPubSubReadArgs.decode(reader, reader.uint32());
+                        break;
+                    case 111:
+                        message.redisStreams = $root.protos.args.RedisStreamsReadArgs.decode(reader, reader.uint32());
+                        break;
+                    case 112:
+                        message.postgres = $root.protos.args.PostgresReadArgs.decode(reader, reader.uint32());
+                        break;
+                    case 113:
+                        message.nats = $root.protos.args.NatsReadArgs.decode(reader, reader.uint32());
+                        break;
+                    case 114:
+                        message.natsStreaming = $root.protos.args.NatsStreamingReadArgs.decode(reader, reader.uint32());
+                        break;
+                    case 115:
+                        message.natsJetstream = $root.protos.args.NatsJetstreamReadArgs.decode(reader, reader.uint32());
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes an UpdateRelayOptions message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.opts.UpdateRelayOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.opts.UpdateRelayOptions} UpdateRelayOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            UpdateRelayOptions.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies an UpdateRelayOptions message.
+             * @function verify
+             * @memberof protos.opts.UpdateRelayOptions
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            UpdateRelayOptions.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.id != null && message.hasOwnProperty("id"))
+                    if (!$util.isString(message.id))
+                        return "id: string expected";
+                if (message.connectionId != null && message.hasOwnProperty("connectionId"))
+                    if (!$util.isString(message.connectionId))
+                        return "connectionId: string expected";
+                if (message.collectionToken != null && message.hasOwnProperty("collectionToken"))
+                    if (!$util.isString(message.collectionToken))
+                        return "collectionToken: string expected";
+                if (message.batchSize != null && message.hasOwnProperty("batchSize"))
+                    if (!$util.isInteger(message.batchSize))
+                        return "batchSize: integer expected";
+                if (message.batchMaxRetry != null && message.hasOwnProperty("batchMaxRetry"))
+                    if (!$util.isInteger(message.batchMaxRetry))
+                        return "batchMaxRetry: integer expected";
+                if (message.numWorkers != null && message.hasOwnProperty("numWorkers"))
+                    if (!$util.isInteger(message.numWorkers))
+                        return "numWorkers: integer expected";
+                if (message.batchshGrpcAddress != null && message.hasOwnProperty("batchshGrpcAddress"))
+                    if (!$util.isString(message.batchshGrpcAddress))
+                        return "batchshGrpcAddress: string expected";
+                if (message.batchshGrpcDisableTls != null && message.hasOwnProperty("batchshGrpcDisableTls"))
+                    if (typeof message.batchshGrpcDisableTls !== "boolean")
+                        return "batchshGrpcDisableTls: boolean expected";
+                if (message.batchshGrpcTimeoutSeconds != null && message.hasOwnProperty("batchshGrpcTimeoutSeconds"))
+                    if (!$util.isInteger(message.batchshGrpcTimeoutSeconds))
+                        return "batchshGrpcTimeoutSeconds: integer expected";
+                if (message.kafka != null && message.hasOwnProperty("kafka")) {
+                    var error = $root.protos.args.KafkaRelayArgs.verify(message.kafka);
+                    if (error)
+                        return "kafka." + error;
+                }
+                if (message.awsSqs != null && message.hasOwnProperty("awsSqs")) {
+                    var error = $root.protos.args.AWSSQSRelayArgs.verify(message.awsSqs);
+                    if (error)
+                        return "awsSqs." + error;
+                }
+                if (message.mongo != null && message.hasOwnProperty("mongo")) {
+                    var error = $root.protos.args.MongoReadArgs.verify(message.mongo);
+                    if (error)
+                        return "mongo." + error;
+                }
+                if (message.nsq != null && message.hasOwnProperty("nsq")) {
+                    var error = $root.protos.args.NSQReadArgs.verify(message.nsq);
+                    if (error)
+                        return "nsq." + error;
+                }
+                if (message.rabbit != null && message.hasOwnProperty("rabbit")) {
+                    var error = $root.protos.args.RabbitReadArgs.verify(message.rabbit);
+                    if (error)
+                        return "rabbit." + error;
+                }
+                if (message.mqtt != null && message.hasOwnProperty("mqtt")) {
+                    var error = $root.protos.args.MQTTReadArgs.verify(message.mqtt);
+                    if (error)
+                        return "mqtt." + error;
+                }
+                if (message.azureServiceBus != null && message.hasOwnProperty("azureServiceBus")) {
+                    var error = $root.protos.args.AzureServiceBusReadArgs.verify(message.azureServiceBus);
+                    if (error)
+                        return "azureServiceBus." + error;
+                }
+                if (message.gcpPubsub != null && message.hasOwnProperty("gcpPubsub")) {
+                    var error = $root.protos.args.GCPPubSubReadArgs.verify(message.gcpPubsub);
+                    if (error)
+                        return "gcpPubsub." + error;
+                }
+                if (message.kubemqQueue != null && message.hasOwnProperty("kubemqQueue")) {
+                    var error = $root.protos.args.KubeMQQueueReadArgs.verify(message.kubemqQueue);
+                    if (error)
+                        return "kubemqQueue." + error;
+                }
+                if (message.redisPubsub != null && message.hasOwnProperty("redisPubsub")) {
+                    var error = $root.protos.args.RedisPubSubReadArgs.verify(message.redisPubsub);
+                    if (error)
+                        return "redisPubsub." + error;
+                }
+                if (message.redisStreams != null && message.hasOwnProperty("redisStreams")) {
+                    var error = $root.protos.args.RedisStreamsReadArgs.verify(message.redisStreams);
+                    if (error)
+                        return "redisStreams." + error;
+                }
+                if (message.postgres != null && message.hasOwnProperty("postgres")) {
+                    var error = $root.protos.args.PostgresReadArgs.verify(message.postgres);
+                    if (error)
+                        return "postgres." + error;
+                }
+                if (message.nats != null && message.hasOwnProperty("nats")) {
+                    var error = $root.protos.args.NatsReadArgs.verify(message.nats);
+                    if (error)
+                        return "nats." + error;
+                }
+                if (message.natsStreaming != null && message.hasOwnProperty("natsStreaming")) {
+                    var error = $root.protos.args.NatsStreamingReadArgs.verify(message.natsStreaming);
+                    if (error)
+                        return "natsStreaming." + error;
+                }
+                if (message.natsJetstream != null && message.hasOwnProperty("natsJetstream")) {
+                    var error = $root.protos.args.NatsJetstreamReadArgs.verify(message.natsJetstream);
+                    if (error)
+                        return "natsJetstream." + error;
+                }
+                return null;
+            };
+
+            /**
+             * Creates an UpdateRelayOptions message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.opts.UpdateRelayOptions
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.opts.UpdateRelayOptions} UpdateRelayOptions
+             */
+            UpdateRelayOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.UpdateRelayOptions)
+                    return object;
+                var message = new $root.protos.opts.UpdateRelayOptions();
+                if (object.id != null)
+                    message.id = String(object.id);
+                if (object.connectionId != null)
+                    message.connectionId = String(object.connectionId);
+                if (object.collectionToken != null)
+                    message.collectionToken = String(object.collectionToken);
+                if (object.batchSize != null)
+                    message.batchSize = object.batchSize | 0;
+                if (object.batchMaxRetry != null)
+                    message.batchMaxRetry = object.batchMaxRetry | 0;
+                if (object.numWorkers != null)
+                    message.numWorkers = object.numWorkers | 0;
+                if (object.batchshGrpcAddress != null)
+                    message.batchshGrpcAddress = String(object.batchshGrpcAddress);
+                if (object.batchshGrpcDisableTls != null)
+                    message.batchshGrpcDisableTls = Boolean(object.batchshGrpcDisableTls);
+                if (object.batchshGrpcTimeoutSeconds != null)
+                    message.batchshGrpcTimeoutSeconds = object.batchshGrpcTimeoutSeconds | 0;
+                if (object.kafka != null) {
+                    if (typeof object.kafka !== "object")
+                        throw TypeError(".protos.opts.UpdateRelayOptions.kafka: object expected");
+                    message.kafka = $root.protos.args.KafkaRelayArgs.fromObject(object.kafka);
+                }
+                if (object.awsSqs != null) {
+                    if (typeof object.awsSqs !== "object")
+                        throw TypeError(".protos.opts.UpdateRelayOptions.awsSqs: object expected");
+                    message.awsSqs = $root.protos.args.AWSSQSRelayArgs.fromObject(object.awsSqs);
+                }
+                if (object.mongo != null) {
+                    if (typeof object.mongo !== "object")
+                        throw TypeError(".protos.opts.UpdateRelayOptions.mongo: object expected");
+                    message.mongo = $root.protos.args.MongoReadArgs.fromObject(object.mongo);
+                }
+                if (object.nsq != null) {
+                    if (typeof object.nsq !== "object")
+                        throw TypeError(".protos.opts.UpdateRelayOptions.nsq: object expected");
+                    message.nsq = $root.protos.args.NSQReadArgs.fromObject(object.nsq);
+                }
+                if (object.rabbit != null) {
+                    if (typeof object.rabbit !== "object")
+                        throw TypeError(".protos.opts.UpdateRelayOptions.rabbit: object expected");
+                    message.rabbit = $root.protos.args.RabbitReadArgs.fromObject(object.rabbit);
+                }
+                if (object.mqtt != null) {
+                    if (typeof object.mqtt !== "object")
+                        throw TypeError(".protos.opts.UpdateRelayOptions.mqtt: object expected");
+                    message.mqtt = $root.protos.args.MQTTReadArgs.fromObject(object.mqtt);
+                }
+                if (object.azureServiceBus != null) {
+                    if (typeof object.azureServiceBus !== "object")
+                        throw TypeError(".protos.opts.UpdateRelayOptions.azureServiceBus: object expected");
+                    message.azureServiceBus = $root.protos.args.AzureServiceBusReadArgs.fromObject(object.azureServiceBus);
+                }
+                if (object.gcpPubsub != null) {
+                    if (typeof object.gcpPubsub !== "object")
+                        throw TypeError(".protos.opts.UpdateRelayOptions.gcpPubsub: object expected");
+                    message.gcpPubsub = $root.protos.args.GCPPubSubReadArgs.fromObject(object.gcpPubsub);
+                }
+                if (object.kubemqQueue != null) {
+                    if (typeof object.kubemqQueue !== "object")
+                        throw TypeError(".protos.opts.UpdateRelayOptions.kubemqQueue: object expected");
+                    message.kubemqQueue = $root.protos.args.KubeMQQueueReadArgs.fromObject(object.kubemqQueue);
+                }
+                if (object.redisPubsub != null) {
+                    if (typeof object.redisPubsub !== "object")
+                        throw TypeError(".protos.opts.UpdateRelayOptions.redisPubsub: object expected");
+                    message.redisPubsub = $root.protos.args.RedisPubSubReadArgs.fromObject(object.redisPubsub);
+                }
+                if (object.redisStreams != null) {
+                    if (typeof object.redisStreams !== "object")
+                        throw TypeError(".protos.opts.UpdateRelayOptions.redisStreams: object expected");
+                    message.redisStreams = $root.protos.args.RedisStreamsReadArgs.fromObject(object.redisStreams);
+                }
+                if (object.postgres != null) {
+                    if (typeof object.postgres !== "object")
+                        throw TypeError(".protos.opts.UpdateRelayOptions.postgres: object expected");
+                    message.postgres = $root.protos.args.PostgresReadArgs.fromObject(object.postgres);
+                }
+                if (object.nats != null) {
+                    if (typeof object.nats !== "object")
+                        throw TypeError(".protos.opts.UpdateRelayOptions.nats: object expected");
+                    message.nats = $root.protos.args.NatsReadArgs.fromObject(object.nats);
+                }
+                if (object.natsStreaming != null) {
+                    if (typeof object.natsStreaming !== "object")
+                        throw TypeError(".protos.opts.UpdateRelayOptions.natsStreaming: object expected");
+                    message.natsStreaming = $root.protos.args.NatsStreamingReadArgs.fromObject(object.natsStreaming);
+                }
+                if (object.natsJetstream != null) {
+                    if (typeof object.natsJetstream !== "object")
+                        throw TypeError(".protos.opts.UpdateRelayOptions.natsJetstream: object expected");
+                    message.natsJetstream = $root.protos.args.NatsJetstreamReadArgs.fromObject(object.natsJetstream);
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from an UpdateRelayOptions message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.opts.UpdateRelayOptions
+             * @static
+             * @param {protos.opts.UpdateRelayOptions} message UpdateRelayOptions
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            UpdateRelayOptions.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    object.id = "";
+                    object.connectionId = "";
+                    object.collectionToken = "";
+                    object.batchSize = 0;
+                    object.batchMaxRetry = 0;
+                    object.numWorkers = 0;
+                    object.batchshGrpcAddress = "";
+                    object.batchshGrpcDisableTls = false;
+                    object.batchshGrpcTimeoutSeconds = 0;
+                    object.kafka = null;
+                    object.awsSqs = null;
+                    object.mongo = null;
+                    object.nsq = null;
+                    object.rabbit = null;
+                    object.mqtt = null;
+                    object.azureServiceBus = null;
+                    object.gcpPubsub = null;
+                    object.kubemqQueue = null;
+                    object.redisPubsub = null;
+                    object.redisStreams = null;
+                    object.postgres = null;
+                    object.nats = null;
+                    object.natsStreaming = null;
+                    object.natsJetstream = null;
+                }
+                if (message.id != null && message.hasOwnProperty("id"))
+                    object.id = message.id;
+                if (message.connectionId != null && message.hasOwnProperty("connectionId"))
+                    object.connectionId = message.connectionId;
+                if (message.collectionToken != null && message.hasOwnProperty("collectionToken"))
+                    object.collectionToken = message.collectionToken;
+                if (message.batchSize != null && message.hasOwnProperty("batchSize"))
+                    object.batchSize = message.batchSize;
+                if (message.batchMaxRetry != null && message.hasOwnProperty("batchMaxRetry"))
+                    object.batchMaxRetry = message.batchMaxRetry;
+                if (message.numWorkers != null && message.hasOwnProperty("numWorkers"))
+                    object.numWorkers = message.numWorkers;
+                if (message.batchshGrpcAddress != null && message.hasOwnProperty("batchshGrpcAddress"))
+                    object.batchshGrpcAddress = message.batchshGrpcAddress;
+                if (message.batchshGrpcDisableTls != null && message.hasOwnProperty("batchshGrpcDisableTls"))
+                    object.batchshGrpcDisableTls = message.batchshGrpcDisableTls;
+                if (message.batchshGrpcTimeoutSeconds != null && message.hasOwnProperty("batchshGrpcTimeoutSeconds"))
+                    object.batchshGrpcTimeoutSeconds = message.batchshGrpcTimeoutSeconds;
+                if (message.kafka != null && message.hasOwnProperty("kafka"))
+                    object.kafka = $root.protos.args.KafkaRelayArgs.toObject(message.kafka, options);
+                if (message.awsSqs != null && message.hasOwnProperty("awsSqs"))
+                    object.awsSqs = $root.protos.args.AWSSQSRelayArgs.toObject(message.awsSqs, options);
+                if (message.mongo != null && message.hasOwnProperty("mongo"))
+                    object.mongo = $root.protos.args.MongoReadArgs.toObject(message.mongo, options);
+                if (message.nsq != null && message.hasOwnProperty("nsq"))
+                    object.nsq = $root.protos.args.NSQReadArgs.toObject(message.nsq, options);
+                if (message.rabbit != null && message.hasOwnProperty("rabbit"))
+                    object.rabbit = $root.protos.args.RabbitReadArgs.toObject(message.rabbit, options);
+                if (message.mqtt != null && message.hasOwnProperty("mqtt"))
+                    object.mqtt = $root.protos.args.MQTTReadArgs.toObject(message.mqtt, options);
+                if (message.azureServiceBus != null && message.hasOwnProperty("azureServiceBus"))
+                    object.azureServiceBus = $root.protos.args.AzureServiceBusReadArgs.toObject(message.azureServiceBus, options);
+                if (message.gcpPubsub != null && message.hasOwnProperty("gcpPubsub"))
+                    object.gcpPubsub = $root.protos.args.GCPPubSubReadArgs.toObject(message.gcpPubsub, options);
+                if (message.kubemqQueue != null && message.hasOwnProperty("kubemqQueue"))
+                    object.kubemqQueue = $root.protos.args.KubeMQQueueReadArgs.toObject(message.kubemqQueue, options);
+                if (message.redisPubsub != null && message.hasOwnProperty("redisPubsub"))
+                    object.redisPubsub = $root.protos.args.RedisPubSubReadArgs.toObject(message.redisPubsub, options);
+                if (message.redisStreams != null && message.hasOwnProperty("redisStreams"))
+                    object.redisStreams = $root.protos.args.RedisStreamsReadArgs.toObject(message.redisStreams, options);
+                if (message.postgres != null && message.hasOwnProperty("postgres"))
+                    object.postgres = $root.protos.args.PostgresReadArgs.toObject(message.postgres, options);
+                if (message.nats != null && message.hasOwnProperty("nats"))
+                    object.nats = $root.protos.args.NatsReadArgs.toObject(message.nats, options);
+                if (message.natsStreaming != null && message.hasOwnProperty("natsStreaming"))
+                    object.natsStreaming = $root.protos.args.NatsStreamingReadArgs.toObject(message.natsStreaming, options);
+                if (message.natsJetstream != null && message.hasOwnProperty("natsJetstream"))
+                    object.natsJetstream = $root.protos.args.NatsJetstreamReadArgs.toObject(message.natsJetstream, options);
+                return object;
+            };
+
+            /**
+             * Converts this UpdateRelayOptions to JSON.
+             * @function toJSON
+             * @memberof protos.opts.UpdateRelayOptions
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            UpdateRelayOptions.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return UpdateRelayOptions;
         })();
 
         opts.DeleteRelayOptions = (function() {
@@ -30927,6 +32769,861 @@ $root.protos = (function() {
             };
 
             return CreateTunnelOptions;
+        })();
+
+        opts.UpdateTunnelOptions = (function() {
+
+            /**
+             * Properties of an UpdateTunnelOptions.
+             * @memberof protos.opts
+             * @interface IUpdateTunnelOptions
+             * @property {string|null} [id] UpdateTunnelOptions id
+             * @property {string|null} [connectionId] UpdateTunnelOptions connectionId
+             * @property {string|null} [tunnelToken] UpdateTunnelOptions tunnelToken
+             * @property {string|null} [name] UpdateTunnelOptions name
+             * @property {string|null} [notes] UpdateTunnelOptions notes
+             * @property {string|null} [_tunnelAddress] UpdateTunnelOptions _tunnelAddress
+             * @property {number|null} [_tunnelTimeoutSeconds] UpdateTunnelOptions _tunnelTimeoutSeconds
+             * @property {boolean|null} [_tunnelInsecure] UpdateTunnelOptions _tunnelInsecure
+             * @property {protos.args.IKafkaWriteArgs|null} [kafka] UpdateTunnelOptions kafka
+             * @property {protos.args.IActiveMQWriteArgs|null} [activemq] UpdateTunnelOptions activemq
+             * @property {protos.args.IAWSSQSWriteArgs|null} [awsSqs] UpdateTunnelOptions awsSqs
+             * @property {protos.args.IAWSSNSWriteArgs|null} [awsSns] UpdateTunnelOptions awsSns
+             * @property {protos.args.INatsWriteArgs|null} [nats] UpdateTunnelOptions nats
+             * @property {protos.args.INatsStreamingWriteArgs|null} [natsStreaming] UpdateTunnelOptions natsStreaming
+             * @property {protos.args.INSQWriteArgs|null} [nsq] UpdateTunnelOptions nsq
+             * @property {protos.args.IRabbitWriteArgs|null} [rabbit] UpdateTunnelOptions rabbit
+             * @property {protos.args.IMQTTWriteArgs|null} [mqtt] UpdateTunnelOptions mqtt
+             * @property {protos.args.IAzureServiceBusWriteArgs|null} [azureServiceBus] UpdateTunnelOptions azureServiceBus
+             * @property {protos.args.IAzureEventHubWriteArgs|null} [azureEventHub] UpdateTunnelOptions azureEventHub
+             * @property {protos.args.IGCPPubSubWriteArgs|null} [gcpPubsub] UpdateTunnelOptions gcpPubsub
+             * @property {protos.args.IKubeMQQueueWriteArgs|null} [kubemqQueue] UpdateTunnelOptions kubemqQueue
+             * @property {protos.args.IRedisPubSubWriteArgs|null} [redisPubsub] UpdateTunnelOptions redisPubsub
+             * @property {protos.args.IRedisStreamsWriteArgs|null} [redisStreams] UpdateTunnelOptions redisStreams
+             * @property {protos.args.IPulsarWriteArgs|null} [pulsar] UpdateTunnelOptions pulsar
+             * @property {protos.args.IRabbitStreamsWriteArgs|null} [rabbitStreams] UpdateTunnelOptions rabbitStreams
+             * @property {protos.args.INatsJetstreamWriteArgs|null} [natsJetstream] UpdateTunnelOptions natsJetstream
+             * @property {protos.args.IAWSKinesisWriteArgs|null} [awsKinesis] UpdateTunnelOptions awsKinesis
+             */
+
+            /**
+             * Constructs a new UpdateTunnelOptions.
+             * @memberof protos.opts
+             * @classdesc Represents an UpdateTunnelOptions.
+             * @implements IUpdateTunnelOptions
+             * @constructor
+             * @param {protos.opts.IUpdateTunnelOptions=} [properties] Properties to set
+             */
+            function UpdateTunnelOptions(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * UpdateTunnelOptions id.
+             * @member {string} id
+             * @memberof protos.opts.UpdateTunnelOptions
+             * @instance
+             */
+            UpdateTunnelOptions.prototype.id = "";
+
+            /**
+             * UpdateTunnelOptions connectionId.
+             * @member {string} connectionId
+             * @memberof protos.opts.UpdateTunnelOptions
+             * @instance
+             */
+            UpdateTunnelOptions.prototype.connectionId = "";
+
+            /**
+             * UpdateTunnelOptions tunnelToken.
+             * @member {string} tunnelToken
+             * @memberof protos.opts.UpdateTunnelOptions
+             * @instance
+             */
+            UpdateTunnelOptions.prototype.tunnelToken = "";
+
+            /**
+             * UpdateTunnelOptions name.
+             * @member {string} name
+             * @memberof protos.opts.UpdateTunnelOptions
+             * @instance
+             */
+            UpdateTunnelOptions.prototype.name = "";
+
+            /**
+             * UpdateTunnelOptions notes.
+             * @member {string} notes
+             * @memberof protos.opts.UpdateTunnelOptions
+             * @instance
+             */
+            UpdateTunnelOptions.prototype.notes = "";
+
+            /**
+             * UpdateTunnelOptions _tunnelAddress.
+             * @member {string} _tunnelAddress
+             * @memberof protos.opts.UpdateTunnelOptions
+             * @instance
+             */
+            UpdateTunnelOptions.prototype._tunnelAddress = "";
+
+            /**
+             * UpdateTunnelOptions _tunnelTimeoutSeconds.
+             * @member {number} _tunnelTimeoutSeconds
+             * @memberof protos.opts.UpdateTunnelOptions
+             * @instance
+             */
+            UpdateTunnelOptions.prototype._tunnelTimeoutSeconds = 0;
+
+            /**
+             * UpdateTunnelOptions _tunnelInsecure.
+             * @member {boolean} _tunnelInsecure
+             * @memberof protos.opts.UpdateTunnelOptions
+             * @instance
+             */
+            UpdateTunnelOptions.prototype._tunnelInsecure = false;
+
+            /**
+             * UpdateTunnelOptions kafka.
+             * @member {protos.args.IKafkaWriteArgs|null|undefined} kafka
+             * @memberof protos.opts.UpdateTunnelOptions
+             * @instance
+             */
+            UpdateTunnelOptions.prototype.kafka = null;
+
+            /**
+             * UpdateTunnelOptions activemq.
+             * @member {protos.args.IActiveMQWriteArgs|null|undefined} activemq
+             * @memberof protos.opts.UpdateTunnelOptions
+             * @instance
+             */
+            UpdateTunnelOptions.prototype.activemq = null;
+
+            /**
+             * UpdateTunnelOptions awsSqs.
+             * @member {protos.args.IAWSSQSWriteArgs|null|undefined} awsSqs
+             * @memberof protos.opts.UpdateTunnelOptions
+             * @instance
+             */
+            UpdateTunnelOptions.prototype.awsSqs = null;
+
+            /**
+             * UpdateTunnelOptions awsSns.
+             * @member {protos.args.IAWSSNSWriteArgs|null|undefined} awsSns
+             * @memberof protos.opts.UpdateTunnelOptions
+             * @instance
+             */
+            UpdateTunnelOptions.prototype.awsSns = null;
+
+            /**
+             * UpdateTunnelOptions nats.
+             * @member {protos.args.INatsWriteArgs|null|undefined} nats
+             * @memberof protos.opts.UpdateTunnelOptions
+             * @instance
+             */
+            UpdateTunnelOptions.prototype.nats = null;
+
+            /**
+             * UpdateTunnelOptions natsStreaming.
+             * @member {protos.args.INatsStreamingWriteArgs|null|undefined} natsStreaming
+             * @memberof protos.opts.UpdateTunnelOptions
+             * @instance
+             */
+            UpdateTunnelOptions.prototype.natsStreaming = null;
+
+            /**
+             * UpdateTunnelOptions nsq.
+             * @member {protos.args.INSQWriteArgs|null|undefined} nsq
+             * @memberof protos.opts.UpdateTunnelOptions
+             * @instance
+             */
+            UpdateTunnelOptions.prototype.nsq = null;
+
+            /**
+             * UpdateTunnelOptions rabbit.
+             * @member {protos.args.IRabbitWriteArgs|null|undefined} rabbit
+             * @memberof protos.opts.UpdateTunnelOptions
+             * @instance
+             */
+            UpdateTunnelOptions.prototype.rabbit = null;
+
+            /**
+             * UpdateTunnelOptions mqtt.
+             * @member {protos.args.IMQTTWriteArgs|null|undefined} mqtt
+             * @memberof protos.opts.UpdateTunnelOptions
+             * @instance
+             */
+            UpdateTunnelOptions.prototype.mqtt = null;
+
+            /**
+             * UpdateTunnelOptions azureServiceBus.
+             * @member {protos.args.IAzureServiceBusWriteArgs|null|undefined} azureServiceBus
+             * @memberof protos.opts.UpdateTunnelOptions
+             * @instance
+             */
+            UpdateTunnelOptions.prototype.azureServiceBus = null;
+
+            /**
+             * UpdateTunnelOptions azureEventHub.
+             * @member {protos.args.IAzureEventHubWriteArgs|null|undefined} azureEventHub
+             * @memberof protos.opts.UpdateTunnelOptions
+             * @instance
+             */
+            UpdateTunnelOptions.prototype.azureEventHub = null;
+
+            /**
+             * UpdateTunnelOptions gcpPubsub.
+             * @member {protos.args.IGCPPubSubWriteArgs|null|undefined} gcpPubsub
+             * @memberof protos.opts.UpdateTunnelOptions
+             * @instance
+             */
+            UpdateTunnelOptions.prototype.gcpPubsub = null;
+
+            /**
+             * UpdateTunnelOptions kubemqQueue.
+             * @member {protos.args.IKubeMQQueueWriteArgs|null|undefined} kubemqQueue
+             * @memberof protos.opts.UpdateTunnelOptions
+             * @instance
+             */
+            UpdateTunnelOptions.prototype.kubemqQueue = null;
+
+            /**
+             * UpdateTunnelOptions redisPubsub.
+             * @member {protos.args.IRedisPubSubWriteArgs|null|undefined} redisPubsub
+             * @memberof protos.opts.UpdateTunnelOptions
+             * @instance
+             */
+            UpdateTunnelOptions.prototype.redisPubsub = null;
+
+            /**
+             * UpdateTunnelOptions redisStreams.
+             * @member {protos.args.IRedisStreamsWriteArgs|null|undefined} redisStreams
+             * @memberof protos.opts.UpdateTunnelOptions
+             * @instance
+             */
+            UpdateTunnelOptions.prototype.redisStreams = null;
+
+            /**
+             * UpdateTunnelOptions pulsar.
+             * @member {protos.args.IPulsarWriteArgs|null|undefined} pulsar
+             * @memberof protos.opts.UpdateTunnelOptions
+             * @instance
+             */
+            UpdateTunnelOptions.prototype.pulsar = null;
+
+            /**
+             * UpdateTunnelOptions rabbitStreams.
+             * @member {protos.args.IRabbitStreamsWriteArgs|null|undefined} rabbitStreams
+             * @memberof protos.opts.UpdateTunnelOptions
+             * @instance
+             */
+            UpdateTunnelOptions.prototype.rabbitStreams = null;
+
+            /**
+             * UpdateTunnelOptions natsJetstream.
+             * @member {protos.args.INatsJetstreamWriteArgs|null|undefined} natsJetstream
+             * @memberof protos.opts.UpdateTunnelOptions
+             * @instance
+             */
+            UpdateTunnelOptions.prototype.natsJetstream = null;
+
+            /**
+             * UpdateTunnelOptions awsKinesis.
+             * @member {protos.args.IAWSKinesisWriteArgs|null|undefined} awsKinesis
+             * @memberof protos.opts.UpdateTunnelOptions
+             * @instance
+             */
+            UpdateTunnelOptions.prototype.awsKinesis = null;
+
+            /**
+             * Creates a new UpdateTunnelOptions instance using the specified properties.
+             * @function create
+             * @memberof protos.opts.UpdateTunnelOptions
+             * @static
+             * @param {protos.opts.IUpdateTunnelOptions=} [properties] Properties to set
+             * @returns {protos.opts.UpdateTunnelOptions} UpdateTunnelOptions instance
+             */
+            UpdateTunnelOptions.create = function create(properties) {
+                return new UpdateTunnelOptions(properties);
+            };
+
+            /**
+             * Encodes the specified UpdateTunnelOptions message. Does not implicitly {@link protos.opts.UpdateTunnelOptions.verify|verify} messages.
+             * @function encode
+             * @memberof protos.opts.UpdateTunnelOptions
+             * @static
+             * @param {protos.opts.IUpdateTunnelOptions} message UpdateTunnelOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            UpdateTunnelOptions.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.id != null && Object.hasOwnProperty.call(message, "id"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.id);
+                if (message.connectionId != null && Object.hasOwnProperty.call(message, "connectionId"))
+                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.connectionId);
+                if (message.tunnelToken != null && Object.hasOwnProperty.call(message, "tunnelToken"))
+                    writer.uint32(/* id 3, wireType 2 =*/26).string(message.tunnelToken);
+                if (message.name != null && Object.hasOwnProperty.call(message, "name"))
+                    writer.uint32(/* id 4, wireType 2 =*/34).string(message.name);
+                if (message.notes != null && Object.hasOwnProperty.call(message, "notes"))
+                    writer.uint32(/* id 5, wireType 2 =*/42).string(message.notes);
+                if (message._tunnelAddress != null && Object.hasOwnProperty.call(message, "_tunnelAddress"))
+                    writer.uint32(/* id 6, wireType 2 =*/50).string(message._tunnelAddress);
+                if (message._tunnelTimeoutSeconds != null && Object.hasOwnProperty.call(message, "_tunnelTimeoutSeconds"))
+                    writer.uint32(/* id 7, wireType 0 =*/56).uint32(message._tunnelTimeoutSeconds);
+                if (message._tunnelInsecure != null && Object.hasOwnProperty.call(message, "_tunnelInsecure"))
+                    writer.uint32(/* id 8, wireType 0 =*/64).bool(message._tunnelInsecure);
+                if (message.kafka != null && Object.hasOwnProperty.call(message, "kafka"))
+                    $root.protos.args.KafkaWriteArgs.encode(message.kafka, writer.uint32(/* id 100, wireType 2 =*/802).fork()).ldelim();
+                if (message.activemq != null && Object.hasOwnProperty.call(message, "activemq"))
+                    $root.protos.args.ActiveMQWriteArgs.encode(message.activemq, writer.uint32(/* id 101, wireType 2 =*/810).fork()).ldelim();
+                if (message.awsSqs != null && Object.hasOwnProperty.call(message, "awsSqs"))
+                    $root.protos.args.AWSSQSWriteArgs.encode(message.awsSqs, writer.uint32(/* id 102, wireType 2 =*/818).fork()).ldelim();
+                if (message.awsSns != null && Object.hasOwnProperty.call(message, "awsSns"))
+                    $root.protos.args.AWSSNSWriteArgs.encode(message.awsSns, writer.uint32(/* id 103, wireType 2 =*/826).fork()).ldelim();
+                if (message.nats != null && Object.hasOwnProperty.call(message, "nats"))
+                    $root.protos.args.NatsWriteArgs.encode(message.nats, writer.uint32(/* id 104, wireType 2 =*/834).fork()).ldelim();
+                if (message.natsStreaming != null && Object.hasOwnProperty.call(message, "natsStreaming"))
+                    $root.protos.args.NatsStreamingWriteArgs.encode(message.natsStreaming, writer.uint32(/* id 105, wireType 2 =*/842).fork()).ldelim();
+                if (message.nsq != null && Object.hasOwnProperty.call(message, "nsq"))
+                    $root.protos.args.NSQWriteArgs.encode(message.nsq, writer.uint32(/* id 106, wireType 2 =*/850).fork()).ldelim();
+                if (message.rabbit != null && Object.hasOwnProperty.call(message, "rabbit"))
+                    $root.protos.args.RabbitWriteArgs.encode(message.rabbit, writer.uint32(/* id 107, wireType 2 =*/858).fork()).ldelim();
+                if (message.mqtt != null && Object.hasOwnProperty.call(message, "mqtt"))
+                    $root.protos.args.MQTTWriteArgs.encode(message.mqtt, writer.uint32(/* id 108, wireType 2 =*/866).fork()).ldelim();
+                if (message.azureServiceBus != null && Object.hasOwnProperty.call(message, "azureServiceBus"))
+                    $root.protos.args.AzureServiceBusWriteArgs.encode(message.azureServiceBus, writer.uint32(/* id 109, wireType 2 =*/874).fork()).ldelim();
+                if (message.azureEventHub != null && Object.hasOwnProperty.call(message, "azureEventHub"))
+                    $root.protos.args.AzureEventHubWriteArgs.encode(message.azureEventHub, writer.uint32(/* id 110, wireType 2 =*/882).fork()).ldelim();
+                if (message.gcpPubsub != null && Object.hasOwnProperty.call(message, "gcpPubsub"))
+                    $root.protos.args.GCPPubSubWriteArgs.encode(message.gcpPubsub, writer.uint32(/* id 111, wireType 2 =*/890).fork()).ldelim();
+                if (message.kubemqQueue != null && Object.hasOwnProperty.call(message, "kubemqQueue"))
+                    $root.protos.args.KubeMQQueueWriteArgs.encode(message.kubemqQueue, writer.uint32(/* id 112, wireType 2 =*/898).fork()).ldelim();
+                if (message.redisPubsub != null && Object.hasOwnProperty.call(message, "redisPubsub"))
+                    $root.protos.args.RedisPubSubWriteArgs.encode(message.redisPubsub, writer.uint32(/* id 113, wireType 2 =*/906).fork()).ldelim();
+                if (message.redisStreams != null && Object.hasOwnProperty.call(message, "redisStreams"))
+                    $root.protos.args.RedisStreamsWriteArgs.encode(message.redisStreams, writer.uint32(/* id 114, wireType 2 =*/914).fork()).ldelim();
+                if (message.pulsar != null && Object.hasOwnProperty.call(message, "pulsar"))
+                    $root.protos.args.PulsarWriteArgs.encode(message.pulsar, writer.uint32(/* id 115, wireType 2 =*/922).fork()).ldelim();
+                if (message.rabbitStreams != null && Object.hasOwnProperty.call(message, "rabbitStreams"))
+                    $root.protos.args.RabbitStreamsWriteArgs.encode(message.rabbitStreams, writer.uint32(/* id 116, wireType 2 =*/930).fork()).ldelim();
+                if (message.natsJetstream != null && Object.hasOwnProperty.call(message, "natsJetstream"))
+                    $root.protos.args.NatsJetstreamWriteArgs.encode(message.natsJetstream, writer.uint32(/* id 117, wireType 2 =*/938).fork()).ldelim();
+                if (message.awsKinesis != null && Object.hasOwnProperty.call(message, "awsKinesis"))
+                    $root.protos.args.AWSKinesisWriteArgs.encode(message.awsKinesis, writer.uint32(/* id 118, wireType 2 =*/946).fork()).ldelim();
+                return writer;
+            };
+
+            /**
+             * Encodes the specified UpdateTunnelOptions message, length delimited. Does not implicitly {@link protos.opts.UpdateTunnelOptions.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.opts.UpdateTunnelOptions
+             * @static
+             * @param {protos.opts.IUpdateTunnelOptions} message UpdateTunnelOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            UpdateTunnelOptions.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes an UpdateTunnelOptions message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.opts.UpdateTunnelOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.opts.UpdateTunnelOptions} UpdateTunnelOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            UpdateTunnelOptions.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.UpdateTunnelOptions();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.id = reader.string();
+                        break;
+                    case 2:
+                        message.connectionId = reader.string();
+                        break;
+                    case 3:
+                        message.tunnelToken = reader.string();
+                        break;
+                    case 4:
+                        message.name = reader.string();
+                        break;
+                    case 5:
+                        message.notes = reader.string();
+                        break;
+                    case 6:
+                        message._tunnelAddress = reader.string();
+                        break;
+                    case 7:
+                        message._tunnelTimeoutSeconds = reader.uint32();
+                        break;
+                    case 8:
+                        message._tunnelInsecure = reader.bool();
+                        break;
+                    case 100:
+                        message.kafka = $root.protos.args.KafkaWriteArgs.decode(reader, reader.uint32());
+                        break;
+                    case 101:
+                        message.activemq = $root.protos.args.ActiveMQWriteArgs.decode(reader, reader.uint32());
+                        break;
+                    case 102:
+                        message.awsSqs = $root.protos.args.AWSSQSWriteArgs.decode(reader, reader.uint32());
+                        break;
+                    case 103:
+                        message.awsSns = $root.protos.args.AWSSNSWriteArgs.decode(reader, reader.uint32());
+                        break;
+                    case 104:
+                        message.nats = $root.protos.args.NatsWriteArgs.decode(reader, reader.uint32());
+                        break;
+                    case 105:
+                        message.natsStreaming = $root.protos.args.NatsStreamingWriteArgs.decode(reader, reader.uint32());
+                        break;
+                    case 106:
+                        message.nsq = $root.protos.args.NSQWriteArgs.decode(reader, reader.uint32());
+                        break;
+                    case 107:
+                        message.rabbit = $root.protos.args.RabbitWriteArgs.decode(reader, reader.uint32());
+                        break;
+                    case 108:
+                        message.mqtt = $root.protos.args.MQTTWriteArgs.decode(reader, reader.uint32());
+                        break;
+                    case 109:
+                        message.azureServiceBus = $root.protos.args.AzureServiceBusWriteArgs.decode(reader, reader.uint32());
+                        break;
+                    case 110:
+                        message.azureEventHub = $root.protos.args.AzureEventHubWriteArgs.decode(reader, reader.uint32());
+                        break;
+                    case 111:
+                        message.gcpPubsub = $root.protos.args.GCPPubSubWriteArgs.decode(reader, reader.uint32());
+                        break;
+                    case 112:
+                        message.kubemqQueue = $root.protos.args.KubeMQQueueWriteArgs.decode(reader, reader.uint32());
+                        break;
+                    case 113:
+                        message.redisPubsub = $root.protos.args.RedisPubSubWriteArgs.decode(reader, reader.uint32());
+                        break;
+                    case 114:
+                        message.redisStreams = $root.protos.args.RedisStreamsWriteArgs.decode(reader, reader.uint32());
+                        break;
+                    case 115:
+                        message.pulsar = $root.protos.args.PulsarWriteArgs.decode(reader, reader.uint32());
+                        break;
+                    case 116:
+                        message.rabbitStreams = $root.protos.args.RabbitStreamsWriteArgs.decode(reader, reader.uint32());
+                        break;
+                    case 117:
+                        message.natsJetstream = $root.protos.args.NatsJetstreamWriteArgs.decode(reader, reader.uint32());
+                        break;
+                    case 118:
+                        message.awsKinesis = $root.protos.args.AWSKinesisWriteArgs.decode(reader, reader.uint32());
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes an UpdateTunnelOptions message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.opts.UpdateTunnelOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.opts.UpdateTunnelOptions} UpdateTunnelOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            UpdateTunnelOptions.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies an UpdateTunnelOptions message.
+             * @function verify
+             * @memberof protos.opts.UpdateTunnelOptions
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            UpdateTunnelOptions.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.id != null && message.hasOwnProperty("id"))
+                    if (!$util.isString(message.id))
+                        return "id: string expected";
+                if (message.connectionId != null && message.hasOwnProperty("connectionId"))
+                    if (!$util.isString(message.connectionId))
+                        return "connectionId: string expected";
+                if (message.tunnelToken != null && message.hasOwnProperty("tunnelToken"))
+                    if (!$util.isString(message.tunnelToken))
+                        return "tunnelToken: string expected";
+                if (message.name != null && message.hasOwnProperty("name"))
+                    if (!$util.isString(message.name))
+                        return "name: string expected";
+                if (message.notes != null && message.hasOwnProperty("notes"))
+                    if (!$util.isString(message.notes))
+                        return "notes: string expected";
+                if (message._tunnelAddress != null && message.hasOwnProperty("_tunnelAddress"))
+                    if (!$util.isString(message._tunnelAddress))
+                        return "_tunnelAddress: string expected";
+                if (message._tunnelTimeoutSeconds != null && message.hasOwnProperty("_tunnelTimeoutSeconds"))
+                    if (!$util.isInteger(message._tunnelTimeoutSeconds))
+                        return "_tunnelTimeoutSeconds: integer expected";
+                if (message._tunnelInsecure != null && message.hasOwnProperty("_tunnelInsecure"))
+                    if (typeof message._tunnelInsecure !== "boolean")
+                        return "_tunnelInsecure: boolean expected";
+                if (message.kafka != null && message.hasOwnProperty("kafka")) {
+                    var error = $root.protos.args.KafkaWriteArgs.verify(message.kafka);
+                    if (error)
+                        return "kafka." + error;
+                }
+                if (message.activemq != null && message.hasOwnProperty("activemq")) {
+                    var error = $root.protos.args.ActiveMQWriteArgs.verify(message.activemq);
+                    if (error)
+                        return "activemq." + error;
+                }
+                if (message.awsSqs != null && message.hasOwnProperty("awsSqs")) {
+                    var error = $root.protos.args.AWSSQSWriteArgs.verify(message.awsSqs);
+                    if (error)
+                        return "awsSqs." + error;
+                }
+                if (message.awsSns != null && message.hasOwnProperty("awsSns")) {
+                    var error = $root.protos.args.AWSSNSWriteArgs.verify(message.awsSns);
+                    if (error)
+                        return "awsSns." + error;
+                }
+                if (message.nats != null && message.hasOwnProperty("nats")) {
+                    var error = $root.protos.args.NatsWriteArgs.verify(message.nats);
+                    if (error)
+                        return "nats." + error;
+                }
+                if (message.natsStreaming != null && message.hasOwnProperty("natsStreaming")) {
+                    var error = $root.protos.args.NatsStreamingWriteArgs.verify(message.natsStreaming);
+                    if (error)
+                        return "natsStreaming." + error;
+                }
+                if (message.nsq != null && message.hasOwnProperty("nsq")) {
+                    var error = $root.protos.args.NSQWriteArgs.verify(message.nsq);
+                    if (error)
+                        return "nsq." + error;
+                }
+                if (message.rabbit != null && message.hasOwnProperty("rabbit")) {
+                    var error = $root.protos.args.RabbitWriteArgs.verify(message.rabbit);
+                    if (error)
+                        return "rabbit." + error;
+                }
+                if (message.mqtt != null && message.hasOwnProperty("mqtt")) {
+                    var error = $root.protos.args.MQTTWriteArgs.verify(message.mqtt);
+                    if (error)
+                        return "mqtt." + error;
+                }
+                if (message.azureServiceBus != null && message.hasOwnProperty("azureServiceBus")) {
+                    var error = $root.protos.args.AzureServiceBusWriteArgs.verify(message.azureServiceBus);
+                    if (error)
+                        return "azureServiceBus." + error;
+                }
+                if (message.azureEventHub != null && message.hasOwnProperty("azureEventHub")) {
+                    var error = $root.protos.args.AzureEventHubWriteArgs.verify(message.azureEventHub);
+                    if (error)
+                        return "azureEventHub." + error;
+                }
+                if (message.gcpPubsub != null && message.hasOwnProperty("gcpPubsub")) {
+                    var error = $root.protos.args.GCPPubSubWriteArgs.verify(message.gcpPubsub);
+                    if (error)
+                        return "gcpPubsub." + error;
+                }
+                if (message.kubemqQueue != null && message.hasOwnProperty("kubemqQueue")) {
+                    var error = $root.protos.args.KubeMQQueueWriteArgs.verify(message.kubemqQueue);
+                    if (error)
+                        return "kubemqQueue." + error;
+                }
+                if (message.redisPubsub != null && message.hasOwnProperty("redisPubsub")) {
+                    var error = $root.protos.args.RedisPubSubWriteArgs.verify(message.redisPubsub);
+                    if (error)
+                        return "redisPubsub." + error;
+                }
+                if (message.redisStreams != null && message.hasOwnProperty("redisStreams")) {
+                    var error = $root.protos.args.RedisStreamsWriteArgs.verify(message.redisStreams);
+                    if (error)
+                        return "redisStreams." + error;
+                }
+                if (message.pulsar != null && message.hasOwnProperty("pulsar")) {
+                    var error = $root.protos.args.PulsarWriteArgs.verify(message.pulsar);
+                    if (error)
+                        return "pulsar." + error;
+                }
+                if (message.rabbitStreams != null && message.hasOwnProperty("rabbitStreams")) {
+                    var error = $root.protos.args.RabbitStreamsWriteArgs.verify(message.rabbitStreams);
+                    if (error)
+                        return "rabbitStreams." + error;
+                }
+                if (message.natsJetstream != null && message.hasOwnProperty("natsJetstream")) {
+                    var error = $root.protos.args.NatsJetstreamWriteArgs.verify(message.natsJetstream);
+                    if (error)
+                        return "natsJetstream." + error;
+                }
+                if (message.awsKinesis != null && message.hasOwnProperty("awsKinesis")) {
+                    var error = $root.protos.args.AWSKinesisWriteArgs.verify(message.awsKinesis);
+                    if (error)
+                        return "awsKinesis." + error;
+                }
+                return null;
+            };
+
+            /**
+             * Creates an UpdateTunnelOptions message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.opts.UpdateTunnelOptions
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.opts.UpdateTunnelOptions} UpdateTunnelOptions
+             */
+            UpdateTunnelOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.UpdateTunnelOptions)
+                    return object;
+                var message = new $root.protos.opts.UpdateTunnelOptions();
+                if (object.id != null)
+                    message.id = String(object.id);
+                if (object.connectionId != null)
+                    message.connectionId = String(object.connectionId);
+                if (object.tunnelToken != null)
+                    message.tunnelToken = String(object.tunnelToken);
+                if (object.name != null)
+                    message.name = String(object.name);
+                if (object.notes != null)
+                    message.notes = String(object.notes);
+                if (object._tunnelAddress != null)
+                    message._tunnelAddress = String(object._tunnelAddress);
+                if (object._tunnelTimeoutSeconds != null)
+                    message._tunnelTimeoutSeconds = object._tunnelTimeoutSeconds >>> 0;
+                if (object._tunnelInsecure != null)
+                    message._tunnelInsecure = Boolean(object._tunnelInsecure);
+                if (object.kafka != null) {
+                    if (typeof object.kafka !== "object")
+                        throw TypeError(".protos.opts.UpdateTunnelOptions.kafka: object expected");
+                    message.kafka = $root.protos.args.KafkaWriteArgs.fromObject(object.kafka);
+                }
+                if (object.activemq != null) {
+                    if (typeof object.activemq !== "object")
+                        throw TypeError(".protos.opts.UpdateTunnelOptions.activemq: object expected");
+                    message.activemq = $root.protos.args.ActiveMQWriteArgs.fromObject(object.activemq);
+                }
+                if (object.awsSqs != null) {
+                    if (typeof object.awsSqs !== "object")
+                        throw TypeError(".protos.opts.UpdateTunnelOptions.awsSqs: object expected");
+                    message.awsSqs = $root.protos.args.AWSSQSWriteArgs.fromObject(object.awsSqs);
+                }
+                if (object.awsSns != null) {
+                    if (typeof object.awsSns !== "object")
+                        throw TypeError(".protos.opts.UpdateTunnelOptions.awsSns: object expected");
+                    message.awsSns = $root.protos.args.AWSSNSWriteArgs.fromObject(object.awsSns);
+                }
+                if (object.nats != null) {
+                    if (typeof object.nats !== "object")
+                        throw TypeError(".protos.opts.UpdateTunnelOptions.nats: object expected");
+                    message.nats = $root.protos.args.NatsWriteArgs.fromObject(object.nats);
+                }
+                if (object.natsStreaming != null) {
+                    if (typeof object.natsStreaming !== "object")
+                        throw TypeError(".protos.opts.UpdateTunnelOptions.natsStreaming: object expected");
+                    message.natsStreaming = $root.protos.args.NatsStreamingWriteArgs.fromObject(object.natsStreaming);
+                }
+                if (object.nsq != null) {
+                    if (typeof object.nsq !== "object")
+                        throw TypeError(".protos.opts.UpdateTunnelOptions.nsq: object expected");
+                    message.nsq = $root.protos.args.NSQWriteArgs.fromObject(object.nsq);
+                }
+                if (object.rabbit != null) {
+                    if (typeof object.rabbit !== "object")
+                        throw TypeError(".protos.opts.UpdateTunnelOptions.rabbit: object expected");
+                    message.rabbit = $root.protos.args.RabbitWriteArgs.fromObject(object.rabbit);
+                }
+                if (object.mqtt != null) {
+                    if (typeof object.mqtt !== "object")
+                        throw TypeError(".protos.opts.UpdateTunnelOptions.mqtt: object expected");
+                    message.mqtt = $root.protos.args.MQTTWriteArgs.fromObject(object.mqtt);
+                }
+                if (object.azureServiceBus != null) {
+                    if (typeof object.azureServiceBus !== "object")
+                        throw TypeError(".protos.opts.UpdateTunnelOptions.azureServiceBus: object expected");
+                    message.azureServiceBus = $root.protos.args.AzureServiceBusWriteArgs.fromObject(object.azureServiceBus);
+                }
+                if (object.azureEventHub != null) {
+                    if (typeof object.azureEventHub !== "object")
+                        throw TypeError(".protos.opts.UpdateTunnelOptions.azureEventHub: object expected");
+                    message.azureEventHub = $root.protos.args.AzureEventHubWriteArgs.fromObject(object.azureEventHub);
+                }
+                if (object.gcpPubsub != null) {
+                    if (typeof object.gcpPubsub !== "object")
+                        throw TypeError(".protos.opts.UpdateTunnelOptions.gcpPubsub: object expected");
+                    message.gcpPubsub = $root.protos.args.GCPPubSubWriteArgs.fromObject(object.gcpPubsub);
+                }
+                if (object.kubemqQueue != null) {
+                    if (typeof object.kubemqQueue !== "object")
+                        throw TypeError(".protos.opts.UpdateTunnelOptions.kubemqQueue: object expected");
+                    message.kubemqQueue = $root.protos.args.KubeMQQueueWriteArgs.fromObject(object.kubemqQueue);
+                }
+                if (object.redisPubsub != null) {
+                    if (typeof object.redisPubsub !== "object")
+                        throw TypeError(".protos.opts.UpdateTunnelOptions.redisPubsub: object expected");
+                    message.redisPubsub = $root.protos.args.RedisPubSubWriteArgs.fromObject(object.redisPubsub);
+                }
+                if (object.redisStreams != null) {
+                    if (typeof object.redisStreams !== "object")
+                        throw TypeError(".protos.opts.UpdateTunnelOptions.redisStreams: object expected");
+                    message.redisStreams = $root.protos.args.RedisStreamsWriteArgs.fromObject(object.redisStreams);
+                }
+                if (object.pulsar != null) {
+                    if (typeof object.pulsar !== "object")
+                        throw TypeError(".protos.opts.UpdateTunnelOptions.pulsar: object expected");
+                    message.pulsar = $root.protos.args.PulsarWriteArgs.fromObject(object.pulsar);
+                }
+                if (object.rabbitStreams != null) {
+                    if (typeof object.rabbitStreams !== "object")
+                        throw TypeError(".protos.opts.UpdateTunnelOptions.rabbitStreams: object expected");
+                    message.rabbitStreams = $root.protos.args.RabbitStreamsWriteArgs.fromObject(object.rabbitStreams);
+                }
+                if (object.natsJetstream != null) {
+                    if (typeof object.natsJetstream !== "object")
+                        throw TypeError(".protos.opts.UpdateTunnelOptions.natsJetstream: object expected");
+                    message.natsJetstream = $root.protos.args.NatsJetstreamWriteArgs.fromObject(object.natsJetstream);
+                }
+                if (object.awsKinesis != null) {
+                    if (typeof object.awsKinesis !== "object")
+                        throw TypeError(".protos.opts.UpdateTunnelOptions.awsKinesis: object expected");
+                    message.awsKinesis = $root.protos.args.AWSKinesisWriteArgs.fromObject(object.awsKinesis);
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from an UpdateTunnelOptions message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.opts.UpdateTunnelOptions
+             * @static
+             * @param {protos.opts.UpdateTunnelOptions} message UpdateTunnelOptions
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            UpdateTunnelOptions.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    object.id = "";
+                    object.connectionId = "";
+                    object.tunnelToken = "";
+                    object.name = "";
+                    object.notes = "";
+                    object._tunnelAddress = "";
+                    object._tunnelTimeoutSeconds = 0;
+                    object._tunnelInsecure = false;
+                    object.kafka = null;
+                    object.activemq = null;
+                    object.awsSqs = null;
+                    object.awsSns = null;
+                    object.nats = null;
+                    object.natsStreaming = null;
+                    object.nsq = null;
+                    object.rabbit = null;
+                    object.mqtt = null;
+                    object.azureServiceBus = null;
+                    object.azureEventHub = null;
+                    object.gcpPubsub = null;
+                    object.kubemqQueue = null;
+                    object.redisPubsub = null;
+                    object.redisStreams = null;
+                    object.pulsar = null;
+                    object.rabbitStreams = null;
+                    object.natsJetstream = null;
+                    object.awsKinesis = null;
+                }
+                if (message.id != null && message.hasOwnProperty("id"))
+                    object.id = message.id;
+                if (message.connectionId != null && message.hasOwnProperty("connectionId"))
+                    object.connectionId = message.connectionId;
+                if (message.tunnelToken != null && message.hasOwnProperty("tunnelToken"))
+                    object.tunnelToken = message.tunnelToken;
+                if (message.name != null && message.hasOwnProperty("name"))
+                    object.name = message.name;
+                if (message.notes != null && message.hasOwnProperty("notes"))
+                    object.notes = message.notes;
+                if (message._tunnelAddress != null && message.hasOwnProperty("_tunnelAddress"))
+                    object._tunnelAddress = message._tunnelAddress;
+                if (message._tunnelTimeoutSeconds != null && message.hasOwnProperty("_tunnelTimeoutSeconds"))
+                    object._tunnelTimeoutSeconds = message._tunnelTimeoutSeconds;
+                if (message._tunnelInsecure != null && message.hasOwnProperty("_tunnelInsecure"))
+                    object._tunnelInsecure = message._tunnelInsecure;
+                if (message.kafka != null && message.hasOwnProperty("kafka"))
+                    object.kafka = $root.protos.args.KafkaWriteArgs.toObject(message.kafka, options);
+                if (message.activemq != null && message.hasOwnProperty("activemq"))
+                    object.activemq = $root.protos.args.ActiveMQWriteArgs.toObject(message.activemq, options);
+                if (message.awsSqs != null && message.hasOwnProperty("awsSqs"))
+                    object.awsSqs = $root.protos.args.AWSSQSWriteArgs.toObject(message.awsSqs, options);
+                if (message.awsSns != null && message.hasOwnProperty("awsSns"))
+                    object.awsSns = $root.protos.args.AWSSNSWriteArgs.toObject(message.awsSns, options);
+                if (message.nats != null && message.hasOwnProperty("nats"))
+                    object.nats = $root.protos.args.NatsWriteArgs.toObject(message.nats, options);
+                if (message.natsStreaming != null && message.hasOwnProperty("natsStreaming"))
+                    object.natsStreaming = $root.protos.args.NatsStreamingWriteArgs.toObject(message.natsStreaming, options);
+                if (message.nsq != null && message.hasOwnProperty("nsq"))
+                    object.nsq = $root.protos.args.NSQWriteArgs.toObject(message.nsq, options);
+                if (message.rabbit != null && message.hasOwnProperty("rabbit"))
+                    object.rabbit = $root.protos.args.RabbitWriteArgs.toObject(message.rabbit, options);
+                if (message.mqtt != null && message.hasOwnProperty("mqtt"))
+                    object.mqtt = $root.protos.args.MQTTWriteArgs.toObject(message.mqtt, options);
+                if (message.azureServiceBus != null && message.hasOwnProperty("azureServiceBus"))
+                    object.azureServiceBus = $root.protos.args.AzureServiceBusWriteArgs.toObject(message.azureServiceBus, options);
+                if (message.azureEventHub != null && message.hasOwnProperty("azureEventHub"))
+                    object.azureEventHub = $root.protos.args.AzureEventHubWriteArgs.toObject(message.azureEventHub, options);
+                if (message.gcpPubsub != null && message.hasOwnProperty("gcpPubsub"))
+                    object.gcpPubsub = $root.protos.args.GCPPubSubWriteArgs.toObject(message.gcpPubsub, options);
+                if (message.kubemqQueue != null && message.hasOwnProperty("kubemqQueue"))
+                    object.kubemqQueue = $root.protos.args.KubeMQQueueWriteArgs.toObject(message.kubemqQueue, options);
+                if (message.redisPubsub != null && message.hasOwnProperty("redisPubsub"))
+                    object.redisPubsub = $root.protos.args.RedisPubSubWriteArgs.toObject(message.redisPubsub, options);
+                if (message.redisStreams != null && message.hasOwnProperty("redisStreams"))
+                    object.redisStreams = $root.protos.args.RedisStreamsWriteArgs.toObject(message.redisStreams, options);
+                if (message.pulsar != null && message.hasOwnProperty("pulsar"))
+                    object.pulsar = $root.protos.args.PulsarWriteArgs.toObject(message.pulsar, options);
+                if (message.rabbitStreams != null && message.hasOwnProperty("rabbitStreams"))
+                    object.rabbitStreams = $root.protos.args.RabbitStreamsWriteArgs.toObject(message.rabbitStreams, options);
+                if (message.natsJetstream != null && message.hasOwnProperty("natsJetstream"))
+                    object.natsJetstream = $root.protos.args.NatsJetstreamWriteArgs.toObject(message.natsJetstream, options);
+                if (message.awsKinesis != null && message.hasOwnProperty("awsKinesis"))
+                    object.awsKinesis = $root.protos.args.AWSKinesisWriteArgs.toObject(message.awsKinesis, options);
+                return object;
+            };
+
+            /**
+             * Converts this UpdateTunnelOptions to JSON.
+             * @function toJSON
+             * @memberof protos.opts.UpdateTunnelOptions
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            UpdateTunnelOptions.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return UpdateTunnelOptions;
         })();
 
         opts.DeleteTunnelOptions = (function() {

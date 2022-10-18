@@ -10540,6 +10540,9 @@ export namespace protos {
             /** ManageOptions create */
             create?: (protos.opts.ICreateOptions|null);
 
+            /** ManageOptions update */
+            update?: (protos.opts.IUpdateOptions|null);
+
             /** ManageOptions delete */
             "delete"?: (protos.opts.IDeleteOptions|null);
 
@@ -10567,6 +10570,9 @@ export namespace protos {
 
             /** ManageOptions create. */
             public create?: (protos.opts.ICreateOptions|null);
+
+            /** ManageOptions update. */
+            public update?: (protos.opts.IUpdateOptions|null);
 
             /** ManageOptions delete. */
             public delete?: (protos.opts.IDeleteOptions|null);
@@ -10985,6 +10991,108 @@ export namespace protos {
 
             /**
              * Converts this CreateOptions to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of an UpdateOptions. */
+        interface IUpdateOptions {
+
+            /** UpdateOptions connection */
+            connection?: (protos.opts.IUpdateConnectionOptions|null);
+
+            /** UpdateOptions relay */
+            relay?: (protos.opts.IUpdateRelayOptions|null);
+
+            /** UpdateOptions tunnel */
+            tunnel?: (protos.opts.IUpdateTunnelOptions|null);
+        }
+
+        /** Represents an UpdateOptions. */
+        class UpdateOptions implements IUpdateOptions {
+
+            /**
+             * Constructs a new UpdateOptions.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.opts.IUpdateOptions);
+
+            /** UpdateOptions connection. */
+            public connection?: (protos.opts.IUpdateConnectionOptions|null);
+
+            /** UpdateOptions relay. */
+            public relay?: (protos.opts.IUpdateRelayOptions|null);
+
+            /** UpdateOptions tunnel. */
+            public tunnel?: (protos.opts.IUpdateTunnelOptions|null);
+
+            /**
+             * Creates a new UpdateOptions instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns UpdateOptions instance
+             */
+            public static create(properties?: protos.opts.IUpdateOptions): protos.opts.UpdateOptions;
+
+            /**
+             * Encodes the specified UpdateOptions message. Does not implicitly {@link protos.opts.UpdateOptions.verify|verify} messages.
+             * @param message UpdateOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.opts.IUpdateOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified UpdateOptions message, length delimited. Does not implicitly {@link protos.opts.UpdateOptions.verify|verify} messages.
+             * @param message UpdateOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.opts.IUpdateOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes an UpdateOptions message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns UpdateOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.UpdateOptions;
+
+            /**
+             * Decodes an UpdateOptions message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns UpdateOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.UpdateOptions;
+
+            /**
+             * Verifies an UpdateOptions message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates an UpdateOptions message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns UpdateOptions
+             */
+            public static fromObject(object: { [k: string]: any }): protos.opts.UpdateOptions;
+
+            /**
+             * Creates a plain object from an UpdateOptions message. Also converts values to other types if specified.
+             * @param message UpdateOptions
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.opts.UpdateOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this UpdateOptions to JSON.
              * @returns JSON object
              */
             public toJSON(): { [k: string]: any };
@@ -11596,6 +11704,234 @@ export namespace protos {
             public toJSON(): { [k: string]: any };
         }
 
+        /** Properties of an UpdateConnectionOptions. */
+        interface IUpdateConnectionOptions {
+
+            /** UpdateConnectionOptions id */
+            id?: (string|null);
+
+            /** UpdateConnectionOptions name */
+            name?: (string|null);
+
+            /** UpdateConnectionOptions notes */
+            notes?: (string|null);
+
+            /** UpdateConnectionOptions kafka */
+            kafka?: (protos.args.IKafkaConn|null);
+
+            /** UpdateConnectionOptions activeMq */
+            activeMq?: (protos.args.IActiveMQConn|null);
+
+            /** UpdateConnectionOptions awsSqs */
+            awsSqs?: (protos.args.IAWSSQSConn|null);
+
+            /** UpdateConnectionOptions awsSns */
+            awsSns?: (protos.args.IAWSSNSConn|null);
+
+            /** UpdateConnectionOptions mongo */
+            mongo?: (protos.args.IMongoConn|null);
+
+            /** UpdateConnectionOptions nats */
+            nats?: (protos.args.INatsConn|null);
+
+            /** UpdateConnectionOptions natsStreaming */
+            natsStreaming?: (protos.args.INatsStreamingConn|null);
+
+            /** UpdateConnectionOptions nsq */
+            nsq?: (protos.args.INSQConn|null);
+
+            /** UpdateConnectionOptions postgres */
+            postgres?: (protos.args.IPostgresConn|null);
+
+            /** UpdateConnectionOptions pulsar */
+            pulsar?: (protos.args.IPulsarConn|null);
+
+            /** UpdateConnectionOptions rabbit */
+            rabbit?: (protos.args.IRabbitConn|null);
+
+            /** UpdateConnectionOptions rabbitStreams */
+            rabbitStreams?: (protos.args.IRabbitStreamsConn|null);
+
+            /** UpdateConnectionOptions redisPubsub */
+            redisPubsub?: (protos.args.IRedisPubSubConn|null);
+
+            /** UpdateConnectionOptions redisStreams */
+            redisStreams?: (protos.args.IRedisStreamsConn|null);
+
+            /** UpdateConnectionOptions azureEventHub */
+            azureEventHub?: (protos.args.IAzureEventHubConn|null);
+
+            /** UpdateConnectionOptions azureServiceBus */
+            azureServiceBus?: (protos.args.IAzureServiceBusConn|null);
+
+            /** UpdateConnectionOptions mqtt */
+            mqtt?: (protos.args.IMQTTConn|null);
+
+            /** UpdateConnectionOptions kubemqQueue */
+            kubemqQueue?: (protos.args.IKubeMQQueueConn|null);
+
+            /** UpdateConnectionOptions gcpPubsub */
+            gcpPubsub?: (protos.args.IGCPPubSubConn|null);
+
+            /** UpdateConnectionOptions natsJetstream */
+            natsJetstream?: (protos.args.INatsJetstreamConn|null);
+
+            /** UpdateConnectionOptions awsKinesis */
+            awsKinesis?: (protos.args.IAWSKinesisConn|null);
+        }
+
+        /** Represents an UpdateConnectionOptions. */
+        class UpdateConnectionOptions implements IUpdateConnectionOptions {
+
+            /**
+             * Constructs a new UpdateConnectionOptions.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.opts.IUpdateConnectionOptions);
+
+            /** UpdateConnectionOptions id. */
+            public id: string;
+
+            /** UpdateConnectionOptions name. */
+            public name: string;
+
+            /** UpdateConnectionOptions notes. */
+            public notes: string;
+
+            /** UpdateConnectionOptions kafka. */
+            public kafka?: (protos.args.IKafkaConn|null);
+
+            /** UpdateConnectionOptions activeMq. */
+            public activeMq?: (protos.args.IActiveMQConn|null);
+
+            /** UpdateConnectionOptions awsSqs. */
+            public awsSqs?: (protos.args.IAWSSQSConn|null);
+
+            /** UpdateConnectionOptions awsSns. */
+            public awsSns?: (protos.args.IAWSSNSConn|null);
+
+            /** UpdateConnectionOptions mongo. */
+            public mongo?: (protos.args.IMongoConn|null);
+
+            /** UpdateConnectionOptions nats. */
+            public nats?: (protos.args.INatsConn|null);
+
+            /** UpdateConnectionOptions natsStreaming. */
+            public natsStreaming?: (protos.args.INatsStreamingConn|null);
+
+            /** UpdateConnectionOptions nsq. */
+            public nsq?: (protos.args.INSQConn|null);
+
+            /** UpdateConnectionOptions postgres. */
+            public postgres?: (protos.args.IPostgresConn|null);
+
+            /** UpdateConnectionOptions pulsar. */
+            public pulsar?: (protos.args.IPulsarConn|null);
+
+            /** UpdateConnectionOptions rabbit. */
+            public rabbit?: (protos.args.IRabbitConn|null);
+
+            /** UpdateConnectionOptions rabbitStreams. */
+            public rabbitStreams?: (protos.args.IRabbitStreamsConn|null);
+
+            /** UpdateConnectionOptions redisPubsub. */
+            public redisPubsub?: (protos.args.IRedisPubSubConn|null);
+
+            /** UpdateConnectionOptions redisStreams. */
+            public redisStreams?: (protos.args.IRedisStreamsConn|null);
+
+            /** UpdateConnectionOptions azureEventHub. */
+            public azureEventHub?: (protos.args.IAzureEventHubConn|null);
+
+            /** UpdateConnectionOptions azureServiceBus. */
+            public azureServiceBus?: (protos.args.IAzureServiceBusConn|null);
+
+            /** UpdateConnectionOptions mqtt. */
+            public mqtt?: (protos.args.IMQTTConn|null);
+
+            /** UpdateConnectionOptions kubemqQueue. */
+            public kubemqQueue?: (protos.args.IKubeMQQueueConn|null);
+
+            /** UpdateConnectionOptions gcpPubsub. */
+            public gcpPubsub?: (protos.args.IGCPPubSubConn|null);
+
+            /** UpdateConnectionOptions natsJetstream. */
+            public natsJetstream?: (protos.args.INatsJetstreamConn|null);
+
+            /** UpdateConnectionOptions awsKinesis. */
+            public awsKinesis?: (protos.args.IAWSKinesisConn|null);
+
+            /**
+             * Creates a new UpdateConnectionOptions instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns UpdateConnectionOptions instance
+             */
+            public static create(properties?: protos.opts.IUpdateConnectionOptions): protos.opts.UpdateConnectionOptions;
+
+            /**
+             * Encodes the specified UpdateConnectionOptions message. Does not implicitly {@link protos.opts.UpdateConnectionOptions.verify|verify} messages.
+             * @param message UpdateConnectionOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.opts.IUpdateConnectionOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified UpdateConnectionOptions message, length delimited. Does not implicitly {@link protos.opts.UpdateConnectionOptions.verify|verify} messages.
+             * @param message UpdateConnectionOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.opts.IUpdateConnectionOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes an UpdateConnectionOptions message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns UpdateConnectionOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.UpdateConnectionOptions;
+
+            /**
+             * Decodes an UpdateConnectionOptions message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns UpdateConnectionOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.UpdateConnectionOptions;
+
+            /**
+             * Verifies an UpdateConnectionOptions message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates an UpdateConnectionOptions message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns UpdateConnectionOptions
+             */
+            public static fromObject(object: { [k: string]: any }): protos.opts.UpdateConnectionOptions;
+
+            /**
+             * Creates a plain object from an UpdateConnectionOptions message. Also converts values to other types if specified.
+             * @param message UpdateConnectionOptions
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.opts.UpdateConnectionOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this UpdateConnectionOptions to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
         /** Properties of a DeleteConnectionOptions. */
         interface IDeleteConnectionOptions {
 
@@ -11993,6 +12329,234 @@ export namespace protos {
 
             /**
              * Converts this CreateRelayOptions to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of an UpdateRelayOptions. */
+        interface IUpdateRelayOptions {
+
+            /** UpdateRelayOptions id */
+            id?: (string|null);
+
+            /** UpdateRelayOptions connectionId */
+            connectionId?: (string|null);
+
+            /** UpdateRelayOptions collectionToken */
+            collectionToken?: (string|null);
+
+            /** UpdateRelayOptions batchSize */
+            batchSize?: (number|null);
+
+            /** UpdateRelayOptions batchMaxRetry */
+            batchMaxRetry?: (number|null);
+
+            /** UpdateRelayOptions numWorkers */
+            numWorkers?: (number|null);
+
+            /** UpdateRelayOptions batchshGrpcAddress */
+            batchshGrpcAddress?: (string|null);
+
+            /** UpdateRelayOptions batchshGrpcDisableTls */
+            batchshGrpcDisableTls?: (boolean|null);
+
+            /** UpdateRelayOptions batchshGrpcTimeoutSeconds */
+            batchshGrpcTimeoutSeconds?: (number|null);
+
+            /** UpdateRelayOptions kafka */
+            kafka?: (protos.args.IKafkaRelayArgs|null);
+
+            /** UpdateRelayOptions awsSqs */
+            awsSqs?: (protos.args.IAWSSQSRelayArgs|null);
+
+            /** UpdateRelayOptions mongo */
+            mongo?: (protos.args.IMongoReadArgs|null);
+
+            /** UpdateRelayOptions nsq */
+            nsq?: (protos.args.INSQReadArgs|null);
+
+            /** UpdateRelayOptions rabbit */
+            rabbit?: (protos.args.IRabbitReadArgs|null);
+
+            /** UpdateRelayOptions mqtt */
+            mqtt?: (protos.args.IMQTTReadArgs|null);
+
+            /** UpdateRelayOptions azureServiceBus */
+            azureServiceBus?: (protos.args.IAzureServiceBusReadArgs|null);
+
+            /** UpdateRelayOptions gcpPubsub */
+            gcpPubsub?: (protos.args.IGCPPubSubReadArgs|null);
+
+            /** UpdateRelayOptions kubemqQueue */
+            kubemqQueue?: (protos.args.IKubeMQQueueReadArgs|null);
+
+            /** UpdateRelayOptions redisPubsub */
+            redisPubsub?: (protos.args.IRedisPubSubReadArgs|null);
+
+            /** UpdateRelayOptions redisStreams */
+            redisStreams?: (protos.args.IRedisStreamsReadArgs|null);
+
+            /** UpdateRelayOptions postgres */
+            postgres?: (protos.args.IPostgresReadArgs|null);
+
+            /** UpdateRelayOptions nats */
+            nats?: (protos.args.INatsReadArgs|null);
+
+            /** UpdateRelayOptions natsStreaming */
+            natsStreaming?: (protos.args.INatsStreamingReadArgs|null);
+
+            /** UpdateRelayOptions natsJetstream */
+            natsJetstream?: (protos.args.INatsJetstreamReadArgs|null);
+        }
+
+        /** Represents an UpdateRelayOptions. */
+        class UpdateRelayOptions implements IUpdateRelayOptions {
+
+            /**
+             * Constructs a new UpdateRelayOptions.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.opts.IUpdateRelayOptions);
+
+            /** UpdateRelayOptions id. */
+            public id: string;
+
+            /** UpdateRelayOptions connectionId. */
+            public connectionId: string;
+
+            /** UpdateRelayOptions collectionToken. */
+            public collectionToken: string;
+
+            /** UpdateRelayOptions batchSize. */
+            public batchSize: number;
+
+            /** UpdateRelayOptions batchMaxRetry. */
+            public batchMaxRetry: number;
+
+            /** UpdateRelayOptions numWorkers. */
+            public numWorkers: number;
+
+            /** UpdateRelayOptions batchshGrpcAddress. */
+            public batchshGrpcAddress: string;
+
+            /** UpdateRelayOptions batchshGrpcDisableTls. */
+            public batchshGrpcDisableTls: boolean;
+
+            /** UpdateRelayOptions batchshGrpcTimeoutSeconds. */
+            public batchshGrpcTimeoutSeconds: number;
+
+            /** UpdateRelayOptions kafka. */
+            public kafka?: (protos.args.IKafkaRelayArgs|null);
+
+            /** UpdateRelayOptions awsSqs. */
+            public awsSqs?: (protos.args.IAWSSQSRelayArgs|null);
+
+            /** UpdateRelayOptions mongo. */
+            public mongo?: (protos.args.IMongoReadArgs|null);
+
+            /** UpdateRelayOptions nsq. */
+            public nsq?: (protos.args.INSQReadArgs|null);
+
+            /** UpdateRelayOptions rabbit. */
+            public rabbit?: (protos.args.IRabbitReadArgs|null);
+
+            /** UpdateRelayOptions mqtt. */
+            public mqtt?: (protos.args.IMQTTReadArgs|null);
+
+            /** UpdateRelayOptions azureServiceBus. */
+            public azureServiceBus?: (protos.args.IAzureServiceBusReadArgs|null);
+
+            /** UpdateRelayOptions gcpPubsub. */
+            public gcpPubsub?: (protos.args.IGCPPubSubReadArgs|null);
+
+            /** UpdateRelayOptions kubemqQueue. */
+            public kubemqQueue?: (protos.args.IKubeMQQueueReadArgs|null);
+
+            /** UpdateRelayOptions redisPubsub. */
+            public redisPubsub?: (protos.args.IRedisPubSubReadArgs|null);
+
+            /** UpdateRelayOptions redisStreams. */
+            public redisStreams?: (protos.args.IRedisStreamsReadArgs|null);
+
+            /** UpdateRelayOptions postgres. */
+            public postgres?: (protos.args.IPostgresReadArgs|null);
+
+            /** UpdateRelayOptions nats. */
+            public nats?: (protos.args.INatsReadArgs|null);
+
+            /** UpdateRelayOptions natsStreaming. */
+            public natsStreaming?: (protos.args.INatsStreamingReadArgs|null);
+
+            /** UpdateRelayOptions natsJetstream. */
+            public natsJetstream?: (protos.args.INatsJetstreamReadArgs|null);
+
+            /**
+             * Creates a new UpdateRelayOptions instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns UpdateRelayOptions instance
+             */
+            public static create(properties?: protos.opts.IUpdateRelayOptions): protos.opts.UpdateRelayOptions;
+
+            /**
+             * Encodes the specified UpdateRelayOptions message. Does not implicitly {@link protos.opts.UpdateRelayOptions.verify|verify} messages.
+             * @param message UpdateRelayOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.opts.IUpdateRelayOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified UpdateRelayOptions message, length delimited. Does not implicitly {@link protos.opts.UpdateRelayOptions.verify|verify} messages.
+             * @param message UpdateRelayOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.opts.IUpdateRelayOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes an UpdateRelayOptions message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns UpdateRelayOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.UpdateRelayOptions;
+
+            /**
+             * Decodes an UpdateRelayOptions message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns UpdateRelayOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.UpdateRelayOptions;
+
+            /**
+             * Verifies an UpdateRelayOptions message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates an UpdateRelayOptions message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns UpdateRelayOptions
+             */
+            public static fromObject(object: { [k: string]: any }): protos.opts.UpdateRelayOptions;
+
+            /**
+             * Creates a plain object from an UpdateRelayOptions message. Also converts values to other types if specified.
+             * @param message UpdateRelayOptions
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.opts.UpdateRelayOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this UpdateRelayOptions to JSON.
              * @returns JSON object
              */
             public toJSON(): { [k: string]: any };
@@ -12593,6 +13157,252 @@ export namespace protos {
 
             /**
              * Converts this CreateTunnelOptions to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of an UpdateTunnelOptions. */
+        interface IUpdateTunnelOptions {
+
+            /** UpdateTunnelOptions id */
+            id?: (string|null);
+
+            /** UpdateTunnelOptions connectionId */
+            connectionId?: (string|null);
+
+            /** UpdateTunnelOptions tunnelToken */
+            tunnelToken?: (string|null);
+
+            /** UpdateTunnelOptions name */
+            name?: (string|null);
+
+            /** UpdateTunnelOptions notes */
+            notes?: (string|null);
+
+            /** UpdateTunnelOptions _tunnelAddress */
+            _tunnelAddress?: (string|null);
+
+            /** UpdateTunnelOptions _tunnelTimeoutSeconds */
+            _tunnelTimeoutSeconds?: (number|null);
+
+            /** UpdateTunnelOptions _tunnelInsecure */
+            _tunnelInsecure?: (boolean|null);
+
+            /** UpdateTunnelOptions kafka */
+            kafka?: (protos.args.IKafkaWriteArgs|null);
+
+            /** UpdateTunnelOptions activemq */
+            activemq?: (protos.args.IActiveMQWriteArgs|null);
+
+            /** UpdateTunnelOptions awsSqs */
+            awsSqs?: (protos.args.IAWSSQSWriteArgs|null);
+
+            /** UpdateTunnelOptions awsSns */
+            awsSns?: (protos.args.IAWSSNSWriteArgs|null);
+
+            /** UpdateTunnelOptions nats */
+            nats?: (protos.args.INatsWriteArgs|null);
+
+            /** UpdateTunnelOptions natsStreaming */
+            natsStreaming?: (protos.args.INatsStreamingWriteArgs|null);
+
+            /** UpdateTunnelOptions nsq */
+            nsq?: (protos.args.INSQWriteArgs|null);
+
+            /** UpdateTunnelOptions rabbit */
+            rabbit?: (protos.args.IRabbitWriteArgs|null);
+
+            /** UpdateTunnelOptions mqtt */
+            mqtt?: (protos.args.IMQTTWriteArgs|null);
+
+            /** UpdateTunnelOptions azureServiceBus */
+            azureServiceBus?: (protos.args.IAzureServiceBusWriteArgs|null);
+
+            /** UpdateTunnelOptions azureEventHub */
+            azureEventHub?: (protos.args.IAzureEventHubWriteArgs|null);
+
+            /** UpdateTunnelOptions gcpPubsub */
+            gcpPubsub?: (protos.args.IGCPPubSubWriteArgs|null);
+
+            /** UpdateTunnelOptions kubemqQueue */
+            kubemqQueue?: (protos.args.IKubeMQQueueWriteArgs|null);
+
+            /** UpdateTunnelOptions redisPubsub */
+            redisPubsub?: (protos.args.IRedisPubSubWriteArgs|null);
+
+            /** UpdateTunnelOptions redisStreams */
+            redisStreams?: (protos.args.IRedisStreamsWriteArgs|null);
+
+            /** UpdateTunnelOptions pulsar */
+            pulsar?: (protos.args.IPulsarWriteArgs|null);
+
+            /** UpdateTunnelOptions rabbitStreams */
+            rabbitStreams?: (protos.args.IRabbitStreamsWriteArgs|null);
+
+            /** UpdateTunnelOptions natsJetstream */
+            natsJetstream?: (protos.args.INatsJetstreamWriteArgs|null);
+
+            /** UpdateTunnelOptions awsKinesis */
+            awsKinesis?: (protos.args.IAWSKinesisWriteArgs|null);
+        }
+
+        /** Represents an UpdateTunnelOptions. */
+        class UpdateTunnelOptions implements IUpdateTunnelOptions {
+
+            /**
+             * Constructs a new UpdateTunnelOptions.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.opts.IUpdateTunnelOptions);
+
+            /** UpdateTunnelOptions id. */
+            public id: string;
+
+            /** UpdateTunnelOptions connectionId. */
+            public connectionId: string;
+
+            /** UpdateTunnelOptions tunnelToken. */
+            public tunnelToken: string;
+
+            /** UpdateTunnelOptions name. */
+            public name: string;
+
+            /** UpdateTunnelOptions notes. */
+            public notes: string;
+
+            /** UpdateTunnelOptions _tunnelAddress. */
+            public _tunnelAddress: string;
+
+            /** UpdateTunnelOptions _tunnelTimeoutSeconds. */
+            public _tunnelTimeoutSeconds: number;
+
+            /** UpdateTunnelOptions _tunnelInsecure. */
+            public _tunnelInsecure: boolean;
+
+            /** UpdateTunnelOptions kafka. */
+            public kafka?: (protos.args.IKafkaWriteArgs|null);
+
+            /** UpdateTunnelOptions activemq. */
+            public activemq?: (protos.args.IActiveMQWriteArgs|null);
+
+            /** UpdateTunnelOptions awsSqs. */
+            public awsSqs?: (protos.args.IAWSSQSWriteArgs|null);
+
+            /** UpdateTunnelOptions awsSns. */
+            public awsSns?: (protos.args.IAWSSNSWriteArgs|null);
+
+            /** UpdateTunnelOptions nats. */
+            public nats?: (protos.args.INatsWriteArgs|null);
+
+            /** UpdateTunnelOptions natsStreaming. */
+            public natsStreaming?: (protos.args.INatsStreamingWriteArgs|null);
+
+            /** UpdateTunnelOptions nsq. */
+            public nsq?: (protos.args.INSQWriteArgs|null);
+
+            /** UpdateTunnelOptions rabbit. */
+            public rabbit?: (protos.args.IRabbitWriteArgs|null);
+
+            /** UpdateTunnelOptions mqtt. */
+            public mqtt?: (protos.args.IMQTTWriteArgs|null);
+
+            /** UpdateTunnelOptions azureServiceBus. */
+            public azureServiceBus?: (protos.args.IAzureServiceBusWriteArgs|null);
+
+            /** UpdateTunnelOptions azureEventHub. */
+            public azureEventHub?: (protos.args.IAzureEventHubWriteArgs|null);
+
+            /** UpdateTunnelOptions gcpPubsub. */
+            public gcpPubsub?: (protos.args.IGCPPubSubWriteArgs|null);
+
+            /** UpdateTunnelOptions kubemqQueue. */
+            public kubemqQueue?: (protos.args.IKubeMQQueueWriteArgs|null);
+
+            /** UpdateTunnelOptions redisPubsub. */
+            public redisPubsub?: (protos.args.IRedisPubSubWriteArgs|null);
+
+            /** UpdateTunnelOptions redisStreams. */
+            public redisStreams?: (protos.args.IRedisStreamsWriteArgs|null);
+
+            /** UpdateTunnelOptions pulsar. */
+            public pulsar?: (protos.args.IPulsarWriteArgs|null);
+
+            /** UpdateTunnelOptions rabbitStreams. */
+            public rabbitStreams?: (protos.args.IRabbitStreamsWriteArgs|null);
+
+            /** UpdateTunnelOptions natsJetstream. */
+            public natsJetstream?: (protos.args.INatsJetstreamWriteArgs|null);
+
+            /** UpdateTunnelOptions awsKinesis. */
+            public awsKinesis?: (protos.args.IAWSKinesisWriteArgs|null);
+
+            /**
+             * Creates a new UpdateTunnelOptions instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns UpdateTunnelOptions instance
+             */
+            public static create(properties?: protos.opts.IUpdateTunnelOptions): protos.opts.UpdateTunnelOptions;
+
+            /**
+             * Encodes the specified UpdateTunnelOptions message. Does not implicitly {@link protos.opts.UpdateTunnelOptions.verify|verify} messages.
+             * @param message UpdateTunnelOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.opts.IUpdateTunnelOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified UpdateTunnelOptions message, length delimited. Does not implicitly {@link protos.opts.UpdateTunnelOptions.verify|verify} messages.
+             * @param message UpdateTunnelOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.opts.IUpdateTunnelOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes an UpdateTunnelOptions message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns UpdateTunnelOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.UpdateTunnelOptions;
+
+            /**
+             * Decodes an UpdateTunnelOptions message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns UpdateTunnelOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.UpdateTunnelOptions;
+
+            /**
+             * Verifies an UpdateTunnelOptions message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates an UpdateTunnelOptions message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns UpdateTunnelOptions
+             */
+            public static fromObject(object: { [k: string]: any }): protos.opts.UpdateTunnelOptions;
+
+            /**
+             * Creates a plain object from an UpdateTunnelOptions message. Also converts values to other types if specified.
+             * @param message UpdateTunnelOptions
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.opts.UpdateTunnelOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this UpdateTunnelOptions to JSON.
              * @returns JSON object
              */
             public toJSON(): { [k: string]: any };
