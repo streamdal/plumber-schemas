@@ -114,6 +114,94 @@ message CreateTunnelOptions {
 
 }
 
+message UpdateTunnelOptions {
+  // @gotags: kong:"help='ID the tunnel to update',required=true"
+  string id = 1;
+
+  // @gotags: kong:"help='Connection ID for the tunnel to use'"
+  string connection_id = 2;
+
+  // @gotags: kong:"help='Batch API token (create in settings -> security)'"
+  string tunnel_token = 3;
+
+  // @gotags: kong:"help='Name for the tunnel'"
+  string name = 4;
+
+  // @gotags: kong:"help='Notes associated with the tunnel'"
+  string notes = 5;
+
+  // @gotags: kong:"help='Tunnel API address',default='dproxy.batch.sh:443'"
+  string _tunnel_address = 6;
+
+  // @gotags: kong:"help='Tunnel API initial connection timeout',default=5"
+  uint32 _tunnel_timeout_seconds = 7;
+
+  // @gotags: kong:"help='Use gRPC insecure mode when talking to Batch Tunnel API'"
+  bool _tunnel_insecure = 8;
+
+  // --------------------------------------------------------------------- //
+  //                       SUPPORTED BACKENDS (100-999)                    //
+  // --------------------------------------------------------------------- //
+
+  // @gotags: kong:"cmd,help='Apache Kafka'"
+  args.KafkaWriteArgs kafka = 100;
+
+  // @gotags: kong:"cmd,help='Apache ActiveMQ'"
+  args.ActiveMQWriteArgs activemq = 101;
+
+  // @gotags: kong:"cmd,help='AWS Simple Queue System'"
+  args.AWSSQSWriteArgs aws_sqs = 102;
+
+  // @gotags: kong:"cmd,help='AWS Simple Notification System'"
+  args.AWSSNSWriteArgs aws_sns = 103;
+
+  // @gotags: kong:"cmd,help='NATS'"
+  args.NatsWriteArgs nats = 104;
+
+  // @gotags: kong:"cmd,help='NATS Streaming'"
+  args.NatsStreamingWriteArgs nats_streaming = 105;
+
+  // @gotags: kong:"cmd,help='NSQ'"
+  args.NSQWriteArgs nsq = 106;
+
+  // @gotags: kong:"cmd,help='RabbitMQ'"
+  args.RabbitWriteArgs rabbit = 107;
+
+  // @gotags: kong:"cmd,help='MQTT'"
+  args.MQTTWriteArgs mqtt = 108;
+
+  // @gotags: kong:"cmd,help='Azure Service Bus'"
+  args.AzureServiceBusWriteArgs azure_service_bus = 109;
+
+  // @gotags: kong:"cmd,help='Azure Event Hub'"
+  args.AzureEventHubWriteArgs azure_event_hub = 110;
+
+  // @gotags: kong:"cmd,help='Google Cloud Platform Pub/Sub'"
+  args.GCPPubSubWriteArgs gcp_pubsub = 111;
+
+  // @gotags: kong:"cmd,help='KubeMQ Queue'"
+  args.KubeMQQueueWriteArgs kubemq_queue = 112;
+
+  // @gotags: kong:"cmd,help='Redis PubSub'"
+  args.RedisPubSubWriteArgs redis_pubsub = 113;
+
+  // @gotags: kong:"cmd,help='Redis Streams'"
+  args.RedisStreamsWriteArgs redis_streams = 114;
+
+  // @gotags: kong:"cmd,help='Apache Pulsar'"
+  args.PulsarWriteArgs pulsar = 115;
+
+  // @gotags: kong:"cmd,help='RabbitMQ Streams'"
+  args.RabbitStreamsWriteArgs rabbit_streams = 116;
+
+  // @gotags: kong:"cmd,help='NATS JetStream'"
+  args.NatsJetstreamWriteArgs nats_jetstream = 117;
+
+  // @gotags: kong:"cmd,help='AWS Kinesis Streams'"
+  args.AWSKinesisWriteArgs aws_kinesis = 118;
+
+}
+
 message DeleteTunnelOptions {
   // @gotags: kong:"help='ID of the tunnel to delete',required=true"
   string id =1;

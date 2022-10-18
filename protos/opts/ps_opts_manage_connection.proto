@@ -107,6 +107,85 @@ message CreateConnectionOptions {
 
 }
 
+message UpdateConnectionOptions {
+  // @gotags: kong:"help='ID of the connection to update'"
+  string id = 1;
+
+  // @gotags: kong:"help='Friendly name for the connection'"
+  string name = 2;
+
+  // @gotags: kong:"help='Optional notes to associate with the connection'"
+  string notes = 3;
+
+  // --------------------------------------------------------------------- //
+  //                       SUPPORTED BACKENDS (100-999)                    //
+  // --------------------------------------------------------------------- //
+
+  // @gotags: kong:"cmd,help='Apache Kafka'"
+  args.KafkaConn kafka = 100;
+
+  // @gotags: kong:"cmd,help='ActiveMQ'"
+  args.ActiveMQConn active_mq = 101;
+
+  // @gotags: kong:"cmd,help='AWS Simple Queue Service'"
+  args.AWSSQSConn aws_sqs = 102;
+
+  // @gotags: kong:"cmd,help='AWS Simple Notification Service'"
+  args.AWSSNSConn aws_sns = 103;
+
+  // @gotags: kong:"cmd,help='Mongo (CDC)'"
+  args.MongoConn mongo = 104;
+
+  // @gotags: kong:"cmd,help='NATS PubSub'"
+  args.NatsConn nats = 105;
+
+  // @gotags: kong:"cmd,help='NATS Streaming (deprecated)'"
+  args.NatsStreamingConn nats_streaming = 106;
+
+  // @gotags: kong:"cmd,help='NSQ'"
+  args.NSQConn nsq = 107;
+
+  // @gotags: kong:"cmd,help='PostgreSQL (CDC)'"
+  args.PostgresConn postgres = 108;
+
+  // @gotags: kong:"cmd,help='Pulsar'"
+  args.PulsarConn pulsar = 109;
+
+  // @gotags: kong:"cmd,help='Rabbit'"
+  args.RabbitConn rabbit = 110;
+
+  // @gotags: kong:"cmd,help='Rabbit Streams'"
+  args.RabbitStreamsConn rabbit_streams = 111;
+
+  // @gotags: kong:"cmd,help='Redis PubSub'"
+  args.RedisPubSubConn redis_pubsub = 112;
+
+  // @gotags: kong:"cmd,help='Redis Streams'"
+  args.RedisStreamsConn redis_streams = 113;
+
+  // @gotags: kong:"cmd,help='Azure Event Hub'"
+  args.AzureEventHubConn azure_event_hub = 114;
+
+  // @gotags: kong:"cmd,help='Azure Service Bus'"
+  args.AzureServiceBusConn azure_service_bus = 115;
+
+  // @gotags: kong:"cmd,help='MQTT'"
+  args.MQTTConn mqtt = 116;
+
+  // @gotags: kong:"cmd,help='KubeMQ Queue'"
+  args.KubeMQQueueConn kubemq_queue = 117;
+
+  // @gotags: kong:"cmd,help='Google Cloud Pub/Sub'"
+  args.GCPPubSubConn gcp_pubsub = 118;
+
+  // @gotags: kong:"cmd,help='NATS JetStream'"
+  args.NatsJetstreamConn nats_jetstream = 119;
+
+  // @gotags: kong:"cmd,help='AWS Kinesis'"
+  args.AWSKinesisConn aws_kinesis = 120;
+
+}
+
 message DeleteConnectionOptions {
   // @gotags: kong:"help='ID of the connection to delete',required=true"
   string id = 1;

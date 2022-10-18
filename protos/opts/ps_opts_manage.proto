@@ -9,9 +9,6 @@ import "opts/ps_opts_manage_tunnel.proto";
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/opts";
 
 message ManageOptions {
-  // Probably will be used for "update" in the future
-  reserved 4;
-
   // @gotags: kong:"embed"
   GlobalManageOptions global_options = 1;
 
@@ -20,6 +17,9 @@ message ManageOptions {
 
   // @gotags: kong:"cmd,help='Create resources in plumber server'"
   CreateOptions create = 3;
+
+  // @gotags: kong:"cmd,help='Update resources in plumber server'"
+  UpdateOptions update = 4;
 
   // @gotags: kong:"cmd,help='Delete resources in plumber server'"
   DeleteOptions delete = 5;
@@ -84,6 +84,19 @@ message CreateOptions {
   // @gotags: kong:"cmd,help='Create tunnel in plumber server'"
   opts.CreateTunnelOptions tunnel = 3;
 }
+
+message UpdateOptions {
+  // @gotags: kong:"cmd,help='Update a connection in plumber server'"
+  opts.UpdateConnectionOptions connection = 1;
+
+  // TODO:
+  // @gotags: kong:"cmd,help='Update a relay in plumber server'"
+  opts.UpdateRelayOptions relay = 2;
+
+  // @gotags: kong:"cmd,help='Update a tunnel in plumber server'"
+  opts.UpdateTunnelOptions tunnel = 3;
+}
+
 
 message DeleteOptions {
   // @gotags: kong:"cmd,help='Delete connection in plumber server'"
