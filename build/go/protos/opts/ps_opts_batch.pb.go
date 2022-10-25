@@ -890,8 +890,8 @@ func (m *BatchCreateDestinationOptions) GetHttp() *HTTPDestination {
 type HTTPDestination struct {
 	// @gotags: kong:"help='Full URL to HTTP server (ex: https://example.com/some/path)',required"
 	Url string `protobuf:"bytes,1,opt,name=url,proto3" json:"url,omitempty" kong:"help='Full URL to HTTP server (ex: https://example.com/some/path)',required"`
-	// @gotags: kong:"help='Optional map of headers to pass on replay (--headers key1:value1,key2:value2..)'"
-	Headers              map[string]string `protobuf:"bytes,2,rep,name=headers,proto3" json:"headers,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3" kong:"help='Optional map of headers to pass on replay (--headers key1:value1,key2:value2..)'"`
+	// @gotags: kong:"help='Optional map of headers to pass on replay (--headers key1=value1,key2=value2..)'"
+	Headers              map[string]string `protobuf:"bytes,2,rep,name=headers,proto3" json:"headers,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3" kong:"help='Optional map of headers to pass on replay (--headers key1=value1,key2=value2..)'"`
 	XXX_NoUnkeyedLiteral struct{}          `json:"-"`
 	XXX_unrecognized     []byte            `json:"-"`
 	XXX_sizecache        int32             `json:"-"`
