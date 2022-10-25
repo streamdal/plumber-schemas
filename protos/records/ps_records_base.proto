@@ -100,7 +100,7 @@ message WriteRecord {
   // @gotags: kong:"help='Input string',name=input,xor=input,default"
   string input = 1;
 
-  // @gotags: kong:"help='Optional metadata a backend may use (key1:value,key2:value,etc)',name=input-metadata"
+  // @gotags: kong:"help='Optional metadata a backend may use (key1=value,key2=value,etc)',name=input-metadata"
   map<string, string> input_metadata = 2;
 }
 

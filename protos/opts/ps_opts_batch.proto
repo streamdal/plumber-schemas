@@ -181,6 +181,6 @@ message HTTPDestination {
   // @gotags: kong:"help='Full URL to HTTP server (ex: https://example.com/some/path)',required"
   string url = 1;
 
-  // @gotags: kong:"help='Optional map of headers to pass on replay (--headers key1:value1,key2:value2..)'"
+  // @gotags: kong:"help='Optional map of headers to pass on replay (--headers key1=value1,key2=value2..)'"
   map<string, string> headers = 2;
 }
