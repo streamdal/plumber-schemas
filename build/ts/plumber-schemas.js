@@ -18256,6 +18256,10 @@ $root.protos = (function() {
              * @property {string|null} [name] BatchCreateCollectionOptions name
              * @property {string|null} [schemaId] BatchCreateCollectionOptions schemaId
              * @property {string|null} [notes] BatchCreateCollectionOptions notes
+             * @property {string|null} [envelopeType] BatchCreateCollectionOptions envelopeType
+             * @property {string|null} [envelopeRootMessage] BatchCreateCollectionOptions envelopeRootMessage
+             * @property {string|null} [payloadFieldMessage] BatchCreateCollectionOptions payloadFieldMessage
+             * @property {string|null} [payloadFieldId] BatchCreateCollectionOptions payloadFieldId
              */
 
             /**
@@ -18298,6 +18302,38 @@ $root.protos = (function() {
             BatchCreateCollectionOptions.prototype.notes = "";
 
             /**
+             * BatchCreateCollectionOptions envelopeType.
+             * @member {string} envelopeType
+             * @memberof protos.opts.BatchCreateCollectionOptions
+             * @instance
+             */
+            BatchCreateCollectionOptions.prototype.envelopeType = "";
+
+            /**
+             * BatchCreateCollectionOptions envelopeRootMessage.
+             * @member {string} envelopeRootMessage
+             * @memberof protos.opts.BatchCreateCollectionOptions
+             * @instance
+             */
+            BatchCreateCollectionOptions.prototype.envelopeRootMessage = "";
+
+            /**
+             * BatchCreateCollectionOptions payloadFieldMessage.
+             * @member {string} payloadFieldMessage
+             * @memberof protos.opts.BatchCreateCollectionOptions
+             * @instance
+             */
+            BatchCreateCollectionOptions.prototype.payloadFieldMessage = "";
+
+            /**
+             * BatchCreateCollectionOptions payloadFieldId.
+             * @member {string} payloadFieldId
+             * @memberof protos.opts.BatchCreateCollectionOptions
+             * @instance
+             */
+            BatchCreateCollectionOptions.prototype.payloadFieldId = "";
+
+            /**
              * Creates a new BatchCreateCollectionOptions instance using the specified properties.
              * @function create
              * @memberof protos.opts.BatchCreateCollectionOptions
@@ -18327,6 +18363,14 @@ $root.protos = (function() {
                     writer.uint32(/* id 2, wireType 2 =*/18).string(message.schemaId);
                 if (message.notes != null && Object.hasOwnProperty.call(message, "notes"))
                     writer.uint32(/* id 3, wireType 2 =*/26).string(message.notes);
+                if (message.envelopeType != null && Object.hasOwnProperty.call(message, "envelopeType"))
+                    writer.uint32(/* id 4, wireType 2 =*/34).string(message.envelopeType);
+                if (message.envelopeRootMessage != null && Object.hasOwnProperty.call(message, "envelopeRootMessage"))
+                    writer.uint32(/* id 5, wireType 2 =*/42).string(message.envelopeRootMessage);
+                if (message.payloadFieldMessage != null && Object.hasOwnProperty.call(message, "payloadFieldMessage"))
+                    writer.uint32(/* id 6, wireType 2 =*/50).string(message.payloadFieldMessage);
+                if (message.payloadFieldId != null && Object.hasOwnProperty.call(message, "payloadFieldId"))
+                    writer.uint32(/* id 7, wireType 2 =*/58).string(message.payloadFieldId);
                 return writer;
             };
 
@@ -18369,6 +18413,18 @@ $root.protos = (function() {
                         break;
                     case 3:
                         message.notes = reader.string();
+                        break;
+                    case 4:
+                        message.envelopeType = reader.string();
+                        break;
+                    case 5:
+                        message.envelopeRootMessage = reader.string();
+                        break;
+                    case 6:
+                        message.payloadFieldMessage = reader.string();
+                        break;
+                    case 7:
+                        message.payloadFieldId = reader.string();
                         break;
                     default:
                         reader.skipType(tag & 7);
@@ -18414,6 +18470,18 @@ $root.protos = (function() {
                 if (message.notes != null && message.hasOwnProperty("notes"))
                     if (!$util.isString(message.notes))
                         return "notes: string expected";
+                if (message.envelopeType != null && message.hasOwnProperty("envelopeType"))
+                    if (!$util.isString(message.envelopeType))
+                        return "envelopeType: string expected";
+                if (message.envelopeRootMessage != null && message.hasOwnProperty("envelopeRootMessage"))
+                    if (!$util.isString(message.envelopeRootMessage))
+                        return "envelopeRootMessage: string expected";
+                if (message.payloadFieldMessage != null && message.hasOwnProperty("payloadFieldMessage"))
+                    if (!$util.isString(message.payloadFieldMessage))
+                        return "payloadFieldMessage: string expected";
+                if (message.payloadFieldId != null && message.hasOwnProperty("payloadFieldId"))
+                    if (!$util.isString(message.payloadFieldId))
+                        return "payloadFieldId: string expected";
                 return null;
             };
 
@@ -18435,6 +18503,14 @@ $root.protos = (function() {
                     message.schemaId = String(object.schemaId);
                 if (object.notes != null)
                     message.notes = String(object.notes);
+                if (object.envelopeType != null)
+                    message.envelopeType = String(object.envelopeType);
+                if (object.envelopeRootMessage != null)
+                    message.envelopeRootMessage = String(object.envelopeRootMessage);
+                if (object.payloadFieldMessage != null)
+                    message.payloadFieldMessage = String(object.payloadFieldMessage);
+                if (object.payloadFieldId != null)
+                    message.payloadFieldId = String(object.payloadFieldId);
                 return message;
             };
 
@@ -18455,6 +18531,10 @@ $root.protos = (function() {
                     object.name = "";
                     object.schemaId = "";
                     object.notes = "";
+                    object.envelopeType = "";
+                    object.envelopeRootMessage = "";
+                    object.payloadFieldMessage = "";
+                    object.payloadFieldId = "";
                 }
                 if (message.name != null && message.hasOwnProperty("name"))
                     object.name = message.name;
@@ -18462,6 +18542,14 @@ $root.protos = (function() {
                     object.schemaId = message.schemaId;
                 if (message.notes != null && message.hasOwnProperty("notes"))
                     object.notes = message.notes;
+                if (message.envelopeType != null && message.hasOwnProperty("envelopeType"))
+                    object.envelopeType = message.envelopeType;
+                if (message.envelopeRootMessage != null && message.hasOwnProperty("envelopeRootMessage"))
+                    object.envelopeRootMessage = message.envelopeRootMessage;
+                if (message.payloadFieldMessage != null && message.hasOwnProperty("payloadFieldMessage"))
+                    object.payloadFieldMessage = message.payloadFieldMessage;
+                if (message.payloadFieldId != null && message.hasOwnProperty("payloadFieldId"))
+                    object.payloadFieldId = message.payloadFieldId;
                 return object;
             };
 

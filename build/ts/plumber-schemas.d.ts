@@ -7671,6 +7671,18 @@ export namespace protos {
 
             /** BatchCreateCollectionOptions notes */
             notes?: (string|null);
+
+            /** BatchCreateCollectionOptions envelopeType */
+            envelopeType?: (string|null);
+
+            /** BatchCreateCollectionOptions envelopeRootMessage */
+            envelopeRootMessage?: (string|null);
+
+            /** BatchCreateCollectionOptions payloadFieldMessage */
+            payloadFieldMessage?: (string|null);
+
+            /** BatchCreateCollectionOptions payloadFieldId */
+            payloadFieldId?: (string|null);
         }
 
         /** Represents a BatchCreateCollectionOptions. */
@@ -7690,6 +7702,18 @@ export namespace protos {
 
             /** BatchCreateCollectionOptions notes. */
             public notes: string;
+
+            /** BatchCreateCollectionOptions envelopeType. */
+            public envelopeType: string;
+
+            /** BatchCreateCollectionOptions envelopeRootMessage. */
+            public envelopeRootMessage: string;
+
+            /** BatchCreateCollectionOptions payloadFieldMessage. */
+            public payloadFieldMessage: string;
+
+            /** BatchCreateCollectionOptions payloadFieldId. */
+            public payloadFieldId: string;
 
             /**
              * Creates a new BatchCreateCollectionOptions instance using the specified properties.
