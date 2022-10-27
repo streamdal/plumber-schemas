@@ -122,6 +122,20 @@ message BatchCreateCollectionOptions {
 
   // @gotags: kong:"help='Optional notes for the collection'"
   string notes = 3;
+
+  // @gotags: kong:"help='(Protobuf Schemas Only) Envelope Type (deep or shallow)',default='deep'"
+  string envelope_type = 4;
+
+
+  // @gotags: kong:"help='(Protobuf Schemas Only) Envelope Message Name (Ex: events.MessageEnvelope)'"
+  string envelope_root_message = 5;
+
+  // @gotags: kong:"help='(Shallow Envelope Protobuf Schemas Only) Payload Message Name (Ex: events.ShallowPayload)'"
+  string payload_field_message = 6;
+
+  // @gotags: kong:"help='(Shallow Envelope Protobuf Schemas Only) Field ID containing the message encoded with Payload Message'"
+  string payload_field_id = 7;
+
 }
 
 message BatchCreateReplayOptions {
