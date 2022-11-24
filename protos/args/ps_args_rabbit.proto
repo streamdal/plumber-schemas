@@ -45,6 +45,9 @@ message RabbitReadArgs {
 
   // @gotags: kong:"help='Key=Value pair for sending additional queue argument to RabbitMQ. Example: --queue-arg x-dead-letter-exchange=mydlexchange --queue-arg x-queue-mode=lazy',env='PLUMBER_RELAY_RABBIT_QUEUE_ARGS'"
   map<string,string> queue_arg = 10;
+
+  // @gotags: kong:"help='Exclude messages with routing key matching regex'"
+  string exclude_routing_key_regex = 11;
 }
 
 message RabbitWriteArgs {
