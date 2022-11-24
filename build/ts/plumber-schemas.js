@@ -51753,6 +51753,7 @@ $root.protos = (function() {
              * @property {string|null} [consumerTag] RabbitReadArgs consumerTag
              * @property {boolean|null} [queueDelete] RabbitReadArgs queueDelete
              * @property {Object.<string,string>|null} [queueArg] RabbitReadArgs queueArg
+             * @property {string|null} [excludeRoutingKeyRegex] RabbitReadArgs excludeRoutingKeyRegex
              */
 
             /**
@@ -51852,6 +51853,14 @@ $root.protos = (function() {
             RabbitReadArgs.prototype.queueArg = $util.emptyObject;
 
             /**
+             * RabbitReadArgs excludeRoutingKeyRegex.
+             * @member {string} excludeRoutingKeyRegex
+             * @memberof protos.args.RabbitReadArgs
+             * @instance
+             */
+            RabbitReadArgs.prototype.excludeRoutingKeyRegex = "";
+
+            /**
              * Creates a new RabbitReadArgs instance using the specified properties.
              * @function create
              * @memberof protos.args.RabbitReadArgs
@@ -51896,6 +51905,8 @@ $root.protos = (function() {
                 if (message.queueArg != null && Object.hasOwnProperty.call(message, "queueArg"))
                     for (var keys = Object.keys(message.queueArg), i = 0; i < keys.length; ++i)
                         writer.uint32(/* id 10, wireType 2 =*/82).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]).uint32(/* id 2, wireType 2 =*/18).string(message.queueArg[keys[i]]).ldelim();
+                if (message.excludeRoutingKeyRegex != null && Object.hasOwnProperty.call(message, "excludeRoutingKeyRegex"))
+                    writer.uint32(/* id 11, wireType 2 =*/90).string(message.excludeRoutingKeyRegex);
                 return writer;
             };
 
@@ -51979,6 +51990,9 @@ $root.protos = (function() {
                         }
                         message.queueArg[key] = value;
                         break;
+                    case 11:
+                        message.excludeRoutingKeyRegex = reader.string();
+                        break;
                     default:
                         reader.skipType(tag & 7);
                         break;
@@ -52049,6 +52063,9 @@ $root.protos = (function() {
                         if (!$util.isString(message.queueArg[key[i]]))
                             return "queueArg: string{k:string} expected";
                 }
+                if (message.excludeRoutingKeyRegex != null && message.hasOwnProperty("excludeRoutingKeyRegex"))
+                    if (!$util.isString(message.excludeRoutingKeyRegex))
+                        return "excludeRoutingKeyRegex: string expected";
                 return null;
             };
 
@@ -52089,6 +52106,8 @@ $root.protos = (function() {
                     for (var keys = Object.keys(object.queueArg), i = 0; i < keys.length; ++i)
                         message.queueArg[keys[i]] = String(object.queueArg[keys[i]]);
                 }
+                if (object.excludeRoutingKeyRegex != null)
+                    message.excludeRoutingKeyRegex = String(object.excludeRoutingKeyRegex);
                 return message;
             };
 
@@ -52117,6 +52136,7 @@ $root.protos = (function() {
                     object.autoAck = false;
                     object.consumerTag = "";
                     object.queueDelete = false;
+                    object.excludeRoutingKeyRegex = "";
                 }
                 if (message.exchangeName != null && message.hasOwnProperty("exchangeName"))
                     object.exchangeName = message.exchangeName;
@@ -52142,6 +52162,8 @@ $root.protos = (function() {
                     for (var j = 0; j < keys2.length; ++j)
                         object.queueArg[keys2[j]] = message.queueArg[keys2[j]];
                 }
+                if (message.excludeRoutingKeyRegex != null && message.hasOwnProperty("excludeRoutingKeyRegex"))
+                    object.excludeRoutingKeyRegex = message.excludeRoutingKeyRegex;
                 return object;
             };
 

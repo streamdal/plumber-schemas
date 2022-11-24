@@ -21348,6 +21348,9 @@ export namespace protos {
 
             /** RabbitReadArgs queueArg */
             queueArg?: ({ [k: string]: string }|null);
+
+            /** RabbitReadArgs excludeRoutingKeyRegex */
+            excludeRoutingKeyRegex?: (string|null);
         }
 
         /** Represents a RabbitReadArgs. */
@@ -21388,6 +21391,9 @@ export namespace protos {
 
             /** RabbitReadArgs queueArg. */
             public queueArg: { [k: string]: string };
+
+            /** RabbitReadArgs excludeRoutingKeyRegex. */
+            public excludeRoutingKeyRegex: string;
 
             /**
              * Creates a new RabbitReadArgs instance using the specified properties.
