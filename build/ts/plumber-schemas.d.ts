@@ -21349,8 +21349,8 @@ export namespace protos {
             /** RabbitReadArgs queueArg */
             queueArg?: ({ [k: string]: string }|null);
 
-            /** RabbitReadArgs excludeRoutingKeyRegex */
-            excludeRoutingKeyRegex?: (string|null);
+            /** RabbitReadArgs excludeBindingKeyRegex */
+            excludeBindingKeyRegex?: (string|null);
         }
 
         /** Represents a RabbitReadArgs. */
@@ -21392,8 +21392,8 @@ export namespace protos {
             /** RabbitReadArgs queueArg. */
             public queueArg: { [k: string]: string };
 
-            /** RabbitReadArgs excludeRoutingKeyRegex. */
-            public excludeRoutingKeyRegex: string;
+            /** RabbitReadArgs excludeBindingKeyRegex. */
+            public excludeBindingKeyRegex: string;
 
             /**
              * Creates a new RabbitReadArgs instance using the specified properties.
