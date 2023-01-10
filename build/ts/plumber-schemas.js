@@ -51754,6 +51754,7 @@ $root.protos = (function() {
              * @property {boolean|null} [queueDelete] RabbitReadArgs queueDelete
              * @property {Object.<string,string>|null} [queueArg] RabbitReadArgs queueArg
              * @property {string|null} [excludeBindingKeyRegex] RabbitReadArgs excludeBindingKeyRegex
+             * @property {boolean|null} [deadLetter] RabbitReadArgs deadLetter
              */
 
             /**
@@ -51861,6 +51862,14 @@ $root.protos = (function() {
             RabbitReadArgs.prototype.excludeBindingKeyRegex = "";
 
             /**
+             * RabbitReadArgs deadLetter.
+             * @member {boolean} deadLetter
+             * @memberof protos.args.RabbitReadArgs
+             * @instance
+             */
+            RabbitReadArgs.prototype.deadLetter = false;
+
+            /**
              * Creates a new RabbitReadArgs instance using the specified properties.
              * @function create
              * @memberof protos.args.RabbitReadArgs
@@ -51907,6 +51916,8 @@ $root.protos = (function() {
                         writer.uint32(/* id 10, wireType 2 =*/82).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]).uint32(/* id 2, wireType 2 =*/18).string(message.queueArg[keys[i]]).ldelim();
                 if (message.excludeBindingKeyRegex != null && Object.hasOwnProperty.call(message, "excludeBindingKeyRegex"))
                     writer.uint32(/* id 11, wireType 2 =*/90).string(message.excludeBindingKeyRegex);
+                if (message.deadLetter != null && Object.hasOwnProperty.call(message, "deadLetter"))
+                    writer.uint32(/* id 12, wireType 0 =*/96).bool(message.deadLetter);
                 return writer;
             };
 
@@ -51993,6 +52004,9 @@ $root.protos = (function() {
                     case 11:
                         message.excludeBindingKeyRegex = reader.string();
                         break;
+                    case 12:
+                        message.deadLetter = reader.bool();
+                        break;
                     default:
                         reader.skipType(tag & 7);
                         break;
@@ -52066,6 +52080,9 @@ $root.protos = (function() {
                 if (message.excludeBindingKeyRegex != null && message.hasOwnProperty("excludeBindingKeyRegex"))
                     if (!$util.isString(message.excludeBindingKeyRegex))
                         return "excludeBindingKeyRegex: string expected";
+                if (message.deadLetter != null && message.hasOwnProperty("deadLetter"))
+                    if (typeof message.deadLetter !== "boolean")
+                        return "deadLetter: boolean expected";
                 return null;
             };
 
@@ -52108,6 +52125,8 @@ $root.protos = (function() {
                 }
                 if (object.excludeBindingKeyRegex != null)
                     message.excludeBindingKeyRegex = String(object.excludeBindingKeyRegex);
+                if (object.deadLetter != null)
+                    message.deadLetter = Boolean(object.deadLetter);
                 return message;
             };
 
@@ -52137,6 +52156,7 @@ $root.protos = (function() {
                     object.consumerTag = "";
                     object.queueDelete = false;
                     object.excludeBindingKeyRegex = "";
+                    object.deadLetter = false;
                 }
                 if (message.exchangeName != null && message.hasOwnProperty("exchangeName"))
                     object.exchangeName = message.exchangeName;
@@ -52164,6 +52184,8 @@ $root.protos = (function() {
                 }
                 if (message.excludeBindingKeyRegex != null && message.hasOwnProperty("excludeBindingKeyRegex"))
                     object.excludeBindingKeyRegex = message.excludeBindingKeyRegex;
+                if (message.deadLetter != null && message.hasOwnProperty("deadLetter"))
+                    object.deadLetter = message.deadLetter;
                 return object;
             };
 
