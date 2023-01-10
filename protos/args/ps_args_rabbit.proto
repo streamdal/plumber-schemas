@@ -48,6 +48,9 @@ message RabbitReadArgs {
 
   // @gotags: kong:"help='Exclude messages with routing key matching regex',env='PLUMBER_RELAY_RABBIT_BINDING_KEY_EXCLUDE_REGEX'"
   string exclude_binding_key_regex = 11;
+
+  // @gotags: kong:"help='Consumed messages are intended to be dead-lettered',env='PLUMBER_RELAY_RABBIT_DEAD_LETTER'"
+  bool dead_letter = 12;
 }
 
 message RabbitWriteArgs {
