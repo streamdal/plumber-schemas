@@ -20,7 +20,7 @@ message BatchOptions {
   // @gotags: kong:"help='How to output results (options: table json)',default=table,type=pbenum,pbenum_lowercase"
   BatchOutputType output_type = 1;
 
-  // @gotags: kong:"help='Alternative URL to use for Batch API',default='https://api.batch.sh'"
+  // @gotags: kong:"help='Alternative URL to use for Batch API',default='https://api.streamdal.com'"
   string api_url = 2;
 
   // @gotags: kong:"cmd,help='Login to the Batch platform'"

@@ -12,7 +12,7 @@ service ForemanClient {
 }
 
 message RegisterRequest {
-  // API token obtained from https://console.batch.sh/account/security
+  // API token obtained from https://console.streamdal.com/account/security
   string api_token = 1;
 
   // Plumber cluster ID

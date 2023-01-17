@@ -42,7 +42,7 @@ message CreateTunnelOptions {
   // @gotags: kong:"help='Notes associated with the tunnel'"
   string notes = 5;
 
-  // @gotags: kong:"help='Tunnel API address',default='dproxy.batch.sh:443'"
+  // @gotags: kong:"help='Tunnel API address',default='dproxy.streamdal.com:443'"
   string _tunnel_address = 6;
 
   // @gotags: kong:"help='Tunnel API initial connection timeout',default=5"
