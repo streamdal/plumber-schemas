@@ -21351,6 +21351,9 @@ export namespace protos {
 
             /** RabbitReadArgs excludeBindingKeyRegex */
             excludeBindingKeyRegex?: (string|null);
+
+            /** RabbitReadArgs deadLetter */
+            deadLetter?: (boolean|null);
         }
 
         /** Represents a RabbitReadArgs. */
@@ -21394,6 +21397,9 @@ export namespace protos {
 
             /** RabbitReadArgs excludeBindingKeyRegex. */
             public excludeBindingKeyRegex: string;
+
+            /** RabbitReadArgs deadLetter. */
+            public deadLetter: boolean;
 
             /**
              * Creates a new RabbitReadArgs instance using the specified properties.
