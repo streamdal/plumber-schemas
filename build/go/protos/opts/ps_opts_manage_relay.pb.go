@@ -72,8 +72,8 @@ type CreateRelayOptions struct {
 	BatchMaxRetry int32 `protobuf:"varint,4,opt,name=batch_max_retry,json=batchMaxRetry,proto3" json:"batch_max_retry,omitempty" kong:"help='How many times plumber will try re-sending a batch',default=3"`
 	// @gotags: kong:"help='How many workers to launch per relay',default=10"
 	NumWorkers int32 `protobuf:"varint,5,opt,name=num_workers,json=numWorkers,proto3" json:"num_workers,omitempty" kong:"help='How many workers to launch per relay',default=10"`
-	// @gotags: kong:"help='Alternative collector to relay events to',default='grpc-collector.batch.sh:9000'"
-	BatchshGrpcAddress string `protobuf:"bytes,6,opt,name=batchsh_grpc_address,json=batchshGrpcAddress,proto3" json:"batchsh_grpc_address,omitempty" kong:"help='Alternative collector to relay events to',default='grpc-collector.batch.sh:9000'"`
+	// @gotags: kong:"help='Alternative collector to relay events to',default='grpc-collector.streamdal.com:9000'"
+	BatchshGrpcAddress string `protobuf:"bytes,6,opt,name=batchsh_grpc_address,json=batchshGrpcAddress,proto3" json:"batchsh_grpc_address,omitempty" kong:"help='Alternative collector to relay events to',default='grpc-collector.streamdal.com:9000'"`
 	// @gotags: kong:"help='Whether to use TLS with collector'"
 	BatchshGrpcDisableTls bool `protobuf:"varint,7,opt,name=batchsh_grpc_disable_tls,json=batchshGrpcDisableTls,proto3" json:"batchsh_grpc_disable_tls,omitempty" kong:"help='Whether to use TLS with collector'"`
 	// @gotags: kong:"help='How long to wait before giving up talking to the gRPC collector',default=5"
