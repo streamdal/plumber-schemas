@@ -40,9 +40,9 @@ message TunnelOptions {
   // @gotags: kong:"help='Use gRPC insecure mode when talking to Batch'"
   bool _grpc_insecure = 5;
 
-  // Optional for server, ignored for CLI.
+  // Optional for server and CLI
   // NOTE: CLI-based tunnels will be treated as ephemeral.
-  // @gotags: kong:"-"
+  // @gotags: kong:"help='Name to identify tunnel in Streamdal console. If omitted, your IP address will be used'"
   string name = 6;
 
   // ID of the created tunnel; populated by plumber.
