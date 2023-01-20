@@ -32,10 +32,10 @@ type TunnelOptions struct {
 	XGrpcTimeoutSeconds uint32 `protobuf:"varint,4,opt,name=_grpc_timeout_seconds,json=GrpcTimeoutSeconds,proto3" json:"_grpc_timeout_seconds,omitempty" kong:"help='Tunnel API initial connection timeout',default=5"`
 	// @gotags: kong:"help='Use gRPC insecure mode when talking to Batch'"
 	XGrpcInsecure bool `protobuf:"varint,5,opt,name=_grpc_insecure,json=GrpcInsecure,proto3" json:"_grpc_insecure,omitempty" kong:"help='Use gRPC insecure mode when talking to Batch'"`
-	// Optional for server, ignored for CLI.
+	// Optional for server and CLI
 	// NOTE: CLI-based tunnels will be treated as ephemeral.
-	// @gotags: kong:"-"
-	Name string `protobuf:"bytes,6,opt,name=name,proto3" json:"name,omitempty" kong:"-"`
+	// @gotags: kong:"help='Name to identify tunnel in Streamdal console. If omitted, your IP address will be used'"
+	Name string `protobuf:"bytes,6,opt,name=name,proto3" json:"name,omitempty" kong:"help='Name to identify tunnel in Streamdal console. If omitted, your IP address will be used'"`
 	// ID of the created tunnel; populated by plumber.
 	// @gotags: kong:"-"
 	XTunnelId string `protobuf:"bytes,1000,opt,name=_tunnel_id,json=TunnelId,proto3" json:"_tunnel_id,omitempty" kong:"-"`
