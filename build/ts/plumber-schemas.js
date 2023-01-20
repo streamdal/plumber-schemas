@@ -5979,6 +5979,7 @@ $root.protos = (function() {
              * @property {number|null} [numWorkers] RelayOptions numWorkers
              * @property {boolean|null} [statsEnable] RelayOptions statsEnable
              * @property {number|null} [statsReportIntervalSec] RelayOptions statsReportIntervalSec
+             * @property {boolean|null} [deadLetter] RelayOptions deadLetter
              * @property {string|null} [_batchshGrpcAddress] RelayOptions _batchshGrpcAddress
              * @property {boolean|null} [_batchshGrpcDisableTls] RelayOptions _batchshGrpcDisableTls
              * @property {number|null} [_batchshGrpcTimeoutSeconds] RelayOptions _batchshGrpcTimeoutSeconds
@@ -6072,6 +6073,14 @@ $root.protos = (function() {
              * @instance
              */
             RelayOptions.prototype.statsReportIntervalSec = 0;
+
+            /**
+             * RelayOptions deadLetter.
+             * @member {boolean} deadLetter
+             * @memberof protos.opts.RelayOptions
+             * @instance
+             */
+            RelayOptions.prototype.deadLetter = false;
 
             /**
              * RelayOptions _batchshGrpcAddress.
@@ -6279,6 +6288,8 @@ $root.protos = (function() {
                     writer.uint32(/* id 6, wireType 0 =*/48).bool(message.statsEnable);
                 if (message.statsReportIntervalSec != null && Object.hasOwnProperty.call(message, "statsReportIntervalSec"))
                     writer.uint32(/* id 7, wireType 0 =*/56).int32(message.statsReportIntervalSec);
+                if (message.deadLetter != null && Object.hasOwnProperty.call(message, "deadLetter"))
+                    writer.uint32(/* id 8, wireType 0 =*/64).bool(message.deadLetter);
                 if (message.kafka != null && Object.hasOwnProperty.call(message, "kafka"))
                     $root.protos.opts.RelayGroupKafkaOptions.encode(message.kafka, writer.uint32(/* id 100, wireType 2 =*/802).fork()).ldelim();
                 if (message.awsSqs != null && Object.hasOwnProperty.call(message, "awsSqs"))
@@ -6375,6 +6386,9 @@ $root.protos = (function() {
                         break;
                     case 7:
                         message.statsReportIntervalSec = reader.int32();
+                        break;
+                    case 8:
+                        message.deadLetter = reader.bool();
                         break;
                     case 1000:
                         message._batchshGrpcAddress = reader.string();
@@ -6495,6 +6509,9 @@ $root.protos = (function() {
                 if (message.statsReportIntervalSec != null && message.hasOwnProperty("statsReportIntervalSec"))
                     if (!$util.isInteger(message.statsReportIntervalSec))
                         return "statsReportIntervalSec: integer expected";
+                if (message.deadLetter != null && message.hasOwnProperty("deadLetter"))
+                    if (typeof message.deadLetter !== "boolean")
+                        return "deadLetter: boolean expected";
                 if (message._batchshGrpcAddress != null && message.hasOwnProperty("_batchshGrpcAddress"))
                     if (!$util.isString(message._batchshGrpcAddress))
                         return "_batchshGrpcAddress: string expected";
@@ -6619,6 +6636,8 @@ $root.protos = (function() {
                     message.statsEnable = Boolean(object.statsEnable);
                 if (object.statsReportIntervalSec != null)
                     message.statsReportIntervalSec = object.statsReportIntervalSec | 0;
+                if (object.deadLetter != null)
+                    message.deadLetter = Boolean(object.deadLetter);
                 if (object._batchshGrpcAddress != null)
                     message._batchshGrpcAddress = String(object._batchshGrpcAddress);
                 if (object._batchshGrpcDisableTls != null)
@@ -6733,6 +6752,7 @@ $root.protos = (function() {
                     object.numWorkers = 0;
                     object.statsEnable = false;
                     object.statsReportIntervalSec = 0;
+                    object.deadLetter = false;
                     object.kafka = null;
                     object.awsSqs = null;
                     object.mongo = null;
@@ -6769,6 +6789,8 @@ $root.protos = (function() {
                     object.statsEnable = message.statsEnable;
                 if (message.statsReportIntervalSec != null && message.hasOwnProperty("statsReportIntervalSec"))
                     object.statsReportIntervalSec = message.statsReportIntervalSec;
+                if (message.deadLetter != null && message.hasOwnProperty("deadLetter"))
+                    object.deadLetter = message.deadLetter;
                 if (message.kafka != null && message.hasOwnProperty("kafka"))
                     object.kafka = $root.protos.opts.RelayGroupKafkaOptions.toObject(message.kafka, options);
                 if (message.awsSqs != null && message.hasOwnProperty("awsSqs"))
@@ -28703,6 +28725,7 @@ $root.protos = (function() {
              * @property {string|null} [batchshGrpcAddress] CreateRelayOptions batchshGrpcAddress
              * @property {boolean|null} [batchshGrpcDisableTls] CreateRelayOptions batchshGrpcDisableTls
              * @property {number|null} [batchshGrpcTimeoutSeconds] CreateRelayOptions batchshGrpcTimeoutSeconds
+             * @property {boolean|null} [deadLetter] CreateRelayOptions deadLetter
              * @property {protos.args.IKafkaRelayArgs|null} [kafka] CreateRelayOptions kafka
              * @property {protos.args.IAWSSQSRelayArgs|null} [awsSqs] CreateRelayOptions awsSqs
              * @property {protos.args.IMongoReadArgs|null} [mongo] CreateRelayOptions mongo
@@ -28798,6 +28821,14 @@ $root.protos = (function() {
              * @instance
              */
             CreateRelayOptions.prototype.batchshGrpcTimeoutSeconds = 0;
+
+            /**
+             * CreateRelayOptions deadLetter.
+             * @member {boolean} deadLetter
+             * @memberof protos.opts.CreateRelayOptions
+             * @instance
+             */
+            CreateRelayOptions.prototype.deadLetter = false;
 
             /**
              * CreateRelayOptions kafka.
@@ -28959,6 +28990,8 @@ $root.protos = (function() {
                     writer.uint32(/* id 7, wireType 0 =*/56).bool(message.batchshGrpcDisableTls);
                 if (message.batchshGrpcTimeoutSeconds != null && Object.hasOwnProperty.call(message, "batchshGrpcTimeoutSeconds"))
                     writer.uint32(/* id 8, wireType 0 =*/64).int32(message.batchshGrpcTimeoutSeconds);
+                if (message.deadLetter != null && Object.hasOwnProperty.call(message, "deadLetter"))
+                    writer.uint32(/* id 9, wireType 0 =*/72).bool(message.deadLetter);
                 if (message.kafka != null && Object.hasOwnProperty.call(message, "kafka"))
                     $root.protos.args.KafkaRelayArgs.encode(message.kafka, writer.uint32(/* id 100, wireType 2 =*/802).fork()).ldelim();
                 if (message.awsSqs != null && Object.hasOwnProperty.call(message, "awsSqs"))
@@ -29046,6 +29079,9 @@ $root.protos = (function() {
                         break;
                     case 8:
                         message.batchshGrpcTimeoutSeconds = reader.int32();
+                        break;
+                    case 9:
+                        message.deadLetter = reader.bool();
                         break;
                     case 100:
                         message.kafka = $root.protos.args.KafkaRelayArgs.decode(reader, reader.uint32());
@@ -29151,6 +29187,9 @@ $root.protos = (function() {
                 if (message.batchshGrpcTimeoutSeconds != null && message.hasOwnProperty("batchshGrpcTimeoutSeconds"))
                     if (!$util.isInteger(message.batchshGrpcTimeoutSeconds))
                         return "batchshGrpcTimeoutSeconds: integer expected";
+                if (message.deadLetter != null && message.hasOwnProperty("deadLetter"))
+                    if (typeof message.deadLetter !== "boolean")
+                        return "deadLetter: boolean expected";
                 if (message.kafka != null && message.hasOwnProperty("kafka")) {
                     var error = $root.protos.args.KafkaRelayArgs.verify(message.kafka);
                     if (error)
@@ -29257,6 +29296,8 @@ $root.protos = (function() {
                     message.batchshGrpcDisableTls = Boolean(object.batchshGrpcDisableTls);
                 if (object.batchshGrpcTimeoutSeconds != null)
                     message.batchshGrpcTimeoutSeconds = object.batchshGrpcTimeoutSeconds | 0;
+                if (object.deadLetter != null)
+                    message.deadLetter = Boolean(object.deadLetter);
                 if (object.kafka != null) {
                     if (typeof object.kafka !== "object")
                         throw TypeError(".protos.opts.CreateRelayOptions.kafka: object expected");
@@ -29357,6 +29398,7 @@ $root.protos = (function() {
                     object.batchshGrpcAddress = "";
                     object.batchshGrpcDisableTls = false;
                     object.batchshGrpcTimeoutSeconds = 0;
+                    object.deadLetter = false;
                     object.kafka = null;
                     object.awsSqs = null;
                     object.mongo = null;
@@ -29389,6 +29431,8 @@ $root.protos = (function() {
                     object.batchshGrpcDisableTls = message.batchshGrpcDisableTls;
                 if (message.batchshGrpcTimeoutSeconds != null && message.hasOwnProperty("batchshGrpcTimeoutSeconds"))
                     object.batchshGrpcTimeoutSeconds = message.batchshGrpcTimeoutSeconds;
+                if (message.deadLetter != null && message.hasOwnProperty("deadLetter"))
+                    object.deadLetter = message.deadLetter;
                 if (message.kafka != null && message.hasOwnProperty("kafka"))
                     object.kafka = $root.protos.args.KafkaRelayArgs.toObject(message.kafka, options);
                 if (message.awsSqs != null && message.hasOwnProperty("awsSqs"))
@@ -51754,7 +51798,6 @@ $root.protos = (function() {
              * @property {boolean|null} [queueDelete] RabbitReadArgs queueDelete
              * @property {Object.<string,string>|null} [queueArg] RabbitReadArgs queueArg
              * @property {string|null} [excludeBindingKeyRegex] RabbitReadArgs excludeBindingKeyRegex
-             * @property {boolean|null} [deadLetter] RabbitReadArgs deadLetter
              */
 
             /**
@@ -51862,14 +51905,6 @@ $root.protos = (function() {
             RabbitReadArgs.prototype.excludeBindingKeyRegex = "";
 
             /**
-             * RabbitReadArgs deadLetter.
-             * @member {boolean} deadLetter
-             * @memberof protos.args.RabbitReadArgs
-             * @instance
-             */
-            RabbitReadArgs.prototype.deadLetter = false;
-
-            /**
              * Creates a new RabbitReadArgs instance using the specified properties.
              * @function create
              * @memberof protos.args.RabbitReadArgs
@@ -51916,8 +51951,6 @@ $root.protos = (function() {
                         writer.uint32(/* id 10, wireType 2 =*/82).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]).uint32(/* id 2, wireType 2 =*/18).string(message.queueArg[keys[i]]).ldelim();
                 if (message.excludeBindingKeyRegex != null && Object.hasOwnProperty.call(message, "excludeBindingKeyRegex"))
                     writer.uint32(/* id 11, wireType 2 =*/90).string(message.excludeBindingKeyRegex);
-                if (message.deadLetter != null && Object.hasOwnProperty.call(message, "deadLetter"))
-                    writer.uint32(/* id 12, wireType 0 =*/96).bool(message.deadLetter);
                 return writer;
             };
 
@@ -52004,9 +52037,6 @@ $root.protos = (function() {
                     case 11:
                         message.excludeBindingKeyRegex = reader.string();
                         break;
-                    case 12:
-                        message.deadLetter = reader.bool();
-                        break;
                     default:
                         reader.skipType(tag & 7);
                         break;
@@ -52080,9 +52110,6 @@ $root.protos = (function() {
                 if (message.excludeBindingKeyRegex != null && message.hasOwnProperty("excludeBindingKeyRegex"))
                     if (!$util.isString(message.excludeBindingKeyRegex))
                         return "excludeBindingKeyRegex: string expected";
-                if (message.deadLetter != null && message.hasOwnProperty("deadLetter"))
-                    if (typeof message.deadLetter !== "boolean")
-                        return "deadLetter: boolean expected";
                 return null;
             };
 
@@ -52125,8 +52152,6 @@ $root.protos = (function() {
                 }
                 if (object.excludeBindingKeyRegex != null)
                     message.excludeBindingKeyRegex = String(object.excludeBindingKeyRegex);
-                if (object.deadLetter != null)
-                    message.deadLetter = Boolean(object.deadLetter);
                 return message;
             };
 
@@ -52156,7 +52181,6 @@ $root.protos = (function() {
                     object.consumerTag = "";
                     object.queueDelete = false;
                     object.excludeBindingKeyRegex = "";
-                    object.deadLetter = false;
                 }
                 if (message.exchangeName != null && message.hasOwnProperty("exchangeName"))
                     object.exchangeName = message.exchangeName;
@@ -52184,8 +52208,6 @@ $root.protos = (function() {
                 }
                 if (message.excludeBindingKeyRegex != null && message.hasOwnProperty("excludeBindingKeyRegex"))
                     object.excludeBindingKeyRegex = message.excludeBindingKeyRegex;
-                if (message.deadLetter != null && message.hasOwnProperty("deadLetter"))
-                    object.deadLetter = message.deadLetter;
                 return object;
             };
 

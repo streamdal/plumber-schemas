@@ -2590,6 +2590,9 @@ export namespace protos {
             /** RelayOptions statsReportIntervalSec */
             statsReportIntervalSec?: (number|null);
 
+            /** RelayOptions deadLetter */
+            deadLetter?: (boolean|null);
+
             /** RelayOptions _batchshGrpcAddress */
             _batchshGrpcAddress?: (string|null);
 
@@ -2683,6 +2686,9 @@ export namespace protos {
 
             /** RelayOptions statsReportIntervalSec. */
             public statsReportIntervalSec: number;
+
+            /** RelayOptions deadLetter. */
+            public deadLetter: boolean;
 
             /** RelayOptions _batchshGrpcAddress. */
             public _batchshGrpcAddress: string;
@@ -11827,6 +11833,9 @@ export namespace protos {
             /** CreateRelayOptions batchshGrpcTimeoutSeconds */
             batchshGrpcTimeoutSeconds?: (number|null);
 
+            /** CreateRelayOptions deadLetter */
+            deadLetter?: (boolean|null);
+
             /** CreateRelayOptions kafka */
             kafka?: (protos.args.IKafkaRelayArgs|null);
 
@@ -11905,6 +11914,9 @@ export namespace protos {
 
             /** CreateRelayOptions batchshGrpcTimeoutSeconds. */
             public batchshGrpcTimeoutSeconds: number;
+
+            /** CreateRelayOptions deadLetter. */
+            public deadLetter: boolean;
 
             /** CreateRelayOptions kafka. */
             public kafka?: (protos.args.IKafkaRelayArgs|null);
@@ -21351,9 +21363,6 @@ export namespace protos {
 
             /** RabbitReadArgs excludeBindingKeyRegex */
             excludeBindingKeyRegex?: (string|null);
-
-            /** RabbitReadArgs deadLetter */
-            deadLetter?: (boolean|null);
         }
 
         /** Represents a RabbitReadArgs. */
@@ -21397,9 +21406,6 @@ export namespace protos {
 
             /** RabbitReadArgs excludeBindingKeyRegex. */
             public excludeBindingKeyRegex: string;
-
-            /** RabbitReadArgs deadLetter. */
-            public deadLetter: boolean;
 
             /**
              * Creates a new RabbitReadArgs instance using the specified properties.
