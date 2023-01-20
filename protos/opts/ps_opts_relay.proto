@@ -50,6 +50,9 @@ message RelayOptions {
   // @gotags: kong:"group=stats,help='How often to print stats',default=5"
   int32 stats_report_interval_sec = 7;
 
+  // @gotags: kong:"help='Consumed messages are intended to be dead-lettered',env='PLUMBER_RELAY_DEAD_LETTER'"
+  bool dead_letter = 8;
+
   // --------------------------------------------------------------------- //
   //                          PRIVATE FIELDS (1000+)                       //
   // --------------------------------------------------------------------- //

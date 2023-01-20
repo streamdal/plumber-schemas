@@ -51,6 +51,9 @@ message CreateRelayOptions {
   // @gotags: kong:"help='How long to wait before giving up talking to the gRPC collector',default=5"
   int32 batchsh_grpc_timeout_seconds = 8;
 
+  // @gotags: kong:"help='Consumed messages are intended to be dead-lettered'"
+  bool dead_letter = 9;
+
   // --------------------------------------------------------------------- //
   //                       SUPPORTED BACKENDS (100-999)                    //
   // --------------------------------------------------------------------- //
