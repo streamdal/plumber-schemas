@@ -25,13 +25,13 @@ import "args/ps_args_redis_streams.proto";
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/opts";
 
 message TunnelOptions {
-  // @gotags: kong:"help='API token to use for tunnel (create here: https://console.batch.sh/account/security)',required"
+  // @gotags: kong:"help='API token to use for tunnel (create here: https://console.streamdal.com/account/security)',required"
   string api_token = 1;
 
   // @gotags: kong:"-"
   string connection_id = 2;
 
-  // @gotags: kong:"help='Tunnel API address',default='dproxy.batch.sh:443'"
+  // @gotags: kong:"help='Tunnel API address',default='dproxy.streamdal.com:443'"
   string _grpc_address = 3;
 
   // @gotags: kong:"help='Tunnel API initial connection timeout',default=5"
@@ -40,9 +40,9 @@ message TunnelOptions {
   // @gotags: kong:"help='Use gRPC insecure mode when talking to Batch'"
   bool _grpc_insecure = 5;
 
-  // Optional for server, ignored for CLI.
+  // Optional for server and CLI
   // NOTE: CLI-based tunnels will be treated as ephemeral.
-  // @gotags: kong:"-"
+  // @gotags: kong:"help='Name to identify tunnel in Streamdal console. If omitted, your IP address will be used'"
   string name = 6;
 
   // ID of the created tunnel; populated by plumber.

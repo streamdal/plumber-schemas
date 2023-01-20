@@ -50,13 +50,13 @@ message ServerOptions {
   // @gotags: kong:"help='What address to bind the built-in HTTP server to',default='0.0.0.0:9191'"
   string http_listen_address = 16;
 
-  // @gotags: kong:"help='Allow plumber to be controlled from https://console.batch.sh',env='PLUMBER_REMOTE_CONTROL_ENABLED',default=false"
+  // @gotags: kong:"help='Allow plumber to be controlled from https://console.streamdal.com',env='PLUMBER_REMOTE_CONTROL_ENABLED',default=false"
   bool remote_control_enabled = 17;
 
-  // @gotags: kong:"help='Address of Batch.sh Plumber remote control service',env='PLUMBER_REMOTE_CONTROL_ADDRESS',default='foreman.batch.sh:443'"
+  // @gotags: kong:"help='Address of Streamdal Plumber remote control service',env='PLUMBER_REMOTE_CONTROL_ADDRESS',default='foreman.streamdal.com:443'"
   string remote_control_address = 18;
 
-  // @gotags: kong:"help='Batch.sh API token, needed to access remote control service',env='PLUMBER_REMOTE_CONTROL_API_TOKEN'"
+  // @gotags: kong:"help='Streamdal API token, needed to access remote control service',env='PLUMBER_REMOTE_CONTROL_API_TOKEN'"
   string remote_control_api_token = 19;
 
   // @gotags: kong:"help='Connect to remote control server without TLS',default=false"

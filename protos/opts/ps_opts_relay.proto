@@ -50,11 +50,14 @@ message RelayOptions {
   // @gotags: kong:"group=stats,help='How often to print stats',default=5"
   int32 stats_report_interval_sec = 7;
 
+  // @gotags: kong:"help='Consumed messages are intended to be dead-lettered',env='PLUMBER_RELAY_DEAD_LETTER'"
+  bool dead_letter = 8;
+
   // --------------------------------------------------------------------- //
   //                          PRIVATE FIELDS (1000+)                       //
   // --------------------------------------------------------------------- //
 
-  // @gotags: kong:"help='Alternative collector to relay events to',name='grpc-address',env='PLUMBER_RELAY_GRPC_ADDRESS',default='grpc-collector.batch.sh:9000'"
+  // @gotags: kong:"help='Alternative collector to relay events to',name='grpc-address',env='PLUMBER_RELAY_GRPC_ADDRESS',default='grpc-collector.streamdal.com:9000'"
   string _batchsh_grpc_address = 1000;
 
   // @gotags: kong:"help='Whether to use TLS with collector',name=grpc-disable-tls,env='PLUMBER_RELAY_GRPC_DISABLE_TLS',default=false"

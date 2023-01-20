@@ -42,7 +42,7 @@ message CreateRelayOptions {
   // @gotags: kong:"help='How many workers to launch per relay',default=10"
   int32 num_workers = 5;
 
-  // @gotags: kong:"help='Alternative collector to relay events to',default='grpc-collector.batch.sh:9000'"
+  // @gotags: kong:"help='Alternative collector to relay events to',default='grpc-collector.streamdal.com:9000'"
   string batchsh_grpc_address = 6;
 
   // @gotags: kong:"help='Whether to use TLS with collector'"
@@ -50,6 +50,9 @@ message CreateRelayOptions {
 
   // @gotags: kong:"help='How long to wait before giving up talking to the gRPC collector',default=5"
   int32 batchsh_grpc_timeout_seconds = 8;
+
+  // @gotags: kong:"help='Consumed messages are intended to be dead-lettered'"
+  bool dead_letter = 9;
 
   // --------------------------------------------------------------------- //
   //                       SUPPORTED BACKENDS (100-999)                    //
