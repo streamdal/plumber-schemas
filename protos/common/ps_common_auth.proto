@@ -21,9 +21,9 @@ message SourceManager {
 message Auth {
   string token = 1;
 
-  // Filled out by batch. Not intended to be used by plumber.
+  // Filled out by Streamdal. Not intended to be used by plumber.
   Foreman _foreman = 2;
 
-  // Filled out by batch. Not intended to be used by Plumber.
+  // Filled out by Streamdal. Not intended to be used by Plumber.
   SourceManager _source_manager = 3;
 }

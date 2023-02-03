@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package protos.opts;
 
-import "opts/ps_opts_batch.proto";
+import "opts/ps_opts_streamdal.proto";
 import "opts/ps_opts_manage.proto";
 import "opts/ps_opts_read.proto";
 import "opts/ps_opts_relay.proto";
@@ -61,8 +61,8 @@ message CLIOptions {
   // @gotags: kong:"cmd,help='Use plumber as a destination tunnel in Streamdal'"
   opts.TunnelOptions tunnel = 5;
 
-  // @gotags: kong:"cmd,help='Control Batch resources via the public API'"
-  opts.BatchOptions batch = 6;
+  // @gotags: kong:"cmd,help='Control your Streamdal resources via the public API'"
+  opts.StreamdalOptions streamdal = 6;
 
   // @gotags: kong:"cmd,help='Run plumber in server mode'"
   opts.ServerOptions server = 7;

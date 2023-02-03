@@ -37,7 +37,7 @@ message TunnelOptions {
   // @gotags: kong:"help='Tunnel API initial connection timeout',default=5"
   uint32 _grpc_timeout_seconds = 4;
 
-  // @gotags: kong:"help='Use gRPC insecure mode when talking to Batch'"
+  // @gotags: kong:"help='Use gRPC insecure mode when talking to Streamdal'"
   bool _grpc_insecure = 5;
 
   // Optional for server and CLI
