@@ -33,7 +33,7 @@ message CreateTunnelOptions {
   // @gotags: kong:"help='Connection ID for the tunnel to use',required=true"
   string connection_id = 1;
 
-  // @gotags: kong:"help='Batch API token (create in settings -> security)',required=true"
+  // @gotags: kong:"help='Streamdal API token (create in settings -> security)',required=true"
   string tunnel_token = 3;
 
   // @gotags: kong:"help='Name for the tunnel (auto-generated if left empty)'"
@@ -48,7 +48,7 @@ message CreateTunnelOptions {
   // @gotags: kong:"help='Tunnel API initial connection timeout',default=5"
   uint32 _tunnel_timeout_seconds = 7;
 
-  // @gotags: kong:"help='Use gRPC insecure mode when talking to Batch Tunnel API'"
+  // @gotags: kong:"help='Use gRPC insecure mode when talking to Streamdal Tunnel API'"
   bool _tunnel_insecure = 8;
 
   // --------------------------------------------------------------------- //
