@@ -5980,9 +5980,9 @@ $root.protos = (function() {
              * @property {boolean|null} [statsEnable] RelayOptions statsEnable
              * @property {number|null} [statsReportIntervalSec] RelayOptions statsReportIntervalSec
              * @property {boolean|null} [deadLetter] RelayOptions deadLetter
-             * @property {string|null} [_batchshGrpcAddress] RelayOptions _batchshGrpcAddress
-             * @property {boolean|null} [_batchshGrpcDisableTls] RelayOptions _batchshGrpcDisableTls
-             * @property {number|null} [_batchshGrpcTimeoutSeconds] RelayOptions _batchshGrpcTimeoutSeconds
+             * @property {string|null} [_streamdalGrpcAddress] RelayOptions _streamdalGrpcAddress
+             * @property {boolean|null} [_streamdalGrpcDisableTls] RelayOptions _streamdalGrpcDisableTls
+             * @property {number|null} [_streamdalGrpcTimeoutSeconds] RelayOptions _streamdalGrpcTimeoutSeconds
              * @property {string|null} [_relayId] RelayOptions _relayId
              * @property {protos.opts.IRelayCLIOptions|null} [_cliOptions] RelayOptions _cliOptions
              * @property {boolean|null} [_active] RelayOptions _active
@@ -6083,28 +6083,28 @@ $root.protos = (function() {
             RelayOptions.prototype.deadLetter = false;
 
             /**
-             * RelayOptions _batchshGrpcAddress.
-             * @member {string} _batchshGrpcAddress
+             * RelayOptions _streamdalGrpcAddress.
+             * @member {string} _streamdalGrpcAddress
              * @memberof protos.opts.RelayOptions
              * @instance
              */
-            RelayOptions.prototype._batchshGrpcAddress = "";
+            RelayOptions.prototype._streamdalGrpcAddress = "";
 
             /**
-             * RelayOptions _batchshGrpcDisableTls.
-             * @member {boolean} _batchshGrpcDisableTls
+             * RelayOptions _streamdalGrpcDisableTls.
+             * @member {boolean} _streamdalGrpcDisableTls
              * @memberof protos.opts.RelayOptions
              * @instance
              */
-            RelayOptions.prototype._batchshGrpcDisableTls = false;
+            RelayOptions.prototype._streamdalGrpcDisableTls = false;
 
             /**
-             * RelayOptions _batchshGrpcTimeoutSeconds.
-             * @member {number} _batchshGrpcTimeoutSeconds
+             * RelayOptions _streamdalGrpcTimeoutSeconds.
+             * @member {number} _streamdalGrpcTimeoutSeconds
              * @memberof protos.opts.RelayOptions
              * @instance
              */
-            RelayOptions.prototype._batchshGrpcTimeoutSeconds = 0;
+            RelayOptions.prototype._streamdalGrpcTimeoutSeconds = 0;
 
             /**
              * RelayOptions _relayId.
@@ -6320,12 +6320,12 @@ $root.protos = (function() {
                     $root.protos.opts.RelayGroupNatsStreamingOptions.encode(message.natsStreaming, writer.uint32(/* id 114, wireType 2 =*/914).fork()).ldelim();
                 if (message.natsJetstream != null && Object.hasOwnProperty.call(message, "natsJetstream"))
                     $root.protos.opts.RelayGroupNatsJetStreamOptions.encode(message.natsJetstream, writer.uint32(/* id 115, wireType 2 =*/922).fork()).ldelim();
-                if (message._batchshGrpcAddress != null && Object.hasOwnProperty.call(message, "_batchshGrpcAddress"))
-                    writer.uint32(/* id 1000, wireType 2 =*/8002).string(message._batchshGrpcAddress);
-                if (message._batchshGrpcDisableTls != null && Object.hasOwnProperty.call(message, "_batchshGrpcDisableTls"))
-                    writer.uint32(/* id 1001, wireType 0 =*/8008).bool(message._batchshGrpcDisableTls);
-                if (message._batchshGrpcTimeoutSeconds != null && Object.hasOwnProperty.call(message, "_batchshGrpcTimeoutSeconds"))
-                    writer.uint32(/* id 1002, wireType 0 =*/8016).int32(message._batchshGrpcTimeoutSeconds);
+                if (message._streamdalGrpcAddress != null && Object.hasOwnProperty.call(message, "_streamdalGrpcAddress"))
+                    writer.uint32(/* id 1000, wireType 2 =*/8002).string(message._streamdalGrpcAddress);
+                if (message._streamdalGrpcDisableTls != null && Object.hasOwnProperty.call(message, "_streamdalGrpcDisableTls"))
+                    writer.uint32(/* id 1001, wireType 0 =*/8008).bool(message._streamdalGrpcDisableTls);
+                if (message._streamdalGrpcTimeoutSeconds != null && Object.hasOwnProperty.call(message, "_streamdalGrpcTimeoutSeconds"))
+                    writer.uint32(/* id 1002, wireType 0 =*/8016).int32(message._streamdalGrpcTimeoutSeconds);
                 if (message._relayId != null && Object.hasOwnProperty.call(message, "_relayId"))
                     writer.uint32(/* id 1003, wireType 2 =*/8026).string(message._relayId);
                 if (message._cliOptions != null && Object.hasOwnProperty.call(message, "_cliOptions"))
@@ -6391,13 +6391,13 @@ $root.protos = (function() {
                         message.deadLetter = reader.bool();
                         break;
                     case 1000:
-                        message._batchshGrpcAddress = reader.string();
+                        message._streamdalGrpcAddress = reader.string();
                         break;
                     case 1001:
-                        message._batchshGrpcDisableTls = reader.bool();
+                        message._streamdalGrpcDisableTls = reader.bool();
                         break;
                     case 1002:
-                        message._batchshGrpcTimeoutSeconds = reader.int32();
+                        message._streamdalGrpcTimeoutSeconds = reader.int32();
                         break;
                     case 1003:
                         message._relayId = reader.string();
@@ -6512,15 +6512,15 @@ $root.protos = (function() {
                 if (message.deadLetter != null && message.hasOwnProperty("deadLetter"))
                     if (typeof message.deadLetter !== "boolean")
                         return "deadLetter: boolean expected";
-                if (message._batchshGrpcAddress != null && message.hasOwnProperty("_batchshGrpcAddress"))
-                    if (!$util.isString(message._batchshGrpcAddress))
-                        return "_batchshGrpcAddress: string expected";
-                if (message._batchshGrpcDisableTls != null && message.hasOwnProperty("_batchshGrpcDisableTls"))
-                    if (typeof message._batchshGrpcDisableTls !== "boolean")
-                        return "_batchshGrpcDisableTls: boolean expected";
-                if (message._batchshGrpcTimeoutSeconds != null && message.hasOwnProperty("_batchshGrpcTimeoutSeconds"))
-                    if (!$util.isInteger(message._batchshGrpcTimeoutSeconds))
-                        return "_batchshGrpcTimeoutSeconds: integer expected";
+                if (message._streamdalGrpcAddress != null && message.hasOwnProperty("_streamdalGrpcAddress"))
+                    if (!$util.isString(message._streamdalGrpcAddress))
+                        return "_streamdalGrpcAddress: string expected";
+                if (message._streamdalGrpcDisableTls != null && message.hasOwnProperty("_streamdalGrpcDisableTls"))
+                    if (typeof message._streamdalGrpcDisableTls !== "boolean")
+                        return "_streamdalGrpcDisableTls: boolean expected";
+                if (message._streamdalGrpcTimeoutSeconds != null && message.hasOwnProperty("_streamdalGrpcTimeoutSeconds"))
+                    if (!$util.isInteger(message._streamdalGrpcTimeoutSeconds))
+                        return "_streamdalGrpcTimeoutSeconds: integer expected";
                 if (message._relayId != null && message.hasOwnProperty("_relayId"))
                     if (!$util.isString(message._relayId))
                         return "_relayId: string expected";
@@ -6638,12 +6638,12 @@ $root.protos = (function() {
                     message.statsReportIntervalSec = object.statsReportIntervalSec | 0;
                 if (object.deadLetter != null)
                     message.deadLetter = Boolean(object.deadLetter);
-                if (object._batchshGrpcAddress != null)
-                    message._batchshGrpcAddress = String(object._batchshGrpcAddress);
-                if (object._batchshGrpcDisableTls != null)
-                    message._batchshGrpcDisableTls = Boolean(object._batchshGrpcDisableTls);
-                if (object._batchshGrpcTimeoutSeconds != null)
-                    message._batchshGrpcTimeoutSeconds = object._batchshGrpcTimeoutSeconds | 0;
+                if (object._streamdalGrpcAddress != null)
+                    message._streamdalGrpcAddress = String(object._streamdalGrpcAddress);
+                if (object._streamdalGrpcDisableTls != null)
+                    message._streamdalGrpcDisableTls = Boolean(object._streamdalGrpcDisableTls);
+                if (object._streamdalGrpcTimeoutSeconds != null)
+                    message._streamdalGrpcTimeoutSeconds = object._streamdalGrpcTimeoutSeconds | 0;
                 if (object._relayId != null)
                     message._relayId = String(object._relayId);
                 if (object._cliOptions != null) {
@@ -6768,9 +6768,9 @@ $root.protos = (function() {
                     object.nats = null;
                     object.natsStreaming = null;
                     object.natsJetstream = null;
-                    object._batchshGrpcAddress = "";
-                    object._batchshGrpcDisableTls = false;
-                    object._batchshGrpcTimeoutSeconds = 0;
+                    object._streamdalGrpcAddress = "";
+                    object._streamdalGrpcDisableTls = false;
+                    object._streamdalGrpcTimeoutSeconds = 0;
                     object._relayId = "";
                     object._cliOptions = null;
                     object._active = false;
@@ -6821,12 +6821,12 @@ $root.protos = (function() {
                     object.natsStreaming = $root.protos.opts.RelayGroupNatsStreamingOptions.toObject(message.natsStreaming, options);
                 if (message.natsJetstream != null && message.hasOwnProperty("natsJetstream"))
                     object.natsJetstream = $root.protos.opts.RelayGroupNatsJetStreamOptions.toObject(message.natsJetstream, options);
-                if (message._batchshGrpcAddress != null && message.hasOwnProperty("_batchshGrpcAddress"))
-                    object._batchshGrpcAddress = message._batchshGrpcAddress;
-                if (message._batchshGrpcDisableTls != null && message.hasOwnProperty("_batchshGrpcDisableTls"))
-                    object._batchshGrpcDisableTls = message._batchshGrpcDisableTls;
-                if (message._batchshGrpcTimeoutSeconds != null && message.hasOwnProperty("_batchshGrpcTimeoutSeconds"))
-                    object._batchshGrpcTimeoutSeconds = message._batchshGrpcTimeoutSeconds;
+                if (message._streamdalGrpcAddress != null && message.hasOwnProperty("_streamdalGrpcAddress"))
+                    object._streamdalGrpcAddress = message._streamdalGrpcAddress;
+                if (message._streamdalGrpcDisableTls != null && message.hasOwnProperty("_streamdalGrpcDisableTls"))
+                    object._streamdalGrpcDisableTls = message._streamdalGrpcDisableTls;
+                if (message._streamdalGrpcTimeoutSeconds != null && message.hasOwnProperty("_streamdalGrpcTimeoutSeconds"))
+                    object._streamdalGrpcTimeoutSeconds = message._streamdalGrpcTimeoutSeconds;
                 if (message._relayId != null && message.hasOwnProperty("_relayId"))
                     object._relayId = message._relayId;
                 if (message._cliOptions != null && message.hasOwnProperty("_cliOptions"))

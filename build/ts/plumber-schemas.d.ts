@@ -2593,14 +2593,14 @@ export namespace protos {
             /** RelayOptions deadLetter */
             deadLetter?: (boolean|null);
 
-            /** RelayOptions _batchshGrpcAddress */
-            _batchshGrpcAddress?: (string|null);
+            /** RelayOptions _streamdalGrpcAddress */
+            _streamdalGrpcAddress?: (string|null);
 
-            /** RelayOptions _batchshGrpcDisableTls */
-            _batchshGrpcDisableTls?: (boolean|null);
+            /** RelayOptions _streamdalGrpcDisableTls */
+            _streamdalGrpcDisableTls?: (boolean|null);
 
-            /** RelayOptions _batchshGrpcTimeoutSeconds */
-            _batchshGrpcTimeoutSeconds?: (number|null);
+            /** RelayOptions _streamdalGrpcTimeoutSeconds */
+            _streamdalGrpcTimeoutSeconds?: (number|null);
 
             /** RelayOptions _relayId */
             _relayId?: (string|null);
@@ -2690,14 +2690,14 @@ export namespace protos {
             /** RelayOptions deadLetter. */
             public deadLetter: boolean;
 
-            /** RelayOptions _batchshGrpcAddress. */
-            public _batchshGrpcAddress: string;
+            /** RelayOptions _streamdalGrpcAddress. */
+            public _streamdalGrpcAddress: string;
 
-            /** RelayOptions _batchshGrpcDisableTls. */
-            public _batchshGrpcDisableTls: boolean;
+            /** RelayOptions _streamdalGrpcDisableTls. */
+            public _streamdalGrpcDisableTls: boolean;
 
-            /** RelayOptions _batchshGrpcTimeoutSeconds. */
-            public _batchshGrpcTimeoutSeconds: number;
+            /** RelayOptions _streamdalGrpcTimeoutSeconds. */
+            public _streamdalGrpcTimeoutSeconds: number;
 
             /** RelayOptions _relayId. */
             public _relayId: string;
