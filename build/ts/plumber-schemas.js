@@ -15764,9009 +15764,6 @@ $root.protos = (function() {
             return TunnelGroupAWSKinesisOptions;
         })();
 
-        /**
-         * BatchOutputType enum.
-         * @name protos.opts.BatchOutputType
-         * @enum {number}
-         * @property {number} TABLE=0 TABLE value
-         * @property {number} JSON=1 JSON value
-         */
-        opts.BatchOutputType = (function() {
-            var valuesById = {}, values = Object.create(valuesById);
-            values[valuesById[0] = "TABLE"] = 0;
-            values[valuesById[1] = "JSON"] = 1;
-            return values;
-        })();
-
-        /**
-         * BatchReplayType enum.
-         * @name protos.opts.BatchReplayType
-         * @enum {number}
-         * @property {number} SINGLE=0 SINGLE value
-         * @property {number} CONTINUOUS=1 CONTINUOUS value
-         */
-        opts.BatchReplayType = (function() {
-            var valuesById = {}, values = Object.create(valuesById);
-            values[valuesById[0] = "SINGLE"] = 0;
-            values[valuesById[1] = "CONTINUOUS"] = 1;
-            return values;
-        })();
-
-        opts.BatchOptions = (function() {
-
-            /**
-             * Properties of a BatchOptions.
-             * @memberof protos.opts
-             * @interface IBatchOptions
-             * @property {protos.opts.BatchOutputType|null} [outputType] BatchOptions outputType
-             * @property {string|null} [apiUrl] BatchOptions apiUrl
-             * @property {protos.opts.IBatchLoginOptions|null} [login] BatchOptions login
-             * @property {protos.opts.IBatchLogoutOptions|null} [logout] BatchOptions logout
-             * @property {protos.opts.IBatchListOptions|null} [list] BatchOptions list
-             * @property {protos.opts.IBatchCreateOptions|null} [create] BatchOptions create
-             * @property {protos.opts.IBatchSearchOptions|null} [search] BatchOptions search
-             * @property {protos.opts.IBatchArchiveOptions|null} [archive] BatchOptions archive
-             */
-
-            /**
-             * Constructs a new BatchOptions.
-             * @memberof protos.opts
-             * @classdesc Represents a BatchOptions.
-             * @implements IBatchOptions
-             * @constructor
-             * @param {protos.opts.IBatchOptions=} [properties] Properties to set
-             */
-            function BatchOptions(properties) {
-                if (properties)
-                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                        if (properties[keys[i]] != null)
-                            this[keys[i]] = properties[keys[i]];
-            }
-
-            /**
-             * BatchOptions outputType.
-             * @member {protos.opts.BatchOutputType} outputType
-             * @memberof protos.opts.BatchOptions
-             * @instance
-             */
-            BatchOptions.prototype.outputType = 0;
-
-            /**
-             * BatchOptions apiUrl.
-             * @member {string} apiUrl
-             * @memberof protos.opts.BatchOptions
-             * @instance
-             */
-            BatchOptions.prototype.apiUrl = "";
-
-            /**
-             * BatchOptions login.
-             * @member {protos.opts.IBatchLoginOptions|null|undefined} login
-             * @memberof protos.opts.BatchOptions
-             * @instance
-             */
-            BatchOptions.prototype.login = null;
-
-            /**
-             * BatchOptions logout.
-             * @member {protos.opts.IBatchLogoutOptions|null|undefined} logout
-             * @memberof protos.opts.BatchOptions
-             * @instance
-             */
-            BatchOptions.prototype.logout = null;
-
-            /**
-             * BatchOptions list.
-             * @member {protos.opts.IBatchListOptions|null|undefined} list
-             * @memberof protos.opts.BatchOptions
-             * @instance
-             */
-            BatchOptions.prototype.list = null;
-
-            /**
-             * BatchOptions create.
-             * @member {protos.opts.IBatchCreateOptions|null|undefined} create
-             * @memberof protos.opts.BatchOptions
-             * @instance
-             */
-            BatchOptions.prototype.create = null;
-
-            /**
-             * BatchOptions search.
-             * @member {protos.opts.IBatchSearchOptions|null|undefined} search
-             * @memberof protos.opts.BatchOptions
-             * @instance
-             */
-            BatchOptions.prototype.search = null;
-
-            /**
-             * BatchOptions archive.
-             * @member {protos.opts.IBatchArchiveOptions|null|undefined} archive
-             * @memberof protos.opts.BatchOptions
-             * @instance
-             */
-            BatchOptions.prototype.archive = null;
-
-            /**
-             * Creates a new BatchOptions instance using the specified properties.
-             * @function create
-             * @memberof protos.opts.BatchOptions
-             * @static
-             * @param {protos.opts.IBatchOptions=} [properties] Properties to set
-             * @returns {protos.opts.BatchOptions} BatchOptions instance
-             */
-            BatchOptions.create = function create(properties) {
-                return new BatchOptions(properties);
-            };
-
-            /**
-             * Encodes the specified BatchOptions message. Does not implicitly {@link protos.opts.BatchOptions.verify|verify} messages.
-             * @function encode
-             * @memberof protos.opts.BatchOptions
-             * @static
-             * @param {protos.opts.IBatchOptions} message BatchOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            BatchOptions.encode = function encode(message, writer) {
-                if (!writer)
-                    writer = $Writer.create();
-                if (message.outputType != null && Object.hasOwnProperty.call(message, "outputType"))
-                    writer.uint32(/* id 1, wireType 0 =*/8).int32(message.outputType);
-                if (message.apiUrl != null && Object.hasOwnProperty.call(message, "apiUrl"))
-                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.apiUrl);
-                if (message.login != null && Object.hasOwnProperty.call(message, "login"))
-                    $root.protos.opts.BatchLoginOptions.encode(message.login, writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
-                if (message.logout != null && Object.hasOwnProperty.call(message, "logout"))
-                    $root.protos.opts.BatchLogoutOptions.encode(message.logout, writer.uint32(/* id 4, wireType 2 =*/34).fork()).ldelim();
-                if (message.list != null && Object.hasOwnProperty.call(message, "list"))
-                    $root.protos.opts.BatchListOptions.encode(message.list, writer.uint32(/* id 5, wireType 2 =*/42).fork()).ldelim();
-                if (message.create != null && Object.hasOwnProperty.call(message, "create"))
-                    $root.protos.opts.BatchCreateOptions.encode(message.create, writer.uint32(/* id 6, wireType 2 =*/50).fork()).ldelim();
-                if (message.search != null && Object.hasOwnProperty.call(message, "search"))
-                    $root.protos.opts.BatchSearchOptions.encode(message.search, writer.uint32(/* id 7, wireType 2 =*/58).fork()).ldelim();
-                if (message.archive != null && Object.hasOwnProperty.call(message, "archive"))
-                    $root.protos.opts.BatchArchiveOptions.encode(message.archive, writer.uint32(/* id 8, wireType 2 =*/66).fork()).ldelim();
-                return writer;
-            };
-
-            /**
-             * Encodes the specified BatchOptions message, length delimited. Does not implicitly {@link protos.opts.BatchOptions.verify|verify} messages.
-             * @function encodeDelimited
-             * @memberof protos.opts.BatchOptions
-             * @static
-             * @param {protos.opts.IBatchOptions} message BatchOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            BatchOptions.encodeDelimited = function encodeDelimited(message, writer) {
-                return this.encode(message, writer).ldelim();
-            };
-
-            /**
-             * Decodes a BatchOptions message from the specified reader or buffer.
-             * @function decode
-             * @memberof protos.opts.BatchOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @param {number} [length] Message length if known beforehand
-             * @returns {protos.opts.BatchOptions} BatchOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            BatchOptions.decode = function decode(reader, length) {
-                if (!(reader instanceof $Reader))
-                    reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.BatchOptions();
-                while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    switch (tag >>> 3) {
-                    case 1:
-                        message.outputType = reader.int32();
-                        break;
-                    case 2:
-                        message.apiUrl = reader.string();
-                        break;
-                    case 3:
-                        message.login = $root.protos.opts.BatchLoginOptions.decode(reader, reader.uint32());
-                        break;
-                    case 4:
-                        message.logout = $root.protos.opts.BatchLogoutOptions.decode(reader, reader.uint32());
-                        break;
-                    case 5:
-                        message.list = $root.protos.opts.BatchListOptions.decode(reader, reader.uint32());
-                        break;
-                    case 6:
-                        message.create = $root.protos.opts.BatchCreateOptions.decode(reader, reader.uint32());
-                        break;
-                    case 7:
-                        message.search = $root.protos.opts.BatchSearchOptions.decode(reader, reader.uint32());
-                        break;
-                    case 8:
-                        message.archive = $root.protos.opts.BatchArchiveOptions.decode(reader, reader.uint32());
-                        break;
-                    default:
-                        reader.skipType(tag & 7);
-                        break;
-                    }
-                }
-                return message;
-            };
-
-            /**
-             * Decodes a BatchOptions message from the specified reader or buffer, length delimited.
-             * @function decodeDelimited
-             * @memberof protos.opts.BatchOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {protos.opts.BatchOptions} BatchOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            BatchOptions.decodeDelimited = function decodeDelimited(reader) {
-                if (!(reader instanceof $Reader))
-                    reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
-            };
-
-            /**
-             * Verifies a BatchOptions message.
-             * @function verify
-             * @memberof protos.opts.BatchOptions
-             * @static
-             * @param {Object.<string,*>} message Plain object to verify
-             * @returns {string|null} `null` if valid, otherwise the reason why it is not
-             */
-            BatchOptions.verify = function verify(message) {
-                if (typeof message !== "object" || message === null)
-                    return "object expected";
-                if (message.outputType != null && message.hasOwnProperty("outputType"))
-                    switch (message.outputType) {
-                    default:
-                        return "outputType: enum value expected";
-                    case 0:
-                    case 1:
-                        break;
-                    }
-                if (message.apiUrl != null && message.hasOwnProperty("apiUrl"))
-                    if (!$util.isString(message.apiUrl))
-                        return "apiUrl: string expected";
-                if (message.login != null && message.hasOwnProperty("login")) {
-                    var error = $root.protos.opts.BatchLoginOptions.verify(message.login);
-                    if (error)
-                        return "login." + error;
-                }
-                if (message.logout != null && message.hasOwnProperty("logout")) {
-                    var error = $root.protos.opts.BatchLogoutOptions.verify(message.logout);
-                    if (error)
-                        return "logout." + error;
-                }
-                if (message.list != null && message.hasOwnProperty("list")) {
-                    var error = $root.protos.opts.BatchListOptions.verify(message.list);
-                    if (error)
-                        return "list." + error;
-                }
-                if (message.create != null && message.hasOwnProperty("create")) {
-                    var error = $root.protos.opts.BatchCreateOptions.verify(message.create);
-                    if (error)
-                        return "create." + error;
-                }
-                if (message.search != null && message.hasOwnProperty("search")) {
-                    var error = $root.protos.opts.BatchSearchOptions.verify(message.search);
-                    if (error)
-                        return "search." + error;
-                }
-                if (message.archive != null && message.hasOwnProperty("archive")) {
-                    var error = $root.protos.opts.BatchArchiveOptions.verify(message.archive);
-                    if (error)
-                        return "archive." + error;
-                }
-                return null;
-            };
-
-            /**
-             * Creates a BatchOptions message from a plain object. Also converts values to their respective internal types.
-             * @function fromObject
-             * @memberof protos.opts.BatchOptions
-             * @static
-             * @param {Object.<string,*>} object Plain object
-             * @returns {protos.opts.BatchOptions} BatchOptions
-             */
-            BatchOptions.fromObject = function fromObject(object) {
-                if (object instanceof $root.protos.opts.BatchOptions)
-                    return object;
-                var message = new $root.protos.opts.BatchOptions();
-                switch (object.outputType) {
-                case "TABLE":
-                case 0:
-                    message.outputType = 0;
-                    break;
-                case "JSON":
-                case 1:
-                    message.outputType = 1;
-                    break;
-                }
-                if (object.apiUrl != null)
-                    message.apiUrl = String(object.apiUrl);
-                if (object.login != null) {
-                    if (typeof object.login !== "object")
-                        throw TypeError(".protos.opts.BatchOptions.login: object expected");
-                    message.login = $root.protos.opts.BatchLoginOptions.fromObject(object.login);
-                }
-                if (object.logout != null) {
-                    if (typeof object.logout !== "object")
-                        throw TypeError(".protos.opts.BatchOptions.logout: object expected");
-                    message.logout = $root.protos.opts.BatchLogoutOptions.fromObject(object.logout);
-                }
-                if (object.list != null) {
-                    if (typeof object.list !== "object")
-                        throw TypeError(".protos.opts.BatchOptions.list: object expected");
-                    message.list = $root.protos.opts.BatchListOptions.fromObject(object.list);
-                }
-                if (object.create != null) {
-                    if (typeof object.create !== "object")
-                        throw TypeError(".protos.opts.BatchOptions.create: object expected");
-                    message.create = $root.protos.opts.BatchCreateOptions.fromObject(object.create);
-                }
-                if (object.search != null) {
-                    if (typeof object.search !== "object")
-                        throw TypeError(".protos.opts.BatchOptions.search: object expected");
-                    message.search = $root.protos.opts.BatchSearchOptions.fromObject(object.search);
-                }
-                if (object.archive != null) {
-                    if (typeof object.archive !== "object")
-                        throw TypeError(".protos.opts.BatchOptions.archive: object expected");
-                    message.archive = $root.protos.opts.BatchArchiveOptions.fromObject(object.archive);
-                }
-                return message;
-            };
-
-            /**
-             * Creates a plain object from a BatchOptions message. Also converts values to other types if specified.
-             * @function toObject
-             * @memberof protos.opts.BatchOptions
-             * @static
-             * @param {protos.opts.BatchOptions} message BatchOptions
-             * @param {$protobuf.IConversionOptions} [options] Conversion options
-             * @returns {Object.<string,*>} Plain object
-             */
-            BatchOptions.toObject = function toObject(message, options) {
-                if (!options)
-                    options = {};
-                var object = {};
-                if (options.defaults) {
-                    object.outputType = options.enums === String ? "TABLE" : 0;
-                    object.apiUrl = "";
-                    object.login = null;
-                    object.logout = null;
-                    object.list = null;
-                    object.create = null;
-                    object.search = null;
-                    object.archive = null;
-                }
-                if (message.outputType != null && message.hasOwnProperty("outputType"))
-                    object.outputType = options.enums === String ? $root.protos.opts.BatchOutputType[message.outputType] : message.outputType;
-                if (message.apiUrl != null && message.hasOwnProperty("apiUrl"))
-                    object.apiUrl = message.apiUrl;
-                if (message.login != null && message.hasOwnProperty("login"))
-                    object.login = $root.protos.opts.BatchLoginOptions.toObject(message.login, options);
-                if (message.logout != null && message.hasOwnProperty("logout"))
-                    object.logout = $root.protos.opts.BatchLogoutOptions.toObject(message.logout, options);
-                if (message.list != null && message.hasOwnProperty("list"))
-                    object.list = $root.protos.opts.BatchListOptions.toObject(message.list, options);
-                if (message.create != null && message.hasOwnProperty("create"))
-                    object.create = $root.protos.opts.BatchCreateOptions.toObject(message.create, options);
-                if (message.search != null && message.hasOwnProperty("search"))
-                    object.search = $root.protos.opts.BatchSearchOptions.toObject(message.search, options);
-                if (message.archive != null && message.hasOwnProperty("archive"))
-                    object.archive = $root.protos.opts.BatchArchiveOptions.toObject(message.archive, options);
-                return object;
-            };
-
-            /**
-             * Converts this BatchOptions to JSON.
-             * @function toJSON
-             * @memberof protos.opts.BatchOptions
-             * @instance
-             * @returns {Object.<string,*>} JSON object
-             */
-            BatchOptions.prototype.toJSON = function toJSON() {
-                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-            };
-
-            return BatchOptions;
-        })();
-
-        opts.BatchLoginOptions = (function() {
-
-            /**
-             * Properties of a BatchLoginOptions.
-             * @memberof protos.opts
-             * @interface IBatchLoginOptions
-             */
-
-            /**
-             * Constructs a new BatchLoginOptions.
-             * @memberof protos.opts
-             * @classdesc Represents a BatchLoginOptions.
-             * @implements IBatchLoginOptions
-             * @constructor
-             * @param {protos.opts.IBatchLoginOptions=} [properties] Properties to set
-             */
-            function BatchLoginOptions(properties) {
-                if (properties)
-                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                        if (properties[keys[i]] != null)
-                            this[keys[i]] = properties[keys[i]];
-            }
-
-            /**
-             * Creates a new BatchLoginOptions instance using the specified properties.
-             * @function create
-             * @memberof protos.opts.BatchLoginOptions
-             * @static
-             * @param {protos.opts.IBatchLoginOptions=} [properties] Properties to set
-             * @returns {protos.opts.BatchLoginOptions} BatchLoginOptions instance
-             */
-            BatchLoginOptions.create = function create(properties) {
-                return new BatchLoginOptions(properties);
-            };
-
-            /**
-             * Encodes the specified BatchLoginOptions message. Does not implicitly {@link protos.opts.BatchLoginOptions.verify|verify} messages.
-             * @function encode
-             * @memberof protos.opts.BatchLoginOptions
-             * @static
-             * @param {protos.opts.IBatchLoginOptions} message BatchLoginOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            BatchLoginOptions.encode = function encode(message, writer) {
-                if (!writer)
-                    writer = $Writer.create();
-                return writer;
-            };
-
-            /**
-             * Encodes the specified BatchLoginOptions message, length delimited. Does not implicitly {@link protos.opts.BatchLoginOptions.verify|verify} messages.
-             * @function encodeDelimited
-             * @memberof protos.opts.BatchLoginOptions
-             * @static
-             * @param {protos.opts.IBatchLoginOptions} message BatchLoginOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            BatchLoginOptions.encodeDelimited = function encodeDelimited(message, writer) {
-                return this.encode(message, writer).ldelim();
-            };
-
-            /**
-             * Decodes a BatchLoginOptions message from the specified reader or buffer.
-             * @function decode
-             * @memberof protos.opts.BatchLoginOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @param {number} [length] Message length if known beforehand
-             * @returns {protos.opts.BatchLoginOptions} BatchLoginOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            BatchLoginOptions.decode = function decode(reader, length) {
-                if (!(reader instanceof $Reader))
-                    reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.BatchLoginOptions();
-                while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    switch (tag >>> 3) {
-                    default:
-                        reader.skipType(tag & 7);
-                        break;
-                    }
-                }
-                return message;
-            };
-
-            /**
-             * Decodes a BatchLoginOptions message from the specified reader or buffer, length delimited.
-             * @function decodeDelimited
-             * @memberof protos.opts.BatchLoginOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {protos.opts.BatchLoginOptions} BatchLoginOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            BatchLoginOptions.decodeDelimited = function decodeDelimited(reader) {
-                if (!(reader instanceof $Reader))
-                    reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
-            };
-
-            /**
-             * Verifies a BatchLoginOptions message.
-             * @function verify
-             * @memberof protos.opts.BatchLoginOptions
-             * @static
-             * @param {Object.<string,*>} message Plain object to verify
-             * @returns {string|null} `null` if valid, otherwise the reason why it is not
-             */
-            BatchLoginOptions.verify = function verify(message) {
-                if (typeof message !== "object" || message === null)
-                    return "object expected";
-                return null;
-            };
-
-            /**
-             * Creates a BatchLoginOptions message from a plain object. Also converts values to their respective internal types.
-             * @function fromObject
-             * @memberof protos.opts.BatchLoginOptions
-             * @static
-             * @param {Object.<string,*>} object Plain object
-             * @returns {protos.opts.BatchLoginOptions} BatchLoginOptions
-             */
-            BatchLoginOptions.fromObject = function fromObject(object) {
-                if (object instanceof $root.protos.opts.BatchLoginOptions)
-                    return object;
-                return new $root.protos.opts.BatchLoginOptions();
-            };
-
-            /**
-             * Creates a plain object from a BatchLoginOptions message. Also converts values to other types if specified.
-             * @function toObject
-             * @memberof protos.opts.BatchLoginOptions
-             * @static
-             * @param {protos.opts.BatchLoginOptions} message BatchLoginOptions
-             * @param {$protobuf.IConversionOptions} [options] Conversion options
-             * @returns {Object.<string,*>} Plain object
-             */
-            BatchLoginOptions.toObject = function toObject() {
-                return {};
-            };
-
-            /**
-             * Converts this BatchLoginOptions to JSON.
-             * @function toJSON
-             * @memberof protos.opts.BatchLoginOptions
-             * @instance
-             * @returns {Object.<string,*>} JSON object
-             */
-            BatchLoginOptions.prototype.toJSON = function toJSON() {
-                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-            };
-
-            return BatchLoginOptions;
-        })();
-
-        opts.BatchLogoutOptions = (function() {
-
-            /**
-             * Properties of a BatchLogoutOptions.
-             * @memberof protos.opts
-             * @interface IBatchLogoutOptions
-             */
-
-            /**
-             * Constructs a new BatchLogoutOptions.
-             * @memberof protos.opts
-             * @classdesc Represents a BatchLogoutOptions.
-             * @implements IBatchLogoutOptions
-             * @constructor
-             * @param {protos.opts.IBatchLogoutOptions=} [properties] Properties to set
-             */
-            function BatchLogoutOptions(properties) {
-                if (properties)
-                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                        if (properties[keys[i]] != null)
-                            this[keys[i]] = properties[keys[i]];
-            }
-
-            /**
-             * Creates a new BatchLogoutOptions instance using the specified properties.
-             * @function create
-             * @memberof protos.opts.BatchLogoutOptions
-             * @static
-             * @param {protos.opts.IBatchLogoutOptions=} [properties] Properties to set
-             * @returns {protos.opts.BatchLogoutOptions} BatchLogoutOptions instance
-             */
-            BatchLogoutOptions.create = function create(properties) {
-                return new BatchLogoutOptions(properties);
-            };
-
-            /**
-             * Encodes the specified BatchLogoutOptions message. Does not implicitly {@link protos.opts.BatchLogoutOptions.verify|verify} messages.
-             * @function encode
-             * @memberof protos.opts.BatchLogoutOptions
-             * @static
-             * @param {protos.opts.IBatchLogoutOptions} message BatchLogoutOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            BatchLogoutOptions.encode = function encode(message, writer) {
-                if (!writer)
-                    writer = $Writer.create();
-                return writer;
-            };
-
-            /**
-             * Encodes the specified BatchLogoutOptions message, length delimited. Does not implicitly {@link protos.opts.BatchLogoutOptions.verify|verify} messages.
-             * @function encodeDelimited
-             * @memberof protos.opts.BatchLogoutOptions
-             * @static
-             * @param {protos.opts.IBatchLogoutOptions} message BatchLogoutOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            BatchLogoutOptions.encodeDelimited = function encodeDelimited(message, writer) {
-                return this.encode(message, writer).ldelim();
-            };
-
-            /**
-             * Decodes a BatchLogoutOptions message from the specified reader or buffer.
-             * @function decode
-             * @memberof protos.opts.BatchLogoutOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @param {number} [length] Message length if known beforehand
-             * @returns {protos.opts.BatchLogoutOptions} BatchLogoutOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            BatchLogoutOptions.decode = function decode(reader, length) {
-                if (!(reader instanceof $Reader))
-                    reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.BatchLogoutOptions();
-                while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    switch (tag >>> 3) {
-                    default:
-                        reader.skipType(tag & 7);
-                        break;
-                    }
-                }
-                return message;
-            };
-
-            /**
-             * Decodes a BatchLogoutOptions message from the specified reader or buffer, length delimited.
-             * @function decodeDelimited
-             * @memberof protos.opts.BatchLogoutOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {protos.opts.BatchLogoutOptions} BatchLogoutOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            BatchLogoutOptions.decodeDelimited = function decodeDelimited(reader) {
-                if (!(reader instanceof $Reader))
-                    reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
-            };
-
-            /**
-             * Verifies a BatchLogoutOptions message.
-             * @function verify
-             * @memberof protos.opts.BatchLogoutOptions
-             * @static
-             * @param {Object.<string,*>} message Plain object to verify
-             * @returns {string|null} `null` if valid, otherwise the reason why it is not
-             */
-            BatchLogoutOptions.verify = function verify(message) {
-                if (typeof message !== "object" || message === null)
-                    return "object expected";
-                return null;
-            };
-
-            /**
-             * Creates a BatchLogoutOptions message from a plain object. Also converts values to their respective internal types.
-             * @function fromObject
-             * @memberof protos.opts.BatchLogoutOptions
-             * @static
-             * @param {Object.<string,*>} object Plain object
-             * @returns {protos.opts.BatchLogoutOptions} BatchLogoutOptions
-             */
-            BatchLogoutOptions.fromObject = function fromObject(object) {
-                if (object instanceof $root.protos.opts.BatchLogoutOptions)
-                    return object;
-                return new $root.protos.opts.BatchLogoutOptions();
-            };
-
-            /**
-             * Creates a plain object from a BatchLogoutOptions message. Also converts values to other types if specified.
-             * @function toObject
-             * @memberof protos.opts.BatchLogoutOptions
-             * @static
-             * @param {protos.opts.BatchLogoutOptions} message BatchLogoutOptions
-             * @param {$protobuf.IConversionOptions} [options] Conversion options
-             * @returns {Object.<string,*>} Plain object
-             */
-            BatchLogoutOptions.toObject = function toObject() {
-                return {};
-            };
-
-            /**
-             * Converts this BatchLogoutOptions to JSON.
-             * @function toJSON
-             * @memberof protos.opts.BatchLogoutOptions
-             * @instance
-             * @returns {Object.<string,*>} JSON object
-             */
-            BatchLogoutOptions.prototype.toJSON = function toJSON() {
-                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-            };
-
-            return BatchLogoutOptions;
-        })();
-
-        opts.BatchListCollectionOptions = (function() {
-
-            /**
-             * Properties of a BatchListCollectionOptions.
-             * @memberof protos.opts
-             * @interface IBatchListCollectionOptions
-             */
-
-            /**
-             * Constructs a new BatchListCollectionOptions.
-             * @memberof protos.opts
-             * @classdesc Represents a BatchListCollectionOptions.
-             * @implements IBatchListCollectionOptions
-             * @constructor
-             * @param {protos.opts.IBatchListCollectionOptions=} [properties] Properties to set
-             */
-            function BatchListCollectionOptions(properties) {
-                if (properties)
-                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                        if (properties[keys[i]] != null)
-                            this[keys[i]] = properties[keys[i]];
-            }
-
-            /**
-             * Creates a new BatchListCollectionOptions instance using the specified properties.
-             * @function create
-             * @memberof protos.opts.BatchListCollectionOptions
-             * @static
-             * @param {protos.opts.IBatchListCollectionOptions=} [properties] Properties to set
-             * @returns {protos.opts.BatchListCollectionOptions} BatchListCollectionOptions instance
-             */
-            BatchListCollectionOptions.create = function create(properties) {
-                return new BatchListCollectionOptions(properties);
-            };
-
-            /**
-             * Encodes the specified BatchListCollectionOptions message. Does not implicitly {@link protos.opts.BatchListCollectionOptions.verify|verify} messages.
-             * @function encode
-             * @memberof protos.opts.BatchListCollectionOptions
-             * @static
-             * @param {protos.opts.IBatchListCollectionOptions} message BatchListCollectionOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            BatchListCollectionOptions.encode = function encode(message, writer) {
-                if (!writer)
-                    writer = $Writer.create();
-                return writer;
-            };
-
-            /**
-             * Encodes the specified BatchListCollectionOptions message, length delimited. Does not implicitly {@link protos.opts.BatchListCollectionOptions.verify|verify} messages.
-             * @function encodeDelimited
-             * @memberof protos.opts.BatchListCollectionOptions
-             * @static
-             * @param {protos.opts.IBatchListCollectionOptions} message BatchListCollectionOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            BatchListCollectionOptions.encodeDelimited = function encodeDelimited(message, writer) {
-                return this.encode(message, writer).ldelim();
-            };
-
-            /**
-             * Decodes a BatchListCollectionOptions message from the specified reader or buffer.
-             * @function decode
-             * @memberof protos.opts.BatchListCollectionOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @param {number} [length] Message length if known beforehand
-             * @returns {protos.opts.BatchListCollectionOptions} BatchListCollectionOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            BatchListCollectionOptions.decode = function decode(reader, length) {
-                if (!(reader instanceof $Reader))
-                    reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.BatchListCollectionOptions();
-                while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    switch (tag >>> 3) {
-                    default:
-                        reader.skipType(tag & 7);
-                        break;
-                    }
-                }
-                return message;
-            };
-
-            /**
-             * Decodes a BatchListCollectionOptions message from the specified reader or buffer, length delimited.
-             * @function decodeDelimited
-             * @memberof protos.opts.BatchListCollectionOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {protos.opts.BatchListCollectionOptions} BatchListCollectionOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            BatchListCollectionOptions.decodeDelimited = function decodeDelimited(reader) {
-                if (!(reader instanceof $Reader))
-                    reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
-            };
-
-            /**
-             * Verifies a BatchListCollectionOptions message.
-             * @function verify
-             * @memberof protos.opts.BatchListCollectionOptions
-             * @static
-             * @param {Object.<string,*>} message Plain object to verify
-             * @returns {string|null} `null` if valid, otherwise the reason why it is not
-             */
-            BatchListCollectionOptions.verify = function verify(message) {
-                if (typeof message !== "object" || message === null)
-                    return "object expected";
-                return null;
-            };
-
-            /**
-             * Creates a BatchListCollectionOptions message from a plain object. Also converts values to their respective internal types.
-             * @function fromObject
-             * @memberof protos.opts.BatchListCollectionOptions
-             * @static
-             * @param {Object.<string,*>} object Plain object
-             * @returns {protos.opts.BatchListCollectionOptions} BatchListCollectionOptions
-             */
-            BatchListCollectionOptions.fromObject = function fromObject(object) {
-                if (object instanceof $root.protos.opts.BatchListCollectionOptions)
-                    return object;
-                return new $root.protos.opts.BatchListCollectionOptions();
-            };
-
-            /**
-             * Creates a plain object from a BatchListCollectionOptions message. Also converts values to other types if specified.
-             * @function toObject
-             * @memberof protos.opts.BatchListCollectionOptions
-             * @static
-             * @param {protos.opts.BatchListCollectionOptions} message BatchListCollectionOptions
-             * @param {$protobuf.IConversionOptions} [options] Conversion options
-             * @returns {Object.<string,*>} Plain object
-             */
-            BatchListCollectionOptions.toObject = function toObject() {
-                return {};
-            };
-
-            /**
-             * Converts this BatchListCollectionOptions to JSON.
-             * @function toJSON
-             * @memberof protos.opts.BatchListCollectionOptions
-             * @instance
-             * @returns {Object.<string,*>} JSON object
-             */
-            BatchListCollectionOptions.prototype.toJSON = function toJSON() {
-                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-            };
-
-            return BatchListCollectionOptions;
-        })();
-
-        opts.BatchListDestinationOptions = (function() {
-
-            /**
-             * Properties of a BatchListDestinationOptions.
-             * @memberof protos.opts
-             * @interface IBatchListDestinationOptions
-             */
-
-            /**
-             * Constructs a new BatchListDestinationOptions.
-             * @memberof protos.opts
-             * @classdesc Represents a BatchListDestinationOptions.
-             * @implements IBatchListDestinationOptions
-             * @constructor
-             * @param {protos.opts.IBatchListDestinationOptions=} [properties] Properties to set
-             */
-            function BatchListDestinationOptions(properties) {
-                if (properties)
-                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                        if (properties[keys[i]] != null)
-                            this[keys[i]] = properties[keys[i]];
-            }
-
-            /**
-             * Creates a new BatchListDestinationOptions instance using the specified properties.
-             * @function create
-             * @memberof protos.opts.BatchListDestinationOptions
-             * @static
-             * @param {protos.opts.IBatchListDestinationOptions=} [properties] Properties to set
-             * @returns {protos.opts.BatchListDestinationOptions} BatchListDestinationOptions instance
-             */
-            BatchListDestinationOptions.create = function create(properties) {
-                return new BatchListDestinationOptions(properties);
-            };
-
-            /**
-             * Encodes the specified BatchListDestinationOptions message. Does not implicitly {@link protos.opts.BatchListDestinationOptions.verify|verify} messages.
-             * @function encode
-             * @memberof protos.opts.BatchListDestinationOptions
-             * @static
-             * @param {protos.opts.IBatchListDestinationOptions} message BatchListDestinationOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            BatchListDestinationOptions.encode = function encode(message, writer) {
-                if (!writer)
-                    writer = $Writer.create();
-                return writer;
-            };
-
-            /**
-             * Encodes the specified BatchListDestinationOptions message, length delimited. Does not implicitly {@link protos.opts.BatchListDestinationOptions.verify|verify} messages.
-             * @function encodeDelimited
-             * @memberof protos.opts.BatchListDestinationOptions
-             * @static
-             * @param {protos.opts.IBatchListDestinationOptions} message BatchListDestinationOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            BatchListDestinationOptions.encodeDelimited = function encodeDelimited(message, writer) {
-                return this.encode(message, writer).ldelim();
-            };
-
-            /**
-             * Decodes a BatchListDestinationOptions message from the specified reader or buffer.
-             * @function decode
-             * @memberof protos.opts.BatchListDestinationOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @param {number} [length] Message length if known beforehand
-             * @returns {protos.opts.BatchListDestinationOptions} BatchListDestinationOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            BatchListDestinationOptions.decode = function decode(reader, length) {
-                if (!(reader instanceof $Reader))
-                    reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.BatchListDestinationOptions();
-                while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    switch (tag >>> 3) {
-                    default:
-                        reader.skipType(tag & 7);
-                        break;
-                    }
-                }
-                return message;
-            };
-
-            /**
-             * Decodes a BatchListDestinationOptions message from the specified reader or buffer, length delimited.
-             * @function decodeDelimited
-             * @memberof protos.opts.BatchListDestinationOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {protos.opts.BatchListDestinationOptions} BatchListDestinationOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            BatchListDestinationOptions.decodeDelimited = function decodeDelimited(reader) {
-                if (!(reader instanceof $Reader))
-                    reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
-            };
-
-            /**
-             * Verifies a BatchListDestinationOptions message.
-             * @function verify
-             * @memberof protos.opts.BatchListDestinationOptions
-             * @static
-             * @param {Object.<string,*>} message Plain object to verify
-             * @returns {string|null} `null` if valid, otherwise the reason why it is not
-             */
-            BatchListDestinationOptions.verify = function verify(message) {
-                if (typeof message !== "object" || message === null)
-                    return "object expected";
-                return null;
-            };
-
-            /**
-             * Creates a BatchListDestinationOptions message from a plain object. Also converts values to their respective internal types.
-             * @function fromObject
-             * @memberof protos.opts.BatchListDestinationOptions
-             * @static
-             * @param {Object.<string,*>} object Plain object
-             * @returns {protos.opts.BatchListDestinationOptions} BatchListDestinationOptions
-             */
-            BatchListDestinationOptions.fromObject = function fromObject(object) {
-                if (object instanceof $root.protos.opts.BatchListDestinationOptions)
-                    return object;
-                return new $root.protos.opts.BatchListDestinationOptions();
-            };
-
-            /**
-             * Creates a plain object from a BatchListDestinationOptions message. Also converts values to other types if specified.
-             * @function toObject
-             * @memberof protos.opts.BatchListDestinationOptions
-             * @static
-             * @param {protos.opts.BatchListDestinationOptions} message BatchListDestinationOptions
-             * @param {$protobuf.IConversionOptions} [options] Conversion options
-             * @returns {Object.<string,*>} Plain object
-             */
-            BatchListDestinationOptions.toObject = function toObject() {
-                return {};
-            };
-
-            /**
-             * Converts this BatchListDestinationOptions to JSON.
-             * @function toJSON
-             * @memberof protos.opts.BatchListDestinationOptions
-             * @instance
-             * @returns {Object.<string,*>} JSON object
-             */
-            BatchListDestinationOptions.prototype.toJSON = function toJSON() {
-                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-            };
-
-            return BatchListDestinationOptions;
-        })();
-
-        opts.BatchListSchemaOptions = (function() {
-
-            /**
-             * Properties of a BatchListSchemaOptions.
-             * @memberof protos.opts
-             * @interface IBatchListSchemaOptions
-             */
-
-            /**
-             * Constructs a new BatchListSchemaOptions.
-             * @memberof protos.opts
-             * @classdesc Represents a BatchListSchemaOptions.
-             * @implements IBatchListSchemaOptions
-             * @constructor
-             * @param {protos.opts.IBatchListSchemaOptions=} [properties] Properties to set
-             */
-            function BatchListSchemaOptions(properties) {
-                if (properties)
-                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                        if (properties[keys[i]] != null)
-                            this[keys[i]] = properties[keys[i]];
-            }
-
-            /**
-             * Creates a new BatchListSchemaOptions instance using the specified properties.
-             * @function create
-             * @memberof protos.opts.BatchListSchemaOptions
-             * @static
-             * @param {protos.opts.IBatchListSchemaOptions=} [properties] Properties to set
-             * @returns {protos.opts.BatchListSchemaOptions} BatchListSchemaOptions instance
-             */
-            BatchListSchemaOptions.create = function create(properties) {
-                return new BatchListSchemaOptions(properties);
-            };
-
-            /**
-             * Encodes the specified BatchListSchemaOptions message. Does not implicitly {@link protos.opts.BatchListSchemaOptions.verify|verify} messages.
-             * @function encode
-             * @memberof protos.opts.BatchListSchemaOptions
-             * @static
-             * @param {protos.opts.IBatchListSchemaOptions} message BatchListSchemaOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            BatchListSchemaOptions.encode = function encode(message, writer) {
-                if (!writer)
-                    writer = $Writer.create();
-                return writer;
-            };
-
-            /**
-             * Encodes the specified BatchListSchemaOptions message, length delimited. Does not implicitly {@link protos.opts.BatchListSchemaOptions.verify|verify} messages.
-             * @function encodeDelimited
-             * @memberof protos.opts.BatchListSchemaOptions
-             * @static
-             * @param {protos.opts.IBatchListSchemaOptions} message BatchListSchemaOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            BatchListSchemaOptions.encodeDelimited = function encodeDelimited(message, writer) {
-                return this.encode(message, writer).ldelim();
-            };
-
-            /**
-             * Decodes a BatchListSchemaOptions message from the specified reader or buffer.
-             * @function decode
-             * @memberof protos.opts.BatchListSchemaOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @param {number} [length] Message length if known beforehand
-             * @returns {protos.opts.BatchListSchemaOptions} BatchListSchemaOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            BatchListSchemaOptions.decode = function decode(reader, length) {
-                if (!(reader instanceof $Reader))
-                    reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.BatchListSchemaOptions();
-                while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    switch (tag >>> 3) {
-                    default:
-                        reader.skipType(tag & 7);
-                        break;
-                    }
-                }
-                return message;
-            };
-
-            /**
-             * Decodes a BatchListSchemaOptions message from the specified reader or buffer, length delimited.
-             * @function decodeDelimited
-             * @memberof protos.opts.BatchListSchemaOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {protos.opts.BatchListSchemaOptions} BatchListSchemaOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            BatchListSchemaOptions.decodeDelimited = function decodeDelimited(reader) {
-                if (!(reader instanceof $Reader))
-                    reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
-            };
-
-            /**
-             * Verifies a BatchListSchemaOptions message.
-             * @function verify
-             * @memberof protos.opts.BatchListSchemaOptions
-             * @static
-             * @param {Object.<string,*>} message Plain object to verify
-             * @returns {string|null} `null` if valid, otherwise the reason why it is not
-             */
-            BatchListSchemaOptions.verify = function verify(message) {
-                if (typeof message !== "object" || message === null)
-                    return "object expected";
-                return null;
-            };
-
-            /**
-             * Creates a BatchListSchemaOptions message from a plain object. Also converts values to their respective internal types.
-             * @function fromObject
-             * @memberof protos.opts.BatchListSchemaOptions
-             * @static
-             * @param {Object.<string,*>} object Plain object
-             * @returns {protos.opts.BatchListSchemaOptions} BatchListSchemaOptions
-             */
-            BatchListSchemaOptions.fromObject = function fromObject(object) {
-                if (object instanceof $root.protos.opts.BatchListSchemaOptions)
-                    return object;
-                return new $root.protos.opts.BatchListSchemaOptions();
-            };
-
-            /**
-             * Creates a plain object from a BatchListSchemaOptions message. Also converts values to other types if specified.
-             * @function toObject
-             * @memberof protos.opts.BatchListSchemaOptions
-             * @static
-             * @param {protos.opts.BatchListSchemaOptions} message BatchListSchemaOptions
-             * @param {$protobuf.IConversionOptions} [options] Conversion options
-             * @returns {Object.<string,*>} Plain object
-             */
-            BatchListSchemaOptions.toObject = function toObject() {
-                return {};
-            };
-
-            /**
-             * Converts this BatchListSchemaOptions to JSON.
-             * @function toJSON
-             * @memberof protos.opts.BatchListSchemaOptions
-             * @instance
-             * @returns {Object.<string,*>} JSON object
-             */
-            BatchListSchemaOptions.prototype.toJSON = function toJSON() {
-                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-            };
-
-            return BatchListSchemaOptions;
-        })();
-
-        opts.BatchListReplayOptions = (function() {
-
-            /**
-             * Properties of a BatchListReplayOptions.
-             * @memberof protos.opts
-             * @interface IBatchListReplayOptions
-             */
-
-            /**
-             * Constructs a new BatchListReplayOptions.
-             * @memberof protos.opts
-             * @classdesc Represents a BatchListReplayOptions.
-             * @implements IBatchListReplayOptions
-             * @constructor
-             * @param {protos.opts.IBatchListReplayOptions=} [properties] Properties to set
-             */
-            function BatchListReplayOptions(properties) {
-                if (properties)
-                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                        if (properties[keys[i]] != null)
-                            this[keys[i]] = properties[keys[i]];
-            }
-
-            /**
-             * Creates a new BatchListReplayOptions instance using the specified properties.
-             * @function create
-             * @memberof protos.opts.BatchListReplayOptions
-             * @static
-             * @param {protos.opts.IBatchListReplayOptions=} [properties] Properties to set
-             * @returns {protos.opts.BatchListReplayOptions} BatchListReplayOptions instance
-             */
-            BatchListReplayOptions.create = function create(properties) {
-                return new BatchListReplayOptions(properties);
-            };
-
-            /**
-             * Encodes the specified BatchListReplayOptions message. Does not implicitly {@link protos.opts.BatchListReplayOptions.verify|verify} messages.
-             * @function encode
-             * @memberof protos.opts.BatchListReplayOptions
-             * @static
-             * @param {protos.opts.IBatchListReplayOptions} message BatchListReplayOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            BatchListReplayOptions.encode = function encode(message, writer) {
-                if (!writer)
-                    writer = $Writer.create();
-                return writer;
-            };
-
-            /**
-             * Encodes the specified BatchListReplayOptions message, length delimited. Does not implicitly {@link protos.opts.BatchListReplayOptions.verify|verify} messages.
-             * @function encodeDelimited
-             * @memberof protos.opts.BatchListReplayOptions
-             * @static
-             * @param {protos.opts.IBatchListReplayOptions} message BatchListReplayOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            BatchListReplayOptions.encodeDelimited = function encodeDelimited(message, writer) {
-                return this.encode(message, writer).ldelim();
-            };
-
-            /**
-             * Decodes a BatchListReplayOptions message from the specified reader or buffer.
-             * @function decode
-             * @memberof protos.opts.BatchListReplayOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @param {number} [length] Message length if known beforehand
-             * @returns {protos.opts.BatchListReplayOptions} BatchListReplayOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            BatchListReplayOptions.decode = function decode(reader, length) {
-                if (!(reader instanceof $Reader))
-                    reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.BatchListReplayOptions();
-                while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    switch (tag >>> 3) {
-                    default:
-                        reader.skipType(tag & 7);
-                        break;
-                    }
-                }
-                return message;
-            };
-
-            /**
-             * Decodes a BatchListReplayOptions message from the specified reader or buffer, length delimited.
-             * @function decodeDelimited
-             * @memberof protos.opts.BatchListReplayOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {protos.opts.BatchListReplayOptions} BatchListReplayOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            BatchListReplayOptions.decodeDelimited = function decodeDelimited(reader) {
-                if (!(reader instanceof $Reader))
-                    reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
-            };
-
-            /**
-             * Verifies a BatchListReplayOptions message.
-             * @function verify
-             * @memberof protos.opts.BatchListReplayOptions
-             * @static
-             * @param {Object.<string,*>} message Plain object to verify
-             * @returns {string|null} `null` if valid, otherwise the reason why it is not
-             */
-            BatchListReplayOptions.verify = function verify(message) {
-                if (typeof message !== "object" || message === null)
-                    return "object expected";
-                return null;
-            };
-
-            /**
-             * Creates a BatchListReplayOptions message from a plain object. Also converts values to their respective internal types.
-             * @function fromObject
-             * @memberof protos.opts.BatchListReplayOptions
-             * @static
-             * @param {Object.<string,*>} object Plain object
-             * @returns {protos.opts.BatchListReplayOptions} BatchListReplayOptions
-             */
-            BatchListReplayOptions.fromObject = function fromObject(object) {
-                if (object instanceof $root.protos.opts.BatchListReplayOptions)
-                    return object;
-                return new $root.protos.opts.BatchListReplayOptions();
-            };
-
-            /**
-             * Creates a plain object from a BatchListReplayOptions message. Also converts values to other types if specified.
-             * @function toObject
-             * @memberof protos.opts.BatchListReplayOptions
-             * @static
-             * @param {protos.opts.BatchListReplayOptions} message BatchListReplayOptions
-             * @param {$protobuf.IConversionOptions} [options] Conversion options
-             * @returns {Object.<string,*>} Plain object
-             */
-            BatchListReplayOptions.toObject = function toObject() {
-                return {};
-            };
-
-            /**
-             * Converts this BatchListReplayOptions to JSON.
-             * @function toJSON
-             * @memberof protos.opts.BatchListReplayOptions
-             * @instance
-             * @returns {Object.<string,*>} JSON object
-             */
-            BatchListReplayOptions.prototype.toJSON = function toJSON() {
-                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-            };
-
-            return BatchListReplayOptions;
-        })();
-
-        opts.BatchArchiveOptions = (function() {
-
-            /**
-             * Properties of a BatchArchiveOptions.
-             * @memberof protos.opts
-             * @interface IBatchArchiveOptions
-             * @property {protos.opts.IBatchArchiveReplayOptions|null} [replay] BatchArchiveOptions replay
-             */
-
-            /**
-             * Constructs a new BatchArchiveOptions.
-             * @memberof protos.opts
-             * @classdesc Represents a BatchArchiveOptions.
-             * @implements IBatchArchiveOptions
-             * @constructor
-             * @param {protos.opts.IBatchArchiveOptions=} [properties] Properties to set
-             */
-            function BatchArchiveOptions(properties) {
-                if (properties)
-                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                        if (properties[keys[i]] != null)
-                            this[keys[i]] = properties[keys[i]];
-            }
-
-            /**
-             * BatchArchiveOptions replay.
-             * @member {protos.opts.IBatchArchiveReplayOptions|null|undefined} replay
-             * @memberof protos.opts.BatchArchiveOptions
-             * @instance
-             */
-            BatchArchiveOptions.prototype.replay = null;
-
-            /**
-             * Creates a new BatchArchiveOptions instance using the specified properties.
-             * @function create
-             * @memberof protos.opts.BatchArchiveOptions
-             * @static
-             * @param {protos.opts.IBatchArchiveOptions=} [properties] Properties to set
-             * @returns {protos.opts.BatchArchiveOptions} BatchArchiveOptions instance
-             */
-            BatchArchiveOptions.create = function create(properties) {
-                return new BatchArchiveOptions(properties);
-            };
-
-            /**
-             * Encodes the specified BatchArchiveOptions message. Does not implicitly {@link protos.opts.BatchArchiveOptions.verify|verify} messages.
-             * @function encode
-             * @memberof protos.opts.BatchArchiveOptions
-             * @static
-             * @param {protos.opts.IBatchArchiveOptions} message BatchArchiveOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            BatchArchiveOptions.encode = function encode(message, writer) {
-                if (!writer)
-                    writer = $Writer.create();
-                if (message.replay != null && Object.hasOwnProperty.call(message, "replay"))
-                    $root.protos.opts.BatchArchiveReplayOptions.encode(message.replay, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
-                return writer;
-            };
-
-            /**
-             * Encodes the specified BatchArchiveOptions message, length delimited. Does not implicitly {@link protos.opts.BatchArchiveOptions.verify|verify} messages.
-             * @function encodeDelimited
-             * @memberof protos.opts.BatchArchiveOptions
-             * @static
-             * @param {protos.opts.IBatchArchiveOptions} message BatchArchiveOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            BatchArchiveOptions.encodeDelimited = function encodeDelimited(message, writer) {
-                return this.encode(message, writer).ldelim();
-            };
-
-            /**
-             * Decodes a BatchArchiveOptions message from the specified reader or buffer.
-             * @function decode
-             * @memberof protos.opts.BatchArchiveOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @param {number} [length] Message length if known beforehand
-             * @returns {protos.opts.BatchArchiveOptions} BatchArchiveOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            BatchArchiveOptions.decode = function decode(reader, length) {
-                if (!(reader instanceof $Reader))
-                    reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.BatchArchiveOptions();
-                while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    switch (tag >>> 3) {
-                    case 1:
-                        message.replay = $root.protos.opts.BatchArchiveReplayOptions.decode(reader, reader.uint32());
-                        break;
-                    default:
-                        reader.skipType(tag & 7);
-                        break;
-                    }
-                }
-                return message;
-            };
-
-            /**
-             * Decodes a BatchArchiveOptions message from the specified reader or buffer, length delimited.
-             * @function decodeDelimited
-             * @memberof protos.opts.BatchArchiveOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {protos.opts.BatchArchiveOptions} BatchArchiveOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            BatchArchiveOptions.decodeDelimited = function decodeDelimited(reader) {
-                if (!(reader instanceof $Reader))
-                    reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
-            };
-
-            /**
-             * Verifies a BatchArchiveOptions message.
-             * @function verify
-             * @memberof protos.opts.BatchArchiveOptions
-             * @static
-             * @param {Object.<string,*>} message Plain object to verify
-             * @returns {string|null} `null` if valid, otherwise the reason why it is not
-             */
-            BatchArchiveOptions.verify = function verify(message) {
-                if (typeof message !== "object" || message === null)
-                    return "object expected";
-                if (message.replay != null && message.hasOwnProperty("replay")) {
-                    var error = $root.protos.opts.BatchArchiveReplayOptions.verify(message.replay);
-                    if (error)
-                        return "replay." + error;
-                }
-                return null;
-            };
-
-            /**
-             * Creates a BatchArchiveOptions message from a plain object. Also converts values to their respective internal types.
-             * @function fromObject
-             * @memberof protos.opts.BatchArchiveOptions
-             * @static
-             * @param {Object.<string,*>} object Plain object
-             * @returns {protos.opts.BatchArchiveOptions} BatchArchiveOptions
-             */
-            BatchArchiveOptions.fromObject = function fromObject(object) {
-                if (object instanceof $root.protos.opts.BatchArchiveOptions)
-                    return object;
-                var message = new $root.protos.opts.BatchArchiveOptions();
-                if (object.replay != null) {
-                    if (typeof object.replay !== "object")
-                        throw TypeError(".protos.opts.BatchArchiveOptions.replay: object expected");
-                    message.replay = $root.protos.opts.BatchArchiveReplayOptions.fromObject(object.replay);
-                }
-                return message;
-            };
-
-            /**
-             * Creates a plain object from a BatchArchiveOptions message. Also converts values to other types if specified.
-             * @function toObject
-             * @memberof protos.opts.BatchArchiveOptions
-             * @static
-             * @param {protos.opts.BatchArchiveOptions} message BatchArchiveOptions
-             * @param {$protobuf.IConversionOptions} [options] Conversion options
-             * @returns {Object.<string,*>} Plain object
-             */
-            BatchArchiveOptions.toObject = function toObject(message, options) {
-                if (!options)
-                    options = {};
-                var object = {};
-                if (options.defaults)
-                    object.replay = null;
-                if (message.replay != null && message.hasOwnProperty("replay"))
-                    object.replay = $root.protos.opts.BatchArchiveReplayOptions.toObject(message.replay, options);
-                return object;
-            };
-
-            /**
-             * Converts this BatchArchiveOptions to JSON.
-             * @function toJSON
-             * @memberof protos.opts.BatchArchiveOptions
-             * @instance
-             * @returns {Object.<string,*>} JSON object
-             */
-            BatchArchiveOptions.prototype.toJSON = function toJSON() {
-                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-            };
-
-            return BatchArchiveOptions;
-        })();
-
-        opts.BatchArchiveReplayOptions = (function() {
-
-            /**
-             * Properties of a BatchArchiveReplayOptions.
-             * @memberof protos.opts
-             * @interface IBatchArchiveReplayOptions
-             * @property {string|null} [replayId] BatchArchiveReplayOptions replayId
-             */
-
-            /**
-             * Constructs a new BatchArchiveReplayOptions.
-             * @memberof protos.opts
-             * @classdesc Represents a BatchArchiveReplayOptions.
-             * @implements IBatchArchiveReplayOptions
-             * @constructor
-             * @param {protos.opts.IBatchArchiveReplayOptions=} [properties] Properties to set
-             */
-            function BatchArchiveReplayOptions(properties) {
-                if (properties)
-                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                        if (properties[keys[i]] != null)
-                            this[keys[i]] = properties[keys[i]];
-            }
-
-            /**
-             * BatchArchiveReplayOptions replayId.
-             * @member {string} replayId
-             * @memberof protos.opts.BatchArchiveReplayOptions
-             * @instance
-             */
-            BatchArchiveReplayOptions.prototype.replayId = "";
-
-            /**
-             * Creates a new BatchArchiveReplayOptions instance using the specified properties.
-             * @function create
-             * @memberof protos.opts.BatchArchiveReplayOptions
-             * @static
-             * @param {protos.opts.IBatchArchiveReplayOptions=} [properties] Properties to set
-             * @returns {protos.opts.BatchArchiveReplayOptions} BatchArchiveReplayOptions instance
-             */
-            BatchArchiveReplayOptions.create = function create(properties) {
-                return new BatchArchiveReplayOptions(properties);
-            };
-
-            /**
-             * Encodes the specified BatchArchiveReplayOptions message. Does not implicitly {@link protos.opts.BatchArchiveReplayOptions.verify|verify} messages.
-             * @function encode
-             * @memberof protos.opts.BatchArchiveReplayOptions
-             * @static
-             * @param {protos.opts.IBatchArchiveReplayOptions} message BatchArchiveReplayOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            BatchArchiveReplayOptions.encode = function encode(message, writer) {
-                if (!writer)
-                    writer = $Writer.create();
-                if (message.replayId != null && Object.hasOwnProperty.call(message, "replayId"))
-                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.replayId);
-                return writer;
-            };
-
-            /**
-             * Encodes the specified BatchArchiveReplayOptions message, length delimited. Does not implicitly {@link protos.opts.BatchArchiveReplayOptions.verify|verify} messages.
-             * @function encodeDelimited
-             * @memberof protos.opts.BatchArchiveReplayOptions
-             * @static
-             * @param {protos.opts.IBatchArchiveReplayOptions} message BatchArchiveReplayOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            BatchArchiveReplayOptions.encodeDelimited = function encodeDelimited(message, writer) {
-                return this.encode(message, writer).ldelim();
-            };
-
-            /**
-             * Decodes a BatchArchiveReplayOptions message from the specified reader or buffer.
-             * @function decode
-             * @memberof protos.opts.BatchArchiveReplayOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @param {number} [length] Message length if known beforehand
-             * @returns {protos.opts.BatchArchiveReplayOptions} BatchArchiveReplayOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            BatchArchiveReplayOptions.decode = function decode(reader, length) {
-                if (!(reader instanceof $Reader))
-                    reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.BatchArchiveReplayOptions();
-                while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    switch (tag >>> 3) {
-                    case 1:
-                        message.replayId = reader.string();
-                        break;
-                    default:
-                        reader.skipType(tag & 7);
-                        break;
-                    }
-                }
-                return message;
-            };
-
-            /**
-             * Decodes a BatchArchiveReplayOptions message from the specified reader or buffer, length delimited.
-             * @function decodeDelimited
-             * @memberof protos.opts.BatchArchiveReplayOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {protos.opts.BatchArchiveReplayOptions} BatchArchiveReplayOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            BatchArchiveReplayOptions.decodeDelimited = function decodeDelimited(reader) {
-                if (!(reader instanceof $Reader))
-                    reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
-            };
-
-            /**
-             * Verifies a BatchArchiveReplayOptions message.
-             * @function verify
-             * @memberof protos.opts.BatchArchiveReplayOptions
-             * @static
-             * @param {Object.<string,*>} message Plain object to verify
-             * @returns {string|null} `null` if valid, otherwise the reason why it is not
-             */
-            BatchArchiveReplayOptions.verify = function verify(message) {
-                if (typeof message !== "object" || message === null)
-                    return "object expected";
-                if (message.replayId != null && message.hasOwnProperty("replayId"))
-                    if (!$util.isString(message.replayId))
-                        return "replayId: string expected";
-                return null;
-            };
-
-            /**
-             * Creates a BatchArchiveReplayOptions message from a plain object. Also converts values to their respective internal types.
-             * @function fromObject
-             * @memberof protos.opts.BatchArchiveReplayOptions
-             * @static
-             * @param {Object.<string,*>} object Plain object
-             * @returns {protos.opts.BatchArchiveReplayOptions} BatchArchiveReplayOptions
-             */
-            BatchArchiveReplayOptions.fromObject = function fromObject(object) {
-                if (object instanceof $root.protos.opts.BatchArchiveReplayOptions)
-                    return object;
-                var message = new $root.protos.opts.BatchArchiveReplayOptions();
-                if (object.replayId != null)
-                    message.replayId = String(object.replayId);
-                return message;
-            };
-
-            /**
-             * Creates a plain object from a BatchArchiveReplayOptions message. Also converts values to other types if specified.
-             * @function toObject
-             * @memberof protos.opts.BatchArchiveReplayOptions
-             * @static
-             * @param {protos.opts.BatchArchiveReplayOptions} message BatchArchiveReplayOptions
-             * @param {$protobuf.IConversionOptions} [options] Conversion options
-             * @returns {Object.<string,*>} Plain object
-             */
-            BatchArchiveReplayOptions.toObject = function toObject(message, options) {
-                if (!options)
-                    options = {};
-                var object = {};
-                if (options.defaults)
-                    object.replayId = "";
-                if (message.replayId != null && message.hasOwnProperty("replayId"))
-                    object.replayId = message.replayId;
-                return object;
-            };
-
-            /**
-             * Converts this BatchArchiveReplayOptions to JSON.
-             * @function toJSON
-             * @memberof protos.opts.BatchArchiveReplayOptions
-             * @instance
-             * @returns {Object.<string,*>} JSON object
-             */
-            BatchArchiveReplayOptions.prototype.toJSON = function toJSON() {
-                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-            };
-
-            return BatchArchiveReplayOptions;
-        })();
-
-        opts.BatchListOptions = (function() {
-
-            /**
-             * Properties of a BatchListOptions.
-             * @memberof protos.opts
-             * @interface IBatchListOptions
-             * @property {protos.opts.IBatchListCollectionOptions|null} [collection] BatchListOptions collection
-             * @property {protos.opts.IBatchListDestinationOptions|null} [destination] BatchListOptions destination
-             * @property {protos.opts.IBatchListReplayOptions|null} [replay] BatchListOptions replay
-             * @property {protos.opts.IBatchListSchemaOptions|null} [schema] BatchListOptions schema
-             */
-
-            /**
-             * Constructs a new BatchListOptions.
-             * @memberof protos.opts
-             * @classdesc Represents a BatchListOptions.
-             * @implements IBatchListOptions
-             * @constructor
-             * @param {protos.opts.IBatchListOptions=} [properties] Properties to set
-             */
-            function BatchListOptions(properties) {
-                if (properties)
-                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                        if (properties[keys[i]] != null)
-                            this[keys[i]] = properties[keys[i]];
-            }
-
-            /**
-             * BatchListOptions collection.
-             * @member {protos.opts.IBatchListCollectionOptions|null|undefined} collection
-             * @memberof protos.opts.BatchListOptions
-             * @instance
-             */
-            BatchListOptions.prototype.collection = null;
-
-            /**
-             * BatchListOptions destination.
-             * @member {protos.opts.IBatchListDestinationOptions|null|undefined} destination
-             * @memberof protos.opts.BatchListOptions
-             * @instance
-             */
-            BatchListOptions.prototype.destination = null;
-
-            /**
-             * BatchListOptions replay.
-             * @member {protos.opts.IBatchListReplayOptions|null|undefined} replay
-             * @memberof protos.opts.BatchListOptions
-             * @instance
-             */
-            BatchListOptions.prototype.replay = null;
-
-            /**
-             * BatchListOptions schema.
-             * @member {protos.opts.IBatchListSchemaOptions|null|undefined} schema
-             * @memberof protos.opts.BatchListOptions
-             * @instance
-             */
-            BatchListOptions.prototype.schema = null;
-
-            /**
-             * Creates a new BatchListOptions instance using the specified properties.
-             * @function create
-             * @memberof protos.opts.BatchListOptions
-             * @static
-             * @param {protos.opts.IBatchListOptions=} [properties] Properties to set
-             * @returns {protos.opts.BatchListOptions} BatchListOptions instance
-             */
-            BatchListOptions.create = function create(properties) {
-                return new BatchListOptions(properties);
-            };
-
-            /**
-             * Encodes the specified BatchListOptions message. Does not implicitly {@link protos.opts.BatchListOptions.verify|verify} messages.
-             * @function encode
-             * @memberof protos.opts.BatchListOptions
-             * @static
-             * @param {protos.opts.IBatchListOptions} message BatchListOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            BatchListOptions.encode = function encode(message, writer) {
-                if (!writer)
-                    writer = $Writer.create();
-                if (message.collection != null && Object.hasOwnProperty.call(message, "collection"))
-                    $root.protos.opts.BatchListCollectionOptions.encode(message.collection, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
-                if (message.destination != null && Object.hasOwnProperty.call(message, "destination"))
-                    $root.protos.opts.BatchListDestinationOptions.encode(message.destination, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
-                if (message.replay != null && Object.hasOwnProperty.call(message, "replay"))
-                    $root.protos.opts.BatchListReplayOptions.encode(message.replay, writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
-                if (message.schema != null && Object.hasOwnProperty.call(message, "schema"))
-                    $root.protos.opts.BatchListSchemaOptions.encode(message.schema, writer.uint32(/* id 4, wireType 2 =*/34).fork()).ldelim();
-                return writer;
-            };
-
-            /**
-             * Encodes the specified BatchListOptions message, length delimited. Does not implicitly {@link protos.opts.BatchListOptions.verify|verify} messages.
-             * @function encodeDelimited
-             * @memberof protos.opts.BatchListOptions
-             * @static
-             * @param {protos.opts.IBatchListOptions} message BatchListOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            BatchListOptions.encodeDelimited = function encodeDelimited(message, writer) {
-                return this.encode(message, writer).ldelim();
-            };
-
-            /**
-             * Decodes a BatchListOptions message from the specified reader or buffer.
-             * @function decode
-             * @memberof protos.opts.BatchListOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @param {number} [length] Message length if known beforehand
-             * @returns {protos.opts.BatchListOptions} BatchListOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            BatchListOptions.decode = function decode(reader, length) {
-                if (!(reader instanceof $Reader))
-                    reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.BatchListOptions();
-                while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    switch (tag >>> 3) {
-                    case 1:
-                        message.collection = $root.protos.opts.BatchListCollectionOptions.decode(reader, reader.uint32());
-                        break;
-                    case 2:
-                        message.destination = $root.protos.opts.BatchListDestinationOptions.decode(reader, reader.uint32());
-                        break;
-                    case 3:
-                        message.replay = $root.protos.opts.BatchListReplayOptions.decode(reader, reader.uint32());
-                        break;
-                    case 4:
-                        message.schema = $root.protos.opts.BatchListSchemaOptions.decode(reader, reader.uint32());
-                        break;
-                    default:
-                        reader.skipType(tag & 7);
-                        break;
-                    }
-                }
-                return message;
-            };
-
-            /**
-             * Decodes a BatchListOptions message from the specified reader or buffer, length delimited.
-             * @function decodeDelimited
-             * @memberof protos.opts.BatchListOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {protos.opts.BatchListOptions} BatchListOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            BatchListOptions.decodeDelimited = function decodeDelimited(reader) {
-                if (!(reader instanceof $Reader))
-                    reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
-            };
-
-            /**
-             * Verifies a BatchListOptions message.
-             * @function verify
-             * @memberof protos.opts.BatchListOptions
-             * @static
-             * @param {Object.<string,*>} message Plain object to verify
-             * @returns {string|null} `null` if valid, otherwise the reason why it is not
-             */
-            BatchListOptions.verify = function verify(message) {
-                if (typeof message !== "object" || message === null)
-                    return "object expected";
-                if (message.collection != null && message.hasOwnProperty("collection")) {
-                    var error = $root.protos.opts.BatchListCollectionOptions.verify(message.collection);
-                    if (error)
-                        return "collection." + error;
-                }
-                if (message.destination != null && message.hasOwnProperty("destination")) {
-                    var error = $root.protos.opts.BatchListDestinationOptions.verify(message.destination);
-                    if (error)
-                        return "destination." + error;
-                }
-                if (message.replay != null && message.hasOwnProperty("replay")) {
-                    var error = $root.protos.opts.BatchListReplayOptions.verify(message.replay);
-                    if (error)
-                        return "replay." + error;
-                }
-                if (message.schema != null && message.hasOwnProperty("schema")) {
-                    var error = $root.protos.opts.BatchListSchemaOptions.verify(message.schema);
-                    if (error)
-                        return "schema." + error;
-                }
-                return null;
-            };
-
-            /**
-             * Creates a BatchListOptions message from a plain object. Also converts values to their respective internal types.
-             * @function fromObject
-             * @memberof protos.opts.BatchListOptions
-             * @static
-             * @param {Object.<string,*>} object Plain object
-             * @returns {protos.opts.BatchListOptions} BatchListOptions
-             */
-            BatchListOptions.fromObject = function fromObject(object) {
-                if (object instanceof $root.protos.opts.BatchListOptions)
-                    return object;
-                var message = new $root.protos.opts.BatchListOptions();
-                if (object.collection != null) {
-                    if (typeof object.collection !== "object")
-                        throw TypeError(".protos.opts.BatchListOptions.collection: object expected");
-                    message.collection = $root.protos.opts.BatchListCollectionOptions.fromObject(object.collection);
-                }
-                if (object.destination != null) {
-                    if (typeof object.destination !== "object")
-                        throw TypeError(".protos.opts.BatchListOptions.destination: object expected");
-                    message.destination = $root.protos.opts.BatchListDestinationOptions.fromObject(object.destination);
-                }
-                if (object.replay != null) {
-                    if (typeof object.replay !== "object")
-                        throw TypeError(".protos.opts.BatchListOptions.replay: object expected");
-                    message.replay = $root.protos.opts.BatchListReplayOptions.fromObject(object.replay);
-                }
-                if (object.schema != null) {
-                    if (typeof object.schema !== "object")
-                        throw TypeError(".protos.opts.BatchListOptions.schema: object expected");
-                    message.schema = $root.protos.opts.BatchListSchemaOptions.fromObject(object.schema);
-                }
-                return message;
-            };
-
-            /**
-             * Creates a plain object from a BatchListOptions message. Also converts values to other types if specified.
-             * @function toObject
-             * @memberof protos.opts.BatchListOptions
-             * @static
-             * @param {protos.opts.BatchListOptions} message BatchListOptions
-             * @param {$protobuf.IConversionOptions} [options] Conversion options
-             * @returns {Object.<string,*>} Plain object
-             */
-            BatchListOptions.toObject = function toObject(message, options) {
-                if (!options)
-                    options = {};
-                var object = {};
-                if (options.defaults) {
-                    object.collection = null;
-                    object.destination = null;
-                    object.replay = null;
-                    object.schema = null;
-                }
-                if (message.collection != null && message.hasOwnProperty("collection"))
-                    object.collection = $root.protos.opts.BatchListCollectionOptions.toObject(message.collection, options);
-                if (message.destination != null && message.hasOwnProperty("destination"))
-                    object.destination = $root.protos.opts.BatchListDestinationOptions.toObject(message.destination, options);
-                if (message.replay != null && message.hasOwnProperty("replay"))
-                    object.replay = $root.protos.opts.BatchListReplayOptions.toObject(message.replay, options);
-                if (message.schema != null && message.hasOwnProperty("schema"))
-                    object.schema = $root.protos.opts.BatchListSchemaOptions.toObject(message.schema, options);
-                return object;
-            };
-
-            /**
-             * Converts this BatchListOptions to JSON.
-             * @function toJSON
-             * @memberof protos.opts.BatchListOptions
-             * @instance
-             * @returns {Object.<string,*>} JSON object
-             */
-            BatchListOptions.prototype.toJSON = function toJSON() {
-                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-            };
-
-            return BatchListOptions;
-        })();
-
-        opts.BatchCreateOptions = (function() {
-
-            /**
-             * Properties of a BatchCreateOptions.
-             * @memberof protos.opts
-             * @interface IBatchCreateOptions
-             * @property {protos.opts.IBatchCreateCollectionOptions|null} [collection] BatchCreateOptions collection
-             * @property {protos.opts.IBatchCreateReplayOptions|null} [replay] BatchCreateOptions replay
-             * @property {protos.opts.IBatchCreateDestinationOptions|null} [destination] BatchCreateOptions destination
-             */
-
-            /**
-             * Constructs a new BatchCreateOptions.
-             * @memberof protos.opts
-             * @classdesc Represents a BatchCreateOptions.
-             * @implements IBatchCreateOptions
-             * @constructor
-             * @param {protos.opts.IBatchCreateOptions=} [properties] Properties to set
-             */
-            function BatchCreateOptions(properties) {
-                if (properties)
-                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                        if (properties[keys[i]] != null)
-                            this[keys[i]] = properties[keys[i]];
-            }
-
-            /**
-             * BatchCreateOptions collection.
-             * @member {protos.opts.IBatchCreateCollectionOptions|null|undefined} collection
-             * @memberof protos.opts.BatchCreateOptions
-             * @instance
-             */
-            BatchCreateOptions.prototype.collection = null;
-
-            /**
-             * BatchCreateOptions replay.
-             * @member {protos.opts.IBatchCreateReplayOptions|null|undefined} replay
-             * @memberof protos.opts.BatchCreateOptions
-             * @instance
-             */
-            BatchCreateOptions.prototype.replay = null;
-
-            /**
-             * BatchCreateOptions destination.
-             * @member {protos.opts.IBatchCreateDestinationOptions|null|undefined} destination
-             * @memberof protos.opts.BatchCreateOptions
-             * @instance
-             */
-            BatchCreateOptions.prototype.destination = null;
-
-            /**
-             * Creates a new BatchCreateOptions instance using the specified properties.
-             * @function create
-             * @memberof protos.opts.BatchCreateOptions
-             * @static
-             * @param {protos.opts.IBatchCreateOptions=} [properties] Properties to set
-             * @returns {protos.opts.BatchCreateOptions} BatchCreateOptions instance
-             */
-            BatchCreateOptions.create = function create(properties) {
-                return new BatchCreateOptions(properties);
-            };
-
-            /**
-             * Encodes the specified BatchCreateOptions message. Does not implicitly {@link protos.opts.BatchCreateOptions.verify|verify} messages.
-             * @function encode
-             * @memberof protos.opts.BatchCreateOptions
-             * @static
-             * @param {protos.opts.IBatchCreateOptions} message BatchCreateOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            BatchCreateOptions.encode = function encode(message, writer) {
-                if (!writer)
-                    writer = $Writer.create();
-                if (message.collection != null && Object.hasOwnProperty.call(message, "collection"))
-                    $root.protos.opts.BatchCreateCollectionOptions.encode(message.collection, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
-                if (message.replay != null && Object.hasOwnProperty.call(message, "replay"))
-                    $root.protos.opts.BatchCreateReplayOptions.encode(message.replay, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
-                if (message.destination != null && Object.hasOwnProperty.call(message, "destination"))
-                    $root.protos.opts.BatchCreateDestinationOptions.encode(message.destination, writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
-                return writer;
-            };
-
-            /**
-             * Encodes the specified BatchCreateOptions message, length delimited. Does not implicitly {@link protos.opts.BatchCreateOptions.verify|verify} messages.
-             * @function encodeDelimited
-             * @memberof protos.opts.BatchCreateOptions
-             * @static
-             * @param {protos.opts.IBatchCreateOptions} message BatchCreateOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            BatchCreateOptions.encodeDelimited = function encodeDelimited(message, writer) {
-                return this.encode(message, writer).ldelim();
-            };
-
-            /**
-             * Decodes a BatchCreateOptions message from the specified reader or buffer.
-             * @function decode
-             * @memberof protos.opts.BatchCreateOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @param {number} [length] Message length if known beforehand
-             * @returns {protos.opts.BatchCreateOptions} BatchCreateOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            BatchCreateOptions.decode = function decode(reader, length) {
-                if (!(reader instanceof $Reader))
-                    reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.BatchCreateOptions();
-                while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    switch (tag >>> 3) {
-                    case 1:
-                        message.collection = $root.protos.opts.BatchCreateCollectionOptions.decode(reader, reader.uint32());
-                        break;
-                    case 2:
-                        message.replay = $root.protos.opts.BatchCreateReplayOptions.decode(reader, reader.uint32());
-                        break;
-                    case 3:
-                        message.destination = $root.protos.opts.BatchCreateDestinationOptions.decode(reader, reader.uint32());
-                        break;
-                    default:
-                        reader.skipType(tag & 7);
-                        break;
-                    }
-                }
-                return message;
-            };
-
-            /**
-             * Decodes a BatchCreateOptions message from the specified reader or buffer, length delimited.
-             * @function decodeDelimited
-             * @memberof protos.opts.BatchCreateOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {protos.opts.BatchCreateOptions} BatchCreateOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            BatchCreateOptions.decodeDelimited = function decodeDelimited(reader) {
-                if (!(reader instanceof $Reader))
-                    reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
-            };
-
-            /**
-             * Verifies a BatchCreateOptions message.
-             * @function verify
-             * @memberof protos.opts.BatchCreateOptions
-             * @static
-             * @param {Object.<string,*>} message Plain object to verify
-             * @returns {string|null} `null` if valid, otherwise the reason why it is not
-             */
-            BatchCreateOptions.verify = function verify(message) {
-                if (typeof message !== "object" || message === null)
-                    return "object expected";
-                if (message.collection != null && message.hasOwnProperty("collection")) {
-                    var error = $root.protos.opts.BatchCreateCollectionOptions.verify(message.collection);
-                    if (error)
-                        return "collection." + error;
-                }
-                if (message.replay != null && message.hasOwnProperty("replay")) {
-                    var error = $root.protos.opts.BatchCreateReplayOptions.verify(message.replay);
-                    if (error)
-                        return "replay." + error;
-                }
-                if (message.destination != null && message.hasOwnProperty("destination")) {
-                    var error = $root.protos.opts.BatchCreateDestinationOptions.verify(message.destination);
-                    if (error)
-                        return "destination." + error;
-                }
-                return null;
-            };
-
-            /**
-             * Creates a BatchCreateOptions message from a plain object. Also converts values to their respective internal types.
-             * @function fromObject
-             * @memberof protos.opts.BatchCreateOptions
-             * @static
-             * @param {Object.<string,*>} object Plain object
-             * @returns {protos.opts.BatchCreateOptions} BatchCreateOptions
-             */
-            BatchCreateOptions.fromObject = function fromObject(object) {
-                if (object instanceof $root.protos.opts.BatchCreateOptions)
-                    return object;
-                var message = new $root.protos.opts.BatchCreateOptions();
-                if (object.collection != null) {
-                    if (typeof object.collection !== "object")
-                        throw TypeError(".protos.opts.BatchCreateOptions.collection: object expected");
-                    message.collection = $root.protos.opts.BatchCreateCollectionOptions.fromObject(object.collection);
-                }
-                if (object.replay != null) {
-                    if (typeof object.replay !== "object")
-                        throw TypeError(".protos.opts.BatchCreateOptions.replay: object expected");
-                    message.replay = $root.protos.opts.BatchCreateReplayOptions.fromObject(object.replay);
-                }
-                if (object.destination != null) {
-                    if (typeof object.destination !== "object")
-                        throw TypeError(".protos.opts.BatchCreateOptions.destination: object expected");
-                    message.destination = $root.protos.opts.BatchCreateDestinationOptions.fromObject(object.destination);
-                }
-                return message;
-            };
-
-            /**
-             * Creates a plain object from a BatchCreateOptions message. Also converts values to other types if specified.
-             * @function toObject
-             * @memberof protos.opts.BatchCreateOptions
-             * @static
-             * @param {protos.opts.BatchCreateOptions} message BatchCreateOptions
-             * @param {$protobuf.IConversionOptions} [options] Conversion options
-             * @returns {Object.<string,*>} Plain object
-             */
-            BatchCreateOptions.toObject = function toObject(message, options) {
-                if (!options)
-                    options = {};
-                var object = {};
-                if (options.defaults) {
-                    object.collection = null;
-                    object.replay = null;
-                    object.destination = null;
-                }
-                if (message.collection != null && message.hasOwnProperty("collection"))
-                    object.collection = $root.protos.opts.BatchCreateCollectionOptions.toObject(message.collection, options);
-                if (message.replay != null && message.hasOwnProperty("replay"))
-                    object.replay = $root.protos.opts.BatchCreateReplayOptions.toObject(message.replay, options);
-                if (message.destination != null && message.hasOwnProperty("destination"))
-                    object.destination = $root.protos.opts.BatchCreateDestinationOptions.toObject(message.destination, options);
-                return object;
-            };
-
-            /**
-             * Converts this BatchCreateOptions to JSON.
-             * @function toJSON
-             * @memberof protos.opts.BatchCreateOptions
-             * @instance
-             * @returns {Object.<string,*>} JSON object
-             */
-            BatchCreateOptions.prototype.toJSON = function toJSON() {
-                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-            };
-
-            return BatchCreateOptions;
-        })();
-
-        opts.BatchSearchOptions = (function() {
-
-            /**
-             * Properties of a BatchSearchOptions.
-             * @memberof protos.opts
-             * @interface IBatchSearchOptions
-             * @property {string|null} [query] BatchSearchOptions query
-             * @property {string|null} [collectionId] BatchSearchOptions collectionId
-             * @property {number|null} [page] BatchSearchOptions page
-             */
-
-            /**
-             * Constructs a new BatchSearchOptions.
-             * @memberof protos.opts
-             * @classdesc Represents a BatchSearchOptions.
-             * @implements IBatchSearchOptions
-             * @constructor
-             * @param {protos.opts.IBatchSearchOptions=} [properties] Properties to set
-             */
-            function BatchSearchOptions(properties) {
-                if (properties)
-                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                        if (properties[keys[i]] != null)
-                            this[keys[i]] = properties[keys[i]];
-            }
-
-            /**
-             * BatchSearchOptions query.
-             * @member {string} query
-             * @memberof protos.opts.BatchSearchOptions
-             * @instance
-             */
-            BatchSearchOptions.prototype.query = "";
-
-            /**
-             * BatchSearchOptions collectionId.
-             * @member {string} collectionId
-             * @memberof protos.opts.BatchSearchOptions
-             * @instance
-             */
-            BatchSearchOptions.prototype.collectionId = "";
-
-            /**
-             * BatchSearchOptions page.
-             * @member {number} page
-             * @memberof protos.opts.BatchSearchOptions
-             * @instance
-             */
-            BatchSearchOptions.prototype.page = 0;
-
-            /**
-             * Creates a new BatchSearchOptions instance using the specified properties.
-             * @function create
-             * @memberof protos.opts.BatchSearchOptions
-             * @static
-             * @param {protos.opts.IBatchSearchOptions=} [properties] Properties to set
-             * @returns {protos.opts.BatchSearchOptions} BatchSearchOptions instance
-             */
-            BatchSearchOptions.create = function create(properties) {
-                return new BatchSearchOptions(properties);
-            };
-
-            /**
-             * Encodes the specified BatchSearchOptions message. Does not implicitly {@link protos.opts.BatchSearchOptions.verify|verify} messages.
-             * @function encode
-             * @memberof protos.opts.BatchSearchOptions
-             * @static
-             * @param {protos.opts.IBatchSearchOptions} message BatchSearchOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            BatchSearchOptions.encode = function encode(message, writer) {
-                if (!writer)
-                    writer = $Writer.create();
-                if (message.query != null && Object.hasOwnProperty.call(message, "query"))
-                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.query);
-                if (message.collectionId != null && Object.hasOwnProperty.call(message, "collectionId"))
-                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.collectionId);
-                if (message.page != null && Object.hasOwnProperty.call(message, "page"))
-                    writer.uint32(/* id 3, wireType 0 =*/24).int32(message.page);
-                return writer;
-            };
-
-            /**
-             * Encodes the specified BatchSearchOptions message, length delimited. Does not implicitly {@link protos.opts.BatchSearchOptions.verify|verify} messages.
-             * @function encodeDelimited
-             * @memberof protos.opts.BatchSearchOptions
-             * @static
-             * @param {protos.opts.IBatchSearchOptions} message BatchSearchOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            BatchSearchOptions.encodeDelimited = function encodeDelimited(message, writer) {
-                return this.encode(message, writer).ldelim();
-            };
-
-            /**
-             * Decodes a BatchSearchOptions message from the specified reader or buffer.
-             * @function decode
-             * @memberof protos.opts.BatchSearchOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @param {number} [length] Message length if known beforehand
-             * @returns {protos.opts.BatchSearchOptions} BatchSearchOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            BatchSearchOptions.decode = function decode(reader, length) {
-                if (!(reader instanceof $Reader))
-                    reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.BatchSearchOptions();
-                while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    switch (tag >>> 3) {
-                    case 1:
-                        message.query = reader.string();
-                        break;
-                    case 2:
-                        message.collectionId = reader.string();
-                        break;
-                    case 3:
-                        message.page = reader.int32();
-                        break;
-                    default:
-                        reader.skipType(tag & 7);
-                        break;
-                    }
-                }
-                return message;
-            };
-
-            /**
-             * Decodes a BatchSearchOptions message from the specified reader or buffer, length delimited.
-             * @function decodeDelimited
-             * @memberof protos.opts.BatchSearchOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {protos.opts.BatchSearchOptions} BatchSearchOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            BatchSearchOptions.decodeDelimited = function decodeDelimited(reader) {
-                if (!(reader instanceof $Reader))
-                    reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
-            };
-
-            /**
-             * Verifies a BatchSearchOptions message.
-             * @function verify
-             * @memberof protos.opts.BatchSearchOptions
-             * @static
-             * @param {Object.<string,*>} message Plain object to verify
-             * @returns {string|null} `null` if valid, otherwise the reason why it is not
-             */
-            BatchSearchOptions.verify = function verify(message) {
-                if (typeof message !== "object" || message === null)
-                    return "object expected";
-                if (message.query != null && message.hasOwnProperty("query"))
-                    if (!$util.isString(message.query))
-                        return "query: string expected";
-                if (message.collectionId != null && message.hasOwnProperty("collectionId"))
-                    if (!$util.isString(message.collectionId))
-                        return "collectionId: string expected";
-                if (message.page != null && message.hasOwnProperty("page"))
-                    if (!$util.isInteger(message.page))
-                        return "page: integer expected";
-                return null;
-            };
-
-            /**
-             * Creates a BatchSearchOptions message from a plain object. Also converts values to their respective internal types.
-             * @function fromObject
-             * @memberof protos.opts.BatchSearchOptions
-             * @static
-             * @param {Object.<string,*>} object Plain object
-             * @returns {protos.opts.BatchSearchOptions} BatchSearchOptions
-             */
-            BatchSearchOptions.fromObject = function fromObject(object) {
-                if (object instanceof $root.protos.opts.BatchSearchOptions)
-                    return object;
-                var message = new $root.protos.opts.BatchSearchOptions();
-                if (object.query != null)
-                    message.query = String(object.query);
-                if (object.collectionId != null)
-                    message.collectionId = String(object.collectionId);
-                if (object.page != null)
-                    message.page = object.page | 0;
-                return message;
-            };
-
-            /**
-             * Creates a plain object from a BatchSearchOptions message. Also converts values to other types if specified.
-             * @function toObject
-             * @memberof protos.opts.BatchSearchOptions
-             * @static
-             * @param {protos.opts.BatchSearchOptions} message BatchSearchOptions
-             * @param {$protobuf.IConversionOptions} [options] Conversion options
-             * @returns {Object.<string,*>} Plain object
-             */
-            BatchSearchOptions.toObject = function toObject(message, options) {
-                if (!options)
-                    options = {};
-                var object = {};
-                if (options.defaults) {
-                    object.query = "";
-                    object.collectionId = "";
-                    object.page = 0;
-                }
-                if (message.query != null && message.hasOwnProperty("query"))
-                    object.query = message.query;
-                if (message.collectionId != null && message.hasOwnProperty("collectionId"))
-                    object.collectionId = message.collectionId;
-                if (message.page != null && message.hasOwnProperty("page"))
-                    object.page = message.page;
-                return object;
-            };
-
-            /**
-             * Converts this BatchSearchOptions to JSON.
-             * @function toJSON
-             * @memberof protos.opts.BatchSearchOptions
-             * @instance
-             * @returns {Object.<string,*>} JSON object
-             */
-            BatchSearchOptions.prototype.toJSON = function toJSON() {
-                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-            };
-
-            return BatchSearchOptions;
-        })();
-
-        opts.BatchCreateCollectionOptions = (function() {
-
-            /**
-             * Properties of a BatchCreateCollectionOptions.
-             * @memberof protos.opts
-             * @interface IBatchCreateCollectionOptions
-             * @property {string|null} [name] BatchCreateCollectionOptions name
-             * @property {string|null} [schemaId] BatchCreateCollectionOptions schemaId
-             * @property {string|null} [notes] BatchCreateCollectionOptions notes
-             * @property {string|null} [envelopeType] BatchCreateCollectionOptions envelopeType
-             * @property {string|null} [envelopeRootMessage] BatchCreateCollectionOptions envelopeRootMessage
-             * @property {string|null} [payloadFieldMessage] BatchCreateCollectionOptions payloadFieldMessage
-             * @property {string|null} [payloadFieldId] BatchCreateCollectionOptions payloadFieldId
-             */
-
-            /**
-             * Constructs a new BatchCreateCollectionOptions.
-             * @memberof protos.opts
-             * @classdesc Represents a BatchCreateCollectionOptions.
-             * @implements IBatchCreateCollectionOptions
-             * @constructor
-             * @param {protos.opts.IBatchCreateCollectionOptions=} [properties] Properties to set
-             */
-            function BatchCreateCollectionOptions(properties) {
-                if (properties)
-                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                        if (properties[keys[i]] != null)
-                            this[keys[i]] = properties[keys[i]];
-            }
-
-            /**
-             * BatchCreateCollectionOptions name.
-             * @member {string} name
-             * @memberof protos.opts.BatchCreateCollectionOptions
-             * @instance
-             */
-            BatchCreateCollectionOptions.prototype.name = "";
-
-            /**
-             * BatchCreateCollectionOptions schemaId.
-             * @member {string} schemaId
-             * @memberof protos.opts.BatchCreateCollectionOptions
-             * @instance
-             */
-            BatchCreateCollectionOptions.prototype.schemaId = "";
-
-            /**
-             * BatchCreateCollectionOptions notes.
-             * @member {string} notes
-             * @memberof protos.opts.BatchCreateCollectionOptions
-             * @instance
-             */
-            BatchCreateCollectionOptions.prototype.notes = "";
-
-            /**
-             * BatchCreateCollectionOptions envelopeType.
-             * @member {string} envelopeType
-             * @memberof protos.opts.BatchCreateCollectionOptions
-             * @instance
-             */
-            BatchCreateCollectionOptions.prototype.envelopeType = "";
-
-            /**
-             * BatchCreateCollectionOptions envelopeRootMessage.
-             * @member {string} envelopeRootMessage
-             * @memberof protos.opts.BatchCreateCollectionOptions
-             * @instance
-             */
-            BatchCreateCollectionOptions.prototype.envelopeRootMessage = "";
-
-            /**
-             * BatchCreateCollectionOptions payloadFieldMessage.
-             * @member {string} payloadFieldMessage
-             * @memberof protos.opts.BatchCreateCollectionOptions
-             * @instance
-             */
-            BatchCreateCollectionOptions.prototype.payloadFieldMessage = "";
-
-            /**
-             * BatchCreateCollectionOptions payloadFieldId.
-             * @member {string} payloadFieldId
-             * @memberof protos.opts.BatchCreateCollectionOptions
-             * @instance
-             */
-            BatchCreateCollectionOptions.prototype.payloadFieldId = "";
-
-            /**
-             * Creates a new BatchCreateCollectionOptions instance using the specified properties.
-             * @function create
-             * @memberof protos.opts.BatchCreateCollectionOptions
-             * @static
-             * @param {protos.opts.IBatchCreateCollectionOptions=} [properties] Properties to set
-             * @returns {protos.opts.BatchCreateCollectionOptions} BatchCreateCollectionOptions instance
-             */
-            BatchCreateCollectionOptions.create = function create(properties) {
-                return new BatchCreateCollectionOptions(properties);
-            };
-
-            /**
-             * Encodes the specified BatchCreateCollectionOptions message. Does not implicitly {@link protos.opts.BatchCreateCollectionOptions.verify|verify} messages.
-             * @function encode
-             * @memberof protos.opts.BatchCreateCollectionOptions
-             * @static
-             * @param {protos.opts.IBatchCreateCollectionOptions} message BatchCreateCollectionOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            BatchCreateCollectionOptions.encode = function encode(message, writer) {
-                if (!writer)
-                    writer = $Writer.create();
-                if (message.name != null && Object.hasOwnProperty.call(message, "name"))
-                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.name);
-                if (message.schemaId != null && Object.hasOwnProperty.call(message, "schemaId"))
-                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.schemaId);
-                if (message.notes != null && Object.hasOwnProperty.call(message, "notes"))
-                    writer.uint32(/* id 3, wireType 2 =*/26).string(message.notes);
-                if (message.envelopeType != null && Object.hasOwnProperty.call(message, "envelopeType"))
-                    writer.uint32(/* id 4, wireType 2 =*/34).string(message.envelopeType);
-                if (message.envelopeRootMessage != null && Object.hasOwnProperty.call(message, "envelopeRootMessage"))
-                    writer.uint32(/* id 5, wireType 2 =*/42).string(message.envelopeRootMessage);
-                if (message.payloadFieldMessage != null && Object.hasOwnProperty.call(message, "payloadFieldMessage"))
-                    writer.uint32(/* id 6, wireType 2 =*/50).string(message.payloadFieldMessage);
-                if (message.payloadFieldId != null && Object.hasOwnProperty.call(message, "payloadFieldId"))
-                    writer.uint32(/* id 7, wireType 2 =*/58).string(message.payloadFieldId);
-                return writer;
-            };
-
-            /**
-             * Encodes the specified BatchCreateCollectionOptions message, length delimited. Does not implicitly {@link protos.opts.BatchCreateCollectionOptions.verify|verify} messages.
-             * @function encodeDelimited
-             * @memberof protos.opts.BatchCreateCollectionOptions
-             * @static
-             * @param {protos.opts.IBatchCreateCollectionOptions} message BatchCreateCollectionOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            BatchCreateCollectionOptions.encodeDelimited = function encodeDelimited(message, writer) {
-                return this.encode(message, writer).ldelim();
-            };
-
-            /**
-             * Decodes a BatchCreateCollectionOptions message from the specified reader or buffer.
-             * @function decode
-             * @memberof protos.opts.BatchCreateCollectionOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @param {number} [length] Message length if known beforehand
-             * @returns {protos.opts.BatchCreateCollectionOptions} BatchCreateCollectionOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            BatchCreateCollectionOptions.decode = function decode(reader, length) {
-                if (!(reader instanceof $Reader))
-                    reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.BatchCreateCollectionOptions();
-                while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    switch (tag >>> 3) {
-                    case 1:
-                        message.name = reader.string();
-                        break;
-                    case 2:
-                        message.schemaId = reader.string();
-                        break;
-                    case 3:
-                        message.notes = reader.string();
-                        break;
-                    case 4:
-                        message.envelopeType = reader.string();
-                        break;
-                    case 5:
-                        message.envelopeRootMessage = reader.string();
-                        break;
-                    case 6:
-                        message.payloadFieldMessage = reader.string();
-                        break;
-                    case 7:
-                        message.payloadFieldId = reader.string();
-                        break;
-                    default:
-                        reader.skipType(tag & 7);
-                        break;
-                    }
-                }
-                return message;
-            };
-
-            /**
-             * Decodes a BatchCreateCollectionOptions message from the specified reader or buffer, length delimited.
-             * @function decodeDelimited
-             * @memberof protos.opts.BatchCreateCollectionOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {protos.opts.BatchCreateCollectionOptions} BatchCreateCollectionOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            BatchCreateCollectionOptions.decodeDelimited = function decodeDelimited(reader) {
-                if (!(reader instanceof $Reader))
-                    reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
-            };
-
-            /**
-             * Verifies a BatchCreateCollectionOptions message.
-             * @function verify
-             * @memberof protos.opts.BatchCreateCollectionOptions
-             * @static
-             * @param {Object.<string,*>} message Plain object to verify
-             * @returns {string|null} `null` if valid, otherwise the reason why it is not
-             */
-            BatchCreateCollectionOptions.verify = function verify(message) {
-                if (typeof message !== "object" || message === null)
-                    return "object expected";
-                if (message.name != null && message.hasOwnProperty("name"))
-                    if (!$util.isString(message.name))
-                        return "name: string expected";
-                if (message.schemaId != null && message.hasOwnProperty("schemaId"))
-                    if (!$util.isString(message.schemaId))
-                        return "schemaId: string expected";
-                if (message.notes != null && message.hasOwnProperty("notes"))
-                    if (!$util.isString(message.notes))
-                        return "notes: string expected";
-                if (message.envelopeType != null && message.hasOwnProperty("envelopeType"))
-                    if (!$util.isString(message.envelopeType))
-                        return "envelopeType: string expected";
-                if (message.envelopeRootMessage != null && message.hasOwnProperty("envelopeRootMessage"))
-                    if (!$util.isString(message.envelopeRootMessage))
-                        return "envelopeRootMessage: string expected";
-                if (message.payloadFieldMessage != null && message.hasOwnProperty("payloadFieldMessage"))
-                    if (!$util.isString(message.payloadFieldMessage))
-                        return "payloadFieldMessage: string expected";
-                if (message.payloadFieldId != null && message.hasOwnProperty("payloadFieldId"))
-                    if (!$util.isString(message.payloadFieldId))
-                        return "payloadFieldId: string expected";
-                return null;
-            };
-
-            /**
-             * Creates a BatchCreateCollectionOptions message from a plain object. Also converts values to their respective internal types.
-             * @function fromObject
-             * @memberof protos.opts.BatchCreateCollectionOptions
-             * @static
-             * @param {Object.<string,*>} object Plain object
-             * @returns {protos.opts.BatchCreateCollectionOptions} BatchCreateCollectionOptions
-             */
-            BatchCreateCollectionOptions.fromObject = function fromObject(object) {
-                if (object instanceof $root.protos.opts.BatchCreateCollectionOptions)
-                    return object;
-                var message = new $root.protos.opts.BatchCreateCollectionOptions();
-                if (object.name != null)
-                    message.name = String(object.name);
-                if (object.schemaId != null)
-                    message.schemaId = String(object.schemaId);
-                if (object.notes != null)
-                    message.notes = String(object.notes);
-                if (object.envelopeType != null)
-                    message.envelopeType = String(object.envelopeType);
-                if (object.envelopeRootMessage != null)
-                    message.envelopeRootMessage = String(object.envelopeRootMessage);
-                if (object.payloadFieldMessage != null)
-                    message.payloadFieldMessage = String(object.payloadFieldMessage);
-                if (object.payloadFieldId != null)
-                    message.payloadFieldId = String(object.payloadFieldId);
-                return message;
-            };
-
-            /**
-             * Creates a plain object from a BatchCreateCollectionOptions message. Also converts values to other types if specified.
-             * @function toObject
-             * @memberof protos.opts.BatchCreateCollectionOptions
-             * @static
-             * @param {protos.opts.BatchCreateCollectionOptions} message BatchCreateCollectionOptions
-             * @param {$protobuf.IConversionOptions} [options] Conversion options
-             * @returns {Object.<string,*>} Plain object
-             */
-            BatchCreateCollectionOptions.toObject = function toObject(message, options) {
-                if (!options)
-                    options = {};
-                var object = {};
-                if (options.defaults) {
-                    object.name = "";
-                    object.schemaId = "";
-                    object.notes = "";
-                    object.envelopeType = "";
-                    object.envelopeRootMessage = "";
-                    object.payloadFieldMessage = "";
-                    object.payloadFieldId = "";
-                }
-                if (message.name != null && message.hasOwnProperty("name"))
-                    object.name = message.name;
-                if (message.schemaId != null && message.hasOwnProperty("schemaId"))
-                    object.schemaId = message.schemaId;
-                if (message.notes != null && message.hasOwnProperty("notes"))
-                    object.notes = message.notes;
-                if (message.envelopeType != null && message.hasOwnProperty("envelopeType"))
-                    object.envelopeType = message.envelopeType;
-                if (message.envelopeRootMessage != null && message.hasOwnProperty("envelopeRootMessage"))
-                    object.envelopeRootMessage = message.envelopeRootMessage;
-                if (message.payloadFieldMessage != null && message.hasOwnProperty("payloadFieldMessage"))
-                    object.payloadFieldMessage = message.payloadFieldMessage;
-                if (message.payloadFieldId != null && message.hasOwnProperty("payloadFieldId"))
-                    object.payloadFieldId = message.payloadFieldId;
-                return object;
-            };
-
-            /**
-             * Converts this BatchCreateCollectionOptions to JSON.
-             * @function toJSON
-             * @memberof protos.opts.BatchCreateCollectionOptions
-             * @instance
-             * @returns {Object.<string,*>} JSON object
-             */
-            BatchCreateCollectionOptions.prototype.toJSON = function toJSON() {
-                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-            };
-
-            return BatchCreateCollectionOptions;
-        })();
-
-        opts.BatchCreateReplayOptions = (function() {
-
-            /**
-             * Properties of a BatchCreateReplayOptions.
-             * @memberof protos.opts
-             * @interface IBatchCreateReplayOptions
-             * @property {string|null} [name] BatchCreateReplayOptions name
-             * @property {protos.opts.BatchReplayType|null} [type] BatchCreateReplayOptions type
-             * @property {string|null} [notes] BatchCreateReplayOptions notes
-             * @property {string|null} [collectionId] BatchCreateReplayOptions collectionId
-             * @property {string|null} [destinationId] BatchCreateReplayOptions destinationId
-             * @property {string|null} [query] BatchCreateReplayOptions query
-             * @property {string|null} [fromTimestamp] BatchCreateReplayOptions fromTimestamp
-             * @property {string|null} [toTimestamp] BatchCreateReplayOptions toTimestamp
-             */
-
-            /**
-             * Constructs a new BatchCreateReplayOptions.
-             * @memberof protos.opts
-             * @classdesc Represents a BatchCreateReplayOptions.
-             * @implements IBatchCreateReplayOptions
-             * @constructor
-             * @param {protos.opts.IBatchCreateReplayOptions=} [properties] Properties to set
-             */
-            function BatchCreateReplayOptions(properties) {
-                if (properties)
-                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                        if (properties[keys[i]] != null)
-                            this[keys[i]] = properties[keys[i]];
-            }
-
-            /**
-             * BatchCreateReplayOptions name.
-             * @member {string} name
-             * @memberof protos.opts.BatchCreateReplayOptions
-             * @instance
-             */
-            BatchCreateReplayOptions.prototype.name = "";
-
-            /**
-             * BatchCreateReplayOptions type.
-             * @member {protos.opts.BatchReplayType} type
-             * @memberof protos.opts.BatchCreateReplayOptions
-             * @instance
-             */
-            BatchCreateReplayOptions.prototype.type = 0;
-
-            /**
-             * BatchCreateReplayOptions notes.
-             * @member {string} notes
-             * @memberof protos.opts.BatchCreateReplayOptions
-             * @instance
-             */
-            BatchCreateReplayOptions.prototype.notes = "";
-
-            /**
-             * BatchCreateReplayOptions collectionId.
-             * @member {string} collectionId
-             * @memberof protos.opts.BatchCreateReplayOptions
-             * @instance
-             */
-            BatchCreateReplayOptions.prototype.collectionId = "";
-
-            /**
-             * BatchCreateReplayOptions destinationId.
-             * @member {string} destinationId
-             * @memberof protos.opts.BatchCreateReplayOptions
-             * @instance
-             */
-            BatchCreateReplayOptions.prototype.destinationId = "";
-
-            /**
-             * BatchCreateReplayOptions query.
-             * @member {string} query
-             * @memberof protos.opts.BatchCreateReplayOptions
-             * @instance
-             */
-            BatchCreateReplayOptions.prototype.query = "";
-
-            /**
-             * BatchCreateReplayOptions fromTimestamp.
-             * @member {string} fromTimestamp
-             * @memberof protos.opts.BatchCreateReplayOptions
-             * @instance
-             */
-            BatchCreateReplayOptions.prototype.fromTimestamp = "";
-
-            /**
-             * BatchCreateReplayOptions toTimestamp.
-             * @member {string} toTimestamp
-             * @memberof protos.opts.BatchCreateReplayOptions
-             * @instance
-             */
-            BatchCreateReplayOptions.prototype.toTimestamp = "";
-
-            /**
-             * Creates a new BatchCreateReplayOptions instance using the specified properties.
-             * @function create
-             * @memberof protos.opts.BatchCreateReplayOptions
-             * @static
-             * @param {protos.opts.IBatchCreateReplayOptions=} [properties] Properties to set
-             * @returns {protos.opts.BatchCreateReplayOptions} BatchCreateReplayOptions instance
-             */
-            BatchCreateReplayOptions.create = function create(properties) {
-                return new BatchCreateReplayOptions(properties);
-            };
-
-            /**
-             * Encodes the specified BatchCreateReplayOptions message. Does not implicitly {@link protos.opts.BatchCreateReplayOptions.verify|verify} messages.
-             * @function encode
-             * @memberof protos.opts.BatchCreateReplayOptions
-             * @static
-             * @param {protos.opts.IBatchCreateReplayOptions} message BatchCreateReplayOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            BatchCreateReplayOptions.encode = function encode(message, writer) {
-                if (!writer)
-                    writer = $Writer.create();
-                if (message.name != null && Object.hasOwnProperty.call(message, "name"))
-                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.name);
-                if (message.type != null && Object.hasOwnProperty.call(message, "type"))
-                    writer.uint32(/* id 2, wireType 0 =*/16).int32(message.type);
-                if (message.notes != null && Object.hasOwnProperty.call(message, "notes"))
-                    writer.uint32(/* id 3, wireType 2 =*/26).string(message.notes);
-                if (message.collectionId != null && Object.hasOwnProperty.call(message, "collectionId"))
-                    writer.uint32(/* id 4, wireType 2 =*/34).string(message.collectionId);
-                if (message.destinationId != null && Object.hasOwnProperty.call(message, "destinationId"))
-                    writer.uint32(/* id 5, wireType 2 =*/42).string(message.destinationId);
-                if (message.query != null && Object.hasOwnProperty.call(message, "query"))
-                    writer.uint32(/* id 6, wireType 2 =*/50).string(message.query);
-                if (message.fromTimestamp != null && Object.hasOwnProperty.call(message, "fromTimestamp"))
-                    writer.uint32(/* id 7, wireType 2 =*/58).string(message.fromTimestamp);
-                if (message.toTimestamp != null && Object.hasOwnProperty.call(message, "toTimestamp"))
-                    writer.uint32(/* id 8, wireType 2 =*/66).string(message.toTimestamp);
-                return writer;
-            };
-
-            /**
-             * Encodes the specified BatchCreateReplayOptions message, length delimited. Does not implicitly {@link protos.opts.BatchCreateReplayOptions.verify|verify} messages.
-             * @function encodeDelimited
-             * @memberof protos.opts.BatchCreateReplayOptions
-             * @static
-             * @param {protos.opts.IBatchCreateReplayOptions} message BatchCreateReplayOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            BatchCreateReplayOptions.encodeDelimited = function encodeDelimited(message, writer) {
-                return this.encode(message, writer).ldelim();
-            };
-
-            /**
-             * Decodes a BatchCreateReplayOptions message from the specified reader or buffer.
-             * @function decode
-             * @memberof protos.opts.BatchCreateReplayOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @param {number} [length] Message length if known beforehand
-             * @returns {protos.opts.BatchCreateReplayOptions} BatchCreateReplayOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            BatchCreateReplayOptions.decode = function decode(reader, length) {
-                if (!(reader instanceof $Reader))
-                    reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.BatchCreateReplayOptions();
-                while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    switch (tag >>> 3) {
-                    case 1:
-                        message.name = reader.string();
-                        break;
-                    case 2:
-                        message.type = reader.int32();
-                        break;
-                    case 3:
-                        message.notes = reader.string();
-                        break;
-                    case 4:
-                        message.collectionId = reader.string();
-                        break;
-                    case 5:
-                        message.destinationId = reader.string();
-                        break;
-                    case 6:
-                        message.query = reader.string();
-                        break;
-                    case 7:
-                        message.fromTimestamp = reader.string();
-                        break;
-                    case 8:
-                        message.toTimestamp = reader.string();
-                        break;
-                    default:
-                        reader.skipType(tag & 7);
-                        break;
-                    }
-                }
-                return message;
-            };
-
-            /**
-             * Decodes a BatchCreateReplayOptions message from the specified reader or buffer, length delimited.
-             * @function decodeDelimited
-             * @memberof protos.opts.BatchCreateReplayOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {protos.opts.BatchCreateReplayOptions} BatchCreateReplayOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            BatchCreateReplayOptions.decodeDelimited = function decodeDelimited(reader) {
-                if (!(reader instanceof $Reader))
-                    reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
-            };
-
-            /**
-             * Verifies a BatchCreateReplayOptions message.
-             * @function verify
-             * @memberof protos.opts.BatchCreateReplayOptions
-             * @static
-             * @param {Object.<string,*>} message Plain object to verify
-             * @returns {string|null} `null` if valid, otherwise the reason why it is not
-             */
-            BatchCreateReplayOptions.verify = function verify(message) {
-                if (typeof message !== "object" || message === null)
-                    return "object expected";
-                if (message.name != null && message.hasOwnProperty("name"))
-                    if (!$util.isString(message.name))
-                        return "name: string expected";
-                if (message.type != null && message.hasOwnProperty("type"))
-                    switch (message.type) {
-                    default:
-                        return "type: enum value expected";
-                    case 0:
-                    case 1:
-                        break;
-                    }
-                if (message.notes != null && message.hasOwnProperty("notes"))
-                    if (!$util.isString(message.notes))
-                        return "notes: string expected";
-                if (message.collectionId != null && message.hasOwnProperty("collectionId"))
-                    if (!$util.isString(message.collectionId))
-                        return "collectionId: string expected";
-                if (message.destinationId != null && message.hasOwnProperty("destinationId"))
-                    if (!$util.isString(message.destinationId))
-                        return "destinationId: string expected";
-                if (message.query != null && message.hasOwnProperty("query"))
-                    if (!$util.isString(message.query))
-                        return "query: string expected";
-                if (message.fromTimestamp != null && message.hasOwnProperty("fromTimestamp"))
-                    if (!$util.isString(message.fromTimestamp))
-                        return "fromTimestamp: string expected";
-                if (message.toTimestamp != null && message.hasOwnProperty("toTimestamp"))
-                    if (!$util.isString(message.toTimestamp))
-                        return "toTimestamp: string expected";
-                return null;
-            };
-
-            /**
-             * Creates a BatchCreateReplayOptions message from a plain object. Also converts values to their respective internal types.
-             * @function fromObject
-             * @memberof protos.opts.BatchCreateReplayOptions
-             * @static
-             * @param {Object.<string,*>} object Plain object
-             * @returns {protos.opts.BatchCreateReplayOptions} BatchCreateReplayOptions
-             */
-            BatchCreateReplayOptions.fromObject = function fromObject(object) {
-                if (object instanceof $root.protos.opts.BatchCreateReplayOptions)
-                    return object;
-                var message = new $root.protos.opts.BatchCreateReplayOptions();
-                if (object.name != null)
-                    message.name = String(object.name);
-                switch (object.type) {
-                case "SINGLE":
-                case 0:
-                    message.type = 0;
-                    break;
-                case "CONTINUOUS":
-                case 1:
-                    message.type = 1;
-                    break;
-                }
-                if (object.notes != null)
-                    message.notes = String(object.notes);
-                if (object.collectionId != null)
-                    message.collectionId = String(object.collectionId);
-                if (object.destinationId != null)
-                    message.destinationId = String(object.destinationId);
-                if (object.query != null)
-                    message.query = String(object.query);
-                if (object.fromTimestamp != null)
-                    message.fromTimestamp = String(object.fromTimestamp);
-                if (object.toTimestamp != null)
-                    message.toTimestamp = String(object.toTimestamp);
-                return message;
-            };
-
-            /**
-             * Creates a plain object from a BatchCreateReplayOptions message. Also converts values to other types if specified.
-             * @function toObject
-             * @memberof protos.opts.BatchCreateReplayOptions
-             * @static
-             * @param {protos.opts.BatchCreateReplayOptions} message BatchCreateReplayOptions
-             * @param {$protobuf.IConversionOptions} [options] Conversion options
-             * @returns {Object.<string,*>} Plain object
-             */
-            BatchCreateReplayOptions.toObject = function toObject(message, options) {
-                if (!options)
-                    options = {};
-                var object = {};
-                if (options.defaults) {
-                    object.name = "";
-                    object.type = options.enums === String ? "SINGLE" : 0;
-                    object.notes = "";
-                    object.collectionId = "";
-                    object.destinationId = "";
-                    object.query = "";
-                    object.fromTimestamp = "";
-                    object.toTimestamp = "";
-                }
-                if (message.name != null && message.hasOwnProperty("name"))
-                    object.name = message.name;
-                if (message.type != null && message.hasOwnProperty("type"))
-                    object.type = options.enums === String ? $root.protos.opts.BatchReplayType[message.type] : message.type;
-                if (message.notes != null && message.hasOwnProperty("notes"))
-                    object.notes = message.notes;
-                if (message.collectionId != null && message.hasOwnProperty("collectionId"))
-                    object.collectionId = message.collectionId;
-                if (message.destinationId != null && message.hasOwnProperty("destinationId"))
-                    object.destinationId = message.destinationId;
-                if (message.query != null && message.hasOwnProperty("query"))
-                    object.query = message.query;
-                if (message.fromTimestamp != null && message.hasOwnProperty("fromTimestamp"))
-                    object.fromTimestamp = message.fromTimestamp;
-                if (message.toTimestamp != null && message.hasOwnProperty("toTimestamp"))
-                    object.toTimestamp = message.toTimestamp;
-                return object;
-            };
-
-            /**
-             * Converts this BatchCreateReplayOptions to JSON.
-             * @function toJSON
-             * @memberof protos.opts.BatchCreateReplayOptions
-             * @instance
-             * @returns {Object.<string,*>} JSON object
-             */
-            BatchCreateReplayOptions.prototype.toJSON = function toJSON() {
-                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-            };
-
-            return BatchCreateReplayOptions;
-        })();
-
-        opts.BatchCreateDestinationOptions = (function() {
-
-            /**
-             * Properties of a BatchCreateDestinationOptions.
-             * @memberof protos.opts
-             * @interface IBatchCreateDestinationOptions
-             * @property {string|null} [name] BatchCreateDestinationOptions name
-             * @property {string|null} [notes] BatchCreateDestinationOptions notes
-             * @property {string|null} [_apiDestinationType] BatchCreateDestinationOptions _apiDestinationType
-             * @property {protos.opts.IWriteGroupKafkaOptions|null} [kafka] BatchCreateDestinationOptions kafka
-             * @property {protos.opts.IWriteGroupRabbitOptions|null} [rabbit] BatchCreateDestinationOptions rabbit
-             * @property {protos.opts.IWriteGroupKubeMQQueueOptions|null} [kubemqQueue] BatchCreateDestinationOptions kubemqQueue
-             * @property {protos.opts.IWriteGroupAWSSQSOptions|null} [awsSqs] BatchCreateDestinationOptions awsSqs
-             * @property {protos.opts.IHTTPDestination|null} [http] BatchCreateDestinationOptions http
-             */
-
-            /**
-             * Constructs a new BatchCreateDestinationOptions.
-             * @memberof protos.opts
-             * @classdesc Represents a BatchCreateDestinationOptions.
-             * @implements IBatchCreateDestinationOptions
-             * @constructor
-             * @param {protos.opts.IBatchCreateDestinationOptions=} [properties] Properties to set
-             */
-            function BatchCreateDestinationOptions(properties) {
-                if (properties)
-                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                        if (properties[keys[i]] != null)
-                            this[keys[i]] = properties[keys[i]];
-            }
-
-            /**
-             * BatchCreateDestinationOptions name.
-             * @member {string} name
-             * @memberof protos.opts.BatchCreateDestinationOptions
-             * @instance
-             */
-            BatchCreateDestinationOptions.prototype.name = "";
-
-            /**
-             * BatchCreateDestinationOptions notes.
-             * @member {string} notes
-             * @memberof protos.opts.BatchCreateDestinationOptions
-             * @instance
-             */
-            BatchCreateDestinationOptions.prototype.notes = "";
-
-            /**
-             * BatchCreateDestinationOptions _apiDestinationType.
-             * @member {string} _apiDestinationType
-             * @memberof protos.opts.BatchCreateDestinationOptions
-             * @instance
-             */
-            BatchCreateDestinationOptions.prototype._apiDestinationType = "";
-
-            /**
-             * BatchCreateDestinationOptions kafka.
-             * @member {protos.opts.IWriteGroupKafkaOptions|null|undefined} kafka
-             * @memberof protos.opts.BatchCreateDestinationOptions
-             * @instance
-             */
-            BatchCreateDestinationOptions.prototype.kafka = null;
-
-            /**
-             * BatchCreateDestinationOptions rabbit.
-             * @member {protos.opts.IWriteGroupRabbitOptions|null|undefined} rabbit
-             * @memberof protos.opts.BatchCreateDestinationOptions
-             * @instance
-             */
-            BatchCreateDestinationOptions.prototype.rabbit = null;
-
-            /**
-             * BatchCreateDestinationOptions kubemqQueue.
-             * @member {protos.opts.IWriteGroupKubeMQQueueOptions|null|undefined} kubemqQueue
-             * @memberof protos.opts.BatchCreateDestinationOptions
-             * @instance
-             */
-            BatchCreateDestinationOptions.prototype.kubemqQueue = null;
-
-            /**
-             * BatchCreateDestinationOptions awsSqs.
-             * @member {protos.opts.IWriteGroupAWSSQSOptions|null|undefined} awsSqs
-             * @memberof protos.opts.BatchCreateDestinationOptions
-             * @instance
-             */
-            BatchCreateDestinationOptions.prototype.awsSqs = null;
-
-            /**
-             * BatchCreateDestinationOptions http.
-             * @member {protos.opts.IHTTPDestination|null|undefined} http
-             * @memberof protos.opts.BatchCreateDestinationOptions
-             * @instance
-             */
-            BatchCreateDestinationOptions.prototype.http = null;
-
-            /**
-             * Creates a new BatchCreateDestinationOptions instance using the specified properties.
-             * @function create
-             * @memberof protos.opts.BatchCreateDestinationOptions
-             * @static
-             * @param {protos.opts.IBatchCreateDestinationOptions=} [properties] Properties to set
-             * @returns {protos.opts.BatchCreateDestinationOptions} BatchCreateDestinationOptions instance
-             */
-            BatchCreateDestinationOptions.create = function create(properties) {
-                return new BatchCreateDestinationOptions(properties);
-            };
-
-            /**
-             * Encodes the specified BatchCreateDestinationOptions message. Does not implicitly {@link protos.opts.BatchCreateDestinationOptions.verify|verify} messages.
-             * @function encode
-             * @memberof protos.opts.BatchCreateDestinationOptions
-             * @static
-             * @param {protos.opts.IBatchCreateDestinationOptions} message BatchCreateDestinationOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            BatchCreateDestinationOptions.encode = function encode(message, writer) {
-                if (!writer)
-                    writer = $Writer.create();
-                if (message.name != null && Object.hasOwnProperty.call(message, "name"))
-                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.name);
-                if (message.notes != null && Object.hasOwnProperty.call(message, "notes"))
-                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.notes);
-                if (message.kafka != null && Object.hasOwnProperty.call(message, "kafka"))
-                    $root.protos.opts.WriteGroupKafkaOptions.encode(message.kafka, writer.uint32(/* id 100, wireType 2 =*/802).fork()).ldelim();
-                if (message.rabbit != null && Object.hasOwnProperty.call(message, "rabbit"))
-                    $root.protos.opts.WriteGroupRabbitOptions.encode(message.rabbit, writer.uint32(/* id 101, wireType 2 =*/810).fork()).ldelim();
-                if (message.kubemqQueue != null && Object.hasOwnProperty.call(message, "kubemqQueue"))
-                    $root.protos.opts.WriteGroupKubeMQQueueOptions.encode(message.kubemqQueue, writer.uint32(/* id 102, wireType 2 =*/818).fork()).ldelim();
-                if (message.awsSqs != null && Object.hasOwnProperty.call(message, "awsSqs"))
-                    $root.protos.opts.WriteGroupAWSSQSOptions.encode(message.awsSqs, writer.uint32(/* id 103, wireType 2 =*/826).fork()).ldelim();
-                if (message.http != null && Object.hasOwnProperty.call(message, "http"))
-                    $root.protos.opts.HTTPDestination.encode(message.http, writer.uint32(/* id 104, wireType 2 =*/834).fork()).ldelim();
-                if (message._apiDestinationType != null && Object.hasOwnProperty.call(message, "_apiDestinationType"))
-                    writer.uint32(/* id 1000, wireType 2 =*/8002).string(message._apiDestinationType);
-                return writer;
-            };
-
-            /**
-             * Encodes the specified BatchCreateDestinationOptions message, length delimited. Does not implicitly {@link protos.opts.BatchCreateDestinationOptions.verify|verify} messages.
-             * @function encodeDelimited
-             * @memberof protos.opts.BatchCreateDestinationOptions
-             * @static
-             * @param {protos.opts.IBatchCreateDestinationOptions} message BatchCreateDestinationOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            BatchCreateDestinationOptions.encodeDelimited = function encodeDelimited(message, writer) {
-                return this.encode(message, writer).ldelim();
-            };
-
-            /**
-             * Decodes a BatchCreateDestinationOptions message from the specified reader or buffer.
-             * @function decode
-             * @memberof protos.opts.BatchCreateDestinationOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @param {number} [length] Message length if known beforehand
-             * @returns {protos.opts.BatchCreateDestinationOptions} BatchCreateDestinationOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            BatchCreateDestinationOptions.decode = function decode(reader, length) {
-                if (!(reader instanceof $Reader))
-                    reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.BatchCreateDestinationOptions();
-                while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    switch (tag >>> 3) {
-                    case 1:
-                        message.name = reader.string();
-                        break;
-                    case 2:
-                        message.notes = reader.string();
-                        break;
-                    case 1000:
-                        message._apiDestinationType = reader.string();
-                        break;
-                    case 100:
-                        message.kafka = $root.protos.opts.WriteGroupKafkaOptions.decode(reader, reader.uint32());
-                        break;
-                    case 101:
-                        message.rabbit = $root.protos.opts.WriteGroupRabbitOptions.decode(reader, reader.uint32());
-                        break;
-                    case 102:
-                        message.kubemqQueue = $root.protos.opts.WriteGroupKubeMQQueueOptions.decode(reader, reader.uint32());
-                        break;
-                    case 103:
-                        message.awsSqs = $root.protos.opts.WriteGroupAWSSQSOptions.decode(reader, reader.uint32());
-                        break;
-                    case 104:
-                        message.http = $root.protos.opts.HTTPDestination.decode(reader, reader.uint32());
-                        break;
-                    default:
-                        reader.skipType(tag & 7);
-                        break;
-                    }
-                }
-                return message;
-            };
-
-            /**
-             * Decodes a BatchCreateDestinationOptions message from the specified reader or buffer, length delimited.
-             * @function decodeDelimited
-             * @memberof protos.opts.BatchCreateDestinationOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {protos.opts.BatchCreateDestinationOptions} BatchCreateDestinationOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            BatchCreateDestinationOptions.decodeDelimited = function decodeDelimited(reader) {
-                if (!(reader instanceof $Reader))
-                    reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
-            };
-
-            /**
-             * Verifies a BatchCreateDestinationOptions message.
-             * @function verify
-             * @memberof protos.opts.BatchCreateDestinationOptions
-             * @static
-             * @param {Object.<string,*>} message Plain object to verify
-             * @returns {string|null} `null` if valid, otherwise the reason why it is not
-             */
-            BatchCreateDestinationOptions.verify = function verify(message) {
-                if (typeof message !== "object" || message === null)
-                    return "object expected";
-                if (message.name != null && message.hasOwnProperty("name"))
-                    if (!$util.isString(message.name))
-                        return "name: string expected";
-                if (message.notes != null && message.hasOwnProperty("notes"))
-                    if (!$util.isString(message.notes))
-                        return "notes: string expected";
-                if (message._apiDestinationType != null && message.hasOwnProperty("_apiDestinationType"))
-                    if (!$util.isString(message._apiDestinationType))
-                        return "_apiDestinationType: string expected";
-                if (message.kafka != null && message.hasOwnProperty("kafka")) {
-                    var error = $root.protos.opts.WriteGroupKafkaOptions.verify(message.kafka);
-                    if (error)
-                        return "kafka." + error;
-                }
-                if (message.rabbit != null && message.hasOwnProperty("rabbit")) {
-                    var error = $root.protos.opts.WriteGroupRabbitOptions.verify(message.rabbit);
-                    if (error)
-                        return "rabbit." + error;
-                }
-                if (message.kubemqQueue != null && message.hasOwnProperty("kubemqQueue")) {
-                    var error = $root.protos.opts.WriteGroupKubeMQQueueOptions.verify(message.kubemqQueue);
-                    if (error)
-                        return "kubemqQueue." + error;
-                }
-                if (message.awsSqs != null && message.hasOwnProperty("awsSqs")) {
-                    var error = $root.protos.opts.WriteGroupAWSSQSOptions.verify(message.awsSqs);
-                    if (error)
-                        return "awsSqs." + error;
-                }
-                if (message.http != null && message.hasOwnProperty("http")) {
-                    var error = $root.protos.opts.HTTPDestination.verify(message.http);
-                    if (error)
-                        return "http." + error;
-                }
-                return null;
-            };
-
-            /**
-             * Creates a BatchCreateDestinationOptions message from a plain object. Also converts values to their respective internal types.
-             * @function fromObject
-             * @memberof protos.opts.BatchCreateDestinationOptions
-             * @static
-             * @param {Object.<string,*>} object Plain object
-             * @returns {protos.opts.BatchCreateDestinationOptions} BatchCreateDestinationOptions
-             */
-            BatchCreateDestinationOptions.fromObject = function fromObject(object) {
-                if (object instanceof $root.protos.opts.BatchCreateDestinationOptions)
-                    return object;
-                var message = new $root.protos.opts.BatchCreateDestinationOptions();
-                if (object.name != null)
-                    message.name = String(object.name);
-                if (object.notes != null)
-                    message.notes = String(object.notes);
-                if (object._apiDestinationType != null)
-                    message._apiDestinationType = String(object._apiDestinationType);
-                if (object.kafka != null) {
-                    if (typeof object.kafka !== "object")
-                        throw TypeError(".protos.opts.BatchCreateDestinationOptions.kafka: object expected");
-                    message.kafka = $root.protos.opts.WriteGroupKafkaOptions.fromObject(object.kafka);
-                }
-                if (object.rabbit != null) {
-                    if (typeof object.rabbit !== "object")
-                        throw TypeError(".protos.opts.BatchCreateDestinationOptions.rabbit: object expected");
-                    message.rabbit = $root.protos.opts.WriteGroupRabbitOptions.fromObject(object.rabbit);
-                }
-                if (object.kubemqQueue != null) {
-                    if (typeof object.kubemqQueue !== "object")
-                        throw TypeError(".protos.opts.BatchCreateDestinationOptions.kubemqQueue: object expected");
-                    message.kubemqQueue = $root.protos.opts.WriteGroupKubeMQQueueOptions.fromObject(object.kubemqQueue);
-                }
-                if (object.awsSqs != null) {
-                    if (typeof object.awsSqs !== "object")
-                        throw TypeError(".protos.opts.BatchCreateDestinationOptions.awsSqs: object expected");
-                    message.awsSqs = $root.protos.opts.WriteGroupAWSSQSOptions.fromObject(object.awsSqs);
-                }
-                if (object.http != null) {
-                    if (typeof object.http !== "object")
-                        throw TypeError(".protos.opts.BatchCreateDestinationOptions.http: object expected");
-                    message.http = $root.protos.opts.HTTPDestination.fromObject(object.http);
-                }
-                return message;
-            };
-
-            /**
-             * Creates a plain object from a BatchCreateDestinationOptions message. Also converts values to other types if specified.
-             * @function toObject
-             * @memberof protos.opts.BatchCreateDestinationOptions
-             * @static
-             * @param {protos.opts.BatchCreateDestinationOptions} message BatchCreateDestinationOptions
-             * @param {$protobuf.IConversionOptions} [options] Conversion options
-             * @returns {Object.<string,*>} Plain object
-             */
-            BatchCreateDestinationOptions.toObject = function toObject(message, options) {
-                if (!options)
-                    options = {};
-                var object = {};
-                if (options.defaults) {
-                    object.name = "";
-                    object.notes = "";
-                    object.kafka = null;
-                    object.rabbit = null;
-                    object.kubemqQueue = null;
-                    object.awsSqs = null;
-                    object.http = null;
-                    object._apiDestinationType = "";
-                }
-                if (message.name != null && message.hasOwnProperty("name"))
-                    object.name = message.name;
-                if (message.notes != null && message.hasOwnProperty("notes"))
-                    object.notes = message.notes;
-                if (message.kafka != null && message.hasOwnProperty("kafka"))
-                    object.kafka = $root.protos.opts.WriteGroupKafkaOptions.toObject(message.kafka, options);
-                if (message.rabbit != null && message.hasOwnProperty("rabbit"))
-                    object.rabbit = $root.protos.opts.WriteGroupRabbitOptions.toObject(message.rabbit, options);
-                if (message.kubemqQueue != null && message.hasOwnProperty("kubemqQueue"))
-                    object.kubemqQueue = $root.protos.opts.WriteGroupKubeMQQueueOptions.toObject(message.kubemqQueue, options);
-                if (message.awsSqs != null && message.hasOwnProperty("awsSqs"))
-                    object.awsSqs = $root.protos.opts.WriteGroupAWSSQSOptions.toObject(message.awsSqs, options);
-                if (message.http != null && message.hasOwnProperty("http"))
-                    object.http = $root.protos.opts.HTTPDestination.toObject(message.http, options);
-                if (message._apiDestinationType != null && message.hasOwnProperty("_apiDestinationType"))
-                    object._apiDestinationType = message._apiDestinationType;
-                return object;
-            };
-
-            /**
-             * Converts this BatchCreateDestinationOptions to JSON.
-             * @function toJSON
-             * @memberof protos.opts.BatchCreateDestinationOptions
-             * @instance
-             * @returns {Object.<string,*>} JSON object
-             */
-            BatchCreateDestinationOptions.prototype.toJSON = function toJSON() {
-                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-            };
-
-            return BatchCreateDestinationOptions;
-        })();
-
-        opts.HTTPDestination = (function() {
-
-            /**
-             * Properties of a HTTPDestination.
-             * @memberof protos.opts
-             * @interface IHTTPDestination
-             * @property {string|null} [url] HTTPDestination url
-             * @property {Object.<string,string>|null} [headers] HTTPDestination headers
-             */
-
-            /**
-             * Constructs a new HTTPDestination.
-             * @memberof protos.opts
-             * @classdesc Represents a HTTPDestination.
-             * @implements IHTTPDestination
-             * @constructor
-             * @param {protos.opts.IHTTPDestination=} [properties] Properties to set
-             */
-            function HTTPDestination(properties) {
-                this.headers = {};
-                if (properties)
-                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                        if (properties[keys[i]] != null)
-                            this[keys[i]] = properties[keys[i]];
-            }
-
-            /**
-             * HTTPDestination url.
-             * @member {string} url
-             * @memberof protos.opts.HTTPDestination
-             * @instance
-             */
-            HTTPDestination.prototype.url = "";
-
-            /**
-             * HTTPDestination headers.
-             * @member {Object.<string,string>} headers
-             * @memberof protos.opts.HTTPDestination
-             * @instance
-             */
-            HTTPDestination.prototype.headers = $util.emptyObject;
-
-            /**
-             * Creates a new HTTPDestination instance using the specified properties.
-             * @function create
-             * @memberof protos.opts.HTTPDestination
-             * @static
-             * @param {protos.opts.IHTTPDestination=} [properties] Properties to set
-             * @returns {protos.opts.HTTPDestination} HTTPDestination instance
-             */
-            HTTPDestination.create = function create(properties) {
-                return new HTTPDestination(properties);
-            };
-
-            /**
-             * Encodes the specified HTTPDestination message. Does not implicitly {@link protos.opts.HTTPDestination.verify|verify} messages.
-             * @function encode
-             * @memberof protos.opts.HTTPDestination
-             * @static
-             * @param {protos.opts.IHTTPDestination} message HTTPDestination message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            HTTPDestination.encode = function encode(message, writer) {
-                if (!writer)
-                    writer = $Writer.create();
-                if (message.url != null && Object.hasOwnProperty.call(message, "url"))
-                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.url);
-                if (message.headers != null && Object.hasOwnProperty.call(message, "headers"))
-                    for (var keys = Object.keys(message.headers), i = 0; i < keys.length; ++i)
-                        writer.uint32(/* id 2, wireType 2 =*/18).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]).uint32(/* id 2, wireType 2 =*/18).string(message.headers[keys[i]]).ldelim();
-                return writer;
-            };
-
-            /**
-             * Encodes the specified HTTPDestination message, length delimited. Does not implicitly {@link protos.opts.HTTPDestination.verify|verify} messages.
-             * @function encodeDelimited
-             * @memberof protos.opts.HTTPDestination
-             * @static
-             * @param {protos.opts.IHTTPDestination} message HTTPDestination message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            HTTPDestination.encodeDelimited = function encodeDelimited(message, writer) {
-                return this.encode(message, writer).ldelim();
-            };
-
-            /**
-             * Decodes a HTTPDestination message from the specified reader or buffer.
-             * @function decode
-             * @memberof protos.opts.HTTPDestination
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @param {number} [length] Message length if known beforehand
-             * @returns {protos.opts.HTTPDestination} HTTPDestination
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            HTTPDestination.decode = function decode(reader, length) {
-                if (!(reader instanceof $Reader))
-                    reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.HTTPDestination(), key, value;
-                while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    switch (tag >>> 3) {
-                    case 1:
-                        message.url = reader.string();
-                        break;
-                    case 2:
-                        if (message.headers === $util.emptyObject)
-                            message.headers = {};
-                        var end2 = reader.uint32() + reader.pos;
-                        key = "";
-                        value = "";
-                        while (reader.pos < end2) {
-                            var tag2 = reader.uint32();
-                            switch (tag2 >>> 3) {
-                            case 1:
-                                key = reader.string();
-                                break;
-                            case 2:
-                                value = reader.string();
-                                break;
-                            default:
-                                reader.skipType(tag2 & 7);
-                                break;
-                            }
-                        }
-                        message.headers[key] = value;
-                        break;
-                    default:
-                        reader.skipType(tag & 7);
-                        break;
-                    }
-                }
-                return message;
-            };
-
-            /**
-             * Decodes a HTTPDestination message from the specified reader or buffer, length delimited.
-             * @function decodeDelimited
-             * @memberof protos.opts.HTTPDestination
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {protos.opts.HTTPDestination} HTTPDestination
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            HTTPDestination.decodeDelimited = function decodeDelimited(reader) {
-                if (!(reader instanceof $Reader))
-                    reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
-            };
-
-            /**
-             * Verifies a HTTPDestination message.
-             * @function verify
-             * @memberof protos.opts.HTTPDestination
-             * @static
-             * @param {Object.<string,*>} message Plain object to verify
-             * @returns {string|null} `null` if valid, otherwise the reason why it is not
-             */
-            HTTPDestination.verify = function verify(message) {
-                if (typeof message !== "object" || message === null)
-                    return "object expected";
-                if (message.url != null && message.hasOwnProperty("url"))
-                    if (!$util.isString(message.url))
-                        return "url: string expected";
-                if (message.headers != null && message.hasOwnProperty("headers")) {
-                    if (!$util.isObject(message.headers))
-                        return "headers: object expected";
-                    var key = Object.keys(message.headers);
-                    for (var i = 0; i < key.length; ++i)
-                        if (!$util.isString(message.headers[key[i]]))
-                            return "headers: string{k:string} expected";
-                }
-                return null;
-            };
-
-            /**
-             * Creates a HTTPDestination message from a plain object. Also converts values to their respective internal types.
-             * @function fromObject
-             * @memberof protos.opts.HTTPDestination
-             * @static
-             * @param {Object.<string,*>} object Plain object
-             * @returns {protos.opts.HTTPDestination} HTTPDestination
-             */
-            HTTPDestination.fromObject = function fromObject(object) {
-                if (object instanceof $root.protos.opts.HTTPDestination)
-                    return object;
-                var message = new $root.protos.opts.HTTPDestination();
-                if (object.url != null)
-                    message.url = String(object.url);
-                if (object.headers) {
-                    if (typeof object.headers !== "object")
-                        throw TypeError(".protos.opts.HTTPDestination.headers: object expected");
-                    message.headers = {};
-                    for (var keys = Object.keys(object.headers), i = 0; i < keys.length; ++i)
-                        message.headers[keys[i]] = String(object.headers[keys[i]]);
-                }
-                return message;
-            };
-
-            /**
-             * Creates a plain object from a HTTPDestination message. Also converts values to other types if specified.
-             * @function toObject
-             * @memberof protos.opts.HTTPDestination
-             * @static
-             * @param {protos.opts.HTTPDestination} message HTTPDestination
-             * @param {$protobuf.IConversionOptions} [options] Conversion options
-             * @returns {Object.<string,*>} Plain object
-             */
-            HTTPDestination.toObject = function toObject(message, options) {
-                if (!options)
-                    options = {};
-                var object = {};
-                if (options.objects || options.defaults)
-                    object.headers = {};
-                if (options.defaults)
-                    object.url = "";
-                if (message.url != null && message.hasOwnProperty("url"))
-                    object.url = message.url;
-                var keys2;
-                if (message.headers && (keys2 = Object.keys(message.headers)).length) {
-                    object.headers = {};
-                    for (var j = 0; j < keys2.length; ++j)
-                        object.headers[keys2[j]] = message.headers[keys2[j]];
-                }
-                return object;
-            };
-
-            /**
-             * Converts this HTTPDestination to JSON.
-             * @function toJSON
-             * @memberof protos.opts.HTTPDestination
-             * @instance
-             * @returns {Object.<string,*>} JSON object
-             */
-            HTTPDestination.prototype.toJSON = function toJSON() {
-                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-            };
-
-            return HTTPDestination;
-        })();
-
-        opts.WriteCLIOptions = (function() {
-
-            /**
-             * Properties of a WriteCLIOptions.
-             * @memberof protos.opts
-             * @interface IWriteCLIOptions
-             * @property {string|null} [inputFile] WriteCLIOptions inputFile
-             * @property {boolean|null} [inputAsJsonArray] WriteCLIOptions inputAsJsonArray
-             * @property {Array.<string>|null} [inputStdin] WriteCLIOptions inputStdin
-             */
-
-            /**
-             * Constructs a new WriteCLIOptions.
-             * @memberof protos.opts
-             * @classdesc Represents a WriteCLIOptions.
-             * @implements IWriteCLIOptions
-             * @constructor
-             * @param {protos.opts.IWriteCLIOptions=} [properties] Properties to set
-             */
-            function WriteCLIOptions(properties) {
-                this.inputStdin = [];
-                if (properties)
-                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                        if (properties[keys[i]] != null)
-                            this[keys[i]] = properties[keys[i]];
-            }
-
-            /**
-             * WriteCLIOptions inputFile.
-             * @member {string} inputFile
-             * @memberof protos.opts.WriteCLIOptions
-             * @instance
-             */
-            WriteCLIOptions.prototype.inputFile = "";
-
-            /**
-             * WriteCLIOptions inputAsJsonArray.
-             * @member {boolean} inputAsJsonArray
-             * @memberof protos.opts.WriteCLIOptions
-             * @instance
-             */
-            WriteCLIOptions.prototype.inputAsJsonArray = false;
-
-            /**
-             * WriteCLIOptions inputStdin.
-             * @member {Array.<string>} inputStdin
-             * @memberof protos.opts.WriteCLIOptions
-             * @instance
-             */
-            WriteCLIOptions.prototype.inputStdin = $util.emptyArray;
-
-            /**
-             * Creates a new WriteCLIOptions instance using the specified properties.
-             * @function create
-             * @memberof protos.opts.WriteCLIOptions
-             * @static
-             * @param {protos.opts.IWriteCLIOptions=} [properties] Properties to set
-             * @returns {protos.opts.WriteCLIOptions} WriteCLIOptions instance
-             */
-            WriteCLIOptions.create = function create(properties) {
-                return new WriteCLIOptions(properties);
-            };
-
-            /**
-             * Encodes the specified WriteCLIOptions message. Does not implicitly {@link protos.opts.WriteCLIOptions.verify|verify} messages.
-             * @function encode
-             * @memberof protos.opts.WriteCLIOptions
-             * @static
-             * @param {protos.opts.IWriteCLIOptions} message WriteCLIOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            WriteCLIOptions.encode = function encode(message, writer) {
-                if (!writer)
-                    writer = $Writer.create();
-                if (message.inputFile != null && Object.hasOwnProperty.call(message, "inputFile"))
-                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.inputFile);
-                if (message.inputAsJsonArray != null && Object.hasOwnProperty.call(message, "inputAsJsonArray"))
-                    writer.uint32(/* id 2, wireType 0 =*/16).bool(message.inputAsJsonArray);
-                if (message.inputStdin != null && message.inputStdin.length)
-                    for (var i = 0; i < message.inputStdin.length; ++i)
-                        writer.uint32(/* id 3, wireType 2 =*/26).string(message.inputStdin[i]);
-                return writer;
-            };
-
-            /**
-             * Encodes the specified WriteCLIOptions message, length delimited. Does not implicitly {@link protos.opts.WriteCLIOptions.verify|verify} messages.
-             * @function encodeDelimited
-             * @memberof protos.opts.WriteCLIOptions
-             * @static
-             * @param {protos.opts.IWriteCLIOptions} message WriteCLIOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            WriteCLIOptions.encodeDelimited = function encodeDelimited(message, writer) {
-                return this.encode(message, writer).ldelim();
-            };
-
-            /**
-             * Decodes a WriteCLIOptions message from the specified reader or buffer.
-             * @function decode
-             * @memberof protos.opts.WriteCLIOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @param {number} [length] Message length if known beforehand
-             * @returns {protos.opts.WriteCLIOptions} WriteCLIOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            WriteCLIOptions.decode = function decode(reader, length) {
-                if (!(reader instanceof $Reader))
-                    reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.WriteCLIOptions();
-                while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    switch (tag >>> 3) {
-                    case 1:
-                        message.inputFile = reader.string();
-                        break;
-                    case 2:
-                        message.inputAsJsonArray = reader.bool();
-                        break;
-                    case 3:
-                        if (!(message.inputStdin && message.inputStdin.length))
-                            message.inputStdin = [];
-                        message.inputStdin.push(reader.string());
-                        break;
-                    default:
-                        reader.skipType(tag & 7);
-                        break;
-                    }
-                }
-                return message;
-            };
-
-            /**
-             * Decodes a WriteCLIOptions message from the specified reader or buffer, length delimited.
-             * @function decodeDelimited
-             * @memberof protos.opts.WriteCLIOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {protos.opts.WriteCLIOptions} WriteCLIOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            WriteCLIOptions.decodeDelimited = function decodeDelimited(reader) {
-                if (!(reader instanceof $Reader))
-                    reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
-            };
-
-            /**
-             * Verifies a WriteCLIOptions message.
-             * @function verify
-             * @memberof protos.opts.WriteCLIOptions
-             * @static
-             * @param {Object.<string,*>} message Plain object to verify
-             * @returns {string|null} `null` if valid, otherwise the reason why it is not
-             */
-            WriteCLIOptions.verify = function verify(message) {
-                if (typeof message !== "object" || message === null)
-                    return "object expected";
-                if (message.inputFile != null && message.hasOwnProperty("inputFile"))
-                    if (!$util.isString(message.inputFile))
-                        return "inputFile: string expected";
-                if (message.inputAsJsonArray != null && message.hasOwnProperty("inputAsJsonArray"))
-                    if (typeof message.inputAsJsonArray !== "boolean")
-                        return "inputAsJsonArray: boolean expected";
-                if (message.inputStdin != null && message.hasOwnProperty("inputStdin")) {
-                    if (!Array.isArray(message.inputStdin))
-                        return "inputStdin: array expected";
-                    for (var i = 0; i < message.inputStdin.length; ++i)
-                        if (!$util.isString(message.inputStdin[i]))
-                            return "inputStdin: string[] expected";
-                }
-                return null;
-            };
-
-            /**
-             * Creates a WriteCLIOptions message from a plain object. Also converts values to their respective internal types.
-             * @function fromObject
-             * @memberof protos.opts.WriteCLIOptions
-             * @static
-             * @param {Object.<string,*>} object Plain object
-             * @returns {protos.opts.WriteCLIOptions} WriteCLIOptions
-             */
-            WriteCLIOptions.fromObject = function fromObject(object) {
-                if (object instanceof $root.protos.opts.WriteCLIOptions)
-                    return object;
-                var message = new $root.protos.opts.WriteCLIOptions();
-                if (object.inputFile != null)
-                    message.inputFile = String(object.inputFile);
-                if (object.inputAsJsonArray != null)
-                    message.inputAsJsonArray = Boolean(object.inputAsJsonArray);
-                if (object.inputStdin) {
-                    if (!Array.isArray(object.inputStdin))
-                        throw TypeError(".protos.opts.WriteCLIOptions.inputStdin: array expected");
-                    message.inputStdin = [];
-                    for (var i = 0; i < object.inputStdin.length; ++i)
-                        message.inputStdin[i] = String(object.inputStdin[i]);
-                }
-                return message;
-            };
-
-            /**
-             * Creates a plain object from a WriteCLIOptions message. Also converts values to other types if specified.
-             * @function toObject
-             * @memberof protos.opts.WriteCLIOptions
-             * @static
-             * @param {protos.opts.WriteCLIOptions} message WriteCLIOptions
-             * @param {$protobuf.IConversionOptions} [options] Conversion options
-             * @returns {Object.<string,*>} Plain object
-             */
-            WriteCLIOptions.toObject = function toObject(message, options) {
-                if (!options)
-                    options = {};
-                var object = {};
-                if (options.arrays || options.defaults)
-                    object.inputStdin = [];
-                if (options.defaults) {
-                    object.inputFile = "";
-                    object.inputAsJsonArray = false;
-                }
-                if (message.inputFile != null && message.hasOwnProperty("inputFile"))
-                    object.inputFile = message.inputFile;
-                if (message.inputAsJsonArray != null && message.hasOwnProperty("inputAsJsonArray"))
-                    object.inputAsJsonArray = message.inputAsJsonArray;
-                if (message.inputStdin && message.inputStdin.length) {
-                    object.inputStdin = [];
-                    for (var j = 0; j < message.inputStdin.length; ++j)
-                        object.inputStdin[j] = message.inputStdin[j];
-                }
-                return object;
-            };
-
-            /**
-             * Converts this WriteCLIOptions to JSON.
-             * @function toJSON
-             * @memberof protos.opts.WriteCLIOptions
-             * @instance
-             * @returns {Object.<string,*>} JSON object
-             */
-            WriteCLIOptions.prototype.toJSON = function toJSON() {
-                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-            };
-
-            return WriteCLIOptions;
-        })();
-
-        opts.WriteOptions = (function() {
-
-            /**
-             * Properties of a WriteOptions.
-             * @memberof protos.opts
-             * @interface IWriteOptions
-             * @property {string|null} [connectionId] WriteOptions connectionId
-             * @property {protos.records.IWriteRecord|null} [record] WriteOptions record
-             * @property {protos.encoding.IEncodeOptions|null} [encodeOptions] WriteOptions encodeOptions
-             * @property {protos.opts.IWriteCLIOptions|null} [_cliOptions] WriteOptions _cliOptions
-             * @property {protos.opts.IWriteGroupKafkaOptions|null} [kafka] WriteOptions kafka
-             * @property {protos.opts.IWriteGroupActiveMQOptions|null} [activemq] WriteOptions activemq
-             * @property {protos.opts.IWriteGroupAWSSQSOptions|null} [awsSqs] WriteOptions awsSqs
-             * @property {protos.opts.IWriteGroupAWSSNSOptions|null} [awsSns] WriteOptions awsSns
-             * @property {protos.opts.IWriteGroupNatsOptions|null} [nats] WriteOptions nats
-             * @property {protos.opts.IWriteGroupNatsStreamingOptions|null} [natsStreaming] WriteOptions natsStreaming
-             * @property {protos.opts.IWriteGroupNSQOptions|null} [nsq] WriteOptions nsq
-             * @property {protos.opts.IWriteGroupPulsarOptions|null} [pulsar] WriteOptions pulsar
-             * @property {protos.opts.IWriteGroupRabbitOptions|null} [rabbit] WriteOptions rabbit
-             * @property {protos.opts.IWriteGroupRabbitStreamsOptions|null} [rabbitStreams] WriteOptions rabbitStreams
-             * @property {protos.opts.IWriteGroupMQTTOptions|null} [mqtt] WriteOptions mqtt
-             * @property {protos.opts.IWriteGroupAzureServiceBusOptions|null} [azureServiceBus] WriteOptions azureServiceBus
-             * @property {protos.opts.IWriteGroupAzureEventHubOptions|null} [azureEventHub] WriteOptions azureEventHub
-             * @property {protos.opts.IWriteGroupGCPPubSubOptions|null} [gcpPubsub] WriteOptions gcpPubsub
-             * @property {protos.opts.IWriteGroupKubeMQQueueOptions|null} [kubemqQueue] WriteOptions kubemqQueue
-             * @property {protos.opts.IWriteGroupRedisPubSubOptions|null} [redisPubsub] WriteOptions redisPubsub
-             * @property {protos.opts.IWriteGroupRedisStreamsOptions|null} [redisStreams] WriteOptions redisStreams
-             * @property {protos.opts.IWriteGroupNatsJetstreamOptions|null} [natsJetstream] WriteOptions natsJetstream
-             * @property {protos.opts.IWriteGroupAWSKinesisOptions|null} [awsKinesis] WriteOptions awsKinesis
-             */
-
-            /**
-             * Constructs a new WriteOptions.
-             * @memberof protos.opts
-             * @classdesc Represents a WriteOptions.
-             * @implements IWriteOptions
-             * @constructor
-             * @param {protos.opts.IWriteOptions=} [properties] Properties to set
-             */
-            function WriteOptions(properties) {
-                if (properties)
-                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                        if (properties[keys[i]] != null)
-                            this[keys[i]] = properties[keys[i]];
-            }
-
-            /**
-             * WriteOptions connectionId.
-             * @member {string} connectionId
-             * @memberof protos.opts.WriteOptions
-             * @instance
-             */
-            WriteOptions.prototype.connectionId = "";
-
-            /**
-             * WriteOptions record.
-             * @member {protos.records.IWriteRecord|null|undefined} record
-             * @memberof protos.opts.WriteOptions
-             * @instance
-             */
-            WriteOptions.prototype.record = null;
-
-            /**
-             * WriteOptions encodeOptions.
-             * @member {protos.encoding.IEncodeOptions|null|undefined} encodeOptions
-             * @memberof protos.opts.WriteOptions
-             * @instance
-             */
-            WriteOptions.prototype.encodeOptions = null;
-
-            /**
-             * WriteOptions _cliOptions.
-             * @member {protos.opts.IWriteCLIOptions|null|undefined} _cliOptions
-             * @memberof protos.opts.WriteOptions
-             * @instance
-             */
-            WriteOptions.prototype._cliOptions = null;
-
-            /**
-             * WriteOptions kafka.
-             * @member {protos.opts.IWriteGroupKafkaOptions|null|undefined} kafka
-             * @memberof protos.opts.WriteOptions
-             * @instance
-             */
-            WriteOptions.prototype.kafka = null;
-
-            /**
-             * WriteOptions activemq.
-             * @member {protos.opts.IWriteGroupActiveMQOptions|null|undefined} activemq
-             * @memberof protos.opts.WriteOptions
-             * @instance
-             */
-            WriteOptions.prototype.activemq = null;
-
-            /**
-             * WriteOptions awsSqs.
-             * @member {protos.opts.IWriteGroupAWSSQSOptions|null|undefined} awsSqs
-             * @memberof protos.opts.WriteOptions
-             * @instance
-             */
-            WriteOptions.prototype.awsSqs = null;
-
-            /**
-             * WriteOptions awsSns.
-             * @member {protos.opts.IWriteGroupAWSSNSOptions|null|undefined} awsSns
-             * @memberof protos.opts.WriteOptions
-             * @instance
-             */
-            WriteOptions.prototype.awsSns = null;
-
-            /**
-             * WriteOptions nats.
-             * @member {protos.opts.IWriteGroupNatsOptions|null|undefined} nats
-             * @memberof protos.opts.WriteOptions
-             * @instance
-             */
-            WriteOptions.prototype.nats = null;
-
-            /**
-             * WriteOptions natsStreaming.
-             * @member {protos.opts.IWriteGroupNatsStreamingOptions|null|undefined} natsStreaming
-             * @memberof protos.opts.WriteOptions
-             * @instance
-             */
-            WriteOptions.prototype.natsStreaming = null;
-
-            /**
-             * WriteOptions nsq.
-             * @member {protos.opts.IWriteGroupNSQOptions|null|undefined} nsq
-             * @memberof protos.opts.WriteOptions
-             * @instance
-             */
-            WriteOptions.prototype.nsq = null;
-
-            /**
-             * WriteOptions pulsar.
-             * @member {protos.opts.IWriteGroupPulsarOptions|null|undefined} pulsar
-             * @memberof protos.opts.WriteOptions
-             * @instance
-             */
-            WriteOptions.prototype.pulsar = null;
-
-            /**
-             * WriteOptions rabbit.
-             * @member {protos.opts.IWriteGroupRabbitOptions|null|undefined} rabbit
-             * @memberof protos.opts.WriteOptions
-             * @instance
-             */
-            WriteOptions.prototype.rabbit = null;
-
-            /**
-             * WriteOptions rabbitStreams.
-             * @member {protos.opts.IWriteGroupRabbitStreamsOptions|null|undefined} rabbitStreams
-             * @memberof protos.opts.WriteOptions
-             * @instance
-             */
-            WriteOptions.prototype.rabbitStreams = null;
-
-            /**
-             * WriteOptions mqtt.
-             * @member {protos.opts.IWriteGroupMQTTOptions|null|undefined} mqtt
-             * @memberof protos.opts.WriteOptions
-             * @instance
-             */
-            WriteOptions.prototype.mqtt = null;
-
-            /**
-             * WriteOptions azureServiceBus.
-             * @member {protos.opts.IWriteGroupAzureServiceBusOptions|null|undefined} azureServiceBus
-             * @memberof protos.opts.WriteOptions
-             * @instance
-             */
-            WriteOptions.prototype.azureServiceBus = null;
-
-            /**
-             * WriteOptions azureEventHub.
-             * @member {protos.opts.IWriteGroupAzureEventHubOptions|null|undefined} azureEventHub
-             * @memberof protos.opts.WriteOptions
-             * @instance
-             */
-            WriteOptions.prototype.azureEventHub = null;
-
-            /**
-             * WriteOptions gcpPubsub.
-             * @member {protos.opts.IWriteGroupGCPPubSubOptions|null|undefined} gcpPubsub
-             * @memberof protos.opts.WriteOptions
-             * @instance
-             */
-            WriteOptions.prototype.gcpPubsub = null;
-
-            /**
-             * WriteOptions kubemqQueue.
-             * @member {protos.opts.IWriteGroupKubeMQQueueOptions|null|undefined} kubemqQueue
-             * @memberof protos.opts.WriteOptions
-             * @instance
-             */
-            WriteOptions.prototype.kubemqQueue = null;
-
-            /**
-             * WriteOptions redisPubsub.
-             * @member {protos.opts.IWriteGroupRedisPubSubOptions|null|undefined} redisPubsub
-             * @memberof protos.opts.WriteOptions
-             * @instance
-             */
-            WriteOptions.prototype.redisPubsub = null;
-
-            /**
-             * WriteOptions redisStreams.
-             * @member {protos.opts.IWriteGroupRedisStreamsOptions|null|undefined} redisStreams
-             * @memberof protos.opts.WriteOptions
-             * @instance
-             */
-            WriteOptions.prototype.redisStreams = null;
-
-            /**
-             * WriteOptions natsJetstream.
-             * @member {protos.opts.IWriteGroupNatsJetstreamOptions|null|undefined} natsJetstream
-             * @memberof protos.opts.WriteOptions
-             * @instance
-             */
-            WriteOptions.prototype.natsJetstream = null;
-
-            /**
-             * WriteOptions awsKinesis.
-             * @member {protos.opts.IWriteGroupAWSKinesisOptions|null|undefined} awsKinesis
-             * @memberof protos.opts.WriteOptions
-             * @instance
-             */
-            WriteOptions.prototype.awsKinesis = null;
-
-            /**
-             * Creates a new WriteOptions instance using the specified properties.
-             * @function create
-             * @memberof protos.opts.WriteOptions
-             * @static
-             * @param {protos.opts.IWriteOptions=} [properties] Properties to set
-             * @returns {protos.opts.WriteOptions} WriteOptions instance
-             */
-            WriteOptions.create = function create(properties) {
-                return new WriteOptions(properties);
-            };
-
-            /**
-             * Encodes the specified WriteOptions message. Does not implicitly {@link protos.opts.WriteOptions.verify|verify} messages.
-             * @function encode
-             * @memberof protos.opts.WriteOptions
-             * @static
-             * @param {protos.opts.IWriteOptions} message WriteOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            WriteOptions.encode = function encode(message, writer) {
-                if (!writer)
-                    writer = $Writer.create();
-                if (message.connectionId != null && Object.hasOwnProperty.call(message, "connectionId"))
-                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.connectionId);
-                if (message.record != null && Object.hasOwnProperty.call(message, "record"))
-                    $root.protos.records.WriteRecord.encode(message.record, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
-                if (message.encodeOptions != null && Object.hasOwnProperty.call(message, "encodeOptions"))
-                    $root.protos.encoding.EncodeOptions.encode(message.encodeOptions, writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
-                if (message.kafka != null && Object.hasOwnProperty.call(message, "kafka"))
-                    $root.protos.opts.WriteGroupKafkaOptions.encode(message.kafka, writer.uint32(/* id 100, wireType 2 =*/802).fork()).ldelim();
-                if (message.activemq != null && Object.hasOwnProperty.call(message, "activemq"))
-                    $root.protos.opts.WriteGroupActiveMQOptions.encode(message.activemq, writer.uint32(/* id 101, wireType 2 =*/810).fork()).ldelim();
-                if (message.awsSqs != null && Object.hasOwnProperty.call(message, "awsSqs"))
-                    $root.protos.opts.WriteGroupAWSSQSOptions.encode(message.awsSqs, writer.uint32(/* id 102, wireType 2 =*/818).fork()).ldelim();
-                if (message.awsSns != null && Object.hasOwnProperty.call(message, "awsSns"))
-                    $root.protos.opts.WriteGroupAWSSNSOptions.encode(message.awsSns, writer.uint32(/* id 103, wireType 2 =*/826).fork()).ldelim();
-                if (message.nats != null && Object.hasOwnProperty.call(message, "nats"))
-                    $root.protos.opts.WriteGroupNatsOptions.encode(message.nats, writer.uint32(/* id 104, wireType 2 =*/834).fork()).ldelim();
-                if (message.natsStreaming != null && Object.hasOwnProperty.call(message, "natsStreaming"))
-                    $root.protos.opts.WriteGroupNatsStreamingOptions.encode(message.natsStreaming, writer.uint32(/* id 105, wireType 2 =*/842).fork()).ldelim();
-                if (message.nsq != null && Object.hasOwnProperty.call(message, "nsq"))
-                    $root.protos.opts.WriteGroupNSQOptions.encode(message.nsq, writer.uint32(/* id 106, wireType 2 =*/850).fork()).ldelim();
-                if (message.pulsar != null && Object.hasOwnProperty.call(message, "pulsar"))
-                    $root.protos.opts.WriteGroupPulsarOptions.encode(message.pulsar, writer.uint32(/* id 107, wireType 2 =*/858).fork()).ldelim();
-                if (message.rabbit != null && Object.hasOwnProperty.call(message, "rabbit"))
-                    $root.protos.opts.WriteGroupRabbitOptions.encode(message.rabbit, writer.uint32(/* id 108, wireType 2 =*/866).fork()).ldelim();
-                if (message.rabbitStreams != null && Object.hasOwnProperty.call(message, "rabbitStreams"))
-                    $root.protos.opts.WriteGroupRabbitStreamsOptions.encode(message.rabbitStreams, writer.uint32(/* id 109, wireType 2 =*/874).fork()).ldelim();
-                if (message.mqtt != null && Object.hasOwnProperty.call(message, "mqtt"))
-                    $root.protos.opts.WriteGroupMQTTOptions.encode(message.mqtt, writer.uint32(/* id 110, wireType 2 =*/882).fork()).ldelim();
-                if (message.azureServiceBus != null && Object.hasOwnProperty.call(message, "azureServiceBus"))
-                    $root.protos.opts.WriteGroupAzureServiceBusOptions.encode(message.azureServiceBus, writer.uint32(/* id 111, wireType 2 =*/890).fork()).ldelim();
-                if (message.azureEventHub != null && Object.hasOwnProperty.call(message, "azureEventHub"))
-                    $root.protos.opts.WriteGroupAzureEventHubOptions.encode(message.azureEventHub, writer.uint32(/* id 112, wireType 2 =*/898).fork()).ldelim();
-                if (message.gcpPubsub != null && Object.hasOwnProperty.call(message, "gcpPubsub"))
-                    $root.protos.opts.WriteGroupGCPPubSubOptions.encode(message.gcpPubsub, writer.uint32(/* id 113, wireType 2 =*/906).fork()).ldelim();
-                if (message.kubemqQueue != null && Object.hasOwnProperty.call(message, "kubemqQueue"))
-                    $root.protos.opts.WriteGroupKubeMQQueueOptions.encode(message.kubemqQueue, writer.uint32(/* id 114, wireType 2 =*/914).fork()).ldelim();
-                if (message.redisPubsub != null && Object.hasOwnProperty.call(message, "redisPubsub"))
-                    $root.protos.opts.WriteGroupRedisPubSubOptions.encode(message.redisPubsub, writer.uint32(/* id 115, wireType 2 =*/922).fork()).ldelim();
-                if (message.redisStreams != null && Object.hasOwnProperty.call(message, "redisStreams"))
-                    $root.protos.opts.WriteGroupRedisStreamsOptions.encode(message.redisStreams, writer.uint32(/* id 116, wireType 2 =*/930).fork()).ldelim();
-                if (message.natsJetstream != null && Object.hasOwnProperty.call(message, "natsJetstream"))
-                    $root.protos.opts.WriteGroupNatsJetstreamOptions.encode(message.natsJetstream, writer.uint32(/* id 117, wireType 2 =*/938).fork()).ldelim();
-                if (message.awsKinesis != null && Object.hasOwnProperty.call(message, "awsKinesis"))
-                    $root.protos.opts.WriteGroupAWSKinesisOptions.encode(message.awsKinesis, writer.uint32(/* id 118, wireType 2 =*/946).fork()).ldelim();
-                if (message._cliOptions != null && Object.hasOwnProperty.call(message, "_cliOptions"))
-                    $root.protos.opts.WriteCLIOptions.encode(message._cliOptions, writer.uint32(/* id 1000, wireType 2 =*/8002).fork()).ldelim();
-                return writer;
-            };
-
-            /**
-             * Encodes the specified WriteOptions message, length delimited. Does not implicitly {@link protos.opts.WriteOptions.verify|verify} messages.
-             * @function encodeDelimited
-             * @memberof protos.opts.WriteOptions
-             * @static
-             * @param {protos.opts.IWriteOptions} message WriteOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            WriteOptions.encodeDelimited = function encodeDelimited(message, writer) {
-                return this.encode(message, writer).ldelim();
-            };
-
-            /**
-             * Decodes a WriteOptions message from the specified reader or buffer.
-             * @function decode
-             * @memberof protos.opts.WriteOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @param {number} [length] Message length if known beforehand
-             * @returns {protos.opts.WriteOptions} WriteOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            WriteOptions.decode = function decode(reader, length) {
-                if (!(reader instanceof $Reader))
-                    reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.WriteOptions();
-                while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    switch (tag >>> 3) {
-                    case 1:
-                        message.connectionId = reader.string();
-                        break;
-                    case 2:
-                        message.record = $root.protos.records.WriteRecord.decode(reader, reader.uint32());
-                        break;
-                    case 3:
-                        message.encodeOptions = $root.protos.encoding.EncodeOptions.decode(reader, reader.uint32());
-                        break;
-                    case 1000:
-                        message._cliOptions = $root.protos.opts.WriteCLIOptions.decode(reader, reader.uint32());
-                        break;
-                    case 100:
-                        message.kafka = $root.protos.opts.WriteGroupKafkaOptions.decode(reader, reader.uint32());
-                        break;
-                    case 101:
-                        message.activemq = $root.protos.opts.WriteGroupActiveMQOptions.decode(reader, reader.uint32());
-                        break;
-                    case 102:
-                        message.awsSqs = $root.protos.opts.WriteGroupAWSSQSOptions.decode(reader, reader.uint32());
-                        break;
-                    case 103:
-                        message.awsSns = $root.protos.opts.WriteGroupAWSSNSOptions.decode(reader, reader.uint32());
-                        break;
-                    case 104:
-                        message.nats = $root.protos.opts.WriteGroupNatsOptions.decode(reader, reader.uint32());
-                        break;
-                    case 105:
-                        message.natsStreaming = $root.protos.opts.WriteGroupNatsStreamingOptions.decode(reader, reader.uint32());
-                        break;
-                    case 106:
-                        message.nsq = $root.protos.opts.WriteGroupNSQOptions.decode(reader, reader.uint32());
-                        break;
-                    case 107:
-                        message.pulsar = $root.protos.opts.WriteGroupPulsarOptions.decode(reader, reader.uint32());
-                        break;
-                    case 108:
-                        message.rabbit = $root.protos.opts.WriteGroupRabbitOptions.decode(reader, reader.uint32());
-                        break;
-                    case 109:
-                        message.rabbitStreams = $root.protos.opts.WriteGroupRabbitStreamsOptions.decode(reader, reader.uint32());
-                        break;
-                    case 110:
-                        message.mqtt = $root.protos.opts.WriteGroupMQTTOptions.decode(reader, reader.uint32());
-                        break;
-                    case 111:
-                        message.azureServiceBus = $root.protos.opts.WriteGroupAzureServiceBusOptions.decode(reader, reader.uint32());
-                        break;
-                    case 112:
-                        message.azureEventHub = $root.protos.opts.WriteGroupAzureEventHubOptions.decode(reader, reader.uint32());
-                        break;
-                    case 113:
-                        message.gcpPubsub = $root.protos.opts.WriteGroupGCPPubSubOptions.decode(reader, reader.uint32());
-                        break;
-                    case 114:
-                        message.kubemqQueue = $root.protos.opts.WriteGroupKubeMQQueueOptions.decode(reader, reader.uint32());
-                        break;
-                    case 115:
-                        message.redisPubsub = $root.protos.opts.WriteGroupRedisPubSubOptions.decode(reader, reader.uint32());
-                        break;
-                    case 116:
-                        message.redisStreams = $root.protos.opts.WriteGroupRedisStreamsOptions.decode(reader, reader.uint32());
-                        break;
-                    case 117:
-                        message.natsJetstream = $root.protos.opts.WriteGroupNatsJetstreamOptions.decode(reader, reader.uint32());
-                        break;
-                    case 118:
-                        message.awsKinesis = $root.protos.opts.WriteGroupAWSKinesisOptions.decode(reader, reader.uint32());
-                        break;
-                    default:
-                        reader.skipType(tag & 7);
-                        break;
-                    }
-                }
-                return message;
-            };
-
-            /**
-             * Decodes a WriteOptions message from the specified reader or buffer, length delimited.
-             * @function decodeDelimited
-             * @memberof protos.opts.WriteOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {protos.opts.WriteOptions} WriteOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            WriteOptions.decodeDelimited = function decodeDelimited(reader) {
-                if (!(reader instanceof $Reader))
-                    reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
-            };
-
-            /**
-             * Verifies a WriteOptions message.
-             * @function verify
-             * @memberof protos.opts.WriteOptions
-             * @static
-             * @param {Object.<string,*>} message Plain object to verify
-             * @returns {string|null} `null` if valid, otherwise the reason why it is not
-             */
-            WriteOptions.verify = function verify(message) {
-                if (typeof message !== "object" || message === null)
-                    return "object expected";
-                if (message.connectionId != null && message.hasOwnProperty("connectionId"))
-                    if (!$util.isString(message.connectionId))
-                        return "connectionId: string expected";
-                if (message.record != null && message.hasOwnProperty("record")) {
-                    var error = $root.protos.records.WriteRecord.verify(message.record);
-                    if (error)
-                        return "record." + error;
-                }
-                if (message.encodeOptions != null && message.hasOwnProperty("encodeOptions")) {
-                    var error = $root.protos.encoding.EncodeOptions.verify(message.encodeOptions);
-                    if (error)
-                        return "encodeOptions." + error;
-                }
-                if (message._cliOptions != null && message.hasOwnProperty("_cliOptions")) {
-                    var error = $root.protos.opts.WriteCLIOptions.verify(message._cliOptions);
-                    if (error)
-                        return "_cliOptions." + error;
-                }
-                if (message.kafka != null && message.hasOwnProperty("kafka")) {
-                    var error = $root.protos.opts.WriteGroupKafkaOptions.verify(message.kafka);
-                    if (error)
-                        return "kafka." + error;
-                }
-                if (message.activemq != null && message.hasOwnProperty("activemq")) {
-                    var error = $root.protos.opts.WriteGroupActiveMQOptions.verify(message.activemq);
-                    if (error)
-                        return "activemq." + error;
-                }
-                if (message.awsSqs != null && message.hasOwnProperty("awsSqs")) {
-                    var error = $root.protos.opts.WriteGroupAWSSQSOptions.verify(message.awsSqs);
-                    if (error)
-                        return "awsSqs." + error;
-                }
-                if (message.awsSns != null && message.hasOwnProperty("awsSns")) {
-                    var error = $root.protos.opts.WriteGroupAWSSNSOptions.verify(message.awsSns);
-                    if (error)
-                        return "awsSns." + error;
-                }
-                if (message.nats != null && message.hasOwnProperty("nats")) {
-                    var error = $root.protos.opts.WriteGroupNatsOptions.verify(message.nats);
-                    if (error)
-                        return "nats." + error;
-                }
-                if (message.natsStreaming != null && message.hasOwnProperty("natsStreaming")) {
-                    var error = $root.protos.opts.WriteGroupNatsStreamingOptions.verify(message.natsStreaming);
-                    if (error)
-                        return "natsStreaming." + error;
-                }
-                if (message.nsq != null && message.hasOwnProperty("nsq")) {
-                    var error = $root.protos.opts.WriteGroupNSQOptions.verify(message.nsq);
-                    if (error)
-                        return "nsq." + error;
-                }
-                if (message.pulsar != null && message.hasOwnProperty("pulsar")) {
-                    var error = $root.protos.opts.WriteGroupPulsarOptions.verify(message.pulsar);
-                    if (error)
-                        return "pulsar." + error;
-                }
-                if (message.rabbit != null && message.hasOwnProperty("rabbit")) {
-                    var error = $root.protos.opts.WriteGroupRabbitOptions.verify(message.rabbit);
-                    if (error)
-                        return "rabbit." + error;
-                }
-                if (message.rabbitStreams != null && message.hasOwnProperty("rabbitStreams")) {
-                    var error = $root.protos.opts.WriteGroupRabbitStreamsOptions.verify(message.rabbitStreams);
-                    if (error)
-                        return "rabbitStreams." + error;
-                }
-                if (message.mqtt != null && message.hasOwnProperty("mqtt")) {
-                    var error = $root.protos.opts.WriteGroupMQTTOptions.verify(message.mqtt);
-                    if (error)
-                        return "mqtt." + error;
-                }
-                if (message.azureServiceBus != null && message.hasOwnProperty("azureServiceBus")) {
-                    var error = $root.protos.opts.WriteGroupAzureServiceBusOptions.verify(message.azureServiceBus);
-                    if (error)
-                        return "azureServiceBus." + error;
-                }
-                if (message.azureEventHub != null && message.hasOwnProperty("azureEventHub")) {
-                    var error = $root.protos.opts.WriteGroupAzureEventHubOptions.verify(message.azureEventHub);
-                    if (error)
-                        return "azureEventHub." + error;
-                }
-                if (message.gcpPubsub != null && message.hasOwnProperty("gcpPubsub")) {
-                    var error = $root.protos.opts.WriteGroupGCPPubSubOptions.verify(message.gcpPubsub);
-                    if (error)
-                        return "gcpPubsub." + error;
-                }
-                if (message.kubemqQueue != null && message.hasOwnProperty("kubemqQueue")) {
-                    var error = $root.protos.opts.WriteGroupKubeMQQueueOptions.verify(message.kubemqQueue);
-                    if (error)
-                        return "kubemqQueue." + error;
-                }
-                if (message.redisPubsub != null && message.hasOwnProperty("redisPubsub")) {
-                    var error = $root.protos.opts.WriteGroupRedisPubSubOptions.verify(message.redisPubsub);
-                    if (error)
-                        return "redisPubsub." + error;
-                }
-                if (message.redisStreams != null && message.hasOwnProperty("redisStreams")) {
-                    var error = $root.protos.opts.WriteGroupRedisStreamsOptions.verify(message.redisStreams);
-                    if (error)
-                        return "redisStreams." + error;
-                }
-                if (message.natsJetstream != null && message.hasOwnProperty("natsJetstream")) {
-                    var error = $root.protos.opts.WriteGroupNatsJetstreamOptions.verify(message.natsJetstream);
-                    if (error)
-                        return "natsJetstream." + error;
-                }
-                if (message.awsKinesis != null && message.hasOwnProperty("awsKinesis")) {
-                    var error = $root.protos.opts.WriteGroupAWSKinesisOptions.verify(message.awsKinesis);
-                    if (error)
-                        return "awsKinesis." + error;
-                }
-                return null;
-            };
-
-            /**
-             * Creates a WriteOptions message from a plain object. Also converts values to their respective internal types.
-             * @function fromObject
-             * @memberof protos.opts.WriteOptions
-             * @static
-             * @param {Object.<string,*>} object Plain object
-             * @returns {protos.opts.WriteOptions} WriteOptions
-             */
-            WriteOptions.fromObject = function fromObject(object) {
-                if (object instanceof $root.protos.opts.WriteOptions)
-                    return object;
-                var message = new $root.protos.opts.WriteOptions();
-                if (object.connectionId != null)
-                    message.connectionId = String(object.connectionId);
-                if (object.record != null) {
-                    if (typeof object.record !== "object")
-                        throw TypeError(".protos.opts.WriteOptions.record: object expected");
-                    message.record = $root.protos.records.WriteRecord.fromObject(object.record);
-                }
-                if (object.encodeOptions != null) {
-                    if (typeof object.encodeOptions !== "object")
-                        throw TypeError(".protos.opts.WriteOptions.encodeOptions: object expected");
-                    message.encodeOptions = $root.protos.encoding.EncodeOptions.fromObject(object.encodeOptions);
-                }
-                if (object._cliOptions != null) {
-                    if (typeof object._cliOptions !== "object")
-                        throw TypeError(".protos.opts.WriteOptions._cliOptions: object expected");
-                    message._cliOptions = $root.protos.opts.WriteCLIOptions.fromObject(object._cliOptions);
-                }
-                if (object.kafka != null) {
-                    if (typeof object.kafka !== "object")
-                        throw TypeError(".protos.opts.WriteOptions.kafka: object expected");
-                    message.kafka = $root.protos.opts.WriteGroupKafkaOptions.fromObject(object.kafka);
-                }
-                if (object.activemq != null) {
-                    if (typeof object.activemq !== "object")
-                        throw TypeError(".protos.opts.WriteOptions.activemq: object expected");
-                    message.activemq = $root.protos.opts.WriteGroupActiveMQOptions.fromObject(object.activemq);
-                }
-                if (object.awsSqs != null) {
-                    if (typeof object.awsSqs !== "object")
-                        throw TypeError(".protos.opts.WriteOptions.awsSqs: object expected");
-                    message.awsSqs = $root.protos.opts.WriteGroupAWSSQSOptions.fromObject(object.awsSqs);
-                }
-                if (object.awsSns != null) {
-                    if (typeof object.awsSns !== "object")
-                        throw TypeError(".protos.opts.WriteOptions.awsSns: object expected");
-                    message.awsSns = $root.protos.opts.WriteGroupAWSSNSOptions.fromObject(object.awsSns);
-                }
-                if (object.nats != null) {
-                    if (typeof object.nats !== "object")
-                        throw TypeError(".protos.opts.WriteOptions.nats: object expected");
-                    message.nats = $root.protos.opts.WriteGroupNatsOptions.fromObject(object.nats);
-                }
-                if (object.natsStreaming != null) {
-                    if (typeof object.natsStreaming !== "object")
-                        throw TypeError(".protos.opts.WriteOptions.natsStreaming: object expected");
-                    message.natsStreaming = $root.protos.opts.WriteGroupNatsStreamingOptions.fromObject(object.natsStreaming);
-                }
-                if (object.nsq != null) {
-                    if (typeof object.nsq !== "object")
-                        throw TypeError(".protos.opts.WriteOptions.nsq: object expected");
-                    message.nsq = $root.protos.opts.WriteGroupNSQOptions.fromObject(object.nsq);
-                }
-                if (object.pulsar != null) {
-                    if (typeof object.pulsar !== "object")
-                        throw TypeError(".protos.opts.WriteOptions.pulsar: object expected");
-                    message.pulsar = $root.protos.opts.WriteGroupPulsarOptions.fromObject(object.pulsar);
-                }
-                if (object.rabbit != null) {
-                    if (typeof object.rabbit !== "object")
-                        throw TypeError(".protos.opts.WriteOptions.rabbit: object expected");
-                    message.rabbit = $root.protos.opts.WriteGroupRabbitOptions.fromObject(object.rabbit);
-                }
-                if (object.rabbitStreams != null) {
-                    if (typeof object.rabbitStreams !== "object")
-                        throw TypeError(".protos.opts.WriteOptions.rabbitStreams: object expected");
-                    message.rabbitStreams = $root.protos.opts.WriteGroupRabbitStreamsOptions.fromObject(object.rabbitStreams);
-                }
-                if (object.mqtt != null) {
-                    if (typeof object.mqtt !== "object")
-                        throw TypeError(".protos.opts.WriteOptions.mqtt: object expected");
-                    message.mqtt = $root.protos.opts.WriteGroupMQTTOptions.fromObject(object.mqtt);
-                }
-                if (object.azureServiceBus != null) {
-                    if (typeof object.azureServiceBus !== "object")
-                        throw TypeError(".protos.opts.WriteOptions.azureServiceBus: object expected");
-                    message.azureServiceBus = $root.protos.opts.WriteGroupAzureServiceBusOptions.fromObject(object.azureServiceBus);
-                }
-                if (object.azureEventHub != null) {
-                    if (typeof object.azureEventHub !== "object")
-                        throw TypeError(".protos.opts.WriteOptions.azureEventHub: object expected");
-                    message.azureEventHub = $root.protos.opts.WriteGroupAzureEventHubOptions.fromObject(object.azureEventHub);
-                }
-                if (object.gcpPubsub != null) {
-                    if (typeof object.gcpPubsub !== "object")
-                        throw TypeError(".protos.opts.WriteOptions.gcpPubsub: object expected");
-                    message.gcpPubsub = $root.protos.opts.WriteGroupGCPPubSubOptions.fromObject(object.gcpPubsub);
-                }
-                if (object.kubemqQueue != null) {
-                    if (typeof object.kubemqQueue !== "object")
-                        throw TypeError(".protos.opts.WriteOptions.kubemqQueue: object expected");
-                    message.kubemqQueue = $root.protos.opts.WriteGroupKubeMQQueueOptions.fromObject(object.kubemqQueue);
-                }
-                if (object.redisPubsub != null) {
-                    if (typeof object.redisPubsub !== "object")
-                        throw TypeError(".protos.opts.WriteOptions.redisPubsub: object expected");
-                    message.redisPubsub = $root.protos.opts.WriteGroupRedisPubSubOptions.fromObject(object.redisPubsub);
-                }
-                if (object.redisStreams != null) {
-                    if (typeof object.redisStreams !== "object")
-                        throw TypeError(".protos.opts.WriteOptions.redisStreams: object expected");
-                    message.redisStreams = $root.protos.opts.WriteGroupRedisStreamsOptions.fromObject(object.redisStreams);
-                }
-                if (object.natsJetstream != null) {
-                    if (typeof object.natsJetstream !== "object")
-                        throw TypeError(".protos.opts.WriteOptions.natsJetstream: object expected");
-                    message.natsJetstream = $root.protos.opts.WriteGroupNatsJetstreamOptions.fromObject(object.natsJetstream);
-                }
-                if (object.awsKinesis != null) {
-                    if (typeof object.awsKinesis !== "object")
-                        throw TypeError(".protos.opts.WriteOptions.awsKinesis: object expected");
-                    message.awsKinesis = $root.protos.opts.WriteGroupAWSKinesisOptions.fromObject(object.awsKinesis);
-                }
-                return message;
-            };
-
-            /**
-             * Creates a plain object from a WriteOptions message. Also converts values to other types if specified.
-             * @function toObject
-             * @memberof protos.opts.WriteOptions
-             * @static
-             * @param {protos.opts.WriteOptions} message WriteOptions
-             * @param {$protobuf.IConversionOptions} [options] Conversion options
-             * @returns {Object.<string,*>} Plain object
-             */
-            WriteOptions.toObject = function toObject(message, options) {
-                if (!options)
-                    options = {};
-                var object = {};
-                if (options.defaults) {
-                    object.connectionId = "";
-                    object.record = null;
-                    object.encodeOptions = null;
-                    object.kafka = null;
-                    object.activemq = null;
-                    object.awsSqs = null;
-                    object.awsSns = null;
-                    object.nats = null;
-                    object.natsStreaming = null;
-                    object.nsq = null;
-                    object.pulsar = null;
-                    object.rabbit = null;
-                    object.rabbitStreams = null;
-                    object.mqtt = null;
-                    object.azureServiceBus = null;
-                    object.azureEventHub = null;
-                    object.gcpPubsub = null;
-                    object.kubemqQueue = null;
-                    object.redisPubsub = null;
-                    object.redisStreams = null;
-                    object.natsJetstream = null;
-                    object.awsKinesis = null;
-                    object._cliOptions = null;
-                }
-                if (message.connectionId != null && message.hasOwnProperty("connectionId"))
-                    object.connectionId = message.connectionId;
-                if (message.record != null && message.hasOwnProperty("record"))
-                    object.record = $root.protos.records.WriteRecord.toObject(message.record, options);
-                if (message.encodeOptions != null && message.hasOwnProperty("encodeOptions"))
-                    object.encodeOptions = $root.protos.encoding.EncodeOptions.toObject(message.encodeOptions, options);
-                if (message.kafka != null && message.hasOwnProperty("kafka"))
-                    object.kafka = $root.protos.opts.WriteGroupKafkaOptions.toObject(message.kafka, options);
-                if (message.activemq != null && message.hasOwnProperty("activemq"))
-                    object.activemq = $root.protos.opts.WriteGroupActiveMQOptions.toObject(message.activemq, options);
-                if (message.awsSqs != null && message.hasOwnProperty("awsSqs"))
-                    object.awsSqs = $root.protos.opts.WriteGroupAWSSQSOptions.toObject(message.awsSqs, options);
-                if (message.awsSns != null && message.hasOwnProperty("awsSns"))
-                    object.awsSns = $root.protos.opts.WriteGroupAWSSNSOptions.toObject(message.awsSns, options);
-                if (message.nats != null && message.hasOwnProperty("nats"))
-                    object.nats = $root.protos.opts.WriteGroupNatsOptions.toObject(message.nats, options);
-                if (message.natsStreaming != null && message.hasOwnProperty("natsStreaming"))
-                    object.natsStreaming = $root.protos.opts.WriteGroupNatsStreamingOptions.toObject(message.natsStreaming, options);
-                if (message.nsq != null && message.hasOwnProperty("nsq"))
-                    object.nsq = $root.protos.opts.WriteGroupNSQOptions.toObject(message.nsq, options);
-                if (message.pulsar != null && message.hasOwnProperty("pulsar"))
-                    object.pulsar = $root.protos.opts.WriteGroupPulsarOptions.toObject(message.pulsar, options);
-                if (message.rabbit != null && message.hasOwnProperty("rabbit"))
-                    object.rabbit = $root.protos.opts.WriteGroupRabbitOptions.toObject(message.rabbit, options);
-                if (message.rabbitStreams != null && message.hasOwnProperty("rabbitStreams"))
-                    object.rabbitStreams = $root.protos.opts.WriteGroupRabbitStreamsOptions.toObject(message.rabbitStreams, options);
-                if (message.mqtt != null && message.hasOwnProperty("mqtt"))
-                    object.mqtt = $root.protos.opts.WriteGroupMQTTOptions.toObject(message.mqtt, options);
-                if (message.azureServiceBus != null && message.hasOwnProperty("azureServiceBus"))
-                    object.azureServiceBus = $root.protos.opts.WriteGroupAzureServiceBusOptions.toObject(message.azureServiceBus, options);
-                if (message.azureEventHub != null && message.hasOwnProperty("azureEventHub"))
-                    object.azureEventHub = $root.protos.opts.WriteGroupAzureEventHubOptions.toObject(message.azureEventHub, options);
-                if (message.gcpPubsub != null && message.hasOwnProperty("gcpPubsub"))
-                    object.gcpPubsub = $root.protos.opts.WriteGroupGCPPubSubOptions.toObject(message.gcpPubsub, options);
-                if (message.kubemqQueue != null && message.hasOwnProperty("kubemqQueue"))
-                    object.kubemqQueue = $root.protos.opts.WriteGroupKubeMQQueueOptions.toObject(message.kubemqQueue, options);
-                if (message.redisPubsub != null && message.hasOwnProperty("redisPubsub"))
-                    object.redisPubsub = $root.protos.opts.WriteGroupRedisPubSubOptions.toObject(message.redisPubsub, options);
-                if (message.redisStreams != null && message.hasOwnProperty("redisStreams"))
-                    object.redisStreams = $root.protos.opts.WriteGroupRedisStreamsOptions.toObject(message.redisStreams, options);
-                if (message.natsJetstream != null && message.hasOwnProperty("natsJetstream"))
-                    object.natsJetstream = $root.protos.opts.WriteGroupNatsJetstreamOptions.toObject(message.natsJetstream, options);
-                if (message.awsKinesis != null && message.hasOwnProperty("awsKinesis"))
-                    object.awsKinesis = $root.protos.opts.WriteGroupAWSKinesisOptions.toObject(message.awsKinesis, options);
-                if (message._cliOptions != null && message.hasOwnProperty("_cliOptions"))
-                    object._cliOptions = $root.protos.opts.WriteCLIOptions.toObject(message._cliOptions, options);
-                return object;
-            };
-
-            /**
-             * Converts this WriteOptions to JSON.
-             * @function toJSON
-             * @memberof protos.opts.WriteOptions
-             * @instance
-             * @returns {Object.<string,*>} JSON object
-             */
-            WriteOptions.prototype.toJSON = function toJSON() {
-                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-            };
-
-            return WriteOptions;
-        })();
-
-        opts.WriteGroupKafkaOptions = (function() {
-
-            /**
-             * Properties of a WriteGroupKafkaOptions.
-             * @memberof protos.opts
-             * @interface IWriteGroupKafkaOptions
-             * @property {protos.args.IKafkaConn|null} [_conn] WriteGroupKafkaOptions _conn
-             * @property {protos.args.IKafkaWriteArgs|null} [args] WriteGroupKafkaOptions args
-             */
-
-            /**
-             * Constructs a new WriteGroupKafkaOptions.
-             * @memberof protos.opts
-             * @classdesc Represents a WriteGroupKafkaOptions.
-             * @implements IWriteGroupKafkaOptions
-             * @constructor
-             * @param {protos.opts.IWriteGroupKafkaOptions=} [properties] Properties to set
-             */
-            function WriteGroupKafkaOptions(properties) {
-                if (properties)
-                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                        if (properties[keys[i]] != null)
-                            this[keys[i]] = properties[keys[i]];
-            }
-
-            /**
-             * WriteGroupKafkaOptions _conn.
-             * @member {protos.args.IKafkaConn|null|undefined} _conn
-             * @memberof protos.opts.WriteGroupKafkaOptions
-             * @instance
-             */
-            WriteGroupKafkaOptions.prototype._conn = null;
-
-            /**
-             * WriteGroupKafkaOptions args.
-             * @member {protos.args.IKafkaWriteArgs|null|undefined} args
-             * @memberof protos.opts.WriteGroupKafkaOptions
-             * @instance
-             */
-            WriteGroupKafkaOptions.prototype.args = null;
-
-            /**
-             * Creates a new WriteGroupKafkaOptions instance using the specified properties.
-             * @function create
-             * @memberof protos.opts.WriteGroupKafkaOptions
-             * @static
-             * @param {protos.opts.IWriteGroupKafkaOptions=} [properties] Properties to set
-             * @returns {protos.opts.WriteGroupKafkaOptions} WriteGroupKafkaOptions instance
-             */
-            WriteGroupKafkaOptions.create = function create(properties) {
-                return new WriteGroupKafkaOptions(properties);
-            };
-
-            /**
-             * Encodes the specified WriteGroupKafkaOptions message. Does not implicitly {@link protos.opts.WriteGroupKafkaOptions.verify|verify} messages.
-             * @function encode
-             * @memberof protos.opts.WriteGroupKafkaOptions
-             * @static
-             * @param {protos.opts.IWriteGroupKafkaOptions} message WriteGroupKafkaOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            WriteGroupKafkaOptions.encode = function encode(message, writer) {
-                if (!writer)
-                    writer = $Writer.create();
-                if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
-                    $root.protos.args.KafkaConn.encode(message._conn, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
-                if (message.args != null && Object.hasOwnProperty.call(message, "args"))
-                    $root.protos.args.KafkaWriteArgs.encode(message.args, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
-                return writer;
-            };
-
-            /**
-             * Encodes the specified WriteGroupKafkaOptions message, length delimited. Does not implicitly {@link protos.opts.WriteGroupKafkaOptions.verify|verify} messages.
-             * @function encodeDelimited
-             * @memberof protos.opts.WriteGroupKafkaOptions
-             * @static
-             * @param {protos.opts.IWriteGroupKafkaOptions} message WriteGroupKafkaOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            WriteGroupKafkaOptions.encodeDelimited = function encodeDelimited(message, writer) {
-                return this.encode(message, writer).ldelim();
-            };
-
-            /**
-             * Decodes a WriteGroupKafkaOptions message from the specified reader or buffer.
-             * @function decode
-             * @memberof protos.opts.WriteGroupKafkaOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @param {number} [length] Message length if known beforehand
-             * @returns {protos.opts.WriteGroupKafkaOptions} WriteGroupKafkaOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            WriteGroupKafkaOptions.decode = function decode(reader, length) {
-                if (!(reader instanceof $Reader))
-                    reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.WriteGroupKafkaOptions();
-                while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    switch (tag >>> 3) {
-                    case 1:
-                        message._conn = $root.protos.args.KafkaConn.decode(reader, reader.uint32());
-                        break;
-                    case 2:
-                        message.args = $root.protos.args.KafkaWriteArgs.decode(reader, reader.uint32());
-                        break;
-                    default:
-                        reader.skipType(tag & 7);
-                        break;
-                    }
-                }
-                return message;
-            };
-
-            /**
-             * Decodes a WriteGroupKafkaOptions message from the specified reader or buffer, length delimited.
-             * @function decodeDelimited
-             * @memberof protos.opts.WriteGroupKafkaOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {protos.opts.WriteGroupKafkaOptions} WriteGroupKafkaOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            WriteGroupKafkaOptions.decodeDelimited = function decodeDelimited(reader) {
-                if (!(reader instanceof $Reader))
-                    reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
-            };
-
-            /**
-             * Verifies a WriteGroupKafkaOptions message.
-             * @function verify
-             * @memberof protos.opts.WriteGroupKafkaOptions
-             * @static
-             * @param {Object.<string,*>} message Plain object to verify
-             * @returns {string|null} `null` if valid, otherwise the reason why it is not
-             */
-            WriteGroupKafkaOptions.verify = function verify(message) {
-                if (typeof message !== "object" || message === null)
-                    return "object expected";
-                if (message._conn != null && message.hasOwnProperty("_conn")) {
-                    var error = $root.protos.args.KafkaConn.verify(message._conn);
-                    if (error)
-                        return "_conn." + error;
-                }
-                if (message.args != null && message.hasOwnProperty("args")) {
-                    var error = $root.protos.args.KafkaWriteArgs.verify(message.args);
-                    if (error)
-                        return "args." + error;
-                }
-                return null;
-            };
-
-            /**
-             * Creates a WriteGroupKafkaOptions message from a plain object. Also converts values to their respective internal types.
-             * @function fromObject
-             * @memberof protos.opts.WriteGroupKafkaOptions
-             * @static
-             * @param {Object.<string,*>} object Plain object
-             * @returns {protos.opts.WriteGroupKafkaOptions} WriteGroupKafkaOptions
-             */
-            WriteGroupKafkaOptions.fromObject = function fromObject(object) {
-                if (object instanceof $root.protos.opts.WriteGroupKafkaOptions)
-                    return object;
-                var message = new $root.protos.opts.WriteGroupKafkaOptions();
-                if (object._conn != null) {
-                    if (typeof object._conn !== "object")
-                        throw TypeError(".protos.opts.WriteGroupKafkaOptions._conn: object expected");
-                    message._conn = $root.protos.args.KafkaConn.fromObject(object._conn);
-                }
-                if (object.args != null) {
-                    if (typeof object.args !== "object")
-                        throw TypeError(".protos.opts.WriteGroupKafkaOptions.args: object expected");
-                    message.args = $root.protos.args.KafkaWriteArgs.fromObject(object.args);
-                }
-                return message;
-            };
-
-            /**
-             * Creates a plain object from a WriteGroupKafkaOptions message. Also converts values to other types if specified.
-             * @function toObject
-             * @memberof protos.opts.WriteGroupKafkaOptions
-             * @static
-             * @param {protos.opts.WriteGroupKafkaOptions} message WriteGroupKafkaOptions
-             * @param {$protobuf.IConversionOptions} [options] Conversion options
-             * @returns {Object.<string,*>} Plain object
-             */
-            WriteGroupKafkaOptions.toObject = function toObject(message, options) {
-                if (!options)
-                    options = {};
-                var object = {};
-                if (options.defaults) {
-                    object._conn = null;
-                    object.args = null;
-                }
-                if (message._conn != null && message.hasOwnProperty("_conn"))
-                    object._conn = $root.protos.args.KafkaConn.toObject(message._conn, options);
-                if (message.args != null && message.hasOwnProperty("args"))
-                    object.args = $root.protos.args.KafkaWriteArgs.toObject(message.args, options);
-                return object;
-            };
-
-            /**
-             * Converts this WriteGroupKafkaOptions to JSON.
-             * @function toJSON
-             * @memberof protos.opts.WriteGroupKafkaOptions
-             * @instance
-             * @returns {Object.<string,*>} JSON object
-             */
-            WriteGroupKafkaOptions.prototype.toJSON = function toJSON() {
-                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-            };
-
-            return WriteGroupKafkaOptions;
-        })();
-
-        opts.WriteGroupActiveMQOptions = (function() {
-
-            /**
-             * Properties of a WriteGroupActiveMQOptions.
-             * @memberof protos.opts
-             * @interface IWriteGroupActiveMQOptions
-             * @property {protos.args.IActiveMQConn|null} [_conn] WriteGroupActiveMQOptions _conn
-             * @property {protos.args.IActiveMQWriteArgs|null} [args] WriteGroupActiveMQOptions args
-             */
-
-            /**
-             * Constructs a new WriteGroupActiveMQOptions.
-             * @memberof protos.opts
-             * @classdesc Represents a WriteGroupActiveMQOptions.
-             * @implements IWriteGroupActiveMQOptions
-             * @constructor
-             * @param {protos.opts.IWriteGroupActiveMQOptions=} [properties] Properties to set
-             */
-            function WriteGroupActiveMQOptions(properties) {
-                if (properties)
-                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                        if (properties[keys[i]] != null)
-                            this[keys[i]] = properties[keys[i]];
-            }
-
-            /**
-             * WriteGroupActiveMQOptions _conn.
-             * @member {protos.args.IActiveMQConn|null|undefined} _conn
-             * @memberof protos.opts.WriteGroupActiveMQOptions
-             * @instance
-             */
-            WriteGroupActiveMQOptions.prototype._conn = null;
-
-            /**
-             * WriteGroupActiveMQOptions args.
-             * @member {protos.args.IActiveMQWriteArgs|null|undefined} args
-             * @memberof protos.opts.WriteGroupActiveMQOptions
-             * @instance
-             */
-            WriteGroupActiveMQOptions.prototype.args = null;
-
-            /**
-             * Creates a new WriteGroupActiveMQOptions instance using the specified properties.
-             * @function create
-             * @memberof protos.opts.WriteGroupActiveMQOptions
-             * @static
-             * @param {protos.opts.IWriteGroupActiveMQOptions=} [properties] Properties to set
-             * @returns {protos.opts.WriteGroupActiveMQOptions} WriteGroupActiveMQOptions instance
-             */
-            WriteGroupActiveMQOptions.create = function create(properties) {
-                return new WriteGroupActiveMQOptions(properties);
-            };
-
-            /**
-             * Encodes the specified WriteGroupActiveMQOptions message. Does not implicitly {@link protos.opts.WriteGroupActiveMQOptions.verify|verify} messages.
-             * @function encode
-             * @memberof protos.opts.WriteGroupActiveMQOptions
-             * @static
-             * @param {protos.opts.IWriteGroupActiveMQOptions} message WriteGroupActiveMQOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            WriteGroupActiveMQOptions.encode = function encode(message, writer) {
-                if (!writer)
-                    writer = $Writer.create();
-                if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
-                    $root.protos.args.ActiveMQConn.encode(message._conn, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
-                if (message.args != null && Object.hasOwnProperty.call(message, "args"))
-                    $root.protos.args.ActiveMQWriteArgs.encode(message.args, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
-                return writer;
-            };
-
-            /**
-             * Encodes the specified WriteGroupActiveMQOptions message, length delimited. Does not implicitly {@link protos.opts.WriteGroupActiveMQOptions.verify|verify} messages.
-             * @function encodeDelimited
-             * @memberof protos.opts.WriteGroupActiveMQOptions
-             * @static
-             * @param {protos.opts.IWriteGroupActiveMQOptions} message WriteGroupActiveMQOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            WriteGroupActiveMQOptions.encodeDelimited = function encodeDelimited(message, writer) {
-                return this.encode(message, writer).ldelim();
-            };
-
-            /**
-             * Decodes a WriteGroupActiveMQOptions message from the specified reader or buffer.
-             * @function decode
-             * @memberof protos.opts.WriteGroupActiveMQOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @param {number} [length] Message length if known beforehand
-             * @returns {protos.opts.WriteGroupActiveMQOptions} WriteGroupActiveMQOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            WriteGroupActiveMQOptions.decode = function decode(reader, length) {
-                if (!(reader instanceof $Reader))
-                    reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.WriteGroupActiveMQOptions();
-                while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    switch (tag >>> 3) {
-                    case 1:
-                        message._conn = $root.protos.args.ActiveMQConn.decode(reader, reader.uint32());
-                        break;
-                    case 2:
-                        message.args = $root.protos.args.ActiveMQWriteArgs.decode(reader, reader.uint32());
-                        break;
-                    default:
-                        reader.skipType(tag & 7);
-                        break;
-                    }
-                }
-                return message;
-            };
-
-            /**
-             * Decodes a WriteGroupActiveMQOptions message from the specified reader or buffer, length delimited.
-             * @function decodeDelimited
-             * @memberof protos.opts.WriteGroupActiveMQOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {protos.opts.WriteGroupActiveMQOptions} WriteGroupActiveMQOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            WriteGroupActiveMQOptions.decodeDelimited = function decodeDelimited(reader) {
-                if (!(reader instanceof $Reader))
-                    reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
-            };
-
-            /**
-             * Verifies a WriteGroupActiveMQOptions message.
-             * @function verify
-             * @memberof protos.opts.WriteGroupActiveMQOptions
-             * @static
-             * @param {Object.<string,*>} message Plain object to verify
-             * @returns {string|null} `null` if valid, otherwise the reason why it is not
-             */
-            WriteGroupActiveMQOptions.verify = function verify(message) {
-                if (typeof message !== "object" || message === null)
-                    return "object expected";
-                if (message._conn != null && message.hasOwnProperty("_conn")) {
-                    var error = $root.protos.args.ActiveMQConn.verify(message._conn);
-                    if (error)
-                        return "_conn." + error;
-                }
-                if (message.args != null && message.hasOwnProperty("args")) {
-                    var error = $root.protos.args.ActiveMQWriteArgs.verify(message.args);
-                    if (error)
-                        return "args." + error;
-                }
-                return null;
-            };
-
-            /**
-             * Creates a WriteGroupActiveMQOptions message from a plain object. Also converts values to their respective internal types.
-             * @function fromObject
-             * @memberof protos.opts.WriteGroupActiveMQOptions
-             * @static
-             * @param {Object.<string,*>} object Plain object
-             * @returns {protos.opts.WriteGroupActiveMQOptions} WriteGroupActiveMQOptions
-             */
-            WriteGroupActiveMQOptions.fromObject = function fromObject(object) {
-                if (object instanceof $root.protos.opts.WriteGroupActiveMQOptions)
-                    return object;
-                var message = new $root.protos.opts.WriteGroupActiveMQOptions();
-                if (object._conn != null) {
-                    if (typeof object._conn !== "object")
-                        throw TypeError(".protos.opts.WriteGroupActiveMQOptions._conn: object expected");
-                    message._conn = $root.protos.args.ActiveMQConn.fromObject(object._conn);
-                }
-                if (object.args != null) {
-                    if (typeof object.args !== "object")
-                        throw TypeError(".protos.opts.WriteGroupActiveMQOptions.args: object expected");
-                    message.args = $root.protos.args.ActiveMQWriteArgs.fromObject(object.args);
-                }
-                return message;
-            };
-
-            /**
-             * Creates a plain object from a WriteGroupActiveMQOptions message. Also converts values to other types if specified.
-             * @function toObject
-             * @memberof protos.opts.WriteGroupActiveMQOptions
-             * @static
-             * @param {protos.opts.WriteGroupActiveMQOptions} message WriteGroupActiveMQOptions
-             * @param {$protobuf.IConversionOptions} [options] Conversion options
-             * @returns {Object.<string,*>} Plain object
-             */
-            WriteGroupActiveMQOptions.toObject = function toObject(message, options) {
-                if (!options)
-                    options = {};
-                var object = {};
-                if (options.defaults) {
-                    object._conn = null;
-                    object.args = null;
-                }
-                if (message._conn != null && message.hasOwnProperty("_conn"))
-                    object._conn = $root.protos.args.ActiveMQConn.toObject(message._conn, options);
-                if (message.args != null && message.hasOwnProperty("args"))
-                    object.args = $root.protos.args.ActiveMQWriteArgs.toObject(message.args, options);
-                return object;
-            };
-
-            /**
-             * Converts this WriteGroupActiveMQOptions to JSON.
-             * @function toJSON
-             * @memberof protos.opts.WriteGroupActiveMQOptions
-             * @instance
-             * @returns {Object.<string,*>} JSON object
-             */
-            WriteGroupActiveMQOptions.prototype.toJSON = function toJSON() {
-                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-            };
-
-            return WriteGroupActiveMQOptions;
-        })();
-
-        opts.WriteGroupAWSSQSOptions = (function() {
-
-            /**
-             * Properties of a WriteGroupAWSSQSOptions.
-             * @memberof protos.opts
-             * @interface IWriteGroupAWSSQSOptions
-             * @property {protos.args.IAWSSQSConn|null} [_conn] WriteGroupAWSSQSOptions _conn
-             * @property {protos.args.IAWSSQSWriteArgs|null} [args] WriteGroupAWSSQSOptions args
-             */
-
-            /**
-             * Constructs a new WriteGroupAWSSQSOptions.
-             * @memberof protos.opts
-             * @classdesc Represents a WriteGroupAWSSQSOptions.
-             * @implements IWriteGroupAWSSQSOptions
-             * @constructor
-             * @param {protos.opts.IWriteGroupAWSSQSOptions=} [properties] Properties to set
-             */
-            function WriteGroupAWSSQSOptions(properties) {
-                if (properties)
-                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                        if (properties[keys[i]] != null)
-                            this[keys[i]] = properties[keys[i]];
-            }
-
-            /**
-             * WriteGroupAWSSQSOptions _conn.
-             * @member {protos.args.IAWSSQSConn|null|undefined} _conn
-             * @memberof protos.opts.WriteGroupAWSSQSOptions
-             * @instance
-             */
-            WriteGroupAWSSQSOptions.prototype._conn = null;
-
-            /**
-             * WriteGroupAWSSQSOptions args.
-             * @member {protos.args.IAWSSQSWriteArgs|null|undefined} args
-             * @memberof protos.opts.WriteGroupAWSSQSOptions
-             * @instance
-             */
-            WriteGroupAWSSQSOptions.prototype.args = null;
-
-            /**
-             * Creates a new WriteGroupAWSSQSOptions instance using the specified properties.
-             * @function create
-             * @memberof protos.opts.WriteGroupAWSSQSOptions
-             * @static
-             * @param {protos.opts.IWriteGroupAWSSQSOptions=} [properties] Properties to set
-             * @returns {protos.opts.WriteGroupAWSSQSOptions} WriteGroupAWSSQSOptions instance
-             */
-            WriteGroupAWSSQSOptions.create = function create(properties) {
-                return new WriteGroupAWSSQSOptions(properties);
-            };
-
-            /**
-             * Encodes the specified WriteGroupAWSSQSOptions message. Does not implicitly {@link protos.opts.WriteGroupAWSSQSOptions.verify|verify} messages.
-             * @function encode
-             * @memberof protos.opts.WriteGroupAWSSQSOptions
-             * @static
-             * @param {protos.opts.IWriteGroupAWSSQSOptions} message WriteGroupAWSSQSOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            WriteGroupAWSSQSOptions.encode = function encode(message, writer) {
-                if (!writer)
-                    writer = $Writer.create();
-                if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
-                    $root.protos.args.AWSSQSConn.encode(message._conn, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
-                if (message.args != null && Object.hasOwnProperty.call(message, "args"))
-                    $root.protos.args.AWSSQSWriteArgs.encode(message.args, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
-                return writer;
-            };
-
-            /**
-             * Encodes the specified WriteGroupAWSSQSOptions message, length delimited. Does not implicitly {@link protos.opts.WriteGroupAWSSQSOptions.verify|verify} messages.
-             * @function encodeDelimited
-             * @memberof protos.opts.WriteGroupAWSSQSOptions
-             * @static
-             * @param {protos.opts.IWriteGroupAWSSQSOptions} message WriteGroupAWSSQSOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            WriteGroupAWSSQSOptions.encodeDelimited = function encodeDelimited(message, writer) {
-                return this.encode(message, writer).ldelim();
-            };
-
-            /**
-             * Decodes a WriteGroupAWSSQSOptions message from the specified reader or buffer.
-             * @function decode
-             * @memberof protos.opts.WriteGroupAWSSQSOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @param {number} [length] Message length if known beforehand
-             * @returns {protos.opts.WriteGroupAWSSQSOptions} WriteGroupAWSSQSOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            WriteGroupAWSSQSOptions.decode = function decode(reader, length) {
-                if (!(reader instanceof $Reader))
-                    reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.WriteGroupAWSSQSOptions();
-                while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    switch (tag >>> 3) {
-                    case 1:
-                        message._conn = $root.protos.args.AWSSQSConn.decode(reader, reader.uint32());
-                        break;
-                    case 2:
-                        message.args = $root.protos.args.AWSSQSWriteArgs.decode(reader, reader.uint32());
-                        break;
-                    default:
-                        reader.skipType(tag & 7);
-                        break;
-                    }
-                }
-                return message;
-            };
-
-            /**
-             * Decodes a WriteGroupAWSSQSOptions message from the specified reader or buffer, length delimited.
-             * @function decodeDelimited
-             * @memberof protos.opts.WriteGroupAWSSQSOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {protos.opts.WriteGroupAWSSQSOptions} WriteGroupAWSSQSOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            WriteGroupAWSSQSOptions.decodeDelimited = function decodeDelimited(reader) {
-                if (!(reader instanceof $Reader))
-                    reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
-            };
-
-            /**
-             * Verifies a WriteGroupAWSSQSOptions message.
-             * @function verify
-             * @memberof protos.opts.WriteGroupAWSSQSOptions
-             * @static
-             * @param {Object.<string,*>} message Plain object to verify
-             * @returns {string|null} `null` if valid, otherwise the reason why it is not
-             */
-            WriteGroupAWSSQSOptions.verify = function verify(message) {
-                if (typeof message !== "object" || message === null)
-                    return "object expected";
-                if (message._conn != null && message.hasOwnProperty("_conn")) {
-                    var error = $root.protos.args.AWSSQSConn.verify(message._conn);
-                    if (error)
-                        return "_conn." + error;
-                }
-                if (message.args != null && message.hasOwnProperty("args")) {
-                    var error = $root.protos.args.AWSSQSWriteArgs.verify(message.args);
-                    if (error)
-                        return "args." + error;
-                }
-                return null;
-            };
-
-            /**
-             * Creates a WriteGroupAWSSQSOptions message from a plain object. Also converts values to their respective internal types.
-             * @function fromObject
-             * @memberof protos.opts.WriteGroupAWSSQSOptions
-             * @static
-             * @param {Object.<string,*>} object Plain object
-             * @returns {protos.opts.WriteGroupAWSSQSOptions} WriteGroupAWSSQSOptions
-             */
-            WriteGroupAWSSQSOptions.fromObject = function fromObject(object) {
-                if (object instanceof $root.protos.opts.WriteGroupAWSSQSOptions)
-                    return object;
-                var message = new $root.protos.opts.WriteGroupAWSSQSOptions();
-                if (object._conn != null) {
-                    if (typeof object._conn !== "object")
-                        throw TypeError(".protos.opts.WriteGroupAWSSQSOptions._conn: object expected");
-                    message._conn = $root.protos.args.AWSSQSConn.fromObject(object._conn);
-                }
-                if (object.args != null) {
-                    if (typeof object.args !== "object")
-                        throw TypeError(".protos.opts.WriteGroupAWSSQSOptions.args: object expected");
-                    message.args = $root.protos.args.AWSSQSWriteArgs.fromObject(object.args);
-                }
-                return message;
-            };
-
-            /**
-             * Creates a plain object from a WriteGroupAWSSQSOptions message. Also converts values to other types if specified.
-             * @function toObject
-             * @memberof protos.opts.WriteGroupAWSSQSOptions
-             * @static
-             * @param {protos.opts.WriteGroupAWSSQSOptions} message WriteGroupAWSSQSOptions
-             * @param {$protobuf.IConversionOptions} [options] Conversion options
-             * @returns {Object.<string,*>} Plain object
-             */
-            WriteGroupAWSSQSOptions.toObject = function toObject(message, options) {
-                if (!options)
-                    options = {};
-                var object = {};
-                if (options.defaults) {
-                    object._conn = null;
-                    object.args = null;
-                }
-                if (message._conn != null && message.hasOwnProperty("_conn"))
-                    object._conn = $root.protos.args.AWSSQSConn.toObject(message._conn, options);
-                if (message.args != null && message.hasOwnProperty("args"))
-                    object.args = $root.protos.args.AWSSQSWriteArgs.toObject(message.args, options);
-                return object;
-            };
-
-            /**
-             * Converts this WriteGroupAWSSQSOptions to JSON.
-             * @function toJSON
-             * @memberof protos.opts.WriteGroupAWSSQSOptions
-             * @instance
-             * @returns {Object.<string,*>} JSON object
-             */
-            WriteGroupAWSSQSOptions.prototype.toJSON = function toJSON() {
-                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-            };
-
-            return WriteGroupAWSSQSOptions;
-        })();
-
-        opts.WriteGroupAWSSNSOptions = (function() {
-
-            /**
-             * Properties of a WriteGroupAWSSNSOptions.
-             * @memberof protos.opts
-             * @interface IWriteGroupAWSSNSOptions
-             * @property {protos.args.IAWSSNSConn|null} [_conn] WriteGroupAWSSNSOptions _conn
-             * @property {protos.args.IAWSSNSWriteArgs|null} [args] WriteGroupAWSSNSOptions args
-             */
-
-            /**
-             * Constructs a new WriteGroupAWSSNSOptions.
-             * @memberof protos.opts
-             * @classdesc Represents a WriteGroupAWSSNSOptions.
-             * @implements IWriteGroupAWSSNSOptions
-             * @constructor
-             * @param {protos.opts.IWriteGroupAWSSNSOptions=} [properties] Properties to set
-             */
-            function WriteGroupAWSSNSOptions(properties) {
-                if (properties)
-                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                        if (properties[keys[i]] != null)
-                            this[keys[i]] = properties[keys[i]];
-            }
-
-            /**
-             * WriteGroupAWSSNSOptions _conn.
-             * @member {protos.args.IAWSSNSConn|null|undefined} _conn
-             * @memberof protos.opts.WriteGroupAWSSNSOptions
-             * @instance
-             */
-            WriteGroupAWSSNSOptions.prototype._conn = null;
-
-            /**
-             * WriteGroupAWSSNSOptions args.
-             * @member {protos.args.IAWSSNSWriteArgs|null|undefined} args
-             * @memberof protos.opts.WriteGroupAWSSNSOptions
-             * @instance
-             */
-            WriteGroupAWSSNSOptions.prototype.args = null;
-
-            /**
-             * Creates a new WriteGroupAWSSNSOptions instance using the specified properties.
-             * @function create
-             * @memberof protos.opts.WriteGroupAWSSNSOptions
-             * @static
-             * @param {protos.opts.IWriteGroupAWSSNSOptions=} [properties] Properties to set
-             * @returns {protos.opts.WriteGroupAWSSNSOptions} WriteGroupAWSSNSOptions instance
-             */
-            WriteGroupAWSSNSOptions.create = function create(properties) {
-                return new WriteGroupAWSSNSOptions(properties);
-            };
-
-            /**
-             * Encodes the specified WriteGroupAWSSNSOptions message. Does not implicitly {@link protos.opts.WriteGroupAWSSNSOptions.verify|verify} messages.
-             * @function encode
-             * @memberof protos.opts.WriteGroupAWSSNSOptions
-             * @static
-             * @param {protos.opts.IWriteGroupAWSSNSOptions} message WriteGroupAWSSNSOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            WriteGroupAWSSNSOptions.encode = function encode(message, writer) {
-                if (!writer)
-                    writer = $Writer.create();
-                if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
-                    $root.protos.args.AWSSNSConn.encode(message._conn, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
-                if (message.args != null && Object.hasOwnProperty.call(message, "args"))
-                    $root.protos.args.AWSSNSWriteArgs.encode(message.args, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
-                return writer;
-            };
-
-            /**
-             * Encodes the specified WriteGroupAWSSNSOptions message, length delimited. Does not implicitly {@link protos.opts.WriteGroupAWSSNSOptions.verify|verify} messages.
-             * @function encodeDelimited
-             * @memberof protos.opts.WriteGroupAWSSNSOptions
-             * @static
-             * @param {protos.opts.IWriteGroupAWSSNSOptions} message WriteGroupAWSSNSOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            WriteGroupAWSSNSOptions.encodeDelimited = function encodeDelimited(message, writer) {
-                return this.encode(message, writer).ldelim();
-            };
-
-            /**
-             * Decodes a WriteGroupAWSSNSOptions message from the specified reader or buffer.
-             * @function decode
-             * @memberof protos.opts.WriteGroupAWSSNSOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @param {number} [length] Message length if known beforehand
-             * @returns {protos.opts.WriteGroupAWSSNSOptions} WriteGroupAWSSNSOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            WriteGroupAWSSNSOptions.decode = function decode(reader, length) {
-                if (!(reader instanceof $Reader))
-                    reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.WriteGroupAWSSNSOptions();
-                while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    switch (tag >>> 3) {
-                    case 1:
-                        message._conn = $root.protos.args.AWSSNSConn.decode(reader, reader.uint32());
-                        break;
-                    case 2:
-                        message.args = $root.protos.args.AWSSNSWriteArgs.decode(reader, reader.uint32());
-                        break;
-                    default:
-                        reader.skipType(tag & 7);
-                        break;
-                    }
-                }
-                return message;
-            };
-
-            /**
-             * Decodes a WriteGroupAWSSNSOptions message from the specified reader or buffer, length delimited.
-             * @function decodeDelimited
-             * @memberof protos.opts.WriteGroupAWSSNSOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {protos.opts.WriteGroupAWSSNSOptions} WriteGroupAWSSNSOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            WriteGroupAWSSNSOptions.decodeDelimited = function decodeDelimited(reader) {
-                if (!(reader instanceof $Reader))
-                    reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
-            };
-
-            /**
-             * Verifies a WriteGroupAWSSNSOptions message.
-             * @function verify
-             * @memberof protos.opts.WriteGroupAWSSNSOptions
-             * @static
-             * @param {Object.<string,*>} message Plain object to verify
-             * @returns {string|null} `null` if valid, otherwise the reason why it is not
-             */
-            WriteGroupAWSSNSOptions.verify = function verify(message) {
-                if (typeof message !== "object" || message === null)
-                    return "object expected";
-                if (message._conn != null && message.hasOwnProperty("_conn")) {
-                    var error = $root.protos.args.AWSSNSConn.verify(message._conn);
-                    if (error)
-                        return "_conn." + error;
-                }
-                if (message.args != null && message.hasOwnProperty("args")) {
-                    var error = $root.protos.args.AWSSNSWriteArgs.verify(message.args);
-                    if (error)
-                        return "args." + error;
-                }
-                return null;
-            };
-
-            /**
-             * Creates a WriteGroupAWSSNSOptions message from a plain object. Also converts values to their respective internal types.
-             * @function fromObject
-             * @memberof protos.opts.WriteGroupAWSSNSOptions
-             * @static
-             * @param {Object.<string,*>} object Plain object
-             * @returns {protos.opts.WriteGroupAWSSNSOptions} WriteGroupAWSSNSOptions
-             */
-            WriteGroupAWSSNSOptions.fromObject = function fromObject(object) {
-                if (object instanceof $root.protos.opts.WriteGroupAWSSNSOptions)
-                    return object;
-                var message = new $root.protos.opts.WriteGroupAWSSNSOptions();
-                if (object._conn != null) {
-                    if (typeof object._conn !== "object")
-                        throw TypeError(".protos.opts.WriteGroupAWSSNSOptions._conn: object expected");
-                    message._conn = $root.protos.args.AWSSNSConn.fromObject(object._conn);
-                }
-                if (object.args != null) {
-                    if (typeof object.args !== "object")
-                        throw TypeError(".protos.opts.WriteGroupAWSSNSOptions.args: object expected");
-                    message.args = $root.protos.args.AWSSNSWriteArgs.fromObject(object.args);
-                }
-                return message;
-            };
-
-            /**
-             * Creates a plain object from a WriteGroupAWSSNSOptions message. Also converts values to other types if specified.
-             * @function toObject
-             * @memberof protos.opts.WriteGroupAWSSNSOptions
-             * @static
-             * @param {protos.opts.WriteGroupAWSSNSOptions} message WriteGroupAWSSNSOptions
-             * @param {$protobuf.IConversionOptions} [options] Conversion options
-             * @returns {Object.<string,*>} Plain object
-             */
-            WriteGroupAWSSNSOptions.toObject = function toObject(message, options) {
-                if (!options)
-                    options = {};
-                var object = {};
-                if (options.defaults) {
-                    object._conn = null;
-                    object.args = null;
-                }
-                if (message._conn != null && message.hasOwnProperty("_conn"))
-                    object._conn = $root.protos.args.AWSSNSConn.toObject(message._conn, options);
-                if (message.args != null && message.hasOwnProperty("args"))
-                    object.args = $root.protos.args.AWSSNSWriteArgs.toObject(message.args, options);
-                return object;
-            };
-
-            /**
-             * Converts this WriteGroupAWSSNSOptions to JSON.
-             * @function toJSON
-             * @memberof protos.opts.WriteGroupAWSSNSOptions
-             * @instance
-             * @returns {Object.<string,*>} JSON object
-             */
-            WriteGroupAWSSNSOptions.prototype.toJSON = function toJSON() {
-                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-            };
-
-            return WriteGroupAWSSNSOptions;
-        })();
-
-        opts.WriteGroupNatsOptions = (function() {
-
-            /**
-             * Properties of a WriteGroupNatsOptions.
-             * @memberof protos.opts
-             * @interface IWriteGroupNatsOptions
-             * @property {protos.args.INatsConn|null} [_conn] WriteGroupNatsOptions _conn
-             * @property {protos.args.INatsWriteArgs|null} [args] WriteGroupNatsOptions args
-             */
-
-            /**
-             * Constructs a new WriteGroupNatsOptions.
-             * @memberof protos.opts
-             * @classdesc Represents a WriteGroupNatsOptions.
-             * @implements IWriteGroupNatsOptions
-             * @constructor
-             * @param {protos.opts.IWriteGroupNatsOptions=} [properties] Properties to set
-             */
-            function WriteGroupNatsOptions(properties) {
-                if (properties)
-                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                        if (properties[keys[i]] != null)
-                            this[keys[i]] = properties[keys[i]];
-            }
-
-            /**
-             * WriteGroupNatsOptions _conn.
-             * @member {protos.args.INatsConn|null|undefined} _conn
-             * @memberof protos.opts.WriteGroupNatsOptions
-             * @instance
-             */
-            WriteGroupNatsOptions.prototype._conn = null;
-
-            /**
-             * WriteGroupNatsOptions args.
-             * @member {protos.args.INatsWriteArgs|null|undefined} args
-             * @memberof protos.opts.WriteGroupNatsOptions
-             * @instance
-             */
-            WriteGroupNatsOptions.prototype.args = null;
-
-            /**
-             * Creates a new WriteGroupNatsOptions instance using the specified properties.
-             * @function create
-             * @memberof protos.opts.WriteGroupNatsOptions
-             * @static
-             * @param {protos.opts.IWriteGroupNatsOptions=} [properties] Properties to set
-             * @returns {protos.opts.WriteGroupNatsOptions} WriteGroupNatsOptions instance
-             */
-            WriteGroupNatsOptions.create = function create(properties) {
-                return new WriteGroupNatsOptions(properties);
-            };
-
-            /**
-             * Encodes the specified WriteGroupNatsOptions message. Does not implicitly {@link protos.opts.WriteGroupNatsOptions.verify|verify} messages.
-             * @function encode
-             * @memberof protos.opts.WriteGroupNatsOptions
-             * @static
-             * @param {protos.opts.IWriteGroupNatsOptions} message WriteGroupNatsOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            WriteGroupNatsOptions.encode = function encode(message, writer) {
-                if (!writer)
-                    writer = $Writer.create();
-                if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
-                    $root.protos.args.NatsConn.encode(message._conn, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
-                if (message.args != null && Object.hasOwnProperty.call(message, "args"))
-                    $root.protos.args.NatsWriteArgs.encode(message.args, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
-                return writer;
-            };
-
-            /**
-             * Encodes the specified WriteGroupNatsOptions message, length delimited. Does not implicitly {@link protos.opts.WriteGroupNatsOptions.verify|verify} messages.
-             * @function encodeDelimited
-             * @memberof protos.opts.WriteGroupNatsOptions
-             * @static
-             * @param {protos.opts.IWriteGroupNatsOptions} message WriteGroupNatsOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            WriteGroupNatsOptions.encodeDelimited = function encodeDelimited(message, writer) {
-                return this.encode(message, writer).ldelim();
-            };
-
-            /**
-             * Decodes a WriteGroupNatsOptions message from the specified reader or buffer.
-             * @function decode
-             * @memberof protos.opts.WriteGroupNatsOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @param {number} [length] Message length if known beforehand
-             * @returns {protos.opts.WriteGroupNatsOptions} WriteGroupNatsOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            WriteGroupNatsOptions.decode = function decode(reader, length) {
-                if (!(reader instanceof $Reader))
-                    reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.WriteGroupNatsOptions();
-                while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    switch (tag >>> 3) {
-                    case 1:
-                        message._conn = $root.protos.args.NatsConn.decode(reader, reader.uint32());
-                        break;
-                    case 2:
-                        message.args = $root.protos.args.NatsWriteArgs.decode(reader, reader.uint32());
-                        break;
-                    default:
-                        reader.skipType(tag & 7);
-                        break;
-                    }
-                }
-                return message;
-            };
-
-            /**
-             * Decodes a WriteGroupNatsOptions message from the specified reader or buffer, length delimited.
-             * @function decodeDelimited
-             * @memberof protos.opts.WriteGroupNatsOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {protos.opts.WriteGroupNatsOptions} WriteGroupNatsOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            WriteGroupNatsOptions.decodeDelimited = function decodeDelimited(reader) {
-                if (!(reader instanceof $Reader))
-                    reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
-            };
-
-            /**
-             * Verifies a WriteGroupNatsOptions message.
-             * @function verify
-             * @memberof protos.opts.WriteGroupNatsOptions
-             * @static
-             * @param {Object.<string,*>} message Plain object to verify
-             * @returns {string|null} `null` if valid, otherwise the reason why it is not
-             */
-            WriteGroupNatsOptions.verify = function verify(message) {
-                if (typeof message !== "object" || message === null)
-                    return "object expected";
-                if (message._conn != null && message.hasOwnProperty("_conn")) {
-                    var error = $root.protos.args.NatsConn.verify(message._conn);
-                    if (error)
-                        return "_conn." + error;
-                }
-                if (message.args != null && message.hasOwnProperty("args")) {
-                    var error = $root.protos.args.NatsWriteArgs.verify(message.args);
-                    if (error)
-                        return "args." + error;
-                }
-                return null;
-            };
-
-            /**
-             * Creates a WriteGroupNatsOptions message from a plain object. Also converts values to their respective internal types.
-             * @function fromObject
-             * @memberof protos.opts.WriteGroupNatsOptions
-             * @static
-             * @param {Object.<string,*>} object Plain object
-             * @returns {protos.opts.WriteGroupNatsOptions} WriteGroupNatsOptions
-             */
-            WriteGroupNatsOptions.fromObject = function fromObject(object) {
-                if (object instanceof $root.protos.opts.WriteGroupNatsOptions)
-                    return object;
-                var message = new $root.protos.opts.WriteGroupNatsOptions();
-                if (object._conn != null) {
-                    if (typeof object._conn !== "object")
-                        throw TypeError(".protos.opts.WriteGroupNatsOptions._conn: object expected");
-                    message._conn = $root.protos.args.NatsConn.fromObject(object._conn);
-                }
-                if (object.args != null) {
-                    if (typeof object.args !== "object")
-                        throw TypeError(".protos.opts.WriteGroupNatsOptions.args: object expected");
-                    message.args = $root.protos.args.NatsWriteArgs.fromObject(object.args);
-                }
-                return message;
-            };
-
-            /**
-             * Creates a plain object from a WriteGroupNatsOptions message. Also converts values to other types if specified.
-             * @function toObject
-             * @memberof protos.opts.WriteGroupNatsOptions
-             * @static
-             * @param {protos.opts.WriteGroupNatsOptions} message WriteGroupNatsOptions
-             * @param {$protobuf.IConversionOptions} [options] Conversion options
-             * @returns {Object.<string,*>} Plain object
-             */
-            WriteGroupNatsOptions.toObject = function toObject(message, options) {
-                if (!options)
-                    options = {};
-                var object = {};
-                if (options.defaults) {
-                    object._conn = null;
-                    object.args = null;
-                }
-                if (message._conn != null && message.hasOwnProperty("_conn"))
-                    object._conn = $root.protos.args.NatsConn.toObject(message._conn, options);
-                if (message.args != null && message.hasOwnProperty("args"))
-                    object.args = $root.protos.args.NatsWriteArgs.toObject(message.args, options);
-                return object;
-            };
-
-            /**
-             * Converts this WriteGroupNatsOptions to JSON.
-             * @function toJSON
-             * @memberof protos.opts.WriteGroupNatsOptions
-             * @instance
-             * @returns {Object.<string,*>} JSON object
-             */
-            WriteGroupNatsOptions.prototype.toJSON = function toJSON() {
-                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-            };
-
-            return WriteGroupNatsOptions;
-        })();
-
-        opts.WriteGroupNatsJetstreamOptions = (function() {
-
-            /**
-             * Properties of a WriteGroupNatsJetstreamOptions.
-             * @memberof protos.opts
-             * @interface IWriteGroupNatsJetstreamOptions
-             * @property {protos.args.INatsJetstreamConn|null} [_conn] WriteGroupNatsJetstreamOptions _conn
-             * @property {protos.args.INatsJetstreamWriteArgs|null} [args] WriteGroupNatsJetstreamOptions args
-             */
-
-            /**
-             * Constructs a new WriteGroupNatsJetstreamOptions.
-             * @memberof protos.opts
-             * @classdesc Represents a WriteGroupNatsJetstreamOptions.
-             * @implements IWriteGroupNatsJetstreamOptions
-             * @constructor
-             * @param {protos.opts.IWriteGroupNatsJetstreamOptions=} [properties] Properties to set
-             */
-            function WriteGroupNatsJetstreamOptions(properties) {
-                if (properties)
-                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                        if (properties[keys[i]] != null)
-                            this[keys[i]] = properties[keys[i]];
-            }
-
-            /**
-             * WriteGroupNatsJetstreamOptions _conn.
-             * @member {protos.args.INatsJetstreamConn|null|undefined} _conn
-             * @memberof protos.opts.WriteGroupNatsJetstreamOptions
-             * @instance
-             */
-            WriteGroupNatsJetstreamOptions.prototype._conn = null;
-
-            /**
-             * WriteGroupNatsJetstreamOptions args.
-             * @member {protos.args.INatsJetstreamWriteArgs|null|undefined} args
-             * @memberof protos.opts.WriteGroupNatsJetstreamOptions
-             * @instance
-             */
-            WriteGroupNatsJetstreamOptions.prototype.args = null;
-
-            /**
-             * Creates a new WriteGroupNatsJetstreamOptions instance using the specified properties.
-             * @function create
-             * @memberof protos.opts.WriteGroupNatsJetstreamOptions
-             * @static
-             * @param {protos.opts.IWriteGroupNatsJetstreamOptions=} [properties] Properties to set
-             * @returns {protos.opts.WriteGroupNatsJetstreamOptions} WriteGroupNatsJetstreamOptions instance
-             */
-            WriteGroupNatsJetstreamOptions.create = function create(properties) {
-                return new WriteGroupNatsJetstreamOptions(properties);
-            };
-
-            /**
-             * Encodes the specified WriteGroupNatsJetstreamOptions message. Does not implicitly {@link protos.opts.WriteGroupNatsJetstreamOptions.verify|verify} messages.
-             * @function encode
-             * @memberof protos.opts.WriteGroupNatsJetstreamOptions
-             * @static
-             * @param {protos.opts.IWriteGroupNatsJetstreamOptions} message WriteGroupNatsJetstreamOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            WriteGroupNatsJetstreamOptions.encode = function encode(message, writer) {
-                if (!writer)
-                    writer = $Writer.create();
-                if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
-                    $root.protos.args.NatsJetstreamConn.encode(message._conn, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
-                if (message.args != null && Object.hasOwnProperty.call(message, "args"))
-                    $root.protos.args.NatsJetstreamWriteArgs.encode(message.args, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
-                return writer;
-            };
-
-            /**
-             * Encodes the specified WriteGroupNatsJetstreamOptions message, length delimited. Does not implicitly {@link protos.opts.WriteGroupNatsJetstreamOptions.verify|verify} messages.
-             * @function encodeDelimited
-             * @memberof protos.opts.WriteGroupNatsJetstreamOptions
-             * @static
-             * @param {protos.opts.IWriteGroupNatsJetstreamOptions} message WriteGroupNatsJetstreamOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            WriteGroupNatsJetstreamOptions.encodeDelimited = function encodeDelimited(message, writer) {
-                return this.encode(message, writer).ldelim();
-            };
-
-            /**
-             * Decodes a WriteGroupNatsJetstreamOptions message from the specified reader or buffer.
-             * @function decode
-             * @memberof protos.opts.WriteGroupNatsJetstreamOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @param {number} [length] Message length if known beforehand
-             * @returns {protos.opts.WriteGroupNatsJetstreamOptions} WriteGroupNatsJetstreamOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            WriteGroupNatsJetstreamOptions.decode = function decode(reader, length) {
-                if (!(reader instanceof $Reader))
-                    reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.WriteGroupNatsJetstreamOptions();
-                while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    switch (tag >>> 3) {
-                    case 1:
-                        message._conn = $root.protos.args.NatsJetstreamConn.decode(reader, reader.uint32());
-                        break;
-                    case 2:
-                        message.args = $root.protos.args.NatsJetstreamWriteArgs.decode(reader, reader.uint32());
-                        break;
-                    default:
-                        reader.skipType(tag & 7);
-                        break;
-                    }
-                }
-                return message;
-            };
-
-            /**
-             * Decodes a WriteGroupNatsJetstreamOptions message from the specified reader or buffer, length delimited.
-             * @function decodeDelimited
-             * @memberof protos.opts.WriteGroupNatsJetstreamOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {protos.opts.WriteGroupNatsJetstreamOptions} WriteGroupNatsJetstreamOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            WriteGroupNatsJetstreamOptions.decodeDelimited = function decodeDelimited(reader) {
-                if (!(reader instanceof $Reader))
-                    reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
-            };
-
-            /**
-             * Verifies a WriteGroupNatsJetstreamOptions message.
-             * @function verify
-             * @memberof protos.opts.WriteGroupNatsJetstreamOptions
-             * @static
-             * @param {Object.<string,*>} message Plain object to verify
-             * @returns {string|null} `null` if valid, otherwise the reason why it is not
-             */
-            WriteGroupNatsJetstreamOptions.verify = function verify(message) {
-                if (typeof message !== "object" || message === null)
-                    return "object expected";
-                if (message._conn != null && message.hasOwnProperty("_conn")) {
-                    var error = $root.protos.args.NatsJetstreamConn.verify(message._conn);
-                    if (error)
-                        return "_conn." + error;
-                }
-                if (message.args != null && message.hasOwnProperty("args")) {
-                    var error = $root.protos.args.NatsJetstreamWriteArgs.verify(message.args);
-                    if (error)
-                        return "args." + error;
-                }
-                return null;
-            };
-
-            /**
-             * Creates a WriteGroupNatsJetstreamOptions message from a plain object. Also converts values to their respective internal types.
-             * @function fromObject
-             * @memberof protos.opts.WriteGroupNatsJetstreamOptions
-             * @static
-             * @param {Object.<string,*>} object Plain object
-             * @returns {protos.opts.WriteGroupNatsJetstreamOptions} WriteGroupNatsJetstreamOptions
-             */
-            WriteGroupNatsJetstreamOptions.fromObject = function fromObject(object) {
-                if (object instanceof $root.protos.opts.WriteGroupNatsJetstreamOptions)
-                    return object;
-                var message = new $root.protos.opts.WriteGroupNatsJetstreamOptions();
-                if (object._conn != null) {
-                    if (typeof object._conn !== "object")
-                        throw TypeError(".protos.opts.WriteGroupNatsJetstreamOptions._conn: object expected");
-                    message._conn = $root.protos.args.NatsJetstreamConn.fromObject(object._conn);
-                }
-                if (object.args != null) {
-                    if (typeof object.args !== "object")
-                        throw TypeError(".protos.opts.WriteGroupNatsJetstreamOptions.args: object expected");
-                    message.args = $root.protos.args.NatsJetstreamWriteArgs.fromObject(object.args);
-                }
-                return message;
-            };
-
-            /**
-             * Creates a plain object from a WriteGroupNatsJetstreamOptions message. Also converts values to other types if specified.
-             * @function toObject
-             * @memberof protos.opts.WriteGroupNatsJetstreamOptions
-             * @static
-             * @param {protos.opts.WriteGroupNatsJetstreamOptions} message WriteGroupNatsJetstreamOptions
-             * @param {$protobuf.IConversionOptions} [options] Conversion options
-             * @returns {Object.<string,*>} Plain object
-             */
-            WriteGroupNatsJetstreamOptions.toObject = function toObject(message, options) {
-                if (!options)
-                    options = {};
-                var object = {};
-                if (options.defaults) {
-                    object._conn = null;
-                    object.args = null;
-                }
-                if (message._conn != null && message.hasOwnProperty("_conn"))
-                    object._conn = $root.protos.args.NatsJetstreamConn.toObject(message._conn, options);
-                if (message.args != null && message.hasOwnProperty("args"))
-                    object.args = $root.protos.args.NatsJetstreamWriteArgs.toObject(message.args, options);
-                return object;
-            };
-
-            /**
-             * Converts this WriteGroupNatsJetstreamOptions to JSON.
-             * @function toJSON
-             * @memberof protos.opts.WriteGroupNatsJetstreamOptions
-             * @instance
-             * @returns {Object.<string,*>} JSON object
-             */
-            WriteGroupNatsJetstreamOptions.prototype.toJSON = function toJSON() {
-                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-            };
-
-            return WriteGroupNatsJetstreamOptions;
-        })();
-
-        opts.WriteGroupNatsStreamingOptions = (function() {
-
-            /**
-             * Properties of a WriteGroupNatsStreamingOptions.
-             * @memberof protos.opts
-             * @interface IWriteGroupNatsStreamingOptions
-             * @property {protos.args.INatsStreamingConn|null} [_conn] WriteGroupNatsStreamingOptions _conn
-             * @property {protos.args.INatsStreamingWriteArgs|null} [args] WriteGroupNatsStreamingOptions args
-             */
-
-            /**
-             * Constructs a new WriteGroupNatsStreamingOptions.
-             * @memberof protos.opts
-             * @classdesc Represents a WriteGroupNatsStreamingOptions.
-             * @implements IWriteGroupNatsStreamingOptions
-             * @constructor
-             * @param {protos.opts.IWriteGroupNatsStreamingOptions=} [properties] Properties to set
-             */
-            function WriteGroupNatsStreamingOptions(properties) {
-                if (properties)
-                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                        if (properties[keys[i]] != null)
-                            this[keys[i]] = properties[keys[i]];
-            }
-
-            /**
-             * WriteGroupNatsStreamingOptions _conn.
-             * @member {protos.args.INatsStreamingConn|null|undefined} _conn
-             * @memberof protos.opts.WriteGroupNatsStreamingOptions
-             * @instance
-             */
-            WriteGroupNatsStreamingOptions.prototype._conn = null;
-
-            /**
-             * WriteGroupNatsStreamingOptions args.
-             * @member {protos.args.INatsStreamingWriteArgs|null|undefined} args
-             * @memberof protos.opts.WriteGroupNatsStreamingOptions
-             * @instance
-             */
-            WriteGroupNatsStreamingOptions.prototype.args = null;
-
-            /**
-             * Creates a new WriteGroupNatsStreamingOptions instance using the specified properties.
-             * @function create
-             * @memberof protos.opts.WriteGroupNatsStreamingOptions
-             * @static
-             * @param {protos.opts.IWriteGroupNatsStreamingOptions=} [properties] Properties to set
-             * @returns {protos.opts.WriteGroupNatsStreamingOptions} WriteGroupNatsStreamingOptions instance
-             */
-            WriteGroupNatsStreamingOptions.create = function create(properties) {
-                return new WriteGroupNatsStreamingOptions(properties);
-            };
-
-            /**
-             * Encodes the specified WriteGroupNatsStreamingOptions message. Does not implicitly {@link protos.opts.WriteGroupNatsStreamingOptions.verify|verify} messages.
-             * @function encode
-             * @memberof protos.opts.WriteGroupNatsStreamingOptions
-             * @static
-             * @param {protos.opts.IWriteGroupNatsStreamingOptions} message WriteGroupNatsStreamingOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            WriteGroupNatsStreamingOptions.encode = function encode(message, writer) {
-                if (!writer)
-                    writer = $Writer.create();
-                if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
-                    $root.protos.args.NatsStreamingConn.encode(message._conn, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
-                if (message.args != null && Object.hasOwnProperty.call(message, "args"))
-                    $root.protos.args.NatsStreamingWriteArgs.encode(message.args, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
-                return writer;
-            };
-
-            /**
-             * Encodes the specified WriteGroupNatsStreamingOptions message, length delimited. Does not implicitly {@link protos.opts.WriteGroupNatsStreamingOptions.verify|verify} messages.
-             * @function encodeDelimited
-             * @memberof protos.opts.WriteGroupNatsStreamingOptions
-             * @static
-             * @param {protos.opts.IWriteGroupNatsStreamingOptions} message WriteGroupNatsStreamingOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            WriteGroupNatsStreamingOptions.encodeDelimited = function encodeDelimited(message, writer) {
-                return this.encode(message, writer).ldelim();
-            };
-
-            /**
-             * Decodes a WriteGroupNatsStreamingOptions message from the specified reader or buffer.
-             * @function decode
-             * @memberof protos.opts.WriteGroupNatsStreamingOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @param {number} [length] Message length if known beforehand
-             * @returns {protos.opts.WriteGroupNatsStreamingOptions} WriteGroupNatsStreamingOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            WriteGroupNatsStreamingOptions.decode = function decode(reader, length) {
-                if (!(reader instanceof $Reader))
-                    reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.WriteGroupNatsStreamingOptions();
-                while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    switch (tag >>> 3) {
-                    case 1:
-                        message._conn = $root.protos.args.NatsStreamingConn.decode(reader, reader.uint32());
-                        break;
-                    case 2:
-                        message.args = $root.protos.args.NatsStreamingWriteArgs.decode(reader, reader.uint32());
-                        break;
-                    default:
-                        reader.skipType(tag & 7);
-                        break;
-                    }
-                }
-                return message;
-            };
-
-            /**
-             * Decodes a WriteGroupNatsStreamingOptions message from the specified reader or buffer, length delimited.
-             * @function decodeDelimited
-             * @memberof protos.opts.WriteGroupNatsStreamingOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {protos.opts.WriteGroupNatsStreamingOptions} WriteGroupNatsStreamingOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            WriteGroupNatsStreamingOptions.decodeDelimited = function decodeDelimited(reader) {
-                if (!(reader instanceof $Reader))
-                    reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
-            };
-
-            /**
-             * Verifies a WriteGroupNatsStreamingOptions message.
-             * @function verify
-             * @memberof protos.opts.WriteGroupNatsStreamingOptions
-             * @static
-             * @param {Object.<string,*>} message Plain object to verify
-             * @returns {string|null} `null` if valid, otherwise the reason why it is not
-             */
-            WriteGroupNatsStreamingOptions.verify = function verify(message) {
-                if (typeof message !== "object" || message === null)
-                    return "object expected";
-                if (message._conn != null && message.hasOwnProperty("_conn")) {
-                    var error = $root.protos.args.NatsStreamingConn.verify(message._conn);
-                    if (error)
-                        return "_conn." + error;
-                }
-                if (message.args != null && message.hasOwnProperty("args")) {
-                    var error = $root.protos.args.NatsStreamingWriteArgs.verify(message.args);
-                    if (error)
-                        return "args." + error;
-                }
-                return null;
-            };
-
-            /**
-             * Creates a WriteGroupNatsStreamingOptions message from a plain object. Also converts values to their respective internal types.
-             * @function fromObject
-             * @memberof protos.opts.WriteGroupNatsStreamingOptions
-             * @static
-             * @param {Object.<string,*>} object Plain object
-             * @returns {protos.opts.WriteGroupNatsStreamingOptions} WriteGroupNatsStreamingOptions
-             */
-            WriteGroupNatsStreamingOptions.fromObject = function fromObject(object) {
-                if (object instanceof $root.protos.opts.WriteGroupNatsStreamingOptions)
-                    return object;
-                var message = new $root.protos.opts.WriteGroupNatsStreamingOptions();
-                if (object._conn != null) {
-                    if (typeof object._conn !== "object")
-                        throw TypeError(".protos.opts.WriteGroupNatsStreamingOptions._conn: object expected");
-                    message._conn = $root.protos.args.NatsStreamingConn.fromObject(object._conn);
-                }
-                if (object.args != null) {
-                    if (typeof object.args !== "object")
-                        throw TypeError(".protos.opts.WriteGroupNatsStreamingOptions.args: object expected");
-                    message.args = $root.protos.args.NatsStreamingWriteArgs.fromObject(object.args);
-                }
-                return message;
-            };
-
-            /**
-             * Creates a plain object from a WriteGroupNatsStreamingOptions message. Also converts values to other types if specified.
-             * @function toObject
-             * @memberof protos.opts.WriteGroupNatsStreamingOptions
-             * @static
-             * @param {protos.opts.WriteGroupNatsStreamingOptions} message WriteGroupNatsStreamingOptions
-             * @param {$protobuf.IConversionOptions} [options] Conversion options
-             * @returns {Object.<string,*>} Plain object
-             */
-            WriteGroupNatsStreamingOptions.toObject = function toObject(message, options) {
-                if (!options)
-                    options = {};
-                var object = {};
-                if (options.defaults) {
-                    object._conn = null;
-                    object.args = null;
-                }
-                if (message._conn != null && message.hasOwnProperty("_conn"))
-                    object._conn = $root.protos.args.NatsStreamingConn.toObject(message._conn, options);
-                if (message.args != null && message.hasOwnProperty("args"))
-                    object.args = $root.protos.args.NatsStreamingWriteArgs.toObject(message.args, options);
-                return object;
-            };
-
-            /**
-             * Converts this WriteGroupNatsStreamingOptions to JSON.
-             * @function toJSON
-             * @memberof protos.opts.WriteGroupNatsStreamingOptions
-             * @instance
-             * @returns {Object.<string,*>} JSON object
-             */
-            WriteGroupNatsStreamingOptions.prototype.toJSON = function toJSON() {
-                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-            };
-
-            return WriteGroupNatsStreamingOptions;
-        })();
-
-        opts.WriteGroupNSQOptions = (function() {
-
-            /**
-             * Properties of a WriteGroupNSQOptions.
-             * @memberof protos.opts
-             * @interface IWriteGroupNSQOptions
-             * @property {protos.args.INSQConn|null} [_conn] WriteGroupNSQOptions _conn
-             * @property {protos.args.INSQWriteArgs|null} [args] WriteGroupNSQOptions args
-             */
-
-            /**
-             * Constructs a new WriteGroupNSQOptions.
-             * @memberof protos.opts
-             * @classdesc Represents a WriteGroupNSQOptions.
-             * @implements IWriteGroupNSQOptions
-             * @constructor
-             * @param {protos.opts.IWriteGroupNSQOptions=} [properties] Properties to set
-             */
-            function WriteGroupNSQOptions(properties) {
-                if (properties)
-                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                        if (properties[keys[i]] != null)
-                            this[keys[i]] = properties[keys[i]];
-            }
-
-            /**
-             * WriteGroupNSQOptions _conn.
-             * @member {protos.args.INSQConn|null|undefined} _conn
-             * @memberof protos.opts.WriteGroupNSQOptions
-             * @instance
-             */
-            WriteGroupNSQOptions.prototype._conn = null;
-
-            /**
-             * WriteGroupNSQOptions args.
-             * @member {protos.args.INSQWriteArgs|null|undefined} args
-             * @memberof protos.opts.WriteGroupNSQOptions
-             * @instance
-             */
-            WriteGroupNSQOptions.prototype.args = null;
-
-            /**
-             * Creates a new WriteGroupNSQOptions instance using the specified properties.
-             * @function create
-             * @memberof protos.opts.WriteGroupNSQOptions
-             * @static
-             * @param {protos.opts.IWriteGroupNSQOptions=} [properties] Properties to set
-             * @returns {protos.opts.WriteGroupNSQOptions} WriteGroupNSQOptions instance
-             */
-            WriteGroupNSQOptions.create = function create(properties) {
-                return new WriteGroupNSQOptions(properties);
-            };
-
-            /**
-             * Encodes the specified WriteGroupNSQOptions message. Does not implicitly {@link protos.opts.WriteGroupNSQOptions.verify|verify} messages.
-             * @function encode
-             * @memberof protos.opts.WriteGroupNSQOptions
-             * @static
-             * @param {protos.opts.IWriteGroupNSQOptions} message WriteGroupNSQOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            WriteGroupNSQOptions.encode = function encode(message, writer) {
-                if (!writer)
-                    writer = $Writer.create();
-                if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
-                    $root.protos.args.NSQConn.encode(message._conn, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
-                if (message.args != null && Object.hasOwnProperty.call(message, "args"))
-                    $root.protos.args.NSQWriteArgs.encode(message.args, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
-                return writer;
-            };
-
-            /**
-             * Encodes the specified WriteGroupNSQOptions message, length delimited. Does not implicitly {@link protos.opts.WriteGroupNSQOptions.verify|verify} messages.
-             * @function encodeDelimited
-             * @memberof protos.opts.WriteGroupNSQOptions
-             * @static
-             * @param {protos.opts.IWriteGroupNSQOptions} message WriteGroupNSQOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            WriteGroupNSQOptions.encodeDelimited = function encodeDelimited(message, writer) {
-                return this.encode(message, writer).ldelim();
-            };
-
-            /**
-             * Decodes a WriteGroupNSQOptions message from the specified reader or buffer.
-             * @function decode
-             * @memberof protos.opts.WriteGroupNSQOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @param {number} [length] Message length if known beforehand
-             * @returns {protos.opts.WriteGroupNSQOptions} WriteGroupNSQOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            WriteGroupNSQOptions.decode = function decode(reader, length) {
-                if (!(reader instanceof $Reader))
-                    reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.WriteGroupNSQOptions();
-                while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    switch (tag >>> 3) {
-                    case 1:
-                        message._conn = $root.protos.args.NSQConn.decode(reader, reader.uint32());
-                        break;
-                    case 2:
-                        message.args = $root.protos.args.NSQWriteArgs.decode(reader, reader.uint32());
-                        break;
-                    default:
-                        reader.skipType(tag & 7);
-                        break;
-                    }
-                }
-                return message;
-            };
-
-            /**
-             * Decodes a WriteGroupNSQOptions message from the specified reader or buffer, length delimited.
-             * @function decodeDelimited
-             * @memberof protos.opts.WriteGroupNSQOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {protos.opts.WriteGroupNSQOptions} WriteGroupNSQOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            WriteGroupNSQOptions.decodeDelimited = function decodeDelimited(reader) {
-                if (!(reader instanceof $Reader))
-                    reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
-            };
-
-            /**
-             * Verifies a WriteGroupNSQOptions message.
-             * @function verify
-             * @memberof protos.opts.WriteGroupNSQOptions
-             * @static
-             * @param {Object.<string,*>} message Plain object to verify
-             * @returns {string|null} `null` if valid, otherwise the reason why it is not
-             */
-            WriteGroupNSQOptions.verify = function verify(message) {
-                if (typeof message !== "object" || message === null)
-                    return "object expected";
-                if (message._conn != null && message.hasOwnProperty("_conn")) {
-                    var error = $root.protos.args.NSQConn.verify(message._conn);
-                    if (error)
-                        return "_conn." + error;
-                }
-                if (message.args != null && message.hasOwnProperty("args")) {
-                    var error = $root.protos.args.NSQWriteArgs.verify(message.args);
-                    if (error)
-                        return "args." + error;
-                }
-                return null;
-            };
-
-            /**
-             * Creates a WriteGroupNSQOptions message from a plain object. Also converts values to their respective internal types.
-             * @function fromObject
-             * @memberof protos.opts.WriteGroupNSQOptions
-             * @static
-             * @param {Object.<string,*>} object Plain object
-             * @returns {protos.opts.WriteGroupNSQOptions} WriteGroupNSQOptions
-             */
-            WriteGroupNSQOptions.fromObject = function fromObject(object) {
-                if (object instanceof $root.protos.opts.WriteGroupNSQOptions)
-                    return object;
-                var message = new $root.protos.opts.WriteGroupNSQOptions();
-                if (object._conn != null) {
-                    if (typeof object._conn !== "object")
-                        throw TypeError(".protos.opts.WriteGroupNSQOptions._conn: object expected");
-                    message._conn = $root.protos.args.NSQConn.fromObject(object._conn);
-                }
-                if (object.args != null) {
-                    if (typeof object.args !== "object")
-                        throw TypeError(".protos.opts.WriteGroupNSQOptions.args: object expected");
-                    message.args = $root.protos.args.NSQWriteArgs.fromObject(object.args);
-                }
-                return message;
-            };
-
-            /**
-             * Creates a plain object from a WriteGroupNSQOptions message. Also converts values to other types if specified.
-             * @function toObject
-             * @memberof protos.opts.WriteGroupNSQOptions
-             * @static
-             * @param {protos.opts.WriteGroupNSQOptions} message WriteGroupNSQOptions
-             * @param {$protobuf.IConversionOptions} [options] Conversion options
-             * @returns {Object.<string,*>} Plain object
-             */
-            WriteGroupNSQOptions.toObject = function toObject(message, options) {
-                if (!options)
-                    options = {};
-                var object = {};
-                if (options.defaults) {
-                    object._conn = null;
-                    object.args = null;
-                }
-                if (message._conn != null && message.hasOwnProperty("_conn"))
-                    object._conn = $root.protos.args.NSQConn.toObject(message._conn, options);
-                if (message.args != null && message.hasOwnProperty("args"))
-                    object.args = $root.protos.args.NSQWriteArgs.toObject(message.args, options);
-                return object;
-            };
-
-            /**
-             * Converts this WriteGroupNSQOptions to JSON.
-             * @function toJSON
-             * @memberof protos.opts.WriteGroupNSQOptions
-             * @instance
-             * @returns {Object.<string,*>} JSON object
-             */
-            WriteGroupNSQOptions.prototype.toJSON = function toJSON() {
-                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-            };
-
-            return WriteGroupNSQOptions;
-        })();
-
-        opts.WriteGroupPulsarOptions = (function() {
-
-            /**
-             * Properties of a WriteGroupPulsarOptions.
-             * @memberof protos.opts
-             * @interface IWriteGroupPulsarOptions
-             * @property {protos.args.IPulsarConn|null} [_conn] WriteGroupPulsarOptions _conn
-             * @property {protos.args.IPulsarWriteArgs|null} [args] WriteGroupPulsarOptions args
-             */
-
-            /**
-             * Constructs a new WriteGroupPulsarOptions.
-             * @memberof protos.opts
-             * @classdesc Represents a WriteGroupPulsarOptions.
-             * @implements IWriteGroupPulsarOptions
-             * @constructor
-             * @param {protos.opts.IWriteGroupPulsarOptions=} [properties] Properties to set
-             */
-            function WriteGroupPulsarOptions(properties) {
-                if (properties)
-                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                        if (properties[keys[i]] != null)
-                            this[keys[i]] = properties[keys[i]];
-            }
-
-            /**
-             * WriteGroupPulsarOptions _conn.
-             * @member {protos.args.IPulsarConn|null|undefined} _conn
-             * @memberof protos.opts.WriteGroupPulsarOptions
-             * @instance
-             */
-            WriteGroupPulsarOptions.prototype._conn = null;
-
-            /**
-             * WriteGroupPulsarOptions args.
-             * @member {protos.args.IPulsarWriteArgs|null|undefined} args
-             * @memberof protos.opts.WriteGroupPulsarOptions
-             * @instance
-             */
-            WriteGroupPulsarOptions.prototype.args = null;
-
-            /**
-             * Creates a new WriteGroupPulsarOptions instance using the specified properties.
-             * @function create
-             * @memberof protos.opts.WriteGroupPulsarOptions
-             * @static
-             * @param {protos.opts.IWriteGroupPulsarOptions=} [properties] Properties to set
-             * @returns {protos.opts.WriteGroupPulsarOptions} WriteGroupPulsarOptions instance
-             */
-            WriteGroupPulsarOptions.create = function create(properties) {
-                return new WriteGroupPulsarOptions(properties);
-            };
-
-            /**
-             * Encodes the specified WriteGroupPulsarOptions message. Does not implicitly {@link protos.opts.WriteGroupPulsarOptions.verify|verify} messages.
-             * @function encode
-             * @memberof protos.opts.WriteGroupPulsarOptions
-             * @static
-             * @param {protos.opts.IWriteGroupPulsarOptions} message WriteGroupPulsarOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            WriteGroupPulsarOptions.encode = function encode(message, writer) {
-                if (!writer)
-                    writer = $Writer.create();
-                if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
-                    $root.protos.args.PulsarConn.encode(message._conn, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
-                if (message.args != null && Object.hasOwnProperty.call(message, "args"))
-                    $root.protos.args.PulsarWriteArgs.encode(message.args, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
-                return writer;
-            };
-
-            /**
-             * Encodes the specified WriteGroupPulsarOptions message, length delimited. Does not implicitly {@link protos.opts.WriteGroupPulsarOptions.verify|verify} messages.
-             * @function encodeDelimited
-             * @memberof protos.opts.WriteGroupPulsarOptions
-             * @static
-             * @param {protos.opts.IWriteGroupPulsarOptions} message WriteGroupPulsarOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            WriteGroupPulsarOptions.encodeDelimited = function encodeDelimited(message, writer) {
-                return this.encode(message, writer).ldelim();
-            };
-
-            /**
-             * Decodes a WriteGroupPulsarOptions message from the specified reader or buffer.
-             * @function decode
-             * @memberof protos.opts.WriteGroupPulsarOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @param {number} [length] Message length if known beforehand
-             * @returns {protos.opts.WriteGroupPulsarOptions} WriteGroupPulsarOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            WriteGroupPulsarOptions.decode = function decode(reader, length) {
-                if (!(reader instanceof $Reader))
-                    reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.WriteGroupPulsarOptions();
-                while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    switch (tag >>> 3) {
-                    case 1:
-                        message._conn = $root.protos.args.PulsarConn.decode(reader, reader.uint32());
-                        break;
-                    case 2:
-                        message.args = $root.protos.args.PulsarWriteArgs.decode(reader, reader.uint32());
-                        break;
-                    default:
-                        reader.skipType(tag & 7);
-                        break;
-                    }
-                }
-                return message;
-            };
-
-            /**
-             * Decodes a WriteGroupPulsarOptions message from the specified reader or buffer, length delimited.
-             * @function decodeDelimited
-             * @memberof protos.opts.WriteGroupPulsarOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {protos.opts.WriteGroupPulsarOptions} WriteGroupPulsarOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            WriteGroupPulsarOptions.decodeDelimited = function decodeDelimited(reader) {
-                if (!(reader instanceof $Reader))
-                    reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
-            };
-
-            /**
-             * Verifies a WriteGroupPulsarOptions message.
-             * @function verify
-             * @memberof protos.opts.WriteGroupPulsarOptions
-             * @static
-             * @param {Object.<string,*>} message Plain object to verify
-             * @returns {string|null} `null` if valid, otherwise the reason why it is not
-             */
-            WriteGroupPulsarOptions.verify = function verify(message) {
-                if (typeof message !== "object" || message === null)
-                    return "object expected";
-                if (message._conn != null && message.hasOwnProperty("_conn")) {
-                    var error = $root.protos.args.PulsarConn.verify(message._conn);
-                    if (error)
-                        return "_conn." + error;
-                }
-                if (message.args != null && message.hasOwnProperty("args")) {
-                    var error = $root.protos.args.PulsarWriteArgs.verify(message.args);
-                    if (error)
-                        return "args." + error;
-                }
-                return null;
-            };
-
-            /**
-             * Creates a WriteGroupPulsarOptions message from a plain object. Also converts values to their respective internal types.
-             * @function fromObject
-             * @memberof protos.opts.WriteGroupPulsarOptions
-             * @static
-             * @param {Object.<string,*>} object Plain object
-             * @returns {protos.opts.WriteGroupPulsarOptions} WriteGroupPulsarOptions
-             */
-            WriteGroupPulsarOptions.fromObject = function fromObject(object) {
-                if (object instanceof $root.protos.opts.WriteGroupPulsarOptions)
-                    return object;
-                var message = new $root.protos.opts.WriteGroupPulsarOptions();
-                if (object._conn != null) {
-                    if (typeof object._conn !== "object")
-                        throw TypeError(".protos.opts.WriteGroupPulsarOptions._conn: object expected");
-                    message._conn = $root.protos.args.PulsarConn.fromObject(object._conn);
-                }
-                if (object.args != null) {
-                    if (typeof object.args !== "object")
-                        throw TypeError(".protos.opts.WriteGroupPulsarOptions.args: object expected");
-                    message.args = $root.protos.args.PulsarWriteArgs.fromObject(object.args);
-                }
-                return message;
-            };
-
-            /**
-             * Creates a plain object from a WriteGroupPulsarOptions message. Also converts values to other types if specified.
-             * @function toObject
-             * @memberof protos.opts.WriteGroupPulsarOptions
-             * @static
-             * @param {protos.opts.WriteGroupPulsarOptions} message WriteGroupPulsarOptions
-             * @param {$protobuf.IConversionOptions} [options] Conversion options
-             * @returns {Object.<string,*>} Plain object
-             */
-            WriteGroupPulsarOptions.toObject = function toObject(message, options) {
-                if (!options)
-                    options = {};
-                var object = {};
-                if (options.defaults) {
-                    object._conn = null;
-                    object.args = null;
-                }
-                if (message._conn != null && message.hasOwnProperty("_conn"))
-                    object._conn = $root.protos.args.PulsarConn.toObject(message._conn, options);
-                if (message.args != null && message.hasOwnProperty("args"))
-                    object.args = $root.protos.args.PulsarWriteArgs.toObject(message.args, options);
-                return object;
-            };
-
-            /**
-             * Converts this WriteGroupPulsarOptions to JSON.
-             * @function toJSON
-             * @memberof protos.opts.WriteGroupPulsarOptions
-             * @instance
-             * @returns {Object.<string,*>} JSON object
-             */
-            WriteGroupPulsarOptions.prototype.toJSON = function toJSON() {
-                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-            };
-
-            return WriteGroupPulsarOptions;
-        })();
-
-        opts.WriteGroupRabbitOptions = (function() {
-
-            /**
-             * Properties of a WriteGroupRabbitOptions.
-             * @memberof protos.opts
-             * @interface IWriteGroupRabbitOptions
-             * @property {protos.args.IRabbitConn|null} [_conn] WriteGroupRabbitOptions _conn
-             * @property {protos.args.IRabbitWriteArgs|null} [args] WriteGroupRabbitOptions args
-             */
-
-            /**
-             * Constructs a new WriteGroupRabbitOptions.
-             * @memberof protos.opts
-             * @classdesc Represents a WriteGroupRabbitOptions.
-             * @implements IWriteGroupRabbitOptions
-             * @constructor
-             * @param {protos.opts.IWriteGroupRabbitOptions=} [properties] Properties to set
-             */
-            function WriteGroupRabbitOptions(properties) {
-                if (properties)
-                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                        if (properties[keys[i]] != null)
-                            this[keys[i]] = properties[keys[i]];
-            }
-
-            /**
-             * WriteGroupRabbitOptions _conn.
-             * @member {protos.args.IRabbitConn|null|undefined} _conn
-             * @memberof protos.opts.WriteGroupRabbitOptions
-             * @instance
-             */
-            WriteGroupRabbitOptions.prototype._conn = null;
-
-            /**
-             * WriteGroupRabbitOptions args.
-             * @member {protos.args.IRabbitWriteArgs|null|undefined} args
-             * @memberof protos.opts.WriteGroupRabbitOptions
-             * @instance
-             */
-            WriteGroupRabbitOptions.prototype.args = null;
-
-            /**
-             * Creates a new WriteGroupRabbitOptions instance using the specified properties.
-             * @function create
-             * @memberof protos.opts.WriteGroupRabbitOptions
-             * @static
-             * @param {protos.opts.IWriteGroupRabbitOptions=} [properties] Properties to set
-             * @returns {protos.opts.WriteGroupRabbitOptions} WriteGroupRabbitOptions instance
-             */
-            WriteGroupRabbitOptions.create = function create(properties) {
-                return new WriteGroupRabbitOptions(properties);
-            };
-
-            /**
-             * Encodes the specified WriteGroupRabbitOptions message. Does not implicitly {@link protos.opts.WriteGroupRabbitOptions.verify|verify} messages.
-             * @function encode
-             * @memberof protos.opts.WriteGroupRabbitOptions
-             * @static
-             * @param {protos.opts.IWriteGroupRabbitOptions} message WriteGroupRabbitOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            WriteGroupRabbitOptions.encode = function encode(message, writer) {
-                if (!writer)
-                    writer = $Writer.create();
-                if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
-                    $root.protos.args.RabbitConn.encode(message._conn, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
-                if (message.args != null && Object.hasOwnProperty.call(message, "args"))
-                    $root.protos.args.RabbitWriteArgs.encode(message.args, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
-                return writer;
-            };
-
-            /**
-             * Encodes the specified WriteGroupRabbitOptions message, length delimited. Does not implicitly {@link protos.opts.WriteGroupRabbitOptions.verify|verify} messages.
-             * @function encodeDelimited
-             * @memberof protos.opts.WriteGroupRabbitOptions
-             * @static
-             * @param {protos.opts.IWriteGroupRabbitOptions} message WriteGroupRabbitOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            WriteGroupRabbitOptions.encodeDelimited = function encodeDelimited(message, writer) {
-                return this.encode(message, writer).ldelim();
-            };
-
-            /**
-             * Decodes a WriteGroupRabbitOptions message from the specified reader or buffer.
-             * @function decode
-             * @memberof protos.opts.WriteGroupRabbitOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @param {number} [length] Message length if known beforehand
-             * @returns {protos.opts.WriteGroupRabbitOptions} WriteGroupRabbitOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            WriteGroupRabbitOptions.decode = function decode(reader, length) {
-                if (!(reader instanceof $Reader))
-                    reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.WriteGroupRabbitOptions();
-                while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    switch (tag >>> 3) {
-                    case 1:
-                        message._conn = $root.protos.args.RabbitConn.decode(reader, reader.uint32());
-                        break;
-                    case 2:
-                        message.args = $root.protos.args.RabbitWriteArgs.decode(reader, reader.uint32());
-                        break;
-                    default:
-                        reader.skipType(tag & 7);
-                        break;
-                    }
-                }
-                return message;
-            };
-
-            /**
-             * Decodes a WriteGroupRabbitOptions message from the specified reader or buffer, length delimited.
-             * @function decodeDelimited
-             * @memberof protos.opts.WriteGroupRabbitOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {protos.opts.WriteGroupRabbitOptions} WriteGroupRabbitOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            WriteGroupRabbitOptions.decodeDelimited = function decodeDelimited(reader) {
-                if (!(reader instanceof $Reader))
-                    reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
-            };
-
-            /**
-             * Verifies a WriteGroupRabbitOptions message.
-             * @function verify
-             * @memberof protos.opts.WriteGroupRabbitOptions
-             * @static
-             * @param {Object.<string,*>} message Plain object to verify
-             * @returns {string|null} `null` if valid, otherwise the reason why it is not
-             */
-            WriteGroupRabbitOptions.verify = function verify(message) {
-                if (typeof message !== "object" || message === null)
-                    return "object expected";
-                if (message._conn != null && message.hasOwnProperty("_conn")) {
-                    var error = $root.protos.args.RabbitConn.verify(message._conn);
-                    if (error)
-                        return "_conn." + error;
-                }
-                if (message.args != null && message.hasOwnProperty("args")) {
-                    var error = $root.protos.args.RabbitWriteArgs.verify(message.args);
-                    if (error)
-                        return "args." + error;
-                }
-                return null;
-            };
-
-            /**
-             * Creates a WriteGroupRabbitOptions message from a plain object. Also converts values to their respective internal types.
-             * @function fromObject
-             * @memberof protos.opts.WriteGroupRabbitOptions
-             * @static
-             * @param {Object.<string,*>} object Plain object
-             * @returns {protos.opts.WriteGroupRabbitOptions} WriteGroupRabbitOptions
-             */
-            WriteGroupRabbitOptions.fromObject = function fromObject(object) {
-                if (object instanceof $root.protos.opts.WriteGroupRabbitOptions)
-                    return object;
-                var message = new $root.protos.opts.WriteGroupRabbitOptions();
-                if (object._conn != null) {
-                    if (typeof object._conn !== "object")
-                        throw TypeError(".protos.opts.WriteGroupRabbitOptions._conn: object expected");
-                    message._conn = $root.protos.args.RabbitConn.fromObject(object._conn);
-                }
-                if (object.args != null) {
-                    if (typeof object.args !== "object")
-                        throw TypeError(".protos.opts.WriteGroupRabbitOptions.args: object expected");
-                    message.args = $root.protos.args.RabbitWriteArgs.fromObject(object.args);
-                }
-                return message;
-            };
-
-            /**
-             * Creates a plain object from a WriteGroupRabbitOptions message. Also converts values to other types if specified.
-             * @function toObject
-             * @memberof protos.opts.WriteGroupRabbitOptions
-             * @static
-             * @param {protos.opts.WriteGroupRabbitOptions} message WriteGroupRabbitOptions
-             * @param {$protobuf.IConversionOptions} [options] Conversion options
-             * @returns {Object.<string,*>} Plain object
-             */
-            WriteGroupRabbitOptions.toObject = function toObject(message, options) {
-                if (!options)
-                    options = {};
-                var object = {};
-                if (options.defaults) {
-                    object._conn = null;
-                    object.args = null;
-                }
-                if (message._conn != null && message.hasOwnProperty("_conn"))
-                    object._conn = $root.protos.args.RabbitConn.toObject(message._conn, options);
-                if (message.args != null && message.hasOwnProperty("args"))
-                    object.args = $root.protos.args.RabbitWriteArgs.toObject(message.args, options);
-                return object;
-            };
-
-            /**
-             * Converts this WriteGroupRabbitOptions to JSON.
-             * @function toJSON
-             * @memberof protos.opts.WriteGroupRabbitOptions
-             * @instance
-             * @returns {Object.<string,*>} JSON object
-             */
-            WriteGroupRabbitOptions.prototype.toJSON = function toJSON() {
-                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-            };
-
-            return WriteGroupRabbitOptions;
-        })();
-
-        opts.WriteGroupRabbitStreamsOptions = (function() {
-
-            /**
-             * Properties of a WriteGroupRabbitStreamsOptions.
-             * @memberof protos.opts
-             * @interface IWriteGroupRabbitStreamsOptions
-             * @property {protos.args.IRabbitStreamsConn|null} [_conn] WriteGroupRabbitStreamsOptions _conn
-             * @property {protos.args.IRabbitStreamsWriteArgs|null} [args] WriteGroupRabbitStreamsOptions args
-             */
-
-            /**
-             * Constructs a new WriteGroupRabbitStreamsOptions.
-             * @memberof protos.opts
-             * @classdesc Represents a WriteGroupRabbitStreamsOptions.
-             * @implements IWriteGroupRabbitStreamsOptions
-             * @constructor
-             * @param {protos.opts.IWriteGroupRabbitStreamsOptions=} [properties] Properties to set
-             */
-            function WriteGroupRabbitStreamsOptions(properties) {
-                if (properties)
-                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                        if (properties[keys[i]] != null)
-                            this[keys[i]] = properties[keys[i]];
-            }
-
-            /**
-             * WriteGroupRabbitStreamsOptions _conn.
-             * @member {protos.args.IRabbitStreamsConn|null|undefined} _conn
-             * @memberof protos.opts.WriteGroupRabbitStreamsOptions
-             * @instance
-             */
-            WriteGroupRabbitStreamsOptions.prototype._conn = null;
-
-            /**
-             * WriteGroupRabbitStreamsOptions args.
-             * @member {protos.args.IRabbitStreamsWriteArgs|null|undefined} args
-             * @memberof protos.opts.WriteGroupRabbitStreamsOptions
-             * @instance
-             */
-            WriteGroupRabbitStreamsOptions.prototype.args = null;
-
-            /**
-             * Creates a new WriteGroupRabbitStreamsOptions instance using the specified properties.
-             * @function create
-             * @memberof protos.opts.WriteGroupRabbitStreamsOptions
-             * @static
-             * @param {protos.opts.IWriteGroupRabbitStreamsOptions=} [properties] Properties to set
-             * @returns {protos.opts.WriteGroupRabbitStreamsOptions} WriteGroupRabbitStreamsOptions instance
-             */
-            WriteGroupRabbitStreamsOptions.create = function create(properties) {
-                return new WriteGroupRabbitStreamsOptions(properties);
-            };
-
-            /**
-             * Encodes the specified WriteGroupRabbitStreamsOptions message. Does not implicitly {@link protos.opts.WriteGroupRabbitStreamsOptions.verify|verify} messages.
-             * @function encode
-             * @memberof protos.opts.WriteGroupRabbitStreamsOptions
-             * @static
-             * @param {protos.opts.IWriteGroupRabbitStreamsOptions} message WriteGroupRabbitStreamsOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            WriteGroupRabbitStreamsOptions.encode = function encode(message, writer) {
-                if (!writer)
-                    writer = $Writer.create();
-                if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
-                    $root.protos.args.RabbitStreamsConn.encode(message._conn, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
-                if (message.args != null && Object.hasOwnProperty.call(message, "args"))
-                    $root.protos.args.RabbitStreamsWriteArgs.encode(message.args, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
-                return writer;
-            };
-
-            /**
-             * Encodes the specified WriteGroupRabbitStreamsOptions message, length delimited. Does not implicitly {@link protos.opts.WriteGroupRabbitStreamsOptions.verify|verify} messages.
-             * @function encodeDelimited
-             * @memberof protos.opts.WriteGroupRabbitStreamsOptions
-             * @static
-             * @param {protos.opts.IWriteGroupRabbitStreamsOptions} message WriteGroupRabbitStreamsOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            WriteGroupRabbitStreamsOptions.encodeDelimited = function encodeDelimited(message, writer) {
-                return this.encode(message, writer).ldelim();
-            };
-
-            /**
-             * Decodes a WriteGroupRabbitStreamsOptions message from the specified reader or buffer.
-             * @function decode
-             * @memberof protos.opts.WriteGroupRabbitStreamsOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @param {number} [length] Message length if known beforehand
-             * @returns {protos.opts.WriteGroupRabbitStreamsOptions} WriteGroupRabbitStreamsOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            WriteGroupRabbitStreamsOptions.decode = function decode(reader, length) {
-                if (!(reader instanceof $Reader))
-                    reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.WriteGroupRabbitStreamsOptions();
-                while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    switch (tag >>> 3) {
-                    case 1:
-                        message._conn = $root.protos.args.RabbitStreamsConn.decode(reader, reader.uint32());
-                        break;
-                    case 2:
-                        message.args = $root.protos.args.RabbitStreamsWriteArgs.decode(reader, reader.uint32());
-                        break;
-                    default:
-                        reader.skipType(tag & 7);
-                        break;
-                    }
-                }
-                return message;
-            };
-
-            /**
-             * Decodes a WriteGroupRabbitStreamsOptions message from the specified reader or buffer, length delimited.
-             * @function decodeDelimited
-             * @memberof protos.opts.WriteGroupRabbitStreamsOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {protos.opts.WriteGroupRabbitStreamsOptions} WriteGroupRabbitStreamsOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            WriteGroupRabbitStreamsOptions.decodeDelimited = function decodeDelimited(reader) {
-                if (!(reader instanceof $Reader))
-                    reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
-            };
-
-            /**
-             * Verifies a WriteGroupRabbitStreamsOptions message.
-             * @function verify
-             * @memberof protos.opts.WriteGroupRabbitStreamsOptions
-             * @static
-             * @param {Object.<string,*>} message Plain object to verify
-             * @returns {string|null} `null` if valid, otherwise the reason why it is not
-             */
-            WriteGroupRabbitStreamsOptions.verify = function verify(message) {
-                if (typeof message !== "object" || message === null)
-                    return "object expected";
-                if (message._conn != null && message.hasOwnProperty("_conn")) {
-                    var error = $root.protos.args.RabbitStreamsConn.verify(message._conn);
-                    if (error)
-                        return "_conn." + error;
-                }
-                if (message.args != null && message.hasOwnProperty("args")) {
-                    var error = $root.protos.args.RabbitStreamsWriteArgs.verify(message.args);
-                    if (error)
-                        return "args." + error;
-                }
-                return null;
-            };
-
-            /**
-             * Creates a WriteGroupRabbitStreamsOptions message from a plain object. Also converts values to their respective internal types.
-             * @function fromObject
-             * @memberof protos.opts.WriteGroupRabbitStreamsOptions
-             * @static
-             * @param {Object.<string,*>} object Plain object
-             * @returns {protos.opts.WriteGroupRabbitStreamsOptions} WriteGroupRabbitStreamsOptions
-             */
-            WriteGroupRabbitStreamsOptions.fromObject = function fromObject(object) {
-                if (object instanceof $root.protos.opts.WriteGroupRabbitStreamsOptions)
-                    return object;
-                var message = new $root.protos.opts.WriteGroupRabbitStreamsOptions();
-                if (object._conn != null) {
-                    if (typeof object._conn !== "object")
-                        throw TypeError(".protos.opts.WriteGroupRabbitStreamsOptions._conn: object expected");
-                    message._conn = $root.protos.args.RabbitStreamsConn.fromObject(object._conn);
-                }
-                if (object.args != null) {
-                    if (typeof object.args !== "object")
-                        throw TypeError(".protos.opts.WriteGroupRabbitStreamsOptions.args: object expected");
-                    message.args = $root.protos.args.RabbitStreamsWriteArgs.fromObject(object.args);
-                }
-                return message;
-            };
-
-            /**
-             * Creates a plain object from a WriteGroupRabbitStreamsOptions message. Also converts values to other types if specified.
-             * @function toObject
-             * @memberof protos.opts.WriteGroupRabbitStreamsOptions
-             * @static
-             * @param {protos.opts.WriteGroupRabbitStreamsOptions} message WriteGroupRabbitStreamsOptions
-             * @param {$protobuf.IConversionOptions} [options] Conversion options
-             * @returns {Object.<string,*>} Plain object
-             */
-            WriteGroupRabbitStreamsOptions.toObject = function toObject(message, options) {
-                if (!options)
-                    options = {};
-                var object = {};
-                if (options.defaults) {
-                    object._conn = null;
-                    object.args = null;
-                }
-                if (message._conn != null && message.hasOwnProperty("_conn"))
-                    object._conn = $root.protos.args.RabbitStreamsConn.toObject(message._conn, options);
-                if (message.args != null && message.hasOwnProperty("args"))
-                    object.args = $root.protos.args.RabbitStreamsWriteArgs.toObject(message.args, options);
-                return object;
-            };
-
-            /**
-             * Converts this WriteGroupRabbitStreamsOptions to JSON.
-             * @function toJSON
-             * @memberof protos.opts.WriteGroupRabbitStreamsOptions
-             * @instance
-             * @returns {Object.<string,*>} JSON object
-             */
-            WriteGroupRabbitStreamsOptions.prototype.toJSON = function toJSON() {
-                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-            };
-
-            return WriteGroupRabbitStreamsOptions;
-        })();
-
-        opts.WriteGroupRedisPubSubOptions = (function() {
-
-            /**
-             * Properties of a WriteGroupRedisPubSubOptions.
-             * @memberof protos.opts
-             * @interface IWriteGroupRedisPubSubOptions
-             * @property {protos.args.IRedisPubSubConn|null} [_conn] WriteGroupRedisPubSubOptions _conn
-             * @property {protos.args.IRedisPubSubWriteArgs|null} [args] WriteGroupRedisPubSubOptions args
-             */
-
-            /**
-             * Constructs a new WriteGroupRedisPubSubOptions.
-             * @memberof protos.opts
-             * @classdesc Represents a WriteGroupRedisPubSubOptions.
-             * @implements IWriteGroupRedisPubSubOptions
-             * @constructor
-             * @param {protos.opts.IWriteGroupRedisPubSubOptions=} [properties] Properties to set
-             */
-            function WriteGroupRedisPubSubOptions(properties) {
-                if (properties)
-                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                        if (properties[keys[i]] != null)
-                            this[keys[i]] = properties[keys[i]];
-            }
-
-            /**
-             * WriteGroupRedisPubSubOptions _conn.
-             * @member {protos.args.IRedisPubSubConn|null|undefined} _conn
-             * @memberof protos.opts.WriteGroupRedisPubSubOptions
-             * @instance
-             */
-            WriteGroupRedisPubSubOptions.prototype._conn = null;
-
-            /**
-             * WriteGroupRedisPubSubOptions args.
-             * @member {protos.args.IRedisPubSubWriteArgs|null|undefined} args
-             * @memberof protos.opts.WriteGroupRedisPubSubOptions
-             * @instance
-             */
-            WriteGroupRedisPubSubOptions.prototype.args = null;
-
-            /**
-             * Creates a new WriteGroupRedisPubSubOptions instance using the specified properties.
-             * @function create
-             * @memberof protos.opts.WriteGroupRedisPubSubOptions
-             * @static
-             * @param {protos.opts.IWriteGroupRedisPubSubOptions=} [properties] Properties to set
-             * @returns {protos.opts.WriteGroupRedisPubSubOptions} WriteGroupRedisPubSubOptions instance
-             */
-            WriteGroupRedisPubSubOptions.create = function create(properties) {
-                return new WriteGroupRedisPubSubOptions(properties);
-            };
-
-            /**
-             * Encodes the specified WriteGroupRedisPubSubOptions message. Does not implicitly {@link protos.opts.WriteGroupRedisPubSubOptions.verify|verify} messages.
-             * @function encode
-             * @memberof protos.opts.WriteGroupRedisPubSubOptions
-             * @static
-             * @param {protos.opts.IWriteGroupRedisPubSubOptions} message WriteGroupRedisPubSubOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            WriteGroupRedisPubSubOptions.encode = function encode(message, writer) {
-                if (!writer)
-                    writer = $Writer.create();
-                if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
-                    $root.protos.args.RedisPubSubConn.encode(message._conn, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
-                if (message.args != null && Object.hasOwnProperty.call(message, "args"))
-                    $root.protos.args.RedisPubSubWriteArgs.encode(message.args, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
-                return writer;
-            };
-
-            /**
-             * Encodes the specified WriteGroupRedisPubSubOptions message, length delimited. Does not implicitly {@link protos.opts.WriteGroupRedisPubSubOptions.verify|verify} messages.
-             * @function encodeDelimited
-             * @memberof protos.opts.WriteGroupRedisPubSubOptions
-             * @static
-             * @param {protos.opts.IWriteGroupRedisPubSubOptions} message WriteGroupRedisPubSubOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            WriteGroupRedisPubSubOptions.encodeDelimited = function encodeDelimited(message, writer) {
-                return this.encode(message, writer).ldelim();
-            };
-
-            /**
-             * Decodes a WriteGroupRedisPubSubOptions message from the specified reader or buffer.
-             * @function decode
-             * @memberof protos.opts.WriteGroupRedisPubSubOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @param {number} [length] Message length if known beforehand
-             * @returns {protos.opts.WriteGroupRedisPubSubOptions} WriteGroupRedisPubSubOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            WriteGroupRedisPubSubOptions.decode = function decode(reader, length) {
-                if (!(reader instanceof $Reader))
-                    reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.WriteGroupRedisPubSubOptions();
-                while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    switch (tag >>> 3) {
-                    case 1:
-                        message._conn = $root.protos.args.RedisPubSubConn.decode(reader, reader.uint32());
-                        break;
-                    case 2:
-                        message.args = $root.protos.args.RedisPubSubWriteArgs.decode(reader, reader.uint32());
-                        break;
-                    default:
-                        reader.skipType(tag & 7);
-                        break;
-                    }
-                }
-                return message;
-            };
-
-            /**
-             * Decodes a WriteGroupRedisPubSubOptions message from the specified reader or buffer, length delimited.
-             * @function decodeDelimited
-             * @memberof protos.opts.WriteGroupRedisPubSubOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {protos.opts.WriteGroupRedisPubSubOptions} WriteGroupRedisPubSubOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            WriteGroupRedisPubSubOptions.decodeDelimited = function decodeDelimited(reader) {
-                if (!(reader instanceof $Reader))
-                    reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
-            };
-
-            /**
-             * Verifies a WriteGroupRedisPubSubOptions message.
-             * @function verify
-             * @memberof protos.opts.WriteGroupRedisPubSubOptions
-             * @static
-             * @param {Object.<string,*>} message Plain object to verify
-             * @returns {string|null} `null` if valid, otherwise the reason why it is not
-             */
-            WriteGroupRedisPubSubOptions.verify = function verify(message) {
-                if (typeof message !== "object" || message === null)
-                    return "object expected";
-                if (message._conn != null && message.hasOwnProperty("_conn")) {
-                    var error = $root.protos.args.RedisPubSubConn.verify(message._conn);
-                    if (error)
-                        return "_conn." + error;
-                }
-                if (message.args != null && message.hasOwnProperty("args")) {
-                    var error = $root.protos.args.RedisPubSubWriteArgs.verify(message.args);
-                    if (error)
-                        return "args." + error;
-                }
-                return null;
-            };
-
-            /**
-             * Creates a WriteGroupRedisPubSubOptions message from a plain object. Also converts values to their respective internal types.
-             * @function fromObject
-             * @memberof protos.opts.WriteGroupRedisPubSubOptions
-             * @static
-             * @param {Object.<string,*>} object Plain object
-             * @returns {protos.opts.WriteGroupRedisPubSubOptions} WriteGroupRedisPubSubOptions
-             */
-            WriteGroupRedisPubSubOptions.fromObject = function fromObject(object) {
-                if (object instanceof $root.protos.opts.WriteGroupRedisPubSubOptions)
-                    return object;
-                var message = new $root.protos.opts.WriteGroupRedisPubSubOptions();
-                if (object._conn != null) {
-                    if (typeof object._conn !== "object")
-                        throw TypeError(".protos.opts.WriteGroupRedisPubSubOptions._conn: object expected");
-                    message._conn = $root.protos.args.RedisPubSubConn.fromObject(object._conn);
-                }
-                if (object.args != null) {
-                    if (typeof object.args !== "object")
-                        throw TypeError(".protos.opts.WriteGroupRedisPubSubOptions.args: object expected");
-                    message.args = $root.protos.args.RedisPubSubWriteArgs.fromObject(object.args);
-                }
-                return message;
-            };
-
-            /**
-             * Creates a plain object from a WriteGroupRedisPubSubOptions message. Also converts values to other types if specified.
-             * @function toObject
-             * @memberof protos.opts.WriteGroupRedisPubSubOptions
-             * @static
-             * @param {protos.opts.WriteGroupRedisPubSubOptions} message WriteGroupRedisPubSubOptions
-             * @param {$protobuf.IConversionOptions} [options] Conversion options
-             * @returns {Object.<string,*>} Plain object
-             */
-            WriteGroupRedisPubSubOptions.toObject = function toObject(message, options) {
-                if (!options)
-                    options = {};
-                var object = {};
-                if (options.defaults) {
-                    object._conn = null;
-                    object.args = null;
-                }
-                if (message._conn != null && message.hasOwnProperty("_conn"))
-                    object._conn = $root.protos.args.RedisPubSubConn.toObject(message._conn, options);
-                if (message.args != null && message.hasOwnProperty("args"))
-                    object.args = $root.protos.args.RedisPubSubWriteArgs.toObject(message.args, options);
-                return object;
-            };
-
-            /**
-             * Converts this WriteGroupRedisPubSubOptions to JSON.
-             * @function toJSON
-             * @memberof protos.opts.WriteGroupRedisPubSubOptions
-             * @instance
-             * @returns {Object.<string,*>} JSON object
-             */
-            WriteGroupRedisPubSubOptions.prototype.toJSON = function toJSON() {
-                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-            };
-
-            return WriteGroupRedisPubSubOptions;
-        })();
-
-        opts.WriteGroupRedisStreamsOptions = (function() {
-
-            /**
-             * Properties of a WriteGroupRedisStreamsOptions.
-             * @memberof protos.opts
-             * @interface IWriteGroupRedisStreamsOptions
-             * @property {protos.args.IRedisStreamsConn|null} [_conn] WriteGroupRedisStreamsOptions _conn
-             * @property {protos.args.IRedisStreamsWriteArgs|null} [args] WriteGroupRedisStreamsOptions args
-             */
-
-            /**
-             * Constructs a new WriteGroupRedisStreamsOptions.
-             * @memberof protos.opts
-             * @classdesc Represents a WriteGroupRedisStreamsOptions.
-             * @implements IWriteGroupRedisStreamsOptions
-             * @constructor
-             * @param {protos.opts.IWriteGroupRedisStreamsOptions=} [properties] Properties to set
-             */
-            function WriteGroupRedisStreamsOptions(properties) {
-                if (properties)
-                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                        if (properties[keys[i]] != null)
-                            this[keys[i]] = properties[keys[i]];
-            }
-
-            /**
-             * WriteGroupRedisStreamsOptions _conn.
-             * @member {protos.args.IRedisStreamsConn|null|undefined} _conn
-             * @memberof protos.opts.WriteGroupRedisStreamsOptions
-             * @instance
-             */
-            WriteGroupRedisStreamsOptions.prototype._conn = null;
-
-            /**
-             * WriteGroupRedisStreamsOptions args.
-             * @member {protos.args.IRedisStreamsWriteArgs|null|undefined} args
-             * @memberof protos.opts.WriteGroupRedisStreamsOptions
-             * @instance
-             */
-            WriteGroupRedisStreamsOptions.prototype.args = null;
-
-            /**
-             * Creates a new WriteGroupRedisStreamsOptions instance using the specified properties.
-             * @function create
-             * @memberof protos.opts.WriteGroupRedisStreamsOptions
-             * @static
-             * @param {protos.opts.IWriteGroupRedisStreamsOptions=} [properties] Properties to set
-             * @returns {protos.opts.WriteGroupRedisStreamsOptions} WriteGroupRedisStreamsOptions instance
-             */
-            WriteGroupRedisStreamsOptions.create = function create(properties) {
-                return new WriteGroupRedisStreamsOptions(properties);
-            };
-
-            /**
-             * Encodes the specified WriteGroupRedisStreamsOptions message. Does not implicitly {@link protos.opts.WriteGroupRedisStreamsOptions.verify|verify} messages.
-             * @function encode
-             * @memberof protos.opts.WriteGroupRedisStreamsOptions
-             * @static
-             * @param {protos.opts.IWriteGroupRedisStreamsOptions} message WriteGroupRedisStreamsOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            WriteGroupRedisStreamsOptions.encode = function encode(message, writer) {
-                if (!writer)
-                    writer = $Writer.create();
-                if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
-                    $root.protos.args.RedisStreamsConn.encode(message._conn, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
-                if (message.args != null && Object.hasOwnProperty.call(message, "args"))
-                    $root.protos.args.RedisStreamsWriteArgs.encode(message.args, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
-                return writer;
-            };
-
-            /**
-             * Encodes the specified WriteGroupRedisStreamsOptions message, length delimited. Does not implicitly {@link protos.opts.WriteGroupRedisStreamsOptions.verify|verify} messages.
-             * @function encodeDelimited
-             * @memberof protos.opts.WriteGroupRedisStreamsOptions
-             * @static
-             * @param {protos.opts.IWriteGroupRedisStreamsOptions} message WriteGroupRedisStreamsOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            WriteGroupRedisStreamsOptions.encodeDelimited = function encodeDelimited(message, writer) {
-                return this.encode(message, writer).ldelim();
-            };
-
-            /**
-             * Decodes a WriteGroupRedisStreamsOptions message from the specified reader or buffer.
-             * @function decode
-             * @memberof protos.opts.WriteGroupRedisStreamsOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @param {number} [length] Message length if known beforehand
-             * @returns {protos.opts.WriteGroupRedisStreamsOptions} WriteGroupRedisStreamsOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            WriteGroupRedisStreamsOptions.decode = function decode(reader, length) {
-                if (!(reader instanceof $Reader))
-                    reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.WriteGroupRedisStreamsOptions();
-                while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    switch (tag >>> 3) {
-                    case 1:
-                        message._conn = $root.protos.args.RedisStreamsConn.decode(reader, reader.uint32());
-                        break;
-                    case 2:
-                        message.args = $root.protos.args.RedisStreamsWriteArgs.decode(reader, reader.uint32());
-                        break;
-                    default:
-                        reader.skipType(tag & 7);
-                        break;
-                    }
-                }
-                return message;
-            };
-
-            /**
-             * Decodes a WriteGroupRedisStreamsOptions message from the specified reader or buffer, length delimited.
-             * @function decodeDelimited
-             * @memberof protos.opts.WriteGroupRedisStreamsOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {protos.opts.WriteGroupRedisStreamsOptions} WriteGroupRedisStreamsOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            WriteGroupRedisStreamsOptions.decodeDelimited = function decodeDelimited(reader) {
-                if (!(reader instanceof $Reader))
-                    reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
-            };
-
-            /**
-             * Verifies a WriteGroupRedisStreamsOptions message.
-             * @function verify
-             * @memberof protos.opts.WriteGroupRedisStreamsOptions
-             * @static
-             * @param {Object.<string,*>} message Plain object to verify
-             * @returns {string|null} `null` if valid, otherwise the reason why it is not
-             */
-            WriteGroupRedisStreamsOptions.verify = function verify(message) {
-                if (typeof message !== "object" || message === null)
-                    return "object expected";
-                if (message._conn != null && message.hasOwnProperty("_conn")) {
-                    var error = $root.protos.args.RedisStreamsConn.verify(message._conn);
-                    if (error)
-                        return "_conn." + error;
-                }
-                if (message.args != null && message.hasOwnProperty("args")) {
-                    var error = $root.protos.args.RedisStreamsWriteArgs.verify(message.args);
-                    if (error)
-                        return "args." + error;
-                }
-                return null;
-            };
-
-            /**
-             * Creates a WriteGroupRedisStreamsOptions message from a plain object. Also converts values to their respective internal types.
-             * @function fromObject
-             * @memberof protos.opts.WriteGroupRedisStreamsOptions
-             * @static
-             * @param {Object.<string,*>} object Plain object
-             * @returns {protos.opts.WriteGroupRedisStreamsOptions} WriteGroupRedisStreamsOptions
-             */
-            WriteGroupRedisStreamsOptions.fromObject = function fromObject(object) {
-                if (object instanceof $root.protos.opts.WriteGroupRedisStreamsOptions)
-                    return object;
-                var message = new $root.protos.opts.WriteGroupRedisStreamsOptions();
-                if (object._conn != null) {
-                    if (typeof object._conn !== "object")
-                        throw TypeError(".protos.opts.WriteGroupRedisStreamsOptions._conn: object expected");
-                    message._conn = $root.protos.args.RedisStreamsConn.fromObject(object._conn);
-                }
-                if (object.args != null) {
-                    if (typeof object.args !== "object")
-                        throw TypeError(".protos.opts.WriteGroupRedisStreamsOptions.args: object expected");
-                    message.args = $root.protos.args.RedisStreamsWriteArgs.fromObject(object.args);
-                }
-                return message;
-            };
-
-            /**
-             * Creates a plain object from a WriteGroupRedisStreamsOptions message. Also converts values to other types if specified.
-             * @function toObject
-             * @memberof protos.opts.WriteGroupRedisStreamsOptions
-             * @static
-             * @param {protos.opts.WriteGroupRedisStreamsOptions} message WriteGroupRedisStreamsOptions
-             * @param {$protobuf.IConversionOptions} [options] Conversion options
-             * @returns {Object.<string,*>} Plain object
-             */
-            WriteGroupRedisStreamsOptions.toObject = function toObject(message, options) {
-                if (!options)
-                    options = {};
-                var object = {};
-                if (options.defaults) {
-                    object._conn = null;
-                    object.args = null;
-                }
-                if (message._conn != null && message.hasOwnProperty("_conn"))
-                    object._conn = $root.protos.args.RedisStreamsConn.toObject(message._conn, options);
-                if (message.args != null && message.hasOwnProperty("args"))
-                    object.args = $root.protos.args.RedisStreamsWriteArgs.toObject(message.args, options);
-                return object;
-            };
-
-            /**
-             * Converts this WriteGroupRedisStreamsOptions to JSON.
-             * @function toJSON
-             * @memberof protos.opts.WriteGroupRedisStreamsOptions
-             * @instance
-             * @returns {Object.<string,*>} JSON object
-             */
-            WriteGroupRedisStreamsOptions.prototype.toJSON = function toJSON() {
-                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-            };
-
-            return WriteGroupRedisStreamsOptions;
-        })();
-
-        opts.WriteGroupAzureEventHubOptions = (function() {
-
-            /**
-             * Properties of a WriteGroupAzureEventHubOptions.
-             * @memberof protos.opts
-             * @interface IWriteGroupAzureEventHubOptions
-             * @property {protos.args.IAzureEventHubConn|null} [_conn] WriteGroupAzureEventHubOptions _conn
-             * @property {protos.args.IAzureEventHubWriteArgs|null} [args] WriteGroupAzureEventHubOptions args
-             */
-
-            /**
-             * Constructs a new WriteGroupAzureEventHubOptions.
-             * @memberof protos.opts
-             * @classdesc Represents a WriteGroupAzureEventHubOptions.
-             * @implements IWriteGroupAzureEventHubOptions
-             * @constructor
-             * @param {protos.opts.IWriteGroupAzureEventHubOptions=} [properties] Properties to set
-             */
-            function WriteGroupAzureEventHubOptions(properties) {
-                if (properties)
-                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                        if (properties[keys[i]] != null)
-                            this[keys[i]] = properties[keys[i]];
-            }
-
-            /**
-             * WriteGroupAzureEventHubOptions _conn.
-             * @member {protos.args.IAzureEventHubConn|null|undefined} _conn
-             * @memberof protos.opts.WriteGroupAzureEventHubOptions
-             * @instance
-             */
-            WriteGroupAzureEventHubOptions.prototype._conn = null;
-
-            /**
-             * WriteGroupAzureEventHubOptions args.
-             * @member {protos.args.IAzureEventHubWriteArgs|null|undefined} args
-             * @memberof protos.opts.WriteGroupAzureEventHubOptions
-             * @instance
-             */
-            WriteGroupAzureEventHubOptions.prototype.args = null;
-
-            /**
-             * Creates a new WriteGroupAzureEventHubOptions instance using the specified properties.
-             * @function create
-             * @memberof protos.opts.WriteGroupAzureEventHubOptions
-             * @static
-             * @param {protos.opts.IWriteGroupAzureEventHubOptions=} [properties] Properties to set
-             * @returns {protos.opts.WriteGroupAzureEventHubOptions} WriteGroupAzureEventHubOptions instance
-             */
-            WriteGroupAzureEventHubOptions.create = function create(properties) {
-                return new WriteGroupAzureEventHubOptions(properties);
-            };
-
-            /**
-             * Encodes the specified WriteGroupAzureEventHubOptions message. Does not implicitly {@link protos.opts.WriteGroupAzureEventHubOptions.verify|verify} messages.
-             * @function encode
-             * @memberof protos.opts.WriteGroupAzureEventHubOptions
-             * @static
-             * @param {protos.opts.IWriteGroupAzureEventHubOptions} message WriteGroupAzureEventHubOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            WriteGroupAzureEventHubOptions.encode = function encode(message, writer) {
-                if (!writer)
-                    writer = $Writer.create();
-                if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
-                    $root.protos.args.AzureEventHubConn.encode(message._conn, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
-                if (message.args != null && Object.hasOwnProperty.call(message, "args"))
-                    $root.protos.args.AzureEventHubWriteArgs.encode(message.args, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
-                return writer;
-            };
-
-            /**
-             * Encodes the specified WriteGroupAzureEventHubOptions message, length delimited. Does not implicitly {@link protos.opts.WriteGroupAzureEventHubOptions.verify|verify} messages.
-             * @function encodeDelimited
-             * @memberof protos.opts.WriteGroupAzureEventHubOptions
-             * @static
-             * @param {protos.opts.IWriteGroupAzureEventHubOptions} message WriteGroupAzureEventHubOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            WriteGroupAzureEventHubOptions.encodeDelimited = function encodeDelimited(message, writer) {
-                return this.encode(message, writer).ldelim();
-            };
-
-            /**
-             * Decodes a WriteGroupAzureEventHubOptions message from the specified reader or buffer.
-             * @function decode
-             * @memberof protos.opts.WriteGroupAzureEventHubOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @param {number} [length] Message length if known beforehand
-             * @returns {protos.opts.WriteGroupAzureEventHubOptions} WriteGroupAzureEventHubOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            WriteGroupAzureEventHubOptions.decode = function decode(reader, length) {
-                if (!(reader instanceof $Reader))
-                    reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.WriteGroupAzureEventHubOptions();
-                while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    switch (tag >>> 3) {
-                    case 1:
-                        message._conn = $root.protos.args.AzureEventHubConn.decode(reader, reader.uint32());
-                        break;
-                    case 2:
-                        message.args = $root.protos.args.AzureEventHubWriteArgs.decode(reader, reader.uint32());
-                        break;
-                    default:
-                        reader.skipType(tag & 7);
-                        break;
-                    }
-                }
-                return message;
-            };
-
-            /**
-             * Decodes a WriteGroupAzureEventHubOptions message from the specified reader or buffer, length delimited.
-             * @function decodeDelimited
-             * @memberof protos.opts.WriteGroupAzureEventHubOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {protos.opts.WriteGroupAzureEventHubOptions} WriteGroupAzureEventHubOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            WriteGroupAzureEventHubOptions.decodeDelimited = function decodeDelimited(reader) {
-                if (!(reader instanceof $Reader))
-                    reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
-            };
-
-            /**
-             * Verifies a WriteGroupAzureEventHubOptions message.
-             * @function verify
-             * @memberof protos.opts.WriteGroupAzureEventHubOptions
-             * @static
-             * @param {Object.<string,*>} message Plain object to verify
-             * @returns {string|null} `null` if valid, otherwise the reason why it is not
-             */
-            WriteGroupAzureEventHubOptions.verify = function verify(message) {
-                if (typeof message !== "object" || message === null)
-                    return "object expected";
-                if (message._conn != null && message.hasOwnProperty("_conn")) {
-                    var error = $root.protos.args.AzureEventHubConn.verify(message._conn);
-                    if (error)
-                        return "_conn." + error;
-                }
-                if (message.args != null && message.hasOwnProperty("args")) {
-                    var error = $root.protos.args.AzureEventHubWriteArgs.verify(message.args);
-                    if (error)
-                        return "args." + error;
-                }
-                return null;
-            };
-
-            /**
-             * Creates a WriteGroupAzureEventHubOptions message from a plain object. Also converts values to their respective internal types.
-             * @function fromObject
-             * @memberof protos.opts.WriteGroupAzureEventHubOptions
-             * @static
-             * @param {Object.<string,*>} object Plain object
-             * @returns {protos.opts.WriteGroupAzureEventHubOptions} WriteGroupAzureEventHubOptions
-             */
-            WriteGroupAzureEventHubOptions.fromObject = function fromObject(object) {
-                if (object instanceof $root.protos.opts.WriteGroupAzureEventHubOptions)
-                    return object;
-                var message = new $root.protos.opts.WriteGroupAzureEventHubOptions();
-                if (object._conn != null) {
-                    if (typeof object._conn !== "object")
-                        throw TypeError(".protos.opts.WriteGroupAzureEventHubOptions._conn: object expected");
-                    message._conn = $root.protos.args.AzureEventHubConn.fromObject(object._conn);
-                }
-                if (object.args != null) {
-                    if (typeof object.args !== "object")
-                        throw TypeError(".protos.opts.WriteGroupAzureEventHubOptions.args: object expected");
-                    message.args = $root.protos.args.AzureEventHubWriteArgs.fromObject(object.args);
-                }
-                return message;
-            };
-
-            /**
-             * Creates a plain object from a WriteGroupAzureEventHubOptions message. Also converts values to other types if specified.
-             * @function toObject
-             * @memberof protos.opts.WriteGroupAzureEventHubOptions
-             * @static
-             * @param {protos.opts.WriteGroupAzureEventHubOptions} message WriteGroupAzureEventHubOptions
-             * @param {$protobuf.IConversionOptions} [options] Conversion options
-             * @returns {Object.<string,*>} Plain object
-             */
-            WriteGroupAzureEventHubOptions.toObject = function toObject(message, options) {
-                if (!options)
-                    options = {};
-                var object = {};
-                if (options.defaults) {
-                    object._conn = null;
-                    object.args = null;
-                }
-                if (message._conn != null && message.hasOwnProperty("_conn"))
-                    object._conn = $root.protos.args.AzureEventHubConn.toObject(message._conn, options);
-                if (message.args != null && message.hasOwnProperty("args"))
-                    object.args = $root.protos.args.AzureEventHubWriteArgs.toObject(message.args, options);
-                return object;
-            };
-
-            /**
-             * Converts this WriteGroupAzureEventHubOptions to JSON.
-             * @function toJSON
-             * @memberof protos.opts.WriteGroupAzureEventHubOptions
-             * @instance
-             * @returns {Object.<string,*>} JSON object
-             */
-            WriteGroupAzureEventHubOptions.prototype.toJSON = function toJSON() {
-                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-            };
-
-            return WriteGroupAzureEventHubOptions;
-        })();
-
-        opts.WriteGroupAzureServiceBusOptions = (function() {
-
-            /**
-             * Properties of a WriteGroupAzureServiceBusOptions.
-             * @memberof protos.opts
-             * @interface IWriteGroupAzureServiceBusOptions
-             * @property {protos.args.IAzureServiceBusConn|null} [_conn] WriteGroupAzureServiceBusOptions _conn
-             * @property {protos.args.IAzureServiceBusWriteArgs|null} [args] WriteGroupAzureServiceBusOptions args
-             */
-
-            /**
-             * Constructs a new WriteGroupAzureServiceBusOptions.
-             * @memberof protos.opts
-             * @classdesc Represents a WriteGroupAzureServiceBusOptions.
-             * @implements IWriteGroupAzureServiceBusOptions
-             * @constructor
-             * @param {protos.opts.IWriteGroupAzureServiceBusOptions=} [properties] Properties to set
-             */
-            function WriteGroupAzureServiceBusOptions(properties) {
-                if (properties)
-                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                        if (properties[keys[i]] != null)
-                            this[keys[i]] = properties[keys[i]];
-            }
-
-            /**
-             * WriteGroupAzureServiceBusOptions _conn.
-             * @member {protos.args.IAzureServiceBusConn|null|undefined} _conn
-             * @memberof protos.opts.WriteGroupAzureServiceBusOptions
-             * @instance
-             */
-            WriteGroupAzureServiceBusOptions.prototype._conn = null;
-
-            /**
-             * WriteGroupAzureServiceBusOptions args.
-             * @member {protos.args.IAzureServiceBusWriteArgs|null|undefined} args
-             * @memberof protos.opts.WriteGroupAzureServiceBusOptions
-             * @instance
-             */
-            WriteGroupAzureServiceBusOptions.prototype.args = null;
-
-            /**
-             * Creates a new WriteGroupAzureServiceBusOptions instance using the specified properties.
-             * @function create
-             * @memberof protos.opts.WriteGroupAzureServiceBusOptions
-             * @static
-             * @param {protos.opts.IWriteGroupAzureServiceBusOptions=} [properties] Properties to set
-             * @returns {protos.opts.WriteGroupAzureServiceBusOptions} WriteGroupAzureServiceBusOptions instance
-             */
-            WriteGroupAzureServiceBusOptions.create = function create(properties) {
-                return new WriteGroupAzureServiceBusOptions(properties);
-            };
-
-            /**
-             * Encodes the specified WriteGroupAzureServiceBusOptions message. Does not implicitly {@link protos.opts.WriteGroupAzureServiceBusOptions.verify|verify} messages.
-             * @function encode
-             * @memberof protos.opts.WriteGroupAzureServiceBusOptions
-             * @static
-             * @param {protos.opts.IWriteGroupAzureServiceBusOptions} message WriteGroupAzureServiceBusOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            WriteGroupAzureServiceBusOptions.encode = function encode(message, writer) {
-                if (!writer)
-                    writer = $Writer.create();
-                if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
-                    $root.protos.args.AzureServiceBusConn.encode(message._conn, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
-                if (message.args != null && Object.hasOwnProperty.call(message, "args"))
-                    $root.protos.args.AzureServiceBusWriteArgs.encode(message.args, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
-                return writer;
-            };
-
-            /**
-             * Encodes the specified WriteGroupAzureServiceBusOptions message, length delimited. Does not implicitly {@link protos.opts.WriteGroupAzureServiceBusOptions.verify|verify} messages.
-             * @function encodeDelimited
-             * @memberof protos.opts.WriteGroupAzureServiceBusOptions
-             * @static
-             * @param {protos.opts.IWriteGroupAzureServiceBusOptions} message WriteGroupAzureServiceBusOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            WriteGroupAzureServiceBusOptions.encodeDelimited = function encodeDelimited(message, writer) {
-                return this.encode(message, writer).ldelim();
-            };
-
-            /**
-             * Decodes a WriteGroupAzureServiceBusOptions message from the specified reader or buffer.
-             * @function decode
-             * @memberof protos.opts.WriteGroupAzureServiceBusOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @param {number} [length] Message length if known beforehand
-             * @returns {protos.opts.WriteGroupAzureServiceBusOptions} WriteGroupAzureServiceBusOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            WriteGroupAzureServiceBusOptions.decode = function decode(reader, length) {
-                if (!(reader instanceof $Reader))
-                    reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.WriteGroupAzureServiceBusOptions();
-                while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    switch (tag >>> 3) {
-                    case 1:
-                        message._conn = $root.protos.args.AzureServiceBusConn.decode(reader, reader.uint32());
-                        break;
-                    case 2:
-                        message.args = $root.protos.args.AzureServiceBusWriteArgs.decode(reader, reader.uint32());
-                        break;
-                    default:
-                        reader.skipType(tag & 7);
-                        break;
-                    }
-                }
-                return message;
-            };
-
-            /**
-             * Decodes a WriteGroupAzureServiceBusOptions message from the specified reader or buffer, length delimited.
-             * @function decodeDelimited
-             * @memberof protos.opts.WriteGroupAzureServiceBusOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {protos.opts.WriteGroupAzureServiceBusOptions} WriteGroupAzureServiceBusOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            WriteGroupAzureServiceBusOptions.decodeDelimited = function decodeDelimited(reader) {
-                if (!(reader instanceof $Reader))
-                    reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
-            };
-
-            /**
-             * Verifies a WriteGroupAzureServiceBusOptions message.
-             * @function verify
-             * @memberof protos.opts.WriteGroupAzureServiceBusOptions
-             * @static
-             * @param {Object.<string,*>} message Plain object to verify
-             * @returns {string|null} `null` if valid, otherwise the reason why it is not
-             */
-            WriteGroupAzureServiceBusOptions.verify = function verify(message) {
-                if (typeof message !== "object" || message === null)
-                    return "object expected";
-                if (message._conn != null && message.hasOwnProperty("_conn")) {
-                    var error = $root.protos.args.AzureServiceBusConn.verify(message._conn);
-                    if (error)
-                        return "_conn." + error;
-                }
-                if (message.args != null && message.hasOwnProperty("args")) {
-                    var error = $root.protos.args.AzureServiceBusWriteArgs.verify(message.args);
-                    if (error)
-                        return "args." + error;
-                }
-                return null;
-            };
-
-            /**
-             * Creates a WriteGroupAzureServiceBusOptions message from a plain object. Also converts values to their respective internal types.
-             * @function fromObject
-             * @memberof protos.opts.WriteGroupAzureServiceBusOptions
-             * @static
-             * @param {Object.<string,*>} object Plain object
-             * @returns {protos.opts.WriteGroupAzureServiceBusOptions} WriteGroupAzureServiceBusOptions
-             */
-            WriteGroupAzureServiceBusOptions.fromObject = function fromObject(object) {
-                if (object instanceof $root.protos.opts.WriteGroupAzureServiceBusOptions)
-                    return object;
-                var message = new $root.protos.opts.WriteGroupAzureServiceBusOptions();
-                if (object._conn != null) {
-                    if (typeof object._conn !== "object")
-                        throw TypeError(".protos.opts.WriteGroupAzureServiceBusOptions._conn: object expected");
-                    message._conn = $root.protos.args.AzureServiceBusConn.fromObject(object._conn);
-                }
-                if (object.args != null) {
-                    if (typeof object.args !== "object")
-                        throw TypeError(".protos.opts.WriteGroupAzureServiceBusOptions.args: object expected");
-                    message.args = $root.protos.args.AzureServiceBusWriteArgs.fromObject(object.args);
-                }
-                return message;
-            };
-
-            /**
-             * Creates a plain object from a WriteGroupAzureServiceBusOptions message. Also converts values to other types if specified.
-             * @function toObject
-             * @memberof protos.opts.WriteGroupAzureServiceBusOptions
-             * @static
-             * @param {protos.opts.WriteGroupAzureServiceBusOptions} message WriteGroupAzureServiceBusOptions
-             * @param {$protobuf.IConversionOptions} [options] Conversion options
-             * @returns {Object.<string,*>} Plain object
-             */
-            WriteGroupAzureServiceBusOptions.toObject = function toObject(message, options) {
-                if (!options)
-                    options = {};
-                var object = {};
-                if (options.defaults) {
-                    object._conn = null;
-                    object.args = null;
-                }
-                if (message._conn != null && message.hasOwnProperty("_conn"))
-                    object._conn = $root.protos.args.AzureServiceBusConn.toObject(message._conn, options);
-                if (message.args != null && message.hasOwnProperty("args"))
-                    object.args = $root.protos.args.AzureServiceBusWriteArgs.toObject(message.args, options);
-                return object;
-            };
-
-            /**
-             * Converts this WriteGroupAzureServiceBusOptions to JSON.
-             * @function toJSON
-             * @memberof protos.opts.WriteGroupAzureServiceBusOptions
-             * @instance
-             * @returns {Object.<string,*>} JSON object
-             */
-            WriteGroupAzureServiceBusOptions.prototype.toJSON = function toJSON() {
-                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-            };
-
-            return WriteGroupAzureServiceBusOptions;
-        })();
-
-        opts.WriteGroupMQTTOptions = (function() {
-
-            /**
-             * Properties of a WriteGroupMQTTOptions.
-             * @memberof protos.opts
-             * @interface IWriteGroupMQTTOptions
-             * @property {protos.args.IMQTTConn|null} [_conn] WriteGroupMQTTOptions _conn
-             * @property {protos.args.IMQTTWriteArgs|null} [args] WriteGroupMQTTOptions args
-             */
-
-            /**
-             * Constructs a new WriteGroupMQTTOptions.
-             * @memberof protos.opts
-             * @classdesc Represents a WriteGroupMQTTOptions.
-             * @implements IWriteGroupMQTTOptions
-             * @constructor
-             * @param {protos.opts.IWriteGroupMQTTOptions=} [properties] Properties to set
-             */
-            function WriteGroupMQTTOptions(properties) {
-                if (properties)
-                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                        if (properties[keys[i]] != null)
-                            this[keys[i]] = properties[keys[i]];
-            }
-
-            /**
-             * WriteGroupMQTTOptions _conn.
-             * @member {protos.args.IMQTTConn|null|undefined} _conn
-             * @memberof protos.opts.WriteGroupMQTTOptions
-             * @instance
-             */
-            WriteGroupMQTTOptions.prototype._conn = null;
-
-            /**
-             * WriteGroupMQTTOptions args.
-             * @member {protos.args.IMQTTWriteArgs|null|undefined} args
-             * @memberof protos.opts.WriteGroupMQTTOptions
-             * @instance
-             */
-            WriteGroupMQTTOptions.prototype.args = null;
-
-            /**
-             * Creates a new WriteGroupMQTTOptions instance using the specified properties.
-             * @function create
-             * @memberof protos.opts.WriteGroupMQTTOptions
-             * @static
-             * @param {protos.opts.IWriteGroupMQTTOptions=} [properties] Properties to set
-             * @returns {protos.opts.WriteGroupMQTTOptions} WriteGroupMQTTOptions instance
-             */
-            WriteGroupMQTTOptions.create = function create(properties) {
-                return new WriteGroupMQTTOptions(properties);
-            };
-
-            /**
-             * Encodes the specified WriteGroupMQTTOptions message. Does not implicitly {@link protos.opts.WriteGroupMQTTOptions.verify|verify} messages.
-             * @function encode
-             * @memberof protos.opts.WriteGroupMQTTOptions
-             * @static
-             * @param {protos.opts.IWriteGroupMQTTOptions} message WriteGroupMQTTOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            WriteGroupMQTTOptions.encode = function encode(message, writer) {
-                if (!writer)
-                    writer = $Writer.create();
-                if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
-                    $root.protos.args.MQTTConn.encode(message._conn, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
-                if (message.args != null && Object.hasOwnProperty.call(message, "args"))
-                    $root.protos.args.MQTTWriteArgs.encode(message.args, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
-                return writer;
-            };
-
-            /**
-             * Encodes the specified WriteGroupMQTTOptions message, length delimited. Does not implicitly {@link protos.opts.WriteGroupMQTTOptions.verify|verify} messages.
-             * @function encodeDelimited
-             * @memberof protos.opts.WriteGroupMQTTOptions
-             * @static
-             * @param {protos.opts.IWriteGroupMQTTOptions} message WriteGroupMQTTOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            WriteGroupMQTTOptions.encodeDelimited = function encodeDelimited(message, writer) {
-                return this.encode(message, writer).ldelim();
-            };
-
-            /**
-             * Decodes a WriteGroupMQTTOptions message from the specified reader or buffer.
-             * @function decode
-             * @memberof protos.opts.WriteGroupMQTTOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @param {number} [length] Message length if known beforehand
-             * @returns {protos.opts.WriteGroupMQTTOptions} WriteGroupMQTTOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            WriteGroupMQTTOptions.decode = function decode(reader, length) {
-                if (!(reader instanceof $Reader))
-                    reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.WriteGroupMQTTOptions();
-                while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    switch (tag >>> 3) {
-                    case 1:
-                        message._conn = $root.protos.args.MQTTConn.decode(reader, reader.uint32());
-                        break;
-                    case 2:
-                        message.args = $root.protos.args.MQTTWriteArgs.decode(reader, reader.uint32());
-                        break;
-                    default:
-                        reader.skipType(tag & 7);
-                        break;
-                    }
-                }
-                return message;
-            };
-
-            /**
-             * Decodes a WriteGroupMQTTOptions message from the specified reader or buffer, length delimited.
-             * @function decodeDelimited
-             * @memberof protos.opts.WriteGroupMQTTOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {protos.opts.WriteGroupMQTTOptions} WriteGroupMQTTOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            WriteGroupMQTTOptions.decodeDelimited = function decodeDelimited(reader) {
-                if (!(reader instanceof $Reader))
-                    reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
-            };
-
-            /**
-             * Verifies a WriteGroupMQTTOptions message.
-             * @function verify
-             * @memberof protos.opts.WriteGroupMQTTOptions
-             * @static
-             * @param {Object.<string,*>} message Plain object to verify
-             * @returns {string|null} `null` if valid, otherwise the reason why it is not
-             */
-            WriteGroupMQTTOptions.verify = function verify(message) {
-                if (typeof message !== "object" || message === null)
-                    return "object expected";
-                if (message._conn != null && message.hasOwnProperty("_conn")) {
-                    var error = $root.protos.args.MQTTConn.verify(message._conn);
-                    if (error)
-                        return "_conn." + error;
-                }
-                if (message.args != null && message.hasOwnProperty("args")) {
-                    var error = $root.protos.args.MQTTWriteArgs.verify(message.args);
-                    if (error)
-                        return "args." + error;
-                }
-                return null;
-            };
-
-            /**
-             * Creates a WriteGroupMQTTOptions message from a plain object. Also converts values to their respective internal types.
-             * @function fromObject
-             * @memberof protos.opts.WriteGroupMQTTOptions
-             * @static
-             * @param {Object.<string,*>} object Plain object
-             * @returns {protos.opts.WriteGroupMQTTOptions} WriteGroupMQTTOptions
-             */
-            WriteGroupMQTTOptions.fromObject = function fromObject(object) {
-                if (object instanceof $root.protos.opts.WriteGroupMQTTOptions)
-                    return object;
-                var message = new $root.protos.opts.WriteGroupMQTTOptions();
-                if (object._conn != null) {
-                    if (typeof object._conn !== "object")
-                        throw TypeError(".protos.opts.WriteGroupMQTTOptions._conn: object expected");
-                    message._conn = $root.protos.args.MQTTConn.fromObject(object._conn);
-                }
-                if (object.args != null) {
-                    if (typeof object.args !== "object")
-                        throw TypeError(".protos.opts.WriteGroupMQTTOptions.args: object expected");
-                    message.args = $root.protos.args.MQTTWriteArgs.fromObject(object.args);
-                }
-                return message;
-            };
-
-            /**
-             * Creates a plain object from a WriteGroupMQTTOptions message. Also converts values to other types if specified.
-             * @function toObject
-             * @memberof protos.opts.WriteGroupMQTTOptions
-             * @static
-             * @param {protos.opts.WriteGroupMQTTOptions} message WriteGroupMQTTOptions
-             * @param {$protobuf.IConversionOptions} [options] Conversion options
-             * @returns {Object.<string,*>} Plain object
-             */
-            WriteGroupMQTTOptions.toObject = function toObject(message, options) {
-                if (!options)
-                    options = {};
-                var object = {};
-                if (options.defaults) {
-                    object._conn = null;
-                    object.args = null;
-                }
-                if (message._conn != null && message.hasOwnProperty("_conn"))
-                    object._conn = $root.protos.args.MQTTConn.toObject(message._conn, options);
-                if (message.args != null && message.hasOwnProperty("args"))
-                    object.args = $root.protos.args.MQTTWriteArgs.toObject(message.args, options);
-                return object;
-            };
-
-            /**
-             * Converts this WriteGroupMQTTOptions to JSON.
-             * @function toJSON
-             * @memberof protos.opts.WriteGroupMQTTOptions
-             * @instance
-             * @returns {Object.<string,*>} JSON object
-             */
-            WriteGroupMQTTOptions.prototype.toJSON = function toJSON() {
-                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-            };
-
-            return WriteGroupMQTTOptions;
-        })();
-
-        opts.WriteGroupGCPPubSubOptions = (function() {
-
-            /**
-             * Properties of a WriteGroupGCPPubSubOptions.
-             * @memberof protos.opts
-             * @interface IWriteGroupGCPPubSubOptions
-             * @property {protos.args.IGCPPubSubConn|null} [_conn] WriteGroupGCPPubSubOptions _conn
-             * @property {protos.args.IGCPPubSubWriteArgs|null} [args] WriteGroupGCPPubSubOptions args
-             */
-
-            /**
-             * Constructs a new WriteGroupGCPPubSubOptions.
-             * @memberof protos.opts
-             * @classdesc Represents a WriteGroupGCPPubSubOptions.
-             * @implements IWriteGroupGCPPubSubOptions
-             * @constructor
-             * @param {protos.opts.IWriteGroupGCPPubSubOptions=} [properties] Properties to set
-             */
-            function WriteGroupGCPPubSubOptions(properties) {
-                if (properties)
-                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                        if (properties[keys[i]] != null)
-                            this[keys[i]] = properties[keys[i]];
-            }
-
-            /**
-             * WriteGroupGCPPubSubOptions _conn.
-             * @member {protos.args.IGCPPubSubConn|null|undefined} _conn
-             * @memberof protos.opts.WriteGroupGCPPubSubOptions
-             * @instance
-             */
-            WriteGroupGCPPubSubOptions.prototype._conn = null;
-
-            /**
-             * WriteGroupGCPPubSubOptions args.
-             * @member {protos.args.IGCPPubSubWriteArgs|null|undefined} args
-             * @memberof protos.opts.WriteGroupGCPPubSubOptions
-             * @instance
-             */
-            WriteGroupGCPPubSubOptions.prototype.args = null;
-
-            /**
-             * Creates a new WriteGroupGCPPubSubOptions instance using the specified properties.
-             * @function create
-             * @memberof protos.opts.WriteGroupGCPPubSubOptions
-             * @static
-             * @param {protos.opts.IWriteGroupGCPPubSubOptions=} [properties] Properties to set
-             * @returns {protos.opts.WriteGroupGCPPubSubOptions} WriteGroupGCPPubSubOptions instance
-             */
-            WriteGroupGCPPubSubOptions.create = function create(properties) {
-                return new WriteGroupGCPPubSubOptions(properties);
-            };
-
-            /**
-             * Encodes the specified WriteGroupGCPPubSubOptions message. Does not implicitly {@link protos.opts.WriteGroupGCPPubSubOptions.verify|verify} messages.
-             * @function encode
-             * @memberof protos.opts.WriteGroupGCPPubSubOptions
-             * @static
-             * @param {protos.opts.IWriteGroupGCPPubSubOptions} message WriteGroupGCPPubSubOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            WriteGroupGCPPubSubOptions.encode = function encode(message, writer) {
-                if (!writer)
-                    writer = $Writer.create();
-                if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
-                    $root.protos.args.GCPPubSubConn.encode(message._conn, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
-                if (message.args != null && Object.hasOwnProperty.call(message, "args"))
-                    $root.protos.args.GCPPubSubWriteArgs.encode(message.args, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
-                return writer;
-            };
-
-            /**
-             * Encodes the specified WriteGroupGCPPubSubOptions message, length delimited. Does not implicitly {@link protos.opts.WriteGroupGCPPubSubOptions.verify|verify} messages.
-             * @function encodeDelimited
-             * @memberof protos.opts.WriteGroupGCPPubSubOptions
-             * @static
-             * @param {protos.opts.IWriteGroupGCPPubSubOptions} message WriteGroupGCPPubSubOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            WriteGroupGCPPubSubOptions.encodeDelimited = function encodeDelimited(message, writer) {
-                return this.encode(message, writer).ldelim();
-            };
-
-            /**
-             * Decodes a WriteGroupGCPPubSubOptions message from the specified reader or buffer.
-             * @function decode
-             * @memberof protos.opts.WriteGroupGCPPubSubOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @param {number} [length] Message length if known beforehand
-             * @returns {protos.opts.WriteGroupGCPPubSubOptions} WriteGroupGCPPubSubOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            WriteGroupGCPPubSubOptions.decode = function decode(reader, length) {
-                if (!(reader instanceof $Reader))
-                    reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.WriteGroupGCPPubSubOptions();
-                while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    switch (tag >>> 3) {
-                    case 1:
-                        message._conn = $root.protos.args.GCPPubSubConn.decode(reader, reader.uint32());
-                        break;
-                    case 2:
-                        message.args = $root.protos.args.GCPPubSubWriteArgs.decode(reader, reader.uint32());
-                        break;
-                    default:
-                        reader.skipType(tag & 7);
-                        break;
-                    }
-                }
-                return message;
-            };
-
-            /**
-             * Decodes a WriteGroupGCPPubSubOptions message from the specified reader or buffer, length delimited.
-             * @function decodeDelimited
-             * @memberof protos.opts.WriteGroupGCPPubSubOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {protos.opts.WriteGroupGCPPubSubOptions} WriteGroupGCPPubSubOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            WriteGroupGCPPubSubOptions.decodeDelimited = function decodeDelimited(reader) {
-                if (!(reader instanceof $Reader))
-                    reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
-            };
-
-            /**
-             * Verifies a WriteGroupGCPPubSubOptions message.
-             * @function verify
-             * @memberof protos.opts.WriteGroupGCPPubSubOptions
-             * @static
-             * @param {Object.<string,*>} message Plain object to verify
-             * @returns {string|null} `null` if valid, otherwise the reason why it is not
-             */
-            WriteGroupGCPPubSubOptions.verify = function verify(message) {
-                if (typeof message !== "object" || message === null)
-                    return "object expected";
-                if (message._conn != null && message.hasOwnProperty("_conn")) {
-                    var error = $root.protos.args.GCPPubSubConn.verify(message._conn);
-                    if (error)
-                        return "_conn." + error;
-                }
-                if (message.args != null && message.hasOwnProperty("args")) {
-                    var error = $root.protos.args.GCPPubSubWriteArgs.verify(message.args);
-                    if (error)
-                        return "args." + error;
-                }
-                return null;
-            };
-
-            /**
-             * Creates a WriteGroupGCPPubSubOptions message from a plain object. Also converts values to their respective internal types.
-             * @function fromObject
-             * @memberof protos.opts.WriteGroupGCPPubSubOptions
-             * @static
-             * @param {Object.<string,*>} object Plain object
-             * @returns {protos.opts.WriteGroupGCPPubSubOptions} WriteGroupGCPPubSubOptions
-             */
-            WriteGroupGCPPubSubOptions.fromObject = function fromObject(object) {
-                if (object instanceof $root.protos.opts.WriteGroupGCPPubSubOptions)
-                    return object;
-                var message = new $root.protos.opts.WriteGroupGCPPubSubOptions();
-                if (object._conn != null) {
-                    if (typeof object._conn !== "object")
-                        throw TypeError(".protos.opts.WriteGroupGCPPubSubOptions._conn: object expected");
-                    message._conn = $root.protos.args.GCPPubSubConn.fromObject(object._conn);
-                }
-                if (object.args != null) {
-                    if (typeof object.args !== "object")
-                        throw TypeError(".protos.opts.WriteGroupGCPPubSubOptions.args: object expected");
-                    message.args = $root.protos.args.GCPPubSubWriteArgs.fromObject(object.args);
-                }
-                return message;
-            };
-
-            /**
-             * Creates a plain object from a WriteGroupGCPPubSubOptions message. Also converts values to other types if specified.
-             * @function toObject
-             * @memberof protos.opts.WriteGroupGCPPubSubOptions
-             * @static
-             * @param {protos.opts.WriteGroupGCPPubSubOptions} message WriteGroupGCPPubSubOptions
-             * @param {$protobuf.IConversionOptions} [options] Conversion options
-             * @returns {Object.<string,*>} Plain object
-             */
-            WriteGroupGCPPubSubOptions.toObject = function toObject(message, options) {
-                if (!options)
-                    options = {};
-                var object = {};
-                if (options.defaults) {
-                    object._conn = null;
-                    object.args = null;
-                }
-                if (message._conn != null && message.hasOwnProperty("_conn"))
-                    object._conn = $root.protos.args.GCPPubSubConn.toObject(message._conn, options);
-                if (message.args != null && message.hasOwnProperty("args"))
-                    object.args = $root.protos.args.GCPPubSubWriteArgs.toObject(message.args, options);
-                return object;
-            };
-
-            /**
-             * Converts this WriteGroupGCPPubSubOptions to JSON.
-             * @function toJSON
-             * @memberof protos.opts.WriteGroupGCPPubSubOptions
-             * @instance
-             * @returns {Object.<string,*>} JSON object
-             */
-            WriteGroupGCPPubSubOptions.prototype.toJSON = function toJSON() {
-                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-            };
-
-            return WriteGroupGCPPubSubOptions;
-        })();
-
-        opts.WriteGroupKubeMQQueueOptions = (function() {
-
-            /**
-             * Properties of a WriteGroupKubeMQQueueOptions.
-             * @memberof protos.opts
-             * @interface IWriteGroupKubeMQQueueOptions
-             * @property {protos.args.IKubeMQQueueConn|null} [_conn] WriteGroupKubeMQQueueOptions _conn
-             * @property {protos.args.IKubeMQQueueWriteArgs|null} [args] WriteGroupKubeMQQueueOptions args
-             */
-
-            /**
-             * Constructs a new WriteGroupKubeMQQueueOptions.
-             * @memberof protos.opts
-             * @classdesc Represents a WriteGroupKubeMQQueueOptions.
-             * @implements IWriteGroupKubeMQQueueOptions
-             * @constructor
-             * @param {protos.opts.IWriteGroupKubeMQQueueOptions=} [properties] Properties to set
-             */
-            function WriteGroupKubeMQQueueOptions(properties) {
-                if (properties)
-                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                        if (properties[keys[i]] != null)
-                            this[keys[i]] = properties[keys[i]];
-            }
-
-            /**
-             * WriteGroupKubeMQQueueOptions _conn.
-             * @member {protos.args.IKubeMQQueueConn|null|undefined} _conn
-             * @memberof protos.opts.WriteGroupKubeMQQueueOptions
-             * @instance
-             */
-            WriteGroupKubeMQQueueOptions.prototype._conn = null;
-
-            /**
-             * WriteGroupKubeMQQueueOptions args.
-             * @member {protos.args.IKubeMQQueueWriteArgs|null|undefined} args
-             * @memberof protos.opts.WriteGroupKubeMQQueueOptions
-             * @instance
-             */
-            WriteGroupKubeMQQueueOptions.prototype.args = null;
-
-            /**
-             * Creates a new WriteGroupKubeMQQueueOptions instance using the specified properties.
-             * @function create
-             * @memberof protos.opts.WriteGroupKubeMQQueueOptions
-             * @static
-             * @param {protos.opts.IWriteGroupKubeMQQueueOptions=} [properties] Properties to set
-             * @returns {protos.opts.WriteGroupKubeMQQueueOptions} WriteGroupKubeMQQueueOptions instance
-             */
-            WriteGroupKubeMQQueueOptions.create = function create(properties) {
-                return new WriteGroupKubeMQQueueOptions(properties);
-            };
-
-            /**
-             * Encodes the specified WriteGroupKubeMQQueueOptions message. Does not implicitly {@link protos.opts.WriteGroupKubeMQQueueOptions.verify|verify} messages.
-             * @function encode
-             * @memberof protos.opts.WriteGroupKubeMQQueueOptions
-             * @static
-             * @param {protos.opts.IWriteGroupKubeMQQueueOptions} message WriteGroupKubeMQQueueOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            WriteGroupKubeMQQueueOptions.encode = function encode(message, writer) {
-                if (!writer)
-                    writer = $Writer.create();
-                if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
-                    $root.protos.args.KubeMQQueueConn.encode(message._conn, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
-                if (message.args != null && Object.hasOwnProperty.call(message, "args"))
-                    $root.protos.args.KubeMQQueueWriteArgs.encode(message.args, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
-                return writer;
-            };
-
-            /**
-             * Encodes the specified WriteGroupKubeMQQueueOptions message, length delimited. Does not implicitly {@link protos.opts.WriteGroupKubeMQQueueOptions.verify|verify} messages.
-             * @function encodeDelimited
-             * @memberof protos.opts.WriteGroupKubeMQQueueOptions
-             * @static
-             * @param {protos.opts.IWriteGroupKubeMQQueueOptions} message WriteGroupKubeMQQueueOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            WriteGroupKubeMQQueueOptions.encodeDelimited = function encodeDelimited(message, writer) {
-                return this.encode(message, writer).ldelim();
-            };
-
-            /**
-             * Decodes a WriteGroupKubeMQQueueOptions message from the specified reader or buffer.
-             * @function decode
-             * @memberof protos.opts.WriteGroupKubeMQQueueOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @param {number} [length] Message length if known beforehand
-             * @returns {protos.opts.WriteGroupKubeMQQueueOptions} WriteGroupKubeMQQueueOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            WriteGroupKubeMQQueueOptions.decode = function decode(reader, length) {
-                if (!(reader instanceof $Reader))
-                    reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.WriteGroupKubeMQQueueOptions();
-                while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    switch (tag >>> 3) {
-                    case 1:
-                        message._conn = $root.protos.args.KubeMQQueueConn.decode(reader, reader.uint32());
-                        break;
-                    case 2:
-                        message.args = $root.protos.args.KubeMQQueueWriteArgs.decode(reader, reader.uint32());
-                        break;
-                    default:
-                        reader.skipType(tag & 7);
-                        break;
-                    }
-                }
-                return message;
-            };
-
-            /**
-             * Decodes a WriteGroupKubeMQQueueOptions message from the specified reader or buffer, length delimited.
-             * @function decodeDelimited
-             * @memberof protos.opts.WriteGroupKubeMQQueueOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {protos.opts.WriteGroupKubeMQQueueOptions} WriteGroupKubeMQQueueOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            WriteGroupKubeMQQueueOptions.decodeDelimited = function decodeDelimited(reader) {
-                if (!(reader instanceof $Reader))
-                    reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
-            };
-
-            /**
-             * Verifies a WriteGroupKubeMQQueueOptions message.
-             * @function verify
-             * @memberof protos.opts.WriteGroupKubeMQQueueOptions
-             * @static
-             * @param {Object.<string,*>} message Plain object to verify
-             * @returns {string|null} `null` if valid, otherwise the reason why it is not
-             */
-            WriteGroupKubeMQQueueOptions.verify = function verify(message) {
-                if (typeof message !== "object" || message === null)
-                    return "object expected";
-                if (message._conn != null && message.hasOwnProperty("_conn")) {
-                    var error = $root.protos.args.KubeMQQueueConn.verify(message._conn);
-                    if (error)
-                        return "_conn." + error;
-                }
-                if (message.args != null && message.hasOwnProperty("args")) {
-                    var error = $root.protos.args.KubeMQQueueWriteArgs.verify(message.args);
-                    if (error)
-                        return "args." + error;
-                }
-                return null;
-            };
-
-            /**
-             * Creates a WriteGroupKubeMQQueueOptions message from a plain object. Also converts values to their respective internal types.
-             * @function fromObject
-             * @memberof protos.opts.WriteGroupKubeMQQueueOptions
-             * @static
-             * @param {Object.<string,*>} object Plain object
-             * @returns {protos.opts.WriteGroupKubeMQQueueOptions} WriteGroupKubeMQQueueOptions
-             */
-            WriteGroupKubeMQQueueOptions.fromObject = function fromObject(object) {
-                if (object instanceof $root.protos.opts.WriteGroupKubeMQQueueOptions)
-                    return object;
-                var message = new $root.protos.opts.WriteGroupKubeMQQueueOptions();
-                if (object._conn != null) {
-                    if (typeof object._conn !== "object")
-                        throw TypeError(".protos.opts.WriteGroupKubeMQQueueOptions._conn: object expected");
-                    message._conn = $root.protos.args.KubeMQQueueConn.fromObject(object._conn);
-                }
-                if (object.args != null) {
-                    if (typeof object.args !== "object")
-                        throw TypeError(".protos.opts.WriteGroupKubeMQQueueOptions.args: object expected");
-                    message.args = $root.protos.args.KubeMQQueueWriteArgs.fromObject(object.args);
-                }
-                return message;
-            };
-
-            /**
-             * Creates a plain object from a WriteGroupKubeMQQueueOptions message. Also converts values to other types if specified.
-             * @function toObject
-             * @memberof protos.opts.WriteGroupKubeMQQueueOptions
-             * @static
-             * @param {protos.opts.WriteGroupKubeMQQueueOptions} message WriteGroupKubeMQQueueOptions
-             * @param {$protobuf.IConversionOptions} [options] Conversion options
-             * @returns {Object.<string,*>} Plain object
-             */
-            WriteGroupKubeMQQueueOptions.toObject = function toObject(message, options) {
-                if (!options)
-                    options = {};
-                var object = {};
-                if (options.defaults) {
-                    object._conn = null;
-                    object.args = null;
-                }
-                if (message._conn != null && message.hasOwnProperty("_conn"))
-                    object._conn = $root.protos.args.KubeMQQueueConn.toObject(message._conn, options);
-                if (message.args != null && message.hasOwnProperty("args"))
-                    object.args = $root.protos.args.KubeMQQueueWriteArgs.toObject(message.args, options);
-                return object;
-            };
-
-            /**
-             * Converts this WriteGroupKubeMQQueueOptions to JSON.
-             * @function toJSON
-             * @memberof protos.opts.WriteGroupKubeMQQueueOptions
-             * @instance
-             * @returns {Object.<string,*>} JSON object
-             */
-            WriteGroupKubeMQQueueOptions.prototype.toJSON = function toJSON() {
-                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-            };
-
-            return WriteGroupKubeMQQueueOptions;
-        })();
-
-        opts.WriteGroupAWSKinesisOptions = (function() {
-
-            /**
-             * Properties of a WriteGroupAWSKinesisOptions.
-             * @memberof protos.opts
-             * @interface IWriteGroupAWSKinesisOptions
-             * @property {protos.args.IAWSKinesisConn|null} [_conn] WriteGroupAWSKinesisOptions _conn
-             * @property {protos.args.IAWSKinesisWriteArgs|null} [args] WriteGroupAWSKinesisOptions args
-             */
-
-            /**
-             * Constructs a new WriteGroupAWSKinesisOptions.
-             * @memberof protos.opts
-             * @classdesc Represents a WriteGroupAWSKinesisOptions.
-             * @implements IWriteGroupAWSKinesisOptions
-             * @constructor
-             * @param {protos.opts.IWriteGroupAWSKinesisOptions=} [properties] Properties to set
-             */
-            function WriteGroupAWSKinesisOptions(properties) {
-                if (properties)
-                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                        if (properties[keys[i]] != null)
-                            this[keys[i]] = properties[keys[i]];
-            }
-
-            /**
-             * WriteGroupAWSKinesisOptions _conn.
-             * @member {protos.args.IAWSKinesisConn|null|undefined} _conn
-             * @memberof protos.opts.WriteGroupAWSKinesisOptions
-             * @instance
-             */
-            WriteGroupAWSKinesisOptions.prototype._conn = null;
-
-            /**
-             * WriteGroupAWSKinesisOptions args.
-             * @member {protos.args.IAWSKinesisWriteArgs|null|undefined} args
-             * @memberof protos.opts.WriteGroupAWSKinesisOptions
-             * @instance
-             */
-            WriteGroupAWSKinesisOptions.prototype.args = null;
-
-            /**
-             * Creates a new WriteGroupAWSKinesisOptions instance using the specified properties.
-             * @function create
-             * @memberof protos.opts.WriteGroupAWSKinesisOptions
-             * @static
-             * @param {protos.opts.IWriteGroupAWSKinesisOptions=} [properties] Properties to set
-             * @returns {protos.opts.WriteGroupAWSKinesisOptions} WriteGroupAWSKinesisOptions instance
-             */
-            WriteGroupAWSKinesisOptions.create = function create(properties) {
-                return new WriteGroupAWSKinesisOptions(properties);
-            };
-
-            /**
-             * Encodes the specified WriteGroupAWSKinesisOptions message. Does not implicitly {@link protos.opts.WriteGroupAWSKinesisOptions.verify|verify} messages.
-             * @function encode
-             * @memberof protos.opts.WriteGroupAWSKinesisOptions
-             * @static
-             * @param {protos.opts.IWriteGroupAWSKinesisOptions} message WriteGroupAWSKinesisOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            WriteGroupAWSKinesisOptions.encode = function encode(message, writer) {
-                if (!writer)
-                    writer = $Writer.create();
-                if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
-                    $root.protos.args.AWSKinesisConn.encode(message._conn, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
-                if (message.args != null && Object.hasOwnProperty.call(message, "args"))
-                    $root.protos.args.AWSKinesisWriteArgs.encode(message.args, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
-                return writer;
-            };
-
-            /**
-             * Encodes the specified WriteGroupAWSKinesisOptions message, length delimited. Does not implicitly {@link protos.opts.WriteGroupAWSKinesisOptions.verify|verify} messages.
-             * @function encodeDelimited
-             * @memberof protos.opts.WriteGroupAWSKinesisOptions
-             * @static
-             * @param {protos.opts.IWriteGroupAWSKinesisOptions} message WriteGroupAWSKinesisOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            WriteGroupAWSKinesisOptions.encodeDelimited = function encodeDelimited(message, writer) {
-                return this.encode(message, writer).ldelim();
-            };
-
-            /**
-             * Decodes a WriteGroupAWSKinesisOptions message from the specified reader or buffer.
-             * @function decode
-             * @memberof protos.opts.WriteGroupAWSKinesisOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @param {number} [length] Message length if known beforehand
-             * @returns {protos.opts.WriteGroupAWSKinesisOptions} WriteGroupAWSKinesisOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            WriteGroupAWSKinesisOptions.decode = function decode(reader, length) {
-                if (!(reader instanceof $Reader))
-                    reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.WriteGroupAWSKinesisOptions();
-                while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    switch (tag >>> 3) {
-                    case 1:
-                        message._conn = $root.protos.args.AWSKinesisConn.decode(reader, reader.uint32());
-                        break;
-                    case 2:
-                        message.args = $root.protos.args.AWSKinesisWriteArgs.decode(reader, reader.uint32());
-                        break;
-                    default:
-                        reader.skipType(tag & 7);
-                        break;
-                    }
-                }
-                return message;
-            };
-
-            /**
-             * Decodes a WriteGroupAWSKinesisOptions message from the specified reader or buffer, length delimited.
-             * @function decodeDelimited
-             * @memberof protos.opts.WriteGroupAWSKinesisOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {protos.opts.WriteGroupAWSKinesisOptions} WriteGroupAWSKinesisOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            WriteGroupAWSKinesisOptions.decodeDelimited = function decodeDelimited(reader) {
-                if (!(reader instanceof $Reader))
-                    reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
-            };
-
-            /**
-             * Verifies a WriteGroupAWSKinesisOptions message.
-             * @function verify
-             * @memberof protos.opts.WriteGroupAWSKinesisOptions
-             * @static
-             * @param {Object.<string,*>} message Plain object to verify
-             * @returns {string|null} `null` if valid, otherwise the reason why it is not
-             */
-            WriteGroupAWSKinesisOptions.verify = function verify(message) {
-                if (typeof message !== "object" || message === null)
-                    return "object expected";
-                if (message._conn != null && message.hasOwnProperty("_conn")) {
-                    var error = $root.protos.args.AWSKinesisConn.verify(message._conn);
-                    if (error)
-                        return "_conn." + error;
-                }
-                if (message.args != null && message.hasOwnProperty("args")) {
-                    var error = $root.protos.args.AWSKinesisWriteArgs.verify(message.args);
-                    if (error)
-                        return "args." + error;
-                }
-                return null;
-            };
-
-            /**
-             * Creates a WriteGroupAWSKinesisOptions message from a plain object. Also converts values to their respective internal types.
-             * @function fromObject
-             * @memberof protos.opts.WriteGroupAWSKinesisOptions
-             * @static
-             * @param {Object.<string,*>} object Plain object
-             * @returns {protos.opts.WriteGroupAWSKinesisOptions} WriteGroupAWSKinesisOptions
-             */
-            WriteGroupAWSKinesisOptions.fromObject = function fromObject(object) {
-                if (object instanceof $root.protos.opts.WriteGroupAWSKinesisOptions)
-                    return object;
-                var message = new $root.protos.opts.WriteGroupAWSKinesisOptions();
-                if (object._conn != null) {
-                    if (typeof object._conn !== "object")
-                        throw TypeError(".protos.opts.WriteGroupAWSKinesisOptions._conn: object expected");
-                    message._conn = $root.protos.args.AWSKinesisConn.fromObject(object._conn);
-                }
-                if (object.args != null) {
-                    if (typeof object.args !== "object")
-                        throw TypeError(".protos.opts.WriteGroupAWSKinesisOptions.args: object expected");
-                    message.args = $root.protos.args.AWSKinesisWriteArgs.fromObject(object.args);
-                }
-                return message;
-            };
-
-            /**
-             * Creates a plain object from a WriteGroupAWSKinesisOptions message. Also converts values to other types if specified.
-             * @function toObject
-             * @memberof protos.opts.WriteGroupAWSKinesisOptions
-             * @static
-             * @param {protos.opts.WriteGroupAWSKinesisOptions} message WriteGroupAWSKinesisOptions
-             * @param {$protobuf.IConversionOptions} [options] Conversion options
-             * @returns {Object.<string,*>} Plain object
-             */
-            WriteGroupAWSKinesisOptions.toObject = function toObject(message, options) {
-                if (!options)
-                    options = {};
-                var object = {};
-                if (options.defaults) {
-                    object._conn = null;
-                    object.args = null;
-                }
-                if (message._conn != null && message.hasOwnProperty("_conn"))
-                    object._conn = $root.protos.args.AWSKinesisConn.toObject(message._conn, options);
-                if (message.args != null && message.hasOwnProperty("args"))
-                    object.args = $root.protos.args.AWSKinesisWriteArgs.toObject(message.args, options);
-                return object;
-            };
-
-            /**
-             * Converts this WriteGroupAWSKinesisOptions to JSON.
-             * @function toJSON
-             * @memberof protos.opts.WriteGroupAWSKinesisOptions
-             * @instance
-             * @returns {Object.<string,*>} JSON object
-             */
-            WriteGroupAWSKinesisOptions.prototype.toJSON = function toJSON() {
-                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-            };
-
-            return WriteGroupAWSKinesisOptions;
-        })();
-
         opts.GlobalCLIOptions = (function() {
 
             /**
@@ -25115,7 +16112,7 @@ $root.protos = (function() {
              * @property {protos.opts.IWriteOptions|null} [write] CLIOptions write
              * @property {protos.opts.IRelayOptions|null} [relay] CLIOptions relay
              * @property {protos.opts.ITunnelOptions|null} [tunnel] CLIOptions tunnel
-             * @property {protos.opts.IBatchOptions|null} [batch] CLIOptions batch
+             * @property {protos.opts.IStreamdalOptions|null} [streamdal] CLIOptions streamdal
              * @property {protos.opts.IServerOptions|null} [server] CLIOptions server
              * @property {protos.opts.IManageOptions|null} [manage] CLIOptions manage
              */
@@ -25176,12 +16173,12 @@ $root.protos = (function() {
             CLIOptions.prototype.tunnel = null;
 
             /**
-             * CLIOptions batch.
-             * @member {protos.opts.IBatchOptions|null|undefined} batch
+             * CLIOptions streamdal.
+             * @member {protos.opts.IStreamdalOptions|null|undefined} streamdal
              * @memberof protos.opts.CLIOptions
              * @instance
              */
-            CLIOptions.prototype.batch = null;
+            CLIOptions.prototype.streamdal = null;
 
             /**
              * CLIOptions server.
@@ -25233,8 +16230,8 @@ $root.protos = (function() {
                     $root.protos.opts.RelayOptions.encode(message.relay, writer.uint32(/* id 4, wireType 2 =*/34).fork()).ldelim();
                 if (message.tunnel != null && Object.hasOwnProperty.call(message, "tunnel"))
                     $root.protos.opts.TunnelOptions.encode(message.tunnel, writer.uint32(/* id 5, wireType 2 =*/42).fork()).ldelim();
-                if (message.batch != null && Object.hasOwnProperty.call(message, "batch"))
-                    $root.protos.opts.BatchOptions.encode(message.batch, writer.uint32(/* id 6, wireType 2 =*/50).fork()).ldelim();
+                if (message.streamdal != null && Object.hasOwnProperty.call(message, "streamdal"))
+                    $root.protos.opts.StreamdalOptions.encode(message.streamdal, writer.uint32(/* id 6, wireType 2 =*/50).fork()).ldelim();
                 if (message.server != null && Object.hasOwnProperty.call(message, "server"))
                     $root.protos.opts.ServerOptions.encode(message.server, writer.uint32(/* id 7, wireType 2 =*/58).fork()).ldelim();
                 if (message.manage != null && Object.hasOwnProperty.call(message, "manage"))
@@ -25289,7 +16286,7 @@ $root.protos = (function() {
                         message.tunnel = $root.protos.opts.TunnelOptions.decode(reader, reader.uint32());
                         break;
                     case 6:
-                        message.batch = $root.protos.opts.BatchOptions.decode(reader, reader.uint32());
+                        message.streamdal = $root.protos.opts.StreamdalOptions.decode(reader, reader.uint32());
                         break;
                     case 7:
                         message.server = $root.protos.opts.ServerOptions.decode(reader, reader.uint32());
@@ -25357,10 +16354,10 @@ $root.protos = (function() {
                     if (error)
                         return "tunnel." + error;
                 }
-                if (message.batch != null && message.hasOwnProperty("batch")) {
-                    var error = $root.protos.opts.BatchOptions.verify(message.batch);
+                if (message.streamdal != null && message.hasOwnProperty("streamdal")) {
+                    var error = $root.protos.opts.StreamdalOptions.verify(message.streamdal);
                     if (error)
-                        return "batch." + error;
+                        return "streamdal." + error;
                 }
                 if (message.server != null && message.hasOwnProperty("server")) {
                     var error = $root.protos.opts.ServerOptions.verify(message.server);
@@ -25412,10 +16409,10 @@ $root.protos = (function() {
                         throw TypeError(".protos.opts.CLIOptions.tunnel: object expected");
                     message.tunnel = $root.protos.opts.TunnelOptions.fromObject(object.tunnel);
                 }
-                if (object.batch != null) {
-                    if (typeof object.batch !== "object")
-                        throw TypeError(".protos.opts.CLIOptions.batch: object expected");
-                    message.batch = $root.protos.opts.BatchOptions.fromObject(object.batch);
+                if (object.streamdal != null) {
+                    if (typeof object.streamdal !== "object")
+                        throw TypeError(".protos.opts.CLIOptions.streamdal: object expected");
+                    message.streamdal = $root.protos.opts.StreamdalOptions.fromObject(object.streamdal);
                 }
                 if (object.server != null) {
                     if (typeof object.server !== "object")
@@ -25449,7 +16446,7 @@ $root.protos = (function() {
                     object.write = null;
                     object.relay = null;
                     object.tunnel = null;
-                    object.batch = null;
+                    object.streamdal = null;
                     object.server = null;
                     object.manage = null;
                 }
@@ -25463,8 +16460,8 @@ $root.protos = (function() {
                     object.relay = $root.protos.opts.RelayOptions.toObject(message.relay, options);
                 if (message.tunnel != null && message.hasOwnProperty("tunnel"))
                     object.tunnel = $root.protos.opts.TunnelOptions.toObject(message.tunnel, options);
-                if (message.batch != null && message.hasOwnProperty("batch"))
-                    object.batch = $root.protos.opts.BatchOptions.toObject(message.batch, options);
+                if (message.streamdal != null && message.hasOwnProperty("streamdal"))
+                    object.streamdal = $root.protos.opts.StreamdalOptions.toObject(message.streamdal, options);
                 if (message.server != null && message.hasOwnProperty("server"))
                     object.server = $root.protos.opts.ServerOptions.toObject(message.server, options);
                 if (message.manage != null && message.hasOwnProperty("manage"))
@@ -28722,9 +19719,9 @@ $root.protos = (function() {
              * @property {number|null} [batchSize] CreateRelayOptions batchSize
              * @property {number|null} [batchMaxRetry] CreateRelayOptions batchMaxRetry
              * @property {number|null} [numWorkers] CreateRelayOptions numWorkers
-             * @property {string|null} [batchshGrpcAddress] CreateRelayOptions batchshGrpcAddress
-             * @property {boolean|null} [batchshGrpcDisableTls] CreateRelayOptions batchshGrpcDisableTls
-             * @property {number|null} [batchshGrpcTimeoutSeconds] CreateRelayOptions batchshGrpcTimeoutSeconds
+             * @property {string|null} [streamdalGrpcAddress] CreateRelayOptions streamdalGrpcAddress
+             * @property {boolean|null} [streamdalGrpcDisableTls] CreateRelayOptions streamdalGrpcDisableTls
+             * @property {number|null} [streamdalGrpcTimeoutSeconds] CreateRelayOptions streamdalGrpcTimeoutSeconds
              * @property {boolean|null} [deadLetter] CreateRelayOptions deadLetter
              * @property {protos.args.IKafkaRelayArgs|null} [kafka] CreateRelayOptions kafka
              * @property {protos.args.IAWSSQSRelayArgs|null} [awsSqs] CreateRelayOptions awsSqs
@@ -28799,28 +19796,28 @@ $root.protos = (function() {
             CreateRelayOptions.prototype.numWorkers = 0;
 
             /**
-             * CreateRelayOptions batchshGrpcAddress.
-             * @member {string} batchshGrpcAddress
+             * CreateRelayOptions streamdalGrpcAddress.
+             * @member {string} streamdalGrpcAddress
              * @memberof protos.opts.CreateRelayOptions
              * @instance
              */
-            CreateRelayOptions.prototype.batchshGrpcAddress = "";
+            CreateRelayOptions.prototype.streamdalGrpcAddress = "";
 
             /**
-             * CreateRelayOptions batchshGrpcDisableTls.
-             * @member {boolean} batchshGrpcDisableTls
+             * CreateRelayOptions streamdalGrpcDisableTls.
+             * @member {boolean} streamdalGrpcDisableTls
              * @memberof protos.opts.CreateRelayOptions
              * @instance
              */
-            CreateRelayOptions.prototype.batchshGrpcDisableTls = false;
+            CreateRelayOptions.prototype.streamdalGrpcDisableTls = false;
 
             /**
-             * CreateRelayOptions batchshGrpcTimeoutSeconds.
-             * @member {number} batchshGrpcTimeoutSeconds
+             * CreateRelayOptions streamdalGrpcTimeoutSeconds.
+             * @member {number} streamdalGrpcTimeoutSeconds
              * @memberof protos.opts.CreateRelayOptions
              * @instance
              */
-            CreateRelayOptions.prototype.batchshGrpcTimeoutSeconds = 0;
+            CreateRelayOptions.prototype.streamdalGrpcTimeoutSeconds = 0;
 
             /**
              * CreateRelayOptions deadLetter.
@@ -28984,12 +19981,12 @@ $root.protos = (function() {
                     writer.uint32(/* id 4, wireType 0 =*/32).int32(message.batchMaxRetry);
                 if (message.numWorkers != null && Object.hasOwnProperty.call(message, "numWorkers"))
                     writer.uint32(/* id 5, wireType 0 =*/40).int32(message.numWorkers);
-                if (message.batchshGrpcAddress != null && Object.hasOwnProperty.call(message, "batchshGrpcAddress"))
-                    writer.uint32(/* id 6, wireType 2 =*/50).string(message.batchshGrpcAddress);
-                if (message.batchshGrpcDisableTls != null && Object.hasOwnProperty.call(message, "batchshGrpcDisableTls"))
-                    writer.uint32(/* id 7, wireType 0 =*/56).bool(message.batchshGrpcDisableTls);
-                if (message.batchshGrpcTimeoutSeconds != null && Object.hasOwnProperty.call(message, "batchshGrpcTimeoutSeconds"))
-                    writer.uint32(/* id 8, wireType 0 =*/64).int32(message.batchshGrpcTimeoutSeconds);
+                if (message.streamdalGrpcAddress != null && Object.hasOwnProperty.call(message, "streamdalGrpcAddress"))
+                    writer.uint32(/* id 6, wireType 2 =*/50).string(message.streamdalGrpcAddress);
+                if (message.streamdalGrpcDisableTls != null && Object.hasOwnProperty.call(message, "streamdalGrpcDisableTls"))
+                    writer.uint32(/* id 7, wireType 0 =*/56).bool(message.streamdalGrpcDisableTls);
+                if (message.streamdalGrpcTimeoutSeconds != null && Object.hasOwnProperty.call(message, "streamdalGrpcTimeoutSeconds"))
+                    writer.uint32(/* id 8, wireType 0 =*/64).int32(message.streamdalGrpcTimeoutSeconds);
                 if (message.deadLetter != null && Object.hasOwnProperty.call(message, "deadLetter"))
                     writer.uint32(/* id 9, wireType 0 =*/72).bool(message.deadLetter);
                 if (message.kafka != null && Object.hasOwnProperty.call(message, "kafka"))
@@ -29072,13 +20069,13 @@ $root.protos = (function() {
                         message.numWorkers = reader.int32();
                         break;
                     case 6:
-                        message.batchshGrpcAddress = reader.string();
+                        message.streamdalGrpcAddress = reader.string();
                         break;
                     case 7:
-                        message.batchshGrpcDisableTls = reader.bool();
+                        message.streamdalGrpcDisableTls = reader.bool();
                         break;
                     case 8:
-                        message.batchshGrpcTimeoutSeconds = reader.int32();
+                        message.streamdalGrpcTimeoutSeconds = reader.int32();
                         break;
                     case 9:
                         message.deadLetter = reader.bool();
@@ -29178,15 +20175,15 @@ $root.protos = (function() {
                 if (message.numWorkers != null && message.hasOwnProperty("numWorkers"))
                     if (!$util.isInteger(message.numWorkers))
                         return "numWorkers: integer expected";
-                if (message.batchshGrpcAddress != null && message.hasOwnProperty("batchshGrpcAddress"))
-                    if (!$util.isString(message.batchshGrpcAddress))
-                        return "batchshGrpcAddress: string expected";
-                if (message.batchshGrpcDisableTls != null && message.hasOwnProperty("batchshGrpcDisableTls"))
-                    if (typeof message.batchshGrpcDisableTls !== "boolean")
-                        return "batchshGrpcDisableTls: boolean expected";
-                if (message.batchshGrpcTimeoutSeconds != null && message.hasOwnProperty("batchshGrpcTimeoutSeconds"))
-                    if (!$util.isInteger(message.batchshGrpcTimeoutSeconds))
-                        return "batchshGrpcTimeoutSeconds: integer expected";
+                if (message.streamdalGrpcAddress != null && message.hasOwnProperty("streamdalGrpcAddress"))
+                    if (!$util.isString(message.streamdalGrpcAddress))
+                        return "streamdalGrpcAddress: string expected";
+                if (message.streamdalGrpcDisableTls != null && message.hasOwnProperty("streamdalGrpcDisableTls"))
+                    if (typeof message.streamdalGrpcDisableTls !== "boolean")
+                        return "streamdalGrpcDisableTls: boolean expected";
+                if (message.streamdalGrpcTimeoutSeconds != null && message.hasOwnProperty("streamdalGrpcTimeoutSeconds"))
+                    if (!$util.isInteger(message.streamdalGrpcTimeoutSeconds))
+                        return "streamdalGrpcTimeoutSeconds: integer expected";
                 if (message.deadLetter != null && message.hasOwnProperty("deadLetter"))
                     if (typeof message.deadLetter !== "boolean")
                         return "deadLetter: boolean expected";
@@ -29290,12 +20287,12 @@ $root.protos = (function() {
                     message.batchMaxRetry = object.batchMaxRetry | 0;
                 if (object.numWorkers != null)
                     message.numWorkers = object.numWorkers | 0;
-                if (object.batchshGrpcAddress != null)
-                    message.batchshGrpcAddress = String(object.batchshGrpcAddress);
-                if (object.batchshGrpcDisableTls != null)
-                    message.batchshGrpcDisableTls = Boolean(object.batchshGrpcDisableTls);
-                if (object.batchshGrpcTimeoutSeconds != null)
-                    message.batchshGrpcTimeoutSeconds = object.batchshGrpcTimeoutSeconds | 0;
+                if (object.streamdalGrpcAddress != null)
+                    message.streamdalGrpcAddress = String(object.streamdalGrpcAddress);
+                if (object.streamdalGrpcDisableTls != null)
+                    message.streamdalGrpcDisableTls = Boolean(object.streamdalGrpcDisableTls);
+                if (object.streamdalGrpcTimeoutSeconds != null)
+                    message.streamdalGrpcTimeoutSeconds = object.streamdalGrpcTimeoutSeconds | 0;
                 if (object.deadLetter != null)
                     message.deadLetter = Boolean(object.deadLetter);
                 if (object.kafka != null) {
@@ -29395,9 +20392,9 @@ $root.protos = (function() {
                     object.batchSize = 0;
                     object.batchMaxRetry = 0;
                     object.numWorkers = 0;
-                    object.batchshGrpcAddress = "";
-                    object.batchshGrpcDisableTls = false;
-                    object.batchshGrpcTimeoutSeconds = 0;
+                    object.streamdalGrpcAddress = "";
+                    object.streamdalGrpcDisableTls = false;
+                    object.streamdalGrpcTimeoutSeconds = 0;
                     object.deadLetter = false;
                     object.kafka = null;
                     object.awsSqs = null;
@@ -29425,12 +20422,12 @@ $root.protos = (function() {
                     object.batchMaxRetry = message.batchMaxRetry;
                 if (message.numWorkers != null && message.hasOwnProperty("numWorkers"))
                     object.numWorkers = message.numWorkers;
-                if (message.batchshGrpcAddress != null && message.hasOwnProperty("batchshGrpcAddress"))
-                    object.batchshGrpcAddress = message.batchshGrpcAddress;
-                if (message.batchshGrpcDisableTls != null && message.hasOwnProperty("batchshGrpcDisableTls"))
-                    object.batchshGrpcDisableTls = message.batchshGrpcDisableTls;
-                if (message.batchshGrpcTimeoutSeconds != null && message.hasOwnProperty("batchshGrpcTimeoutSeconds"))
-                    object.batchshGrpcTimeoutSeconds = message.batchshGrpcTimeoutSeconds;
+                if (message.streamdalGrpcAddress != null && message.hasOwnProperty("streamdalGrpcAddress"))
+                    object.streamdalGrpcAddress = message.streamdalGrpcAddress;
+                if (message.streamdalGrpcDisableTls != null && message.hasOwnProperty("streamdalGrpcDisableTls"))
+                    object.streamdalGrpcDisableTls = message.streamdalGrpcDisableTls;
+                if (message.streamdalGrpcTimeoutSeconds != null && message.hasOwnProperty("streamdalGrpcTimeoutSeconds"))
+                    object.streamdalGrpcTimeoutSeconds = message.streamdalGrpcTimeoutSeconds;
                 if (message.deadLetter != null && message.hasOwnProperty("deadLetter"))
                     object.deadLetter = message.deadLetter;
                 if (message.kafka != null && message.hasOwnProperty("kafka"))
@@ -37893,6 +28890,9009 @@ $root.protos = (function() {
             })();
 
             return InferSchemaOptions;
+        })();
+
+        /**
+         * StreamdalOutputType enum.
+         * @name protos.opts.StreamdalOutputType
+         * @enum {number}
+         * @property {number} TABLE=0 TABLE value
+         * @property {number} JSON=1 JSON value
+         */
+        opts.StreamdalOutputType = (function() {
+            var valuesById = {}, values = Object.create(valuesById);
+            values[valuesById[0] = "TABLE"] = 0;
+            values[valuesById[1] = "JSON"] = 1;
+            return values;
+        })();
+
+        /**
+         * StreamdalReplayType enum.
+         * @name protos.opts.StreamdalReplayType
+         * @enum {number}
+         * @property {number} SINGLE=0 SINGLE value
+         * @property {number} CONTINUOUS=1 CONTINUOUS value
+         */
+        opts.StreamdalReplayType = (function() {
+            var valuesById = {}, values = Object.create(valuesById);
+            values[valuesById[0] = "SINGLE"] = 0;
+            values[valuesById[1] = "CONTINUOUS"] = 1;
+            return values;
+        })();
+
+        opts.StreamdalOptions = (function() {
+
+            /**
+             * Properties of a StreamdalOptions.
+             * @memberof protos.opts
+             * @interface IStreamdalOptions
+             * @property {protos.opts.StreamdalOutputType|null} [outputType] StreamdalOptions outputType
+             * @property {string|null} [apiUrl] StreamdalOptions apiUrl
+             * @property {protos.opts.IStreamdalLoginOptions|null} [login] StreamdalOptions login
+             * @property {protos.opts.IStreamdalLogoutOptions|null} [logout] StreamdalOptions logout
+             * @property {protos.opts.IStreamdalListOptions|null} [list] StreamdalOptions list
+             * @property {protos.opts.IStreamdalCreateOptions|null} [create] StreamdalOptions create
+             * @property {protos.opts.IStreamdalSearchOptions|null} [search] StreamdalOptions search
+             * @property {protos.opts.IStreamdalArchiveOptions|null} [archive] StreamdalOptions archive
+             */
+
+            /**
+             * Constructs a new StreamdalOptions.
+             * @memberof protos.opts
+             * @classdesc Represents a StreamdalOptions.
+             * @implements IStreamdalOptions
+             * @constructor
+             * @param {protos.opts.IStreamdalOptions=} [properties] Properties to set
+             */
+            function StreamdalOptions(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * StreamdalOptions outputType.
+             * @member {protos.opts.StreamdalOutputType} outputType
+             * @memberof protos.opts.StreamdalOptions
+             * @instance
+             */
+            StreamdalOptions.prototype.outputType = 0;
+
+            /**
+             * StreamdalOptions apiUrl.
+             * @member {string} apiUrl
+             * @memberof protos.opts.StreamdalOptions
+             * @instance
+             */
+            StreamdalOptions.prototype.apiUrl = "";
+
+            /**
+             * StreamdalOptions login.
+             * @member {protos.opts.IStreamdalLoginOptions|null|undefined} login
+             * @memberof protos.opts.StreamdalOptions
+             * @instance
+             */
+            StreamdalOptions.prototype.login = null;
+
+            /**
+             * StreamdalOptions logout.
+             * @member {protos.opts.IStreamdalLogoutOptions|null|undefined} logout
+             * @memberof protos.opts.StreamdalOptions
+             * @instance
+             */
+            StreamdalOptions.prototype.logout = null;
+
+            /**
+             * StreamdalOptions list.
+             * @member {protos.opts.IStreamdalListOptions|null|undefined} list
+             * @memberof protos.opts.StreamdalOptions
+             * @instance
+             */
+            StreamdalOptions.prototype.list = null;
+
+            /**
+             * StreamdalOptions create.
+             * @member {protos.opts.IStreamdalCreateOptions|null|undefined} create
+             * @memberof protos.opts.StreamdalOptions
+             * @instance
+             */
+            StreamdalOptions.prototype.create = null;
+
+            /**
+             * StreamdalOptions search.
+             * @member {protos.opts.IStreamdalSearchOptions|null|undefined} search
+             * @memberof protos.opts.StreamdalOptions
+             * @instance
+             */
+            StreamdalOptions.prototype.search = null;
+
+            /**
+             * StreamdalOptions archive.
+             * @member {protos.opts.IStreamdalArchiveOptions|null|undefined} archive
+             * @memberof protos.opts.StreamdalOptions
+             * @instance
+             */
+            StreamdalOptions.prototype.archive = null;
+
+            /**
+             * Creates a new StreamdalOptions instance using the specified properties.
+             * @function create
+             * @memberof protos.opts.StreamdalOptions
+             * @static
+             * @param {protos.opts.IStreamdalOptions=} [properties] Properties to set
+             * @returns {protos.opts.StreamdalOptions} StreamdalOptions instance
+             */
+            StreamdalOptions.create = function create(properties) {
+                return new StreamdalOptions(properties);
+            };
+
+            /**
+             * Encodes the specified StreamdalOptions message. Does not implicitly {@link protos.opts.StreamdalOptions.verify|verify} messages.
+             * @function encode
+             * @memberof protos.opts.StreamdalOptions
+             * @static
+             * @param {protos.opts.IStreamdalOptions} message StreamdalOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            StreamdalOptions.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.outputType != null && Object.hasOwnProperty.call(message, "outputType"))
+                    writer.uint32(/* id 1, wireType 0 =*/8).int32(message.outputType);
+                if (message.apiUrl != null && Object.hasOwnProperty.call(message, "apiUrl"))
+                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.apiUrl);
+                if (message.login != null && Object.hasOwnProperty.call(message, "login"))
+                    $root.protos.opts.StreamdalLoginOptions.encode(message.login, writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
+                if (message.logout != null && Object.hasOwnProperty.call(message, "logout"))
+                    $root.protos.opts.StreamdalLogoutOptions.encode(message.logout, writer.uint32(/* id 4, wireType 2 =*/34).fork()).ldelim();
+                if (message.list != null && Object.hasOwnProperty.call(message, "list"))
+                    $root.protos.opts.StreamdalListOptions.encode(message.list, writer.uint32(/* id 5, wireType 2 =*/42).fork()).ldelim();
+                if (message.create != null && Object.hasOwnProperty.call(message, "create"))
+                    $root.protos.opts.StreamdalCreateOptions.encode(message.create, writer.uint32(/* id 6, wireType 2 =*/50).fork()).ldelim();
+                if (message.search != null && Object.hasOwnProperty.call(message, "search"))
+                    $root.protos.opts.StreamdalSearchOptions.encode(message.search, writer.uint32(/* id 7, wireType 2 =*/58).fork()).ldelim();
+                if (message.archive != null && Object.hasOwnProperty.call(message, "archive"))
+                    $root.protos.opts.StreamdalArchiveOptions.encode(message.archive, writer.uint32(/* id 8, wireType 2 =*/66).fork()).ldelim();
+                return writer;
+            };
+
+            /**
+             * Encodes the specified StreamdalOptions message, length delimited. Does not implicitly {@link protos.opts.StreamdalOptions.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.opts.StreamdalOptions
+             * @static
+             * @param {protos.opts.IStreamdalOptions} message StreamdalOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            StreamdalOptions.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a StreamdalOptions message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.opts.StreamdalOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.opts.StreamdalOptions} StreamdalOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            StreamdalOptions.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.StreamdalOptions();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.outputType = reader.int32();
+                        break;
+                    case 2:
+                        message.apiUrl = reader.string();
+                        break;
+                    case 3:
+                        message.login = $root.protos.opts.StreamdalLoginOptions.decode(reader, reader.uint32());
+                        break;
+                    case 4:
+                        message.logout = $root.protos.opts.StreamdalLogoutOptions.decode(reader, reader.uint32());
+                        break;
+                    case 5:
+                        message.list = $root.protos.opts.StreamdalListOptions.decode(reader, reader.uint32());
+                        break;
+                    case 6:
+                        message.create = $root.protos.opts.StreamdalCreateOptions.decode(reader, reader.uint32());
+                        break;
+                    case 7:
+                        message.search = $root.protos.opts.StreamdalSearchOptions.decode(reader, reader.uint32());
+                        break;
+                    case 8:
+                        message.archive = $root.protos.opts.StreamdalArchiveOptions.decode(reader, reader.uint32());
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a StreamdalOptions message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.opts.StreamdalOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.opts.StreamdalOptions} StreamdalOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            StreamdalOptions.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a StreamdalOptions message.
+             * @function verify
+             * @memberof protos.opts.StreamdalOptions
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            StreamdalOptions.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.outputType != null && message.hasOwnProperty("outputType"))
+                    switch (message.outputType) {
+                    default:
+                        return "outputType: enum value expected";
+                    case 0:
+                    case 1:
+                        break;
+                    }
+                if (message.apiUrl != null && message.hasOwnProperty("apiUrl"))
+                    if (!$util.isString(message.apiUrl))
+                        return "apiUrl: string expected";
+                if (message.login != null && message.hasOwnProperty("login")) {
+                    var error = $root.protos.opts.StreamdalLoginOptions.verify(message.login);
+                    if (error)
+                        return "login." + error;
+                }
+                if (message.logout != null && message.hasOwnProperty("logout")) {
+                    var error = $root.protos.opts.StreamdalLogoutOptions.verify(message.logout);
+                    if (error)
+                        return "logout." + error;
+                }
+                if (message.list != null && message.hasOwnProperty("list")) {
+                    var error = $root.protos.opts.StreamdalListOptions.verify(message.list);
+                    if (error)
+                        return "list." + error;
+                }
+                if (message.create != null && message.hasOwnProperty("create")) {
+                    var error = $root.protos.opts.StreamdalCreateOptions.verify(message.create);
+                    if (error)
+                        return "create." + error;
+                }
+                if (message.search != null && message.hasOwnProperty("search")) {
+                    var error = $root.protos.opts.StreamdalSearchOptions.verify(message.search);
+                    if (error)
+                        return "search." + error;
+                }
+                if (message.archive != null && message.hasOwnProperty("archive")) {
+                    var error = $root.protos.opts.StreamdalArchiveOptions.verify(message.archive);
+                    if (error)
+                        return "archive." + error;
+                }
+                return null;
+            };
+
+            /**
+             * Creates a StreamdalOptions message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.opts.StreamdalOptions
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.opts.StreamdalOptions} StreamdalOptions
+             */
+            StreamdalOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.StreamdalOptions)
+                    return object;
+                var message = new $root.protos.opts.StreamdalOptions();
+                switch (object.outputType) {
+                case "TABLE":
+                case 0:
+                    message.outputType = 0;
+                    break;
+                case "JSON":
+                case 1:
+                    message.outputType = 1;
+                    break;
+                }
+                if (object.apiUrl != null)
+                    message.apiUrl = String(object.apiUrl);
+                if (object.login != null) {
+                    if (typeof object.login !== "object")
+                        throw TypeError(".protos.opts.StreamdalOptions.login: object expected");
+                    message.login = $root.protos.opts.StreamdalLoginOptions.fromObject(object.login);
+                }
+                if (object.logout != null) {
+                    if (typeof object.logout !== "object")
+                        throw TypeError(".protos.opts.StreamdalOptions.logout: object expected");
+                    message.logout = $root.protos.opts.StreamdalLogoutOptions.fromObject(object.logout);
+                }
+                if (object.list != null) {
+                    if (typeof object.list !== "object")
+                        throw TypeError(".protos.opts.StreamdalOptions.list: object expected");
+                    message.list = $root.protos.opts.StreamdalListOptions.fromObject(object.list);
+                }
+                if (object.create != null) {
+                    if (typeof object.create !== "object")
+                        throw TypeError(".protos.opts.StreamdalOptions.create: object expected");
+                    message.create = $root.protos.opts.StreamdalCreateOptions.fromObject(object.create);
+                }
+                if (object.search != null) {
+                    if (typeof object.search !== "object")
+                        throw TypeError(".protos.opts.StreamdalOptions.search: object expected");
+                    message.search = $root.protos.opts.StreamdalSearchOptions.fromObject(object.search);
+                }
+                if (object.archive != null) {
+                    if (typeof object.archive !== "object")
+                        throw TypeError(".protos.opts.StreamdalOptions.archive: object expected");
+                    message.archive = $root.protos.opts.StreamdalArchiveOptions.fromObject(object.archive);
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a StreamdalOptions message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.opts.StreamdalOptions
+             * @static
+             * @param {protos.opts.StreamdalOptions} message StreamdalOptions
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            StreamdalOptions.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    object.outputType = options.enums === String ? "TABLE" : 0;
+                    object.apiUrl = "";
+                    object.login = null;
+                    object.logout = null;
+                    object.list = null;
+                    object.create = null;
+                    object.search = null;
+                    object.archive = null;
+                }
+                if (message.outputType != null && message.hasOwnProperty("outputType"))
+                    object.outputType = options.enums === String ? $root.protos.opts.StreamdalOutputType[message.outputType] : message.outputType;
+                if (message.apiUrl != null && message.hasOwnProperty("apiUrl"))
+                    object.apiUrl = message.apiUrl;
+                if (message.login != null && message.hasOwnProperty("login"))
+                    object.login = $root.protos.opts.StreamdalLoginOptions.toObject(message.login, options);
+                if (message.logout != null && message.hasOwnProperty("logout"))
+                    object.logout = $root.protos.opts.StreamdalLogoutOptions.toObject(message.logout, options);
+                if (message.list != null && message.hasOwnProperty("list"))
+                    object.list = $root.protos.opts.StreamdalListOptions.toObject(message.list, options);
+                if (message.create != null && message.hasOwnProperty("create"))
+                    object.create = $root.protos.opts.StreamdalCreateOptions.toObject(message.create, options);
+                if (message.search != null && message.hasOwnProperty("search"))
+                    object.search = $root.protos.opts.StreamdalSearchOptions.toObject(message.search, options);
+                if (message.archive != null && message.hasOwnProperty("archive"))
+                    object.archive = $root.protos.opts.StreamdalArchiveOptions.toObject(message.archive, options);
+                return object;
+            };
+
+            /**
+             * Converts this StreamdalOptions to JSON.
+             * @function toJSON
+             * @memberof protos.opts.StreamdalOptions
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            StreamdalOptions.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return StreamdalOptions;
+        })();
+
+        opts.StreamdalLoginOptions = (function() {
+
+            /**
+             * Properties of a StreamdalLoginOptions.
+             * @memberof protos.opts
+             * @interface IStreamdalLoginOptions
+             */
+
+            /**
+             * Constructs a new StreamdalLoginOptions.
+             * @memberof protos.opts
+             * @classdesc Represents a StreamdalLoginOptions.
+             * @implements IStreamdalLoginOptions
+             * @constructor
+             * @param {protos.opts.IStreamdalLoginOptions=} [properties] Properties to set
+             */
+            function StreamdalLoginOptions(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * Creates a new StreamdalLoginOptions instance using the specified properties.
+             * @function create
+             * @memberof protos.opts.StreamdalLoginOptions
+             * @static
+             * @param {protos.opts.IStreamdalLoginOptions=} [properties] Properties to set
+             * @returns {protos.opts.StreamdalLoginOptions} StreamdalLoginOptions instance
+             */
+            StreamdalLoginOptions.create = function create(properties) {
+                return new StreamdalLoginOptions(properties);
+            };
+
+            /**
+             * Encodes the specified StreamdalLoginOptions message. Does not implicitly {@link protos.opts.StreamdalLoginOptions.verify|verify} messages.
+             * @function encode
+             * @memberof protos.opts.StreamdalLoginOptions
+             * @static
+             * @param {protos.opts.IStreamdalLoginOptions} message StreamdalLoginOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            StreamdalLoginOptions.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                return writer;
+            };
+
+            /**
+             * Encodes the specified StreamdalLoginOptions message, length delimited. Does not implicitly {@link protos.opts.StreamdalLoginOptions.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.opts.StreamdalLoginOptions
+             * @static
+             * @param {protos.opts.IStreamdalLoginOptions} message StreamdalLoginOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            StreamdalLoginOptions.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a StreamdalLoginOptions message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.opts.StreamdalLoginOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.opts.StreamdalLoginOptions} StreamdalLoginOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            StreamdalLoginOptions.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.StreamdalLoginOptions();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a StreamdalLoginOptions message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.opts.StreamdalLoginOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.opts.StreamdalLoginOptions} StreamdalLoginOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            StreamdalLoginOptions.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a StreamdalLoginOptions message.
+             * @function verify
+             * @memberof protos.opts.StreamdalLoginOptions
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            StreamdalLoginOptions.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                return null;
+            };
+
+            /**
+             * Creates a StreamdalLoginOptions message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.opts.StreamdalLoginOptions
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.opts.StreamdalLoginOptions} StreamdalLoginOptions
+             */
+            StreamdalLoginOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.StreamdalLoginOptions)
+                    return object;
+                return new $root.protos.opts.StreamdalLoginOptions();
+            };
+
+            /**
+             * Creates a plain object from a StreamdalLoginOptions message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.opts.StreamdalLoginOptions
+             * @static
+             * @param {protos.opts.StreamdalLoginOptions} message StreamdalLoginOptions
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            StreamdalLoginOptions.toObject = function toObject() {
+                return {};
+            };
+
+            /**
+             * Converts this StreamdalLoginOptions to JSON.
+             * @function toJSON
+             * @memberof protos.opts.StreamdalLoginOptions
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            StreamdalLoginOptions.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return StreamdalLoginOptions;
+        })();
+
+        opts.StreamdalLogoutOptions = (function() {
+
+            /**
+             * Properties of a StreamdalLogoutOptions.
+             * @memberof protos.opts
+             * @interface IStreamdalLogoutOptions
+             */
+
+            /**
+             * Constructs a new StreamdalLogoutOptions.
+             * @memberof protos.opts
+             * @classdesc Represents a StreamdalLogoutOptions.
+             * @implements IStreamdalLogoutOptions
+             * @constructor
+             * @param {protos.opts.IStreamdalLogoutOptions=} [properties] Properties to set
+             */
+            function StreamdalLogoutOptions(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * Creates a new StreamdalLogoutOptions instance using the specified properties.
+             * @function create
+             * @memberof protos.opts.StreamdalLogoutOptions
+             * @static
+             * @param {protos.opts.IStreamdalLogoutOptions=} [properties] Properties to set
+             * @returns {protos.opts.StreamdalLogoutOptions} StreamdalLogoutOptions instance
+             */
+            StreamdalLogoutOptions.create = function create(properties) {
+                return new StreamdalLogoutOptions(properties);
+            };
+
+            /**
+             * Encodes the specified StreamdalLogoutOptions message. Does not implicitly {@link protos.opts.StreamdalLogoutOptions.verify|verify} messages.
+             * @function encode
+             * @memberof protos.opts.StreamdalLogoutOptions
+             * @static
+             * @param {protos.opts.IStreamdalLogoutOptions} message StreamdalLogoutOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            StreamdalLogoutOptions.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                return writer;
+            };
+
+            /**
+             * Encodes the specified StreamdalLogoutOptions message, length delimited. Does not implicitly {@link protos.opts.StreamdalLogoutOptions.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.opts.StreamdalLogoutOptions
+             * @static
+             * @param {protos.opts.IStreamdalLogoutOptions} message StreamdalLogoutOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            StreamdalLogoutOptions.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a StreamdalLogoutOptions message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.opts.StreamdalLogoutOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.opts.StreamdalLogoutOptions} StreamdalLogoutOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            StreamdalLogoutOptions.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.StreamdalLogoutOptions();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a StreamdalLogoutOptions message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.opts.StreamdalLogoutOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.opts.StreamdalLogoutOptions} StreamdalLogoutOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            StreamdalLogoutOptions.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a StreamdalLogoutOptions message.
+             * @function verify
+             * @memberof protos.opts.StreamdalLogoutOptions
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            StreamdalLogoutOptions.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                return null;
+            };
+
+            /**
+             * Creates a StreamdalLogoutOptions message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.opts.StreamdalLogoutOptions
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.opts.StreamdalLogoutOptions} StreamdalLogoutOptions
+             */
+            StreamdalLogoutOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.StreamdalLogoutOptions)
+                    return object;
+                return new $root.protos.opts.StreamdalLogoutOptions();
+            };
+
+            /**
+             * Creates a plain object from a StreamdalLogoutOptions message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.opts.StreamdalLogoutOptions
+             * @static
+             * @param {protos.opts.StreamdalLogoutOptions} message StreamdalLogoutOptions
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            StreamdalLogoutOptions.toObject = function toObject() {
+                return {};
+            };
+
+            /**
+             * Converts this StreamdalLogoutOptions to JSON.
+             * @function toJSON
+             * @memberof protos.opts.StreamdalLogoutOptions
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            StreamdalLogoutOptions.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return StreamdalLogoutOptions;
+        })();
+
+        opts.StreamdalListCollectionOptions = (function() {
+
+            /**
+             * Properties of a StreamdalListCollectionOptions.
+             * @memberof protos.opts
+             * @interface IStreamdalListCollectionOptions
+             */
+
+            /**
+             * Constructs a new StreamdalListCollectionOptions.
+             * @memberof protos.opts
+             * @classdesc Represents a StreamdalListCollectionOptions.
+             * @implements IStreamdalListCollectionOptions
+             * @constructor
+             * @param {protos.opts.IStreamdalListCollectionOptions=} [properties] Properties to set
+             */
+            function StreamdalListCollectionOptions(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * Creates a new StreamdalListCollectionOptions instance using the specified properties.
+             * @function create
+             * @memberof protos.opts.StreamdalListCollectionOptions
+             * @static
+             * @param {protos.opts.IStreamdalListCollectionOptions=} [properties] Properties to set
+             * @returns {protos.opts.StreamdalListCollectionOptions} StreamdalListCollectionOptions instance
+             */
+            StreamdalListCollectionOptions.create = function create(properties) {
+                return new StreamdalListCollectionOptions(properties);
+            };
+
+            /**
+             * Encodes the specified StreamdalListCollectionOptions message. Does not implicitly {@link protos.opts.StreamdalListCollectionOptions.verify|verify} messages.
+             * @function encode
+             * @memberof protos.opts.StreamdalListCollectionOptions
+             * @static
+             * @param {protos.opts.IStreamdalListCollectionOptions} message StreamdalListCollectionOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            StreamdalListCollectionOptions.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                return writer;
+            };
+
+            /**
+             * Encodes the specified StreamdalListCollectionOptions message, length delimited. Does not implicitly {@link protos.opts.StreamdalListCollectionOptions.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.opts.StreamdalListCollectionOptions
+             * @static
+             * @param {protos.opts.IStreamdalListCollectionOptions} message StreamdalListCollectionOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            StreamdalListCollectionOptions.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a StreamdalListCollectionOptions message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.opts.StreamdalListCollectionOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.opts.StreamdalListCollectionOptions} StreamdalListCollectionOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            StreamdalListCollectionOptions.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.StreamdalListCollectionOptions();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a StreamdalListCollectionOptions message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.opts.StreamdalListCollectionOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.opts.StreamdalListCollectionOptions} StreamdalListCollectionOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            StreamdalListCollectionOptions.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a StreamdalListCollectionOptions message.
+             * @function verify
+             * @memberof protos.opts.StreamdalListCollectionOptions
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            StreamdalListCollectionOptions.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                return null;
+            };
+
+            /**
+             * Creates a StreamdalListCollectionOptions message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.opts.StreamdalListCollectionOptions
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.opts.StreamdalListCollectionOptions} StreamdalListCollectionOptions
+             */
+            StreamdalListCollectionOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.StreamdalListCollectionOptions)
+                    return object;
+                return new $root.protos.opts.StreamdalListCollectionOptions();
+            };
+
+            /**
+             * Creates a plain object from a StreamdalListCollectionOptions message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.opts.StreamdalListCollectionOptions
+             * @static
+             * @param {protos.opts.StreamdalListCollectionOptions} message StreamdalListCollectionOptions
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            StreamdalListCollectionOptions.toObject = function toObject() {
+                return {};
+            };
+
+            /**
+             * Converts this StreamdalListCollectionOptions to JSON.
+             * @function toJSON
+             * @memberof protos.opts.StreamdalListCollectionOptions
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            StreamdalListCollectionOptions.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return StreamdalListCollectionOptions;
+        })();
+
+        opts.StreamdalListDestinationOptions = (function() {
+
+            /**
+             * Properties of a StreamdalListDestinationOptions.
+             * @memberof protos.opts
+             * @interface IStreamdalListDestinationOptions
+             */
+
+            /**
+             * Constructs a new StreamdalListDestinationOptions.
+             * @memberof protos.opts
+             * @classdesc Represents a StreamdalListDestinationOptions.
+             * @implements IStreamdalListDestinationOptions
+             * @constructor
+             * @param {protos.opts.IStreamdalListDestinationOptions=} [properties] Properties to set
+             */
+            function StreamdalListDestinationOptions(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * Creates a new StreamdalListDestinationOptions instance using the specified properties.
+             * @function create
+             * @memberof protos.opts.StreamdalListDestinationOptions
+             * @static
+             * @param {protos.opts.IStreamdalListDestinationOptions=} [properties] Properties to set
+             * @returns {protos.opts.StreamdalListDestinationOptions} StreamdalListDestinationOptions instance
+             */
+            StreamdalListDestinationOptions.create = function create(properties) {
+                return new StreamdalListDestinationOptions(properties);
+            };
+
+            /**
+             * Encodes the specified StreamdalListDestinationOptions message. Does not implicitly {@link protos.opts.StreamdalListDestinationOptions.verify|verify} messages.
+             * @function encode
+             * @memberof protos.opts.StreamdalListDestinationOptions
+             * @static
+             * @param {protos.opts.IStreamdalListDestinationOptions} message StreamdalListDestinationOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            StreamdalListDestinationOptions.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                return writer;
+            };
+
+            /**
+             * Encodes the specified StreamdalListDestinationOptions message, length delimited. Does not implicitly {@link protos.opts.StreamdalListDestinationOptions.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.opts.StreamdalListDestinationOptions
+             * @static
+             * @param {protos.opts.IStreamdalListDestinationOptions} message StreamdalListDestinationOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            StreamdalListDestinationOptions.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a StreamdalListDestinationOptions message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.opts.StreamdalListDestinationOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.opts.StreamdalListDestinationOptions} StreamdalListDestinationOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            StreamdalListDestinationOptions.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.StreamdalListDestinationOptions();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a StreamdalListDestinationOptions message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.opts.StreamdalListDestinationOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.opts.StreamdalListDestinationOptions} StreamdalListDestinationOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            StreamdalListDestinationOptions.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a StreamdalListDestinationOptions message.
+             * @function verify
+             * @memberof protos.opts.StreamdalListDestinationOptions
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            StreamdalListDestinationOptions.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                return null;
+            };
+
+            /**
+             * Creates a StreamdalListDestinationOptions message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.opts.StreamdalListDestinationOptions
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.opts.StreamdalListDestinationOptions} StreamdalListDestinationOptions
+             */
+            StreamdalListDestinationOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.StreamdalListDestinationOptions)
+                    return object;
+                return new $root.protos.opts.StreamdalListDestinationOptions();
+            };
+
+            /**
+             * Creates a plain object from a StreamdalListDestinationOptions message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.opts.StreamdalListDestinationOptions
+             * @static
+             * @param {protos.opts.StreamdalListDestinationOptions} message StreamdalListDestinationOptions
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            StreamdalListDestinationOptions.toObject = function toObject() {
+                return {};
+            };
+
+            /**
+             * Converts this StreamdalListDestinationOptions to JSON.
+             * @function toJSON
+             * @memberof protos.opts.StreamdalListDestinationOptions
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            StreamdalListDestinationOptions.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return StreamdalListDestinationOptions;
+        })();
+
+        opts.StreamdalListSchemaOptions = (function() {
+
+            /**
+             * Properties of a StreamdalListSchemaOptions.
+             * @memberof protos.opts
+             * @interface IStreamdalListSchemaOptions
+             */
+
+            /**
+             * Constructs a new StreamdalListSchemaOptions.
+             * @memberof protos.opts
+             * @classdesc Represents a StreamdalListSchemaOptions.
+             * @implements IStreamdalListSchemaOptions
+             * @constructor
+             * @param {protos.opts.IStreamdalListSchemaOptions=} [properties] Properties to set
+             */
+            function StreamdalListSchemaOptions(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * Creates a new StreamdalListSchemaOptions instance using the specified properties.
+             * @function create
+             * @memberof protos.opts.StreamdalListSchemaOptions
+             * @static
+             * @param {protos.opts.IStreamdalListSchemaOptions=} [properties] Properties to set
+             * @returns {protos.opts.StreamdalListSchemaOptions} StreamdalListSchemaOptions instance
+             */
+            StreamdalListSchemaOptions.create = function create(properties) {
+                return new StreamdalListSchemaOptions(properties);
+            };
+
+            /**
+             * Encodes the specified StreamdalListSchemaOptions message. Does not implicitly {@link protos.opts.StreamdalListSchemaOptions.verify|verify} messages.
+             * @function encode
+             * @memberof protos.opts.StreamdalListSchemaOptions
+             * @static
+             * @param {protos.opts.IStreamdalListSchemaOptions} message StreamdalListSchemaOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            StreamdalListSchemaOptions.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                return writer;
+            };
+
+            /**
+             * Encodes the specified StreamdalListSchemaOptions message, length delimited. Does not implicitly {@link protos.opts.StreamdalListSchemaOptions.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.opts.StreamdalListSchemaOptions
+             * @static
+             * @param {protos.opts.IStreamdalListSchemaOptions} message StreamdalListSchemaOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            StreamdalListSchemaOptions.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a StreamdalListSchemaOptions message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.opts.StreamdalListSchemaOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.opts.StreamdalListSchemaOptions} StreamdalListSchemaOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            StreamdalListSchemaOptions.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.StreamdalListSchemaOptions();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a StreamdalListSchemaOptions message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.opts.StreamdalListSchemaOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.opts.StreamdalListSchemaOptions} StreamdalListSchemaOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            StreamdalListSchemaOptions.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a StreamdalListSchemaOptions message.
+             * @function verify
+             * @memberof protos.opts.StreamdalListSchemaOptions
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            StreamdalListSchemaOptions.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                return null;
+            };
+
+            /**
+             * Creates a StreamdalListSchemaOptions message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.opts.StreamdalListSchemaOptions
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.opts.StreamdalListSchemaOptions} StreamdalListSchemaOptions
+             */
+            StreamdalListSchemaOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.StreamdalListSchemaOptions)
+                    return object;
+                return new $root.protos.opts.StreamdalListSchemaOptions();
+            };
+
+            /**
+             * Creates a plain object from a StreamdalListSchemaOptions message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.opts.StreamdalListSchemaOptions
+             * @static
+             * @param {protos.opts.StreamdalListSchemaOptions} message StreamdalListSchemaOptions
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            StreamdalListSchemaOptions.toObject = function toObject() {
+                return {};
+            };
+
+            /**
+             * Converts this StreamdalListSchemaOptions to JSON.
+             * @function toJSON
+             * @memberof protos.opts.StreamdalListSchemaOptions
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            StreamdalListSchemaOptions.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return StreamdalListSchemaOptions;
+        })();
+
+        opts.StreamdalListReplayOptions = (function() {
+
+            /**
+             * Properties of a StreamdalListReplayOptions.
+             * @memberof protos.opts
+             * @interface IStreamdalListReplayOptions
+             */
+
+            /**
+             * Constructs a new StreamdalListReplayOptions.
+             * @memberof protos.opts
+             * @classdesc Represents a StreamdalListReplayOptions.
+             * @implements IStreamdalListReplayOptions
+             * @constructor
+             * @param {protos.opts.IStreamdalListReplayOptions=} [properties] Properties to set
+             */
+            function StreamdalListReplayOptions(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * Creates a new StreamdalListReplayOptions instance using the specified properties.
+             * @function create
+             * @memberof protos.opts.StreamdalListReplayOptions
+             * @static
+             * @param {protos.opts.IStreamdalListReplayOptions=} [properties] Properties to set
+             * @returns {protos.opts.StreamdalListReplayOptions} StreamdalListReplayOptions instance
+             */
+            StreamdalListReplayOptions.create = function create(properties) {
+                return new StreamdalListReplayOptions(properties);
+            };
+
+            /**
+             * Encodes the specified StreamdalListReplayOptions message. Does not implicitly {@link protos.opts.StreamdalListReplayOptions.verify|verify} messages.
+             * @function encode
+             * @memberof protos.opts.StreamdalListReplayOptions
+             * @static
+             * @param {protos.opts.IStreamdalListReplayOptions} message StreamdalListReplayOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            StreamdalListReplayOptions.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                return writer;
+            };
+
+            /**
+             * Encodes the specified StreamdalListReplayOptions message, length delimited. Does not implicitly {@link protos.opts.StreamdalListReplayOptions.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.opts.StreamdalListReplayOptions
+             * @static
+             * @param {protos.opts.IStreamdalListReplayOptions} message StreamdalListReplayOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            StreamdalListReplayOptions.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a StreamdalListReplayOptions message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.opts.StreamdalListReplayOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.opts.StreamdalListReplayOptions} StreamdalListReplayOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            StreamdalListReplayOptions.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.StreamdalListReplayOptions();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a StreamdalListReplayOptions message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.opts.StreamdalListReplayOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.opts.StreamdalListReplayOptions} StreamdalListReplayOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            StreamdalListReplayOptions.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a StreamdalListReplayOptions message.
+             * @function verify
+             * @memberof protos.opts.StreamdalListReplayOptions
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            StreamdalListReplayOptions.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                return null;
+            };
+
+            /**
+             * Creates a StreamdalListReplayOptions message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.opts.StreamdalListReplayOptions
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.opts.StreamdalListReplayOptions} StreamdalListReplayOptions
+             */
+            StreamdalListReplayOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.StreamdalListReplayOptions)
+                    return object;
+                return new $root.protos.opts.StreamdalListReplayOptions();
+            };
+
+            /**
+             * Creates a plain object from a StreamdalListReplayOptions message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.opts.StreamdalListReplayOptions
+             * @static
+             * @param {protos.opts.StreamdalListReplayOptions} message StreamdalListReplayOptions
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            StreamdalListReplayOptions.toObject = function toObject() {
+                return {};
+            };
+
+            /**
+             * Converts this StreamdalListReplayOptions to JSON.
+             * @function toJSON
+             * @memberof protos.opts.StreamdalListReplayOptions
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            StreamdalListReplayOptions.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return StreamdalListReplayOptions;
+        })();
+
+        opts.StreamdalArchiveOptions = (function() {
+
+            /**
+             * Properties of a StreamdalArchiveOptions.
+             * @memberof protos.opts
+             * @interface IStreamdalArchiveOptions
+             * @property {protos.opts.IStreamdalArchiveReplayOptions|null} [replay] StreamdalArchiveOptions replay
+             */
+
+            /**
+             * Constructs a new StreamdalArchiveOptions.
+             * @memberof protos.opts
+             * @classdesc Represents a StreamdalArchiveOptions.
+             * @implements IStreamdalArchiveOptions
+             * @constructor
+             * @param {protos.opts.IStreamdalArchiveOptions=} [properties] Properties to set
+             */
+            function StreamdalArchiveOptions(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * StreamdalArchiveOptions replay.
+             * @member {protos.opts.IStreamdalArchiveReplayOptions|null|undefined} replay
+             * @memberof protos.opts.StreamdalArchiveOptions
+             * @instance
+             */
+            StreamdalArchiveOptions.prototype.replay = null;
+
+            /**
+             * Creates a new StreamdalArchiveOptions instance using the specified properties.
+             * @function create
+             * @memberof protos.opts.StreamdalArchiveOptions
+             * @static
+             * @param {protos.opts.IStreamdalArchiveOptions=} [properties] Properties to set
+             * @returns {protos.opts.StreamdalArchiveOptions} StreamdalArchiveOptions instance
+             */
+            StreamdalArchiveOptions.create = function create(properties) {
+                return new StreamdalArchiveOptions(properties);
+            };
+
+            /**
+             * Encodes the specified StreamdalArchiveOptions message. Does not implicitly {@link protos.opts.StreamdalArchiveOptions.verify|verify} messages.
+             * @function encode
+             * @memberof protos.opts.StreamdalArchiveOptions
+             * @static
+             * @param {protos.opts.IStreamdalArchiveOptions} message StreamdalArchiveOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            StreamdalArchiveOptions.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.replay != null && Object.hasOwnProperty.call(message, "replay"))
+                    $root.protos.opts.StreamdalArchiveReplayOptions.encode(message.replay, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                return writer;
+            };
+
+            /**
+             * Encodes the specified StreamdalArchiveOptions message, length delimited. Does not implicitly {@link protos.opts.StreamdalArchiveOptions.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.opts.StreamdalArchiveOptions
+             * @static
+             * @param {protos.opts.IStreamdalArchiveOptions} message StreamdalArchiveOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            StreamdalArchiveOptions.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a StreamdalArchiveOptions message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.opts.StreamdalArchiveOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.opts.StreamdalArchiveOptions} StreamdalArchiveOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            StreamdalArchiveOptions.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.StreamdalArchiveOptions();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.replay = $root.protos.opts.StreamdalArchiveReplayOptions.decode(reader, reader.uint32());
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a StreamdalArchiveOptions message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.opts.StreamdalArchiveOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.opts.StreamdalArchiveOptions} StreamdalArchiveOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            StreamdalArchiveOptions.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a StreamdalArchiveOptions message.
+             * @function verify
+             * @memberof protos.opts.StreamdalArchiveOptions
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            StreamdalArchiveOptions.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.replay != null && message.hasOwnProperty("replay")) {
+                    var error = $root.protos.opts.StreamdalArchiveReplayOptions.verify(message.replay);
+                    if (error)
+                        return "replay." + error;
+                }
+                return null;
+            };
+
+            /**
+             * Creates a StreamdalArchiveOptions message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.opts.StreamdalArchiveOptions
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.opts.StreamdalArchiveOptions} StreamdalArchiveOptions
+             */
+            StreamdalArchiveOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.StreamdalArchiveOptions)
+                    return object;
+                var message = new $root.protos.opts.StreamdalArchiveOptions();
+                if (object.replay != null) {
+                    if (typeof object.replay !== "object")
+                        throw TypeError(".protos.opts.StreamdalArchiveOptions.replay: object expected");
+                    message.replay = $root.protos.opts.StreamdalArchiveReplayOptions.fromObject(object.replay);
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a StreamdalArchiveOptions message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.opts.StreamdalArchiveOptions
+             * @static
+             * @param {protos.opts.StreamdalArchiveOptions} message StreamdalArchiveOptions
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            StreamdalArchiveOptions.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults)
+                    object.replay = null;
+                if (message.replay != null && message.hasOwnProperty("replay"))
+                    object.replay = $root.protos.opts.StreamdalArchiveReplayOptions.toObject(message.replay, options);
+                return object;
+            };
+
+            /**
+             * Converts this StreamdalArchiveOptions to JSON.
+             * @function toJSON
+             * @memberof protos.opts.StreamdalArchiveOptions
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            StreamdalArchiveOptions.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return StreamdalArchiveOptions;
+        })();
+
+        opts.StreamdalArchiveReplayOptions = (function() {
+
+            /**
+             * Properties of a StreamdalArchiveReplayOptions.
+             * @memberof protos.opts
+             * @interface IStreamdalArchiveReplayOptions
+             * @property {string|null} [replayId] StreamdalArchiveReplayOptions replayId
+             */
+
+            /**
+             * Constructs a new StreamdalArchiveReplayOptions.
+             * @memberof protos.opts
+             * @classdesc Represents a StreamdalArchiveReplayOptions.
+             * @implements IStreamdalArchiveReplayOptions
+             * @constructor
+             * @param {protos.opts.IStreamdalArchiveReplayOptions=} [properties] Properties to set
+             */
+            function StreamdalArchiveReplayOptions(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * StreamdalArchiveReplayOptions replayId.
+             * @member {string} replayId
+             * @memberof protos.opts.StreamdalArchiveReplayOptions
+             * @instance
+             */
+            StreamdalArchiveReplayOptions.prototype.replayId = "";
+
+            /**
+             * Creates a new StreamdalArchiveReplayOptions instance using the specified properties.
+             * @function create
+             * @memberof protos.opts.StreamdalArchiveReplayOptions
+             * @static
+             * @param {protos.opts.IStreamdalArchiveReplayOptions=} [properties] Properties to set
+             * @returns {protos.opts.StreamdalArchiveReplayOptions} StreamdalArchiveReplayOptions instance
+             */
+            StreamdalArchiveReplayOptions.create = function create(properties) {
+                return new StreamdalArchiveReplayOptions(properties);
+            };
+
+            /**
+             * Encodes the specified StreamdalArchiveReplayOptions message. Does not implicitly {@link protos.opts.StreamdalArchiveReplayOptions.verify|verify} messages.
+             * @function encode
+             * @memberof protos.opts.StreamdalArchiveReplayOptions
+             * @static
+             * @param {protos.opts.IStreamdalArchiveReplayOptions} message StreamdalArchiveReplayOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            StreamdalArchiveReplayOptions.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.replayId != null && Object.hasOwnProperty.call(message, "replayId"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.replayId);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified StreamdalArchiveReplayOptions message, length delimited. Does not implicitly {@link protos.opts.StreamdalArchiveReplayOptions.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.opts.StreamdalArchiveReplayOptions
+             * @static
+             * @param {protos.opts.IStreamdalArchiveReplayOptions} message StreamdalArchiveReplayOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            StreamdalArchiveReplayOptions.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a StreamdalArchiveReplayOptions message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.opts.StreamdalArchiveReplayOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.opts.StreamdalArchiveReplayOptions} StreamdalArchiveReplayOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            StreamdalArchiveReplayOptions.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.StreamdalArchiveReplayOptions();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.replayId = reader.string();
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a StreamdalArchiveReplayOptions message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.opts.StreamdalArchiveReplayOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.opts.StreamdalArchiveReplayOptions} StreamdalArchiveReplayOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            StreamdalArchiveReplayOptions.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a StreamdalArchiveReplayOptions message.
+             * @function verify
+             * @memberof protos.opts.StreamdalArchiveReplayOptions
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            StreamdalArchiveReplayOptions.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.replayId != null && message.hasOwnProperty("replayId"))
+                    if (!$util.isString(message.replayId))
+                        return "replayId: string expected";
+                return null;
+            };
+
+            /**
+             * Creates a StreamdalArchiveReplayOptions message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.opts.StreamdalArchiveReplayOptions
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.opts.StreamdalArchiveReplayOptions} StreamdalArchiveReplayOptions
+             */
+            StreamdalArchiveReplayOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.StreamdalArchiveReplayOptions)
+                    return object;
+                var message = new $root.protos.opts.StreamdalArchiveReplayOptions();
+                if (object.replayId != null)
+                    message.replayId = String(object.replayId);
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a StreamdalArchiveReplayOptions message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.opts.StreamdalArchiveReplayOptions
+             * @static
+             * @param {protos.opts.StreamdalArchiveReplayOptions} message StreamdalArchiveReplayOptions
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            StreamdalArchiveReplayOptions.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults)
+                    object.replayId = "";
+                if (message.replayId != null && message.hasOwnProperty("replayId"))
+                    object.replayId = message.replayId;
+                return object;
+            };
+
+            /**
+             * Converts this StreamdalArchiveReplayOptions to JSON.
+             * @function toJSON
+             * @memberof protos.opts.StreamdalArchiveReplayOptions
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            StreamdalArchiveReplayOptions.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return StreamdalArchiveReplayOptions;
+        })();
+
+        opts.StreamdalListOptions = (function() {
+
+            /**
+             * Properties of a StreamdalListOptions.
+             * @memberof protos.opts
+             * @interface IStreamdalListOptions
+             * @property {protos.opts.IStreamdalListCollectionOptions|null} [collection] StreamdalListOptions collection
+             * @property {protos.opts.IStreamdalListDestinationOptions|null} [destination] StreamdalListOptions destination
+             * @property {protos.opts.IStreamdalListReplayOptions|null} [replay] StreamdalListOptions replay
+             * @property {protos.opts.IStreamdalListSchemaOptions|null} [schema] StreamdalListOptions schema
+             */
+
+            /**
+             * Constructs a new StreamdalListOptions.
+             * @memberof protos.opts
+             * @classdesc Represents a StreamdalListOptions.
+             * @implements IStreamdalListOptions
+             * @constructor
+             * @param {protos.opts.IStreamdalListOptions=} [properties] Properties to set
+             */
+            function StreamdalListOptions(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * StreamdalListOptions collection.
+             * @member {protos.opts.IStreamdalListCollectionOptions|null|undefined} collection
+             * @memberof protos.opts.StreamdalListOptions
+             * @instance
+             */
+            StreamdalListOptions.prototype.collection = null;
+
+            /**
+             * StreamdalListOptions destination.
+             * @member {protos.opts.IStreamdalListDestinationOptions|null|undefined} destination
+             * @memberof protos.opts.StreamdalListOptions
+             * @instance
+             */
+            StreamdalListOptions.prototype.destination = null;
+
+            /**
+             * StreamdalListOptions replay.
+             * @member {protos.opts.IStreamdalListReplayOptions|null|undefined} replay
+             * @memberof protos.opts.StreamdalListOptions
+             * @instance
+             */
+            StreamdalListOptions.prototype.replay = null;
+
+            /**
+             * StreamdalListOptions schema.
+             * @member {protos.opts.IStreamdalListSchemaOptions|null|undefined} schema
+             * @memberof protos.opts.StreamdalListOptions
+             * @instance
+             */
+            StreamdalListOptions.prototype.schema = null;
+
+            /**
+             * Creates a new StreamdalListOptions instance using the specified properties.
+             * @function create
+             * @memberof protos.opts.StreamdalListOptions
+             * @static
+             * @param {protos.opts.IStreamdalListOptions=} [properties] Properties to set
+             * @returns {protos.opts.StreamdalListOptions} StreamdalListOptions instance
+             */
+            StreamdalListOptions.create = function create(properties) {
+                return new StreamdalListOptions(properties);
+            };
+
+            /**
+             * Encodes the specified StreamdalListOptions message. Does not implicitly {@link protos.opts.StreamdalListOptions.verify|verify} messages.
+             * @function encode
+             * @memberof protos.opts.StreamdalListOptions
+             * @static
+             * @param {protos.opts.IStreamdalListOptions} message StreamdalListOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            StreamdalListOptions.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.collection != null && Object.hasOwnProperty.call(message, "collection"))
+                    $root.protos.opts.StreamdalListCollectionOptions.encode(message.collection, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                if (message.destination != null && Object.hasOwnProperty.call(message, "destination"))
+                    $root.protos.opts.StreamdalListDestinationOptions.encode(message.destination, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                if (message.replay != null && Object.hasOwnProperty.call(message, "replay"))
+                    $root.protos.opts.StreamdalListReplayOptions.encode(message.replay, writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
+                if (message.schema != null && Object.hasOwnProperty.call(message, "schema"))
+                    $root.protos.opts.StreamdalListSchemaOptions.encode(message.schema, writer.uint32(/* id 4, wireType 2 =*/34).fork()).ldelim();
+                return writer;
+            };
+
+            /**
+             * Encodes the specified StreamdalListOptions message, length delimited. Does not implicitly {@link protos.opts.StreamdalListOptions.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.opts.StreamdalListOptions
+             * @static
+             * @param {protos.opts.IStreamdalListOptions} message StreamdalListOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            StreamdalListOptions.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a StreamdalListOptions message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.opts.StreamdalListOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.opts.StreamdalListOptions} StreamdalListOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            StreamdalListOptions.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.StreamdalListOptions();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.collection = $root.protos.opts.StreamdalListCollectionOptions.decode(reader, reader.uint32());
+                        break;
+                    case 2:
+                        message.destination = $root.protos.opts.StreamdalListDestinationOptions.decode(reader, reader.uint32());
+                        break;
+                    case 3:
+                        message.replay = $root.protos.opts.StreamdalListReplayOptions.decode(reader, reader.uint32());
+                        break;
+                    case 4:
+                        message.schema = $root.protos.opts.StreamdalListSchemaOptions.decode(reader, reader.uint32());
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a StreamdalListOptions message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.opts.StreamdalListOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.opts.StreamdalListOptions} StreamdalListOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            StreamdalListOptions.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a StreamdalListOptions message.
+             * @function verify
+             * @memberof protos.opts.StreamdalListOptions
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            StreamdalListOptions.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.collection != null && message.hasOwnProperty("collection")) {
+                    var error = $root.protos.opts.StreamdalListCollectionOptions.verify(message.collection);
+                    if (error)
+                        return "collection." + error;
+                }
+                if (message.destination != null && message.hasOwnProperty("destination")) {
+                    var error = $root.protos.opts.StreamdalListDestinationOptions.verify(message.destination);
+                    if (error)
+                        return "destination." + error;
+                }
+                if (message.replay != null && message.hasOwnProperty("replay")) {
+                    var error = $root.protos.opts.StreamdalListReplayOptions.verify(message.replay);
+                    if (error)
+                        return "replay." + error;
+                }
+                if (message.schema != null && message.hasOwnProperty("schema")) {
+                    var error = $root.protos.opts.StreamdalListSchemaOptions.verify(message.schema);
+                    if (error)
+                        return "schema." + error;
+                }
+                return null;
+            };
+
+            /**
+             * Creates a StreamdalListOptions message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.opts.StreamdalListOptions
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.opts.StreamdalListOptions} StreamdalListOptions
+             */
+            StreamdalListOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.StreamdalListOptions)
+                    return object;
+                var message = new $root.protos.opts.StreamdalListOptions();
+                if (object.collection != null) {
+                    if (typeof object.collection !== "object")
+                        throw TypeError(".protos.opts.StreamdalListOptions.collection: object expected");
+                    message.collection = $root.protos.opts.StreamdalListCollectionOptions.fromObject(object.collection);
+                }
+                if (object.destination != null) {
+                    if (typeof object.destination !== "object")
+                        throw TypeError(".protos.opts.StreamdalListOptions.destination: object expected");
+                    message.destination = $root.protos.opts.StreamdalListDestinationOptions.fromObject(object.destination);
+                }
+                if (object.replay != null) {
+                    if (typeof object.replay !== "object")
+                        throw TypeError(".protos.opts.StreamdalListOptions.replay: object expected");
+                    message.replay = $root.protos.opts.StreamdalListReplayOptions.fromObject(object.replay);
+                }
+                if (object.schema != null) {
+                    if (typeof object.schema !== "object")
+                        throw TypeError(".protos.opts.StreamdalListOptions.schema: object expected");
+                    message.schema = $root.protos.opts.StreamdalListSchemaOptions.fromObject(object.schema);
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a StreamdalListOptions message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.opts.StreamdalListOptions
+             * @static
+             * @param {protos.opts.StreamdalListOptions} message StreamdalListOptions
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            StreamdalListOptions.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    object.collection = null;
+                    object.destination = null;
+                    object.replay = null;
+                    object.schema = null;
+                }
+                if (message.collection != null && message.hasOwnProperty("collection"))
+                    object.collection = $root.protos.opts.StreamdalListCollectionOptions.toObject(message.collection, options);
+                if (message.destination != null && message.hasOwnProperty("destination"))
+                    object.destination = $root.protos.opts.StreamdalListDestinationOptions.toObject(message.destination, options);
+                if (message.replay != null && message.hasOwnProperty("replay"))
+                    object.replay = $root.protos.opts.StreamdalListReplayOptions.toObject(message.replay, options);
+                if (message.schema != null && message.hasOwnProperty("schema"))
+                    object.schema = $root.protos.opts.StreamdalListSchemaOptions.toObject(message.schema, options);
+                return object;
+            };
+
+            /**
+             * Converts this StreamdalListOptions to JSON.
+             * @function toJSON
+             * @memberof protos.opts.StreamdalListOptions
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            StreamdalListOptions.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return StreamdalListOptions;
+        })();
+
+        opts.StreamdalCreateOptions = (function() {
+
+            /**
+             * Properties of a StreamdalCreateOptions.
+             * @memberof protos.opts
+             * @interface IStreamdalCreateOptions
+             * @property {protos.opts.IStreamdalCreateCollectionOptions|null} [collection] StreamdalCreateOptions collection
+             * @property {protos.opts.IStreamdalCreateReplayOptions|null} [replay] StreamdalCreateOptions replay
+             * @property {protos.opts.IStreamdalCreateDestinationOptions|null} [destination] StreamdalCreateOptions destination
+             */
+
+            /**
+             * Constructs a new StreamdalCreateOptions.
+             * @memberof protos.opts
+             * @classdesc Represents a StreamdalCreateOptions.
+             * @implements IStreamdalCreateOptions
+             * @constructor
+             * @param {protos.opts.IStreamdalCreateOptions=} [properties] Properties to set
+             */
+            function StreamdalCreateOptions(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * StreamdalCreateOptions collection.
+             * @member {protos.opts.IStreamdalCreateCollectionOptions|null|undefined} collection
+             * @memberof protos.opts.StreamdalCreateOptions
+             * @instance
+             */
+            StreamdalCreateOptions.prototype.collection = null;
+
+            /**
+             * StreamdalCreateOptions replay.
+             * @member {protos.opts.IStreamdalCreateReplayOptions|null|undefined} replay
+             * @memberof protos.opts.StreamdalCreateOptions
+             * @instance
+             */
+            StreamdalCreateOptions.prototype.replay = null;
+
+            /**
+             * StreamdalCreateOptions destination.
+             * @member {protos.opts.IStreamdalCreateDestinationOptions|null|undefined} destination
+             * @memberof protos.opts.StreamdalCreateOptions
+             * @instance
+             */
+            StreamdalCreateOptions.prototype.destination = null;
+
+            /**
+             * Creates a new StreamdalCreateOptions instance using the specified properties.
+             * @function create
+             * @memberof protos.opts.StreamdalCreateOptions
+             * @static
+             * @param {protos.opts.IStreamdalCreateOptions=} [properties] Properties to set
+             * @returns {protos.opts.StreamdalCreateOptions} StreamdalCreateOptions instance
+             */
+            StreamdalCreateOptions.create = function create(properties) {
+                return new StreamdalCreateOptions(properties);
+            };
+
+            /**
+             * Encodes the specified StreamdalCreateOptions message. Does not implicitly {@link protos.opts.StreamdalCreateOptions.verify|verify} messages.
+             * @function encode
+             * @memberof protos.opts.StreamdalCreateOptions
+             * @static
+             * @param {protos.opts.IStreamdalCreateOptions} message StreamdalCreateOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            StreamdalCreateOptions.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.collection != null && Object.hasOwnProperty.call(message, "collection"))
+                    $root.protos.opts.StreamdalCreateCollectionOptions.encode(message.collection, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                if (message.replay != null && Object.hasOwnProperty.call(message, "replay"))
+                    $root.protos.opts.StreamdalCreateReplayOptions.encode(message.replay, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                if (message.destination != null && Object.hasOwnProperty.call(message, "destination"))
+                    $root.protos.opts.StreamdalCreateDestinationOptions.encode(message.destination, writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
+                return writer;
+            };
+
+            /**
+             * Encodes the specified StreamdalCreateOptions message, length delimited. Does not implicitly {@link protos.opts.StreamdalCreateOptions.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.opts.StreamdalCreateOptions
+             * @static
+             * @param {protos.opts.IStreamdalCreateOptions} message StreamdalCreateOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            StreamdalCreateOptions.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a StreamdalCreateOptions message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.opts.StreamdalCreateOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.opts.StreamdalCreateOptions} StreamdalCreateOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            StreamdalCreateOptions.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.StreamdalCreateOptions();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.collection = $root.protos.opts.StreamdalCreateCollectionOptions.decode(reader, reader.uint32());
+                        break;
+                    case 2:
+                        message.replay = $root.protos.opts.StreamdalCreateReplayOptions.decode(reader, reader.uint32());
+                        break;
+                    case 3:
+                        message.destination = $root.protos.opts.StreamdalCreateDestinationOptions.decode(reader, reader.uint32());
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a StreamdalCreateOptions message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.opts.StreamdalCreateOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.opts.StreamdalCreateOptions} StreamdalCreateOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            StreamdalCreateOptions.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a StreamdalCreateOptions message.
+             * @function verify
+             * @memberof protos.opts.StreamdalCreateOptions
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            StreamdalCreateOptions.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.collection != null && message.hasOwnProperty("collection")) {
+                    var error = $root.protos.opts.StreamdalCreateCollectionOptions.verify(message.collection);
+                    if (error)
+                        return "collection." + error;
+                }
+                if (message.replay != null && message.hasOwnProperty("replay")) {
+                    var error = $root.protos.opts.StreamdalCreateReplayOptions.verify(message.replay);
+                    if (error)
+                        return "replay." + error;
+                }
+                if (message.destination != null && message.hasOwnProperty("destination")) {
+                    var error = $root.protos.opts.StreamdalCreateDestinationOptions.verify(message.destination);
+                    if (error)
+                        return "destination." + error;
+                }
+                return null;
+            };
+
+            /**
+             * Creates a StreamdalCreateOptions message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.opts.StreamdalCreateOptions
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.opts.StreamdalCreateOptions} StreamdalCreateOptions
+             */
+            StreamdalCreateOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.StreamdalCreateOptions)
+                    return object;
+                var message = new $root.protos.opts.StreamdalCreateOptions();
+                if (object.collection != null) {
+                    if (typeof object.collection !== "object")
+                        throw TypeError(".protos.opts.StreamdalCreateOptions.collection: object expected");
+                    message.collection = $root.protos.opts.StreamdalCreateCollectionOptions.fromObject(object.collection);
+                }
+                if (object.replay != null) {
+                    if (typeof object.replay !== "object")
+                        throw TypeError(".protos.opts.StreamdalCreateOptions.replay: object expected");
+                    message.replay = $root.protos.opts.StreamdalCreateReplayOptions.fromObject(object.replay);
+                }
+                if (object.destination != null) {
+                    if (typeof object.destination !== "object")
+                        throw TypeError(".protos.opts.StreamdalCreateOptions.destination: object expected");
+                    message.destination = $root.protos.opts.StreamdalCreateDestinationOptions.fromObject(object.destination);
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a StreamdalCreateOptions message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.opts.StreamdalCreateOptions
+             * @static
+             * @param {protos.opts.StreamdalCreateOptions} message StreamdalCreateOptions
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            StreamdalCreateOptions.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    object.collection = null;
+                    object.replay = null;
+                    object.destination = null;
+                }
+                if (message.collection != null && message.hasOwnProperty("collection"))
+                    object.collection = $root.protos.opts.StreamdalCreateCollectionOptions.toObject(message.collection, options);
+                if (message.replay != null && message.hasOwnProperty("replay"))
+                    object.replay = $root.protos.opts.StreamdalCreateReplayOptions.toObject(message.replay, options);
+                if (message.destination != null && message.hasOwnProperty("destination"))
+                    object.destination = $root.protos.opts.StreamdalCreateDestinationOptions.toObject(message.destination, options);
+                return object;
+            };
+
+            /**
+             * Converts this StreamdalCreateOptions to JSON.
+             * @function toJSON
+             * @memberof protos.opts.StreamdalCreateOptions
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            StreamdalCreateOptions.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return StreamdalCreateOptions;
+        })();
+
+        opts.StreamdalSearchOptions = (function() {
+
+            /**
+             * Properties of a StreamdalSearchOptions.
+             * @memberof protos.opts
+             * @interface IStreamdalSearchOptions
+             * @property {string|null} [query] StreamdalSearchOptions query
+             * @property {string|null} [collectionId] StreamdalSearchOptions collectionId
+             * @property {number|null} [page] StreamdalSearchOptions page
+             */
+
+            /**
+             * Constructs a new StreamdalSearchOptions.
+             * @memberof protos.opts
+             * @classdesc Represents a StreamdalSearchOptions.
+             * @implements IStreamdalSearchOptions
+             * @constructor
+             * @param {protos.opts.IStreamdalSearchOptions=} [properties] Properties to set
+             */
+            function StreamdalSearchOptions(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * StreamdalSearchOptions query.
+             * @member {string} query
+             * @memberof protos.opts.StreamdalSearchOptions
+             * @instance
+             */
+            StreamdalSearchOptions.prototype.query = "";
+
+            /**
+             * StreamdalSearchOptions collectionId.
+             * @member {string} collectionId
+             * @memberof protos.opts.StreamdalSearchOptions
+             * @instance
+             */
+            StreamdalSearchOptions.prototype.collectionId = "";
+
+            /**
+             * StreamdalSearchOptions page.
+             * @member {number} page
+             * @memberof protos.opts.StreamdalSearchOptions
+             * @instance
+             */
+            StreamdalSearchOptions.prototype.page = 0;
+
+            /**
+             * Creates a new StreamdalSearchOptions instance using the specified properties.
+             * @function create
+             * @memberof protos.opts.StreamdalSearchOptions
+             * @static
+             * @param {protos.opts.IStreamdalSearchOptions=} [properties] Properties to set
+             * @returns {protos.opts.StreamdalSearchOptions} StreamdalSearchOptions instance
+             */
+            StreamdalSearchOptions.create = function create(properties) {
+                return new StreamdalSearchOptions(properties);
+            };
+
+            /**
+             * Encodes the specified StreamdalSearchOptions message. Does not implicitly {@link protos.opts.StreamdalSearchOptions.verify|verify} messages.
+             * @function encode
+             * @memberof protos.opts.StreamdalSearchOptions
+             * @static
+             * @param {protos.opts.IStreamdalSearchOptions} message StreamdalSearchOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            StreamdalSearchOptions.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.query != null && Object.hasOwnProperty.call(message, "query"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.query);
+                if (message.collectionId != null && Object.hasOwnProperty.call(message, "collectionId"))
+                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.collectionId);
+                if (message.page != null && Object.hasOwnProperty.call(message, "page"))
+                    writer.uint32(/* id 3, wireType 0 =*/24).int32(message.page);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified StreamdalSearchOptions message, length delimited. Does not implicitly {@link protos.opts.StreamdalSearchOptions.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.opts.StreamdalSearchOptions
+             * @static
+             * @param {protos.opts.IStreamdalSearchOptions} message StreamdalSearchOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            StreamdalSearchOptions.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a StreamdalSearchOptions message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.opts.StreamdalSearchOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.opts.StreamdalSearchOptions} StreamdalSearchOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            StreamdalSearchOptions.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.StreamdalSearchOptions();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.query = reader.string();
+                        break;
+                    case 2:
+                        message.collectionId = reader.string();
+                        break;
+                    case 3:
+                        message.page = reader.int32();
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a StreamdalSearchOptions message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.opts.StreamdalSearchOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.opts.StreamdalSearchOptions} StreamdalSearchOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            StreamdalSearchOptions.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a StreamdalSearchOptions message.
+             * @function verify
+             * @memberof protos.opts.StreamdalSearchOptions
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            StreamdalSearchOptions.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.query != null && message.hasOwnProperty("query"))
+                    if (!$util.isString(message.query))
+                        return "query: string expected";
+                if (message.collectionId != null && message.hasOwnProperty("collectionId"))
+                    if (!$util.isString(message.collectionId))
+                        return "collectionId: string expected";
+                if (message.page != null && message.hasOwnProperty("page"))
+                    if (!$util.isInteger(message.page))
+                        return "page: integer expected";
+                return null;
+            };
+
+            /**
+             * Creates a StreamdalSearchOptions message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.opts.StreamdalSearchOptions
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.opts.StreamdalSearchOptions} StreamdalSearchOptions
+             */
+            StreamdalSearchOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.StreamdalSearchOptions)
+                    return object;
+                var message = new $root.protos.opts.StreamdalSearchOptions();
+                if (object.query != null)
+                    message.query = String(object.query);
+                if (object.collectionId != null)
+                    message.collectionId = String(object.collectionId);
+                if (object.page != null)
+                    message.page = object.page | 0;
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a StreamdalSearchOptions message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.opts.StreamdalSearchOptions
+             * @static
+             * @param {protos.opts.StreamdalSearchOptions} message StreamdalSearchOptions
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            StreamdalSearchOptions.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    object.query = "";
+                    object.collectionId = "";
+                    object.page = 0;
+                }
+                if (message.query != null && message.hasOwnProperty("query"))
+                    object.query = message.query;
+                if (message.collectionId != null && message.hasOwnProperty("collectionId"))
+                    object.collectionId = message.collectionId;
+                if (message.page != null && message.hasOwnProperty("page"))
+                    object.page = message.page;
+                return object;
+            };
+
+            /**
+             * Converts this StreamdalSearchOptions to JSON.
+             * @function toJSON
+             * @memberof protos.opts.StreamdalSearchOptions
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            StreamdalSearchOptions.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return StreamdalSearchOptions;
+        })();
+
+        opts.StreamdalCreateCollectionOptions = (function() {
+
+            /**
+             * Properties of a StreamdalCreateCollectionOptions.
+             * @memberof protos.opts
+             * @interface IStreamdalCreateCollectionOptions
+             * @property {string|null} [name] StreamdalCreateCollectionOptions name
+             * @property {string|null} [schemaId] StreamdalCreateCollectionOptions schemaId
+             * @property {string|null} [notes] StreamdalCreateCollectionOptions notes
+             * @property {string|null} [envelopeType] StreamdalCreateCollectionOptions envelopeType
+             * @property {string|null} [envelopeRootMessage] StreamdalCreateCollectionOptions envelopeRootMessage
+             * @property {string|null} [payloadFieldMessage] StreamdalCreateCollectionOptions payloadFieldMessage
+             * @property {string|null} [payloadFieldId] StreamdalCreateCollectionOptions payloadFieldId
+             */
+
+            /**
+             * Constructs a new StreamdalCreateCollectionOptions.
+             * @memberof protos.opts
+             * @classdesc Represents a StreamdalCreateCollectionOptions.
+             * @implements IStreamdalCreateCollectionOptions
+             * @constructor
+             * @param {protos.opts.IStreamdalCreateCollectionOptions=} [properties] Properties to set
+             */
+            function StreamdalCreateCollectionOptions(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * StreamdalCreateCollectionOptions name.
+             * @member {string} name
+             * @memberof protos.opts.StreamdalCreateCollectionOptions
+             * @instance
+             */
+            StreamdalCreateCollectionOptions.prototype.name = "";
+
+            /**
+             * StreamdalCreateCollectionOptions schemaId.
+             * @member {string} schemaId
+             * @memberof protos.opts.StreamdalCreateCollectionOptions
+             * @instance
+             */
+            StreamdalCreateCollectionOptions.prototype.schemaId = "";
+
+            /**
+             * StreamdalCreateCollectionOptions notes.
+             * @member {string} notes
+             * @memberof protos.opts.StreamdalCreateCollectionOptions
+             * @instance
+             */
+            StreamdalCreateCollectionOptions.prototype.notes = "";
+
+            /**
+             * StreamdalCreateCollectionOptions envelopeType.
+             * @member {string} envelopeType
+             * @memberof protos.opts.StreamdalCreateCollectionOptions
+             * @instance
+             */
+            StreamdalCreateCollectionOptions.prototype.envelopeType = "";
+
+            /**
+             * StreamdalCreateCollectionOptions envelopeRootMessage.
+             * @member {string} envelopeRootMessage
+             * @memberof protos.opts.StreamdalCreateCollectionOptions
+             * @instance
+             */
+            StreamdalCreateCollectionOptions.prototype.envelopeRootMessage = "";
+
+            /**
+             * StreamdalCreateCollectionOptions payloadFieldMessage.
+             * @member {string} payloadFieldMessage
+             * @memberof protos.opts.StreamdalCreateCollectionOptions
+             * @instance
+             */
+            StreamdalCreateCollectionOptions.prototype.payloadFieldMessage = "";
+
+            /**
+             * StreamdalCreateCollectionOptions payloadFieldId.
+             * @member {string} payloadFieldId
+             * @memberof protos.opts.StreamdalCreateCollectionOptions
+             * @instance
+             */
+            StreamdalCreateCollectionOptions.prototype.payloadFieldId = "";
+
+            /**
+             * Creates a new StreamdalCreateCollectionOptions instance using the specified properties.
+             * @function create
+             * @memberof protos.opts.StreamdalCreateCollectionOptions
+             * @static
+             * @param {protos.opts.IStreamdalCreateCollectionOptions=} [properties] Properties to set
+             * @returns {protos.opts.StreamdalCreateCollectionOptions} StreamdalCreateCollectionOptions instance
+             */
+            StreamdalCreateCollectionOptions.create = function create(properties) {
+                return new StreamdalCreateCollectionOptions(properties);
+            };
+
+            /**
+             * Encodes the specified StreamdalCreateCollectionOptions message. Does not implicitly {@link protos.opts.StreamdalCreateCollectionOptions.verify|verify} messages.
+             * @function encode
+             * @memberof protos.opts.StreamdalCreateCollectionOptions
+             * @static
+             * @param {protos.opts.IStreamdalCreateCollectionOptions} message StreamdalCreateCollectionOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            StreamdalCreateCollectionOptions.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.name != null && Object.hasOwnProperty.call(message, "name"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.name);
+                if (message.schemaId != null && Object.hasOwnProperty.call(message, "schemaId"))
+                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.schemaId);
+                if (message.notes != null && Object.hasOwnProperty.call(message, "notes"))
+                    writer.uint32(/* id 3, wireType 2 =*/26).string(message.notes);
+                if (message.envelopeType != null && Object.hasOwnProperty.call(message, "envelopeType"))
+                    writer.uint32(/* id 4, wireType 2 =*/34).string(message.envelopeType);
+                if (message.envelopeRootMessage != null && Object.hasOwnProperty.call(message, "envelopeRootMessage"))
+                    writer.uint32(/* id 5, wireType 2 =*/42).string(message.envelopeRootMessage);
+                if (message.payloadFieldMessage != null && Object.hasOwnProperty.call(message, "payloadFieldMessage"))
+                    writer.uint32(/* id 6, wireType 2 =*/50).string(message.payloadFieldMessage);
+                if (message.payloadFieldId != null && Object.hasOwnProperty.call(message, "payloadFieldId"))
+                    writer.uint32(/* id 7, wireType 2 =*/58).string(message.payloadFieldId);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified StreamdalCreateCollectionOptions message, length delimited. Does not implicitly {@link protos.opts.StreamdalCreateCollectionOptions.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.opts.StreamdalCreateCollectionOptions
+             * @static
+             * @param {protos.opts.IStreamdalCreateCollectionOptions} message StreamdalCreateCollectionOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            StreamdalCreateCollectionOptions.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a StreamdalCreateCollectionOptions message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.opts.StreamdalCreateCollectionOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.opts.StreamdalCreateCollectionOptions} StreamdalCreateCollectionOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            StreamdalCreateCollectionOptions.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.StreamdalCreateCollectionOptions();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.name = reader.string();
+                        break;
+                    case 2:
+                        message.schemaId = reader.string();
+                        break;
+                    case 3:
+                        message.notes = reader.string();
+                        break;
+                    case 4:
+                        message.envelopeType = reader.string();
+                        break;
+                    case 5:
+                        message.envelopeRootMessage = reader.string();
+                        break;
+                    case 6:
+                        message.payloadFieldMessage = reader.string();
+                        break;
+                    case 7:
+                        message.payloadFieldId = reader.string();
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a StreamdalCreateCollectionOptions message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.opts.StreamdalCreateCollectionOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.opts.StreamdalCreateCollectionOptions} StreamdalCreateCollectionOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            StreamdalCreateCollectionOptions.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a StreamdalCreateCollectionOptions message.
+             * @function verify
+             * @memberof protos.opts.StreamdalCreateCollectionOptions
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            StreamdalCreateCollectionOptions.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.name != null && message.hasOwnProperty("name"))
+                    if (!$util.isString(message.name))
+                        return "name: string expected";
+                if (message.schemaId != null && message.hasOwnProperty("schemaId"))
+                    if (!$util.isString(message.schemaId))
+                        return "schemaId: string expected";
+                if (message.notes != null && message.hasOwnProperty("notes"))
+                    if (!$util.isString(message.notes))
+                        return "notes: string expected";
+                if (message.envelopeType != null && message.hasOwnProperty("envelopeType"))
+                    if (!$util.isString(message.envelopeType))
+                        return "envelopeType: string expected";
+                if (message.envelopeRootMessage != null && message.hasOwnProperty("envelopeRootMessage"))
+                    if (!$util.isString(message.envelopeRootMessage))
+                        return "envelopeRootMessage: string expected";
+                if (message.payloadFieldMessage != null && message.hasOwnProperty("payloadFieldMessage"))
+                    if (!$util.isString(message.payloadFieldMessage))
+                        return "payloadFieldMessage: string expected";
+                if (message.payloadFieldId != null && message.hasOwnProperty("payloadFieldId"))
+                    if (!$util.isString(message.payloadFieldId))
+                        return "payloadFieldId: string expected";
+                return null;
+            };
+
+            /**
+             * Creates a StreamdalCreateCollectionOptions message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.opts.StreamdalCreateCollectionOptions
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.opts.StreamdalCreateCollectionOptions} StreamdalCreateCollectionOptions
+             */
+            StreamdalCreateCollectionOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.StreamdalCreateCollectionOptions)
+                    return object;
+                var message = new $root.protos.opts.StreamdalCreateCollectionOptions();
+                if (object.name != null)
+                    message.name = String(object.name);
+                if (object.schemaId != null)
+                    message.schemaId = String(object.schemaId);
+                if (object.notes != null)
+                    message.notes = String(object.notes);
+                if (object.envelopeType != null)
+                    message.envelopeType = String(object.envelopeType);
+                if (object.envelopeRootMessage != null)
+                    message.envelopeRootMessage = String(object.envelopeRootMessage);
+                if (object.payloadFieldMessage != null)
+                    message.payloadFieldMessage = String(object.payloadFieldMessage);
+                if (object.payloadFieldId != null)
+                    message.payloadFieldId = String(object.payloadFieldId);
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a StreamdalCreateCollectionOptions message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.opts.StreamdalCreateCollectionOptions
+             * @static
+             * @param {protos.opts.StreamdalCreateCollectionOptions} message StreamdalCreateCollectionOptions
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            StreamdalCreateCollectionOptions.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    object.name = "";
+                    object.schemaId = "";
+                    object.notes = "";
+                    object.envelopeType = "";
+                    object.envelopeRootMessage = "";
+                    object.payloadFieldMessage = "";
+                    object.payloadFieldId = "";
+                }
+                if (message.name != null && message.hasOwnProperty("name"))
+                    object.name = message.name;
+                if (message.schemaId != null && message.hasOwnProperty("schemaId"))
+                    object.schemaId = message.schemaId;
+                if (message.notes != null && message.hasOwnProperty("notes"))
+                    object.notes = message.notes;
+                if (message.envelopeType != null && message.hasOwnProperty("envelopeType"))
+                    object.envelopeType = message.envelopeType;
+                if (message.envelopeRootMessage != null && message.hasOwnProperty("envelopeRootMessage"))
+                    object.envelopeRootMessage = message.envelopeRootMessage;
+                if (message.payloadFieldMessage != null && message.hasOwnProperty("payloadFieldMessage"))
+                    object.payloadFieldMessage = message.payloadFieldMessage;
+                if (message.payloadFieldId != null && message.hasOwnProperty("payloadFieldId"))
+                    object.payloadFieldId = message.payloadFieldId;
+                return object;
+            };
+
+            /**
+             * Converts this StreamdalCreateCollectionOptions to JSON.
+             * @function toJSON
+             * @memberof protos.opts.StreamdalCreateCollectionOptions
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            StreamdalCreateCollectionOptions.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return StreamdalCreateCollectionOptions;
+        })();
+
+        opts.StreamdalCreateReplayOptions = (function() {
+
+            /**
+             * Properties of a StreamdalCreateReplayOptions.
+             * @memberof protos.opts
+             * @interface IStreamdalCreateReplayOptions
+             * @property {string|null} [name] StreamdalCreateReplayOptions name
+             * @property {protos.opts.StreamdalReplayType|null} [type] StreamdalCreateReplayOptions type
+             * @property {string|null} [notes] StreamdalCreateReplayOptions notes
+             * @property {string|null} [collectionId] StreamdalCreateReplayOptions collectionId
+             * @property {string|null} [destinationId] StreamdalCreateReplayOptions destinationId
+             * @property {string|null} [query] StreamdalCreateReplayOptions query
+             * @property {string|null} [fromTimestamp] StreamdalCreateReplayOptions fromTimestamp
+             * @property {string|null} [toTimestamp] StreamdalCreateReplayOptions toTimestamp
+             */
+
+            /**
+             * Constructs a new StreamdalCreateReplayOptions.
+             * @memberof protos.opts
+             * @classdesc Represents a StreamdalCreateReplayOptions.
+             * @implements IStreamdalCreateReplayOptions
+             * @constructor
+             * @param {protos.opts.IStreamdalCreateReplayOptions=} [properties] Properties to set
+             */
+            function StreamdalCreateReplayOptions(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * StreamdalCreateReplayOptions name.
+             * @member {string} name
+             * @memberof protos.opts.StreamdalCreateReplayOptions
+             * @instance
+             */
+            StreamdalCreateReplayOptions.prototype.name = "";
+
+            /**
+             * StreamdalCreateReplayOptions type.
+             * @member {protos.opts.StreamdalReplayType} type
+             * @memberof protos.opts.StreamdalCreateReplayOptions
+             * @instance
+             */
+            StreamdalCreateReplayOptions.prototype.type = 0;
+
+            /**
+             * StreamdalCreateReplayOptions notes.
+             * @member {string} notes
+             * @memberof protos.opts.StreamdalCreateReplayOptions
+             * @instance
+             */
+            StreamdalCreateReplayOptions.prototype.notes = "";
+
+            /**
+             * StreamdalCreateReplayOptions collectionId.
+             * @member {string} collectionId
+             * @memberof protos.opts.StreamdalCreateReplayOptions
+             * @instance
+             */
+            StreamdalCreateReplayOptions.prototype.collectionId = "";
+
+            /**
+             * StreamdalCreateReplayOptions destinationId.
+             * @member {string} destinationId
+             * @memberof protos.opts.StreamdalCreateReplayOptions
+             * @instance
+             */
+            StreamdalCreateReplayOptions.prototype.destinationId = "";
+
+            /**
+             * StreamdalCreateReplayOptions query.
+             * @member {string} query
+             * @memberof protos.opts.StreamdalCreateReplayOptions
+             * @instance
+             */
+            StreamdalCreateReplayOptions.prototype.query = "";
+
+            /**
+             * StreamdalCreateReplayOptions fromTimestamp.
+             * @member {string} fromTimestamp
+             * @memberof protos.opts.StreamdalCreateReplayOptions
+             * @instance
+             */
+            StreamdalCreateReplayOptions.prototype.fromTimestamp = "";
+
+            /**
+             * StreamdalCreateReplayOptions toTimestamp.
+             * @member {string} toTimestamp
+             * @memberof protos.opts.StreamdalCreateReplayOptions
+             * @instance
+             */
+            StreamdalCreateReplayOptions.prototype.toTimestamp = "";
+
+            /**
+             * Creates a new StreamdalCreateReplayOptions instance using the specified properties.
+             * @function create
+             * @memberof protos.opts.StreamdalCreateReplayOptions
+             * @static
+             * @param {protos.opts.IStreamdalCreateReplayOptions=} [properties] Properties to set
+             * @returns {protos.opts.StreamdalCreateReplayOptions} StreamdalCreateReplayOptions instance
+             */
+            StreamdalCreateReplayOptions.create = function create(properties) {
+                return new StreamdalCreateReplayOptions(properties);
+            };
+
+            /**
+             * Encodes the specified StreamdalCreateReplayOptions message. Does not implicitly {@link protos.opts.StreamdalCreateReplayOptions.verify|verify} messages.
+             * @function encode
+             * @memberof protos.opts.StreamdalCreateReplayOptions
+             * @static
+             * @param {protos.opts.IStreamdalCreateReplayOptions} message StreamdalCreateReplayOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            StreamdalCreateReplayOptions.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.name != null && Object.hasOwnProperty.call(message, "name"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.name);
+                if (message.type != null && Object.hasOwnProperty.call(message, "type"))
+                    writer.uint32(/* id 2, wireType 0 =*/16).int32(message.type);
+                if (message.notes != null && Object.hasOwnProperty.call(message, "notes"))
+                    writer.uint32(/* id 3, wireType 2 =*/26).string(message.notes);
+                if (message.collectionId != null && Object.hasOwnProperty.call(message, "collectionId"))
+                    writer.uint32(/* id 4, wireType 2 =*/34).string(message.collectionId);
+                if (message.destinationId != null && Object.hasOwnProperty.call(message, "destinationId"))
+                    writer.uint32(/* id 5, wireType 2 =*/42).string(message.destinationId);
+                if (message.query != null && Object.hasOwnProperty.call(message, "query"))
+                    writer.uint32(/* id 6, wireType 2 =*/50).string(message.query);
+                if (message.fromTimestamp != null && Object.hasOwnProperty.call(message, "fromTimestamp"))
+                    writer.uint32(/* id 7, wireType 2 =*/58).string(message.fromTimestamp);
+                if (message.toTimestamp != null && Object.hasOwnProperty.call(message, "toTimestamp"))
+                    writer.uint32(/* id 8, wireType 2 =*/66).string(message.toTimestamp);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified StreamdalCreateReplayOptions message, length delimited. Does not implicitly {@link protos.opts.StreamdalCreateReplayOptions.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.opts.StreamdalCreateReplayOptions
+             * @static
+             * @param {protos.opts.IStreamdalCreateReplayOptions} message StreamdalCreateReplayOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            StreamdalCreateReplayOptions.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a StreamdalCreateReplayOptions message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.opts.StreamdalCreateReplayOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.opts.StreamdalCreateReplayOptions} StreamdalCreateReplayOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            StreamdalCreateReplayOptions.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.StreamdalCreateReplayOptions();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.name = reader.string();
+                        break;
+                    case 2:
+                        message.type = reader.int32();
+                        break;
+                    case 3:
+                        message.notes = reader.string();
+                        break;
+                    case 4:
+                        message.collectionId = reader.string();
+                        break;
+                    case 5:
+                        message.destinationId = reader.string();
+                        break;
+                    case 6:
+                        message.query = reader.string();
+                        break;
+                    case 7:
+                        message.fromTimestamp = reader.string();
+                        break;
+                    case 8:
+                        message.toTimestamp = reader.string();
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a StreamdalCreateReplayOptions message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.opts.StreamdalCreateReplayOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.opts.StreamdalCreateReplayOptions} StreamdalCreateReplayOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            StreamdalCreateReplayOptions.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a StreamdalCreateReplayOptions message.
+             * @function verify
+             * @memberof protos.opts.StreamdalCreateReplayOptions
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            StreamdalCreateReplayOptions.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.name != null && message.hasOwnProperty("name"))
+                    if (!$util.isString(message.name))
+                        return "name: string expected";
+                if (message.type != null && message.hasOwnProperty("type"))
+                    switch (message.type) {
+                    default:
+                        return "type: enum value expected";
+                    case 0:
+                    case 1:
+                        break;
+                    }
+                if (message.notes != null && message.hasOwnProperty("notes"))
+                    if (!$util.isString(message.notes))
+                        return "notes: string expected";
+                if (message.collectionId != null && message.hasOwnProperty("collectionId"))
+                    if (!$util.isString(message.collectionId))
+                        return "collectionId: string expected";
+                if (message.destinationId != null && message.hasOwnProperty("destinationId"))
+                    if (!$util.isString(message.destinationId))
+                        return "destinationId: string expected";
+                if (message.query != null && message.hasOwnProperty("query"))
+                    if (!$util.isString(message.query))
+                        return "query: string expected";
+                if (message.fromTimestamp != null && message.hasOwnProperty("fromTimestamp"))
+                    if (!$util.isString(message.fromTimestamp))
+                        return "fromTimestamp: string expected";
+                if (message.toTimestamp != null && message.hasOwnProperty("toTimestamp"))
+                    if (!$util.isString(message.toTimestamp))
+                        return "toTimestamp: string expected";
+                return null;
+            };
+
+            /**
+             * Creates a StreamdalCreateReplayOptions message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.opts.StreamdalCreateReplayOptions
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.opts.StreamdalCreateReplayOptions} StreamdalCreateReplayOptions
+             */
+            StreamdalCreateReplayOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.StreamdalCreateReplayOptions)
+                    return object;
+                var message = new $root.protos.opts.StreamdalCreateReplayOptions();
+                if (object.name != null)
+                    message.name = String(object.name);
+                switch (object.type) {
+                case "SINGLE":
+                case 0:
+                    message.type = 0;
+                    break;
+                case "CONTINUOUS":
+                case 1:
+                    message.type = 1;
+                    break;
+                }
+                if (object.notes != null)
+                    message.notes = String(object.notes);
+                if (object.collectionId != null)
+                    message.collectionId = String(object.collectionId);
+                if (object.destinationId != null)
+                    message.destinationId = String(object.destinationId);
+                if (object.query != null)
+                    message.query = String(object.query);
+                if (object.fromTimestamp != null)
+                    message.fromTimestamp = String(object.fromTimestamp);
+                if (object.toTimestamp != null)
+                    message.toTimestamp = String(object.toTimestamp);
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a StreamdalCreateReplayOptions message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.opts.StreamdalCreateReplayOptions
+             * @static
+             * @param {protos.opts.StreamdalCreateReplayOptions} message StreamdalCreateReplayOptions
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            StreamdalCreateReplayOptions.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    object.name = "";
+                    object.type = options.enums === String ? "SINGLE" : 0;
+                    object.notes = "";
+                    object.collectionId = "";
+                    object.destinationId = "";
+                    object.query = "";
+                    object.fromTimestamp = "";
+                    object.toTimestamp = "";
+                }
+                if (message.name != null && message.hasOwnProperty("name"))
+                    object.name = message.name;
+                if (message.type != null && message.hasOwnProperty("type"))
+                    object.type = options.enums === String ? $root.protos.opts.StreamdalReplayType[message.type] : message.type;
+                if (message.notes != null && message.hasOwnProperty("notes"))
+                    object.notes = message.notes;
+                if (message.collectionId != null && message.hasOwnProperty("collectionId"))
+                    object.collectionId = message.collectionId;
+                if (message.destinationId != null && message.hasOwnProperty("destinationId"))
+                    object.destinationId = message.destinationId;
+                if (message.query != null && message.hasOwnProperty("query"))
+                    object.query = message.query;
+                if (message.fromTimestamp != null && message.hasOwnProperty("fromTimestamp"))
+                    object.fromTimestamp = message.fromTimestamp;
+                if (message.toTimestamp != null && message.hasOwnProperty("toTimestamp"))
+                    object.toTimestamp = message.toTimestamp;
+                return object;
+            };
+
+            /**
+             * Converts this StreamdalCreateReplayOptions to JSON.
+             * @function toJSON
+             * @memberof protos.opts.StreamdalCreateReplayOptions
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            StreamdalCreateReplayOptions.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return StreamdalCreateReplayOptions;
+        })();
+
+        opts.StreamdalCreateDestinationOptions = (function() {
+
+            /**
+             * Properties of a StreamdalCreateDestinationOptions.
+             * @memberof protos.opts
+             * @interface IStreamdalCreateDestinationOptions
+             * @property {string|null} [name] StreamdalCreateDestinationOptions name
+             * @property {string|null} [notes] StreamdalCreateDestinationOptions notes
+             * @property {string|null} [_apiDestinationType] StreamdalCreateDestinationOptions _apiDestinationType
+             * @property {protos.opts.IWriteGroupKafkaOptions|null} [kafka] StreamdalCreateDestinationOptions kafka
+             * @property {protos.opts.IWriteGroupRabbitOptions|null} [rabbit] StreamdalCreateDestinationOptions rabbit
+             * @property {protos.opts.IWriteGroupKubeMQQueueOptions|null} [kubemqQueue] StreamdalCreateDestinationOptions kubemqQueue
+             * @property {protos.opts.IWriteGroupAWSSQSOptions|null} [awsSqs] StreamdalCreateDestinationOptions awsSqs
+             * @property {protos.opts.IHTTPDestination|null} [http] StreamdalCreateDestinationOptions http
+             */
+
+            /**
+             * Constructs a new StreamdalCreateDestinationOptions.
+             * @memberof protos.opts
+             * @classdesc Represents a StreamdalCreateDestinationOptions.
+             * @implements IStreamdalCreateDestinationOptions
+             * @constructor
+             * @param {protos.opts.IStreamdalCreateDestinationOptions=} [properties] Properties to set
+             */
+            function StreamdalCreateDestinationOptions(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * StreamdalCreateDestinationOptions name.
+             * @member {string} name
+             * @memberof protos.opts.StreamdalCreateDestinationOptions
+             * @instance
+             */
+            StreamdalCreateDestinationOptions.prototype.name = "";
+
+            /**
+             * StreamdalCreateDestinationOptions notes.
+             * @member {string} notes
+             * @memberof protos.opts.StreamdalCreateDestinationOptions
+             * @instance
+             */
+            StreamdalCreateDestinationOptions.prototype.notes = "";
+
+            /**
+             * StreamdalCreateDestinationOptions _apiDestinationType.
+             * @member {string} _apiDestinationType
+             * @memberof protos.opts.StreamdalCreateDestinationOptions
+             * @instance
+             */
+            StreamdalCreateDestinationOptions.prototype._apiDestinationType = "";
+
+            /**
+             * StreamdalCreateDestinationOptions kafka.
+             * @member {protos.opts.IWriteGroupKafkaOptions|null|undefined} kafka
+             * @memberof protos.opts.StreamdalCreateDestinationOptions
+             * @instance
+             */
+            StreamdalCreateDestinationOptions.prototype.kafka = null;
+
+            /**
+             * StreamdalCreateDestinationOptions rabbit.
+             * @member {protos.opts.IWriteGroupRabbitOptions|null|undefined} rabbit
+             * @memberof protos.opts.StreamdalCreateDestinationOptions
+             * @instance
+             */
+            StreamdalCreateDestinationOptions.prototype.rabbit = null;
+
+            /**
+             * StreamdalCreateDestinationOptions kubemqQueue.
+             * @member {protos.opts.IWriteGroupKubeMQQueueOptions|null|undefined} kubemqQueue
+             * @memberof protos.opts.StreamdalCreateDestinationOptions
+             * @instance
+             */
+            StreamdalCreateDestinationOptions.prototype.kubemqQueue = null;
+
+            /**
+             * StreamdalCreateDestinationOptions awsSqs.
+             * @member {protos.opts.IWriteGroupAWSSQSOptions|null|undefined} awsSqs
+             * @memberof protos.opts.StreamdalCreateDestinationOptions
+             * @instance
+             */
+            StreamdalCreateDestinationOptions.prototype.awsSqs = null;
+
+            /**
+             * StreamdalCreateDestinationOptions http.
+             * @member {protos.opts.IHTTPDestination|null|undefined} http
+             * @memberof protos.opts.StreamdalCreateDestinationOptions
+             * @instance
+             */
+            StreamdalCreateDestinationOptions.prototype.http = null;
+
+            /**
+             * Creates a new StreamdalCreateDestinationOptions instance using the specified properties.
+             * @function create
+             * @memberof protos.opts.StreamdalCreateDestinationOptions
+             * @static
+             * @param {protos.opts.IStreamdalCreateDestinationOptions=} [properties] Properties to set
+             * @returns {protos.opts.StreamdalCreateDestinationOptions} StreamdalCreateDestinationOptions instance
+             */
+            StreamdalCreateDestinationOptions.create = function create(properties) {
+                return new StreamdalCreateDestinationOptions(properties);
+            };
+
+            /**
+             * Encodes the specified StreamdalCreateDestinationOptions message. Does not implicitly {@link protos.opts.StreamdalCreateDestinationOptions.verify|verify} messages.
+             * @function encode
+             * @memberof protos.opts.StreamdalCreateDestinationOptions
+             * @static
+             * @param {protos.opts.IStreamdalCreateDestinationOptions} message StreamdalCreateDestinationOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            StreamdalCreateDestinationOptions.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.name != null && Object.hasOwnProperty.call(message, "name"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.name);
+                if (message.notes != null && Object.hasOwnProperty.call(message, "notes"))
+                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.notes);
+                if (message.kafka != null && Object.hasOwnProperty.call(message, "kafka"))
+                    $root.protos.opts.WriteGroupKafkaOptions.encode(message.kafka, writer.uint32(/* id 100, wireType 2 =*/802).fork()).ldelim();
+                if (message.rabbit != null && Object.hasOwnProperty.call(message, "rabbit"))
+                    $root.protos.opts.WriteGroupRabbitOptions.encode(message.rabbit, writer.uint32(/* id 101, wireType 2 =*/810).fork()).ldelim();
+                if (message.kubemqQueue != null && Object.hasOwnProperty.call(message, "kubemqQueue"))
+                    $root.protos.opts.WriteGroupKubeMQQueueOptions.encode(message.kubemqQueue, writer.uint32(/* id 102, wireType 2 =*/818).fork()).ldelim();
+                if (message.awsSqs != null && Object.hasOwnProperty.call(message, "awsSqs"))
+                    $root.protos.opts.WriteGroupAWSSQSOptions.encode(message.awsSqs, writer.uint32(/* id 103, wireType 2 =*/826).fork()).ldelim();
+                if (message.http != null && Object.hasOwnProperty.call(message, "http"))
+                    $root.protos.opts.HTTPDestination.encode(message.http, writer.uint32(/* id 104, wireType 2 =*/834).fork()).ldelim();
+                if (message._apiDestinationType != null && Object.hasOwnProperty.call(message, "_apiDestinationType"))
+                    writer.uint32(/* id 1000, wireType 2 =*/8002).string(message._apiDestinationType);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified StreamdalCreateDestinationOptions message, length delimited. Does not implicitly {@link protos.opts.StreamdalCreateDestinationOptions.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.opts.StreamdalCreateDestinationOptions
+             * @static
+             * @param {protos.opts.IStreamdalCreateDestinationOptions} message StreamdalCreateDestinationOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            StreamdalCreateDestinationOptions.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a StreamdalCreateDestinationOptions message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.opts.StreamdalCreateDestinationOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.opts.StreamdalCreateDestinationOptions} StreamdalCreateDestinationOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            StreamdalCreateDestinationOptions.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.StreamdalCreateDestinationOptions();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.name = reader.string();
+                        break;
+                    case 2:
+                        message.notes = reader.string();
+                        break;
+                    case 1000:
+                        message._apiDestinationType = reader.string();
+                        break;
+                    case 100:
+                        message.kafka = $root.protos.opts.WriteGroupKafkaOptions.decode(reader, reader.uint32());
+                        break;
+                    case 101:
+                        message.rabbit = $root.protos.opts.WriteGroupRabbitOptions.decode(reader, reader.uint32());
+                        break;
+                    case 102:
+                        message.kubemqQueue = $root.protos.opts.WriteGroupKubeMQQueueOptions.decode(reader, reader.uint32());
+                        break;
+                    case 103:
+                        message.awsSqs = $root.protos.opts.WriteGroupAWSSQSOptions.decode(reader, reader.uint32());
+                        break;
+                    case 104:
+                        message.http = $root.protos.opts.HTTPDestination.decode(reader, reader.uint32());
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a StreamdalCreateDestinationOptions message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.opts.StreamdalCreateDestinationOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.opts.StreamdalCreateDestinationOptions} StreamdalCreateDestinationOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            StreamdalCreateDestinationOptions.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a StreamdalCreateDestinationOptions message.
+             * @function verify
+             * @memberof protos.opts.StreamdalCreateDestinationOptions
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            StreamdalCreateDestinationOptions.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.name != null && message.hasOwnProperty("name"))
+                    if (!$util.isString(message.name))
+                        return "name: string expected";
+                if (message.notes != null && message.hasOwnProperty("notes"))
+                    if (!$util.isString(message.notes))
+                        return "notes: string expected";
+                if (message._apiDestinationType != null && message.hasOwnProperty("_apiDestinationType"))
+                    if (!$util.isString(message._apiDestinationType))
+                        return "_apiDestinationType: string expected";
+                if (message.kafka != null && message.hasOwnProperty("kafka")) {
+                    var error = $root.protos.opts.WriteGroupKafkaOptions.verify(message.kafka);
+                    if (error)
+                        return "kafka." + error;
+                }
+                if (message.rabbit != null && message.hasOwnProperty("rabbit")) {
+                    var error = $root.protos.opts.WriteGroupRabbitOptions.verify(message.rabbit);
+                    if (error)
+                        return "rabbit." + error;
+                }
+                if (message.kubemqQueue != null && message.hasOwnProperty("kubemqQueue")) {
+                    var error = $root.protos.opts.WriteGroupKubeMQQueueOptions.verify(message.kubemqQueue);
+                    if (error)
+                        return "kubemqQueue." + error;
+                }
+                if (message.awsSqs != null && message.hasOwnProperty("awsSqs")) {
+                    var error = $root.protos.opts.WriteGroupAWSSQSOptions.verify(message.awsSqs);
+                    if (error)
+                        return "awsSqs." + error;
+                }
+                if (message.http != null && message.hasOwnProperty("http")) {
+                    var error = $root.protos.opts.HTTPDestination.verify(message.http);
+                    if (error)
+                        return "http." + error;
+                }
+                return null;
+            };
+
+            /**
+             * Creates a StreamdalCreateDestinationOptions message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.opts.StreamdalCreateDestinationOptions
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.opts.StreamdalCreateDestinationOptions} StreamdalCreateDestinationOptions
+             */
+            StreamdalCreateDestinationOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.StreamdalCreateDestinationOptions)
+                    return object;
+                var message = new $root.protos.opts.StreamdalCreateDestinationOptions();
+                if (object.name != null)
+                    message.name = String(object.name);
+                if (object.notes != null)
+                    message.notes = String(object.notes);
+                if (object._apiDestinationType != null)
+                    message._apiDestinationType = String(object._apiDestinationType);
+                if (object.kafka != null) {
+                    if (typeof object.kafka !== "object")
+                        throw TypeError(".protos.opts.StreamdalCreateDestinationOptions.kafka: object expected");
+                    message.kafka = $root.protos.opts.WriteGroupKafkaOptions.fromObject(object.kafka);
+                }
+                if (object.rabbit != null) {
+                    if (typeof object.rabbit !== "object")
+                        throw TypeError(".protos.opts.StreamdalCreateDestinationOptions.rabbit: object expected");
+                    message.rabbit = $root.protos.opts.WriteGroupRabbitOptions.fromObject(object.rabbit);
+                }
+                if (object.kubemqQueue != null) {
+                    if (typeof object.kubemqQueue !== "object")
+                        throw TypeError(".protos.opts.StreamdalCreateDestinationOptions.kubemqQueue: object expected");
+                    message.kubemqQueue = $root.protos.opts.WriteGroupKubeMQQueueOptions.fromObject(object.kubemqQueue);
+                }
+                if (object.awsSqs != null) {
+                    if (typeof object.awsSqs !== "object")
+                        throw TypeError(".protos.opts.StreamdalCreateDestinationOptions.awsSqs: object expected");
+                    message.awsSqs = $root.protos.opts.WriteGroupAWSSQSOptions.fromObject(object.awsSqs);
+                }
+                if (object.http != null) {
+                    if (typeof object.http !== "object")
+                        throw TypeError(".protos.opts.StreamdalCreateDestinationOptions.http: object expected");
+                    message.http = $root.protos.opts.HTTPDestination.fromObject(object.http);
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a StreamdalCreateDestinationOptions message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.opts.StreamdalCreateDestinationOptions
+             * @static
+             * @param {protos.opts.StreamdalCreateDestinationOptions} message StreamdalCreateDestinationOptions
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            StreamdalCreateDestinationOptions.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    object.name = "";
+                    object.notes = "";
+                    object.kafka = null;
+                    object.rabbit = null;
+                    object.kubemqQueue = null;
+                    object.awsSqs = null;
+                    object.http = null;
+                    object._apiDestinationType = "";
+                }
+                if (message.name != null && message.hasOwnProperty("name"))
+                    object.name = message.name;
+                if (message.notes != null && message.hasOwnProperty("notes"))
+                    object.notes = message.notes;
+                if (message.kafka != null && message.hasOwnProperty("kafka"))
+                    object.kafka = $root.protos.opts.WriteGroupKafkaOptions.toObject(message.kafka, options);
+                if (message.rabbit != null && message.hasOwnProperty("rabbit"))
+                    object.rabbit = $root.protos.opts.WriteGroupRabbitOptions.toObject(message.rabbit, options);
+                if (message.kubemqQueue != null && message.hasOwnProperty("kubemqQueue"))
+                    object.kubemqQueue = $root.protos.opts.WriteGroupKubeMQQueueOptions.toObject(message.kubemqQueue, options);
+                if (message.awsSqs != null && message.hasOwnProperty("awsSqs"))
+                    object.awsSqs = $root.protos.opts.WriteGroupAWSSQSOptions.toObject(message.awsSqs, options);
+                if (message.http != null && message.hasOwnProperty("http"))
+                    object.http = $root.protos.opts.HTTPDestination.toObject(message.http, options);
+                if (message._apiDestinationType != null && message.hasOwnProperty("_apiDestinationType"))
+                    object._apiDestinationType = message._apiDestinationType;
+                return object;
+            };
+
+            /**
+             * Converts this StreamdalCreateDestinationOptions to JSON.
+             * @function toJSON
+             * @memberof protos.opts.StreamdalCreateDestinationOptions
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            StreamdalCreateDestinationOptions.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return StreamdalCreateDestinationOptions;
+        })();
+
+        opts.HTTPDestination = (function() {
+
+            /**
+             * Properties of a HTTPDestination.
+             * @memberof protos.opts
+             * @interface IHTTPDestination
+             * @property {string|null} [url] HTTPDestination url
+             * @property {Object.<string,string>|null} [headers] HTTPDestination headers
+             */
+
+            /**
+             * Constructs a new HTTPDestination.
+             * @memberof protos.opts
+             * @classdesc Represents a HTTPDestination.
+             * @implements IHTTPDestination
+             * @constructor
+             * @param {protos.opts.IHTTPDestination=} [properties] Properties to set
+             */
+            function HTTPDestination(properties) {
+                this.headers = {};
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * HTTPDestination url.
+             * @member {string} url
+             * @memberof protos.opts.HTTPDestination
+             * @instance
+             */
+            HTTPDestination.prototype.url = "";
+
+            /**
+             * HTTPDestination headers.
+             * @member {Object.<string,string>} headers
+             * @memberof protos.opts.HTTPDestination
+             * @instance
+             */
+            HTTPDestination.prototype.headers = $util.emptyObject;
+
+            /**
+             * Creates a new HTTPDestination instance using the specified properties.
+             * @function create
+             * @memberof protos.opts.HTTPDestination
+             * @static
+             * @param {protos.opts.IHTTPDestination=} [properties] Properties to set
+             * @returns {protos.opts.HTTPDestination} HTTPDestination instance
+             */
+            HTTPDestination.create = function create(properties) {
+                return new HTTPDestination(properties);
+            };
+
+            /**
+             * Encodes the specified HTTPDestination message. Does not implicitly {@link protos.opts.HTTPDestination.verify|verify} messages.
+             * @function encode
+             * @memberof protos.opts.HTTPDestination
+             * @static
+             * @param {protos.opts.IHTTPDestination} message HTTPDestination message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            HTTPDestination.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.url != null && Object.hasOwnProperty.call(message, "url"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.url);
+                if (message.headers != null && Object.hasOwnProperty.call(message, "headers"))
+                    for (var keys = Object.keys(message.headers), i = 0; i < keys.length; ++i)
+                        writer.uint32(/* id 2, wireType 2 =*/18).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]).uint32(/* id 2, wireType 2 =*/18).string(message.headers[keys[i]]).ldelim();
+                return writer;
+            };
+
+            /**
+             * Encodes the specified HTTPDestination message, length delimited. Does not implicitly {@link protos.opts.HTTPDestination.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.opts.HTTPDestination
+             * @static
+             * @param {protos.opts.IHTTPDestination} message HTTPDestination message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            HTTPDestination.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a HTTPDestination message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.opts.HTTPDestination
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.opts.HTTPDestination} HTTPDestination
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            HTTPDestination.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.HTTPDestination(), key, value;
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.url = reader.string();
+                        break;
+                    case 2:
+                        if (message.headers === $util.emptyObject)
+                            message.headers = {};
+                        var end2 = reader.uint32() + reader.pos;
+                        key = "";
+                        value = "";
+                        while (reader.pos < end2) {
+                            var tag2 = reader.uint32();
+                            switch (tag2 >>> 3) {
+                            case 1:
+                                key = reader.string();
+                                break;
+                            case 2:
+                                value = reader.string();
+                                break;
+                            default:
+                                reader.skipType(tag2 & 7);
+                                break;
+                            }
+                        }
+                        message.headers[key] = value;
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a HTTPDestination message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.opts.HTTPDestination
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.opts.HTTPDestination} HTTPDestination
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            HTTPDestination.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a HTTPDestination message.
+             * @function verify
+             * @memberof protos.opts.HTTPDestination
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            HTTPDestination.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.url != null && message.hasOwnProperty("url"))
+                    if (!$util.isString(message.url))
+                        return "url: string expected";
+                if (message.headers != null && message.hasOwnProperty("headers")) {
+                    if (!$util.isObject(message.headers))
+                        return "headers: object expected";
+                    var key = Object.keys(message.headers);
+                    for (var i = 0; i < key.length; ++i)
+                        if (!$util.isString(message.headers[key[i]]))
+                            return "headers: string{k:string} expected";
+                }
+                return null;
+            };
+
+            /**
+             * Creates a HTTPDestination message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.opts.HTTPDestination
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.opts.HTTPDestination} HTTPDestination
+             */
+            HTTPDestination.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.HTTPDestination)
+                    return object;
+                var message = new $root.protos.opts.HTTPDestination();
+                if (object.url != null)
+                    message.url = String(object.url);
+                if (object.headers) {
+                    if (typeof object.headers !== "object")
+                        throw TypeError(".protos.opts.HTTPDestination.headers: object expected");
+                    message.headers = {};
+                    for (var keys = Object.keys(object.headers), i = 0; i < keys.length; ++i)
+                        message.headers[keys[i]] = String(object.headers[keys[i]]);
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a HTTPDestination message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.opts.HTTPDestination
+             * @static
+             * @param {protos.opts.HTTPDestination} message HTTPDestination
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            HTTPDestination.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.objects || options.defaults)
+                    object.headers = {};
+                if (options.defaults)
+                    object.url = "";
+                if (message.url != null && message.hasOwnProperty("url"))
+                    object.url = message.url;
+                var keys2;
+                if (message.headers && (keys2 = Object.keys(message.headers)).length) {
+                    object.headers = {};
+                    for (var j = 0; j < keys2.length; ++j)
+                        object.headers[keys2[j]] = message.headers[keys2[j]];
+                }
+                return object;
+            };
+
+            /**
+             * Converts this HTTPDestination to JSON.
+             * @function toJSON
+             * @memberof protos.opts.HTTPDestination
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            HTTPDestination.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return HTTPDestination;
+        })();
+
+        opts.WriteCLIOptions = (function() {
+
+            /**
+             * Properties of a WriteCLIOptions.
+             * @memberof protos.opts
+             * @interface IWriteCLIOptions
+             * @property {string|null} [inputFile] WriteCLIOptions inputFile
+             * @property {boolean|null} [inputAsJsonArray] WriteCLIOptions inputAsJsonArray
+             * @property {Array.<string>|null} [inputStdin] WriteCLIOptions inputStdin
+             */
+
+            /**
+             * Constructs a new WriteCLIOptions.
+             * @memberof protos.opts
+             * @classdesc Represents a WriteCLIOptions.
+             * @implements IWriteCLIOptions
+             * @constructor
+             * @param {protos.opts.IWriteCLIOptions=} [properties] Properties to set
+             */
+            function WriteCLIOptions(properties) {
+                this.inputStdin = [];
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * WriteCLIOptions inputFile.
+             * @member {string} inputFile
+             * @memberof protos.opts.WriteCLIOptions
+             * @instance
+             */
+            WriteCLIOptions.prototype.inputFile = "";
+
+            /**
+             * WriteCLIOptions inputAsJsonArray.
+             * @member {boolean} inputAsJsonArray
+             * @memberof protos.opts.WriteCLIOptions
+             * @instance
+             */
+            WriteCLIOptions.prototype.inputAsJsonArray = false;
+
+            /**
+             * WriteCLIOptions inputStdin.
+             * @member {Array.<string>} inputStdin
+             * @memberof protos.opts.WriteCLIOptions
+             * @instance
+             */
+            WriteCLIOptions.prototype.inputStdin = $util.emptyArray;
+
+            /**
+             * Creates a new WriteCLIOptions instance using the specified properties.
+             * @function create
+             * @memberof protos.opts.WriteCLIOptions
+             * @static
+             * @param {protos.opts.IWriteCLIOptions=} [properties] Properties to set
+             * @returns {protos.opts.WriteCLIOptions} WriteCLIOptions instance
+             */
+            WriteCLIOptions.create = function create(properties) {
+                return new WriteCLIOptions(properties);
+            };
+
+            /**
+             * Encodes the specified WriteCLIOptions message. Does not implicitly {@link protos.opts.WriteCLIOptions.verify|verify} messages.
+             * @function encode
+             * @memberof protos.opts.WriteCLIOptions
+             * @static
+             * @param {protos.opts.IWriteCLIOptions} message WriteCLIOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            WriteCLIOptions.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.inputFile != null && Object.hasOwnProperty.call(message, "inputFile"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.inputFile);
+                if (message.inputAsJsonArray != null && Object.hasOwnProperty.call(message, "inputAsJsonArray"))
+                    writer.uint32(/* id 2, wireType 0 =*/16).bool(message.inputAsJsonArray);
+                if (message.inputStdin != null && message.inputStdin.length)
+                    for (var i = 0; i < message.inputStdin.length; ++i)
+                        writer.uint32(/* id 3, wireType 2 =*/26).string(message.inputStdin[i]);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified WriteCLIOptions message, length delimited. Does not implicitly {@link protos.opts.WriteCLIOptions.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.opts.WriteCLIOptions
+             * @static
+             * @param {protos.opts.IWriteCLIOptions} message WriteCLIOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            WriteCLIOptions.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a WriteCLIOptions message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.opts.WriteCLIOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.opts.WriteCLIOptions} WriteCLIOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            WriteCLIOptions.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.WriteCLIOptions();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.inputFile = reader.string();
+                        break;
+                    case 2:
+                        message.inputAsJsonArray = reader.bool();
+                        break;
+                    case 3:
+                        if (!(message.inputStdin && message.inputStdin.length))
+                            message.inputStdin = [];
+                        message.inputStdin.push(reader.string());
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a WriteCLIOptions message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.opts.WriteCLIOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.opts.WriteCLIOptions} WriteCLIOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            WriteCLIOptions.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a WriteCLIOptions message.
+             * @function verify
+             * @memberof protos.opts.WriteCLIOptions
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            WriteCLIOptions.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.inputFile != null && message.hasOwnProperty("inputFile"))
+                    if (!$util.isString(message.inputFile))
+                        return "inputFile: string expected";
+                if (message.inputAsJsonArray != null && message.hasOwnProperty("inputAsJsonArray"))
+                    if (typeof message.inputAsJsonArray !== "boolean")
+                        return "inputAsJsonArray: boolean expected";
+                if (message.inputStdin != null && message.hasOwnProperty("inputStdin")) {
+                    if (!Array.isArray(message.inputStdin))
+                        return "inputStdin: array expected";
+                    for (var i = 0; i < message.inputStdin.length; ++i)
+                        if (!$util.isString(message.inputStdin[i]))
+                            return "inputStdin: string[] expected";
+                }
+                return null;
+            };
+
+            /**
+             * Creates a WriteCLIOptions message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.opts.WriteCLIOptions
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.opts.WriteCLIOptions} WriteCLIOptions
+             */
+            WriteCLIOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.WriteCLIOptions)
+                    return object;
+                var message = new $root.protos.opts.WriteCLIOptions();
+                if (object.inputFile != null)
+                    message.inputFile = String(object.inputFile);
+                if (object.inputAsJsonArray != null)
+                    message.inputAsJsonArray = Boolean(object.inputAsJsonArray);
+                if (object.inputStdin) {
+                    if (!Array.isArray(object.inputStdin))
+                        throw TypeError(".protos.opts.WriteCLIOptions.inputStdin: array expected");
+                    message.inputStdin = [];
+                    for (var i = 0; i < object.inputStdin.length; ++i)
+                        message.inputStdin[i] = String(object.inputStdin[i]);
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a WriteCLIOptions message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.opts.WriteCLIOptions
+             * @static
+             * @param {protos.opts.WriteCLIOptions} message WriteCLIOptions
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            WriteCLIOptions.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.arrays || options.defaults)
+                    object.inputStdin = [];
+                if (options.defaults) {
+                    object.inputFile = "";
+                    object.inputAsJsonArray = false;
+                }
+                if (message.inputFile != null && message.hasOwnProperty("inputFile"))
+                    object.inputFile = message.inputFile;
+                if (message.inputAsJsonArray != null && message.hasOwnProperty("inputAsJsonArray"))
+                    object.inputAsJsonArray = message.inputAsJsonArray;
+                if (message.inputStdin && message.inputStdin.length) {
+                    object.inputStdin = [];
+                    for (var j = 0; j < message.inputStdin.length; ++j)
+                        object.inputStdin[j] = message.inputStdin[j];
+                }
+                return object;
+            };
+
+            /**
+             * Converts this WriteCLIOptions to JSON.
+             * @function toJSON
+             * @memberof protos.opts.WriteCLIOptions
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            WriteCLIOptions.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return WriteCLIOptions;
+        })();
+
+        opts.WriteOptions = (function() {
+
+            /**
+             * Properties of a WriteOptions.
+             * @memberof protos.opts
+             * @interface IWriteOptions
+             * @property {string|null} [connectionId] WriteOptions connectionId
+             * @property {protos.records.IWriteRecord|null} [record] WriteOptions record
+             * @property {protos.encoding.IEncodeOptions|null} [encodeOptions] WriteOptions encodeOptions
+             * @property {protos.opts.IWriteCLIOptions|null} [_cliOptions] WriteOptions _cliOptions
+             * @property {protos.opts.IWriteGroupKafkaOptions|null} [kafka] WriteOptions kafka
+             * @property {protos.opts.IWriteGroupActiveMQOptions|null} [activemq] WriteOptions activemq
+             * @property {protos.opts.IWriteGroupAWSSQSOptions|null} [awsSqs] WriteOptions awsSqs
+             * @property {protos.opts.IWriteGroupAWSSNSOptions|null} [awsSns] WriteOptions awsSns
+             * @property {protos.opts.IWriteGroupNatsOptions|null} [nats] WriteOptions nats
+             * @property {protos.opts.IWriteGroupNatsStreamingOptions|null} [natsStreaming] WriteOptions natsStreaming
+             * @property {protos.opts.IWriteGroupNSQOptions|null} [nsq] WriteOptions nsq
+             * @property {protos.opts.IWriteGroupPulsarOptions|null} [pulsar] WriteOptions pulsar
+             * @property {protos.opts.IWriteGroupRabbitOptions|null} [rabbit] WriteOptions rabbit
+             * @property {protos.opts.IWriteGroupRabbitStreamsOptions|null} [rabbitStreams] WriteOptions rabbitStreams
+             * @property {protos.opts.IWriteGroupMQTTOptions|null} [mqtt] WriteOptions mqtt
+             * @property {protos.opts.IWriteGroupAzureServiceBusOptions|null} [azureServiceBus] WriteOptions azureServiceBus
+             * @property {protos.opts.IWriteGroupAzureEventHubOptions|null} [azureEventHub] WriteOptions azureEventHub
+             * @property {protos.opts.IWriteGroupGCPPubSubOptions|null} [gcpPubsub] WriteOptions gcpPubsub
+             * @property {protos.opts.IWriteGroupKubeMQQueueOptions|null} [kubemqQueue] WriteOptions kubemqQueue
+             * @property {protos.opts.IWriteGroupRedisPubSubOptions|null} [redisPubsub] WriteOptions redisPubsub
+             * @property {protos.opts.IWriteGroupRedisStreamsOptions|null} [redisStreams] WriteOptions redisStreams
+             * @property {protos.opts.IWriteGroupNatsJetstreamOptions|null} [natsJetstream] WriteOptions natsJetstream
+             * @property {protos.opts.IWriteGroupAWSKinesisOptions|null} [awsKinesis] WriteOptions awsKinesis
+             */
+
+            /**
+             * Constructs a new WriteOptions.
+             * @memberof protos.opts
+             * @classdesc Represents a WriteOptions.
+             * @implements IWriteOptions
+             * @constructor
+             * @param {protos.opts.IWriteOptions=} [properties] Properties to set
+             */
+            function WriteOptions(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * WriteOptions connectionId.
+             * @member {string} connectionId
+             * @memberof protos.opts.WriteOptions
+             * @instance
+             */
+            WriteOptions.prototype.connectionId = "";
+
+            /**
+             * WriteOptions record.
+             * @member {protos.records.IWriteRecord|null|undefined} record
+             * @memberof protos.opts.WriteOptions
+             * @instance
+             */
+            WriteOptions.prototype.record = null;
+
+            /**
+             * WriteOptions encodeOptions.
+             * @member {protos.encoding.IEncodeOptions|null|undefined} encodeOptions
+             * @memberof protos.opts.WriteOptions
+             * @instance
+             */
+            WriteOptions.prototype.encodeOptions = null;
+
+            /**
+             * WriteOptions _cliOptions.
+             * @member {protos.opts.IWriteCLIOptions|null|undefined} _cliOptions
+             * @memberof protos.opts.WriteOptions
+             * @instance
+             */
+            WriteOptions.prototype._cliOptions = null;
+
+            /**
+             * WriteOptions kafka.
+             * @member {protos.opts.IWriteGroupKafkaOptions|null|undefined} kafka
+             * @memberof protos.opts.WriteOptions
+             * @instance
+             */
+            WriteOptions.prototype.kafka = null;
+
+            /**
+             * WriteOptions activemq.
+             * @member {protos.opts.IWriteGroupActiveMQOptions|null|undefined} activemq
+             * @memberof protos.opts.WriteOptions
+             * @instance
+             */
+            WriteOptions.prototype.activemq = null;
+
+            /**
+             * WriteOptions awsSqs.
+             * @member {protos.opts.IWriteGroupAWSSQSOptions|null|undefined} awsSqs
+             * @memberof protos.opts.WriteOptions
+             * @instance
+             */
+            WriteOptions.prototype.awsSqs = null;
+
+            /**
+             * WriteOptions awsSns.
+             * @member {protos.opts.IWriteGroupAWSSNSOptions|null|undefined} awsSns
+             * @memberof protos.opts.WriteOptions
+             * @instance
+             */
+            WriteOptions.prototype.awsSns = null;
+
+            /**
+             * WriteOptions nats.
+             * @member {protos.opts.IWriteGroupNatsOptions|null|undefined} nats
+             * @memberof protos.opts.WriteOptions
+             * @instance
+             */
+            WriteOptions.prototype.nats = null;
+
+            /**
+             * WriteOptions natsStreaming.
+             * @member {protos.opts.IWriteGroupNatsStreamingOptions|null|undefined} natsStreaming
+             * @memberof protos.opts.WriteOptions
+             * @instance
+             */
+            WriteOptions.prototype.natsStreaming = null;
+
+            /**
+             * WriteOptions nsq.
+             * @member {protos.opts.IWriteGroupNSQOptions|null|undefined} nsq
+             * @memberof protos.opts.WriteOptions
+             * @instance
+             */
+            WriteOptions.prototype.nsq = null;
+
+            /**
+             * WriteOptions pulsar.
+             * @member {protos.opts.IWriteGroupPulsarOptions|null|undefined} pulsar
+             * @memberof protos.opts.WriteOptions
+             * @instance
+             */
+            WriteOptions.prototype.pulsar = null;
+
+            /**
+             * WriteOptions rabbit.
+             * @member {protos.opts.IWriteGroupRabbitOptions|null|undefined} rabbit
+             * @memberof protos.opts.WriteOptions
+             * @instance
+             */
+            WriteOptions.prototype.rabbit = null;
+
+            /**
+             * WriteOptions rabbitStreams.
+             * @member {protos.opts.IWriteGroupRabbitStreamsOptions|null|undefined} rabbitStreams
+             * @memberof protos.opts.WriteOptions
+             * @instance
+             */
+            WriteOptions.prototype.rabbitStreams = null;
+
+            /**
+             * WriteOptions mqtt.
+             * @member {protos.opts.IWriteGroupMQTTOptions|null|undefined} mqtt
+             * @memberof protos.opts.WriteOptions
+             * @instance
+             */
+            WriteOptions.prototype.mqtt = null;
+
+            /**
+             * WriteOptions azureServiceBus.
+             * @member {protos.opts.IWriteGroupAzureServiceBusOptions|null|undefined} azureServiceBus
+             * @memberof protos.opts.WriteOptions
+             * @instance
+             */
+            WriteOptions.prototype.azureServiceBus = null;
+
+            /**
+             * WriteOptions azureEventHub.
+             * @member {protos.opts.IWriteGroupAzureEventHubOptions|null|undefined} azureEventHub
+             * @memberof protos.opts.WriteOptions
+             * @instance
+             */
+            WriteOptions.prototype.azureEventHub = null;
+
+            /**
+             * WriteOptions gcpPubsub.
+             * @member {protos.opts.IWriteGroupGCPPubSubOptions|null|undefined} gcpPubsub
+             * @memberof protos.opts.WriteOptions
+             * @instance
+             */
+            WriteOptions.prototype.gcpPubsub = null;
+
+            /**
+             * WriteOptions kubemqQueue.
+             * @member {protos.opts.IWriteGroupKubeMQQueueOptions|null|undefined} kubemqQueue
+             * @memberof protos.opts.WriteOptions
+             * @instance
+             */
+            WriteOptions.prototype.kubemqQueue = null;
+
+            /**
+             * WriteOptions redisPubsub.
+             * @member {protos.opts.IWriteGroupRedisPubSubOptions|null|undefined} redisPubsub
+             * @memberof protos.opts.WriteOptions
+             * @instance
+             */
+            WriteOptions.prototype.redisPubsub = null;
+
+            /**
+             * WriteOptions redisStreams.
+             * @member {protos.opts.IWriteGroupRedisStreamsOptions|null|undefined} redisStreams
+             * @memberof protos.opts.WriteOptions
+             * @instance
+             */
+            WriteOptions.prototype.redisStreams = null;
+
+            /**
+             * WriteOptions natsJetstream.
+             * @member {protos.opts.IWriteGroupNatsJetstreamOptions|null|undefined} natsJetstream
+             * @memberof protos.opts.WriteOptions
+             * @instance
+             */
+            WriteOptions.prototype.natsJetstream = null;
+
+            /**
+             * WriteOptions awsKinesis.
+             * @member {protos.opts.IWriteGroupAWSKinesisOptions|null|undefined} awsKinesis
+             * @memberof protos.opts.WriteOptions
+             * @instance
+             */
+            WriteOptions.prototype.awsKinesis = null;
+
+            /**
+             * Creates a new WriteOptions instance using the specified properties.
+             * @function create
+             * @memberof protos.opts.WriteOptions
+             * @static
+             * @param {protos.opts.IWriteOptions=} [properties] Properties to set
+             * @returns {protos.opts.WriteOptions} WriteOptions instance
+             */
+            WriteOptions.create = function create(properties) {
+                return new WriteOptions(properties);
+            };
+
+            /**
+             * Encodes the specified WriteOptions message. Does not implicitly {@link protos.opts.WriteOptions.verify|verify} messages.
+             * @function encode
+             * @memberof protos.opts.WriteOptions
+             * @static
+             * @param {protos.opts.IWriteOptions} message WriteOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            WriteOptions.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.connectionId != null && Object.hasOwnProperty.call(message, "connectionId"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.connectionId);
+                if (message.record != null && Object.hasOwnProperty.call(message, "record"))
+                    $root.protos.records.WriteRecord.encode(message.record, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                if (message.encodeOptions != null && Object.hasOwnProperty.call(message, "encodeOptions"))
+                    $root.protos.encoding.EncodeOptions.encode(message.encodeOptions, writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
+                if (message.kafka != null && Object.hasOwnProperty.call(message, "kafka"))
+                    $root.protos.opts.WriteGroupKafkaOptions.encode(message.kafka, writer.uint32(/* id 100, wireType 2 =*/802).fork()).ldelim();
+                if (message.activemq != null && Object.hasOwnProperty.call(message, "activemq"))
+                    $root.protos.opts.WriteGroupActiveMQOptions.encode(message.activemq, writer.uint32(/* id 101, wireType 2 =*/810).fork()).ldelim();
+                if (message.awsSqs != null && Object.hasOwnProperty.call(message, "awsSqs"))
+                    $root.protos.opts.WriteGroupAWSSQSOptions.encode(message.awsSqs, writer.uint32(/* id 102, wireType 2 =*/818).fork()).ldelim();
+                if (message.awsSns != null && Object.hasOwnProperty.call(message, "awsSns"))
+                    $root.protos.opts.WriteGroupAWSSNSOptions.encode(message.awsSns, writer.uint32(/* id 103, wireType 2 =*/826).fork()).ldelim();
+                if (message.nats != null && Object.hasOwnProperty.call(message, "nats"))
+                    $root.protos.opts.WriteGroupNatsOptions.encode(message.nats, writer.uint32(/* id 104, wireType 2 =*/834).fork()).ldelim();
+                if (message.natsStreaming != null && Object.hasOwnProperty.call(message, "natsStreaming"))
+                    $root.protos.opts.WriteGroupNatsStreamingOptions.encode(message.natsStreaming, writer.uint32(/* id 105, wireType 2 =*/842).fork()).ldelim();
+                if (message.nsq != null && Object.hasOwnProperty.call(message, "nsq"))
+                    $root.protos.opts.WriteGroupNSQOptions.encode(message.nsq, writer.uint32(/* id 106, wireType 2 =*/850).fork()).ldelim();
+                if (message.pulsar != null && Object.hasOwnProperty.call(message, "pulsar"))
+                    $root.protos.opts.WriteGroupPulsarOptions.encode(message.pulsar, writer.uint32(/* id 107, wireType 2 =*/858).fork()).ldelim();
+                if (message.rabbit != null && Object.hasOwnProperty.call(message, "rabbit"))
+                    $root.protos.opts.WriteGroupRabbitOptions.encode(message.rabbit, writer.uint32(/* id 108, wireType 2 =*/866).fork()).ldelim();
+                if (message.rabbitStreams != null && Object.hasOwnProperty.call(message, "rabbitStreams"))
+                    $root.protos.opts.WriteGroupRabbitStreamsOptions.encode(message.rabbitStreams, writer.uint32(/* id 109, wireType 2 =*/874).fork()).ldelim();
+                if (message.mqtt != null && Object.hasOwnProperty.call(message, "mqtt"))
+                    $root.protos.opts.WriteGroupMQTTOptions.encode(message.mqtt, writer.uint32(/* id 110, wireType 2 =*/882).fork()).ldelim();
+                if (message.azureServiceBus != null && Object.hasOwnProperty.call(message, "azureServiceBus"))
+                    $root.protos.opts.WriteGroupAzureServiceBusOptions.encode(message.azureServiceBus, writer.uint32(/* id 111, wireType 2 =*/890).fork()).ldelim();
+                if (message.azureEventHub != null && Object.hasOwnProperty.call(message, "azureEventHub"))
+                    $root.protos.opts.WriteGroupAzureEventHubOptions.encode(message.azureEventHub, writer.uint32(/* id 112, wireType 2 =*/898).fork()).ldelim();
+                if (message.gcpPubsub != null && Object.hasOwnProperty.call(message, "gcpPubsub"))
+                    $root.protos.opts.WriteGroupGCPPubSubOptions.encode(message.gcpPubsub, writer.uint32(/* id 113, wireType 2 =*/906).fork()).ldelim();
+                if (message.kubemqQueue != null && Object.hasOwnProperty.call(message, "kubemqQueue"))
+                    $root.protos.opts.WriteGroupKubeMQQueueOptions.encode(message.kubemqQueue, writer.uint32(/* id 114, wireType 2 =*/914).fork()).ldelim();
+                if (message.redisPubsub != null && Object.hasOwnProperty.call(message, "redisPubsub"))
+                    $root.protos.opts.WriteGroupRedisPubSubOptions.encode(message.redisPubsub, writer.uint32(/* id 115, wireType 2 =*/922).fork()).ldelim();
+                if (message.redisStreams != null && Object.hasOwnProperty.call(message, "redisStreams"))
+                    $root.protos.opts.WriteGroupRedisStreamsOptions.encode(message.redisStreams, writer.uint32(/* id 116, wireType 2 =*/930).fork()).ldelim();
+                if (message.natsJetstream != null && Object.hasOwnProperty.call(message, "natsJetstream"))
+                    $root.protos.opts.WriteGroupNatsJetstreamOptions.encode(message.natsJetstream, writer.uint32(/* id 117, wireType 2 =*/938).fork()).ldelim();
+                if (message.awsKinesis != null && Object.hasOwnProperty.call(message, "awsKinesis"))
+                    $root.protos.opts.WriteGroupAWSKinesisOptions.encode(message.awsKinesis, writer.uint32(/* id 118, wireType 2 =*/946).fork()).ldelim();
+                if (message._cliOptions != null && Object.hasOwnProperty.call(message, "_cliOptions"))
+                    $root.protos.opts.WriteCLIOptions.encode(message._cliOptions, writer.uint32(/* id 1000, wireType 2 =*/8002).fork()).ldelim();
+                return writer;
+            };
+
+            /**
+             * Encodes the specified WriteOptions message, length delimited. Does not implicitly {@link protos.opts.WriteOptions.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.opts.WriteOptions
+             * @static
+             * @param {protos.opts.IWriteOptions} message WriteOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            WriteOptions.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a WriteOptions message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.opts.WriteOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.opts.WriteOptions} WriteOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            WriteOptions.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.WriteOptions();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.connectionId = reader.string();
+                        break;
+                    case 2:
+                        message.record = $root.protos.records.WriteRecord.decode(reader, reader.uint32());
+                        break;
+                    case 3:
+                        message.encodeOptions = $root.protos.encoding.EncodeOptions.decode(reader, reader.uint32());
+                        break;
+                    case 1000:
+                        message._cliOptions = $root.protos.opts.WriteCLIOptions.decode(reader, reader.uint32());
+                        break;
+                    case 100:
+                        message.kafka = $root.protos.opts.WriteGroupKafkaOptions.decode(reader, reader.uint32());
+                        break;
+                    case 101:
+                        message.activemq = $root.protos.opts.WriteGroupActiveMQOptions.decode(reader, reader.uint32());
+                        break;
+                    case 102:
+                        message.awsSqs = $root.protos.opts.WriteGroupAWSSQSOptions.decode(reader, reader.uint32());
+                        break;
+                    case 103:
+                        message.awsSns = $root.protos.opts.WriteGroupAWSSNSOptions.decode(reader, reader.uint32());
+                        break;
+                    case 104:
+                        message.nats = $root.protos.opts.WriteGroupNatsOptions.decode(reader, reader.uint32());
+                        break;
+                    case 105:
+                        message.natsStreaming = $root.protos.opts.WriteGroupNatsStreamingOptions.decode(reader, reader.uint32());
+                        break;
+                    case 106:
+                        message.nsq = $root.protos.opts.WriteGroupNSQOptions.decode(reader, reader.uint32());
+                        break;
+                    case 107:
+                        message.pulsar = $root.protos.opts.WriteGroupPulsarOptions.decode(reader, reader.uint32());
+                        break;
+                    case 108:
+                        message.rabbit = $root.protos.opts.WriteGroupRabbitOptions.decode(reader, reader.uint32());
+                        break;
+                    case 109:
+                        message.rabbitStreams = $root.protos.opts.WriteGroupRabbitStreamsOptions.decode(reader, reader.uint32());
+                        break;
+                    case 110:
+                        message.mqtt = $root.protos.opts.WriteGroupMQTTOptions.decode(reader, reader.uint32());
+                        break;
+                    case 111:
+                        message.azureServiceBus = $root.protos.opts.WriteGroupAzureServiceBusOptions.decode(reader, reader.uint32());
+                        break;
+                    case 112:
+                        message.azureEventHub = $root.protos.opts.WriteGroupAzureEventHubOptions.decode(reader, reader.uint32());
+                        break;
+                    case 113:
+                        message.gcpPubsub = $root.protos.opts.WriteGroupGCPPubSubOptions.decode(reader, reader.uint32());
+                        break;
+                    case 114:
+                        message.kubemqQueue = $root.protos.opts.WriteGroupKubeMQQueueOptions.decode(reader, reader.uint32());
+                        break;
+                    case 115:
+                        message.redisPubsub = $root.protos.opts.WriteGroupRedisPubSubOptions.decode(reader, reader.uint32());
+                        break;
+                    case 116:
+                        message.redisStreams = $root.protos.opts.WriteGroupRedisStreamsOptions.decode(reader, reader.uint32());
+                        break;
+                    case 117:
+                        message.natsJetstream = $root.protos.opts.WriteGroupNatsJetstreamOptions.decode(reader, reader.uint32());
+                        break;
+                    case 118:
+                        message.awsKinesis = $root.protos.opts.WriteGroupAWSKinesisOptions.decode(reader, reader.uint32());
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a WriteOptions message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.opts.WriteOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.opts.WriteOptions} WriteOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            WriteOptions.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a WriteOptions message.
+             * @function verify
+             * @memberof protos.opts.WriteOptions
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            WriteOptions.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.connectionId != null && message.hasOwnProperty("connectionId"))
+                    if (!$util.isString(message.connectionId))
+                        return "connectionId: string expected";
+                if (message.record != null && message.hasOwnProperty("record")) {
+                    var error = $root.protos.records.WriteRecord.verify(message.record);
+                    if (error)
+                        return "record." + error;
+                }
+                if (message.encodeOptions != null && message.hasOwnProperty("encodeOptions")) {
+                    var error = $root.protos.encoding.EncodeOptions.verify(message.encodeOptions);
+                    if (error)
+                        return "encodeOptions." + error;
+                }
+                if (message._cliOptions != null && message.hasOwnProperty("_cliOptions")) {
+                    var error = $root.protos.opts.WriteCLIOptions.verify(message._cliOptions);
+                    if (error)
+                        return "_cliOptions." + error;
+                }
+                if (message.kafka != null && message.hasOwnProperty("kafka")) {
+                    var error = $root.protos.opts.WriteGroupKafkaOptions.verify(message.kafka);
+                    if (error)
+                        return "kafka." + error;
+                }
+                if (message.activemq != null && message.hasOwnProperty("activemq")) {
+                    var error = $root.protos.opts.WriteGroupActiveMQOptions.verify(message.activemq);
+                    if (error)
+                        return "activemq." + error;
+                }
+                if (message.awsSqs != null && message.hasOwnProperty("awsSqs")) {
+                    var error = $root.protos.opts.WriteGroupAWSSQSOptions.verify(message.awsSqs);
+                    if (error)
+                        return "awsSqs." + error;
+                }
+                if (message.awsSns != null && message.hasOwnProperty("awsSns")) {
+                    var error = $root.protos.opts.WriteGroupAWSSNSOptions.verify(message.awsSns);
+                    if (error)
+                        return "awsSns." + error;
+                }
+                if (message.nats != null && message.hasOwnProperty("nats")) {
+                    var error = $root.protos.opts.WriteGroupNatsOptions.verify(message.nats);
+                    if (error)
+                        return "nats." + error;
+                }
+                if (message.natsStreaming != null && message.hasOwnProperty("natsStreaming")) {
+                    var error = $root.protos.opts.WriteGroupNatsStreamingOptions.verify(message.natsStreaming);
+                    if (error)
+                        return "natsStreaming." + error;
+                }
+                if (message.nsq != null && message.hasOwnProperty("nsq")) {
+                    var error = $root.protos.opts.WriteGroupNSQOptions.verify(message.nsq);
+                    if (error)
+                        return "nsq." + error;
+                }
+                if (message.pulsar != null && message.hasOwnProperty("pulsar")) {
+                    var error = $root.protos.opts.WriteGroupPulsarOptions.verify(message.pulsar);
+                    if (error)
+                        return "pulsar." + error;
+                }
+                if (message.rabbit != null && message.hasOwnProperty("rabbit")) {
+                    var error = $root.protos.opts.WriteGroupRabbitOptions.verify(message.rabbit);
+                    if (error)
+                        return "rabbit." + error;
+                }
+                if (message.rabbitStreams != null && message.hasOwnProperty("rabbitStreams")) {
+                    var error = $root.protos.opts.WriteGroupRabbitStreamsOptions.verify(message.rabbitStreams);
+                    if (error)
+                        return "rabbitStreams." + error;
+                }
+                if (message.mqtt != null && message.hasOwnProperty("mqtt")) {
+                    var error = $root.protos.opts.WriteGroupMQTTOptions.verify(message.mqtt);
+                    if (error)
+                        return "mqtt." + error;
+                }
+                if (message.azureServiceBus != null && message.hasOwnProperty("azureServiceBus")) {
+                    var error = $root.protos.opts.WriteGroupAzureServiceBusOptions.verify(message.azureServiceBus);
+                    if (error)
+                        return "azureServiceBus." + error;
+                }
+                if (message.azureEventHub != null && message.hasOwnProperty("azureEventHub")) {
+                    var error = $root.protos.opts.WriteGroupAzureEventHubOptions.verify(message.azureEventHub);
+                    if (error)
+                        return "azureEventHub." + error;
+                }
+                if (message.gcpPubsub != null && message.hasOwnProperty("gcpPubsub")) {
+                    var error = $root.protos.opts.WriteGroupGCPPubSubOptions.verify(message.gcpPubsub);
+                    if (error)
+                        return "gcpPubsub." + error;
+                }
+                if (message.kubemqQueue != null && message.hasOwnProperty("kubemqQueue")) {
+                    var error = $root.protos.opts.WriteGroupKubeMQQueueOptions.verify(message.kubemqQueue);
+                    if (error)
+                        return "kubemqQueue." + error;
+                }
+                if (message.redisPubsub != null && message.hasOwnProperty("redisPubsub")) {
+                    var error = $root.protos.opts.WriteGroupRedisPubSubOptions.verify(message.redisPubsub);
+                    if (error)
+                        return "redisPubsub." + error;
+                }
+                if (message.redisStreams != null && message.hasOwnProperty("redisStreams")) {
+                    var error = $root.protos.opts.WriteGroupRedisStreamsOptions.verify(message.redisStreams);
+                    if (error)
+                        return "redisStreams." + error;
+                }
+                if (message.natsJetstream != null && message.hasOwnProperty("natsJetstream")) {
+                    var error = $root.protos.opts.WriteGroupNatsJetstreamOptions.verify(message.natsJetstream);
+                    if (error)
+                        return "natsJetstream." + error;
+                }
+                if (message.awsKinesis != null && message.hasOwnProperty("awsKinesis")) {
+                    var error = $root.protos.opts.WriteGroupAWSKinesisOptions.verify(message.awsKinesis);
+                    if (error)
+                        return "awsKinesis." + error;
+                }
+                return null;
+            };
+
+            /**
+             * Creates a WriteOptions message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.opts.WriteOptions
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.opts.WriteOptions} WriteOptions
+             */
+            WriteOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.WriteOptions)
+                    return object;
+                var message = new $root.protos.opts.WriteOptions();
+                if (object.connectionId != null)
+                    message.connectionId = String(object.connectionId);
+                if (object.record != null) {
+                    if (typeof object.record !== "object")
+                        throw TypeError(".protos.opts.WriteOptions.record: object expected");
+                    message.record = $root.protos.records.WriteRecord.fromObject(object.record);
+                }
+                if (object.encodeOptions != null) {
+                    if (typeof object.encodeOptions !== "object")
+                        throw TypeError(".protos.opts.WriteOptions.encodeOptions: object expected");
+                    message.encodeOptions = $root.protos.encoding.EncodeOptions.fromObject(object.encodeOptions);
+                }
+                if (object._cliOptions != null) {
+                    if (typeof object._cliOptions !== "object")
+                        throw TypeError(".protos.opts.WriteOptions._cliOptions: object expected");
+                    message._cliOptions = $root.protos.opts.WriteCLIOptions.fromObject(object._cliOptions);
+                }
+                if (object.kafka != null) {
+                    if (typeof object.kafka !== "object")
+                        throw TypeError(".protos.opts.WriteOptions.kafka: object expected");
+                    message.kafka = $root.protos.opts.WriteGroupKafkaOptions.fromObject(object.kafka);
+                }
+                if (object.activemq != null) {
+                    if (typeof object.activemq !== "object")
+                        throw TypeError(".protos.opts.WriteOptions.activemq: object expected");
+                    message.activemq = $root.protos.opts.WriteGroupActiveMQOptions.fromObject(object.activemq);
+                }
+                if (object.awsSqs != null) {
+                    if (typeof object.awsSqs !== "object")
+                        throw TypeError(".protos.opts.WriteOptions.awsSqs: object expected");
+                    message.awsSqs = $root.protos.opts.WriteGroupAWSSQSOptions.fromObject(object.awsSqs);
+                }
+                if (object.awsSns != null) {
+                    if (typeof object.awsSns !== "object")
+                        throw TypeError(".protos.opts.WriteOptions.awsSns: object expected");
+                    message.awsSns = $root.protos.opts.WriteGroupAWSSNSOptions.fromObject(object.awsSns);
+                }
+                if (object.nats != null) {
+                    if (typeof object.nats !== "object")
+                        throw TypeError(".protos.opts.WriteOptions.nats: object expected");
+                    message.nats = $root.protos.opts.WriteGroupNatsOptions.fromObject(object.nats);
+                }
+                if (object.natsStreaming != null) {
+                    if (typeof object.natsStreaming !== "object")
+                        throw TypeError(".protos.opts.WriteOptions.natsStreaming: object expected");
+                    message.natsStreaming = $root.protos.opts.WriteGroupNatsStreamingOptions.fromObject(object.natsStreaming);
+                }
+                if (object.nsq != null) {
+                    if (typeof object.nsq !== "object")
+                        throw TypeError(".protos.opts.WriteOptions.nsq: object expected");
+                    message.nsq = $root.protos.opts.WriteGroupNSQOptions.fromObject(object.nsq);
+                }
+                if (object.pulsar != null) {
+                    if (typeof object.pulsar !== "object")
+                        throw TypeError(".protos.opts.WriteOptions.pulsar: object expected");
+                    message.pulsar = $root.protos.opts.WriteGroupPulsarOptions.fromObject(object.pulsar);
+                }
+                if (object.rabbit != null) {
+                    if (typeof object.rabbit !== "object")
+                        throw TypeError(".protos.opts.WriteOptions.rabbit: object expected");
+                    message.rabbit = $root.protos.opts.WriteGroupRabbitOptions.fromObject(object.rabbit);
+                }
+                if (object.rabbitStreams != null) {
+                    if (typeof object.rabbitStreams !== "object")
+                        throw TypeError(".protos.opts.WriteOptions.rabbitStreams: object expected");
+                    message.rabbitStreams = $root.protos.opts.WriteGroupRabbitStreamsOptions.fromObject(object.rabbitStreams);
+                }
+                if (object.mqtt != null) {
+                    if (typeof object.mqtt !== "object")
+                        throw TypeError(".protos.opts.WriteOptions.mqtt: object expected");
+                    message.mqtt = $root.protos.opts.WriteGroupMQTTOptions.fromObject(object.mqtt);
+                }
+                if (object.azureServiceBus != null) {
+                    if (typeof object.azureServiceBus !== "object")
+                        throw TypeError(".protos.opts.WriteOptions.azureServiceBus: object expected");
+                    message.azureServiceBus = $root.protos.opts.WriteGroupAzureServiceBusOptions.fromObject(object.azureServiceBus);
+                }
+                if (object.azureEventHub != null) {
+                    if (typeof object.azureEventHub !== "object")
+                        throw TypeError(".protos.opts.WriteOptions.azureEventHub: object expected");
+                    message.azureEventHub = $root.protos.opts.WriteGroupAzureEventHubOptions.fromObject(object.azureEventHub);
+                }
+                if (object.gcpPubsub != null) {
+                    if (typeof object.gcpPubsub !== "object")
+                        throw TypeError(".protos.opts.WriteOptions.gcpPubsub: object expected");
+                    message.gcpPubsub = $root.protos.opts.WriteGroupGCPPubSubOptions.fromObject(object.gcpPubsub);
+                }
+                if (object.kubemqQueue != null) {
+                    if (typeof object.kubemqQueue !== "object")
+                        throw TypeError(".protos.opts.WriteOptions.kubemqQueue: object expected");
+                    message.kubemqQueue = $root.protos.opts.WriteGroupKubeMQQueueOptions.fromObject(object.kubemqQueue);
+                }
+                if (object.redisPubsub != null) {
+                    if (typeof object.redisPubsub !== "object")
+                        throw TypeError(".protos.opts.WriteOptions.redisPubsub: object expected");
+                    message.redisPubsub = $root.protos.opts.WriteGroupRedisPubSubOptions.fromObject(object.redisPubsub);
+                }
+                if (object.redisStreams != null) {
+                    if (typeof object.redisStreams !== "object")
+                        throw TypeError(".protos.opts.WriteOptions.redisStreams: object expected");
+                    message.redisStreams = $root.protos.opts.WriteGroupRedisStreamsOptions.fromObject(object.redisStreams);
+                }
+                if (object.natsJetstream != null) {
+                    if (typeof object.natsJetstream !== "object")
+                        throw TypeError(".protos.opts.WriteOptions.natsJetstream: object expected");
+                    message.natsJetstream = $root.protos.opts.WriteGroupNatsJetstreamOptions.fromObject(object.natsJetstream);
+                }
+                if (object.awsKinesis != null) {
+                    if (typeof object.awsKinesis !== "object")
+                        throw TypeError(".protos.opts.WriteOptions.awsKinesis: object expected");
+                    message.awsKinesis = $root.protos.opts.WriteGroupAWSKinesisOptions.fromObject(object.awsKinesis);
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a WriteOptions message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.opts.WriteOptions
+             * @static
+             * @param {protos.opts.WriteOptions} message WriteOptions
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            WriteOptions.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    object.connectionId = "";
+                    object.record = null;
+                    object.encodeOptions = null;
+                    object.kafka = null;
+                    object.activemq = null;
+                    object.awsSqs = null;
+                    object.awsSns = null;
+                    object.nats = null;
+                    object.natsStreaming = null;
+                    object.nsq = null;
+                    object.pulsar = null;
+                    object.rabbit = null;
+                    object.rabbitStreams = null;
+                    object.mqtt = null;
+                    object.azureServiceBus = null;
+                    object.azureEventHub = null;
+                    object.gcpPubsub = null;
+                    object.kubemqQueue = null;
+                    object.redisPubsub = null;
+                    object.redisStreams = null;
+                    object.natsJetstream = null;
+                    object.awsKinesis = null;
+                    object._cliOptions = null;
+                }
+                if (message.connectionId != null && message.hasOwnProperty("connectionId"))
+                    object.connectionId = message.connectionId;
+                if (message.record != null && message.hasOwnProperty("record"))
+                    object.record = $root.protos.records.WriteRecord.toObject(message.record, options);
+                if (message.encodeOptions != null && message.hasOwnProperty("encodeOptions"))
+                    object.encodeOptions = $root.protos.encoding.EncodeOptions.toObject(message.encodeOptions, options);
+                if (message.kafka != null && message.hasOwnProperty("kafka"))
+                    object.kafka = $root.protos.opts.WriteGroupKafkaOptions.toObject(message.kafka, options);
+                if (message.activemq != null && message.hasOwnProperty("activemq"))
+                    object.activemq = $root.protos.opts.WriteGroupActiveMQOptions.toObject(message.activemq, options);
+                if (message.awsSqs != null && message.hasOwnProperty("awsSqs"))
+                    object.awsSqs = $root.protos.opts.WriteGroupAWSSQSOptions.toObject(message.awsSqs, options);
+                if (message.awsSns != null && message.hasOwnProperty("awsSns"))
+                    object.awsSns = $root.protos.opts.WriteGroupAWSSNSOptions.toObject(message.awsSns, options);
+                if (message.nats != null && message.hasOwnProperty("nats"))
+                    object.nats = $root.protos.opts.WriteGroupNatsOptions.toObject(message.nats, options);
+                if (message.natsStreaming != null && message.hasOwnProperty("natsStreaming"))
+                    object.natsStreaming = $root.protos.opts.WriteGroupNatsStreamingOptions.toObject(message.natsStreaming, options);
+                if (message.nsq != null && message.hasOwnProperty("nsq"))
+                    object.nsq = $root.protos.opts.WriteGroupNSQOptions.toObject(message.nsq, options);
+                if (message.pulsar != null && message.hasOwnProperty("pulsar"))
+                    object.pulsar = $root.protos.opts.WriteGroupPulsarOptions.toObject(message.pulsar, options);
+                if (message.rabbit != null && message.hasOwnProperty("rabbit"))
+                    object.rabbit = $root.protos.opts.WriteGroupRabbitOptions.toObject(message.rabbit, options);
+                if (message.rabbitStreams != null && message.hasOwnProperty("rabbitStreams"))
+                    object.rabbitStreams = $root.protos.opts.WriteGroupRabbitStreamsOptions.toObject(message.rabbitStreams, options);
+                if (message.mqtt != null && message.hasOwnProperty("mqtt"))
+                    object.mqtt = $root.protos.opts.WriteGroupMQTTOptions.toObject(message.mqtt, options);
+                if (message.azureServiceBus != null && message.hasOwnProperty("azureServiceBus"))
+                    object.azureServiceBus = $root.protos.opts.WriteGroupAzureServiceBusOptions.toObject(message.azureServiceBus, options);
+                if (message.azureEventHub != null && message.hasOwnProperty("azureEventHub"))
+                    object.azureEventHub = $root.protos.opts.WriteGroupAzureEventHubOptions.toObject(message.azureEventHub, options);
+                if (message.gcpPubsub != null && message.hasOwnProperty("gcpPubsub"))
+                    object.gcpPubsub = $root.protos.opts.WriteGroupGCPPubSubOptions.toObject(message.gcpPubsub, options);
+                if (message.kubemqQueue != null && message.hasOwnProperty("kubemqQueue"))
+                    object.kubemqQueue = $root.protos.opts.WriteGroupKubeMQQueueOptions.toObject(message.kubemqQueue, options);
+                if (message.redisPubsub != null && message.hasOwnProperty("redisPubsub"))
+                    object.redisPubsub = $root.protos.opts.WriteGroupRedisPubSubOptions.toObject(message.redisPubsub, options);
+                if (message.redisStreams != null && message.hasOwnProperty("redisStreams"))
+                    object.redisStreams = $root.protos.opts.WriteGroupRedisStreamsOptions.toObject(message.redisStreams, options);
+                if (message.natsJetstream != null && message.hasOwnProperty("natsJetstream"))
+                    object.natsJetstream = $root.protos.opts.WriteGroupNatsJetstreamOptions.toObject(message.natsJetstream, options);
+                if (message.awsKinesis != null && message.hasOwnProperty("awsKinesis"))
+                    object.awsKinesis = $root.protos.opts.WriteGroupAWSKinesisOptions.toObject(message.awsKinesis, options);
+                if (message._cliOptions != null && message.hasOwnProperty("_cliOptions"))
+                    object._cliOptions = $root.protos.opts.WriteCLIOptions.toObject(message._cliOptions, options);
+                return object;
+            };
+
+            /**
+             * Converts this WriteOptions to JSON.
+             * @function toJSON
+             * @memberof protos.opts.WriteOptions
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            WriteOptions.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return WriteOptions;
+        })();
+
+        opts.WriteGroupKafkaOptions = (function() {
+
+            /**
+             * Properties of a WriteGroupKafkaOptions.
+             * @memberof protos.opts
+             * @interface IWriteGroupKafkaOptions
+             * @property {protos.args.IKafkaConn|null} [_conn] WriteGroupKafkaOptions _conn
+             * @property {protos.args.IKafkaWriteArgs|null} [args] WriteGroupKafkaOptions args
+             */
+
+            /**
+             * Constructs a new WriteGroupKafkaOptions.
+             * @memberof protos.opts
+             * @classdesc Represents a WriteGroupKafkaOptions.
+             * @implements IWriteGroupKafkaOptions
+             * @constructor
+             * @param {protos.opts.IWriteGroupKafkaOptions=} [properties] Properties to set
+             */
+            function WriteGroupKafkaOptions(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * WriteGroupKafkaOptions _conn.
+             * @member {protos.args.IKafkaConn|null|undefined} _conn
+             * @memberof protos.opts.WriteGroupKafkaOptions
+             * @instance
+             */
+            WriteGroupKafkaOptions.prototype._conn = null;
+
+            /**
+             * WriteGroupKafkaOptions args.
+             * @member {protos.args.IKafkaWriteArgs|null|undefined} args
+             * @memberof protos.opts.WriteGroupKafkaOptions
+             * @instance
+             */
+            WriteGroupKafkaOptions.prototype.args = null;
+
+            /**
+             * Creates a new WriteGroupKafkaOptions instance using the specified properties.
+             * @function create
+             * @memberof protos.opts.WriteGroupKafkaOptions
+             * @static
+             * @param {protos.opts.IWriteGroupKafkaOptions=} [properties] Properties to set
+             * @returns {protos.opts.WriteGroupKafkaOptions} WriteGroupKafkaOptions instance
+             */
+            WriteGroupKafkaOptions.create = function create(properties) {
+                return new WriteGroupKafkaOptions(properties);
+            };
+
+            /**
+             * Encodes the specified WriteGroupKafkaOptions message. Does not implicitly {@link protos.opts.WriteGroupKafkaOptions.verify|verify} messages.
+             * @function encode
+             * @memberof protos.opts.WriteGroupKafkaOptions
+             * @static
+             * @param {protos.opts.IWriteGroupKafkaOptions} message WriteGroupKafkaOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            WriteGroupKafkaOptions.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
+                    $root.protos.args.KafkaConn.encode(message._conn, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                if (message.args != null && Object.hasOwnProperty.call(message, "args"))
+                    $root.protos.args.KafkaWriteArgs.encode(message.args, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                return writer;
+            };
+
+            /**
+             * Encodes the specified WriteGroupKafkaOptions message, length delimited. Does not implicitly {@link protos.opts.WriteGroupKafkaOptions.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.opts.WriteGroupKafkaOptions
+             * @static
+             * @param {protos.opts.IWriteGroupKafkaOptions} message WriteGroupKafkaOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            WriteGroupKafkaOptions.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a WriteGroupKafkaOptions message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.opts.WriteGroupKafkaOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.opts.WriteGroupKafkaOptions} WriteGroupKafkaOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            WriteGroupKafkaOptions.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.WriteGroupKafkaOptions();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message._conn = $root.protos.args.KafkaConn.decode(reader, reader.uint32());
+                        break;
+                    case 2:
+                        message.args = $root.protos.args.KafkaWriteArgs.decode(reader, reader.uint32());
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a WriteGroupKafkaOptions message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.opts.WriteGroupKafkaOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.opts.WriteGroupKafkaOptions} WriteGroupKafkaOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            WriteGroupKafkaOptions.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a WriteGroupKafkaOptions message.
+             * @function verify
+             * @memberof protos.opts.WriteGroupKafkaOptions
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            WriteGroupKafkaOptions.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message._conn != null && message.hasOwnProperty("_conn")) {
+                    var error = $root.protos.args.KafkaConn.verify(message._conn);
+                    if (error)
+                        return "_conn." + error;
+                }
+                if (message.args != null && message.hasOwnProperty("args")) {
+                    var error = $root.protos.args.KafkaWriteArgs.verify(message.args);
+                    if (error)
+                        return "args." + error;
+                }
+                return null;
+            };
+
+            /**
+             * Creates a WriteGroupKafkaOptions message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.opts.WriteGroupKafkaOptions
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.opts.WriteGroupKafkaOptions} WriteGroupKafkaOptions
+             */
+            WriteGroupKafkaOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.WriteGroupKafkaOptions)
+                    return object;
+                var message = new $root.protos.opts.WriteGroupKafkaOptions();
+                if (object._conn != null) {
+                    if (typeof object._conn !== "object")
+                        throw TypeError(".protos.opts.WriteGroupKafkaOptions._conn: object expected");
+                    message._conn = $root.protos.args.KafkaConn.fromObject(object._conn);
+                }
+                if (object.args != null) {
+                    if (typeof object.args !== "object")
+                        throw TypeError(".protos.opts.WriteGroupKafkaOptions.args: object expected");
+                    message.args = $root.protos.args.KafkaWriteArgs.fromObject(object.args);
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a WriteGroupKafkaOptions message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.opts.WriteGroupKafkaOptions
+             * @static
+             * @param {protos.opts.WriteGroupKafkaOptions} message WriteGroupKafkaOptions
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            WriteGroupKafkaOptions.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    object._conn = null;
+                    object.args = null;
+                }
+                if (message._conn != null && message.hasOwnProperty("_conn"))
+                    object._conn = $root.protos.args.KafkaConn.toObject(message._conn, options);
+                if (message.args != null && message.hasOwnProperty("args"))
+                    object.args = $root.protos.args.KafkaWriteArgs.toObject(message.args, options);
+                return object;
+            };
+
+            /**
+             * Converts this WriteGroupKafkaOptions to JSON.
+             * @function toJSON
+             * @memberof protos.opts.WriteGroupKafkaOptions
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            WriteGroupKafkaOptions.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return WriteGroupKafkaOptions;
+        })();
+
+        opts.WriteGroupActiveMQOptions = (function() {
+
+            /**
+             * Properties of a WriteGroupActiveMQOptions.
+             * @memberof protos.opts
+             * @interface IWriteGroupActiveMQOptions
+             * @property {protos.args.IActiveMQConn|null} [_conn] WriteGroupActiveMQOptions _conn
+             * @property {protos.args.IActiveMQWriteArgs|null} [args] WriteGroupActiveMQOptions args
+             */
+
+            /**
+             * Constructs a new WriteGroupActiveMQOptions.
+             * @memberof protos.opts
+             * @classdesc Represents a WriteGroupActiveMQOptions.
+             * @implements IWriteGroupActiveMQOptions
+             * @constructor
+             * @param {protos.opts.IWriteGroupActiveMQOptions=} [properties] Properties to set
+             */
+            function WriteGroupActiveMQOptions(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * WriteGroupActiveMQOptions _conn.
+             * @member {protos.args.IActiveMQConn|null|undefined} _conn
+             * @memberof protos.opts.WriteGroupActiveMQOptions
+             * @instance
+             */
+            WriteGroupActiveMQOptions.prototype._conn = null;
+
+            /**
+             * WriteGroupActiveMQOptions args.
+             * @member {protos.args.IActiveMQWriteArgs|null|undefined} args
+             * @memberof protos.opts.WriteGroupActiveMQOptions
+             * @instance
+             */
+            WriteGroupActiveMQOptions.prototype.args = null;
+
+            /**
+             * Creates a new WriteGroupActiveMQOptions instance using the specified properties.
+             * @function create
+             * @memberof protos.opts.WriteGroupActiveMQOptions
+             * @static
+             * @param {protos.opts.IWriteGroupActiveMQOptions=} [properties] Properties to set
+             * @returns {protos.opts.WriteGroupActiveMQOptions} WriteGroupActiveMQOptions instance
+             */
+            WriteGroupActiveMQOptions.create = function create(properties) {
+                return new WriteGroupActiveMQOptions(properties);
+            };
+
+            /**
+             * Encodes the specified WriteGroupActiveMQOptions message. Does not implicitly {@link protos.opts.WriteGroupActiveMQOptions.verify|verify} messages.
+             * @function encode
+             * @memberof protos.opts.WriteGroupActiveMQOptions
+             * @static
+             * @param {protos.opts.IWriteGroupActiveMQOptions} message WriteGroupActiveMQOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            WriteGroupActiveMQOptions.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
+                    $root.protos.args.ActiveMQConn.encode(message._conn, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                if (message.args != null && Object.hasOwnProperty.call(message, "args"))
+                    $root.protos.args.ActiveMQWriteArgs.encode(message.args, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                return writer;
+            };
+
+            /**
+             * Encodes the specified WriteGroupActiveMQOptions message, length delimited. Does not implicitly {@link protos.opts.WriteGroupActiveMQOptions.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.opts.WriteGroupActiveMQOptions
+             * @static
+             * @param {protos.opts.IWriteGroupActiveMQOptions} message WriteGroupActiveMQOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            WriteGroupActiveMQOptions.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a WriteGroupActiveMQOptions message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.opts.WriteGroupActiveMQOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.opts.WriteGroupActiveMQOptions} WriteGroupActiveMQOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            WriteGroupActiveMQOptions.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.WriteGroupActiveMQOptions();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message._conn = $root.protos.args.ActiveMQConn.decode(reader, reader.uint32());
+                        break;
+                    case 2:
+                        message.args = $root.protos.args.ActiveMQWriteArgs.decode(reader, reader.uint32());
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a WriteGroupActiveMQOptions message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.opts.WriteGroupActiveMQOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.opts.WriteGroupActiveMQOptions} WriteGroupActiveMQOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            WriteGroupActiveMQOptions.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a WriteGroupActiveMQOptions message.
+             * @function verify
+             * @memberof protos.opts.WriteGroupActiveMQOptions
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            WriteGroupActiveMQOptions.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message._conn != null && message.hasOwnProperty("_conn")) {
+                    var error = $root.protos.args.ActiveMQConn.verify(message._conn);
+                    if (error)
+                        return "_conn." + error;
+                }
+                if (message.args != null && message.hasOwnProperty("args")) {
+                    var error = $root.protos.args.ActiveMQWriteArgs.verify(message.args);
+                    if (error)
+                        return "args." + error;
+                }
+                return null;
+            };
+
+            /**
+             * Creates a WriteGroupActiveMQOptions message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.opts.WriteGroupActiveMQOptions
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.opts.WriteGroupActiveMQOptions} WriteGroupActiveMQOptions
+             */
+            WriteGroupActiveMQOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.WriteGroupActiveMQOptions)
+                    return object;
+                var message = new $root.protos.opts.WriteGroupActiveMQOptions();
+                if (object._conn != null) {
+                    if (typeof object._conn !== "object")
+                        throw TypeError(".protos.opts.WriteGroupActiveMQOptions._conn: object expected");
+                    message._conn = $root.protos.args.ActiveMQConn.fromObject(object._conn);
+                }
+                if (object.args != null) {
+                    if (typeof object.args !== "object")
+                        throw TypeError(".protos.opts.WriteGroupActiveMQOptions.args: object expected");
+                    message.args = $root.protos.args.ActiveMQWriteArgs.fromObject(object.args);
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a WriteGroupActiveMQOptions message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.opts.WriteGroupActiveMQOptions
+             * @static
+             * @param {protos.opts.WriteGroupActiveMQOptions} message WriteGroupActiveMQOptions
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            WriteGroupActiveMQOptions.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    object._conn = null;
+                    object.args = null;
+                }
+                if (message._conn != null && message.hasOwnProperty("_conn"))
+                    object._conn = $root.protos.args.ActiveMQConn.toObject(message._conn, options);
+                if (message.args != null && message.hasOwnProperty("args"))
+                    object.args = $root.protos.args.ActiveMQWriteArgs.toObject(message.args, options);
+                return object;
+            };
+
+            /**
+             * Converts this WriteGroupActiveMQOptions to JSON.
+             * @function toJSON
+             * @memberof protos.opts.WriteGroupActiveMQOptions
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            WriteGroupActiveMQOptions.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return WriteGroupActiveMQOptions;
+        })();
+
+        opts.WriteGroupAWSSQSOptions = (function() {
+
+            /**
+             * Properties of a WriteGroupAWSSQSOptions.
+             * @memberof protos.opts
+             * @interface IWriteGroupAWSSQSOptions
+             * @property {protos.args.IAWSSQSConn|null} [_conn] WriteGroupAWSSQSOptions _conn
+             * @property {protos.args.IAWSSQSWriteArgs|null} [args] WriteGroupAWSSQSOptions args
+             */
+
+            /**
+             * Constructs a new WriteGroupAWSSQSOptions.
+             * @memberof protos.opts
+             * @classdesc Represents a WriteGroupAWSSQSOptions.
+             * @implements IWriteGroupAWSSQSOptions
+             * @constructor
+             * @param {protos.opts.IWriteGroupAWSSQSOptions=} [properties] Properties to set
+             */
+            function WriteGroupAWSSQSOptions(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * WriteGroupAWSSQSOptions _conn.
+             * @member {protos.args.IAWSSQSConn|null|undefined} _conn
+             * @memberof protos.opts.WriteGroupAWSSQSOptions
+             * @instance
+             */
+            WriteGroupAWSSQSOptions.prototype._conn = null;
+
+            /**
+             * WriteGroupAWSSQSOptions args.
+             * @member {protos.args.IAWSSQSWriteArgs|null|undefined} args
+             * @memberof protos.opts.WriteGroupAWSSQSOptions
+             * @instance
+             */
+            WriteGroupAWSSQSOptions.prototype.args = null;
+
+            /**
+             * Creates a new WriteGroupAWSSQSOptions instance using the specified properties.
+             * @function create
+             * @memberof protos.opts.WriteGroupAWSSQSOptions
+             * @static
+             * @param {protos.opts.IWriteGroupAWSSQSOptions=} [properties] Properties to set
+             * @returns {protos.opts.WriteGroupAWSSQSOptions} WriteGroupAWSSQSOptions instance
+             */
+            WriteGroupAWSSQSOptions.create = function create(properties) {
+                return new WriteGroupAWSSQSOptions(properties);
+            };
+
+            /**
+             * Encodes the specified WriteGroupAWSSQSOptions message. Does not implicitly {@link protos.opts.WriteGroupAWSSQSOptions.verify|verify} messages.
+             * @function encode
+             * @memberof protos.opts.WriteGroupAWSSQSOptions
+             * @static
+             * @param {protos.opts.IWriteGroupAWSSQSOptions} message WriteGroupAWSSQSOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            WriteGroupAWSSQSOptions.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
+                    $root.protos.args.AWSSQSConn.encode(message._conn, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                if (message.args != null && Object.hasOwnProperty.call(message, "args"))
+                    $root.protos.args.AWSSQSWriteArgs.encode(message.args, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                return writer;
+            };
+
+            /**
+             * Encodes the specified WriteGroupAWSSQSOptions message, length delimited. Does not implicitly {@link protos.opts.WriteGroupAWSSQSOptions.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.opts.WriteGroupAWSSQSOptions
+             * @static
+             * @param {protos.opts.IWriteGroupAWSSQSOptions} message WriteGroupAWSSQSOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            WriteGroupAWSSQSOptions.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a WriteGroupAWSSQSOptions message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.opts.WriteGroupAWSSQSOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.opts.WriteGroupAWSSQSOptions} WriteGroupAWSSQSOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            WriteGroupAWSSQSOptions.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.WriteGroupAWSSQSOptions();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message._conn = $root.protos.args.AWSSQSConn.decode(reader, reader.uint32());
+                        break;
+                    case 2:
+                        message.args = $root.protos.args.AWSSQSWriteArgs.decode(reader, reader.uint32());
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a WriteGroupAWSSQSOptions message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.opts.WriteGroupAWSSQSOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.opts.WriteGroupAWSSQSOptions} WriteGroupAWSSQSOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            WriteGroupAWSSQSOptions.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a WriteGroupAWSSQSOptions message.
+             * @function verify
+             * @memberof protos.opts.WriteGroupAWSSQSOptions
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            WriteGroupAWSSQSOptions.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message._conn != null && message.hasOwnProperty("_conn")) {
+                    var error = $root.protos.args.AWSSQSConn.verify(message._conn);
+                    if (error)
+                        return "_conn." + error;
+                }
+                if (message.args != null && message.hasOwnProperty("args")) {
+                    var error = $root.protos.args.AWSSQSWriteArgs.verify(message.args);
+                    if (error)
+                        return "args." + error;
+                }
+                return null;
+            };
+
+            /**
+             * Creates a WriteGroupAWSSQSOptions message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.opts.WriteGroupAWSSQSOptions
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.opts.WriteGroupAWSSQSOptions} WriteGroupAWSSQSOptions
+             */
+            WriteGroupAWSSQSOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.WriteGroupAWSSQSOptions)
+                    return object;
+                var message = new $root.protos.opts.WriteGroupAWSSQSOptions();
+                if (object._conn != null) {
+                    if (typeof object._conn !== "object")
+                        throw TypeError(".protos.opts.WriteGroupAWSSQSOptions._conn: object expected");
+                    message._conn = $root.protos.args.AWSSQSConn.fromObject(object._conn);
+                }
+                if (object.args != null) {
+                    if (typeof object.args !== "object")
+                        throw TypeError(".protos.opts.WriteGroupAWSSQSOptions.args: object expected");
+                    message.args = $root.protos.args.AWSSQSWriteArgs.fromObject(object.args);
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a WriteGroupAWSSQSOptions message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.opts.WriteGroupAWSSQSOptions
+             * @static
+             * @param {protos.opts.WriteGroupAWSSQSOptions} message WriteGroupAWSSQSOptions
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            WriteGroupAWSSQSOptions.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    object._conn = null;
+                    object.args = null;
+                }
+                if (message._conn != null && message.hasOwnProperty("_conn"))
+                    object._conn = $root.protos.args.AWSSQSConn.toObject(message._conn, options);
+                if (message.args != null && message.hasOwnProperty("args"))
+                    object.args = $root.protos.args.AWSSQSWriteArgs.toObject(message.args, options);
+                return object;
+            };
+
+            /**
+             * Converts this WriteGroupAWSSQSOptions to JSON.
+             * @function toJSON
+             * @memberof protos.opts.WriteGroupAWSSQSOptions
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            WriteGroupAWSSQSOptions.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return WriteGroupAWSSQSOptions;
+        })();
+
+        opts.WriteGroupAWSSNSOptions = (function() {
+
+            /**
+             * Properties of a WriteGroupAWSSNSOptions.
+             * @memberof protos.opts
+             * @interface IWriteGroupAWSSNSOptions
+             * @property {protos.args.IAWSSNSConn|null} [_conn] WriteGroupAWSSNSOptions _conn
+             * @property {protos.args.IAWSSNSWriteArgs|null} [args] WriteGroupAWSSNSOptions args
+             */
+
+            /**
+             * Constructs a new WriteGroupAWSSNSOptions.
+             * @memberof protos.opts
+             * @classdesc Represents a WriteGroupAWSSNSOptions.
+             * @implements IWriteGroupAWSSNSOptions
+             * @constructor
+             * @param {protos.opts.IWriteGroupAWSSNSOptions=} [properties] Properties to set
+             */
+            function WriteGroupAWSSNSOptions(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * WriteGroupAWSSNSOptions _conn.
+             * @member {protos.args.IAWSSNSConn|null|undefined} _conn
+             * @memberof protos.opts.WriteGroupAWSSNSOptions
+             * @instance
+             */
+            WriteGroupAWSSNSOptions.prototype._conn = null;
+
+            /**
+             * WriteGroupAWSSNSOptions args.
+             * @member {protos.args.IAWSSNSWriteArgs|null|undefined} args
+             * @memberof protos.opts.WriteGroupAWSSNSOptions
+             * @instance
+             */
+            WriteGroupAWSSNSOptions.prototype.args = null;
+
+            /**
+             * Creates a new WriteGroupAWSSNSOptions instance using the specified properties.
+             * @function create
+             * @memberof protos.opts.WriteGroupAWSSNSOptions
+             * @static
+             * @param {protos.opts.IWriteGroupAWSSNSOptions=} [properties] Properties to set
+             * @returns {protos.opts.WriteGroupAWSSNSOptions} WriteGroupAWSSNSOptions instance
+             */
+            WriteGroupAWSSNSOptions.create = function create(properties) {
+                return new WriteGroupAWSSNSOptions(properties);
+            };
+
+            /**
+             * Encodes the specified WriteGroupAWSSNSOptions message. Does not implicitly {@link protos.opts.WriteGroupAWSSNSOptions.verify|verify} messages.
+             * @function encode
+             * @memberof protos.opts.WriteGroupAWSSNSOptions
+             * @static
+             * @param {protos.opts.IWriteGroupAWSSNSOptions} message WriteGroupAWSSNSOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            WriteGroupAWSSNSOptions.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
+                    $root.protos.args.AWSSNSConn.encode(message._conn, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                if (message.args != null && Object.hasOwnProperty.call(message, "args"))
+                    $root.protos.args.AWSSNSWriteArgs.encode(message.args, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                return writer;
+            };
+
+            /**
+             * Encodes the specified WriteGroupAWSSNSOptions message, length delimited. Does not implicitly {@link protos.opts.WriteGroupAWSSNSOptions.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.opts.WriteGroupAWSSNSOptions
+             * @static
+             * @param {protos.opts.IWriteGroupAWSSNSOptions} message WriteGroupAWSSNSOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            WriteGroupAWSSNSOptions.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a WriteGroupAWSSNSOptions message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.opts.WriteGroupAWSSNSOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.opts.WriteGroupAWSSNSOptions} WriteGroupAWSSNSOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            WriteGroupAWSSNSOptions.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.WriteGroupAWSSNSOptions();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message._conn = $root.protos.args.AWSSNSConn.decode(reader, reader.uint32());
+                        break;
+                    case 2:
+                        message.args = $root.protos.args.AWSSNSWriteArgs.decode(reader, reader.uint32());
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a WriteGroupAWSSNSOptions message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.opts.WriteGroupAWSSNSOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.opts.WriteGroupAWSSNSOptions} WriteGroupAWSSNSOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            WriteGroupAWSSNSOptions.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a WriteGroupAWSSNSOptions message.
+             * @function verify
+             * @memberof protos.opts.WriteGroupAWSSNSOptions
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            WriteGroupAWSSNSOptions.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message._conn != null && message.hasOwnProperty("_conn")) {
+                    var error = $root.protos.args.AWSSNSConn.verify(message._conn);
+                    if (error)
+                        return "_conn." + error;
+                }
+                if (message.args != null && message.hasOwnProperty("args")) {
+                    var error = $root.protos.args.AWSSNSWriteArgs.verify(message.args);
+                    if (error)
+                        return "args." + error;
+                }
+                return null;
+            };
+
+            /**
+             * Creates a WriteGroupAWSSNSOptions message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.opts.WriteGroupAWSSNSOptions
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.opts.WriteGroupAWSSNSOptions} WriteGroupAWSSNSOptions
+             */
+            WriteGroupAWSSNSOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.WriteGroupAWSSNSOptions)
+                    return object;
+                var message = new $root.protos.opts.WriteGroupAWSSNSOptions();
+                if (object._conn != null) {
+                    if (typeof object._conn !== "object")
+                        throw TypeError(".protos.opts.WriteGroupAWSSNSOptions._conn: object expected");
+                    message._conn = $root.protos.args.AWSSNSConn.fromObject(object._conn);
+                }
+                if (object.args != null) {
+                    if (typeof object.args !== "object")
+                        throw TypeError(".protos.opts.WriteGroupAWSSNSOptions.args: object expected");
+                    message.args = $root.protos.args.AWSSNSWriteArgs.fromObject(object.args);
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a WriteGroupAWSSNSOptions message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.opts.WriteGroupAWSSNSOptions
+             * @static
+             * @param {protos.opts.WriteGroupAWSSNSOptions} message WriteGroupAWSSNSOptions
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            WriteGroupAWSSNSOptions.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    object._conn = null;
+                    object.args = null;
+                }
+                if (message._conn != null && message.hasOwnProperty("_conn"))
+                    object._conn = $root.protos.args.AWSSNSConn.toObject(message._conn, options);
+                if (message.args != null && message.hasOwnProperty("args"))
+                    object.args = $root.protos.args.AWSSNSWriteArgs.toObject(message.args, options);
+                return object;
+            };
+
+            /**
+             * Converts this WriteGroupAWSSNSOptions to JSON.
+             * @function toJSON
+             * @memberof protos.opts.WriteGroupAWSSNSOptions
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            WriteGroupAWSSNSOptions.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return WriteGroupAWSSNSOptions;
+        })();
+
+        opts.WriteGroupNatsOptions = (function() {
+
+            /**
+             * Properties of a WriteGroupNatsOptions.
+             * @memberof protos.opts
+             * @interface IWriteGroupNatsOptions
+             * @property {protos.args.INatsConn|null} [_conn] WriteGroupNatsOptions _conn
+             * @property {protos.args.INatsWriteArgs|null} [args] WriteGroupNatsOptions args
+             */
+
+            /**
+             * Constructs a new WriteGroupNatsOptions.
+             * @memberof protos.opts
+             * @classdesc Represents a WriteGroupNatsOptions.
+             * @implements IWriteGroupNatsOptions
+             * @constructor
+             * @param {protos.opts.IWriteGroupNatsOptions=} [properties] Properties to set
+             */
+            function WriteGroupNatsOptions(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * WriteGroupNatsOptions _conn.
+             * @member {protos.args.INatsConn|null|undefined} _conn
+             * @memberof protos.opts.WriteGroupNatsOptions
+             * @instance
+             */
+            WriteGroupNatsOptions.prototype._conn = null;
+
+            /**
+             * WriteGroupNatsOptions args.
+             * @member {protos.args.INatsWriteArgs|null|undefined} args
+             * @memberof protos.opts.WriteGroupNatsOptions
+             * @instance
+             */
+            WriteGroupNatsOptions.prototype.args = null;
+
+            /**
+             * Creates a new WriteGroupNatsOptions instance using the specified properties.
+             * @function create
+             * @memberof protos.opts.WriteGroupNatsOptions
+             * @static
+             * @param {protos.opts.IWriteGroupNatsOptions=} [properties] Properties to set
+             * @returns {protos.opts.WriteGroupNatsOptions} WriteGroupNatsOptions instance
+             */
+            WriteGroupNatsOptions.create = function create(properties) {
+                return new WriteGroupNatsOptions(properties);
+            };
+
+            /**
+             * Encodes the specified WriteGroupNatsOptions message. Does not implicitly {@link protos.opts.WriteGroupNatsOptions.verify|verify} messages.
+             * @function encode
+             * @memberof protos.opts.WriteGroupNatsOptions
+             * @static
+             * @param {protos.opts.IWriteGroupNatsOptions} message WriteGroupNatsOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            WriteGroupNatsOptions.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
+                    $root.protos.args.NatsConn.encode(message._conn, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                if (message.args != null && Object.hasOwnProperty.call(message, "args"))
+                    $root.protos.args.NatsWriteArgs.encode(message.args, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                return writer;
+            };
+
+            /**
+             * Encodes the specified WriteGroupNatsOptions message, length delimited. Does not implicitly {@link protos.opts.WriteGroupNatsOptions.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.opts.WriteGroupNatsOptions
+             * @static
+             * @param {protos.opts.IWriteGroupNatsOptions} message WriteGroupNatsOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            WriteGroupNatsOptions.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a WriteGroupNatsOptions message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.opts.WriteGroupNatsOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.opts.WriteGroupNatsOptions} WriteGroupNatsOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            WriteGroupNatsOptions.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.WriteGroupNatsOptions();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message._conn = $root.protos.args.NatsConn.decode(reader, reader.uint32());
+                        break;
+                    case 2:
+                        message.args = $root.protos.args.NatsWriteArgs.decode(reader, reader.uint32());
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a WriteGroupNatsOptions message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.opts.WriteGroupNatsOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.opts.WriteGroupNatsOptions} WriteGroupNatsOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            WriteGroupNatsOptions.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a WriteGroupNatsOptions message.
+             * @function verify
+             * @memberof protos.opts.WriteGroupNatsOptions
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            WriteGroupNatsOptions.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message._conn != null && message.hasOwnProperty("_conn")) {
+                    var error = $root.protos.args.NatsConn.verify(message._conn);
+                    if (error)
+                        return "_conn." + error;
+                }
+                if (message.args != null && message.hasOwnProperty("args")) {
+                    var error = $root.protos.args.NatsWriteArgs.verify(message.args);
+                    if (error)
+                        return "args." + error;
+                }
+                return null;
+            };
+
+            /**
+             * Creates a WriteGroupNatsOptions message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.opts.WriteGroupNatsOptions
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.opts.WriteGroupNatsOptions} WriteGroupNatsOptions
+             */
+            WriteGroupNatsOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.WriteGroupNatsOptions)
+                    return object;
+                var message = new $root.protos.opts.WriteGroupNatsOptions();
+                if (object._conn != null) {
+                    if (typeof object._conn !== "object")
+                        throw TypeError(".protos.opts.WriteGroupNatsOptions._conn: object expected");
+                    message._conn = $root.protos.args.NatsConn.fromObject(object._conn);
+                }
+                if (object.args != null) {
+                    if (typeof object.args !== "object")
+                        throw TypeError(".protos.opts.WriteGroupNatsOptions.args: object expected");
+                    message.args = $root.protos.args.NatsWriteArgs.fromObject(object.args);
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a WriteGroupNatsOptions message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.opts.WriteGroupNatsOptions
+             * @static
+             * @param {protos.opts.WriteGroupNatsOptions} message WriteGroupNatsOptions
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            WriteGroupNatsOptions.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    object._conn = null;
+                    object.args = null;
+                }
+                if (message._conn != null && message.hasOwnProperty("_conn"))
+                    object._conn = $root.protos.args.NatsConn.toObject(message._conn, options);
+                if (message.args != null && message.hasOwnProperty("args"))
+                    object.args = $root.protos.args.NatsWriteArgs.toObject(message.args, options);
+                return object;
+            };
+
+            /**
+             * Converts this WriteGroupNatsOptions to JSON.
+             * @function toJSON
+             * @memberof protos.opts.WriteGroupNatsOptions
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            WriteGroupNatsOptions.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return WriteGroupNatsOptions;
+        })();
+
+        opts.WriteGroupNatsJetstreamOptions = (function() {
+
+            /**
+             * Properties of a WriteGroupNatsJetstreamOptions.
+             * @memberof protos.opts
+             * @interface IWriteGroupNatsJetstreamOptions
+             * @property {protos.args.INatsJetstreamConn|null} [_conn] WriteGroupNatsJetstreamOptions _conn
+             * @property {protos.args.INatsJetstreamWriteArgs|null} [args] WriteGroupNatsJetstreamOptions args
+             */
+
+            /**
+             * Constructs a new WriteGroupNatsJetstreamOptions.
+             * @memberof protos.opts
+             * @classdesc Represents a WriteGroupNatsJetstreamOptions.
+             * @implements IWriteGroupNatsJetstreamOptions
+             * @constructor
+             * @param {protos.opts.IWriteGroupNatsJetstreamOptions=} [properties] Properties to set
+             */
+            function WriteGroupNatsJetstreamOptions(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * WriteGroupNatsJetstreamOptions _conn.
+             * @member {protos.args.INatsJetstreamConn|null|undefined} _conn
+             * @memberof protos.opts.WriteGroupNatsJetstreamOptions
+             * @instance
+             */
+            WriteGroupNatsJetstreamOptions.prototype._conn = null;
+
+            /**
+             * WriteGroupNatsJetstreamOptions args.
+             * @member {protos.args.INatsJetstreamWriteArgs|null|undefined} args
+             * @memberof protos.opts.WriteGroupNatsJetstreamOptions
+             * @instance
+             */
+            WriteGroupNatsJetstreamOptions.prototype.args = null;
+
+            /**
+             * Creates a new WriteGroupNatsJetstreamOptions instance using the specified properties.
+             * @function create
+             * @memberof protos.opts.WriteGroupNatsJetstreamOptions
+             * @static
+             * @param {protos.opts.IWriteGroupNatsJetstreamOptions=} [properties] Properties to set
+             * @returns {protos.opts.WriteGroupNatsJetstreamOptions} WriteGroupNatsJetstreamOptions instance
+             */
+            WriteGroupNatsJetstreamOptions.create = function create(properties) {
+                return new WriteGroupNatsJetstreamOptions(properties);
+            };
+
+            /**
+             * Encodes the specified WriteGroupNatsJetstreamOptions message. Does not implicitly {@link protos.opts.WriteGroupNatsJetstreamOptions.verify|verify} messages.
+             * @function encode
+             * @memberof protos.opts.WriteGroupNatsJetstreamOptions
+             * @static
+             * @param {protos.opts.IWriteGroupNatsJetstreamOptions} message WriteGroupNatsJetstreamOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            WriteGroupNatsJetstreamOptions.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
+                    $root.protos.args.NatsJetstreamConn.encode(message._conn, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                if (message.args != null && Object.hasOwnProperty.call(message, "args"))
+                    $root.protos.args.NatsJetstreamWriteArgs.encode(message.args, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                return writer;
+            };
+
+            /**
+             * Encodes the specified WriteGroupNatsJetstreamOptions message, length delimited. Does not implicitly {@link protos.opts.WriteGroupNatsJetstreamOptions.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.opts.WriteGroupNatsJetstreamOptions
+             * @static
+             * @param {protos.opts.IWriteGroupNatsJetstreamOptions} message WriteGroupNatsJetstreamOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            WriteGroupNatsJetstreamOptions.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a WriteGroupNatsJetstreamOptions message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.opts.WriteGroupNatsJetstreamOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.opts.WriteGroupNatsJetstreamOptions} WriteGroupNatsJetstreamOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            WriteGroupNatsJetstreamOptions.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.WriteGroupNatsJetstreamOptions();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message._conn = $root.protos.args.NatsJetstreamConn.decode(reader, reader.uint32());
+                        break;
+                    case 2:
+                        message.args = $root.protos.args.NatsJetstreamWriteArgs.decode(reader, reader.uint32());
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a WriteGroupNatsJetstreamOptions message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.opts.WriteGroupNatsJetstreamOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.opts.WriteGroupNatsJetstreamOptions} WriteGroupNatsJetstreamOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            WriteGroupNatsJetstreamOptions.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a WriteGroupNatsJetstreamOptions message.
+             * @function verify
+             * @memberof protos.opts.WriteGroupNatsJetstreamOptions
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            WriteGroupNatsJetstreamOptions.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message._conn != null && message.hasOwnProperty("_conn")) {
+                    var error = $root.protos.args.NatsJetstreamConn.verify(message._conn);
+                    if (error)
+                        return "_conn." + error;
+                }
+                if (message.args != null && message.hasOwnProperty("args")) {
+                    var error = $root.protos.args.NatsJetstreamWriteArgs.verify(message.args);
+                    if (error)
+                        return "args." + error;
+                }
+                return null;
+            };
+
+            /**
+             * Creates a WriteGroupNatsJetstreamOptions message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.opts.WriteGroupNatsJetstreamOptions
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.opts.WriteGroupNatsJetstreamOptions} WriteGroupNatsJetstreamOptions
+             */
+            WriteGroupNatsJetstreamOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.WriteGroupNatsJetstreamOptions)
+                    return object;
+                var message = new $root.protos.opts.WriteGroupNatsJetstreamOptions();
+                if (object._conn != null) {
+                    if (typeof object._conn !== "object")
+                        throw TypeError(".protos.opts.WriteGroupNatsJetstreamOptions._conn: object expected");
+                    message._conn = $root.protos.args.NatsJetstreamConn.fromObject(object._conn);
+                }
+                if (object.args != null) {
+                    if (typeof object.args !== "object")
+                        throw TypeError(".protos.opts.WriteGroupNatsJetstreamOptions.args: object expected");
+                    message.args = $root.protos.args.NatsJetstreamWriteArgs.fromObject(object.args);
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a WriteGroupNatsJetstreamOptions message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.opts.WriteGroupNatsJetstreamOptions
+             * @static
+             * @param {protos.opts.WriteGroupNatsJetstreamOptions} message WriteGroupNatsJetstreamOptions
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            WriteGroupNatsJetstreamOptions.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    object._conn = null;
+                    object.args = null;
+                }
+                if (message._conn != null && message.hasOwnProperty("_conn"))
+                    object._conn = $root.protos.args.NatsJetstreamConn.toObject(message._conn, options);
+                if (message.args != null && message.hasOwnProperty("args"))
+                    object.args = $root.protos.args.NatsJetstreamWriteArgs.toObject(message.args, options);
+                return object;
+            };
+
+            /**
+             * Converts this WriteGroupNatsJetstreamOptions to JSON.
+             * @function toJSON
+             * @memberof protos.opts.WriteGroupNatsJetstreamOptions
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            WriteGroupNatsJetstreamOptions.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return WriteGroupNatsJetstreamOptions;
+        })();
+
+        opts.WriteGroupNatsStreamingOptions = (function() {
+
+            /**
+             * Properties of a WriteGroupNatsStreamingOptions.
+             * @memberof protos.opts
+             * @interface IWriteGroupNatsStreamingOptions
+             * @property {protos.args.INatsStreamingConn|null} [_conn] WriteGroupNatsStreamingOptions _conn
+             * @property {protos.args.INatsStreamingWriteArgs|null} [args] WriteGroupNatsStreamingOptions args
+             */
+
+            /**
+             * Constructs a new WriteGroupNatsStreamingOptions.
+             * @memberof protos.opts
+             * @classdesc Represents a WriteGroupNatsStreamingOptions.
+             * @implements IWriteGroupNatsStreamingOptions
+             * @constructor
+             * @param {protos.opts.IWriteGroupNatsStreamingOptions=} [properties] Properties to set
+             */
+            function WriteGroupNatsStreamingOptions(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * WriteGroupNatsStreamingOptions _conn.
+             * @member {protos.args.INatsStreamingConn|null|undefined} _conn
+             * @memberof protos.opts.WriteGroupNatsStreamingOptions
+             * @instance
+             */
+            WriteGroupNatsStreamingOptions.prototype._conn = null;
+
+            /**
+             * WriteGroupNatsStreamingOptions args.
+             * @member {protos.args.INatsStreamingWriteArgs|null|undefined} args
+             * @memberof protos.opts.WriteGroupNatsStreamingOptions
+             * @instance
+             */
+            WriteGroupNatsStreamingOptions.prototype.args = null;
+
+            /**
+             * Creates a new WriteGroupNatsStreamingOptions instance using the specified properties.
+             * @function create
+             * @memberof protos.opts.WriteGroupNatsStreamingOptions
+             * @static
+             * @param {protos.opts.IWriteGroupNatsStreamingOptions=} [properties] Properties to set
+             * @returns {protos.opts.WriteGroupNatsStreamingOptions} WriteGroupNatsStreamingOptions instance
+             */
+            WriteGroupNatsStreamingOptions.create = function create(properties) {
+                return new WriteGroupNatsStreamingOptions(properties);
+            };
+
+            /**
+             * Encodes the specified WriteGroupNatsStreamingOptions message. Does not implicitly {@link protos.opts.WriteGroupNatsStreamingOptions.verify|verify} messages.
+             * @function encode
+             * @memberof protos.opts.WriteGroupNatsStreamingOptions
+             * @static
+             * @param {protos.opts.IWriteGroupNatsStreamingOptions} message WriteGroupNatsStreamingOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            WriteGroupNatsStreamingOptions.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
+                    $root.protos.args.NatsStreamingConn.encode(message._conn, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                if (message.args != null && Object.hasOwnProperty.call(message, "args"))
+                    $root.protos.args.NatsStreamingWriteArgs.encode(message.args, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                return writer;
+            };
+
+            /**
+             * Encodes the specified WriteGroupNatsStreamingOptions message, length delimited. Does not implicitly {@link protos.opts.WriteGroupNatsStreamingOptions.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.opts.WriteGroupNatsStreamingOptions
+             * @static
+             * @param {protos.opts.IWriteGroupNatsStreamingOptions} message WriteGroupNatsStreamingOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            WriteGroupNatsStreamingOptions.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a WriteGroupNatsStreamingOptions message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.opts.WriteGroupNatsStreamingOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.opts.WriteGroupNatsStreamingOptions} WriteGroupNatsStreamingOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            WriteGroupNatsStreamingOptions.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.WriteGroupNatsStreamingOptions();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message._conn = $root.protos.args.NatsStreamingConn.decode(reader, reader.uint32());
+                        break;
+                    case 2:
+                        message.args = $root.protos.args.NatsStreamingWriteArgs.decode(reader, reader.uint32());
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a WriteGroupNatsStreamingOptions message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.opts.WriteGroupNatsStreamingOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.opts.WriteGroupNatsStreamingOptions} WriteGroupNatsStreamingOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            WriteGroupNatsStreamingOptions.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a WriteGroupNatsStreamingOptions message.
+             * @function verify
+             * @memberof protos.opts.WriteGroupNatsStreamingOptions
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            WriteGroupNatsStreamingOptions.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message._conn != null && message.hasOwnProperty("_conn")) {
+                    var error = $root.protos.args.NatsStreamingConn.verify(message._conn);
+                    if (error)
+                        return "_conn." + error;
+                }
+                if (message.args != null && message.hasOwnProperty("args")) {
+                    var error = $root.protos.args.NatsStreamingWriteArgs.verify(message.args);
+                    if (error)
+                        return "args." + error;
+                }
+                return null;
+            };
+
+            /**
+             * Creates a WriteGroupNatsStreamingOptions message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.opts.WriteGroupNatsStreamingOptions
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.opts.WriteGroupNatsStreamingOptions} WriteGroupNatsStreamingOptions
+             */
+            WriteGroupNatsStreamingOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.WriteGroupNatsStreamingOptions)
+                    return object;
+                var message = new $root.protos.opts.WriteGroupNatsStreamingOptions();
+                if (object._conn != null) {
+                    if (typeof object._conn !== "object")
+                        throw TypeError(".protos.opts.WriteGroupNatsStreamingOptions._conn: object expected");
+                    message._conn = $root.protos.args.NatsStreamingConn.fromObject(object._conn);
+                }
+                if (object.args != null) {
+                    if (typeof object.args !== "object")
+                        throw TypeError(".protos.opts.WriteGroupNatsStreamingOptions.args: object expected");
+                    message.args = $root.protos.args.NatsStreamingWriteArgs.fromObject(object.args);
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a WriteGroupNatsStreamingOptions message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.opts.WriteGroupNatsStreamingOptions
+             * @static
+             * @param {protos.opts.WriteGroupNatsStreamingOptions} message WriteGroupNatsStreamingOptions
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            WriteGroupNatsStreamingOptions.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    object._conn = null;
+                    object.args = null;
+                }
+                if (message._conn != null && message.hasOwnProperty("_conn"))
+                    object._conn = $root.protos.args.NatsStreamingConn.toObject(message._conn, options);
+                if (message.args != null && message.hasOwnProperty("args"))
+                    object.args = $root.protos.args.NatsStreamingWriteArgs.toObject(message.args, options);
+                return object;
+            };
+
+            /**
+             * Converts this WriteGroupNatsStreamingOptions to JSON.
+             * @function toJSON
+             * @memberof protos.opts.WriteGroupNatsStreamingOptions
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            WriteGroupNatsStreamingOptions.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return WriteGroupNatsStreamingOptions;
+        })();
+
+        opts.WriteGroupNSQOptions = (function() {
+
+            /**
+             * Properties of a WriteGroupNSQOptions.
+             * @memberof protos.opts
+             * @interface IWriteGroupNSQOptions
+             * @property {protos.args.INSQConn|null} [_conn] WriteGroupNSQOptions _conn
+             * @property {protos.args.INSQWriteArgs|null} [args] WriteGroupNSQOptions args
+             */
+
+            /**
+             * Constructs a new WriteGroupNSQOptions.
+             * @memberof protos.opts
+             * @classdesc Represents a WriteGroupNSQOptions.
+             * @implements IWriteGroupNSQOptions
+             * @constructor
+             * @param {protos.opts.IWriteGroupNSQOptions=} [properties] Properties to set
+             */
+            function WriteGroupNSQOptions(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * WriteGroupNSQOptions _conn.
+             * @member {protos.args.INSQConn|null|undefined} _conn
+             * @memberof protos.opts.WriteGroupNSQOptions
+             * @instance
+             */
+            WriteGroupNSQOptions.prototype._conn = null;
+
+            /**
+             * WriteGroupNSQOptions args.
+             * @member {protos.args.INSQWriteArgs|null|undefined} args
+             * @memberof protos.opts.WriteGroupNSQOptions
+             * @instance
+             */
+            WriteGroupNSQOptions.prototype.args = null;
+
+            /**
+             * Creates a new WriteGroupNSQOptions instance using the specified properties.
+             * @function create
+             * @memberof protos.opts.WriteGroupNSQOptions
+             * @static
+             * @param {protos.opts.IWriteGroupNSQOptions=} [properties] Properties to set
+             * @returns {protos.opts.WriteGroupNSQOptions} WriteGroupNSQOptions instance
+             */
+            WriteGroupNSQOptions.create = function create(properties) {
+                return new WriteGroupNSQOptions(properties);
+            };
+
+            /**
+             * Encodes the specified WriteGroupNSQOptions message. Does not implicitly {@link protos.opts.WriteGroupNSQOptions.verify|verify} messages.
+             * @function encode
+             * @memberof protos.opts.WriteGroupNSQOptions
+             * @static
+             * @param {protos.opts.IWriteGroupNSQOptions} message WriteGroupNSQOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            WriteGroupNSQOptions.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
+                    $root.protos.args.NSQConn.encode(message._conn, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                if (message.args != null && Object.hasOwnProperty.call(message, "args"))
+                    $root.protos.args.NSQWriteArgs.encode(message.args, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                return writer;
+            };
+
+            /**
+             * Encodes the specified WriteGroupNSQOptions message, length delimited. Does not implicitly {@link protos.opts.WriteGroupNSQOptions.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.opts.WriteGroupNSQOptions
+             * @static
+             * @param {protos.opts.IWriteGroupNSQOptions} message WriteGroupNSQOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            WriteGroupNSQOptions.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a WriteGroupNSQOptions message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.opts.WriteGroupNSQOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.opts.WriteGroupNSQOptions} WriteGroupNSQOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            WriteGroupNSQOptions.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.WriteGroupNSQOptions();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message._conn = $root.protos.args.NSQConn.decode(reader, reader.uint32());
+                        break;
+                    case 2:
+                        message.args = $root.protos.args.NSQWriteArgs.decode(reader, reader.uint32());
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a WriteGroupNSQOptions message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.opts.WriteGroupNSQOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.opts.WriteGroupNSQOptions} WriteGroupNSQOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            WriteGroupNSQOptions.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a WriteGroupNSQOptions message.
+             * @function verify
+             * @memberof protos.opts.WriteGroupNSQOptions
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            WriteGroupNSQOptions.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message._conn != null && message.hasOwnProperty("_conn")) {
+                    var error = $root.protos.args.NSQConn.verify(message._conn);
+                    if (error)
+                        return "_conn." + error;
+                }
+                if (message.args != null && message.hasOwnProperty("args")) {
+                    var error = $root.protos.args.NSQWriteArgs.verify(message.args);
+                    if (error)
+                        return "args." + error;
+                }
+                return null;
+            };
+
+            /**
+             * Creates a WriteGroupNSQOptions message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.opts.WriteGroupNSQOptions
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.opts.WriteGroupNSQOptions} WriteGroupNSQOptions
+             */
+            WriteGroupNSQOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.WriteGroupNSQOptions)
+                    return object;
+                var message = new $root.protos.opts.WriteGroupNSQOptions();
+                if (object._conn != null) {
+                    if (typeof object._conn !== "object")
+                        throw TypeError(".protos.opts.WriteGroupNSQOptions._conn: object expected");
+                    message._conn = $root.protos.args.NSQConn.fromObject(object._conn);
+                }
+                if (object.args != null) {
+                    if (typeof object.args !== "object")
+                        throw TypeError(".protos.opts.WriteGroupNSQOptions.args: object expected");
+                    message.args = $root.protos.args.NSQWriteArgs.fromObject(object.args);
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a WriteGroupNSQOptions message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.opts.WriteGroupNSQOptions
+             * @static
+             * @param {protos.opts.WriteGroupNSQOptions} message WriteGroupNSQOptions
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            WriteGroupNSQOptions.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    object._conn = null;
+                    object.args = null;
+                }
+                if (message._conn != null && message.hasOwnProperty("_conn"))
+                    object._conn = $root.protos.args.NSQConn.toObject(message._conn, options);
+                if (message.args != null && message.hasOwnProperty("args"))
+                    object.args = $root.protos.args.NSQWriteArgs.toObject(message.args, options);
+                return object;
+            };
+
+            /**
+             * Converts this WriteGroupNSQOptions to JSON.
+             * @function toJSON
+             * @memberof protos.opts.WriteGroupNSQOptions
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            WriteGroupNSQOptions.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return WriteGroupNSQOptions;
+        })();
+
+        opts.WriteGroupPulsarOptions = (function() {
+
+            /**
+             * Properties of a WriteGroupPulsarOptions.
+             * @memberof protos.opts
+             * @interface IWriteGroupPulsarOptions
+             * @property {protos.args.IPulsarConn|null} [_conn] WriteGroupPulsarOptions _conn
+             * @property {protos.args.IPulsarWriteArgs|null} [args] WriteGroupPulsarOptions args
+             */
+
+            /**
+             * Constructs a new WriteGroupPulsarOptions.
+             * @memberof protos.opts
+             * @classdesc Represents a WriteGroupPulsarOptions.
+             * @implements IWriteGroupPulsarOptions
+             * @constructor
+             * @param {protos.opts.IWriteGroupPulsarOptions=} [properties] Properties to set
+             */
+            function WriteGroupPulsarOptions(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * WriteGroupPulsarOptions _conn.
+             * @member {protos.args.IPulsarConn|null|undefined} _conn
+             * @memberof protos.opts.WriteGroupPulsarOptions
+             * @instance
+             */
+            WriteGroupPulsarOptions.prototype._conn = null;
+
+            /**
+             * WriteGroupPulsarOptions args.
+             * @member {protos.args.IPulsarWriteArgs|null|undefined} args
+             * @memberof protos.opts.WriteGroupPulsarOptions
+             * @instance
+             */
+            WriteGroupPulsarOptions.prototype.args = null;
+
+            /**
+             * Creates a new WriteGroupPulsarOptions instance using the specified properties.
+             * @function create
+             * @memberof protos.opts.WriteGroupPulsarOptions
+             * @static
+             * @param {protos.opts.IWriteGroupPulsarOptions=} [properties] Properties to set
+             * @returns {protos.opts.WriteGroupPulsarOptions} WriteGroupPulsarOptions instance
+             */
+            WriteGroupPulsarOptions.create = function create(properties) {
+                return new WriteGroupPulsarOptions(properties);
+            };
+
+            /**
+             * Encodes the specified WriteGroupPulsarOptions message. Does not implicitly {@link protos.opts.WriteGroupPulsarOptions.verify|verify} messages.
+             * @function encode
+             * @memberof protos.opts.WriteGroupPulsarOptions
+             * @static
+             * @param {protos.opts.IWriteGroupPulsarOptions} message WriteGroupPulsarOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            WriteGroupPulsarOptions.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
+                    $root.protos.args.PulsarConn.encode(message._conn, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                if (message.args != null && Object.hasOwnProperty.call(message, "args"))
+                    $root.protos.args.PulsarWriteArgs.encode(message.args, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                return writer;
+            };
+
+            /**
+             * Encodes the specified WriteGroupPulsarOptions message, length delimited. Does not implicitly {@link protos.opts.WriteGroupPulsarOptions.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.opts.WriteGroupPulsarOptions
+             * @static
+             * @param {protos.opts.IWriteGroupPulsarOptions} message WriteGroupPulsarOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            WriteGroupPulsarOptions.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a WriteGroupPulsarOptions message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.opts.WriteGroupPulsarOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.opts.WriteGroupPulsarOptions} WriteGroupPulsarOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            WriteGroupPulsarOptions.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.WriteGroupPulsarOptions();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message._conn = $root.protos.args.PulsarConn.decode(reader, reader.uint32());
+                        break;
+                    case 2:
+                        message.args = $root.protos.args.PulsarWriteArgs.decode(reader, reader.uint32());
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a WriteGroupPulsarOptions message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.opts.WriteGroupPulsarOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.opts.WriteGroupPulsarOptions} WriteGroupPulsarOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            WriteGroupPulsarOptions.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a WriteGroupPulsarOptions message.
+             * @function verify
+             * @memberof protos.opts.WriteGroupPulsarOptions
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            WriteGroupPulsarOptions.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message._conn != null && message.hasOwnProperty("_conn")) {
+                    var error = $root.protos.args.PulsarConn.verify(message._conn);
+                    if (error)
+                        return "_conn." + error;
+                }
+                if (message.args != null && message.hasOwnProperty("args")) {
+                    var error = $root.protos.args.PulsarWriteArgs.verify(message.args);
+                    if (error)
+                        return "args." + error;
+                }
+                return null;
+            };
+
+            /**
+             * Creates a WriteGroupPulsarOptions message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.opts.WriteGroupPulsarOptions
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.opts.WriteGroupPulsarOptions} WriteGroupPulsarOptions
+             */
+            WriteGroupPulsarOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.WriteGroupPulsarOptions)
+                    return object;
+                var message = new $root.protos.opts.WriteGroupPulsarOptions();
+                if (object._conn != null) {
+                    if (typeof object._conn !== "object")
+                        throw TypeError(".protos.opts.WriteGroupPulsarOptions._conn: object expected");
+                    message._conn = $root.protos.args.PulsarConn.fromObject(object._conn);
+                }
+                if (object.args != null) {
+                    if (typeof object.args !== "object")
+                        throw TypeError(".protos.opts.WriteGroupPulsarOptions.args: object expected");
+                    message.args = $root.protos.args.PulsarWriteArgs.fromObject(object.args);
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a WriteGroupPulsarOptions message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.opts.WriteGroupPulsarOptions
+             * @static
+             * @param {protos.opts.WriteGroupPulsarOptions} message WriteGroupPulsarOptions
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            WriteGroupPulsarOptions.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    object._conn = null;
+                    object.args = null;
+                }
+                if (message._conn != null && message.hasOwnProperty("_conn"))
+                    object._conn = $root.protos.args.PulsarConn.toObject(message._conn, options);
+                if (message.args != null && message.hasOwnProperty("args"))
+                    object.args = $root.protos.args.PulsarWriteArgs.toObject(message.args, options);
+                return object;
+            };
+
+            /**
+             * Converts this WriteGroupPulsarOptions to JSON.
+             * @function toJSON
+             * @memberof protos.opts.WriteGroupPulsarOptions
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            WriteGroupPulsarOptions.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return WriteGroupPulsarOptions;
+        })();
+
+        opts.WriteGroupRabbitOptions = (function() {
+
+            /**
+             * Properties of a WriteGroupRabbitOptions.
+             * @memberof protos.opts
+             * @interface IWriteGroupRabbitOptions
+             * @property {protos.args.IRabbitConn|null} [_conn] WriteGroupRabbitOptions _conn
+             * @property {protos.args.IRabbitWriteArgs|null} [args] WriteGroupRabbitOptions args
+             */
+
+            /**
+             * Constructs a new WriteGroupRabbitOptions.
+             * @memberof protos.opts
+             * @classdesc Represents a WriteGroupRabbitOptions.
+             * @implements IWriteGroupRabbitOptions
+             * @constructor
+             * @param {protos.opts.IWriteGroupRabbitOptions=} [properties] Properties to set
+             */
+            function WriteGroupRabbitOptions(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * WriteGroupRabbitOptions _conn.
+             * @member {protos.args.IRabbitConn|null|undefined} _conn
+             * @memberof protos.opts.WriteGroupRabbitOptions
+             * @instance
+             */
+            WriteGroupRabbitOptions.prototype._conn = null;
+
+            /**
+             * WriteGroupRabbitOptions args.
+             * @member {protos.args.IRabbitWriteArgs|null|undefined} args
+             * @memberof protos.opts.WriteGroupRabbitOptions
+             * @instance
+             */
+            WriteGroupRabbitOptions.prototype.args = null;
+
+            /**
+             * Creates a new WriteGroupRabbitOptions instance using the specified properties.
+             * @function create
+             * @memberof protos.opts.WriteGroupRabbitOptions
+             * @static
+             * @param {protos.opts.IWriteGroupRabbitOptions=} [properties] Properties to set
+             * @returns {protos.opts.WriteGroupRabbitOptions} WriteGroupRabbitOptions instance
+             */
+            WriteGroupRabbitOptions.create = function create(properties) {
+                return new WriteGroupRabbitOptions(properties);
+            };
+
+            /**
+             * Encodes the specified WriteGroupRabbitOptions message. Does not implicitly {@link protos.opts.WriteGroupRabbitOptions.verify|verify} messages.
+             * @function encode
+             * @memberof protos.opts.WriteGroupRabbitOptions
+             * @static
+             * @param {protos.opts.IWriteGroupRabbitOptions} message WriteGroupRabbitOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            WriteGroupRabbitOptions.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
+                    $root.protos.args.RabbitConn.encode(message._conn, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                if (message.args != null && Object.hasOwnProperty.call(message, "args"))
+                    $root.protos.args.RabbitWriteArgs.encode(message.args, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                return writer;
+            };
+
+            /**
+             * Encodes the specified WriteGroupRabbitOptions message, length delimited. Does not implicitly {@link protos.opts.WriteGroupRabbitOptions.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.opts.WriteGroupRabbitOptions
+             * @static
+             * @param {protos.opts.IWriteGroupRabbitOptions} message WriteGroupRabbitOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            WriteGroupRabbitOptions.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a WriteGroupRabbitOptions message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.opts.WriteGroupRabbitOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.opts.WriteGroupRabbitOptions} WriteGroupRabbitOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            WriteGroupRabbitOptions.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.WriteGroupRabbitOptions();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message._conn = $root.protos.args.RabbitConn.decode(reader, reader.uint32());
+                        break;
+                    case 2:
+                        message.args = $root.protos.args.RabbitWriteArgs.decode(reader, reader.uint32());
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a WriteGroupRabbitOptions message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.opts.WriteGroupRabbitOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.opts.WriteGroupRabbitOptions} WriteGroupRabbitOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            WriteGroupRabbitOptions.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a WriteGroupRabbitOptions message.
+             * @function verify
+             * @memberof protos.opts.WriteGroupRabbitOptions
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            WriteGroupRabbitOptions.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message._conn != null && message.hasOwnProperty("_conn")) {
+                    var error = $root.protos.args.RabbitConn.verify(message._conn);
+                    if (error)
+                        return "_conn." + error;
+                }
+                if (message.args != null && message.hasOwnProperty("args")) {
+                    var error = $root.protos.args.RabbitWriteArgs.verify(message.args);
+                    if (error)
+                        return "args." + error;
+                }
+                return null;
+            };
+
+            /**
+             * Creates a WriteGroupRabbitOptions message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.opts.WriteGroupRabbitOptions
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.opts.WriteGroupRabbitOptions} WriteGroupRabbitOptions
+             */
+            WriteGroupRabbitOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.WriteGroupRabbitOptions)
+                    return object;
+                var message = new $root.protos.opts.WriteGroupRabbitOptions();
+                if (object._conn != null) {
+                    if (typeof object._conn !== "object")
+                        throw TypeError(".protos.opts.WriteGroupRabbitOptions._conn: object expected");
+                    message._conn = $root.protos.args.RabbitConn.fromObject(object._conn);
+                }
+                if (object.args != null) {
+                    if (typeof object.args !== "object")
+                        throw TypeError(".protos.opts.WriteGroupRabbitOptions.args: object expected");
+                    message.args = $root.protos.args.RabbitWriteArgs.fromObject(object.args);
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a WriteGroupRabbitOptions message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.opts.WriteGroupRabbitOptions
+             * @static
+             * @param {protos.opts.WriteGroupRabbitOptions} message WriteGroupRabbitOptions
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            WriteGroupRabbitOptions.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    object._conn = null;
+                    object.args = null;
+                }
+                if (message._conn != null && message.hasOwnProperty("_conn"))
+                    object._conn = $root.protos.args.RabbitConn.toObject(message._conn, options);
+                if (message.args != null && message.hasOwnProperty("args"))
+                    object.args = $root.protos.args.RabbitWriteArgs.toObject(message.args, options);
+                return object;
+            };
+
+            /**
+             * Converts this WriteGroupRabbitOptions to JSON.
+             * @function toJSON
+             * @memberof protos.opts.WriteGroupRabbitOptions
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            WriteGroupRabbitOptions.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return WriteGroupRabbitOptions;
+        })();
+
+        opts.WriteGroupRabbitStreamsOptions = (function() {
+
+            /**
+             * Properties of a WriteGroupRabbitStreamsOptions.
+             * @memberof protos.opts
+             * @interface IWriteGroupRabbitStreamsOptions
+             * @property {protos.args.IRabbitStreamsConn|null} [_conn] WriteGroupRabbitStreamsOptions _conn
+             * @property {protos.args.IRabbitStreamsWriteArgs|null} [args] WriteGroupRabbitStreamsOptions args
+             */
+
+            /**
+             * Constructs a new WriteGroupRabbitStreamsOptions.
+             * @memberof protos.opts
+             * @classdesc Represents a WriteGroupRabbitStreamsOptions.
+             * @implements IWriteGroupRabbitStreamsOptions
+             * @constructor
+             * @param {protos.opts.IWriteGroupRabbitStreamsOptions=} [properties] Properties to set
+             */
+            function WriteGroupRabbitStreamsOptions(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * WriteGroupRabbitStreamsOptions _conn.
+             * @member {protos.args.IRabbitStreamsConn|null|undefined} _conn
+             * @memberof protos.opts.WriteGroupRabbitStreamsOptions
+             * @instance
+             */
+            WriteGroupRabbitStreamsOptions.prototype._conn = null;
+
+            /**
+             * WriteGroupRabbitStreamsOptions args.
+             * @member {protos.args.IRabbitStreamsWriteArgs|null|undefined} args
+             * @memberof protos.opts.WriteGroupRabbitStreamsOptions
+             * @instance
+             */
+            WriteGroupRabbitStreamsOptions.prototype.args = null;
+
+            /**
+             * Creates a new WriteGroupRabbitStreamsOptions instance using the specified properties.
+             * @function create
+             * @memberof protos.opts.WriteGroupRabbitStreamsOptions
+             * @static
+             * @param {protos.opts.IWriteGroupRabbitStreamsOptions=} [properties] Properties to set
+             * @returns {protos.opts.WriteGroupRabbitStreamsOptions} WriteGroupRabbitStreamsOptions instance
+             */
+            WriteGroupRabbitStreamsOptions.create = function create(properties) {
+                return new WriteGroupRabbitStreamsOptions(properties);
+            };
+
+            /**
+             * Encodes the specified WriteGroupRabbitStreamsOptions message. Does not implicitly {@link protos.opts.WriteGroupRabbitStreamsOptions.verify|verify} messages.
+             * @function encode
+             * @memberof protos.opts.WriteGroupRabbitStreamsOptions
+             * @static
+             * @param {protos.opts.IWriteGroupRabbitStreamsOptions} message WriteGroupRabbitStreamsOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            WriteGroupRabbitStreamsOptions.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
+                    $root.protos.args.RabbitStreamsConn.encode(message._conn, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                if (message.args != null && Object.hasOwnProperty.call(message, "args"))
+                    $root.protos.args.RabbitStreamsWriteArgs.encode(message.args, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                return writer;
+            };
+
+            /**
+             * Encodes the specified WriteGroupRabbitStreamsOptions message, length delimited. Does not implicitly {@link protos.opts.WriteGroupRabbitStreamsOptions.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.opts.WriteGroupRabbitStreamsOptions
+             * @static
+             * @param {protos.opts.IWriteGroupRabbitStreamsOptions} message WriteGroupRabbitStreamsOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            WriteGroupRabbitStreamsOptions.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a WriteGroupRabbitStreamsOptions message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.opts.WriteGroupRabbitStreamsOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.opts.WriteGroupRabbitStreamsOptions} WriteGroupRabbitStreamsOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            WriteGroupRabbitStreamsOptions.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.WriteGroupRabbitStreamsOptions();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message._conn = $root.protos.args.RabbitStreamsConn.decode(reader, reader.uint32());
+                        break;
+                    case 2:
+                        message.args = $root.protos.args.RabbitStreamsWriteArgs.decode(reader, reader.uint32());
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a WriteGroupRabbitStreamsOptions message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.opts.WriteGroupRabbitStreamsOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.opts.WriteGroupRabbitStreamsOptions} WriteGroupRabbitStreamsOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            WriteGroupRabbitStreamsOptions.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a WriteGroupRabbitStreamsOptions message.
+             * @function verify
+             * @memberof protos.opts.WriteGroupRabbitStreamsOptions
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            WriteGroupRabbitStreamsOptions.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message._conn != null && message.hasOwnProperty("_conn")) {
+                    var error = $root.protos.args.RabbitStreamsConn.verify(message._conn);
+                    if (error)
+                        return "_conn." + error;
+                }
+                if (message.args != null && message.hasOwnProperty("args")) {
+                    var error = $root.protos.args.RabbitStreamsWriteArgs.verify(message.args);
+                    if (error)
+                        return "args." + error;
+                }
+                return null;
+            };
+
+            /**
+             * Creates a WriteGroupRabbitStreamsOptions message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.opts.WriteGroupRabbitStreamsOptions
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.opts.WriteGroupRabbitStreamsOptions} WriteGroupRabbitStreamsOptions
+             */
+            WriteGroupRabbitStreamsOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.WriteGroupRabbitStreamsOptions)
+                    return object;
+                var message = new $root.protos.opts.WriteGroupRabbitStreamsOptions();
+                if (object._conn != null) {
+                    if (typeof object._conn !== "object")
+                        throw TypeError(".protos.opts.WriteGroupRabbitStreamsOptions._conn: object expected");
+                    message._conn = $root.protos.args.RabbitStreamsConn.fromObject(object._conn);
+                }
+                if (object.args != null) {
+                    if (typeof object.args !== "object")
+                        throw TypeError(".protos.opts.WriteGroupRabbitStreamsOptions.args: object expected");
+                    message.args = $root.protos.args.RabbitStreamsWriteArgs.fromObject(object.args);
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a WriteGroupRabbitStreamsOptions message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.opts.WriteGroupRabbitStreamsOptions
+             * @static
+             * @param {protos.opts.WriteGroupRabbitStreamsOptions} message WriteGroupRabbitStreamsOptions
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            WriteGroupRabbitStreamsOptions.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    object._conn = null;
+                    object.args = null;
+                }
+                if (message._conn != null && message.hasOwnProperty("_conn"))
+                    object._conn = $root.protos.args.RabbitStreamsConn.toObject(message._conn, options);
+                if (message.args != null && message.hasOwnProperty("args"))
+                    object.args = $root.protos.args.RabbitStreamsWriteArgs.toObject(message.args, options);
+                return object;
+            };
+
+            /**
+             * Converts this WriteGroupRabbitStreamsOptions to JSON.
+             * @function toJSON
+             * @memberof protos.opts.WriteGroupRabbitStreamsOptions
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            WriteGroupRabbitStreamsOptions.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return WriteGroupRabbitStreamsOptions;
+        })();
+
+        opts.WriteGroupRedisPubSubOptions = (function() {
+
+            /**
+             * Properties of a WriteGroupRedisPubSubOptions.
+             * @memberof protos.opts
+             * @interface IWriteGroupRedisPubSubOptions
+             * @property {protos.args.IRedisPubSubConn|null} [_conn] WriteGroupRedisPubSubOptions _conn
+             * @property {protos.args.IRedisPubSubWriteArgs|null} [args] WriteGroupRedisPubSubOptions args
+             */
+
+            /**
+             * Constructs a new WriteGroupRedisPubSubOptions.
+             * @memberof protos.opts
+             * @classdesc Represents a WriteGroupRedisPubSubOptions.
+             * @implements IWriteGroupRedisPubSubOptions
+             * @constructor
+             * @param {protos.opts.IWriteGroupRedisPubSubOptions=} [properties] Properties to set
+             */
+            function WriteGroupRedisPubSubOptions(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * WriteGroupRedisPubSubOptions _conn.
+             * @member {protos.args.IRedisPubSubConn|null|undefined} _conn
+             * @memberof protos.opts.WriteGroupRedisPubSubOptions
+             * @instance
+             */
+            WriteGroupRedisPubSubOptions.prototype._conn = null;
+
+            /**
+             * WriteGroupRedisPubSubOptions args.
+             * @member {protos.args.IRedisPubSubWriteArgs|null|undefined} args
+             * @memberof protos.opts.WriteGroupRedisPubSubOptions
+             * @instance
+             */
+            WriteGroupRedisPubSubOptions.prototype.args = null;
+
+            /**
+             * Creates a new WriteGroupRedisPubSubOptions instance using the specified properties.
+             * @function create
+             * @memberof protos.opts.WriteGroupRedisPubSubOptions
+             * @static
+             * @param {protos.opts.IWriteGroupRedisPubSubOptions=} [properties] Properties to set
+             * @returns {protos.opts.WriteGroupRedisPubSubOptions} WriteGroupRedisPubSubOptions instance
+             */
+            WriteGroupRedisPubSubOptions.create = function create(properties) {
+                return new WriteGroupRedisPubSubOptions(properties);
+            };
+
+            /**
+             * Encodes the specified WriteGroupRedisPubSubOptions message. Does not implicitly {@link protos.opts.WriteGroupRedisPubSubOptions.verify|verify} messages.
+             * @function encode
+             * @memberof protos.opts.WriteGroupRedisPubSubOptions
+             * @static
+             * @param {protos.opts.IWriteGroupRedisPubSubOptions} message WriteGroupRedisPubSubOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            WriteGroupRedisPubSubOptions.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
+                    $root.protos.args.RedisPubSubConn.encode(message._conn, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                if (message.args != null && Object.hasOwnProperty.call(message, "args"))
+                    $root.protos.args.RedisPubSubWriteArgs.encode(message.args, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                return writer;
+            };
+
+            /**
+             * Encodes the specified WriteGroupRedisPubSubOptions message, length delimited. Does not implicitly {@link protos.opts.WriteGroupRedisPubSubOptions.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.opts.WriteGroupRedisPubSubOptions
+             * @static
+             * @param {protos.opts.IWriteGroupRedisPubSubOptions} message WriteGroupRedisPubSubOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            WriteGroupRedisPubSubOptions.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a WriteGroupRedisPubSubOptions message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.opts.WriteGroupRedisPubSubOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.opts.WriteGroupRedisPubSubOptions} WriteGroupRedisPubSubOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            WriteGroupRedisPubSubOptions.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.WriteGroupRedisPubSubOptions();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message._conn = $root.protos.args.RedisPubSubConn.decode(reader, reader.uint32());
+                        break;
+                    case 2:
+                        message.args = $root.protos.args.RedisPubSubWriteArgs.decode(reader, reader.uint32());
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a WriteGroupRedisPubSubOptions message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.opts.WriteGroupRedisPubSubOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.opts.WriteGroupRedisPubSubOptions} WriteGroupRedisPubSubOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            WriteGroupRedisPubSubOptions.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a WriteGroupRedisPubSubOptions message.
+             * @function verify
+             * @memberof protos.opts.WriteGroupRedisPubSubOptions
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            WriteGroupRedisPubSubOptions.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message._conn != null && message.hasOwnProperty("_conn")) {
+                    var error = $root.protos.args.RedisPubSubConn.verify(message._conn);
+                    if (error)
+                        return "_conn." + error;
+                }
+                if (message.args != null && message.hasOwnProperty("args")) {
+                    var error = $root.protos.args.RedisPubSubWriteArgs.verify(message.args);
+                    if (error)
+                        return "args." + error;
+                }
+                return null;
+            };
+
+            /**
+             * Creates a WriteGroupRedisPubSubOptions message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.opts.WriteGroupRedisPubSubOptions
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.opts.WriteGroupRedisPubSubOptions} WriteGroupRedisPubSubOptions
+             */
+            WriteGroupRedisPubSubOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.WriteGroupRedisPubSubOptions)
+                    return object;
+                var message = new $root.protos.opts.WriteGroupRedisPubSubOptions();
+                if (object._conn != null) {
+                    if (typeof object._conn !== "object")
+                        throw TypeError(".protos.opts.WriteGroupRedisPubSubOptions._conn: object expected");
+                    message._conn = $root.protos.args.RedisPubSubConn.fromObject(object._conn);
+                }
+                if (object.args != null) {
+                    if (typeof object.args !== "object")
+                        throw TypeError(".protos.opts.WriteGroupRedisPubSubOptions.args: object expected");
+                    message.args = $root.protos.args.RedisPubSubWriteArgs.fromObject(object.args);
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a WriteGroupRedisPubSubOptions message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.opts.WriteGroupRedisPubSubOptions
+             * @static
+             * @param {protos.opts.WriteGroupRedisPubSubOptions} message WriteGroupRedisPubSubOptions
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            WriteGroupRedisPubSubOptions.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    object._conn = null;
+                    object.args = null;
+                }
+                if (message._conn != null && message.hasOwnProperty("_conn"))
+                    object._conn = $root.protos.args.RedisPubSubConn.toObject(message._conn, options);
+                if (message.args != null && message.hasOwnProperty("args"))
+                    object.args = $root.protos.args.RedisPubSubWriteArgs.toObject(message.args, options);
+                return object;
+            };
+
+            /**
+             * Converts this WriteGroupRedisPubSubOptions to JSON.
+             * @function toJSON
+             * @memberof protos.opts.WriteGroupRedisPubSubOptions
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            WriteGroupRedisPubSubOptions.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return WriteGroupRedisPubSubOptions;
+        })();
+
+        opts.WriteGroupRedisStreamsOptions = (function() {
+
+            /**
+             * Properties of a WriteGroupRedisStreamsOptions.
+             * @memberof protos.opts
+             * @interface IWriteGroupRedisStreamsOptions
+             * @property {protos.args.IRedisStreamsConn|null} [_conn] WriteGroupRedisStreamsOptions _conn
+             * @property {protos.args.IRedisStreamsWriteArgs|null} [args] WriteGroupRedisStreamsOptions args
+             */
+
+            /**
+             * Constructs a new WriteGroupRedisStreamsOptions.
+             * @memberof protos.opts
+             * @classdesc Represents a WriteGroupRedisStreamsOptions.
+             * @implements IWriteGroupRedisStreamsOptions
+             * @constructor
+             * @param {protos.opts.IWriteGroupRedisStreamsOptions=} [properties] Properties to set
+             */
+            function WriteGroupRedisStreamsOptions(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * WriteGroupRedisStreamsOptions _conn.
+             * @member {protos.args.IRedisStreamsConn|null|undefined} _conn
+             * @memberof protos.opts.WriteGroupRedisStreamsOptions
+             * @instance
+             */
+            WriteGroupRedisStreamsOptions.prototype._conn = null;
+
+            /**
+             * WriteGroupRedisStreamsOptions args.
+             * @member {protos.args.IRedisStreamsWriteArgs|null|undefined} args
+             * @memberof protos.opts.WriteGroupRedisStreamsOptions
+             * @instance
+             */
+            WriteGroupRedisStreamsOptions.prototype.args = null;
+
+            /**
+             * Creates a new WriteGroupRedisStreamsOptions instance using the specified properties.
+             * @function create
+             * @memberof protos.opts.WriteGroupRedisStreamsOptions
+             * @static
+             * @param {protos.opts.IWriteGroupRedisStreamsOptions=} [properties] Properties to set
+             * @returns {protos.opts.WriteGroupRedisStreamsOptions} WriteGroupRedisStreamsOptions instance
+             */
+            WriteGroupRedisStreamsOptions.create = function create(properties) {
+                return new WriteGroupRedisStreamsOptions(properties);
+            };
+
+            /**
+             * Encodes the specified WriteGroupRedisStreamsOptions message. Does not implicitly {@link protos.opts.WriteGroupRedisStreamsOptions.verify|verify} messages.
+             * @function encode
+             * @memberof protos.opts.WriteGroupRedisStreamsOptions
+             * @static
+             * @param {protos.opts.IWriteGroupRedisStreamsOptions} message WriteGroupRedisStreamsOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            WriteGroupRedisStreamsOptions.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
+                    $root.protos.args.RedisStreamsConn.encode(message._conn, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                if (message.args != null && Object.hasOwnProperty.call(message, "args"))
+                    $root.protos.args.RedisStreamsWriteArgs.encode(message.args, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                return writer;
+            };
+
+            /**
+             * Encodes the specified WriteGroupRedisStreamsOptions message, length delimited. Does not implicitly {@link protos.opts.WriteGroupRedisStreamsOptions.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.opts.WriteGroupRedisStreamsOptions
+             * @static
+             * @param {protos.opts.IWriteGroupRedisStreamsOptions} message WriteGroupRedisStreamsOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            WriteGroupRedisStreamsOptions.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a WriteGroupRedisStreamsOptions message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.opts.WriteGroupRedisStreamsOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.opts.WriteGroupRedisStreamsOptions} WriteGroupRedisStreamsOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            WriteGroupRedisStreamsOptions.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.WriteGroupRedisStreamsOptions();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message._conn = $root.protos.args.RedisStreamsConn.decode(reader, reader.uint32());
+                        break;
+                    case 2:
+                        message.args = $root.protos.args.RedisStreamsWriteArgs.decode(reader, reader.uint32());
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a WriteGroupRedisStreamsOptions message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.opts.WriteGroupRedisStreamsOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.opts.WriteGroupRedisStreamsOptions} WriteGroupRedisStreamsOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            WriteGroupRedisStreamsOptions.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a WriteGroupRedisStreamsOptions message.
+             * @function verify
+             * @memberof protos.opts.WriteGroupRedisStreamsOptions
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            WriteGroupRedisStreamsOptions.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message._conn != null && message.hasOwnProperty("_conn")) {
+                    var error = $root.protos.args.RedisStreamsConn.verify(message._conn);
+                    if (error)
+                        return "_conn." + error;
+                }
+                if (message.args != null && message.hasOwnProperty("args")) {
+                    var error = $root.protos.args.RedisStreamsWriteArgs.verify(message.args);
+                    if (error)
+                        return "args." + error;
+                }
+                return null;
+            };
+
+            /**
+             * Creates a WriteGroupRedisStreamsOptions message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.opts.WriteGroupRedisStreamsOptions
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.opts.WriteGroupRedisStreamsOptions} WriteGroupRedisStreamsOptions
+             */
+            WriteGroupRedisStreamsOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.WriteGroupRedisStreamsOptions)
+                    return object;
+                var message = new $root.protos.opts.WriteGroupRedisStreamsOptions();
+                if (object._conn != null) {
+                    if (typeof object._conn !== "object")
+                        throw TypeError(".protos.opts.WriteGroupRedisStreamsOptions._conn: object expected");
+                    message._conn = $root.protos.args.RedisStreamsConn.fromObject(object._conn);
+                }
+                if (object.args != null) {
+                    if (typeof object.args !== "object")
+                        throw TypeError(".protos.opts.WriteGroupRedisStreamsOptions.args: object expected");
+                    message.args = $root.protos.args.RedisStreamsWriteArgs.fromObject(object.args);
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a WriteGroupRedisStreamsOptions message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.opts.WriteGroupRedisStreamsOptions
+             * @static
+             * @param {protos.opts.WriteGroupRedisStreamsOptions} message WriteGroupRedisStreamsOptions
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            WriteGroupRedisStreamsOptions.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    object._conn = null;
+                    object.args = null;
+                }
+                if (message._conn != null && message.hasOwnProperty("_conn"))
+                    object._conn = $root.protos.args.RedisStreamsConn.toObject(message._conn, options);
+                if (message.args != null && message.hasOwnProperty("args"))
+                    object.args = $root.protos.args.RedisStreamsWriteArgs.toObject(message.args, options);
+                return object;
+            };
+
+            /**
+             * Converts this WriteGroupRedisStreamsOptions to JSON.
+             * @function toJSON
+             * @memberof protos.opts.WriteGroupRedisStreamsOptions
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            WriteGroupRedisStreamsOptions.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return WriteGroupRedisStreamsOptions;
+        })();
+
+        opts.WriteGroupAzureEventHubOptions = (function() {
+
+            /**
+             * Properties of a WriteGroupAzureEventHubOptions.
+             * @memberof protos.opts
+             * @interface IWriteGroupAzureEventHubOptions
+             * @property {protos.args.IAzureEventHubConn|null} [_conn] WriteGroupAzureEventHubOptions _conn
+             * @property {protos.args.IAzureEventHubWriteArgs|null} [args] WriteGroupAzureEventHubOptions args
+             */
+
+            /**
+             * Constructs a new WriteGroupAzureEventHubOptions.
+             * @memberof protos.opts
+             * @classdesc Represents a WriteGroupAzureEventHubOptions.
+             * @implements IWriteGroupAzureEventHubOptions
+             * @constructor
+             * @param {protos.opts.IWriteGroupAzureEventHubOptions=} [properties] Properties to set
+             */
+            function WriteGroupAzureEventHubOptions(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * WriteGroupAzureEventHubOptions _conn.
+             * @member {protos.args.IAzureEventHubConn|null|undefined} _conn
+             * @memberof protos.opts.WriteGroupAzureEventHubOptions
+             * @instance
+             */
+            WriteGroupAzureEventHubOptions.prototype._conn = null;
+
+            /**
+             * WriteGroupAzureEventHubOptions args.
+             * @member {protos.args.IAzureEventHubWriteArgs|null|undefined} args
+             * @memberof protos.opts.WriteGroupAzureEventHubOptions
+             * @instance
+             */
+            WriteGroupAzureEventHubOptions.prototype.args = null;
+
+            /**
+             * Creates a new WriteGroupAzureEventHubOptions instance using the specified properties.
+             * @function create
+             * @memberof protos.opts.WriteGroupAzureEventHubOptions
+             * @static
+             * @param {protos.opts.IWriteGroupAzureEventHubOptions=} [properties] Properties to set
+             * @returns {protos.opts.WriteGroupAzureEventHubOptions} WriteGroupAzureEventHubOptions instance
+             */
+            WriteGroupAzureEventHubOptions.create = function create(properties) {
+                return new WriteGroupAzureEventHubOptions(properties);
+            };
+
+            /**
+             * Encodes the specified WriteGroupAzureEventHubOptions message. Does not implicitly {@link protos.opts.WriteGroupAzureEventHubOptions.verify|verify} messages.
+             * @function encode
+             * @memberof protos.opts.WriteGroupAzureEventHubOptions
+             * @static
+             * @param {protos.opts.IWriteGroupAzureEventHubOptions} message WriteGroupAzureEventHubOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            WriteGroupAzureEventHubOptions.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
+                    $root.protos.args.AzureEventHubConn.encode(message._conn, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                if (message.args != null && Object.hasOwnProperty.call(message, "args"))
+                    $root.protos.args.AzureEventHubWriteArgs.encode(message.args, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                return writer;
+            };
+
+            /**
+             * Encodes the specified WriteGroupAzureEventHubOptions message, length delimited. Does not implicitly {@link protos.opts.WriteGroupAzureEventHubOptions.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.opts.WriteGroupAzureEventHubOptions
+             * @static
+             * @param {protos.opts.IWriteGroupAzureEventHubOptions} message WriteGroupAzureEventHubOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            WriteGroupAzureEventHubOptions.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a WriteGroupAzureEventHubOptions message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.opts.WriteGroupAzureEventHubOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.opts.WriteGroupAzureEventHubOptions} WriteGroupAzureEventHubOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            WriteGroupAzureEventHubOptions.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.WriteGroupAzureEventHubOptions();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message._conn = $root.protos.args.AzureEventHubConn.decode(reader, reader.uint32());
+                        break;
+                    case 2:
+                        message.args = $root.protos.args.AzureEventHubWriteArgs.decode(reader, reader.uint32());
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a WriteGroupAzureEventHubOptions message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.opts.WriteGroupAzureEventHubOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.opts.WriteGroupAzureEventHubOptions} WriteGroupAzureEventHubOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            WriteGroupAzureEventHubOptions.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a WriteGroupAzureEventHubOptions message.
+             * @function verify
+             * @memberof protos.opts.WriteGroupAzureEventHubOptions
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            WriteGroupAzureEventHubOptions.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message._conn != null && message.hasOwnProperty("_conn")) {
+                    var error = $root.protos.args.AzureEventHubConn.verify(message._conn);
+                    if (error)
+                        return "_conn." + error;
+                }
+                if (message.args != null && message.hasOwnProperty("args")) {
+                    var error = $root.protos.args.AzureEventHubWriteArgs.verify(message.args);
+                    if (error)
+                        return "args." + error;
+                }
+                return null;
+            };
+
+            /**
+             * Creates a WriteGroupAzureEventHubOptions message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.opts.WriteGroupAzureEventHubOptions
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.opts.WriteGroupAzureEventHubOptions} WriteGroupAzureEventHubOptions
+             */
+            WriteGroupAzureEventHubOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.WriteGroupAzureEventHubOptions)
+                    return object;
+                var message = new $root.protos.opts.WriteGroupAzureEventHubOptions();
+                if (object._conn != null) {
+                    if (typeof object._conn !== "object")
+                        throw TypeError(".protos.opts.WriteGroupAzureEventHubOptions._conn: object expected");
+                    message._conn = $root.protos.args.AzureEventHubConn.fromObject(object._conn);
+                }
+                if (object.args != null) {
+                    if (typeof object.args !== "object")
+                        throw TypeError(".protos.opts.WriteGroupAzureEventHubOptions.args: object expected");
+                    message.args = $root.protos.args.AzureEventHubWriteArgs.fromObject(object.args);
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a WriteGroupAzureEventHubOptions message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.opts.WriteGroupAzureEventHubOptions
+             * @static
+             * @param {protos.opts.WriteGroupAzureEventHubOptions} message WriteGroupAzureEventHubOptions
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            WriteGroupAzureEventHubOptions.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    object._conn = null;
+                    object.args = null;
+                }
+                if (message._conn != null && message.hasOwnProperty("_conn"))
+                    object._conn = $root.protos.args.AzureEventHubConn.toObject(message._conn, options);
+                if (message.args != null && message.hasOwnProperty("args"))
+                    object.args = $root.protos.args.AzureEventHubWriteArgs.toObject(message.args, options);
+                return object;
+            };
+
+            /**
+             * Converts this WriteGroupAzureEventHubOptions to JSON.
+             * @function toJSON
+             * @memberof protos.opts.WriteGroupAzureEventHubOptions
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            WriteGroupAzureEventHubOptions.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return WriteGroupAzureEventHubOptions;
+        })();
+
+        opts.WriteGroupAzureServiceBusOptions = (function() {
+
+            /**
+             * Properties of a WriteGroupAzureServiceBusOptions.
+             * @memberof protos.opts
+             * @interface IWriteGroupAzureServiceBusOptions
+             * @property {protos.args.IAzureServiceBusConn|null} [_conn] WriteGroupAzureServiceBusOptions _conn
+             * @property {protos.args.IAzureServiceBusWriteArgs|null} [args] WriteGroupAzureServiceBusOptions args
+             */
+
+            /**
+             * Constructs a new WriteGroupAzureServiceBusOptions.
+             * @memberof protos.opts
+             * @classdesc Represents a WriteGroupAzureServiceBusOptions.
+             * @implements IWriteGroupAzureServiceBusOptions
+             * @constructor
+             * @param {protos.opts.IWriteGroupAzureServiceBusOptions=} [properties] Properties to set
+             */
+            function WriteGroupAzureServiceBusOptions(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * WriteGroupAzureServiceBusOptions _conn.
+             * @member {protos.args.IAzureServiceBusConn|null|undefined} _conn
+             * @memberof protos.opts.WriteGroupAzureServiceBusOptions
+             * @instance
+             */
+            WriteGroupAzureServiceBusOptions.prototype._conn = null;
+
+            /**
+             * WriteGroupAzureServiceBusOptions args.
+             * @member {protos.args.IAzureServiceBusWriteArgs|null|undefined} args
+             * @memberof protos.opts.WriteGroupAzureServiceBusOptions
+             * @instance
+             */
+            WriteGroupAzureServiceBusOptions.prototype.args = null;
+
+            /**
+             * Creates a new WriteGroupAzureServiceBusOptions instance using the specified properties.
+             * @function create
+             * @memberof protos.opts.WriteGroupAzureServiceBusOptions
+             * @static
+             * @param {protos.opts.IWriteGroupAzureServiceBusOptions=} [properties] Properties to set
+             * @returns {protos.opts.WriteGroupAzureServiceBusOptions} WriteGroupAzureServiceBusOptions instance
+             */
+            WriteGroupAzureServiceBusOptions.create = function create(properties) {
+                return new WriteGroupAzureServiceBusOptions(properties);
+            };
+
+            /**
+             * Encodes the specified WriteGroupAzureServiceBusOptions message. Does not implicitly {@link protos.opts.WriteGroupAzureServiceBusOptions.verify|verify} messages.
+             * @function encode
+             * @memberof protos.opts.WriteGroupAzureServiceBusOptions
+             * @static
+             * @param {protos.opts.IWriteGroupAzureServiceBusOptions} message WriteGroupAzureServiceBusOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            WriteGroupAzureServiceBusOptions.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
+                    $root.protos.args.AzureServiceBusConn.encode(message._conn, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                if (message.args != null && Object.hasOwnProperty.call(message, "args"))
+                    $root.protos.args.AzureServiceBusWriteArgs.encode(message.args, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                return writer;
+            };
+
+            /**
+             * Encodes the specified WriteGroupAzureServiceBusOptions message, length delimited. Does not implicitly {@link protos.opts.WriteGroupAzureServiceBusOptions.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.opts.WriteGroupAzureServiceBusOptions
+             * @static
+             * @param {protos.opts.IWriteGroupAzureServiceBusOptions} message WriteGroupAzureServiceBusOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            WriteGroupAzureServiceBusOptions.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a WriteGroupAzureServiceBusOptions message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.opts.WriteGroupAzureServiceBusOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.opts.WriteGroupAzureServiceBusOptions} WriteGroupAzureServiceBusOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            WriteGroupAzureServiceBusOptions.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.WriteGroupAzureServiceBusOptions();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message._conn = $root.protos.args.AzureServiceBusConn.decode(reader, reader.uint32());
+                        break;
+                    case 2:
+                        message.args = $root.protos.args.AzureServiceBusWriteArgs.decode(reader, reader.uint32());
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a WriteGroupAzureServiceBusOptions message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.opts.WriteGroupAzureServiceBusOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.opts.WriteGroupAzureServiceBusOptions} WriteGroupAzureServiceBusOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            WriteGroupAzureServiceBusOptions.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a WriteGroupAzureServiceBusOptions message.
+             * @function verify
+             * @memberof protos.opts.WriteGroupAzureServiceBusOptions
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            WriteGroupAzureServiceBusOptions.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message._conn != null && message.hasOwnProperty("_conn")) {
+                    var error = $root.protos.args.AzureServiceBusConn.verify(message._conn);
+                    if (error)
+                        return "_conn." + error;
+                }
+                if (message.args != null && message.hasOwnProperty("args")) {
+                    var error = $root.protos.args.AzureServiceBusWriteArgs.verify(message.args);
+                    if (error)
+                        return "args." + error;
+                }
+                return null;
+            };
+
+            /**
+             * Creates a WriteGroupAzureServiceBusOptions message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.opts.WriteGroupAzureServiceBusOptions
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.opts.WriteGroupAzureServiceBusOptions} WriteGroupAzureServiceBusOptions
+             */
+            WriteGroupAzureServiceBusOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.WriteGroupAzureServiceBusOptions)
+                    return object;
+                var message = new $root.protos.opts.WriteGroupAzureServiceBusOptions();
+                if (object._conn != null) {
+                    if (typeof object._conn !== "object")
+                        throw TypeError(".protos.opts.WriteGroupAzureServiceBusOptions._conn: object expected");
+                    message._conn = $root.protos.args.AzureServiceBusConn.fromObject(object._conn);
+                }
+                if (object.args != null) {
+                    if (typeof object.args !== "object")
+                        throw TypeError(".protos.opts.WriteGroupAzureServiceBusOptions.args: object expected");
+                    message.args = $root.protos.args.AzureServiceBusWriteArgs.fromObject(object.args);
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a WriteGroupAzureServiceBusOptions message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.opts.WriteGroupAzureServiceBusOptions
+             * @static
+             * @param {protos.opts.WriteGroupAzureServiceBusOptions} message WriteGroupAzureServiceBusOptions
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            WriteGroupAzureServiceBusOptions.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    object._conn = null;
+                    object.args = null;
+                }
+                if (message._conn != null && message.hasOwnProperty("_conn"))
+                    object._conn = $root.protos.args.AzureServiceBusConn.toObject(message._conn, options);
+                if (message.args != null && message.hasOwnProperty("args"))
+                    object.args = $root.protos.args.AzureServiceBusWriteArgs.toObject(message.args, options);
+                return object;
+            };
+
+            /**
+             * Converts this WriteGroupAzureServiceBusOptions to JSON.
+             * @function toJSON
+             * @memberof protos.opts.WriteGroupAzureServiceBusOptions
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            WriteGroupAzureServiceBusOptions.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return WriteGroupAzureServiceBusOptions;
+        })();
+
+        opts.WriteGroupMQTTOptions = (function() {
+
+            /**
+             * Properties of a WriteGroupMQTTOptions.
+             * @memberof protos.opts
+             * @interface IWriteGroupMQTTOptions
+             * @property {protos.args.IMQTTConn|null} [_conn] WriteGroupMQTTOptions _conn
+             * @property {protos.args.IMQTTWriteArgs|null} [args] WriteGroupMQTTOptions args
+             */
+
+            /**
+             * Constructs a new WriteGroupMQTTOptions.
+             * @memberof protos.opts
+             * @classdesc Represents a WriteGroupMQTTOptions.
+             * @implements IWriteGroupMQTTOptions
+             * @constructor
+             * @param {protos.opts.IWriteGroupMQTTOptions=} [properties] Properties to set
+             */
+            function WriteGroupMQTTOptions(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * WriteGroupMQTTOptions _conn.
+             * @member {protos.args.IMQTTConn|null|undefined} _conn
+             * @memberof protos.opts.WriteGroupMQTTOptions
+             * @instance
+             */
+            WriteGroupMQTTOptions.prototype._conn = null;
+
+            /**
+             * WriteGroupMQTTOptions args.
+             * @member {protos.args.IMQTTWriteArgs|null|undefined} args
+             * @memberof protos.opts.WriteGroupMQTTOptions
+             * @instance
+             */
+            WriteGroupMQTTOptions.prototype.args = null;
+
+            /**
+             * Creates a new WriteGroupMQTTOptions instance using the specified properties.
+             * @function create
+             * @memberof protos.opts.WriteGroupMQTTOptions
+             * @static
+             * @param {protos.opts.IWriteGroupMQTTOptions=} [properties] Properties to set
+             * @returns {protos.opts.WriteGroupMQTTOptions} WriteGroupMQTTOptions instance
+             */
+            WriteGroupMQTTOptions.create = function create(properties) {
+                return new WriteGroupMQTTOptions(properties);
+            };
+
+            /**
+             * Encodes the specified WriteGroupMQTTOptions message. Does not implicitly {@link protos.opts.WriteGroupMQTTOptions.verify|verify} messages.
+             * @function encode
+             * @memberof protos.opts.WriteGroupMQTTOptions
+             * @static
+             * @param {protos.opts.IWriteGroupMQTTOptions} message WriteGroupMQTTOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            WriteGroupMQTTOptions.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
+                    $root.protos.args.MQTTConn.encode(message._conn, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                if (message.args != null && Object.hasOwnProperty.call(message, "args"))
+                    $root.protos.args.MQTTWriteArgs.encode(message.args, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                return writer;
+            };
+
+            /**
+             * Encodes the specified WriteGroupMQTTOptions message, length delimited. Does not implicitly {@link protos.opts.WriteGroupMQTTOptions.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.opts.WriteGroupMQTTOptions
+             * @static
+             * @param {protos.opts.IWriteGroupMQTTOptions} message WriteGroupMQTTOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            WriteGroupMQTTOptions.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a WriteGroupMQTTOptions message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.opts.WriteGroupMQTTOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.opts.WriteGroupMQTTOptions} WriteGroupMQTTOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            WriteGroupMQTTOptions.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.WriteGroupMQTTOptions();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message._conn = $root.protos.args.MQTTConn.decode(reader, reader.uint32());
+                        break;
+                    case 2:
+                        message.args = $root.protos.args.MQTTWriteArgs.decode(reader, reader.uint32());
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a WriteGroupMQTTOptions message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.opts.WriteGroupMQTTOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.opts.WriteGroupMQTTOptions} WriteGroupMQTTOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            WriteGroupMQTTOptions.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a WriteGroupMQTTOptions message.
+             * @function verify
+             * @memberof protos.opts.WriteGroupMQTTOptions
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            WriteGroupMQTTOptions.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message._conn != null && message.hasOwnProperty("_conn")) {
+                    var error = $root.protos.args.MQTTConn.verify(message._conn);
+                    if (error)
+                        return "_conn." + error;
+                }
+                if (message.args != null && message.hasOwnProperty("args")) {
+                    var error = $root.protos.args.MQTTWriteArgs.verify(message.args);
+                    if (error)
+                        return "args." + error;
+                }
+                return null;
+            };
+
+            /**
+             * Creates a WriteGroupMQTTOptions message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.opts.WriteGroupMQTTOptions
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.opts.WriteGroupMQTTOptions} WriteGroupMQTTOptions
+             */
+            WriteGroupMQTTOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.WriteGroupMQTTOptions)
+                    return object;
+                var message = new $root.protos.opts.WriteGroupMQTTOptions();
+                if (object._conn != null) {
+                    if (typeof object._conn !== "object")
+                        throw TypeError(".protos.opts.WriteGroupMQTTOptions._conn: object expected");
+                    message._conn = $root.protos.args.MQTTConn.fromObject(object._conn);
+                }
+                if (object.args != null) {
+                    if (typeof object.args !== "object")
+                        throw TypeError(".protos.opts.WriteGroupMQTTOptions.args: object expected");
+                    message.args = $root.protos.args.MQTTWriteArgs.fromObject(object.args);
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a WriteGroupMQTTOptions message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.opts.WriteGroupMQTTOptions
+             * @static
+             * @param {protos.opts.WriteGroupMQTTOptions} message WriteGroupMQTTOptions
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            WriteGroupMQTTOptions.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    object._conn = null;
+                    object.args = null;
+                }
+                if (message._conn != null && message.hasOwnProperty("_conn"))
+                    object._conn = $root.protos.args.MQTTConn.toObject(message._conn, options);
+                if (message.args != null && message.hasOwnProperty("args"))
+                    object.args = $root.protos.args.MQTTWriteArgs.toObject(message.args, options);
+                return object;
+            };
+
+            /**
+             * Converts this WriteGroupMQTTOptions to JSON.
+             * @function toJSON
+             * @memberof protos.opts.WriteGroupMQTTOptions
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            WriteGroupMQTTOptions.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return WriteGroupMQTTOptions;
+        })();
+
+        opts.WriteGroupGCPPubSubOptions = (function() {
+
+            /**
+             * Properties of a WriteGroupGCPPubSubOptions.
+             * @memberof protos.opts
+             * @interface IWriteGroupGCPPubSubOptions
+             * @property {protos.args.IGCPPubSubConn|null} [_conn] WriteGroupGCPPubSubOptions _conn
+             * @property {protos.args.IGCPPubSubWriteArgs|null} [args] WriteGroupGCPPubSubOptions args
+             */
+
+            /**
+             * Constructs a new WriteGroupGCPPubSubOptions.
+             * @memberof protos.opts
+             * @classdesc Represents a WriteGroupGCPPubSubOptions.
+             * @implements IWriteGroupGCPPubSubOptions
+             * @constructor
+             * @param {protos.opts.IWriteGroupGCPPubSubOptions=} [properties] Properties to set
+             */
+            function WriteGroupGCPPubSubOptions(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * WriteGroupGCPPubSubOptions _conn.
+             * @member {protos.args.IGCPPubSubConn|null|undefined} _conn
+             * @memberof protos.opts.WriteGroupGCPPubSubOptions
+             * @instance
+             */
+            WriteGroupGCPPubSubOptions.prototype._conn = null;
+
+            /**
+             * WriteGroupGCPPubSubOptions args.
+             * @member {protos.args.IGCPPubSubWriteArgs|null|undefined} args
+             * @memberof protos.opts.WriteGroupGCPPubSubOptions
+             * @instance
+             */
+            WriteGroupGCPPubSubOptions.prototype.args = null;
+
+            /**
+             * Creates a new WriteGroupGCPPubSubOptions instance using the specified properties.
+             * @function create
+             * @memberof protos.opts.WriteGroupGCPPubSubOptions
+             * @static
+             * @param {protos.opts.IWriteGroupGCPPubSubOptions=} [properties] Properties to set
+             * @returns {protos.opts.WriteGroupGCPPubSubOptions} WriteGroupGCPPubSubOptions instance
+             */
+            WriteGroupGCPPubSubOptions.create = function create(properties) {
+                return new WriteGroupGCPPubSubOptions(properties);
+            };
+
+            /**
+             * Encodes the specified WriteGroupGCPPubSubOptions message. Does not implicitly {@link protos.opts.WriteGroupGCPPubSubOptions.verify|verify} messages.
+             * @function encode
+             * @memberof protos.opts.WriteGroupGCPPubSubOptions
+             * @static
+             * @param {protos.opts.IWriteGroupGCPPubSubOptions} message WriteGroupGCPPubSubOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            WriteGroupGCPPubSubOptions.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
+                    $root.protos.args.GCPPubSubConn.encode(message._conn, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                if (message.args != null && Object.hasOwnProperty.call(message, "args"))
+                    $root.protos.args.GCPPubSubWriteArgs.encode(message.args, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                return writer;
+            };
+
+            /**
+             * Encodes the specified WriteGroupGCPPubSubOptions message, length delimited. Does not implicitly {@link protos.opts.WriteGroupGCPPubSubOptions.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.opts.WriteGroupGCPPubSubOptions
+             * @static
+             * @param {protos.opts.IWriteGroupGCPPubSubOptions} message WriteGroupGCPPubSubOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            WriteGroupGCPPubSubOptions.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a WriteGroupGCPPubSubOptions message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.opts.WriteGroupGCPPubSubOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.opts.WriteGroupGCPPubSubOptions} WriteGroupGCPPubSubOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            WriteGroupGCPPubSubOptions.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.WriteGroupGCPPubSubOptions();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message._conn = $root.protos.args.GCPPubSubConn.decode(reader, reader.uint32());
+                        break;
+                    case 2:
+                        message.args = $root.protos.args.GCPPubSubWriteArgs.decode(reader, reader.uint32());
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a WriteGroupGCPPubSubOptions message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.opts.WriteGroupGCPPubSubOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.opts.WriteGroupGCPPubSubOptions} WriteGroupGCPPubSubOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            WriteGroupGCPPubSubOptions.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a WriteGroupGCPPubSubOptions message.
+             * @function verify
+             * @memberof protos.opts.WriteGroupGCPPubSubOptions
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            WriteGroupGCPPubSubOptions.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message._conn != null && message.hasOwnProperty("_conn")) {
+                    var error = $root.protos.args.GCPPubSubConn.verify(message._conn);
+                    if (error)
+                        return "_conn." + error;
+                }
+                if (message.args != null && message.hasOwnProperty("args")) {
+                    var error = $root.protos.args.GCPPubSubWriteArgs.verify(message.args);
+                    if (error)
+                        return "args." + error;
+                }
+                return null;
+            };
+
+            /**
+             * Creates a WriteGroupGCPPubSubOptions message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.opts.WriteGroupGCPPubSubOptions
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.opts.WriteGroupGCPPubSubOptions} WriteGroupGCPPubSubOptions
+             */
+            WriteGroupGCPPubSubOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.WriteGroupGCPPubSubOptions)
+                    return object;
+                var message = new $root.protos.opts.WriteGroupGCPPubSubOptions();
+                if (object._conn != null) {
+                    if (typeof object._conn !== "object")
+                        throw TypeError(".protos.opts.WriteGroupGCPPubSubOptions._conn: object expected");
+                    message._conn = $root.protos.args.GCPPubSubConn.fromObject(object._conn);
+                }
+                if (object.args != null) {
+                    if (typeof object.args !== "object")
+                        throw TypeError(".protos.opts.WriteGroupGCPPubSubOptions.args: object expected");
+                    message.args = $root.protos.args.GCPPubSubWriteArgs.fromObject(object.args);
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a WriteGroupGCPPubSubOptions message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.opts.WriteGroupGCPPubSubOptions
+             * @static
+             * @param {protos.opts.WriteGroupGCPPubSubOptions} message WriteGroupGCPPubSubOptions
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            WriteGroupGCPPubSubOptions.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    object._conn = null;
+                    object.args = null;
+                }
+                if (message._conn != null && message.hasOwnProperty("_conn"))
+                    object._conn = $root.protos.args.GCPPubSubConn.toObject(message._conn, options);
+                if (message.args != null && message.hasOwnProperty("args"))
+                    object.args = $root.protos.args.GCPPubSubWriteArgs.toObject(message.args, options);
+                return object;
+            };
+
+            /**
+             * Converts this WriteGroupGCPPubSubOptions to JSON.
+             * @function toJSON
+             * @memberof protos.opts.WriteGroupGCPPubSubOptions
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            WriteGroupGCPPubSubOptions.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return WriteGroupGCPPubSubOptions;
+        })();
+
+        opts.WriteGroupKubeMQQueueOptions = (function() {
+
+            /**
+             * Properties of a WriteGroupKubeMQQueueOptions.
+             * @memberof protos.opts
+             * @interface IWriteGroupKubeMQQueueOptions
+             * @property {protos.args.IKubeMQQueueConn|null} [_conn] WriteGroupKubeMQQueueOptions _conn
+             * @property {protos.args.IKubeMQQueueWriteArgs|null} [args] WriteGroupKubeMQQueueOptions args
+             */
+
+            /**
+             * Constructs a new WriteGroupKubeMQQueueOptions.
+             * @memberof protos.opts
+             * @classdesc Represents a WriteGroupKubeMQQueueOptions.
+             * @implements IWriteGroupKubeMQQueueOptions
+             * @constructor
+             * @param {protos.opts.IWriteGroupKubeMQQueueOptions=} [properties] Properties to set
+             */
+            function WriteGroupKubeMQQueueOptions(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * WriteGroupKubeMQQueueOptions _conn.
+             * @member {protos.args.IKubeMQQueueConn|null|undefined} _conn
+             * @memberof protos.opts.WriteGroupKubeMQQueueOptions
+             * @instance
+             */
+            WriteGroupKubeMQQueueOptions.prototype._conn = null;
+
+            /**
+             * WriteGroupKubeMQQueueOptions args.
+             * @member {protos.args.IKubeMQQueueWriteArgs|null|undefined} args
+             * @memberof protos.opts.WriteGroupKubeMQQueueOptions
+             * @instance
+             */
+            WriteGroupKubeMQQueueOptions.prototype.args = null;
+
+            /**
+             * Creates a new WriteGroupKubeMQQueueOptions instance using the specified properties.
+             * @function create
+             * @memberof protos.opts.WriteGroupKubeMQQueueOptions
+             * @static
+             * @param {protos.opts.IWriteGroupKubeMQQueueOptions=} [properties] Properties to set
+             * @returns {protos.opts.WriteGroupKubeMQQueueOptions} WriteGroupKubeMQQueueOptions instance
+             */
+            WriteGroupKubeMQQueueOptions.create = function create(properties) {
+                return new WriteGroupKubeMQQueueOptions(properties);
+            };
+
+            /**
+             * Encodes the specified WriteGroupKubeMQQueueOptions message. Does not implicitly {@link protos.opts.WriteGroupKubeMQQueueOptions.verify|verify} messages.
+             * @function encode
+             * @memberof protos.opts.WriteGroupKubeMQQueueOptions
+             * @static
+             * @param {protos.opts.IWriteGroupKubeMQQueueOptions} message WriteGroupKubeMQQueueOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            WriteGroupKubeMQQueueOptions.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
+                    $root.protos.args.KubeMQQueueConn.encode(message._conn, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                if (message.args != null && Object.hasOwnProperty.call(message, "args"))
+                    $root.protos.args.KubeMQQueueWriteArgs.encode(message.args, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                return writer;
+            };
+
+            /**
+             * Encodes the specified WriteGroupKubeMQQueueOptions message, length delimited. Does not implicitly {@link protos.opts.WriteGroupKubeMQQueueOptions.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.opts.WriteGroupKubeMQQueueOptions
+             * @static
+             * @param {protos.opts.IWriteGroupKubeMQQueueOptions} message WriteGroupKubeMQQueueOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            WriteGroupKubeMQQueueOptions.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a WriteGroupKubeMQQueueOptions message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.opts.WriteGroupKubeMQQueueOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.opts.WriteGroupKubeMQQueueOptions} WriteGroupKubeMQQueueOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            WriteGroupKubeMQQueueOptions.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.WriteGroupKubeMQQueueOptions();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message._conn = $root.protos.args.KubeMQQueueConn.decode(reader, reader.uint32());
+                        break;
+                    case 2:
+                        message.args = $root.protos.args.KubeMQQueueWriteArgs.decode(reader, reader.uint32());
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a WriteGroupKubeMQQueueOptions message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.opts.WriteGroupKubeMQQueueOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.opts.WriteGroupKubeMQQueueOptions} WriteGroupKubeMQQueueOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            WriteGroupKubeMQQueueOptions.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a WriteGroupKubeMQQueueOptions message.
+             * @function verify
+             * @memberof protos.opts.WriteGroupKubeMQQueueOptions
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            WriteGroupKubeMQQueueOptions.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message._conn != null && message.hasOwnProperty("_conn")) {
+                    var error = $root.protos.args.KubeMQQueueConn.verify(message._conn);
+                    if (error)
+                        return "_conn." + error;
+                }
+                if (message.args != null && message.hasOwnProperty("args")) {
+                    var error = $root.protos.args.KubeMQQueueWriteArgs.verify(message.args);
+                    if (error)
+                        return "args." + error;
+                }
+                return null;
+            };
+
+            /**
+             * Creates a WriteGroupKubeMQQueueOptions message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.opts.WriteGroupKubeMQQueueOptions
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.opts.WriteGroupKubeMQQueueOptions} WriteGroupKubeMQQueueOptions
+             */
+            WriteGroupKubeMQQueueOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.WriteGroupKubeMQQueueOptions)
+                    return object;
+                var message = new $root.protos.opts.WriteGroupKubeMQQueueOptions();
+                if (object._conn != null) {
+                    if (typeof object._conn !== "object")
+                        throw TypeError(".protos.opts.WriteGroupKubeMQQueueOptions._conn: object expected");
+                    message._conn = $root.protos.args.KubeMQQueueConn.fromObject(object._conn);
+                }
+                if (object.args != null) {
+                    if (typeof object.args !== "object")
+                        throw TypeError(".protos.opts.WriteGroupKubeMQQueueOptions.args: object expected");
+                    message.args = $root.protos.args.KubeMQQueueWriteArgs.fromObject(object.args);
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a WriteGroupKubeMQQueueOptions message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.opts.WriteGroupKubeMQQueueOptions
+             * @static
+             * @param {protos.opts.WriteGroupKubeMQQueueOptions} message WriteGroupKubeMQQueueOptions
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            WriteGroupKubeMQQueueOptions.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    object._conn = null;
+                    object.args = null;
+                }
+                if (message._conn != null && message.hasOwnProperty("_conn"))
+                    object._conn = $root.protos.args.KubeMQQueueConn.toObject(message._conn, options);
+                if (message.args != null && message.hasOwnProperty("args"))
+                    object.args = $root.protos.args.KubeMQQueueWriteArgs.toObject(message.args, options);
+                return object;
+            };
+
+            /**
+             * Converts this WriteGroupKubeMQQueueOptions to JSON.
+             * @function toJSON
+             * @memberof protos.opts.WriteGroupKubeMQQueueOptions
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            WriteGroupKubeMQQueueOptions.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return WriteGroupKubeMQQueueOptions;
+        })();
+
+        opts.WriteGroupAWSKinesisOptions = (function() {
+
+            /**
+             * Properties of a WriteGroupAWSKinesisOptions.
+             * @memberof protos.opts
+             * @interface IWriteGroupAWSKinesisOptions
+             * @property {protos.args.IAWSKinesisConn|null} [_conn] WriteGroupAWSKinesisOptions _conn
+             * @property {protos.args.IAWSKinesisWriteArgs|null} [args] WriteGroupAWSKinesisOptions args
+             */
+
+            /**
+             * Constructs a new WriteGroupAWSKinesisOptions.
+             * @memberof protos.opts
+             * @classdesc Represents a WriteGroupAWSKinesisOptions.
+             * @implements IWriteGroupAWSKinesisOptions
+             * @constructor
+             * @param {protos.opts.IWriteGroupAWSKinesisOptions=} [properties] Properties to set
+             */
+            function WriteGroupAWSKinesisOptions(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * WriteGroupAWSKinesisOptions _conn.
+             * @member {protos.args.IAWSKinesisConn|null|undefined} _conn
+             * @memberof protos.opts.WriteGroupAWSKinesisOptions
+             * @instance
+             */
+            WriteGroupAWSKinesisOptions.prototype._conn = null;
+
+            /**
+             * WriteGroupAWSKinesisOptions args.
+             * @member {protos.args.IAWSKinesisWriteArgs|null|undefined} args
+             * @memberof protos.opts.WriteGroupAWSKinesisOptions
+             * @instance
+             */
+            WriteGroupAWSKinesisOptions.prototype.args = null;
+
+            /**
+             * Creates a new WriteGroupAWSKinesisOptions instance using the specified properties.
+             * @function create
+             * @memberof protos.opts.WriteGroupAWSKinesisOptions
+             * @static
+             * @param {protos.opts.IWriteGroupAWSKinesisOptions=} [properties] Properties to set
+             * @returns {protos.opts.WriteGroupAWSKinesisOptions} WriteGroupAWSKinesisOptions instance
+             */
+            WriteGroupAWSKinesisOptions.create = function create(properties) {
+                return new WriteGroupAWSKinesisOptions(properties);
+            };
+
+            /**
+             * Encodes the specified WriteGroupAWSKinesisOptions message. Does not implicitly {@link protos.opts.WriteGroupAWSKinesisOptions.verify|verify} messages.
+             * @function encode
+             * @memberof protos.opts.WriteGroupAWSKinesisOptions
+             * @static
+             * @param {protos.opts.IWriteGroupAWSKinesisOptions} message WriteGroupAWSKinesisOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            WriteGroupAWSKinesisOptions.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
+                    $root.protos.args.AWSKinesisConn.encode(message._conn, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                if (message.args != null && Object.hasOwnProperty.call(message, "args"))
+                    $root.protos.args.AWSKinesisWriteArgs.encode(message.args, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                return writer;
+            };
+
+            /**
+             * Encodes the specified WriteGroupAWSKinesisOptions message, length delimited. Does not implicitly {@link protos.opts.WriteGroupAWSKinesisOptions.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.opts.WriteGroupAWSKinesisOptions
+             * @static
+             * @param {protos.opts.IWriteGroupAWSKinesisOptions} message WriteGroupAWSKinesisOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            WriteGroupAWSKinesisOptions.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a WriteGroupAWSKinesisOptions message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.opts.WriteGroupAWSKinesisOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.opts.WriteGroupAWSKinesisOptions} WriteGroupAWSKinesisOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            WriteGroupAWSKinesisOptions.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.WriteGroupAWSKinesisOptions();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message._conn = $root.protos.args.AWSKinesisConn.decode(reader, reader.uint32());
+                        break;
+                    case 2:
+                        message.args = $root.protos.args.AWSKinesisWriteArgs.decode(reader, reader.uint32());
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a WriteGroupAWSKinesisOptions message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.opts.WriteGroupAWSKinesisOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.opts.WriteGroupAWSKinesisOptions} WriteGroupAWSKinesisOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            WriteGroupAWSKinesisOptions.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a WriteGroupAWSKinesisOptions message.
+             * @function verify
+             * @memberof protos.opts.WriteGroupAWSKinesisOptions
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            WriteGroupAWSKinesisOptions.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message._conn != null && message.hasOwnProperty("_conn")) {
+                    var error = $root.protos.args.AWSKinesisConn.verify(message._conn);
+                    if (error)
+                        return "_conn." + error;
+                }
+                if (message.args != null && message.hasOwnProperty("args")) {
+                    var error = $root.protos.args.AWSKinesisWriteArgs.verify(message.args);
+                    if (error)
+                        return "args." + error;
+                }
+                return null;
+            };
+
+            /**
+             * Creates a WriteGroupAWSKinesisOptions message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.opts.WriteGroupAWSKinesisOptions
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.opts.WriteGroupAWSKinesisOptions} WriteGroupAWSKinesisOptions
+             */
+            WriteGroupAWSKinesisOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.WriteGroupAWSKinesisOptions)
+                    return object;
+                var message = new $root.protos.opts.WriteGroupAWSKinesisOptions();
+                if (object._conn != null) {
+                    if (typeof object._conn !== "object")
+                        throw TypeError(".protos.opts.WriteGroupAWSKinesisOptions._conn: object expected");
+                    message._conn = $root.protos.args.AWSKinesisConn.fromObject(object._conn);
+                }
+                if (object.args != null) {
+                    if (typeof object.args !== "object")
+                        throw TypeError(".protos.opts.WriteGroupAWSKinesisOptions.args: object expected");
+                    message.args = $root.protos.args.AWSKinesisWriteArgs.fromObject(object.args);
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a WriteGroupAWSKinesisOptions message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.opts.WriteGroupAWSKinesisOptions
+             * @static
+             * @param {protos.opts.WriteGroupAWSKinesisOptions} message WriteGroupAWSKinesisOptions
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            WriteGroupAWSKinesisOptions.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    object._conn = null;
+                    object.args = null;
+                }
+                if (message._conn != null && message.hasOwnProperty("_conn"))
+                    object._conn = $root.protos.args.AWSKinesisConn.toObject(message._conn, options);
+                if (message.args != null && message.hasOwnProperty("args"))
+                    object.args = $root.protos.args.AWSKinesisWriteArgs.toObject(message.args, options);
+                return object;
+            };
+
+            /**
+             * Converts this WriteGroupAWSKinesisOptions to JSON.
+             * @function toJSON
+             * @memberof protos.opts.WriteGroupAWSKinesisOptions
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            WriteGroupAWSKinesisOptions.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return WriteGroupAWSKinesisOptions;
         })();
 
         return opts;
