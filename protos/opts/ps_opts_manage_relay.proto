@@ -43,13 +43,13 @@ message CreateRelayOptions {
   int32 num_workers = 5;
 
   // @gotags: kong:"help='Alternative collector to relay events to',default='grpc-collector.streamdal.com:9000'"
-  string batchsh_grpc_address = 6;
+  string streamdal_grpc_address = 6;
 
   // @gotags: kong:"help='Whether to use TLS with collector'"
-  bool batchsh_grpc_disable_tls = 7;
+  bool streamdal_grpc_disable_tls = 7;
 
   // @gotags: kong:"help='How long to wait before giving up talking to the gRPC collector',default=5"
-  int32 batchsh_grpc_timeout_seconds = 8;
+  int32 streamdal_grpc_timeout_seconds = 8;
 
   // @gotags: kong:"help='Consumed messages are intended to be dead-lettered'"
   bool dead_letter = 9;

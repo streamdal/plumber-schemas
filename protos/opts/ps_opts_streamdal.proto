@@ -6,101 +6,101 @@ import "opts/ps_opts_write.proto";
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/opts";
 
-enum BatchOutputType {
+enum StreamdalOutputType {
   TABLE = 0;
   JSON  = 1;
 }
 
-enum BatchReplayType {
+enum StreamdalReplayType {
   SINGLE     = 0;
   CONTINUOUS = 1;
 }
 
-message BatchOptions {
+message StreamdalOptions {
   // @gotags: kong:"help='How to output results (options: table json)',default=table,type=pbenum,pbenum_lowercase"
-  BatchOutputType output_type = 1;
+  StreamdalOutputType output_type = 1;
 
-  // @gotags: kong:"help='Alternative URL to use for Batch API',default='https://api.streamdal.com'"
+  // @gotags: kong:"help='Alternative URL to use for Streamdal API',default='https://api.streamdal.com'"
   string api_url = 2;
 
-  // @gotags: kong:"cmd,help='Login to the Batch platform'"
-  BatchLoginOptions login = 3;
+  // @gotags: kong:"cmd,help='Login to the Streamdal platform'"
+  StreamdalLoginOptions login = 3;
 
-  // @gotags: kong:"cmd,help='Login to Batch'"
-  BatchLogoutOptions logout = 4;
+  // @gotags: kong:"cmd,help='Login to Streamdal'"
+  StreamdalLogoutOptions logout = 4;
 
-  // @gotags: kong:"cmd,help='List Batch resources'"
-  BatchListOptions list = 5;
+  // @gotags: kong:"cmd,help='List Streamdal resources'"
+  StreamdalListOptions list = 5;
 
   // @gotags: kong:"cmd,help='Create operations'"
-  BatchCreateOptions create = 6;
+  StreamdalCreateOptions create = 6;
 
   // @gotags: kong:"cmd,help='Search operations'"
-  BatchSearchOptions search = 7;
+  StreamdalSearchOptions search = 7;
 
   // @gotags: kong:"cmd,help='Archive a resource'"
-  BatchArchiveOptions archive = 8;
+  StreamdalArchiveOptions archive = 8;
 }
 
-message BatchLoginOptions {
+message StreamdalLoginOptions {
     // None
 }
 
-message BatchLogoutOptions {
+message StreamdalLogoutOptions {
     // None
 }
 
-message BatchListCollectionOptions {
+message StreamdalListCollectionOptions {
     // None
 }
 
-message BatchListDestinationOptions {
+message StreamdalListDestinationOptions {
     // None
 }
 
-message BatchListSchemaOptions {
+message StreamdalListSchemaOptions {
     // None
 }
-message BatchListReplayOptions {
+message StreamdalListReplayOptions {
     // None
 }
 
-message BatchArchiveOptions {
+message StreamdalArchiveOptions {
   // @gotags: kong:"embed,cmd,help='Archive a replay'"
-  BatchArchiveReplayOptions replay = 1;
+  StreamdalArchiveReplayOptions replay = 1;
 }
 
-message BatchArchiveReplayOptions {
+message StreamdalArchiveReplayOptions {
   // @gotags: kong:"help='Replay ID to archive',required"
   string replay_id = 1;
 }
 
-message BatchListOptions {
+message StreamdalListOptions {
   // @gotags: kong:"cmd,help='List all collections'"
-  BatchListCollectionOptions collection = 1;
+  StreamdalListCollectionOptions collection = 1;
 
   // @gotags: kong:"cmd,help='List all destinations'"
-  BatchListDestinationOptions destination = 2;
+  StreamdalListDestinationOptions destination = 2;
 
   // @gotags: kong:"cmd,help='List all replays'"
-  BatchListReplayOptions replay = 3;
+  StreamdalListReplayOptions replay = 3;
 
   // @gotags: kong:"cmd,help='List all schemas'"
-  BatchListSchemaOptions schema = 4;
+  StreamdalListSchemaOptions schema = 4;
 }
 
-message BatchCreateOptions {
+message StreamdalCreateOptions {
   // @gotags: kong:"cmd,help='Create a collection'"
-  BatchCreateCollectionOptions collection = 1;
+  StreamdalCreateCollectionOptions collection = 1;
 
   // @gotags: kong:"cmd,help='Create a replay'"
-  BatchCreateReplayOptions replay = 2;
+  StreamdalCreateReplayOptions replay = 2;
 
   // @gotags: kong:"cmd,help='Create a destination'"
-  BatchCreateDestinationOptions destination = 3;
+  StreamdalCreateDestinationOptions destination = 3;
 }
 
-message BatchSearchOptions {
+message StreamdalSearchOptions {
   // @gotags: kong:"help='Query to perform',default='*'"
   string query = 1;
 
@@ -113,11 +113,11 @@ message BatchSearchOptions {
     // TODO: Should be able to override default pagesize
 }
 
-message BatchCreateCollectionOptions {
+message StreamdalCreateCollectionOptions {
   // @gotags: kong:"help='Friendly name for the collection',required"
   string name = 1;
 
-  // @gotags: kong:"help='Schema the collection will use (can be obtained running _plumber batch list schema_)',required"
+  // @gotags: kong:"help='Schema the collection will use (can be obtained running _plumber streamdal list schema_)',required"
   string schema_id = 2;
 
   // @gotags: kong:"help='Optional notes for the collection'"
@@ -138,12 +138,12 @@ message BatchCreateCollectionOptions {
 
 }
 
-message BatchCreateReplayOptions {
+message StreamdalCreateReplayOptions {
   // @gotags: kong:"help='Friendly name to assign to the replay',required"
   string name = 1;
 
   // @gotags: kong:"help='One-time/single or continuous replay (options: single, continuous)',type=pbenum,pbenum_lowercase,default=single"
-  BatchReplayType type = 2;
+  StreamdalReplayType type = 2;
 
   // @gotags: kong:"help='Notes to attach to the replay'"
   string notes = 3;
@@ -164,7 +164,7 @@ message BatchCreateReplayOptions {
   string to_timestamp = 8;
 }
 
-message BatchCreateDestinationOptions {
+message StreamdalCreateDestinationOptions {
   // @gotags: kong:"help='Friendly name to assign to the destination',required"
   string name = 1;
 

@@ -58,13 +58,13 @@ message RelayOptions {
   // --------------------------------------------------------------------- //
 
   // @gotags: kong:"help='Alternative collector to relay events to',name='grpc-address',env='PLUMBER_RELAY_GRPC_ADDRESS',default='grpc-collector.streamdal.com:9000'"
-  string _batchsh_grpc_address = 1000;
+  string _streamdal_grpc_address = 1000;
 
   // @gotags: kong:"help='Whether to use TLS with collector',name=grpc-disable-tls,env='PLUMBER_RELAY_GRPC_DISABLE_TLS',default=false"
-  bool _batchsh_grpc_disable_tls = 1001;
+  bool _streamdal_grpc_disable_tls = 1001;
 
   // @gotags: kong:"help='How long to wait before giving up talking to the gRPC collector',name='grpc-timeout-seconds',env='PLUMBER_RELAY_GRPC_TIMEOUT',default=5"
-  int32 _batchsh_grpc_timeout_seconds = 1002;
+  int32 _streamdal_grpc_timeout_seconds = 1002;
 
   // ID of the created relay entry; populated by plumber.
   // @gotags: kong:"-"
