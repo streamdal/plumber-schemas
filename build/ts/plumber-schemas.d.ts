@@ -9520,6 +9520,9 @@ export namespace protos {
 
             /** ReadOptions awsKinesis */
             awsKinesis?: (protos.opts.IReadGroupAWSKinesisOptions|null);
+
+            /** ReadOptions memphis */
+            memphis?: (protos.opts.IReadGroupMemphisOptions|null);
         }
 
         /** Represents a ReadOptions. */
@@ -9623,6 +9626,9 @@ export namespace protos {
 
             /** ReadOptions awsKinesis. */
             public awsKinesis?: (protos.opts.IReadGroupAWSKinesisOptions|null);
+
+            /** ReadOptions memphis. */
+            public memphis?: (protos.opts.IReadGroupMemphisOptions|null);
 
             /**
              * Creates a new ReadOptions instance using the specified properties.
@@ -11615,6 +11621,102 @@ export namespace protos {
             public toJSON(): { [k: string]: any };
         }
 
+        /** Properties of a ReadGroupMemphisOptions. */
+        interface IReadGroupMemphisOptions {
+
+            /** ReadGroupMemphisOptions _conn */
+            _conn?: (protos.args.IMemphisConn|null);
+
+            /** ReadGroupMemphisOptions args */
+            args?: (protos.args.IMemphisReadArgs|null);
+        }
+
+        /** Represents a ReadGroupMemphisOptions. */
+        class ReadGroupMemphisOptions implements IReadGroupMemphisOptions {
+
+            /**
+             * Constructs a new ReadGroupMemphisOptions.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.opts.IReadGroupMemphisOptions);
+
+            /** ReadGroupMemphisOptions _conn. */
+            public _conn?: (protos.args.IMemphisConn|null);
+
+            /** ReadGroupMemphisOptions args. */
+            public args?: (protos.args.IMemphisReadArgs|null);
+
+            /**
+             * Creates a new ReadGroupMemphisOptions instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns ReadGroupMemphisOptions instance
+             */
+            public static create(properties?: protos.opts.IReadGroupMemphisOptions): protos.opts.ReadGroupMemphisOptions;
+
+            /**
+             * Encodes the specified ReadGroupMemphisOptions message. Does not implicitly {@link protos.opts.ReadGroupMemphisOptions.verify|verify} messages.
+             * @param message ReadGroupMemphisOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.opts.IReadGroupMemphisOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified ReadGroupMemphisOptions message, length delimited. Does not implicitly {@link protos.opts.ReadGroupMemphisOptions.verify|verify} messages.
+             * @param message ReadGroupMemphisOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.opts.IReadGroupMemphisOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a ReadGroupMemphisOptions message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns ReadGroupMemphisOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.ReadGroupMemphisOptions;
+
+            /**
+             * Decodes a ReadGroupMemphisOptions message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns ReadGroupMemphisOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.ReadGroupMemphisOptions;
+
+            /**
+             * Verifies a ReadGroupMemphisOptions message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a ReadGroupMemphisOptions message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns ReadGroupMemphisOptions
+             */
+            public static fromObject(object: { [k: string]: any }): protos.opts.ReadGroupMemphisOptions;
+
+            /**
+             * Creates a plain object from a ReadGroupMemphisOptions message. Also converts values to other types if specified.
+             * @param message ReadGroupMemphisOptions
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.opts.ReadGroupMemphisOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this ReadGroupMemphisOptions to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
         /** Properties of an InferSchemaOptions. */
         interface IInferSchemaOptions {
 
@@ -13519,6 +13621,9 @@ export namespace protos {
 
             /** WriteOptions awsKinesis */
             awsKinesis?: (protos.opts.IWriteGroupAWSKinesisOptions|null);
+
+            /** WriteOptions memphis */
+            memphis?: (protos.opts.IWriteGroupMemphisOptions|null);
         }
 
         /** Represents a WriteOptions. */
@@ -13598,6 +13703,9 @@ export namespace protos {
 
             /** WriteOptions awsKinesis. */
             public awsKinesis?: (protos.opts.IWriteGroupAWSKinesisOptions|null);
+
+            /** WriteOptions memphis. */
+            public memphis?: (protos.opts.IWriteGroupMemphisOptions|null);
 
             /**
              * Creates a new WriteOptions instance using the specified properties.
@@ -15489,6 +15597,102 @@ export namespace protos {
 
             /**
              * Converts this WriteGroupAWSKinesisOptions to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a WriteGroupMemphisOptions. */
+        interface IWriteGroupMemphisOptions {
+
+            /** WriteGroupMemphisOptions _conn */
+            _conn?: (protos.args.IMemphisConn|null);
+
+            /** WriteGroupMemphisOptions args */
+            args?: (protos.args.IMemphisWriteArgs|null);
+        }
+
+        /** Represents a WriteGroupMemphisOptions. */
+        class WriteGroupMemphisOptions implements IWriteGroupMemphisOptions {
+
+            /**
+             * Constructs a new WriteGroupMemphisOptions.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.opts.IWriteGroupMemphisOptions);
+
+            /** WriteGroupMemphisOptions _conn. */
+            public _conn?: (protos.args.IMemphisConn|null);
+
+            /** WriteGroupMemphisOptions args. */
+            public args?: (protos.args.IMemphisWriteArgs|null);
+
+            /**
+             * Creates a new WriteGroupMemphisOptions instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns WriteGroupMemphisOptions instance
+             */
+            public static create(properties?: protos.opts.IWriteGroupMemphisOptions): protos.opts.WriteGroupMemphisOptions;
+
+            /**
+             * Encodes the specified WriteGroupMemphisOptions message. Does not implicitly {@link protos.opts.WriteGroupMemphisOptions.verify|verify} messages.
+             * @param message WriteGroupMemphisOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.opts.IWriteGroupMemphisOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified WriteGroupMemphisOptions message, length delimited. Does not implicitly {@link protos.opts.WriteGroupMemphisOptions.verify|verify} messages.
+             * @param message WriteGroupMemphisOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.opts.IWriteGroupMemphisOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a WriteGroupMemphisOptions message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns WriteGroupMemphisOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.WriteGroupMemphisOptions;
+
+            /**
+             * Decodes a WriteGroupMemphisOptions message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns WriteGroupMemphisOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.WriteGroupMemphisOptions;
+
+            /**
+             * Verifies a WriteGroupMemphisOptions message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a WriteGroupMemphisOptions message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns WriteGroupMemphisOptions
+             */
+            public static fromObject(object: { [k: string]: any }): protos.opts.WriteGroupMemphisOptions;
+
+            /**
+             * Creates a plain object from a WriteGroupMemphisOptions message. Also converts values to other types if specified.
+             * @param message WriteGroupMemphisOptions
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.opts.WriteGroupMemphisOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this WriteGroupMemphisOptions to JSON.
              * @returns JSON object
              */
             public toJSON(): { [k: string]: any };
@@ -22763,6 +22967,306 @@ export namespace protos {
 
             /**
              * Converts this RedisStreamsWriteArgs to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a MemphisConn. */
+        interface IMemphisConn {
+
+            /** MemphisConn address */
+            address?: (string|null);
+
+            /** MemphisConn username */
+            username?: (boolean|null);
+
+            /** MemphisConn brokerToken */
+            brokerToken?: (boolean|null);
+        }
+
+        /** Represents a MemphisConn. */
+        class MemphisConn implements IMemphisConn {
+
+            /**
+             * Constructs a new MemphisConn.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.args.IMemphisConn);
+
+            /** MemphisConn address. */
+            public address: string;
+
+            /** MemphisConn username. */
+            public username: boolean;
+
+            /** MemphisConn brokerToken. */
+            public brokerToken: boolean;
+
+            /**
+             * Creates a new MemphisConn instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns MemphisConn instance
+             */
+            public static create(properties?: protos.args.IMemphisConn): protos.args.MemphisConn;
+
+            /**
+             * Encodes the specified MemphisConn message. Does not implicitly {@link protos.args.MemphisConn.verify|verify} messages.
+             * @param message MemphisConn message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.args.IMemphisConn, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified MemphisConn message, length delimited. Does not implicitly {@link protos.args.MemphisConn.verify|verify} messages.
+             * @param message MemphisConn message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.args.IMemphisConn, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a MemphisConn message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns MemphisConn
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.args.MemphisConn;
+
+            /**
+             * Decodes a MemphisConn message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns MemphisConn
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.args.MemphisConn;
+
+            /**
+             * Verifies a MemphisConn message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a MemphisConn message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns MemphisConn
+             */
+            public static fromObject(object: { [k: string]: any }): protos.args.MemphisConn;
+
+            /**
+             * Creates a plain object from a MemphisConn message. Also converts values to other types if specified.
+             * @param message MemphisConn
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.args.MemphisConn, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this MemphisConn to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a MemphisReadArgs. */
+        interface IMemphisReadArgs {
+
+            /** MemphisReadArgs station */
+            station?: (string|null);
+
+            /** MemphisReadArgs consumerName */
+            consumerName?: (string|null);
+
+            /** MemphisReadArgs consumerGroup */
+            consumerGroup?: (string|null);
+        }
+
+        /** Represents a MemphisReadArgs. */
+        class MemphisReadArgs implements IMemphisReadArgs {
+
+            /**
+             * Constructs a new MemphisReadArgs.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.args.IMemphisReadArgs);
+
+            /** MemphisReadArgs station. */
+            public station: string;
+
+            /** MemphisReadArgs consumerName. */
+            public consumerName: string;
+
+            /** MemphisReadArgs consumerGroup. */
+            public consumerGroup: string;
+
+            /**
+             * Creates a new MemphisReadArgs instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns MemphisReadArgs instance
+             */
+            public static create(properties?: protos.args.IMemphisReadArgs): protos.args.MemphisReadArgs;
+
+            /**
+             * Encodes the specified MemphisReadArgs message. Does not implicitly {@link protos.args.MemphisReadArgs.verify|verify} messages.
+             * @param message MemphisReadArgs message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.args.IMemphisReadArgs, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified MemphisReadArgs message, length delimited. Does not implicitly {@link protos.args.MemphisReadArgs.verify|verify} messages.
+             * @param message MemphisReadArgs message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.args.IMemphisReadArgs, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a MemphisReadArgs message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns MemphisReadArgs
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.args.MemphisReadArgs;
+
+            /**
+             * Decodes a MemphisReadArgs message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns MemphisReadArgs
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.args.MemphisReadArgs;
+
+            /**
+             * Verifies a MemphisReadArgs message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a MemphisReadArgs message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns MemphisReadArgs
+             */
+            public static fromObject(object: { [k: string]: any }): protos.args.MemphisReadArgs;
+
+            /**
+             * Creates a plain object from a MemphisReadArgs message. Also converts values to other types if specified.
+             * @param message MemphisReadArgs
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.args.MemphisReadArgs, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this MemphisReadArgs to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a MemphisWriteArgs. */
+        interface IMemphisWriteArgs {
+
+            /** MemphisWriteArgs station */
+            station?: (string|null);
+
+            /** MemphisWriteArgs producerName */
+            producerName?: (string|null);
+        }
+
+        /** Represents a MemphisWriteArgs. */
+        class MemphisWriteArgs implements IMemphisWriteArgs {
+
+            /**
+             * Constructs a new MemphisWriteArgs.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.args.IMemphisWriteArgs);
+
+            /** MemphisWriteArgs station. */
+            public station: string;
+
+            /** MemphisWriteArgs producerName. */
+            public producerName: string;
+
+            /**
+             * Creates a new MemphisWriteArgs instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns MemphisWriteArgs instance
+             */
+            public static create(properties?: protos.args.IMemphisWriteArgs): protos.args.MemphisWriteArgs;
+
+            /**
+             * Encodes the specified MemphisWriteArgs message. Does not implicitly {@link protos.args.MemphisWriteArgs.verify|verify} messages.
+             * @param message MemphisWriteArgs message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.args.IMemphisWriteArgs, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified MemphisWriteArgs message, length delimited. Does not implicitly {@link protos.args.MemphisWriteArgs.verify|verify} messages.
+             * @param message MemphisWriteArgs message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.args.IMemphisWriteArgs, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a MemphisWriteArgs message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns MemphisWriteArgs
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.args.MemphisWriteArgs;
+
+            /**
+             * Decodes a MemphisWriteArgs message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns MemphisWriteArgs
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.args.MemphisWriteArgs;
+
+            /**
+             * Verifies a MemphisWriteArgs message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a MemphisWriteArgs message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns MemphisWriteArgs
+             */
+            public static fromObject(object: { [k: string]: any }): protos.args.MemphisWriteArgs;
+
+            /**
+             * Creates a plain object from a MemphisWriteArgs message. Also converts values to other types if specified.
+             * @param message MemphisWriteArgs
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.args.MemphisWriteArgs, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this MemphisWriteArgs to JSON.
              * @returns JSON object
              */
             public toJSON(): { [k: string]: any };

@@ -23301,6 +23301,7 @@ $root.protos = (function() {
              * @property {protos.opts.IReadGroupPostgresOptions|null} [postgres] ReadOptions postgres
              * @property {protos.opts.IReadGroupNatsJetstreamOptions|null} [natsJetstream] ReadOptions natsJetstream
              * @property {protos.opts.IReadGroupAWSKinesisOptions|null} [awsKinesis] ReadOptions awsKinesis
+             * @property {protos.opts.IReadGroupMemphisOptions|null} [memphis] ReadOptions memphis
              */
 
             /**
@@ -23567,6 +23568,14 @@ $root.protos = (function() {
             ReadOptions.prototype.awsKinesis = null;
 
             /**
+             * ReadOptions memphis.
+             * @member {protos.opts.IReadGroupMemphisOptions|null|undefined} memphis
+             * @memberof protos.opts.ReadOptions
+             * @instance
+             */
+            ReadOptions.prototype.memphis = null;
+
+            /**
              * Creates a new ReadOptions instance using the specified properties.
              * @function create
              * @memberof protos.opts.ReadOptions
@@ -23646,6 +23655,8 @@ $root.protos = (function() {
                     $root.protos.opts.ReadGroupNatsJetstreamOptions.encode(message.natsJetstream, writer.uint32(/* id 118, wireType 2 =*/946).fork()).ldelim();
                 if (message.awsKinesis != null && Object.hasOwnProperty.call(message, "awsKinesis"))
                     $root.protos.opts.ReadGroupAWSKinesisOptions.encode(message.awsKinesis, writer.uint32(/* id 119, wireType 2 =*/954).fork()).ldelim();
+                if (message.memphis != null && Object.hasOwnProperty.call(message, "memphis"))
+                    $root.protos.opts.ReadGroupMemphisOptions.encode(message.memphis, writer.uint32(/* id 120, wireType 2 =*/962).fork()).ldelim();
                 if (message._id != null && Object.hasOwnProperty.call(message, "_id"))
                     writer.uint32(/* id 1000, wireType 2 =*/8002).string(message._id);
                 if (message._active != null && Object.hasOwnProperty.call(message, "_active"))
@@ -23778,6 +23789,9 @@ $root.protos = (function() {
                         break;
                     case 119:
                         message.awsKinesis = $root.protos.opts.ReadGroupAWSKinesisOptions.decode(reader, reader.uint32());
+                        break;
+                    case 120:
+                        message.memphis = $root.protos.opts.ReadGroupMemphisOptions.decode(reader, reader.uint32());
                         break;
                     default:
                         reader.skipType(tag & 7);
@@ -23963,6 +23977,11 @@ $root.protos = (function() {
                     if (error)
                         return "awsKinesis." + error;
                 }
+                if (message.memphis != null && message.hasOwnProperty("memphis")) {
+                    var error = $root.protos.opts.ReadGroupMemphisOptions.verify(message.memphis);
+                    if (error)
+                        return "memphis." + error;
+                }
                 return null;
             };
 
@@ -24127,6 +24146,11 @@ $root.protos = (function() {
                         throw TypeError(".protos.opts.ReadOptions.awsKinesis: object expected");
                     message.awsKinesis = $root.protos.opts.ReadGroupAWSKinesisOptions.fromObject(object.awsKinesis);
                 }
+                if (object.memphis != null) {
+                    if (typeof object.memphis !== "object")
+                        throw TypeError(".protos.opts.ReadOptions.memphis: object expected");
+                    message.memphis = $root.protos.opts.ReadGroupMemphisOptions.fromObject(object.memphis);
+                }
                 return message;
             };
 
@@ -24172,6 +24196,7 @@ $root.protos = (function() {
                     object.postgres = null;
                     object.natsJetstream = null;
                     object.awsKinesis = null;
+                    object.memphis = null;
                     object._id = "";
                     object._active = false;
                     object._cliOptions = null;
@@ -24232,6 +24257,8 @@ $root.protos = (function() {
                     object.natsJetstream = $root.protos.opts.ReadGroupNatsJetstreamOptions.toObject(message.natsJetstream, options);
                 if (message.awsKinesis != null && message.hasOwnProperty("awsKinesis"))
                     object.awsKinesis = $root.protos.opts.ReadGroupAWSKinesisOptions.toObject(message.awsKinesis, options);
+                if (message.memphis != null && message.hasOwnProperty("memphis"))
+                    object.memphis = $root.protos.opts.ReadGroupMemphisOptions.toObject(message.memphis, options);
                 if (message._id != null && message.hasOwnProperty("_id"))
                     object._id = message._id;
                 if (message._active != null && message.hasOwnProperty("_active"))
@@ -28655,6 +28682,226 @@ $root.protos = (function() {
             return ReadGroupAWSKinesisOptions;
         })();
 
+        opts.ReadGroupMemphisOptions = (function() {
+
+            /**
+             * Properties of a ReadGroupMemphisOptions.
+             * @memberof protos.opts
+             * @interface IReadGroupMemphisOptions
+             * @property {protos.args.IMemphisConn|null} [_conn] ReadGroupMemphisOptions _conn
+             * @property {protos.args.IMemphisReadArgs|null} [args] ReadGroupMemphisOptions args
+             */
+
+            /**
+             * Constructs a new ReadGroupMemphisOptions.
+             * @memberof protos.opts
+             * @classdesc Represents a ReadGroupMemphisOptions.
+             * @implements IReadGroupMemphisOptions
+             * @constructor
+             * @param {protos.opts.IReadGroupMemphisOptions=} [properties] Properties to set
+             */
+            function ReadGroupMemphisOptions(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * ReadGroupMemphisOptions _conn.
+             * @member {protos.args.IMemphisConn|null|undefined} _conn
+             * @memberof protos.opts.ReadGroupMemphisOptions
+             * @instance
+             */
+            ReadGroupMemphisOptions.prototype._conn = null;
+
+            /**
+             * ReadGroupMemphisOptions args.
+             * @member {protos.args.IMemphisReadArgs|null|undefined} args
+             * @memberof protos.opts.ReadGroupMemphisOptions
+             * @instance
+             */
+            ReadGroupMemphisOptions.prototype.args = null;
+
+            /**
+             * Creates a new ReadGroupMemphisOptions instance using the specified properties.
+             * @function create
+             * @memberof protos.opts.ReadGroupMemphisOptions
+             * @static
+             * @param {protos.opts.IReadGroupMemphisOptions=} [properties] Properties to set
+             * @returns {protos.opts.ReadGroupMemphisOptions} ReadGroupMemphisOptions instance
+             */
+            ReadGroupMemphisOptions.create = function create(properties) {
+                return new ReadGroupMemphisOptions(properties);
+            };
+
+            /**
+             * Encodes the specified ReadGroupMemphisOptions message. Does not implicitly {@link protos.opts.ReadGroupMemphisOptions.verify|verify} messages.
+             * @function encode
+             * @memberof protos.opts.ReadGroupMemphisOptions
+             * @static
+             * @param {protos.opts.IReadGroupMemphisOptions} message ReadGroupMemphisOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            ReadGroupMemphisOptions.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
+                    $root.protos.args.MemphisConn.encode(message._conn, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                if (message.args != null && Object.hasOwnProperty.call(message, "args"))
+                    $root.protos.args.MemphisReadArgs.encode(message.args, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                return writer;
+            };
+
+            /**
+             * Encodes the specified ReadGroupMemphisOptions message, length delimited. Does not implicitly {@link protos.opts.ReadGroupMemphisOptions.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.opts.ReadGroupMemphisOptions
+             * @static
+             * @param {protos.opts.IReadGroupMemphisOptions} message ReadGroupMemphisOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            ReadGroupMemphisOptions.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a ReadGroupMemphisOptions message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.opts.ReadGroupMemphisOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.opts.ReadGroupMemphisOptions} ReadGroupMemphisOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            ReadGroupMemphisOptions.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.ReadGroupMemphisOptions();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message._conn = $root.protos.args.MemphisConn.decode(reader, reader.uint32());
+                        break;
+                    case 2:
+                        message.args = $root.protos.args.MemphisReadArgs.decode(reader, reader.uint32());
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a ReadGroupMemphisOptions message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.opts.ReadGroupMemphisOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.opts.ReadGroupMemphisOptions} ReadGroupMemphisOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            ReadGroupMemphisOptions.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a ReadGroupMemphisOptions message.
+             * @function verify
+             * @memberof protos.opts.ReadGroupMemphisOptions
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            ReadGroupMemphisOptions.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message._conn != null && message.hasOwnProperty("_conn")) {
+                    var error = $root.protos.args.MemphisConn.verify(message._conn);
+                    if (error)
+                        return "_conn." + error;
+                }
+                if (message.args != null && message.hasOwnProperty("args")) {
+                    var error = $root.protos.args.MemphisReadArgs.verify(message.args);
+                    if (error)
+                        return "args." + error;
+                }
+                return null;
+            };
+
+            /**
+             * Creates a ReadGroupMemphisOptions message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.opts.ReadGroupMemphisOptions
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.opts.ReadGroupMemphisOptions} ReadGroupMemphisOptions
+             */
+            ReadGroupMemphisOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.ReadGroupMemphisOptions)
+                    return object;
+                var message = new $root.protos.opts.ReadGroupMemphisOptions();
+                if (object._conn != null) {
+                    if (typeof object._conn !== "object")
+                        throw TypeError(".protos.opts.ReadGroupMemphisOptions._conn: object expected");
+                    message._conn = $root.protos.args.MemphisConn.fromObject(object._conn);
+                }
+                if (object.args != null) {
+                    if (typeof object.args !== "object")
+                        throw TypeError(".protos.opts.ReadGroupMemphisOptions.args: object expected");
+                    message.args = $root.protos.args.MemphisReadArgs.fromObject(object.args);
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a ReadGroupMemphisOptions message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.opts.ReadGroupMemphisOptions
+             * @static
+             * @param {protos.opts.ReadGroupMemphisOptions} message ReadGroupMemphisOptions
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            ReadGroupMemphisOptions.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    object._conn = null;
+                    object.args = null;
+                }
+                if (message._conn != null && message.hasOwnProperty("_conn"))
+                    object._conn = $root.protos.args.MemphisConn.toObject(message._conn, options);
+                if (message.args != null && message.hasOwnProperty("args"))
+                    object.args = $root.protos.args.MemphisReadArgs.toObject(message.args, options);
+                return object;
+            };
+
+            /**
+             * Converts this ReadGroupMemphisOptions to JSON.
+             * @function toJSON
+             * @memberof protos.opts.ReadGroupMemphisOptions
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            ReadGroupMemphisOptions.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return ReadGroupMemphisOptions;
+        })();
+
         opts.InferSchemaOptions = (function() {
 
             /**
@@ -32962,6 +33209,7 @@ $root.protos = (function() {
              * @property {protos.opts.IWriteGroupRedisStreamsOptions|null} [redisStreams] WriteOptions redisStreams
              * @property {protos.opts.IWriteGroupNatsJetstreamOptions|null} [natsJetstream] WriteOptions natsJetstream
              * @property {protos.opts.IWriteGroupAWSKinesisOptions|null} [awsKinesis] WriteOptions awsKinesis
+             * @property {protos.opts.IWriteGroupMemphisOptions|null} [memphis] WriteOptions memphis
              */
 
             /**
@@ -33164,6 +33412,14 @@ $root.protos = (function() {
             WriteOptions.prototype.awsKinesis = null;
 
             /**
+             * WriteOptions memphis.
+             * @member {protos.opts.IWriteGroupMemphisOptions|null|undefined} memphis
+             * @memberof protos.opts.WriteOptions
+             * @instance
+             */
+            WriteOptions.prototype.memphis = null;
+
+            /**
              * Creates a new WriteOptions instance using the specified properties.
              * @function create
              * @memberof protos.opts.WriteOptions
@@ -33231,6 +33487,8 @@ $root.protos = (function() {
                     $root.protos.opts.WriteGroupNatsJetstreamOptions.encode(message.natsJetstream, writer.uint32(/* id 117, wireType 2 =*/938).fork()).ldelim();
                 if (message.awsKinesis != null && Object.hasOwnProperty.call(message, "awsKinesis"))
                     $root.protos.opts.WriteGroupAWSKinesisOptions.encode(message.awsKinesis, writer.uint32(/* id 118, wireType 2 =*/946).fork()).ldelim();
+                if (message.memphis != null && Object.hasOwnProperty.call(message, "memphis"))
+                    $root.protos.opts.WriteGroupMemphisOptions.encode(message.memphis, writer.uint32(/* id 119, wireType 2 =*/954).fork()).ldelim();
                 if (message._cliOptions != null && Object.hasOwnProperty.call(message, "_cliOptions"))
                     $root.protos.opts.WriteCLIOptions.encode(message._cliOptions, writer.uint32(/* id 1000, wireType 2 =*/8002).fork()).ldelim();
                 return writer;
@@ -33335,6 +33593,9 @@ $root.protos = (function() {
                         break;
                     case 118:
                         message.awsKinesis = $root.protos.opts.WriteGroupAWSKinesisOptions.decode(reader, reader.uint32());
+                        break;
+                    case 119:
+                        message.memphis = $root.protos.opts.WriteGroupMemphisOptions.decode(reader, reader.uint32());
                         break;
                     default:
                         reader.skipType(tag & 7);
@@ -33484,6 +33745,11 @@ $root.protos = (function() {
                     if (error)
                         return "awsKinesis." + error;
                 }
+                if (message.memphis != null && message.hasOwnProperty("memphis")) {
+                    var error = $root.protos.opts.WriteGroupMemphisOptions.verify(message.memphis);
+                    if (error)
+                        return "memphis." + error;
+                }
                 return null;
             };
 
@@ -33611,6 +33877,11 @@ $root.protos = (function() {
                         throw TypeError(".protos.opts.WriteOptions.awsKinesis: object expected");
                     message.awsKinesis = $root.protos.opts.WriteGroupAWSKinesisOptions.fromObject(object.awsKinesis);
                 }
+                if (object.memphis != null) {
+                    if (typeof object.memphis !== "object")
+                        throw TypeError(".protos.opts.WriteOptions.memphis: object expected");
+                    message.memphis = $root.protos.opts.WriteGroupMemphisOptions.fromObject(object.memphis);
+                }
                 return message;
             };
 
@@ -33650,6 +33921,7 @@ $root.protos = (function() {
                     object.redisStreams = null;
                     object.natsJetstream = null;
                     object.awsKinesis = null;
+                    object.memphis = null;
                     object._cliOptions = null;
                 }
                 if (message.connectionId != null && message.hasOwnProperty("connectionId"))
@@ -33696,6 +33968,8 @@ $root.protos = (function() {
                     object.natsJetstream = $root.protos.opts.WriteGroupNatsJetstreamOptions.toObject(message.natsJetstream, options);
                 if (message.awsKinesis != null && message.hasOwnProperty("awsKinesis"))
                     object.awsKinesis = $root.protos.opts.WriteGroupAWSKinesisOptions.toObject(message.awsKinesis, options);
+                if (message.memphis != null && message.hasOwnProperty("memphis"))
+                    object.memphis = $root.protos.opts.WriteGroupMemphisOptions.toObject(message.memphis, options);
                 if (message._cliOptions != null && message.hasOwnProperty("_cliOptions"))
                     object._cliOptions = $root.protos.opts.WriteCLIOptions.toObject(message._cliOptions, options);
                 return object;
@@ -37893,6 +38167,226 @@ $root.protos = (function() {
             };
 
             return WriteGroupAWSKinesisOptions;
+        })();
+
+        opts.WriteGroupMemphisOptions = (function() {
+
+            /**
+             * Properties of a WriteGroupMemphisOptions.
+             * @memberof protos.opts
+             * @interface IWriteGroupMemphisOptions
+             * @property {protos.args.IMemphisConn|null} [_conn] WriteGroupMemphisOptions _conn
+             * @property {protos.args.IMemphisWriteArgs|null} [args] WriteGroupMemphisOptions args
+             */
+
+            /**
+             * Constructs a new WriteGroupMemphisOptions.
+             * @memberof protos.opts
+             * @classdesc Represents a WriteGroupMemphisOptions.
+             * @implements IWriteGroupMemphisOptions
+             * @constructor
+             * @param {protos.opts.IWriteGroupMemphisOptions=} [properties] Properties to set
+             */
+            function WriteGroupMemphisOptions(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * WriteGroupMemphisOptions _conn.
+             * @member {protos.args.IMemphisConn|null|undefined} _conn
+             * @memberof protos.opts.WriteGroupMemphisOptions
+             * @instance
+             */
+            WriteGroupMemphisOptions.prototype._conn = null;
+
+            /**
+             * WriteGroupMemphisOptions args.
+             * @member {protos.args.IMemphisWriteArgs|null|undefined} args
+             * @memberof protos.opts.WriteGroupMemphisOptions
+             * @instance
+             */
+            WriteGroupMemphisOptions.prototype.args = null;
+
+            /**
+             * Creates a new WriteGroupMemphisOptions instance using the specified properties.
+             * @function create
+             * @memberof protos.opts.WriteGroupMemphisOptions
+             * @static
+             * @param {protos.opts.IWriteGroupMemphisOptions=} [properties] Properties to set
+             * @returns {protos.opts.WriteGroupMemphisOptions} WriteGroupMemphisOptions instance
+             */
+            WriteGroupMemphisOptions.create = function create(properties) {
+                return new WriteGroupMemphisOptions(properties);
+            };
+
+            /**
+             * Encodes the specified WriteGroupMemphisOptions message. Does not implicitly {@link protos.opts.WriteGroupMemphisOptions.verify|verify} messages.
+             * @function encode
+             * @memberof protos.opts.WriteGroupMemphisOptions
+             * @static
+             * @param {protos.opts.IWriteGroupMemphisOptions} message WriteGroupMemphisOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            WriteGroupMemphisOptions.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message._conn != null && Object.hasOwnProperty.call(message, "_conn"))
+                    $root.protos.args.MemphisConn.encode(message._conn, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                if (message.args != null && Object.hasOwnProperty.call(message, "args"))
+                    $root.protos.args.MemphisWriteArgs.encode(message.args, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                return writer;
+            };
+
+            /**
+             * Encodes the specified WriteGroupMemphisOptions message, length delimited. Does not implicitly {@link protos.opts.WriteGroupMemphisOptions.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.opts.WriteGroupMemphisOptions
+             * @static
+             * @param {protos.opts.IWriteGroupMemphisOptions} message WriteGroupMemphisOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            WriteGroupMemphisOptions.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a WriteGroupMemphisOptions message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.opts.WriteGroupMemphisOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.opts.WriteGroupMemphisOptions} WriteGroupMemphisOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            WriteGroupMemphisOptions.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.WriteGroupMemphisOptions();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message._conn = $root.protos.args.MemphisConn.decode(reader, reader.uint32());
+                        break;
+                    case 2:
+                        message.args = $root.protos.args.MemphisWriteArgs.decode(reader, reader.uint32());
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a WriteGroupMemphisOptions message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.opts.WriteGroupMemphisOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.opts.WriteGroupMemphisOptions} WriteGroupMemphisOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            WriteGroupMemphisOptions.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a WriteGroupMemphisOptions message.
+             * @function verify
+             * @memberof protos.opts.WriteGroupMemphisOptions
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            WriteGroupMemphisOptions.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message._conn != null && message.hasOwnProperty("_conn")) {
+                    var error = $root.protos.args.MemphisConn.verify(message._conn);
+                    if (error)
+                        return "_conn." + error;
+                }
+                if (message.args != null && message.hasOwnProperty("args")) {
+                    var error = $root.protos.args.MemphisWriteArgs.verify(message.args);
+                    if (error)
+                        return "args." + error;
+                }
+                return null;
+            };
+
+            /**
+             * Creates a WriteGroupMemphisOptions message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.opts.WriteGroupMemphisOptions
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.opts.WriteGroupMemphisOptions} WriteGroupMemphisOptions
+             */
+            WriteGroupMemphisOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.WriteGroupMemphisOptions)
+                    return object;
+                var message = new $root.protos.opts.WriteGroupMemphisOptions();
+                if (object._conn != null) {
+                    if (typeof object._conn !== "object")
+                        throw TypeError(".protos.opts.WriteGroupMemphisOptions._conn: object expected");
+                    message._conn = $root.protos.args.MemphisConn.fromObject(object._conn);
+                }
+                if (object.args != null) {
+                    if (typeof object.args !== "object")
+                        throw TypeError(".protos.opts.WriteGroupMemphisOptions.args: object expected");
+                    message.args = $root.protos.args.MemphisWriteArgs.fromObject(object.args);
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a WriteGroupMemphisOptions message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.opts.WriteGroupMemphisOptions
+             * @static
+             * @param {protos.opts.WriteGroupMemphisOptions} message WriteGroupMemphisOptions
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            WriteGroupMemphisOptions.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    object._conn = null;
+                    object.args = null;
+                }
+                if (message._conn != null && message.hasOwnProperty("_conn"))
+                    object._conn = $root.protos.args.MemphisConn.toObject(message._conn, options);
+                if (message.args != null && message.hasOwnProperty("args"))
+                    object.args = $root.protos.args.MemphisWriteArgs.toObject(message.args, options);
+                return object;
+            };
+
+            /**
+             * Converts this WriteGroupMemphisOptions to JSON.
+             * @function toJSON
+             * @memberof protos.opts.WriteGroupMemphisOptions
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            WriteGroupMemphisOptions.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return WriteGroupMemphisOptions;
         })();
 
         return opts;
@@ -55342,6 +55836,680 @@ $root.protos = (function() {
             };
 
             return RedisStreamsWriteArgs;
+        })();
+
+        args.MemphisConn = (function() {
+
+            /**
+             * Properties of a MemphisConn.
+             * @memberof protos.args
+             * @interface IMemphisConn
+             * @property {string|null} [address] MemphisConn address
+             * @property {boolean|null} [username] MemphisConn username
+             * @property {boolean|null} [brokerToken] MemphisConn brokerToken
+             */
+
+            /**
+             * Constructs a new MemphisConn.
+             * @memberof protos.args
+             * @classdesc Represents a MemphisConn.
+             * @implements IMemphisConn
+             * @constructor
+             * @param {protos.args.IMemphisConn=} [properties] Properties to set
+             */
+            function MemphisConn(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * MemphisConn address.
+             * @member {string} address
+             * @memberof protos.args.MemphisConn
+             * @instance
+             */
+            MemphisConn.prototype.address = "";
+
+            /**
+             * MemphisConn username.
+             * @member {boolean} username
+             * @memberof protos.args.MemphisConn
+             * @instance
+             */
+            MemphisConn.prototype.username = false;
+
+            /**
+             * MemphisConn brokerToken.
+             * @member {boolean} brokerToken
+             * @memberof protos.args.MemphisConn
+             * @instance
+             */
+            MemphisConn.prototype.brokerToken = false;
+
+            /**
+             * Creates a new MemphisConn instance using the specified properties.
+             * @function create
+             * @memberof protos.args.MemphisConn
+             * @static
+             * @param {protos.args.IMemphisConn=} [properties] Properties to set
+             * @returns {protos.args.MemphisConn} MemphisConn instance
+             */
+            MemphisConn.create = function create(properties) {
+                return new MemphisConn(properties);
+            };
+
+            /**
+             * Encodes the specified MemphisConn message. Does not implicitly {@link protos.args.MemphisConn.verify|verify} messages.
+             * @function encode
+             * @memberof protos.args.MemphisConn
+             * @static
+             * @param {protos.args.IMemphisConn} message MemphisConn message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            MemphisConn.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.address != null && Object.hasOwnProperty.call(message, "address"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.address);
+                if (message.username != null && Object.hasOwnProperty.call(message, "username"))
+                    writer.uint32(/* id 2, wireType 0 =*/16).bool(message.username);
+                if (message.brokerToken != null && Object.hasOwnProperty.call(message, "brokerToken"))
+                    writer.uint32(/* id 4, wireType 0 =*/32).bool(message.brokerToken);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified MemphisConn message, length delimited. Does not implicitly {@link protos.args.MemphisConn.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.args.MemphisConn
+             * @static
+             * @param {protos.args.IMemphisConn} message MemphisConn message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            MemphisConn.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a MemphisConn message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.args.MemphisConn
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.args.MemphisConn} MemphisConn
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            MemphisConn.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.args.MemphisConn();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.address = reader.string();
+                        break;
+                    case 2:
+                        message.username = reader.bool();
+                        break;
+                    case 4:
+                        message.brokerToken = reader.bool();
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a MemphisConn message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.args.MemphisConn
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.args.MemphisConn} MemphisConn
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            MemphisConn.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a MemphisConn message.
+             * @function verify
+             * @memberof protos.args.MemphisConn
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            MemphisConn.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.address != null && message.hasOwnProperty("address"))
+                    if (!$util.isString(message.address))
+                        return "address: string expected";
+                if (message.username != null && message.hasOwnProperty("username"))
+                    if (typeof message.username !== "boolean")
+                        return "username: boolean expected";
+                if (message.brokerToken != null && message.hasOwnProperty("brokerToken"))
+                    if (typeof message.brokerToken !== "boolean")
+                        return "brokerToken: boolean expected";
+                return null;
+            };
+
+            /**
+             * Creates a MemphisConn message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.args.MemphisConn
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.args.MemphisConn} MemphisConn
+             */
+            MemphisConn.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.args.MemphisConn)
+                    return object;
+                var message = new $root.protos.args.MemphisConn();
+                if (object.address != null)
+                    message.address = String(object.address);
+                if (object.username != null)
+                    message.username = Boolean(object.username);
+                if (object.brokerToken != null)
+                    message.brokerToken = Boolean(object.brokerToken);
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a MemphisConn message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.args.MemphisConn
+             * @static
+             * @param {protos.args.MemphisConn} message MemphisConn
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            MemphisConn.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    object.address = "";
+                    object.username = false;
+                    object.brokerToken = false;
+                }
+                if (message.address != null && message.hasOwnProperty("address"))
+                    object.address = message.address;
+                if (message.username != null && message.hasOwnProperty("username"))
+                    object.username = message.username;
+                if (message.brokerToken != null && message.hasOwnProperty("brokerToken"))
+                    object.brokerToken = message.brokerToken;
+                return object;
+            };
+
+            /**
+             * Converts this MemphisConn to JSON.
+             * @function toJSON
+             * @memberof protos.args.MemphisConn
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            MemphisConn.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return MemphisConn;
+        })();
+
+        args.MemphisReadArgs = (function() {
+
+            /**
+             * Properties of a MemphisReadArgs.
+             * @memberof protos.args
+             * @interface IMemphisReadArgs
+             * @property {string|null} [station] MemphisReadArgs station
+             * @property {string|null} [consumerName] MemphisReadArgs consumerName
+             * @property {string|null} [consumerGroup] MemphisReadArgs consumerGroup
+             */
+
+            /**
+             * Constructs a new MemphisReadArgs.
+             * @memberof protos.args
+             * @classdesc Represents a MemphisReadArgs.
+             * @implements IMemphisReadArgs
+             * @constructor
+             * @param {protos.args.IMemphisReadArgs=} [properties] Properties to set
+             */
+            function MemphisReadArgs(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * MemphisReadArgs station.
+             * @member {string} station
+             * @memberof protos.args.MemphisReadArgs
+             * @instance
+             */
+            MemphisReadArgs.prototype.station = "";
+
+            /**
+             * MemphisReadArgs consumerName.
+             * @member {string} consumerName
+             * @memberof protos.args.MemphisReadArgs
+             * @instance
+             */
+            MemphisReadArgs.prototype.consumerName = "";
+
+            /**
+             * MemphisReadArgs consumerGroup.
+             * @member {string} consumerGroup
+             * @memberof protos.args.MemphisReadArgs
+             * @instance
+             */
+            MemphisReadArgs.prototype.consumerGroup = "";
+
+            /**
+             * Creates a new MemphisReadArgs instance using the specified properties.
+             * @function create
+             * @memberof protos.args.MemphisReadArgs
+             * @static
+             * @param {protos.args.IMemphisReadArgs=} [properties] Properties to set
+             * @returns {protos.args.MemphisReadArgs} MemphisReadArgs instance
+             */
+            MemphisReadArgs.create = function create(properties) {
+                return new MemphisReadArgs(properties);
+            };
+
+            /**
+             * Encodes the specified MemphisReadArgs message. Does not implicitly {@link protos.args.MemphisReadArgs.verify|verify} messages.
+             * @function encode
+             * @memberof protos.args.MemphisReadArgs
+             * @static
+             * @param {protos.args.IMemphisReadArgs} message MemphisReadArgs message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            MemphisReadArgs.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.station != null && Object.hasOwnProperty.call(message, "station"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.station);
+                if (message.consumerName != null && Object.hasOwnProperty.call(message, "consumerName"))
+                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.consumerName);
+                if (message.consumerGroup != null && Object.hasOwnProperty.call(message, "consumerGroup"))
+                    writer.uint32(/* id 3, wireType 2 =*/26).string(message.consumerGroup);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified MemphisReadArgs message, length delimited. Does not implicitly {@link protos.args.MemphisReadArgs.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.args.MemphisReadArgs
+             * @static
+             * @param {protos.args.IMemphisReadArgs} message MemphisReadArgs message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            MemphisReadArgs.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a MemphisReadArgs message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.args.MemphisReadArgs
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.args.MemphisReadArgs} MemphisReadArgs
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            MemphisReadArgs.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.args.MemphisReadArgs();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.station = reader.string();
+                        break;
+                    case 2:
+                        message.consumerName = reader.string();
+                        break;
+                    case 3:
+                        message.consumerGroup = reader.string();
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a MemphisReadArgs message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.args.MemphisReadArgs
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.args.MemphisReadArgs} MemphisReadArgs
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            MemphisReadArgs.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a MemphisReadArgs message.
+             * @function verify
+             * @memberof protos.args.MemphisReadArgs
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            MemphisReadArgs.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.station != null && message.hasOwnProperty("station"))
+                    if (!$util.isString(message.station))
+                        return "station: string expected";
+                if (message.consumerName != null && message.hasOwnProperty("consumerName"))
+                    if (!$util.isString(message.consumerName))
+                        return "consumerName: string expected";
+                if (message.consumerGroup != null && message.hasOwnProperty("consumerGroup"))
+                    if (!$util.isString(message.consumerGroup))
+                        return "consumerGroup: string expected";
+                return null;
+            };
+
+            /**
+             * Creates a MemphisReadArgs message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.args.MemphisReadArgs
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.args.MemphisReadArgs} MemphisReadArgs
+             */
+            MemphisReadArgs.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.args.MemphisReadArgs)
+                    return object;
+                var message = new $root.protos.args.MemphisReadArgs();
+                if (object.station != null)
+                    message.station = String(object.station);
+                if (object.consumerName != null)
+                    message.consumerName = String(object.consumerName);
+                if (object.consumerGroup != null)
+                    message.consumerGroup = String(object.consumerGroup);
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a MemphisReadArgs message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.args.MemphisReadArgs
+             * @static
+             * @param {protos.args.MemphisReadArgs} message MemphisReadArgs
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            MemphisReadArgs.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    object.station = "";
+                    object.consumerName = "";
+                    object.consumerGroup = "";
+                }
+                if (message.station != null && message.hasOwnProperty("station"))
+                    object.station = message.station;
+                if (message.consumerName != null && message.hasOwnProperty("consumerName"))
+                    object.consumerName = message.consumerName;
+                if (message.consumerGroup != null && message.hasOwnProperty("consumerGroup"))
+                    object.consumerGroup = message.consumerGroup;
+                return object;
+            };
+
+            /**
+             * Converts this MemphisReadArgs to JSON.
+             * @function toJSON
+             * @memberof protos.args.MemphisReadArgs
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            MemphisReadArgs.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return MemphisReadArgs;
+        })();
+
+        args.MemphisWriteArgs = (function() {
+
+            /**
+             * Properties of a MemphisWriteArgs.
+             * @memberof protos.args
+             * @interface IMemphisWriteArgs
+             * @property {string|null} [station] MemphisWriteArgs station
+             * @property {string|null} [producerName] MemphisWriteArgs producerName
+             */
+
+            /**
+             * Constructs a new MemphisWriteArgs.
+             * @memberof protos.args
+             * @classdesc Represents a MemphisWriteArgs.
+             * @implements IMemphisWriteArgs
+             * @constructor
+             * @param {protos.args.IMemphisWriteArgs=} [properties] Properties to set
+             */
+            function MemphisWriteArgs(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * MemphisWriteArgs station.
+             * @member {string} station
+             * @memberof protos.args.MemphisWriteArgs
+             * @instance
+             */
+            MemphisWriteArgs.prototype.station = "";
+
+            /**
+             * MemphisWriteArgs producerName.
+             * @member {string} producerName
+             * @memberof protos.args.MemphisWriteArgs
+             * @instance
+             */
+            MemphisWriteArgs.prototype.producerName = "";
+
+            /**
+             * Creates a new MemphisWriteArgs instance using the specified properties.
+             * @function create
+             * @memberof protos.args.MemphisWriteArgs
+             * @static
+             * @param {protos.args.IMemphisWriteArgs=} [properties] Properties to set
+             * @returns {protos.args.MemphisWriteArgs} MemphisWriteArgs instance
+             */
+            MemphisWriteArgs.create = function create(properties) {
+                return new MemphisWriteArgs(properties);
+            };
+
+            /**
+             * Encodes the specified MemphisWriteArgs message. Does not implicitly {@link protos.args.MemphisWriteArgs.verify|verify} messages.
+             * @function encode
+             * @memberof protos.args.MemphisWriteArgs
+             * @static
+             * @param {protos.args.IMemphisWriteArgs} message MemphisWriteArgs message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            MemphisWriteArgs.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.station != null && Object.hasOwnProperty.call(message, "station"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.station);
+                if (message.producerName != null && Object.hasOwnProperty.call(message, "producerName"))
+                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.producerName);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified MemphisWriteArgs message, length delimited. Does not implicitly {@link protos.args.MemphisWriteArgs.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.args.MemphisWriteArgs
+             * @static
+             * @param {protos.args.IMemphisWriteArgs} message MemphisWriteArgs message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            MemphisWriteArgs.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a MemphisWriteArgs message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.args.MemphisWriteArgs
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.args.MemphisWriteArgs} MemphisWriteArgs
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            MemphisWriteArgs.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.args.MemphisWriteArgs();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.station = reader.string();
+                        break;
+                    case 2:
+                        message.producerName = reader.string();
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a MemphisWriteArgs message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.args.MemphisWriteArgs
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.args.MemphisWriteArgs} MemphisWriteArgs
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            MemphisWriteArgs.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a MemphisWriteArgs message.
+             * @function verify
+             * @memberof protos.args.MemphisWriteArgs
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            MemphisWriteArgs.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.station != null && message.hasOwnProperty("station"))
+                    if (!$util.isString(message.station))
+                        return "station: string expected";
+                if (message.producerName != null && message.hasOwnProperty("producerName"))
+                    if (!$util.isString(message.producerName))
+                        return "producerName: string expected";
+                return null;
+            };
+
+            /**
+             * Creates a MemphisWriteArgs message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.args.MemphisWriteArgs
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.args.MemphisWriteArgs} MemphisWriteArgs
+             */
+            MemphisWriteArgs.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.args.MemphisWriteArgs)
+                    return object;
+                var message = new $root.protos.args.MemphisWriteArgs();
+                if (object.station != null)
+                    message.station = String(object.station);
+                if (object.producerName != null)
+                    message.producerName = String(object.producerName);
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a MemphisWriteArgs message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.args.MemphisWriteArgs
+             * @static
+             * @param {protos.args.MemphisWriteArgs} message MemphisWriteArgs
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            MemphisWriteArgs.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    object.station = "";
+                    object.producerName = "";
+                }
+                if (message.station != null && message.hasOwnProperty("station"))
+                    object.station = message.station;
+                if (message.producerName != null && message.hasOwnProperty("producerName"))
+                    object.producerName = message.producerName;
+                return object;
+            };
+
+            /**
+             * Converts this MemphisWriteArgs to JSON.
+             * @function toJSON
+             * @memberof protos.args.MemphisWriteArgs
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            MemphisWriteArgs.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return MemphisWriteArgs;
         })();
 
         return args;
