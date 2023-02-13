@@ -8808,6 +8808,9 @@ export namespace protos {
 
             /** CreateTunnelOptions awsKinesis */
             awsKinesis?: (protos.args.IAWSKinesisWriteArgs|null);
+
+            /** CreateTunnelOptions memphis */
+            memphis?: (protos.args.IMemphisWriteArgs|null);
         }
 
         /** Represents a CreateTunnelOptions. */
@@ -8896,6 +8899,9 @@ export namespace protos {
 
             /** CreateTunnelOptions awsKinesis. */
             public awsKinesis?: (protos.args.IAWSKinesisWriteArgs|null);
+
+            /** CreateTunnelOptions memphis. */
+            public memphis?: (protos.args.IMemphisWriteArgs|null);
 
             /**
              * Creates a new CreateTunnelOptions instance using the specified properties.

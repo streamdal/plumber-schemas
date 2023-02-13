@@ -21538,6 +21538,7 @@ $root.protos = (function() {
              * @property {protos.args.IRabbitStreamsWriteArgs|null} [rabbitStreams] CreateTunnelOptions rabbitStreams
              * @property {protos.args.INatsJetstreamWriteArgs|null} [natsJetstream] CreateTunnelOptions natsJetstream
              * @property {protos.args.IAWSKinesisWriteArgs|null} [awsKinesis] CreateTunnelOptions awsKinesis
+             * @property {protos.args.IMemphisWriteArgs|null} [memphis] CreateTunnelOptions memphis
              */
 
             /**
@@ -21764,6 +21765,14 @@ $root.protos = (function() {
             CreateTunnelOptions.prototype.awsKinesis = null;
 
             /**
+             * CreateTunnelOptions memphis.
+             * @member {protos.args.IMemphisWriteArgs|null|undefined} memphis
+             * @memberof protos.opts.CreateTunnelOptions
+             * @instance
+             */
+            CreateTunnelOptions.prototype.memphis = null;
+
+            /**
              * Creates a new CreateTunnelOptions instance using the specified properties.
              * @function create
              * @memberof protos.opts.CreateTunnelOptions
@@ -21839,6 +21848,8 @@ $root.protos = (function() {
                     $root.protos.args.NatsJetstreamWriteArgs.encode(message.natsJetstream, writer.uint32(/* id 117, wireType 2 =*/938).fork()).ldelim();
                 if (message.awsKinesis != null && Object.hasOwnProperty.call(message, "awsKinesis"))
                     $root.protos.args.AWSKinesisWriteArgs.encode(message.awsKinesis, writer.uint32(/* id 118, wireType 2 =*/946).fork()).ldelim();
+                if (message.memphis != null && Object.hasOwnProperty.call(message, "memphis"))
+                    $root.protos.args.MemphisWriteArgs.encode(message.memphis, writer.uint32(/* id 119, wireType 2 =*/954).fork()).ldelim();
                 return writer;
             };
 
@@ -21950,6 +21961,9 @@ $root.protos = (function() {
                         break;
                     case 118:
                         message.awsKinesis = $root.protos.args.AWSKinesisWriteArgs.decode(reader, reader.uint32());
+                        break;
+                    case 119:
+                        message.memphis = $root.protos.args.MemphisWriteArgs.decode(reader, reader.uint32());
                         break;
                     default:
                         reader.skipType(tag & 7);
@@ -22102,6 +22116,11 @@ $root.protos = (function() {
                     if (error)
                         return "awsKinesis." + error;
                 }
+                if (message.memphis != null && message.hasOwnProperty("memphis")) {
+                    var error = $root.protos.args.MemphisWriteArgs.verify(message.memphis);
+                    if (error)
+                        return "memphis." + error;
+                }
                 return null;
             };
 
@@ -22226,6 +22245,11 @@ $root.protos = (function() {
                         throw TypeError(".protos.opts.CreateTunnelOptions.awsKinesis: object expected");
                     message.awsKinesis = $root.protos.args.AWSKinesisWriteArgs.fromObject(object.awsKinesis);
                 }
+                if (object.memphis != null) {
+                    if (typeof object.memphis !== "object")
+                        throw TypeError(".protos.opts.CreateTunnelOptions.memphis: object expected");
+                    message.memphis = $root.protos.args.MemphisWriteArgs.fromObject(object.memphis);
+                }
                 return message;
             };
 
@@ -22269,6 +22293,7 @@ $root.protos = (function() {
                     object.rabbitStreams = null;
                     object.natsJetstream = null;
                     object.awsKinesis = null;
+                    object.memphis = null;
                 }
                 if (message.connectionId != null && message.hasOwnProperty("connectionId"))
                     object.connectionId = message.connectionId;
@@ -22322,6 +22347,8 @@ $root.protos = (function() {
                     object.natsJetstream = $root.protos.args.NatsJetstreamWriteArgs.toObject(message.natsJetstream, options);
                 if (message.awsKinesis != null && message.hasOwnProperty("awsKinesis"))
                     object.awsKinesis = $root.protos.args.AWSKinesisWriteArgs.toObject(message.awsKinesis, options);
+                if (message.memphis != null && message.hasOwnProperty("memphis"))
+                    object.memphis = $root.protos.args.MemphisWriteArgs.toObject(message.memphis, options);
                 return object;
             };
 
