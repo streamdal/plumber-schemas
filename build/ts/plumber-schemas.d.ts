@@ -27974,6 +27974,9 @@ export namespace protos {
             /** ReadRecord awsKinesis */
             awsKinesis?: (protos.records.IAWSKinesis|null);
 
+            /** ReadRecord memphis */
+            memphis?: (protos.records.IMemphis|null);
+
             /** ReadRecord _raw */
             _raw?: (Uint8Array|null);
 
@@ -28065,6 +28068,9 @@ export namespace protos {
             /** ReadRecord awsKinesis. */
             public awsKinesis?: (protos.records.IAWSKinesis|null);
 
+            /** ReadRecord memphis. */
+            public memphis?: (protos.records.IMemphis|null);
+
             /** ReadRecord _raw. */
             public _raw: Uint8Array;
 
@@ -28072,7 +28078,7 @@ export namespace protos {
             public _plumberId: string;
 
             /** ReadRecord Record. */
-            public Record?: ("kafka"|"rabbit"|"activemq"|"awsSqs"|"azureEventHub"|"azureServiceBus"|"gcpPubsub"|"kubemq"|"mongo"|"mqtt"|"nats"|"natsStreaming"|"nsq"|"postgres"|"pulsar"|"rabbitStreams"|"redisPubsub"|"redisStreams"|"natsJetstream"|"awsKinesis");
+            public Record?: ("kafka"|"rabbit"|"activemq"|"awsSqs"|"azureEventHub"|"azureServiceBus"|"gcpPubsub"|"kubemq"|"mongo"|"mqtt"|"nats"|"natsStreaming"|"nsq"|"postgres"|"pulsar"|"rabbitStreams"|"redisPubsub"|"redisStreams"|"natsJetstream"|"awsKinesis"|"memphis");
 
             /**
              * Creates a new ReadRecord instance using the specified properties.
@@ -29574,6 +29580,102 @@ export namespace protos {
 
             /**
              * Converts this KubeMQ to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a Memphis. */
+        interface IMemphis {
+
+            /** Memphis value */
+            value?: (Uint8Array|null);
+
+            /** Memphis timestamp */
+            timestamp?: (number|Long|null);
+        }
+
+        /** Represents a Memphis. */
+        class Memphis implements IMemphis {
+
+            /**
+             * Constructs a new Memphis.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.records.IMemphis);
+
+            /** Memphis value. */
+            public value: Uint8Array;
+
+            /** Memphis timestamp. */
+            public timestamp: (number|Long);
+
+            /**
+             * Creates a new Memphis instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns Memphis instance
+             */
+            public static create(properties?: protos.records.IMemphis): protos.records.Memphis;
+
+            /**
+             * Encodes the specified Memphis message. Does not implicitly {@link protos.records.Memphis.verify|verify} messages.
+             * @param message Memphis message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.records.IMemphis, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified Memphis message, length delimited. Does not implicitly {@link protos.records.Memphis.verify|verify} messages.
+             * @param message Memphis message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.records.IMemphis, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a Memphis message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns Memphis
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.records.Memphis;
+
+            /**
+             * Decodes a Memphis message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns Memphis
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.records.Memphis;
+
+            /**
+             * Verifies a Memphis message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a Memphis message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns Memphis
+             */
+            public static fromObject(object: { [k: string]: any }): protos.records.Memphis;
+
+            /**
+             * Creates a plain object from a Memphis message. Also converts values to other types if specified.
+             * @param message Memphis
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.records.Memphis, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this Memphis to JSON.
              * @returns JSON object
              */
             public toJSON(): { [k: string]: any };

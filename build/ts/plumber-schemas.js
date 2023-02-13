@@ -66801,6 +66801,7 @@ $root.protos = (function() {
              * @property {protos.records.IRedisStreams|null} [redisStreams] ReadRecord redisStreams
              * @property {protos.records.INatsJetstream|null} [natsJetstream] ReadRecord natsJetstream
              * @property {protos.records.IAWSKinesis|null} [awsKinesis] ReadRecord awsKinesis
+             * @property {protos.records.IMemphis|null} [memphis] ReadRecord memphis
              * @property {Uint8Array|null} [_raw] ReadRecord _raw
              * @property {string|null} [_plumberId] ReadRecord _plumberId
              */
@@ -67022,6 +67023,14 @@ $root.protos = (function() {
             ReadRecord.prototype.awsKinesis = null;
 
             /**
+             * ReadRecord memphis.
+             * @member {protos.records.IMemphis|null|undefined} memphis
+             * @memberof protos.records.ReadRecord
+             * @instance
+             */
+            ReadRecord.prototype.memphis = null;
+
+            /**
              * ReadRecord _raw.
              * @member {Uint8Array} _raw
              * @memberof protos.records.ReadRecord
@@ -67042,12 +67051,12 @@ $root.protos = (function() {
 
             /**
              * ReadRecord Record.
-             * @member {"kafka"|"rabbit"|"activemq"|"awsSqs"|"azureEventHub"|"azureServiceBus"|"gcpPubsub"|"kubemq"|"mongo"|"mqtt"|"nats"|"natsStreaming"|"nsq"|"postgres"|"pulsar"|"rabbitStreams"|"redisPubsub"|"redisStreams"|"natsJetstream"|"awsKinesis"|undefined} Record
+             * @member {"kafka"|"rabbit"|"activemq"|"awsSqs"|"azureEventHub"|"azureServiceBus"|"gcpPubsub"|"kubemq"|"mongo"|"mqtt"|"nats"|"natsStreaming"|"nsq"|"postgres"|"pulsar"|"rabbitStreams"|"redisPubsub"|"redisStreams"|"natsJetstream"|"awsKinesis"|"memphis"|undefined} Record
              * @memberof protos.records.ReadRecord
              * @instance
              */
             Object.defineProperty(ReadRecord.prototype, "Record", {
-                get: $util.oneOfGetter($oneOfFields = ["kafka", "rabbit", "activemq", "awsSqs", "azureEventHub", "azureServiceBus", "gcpPubsub", "kubemq", "mongo", "mqtt", "nats", "natsStreaming", "nsq", "postgres", "pulsar", "rabbitStreams", "redisPubsub", "redisStreams", "natsJetstream", "awsKinesis"]),
+                get: $util.oneOfGetter($oneOfFields = ["kafka", "rabbit", "activemq", "awsSqs", "azureEventHub", "azureServiceBus", "gcpPubsub", "kubemq", "mongo", "mqtt", "nats", "natsStreaming", "nsq", "postgres", "pulsar", "rabbitStreams", "redisPubsub", "redisStreams", "natsJetstream", "awsKinesis", "memphis"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
@@ -67126,6 +67135,8 @@ $root.protos = (function() {
                     $root.protos.records.NatsJetstream.encode(message.natsJetstream, writer.uint32(/* id 118, wireType 2 =*/946).fork()).ldelim();
                 if (message.awsKinesis != null && Object.hasOwnProperty.call(message, "awsKinesis"))
                     $root.protos.records.AWSKinesis.encode(message.awsKinesis, writer.uint32(/* id 119, wireType 2 =*/954).fork()).ldelim();
+                if (message.memphis != null && Object.hasOwnProperty.call(message, "memphis"))
+                    $root.protos.records.Memphis.encode(message.memphis, writer.uint32(/* id 120, wireType 2 =*/962).fork()).ldelim();
                 if (message._raw != null && Object.hasOwnProperty.call(message, "_raw"))
                     writer.uint32(/* id 1000, wireType 2 =*/8002).bytes(message._raw);
                 if (message._plumberId != null && Object.hasOwnProperty.call(message, "_plumberId"))
@@ -67257,6 +67268,9 @@ $root.protos = (function() {
                         break;
                     case 119:
                         message.awsKinesis = $root.protos.records.AWSKinesis.decode(reader, reader.uint32());
+                        break;
+                    case 120:
+                        message.memphis = $root.protos.records.Memphis.decode(reader, reader.uint32());
                         break;
                     case 1000:
                         message._raw = reader.bytes();
@@ -67518,6 +67532,16 @@ $root.protos = (function() {
                             return "awsKinesis." + error;
                     }
                 }
+                if (message.memphis != null && message.hasOwnProperty("memphis")) {
+                    if (properties.Record === 1)
+                        return "Record: multiple values";
+                    properties.Record = 1;
+                    {
+                        var error = $root.protos.records.Memphis.verify(message.memphis);
+                        if (error)
+                            return "memphis." + error;
+                    }
+                }
                 if (message._raw != null && message.hasOwnProperty("_raw"))
                     if (!(message._raw && typeof message._raw.length === "number" || $util.isString(message._raw)))
                         return "_raw: buffer expected";
@@ -67670,6 +67694,11 @@ $root.protos = (function() {
                     if (typeof object.awsKinesis !== "object")
                         throw TypeError(".protos.records.ReadRecord.awsKinesis: object expected");
                     message.awsKinesis = $root.protos.records.AWSKinesis.fromObject(object.awsKinesis);
+                }
+                if (object.memphis != null) {
+                    if (typeof object.memphis !== "object")
+                        throw TypeError(".protos.records.ReadRecord.memphis: object expected");
+                    message.memphis = $root.protos.records.Memphis.fromObject(object.memphis);
                 }
                 if (object._raw != null)
                     if (typeof object._raw === "string")
@@ -67843,6 +67872,11 @@ $root.protos = (function() {
                     object.awsKinesis = $root.protos.records.AWSKinesis.toObject(message.awsKinesis, options);
                     if (options.oneofs)
                         object.Record = "awsKinesis";
+                }
+                if (message.memphis != null && message.hasOwnProperty("memphis")) {
+                    object.memphis = $root.protos.records.Memphis.toObject(message.memphis, options);
+                    if (options.oneofs)
+                        object.Record = "memphis";
                 }
                 if (message._raw != null && message.hasOwnProperty("_raw"))
                     object._raw = options.bytes === String ? $util.base64.encode(message._raw, 0, message._raw.length) : options.bytes === Array ? Array.prototype.slice.call(message._raw) : message._raw;
@@ -71989,6 +72023,239 @@ $root.protos = (function() {
             };
 
             return KubeMQ;
+        })();
+
+        records.Memphis = (function() {
+
+            /**
+             * Properties of a Memphis.
+             * @memberof protos.records
+             * @interface IMemphis
+             * @property {Uint8Array|null} [value] Memphis value
+             * @property {number|Long|null} [timestamp] Memphis timestamp
+             */
+
+            /**
+             * Constructs a new Memphis.
+             * @memberof protos.records
+             * @classdesc Represents a Memphis.
+             * @implements IMemphis
+             * @constructor
+             * @param {protos.records.IMemphis=} [properties] Properties to set
+             */
+            function Memphis(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * Memphis value.
+             * @member {Uint8Array} value
+             * @memberof protos.records.Memphis
+             * @instance
+             */
+            Memphis.prototype.value = $util.newBuffer([]);
+
+            /**
+             * Memphis timestamp.
+             * @member {number|Long} timestamp
+             * @memberof protos.records.Memphis
+             * @instance
+             */
+            Memphis.prototype.timestamp = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
+
+            /**
+             * Creates a new Memphis instance using the specified properties.
+             * @function create
+             * @memberof protos.records.Memphis
+             * @static
+             * @param {protos.records.IMemphis=} [properties] Properties to set
+             * @returns {protos.records.Memphis} Memphis instance
+             */
+            Memphis.create = function create(properties) {
+                return new Memphis(properties);
+            };
+
+            /**
+             * Encodes the specified Memphis message. Does not implicitly {@link protos.records.Memphis.verify|verify} messages.
+             * @function encode
+             * @memberof protos.records.Memphis
+             * @static
+             * @param {protos.records.IMemphis} message Memphis message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            Memphis.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.value != null && Object.hasOwnProperty.call(message, "value"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).bytes(message.value);
+                if (message.timestamp != null && Object.hasOwnProperty.call(message, "timestamp"))
+                    writer.uint32(/* id 2, wireType 0 =*/16).int64(message.timestamp);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified Memphis message, length delimited. Does not implicitly {@link protos.records.Memphis.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.records.Memphis
+             * @static
+             * @param {protos.records.IMemphis} message Memphis message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            Memphis.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a Memphis message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.records.Memphis
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.records.Memphis} Memphis
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            Memphis.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.records.Memphis();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.value = reader.bytes();
+                        break;
+                    case 2:
+                        message.timestamp = reader.int64();
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a Memphis message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.records.Memphis
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.records.Memphis} Memphis
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            Memphis.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a Memphis message.
+             * @function verify
+             * @memberof protos.records.Memphis
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            Memphis.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.value != null && message.hasOwnProperty("value"))
+                    if (!(message.value && typeof message.value.length === "number" || $util.isString(message.value)))
+                        return "value: buffer expected";
+                if (message.timestamp != null && message.hasOwnProperty("timestamp"))
+                    if (!$util.isInteger(message.timestamp) && !(message.timestamp && $util.isInteger(message.timestamp.low) && $util.isInteger(message.timestamp.high)))
+                        return "timestamp: integer|Long expected";
+                return null;
+            };
+
+            /**
+             * Creates a Memphis message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.records.Memphis
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.records.Memphis} Memphis
+             */
+            Memphis.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.records.Memphis)
+                    return object;
+                var message = new $root.protos.records.Memphis();
+                if (object.value != null)
+                    if (typeof object.value === "string")
+                        $util.base64.decode(object.value, message.value = $util.newBuffer($util.base64.length(object.value)), 0);
+                    else if (object.value.length)
+                        message.value = object.value;
+                if (object.timestamp != null)
+                    if ($util.Long)
+                        (message.timestamp = $util.Long.fromValue(object.timestamp)).unsigned = false;
+                    else if (typeof object.timestamp === "string")
+                        message.timestamp = parseInt(object.timestamp, 10);
+                    else if (typeof object.timestamp === "number")
+                        message.timestamp = object.timestamp;
+                    else if (typeof object.timestamp === "object")
+                        message.timestamp = new $util.LongBits(object.timestamp.low >>> 0, object.timestamp.high >>> 0).toNumber();
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a Memphis message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.records.Memphis
+             * @static
+             * @param {protos.records.Memphis} message Memphis
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            Memphis.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    if (options.bytes === String)
+                        object.value = "";
+                    else {
+                        object.value = [];
+                        if (options.bytes !== Array)
+                            object.value = $util.newBuffer(object.value);
+                    }
+                    if ($util.Long) {
+                        var long = new $util.Long(0, 0, false);
+                        object.timestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                    } else
+                        object.timestamp = options.longs === String ? "0" : 0;
+                }
+                if (message.value != null && message.hasOwnProperty("value"))
+                    object.value = options.bytes === String ? $util.base64.encode(message.value, 0, message.value.length) : options.bytes === Array ? Array.prototype.slice.call(message.value) : message.value;
+                if (message.timestamp != null && message.hasOwnProperty("timestamp"))
+                    if (typeof message.timestamp === "number")
+                        object.timestamp = options.longs === String ? String(message.timestamp) : message.timestamp;
+                    else
+                        object.timestamp = options.longs === String ? $util.Long.prototype.toString.call(message.timestamp) : options.longs === Number ? new $util.LongBits(message.timestamp.low >>> 0, message.timestamp.high >>> 0).toNumber() : message.timestamp;
+                return object;
+            };
+
+            /**
+             * Converts this Memphis to JSON.
+             * @function toJSON
+             * @memberof protos.records.Memphis
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            Memphis.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return Memphis;
         })();
 
         records.Mongo = (function() {
