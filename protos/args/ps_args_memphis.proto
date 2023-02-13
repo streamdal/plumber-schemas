@@ -5,21 +5,21 @@ package protos.args;
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/args";
 
 message MemphisConn {
-  // @gotags: kong:"help='Address of Memphis broker (Ex: localhost:6666)',env='PLUMBER_RELAY_MEMPHIS_ADDRESS',default='localhost:6666'"
+  // @gotags: kong:"help='Address of Memphis broker (Ex: localhost:6666)',default='localhost:6666'"
   string address = 1;
 
-  // @gotags: kong:"help='Broker username',env='PLUMBER_RELAY_MEMPHIS_USERNAME',default='plumber'"
+  // @gotags: kong:"help='Broker username',default='plumber'"
   string username = 2;
 
-  // @gotags: kong:"help='Broker access token',env='PLUMBER_RELAY_MEMPHIS_BROKER_TOKEN',default='memphis'"
+  // @gotags: kong:"help='Broker access token',default='memphis'"
   string broker_token = 3;
 }
 
 message MemphisReadArgs {
-  // @gotags: kong:"help='Station name to read from',env='PLUMBER_RELAY_MEMPHIS_TOPIC',required"
+  // @gotags: kong:"help='Station name to consume from',required"
   string station = 1;
 
-  // @gotags: kong:"help='Consumer Name',env='PLUMBER_RELAY_MEMPHIS_CONSUMER_NAME',required"
+  // @gotags: kong:"help='Consumer Name',default='plumber'"
   string consumer_name = 2;
 
   // @gotags: kong:"help='Consumer Group, defaults to consumer-name if not specified',env='PLUMBER_RELAY_MEMPHIS_CONSUMER_GROUP'"
