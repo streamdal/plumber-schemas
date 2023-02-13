@@ -45944,7 +45944,7 @@ $root.protos = (function() {
                 if (message.username != null && Object.hasOwnProperty.call(message, "username"))
                     writer.uint32(/* id 2, wireType 2 =*/18).string(message.username);
                 if (message.brokerToken != null && Object.hasOwnProperty.call(message, "brokerToken"))
-                    writer.uint32(/* id 4, wireType 2 =*/34).string(message.brokerToken);
+                    writer.uint32(/* id 3, wireType 2 =*/26).string(message.brokerToken);
                 return writer;
             };
 
@@ -45985,7 +45985,7 @@ $root.protos = (function() {
                     case 2:
                         message.username = reader.string();
                         break;
-                    case 4:
+                    case 3:
                         message.brokerToken = reader.string();
                         break;
                     default:
