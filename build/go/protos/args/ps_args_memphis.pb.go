@@ -21,8 +21,8 @@ var _ = math.Inf
 const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
 type MemphisConn struct {
-	// @gotags: kong:"help='Address of Memphis broker (Ex: localhost:7770)',env='PLUMBER_RELAY_MEMPHIS_ADDRESS',default='localhost:7770'"
-	Address string `protobuf:"bytes,1,opt,name=address,proto3" json:"address,omitempty" kong:"help='Address of Memphis broker (Ex: localhost:7770)',env='PLUMBER_RELAY_MEMPHIS_ADDRESS',default='localhost:7770'"`
+	// @gotags: kong:"help='Address of Memphis broker (Ex: localhost:6666)',env='PLUMBER_RELAY_MEMPHIS_ADDRESS',default='localhost:6666'"
+	Address string `protobuf:"bytes,1,opt,name=address,proto3" json:"address,omitempty" kong:"help='Address of Memphis broker (Ex: localhost:6666)',env='PLUMBER_RELAY_MEMPHIS_ADDRESS',default='localhost:6666'"`
 	// @gotags: kong:"help='Broker username',env='PLUMBER_RELAY_MEMPHIS_USERNAME',default='plumber'"
 	Username string `protobuf:"bytes,2,opt,name=username,proto3" json:"username,omitempty" kong:"help='Broker username',env='PLUMBER_RELAY_MEMPHIS_USERNAME',default='plumber'"`
 	// @gotags: kong:"help='Broker access token',env='PLUMBER_RELAY_MEMPHIS_BROKER_TOKEN',default='memphis'"
@@ -139,8 +139,8 @@ func (m *MemphisReadArgs) GetConsumerGroup() string {
 type MemphisWriteArgs struct {
 	// @gotags: kong:"help='Station name to write to',required"
 	Station string `protobuf:"bytes,1,opt,name=station,proto3" json:"station,omitempty" kong:"help='Station name to write to',required"`
-	// @gotags: kong:"help='Producer name',required"
-	ProducerName         string   `protobuf:"bytes,2,opt,name=producer_name,json=producerName,proto3" json:"producer_name,omitempty" kong:"help='Producer name',required"`
+	// @gotags: kong:"help='Producer name',default='plumber'"
+	ProducerName         string   `protobuf:"bytes,2,opt,name=producer_name,json=producerName,proto3" json:"producer_name,omitempty" kong:"help='Producer name',default='plumber'"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
