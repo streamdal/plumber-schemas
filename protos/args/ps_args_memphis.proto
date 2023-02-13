@@ -35,4 +35,7 @@ message MemphisWriteArgs {
 
   // @gotags: kong:"help='Add one or more headers (optional; repeat flags to specify multiple)'"
   map<string, string> headers = 3;
+
+  // @gotags: kong:"help='ID to give message'"
+  string message_id = 4;
 }
