@@ -45845,8 +45845,8 @@ $root.protos = (function() {
              * @memberof protos.args
              * @interface IMemphisConn
              * @property {string|null} [address] MemphisConn address
-             * @property {boolean|null} [username] MemphisConn username
-             * @property {boolean|null} [brokerToken] MemphisConn brokerToken
+             * @property {string|null} [username] MemphisConn username
+             * @property {string|null} [brokerToken] MemphisConn brokerToken
              */
 
             /**
@@ -45874,19 +45874,19 @@ $root.protos = (function() {
 
             /**
              * MemphisConn username.
-             * @member {boolean} username
+             * @member {string} username
              * @memberof protos.args.MemphisConn
              * @instance
              */
-            MemphisConn.prototype.username = false;
+            MemphisConn.prototype.username = "";
 
             /**
              * MemphisConn brokerToken.
-             * @member {boolean} brokerToken
+             * @member {string} brokerToken
              * @memberof protos.args.MemphisConn
              * @instance
              */
-            MemphisConn.prototype.brokerToken = false;
+            MemphisConn.prototype.brokerToken = "";
 
             /**
              * Creates a new MemphisConn instance using the specified properties.
@@ -45915,9 +45915,9 @@ $root.protos = (function() {
                 if (message.address != null && Object.hasOwnProperty.call(message, "address"))
                     writer.uint32(/* id 1, wireType 2 =*/10).string(message.address);
                 if (message.username != null && Object.hasOwnProperty.call(message, "username"))
-                    writer.uint32(/* id 2, wireType 0 =*/16).bool(message.username);
+                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.username);
                 if (message.brokerToken != null && Object.hasOwnProperty.call(message, "brokerToken"))
-                    writer.uint32(/* id 4, wireType 0 =*/32).bool(message.brokerToken);
+                    writer.uint32(/* id 4, wireType 2 =*/34).string(message.brokerToken);
                 return writer;
             };
 
@@ -45956,10 +45956,10 @@ $root.protos = (function() {
                         message.address = reader.string();
                         break;
                     case 2:
-                        message.username = reader.bool();
+                        message.username = reader.string();
                         break;
                     case 4:
-                        message.brokerToken = reader.bool();
+                        message.brokerToken = reader.string();
                         break;
                     default:
                         reader.skipType(tag & 7);
@@ -46000,11 +46000,11 @@ $root.protos = (function() {
                     if (!$util.isString(message.address))
                         return "address: string expected";
                 if (message.username != null && message.hasOwnProperty("username"))
-                    if (typeof message.username !== "boolean")
-                        return "username: boolean expected";
+                    if (!$util.isString(message.username))
+                        return "username: string expected";
                 if (message.brokerToken != null && message.hasOwnProperty("brokerToken"))
-                    if (typeof message.brokerToken !== "boolean")
-                        return "brokerToken: boolean expected";
+                    if (!$util.isString(message.brokerToken))
+                        return "brokerToken: string expected";
                 return null;
             };
 
@@ -46023,9 +46023,9 @@ $root.protos = (function() {
                 if (object.address != null)
                     message.address = String(object.address);
                 if (object.username != null)
-                    message.username = Boolean(object.username);
+                    message.username = String(object.username);
                 if (object.brokerToken != null)
-                    message.brokerToken = Boolean(object.brokerToken);
+                    message.brokerToken = String(object.brokerToken);
                 return message;
             };
 
@@ -46044,8 +46044,8 @@ $root.protos = (function() {
                 var object = {};
                 if (options.defaults) {
                     object.address = "";
-                    object.username = false;
-                    object.brokerToken = false;
+                    object.username = "";
+                    object.brokerToken = "";
                 }
                 if (message.address != null && message.hasOwnProperty("address"))
                     object.address = message.address;
