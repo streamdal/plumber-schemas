@@ -18782,10 +18782,10 @@ export namespace protos {
             address?: (string|null);
 
             /** MemphisConn username */
-            username?: (boolean|null);
+            username?: (string|null);
 
             /** MemphisConn brokerToken */
-            brokerToken?: (boolean|null);
+            brokerToken?: (string|null);
         }
 
         /** Represents a MemphisConn. */
@@ -18801,10 +18801,10 @@ export namespace protos {
             public address: string;
 
             /** MemphisConn username. */
-            public username: boolean;
+            public username: string;
 
             /** MemphisConn brokerToken. */
-            public brokerToken: boolean;
+            public brokerToken: string;
 
             /**
              * Creates a new MemphisConn instance using the specified properties.
