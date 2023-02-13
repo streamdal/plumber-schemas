@@ -46338,6 +46338,7 @@ $root.protos = (function() {
              * @property {string|null} [station] MemphisWriteArgs station
              * @property {string|null} [producerName] MemphisWriteArgs producerName
              * @property {Object.<string,string>|null} [headers] MemphisWriteArgs headers
+             * @property {string|null} [messageId] MemphisWriteArgs messageId
              */
 
             /**
@@ -46381,6 +46382,14 @@ $root.protos = (function() {
             MemphisWriteArgs.prototype.headers = $util.emptyObject;
 
             /**
+             * MemphisWriteArgs messageId.
+             * @member {string} messageId
+             * @memberof protos.args.MemphisWriteArgs
+             * @instance
+             */
+            MemphisWriteArgs.prototype.messageId = "";
+
+            /**
              * Creates a new MemphisWriteArgs instance using the specified properties.
              * @function create
              * @memberof protos.args.MemphisWriteArgs
@@ -46411,6 +46420,8 @@ $root.protos = (function() {
                 if (message.headers != null && Object.hasOwnProperty.call(message, "headers"))
                     for (var keys = Object.keys(message.headers), i = 0; i < keys.length; ++i)
                         writer.uint32(/* id 3, wireType 2 =*/26).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]).uint32(/* id 2, wireType 2 =*/18).string(message.headers[keys[i]]).ldelim();
+                if (message.messageId != null && Object.hasOwnProperty.call(message, "messageId"))
+                    writer.uint32(/* id 4, wireType 2 =*/34).string(message.messageId);
                 return writer;
             };
 
@@ -46473,6 +46484,9 @@ $root.protos = (function() {
                         }
                         message.headers[key] = value;
                         break;
+                    case 4:
+                        message.messageId = reader.string();
+                        break;
                     default:
                         reader.skipType(tag & 7);
                         break;
@@ -46522,6 +46536,9 @@ $root.protos = (function() {
                         if (!$util.isString(message.headers[key[i]]))
                             return "headers: string{k:string} expected";
                 }
+                if (message.messageId != null && message.hasOwnProperty("messageId"))
+                    if (!$util.isString(message.messageId))
+                        return "messageId: string expected";
                 return null;
             };
 
@@ -46548,6 +46565,8 @@ $root.protos = (function() {
                     for (var keys = Object.keys(object.headers), i = 0; i < keys.length; ++i)
                         message.headers[keys[i]] = String(object.headers[keys[i]]);
                 }
+                if (object.messageId != null)
+                    message.messageId = String(object.messageId);
                 return message;
             };
 
@@ -46569,6 +46588,7 @@ $root.protos = (function() {
                 if (options.defaults) {
                     object.station = "";
                     object.producerName = "";
+                    object.messageId = "";
                 }
                 if (message.station != null && message.hasOwnProperty("station"))
                     object.station = message.station;
@@ -46580,6 +46600,8 @@ $root.protos = (function() {
                     for (var j = 0; j < keys2.length; ++j)
                         object.headers[keys2[j]] = message.headers[keys2[j]];
                 }
+                if (message.messageId != null && message.hasOwnProperty("messageId"))
+                    object.messageId = message.messageId;
                 return object;
             };
 

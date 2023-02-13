@@ -18996,6 +18996,9 @@ export namespace protos {
 
             /** MemphisWriteArgs headers */
             headers?: ({ [k: string]: string }|null);
+
+            /** MemphisWriteArgs messageId */
+            messageId?: (string|null);
         }
 
         /** Represents a MemphisWriteArgs. */
@@ -19015,6 +19018,9 @@ export namespace protos {
 
             /** MemphisWriteArgs headers. */
             public headers: { [k: string]: string };
+
+            /** MemphisWriteArgs messageId. */
+            public messageId: string;
 
             /**
              * Creates a new MemphisWriteArgs instance using the specified properties.
