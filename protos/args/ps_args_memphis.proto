@@ -9,10 +9,10 @@ message MemphisConn {
   string address = 1;
 
   // @gotags: kong:"help='Broker username',env='PLUMBER_RELAY_MEMPHIS_USERNAME',default='plumber'"
-  bool username = 2;
+  string username = 2;
 
   // @gotags: kong:"help='Broker access token',env='PLUMBER_RELAY_MEMPHIS_BROKER_TOKEN',default='memphis"
-  bool broker_token = 4;
+  string broker_token = 4;
 }
 
 message MemphisReadArgs {
