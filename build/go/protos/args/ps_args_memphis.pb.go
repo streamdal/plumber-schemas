@@ -21,12 +21,12 @@ var _ = math.Inf
 const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
 type MemphisConn struct {
-	// @gotags: kong:"help='Address of Memphis broker (Ex: localhost:6666)',env='PLUMBER_RELAY_MEMPHIS_ADDRESS',default='localhost:6666'"
-	Address string `protobuf:"bytes,1,opt,name=address,proto3" json:"address,omitempty" kong:"help='Address of Memphis broker (Ex: localhost:6666)',env='PLUMBER_RELAY_MEMPHIS_ADDRESS',default='localhost:6666'"`
-	// @gotags: kong:"help='Broker username',env='PLUMBER_RELAY_MEMPHIS_USERNAME',default='plumber'"
-	Username string `protobuf:"bytes,2,opt,name=username,proto3" json:"username,omitempty" kong:"help='Broker username',env='PLUMBER_RELAY_MEMPHIS_USERNAME',default='plumber'"`
-	// @gotags: kong:"help='Broker access token',env='PLUMBER_RELAY_MEMPHIS_BROKER_TOKEN',default='memphis'"
-	BrokerToken          string   `protobuf:"bytes,3,opt,name=broker_token,json=brokerToken,proto3" json:"broker_token,omitempty" kong:"help='Broker access token',env='PLUMBER_RELAY_MEMPHIS_BROKER_TOKEN',default='memphis'"`
+	// @gotags: kong:"help='Address of Memphis broker (Ex: localhost:6666)',default='localhost:6666'"
+	Address string `protobuf:"bytes,1,opt,name=address,proto3" json:"address,omitempty" kong:"help='Address of Memphis broker (Ex: localhost:6666)',default='localhost:6666'"`
+	// @gotags: kong:"help='Broker username',default='plumber'"
+	Username string `protobuf:"bytes,2,opt,name=username,proto3" json:"username,omitempty" kong:"help='Broker username',default='plumber'"`
+	// @gotags: kong:"help='Broker access token',default='memphis'"
+	BrokerToken          string   `protobuf:"bytes,3,opt,name=broker_token,json=brokerToken,proto3" json:"broker_token,omitempty" kong:"help='Broker access token',default='memphis'"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -79,10 +79,10 @@ func (m *MemphisConn) GetBrokerToken() string {
 }
 
 type MemphisReadArgs struct {
-	// @gotags: kong:"help='Station name to read from',env='PLUMBER_RELAY_MEMPHIS_TOPIC',required"
-	Station string `protobuf:"bytes,1,opt,name=station,proto3" json:"station,omitempty" kong:"help='Station name to read from',env='PLUMBER_RELAY_MEMPHIS_TOPIC',required"`
-	// @gotags: kong:"help='Consumer Name',env='PLUMBER_RELAY_MEMPHIS_CONSUMER_NAME',required"
-	ConsumerName string `protobuf:"bytes,2,opt,name=consumer_name,json=consumerName,proto3" json:"consumer_name,omitempty" kong:"help='Consumer Name',env='PLUMBER_RELAY_MEMPHIS_CONSUMER_NAME',required"`
+	// @gotags: kong:"help='Station name to consume from',required"
+	Station string `protobuf:"bytes,1,opt,name=station,proto3" json:"station,omitempty" kong:"help='Station name to consume from',required"`
+	// @gotags: kong:"help='Consumer Name',default='plumber'"
+	ConsumerName string `protobuf:"bytes,2,opt,name=consumer_name,json=consumerName,proto3" json:"consumer_name,omitempty" kong:"help='Consumer Name',default='plumber'"`
 	// @gotags: kong:"help='Consumer Group, defaults to consumer-name if not specified',env='PLUMBER_RELAY_MEMPHIS_CONSUMER_GROUP'"
 	ConsumerGroup        string   `protobuf:"bytes,3,opt,name=consumer_group,json=consumerGroup,proto3" json:"consumer_group,omitempty" kong:"help='Consumer Group, defaults to consumer-name if not specified',env='PLUMBER_RELAY_MEMPHIS_CONSUMER_GROUP'"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
