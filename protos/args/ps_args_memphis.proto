@@ -12,7 +12,7 @@ message MemphisConn {
   string username = 2;
 
   // @gotags: kong:"help='Broker access token',env='PLUMBER_RELAY_MEMPHIS_BROKER_TOKEN',default='memphis'"
-  string broker_token = 4;
+  string broker_token = 3;
 }
 
 message MemphisReadArgs {
