@@ -5,7 +5,7 @@ package protos.args;
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/args";
 
 message MemphisConn {
-  // @gotags: kong:"help='Address of Memphis broker (Ex: localhost:7770)',env='PLUMBER_RELAY_MEMPHIS_ADDRESS',default='localhost:7770'"
+  // @gotags: kong:"help='Address of Memphis broker (Ex: localhost:6666)',env='PLUMBER_RELAY_MEMPHIS_ADDRESS',default='localhost:6666'"
   string address = 1;
 
   // @gotags: kong:"help='Broker username',env='PLUMBER_RELAY_MEMPHIS_USERNAME',default='plumber'"
@@ -30,6 +30,6 @@ message MemphisWriteArgs {
   // @gotags: kong:"help='Station name to write to',required"
   string station = 1;
 
-  // @gotags: kong:"help='Producer name',required"
+  // @gotags: kong:"help='Producer name',default='plumber'"
   string producer_name = 2;
 }
