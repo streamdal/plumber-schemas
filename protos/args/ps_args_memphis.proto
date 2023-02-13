@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package protos.args;
+
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/args";
+
+message MemphisConn {
+  // @gotags: kong:"help='Address of Memphis broker (Ex: localhost:7770)',env='PLUMBER_RELAY_MEMPHIS_ADDRESS',default='localhost:7770'"
+  string address = 1;
+
+  // @gotags: kong:"help='Broker username',env='PLUMBER_RELAY_MEMPHIS_USERNAME',default='plumber'"
+  bool username = 2;
+
+  // @gotags: kong:"help='Broker access token',env='PLUMBER_RELAY_MEMPHIS_BROKER_TOKEN',default='memphis"
+  bool broker_token = 4;
+}
+
+message MemphisReadArgs {
+  // @gotags: kong:"help='Station name to read from',env='PLUMBER_RELAY_MEMPHIS_TOPIC',required"
+  string station = 1;
+
+  // @gotags: kong:"help='Consumer Name',env='PLUMBER_RELAY_MEMPHIS_CONSUMER_NAME',required"
+  string consumer_name = 2;
+
+  // @gotags: kong:"help='Consumer Group, defaults to consumer-name if not specified',env='PLUMBER_RELAY_MEMPHIS_CONSUMER_GROUP'"
+  string consumer_group = 3;
+}
+
+message MemphisWriteArgs {
+  // @gotags: kong:"help='Station name to write to',required"
+  string station = 1;
+
+  // @gotags: kong:"help='Producer name',required"
+  string producer_name = 2;
+}
