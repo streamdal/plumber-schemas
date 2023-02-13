@@ -11,7 +11,7 @@ message MemphisConn {
   // @gotags: kong:"help='Broker username',env='PLUMBER_RELAY_MEMPHIS_USERNAME',default='plumber'"
   string username = 2;
 
-  // @gotags: kong:"help='Broker access token',env='PLUMBER_RELAY_MEMPHIS_BROKER_TOKEN',default='memphis"
+  // @gotags: kong:"help='Broker access token',env='PLUMBER_RELAY_MEMPHIS_BROKER_TOKEN',default='memphis'"
   string broker_token = 4;
 }
 
