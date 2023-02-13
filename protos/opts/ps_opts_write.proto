@@ -121,7 +121,7 @@ message WriteOptions {
   WriteGroupAWSKinesisOptions aws_kinesis = 118;
 
   // @gotags: kong:"cmd,help='Memphis'"
-  WriteGroupMemphis memphis = 119;
+  WriteGroupMemphisOptions memphis = 119;
 }
 
 message WriteGroupKafkaOptions {
