@@ -18993,6 +18993,9 @@ export namespace protos {
 
             /** MemphisWriteArgs producerName */
             producerName?: (string|null);
+
+            /** MemphisWriteArgs headers */
+            headers?: ({ [k: string]: string }|null);
         }
 
         /** Represents a MemphisWriteArgs. */
@@ -19009,6 +19012,9 @@ export namespace protos {
 
             /** MemphisWriteArgs producerName. */
             public producerName: string;
+
+            /** MemphisWriteArgs headers. */
+            public headers: { [k: string]: string };
 
             /**
              * Creates a new MemphisWriteArgs instance using the specified properties.

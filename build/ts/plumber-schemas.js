@@ -46337,6 +46337,7 @@ $root.protos = (function() {
              * @interface IMemphisWriteArgs
              * @property {string|null} [station] MemphisWriteArgs station
              * @property {string|null} [producerName] MemphisWriteArgs producerName
+             * @property {Object.<string,string>|null} [headers] MemphisWriteArgs headers
              */
 
             /**
@@ -46348,6 +46349,7 @@ $root.protos = (function() {
              * @param {protos.args.IMemphisWriteArgs=} [properties] Properties to set
              */
             function MemphisWriteArgs(properties) {
+                this.headers = {};
                 if (properties)
                     for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                         if (properties[keys[i]] != null)
@@ -46369,6 +46371,14 @@ $root.protos = (function() {
              * @instance
              */
             MemphisWriteArgs.prototype.producerName = "";
+
+            /**
+             * MemphisWriteArgs headers.
+             * @member {Object.<string,string>} headers
+             * @memberof protos.args.MemphisWriteArgs
+             * @instance
+             */
+            MemphisWriteArgs.prototype.headers = $util.emptyObject;
 
             /**
              * Creates a new MemphisWriteArgs instance using the specified properties.
@@ -46398,6 +46408,9 @@ $root.protos = (function() {
                     writer.uint32(/* id 1, wireType 2 =*/10).string(message.station);
                 if (message.producerName != null && Object.hasOwnProperty.call(message, "producerName"))
                     writer.uint32(/* id 2, wireType 2 =*/18).string(message.producerName);
+                if (message.headers != null && Object.hasOwnProperty.call(message, "headers"))
+                    for (var keys = Object.keys(message.headers), i = 0; i < keys.length; ++i)
+                        writer.uint32(/* id 3, wireType 2 =*/26).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]).uint32(/* id 2, wireType 2 =*/18).string(message.headers[keys[i]]).ldelim();
                 return writer;
             };
 
@@ -46428,7 +46441,7 @@ $root.protos = (function() {
             MemphisWriteArgs.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.args.MemphisWriteArgs();
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.args.MemphisWriteArgs(), key, value;
                 while (reader.pos < end) {
                     var tag = reader.uint32();
                     switch (tag >>> 3) {
@@ -46437,6 +46450,28 @@ $root.protos = (function() {
                         break;
                     case 2:
                         message.producerName = reader.string();
+                        break;
+                    case 3:
+                        if (message.headers === $util.emptyObject)
+                            message.headers = {};
+                        var end2 = reader.uint32() + reader.pos;
+                        key = "";
+                        value = "";
+                        while (reader.pos < end2) {
+                            var tag2 = reader.uint32();
+                            switch (tag2 >>> 3) {
+                            case 1:
+                                key = reader.string();
+                                break;
+                            case 2:
+                                value = reader.string();
+                                break;
+                            default:
+                                reader.skipType(tag2 & 7);
+                                break;
+                            }
+                        }
+                        message.headers[key] = value;
                         break;
                     default:
                         reader.skipType(tag & 7);
@@ -46479,6 +46514,14 @@ $root.protos = (function() {
                 if (message.producerName != null && message.hasOwnProperty("producerName"))
                     if (!$util.isString(message.producerName))
                         return "producerName: string expected";
+                if (message.headers != null && message.hasOwnProperty("headers")) {
+                    if (!$util.isObject(message.headers))
+                        return "headers: object expected";
+                    var key = Object.keys(message.headers);
+                    for (var i = 0; i < key.length; ++i)
+                        if (!$util.isString(message.headers[key[i]]))
+                            return "headers: string{k:string} expected";
+                }
                 return null;
             };
 
@@ -46498,6 +46541,13 @@ $root.protos = (function() {
                     message.station = String(object.station);
                 if (object.producerName != null)
                     message.producerName = String(object.producerName);
+                if (object.headers) {
+                    if (typeof object.headers !== "object")
+                        throw TypeError(".protos.args.MemphisWriteArgs.headers: object expected");
+                    message.headers = {};
+                    for (var keys = Object.keys(object.headers), i = 0; i < keys.length; ++i)
+                        message.headers[keys[i]] = String(object.headers[keys[i]]);
+                }
                 return message;
             };
 
@@ -46514,6 +46564,8 @@ $root.protos = (function() {
                 if (!options)
                     options = {};
                 var object = {};
+                if (options.objects || options.defaults)
+                    object.headers = {};
                 if (options.defaults) {
                     object.station = "";
                     object.producerName = "";
@@ -46522,6 +46574,12 @@ $root.protos = (function() {
                     object.station = message.station;
                 if (message.producerName != null && message.hasOwnProperty("producerName"))
                     object.producerName = message.producerName;
+                var keys2;
+                if (message.headers && (keys2 = Object.keys(message.headers)).length) {
+                    object.headers = {};
+                    for (var j = 0; j < keys2.length; ++j)
+                        object.headers[keys2[j]] = message.headers[keys2[j]];
+                }
                 return object;
             };
 
