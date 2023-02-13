@@ -11,6 +11,7 @@ import "args/ps_args_azure_service_bus.proto";
 import "args/ps_args_gcp_pubsub.proto";
 import "args/ps_args_kafka.proto";
 import "args/ps_args_kubemq_queue.proto";
+import "args/ps_args_memphis.proto";
 import "args/ps_args_mqtt.proto";
 import "args/ps_args_nats.proto";
 import "args/ps_args_nats_jetstream.proto";
@@ -113,6 +114,9 @@ message TunnelOptions {
 
   // @gotags: kong:"cmd,help='AWS Kinesis Streams'"
   TunnelGroupAWSKinesisOptions aws_kinesis = 118;
+
+  // @gotags: kong:"cmd,help='Memphis'"
+  TunnelGroupMemphisOptions memphis = 119;
 }
 
 message TunnelGroupKafkaOptions {
@@ -265,4 +269,12 @@ message TunnelGroupAWSKinesisOptions {
 
   // @gotags: kong:"embed"
   args.AWSKinesisWriteArgs args = 2;
+}
+
+message TunnelGroupMemphisOptions {
+  // @gotags: kong:"embed"
+  args.MemphisConn _conn = 1;
+
+  // @gotags: kong:"embed"
+  args.MemphisWriteArgs args = 2;
 }
