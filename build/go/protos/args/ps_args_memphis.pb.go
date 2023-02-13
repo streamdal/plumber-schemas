@@ -25,8 +25,8 @@ type MemphisConn struct {
 	Address string `protobuf:"bytes,1,opt,name=address,proto3" json:"address,omitempty" kong:"help='Address of Memphis broker (Ex: localhost:7770)',env='PLUMBER_RELAY_MEMPHIS_ADDRESS',default='localhost:7770'"`
 	// @gotags: kong:"help='Broker username',env='PLUMBER_RELAY_MEMPHIS_USERNAME',default='plumber'"
 	Username string `protobuf:"bytes,2,opt,name=username,proto3" json:"username,omitempty" kong:"help='Broker username',env='PLUMBER_RELAY_MEMPHIS_USERNAME',default='plumber'"`
-	// @gotags: kong:"help='Broker access token',env='PLUMBER_RELAY_MEMPHIS_BROKER_TOKEN',default='memphis"
-	BrokerToken          string   `protobuf:"bytes,4,opt,name=broker_token,json=brokerToken,proto3" json:"broker_token,omitempty" kong:"help='Broker access token',env='PLUMBER_RELAY_MEMPHIS_BROKER_TOKEN',default='memphis"`
+	// @gotags: kong:"help='Broker access token',env='PLUMBER_RELAY_MEMPHIS_BROKER_TOKEN',default='memphis'"
+	BrokerToken          string   `protobuf:"bytes,4,opt,name=broker_token,json=brokerToken,proto3" json:"broker_token,omitempty" kong:"help='Broker access token',env='PLUMBER_RELAY_MEMPHIS_BROKER_TOKEN',default='memphis'"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
