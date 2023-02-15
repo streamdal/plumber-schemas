@@ -11,6 +11,11 @@ enum SubscriptionType {
   KEYSHARED = 3;
 }
 
+enum SubscriptionInitialPosition {
+  PULSAR_LATEST   = 0;
+  PULSAR_EARLIEST = 1;
+}
+
 message PulsarConn {
   // @gotags: kong:"help='Full DSN to connect to Pulsar',default='pulsar://localhost:6650',required"
   string dsn = 1;
@@ -26,6 +31,12 @@ message PulsarConn {
 
   // @gotags: kong:"help='TLS client key file'"
   string tls_client_key = 5;
+
+  // @gotags: kong:"help='Authentication token file'"
+  string token = 6;
+
+  // @gotags: kong:"help='Listener name'"
+  string listener_name = 7;
 }
 
 message PulsarReadArgs {
@@ -37,6 +48,9 @@ message PulsarReadArgs {
 
   // @gotags: kong:"help='Subscription type (options: shared exclusive failover keyshared)',default=shared,type=pbenum,pbenum_lowercase"
   SubscriptionType subscription_type = 3;
+
+  // @gotags: kong:"help='Subscription initial position (options: latest earliest)',default=latest,type=pbenum,pbenum_lowercase,pbenum_strip_prefix=PULSAR_"
+  SubscriptionInitialPosition initial_position = 4;
 }
 
 message PulsarWriteArgs {
