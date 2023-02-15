@@ -11,6 +11,7 @@ import "records/ps_records_azure_service_bus.proto";
 import "records/ps_records_gcp_pubsub.proto";
 import "records/ps_records_kafka.proto";
 import "records/ps_records_kubemq.proto";
+import "records/ps_records_memphis.proto";
 import "records/ps_records_mongo.proto";
 import "records/ps_records_mqtt.proto";
 import "records/ps_records_nats.proto";
@@ -79,6 +80,7 @@ message ReadRecord {
     records.RedisStreams redis_streams = 117;
     records.NatsJetstream nats_jetstream = 118;
     records.AWSKinesis aws_kinesis = 119;
+    records.Memphis memphis = 120;
   }
 
   // --------------------------------------------------------------------- //

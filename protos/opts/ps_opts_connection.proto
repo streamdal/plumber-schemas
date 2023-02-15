@@ -11,6 +11,7 @@ import "args/ps_args_azure_service_bus.proto";
 import "args/ps_args_gcp_pubsub.proto";
 import "args/ps_args_kafka.proto";
 import "args/ps_args_kubemq_queue.proto";
+import "args/ps_args_memphis.proto";
 import "args/ps_args_mongo.proto";
 import "args/ps_args_mqtt.proto";
 import "args/ps_args_nats.proto";
@@ -57,6 +58,7 @@ message ConnectionOptions {
     args.GCPPubSubConn gcp_pubsub = 118;
     args.NatsJetstreamConn nats_jetstream = 119;
     args.AWSKinesisConn aws_kinesis = 120;
+    args.MemphisConn memphis = 121;
   }
 
   // --------------------------------------------------------------------- //

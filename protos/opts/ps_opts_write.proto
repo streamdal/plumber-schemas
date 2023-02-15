@@ -11,6 +11,7 @@ import "args/ps_args_azure_service_bus.proto";
 import "args/ps_args_gcp_pubsub.proto";
 import "args/ps_args_kafka.proto";
 import "args/ps_args_kubemq_queue.proto";
+import "args/ps_args_memphis.proto";
 import "args/ps_args_mqtt.proto";
 import "args/ps_args_nats.proto";
 import "args/ps_args_nats_jetstream.proto";
@@ -118,6 +119,9 @@ message WriteOptions {
 
   // @gotags: kong:"cmd,help='AWS Kinesis Streams'"
   WriteGroupAWSKinesisOptions aws_kinesis = 118;
+
+  // @gotags: kong:"cmd,help='Memphis'"
+  WriteGroupMemphisOptions memphis = 119;
 }
 
 message WriteGroupKafkaOptions {
@@ -270,4 +274,12 @@ message WriteGroupAWSKinesisOptions {
 
   // @gotags: kong:"embed"
   args.AWSKinesisWriteArgs args = 2;
+}
+
+message WriteGroupMemphisOptions {
+  // @gotags: kong:"embed"
+  args.MemphisConn _conn = 1;
+
+  // @gotags: kong:"embed"
+  args.MemphisWriteArgs args = 2;
 }
