@@ -21550,6 +21550,12 @@ export namespace protos {
             KEYSHARED = 3
         }
 
+        /** SubscriptionInitialPosition enum. */
+        enum SubscriptionInitialPosition {
+            PULSAR_LATEST = 0,
+            PULSAR_EARLIEST = 1
+        }
+
         /** Properties of a PulsarConn. */
         interface IPulsarConn {
 
@@ -21567,6 +21573,12 @@ export namespace protos {
 
             /** PulsarConn tlsClientKey */
             tlsClientKey?: (string|null);
+
+            /** PulsarConn token */
+            token?: (string|null);
+
+            /** PulsarConn listenerName */
+            listenerName?: (string|null);
         }
 
         /** Represents a PulsarConn. */
@@ -21592,6 +21604,12 @@ export namespace protos {
 
             /** PulsarConn tlsClientKey. */
             public tlsClientKey: string;
+
+            /** PulsarConn token. */
+            public token: string;
+
+            /** PulsarConn listenerName. */
+            public listenerName: string;
 
             /**
              * Creates a new PulsarConn instance using the specified properties.
@@ -21675,6 +21693,9 @@ export namespace protos {
 
             /** PulsarReadArgs subscriptionType */
             subscriptionType?: (protos.args.SubscriptionType|null);
+
+            /** PulsarReadArgs initialPosition */
+            initialPosition?: (protos.args.SubscriptionInitialPosition|null);
         }
 
         /** Represents a PulsarReadArgs. */
@@ -21694,6 +21715,9 @@ export namespace protos {
 
             /** PulsarReadArgs subscriptionType. */
             public subscriptionType: protos.args.SubscriptionType;
+
+            /** PulsarReadArgs initialPosition. */
+            public initialPosition: protos.args.SubscriptionInitialPosition;
 
             /**
              * Creates a new PulsarReadArgs instance using the specified properties.

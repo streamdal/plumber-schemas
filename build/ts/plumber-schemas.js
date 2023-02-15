@@ -52387,6 +52387,20 @@ $root.protos = (function() {
             return values;
         })();
 
+        /**
+         * SubscriptionInitialPosition enum.
+         * @name protos.args.SubscriptionInitialPosition
+         * @enum {number}
+         * @property {number} PULSAR_LATEST=0 PULSAR_LATEST value
+         * @property {number} PULSAR_EARLIEST=1 PULSAR_EARLIEST value
+         */
+        args.SubscriptionInitialPosition = (function() {
+            var valuesById = {}, values = Object.create(valuesById);
+            values[valuesById[0] = "PULSAR_LATEST"] = 0;
+            values[valuesById[1] = "PULSAR_EARLIEST"] = 1;
+            return values;
+        })();
+
         args.PulsarConn = (function() {
 
             /**
@@ -52398,6 +52412,8 @@ $root.protos = (function() {
              * @property {boolean|null} [tlsSkipVerify] PulsarConn tlsSkipVerify
              * @property {string|null} [tlsClientCert] PulsarConn tlsClientCert
              * @property {string|null} [tlsClientKey] PulsarConn tlsClientKey
+             * @property {string|null} [token] PulsarConn token
+             * @property {string|null} [listenerName] PulsarConn listenerName
              */
 
             /**
@@ -52456,6 +52472,22 @@ $root.protos = (function() {
             PulsarConn.prototype.tlsClientKey = "";
 
             /**
+             * PulsarConn token.
+             * @member {string} token
+             * @memberof protos.args.PulsarConn
+             * @instance
+             */
+            PulsarConn.prototype.token = "";
+
+            /**
+             * PulsarConn listenerName.
+             * @member {string} listenerName
+             * @memberof protos.args.PulsarConn
+             * @instance
+             */
+            PulsarConn.prototype.listenerName = "";
+
+            /**
              * Creates a new PulsarConn instance using the specified properties.
              * @function create
              * @memberof protos.args.PulsarConn
@@ -52489,6 +52521,10 @@ $root.protos = (function() {
                     writer.uint32(/* id 4, wireType 2 =*/34).string(message.tlsClientCert);
                 if (message.tlsClientKey != null && Object.hasOwnProperty.call(message, "tlsClientKey"))
                     writer.uint32(/* id 5, wireType 2 =*/42).string(message.tlsClientKey);
+                if (message.token != null && Object.hasOwnProperty.call(message, "token"))
+                    writer.uint32(/* id 6, wireType 2 =*/50).string(message.token);
+                if (message.listenerName != null && Object.hasOwnProperty.call(message, "listenerName"))
+                    writer.uint32(/* id 7, wireType 2 =*/58).string(message.listenerName);
                 return writer;
             };
 
@@ -52537,6 +52573,12 @@ $root.protos = (function() {
                         break;
                     case 5:
                         message.tlsClientKey = reader.string();
+                        break;
+                    case 6:
+                        message.token = reader.string();
+                        break;
+                    case 7:
+                        message.listenerName = reader.string();
                         break;
                     default:
                         reader.skipType(tag & 7);
@@ -52588,6 +52630,12 @@ $root.protos = (function() {
                 if (message.tlsClientKey != null && message.hasOwnProperty("tlsClientKey"))
                     if (!$util.isString(message.tlsClientKey))
                         return "tlsClientKey: string expected";
+                if (message.token != null && message.hasOwnProperty("token"))
+                    if (!$util.isString(message.token))
+                        return "token: string expected";
+                if (message.listenerName != null && message.hasOwnProperty("listenerName"))
+                    if (!$util.isString(message.listenerName))
+                        return "listenerName: string expected";
                 return null;
             };
 
@@ -52613,6 +52661,10 @@ $root.protos = (function() {
                     message.tlsClientCert = String(object.tlsClientCert);
                 if (object.tlsClientKey != null)
                     message.tlsClientKey = String(object.tlsClientKey);
+                if (object.token != null)
+                    message.token = String(object.token);
+                if (object.listenerName != null)
+                    message.listenerName = String(object.listenerName);
                 return message;
             };
 
@@ -52635,6 +52687,8 @@ $root.protos = (function() {
                     object.tlsSkipVerify = false;
                     object.tlsClientCert = "";
                     object.tlsClientKey = "";
+                    object.token = "";
+                    object.listenerName = "";
                 }
                 if (message.dsn != null && message.hasOwnProperty("dsn"))
                     object.dsn = message.dsn;
@@ -52646,6 +52700,10 @@ $root.protos = (function() {
                     object.tlsClientCert = message.tlsClientCert;
                 if (message.tlsClientKey != null && message.hasOwnProperty("tlsClientKey"))
                     object.tlsClientKey = message.tlsClientKey;
+                if (message.token != null && message.hasOwnProperty("token"))
+                    object.token = message.token;
+                if (message.listenerName != null && message.hasOwnProperty("listenerName"))
+                    object.listenerName = message.listenerName;
                 return object;
             };
 
@@ -52672,6 +52730,7 @@ $root.protos = (function() {
              * @property {string|null} [topic] PulsarReadArgs topic
              * @property {string|null} [subscriptionName] PulsarReadArgs subscriptionName
              * @property {protos.args.SubscriptionType|null} [subscriptionType] PulsarReadArgs subscriptionType
+             * @property {protos.args.SubscriptionInitialPosition|null} [initialPosition] PulsarReadArgs initialPosition
              */
 
             /**
@@ -52714,6 +52773,14 @@ $root.protos = (function() {
             PulsarReadArgs.prototype.subscriptionType = 0;
 
             /**
+             * PulsarReadArgs initialPosition.
+             * @member {protos.args.SubscriptionInitialPosition} initialPosition
+             * @memberof protos.args.PulsarReadArgs
+             * @instance
+             */
+            PulsarReadArgs.prototype.initialPosition = 0;
+
+            /**
              * Creates a new PulsarReadArgs instance using the specified properties.
              * @function create
              * @memberof protos.args.PulsarReadArgs
@@ -52743,6 +52810,8 @@ $root.protos = (function() {
                     writer.uint32(/* id 2, wireType 2 =*/18).string(message.subscriptionName);
                 if (message.subscriptionType != null && Object.hasOwnProperty.call(message, "subscriptionType"))
                     writer.uint32(/* id 3, wireType 0 =*/24).int32(message.subscriptionType);
+                if (message.initialPosition != null && Object.hasOwnProperty.call(message, "initialPosition"))
+                    writer.uint32(/* id 4, wireType 0 =*/32).int32(message.initialPosition);
                 return writer;
             };
 
@@ -52785,6 +52854,9 @@ $root.protos = (function() {
                         break;
                     case 3:
                         message.subscriptionType = reader.int32();
+                        break;
+                    case 4:
+                        message.initialPosition = reader.int32();
                         break;
                     default:
                         reader.skipType(tag & 7);
@@ -52837,6 +52909,14 @@ $root.protos = (function() {
                     case 3:
                         break;
                     }
+                if (message.initialPosition != null && message.hasOwnProperty("initialPosition"))
+                    switch (message.initialPosition) {
+                    default:
+                        return "initialPosition: enum value expected";
+                    case 0:
+                    case 1:
+                        break;
+                    }
                 return null;
             };
 
@@ -52874,6 +52954,16 @@ $root.protos = (function() {
                     message.subscriptionType = 3;
                     break;
                 }
+                switch (object.initialPosition) {
+                case "PULSAR_LATEST":
+                case 0:
+                    message.initialPosition = 0;
+                    break;
+                case "PULSAR_EARLIEST":
+                case 1:
+                    message.initialPosition = 1;
+                    break;
+                }
                 return message;
             };
 
@@ -52894,6 +52984,7 @@ $root.protos = (function() {
                     object.topic = "";
                     object.subscriptionName = "";
                     object.subscriptionType = options.enums === String ? "SHARED" : 0;
+                    object.initialPosition = options.enums === String ? "PULSAR_LATEST" : 0;
                 }
                 if (message.topic != null && message.hasOwnProperty("topic"))
                     object.topic = message.topic;
@@ -52901,6 +52992,8 @@ $root.protos = (function() {
                     object.subscriptionName = message.subscriptionName;
                 if (message.subscriptionType != null && message.hasOwnProperty("subscriptionType"))
                     object.subscriptionType = options.enums === String ? $root.protos.args.SubscriptionType[message.subscriptionType] : message.subscriptionType;
+                if (message.initialPosition != null && message.hasOwnProperty("initialPosition"))
+                    object.initialPosition = options.enums === String ? $root.protos.args.SubscriptionInitialPosition[message.initialPosition] : message.initialPosition;
                 return object;
             };
 
