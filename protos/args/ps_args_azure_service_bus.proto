@@ -12,10 +12,10 @@ message AzureServiceBusConn {
 }
 
 message AzureServiceBusReadArgs {
-  // @gotags: kong:"help='Queue name',env='PLUMBER_RELAY_AZURE_QUEUE_NAME',required"
+  // @gotags: kong:"help='Queue name',env='PLUMBER_RELAY_AZURE_QUEUE_NAME',xor=asb_read"
   string queue = 1;
 
-  // @gotags: kong:"help='Topic name',env='PLUMBER_RELAY_AZURE_TOPIC_NAME',required"
+  // @gotags: kong:"help='Topic name',env='PLUMBER_RELAY_AZURE_TOPIC_NAME',xor=asb_read"
   string topic = 2;
 
   // @gotags: kong:"help='Subscription name',env='PLUMBER_RELAY_AZURE_SUBSCRIPTION',required"
@@ -23,9 +23,9 @@ message AzureServiceBusReadArgs {
 }
 
 message AzureServiceBusWriteArgs {
-  // @gotags: kong:"help='Queue name',required"
+  // @gotags: kong:"help='Queue name',xor=asb_write"
   string queue = 1;
 
-  // @gotags: kong:"help='Topic name',required"
+  // @gotags: kong:"help='Topic name',xor=asb_write"
   string topic = 2;
 }
