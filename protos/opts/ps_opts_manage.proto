@@ -38,7 +38,7 @@ message GlobalManageOptions {
   // @gotags: kong:"help='Plumber server gRPC API address',default='localhost:9090'"
   string manage_address = 1;
 
-  // @gotags: kong:"help='Plumber server auth token',default='batchcorp'"
+  // @gotags: kong:"help='Plumber server auth token',default='streamdal'"
   string manage_token = 2;
 
   // @gotags: kong:"help='gRPC call timeout seconds',default=10"
