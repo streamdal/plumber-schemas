@@ -22,6 +22,7 @@ import "args/ps_args_rabbit.proto";
 import "args/ps_args_rabbit_streams.proto";
 import "args/ps_args_redis_pubsub.proto";
 import "args/ps_args_redis_streams.proto";
+import "cloudevent/ps_cloudevent_write.proto";
 import "encoding/ps_encoding_options.proto";
 import "records/ps_records_base.proto";
 
@@ -130,6 +131,9 @@ message WriteGroupKafkaOptions {
 
   // @gotags: kong:"embed"
   args.KafkaWriteArgs args = 2;
+
+  // @gotags: kong:"embed"
+  cloudevent.CloudEventOptions cloud_event = 3;
 }
 
 message WriteGroupActiveMQOptions {
