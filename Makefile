@@ -89,6 +89,7 @@ generate/go:
 	mkdir -p $(GO_PROTOS_DIR)/encoding
 	mkdir -p $(GO_PROTOS_DIR)/opts
 	mkdir -p $(GO_PROTOS_DIR)/records
+	mkdir -p $(GO_PROTOS_DIR)/cloudevent
 
 	docker run --rm -w $(PWD) -v $(PWD):$(PWD) -w${PWD} jaegertracing/protobuf:0.2.0 \
 	--proto_path=./protos \
