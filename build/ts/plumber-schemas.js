@@ -34305,6 +34305,7 @@ $root.protos = (function() {
              * @interface IWriteGroupKafkaOptions
              * @property {protos.args.IKafkaConn|null} [_conn] WriteGroupKafkaOptions _conn
              * @property {protos.args.IKafkaWriteArgs|null} [args] WriteGroupKafkaOptions args
+             * @property {protos.cloudevent.ICloudEventOptions|null} [cloudEvent] WriteGroupKafkaOptions cloudEvent
              */
 
             /**
@@ -34339,6 +34340,14 @@ $root.protos = (function() {
             WriteGroupKafkaOptions.prototype.args = null;
 
             /**
+             * WriteGroupKafkaOptions cloudEvent.
+             * @member {protos.cloudevent.ICloudEventOptions|null|undefined} cloudEvent
+             * @memberof protos.opts.WriteGroupKafkaOptions
+             * @instance
+             */
+            WriteGroupKafkaOptions.prototype.cloudEvent = null;
+
+            /**
              * Creates a new WriteGroupKafkaOptions instance using the specified properties.
              * @function create
              * @memberof protos.opts.WriteGroupKafkaOptions
@@ -34366,6 +34375,8 @@ $root.protos = (function() {
                     $root.protos.args.KafkaConn.encode(message._conn, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
                 if (message.args != null && Object.hasOwnProperty.call(message, "args"))
                     $root.protos.args.KafkaWriteArgs.encode(message.args, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                if (message.cloudEvent != null && Object.hasOwnProperty.call(message, "cloudEvent"))
+                    $root.protos.cloudevent.CloudEventOptions.encode(message.cloudEvent, writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
                 return writer;
             };
 
@@ -34405,6 +34416,9 @@ $root.protos = (function() {
                         break;
                     case 2:
                         message.args = $root.protos.args.KafkaWriteArgs.decode(reader, reader.uint32());
+                        break;
+                    case 3:
+                        message.cloudEvent = $root.protos.cloudevent.CloudEventOptions.decode(reader, reader.uint32());
                         break;
                     default:
                         reader.skipType(tag & 7);
@@ -34451,6 +34465,11 @@ $root.protos = (function() {
                     if (error)
                         return "args." + error;
                 }
+                if (message.cloudEvent != null && message.hasOwnProperty("cloudEvent")) {
+                    var error = $root.protos.cloudevent.CloudEventOptions.verify(message.cloudEvent);
+                    if (error)
+                        return "cloudEvent." + error;
+                }
                 return null;
             };
 
@@ -34476,6 +34495,11 @@ $root.protos = (function() {
                         throw TypeError(".protos.opts.WriteGroupKafkaOptions.args: object expected");
                     message.args = $root.protos.args.KafkaWriteArgs.fromObject(object.args);
                 }
+                if (object.cloudEvent != null) {
+                    if (typeof object.cloudEvent !== "object")
+                        throw TypeError(".protos.opts.WriteGroupKafkaOptions.cloudEvent: object expected");
+                    message.cloudEvent = $root.protos.cloudevent.CloudEventOptions.fromObject(object.cloudEvent);
+                }
                 return message;
             };
 
@@ -34495,11 +34519,14 @@ $root.protos = (function() {
                 if (options.defaults) {
                     object._conn = null;
                     object.args = null;
+                    object.cloudEvent = null;
                 }
                 if (message._conn != null && message.hasOwnProperty("_conn"))
                     object._conn = $root.protos.args.KafkaConn.toObject(message._conn, options);
                 if (message.args != null && message.hasOwnProperty("args"))
                     object.args = $root.protos.args.KafkaWriteArgs.toObject(message.args, options);
+                if (message.cloudEvent != null && message.hasOwnProperty("cloudEvent"))
+                    object.cloudEvent = $root.protos.cloudevent.CloudEventOptions.toObject(message.cloudEvent, options);
                 return object;
             };
 
@@ -65205,6 +65232,338 @@ $root.protos = (function() {
         };
 
         return ListPlumbersResponse;
+    })();
+
+    protos.cloudevent = (function() {
+
+        /**
+         * Namespace cloudevent.
+         * @memberof protos
+         * @namespace
+         */
+        var cloudevent = {};
+
+        cloudevent.CloudEventOptions = (function() {
+
+            /**
+             * Properties of a CloudEventOptions.
+             * @memberof protos.cloudevent
+             * @interface ICloudEventOptions
+             * @property {string|null} [id] CloudEventOptions id
+             * @property {string|null} [source] CloudEventOptions source
+             * @property {string|null} [type] CloudEventOptions type
+             * @property {string|null} [subject] CloudEventOptions subject
+             * @property {string|null} [specVersion] CloudEventOptions specVersion
+             * @property {string|null} [dataContentType] CloudEventOptions dataContentType
+             * @property {string|null} [dataSchema] CloudEventOptions dataSchema
+             */
+
+            /**
+             * Constructs a new CloudEventOptions.
+             * @memberof protos.cloudevent
+             * @classdesc Represents a CloudEventOptions.
+             * @implements ICloudEventOptions
+             * @constructor
+             * @param {protos.cloudevent.ICloudEventOptions=} [properties] Properties to set
+             */
+            function CloudEventOptions(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * CloudEventOptions id.
+             * @member {string} id
+             * @memberof protos.cloudevent.CloudEventOptions
+             * @instance
+             */
+            CloudEventOptions.prototype.id = "";
+
+            /**
+             * CloudEventOptions source.
+             * @member {string} source
+             * @memberof protos.cloudevent.CloudEventOptions
+             * @instance
+             */
+            CloudEventOptions.prototype.source = "";
+
+            /**
+             * CloudEventOptions type.
+             * @member {string} type
+             * @memberof protos.cloudevent.CloudEventOptions
+             * @instance
+             */
+            CloudEventOptions.prototype.type = "";
+
+            /**
+             * CloudEventOptions subject.
+             * @member {string} subject
+             * @memberof protos.cloudevent.CloudEventOptions
+             * @instance
+             */
+            CloudEventOptions.prototype.subject = "";
+
+            /**
+             * CloudEventOptions specVersion.
+             * @member {string} specVersion
+             * @memberof protos.cloudevent.CloudEventOptions
+             * @instance
+             */
+            CloudEventOptions.prototype.specVersion = "";
+
+            /**
+             * CloudEventOptions dataContentType.
+             * @member {string} dataContentType
+             * @memberof protos.cloudevent.CloudEventOptions
+             * @instance
+             */
+            CloudEventOptions.prototype.dataContentType = "";
+
+            /**
+             * CloudEventOptions dataSchema.
+             * @member {string} dataSchema
+             * @memberof protos.cloudevent.CloudEventOptions
+             * @instance
+             */
+            CloudEventOptions.prototype.dataSchema = "";
+
+            /**
+             * Creates a new CloudEventOptions instance using the specified properties.
+             * @function create
+             * @memberof protos.cloudevent.CloudEventOptions
+             * @static
+             * @param {protos.cloudevent.ICloudEventOptions=} [properties] Properties to set
+             * @returns {protos.cloudevent.CloudEventOptions} CloudEventOptions instance
+             */
+            CloudEventOptions.create = function create(properties) {
+                return new CloudEventOptions(properties);
+            };
+
+            /**
+             * Encodes the specified CloudEventOptions message. Does not implicitly {@link protos.cloudevent.CloudEventOptions.verify|verify} messages.
+             * @function encode
+             * @memberof protos.cloudevent.CloudEventOptions
+             * @static
+             * @param {protos.cloudevent.ICloudEventOptions} message CloudEventOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            CloudEventOptions.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.id != null && Object.hasOwnProperty.call(message, "id"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.id);
+                if (message.source != null && Object.hasOwnProperty.call(message, "source"))
+                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.source);
+                if (message.type != null && Object.hasOwnProperty.call(message, "type"))
+                    writer.uint32(/* id 3, wireType 2 =*/26).string(message.type);
+                if (message.subject != null && Object.hasOwnProperty.call(message, "subject"))
+                    writer.uint32(/* id 4, wireType 2 =*/34).string(message.subject);
+                if (message.specVersion != null && Object.hasOwnProperty.call(message, "specVersion"))
+                    writer.uint32(/* id 5, wireType 2 =*/42).string(message.specVersion);
+                if (message.dataContentType != null && Object.hasOwnProperty.call(message, "dataContentType"))
+                    writer.uint32(/* id 6, wireType 2 =*/50).string(message.dataContentType);
+                if (message.dataSchema != null && Object.hasOwnProperty.call(message, "dataSchema"))
+                    writer.uint32(/* id 7, wireType 2 =*/58).string(message.dataSchema);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified CloudEventOptions message, length delimited. Does not implicitly {@link protos.cloudevent.CloudEventOptions.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.cloudevent.CloudEventOptions
+             * @static
+             * @param {protos.cloudevent.ICloudEventOptions} message CloudEventOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            CloudEventOptions.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a CloudEventOptions message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.cloudevent.CloudEventOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.cloudevent.CloudEventOptions} CloudEventOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            CloudEventOptions.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.cloudevent.CloudEventOptions();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.id = reader.string();
+                        break;
+                    case 2:
+                        message.source = reader.string();
+                        break;
+                    case 3:
+                        message.type = reader.string();
+                        break;
+                    case 4:
+                        message.subject = reader.string();
+                        break;
+                    case 5:
+                        message.specVersion = reader.string();
+                        break;
+                    case 6:
+                        message.dataContentType = reader.string();
+                        break;
+                    case 7:
+                        message.dataSchema = reader.string();
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a CloudEventOptions message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.cloudevent.CloudEventOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.cloudevent.CloudEventOptions} CloudEventOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            CloudEventOptions.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a CloudEventOptions message.
+             * @function verify
+             * @memberof protos.cloudevent.CloudEventOptions
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            CloudEventOptions.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.id != null && message.hasOwnProperty("id"))
+                    if (!$util.isString(message.id))
+                        return "id: string expected";
+                if (message.source != null && message.hasOwnProperty("source"))
+                    if (!$util.isString(message.source))
+                        return "source: string expected";
+                if (message.type != null && message.hasOwnProperty("type"))
+                    if (!$util.isString(message.type))
+                        return "type: string expected";
+                if (message.subject != null && message.hasOwnProperty("subject"))
+                    if (!$util.isString(message.subject))
+                        return "subject: string expected";
+                if (message.specVersion != null && message.hasOwnProperty("specVersion"))
+                    if (!$util.isString(message.specVersion))
+                        return "specVersion: string expected";
+                if (message.dataContentType != null && message.hasOwnProperty("dataContentType"))
+                    if (!$util.isString(message.dataContentType))
+                        return "dataContentType: string expected";
+                if (message.dataSchema != null && message.hasOwnProperty("dataSchema"))
+                    if (!$util.isString(message.dataSchema))
+                        return "dataSchema: string expected";
+                return null;
+            };
+
+            /**
+             * Creates a CloudEventOptions message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.cloudevent.CloudEventOptions
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.cloudevent.CloudEventOptions} CloudEventOptions
+             */
+            CloudEventOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.cloudevent.CloudEventOptions)
+                    return object;
+                var message = new $root.protos.cloudevent.CloudEventOptions();
+                if (object.id != null)
+                    message.id = String(object.id);
+                if (object.source != null)
+                    message.source = String(object.source);
+                if (object.type != null)
+                    message.type = String(object.type);
+                if (object.subject != null)
+                    message.subject = String(object.subject);
+                if (object.specVersion != null)
+                    message.specVersion = String(object.specVersion);
+                if (object.dataContentType != null)
+                    message.dataContentType = String(object.dataContentType);
+                if (object.dataSchema != null)
+                    message.dataSchema = String(object.dataSchema);
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a CloudEventOptions message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.cloudevent.CloudEventOptions
+             * @static
+             * @param {protos.cloudevent.CloudEventOptions} message CloudEventOptions
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            CloudEventOptions.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    object.id = "";
+                    object.source = "";
+                    object.type = "";
+                    object.subject = "";
+                    object.specVersion = "";
+                    object.dataContentType = "";
+                    object.dataSchema = "";
+                }
+                if (message.id != null && message.hasOwnProperty("id"))
+                    object.id = message.id;
+                if (message.source != null && message.hasOwnProperty("source"))
+                    object.source = message.source;
+                if (message.type != null && message.hasOwnProperty("type"))
+                    object.type = message.type;
+                if (message.subject != null && message.hasOwnProperty("subject"))
+                    object.subject = message.subject;
+                if (message.specVersion != null && message.hasOwnProperty("specVersion"))
+                    object.specVersion = message.specVersion;
+                if (message.dataContentType != null && message.hasOwnProperty("dataContentType"))
+                    object.dataContentType = message.dataContentType;
+                if (message.dataSchema != null && message.hasOwnProperty("dataSchema"))
+                    object.dataSchema = message.dataSchema;
+                return object;
+            };
+
+            /**
+             * Converts this CloudEventOptions to JSON.
+             * @function toJSON
+             * @memberof protos.cloudevent.CloudEventOptions
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            CloudEventOptions.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return CloudEventOptions;
+        })();
+
+        return cloudevent;
     })();
 
     protos.encoding = (function() {

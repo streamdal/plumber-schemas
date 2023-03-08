@@ -13900,6 +13900,9 @@ export namespace protos {
 
             /** WriteGroupKafkaOptions args */
             args?: (protos.args.IKafkaWriteArgs|null);
+
+            /** WriteGroupKafkaOptions cloudEvent */
+            cloudEvent?: (protos.cloudevent.ICloudEventOptions|null);
         }
 
         /** Represents a WriteGroupKafkaOptions. */
@@ -13916,6 +13919,9 @@ export namespace protos {
 
             /** WriteGroupKafkaOptions args. */
             public args?: (protos.args.IKafkaWriteArgs|null);
+
+            /** WriteGroupKafkaOptions cloudEvent. */
+            public cloudEvent?: (protos.cloudevent.ICloudEventOptions|null);
 
             /**
              * Creates a new WriteGroupKafkaOptions instance using the specified properties.
@@ -27258,6 +27264,136 @@ export namespace protos {
          * @returns JSON object
          */
         public toJSON(): { [k: string]: any };
+    }
+
+    /** Namespace cloudevent. */
+    namespace cloudevent {
+
+        /** Properties of a CloudEventOptions. */
+        interface ICloudEventOptions {
+
+            /** CloudEventOptions id */
+            id?: (string|null);
+
+            /** CloudEventOptions source */
+            source?: (string|null);
+
+            /** CloudEventOptions type */
+            type?: (string|null);
+
+            /** CloudEventOptions subject */
+            subject?: (string|null);
+
+            /** CloudEventOptions specVersion */
+            specVersion?: (string|null);
+
+            /** CloudEventOptions dataContentType */
+            dataContentType?: (string|null);
+
+            /** CloudEventOptions dataSchema */
+            dataSchema?: (string|null);
+        }
+
+        /** Represents a CloudEventOptions. */
+        class CloudEventOptions implements ICloudEventOptions {
+
+            /**
+             * Constructs a new CloudEventOptions.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.cloudevent.ICloudEventOptions);
+
+            /** CloudEventOptions id. */
+            public id: string;
+
+            /** CloudEventOptions source. */
+            public source: string;
+
+            /** CloudEventOptions type. */
+            public type: string;
+
+            /** CloudEventOptions subject. */
+            public subject: string;
+
+            /** CloudEventOptions specVersion. */
+            public specVersion: string;
+
+            /** CloudEventOptions dataContentType. */
+            public dataContentType: string;
+
+            /** CloudEventOptions dataSchema. */
+            public dataSchema: string;
+
+            /**
+             * Creates a new CloudEventOptions instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns CloudEventOptions instance
+             */
+            public static create(properties?: protos.cloudevent.ICloudEventOptions): protos.cloudevent.CloudEventOptions;
+
+            /**
+             * Encodes the specified CloudEventOptions message. Does not implicitly {@link protos.cloudevent.CloudEventOptions.verify|verify} messages.
+             * @param message CloudEventOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.cloudevent.ICloudEventOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified CloudEventOptions message, length delimited. Does not implicitly {@link protos.cloudevent.CloudEventOptions.verify|verify} messages.
+             * @param message CloudEventOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.cloudevent.ICloudEventOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a CloudEventOptions message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns CloudEventOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.cloudevent.CloudEventOptions;
+
+            /**
+             * Decodes a CloudEventOptions message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns CloudEventOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.cloudevent.CloudEventOptions;
+
+            /**
+             * Verifies a CloudEventOptions message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a CloudEventOptions message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns CloudEventOptions
+             */
+            public static fromObject(object: { [k: string]: any }): protos.cloudevent.CloudEventOptions;
+
+            /**
+             * Creates a plain object from a CloudEventOptions message. Also converts values to other types if specified.
+             * @param message CloudEventOptions
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.cloudevent.CloudEventOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this CloudEventOptions to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
     }
 
     /** Namespace encoding. */
