@@ -4,26 +4,28 @@ package protos.cloudevent;
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/cloudevent";
 
-
 message CloudEventOptions {
+  // @gotags: kong:"help='Send input data as a cloud event',default=false"
+  bool cloudevent = 1;
+
   // @gotags: kong:"help='ID to give cloud event. If left blank, plumber will auto-generate a random UUIDv4'"
-  string ce_id = 1;
+  string ce_id = 2;
 
   // @gotags: kong:"help='Source for cloud event',default='plumber'"
-  string ce_source = 2;
+  string ce_source = 3;
 
   // @gotags: kong:"help='Cloud event type'"
-  string ce_type = 3;
+  string ce_type = 4;
 
   // @gotags: kong:"help='Cloud event subject'"
-  string ce_subject = 4;
+  string ce_subject = 5;
 
   // @gotags: kong:"help='Cloud event specification version, ex: 0.1, 0.2, 0.3, 1.0',default='1.0'"
-  string ce_spec_version = 5;
+  string ce_spec_version = 6;
 
   // @gotags: kong:"help='Type of encoding of the event data',default='application/json; charset=utf-8'"
-  string ce_data_content_type = 6;
+  string ce_data_content_type = 7;
 
   // @gotags: kong:"help='Path to JSON schema file for the cloud event'"
-  string ce_data_schema = 7;
+  string ce_data_schema = 8;
 }
