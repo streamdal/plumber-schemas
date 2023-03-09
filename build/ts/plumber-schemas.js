@@ -35212,6 +35212,7 @@ $root.protos = (function() {
              * @interface IWriteGroupNatsOptions
              * @property {protos.args.INatsConn|null} [_conn] WriteGroupNatsOptions _conn
              * @property {protos.args.INatsWriteArgs|null} [args] WriteGroupNatsOptions args
+             * @property {protos.cloudevent.ICloudEventOptions|null} [cloudEvent] WriteGroupNatsOptions cloudEvent
              */
 
             /**
@@ -35246,6 +35247,14 @@ $root.protos = (function() {
             WriteGroupNatsOptions.prototype.args = null;
 
             /**
+             * WriteGroupNatsOptions cloudEvent.
+             * @member {protos.cloudevent.ICloudEventOptions|null|undefined} cloudEvent
+             * @memberof protos.opts.WriteGroupNatsOptions
+             * @instance
+             */
+            WriteGroupNatsOptions.prototype.cloudEvent = null;
+
+            /**
              * Creates a new WriteGroupNatsOptions instance using the specified properties.
              * @function create
              * @memberof protos.opts.WriteGroupNatsOptions
@@ -35273,6 +35282,8 @@ $root.protos = (function() {
                     $root.protos.args.NatsConn.encode(message._conn, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
                 if (message.args != null && Object.hasOwnProperty.call(message, "args"))
                     $root.protos.args.NatsWriteArgs.encode(message.args, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                if (message.cloudEvent != null && Object.hasOwnProperty.call(message, "cloudEvent"))
+                    $root.protos.cloudevent.CloudEventOptions.encode(message.cloudEvent, writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
                 return writer;
             };
 
@@ -35312,6 +35323,9 @@ $root.protos = (function() {
                         break;
                     case 2:
                         message.args = $root.protos.args.NatsWriteArgs.decode(reader, reader.uint32());
+                        break;
+                    case 3:
+                        message.cloudEvent = $root.protos.cloudevent.CloudEventOptions.decode(reader, reader.uint32());
                         break;
                     default:
                         reader.skipType(tag & 7);
@@ -35358,6 +35372,11 @@ $root.protos = (function() {
                     if (error)
                         return "args." + error;
                 }
+                if (message.cloudEvent != null && message.hasOwnProperty("cloudEvent")) {
+                    var error = $root.protos.cloudevent.CloudEventOptions.verify(message.cloudEvent);
+                    if (error)
+                        return "cloudEvent." + error;
+                }
                 return null;
             };
 
@@ -35383,6 +35402,11 @@ $root.protos = (function() {
                         throw TypeError(".protos.opts.WriteGroupNatsOptions.args: object expected");
                     message.args = $root.protos.args.NatsWriteArgs.fromObject(object.args);
                 }
+                if (object.cloudEvent != null) {
+                    if (typeof object.cloudEvent !== "object")
+                        throw TypeError(".protos.opts.WriteGroupNatsOptions.cloudEvent: object expected");
+                    message.cloudEvent = $root.protos.cloudevent.CloudEventOptions.fromObject(object.cloudEvent);
+                }
                 return message;
             };
 
@@ -35402,11 +35426,14 @@ $root.protos = (function() {
                 if (options.defaults) {
                     object._conn = null;
                     object.args = null;
+                    object.cloudEvent = null;
                 }
                 if (message._conn != null && message.hasOwnProperty("_conn"))
                     object._conn = $root.protos.args.NatsConn.toObject(message._conn, options);
                 if (message.args != null && message.hasOwnProperty("args"))
                     object.args = $root.protos.args.NatsWriteArgs.toObject(message.args, options);
+                if (message.cloudEvent != null && message.hasOwnProperty("cloudEvent"))
+                    object.cloudEvent = $root.protos.cloudevent.CloudEventOptions.toObject(message.cloudEvent, options);
                 return object;
             };
 
@@ -35432,6 +35459,7 @@ $root.protos = (function() {
              * @interface IWriteGroupNatsJetstreamOptions
              * @property {protos.args.INatsJetstreamConn|null} [_conn] WriteGroupNatsJetstreamOptions _conn
              * @property {protos.args.INatsJetstreamWriteArgs|null} [args] WriteGroupNatsJetstreamOptions args
+             * @property {protos.cloudevent.ICloudEventOptions|null} [cloudEvent] WriteGroupNatsJetstreamOptions cloudEvent
              */
 
             /**
@@ -35466,6 +35494,14 @@ $root.protos = (function() {
             WriteGroupNatsJetstreamOptions.prototype.args = null;
 
             /**
+             * WriteGroupNatsJetstreamOptions cloudEvent.
+             * @member {protos.cloudevent.ICloudEventOptions|null|undefined} cloudEvent
+             * @memberof protos.opts.WriteGroupNatsJetstreamOptions
+             * @instance
+             */
+            WriteGroupNatsJetstreamOptions.prototype.cloudEvent = null;
+
+            /**
              * Creates a new WriteGroupNatsJetstreamOptions instance using the specified properties.
              * @function create
              * @memberof protos.opts.WriteGroupNatsJetstreamOptions
@@ -35493,6 +35529,8 @@ $root.protos = (function() {
                     $root.protos.args.NatsJetstreamConn.encode(message._conn, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
                 if (message.args != null && Object.hasOwnProperty.call(message, "args"))
                     $root.protos.args.NatsJetstreamWriteArgs.encode(message.args, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                if (message.cloudEvent != null && Object.hasOwnProperty.call(message, "cloudEvent"))
+                    $root.protos.cloudevent.CloudEventOptions.encode(message.cloudEvent, writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
                 return writer;
             };
 
@@ -35532,6 +35570,9 @@ $root.protos = (function() {
                         break;
                     case 2:
                         message.args = $root.protos.args.NatsJetstreamWriteArgs.decode(reader, reader.uint32());
+                        break;
+                    case 3:
+                        message.cloudEvent = $root.protos.cloudevent.CloudEventOptions.decode(reader, reader.uint32());
                         break;
                     default:
                         reader.skipType(tag & 7);
@@ -35578,6 +35619,11 @@ $root.protos = (function() {
                     if (error)
                         return "args." + error;
                 }
+                if (message.cloudEvent != null && message.hasOwnProperty("cloudEvent")) {
+                    var error = $root.protos.cloudevent.CloudEventOptions.verify(message.cloudEvent);
+                    if (error)
+                        return "cloudEvent." + error;
+                }
                 return null;
             };
 
@@ -35603,6 +35649,11 @@ $root.protos = (function() {
                         throw TypeError(".protos.opts.WriteGroupNatsJetstreamOptions.args: object expected");
                     message.args = $root.protos.args.NatsJetstreamWriteArgs.fromObject(object.args);
                 }
+                if (object.cloudEvent != null) {
+                    if (typeof object.cloudEvent !== "object")
+                        throw TypeError(".protos.opts.WriteGroupNatsJetstreamOptions.cloudEvent: object expected");
+                    message.cloudEvent = $root.protos.cloudevent.CloudEventOptions.fromObject(object.cloudEvent);
+                }
                 return message;
             };
 
@@ -35622,11 +35673,14 @@ $root.protos = (function() {
                 if (options.defaults) {
                     object._conn = null;
                     object.args = null;
+                    object.cloudEvent = null;
                 }
                 if (message._conn != null && message.hasOwnProperty("_conn"))
                     object._conn = $root.protos.args.NatsJetstreamConn.toObject(message._conn, options);
                 if (message.args != null && message.hasOwnProperty("args"))
                     object.args = $root.protos.args.NatsJetstreamWriteArgs.toObject(message.args, options);
+                if (message.cloudEvent != null && message.hasOwnProperty("cloudEvent"))
+                    object.cloudEvent = $root.protos.cloudevent.CloudEventOptions.toObject(message.cloudEvent, options);
                 return object;
             };
 
@@ -35652,6 +35706,7 @@ $root.protos = (function() {
              * @interface IWriteGroupNatsStreamingOptions
              * @property {protos.args.INatsStreamingConn|null} [_conn] WriteGroupNatsStreamingOptions _conn
              * @property {protos.args.INatsStreamingWriteArgs|null} [args] WriteGroupNatsStreamingOptions args
+             * @property {protos.cloudevent.ICloudEventOptions|null} [cloudEvent] WriteGroupNatsStreamingOptions cloudEvent
              */
 
             /**
@@ -35686,6 +35741,14 @@ $root.protos = (function() {
             WriteGroupNatsStreamingOptions.prototype.args = null;
 
             /**
+             * WriteGroupNatsStreamingOptions cloudEvent.
+             * @member {protos.cloudevent.ICloudEventOptions|null|undefined} cloudEvent
+             * @memberof protos.opts.WriteGroupNatsStreamingOptions
+             * @instance
+             */
+            WriteGroupNatsStreamingOptions.prototype.cloudEvent = null;
+
+            /**
              * Creates a new WriteGroupNatsStreamingOptions instance using the specified properties.
              * @function create
              * @memberof protos.opts.WriteGroupNatsStreamingOptions
@@ -35713,6 +35776,8 @@ $root.protos = (function() {
                     $root.protos.args.NatsStreamingConn.encode(message._conn, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
                 if (message.args != null && Object.hasOwnProperty.call(message, "args"))
                     $root.protos.args.NatsStreamingWriteArgs.encode(message.args, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                if (message.cloudEvent != null && Object.hasOwnProperty.call(message, "cloudEvent"))
+                    $root.protos.cloudevent.CloudEventOptions.encode(message.cloudEvent, writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
                 return writer;
             };
 
@@ -35752,6 +35817,9 @@ $root.protos = (function() {
                         break;
                     case 2:
                         message.args = $root.protos.args.NatsStreamingWriteArgs.decode(reader, reader.uint32());
+                        break;
+                    case 3:
+                        message.cloudEvent = $root.protos.cloudevent.CloudEventOptions.decode(reader, reader.uint32());
                         break;
                     default:
                         reader.skipType(tag & 7);
@@ -35798,6 +35866,11 @@ $root.protos = (function() {
                     if (error)
                         return "args." + error;
                 }
+                if (message.cloudEvent != null && message.hasOwnProperty("cloudEvent")) {
+                    var error = $root.protos.cloudevent.CloudEventOptions.verify(message.cloudEvent);
+                    if (error)
+                        return "cloudEvent." + error;
+                }
                 return null;
             };
 
@@ -35823,6 +35896,11 @@ $root.protos = (function() {
                         throw TypeError(".protos.opts.WriteGroupNatsStreamingOptions.args: object expected");
                     message.args = $root.protos.args.NatsStreamingWriteArgs.fromObject(object.args);
                 }
+                if (object.cloudEvent != null) {
+                    if (typeof object.cloudEvent !== "object")
+                        throw TypeError(".protos.opts.WriteGroupNatsStreamingOptions.cloudEvent: object expected");
+                    message.cloudEvent = $root.protos.cloudevent.CloudEventOptions.fromObject(object.cloudEvent);
+                }
                 return message;
             };
 
@@ -35842,11 +35920,14 @@ $root.protos = (function() {
                 if (options.defaults) {
                     object._conn = null;
                     object.args = null;
+                    object.cloudEvent = null;
                 }
                 if (message._conn != null && message.hasOwnProperty("_conn"))
                     object._conn = $root.protos.args.NatsStreamingConn.toObject(message._conn, options);
                 if (message.args != null && message.hasOwnProperty("args"))
                     object.args = $root.protos.args.NatsStreamingWriteArgs.toObject(message.args, options);
+                if (message.cloudEvent != null && message.hasOwnProperty("cloudEvent"))
+                    object.cloudEvent = $root.protos.cloudevent.CloudEventOptions.toObject(message.cloudEvent, options);
                 return object;
             };
 
@@ -65249,13 +65330,13 @@ $root.protos = (function() {
              * Properties of a CloudEventOptions.
              * @memberof protos.cloudevent
              * @interface ICloudEventOptions
-             * @property {string|null} [id] CloudEventOptions id
-             * @property {string|null} [source] CloudEventOptions source
-             * @property {string|null} [type] CloudEventOptions type
-             * @property {string|null} [subject] CloudEventOptions subject
-             * @property {string|null} [specVersion] CloudEventOptions specVersion
-             * @property {string|null} [dataContentType] CloudEventOptions dataContentType
-             * @property {string|null} [dataSchema] CloudEventOptions dataSchema
+             * @property {string|null} [ceId] CloudEventOptions ceId
+             * @property {string|null} [ceSource] CloudEventOptions ceSource
+             * @property {string|null} [ceType] CloudEventOptions ceType
+             * @property {string|null} [ceSubject] CloudEventOptions ceSubject
+             * @property {string|null} [ceSpecVersion] CloudEventOptions ceSpecVersion
+             * @property {string|null} [ceDataContentType] CloudEventOptions ceDataContentType
+             * @property {string|null} [ceDataSchema] CloudEventOptions ceDataSchema
              */
 
             /**
@@ -65274,60 +65355,60 @@ $root.protos = (function() {
             }
 
             /**
-             * CloudEventOptions id.
-             * @member {string} id
+             * CloudEventOptions ceId.
+             * @member {string} ceId
              * @memberof protos.cloudevent.CloudEventOptions
              * @instance
              */
-            CloudEventOptions.prototype.id = "";
+            CloudEventOptions.prototype.ceId = "";
 
             /**
-             * CloudEventOptions source.
-             * @member {string} source
+             * CloudEventOptions ceSource.
+             * @member {string} ceSource
              * @memberof protos.cloudevent.CloudEventOptions
              * @instance
              */
-            CloudEventOptions.prototype.source = "";
+            CloudEventOptions.prototype.ceSource = "";
 
             /**
-             * CloudEventOptions type.
-             * @member {string} type
+             * CloudEventOptions ceType.
+             * @member {string} ceType
              * @memberof protos.cloudevent.CloudEventOptions
              * @instance
              */
-            CloudEventOptions.prototype.type = "";
+            CloudEventOptions.prototype.ceType = "";
 
             /**
-             * CloudEventOptions subject.
-             * @member {string} subject
+             * CloudEventOptions ceSubject.
+             * @member {string} ceSubject
              * @memberof protos.cloudevent.CloudEventOptions
              * @instance
              */
-            CloudEventOptions.prototype.subject = "";
+            CloudEventOptions.prototype.ceSubject = "";
 
             /**
-             * CloudEventOptions specVersion.
-             * @member {string} specVersion
+             * CloudEventOptions ceSpecVersion.
+             * @member {string} ceSpecVersion
              * @memberof protos.cloudevent.CloudEventOptions
              * @instance
              */
-            CloudEventOptions.prototype.specVersion = "";
+            CloudEventOptions.prototype.ceSpecVersion = "";
 
             /**
-             * CloudEventOptions dataContentType.
-             * @member {string} dataContentType
+             * CloudEventOptions ceDataContentType.
+             * @member {string} ceDataContentType
              * @memberof protos.cloudevent.CloudEventOptions
              * @instance
              */
-            CloudEventOptions.prototype.dataContentType = "";
+            CloudEventOptions.prototype.ceDataContentType = "";
 
             /**
-             * CloudEventOptions dataSchema.
-             * @member {string} dataSchema
+             * CloudEventOptions ceDataSchema.
+             * @member {string} ceDataSchema
              * @memberof protos.cloudevent.CloudEventOptions
              * @instance
              */
-            CloudEventOptions.prototype.dataSchema = "";
+            CloudEventOptions.prototype.ceDataSchema = "";
 
             /**
              * Creates a new CloudEventOptions instance using the specified properties.
@@ -65353,20 +65434,20 @@ $root.protos = (function() {
             CloudEventOptions.encode = function encode(message, writer) {
                 if (!writer)
                     writer = $Writer.create();
-                if (message.id != null && Object.hasOwnProperty.call(message, "id"))
-                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.id);
-                if (message.source != null && Object.hasOwnProperty.call(message, "source"))
-                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.source);
-                if (message.type != null && Object.hasOwnProperty.call(message, "type"))
-                    writer.uint32(/* id 3, wireType 2 =*/26).string(message.type);
-                if (message.subject != null && Object.hasOwnProperty.call(message, "subject"))
-                    writer.uint32(/* id 4, wireType 2 =*/34).string(message.subject);
-                if (message.specVersion != null && Object.hasOwnProperty.call(message, "specVersion"))
-                    writer.uint32(/* id 5, wireType 2 =*/42).string(message.specVersion);
-                if (message.dataContentType != null && Object.hasOwnProperty.call(message, "dataContentType"))
-                    writer.uint32(/* id 6, wireType 2 =*/50).string(message.dataContentType);
-                if (message.dataSchema != null && Object.hasOwnProperty.call(message, "dataSchema"))
-                    writer.uint32(/* id 7, wireType 2 =*/58).string(message.dataSchema);
+                if (message.ceId != null && Object.hasOwnProperty.call(message, "ceId"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.ceId);
+                if (message.ceSource != null && Object.hasOwnProperty.call(message, "ceSource"))
+                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.ceSource);
+                if (message.ceType != null && Object.hasOwnProperty.call(message, "ceType"))
+                    writer.uint32(/* id 3, wireType 2 =*/26).string(message.ceType);
+                if (message.ceSubject != null && Object.hasOwnProperty.call(message, "ceSubject"))
+                    writer.uint32(/* id 4, wireType 2 =*/34).string(message.ceSubject);
+                if (message.ceSpecVersion != null && Object.hasOwnProperty.call(message, "ceSpecVersion"))
+                    writer.uint32(/* id 5, wireType 2 =*/42).string(message.ceSpecVersion);
+                if (message.ceDataContentType != null && Object.hasOwnProperty.call(message, "ceDataContentType"))
+                    writer.uint32(/* id 6, wireType 2 =*/50).string(message.ceDataContentType);
+                if (message.ceDataSchema != null && Object.hasOwnProperty.call(message, "ceDataSchema"))
+                    writer.uint32(/* id 7, wireType 2 =*/58).string(message.ceDataSchema);
                 return writer;
             };
 
@@ -65402,25 +65483,25 @@ $root.protos = (function() {
                     var tag = reader.uint32();
                     switch (tag >>> 3) {
                     case 1:
-                        message.id = reader.string();
+                        message.ceId = reader.string();
                         break;
                     case 2:
-                        message.source = reader.string();
+                        message.ceSource = reader.string();
                         break;
                     case 3:
-                        message.type = reader.string();
+                        message.ceType = reader.string();
                         break;
                     case 4:
-                        message.subject = reader.string();
+                        message.ceSubject = reader.string();
                         break;
                     case 5:
-                        message.specVersion = reader.string();
+                        message.ceSpecVersion = reader.string();
                         break;
                     case 6:
-                        message.dataContentType = reader.string();
+                        message.ceDataContentType = reader.string();
                         break;
                     case 7:
-                        message.dataSchema = reader.string();
+                        message.ceDataSchema = reader.string();
                         break;
                     default:
                         reader.skipType(tag & 7);
@@ -65457,27 +65538,27 @@ $root.protos = (function() {
             CloudEventOptions.verify = function verify(message) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (message.id != null && message.hasOwnProperty("id"))
-                    if (!$util.isString(message.id))
-                        return "id: string expected";
-                if (message.source != null && message.hasOwnProperty("source"))
-                    if (!$util.isString(message.source))
-                        return "source: string expected";
-                if (message.type != null && message.hasOwnProperty("type"))
-                    if (!$util.isString(message.type))
-                        return "type: string expected";
-                if (message.subject != null && message.hasOwnProperty("subject"))
-                    if (!$util.isString(message.subject))
-                        return "subject: string expected";
-                if (message.specVersion != null && message.hasOwnProperty("specVersion"))
-                    if (!$util.isString(message.specVersion))
-                        return "specVersion: string expected";
-                if (message.dataContentType != null && message.hasOwnProperty("dataContentType"))
-                    if (!$util.isString(message.dataContentType))
-                        return "dataContentType: string expected";
-                if (message.dataSchema != null && message.hasOwnProperty("dataSchema"))
-                    if (!$util.isString(message.dataSchema))
-                        return "dataSchema: string expected";
+                if (message.ceId != null && message.hasOwnProperty("ceId"))
+                    if (!$util.isString(message.ceId))
+                        return "ceId: string expected";
+                if (message.ceSource != null && message.hasOwnProperty("ceSource"))
+                    if (!$util.isString(message.ceSource))
+                        return "ceSource: string expected";
+                if (message.ceType != null && message.hasOwnProperty("ceType"))
+                    if (!$util.isString(message.ceType))
+                        return "ceType: string expected";
+                if (message.ceSubject != null && message.hasOwnProperty("ceSubject"))
+                    if (!$util.isString(message.ceSubject))
+                        return "ceSubject: string expected";
+                if (message.ceSpecVersion != null && message.hasOwnProperty("ceSpecVersion"))
+                    if (!$util.isString(message.ceSpecVersion))
+                        return "ceSpecVersion: string expected";
+                if (message.ceDataContentType != null && message.hasOwnProperty("ceDataContentType"))
+                    if (!$util.isString(message.ceDataContentType))
+                        return "ceDataContentType: string expected";
+                if (message.ceDataSchema != null && message.hasOwnProperty("ceDataSchema"))
+                    if (!$util.isString(message.ceDataSchema))
+                        return "ceDataSchema: string expected";
                 return null;
             };
 
@@ -65493,20 +65574,20 @@ $root.protos = (function() {
                 if (object instanceof $root.protos.cloudevent.CloudEventOptions)
                     return object;
                 var message = new $root.protos.cloudevent.CloudEventOptions();
-                if (object.id != null)
-                    message.id = String(object.id);
-                if (object.source != null)
-                    message.source = String(object.source);
-                if (object.type != null)
-                    message.type = String(object.type);
-                if (object.subject != null)
-                    message.subject = String(object.subject);
-                if (object.specVersion != null)
-                    message.specVersion = String(object.specVersion);
-                if (object.dataContentType != null)
-                    message.dataContentType = String(object.dataContentType);
-                if (object.dataSchema != null)
-                    message.dataSchema = String(object.dataSchema);
+                if (object.ceId != null)
+                    message.ceId = String(object.ceId);
+                if (object.ceSource != null)
+                    message.ceSource = String(object.ceSource);
+                if (object.ceType != null)
+                    message.ceType = String(object.ceType);
+                if (object.ceSubject != null)
+                    message.ceSubject = String(object.ceSubject);
+                if (object.ceSpecVersion != null)
+                    message.ceSpecVersion = String(object.ceSpecVersion);
+                if (object.ceDataContentType != null)
+                    message.ceDataContentType = String(object.ceDataContentType);
+                if (object.ceDataSchema != null)
+                    message.ceDataSchema = String(object.ceDataSchema);
                 return message;
             };
 
@@ -65524,28 +65605,28 @@ $root.protos = (function() {
                     options = {};
                 var object = {};
                 if (options.defaults) {
-                    object.id = "";
-                    object.source = "";
-                    object.type = "";
-                    object.subject = "";
-                    object.specVersion = "";
-                    object.dataContentType = "";
-                    object.dataSchema = "";
+                    object.ceId = "";
+                    object.ceSource = "";
+                    object.ceType = "";
+                    object.ceSubject = "";
+                    object.ceSpecVersion = "";
+                    object.ceDataContentType = "";
+                    object.ceDataSchema = "";
                 }
-                if (message.id != null && message.hasOwnProperty("id"))
-                    object.id = message.id;
-                if (message.source != null && message.hasOwnProperty("source"))
-                    object.source = message.source;
-                if (message.type != null && message.hasOwnProperty("type"))
-                    object.type = message.type;
-                if (message.subject != null && message.hasOwnProperty("subject"))
-                    object.subject = message.subject;
-                if (message.specVersion != null && message.hasOwnProperty("specVersion"))
-                    object.specVersion = message.specVersion;
-                if (message.dataContentType != null && message.hasOwnProperty("dataContentType"))
-                    object.dataContentType = message.dataContentType;
-                if (message.dataSchema != null && message.hasOwnProperty("dataSchema"))
-                    object.dataSchema = message.dataSchema;
+                if (message.ceId != null && message.hasOwnProperty("ceId"))
+                    object.ceId = message.ceId;
+                if (message.ceSource != null && message.hasOwnProperty("ceSource"))
+                    object.ceSource = message.ceSource;
+                if (message.ceType != null && message.hasOwnProperty("ceType"))
+                    object.ceType = message.ceType;
+                if (message.ceSubject != null && message.hasOwnProperty("ceSubject"))
+                    object.ceSubject = message.ceSubject;
+                if (message.ceSpecVersion != null && message.hasOwnProperty("ceSpecVersion"))
+                    object.ceSpecVersion = message.ceSpecVersion;
+                if (message.ceDataContentType != null && message.hasOwnProperty("ceDataContentType"))
+                    object.ceDataContentType = message.ceDataContentType;
+                if (message.ceDataSchema != null && message.hasOwnProperty("ceDataSchema"))
+                    object.ceDataSchema = message.ceDataSchema;
                 return object;
             };
 

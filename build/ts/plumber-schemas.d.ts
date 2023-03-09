@@ -14290,6 +14290,9 @@ export namespace protos {
 
             /** WriteGroupNatsOptions args */
             args?: (protos.args.INatsWriteArgs|null);
+
+            /** WriteGroupNatsOptions cloudEvent */
+            cloudEvent?: (protos.cloudevent.ICloudEventOptions|null);
         }
 
         /** Represents a WriteGroupNatsOptions. */
@@ -14306,6 +14309,9 @@ export namespace protos {
 
             /** WriteGroupNatsOptions args. */
             public args?: (protos.args.INatsWriteArgs|null);
+
+            /** WriteGroupNatsOptions cloudEvent. */
+            public cloudEvent?: (protos.cloudevent.ICloudEventOptions|null);
 
             /**
              * Creates a new WriteGroupNatsOptions instance using the specified properties.
@@ -14386,6 +14392,9 @@ export namespace protos {
 
             /** WriteGroupNatsJetstreamOptions args */
             args?: (protos.args.INatsJetstreamWriteArgs|null);
+
+            /** WriteGroupNatsJetstreamOptions cloudEvent */
+            cloudEvent?: (protos.cloudevent.ICloudEventOptions|null);
         }
 
         /** Represents a WriteGroupNatsJetstreamOptions. */
@@ -14402,6 +14411,9 @@ export namespace protos {
 
             /** WriteGroupNatsJetstreamOptions args. */
             public args?: (protos.args.INatsJetstreamWriteArgs|null);
+
+            /** WriteGroupNatsJetstreamOptions cloudEvent. */
+            public cloudEvent?: (protos.cloudevent.ICloudEventOptions|null);
 
             /**
              * Creates a new WriteGroupNatsJetstreamOptions instance using the specified properties.
@@ -14482,6 +14494,9 @@ export namespace protos {
 
             /** WriteGroupNatsStreamingOptions args */
             args?: (protos.args.INatsStreamingWriteArgs|null);
+
+            /** WriteGroupNatsStreamingOptions cloudEvent */
+            cloudEvent?: (protos.cloudevent.ICloudEventOptions|null);
         }
 
         /** Represents a WriteGroupNatsStreamingOptions. */
@@ -14498,6 +14513,9 @@ export namespace protos {
 
             /** WriteGroupNatsStreamingOptions args. */
             public args?: (protos.args.INatsStreamingWriteArgs|null);
+
+            /** WriteGroupNatsStreamingOptions cloudEvent. */
+            public cloudEvent?: (protos.cloudevent.ICloudEventOptions|null);
 
             /**
              * Creates a new WriteGroupNatsStreamingOptions instance using the specified properties.
@@ -27272,26 +27290,26 @@ export namespace protos {
         /** Properties of a CloudEventOptions. */
         interface ICloudEventOptions {
 
-            /** CloudEventOptions id */
-            id?: (string|null);
+            /** CloudEventOptions ceId */
+            ceId?: (string|null);
 
-            /** CloudEventOptions source */
-            source?: (string|null);
+            /** CloudEventOptions ceSource */
+            ceSource?: (string|null);
 
-            /** CloudEventOptions type */
-            type?: (string|null);
+            /** CloudEventOptions ceType */
+            ceType?: (string|null);
 
-            /** CloudEventOptions subject */
-            subject?: (string|null);
+            /** CloudEventOptions ceSubject */
+            ceSubject?: (string|null);
 
-            /** CloudEventOptions specVersion */
-            specVersion?: (string|null);
+            /** CloudEventOptions ceSpecVersion */
+            ceSpecVersion?: (string|null);
 
-            /** CloudEventOptions dataContentType */
-            dataContentType?: (string|null);
+            /** CloudEventOptions ceDataContentType */
+            ceDataContentType?: (string|null);
 
-            /** CloudEventOptions dataSchema */
-            dataSchema?: (string|null);
+            /** CloudEventOptions ceDataSchema */
+            ceDataSchema?: (string|null);
         }
 
         /** Represents a CloudEventOptions. */
@@ -27303,26 +27321,26 @@ export namespace protos {
              */
             constructor(properties?: protos.cloudevent.ICloudEventOptions);
 
-            /** CloudEventOptions id. */
-            public id: string;
+            /** CloudEventOptions ceId. */
+            public ceId: string;
 
-            /** CloudEventOptions source. */
-            public source: string;
+            /** CloudEventOptions ceSource. */
+            public ceSource: string;
 
-            /** CloudEventOptions type. */
-            public type: string;
+            /** CloudEventOptions ceType. */
+            public ceType: string;
 
-            /** CloudEventOptions subject. */
-            public subject: string;
+            /** CloudEventOptions ceSubject. */
+            public ceSubject: string;
 
-            /** CloudEventOptions specVersion. */
-            public specVersion: string;
+            /** CloudEventOptions ceSpecVersion. */
+            public ceSpecVersion: string;
 
-            /** CloudEventOptions dataContentType. */
-            public dataContentType: string;
+            /** CloudEventOptions ceDataContentType. */
+            public ceDataContentType: string;
 
-            /** CloudEventOptions dataSchema. */
-            public dataSchema: string;
+            /** CloudEventOptions ceDataSchema. */
+            public ceDataSchema: string;
 
             /**
              * Creates a new CloudEventOptions instance using the specified properties.
