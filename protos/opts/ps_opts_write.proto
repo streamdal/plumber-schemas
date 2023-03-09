@@ -132,7 +132,7 @@ message WriteGroupKafkaOptions {
   // @gotags: kong:"embed"
   args.KafkaWriteArgs args = 2;
 
-  // @gotags: kong:"embed"
+  // @gotags: kong:"embed,group=cloudevents"
   cloudevent.CloudEventOptions cloud_event = 3;
 }
 
@@ -166,6 +166,9 @@ message WriteGroupNatsOptions {
 
   // @gotags: kong:"embed"
   args.NatsWriteArgs args = 2;
+
+  // @gotags: kong:"embed,group=cloudevents"
+  cloudevent.CloudEventOptions cloud_event = 3;
 }
 
 message WriteGroupNatsJetstreamOptions {
@@ -174,6 +177,9 @@ message WriteGroupNatsJetstreamOptions {
 
   // @gotags: kong:"embed"
   args.NatsJetstreamWriteArgs args = 2;
+
+  // @gotags: kong:"embed"
+  cloudevent.CloudEventOptions cloud_event = 3;
 }
 
 message WriteGroupNatsStreamingOptions {
@@ -182,6 +188,9 @@ message WriteGroupNatsStreamingOptions {
 
   // @gotags: kong:"embed"
   args.NatsStreamingWriteArgs args = 2;
+
+  // @gotags: kong:"embed,group=cloudevents"
+  cloudevent.CloudEventOptions cloud_event = 3;
 }
 
 message WriteGroupNSQOptions {
