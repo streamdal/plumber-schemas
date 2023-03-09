@@ -65330,6 +65330,7 @@ $root.protos = (function() {
              * Properties of a CloudEventOptions.
              * @memberof protos.cloudevent
              * @interface ICloudEventOptions
+             * @property {boolean|null} [cloudevent] CloudEventOptions cloudevent
              * @property {string|null} [ceId] CloudEventOptions ceId
              * @property {string|null} [ceSource] CloudEventOptions ceSource
              * @property {string|null} [ceType] CloudEventOptions ceType
@@ -65353,6 +65354,14 @@ $root.protos = (function() {
                         if (properties[keys[i]] != null)
                             this[keys[i]] = properties[keys[i]];
             }
+
+            /**
+             * CloudEventOptions cloudevent.
+             * @member {boolean} cloudevent
+             * @memberof protos.cloudevent.CloudEventOptions
+             * @instance
+             */
+            CloudEventOptions.prototype.cloudevent = false;
 
             /**
              * CloudEventOptions ceId.
@@ -65434,20 +65443,22 @@ $root.protos = (function() {
             CloudEventOptions.encode = function encode(message, writer) {
                 if (!writer)
                     writer = $Writer.create();
+                if (message.cloudevent != null && Object.hasOwnProperty.call(message, "cloudevent"))
+                    writer.uint32(/* id 1, wireType 0 =*/8).bool(message.cloudevent);
                 if (message.ceId != null && Object.hasOwnProperty.call(message, "ceId"))
-                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.ceId);
+                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.ceId);
                 if (message.ceSource != null && Object.hasOwnProperty.call(message, "ceSource"))
-                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.ceSource);
+                    writer.uint32(/* id 3, wireType 2 =*/26).string(message.ceSource);
                 if (message.ceType != null && Object.hasOwnProperty.call(message, "ceType"))
-                    writer.uint32(/* id 3, wireType 2 =*/26).string(message.ceType);
+                    writer.uint32(/* id 4, wireType 2 =*/34).string(message.ceType);
                 if (message.ceSubject != null && Object.hasOwnProperty.call(message, "ceSubject"))
-                    writer.uint32(/* id 4, wireType 2 =*/34).string(message.ceSubject);
+                    writer.uint32(/* id 5, wireType 2 =*/42).string(message.ceSubject);
                 if (message.ceSpecVersion != null && Object.hasOwnProperty.call(message, "ceSpecVersion"))
-                    writer.uint32(/* id 5, wireType 2 =*/42).string(message.ceSpecVersion);
+                    writer.uint32(/* id 6, wireType 2 =*/50).string(message.ceSpecVersion);
                 if (message.ceDataContentType != null && Object.hasOwnProperty.call(message, "ceDataContentType"))
-                    writer.uint32(/* id 6, wireType 2 =*/50).string(message.ceDataContentType);
+                    writer.uint32(/* id 7, wireType 2 =*/58).string(message.ceDataContentType);
                 if (message.ceDataSchema != null && Object.hasOwnProperty.call(message, "ceDataSchema"))
-                    writer.uint32(/* id 7, wireType 2 =*/58).string(message.ceDataSchema);
+                    writer.uint32(/* id 8, wireType 2 =*/66).string(message.ceDataSchema);
                 return writer;
             };
 
@@ -65483,24 +65494,27 @@ $root.protos = (function() {
                     var tag = reader.uint32();
                     switch (tag >>> 3) {
                     case 1:
-                        message.ceId = reader.string();
+                        message.cloudevent = reader.bool();
                         break;
                     case 2:
-                        message.ceSource = reader.string();
+                        message.ceId = reader.string();
                         break;
                     case 3:
-                        message.ceType = reader.string();
+                        message.ceSource = reader.string();
                         break;
                     case 4:
-                        message.ceSubject = reader.string();
+                        message.ceType = reader.string();
                         break;
                     case 5:
-                        message.ceSpecVersion = reader.string();
+                        message.ceSubject = reader.string();
                         break;
                     case 6:
-                        message.ceDataContentType = reader.string();
+                        message.ceSpecVersion = reader.string();
                         break;
                     case 7:
+                        message.ceDataContentType = reader.string();
+                        break;
+                    case 8:
                         message.ceDataSchema = reader.string();
                         break;
                     default:
@@ -65538,6 +65552,9 @@ $root.protos = (function() {
             CloudEventOptions.verify = function verify(message) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
+                if (message.cloudevent != null && message.hasOwnProperty("cloudevent"))
+                    if (typeof message.cloudevent !== "boolean")
+                        return "cloudevent: boolean expected";
                 if (message.ceId != null && message.hasOwnProperty("ceId"))
                     if (!$util.isString(message.ceId))
                         return "ceId: string expected";
@@ -65574,6 +65591,8 @@ $root.protos = (function() {
                 if (object instanceof $root.protos.cloudevent.CloudEventOptions)
                     return object;
                 var message = new $root.protos.cloudevent.CloudEventOptions();
+                if (object.cloudevent != null)
+                    message.cloudevent = Boolean(object.cloudevent);
                 if (object.ceId != null)
                     message.ceId = String(object.ceId);
                 if (object.ceSource != null)
@@ -65605,6 +65624,7 @@ $root.protos = (function() {
                     options = {};
                 var object = {};
                 if (options.defaults) {
+                    object.cloudevent = false;
                     object.ceId = "";
                     object.ceSource = "";
                     object.ceType = "";
@@ -65613,6 +65633,8 @@ $root.protos = (function() {
                     object.ceDataContentType = "";
                     object.ceDataSchema = "";
                 }
+                if (message.cloudevent != null && message.hasOwnProperty("cloudevent"))
+                    object.cloudevent = message.cloudevent;
                 if (message.ceId != null && message.hasOwnProperty("ceId"))
                     object.ceId = message.ceId;
                 if (message.ceSource != null && message.hasOwnProperty("ceSource"))

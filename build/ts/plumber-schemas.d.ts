@@ -27290,6 +27290,9 @@ export namespace protos {
         /** Properties of a CloudEventOptions. */
         interface ICloudEventOptions {
 
+            /** CloudEventOptions cloudevent */
+            cloudevent?: (boolean|null);
+
             /** CloudEventOptions ceId */
             ceId?: (string|null);
 
@@ -27320,6 +27323,9 @@ export namespace protos {
              * @param [properties] Properties to set
              */
             constructor(properties?: protos.cloudevent.ICloudEventOptions);
+
+            /** CloudEventOptions cloudevent. */
+            public cloudevent: boolean;
 
             /** CloudEventOptions ceId. */
             public ceId: string;
