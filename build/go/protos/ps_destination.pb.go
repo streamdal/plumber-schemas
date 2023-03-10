@@ -6,10 +6,9 @@ package protos
 import (
 	fmt "fmt"
 	common "github.com/batchcorp/plumber-schemas/build/go/protos/common"
-	_ "github.com/batchcorp/plumber-schemas/build/go/protos/opts"
+	opts "github.com/batchcorp/plumber-schemas/build/go/protos/opts"
 	proto "github.com/golang/protobuf/proto"
 	math "math"
-	opts "opts"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.
