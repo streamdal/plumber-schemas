@@ -70,7 +70,7 @@ message GetOptions {
   // @gotags: kong:"cmd,help='Get connection(s) from plumber server'"
   opts.GetConnectionOptions connection = 1;
 
-  // Relays have been replaced with channels ~DS 09/03/2023
+  // @gotags: kong:"-"
   opts.GetRelayOptions relay = 2 [deprecated=true];
 
   // @gotags: kong:"cmd,help='Get source(s) from plumber server'"
@@ -90,7 +90,7 @@ message CreateOptions {
   // @gotags: kong:"cmd,help='Create connection in plumber server'"
   opts.CreateConnectionOptions connection = 1;
 
-  // Relay has been replaced with channel ~DS 09/03/2023
+  // @gotags: kong:"-"
   opts.CreateRelayOptions relay = 2 [deprecated=true];
 
   // @gotags: kong:"cmd,help='Create source in plumber server'"
@@ -110,7 +110,7 @@ message DeleteOptions {
   // @gotags: kong:"cmd,help='Delete connection in plumber server'"
   opts.DeleteConnectionOptions connection = 1;
 
-  // Relays have been replaced with channels ~DS 09/03/2023
+  // @gotags: kong:"-"
   opts.DeleteRelayOptions relay = 2 [deprecated=true];
 
   // @gotags: kong:"cmd,help='Delete source in plumber server'"
@@ -127,7 +127,7 @@ message DeleteOptions {
 }
 
 message StopOptions {
-  // Relays have been replaced with channels ~DS 09/03/2023
+  // @gotags: kong:"-"
   opts.StopRelayOptions relay = 1 [deprecated=true];
 
   // @gotags: kong:"cmd,help='Stop relay in plumber server'"
@@ -138,7 +138,7 @@ message StopOptions {
 }
 
 message ResumeOptions {
-  // Relays have been replaced with channels ~DS 09/03/2023
+  // @gotags: kong:"-"
   opts.ResumeRelayOptions relay = 1 [deprecated=true];
 
   // @gotags: kong:"cmd,help='Resume/Start channel in plumber server'"

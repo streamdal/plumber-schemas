@@ -64,16 +64,13 @@ message CreateRelayOptions {
 }
 
 message DeleteRelayOptions {
-  // @gotags: kong:"help='ID of the relay to delete',required=true"
   string id = 1;
 }
 
 message StopRelayOptions {
-  // @gotags: kong:"help='ID of the relay to stop',required=true"
   string id = 1;
 }
 
 message ResumeRelayOptions {
-  // @gotags: kong:"help='ID of the relay to resume',required=true"
   string id = 1;
 }
