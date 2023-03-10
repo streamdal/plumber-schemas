@@ -25,7 +25,6 @@ import "args/ps_args_rabbit.proto";
 import "args/ps_args_redis_pubsub.proto";
 import "args/ps_args_redis_streams.proto";
 
-
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/opts";
 
 message GetRelayOptions {

@@ -23,6 +23,8 @@ import "args/ps_args_rabbit_streams.proto";
 import "args/ps_args_redis_pubsub.proto";
 import "args/ps_args_redis_streams.proto";
 
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/opts";
+
 message CreateDestinationOptions {
   // @gotags: kong:"help='ID of the underlying connection',required"
   string connection_id = 1;
