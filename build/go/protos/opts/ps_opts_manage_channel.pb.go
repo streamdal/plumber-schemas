@@ -22,10 +22,10 @@ const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
 // Channel options are used to configure the behavior of a channel.
 type CreateChannelOptions struct {
-	// @gotags: kong:"help='Type of channel to create (options: direct, streamdal)',default='direct'
-	Type string `protobuf:"bytes,1,opt,name=type,proto3" json:"type,omitempty"`
-	// @gotags: kong:"help='ID of the source backend',required'
-	Source string `protobuf:"bytes,2,opt,name=source,proto3" json:"source,omitempty"`
+	// @gotags: kong:"help='Type of channel to create (options: direct, streamdal)',default='direct'"
+	Type string `protobuf:"bytes,1,opt,name=type,proto3" json:"type,omitempty" kong:"help='Type of channel to create (options: direct, streamdal)',default='direct'"`
+	// @gotags: kong:"help='ID of the source backend',required"
+	Source string `protobuf:"bytes,2,opt,name=source,proto3" json:"source,omitempty" kong:"help='ID of the source backend',required"`
 	// @gotags: kong:"help='ID of the destination backend OR streamdal',required'
 	Destination string `protobuf:"bytes,3,opt,name=destination,proto3" json:"destination,omitempty"`
 	// Filled out regardless of type
