@@ -312,8 +312,8 @@ type CreateOptions struct {
 	Source *CreateSourceOptions `protobuf:"bytes,4,opt,name=source,proto3" json:"source,omitempty" kong:"cmd,help='Create source in plumber server'"`
 	// @gotags: kong:"cmd,help='Create destination in plumber server'"
 	Destination *CreateDestinationOptions `protobuf:"bytes,5,opt,name=destination,proto3" json:"destination,omitempty" kong:"cmd,help='Create destination in plumber server'"`
-	// @gotags: kong:"cmd,help='Create channel between source and destination in plumber server
-	Channel *CreateChannelOptions `protobuf:"bytes,6,opt,name=channel,proto3" json:"channel,omitempty"`
+	// @gotags: kong:"cmd,help='Create channel between source and destination in plumber server'"
+	Channel *CreateChannelOptions `protobuf:"bytes,6,opt,name=channel,proto3" json:"channel,omitempty" kong:"cmd,help='Create channel between source and destination in plumber server'"`
 	// @gotags: kong:"cmd,help='Create tunnel in plumber server'"
 	Tunnel               *CreateTunnelOptions `protobuf:"bytes,3,opt,name=tunnel,proto3" json:"tunnel,omitempty" kong:"cmd,help='Create tunnel in plumber server'"`
 	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
