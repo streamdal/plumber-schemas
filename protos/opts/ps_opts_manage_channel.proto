@@ -2,7 +2,6 @@ syntax = "proto3";
 
 package protos.opts;
 
-import "opts/ps_opts_manage.proto";
 import "opts/ps_opts_read.proto";
 import "opts/ps_opts_server.proto";
 import "opts/ps_opts_streamdal.proto";
