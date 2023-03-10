@@ -220,8 +220,8 @@ func (m *GlobalManageOptions) GetDisablePretty() bool {
 type GetOptions struct {
 	// @gotags: kong:"cmd,help='Get connection(s) from plumber server'"
 	Connection *GetConnectionOptions `protobuf:"bytes,1,opt,name=connection,proto3" json:"connection,omitempty" kong:"cmd,help='Get connection(s) from plumber server'"`
-	// Relays have been replaced with channels ~DS 09/03/2023
-	Relay *GetRelayOptions `protobuf:"bytes,2,opt,name=relay,proto3" json:"relay,omitempty"` // Deprecated: Do not use.
+	// @gotags: kong:"-"
+	Relay *GetRelayOptions `protobuf:"bytes,2,opt,name=relay,proto3" json:"relay,omitempty" kong:"-"` // Deprecated: Do not use.
 	// @gotags: kong:"cmd,help='Get source(s) from plumber server'"
 	Source *GetSourceOptions `protobuf:"bytes,4,opt,name=source,proto3" json:"source,omitempty" kong:"cmd,help='Get source(s) from plumber server'"`
 	// @gotags: kong:"cmd,help='Get destination(s) from plumber server'"
@@ -306,8 +306,8 @@ func (m *GetOptions) GetTunnel() *GetTunnelOptions {
 type CreateOptions struct {
 	// @gotags: kong:"cmd,help='Create connection in plumber server'"
 	Connection *CreateConnectionOptions `protobuf:"bytes,1,opt,name=connection,proto3" json:"connection,omitempty" kong:"cmd,help='Create connection in plumber server'"`
-	// Relay has been replaced with channel ~DS 09/03/2023
-	Relay *CreateRelayOptions `protobuf:"bytes,2,opt,name=relay,proto3" json:"relay,omitempty"` // Deprecated: Do not use.
+	// @gotags: kong:"-"
+	Relay *CreateRelayOptions `protobuf:"bytes,2,opt,name=relay,proto3" json:"relay,omitempty" kong:"-"` // Deprecated: Do not use.
 	// @gotags: kong:"cmd,help='Create source in plumber server'"
 	Source *CreateSourceOptions `protobuf:"bytes,4,opt,name=source,proto3" json:"source,omitempty" kong:"cmd,help='Create source in plumber server'"`
 	// @gotags: kong:"cmd,help='Create destination in plumber server'"
@@ -392,8 +392,8 @@ func (m *CreateOptions) GetTunnel() *CreateTunnelOptions {
 type DeleteOptions struct {
 	// @gotags: kong:"cmd,help='Delete connection in plumber server'"
 	Connection *DeleteConnectionOptions `protobuf:"bytes,1,opt,name=connection,proto3" json:"connection,omitempty" kong:"cmd,help='Delete connection in plumber server'"`
-	// Relays have been replaced with channels ~DS 09/03/2023
-	Relay *DeleteRelayOptions `protobuf:"bytes,2,opt,name=relay,proto3" json:"relay,omitempty"` // Deprecated: Do not use.
+	// @gotags: kong:"-"
+	Relay *DeleteRelayOptions `protobuf:"bytes,2,opt,name=relay,proto3" json:"relay,omitempty" kong:"-"` // Deprecated: Do not use.
 	// @gotags: kong:"cmd,help='Delete source in plumber server'"
 	Source *DeleteSourceOptions `protobuf:"bytes,4,opt,name=source,proto3" json:"source,omitempty" kong:"cmd,help='Delete source in plumber server'"`
 	// @gotags: kong:"cmd,help='Delete destination in plumber server'"
@@ -476,8 +476,8 @@ func (m *DeleteOptions) GetTunnel() *DeleteTunnelOptions {
 }
 
 type StopOptions struct {
-	// Relays have been replaced with channels ~DS 09/03/2023
-	Relay *StopRelayOptions `protobuf:"bytes,1,opt,name=relay,proto3" json:"relay,omitempty"` // Deprecated: Do not use.
+	// @gotags: kong:"-"
+	Relay *StopRelayOptions `protobuf:"bytes,1,opt,name=relay,proto3" json:"relay,omitempty" kong:"-"` // Deprecated: Do not use.
 	// @gotags: kong:"cmd,help='Stop relay in plumber server'"
 	Channel *StopChannelOptions `protobuf:"bytes,3,opt,name=channel,proto3" json:"channel,omitempty" kong:"cmd,help='Stop relay in plumber server'"`
 	// @gotags: kong:"cmd,help='Stop tunnel in plumber server'"
@@ -535,8 +535,8 @@ func (m *StopOptions) GetTunnel() *StopTunnelOptions {
 }
 
 type ResumeOptions struct {
-	// Relays have been replaced with channels ~DS 09/03/2023
-	Relay *ResumeRelayOptions `protobuf:"bytes,1,opt,name=relay,proto3" json:"relay,omitempty"` // Deprecated: Do not use.
+	// @gotags: kong:"-"
+	Relay *ResumeRelayOptions `protobuf:"bytes,1,opt,name=relay,proto3" json:"relay,omitempty" kong:"-"` // Deprecated: Do not use.
 	// @gotags: kong:"cmd,help='Resume/Start channel in plumber server'"
 	Channel *ResumeChannelOptions `protobuf:"bytes,3,opt,name=channel,proto3" json:"channel,omitempty" kong:"cmd,help='Resume/Start channel in plumber server'"`
 	// @gotags: kong:"cmd,help='Resume/Start tunnel in plumber server'"

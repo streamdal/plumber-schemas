@@ -284,8 +284,7 @@ func (m *CreateRelayOptions) GetNatsJetstream() *args.NatsJetstreamReadArgs {
 }
 
 type DeleteRelayOptions struct {
-	// @gotags: kong:"help='ID of the relay to delete',required=true"
-	Id                   string   `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty" kong:"help='ID of the relay to delete',required=true"`
+	Id                   string   `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -324,8 +323,7 @@ func (m *DeleteRelayOptions) GetId() string {
 }
 
 type StopRelayOptions struct {
-	// @gotags: kong:"help='ID of the relay to stop',required=true"
-	Id                   string   `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty" kong:"help='ID of the relay to stop',required=true"`
+	Id                   string   `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -364,8 +362,7 @@ func (m *StopRelayOptions) GetId() string {
 }
 
 type ResumeRelayOptions struct {
-	// @gotags: kong:"help='ID of the relay to resume',required=true"
-	Id                   string   `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty" kong:"help='ID of the relay to resume',required=true"`
+	Id                   string   `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
