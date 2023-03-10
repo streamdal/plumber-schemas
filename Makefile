@@ -129,7 +129,7 @@ generate/go:
 	--proto_path=./protos \
 	--go_out=plugins=grpc:$(GO_PROTOS_DIR) \
 	--go_opt=paths=source_relative \
-	protos/opts/*.proto
+	protos/opts/ps_opts_cli.proto
 
 	docker run --rm -w $(PWD) -v $(PWD):$(PWD) -w${PWD} jaegertracing/protobuf:0.2.0 \
 	--proto_path=./protos \
