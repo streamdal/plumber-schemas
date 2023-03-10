@@ -2,8 +2,11 @@ syntax = "proto3";
 
 package protos.opts;
 
+import "opts/ps_opts_manage_channel.proto";
 import "opts/ps_opts_manage_connection.proto";
+import "opts/ps_opts_manage_destination.proto";
 import "opts/ps_opts_manage_relay.proto";
+import "opts/ps_opts_manage_source.proto";
 import "opts/ps_opts_manage_tunnel.proto";
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/opts";
@@ -67,8 +70,17 @@ message GetOptions {
   // @gotags: kong:"cmd,help='Get connection(s) from plumber server'"
   opts.GetConnectionOptions connection = 1;
 
-  // @gotags: kong:"cmd,help='Get relay(s) from plumber server'"
-  opts.GetRelayOptions relay = 2;
+  // Relays have been replaced with channels ~DS 09/03/2023
+  opts.GetRelayOptions relay = 2 [deprecated=true];
+
+  // @gotags: kong:"cmd,help='Get source(s) from plumber server'"
+  opts.GetSourceOptions source = 4;
+
+  // @gotags: kong:"cmd,help='Get destination(s) from plumber server'"
+  opts.GetDestinationOptions destination = 5;
+
+  // @gotags: kong:"cmd,help='Get channel(s) from plumber server'"
+  opts.GetChannelOptions channel = 6;
 
   // @gotags: kong:"cmd,help='Get tunnel(s) from plumber server'"
   opts.GetTunnelOptions tunnel = 3;
@@ -78,8 +90,17 @@ message CreateOptions {
   // @gotags: kong:"cmd,help='Create connection in plumber server'"
   opts.CreateConnectionOptions connection = 1;
 
-  // @gotags: kong:"cmd,help='Create relay in plumber server'"
-  opts.CreateRelayOptions relay = 2;
+  // Relay has been replaced with channel ~DS 09/03/2023
+  opts.CreateRelayOptions relay = 2 [deprecated=true];
+
+  // @gotags: kong:"cmd,help='Create source in plumber server'"
+  opts.CreateSourceOptions source = 4;
+
+  // @gotags: kong:"cmd,help='Create destination in plumber server'"
+  opts.CreateDestinationOptions destination = 5;
+
+  // @gotags: kong:"cmd,help='Create channel between source and destination in plumber server
+  opts.CreateChannelOptions channel = 6;
 
   // @gotags: kong:"cmd,help='Create tunnel in plumber server'"
   opts.CreateTunnelOptions tunnel = 3;
@@ -89,24 +110,39 @@ message DeleteOptions {
   // @gotags: kong:"cmd,help='Delete connection in plumber server'"
   opts.DeleteConnectionOptions connection = 1;
 
-  // @gotags: kong:"cmd,help='Delete relay in plumber server'"
-  opts.DeleteRelayOptions relay = 2;
+  // Relays have been replaced with channels ~DS 09/03/2023
+  opts.DeleteRelayOptions relay = 2 [deprecated=true];
+
+  // @gotags: kong:"cmd,help='Delete source in plumber server'"
+  opts.DeleteSourceOptions source = 4;
+
+  // @gotags: kong:"cmd,help='Delete destination in plumber server'"
+  opts.DeleteDestinationOptions destination = 5;
+
+  // @gotags: kong:"cmd,help='Delete channel in plumber server'"
+  opts.DeleteChannelOptions channel = 6;
 
   // @gotags: kong:"cmd,help='Delete tunnel in plumber server'"
   opts.DeleteTunnelOptions tunnel = 3;
 }
 
 message StopOptions {
+  // Relays have been replaced with channels ~DS 09/03/2023
+  opts.StopRelayOptions relay = 1 [deprecated=true];
+
   // @gotags: kong:"cmd,help='Stop relay in plumber server'"
-  opts.StopRelayOptions relay = 1;
+  opts.StopChannelOptions channel = 3;
 
   // @gotags: kong:"cmd,help='Stop tunnel in plumber server'"
   opts.StopTunnelOptions tunnel = 2;
 }
 
 message ResumeOptions {
-  // @gotags: kong:"cmd,help='Resume/Start relay in plumber server'"
-  opts.ResumeRelayOptions relay = 1;
+  // Relays have been replaced with channels ~DS 09/03/2023
+  opts.ResumeRelayOptions relay = 1 [deprecated=true];
+
+  // @gotags: kong:"cmd,help='Resume/Start channel in plumber server'"
+  opts.ResumeChannelOptions channel = 3;
 
   // @gotags: kong:"cmd,help='Resume/Start tunnel in plumber server'"
   opts.ResumeTunnelOptions tunnel = 2;

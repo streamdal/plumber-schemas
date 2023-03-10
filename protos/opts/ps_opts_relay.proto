@@ -1,3 +1,10 @@
+// WARNING
+//
+// Relaying has been replaced by channels. This proto is left as-is for backwards
+// compatibility with older versions of Plumber. It will be removed in the future.
+//
+// WARNING
+
 syntax = "proto3";
 
 package protos.opts;
@@ -21,215 +28,124 @@ import "args/ps_args_redis_streams.proto";
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/opts";
 
 message RelayCLIOptions {
-  // @gotags: kong:"help='What address to bind the built-in HTTP server to',env='PLUMBER_RELAY_HTTP_LISTEN_ADDRESS',default='localhost:9191'"
   string http_listen_address = 1;
 }
 
-// Relay is the structure that backends accept for facilitating a relay.
-// NOTE: _conn is only used by the CLI - desktop does not need to set it.
 message RelayOptions {
-  // @gotags: kong:"help='Secret collection token',env='PLUMBER_RELAY_TOKEN',name=token,required"
   string collection_token = 1;
-
-  // @gotags: kong:"help='How many messages to send in a single batch',env='PLUMBER_RELAY_BATCH_SIZE',default=1000"
   int32 batch_size = 2;
-
-  // @gotags: kong:"help='How many times plumber will try re-sending a batch',env='PLUMBER_RELAY_BATCH_MAX_RETRY',default=3"
   int32 batch_max_retry = 3;
-
-  // Required for desktop; ignored in CLI.
-  // @gotags: kong:"-"
   string connection_id = 4;
-
-  // @gotags: kong:"help='How many workers to launch per relay',env='PLUMBER_RELAY_NUM_WORKERS',default=10"
   int32 num_workers = 5;
-
-  // @gotags: kong:"group=stats,help='Display periodic read stats'"
   bool stats_enable = 6;
-
-  // @gotags: kong:"group=stats,help='How often to print stats',default=5"
   int32 stats_report_interval_sec = 7;
-
-  // @gotags: kong:"help='Consumed messages are intended to be dead-lettered',env='PLUMBER_RELAY_DEAD_LETTER'"
   bool dead_letter = 8;
 
   // --------------------------------------------------------------------- //
   //                          PRIVATE FIELDS (1000+)                       //
   // --------------------------------------------------------------------- //
 
-  // @gotags: kong:"help='Alternative collector to relay events to',name='grpc-address',env='PLUMBER_RELAY_GRPC_ADDRESS',default='grpc-collector.streamdal.com:9000'"
   string _streamdal_grpc_address = 1000;
-
-  // @gotags: kong:"help='Whether to use TLS with collector',name=grpc-disable-tls,env='PLUMBER_RELAY_GRPC_DISABLE_TLS',default=false"
   bool _streamdal_grpc_disable_tls = 1001;
-
-  // @gotags: kong:"help='How long to wait before giving up talking to the gRPC collector',name='grpc-timeout-seconds',env='PLUMBER_RELAY_GRPC_TIMEOUT',default=5"
   int32 _streamdal_grpc_timeout_seconds = 1002;
-
-  // ID of the created relay entry; populated by plumber.
-  // @gotags: kong:"-"
   string _relay_id = 1003;
-
-  // @gotags: kong:"embed"
   RelayCLIOptions _cli_options = 1004;
-
-  // Populated by plumber server during GetRelay* methods
-  // @gotags: kong:"-"
   bool _active  = 1005;
 
   // --------------------------------------------------------------------- //
   //                       SUPPORTED BACKENDS (100-999)                    //
   // --------------------------------------------------------------------- //
 
-  // @gotags: kong:"cmd,help='Apache Kafka'"
   RelayGroupKafkaOptions kafka = 100;
-
-  // @gotags: kong:"cmd,help='AWS Simple Queue System'"
   RelayGroupAWSSQSOptions aws_sqs = 101;
-
-  // @gotags: kong:"cmd,help='MongoDB (CDC)'"
   RelayGroupMongoOptions mongo = 102;
-
-  // @gotags: kong:"cmd,help='NSQ'"
   RelayGroupNSQOptions nsq = 103;
-
-  // @gotags: kong:"cmd,help='MQTT'"
   RelayGroupRabbitOptions rabbit = 104;
-
-  // @gotags: kong:"cmd,help='MQTT'"
   RelayGroupMQTTOptions mqtt = 105;
-
-  // @gotags: kong:"cmd,help='Azure Service Bus'"
   RelayGroupAzureServiceBusOptions azure_service_bus = 106;
-
-  // @gotags: kong:"cmd,help='Google Cloud Platform Pub/Sub'"
   RelayGroupGCPPubSubOptions gcp_pubsub = 107;
-
-  // @gotags: kong:"cmd,help='KubeMQ Queue'"
   RelayGroupKubeMQQueueOptions kubemq_queue = 108;
-
-  // @gotags: kong:"cmd,help='Redis PubSub'"
   RelayGroupRedisPubSubOptions redis_pubsub = 109;
-
-  // @gotags: kong:"cmd,help='Redis Streams'"
   RelayGroupRedisStreamsOptions redis_streams = 111;
-
-  // @gotags: kong:"cmd,help='PostgreSQL (CDC)'"
   RelayGroupPostgresOptions postgres = 112;
-
-  // @gotags: kong:"cmd,help='NATS'"
   RelayGroupNatsOptions nats = 113;
-
-  // @gotags: kong:"cmd,help='NATS Streaming'"
   RelayGroupNatsStreamingOptions nats_streaming = 114;
-
-  // @gotags: kong:"cmd,help='NATS JetStream'"
   RelayGroupNatsJetStreamOptions nats_jetstream = 115;
 }
 
 message RelayGroupKafkaOptions {
-  // @gotags: kong:"embed"
   args.KafkaConn _conn = 1;
-  // @gotags: kong:"embed"
-  args.KafkaRelayArgs args = 2;
+  args.KafkaSourceArgs args = 2;
 }
 
 message RelayGroupAWSSQSOptions {
-  // @gotags: kong:"embed"
   args.AWSSQSConn _conn = 1;
-  // @gotags: kong:"embed"
-  args.AWSSQSRelayArgs args = 2;
+  args.AWSSQSSourceArgs args = 2;
 }
 
 message RelayGroupMongoOptions {
-  // @gotags: kong:"embed"
   args.MongoConn _conn = 1;
-  // @gotags: kong:"embed"
   args.MongoReadArgs args = 2;
 }
 
 message RelayGroupNSQOptions {
-  // @gotags: kong:"embed"
   args.NSQConn _conn = 1;
-  // @gotags: kong:"embed"
   args.NSQReadArgs args = 2;
 }
 
 message RelayGroupPostgresOptions {
-  // @gotags: kong:"embed"
   args.PostgresConn _conn = 1;
-  // @gotags: kong:"embed"
   args.PostgresReadArgs args = 2;
 }
 
 message RelayGroupRabbitOptions {
-  // @gotags: kong:"embed"
   args.RabbitConn _conn = 1;
-  // @gotags: kong:"embed"
   args.RabbitReadArgs args = 2;
 }
 
 message RelayGroupRedisPubSubOptions {
-  // @gotags: kong:"embed"
   args.RedisPubSubConn _conn = 1;
-  // @gotags: kong:"embed"
   args.RedisPubSubReadArgs args = 2;
 }
 
 message RelayGroupRedisStreamsOptions {
-  // @gotags: kong:"embed"
   args.RedisStreamsConn _conn = 1;
-  // @gotags: kong:"embed"
   args.RedisStreamsReadArgs args = 2;
 }
 
 message RelayGroupAzureServiceBusOptions {
-  // @gotags: kong:"embed"
   args.AzureServiceBusConn _conn = 1;
-  // @gotags: kong:"embed"
   args.AzureServiceBusReadArgs args = 2;
 }
 
 message RelayGroupMQTTOptions {
-  // @gotags: kong:"embed"
   args.MQTTConn _conn = 1;
-  // @gotags: kong:"embed"
   args.MQTTReadArgs args = 2;
 }
 
 message RelayGroupGCPPubSubOptions {
-  // @gotags: kong:"embed"
   args.GCPPubSubConn _conn = 1;
-  // @gotags: kong:"embed"
   args.GCPPubSubReadArgs args = 2;
 }
 
 message RelayGroupKubeMQQueueOptions {
-  // @gotags: kong:"embed"
   args.KubeMQQueueConn _conn = 1;
-  // @gotags: kong:"embed"
   args.KubeMQQueueReadArgs args = 2;
 }
 
 message RelayGroupNatsOptions {
-  // @gotags: kong:"embed"
   args.NatsConn _conn = 1;
-  // @gotags: kong:"embed"
   args.NatsReadArgs args = 2;
 }
 
 message RelayGroupNatsStreamingOptions {
-  // @gotags: kong:"embed"
   args.NatsStreamingConn _conn = 1;
-  // @gotags: kong:"embed"
   args.NatsStreamingReadArgs args = 2;
 }
 
 
 message RelayGroupNatsJetStreamOptions {
-  // @gotags: kong:"embed"
   args.NatsJetstreamConn _conn = 1;
-  // @gotags: kong:"embed"
   args.NatsJetstreamReadArgs args = 2;
 }
 

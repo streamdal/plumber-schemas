@@ -68,5 +68,3 @@ message ConnectionOptions {
   // Used internally by plumber
   string _id = 1000;
 }
-
-// {"name": .., "kafka": }

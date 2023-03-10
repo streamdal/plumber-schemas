@@ -1,10 +1,3 @@
-// WARNING
-//
-// Relays have been replaced by channels. This file is deprecated and
-// you should not add anything to it. It is here to enable backwards compat.
-//
-// WARNING
-
 syntax = "proto3";
 
 package protos.opts;
@@ -28,53 +21,73 @@ import "args/ps_args_redis_streams.proto";
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/opts";
 
-message GetRelayOptions {
-  string id = 1;
-}
-
-message CreateRelayOptions {
+message CreateSourceOptions {
+  // @gotags: kong:"help='ID of the connection to use',required"
   string connection_id = 1;
-  string collection_token = 2;
-  int32 batch_size = 3;
-  int32 batch_max_retry = 4;
-  int32 num_workers = 5;
-  string streamdal_grpc_address = 6;
-  bool streamdal_grpc_disable_tls = 7;
-  int32 streamdal_grpc_timeout_seconds = 8;
-  bool dead_letter = 9;
+
+  // @gotags: kong:"help='Friendly name for the source',required"
+  string name = 2;
+
+  // @gotags: kong:"help='Notes to attach to the source'"
+  string notes = 3;
 
   // --------------------------------------------------------------------- //
   //                       SUPPORTED BACKENDS (100-999)                    //
   // --------------------------------------------------------------------- //
 
+  // @gotags: kong:"cmd,help='Apache Kafka'"
   args.KafkaSourceArgs kafka = 100;
+
+  // @gotags: kong:"cmd,help='AWS Simple Queue System'"
   args.AWSSQSSourceArgs aws_sqs = 101;
+
+  // @gotags: kong:"cmd,help='MongoDB (CDC)'"
   args.MongoReadArgs mongo = 102;
+
+  // @gotags: kong:"cmd,help='NSQ'"
   args.NSQReadArgs nsq = 103;
+
+  // @gotags: kong:"cmd,help='MQTT'"
   args.RabbitReadArgs rabbit = 104;
+
+  // @gotags: kong:"cmd,help='MQTT'"
   args.MQTTReadArgs mqtt = 105;
+
+  // @gotags: kong:"cmd,help='Azure Service Bus'"
   args.AzureServiceBusReadArgs azure_service_bus = 106;
+
+  // @gotags: kong:"cmd,help='Google Cloud Platform Pub/Sub'"
   args.GCPPubSubReadArgs gcp_pubsub = 107;
+
+  // @gotags: kong:"cmd,help='KubeMQ Queue'"
   args.KubeMQQueueReadArgs kubemq_queue = 108;
+
+  // @gotags: kong:"cmd,help='Redis PubSub'"
   args.RedisPubSubReadArgs redis_pubsub = 109;
+
+  // @gotags: kong:"cmd,help='Redis Streams'"
   args.RedisStreamsReadArgs redis_streams = 111;
+
+  // @gotags: kong:"cmd,help='PostgreSQL (CDC)'"
   args.PostgresReadArgs postgres = 112;
+
+  // @gotags: kong:"cmd,help='NATS'"
   args.NatsReadArgs nats = 113;
+
+  // @gotags: kong:"cmd,help='NATS Streaming'"
   args.NatsStreamingReadArgs nats_streaming = 114;
+
+  // @gotags: kong:"cmd,help='NATS JetStream'"
   args.NatsJetstreamReadArgs nats_jetstream = 115;
 }
 
-message DeleteRelayOptions {
-  // @gotags: kong:"help='ID of the relay to delete',required=true"
+message GetSourceOptions {
+  // @gotags: kong:"help='ID of the relay to get (leave empty to get all)'"
   string id = 1;
 }
 
-message StopRelayOptions {
-  // @gotags: kong:"help='ID of the relay to stop',required=true"
-  string id = 1;
-}
 
-message ResumeRelayOptions {
-  // @gotags: kong:"help='ID of the relay to resume',required=true"
+message DeleteSourceOptions {
+  // @gotags: kong:"help='ID of the source to delete',required=true"
   string id = 1;
 }

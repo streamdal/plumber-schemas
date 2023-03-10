@@ -2,7 +2,6 @@ syntax = "proto3";
 
 package protos;
 
-
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
 
 // ForemanClient is a service used to connect to Foreman from a Plumber server cluster

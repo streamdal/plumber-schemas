@@ -32,7 +32,7 @@ message GetConnectionOptions {
 }
 
 message CreateConnectionOptions {
-  // @gotags: kong:"help='Friendly name for the connection', required"
+  // @gotags: kong:"help='Friendly name for the connection',required"
   string name = 1;
 
   // @gotags: kong:"help='Optional notes to associate with the connection'"

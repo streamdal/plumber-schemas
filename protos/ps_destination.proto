@@ -1,0 +1,85 @@
+syntax = "proto3";
+
+package protos;
+
+import "common/ps_common_auth.proto";
+import "common/ps_common_status.proto";
+import "opts/ps_opts_manage_destination.proto";
+import "opts/ps_opts_relay.proto";
+
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
+
+message GetAllDestinationsRequest {
+  // Every gRPC request must have a valid auth config
+  common.Auth auth = 9999;
+}
+
+message GetAllDestinationsResponse {
+  common.Status status = 1000;
+
+  // TODO: Expand connection in resp
+  // Will be set as empty []Relay if no relays are configured
+  repeated opts.CreateDestinationOptions opts = 1;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+message GetDestinationRequest {
+  // Every gRPC request must have a valid auth config
+  common.Auth auth = 9999;
+
+  string destination_id = 1;
+}
+
+message GetDestinationResponse {
+  common.Status status = 1000;
+
+  // TODO: Expand connection in resp
+  opts.CreateDestinationOptions opts = 1;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+message CreateDestinationRequest {
+  // Every gRPC request must have a valid auth config
+  common.Auth auth = 9999;
+
+  opts.CreateDestinationOptions opts = 1;
+}
+
+message CreateDestinationResponse {
+  common.Status status = 1000;
+
+  // ID of the created source entry
+  string destination_id = 1;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+// WARNING: Destinations used in channels will be interrupted/restarted
+message UpdateDestinationRequest {
+  // Every gRPC request must have a valid auth config
+  common.Auth auth = 9999;
+
+  string destination_id = 1;
+
+  opts.CreateDestinationOptions opts = 2;
+}
+
+message UpdateDestinationResponse {
+  common.Status status = 1000;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+// NOTE: Delete won't succeed if a channel exists that uses the source
+message DeleteDestinationRequest {
+  // Every gRPC request must have a valid auth config
+  common.Auth auth = 9999;
+
+  string destination_id = 1;
+}
+
+message DeleteDestinationResponse {
+  common.Status status = 1000;
+}

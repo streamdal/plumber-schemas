@@ -2,9 +2,11 @@ syntax = "proto3";
 
 package protos;
 
+import "ps_channel.proto";
 import "ps_connect.proto";
-import "ps_relay.proto";
+import "ps_destination.proto";
 import "ps_server.proto";
+import "ps_source.proto";
 import "ps_tunnel.proto";
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
@@ -34,21 +36,45 @@ service PlumberServer {
   // If there are any active connections, delete will cause them to get closed
   rpc DeleteConnection(DeleteConnectionRequest) returns (DeleteConnectionResponse);
 
-  // ---------------------- Relay ----------------------
+  // --------------------- Source ---------------------
 
-  rpc GetAllRelays(GetAllRelaysRequest) returns (GetAllRelaysResponse);
+  rpc GetSource(GetSourceRequest) returns (GetSourceResponse);
 
-  rpc GetRelay(GetRelayRequest) returns (GetRelayResponse);
+  rpc GetAllSources(GetAllSourcesRequest) returns (GetAllSourcesResponse);
 
-  rpc CreateRelay(CreateRelayRequest) returns (CreateRelayResponse);
+  rpc CreateSource(CreateSourceRequest) returns (CreateSourceResponse);
 
-  rpc UpdateRelay(UpdateRelayRequest) returns (UpdateRelayResponse);
+  rpc UpdateSource(UpdateSourceRequest) returns (UpdateSourceResponse);
 
-  rpc ResumeRelay(ResumeRelayRequest) returns (ResumeRelayResponse);
+  rpc DeleteSource(DeleteSourceRequest) returns (DeleteSourceResponse);
 
-  rpc StopRelay(StopRelayRequest) returns (StopRelayResponse);
+  // --------------------- Destination ---------------------
 
-  rpc DeleteRelay(DeleteRelayRequest) returns (DeleteRelayResponse);
+  rpc GetDestination(GetDestinationRequest) returns (GetDestinationResponse);
+
+  rpc GetAllDestinations(GetAllDestinationsRequest) returns (GetAllDestinationsResponse);
+
+  rpc CreateDestination(CreateDestinationRequest) returns (CreateDestinationResponse);
+
+  rpc UpdateDestination(UpdateDestinationRequest) returns (UpdateDestinationResponse);
+
+  rpc DeleteDestination(DeleteDestinationRequest) returns (DeleteDestinationResponse);
+
+  // --------------------- Channel ---------------------
+
+  rpc GetChannel(GetChannelRequest) returns (GetChannelResponse);
+
+  rpc GetAllChannels(GetAllChannelsRequest) returns (GetAllChannelsResponse);
+
+  rpc CreateChannel(CreateChannelRequest) returns (CreateChannelResponse);
+
+  rpc UpdateChannel(UpdateChannelRequest) returns (UpdateChannelResponse);
+
+  rpc DeleteChannel(DeleteChannelRequest) returns (DeleteChannelResponse);
+
+  rpc StopChannel(StopChannelRequest) returns (StopChannelResponse);
+
+  rpc ResumeChannel(ResumeChannelRequest) returns (ResumeChannelResponse);
 
   // --------------------- Tunnel ---------------------
 

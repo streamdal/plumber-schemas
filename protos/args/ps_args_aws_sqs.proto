@@ -59,7 +59,7 @@ message AWSSQSWriteArgs {
 }
 
 // SQS has a dedicated RelayArgs struct as relay has different defaults than read
-message AWSSQSRelayArgs {
+message AWSSQSSourceArgs {
   // @gotags: kong:"help='Queue name',env=PLUMBER_RELAY_SQS_QUEUE_NAME"
   string queue_name = 1;
 

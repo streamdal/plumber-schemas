@@ -1,0 +1,80 @@
+syntax = "proto3";
+
+package protos.opts;
+
+import "opts/ps_opts_manage.proto";
+import "opts/ps_opts_read.proto";
+import "opts/ps_opts_server.proto";
+import "opts/ps_opts_streamdal.proto";
+import "opts/ps_opts_tunnel.proto";
+import "opts/ps_opts_write.proto";
+
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/opts";
+
+// Channel options are used to configure the behavior of a channel.
+message CreateChannelOptions {
+  // @gotags: kong:"help='Type of channel to create (options: direct, streamdal)',default='direct'
+  string type = 1;
+
+  // @gotags: kong:"help='ID of the source backend',required'
+  string source = 2;
+
+  // @gotags: kong:"help='ID of the destination backend OR streamdal',required'
+  string destination = 3;
+
+  // Filled out regardless of type
+  // @gotags: kong:"embed"
+  BaseChannelOptions settings = 4;
+
+  // Filled out if type == streamdal
+  // @gotags: kong:"embed"
+  StreamdalChannelOptions streamdal_options = 5;
+}
+
+message BaseChannelOptions {
+  // @gotags: kong:"help='How many messages to send in a single batch',default=1000"
+  int32 batch_size = 1;
+
+  // @gotags: kong:"help='How many times plumber will try re-sending a batch',default=3"
+  int32 batch_max_retry = 2;
+
+  // @gotags: kong:"help='How many workers to launch per channel',default=10"
+  int32 num_workers = 3;
+}
+
+message StreamdalChannelOptions {
+  // @gotags: kong:"help='Secret collection token'"
+  string collection_token = 1;
+
+  // @gotags: kong:"help='Consumed messages are intended to be dead-lettered'"
+  bool dead_letter = 2;
+
+  // @gotags: kong:"help='Alternative collector to send events to',default='grpc-collector.streamdal.com:9000'"
+  string streamdal_grpc_address = 3;
+
+  // @gotags: kong:"help='Whether to use TLS with collector'"
+  bool streamdal_grpc_disable_tls = 4;
+
+  // @gotags: kong:"help='How long to wait before giving up talking to the gRPC collector',default=5"
+  int32 streamdal_grpc_timeout_seconds = 5;
+}
+
+message GetChannelOptions {
+  // @gotags: kong:"help='ID of the channel to get (leave empty to get all)'"
+  string id =1;
+}
+
+message DeleteChannelOptions {
+  // @gotags: kong:"help='ID of the channel to delete',required=true"
+  string id =1;
+}
+
+message StopChannelOptions {
+  // @gotags: kong:"help='ID of the channel to stop',required=true"
+  string id = 1;
+}
+
+message ResumeChannelOptions {
+  // @gotags: kong:"help='ID of the channel to resume',required=true"
+  string id = 1;
+}

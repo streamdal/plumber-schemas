@@ -4,107 +4,105 @@ package protos;
 
 import "common/ps_common_auth.proto";
 import "common/ps_common_status.proto";
+import "opts/ps_opts_manage_channel.proto";
 import "opts/ps_opts_relay.proto";
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
 
-message GetAllRelaysRequest {
+message GetAllChannelsRequest {
   // Every gRPC request must have a valid auth config
   common.Auth auth = 9999;
 }
 
-message GetAllRelaysResponse {
+message GetAllChannelsResponse {
   common.Status status = 1000;
 
   // Will be set as empty []Relay if no relays are configured
-  repeated opts.RelayOptions opts = 1;
+  repeated opts.CreateChannelOptions opts = 1;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 
-message GetRelayRequest {
+message GetChannelRequest {
   // Every gRPC request must have a valid auth config
   common.Auth auth = 9999;
 
-  string relay_id = 1;
+  string channel_id = 1;
 }
 
-message GetRelayResponse {
+message GetChannelResponse {
   common.Status status = 1000;
 
-  // Set only if status is OK
-  opts.RelayOptions opts = 1;
+  opts.CreateChannelOptions opts = 1;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 
-message CreateRelayRequest {
+message CreateChannelRequest {
   // Every gRPC request must have a valid auth config
   common.Auth auth = 9999;
 
-  opts.RelayOptions opts = 1;
+  opts.CreateChannelOptions opts = 1;
 }
 
-message CreateRelayResponse {
+message CreateChannelResponse {
   common.Status status = 1000;
 
-  // ID of the created relay entry
-  string relay_id = 1;
+  // ID of the created channel entry
+  string channel_id = 1;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 
-// WARNING: Any in-progress relay will be interrupted/restarted
-message UpdateRelayRequest {
+// WARNING: Channel will be interrupted if running
+message UpdateChannelRequest {
   // Every gRPC request must have a valid auth config
   common.Auth auth = 9999;
 
-  string relay_id = 1;
+  string channel_id = 1;
 
-  opts.RelayOptions opts = 2;
+  opts.CreateChannelOptions opts = 2;
 }
 
-message UpdateRelayResponse {
-  common.Status status = 1000;
-}
-
-///////////////////////////////////////////////////////////////////////////////
-
-// Resume a paused relay
-message ResumeRelayRequest {
-  // Every gRPC request must have a valid auth config
-  common.Auth auth = 9999;
-
-  string relay_id = 1;
-}
-
-message ResumeRelayResponse {
+message UpdateChannelResponse {
   common.Status status = 1000;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 
-// Temporarily stop/pause a relay
-message StopRelayRequest {
+message StopChannelRequest {
   // Every gRPC request must have a valid auth config
   common.Auth auth = 9999;
 
-  string relay_id = 1;
+  string channel_id = 1;
 }
 
-message StopRelayResponse {
+message StopChannelResponse {
   common.Status status = 1000;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 
-message DeleteRelayRequest {
+message ResumeChannelRequest {
   // Every gRPC request must have a valid auth config
   common.Auth auth = 9999;
 
-  string relay_id = 1;
+  string channel_id = 1;
 }
 
-message DeleteRelayResponse {
+message ResumeChannelResponse {
+  common.Status status = 1000;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+message DeleteChannelRequest {
+  // Every gRPC request must have a valid auth config
+  common.Auth auth = 9999;
+
+  string channel_id = 1;
+}
+
+message DeleteChannelResponse {
   common.Status status = 1000;
 }

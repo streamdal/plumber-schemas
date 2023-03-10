@@ -86,7 +86,7 @@ message KafkaWriteArgs {
   repeated string topics = 3;
 }
 
-message KafkaRelayArgs {
+message KafkaSourceArgs {
   // @gotags: kong:"help='Topic(s) to read, write or get lag stats for',env=PLUMBER_RELAY_KAFKA_TOPIC,required"
   repeated string topics = 1;
 
