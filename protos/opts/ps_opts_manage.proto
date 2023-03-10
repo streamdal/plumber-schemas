@@ -99,7 +99,7 @@ message CreateOptions {
   // @gotags: kong:"cmd,help='Create destination in plumber server'"
   opts.CreateDestinationOptions destination = 5;
 
-  // @gotags: kong:"cmd,help='Create channel between source and destination in plumber server
+  // @gotags: kong:"cmd,help='Create channel between source and destination in plumber server'"
   opts.CreateChannelOptions channel = 6;
 
   // @gotags: kong:"cmd,help='Create tunnel in plumber server'"
