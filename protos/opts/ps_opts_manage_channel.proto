@@ -6,10 +6,10 @@ option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/opts";
 
 // Channel options are used to configure the behavior of a channel.
 message CreateChannelOptions {
-  // @gotags: kong:"help='Type of channel to create (options: direct, streamdal)',default='direct'
+  // @gotags: kong:"help='Type of channel to create (options: direct, streamdal)',default='direct'"
   string type = 1;
 
-  // @gotags: kong:"help='ID of the source backend',required'
+  // @gotags: kong:"help='ID of the source backend',required"
   string source = 2;
 
   // @gotags: kong:"help='ID of the destination backend OR streamdal',required'
