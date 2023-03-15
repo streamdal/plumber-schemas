@@ -4,10 +4,10 @@ package protos;
 
 import "ps_channel.proto";
 import "ps_connect.proto";
-import "ps_write.proto";
-import "ps_server.proto";
 import "ps_read.proto";
+import "ps_server.proto";
 import "ps_tunnel.proto";
+import "ps_write.proto";
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
 
@@ -36,29 +36,29 @@ service PlumberServer {
   // If there are any active connections, delete will cause them to get closed
   rpc DeleteConnection(DeleteConnectionRequest) returns (DeleteConnectionResponse);
 
-  // --------------------- Source ---------------------
+  // --------------------- Read ---------------------
 
-  rpc GetSource(GetSourceRequest) returns (GetSourceResponse);
+  rpc GetRead(GetReadRequest) returns (GetReadResponse);
 
-  rpc GetAllSources(GetAllSourcesRequest) returns (GetAllSourcesResponse);
+  rpc GetAllRead(GetAllReadRequest) returns (GetAllReadResponse);
 
-  rpc CreateSource(CreateSourceRequest) returns (CreateSourceResponse);
+  rpc CreateRead(CreateReadRequest) returns (CreateReadResponse);
 
-  rpc UpdateSource(UpdateSourceRequest) returns (UpdateSourceResponse);
+  rpc UpdateRead(UpdateReadRequest) returns (UpdateReadResponse);
 
-  rpc DeleteSource(DeleteSourceRequest) returns (DeleteSourceResponse);
+  rpc DeleteRead(DeleteReadRequest) returns (DeleteReadResponse);
 
-  // --------------------- Destination ---------------------
+  // --------------------- Write ---------------------
 
-  rpc GetDestination(GetDestinationRequest) returns (GetDestinationResponse);
+  rpc GetWrite(GetWriteRequest) returns (GetWriteResponse);
 
-  rpc GetAllDestinations(GetAllReadRequest) returns (GetAllReadResponse);
+  rpc GetAllWrite(GetAllWriteRequest) returns (GetAllWriteResponse);
 
-  rpc CreateDestination(CreateDestinationRequest) returns (CreateDestinationResponse);
+  rpc CreateWrite(CreateWriteRequest) returns (CreateWriteResponse);
 
-  rpc UpdateDestination(UpdateDestinationRequest) returns (UpdateDestinationResponse);
+  rpc UpdateWrite(UpdateWriteRequest) returns (UpdateWriteResponse);
 
-  rpc DeleteDestination(DeleteDestinationRequest) returns (DeleteDestinationResponse);
+  rpc DeleteWrite(DeleteWriteRequest) returns (DeleteWriteResponse);
 
   // --------------------- Channel ---------------------
 

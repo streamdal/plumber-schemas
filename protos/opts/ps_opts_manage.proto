@@ -4,10 +4,10 @@ package protos.opts;
 
 import "opts/ps_opts_manage_channel.proto";
 import "opts/ps_opts_manage_connection.proto";
-import "opts/ps_opts_manage_write.proto";
-import "opts/ps_opts_manage_relay.proto";
 import "opts/ps_opts_manage_read.proto";
+import "opts/ps_opts_manage_relay.proto";
 import "opts/ps_opts_manage_tunnel.proto";
+import "opts/ps_opts_manage_write.proto";
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/opts";
 
