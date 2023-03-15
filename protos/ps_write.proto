@@ -4,82 +4,82 @@ package protos;
 
 import "common/ps_common_auth.proto";
 import "common/ps_common_status.proto";
-import "opts/ps_opts_manage_destination.proto";
+import "opts/ps_opts_manage_write.proto";
 import "opts/ps_opts_relay.proto";
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
 
-message GetAllDestinationsRequest {
+message GetAllWriteRequest {
   // Every gRPC request must have a valid auth config
   common.Auth auth = 9999;
 }
 
-message GetAllDestinationsResponse {
+message GetAllWriteResponse {
   common.Status status = 1000;
 
   // TODO: Expand connection in resp
   // Will be set as empty []Relay if no relays are configured
-  repeated opts.CreateDestinationOptions opts = 1;
+  repeated opts.CreateWriteOptions opts = 1;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 
-message GetDestinationRequest {
+message GetWriteRequest{
   // Every gRPC request must have a valid auth config
   common.Auth auth = 9999;
 
-  string destination_id = 1;
+  string write_id = 1;
 }
 
-message GetDestinationResponse {
+message GetWriteResponse {
   common.Status status = 1000;
 
   // TODO: Expand connection in resp
-  opts.CreateDestinationOptions opts = 1;
+  opts.CreateWriteOptions opts = 1;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 
-message CreateDestinationRequest {
+message CreateWriteRequest{
   // Every gRPC request must have a valid auth config
   common.Auth auth = 9999;
 
-  opts.CreateDestinationOptions opts = 1;
+  opts.CreateWriteOptions opts = 1;
 }
 
-message CreateDestinationResponse {
+message CreateWriteResponse {
   common.Status status = 1000;
 
   // ID of the created source entry
-  string destination_id = 1;
+  string write_id = 1;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 
 // WARNING: Destinations used in channels will be interrupted/restarted
-message UpdateDestinationRequest {
+message UpdateWriteRequest{
   // Every gRPC request must have a valid auth config
   common.Auth auth = 9999;
 
-  string destination_id = 1;
+  string write_id = 1;
 
-  opts.CreateDestinationOptions opts = 2;
+  opts.CreateWriteOptions opts = 2;
 }
 
-message UpdateDestinationResponse {
+message UpdateWriteResponse {
   common.Status status = 1000;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 
 // NOTE: Delete won't succeed if a channel exists that uses the source
-message DeleteDestinationRequest {
+message DeleteWriteRequest{
   // Every gRPC request must have a valid auth config
   common.Auth auth = 9999;
 
-  string destination_id = 1;
+  string write_id = 1;
 }
 
-message DeleteDestinationResponse {
+message DeleteWriteResponse {
   common.Status status = 1000;
 }

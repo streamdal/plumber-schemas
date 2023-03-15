@@ -4,82 +4,82 @@ package protos;
 
 import "common/ps_common_auth.proto";
 import "common/ps_common_status.proto";
-import "opts/ps_opts_manage_source.proto";
+import "opts/ps_opts_manage_read.proto";
 import "opts/ps_opts_relay.proto";
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
 
-message GetAllSourcesRequest {
+message GetAllReadRequest {
   // Every gRPC request must have a valid auth config
   common.Auth auth = 9999;
 }
 
-message GetAllSourcesResponse {
+message GetAllReadResponse {
   common.Status status = 1000;
 
   // TODO: Expand connection in resp
   // Will be set as empty []Relay if no relays are configured
-  repeated opts.CreateSourceOptions opts = 1;
+  repeated opts.CreateReadOptions opts = 1;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 
-message GetSourceRequest {
+message GetReadRequest {
   // Every gRPC request must have a valid auth config
   common.Auth auth = 9999;
 
-  string source_id = 1;
+  string read_id = 1;
 }
 
-message GetSourceResponse {
+message GetReadResponse {
   common.Status status = 1000;
 
   // TODO: Expand connection in resp
-  opts.CreateSourceOptions opts = 1;
+  opts.CreateReadOptions opts = 1;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 
-message CreateSourceRequest {
+message CreateReadRequest {
   // Every gRPC request must have a valid auth config
   common.Auth auth = 9999;
 
-  opts.CreateSourceOptions opts = 1;
+  opts.CreateReadOptions opts = 1;
 }
 
-message CreateSourceResponse {
+message CreateReadResponse {
   common.Status status = 1000;
 
-  // ID of the created source entry
-  string source_id = 1;
+  // ID of the created read resource
+  string read_id = 1;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 
 // WARNING: Sources used in channels will be interrupted/restarted
-message UpdateSourceRequest {
+message UpdateReadRequest {
   // Every gRPC request must have a valid auth config
   common.Auth auth = 9999;
 
-  string source_id = 1;
+  string read_id = 1;
 
-  opts.CreateSourceOptions opts = 2;
+  opts.CreateReadOptions opts = 2;
 }
 
-message UpdateSourceResponse {
+message UpdateReadResponse {
   common.Status status = 1000;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 
 // NOTE: Delete won't succeed if a channel exists that uses the source
-message DeleteSourceRequest {
+message DeleteReadRequest {
   // Every gRPC request must have a valid auth config
   common.Auth auth = 9999;
 
-  string source_id = 1;
+  string read_id = 1;
 }
 
-message DeleteSourceResponse {
+message DeleteReadResponse {
   common.Status status = 1000;
 }

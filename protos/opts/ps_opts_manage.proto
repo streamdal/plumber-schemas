@@ -4,9 +4,9 @@ package protos.opts;
 
 import "opts/ps_opts_manage_channel.proto";
 import "opts/ps_opts_manage_connection.proto";
-import "opts/ps_opts_manage_destination.proto";
+import "opts/ps_opts_manage_write.proto";
 import "opts/ps_opts_manage_relay.proto";
-import "opts/ps_opts_manage_source.proto";
+import "opts/ps_opts_manage_read.proto";
 import "opts/ps_opts_manage_tunnel.proto";
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/opts";
@@ -74,10 +74,10 @@ message GetOptions {
   opts.GetRelayOptions relay = 2 [deprecated=true];
 
   // @gotags: kong:"cmd,help='Get source(s) from plumber server'"
-  opts.GetSourceOptions source = 4;
+  opts.GetReadOptions source = 4;
 
   // @gotags: kong:"cmd,help='Get destination(s) from plumber server'"
-  opts.GetDestinationOptions destination = 5;
+  opts.GetWriteOptions destination = 5;
 
   // @gotags: kong:"cmd,help='Get channel(s) from plumber server'"
   opts.GetChannelOptions channel = 6;
@@ -94,10 +94,10 @@ message CreateOptions {
   opts.CreateRelayOptions relay = 2 [deprecated=true];
 
   // @gotags: kong:"cmd,help='Create source in plumber server'"
-  opts.CreateSourceOptions source = 4;
+  opts.CreateReadOptions source = 4;
 
   // @gotags: kong:"cmd,help='Create destination in plumber server'"
-  opts.CreateDestinationOptions destination = 5;
+  opts.CreateWriteOptions destination = 5;
 
   // @gotags: kong:"cmd,help='Create channel between source and destination in plumber server'"
   opts.CreateChannelOptions channel = 6;
@@ -114,10 +114,10 @@ message DeleteOptions {
   opts.DeleteRelayOptions relay = 2 [deprecated=true];
 
   // @gotags: kong:"cmd,help='Delete source in plumber server'"
-  opts.DeleteSourceOptions source = 4;
+  opts.DeleteReadOptions source = 4;
 
   // @gotags: kong:"cmd,help='Delete destination in plumber server'"
-  opts.DeleteDestinationOptions destination = 5;
+  opts.DeleteWriteOptions destination = 5;
 
   // @gotags: kong:"cmd,help='Delete channel in plumber server'"
   opts.DeleteChannelOptions channel = 6;

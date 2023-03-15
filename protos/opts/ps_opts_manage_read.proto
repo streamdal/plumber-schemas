@@ -20,7 +20,7 @@ import "args/ps_args_redis_streams.proto";
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/opts";
 
-message CreateSourceOptions {
+message CreateReadOptions {
   // @gotags: kong:"help='ID of the connection to use',required"
   string connection_id = 1;
 
@@ -80,13 +80,13 @@ message CreateSourceOptions {
   args.NatsJetstreamReadArgs nats_jetstream = 115;
 }
 
-message GetSourceOptions {
-  // @gotags: kong:"help='ID of the relay to get (leave empty to get all)'"
+message GetReadOptions {
+  // @gotags: kong:"help='ID of the read resource to get (leave empty to get all)'"
   string id = 1;
 }
 
 
-message DeleteSourceOptions {
-  // @gotags: kong:"help='ID of the source to delete',required=true"
+message DeleteReadOptions {
+  // @gotags: kong:"help='ID of the read resource to delete',required=true"
   string id = 1;
 }

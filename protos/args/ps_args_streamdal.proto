@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package protos.args;
+
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/args";
+
+message StreamdalWriteArgs {
+  // @gotags: kong:"help='Secret collection token',required"
+  string collection_token = 1;
+
+  // @gotags: kong:"help='Consumed messages are intended to be dead-lettered'"
+  bool dead_letter = 2;
+
+  // @gotags: kong:"help='Alternative collector to send events to',default='grpc-collector.streamdal.com:9000'"
+  string streamdal_grpc_address = 3;
+
+  // @gotags: kong:"help='Whether to use TLS with collector'"
+  bool streamdal_grpc_disable_tls = 4;
+
+  // @gotags: kong:"help='How long to wait before giving up talking to the gRPC collector',default=5"
+  int32 streamdal_grpc_timeout_seconds = 5;
+}

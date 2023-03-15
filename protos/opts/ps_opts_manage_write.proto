@@ -22,10 +22,11 @@ import "args/ps_args_rabbit.proto";
 import "args/ps_args_rabbit_streams.proto";
 import "args/ps_args_redis_pubsub.proto";
 import "args/ps_args_redis_streams.proto";
+import "args/ps_args_streamdal.proto";
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/opts";
 
-message CreateDestinationOptions {
+message CreateWriteOptions {
   // @gotags: kong:"help='ID of the underlying connection',required"
   string connection_id = 1;
 
@@ -98,15 +99,18 @@ message CreateDestinationOptions {
 
   // @gotags: kong:"cmd,help='Memphis'"
   args.MemphisWriteArgs memphis = 119;
+
+  // @gotags: kong:"cmd,help='Streamdal'"
+  args.StreamdalWriteArgs streamdal = 120;
 }
 
-message GetDestinationOptions {
-  // @gotags: kong:"help='ID of the destination to get (leave empty to get all)'"
+message GetWriteOptions {
+  // @gotags: kong:"help='ID of the write resource to get (leave empty to get all)'"
   string id = 1;
 }
 
 
-message DeleteDestinationOptions {
-  // @gotags: kong:"help='ID of the destination to delete',required=true"
+message DeleteWriteOptions {
+  // @gotags: kong:"help='ID of the write resource to delete',required=true"
   string id = 1;
 }

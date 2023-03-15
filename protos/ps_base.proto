@@ -4,9 +4,9 @@ package protos;
 
 import "ps_channel.proto";
 import "ps_connect.proto";
-import "ps_destination.proto";
+import "ps_write.proto";
 import "ps_server.proto";
-import "ps_source.proto";
+import "ps_read.proto";
 import "ps_tunnel.proto";
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
@@ -52,7 +52,7 @@ service PlumberServer {
 
   rpc GetDestination(GetDestinationRequest) returns (GetDestinationResponse);
 
-  rpc GetAllDestinations(GetAllDestinationsRequest) returns (GetAllDestinationsResponse);
+  rpc GetAllDestinations(GetAllReadRequest) returns (GetAllReadResponse);
 
   rpc CreateDestination(CreateDestinationRequest) returns (CreateDestinationResponse);
 
