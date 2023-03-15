@@ -9037,11 +9037,11 @@ export namespace protos {
             /** CreateOptions relay */
             relay?: (protos.opts.ICreateRelayOptions|null);
 
-            /** CreateOptions source */
-            source?: (protos.opts.ICreateReadOptions|null);
+            /** CreateOptions read */
+            read?: (protos.opts.ICreateReadOptions|null);
 
-            /** CreateOptions destination */
-            destination?: (protos.opts.ICreateWriteOptions|null);
+            /** CreateOptions write */
+            write?: (protos.opts.ICreateWriteOptions|null);
 
             /** CreateOptions channel */
             channel?: (protos.opts.ICreateChannelOptions|null);
@@ -9065,11 +9065,11 @@ export namespace protos {
             /** CreateOptions relay. */
             public relay?: (protos.opts.ICreateRelayOptions|null);
 
-            /** CreateOptions source. */
-            public source?: (protos.opts.ICreateReadOptions|null);
+            /** CreateOptions read. */
+            public read?: (protos.opts.ICreateReadOptions|null);
 
-            /** CreateOptions destination. */
-            public destination?: (protos.opts.ICreateWriteOptions|null);
+            /** CreateOptions write. */
+            public write?: (protos.opts.ICreateWriteOptions|null);
 
             /** CreateOptions channel. */
             public channel?: (protos.opts.ICreateChannelOptions|null);
