@@ -12,7 +12,6 @@ message CreateChannelOptions {
   // @gotags: kong:"help='ID of the write/destination backend',required"
   string write = 2;
 
-  // Filled out regardless of type
   // @gotags: kong:"embed"
   BaseChannelOptions settings = 3;
 }

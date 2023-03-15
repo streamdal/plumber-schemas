@@ -35,10 +35,10 @@ message CreateReadOptions {
   // --------------------------------------------------------------------- //
 
   // @gotags: kong:"cmd,help='Apache Kafka'"
-  args.KafkaSourceArgs kafka = 100;
+  args.KafkaReadArgs kafka = 100;
 
   // @gotags: kong:"cmd,help='AWS Simple Queue System'"
-  args.AWSSQSSourceArgs aws_sqs = 101;
+  args.AWSSQSReadArgs aws_sqs = 101;
 
   // @gotags: kong:"cmd,help='MongoDB (CDC)'"
   args.MongoReadArgs mongo = 102;
