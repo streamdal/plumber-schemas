@@ -164,12 +164,12 @@ type KafkaReadArgs struct {
 	RebalanceTimeoutSeconds int32 `protobuf:"varint,9,opt,name=rebalance_timeout_seconds,json=rebalanceTimeoutSeconds,proto3" json:"rebalance_timeout_seconds,omitempty" kong:"help='How long a coordinator will wait for member joins as part of a rebalance',default=0"`
 	// @gotags: kong:"help='Internal library queue capacity (throughput optimization)',default=1"
 	QueueCapacity int32 `protobuf:"varint,10,opt,name=queue_capacity,json=queueCapacity,proto3" json:"queue_capacity,omitempty" kong:"help='Internal library queue capacity (throughput optimization)',default=1"`
-	// @gotags: kong:"help='Display consumer offset stats during read'"
-	IncludeOffsetInfo bool `protobuf:"varint,11,opt,name=include_offset_info,json=includeOffsetInfo,proto3" json:"include_offset_info,omitempty" kong:"help='Display consumer offset stats during read'"`
-	// @gotags: kong:"help='Only lookup consumer group lag',group=lag"
-	Lag bool `protobuf:"varint,12,opt,name=lag,proto3" json:"lag,omitempty" kong:"help='Only lookup consumer group lag',group=lag"`
-	// @gotags: kong:"help='What consumer group to lookup lag for (required if --lag is set)',group=lag"
-	LagConsumerGroup     string   `protobuf:"bytes,13,opt,name=lag_consumer_group,json=lagConsumerGroup,proto3" json:"lag_consumer_group,omitempty" kong:"help='What consumer group to lookup lag for (required if --lag is set)',group=lag"`
+	// @gotags: kong:"help='Display consumer offset stats during read (only used in CLI mode)'"
+	IncludeOffsetInfo bool `protobuf:"varint,11,opt,name=include_offset_info,json=includeOffsetInfo,proto3" json:"include_offset_info,omitempty" kong:"help='Display consumer offset stats during read (only used in CLI mode)'"`
+	// @gotags: kong:"help='Only lookup consumer group lag (only used in CLI mode)',group=lag"
+	Lag bool `protobuf:"varint,12,opt,name=lag,proto3" json:"lag,omitempty" kong:"help='Only lookup consumer group lag (only used in CLI mode)',group=lag"`
+	// @gotags: kong:"help='What consumer group to lookup lag for (only used in CLI mode; required if --lag is set)',group=lag"
+	LagConsumerGroup     string   `protobuf:"bytes,13,opt,name=lag_consumer_group,json=lagConsumerGroup,proto3" json:"lag_consumer_group,omitempty" kong:"help='What consumer group to lookup lag for (only used in CLI mode; required if --lag is set)',group=lag"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -349,6 +349,7 @@ func (m *KafkaWriteArgs) GetTopics() []string {
 	return nil
 }
 
+// NOTE: Deprecated as of relay v2
 type KafkaSourceArgs struct {
 	// @gotags: kong:"help='Topic(s) to read, write or get lag stats for',env=PLUMBER_RELAY_KAFKA_TOPIC,required"
 	Topics []string `protobuf:"bytes,1,rep,name=topics,proto3" json:"topics,omitempty" kong:"help='Topic(s) to read, write or get lag stats for',env=PLUMBER_RELAY_KAFKA_TOPIC,required"`
