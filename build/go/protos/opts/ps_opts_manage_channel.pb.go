@@ -26,7 +26,6 @@ type CreateChannelOptions struct {
 	Read string `protobuf:"bytes,1,opt,name=read,proto3" json:"read,omitempty" kong:"help='ID of the read/source backend',required"`
 	// @gotags: kong:"help='ID of the write/destination backend',required"
 	Write string `protobuf:"bytes,2,opt,name=write,proto3" json:"write,omitempty" kong:"help='ID of the write/destination backend',required"`
-	// Filled out regardless of type
 	// @gotags: kong:"embed"
 	Settings             *BaseChannelOptions `protobuf:"bytes,3,opt,name=settings,proto3" json:"settings,omitempty" kong:"embed"`
 	XXX_NoUnkeyedLiteral struct{}            `json:"-"`

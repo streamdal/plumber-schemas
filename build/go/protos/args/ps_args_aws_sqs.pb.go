@@ -258,6 +258,7 @@ func (m *AWSSQSWriteArgs) GetMessageDeduplicationId() string {
 }
 
 // SQS has a dedicated RelayArgs struct as relay has different defaults than read
+// NOTE: This type is deprecated as of relay v2
 type AWSSQSSourceArgs struct {
 	// @gotags: kong:"help='Queue name',env=PLUMBER_RELAY_SQS_QUEUE_NAME"
 	QueueName string `protobuf:"bytes,1,opt,name=queue_name,json=queueName,proto3" json:"queue_name,omitempty" kong:"help='Queue name',env=PLUMBER_RELAY_SQS_QUEUE_NAME"`

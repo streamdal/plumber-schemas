@@ -5261,10 +5261,10 @@ export namespace protos {
             notes?: (string|null);
 
             /** CreateReadOptions kafka */
-            kafka?: (protos.args.IKafkaSourceArgs|null);
+            kafka?: (protos.args.IKafkaReadArgs|null);
 
             /** CreateReadOptions awsSqs */
-            awsSqs?: (protos.args.IAWSSQSSourceArgs|null);
+            awsSqs?: (protos.args.IAWSSQSReadArgs|null);
 
             /** CreateReadOptions mongo */
             mongo?: (protos.args.IMongoReadArgs|null);
@@ -5325,10 +5325,10 @@ export namespace protos {
             public notes: string;
 
             /** CreateReadOptions kafka. */
-            public kafka?: (protos.args.IKafkaSourceArgs|null);
+            public kafka?: (protos.args.IKafkaReadArgs|null);
 
             /** CreateReadOptions awsSqs. */
-            public awsSqs?: (protos.args.IAWSSQSSourceArgs|null);
+            public awsSqs?: (protos.args.IAWSSQSReadArgs|null);
 
             /** CreateReadOptions mongo. */
             public mongo?: (protos.args.IMongoReadArgs|null);
