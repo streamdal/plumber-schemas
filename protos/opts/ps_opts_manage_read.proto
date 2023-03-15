@@ -78,6 +78,17 @@ message CreateReadOptions {
 
   // @gotags: kong:"cmd,help='NATS JetStream'"
   args.NatsJetstreamReadArgs nats_jetstream = 115;
+
+
+  // --------------------------------------------------------------------- //
+  //                       PRIVATE FIELDS (1000-1999)                      //
+  // --------------------------------------------------------------------- //
+
+  // @gotags: kong:"-"
+  string _read_id = 1000;
+
+  // @gotags: kong:"-"
+  bool _active = 1001;
 }
 
 message GetReadOptions {

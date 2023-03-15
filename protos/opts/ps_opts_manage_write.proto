@@ -102,6 +102,16 @@ message CreateWriteOptions {
 
   // @gotags: kong:"cmd,help='Streamdal'"
   args.StreamdalWriteArgs streamdal = 120;
+
+  // --------------------------------------------------------------------- //
+  //                       PRIVATE FIELDS (1000-1999)                      //
+  // --------------------------------------------------------------------- //
+
+  // @gotags: kong:"-"
+  string _write_id = 1000;
+
+  // @gotags: kong:"-"
+  bool _active = 1001;
 }
 
 message GetWriteOptions {
