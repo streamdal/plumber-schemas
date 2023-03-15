@@ -27,47 +27,47 @@ const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 func init() { proto.RegisterFile("ps_base.proto", fileDescriptor_ef931efdbd582aee) }
 
 var fileDescriptor_ef931efdbd582aee = []byte{
-	// 636 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x7c, 0x96, 0x51, 0x6f, 0xd3, 0x30,
-	0x14, 0x85, 0xdf, 0x90, 0x30, 0x0c, 0x36, 0xc3, 0x03, 0xeb, 0x3a, 0xb6, 0xf1, 0x4e, 0x2b, 0x01,
-	0xe2, 0x99, 0xd1, 0x89, 0x0a, 0x09, 0x69, 0x68, 0x5d, 0xa5, 0x09, 0x1e, 0xaa, 0x24, 0xbd, 0x5a,
-	0x2b, 0xa5, 0xb1, 0x89, 0x1d, 0x7e, 0x13, 0x3f, 0x13, 0xb5, 0xd7, 0xae, 0xaf, 0xaf, 0x9d, 0x3e,
-	0x55, 0x3a, 0xc7, 0xf9, 0x7a, 0x74, 0x6d, 0x9f, 0x44, 0x1c, 0x69, 0xb3, 0x28, 0x0b, 0x03, 0x23,
-	0xdd, 0x2a, 0xab, 0xe4, 0x93, 0xdd, 0x8f, 0x19, 0x1c, 0x6b, 0xb3, 0xa8, 0x56, 0x45, 0xd3, 0x40,
-	0x8d, 0x0e, 0x2a, 0xaa, 0x69, 0xa0, 0xb2, 0x4e, 0x79, 0xad, 0xcd, 0x62, 0x09, 0xc6, 0xae, 0x9b,
-	0xc2, 0xae, 0x55, 0xe3, 0xd4, 0x97, 0xda, 0x2c, 0x0c, 0xb4, 0x7f, 0xa1, 0xa5, 0x82, 0xea, 0xda,
-	0x0a, 0x88, 0x60, 0xbb, 0x80, 0xfe, 0xf0, 0xef, 0x95, 0x38, 0xfa, 0x59, 0x77, 0x9b, 0x12, 0xda,
-	0xd9, 0xee, 0x49, 0xf9, 0x20, 0x4e, 0xa6, 0x60, 0xaf, 0xeb, 0x7a, 0x82, 0xff, 0xb8, 0x56, 0x8d,
-	0x91, 0x97, 0xb8, 0xdc, 0x8c, 0x12, 0xeb, 0x0e, 0xfe, 0x74, 0x60, 0xec, 0xe0, 0xea, 0xc0, 0x0a,
-	0xa3, 0x55, 0x63, 0x40, 0xfe, 0x10, 0x47, 0x53, 0xb0, 0xc1, 0x91, 0x43, 0xf2, 0x4c, 0x90, 0x3d,
-	0xf1, 0xbc, 0xc7, 0x75, 0xb4, 0xb9, 0x38, 0x9e, 0xb4, 0x50, 0x58, 0x20, 0xc0, 0x0b, 0xff, 0x08,
-	0x77, 0x3c, 0xf3, 0xb2, 0x7f, 0x81, 0xc3, 0xde, 0x8a, 0x17, 0xf7, 0x60, 0x68, 0xca, 0x7d, 0x8e,
-	0x58, 0xf7, 0xc8, 0xb7, 0x7d, 0x76, 0xc8, 0x39, 0xd7, 0xcb, 0x9e, 0x9c, 0xdc, 0x49, 0x72, 0xa6,
-	0x0b, 0x02, 0xf6, 0x06, 0x6a, 0xc8, 0x63, 0xb9, 0x93, 0x60, 0xd3, 0x05, 0x0e, 0xfb, 0x45, 0x3c,
-	0x9d, 0x82, 0x9d, 0xed, 0xce, 0x8c, 0x7c, 0x43, 0x76, 0x00, 0x25, 0x0f, 0x3a, 0xcd, 0x38, 0xd1,
-	0x2e, 0x5f, 0xd7, 0x35, 0xea, 0x26, 0xda, 0xe5, 0x20, 0xe7, 0x76, 0x99, 0xba, 0x8e, 0xf6, 0x5d,
-	0x3c, 0xc7, 0xad, 0x72, 0x91, 0xce, 0xe2, 0x0d, 0x8c, 0x53, 0x0d, 0xf3, 0x66, 0x40, 0xe1, 0x34,
-	0x39, 0x8a, 0xaa, 0x09, 0x2a, 0x36, 0x03, 0x0a, 0x27, 0xc8, 0x51, 0x54, 0x4d, 0x50, 0xb1, 0x19,
-	0xce, 0xdb, 0x14, 0xec, 0x4d, 0xb8, 0xcb, 0x92, 0x4e, 0x84, 0xe8, 0xc9, 0x79, 0xe3, 0xb6, 0x03,
-	0xfe, 0x16, 0x12, 0x47, 0x49, 0x4c, 0x23, 0xd9, 0xf5, 0xa4, 0x9e, 0x07, 0xbf, 0x3b, 0xb4, 0xc4,
-	0xc1, 0x1f, 0xc4, 0x09, 0xce, 0x96, 0x06, 0x66, 0x97, 0x2a, 0x93, 0xf9, 0xea, 0xc0, 0x8a, 0x40,
-	0xc6, 0x51, 0x67, 0xc9, 0x89, 0x95, 0x90, 0x33, 0x2b, 0x02, 0x19, 0x27, 0x9f, 0x25, 0x27, 0x56,
-	0x42, 0xce, 0xac, 0x70, 0xe4, 0x89, 0x10, 0xdb, 0x6e, 0xc2, 0xae, 0x96, 0xf4, 0x4e, 0x38, 0xcd,
-	0xb3, 0x06, 0x39, 0x2b, 0x3a, 0x00, 0xdb, 0xca, 0x44, 0xc3, 0x48, 0x76, 0x25, 0xbc, 0x9e, 0x3b,
-	0x00, 0x91, 0x1d, 0x2e, 0xa0, 0x6b, 0x37, 0x17, 0x8c, 0x5d, 0x0b, 0x96, 0xed, 0xbc, 0xc7, 0x0d,
-	0x34, 0xd7, 0x41, 0x9c, 0x16, 0xc9, 0x09, 0x8d, 0xb9, 0x81, 0xe6, 0xaa, 0x87, 0xd3, 0x22, 0x39,
-	0xa1, 0x31, 0xd7, 0xd1, 0xbe, 0x89, 0x67, 0x33, 0xab, 0xb4, 0x67, 0xed, 0xa7, 0x4c, 0x44, 0x4f,
-	0x3a, 0xcb, 0x7a, 0x21, 0xd5, 0x1d, 0x98, 0x6e, 0x93, 0xa6, 0x8a, 0xe4, 0x24, 0x15, 0x73, 0xa3,
-	0x0a, 0xbd, 0xdf, 0xbd, 0x65, 0xa3, 0x0a, 0x45, 0x29, 0x57, 0xa1, 0xde, 0xe1, 0x15, 0x8a, 0x7a,
-	0x52, 0xa1, 0x4e, 0xee, 0xa9, 0xd0, 0xbd, 0xcb, 0x2b, 0xd4, 0x45, 0x62, 0x15, 0x1a, 0xa7, 0x1a,
-	0xe6, 0xcd, 0x70, 0xe0, 0xb7, 0xf3, 0x73, 0xa0, 0x53, 0x3a, 0xd3, 0x18, 0x33, 0xc8, 0x59, 0x21,
-	0x0f, 0x0e, 0x8e, 0xe7, 0xa1, 0x6a, 0x92, 0x27, 0x36, 0x79, 0xa5, 0x73, 0x14, 0x55, 0x7b, 0x2a,
-	0x3d, 0x45, 0xe1, 0x21, 0xe3, 0x28, 0xaa, 0xf6, 0x54, 0x3a, 0x43, 0xcd, 0xc5, 0xf1, 0xf6, 0xb5,
-	0xb8, 0xfb, 0x9c, 0xba, 0xd5, 0xd8, 0xbf, 0x17, 0xf4, 0x85, 0x49, 0x9d, 0xe4, 0xd5, 0x9c, 0x2e,
-	0x40, 0xec, 0xd7, 0xcf, 0xbf, 0x3e, 0x3d, 0xae, 0xed, 0xaa, 0x2b, 0x47, 0x95, 0xda, 0x8c, 0xcb,
-	0xc2, 0x56, 0xab, 0x4a, 0xb5, 0x7a, 0xac, 0xf1, 0xf3, 0xed, 0xbd, 0xa9, 0x56, 0xb0, 0x29, 0xcc,
-	0xb8, 0xec, 0xd6, 0xf5, 0x72, 0xfc, 0xa8, 0xc6, 0x08, 0x2c, 0xf1, 0xbb, 0xf2, 0xe3, 0xff, 0x00,
-	0x00, 0x00, 0xff, 0xff, 0xa5, 0x48, 0x67, 0x98, 0x6f, 0x0a, 0x00, 0x00,
+	// 628 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x7c, 0x96, 0x4f, 0x6f, 0xd3, 0x4c,
+	0x10, 0x87, 0x6f, 0xef, 0x0b, 0x0b, 0x29, 0xc5, 0x07, 0x20, 0x21, 0xa1, 0xe5, 0x03, 0x90, 0x48,
+	0x80, 0x38, 0x20, 0x21, 0x51, 0x82, 0xb0, 0x90, 0x90, 0x8a, 0xd2, 0x56, 0x20, 0x2e, 0x91, 0xed,
+	0x8c, 0x9a, 0x48, 0x8e, 0xbd, 0x78, 0xd7, 0xf0, 0x9d, 0xf8, 0x94, 0x28, 0x99, 0x75, 0x66, 0x66,
+	0xc7, 0xe1, 0x54, 0xf5, 0xf7, 0xec, 0x3e, 0x19, 0xcd, 0xfe, 0xb3, 0x19, 0x58, 0xb7, 0xcc, 0x33,
+	0x07, 0x53, 0xdb, 0xd4, 0xbe, 0x4e, 0xfe, 0xdb, 0xff, 0x71, 0xa3, 0x53, 0xeb, 0x96, 0xc5, 0x3a,
+	0xab, 0x2a, 0x28, 0x91, 0x60, 0x52, 0x57, 0x15, 0x14, 0x3e, 0x24, 0xbb, 0xa9, 0x0d, 0x64, 0xab,
+	0xf0, 0xef, 0x03, 0xeb, 0x96, 0x0e, 0x9a, 0x5f, 0xd0, 0xb0, 0xc0, 0xb7, 0x4c, 0x71, 0x62, 0xdd,
+	0xf2, 0x77, 0xb3, 0xf1, 0xe1, 0xc7, 0x5e, 0xfe, 0x49, 0xcc, 0xe0, 0x6b, 0xd9, 0x6e, 0x73, 0x68,
+	0xae, 0xf6, 0x13, 0x93, 0xef, 0xe6, 0x61, 0x0a, 0xfe, 0xa2, 0x2c, 0xe7, 0xf8, 0x4b, 0x9b, 0xba,
+	0x72, 0xc9, 0x39, 0x0e, 0x77, 0x53, 0x85, 0x16, 0xf0, 0xb3, 0x05, 0xe7, 0x47, 0xcf, 0xff, 0x31,
+	0xc2, 0xd9, 0xba, 0x72, 0x90, 0x7c, 0x31, 0x83, 0x14, 0x3c, 0x91, 0x64, 0xcc, 0xe6, 0x50, 0xdc,
+	0x19, 0x27, 0x47, 0x68, 0xb0, 0xdd, 0x98, 0xd3, 0x79, 0x03, 0x99, 0x07, 0x26, 0x3c, 0xeb, 0xa6,
+	0xc4, 0xa4, 0x73, 0x9e, 0x1f, 0x1f, 0x10, 0xb4, 0x97, 0xe6, 0xe4, 0x1a, 0x1c, 0xaf, 0xf2, 0x50,
+	0x87, 0xcc, 0x3b, 0xe5, 0xb3, 0x63, 0x98, 0xea, 0xbc, 0xb1, 0xab, 0x23, 0x75, 0xc6, 0x44, 0xd5,
+	0xa9, 0x07, 0x90, 0xf6, 0x23, 0x94, 0xd0, 0xaf, 0x8d, 0x89, 0xd2, 0xea, 0x01, 0x41, 0xfb, 0xd6,
+	0xfc, 0x9f, 0x82, 0x5f, 0x40, 0xb6, 0x4a, 0x1e, 0xb1, 0xfe, 0xef, 0x82, 0x4e, 0xf2, 0x58, 0xe5,
+	0x61, 0xee, 0xdc, 0x18, 0x5c, 0xfc, 0xfd, 0xf4, 0xa1, 0xdc, 0x10, 0xdc, 0x30, 0xea, 0x43, 0x24,
+	0xc1, 0xb5, 0x91, 0x12, 0xca, 0x94, 0x84, 0x23, 0x92, 0x60, 0xe3, 0xa4, 0x84, 0x32, 0x25, 0xe1,
+	0x88, 0x24, 0xd8, 0x26, 0x29, 0xa1, 0x4c, 0x49, 0x38, 0x0a, 0x92, 0x77, 0xe6, 0x4e, 0x0a, 0xfe,
+	0xdb, 0xee, 0xc4, 0x25, 0xbc, 0x71, 0xfb, 0xa4, 0x13, 0x3c, 0xd1, 0x20, 0x4c, 0xff, 0x64, 0xee,
+	0x61, 0x8f, 0xd0, 0x10, 0x35, 0x4e, 0x48, 0x9e, 0xf6, 0x32, 0xf2, 0x60, 0x9b, 0x22, 0x0f, 0x0b,
+	0x95, 0x47, 0x30, 0xf2, 0x60, 0xa7, 0x22, 0x0f, 0x0b, 0x95, 0x47, 0x30, 0xf2, 0x60, 0xb3, 0x22,
+	0x0f, 0x0b, 0x95, 0x47, 0x30, 0xb1, 0xe5, 0xe6, 0x78, 0x4b, 0x8a, 0x2d, 0x17, 0xb2, 0xbe, 0x2d,
+	0x77, 0x40, 0x74, 0xe4, 0xc3, 0xa5, 0x85, 0xc0, 0x25, 0x93, 0xe8, 0x32, 0x0b, 0xb9, 0x3a, 0xf2,
+	0x31, 0xa6, 0x8b, 0x2e, 0xdc, 0x2f, 0xa1, 0xb0, 0x71, 0x74, 0xed, 0xc8, 0xda, 0x26, 0x47, 0x28,
+	0xd9, 0xc2, 0x2d, 0x10, 0xdb, 0x44, 0xac, 0x6c, 0x11, 0x25, 0x5b, 0x38, 0xfc, 0xb1, 0x4d, 0xc4,
+	0xca, 0x16, 0x51, 0x5a, 0xc7, 0x2b, 0x5f, 0xdb, 0xce, 0x75, 0xe8, 0x32, 0x0b, 0xd5, 0x3a, 0x0a,
+	0x46, 0x55, 0x2d, 0xc0, 0xb5, 0x5b, 0x5d, 0x95, 0x88, 0x55, 0x55, 0x11, 0x0d, 0xb6, 0xf7, 0xe6,
+	0x6e, 0x0a, 0xfe, 0x7a, 0xff, 0xee, 0x25, 0xfc, 0x70, 0x61, 0xd4, 0x59, 0x86, 0x3d, 0x44, 0x3c,
+	0x55, 0x17, 0x65, 0x89, 0xb9, 0x13, 0x4f, 0x15, 0xc5, 0x7d, 0x4f, 0x15, 0xa7, 0xc1, 0xf6, 0xd9,
+	0xdc, 0xc7, 0xa5, 0x0d, 0x25, 0x45, 0x47, 0x4c, 0x56, 0x35, 0xee, 0x87, 0xb4, 0xe1, 0x77, 0xfd,
+	0x0b, 0xa2, 0x21, 0xef, 0xa9, 0xd4, 0x8c, 0xfa, 0x10, 0xd5, 0x83, 0x8d, 0x8b, 0xeb, 0xe1, 0xa9,
+	0xaa, 0x47, 0x42, 0x52, 0xe1, 0x3e, 0x8b, 0x55, 0x3c, 0x55, 0x2a, 0x09, 0x49, 0x85, 0x9b, 0x2c,
+	0x56, 0xf1, 0x54, 0xa9, 0x24, 0xa4, 0xc7, 0x31, 0x05, 0x8f, 0x1f, 0x34, 0x97, 0x16, 0x3f, 0x61,
+	0xce, 0xd8, 0x1a, 0x09, 0xa2, 0x1e, 0x47, 0x3d, 0x00, 0xb5, 0x1f, 0xde, 0xfc, 0x78, 0x7d, 0xbb,
+	0xf1, 0xeb, 0x36, 0x9f, 0x16, 0xf5, 0x76, 0x96, 0x67, 0xbe, 0x58, 0x17, 0x75, 0x63, 0x67, 0x16,
+	0x3f, 0xa0, 0x5e, 0xb8, 0x62, 0x0d, 0xdb, 0xcc, 0xcd, 0xf2, 0x76, 0x53, 0xae, 0x66, 0xb7, 0xf5,
+	0x0c, 0x85, 0x39, 0x7e, 0xd1, 0xbd, 0xfa, 0x1b, 0x00, 0x00, 0xff, 0xff, 0xe3, 0xa2, 0x4d, 0x4d,
+	0xe9, 0x09, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -94,16 +94,16 @@ type PlumberServerClient interface {
 	UpdateConnection(ctx context.Context, in *UpdateConnectionRequest, opts ...grpc.CallOption) (*UpdateConnectionResponse, error)
 	// If there are any active connections, delete will cause them to get closed
 	DeleteConnection(ctx context.Context, in *DeleteConnectionRequest, opts ...grpc.CallOption) (*DeleteConnectionResponse, error)
-	GetSource(ctx context.Context, in *GetSourceRequest, opts ...grpc.CallOption) (*GetSourceResponse, error)
-	GetAllSources(ctx context.Context, in *GetAllSourcesRequest, opts ...grpc.CallOption) (*GetAllSourcesResponse, error)
-	CreateSource(ctx context.Context, in *CreateSourceRequest, opts ...grpc.CallOption) (*CreateSourceResponse, error)
-	UpdateSource(ctx context.Context, in *UpdateSourceRequest, opts ...grpc.CallOption) (*UpdateSourceResponse, error)
-	DeleteSource(ctx context.Context, in *DeleteSourceRequest, opts ...grpc.CallOption) (*DeleteSourceResponse, error)
-	GetDestination(ctx context.Context, in *GetDestinationRequest, opts ...grpc.CallOption) (*GetDestinationResponse, error)
-	GetAllDestinations(ctx context.Context, in *GetAllDestinationsRequest, opts ...grpc.CallOption) (*GetAllDestinationsResponse, error)
-	CreateDestination(ctx context.Context, in *CreateDestinationRequest, opts ...grpc.CallOption) (*CreateDestinationResponse, error)
-	UpdateDestination(ctx context.Context, in *UpdateDestinationRequest, opts ...grpc.CallOption) (*UpdateDestinationResponse, error)
-	DeleteDestination(ctx context.Context, in *DeleteDestinationRequest, opts ...grpc.CallOption) (*DeleteDestinationResponse, error)
+	GetRead(ctx context.Context, in *GetReadRequest, opts ...grpc.CallOption) (*GetReadResponse, error)
+	GetAllRead(ctx context.Context, in *GetAllReadRequest, opts ...grpc.CallOption) (*GetAllReadResponse, error)
+	CreateRead(ctx context.Context, in *CreateReadRequest, opts ...grpc.CallOption) (*CreateReadResponse, error)
+	UpdateRead(ctx context.Context, in *UpdateReadRequest, opts ...grpc.CallOption) (*UpdateReadResponse, error)
+	DeleteRead(ctx context.Context, in *DeleteReadRequest, opts ...grpc.CallOption) (*DeleteReadResponse, error)
+	GetWrite(ctx context.Context, in *GetWriteRequest, opts ...grpc.CallOption) (*GetWriteResponse, error)
+	GetAllWrite(ctx context.Context, in *GetAllWriteRequest, opts ...grpc.CallOption) (*GetAllWriteResponse, error)
+	CreateWrite(ctx context.Context, in *CreateWriteRequest, opts ...grpc.CallOption) (*CreateWriteResponse, error)
+	UpdateWrite(ctx context.Context, in *UpdateWriteRequest, opts ...grpc.CallOption) (*UpdateWriteResponse, error)
+	DeleteWrite(ctx context.Context, in *DeleteWriteRequest, opts ...grpc.CallOption) (*DeleteWriteResponse, error)
 	GetChannel(ctx context.Context, in *GetChannelRequest, opts ...grpc.CallOption) (*GetChannelResponse, error)
 	GetAllChannels(ctx context.Context, in *GetAllChannelsRequest, opts ...grpc.CallOption) (*GetAllChannelsResponse, error)
 	CreateChannel(ctx context.Context, in *CreateChannelRequest, opts ...grpc.CallOption) (*CreateChannelResponse, error)
@@ -183,90 +183,90 @@ func (c *plumberServerClient) DeleteConnection(ctx context.Context, in *DeleteCo
 	return out, nil
 }
 
-func (c *plumberServerClient) GetSource(ctx context.Context, in *GetSourceRequest, opts ...grpc.CallOption) (*GetSourceResponse, error) {
-	out := new(GetSourceResponse)
-	err := c.cc.Invoke(ctx, "/protos.PlumberServer/GetSource", in, out, opts...)
+func (c *plumberServerClient) GetRead(ctx context.Context, in *GetReadRequest, opts ...grpc.CallOption) (*GetReadResponse, error) {
+	out := new(GetReadResponse)
+	err := c.cc.Invoke(ctx, "/protos.PlumberServer/GetRead", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *plumberServerClient) GetAllSources(ctx context.Context, in *GetAllSourcesRequest, opts ...grpc.CallOption) (*GetAllSourcesResponse, error) {
-	out := new(GetAllSourcesResponse)
-	err := c.cc.Invoke(ctx, "/protos.PlumberServer/GetAllSources", in, out, opts...)
+func (c *plumberServerClient) GetAllRead(ctx context.Context, in *GetAllReadRequest, opts ...grpc.CallOption) (*GetAllReadResponse, error) {
+	out := new(GetAllReadResponse)
+	err := c.cc.Invoke(ctx, "/protos.PlumberServer/GetAllRead", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *plumberServerClient) CreateSource(ctx context.Context, in *CreateSourceRequest, opts ...grpc.CallOption) (*CreateSourceResponse, error) {
-	out := new(CreateSourceResponse)
-	err := c.cc.Invoke(ctx, "/protos.PlumberServer/CreateSource", in, out, opts...)
+func (c *plumberServerClient) CreateRead(ctx context.Context, in *CreateReadRequest, opts ...grpc.CallOption) (*CreateReadResponse, error) {
+	out := new(CreateReadResponse)
+	err := c.cc.Invoke(ctx, "/protos.PlumberServer/CreateRead", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *plumberServerClient) UpdateSource(ctx context.Context, in *UpdateSourceRequest, opts ...grpc.CallOption) (*UpdateSourceResponse, error) {
-	out := new(UpdateSourceResponse)
-	err := c.cc.Invoke(ctx, "/protos.PlumberServer/UpdateSource", in, out, opts...)
+func (c *plumberServerClient) UpdateRead(ctx context.Context, in *UpdateReadRequest, opts ...grpc.CallOption) (*UpdateReadResponse, error) {
+	out := new(UpdateReadResponse)
+	err := c.cc.Invoke(ctx, "/protos.PlumberServer/UpdateRead", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *plumberServerClient) DeleteSource(ctx context.Context, in *DeleteSourceRequest, opts ...grpc.CallOption) (*DeleteSourceResponse, error) {
-	out := new(DeleteSourceResponse)
-	err := c.cc.Invoke(ctx, "/protos.PlumberServer/DeleteSource", in, out, opts...)
+func (c *plumberServerClient) DeleteRead(ctx context.Context, in *DeleteReadRequest, opts ...grpc.CallOption) (*DeleteReadResponse, error) {
+	out := new(DeleteReadResponse)
+	err := c.cc.Invoke(ctx, "/protos.PlumberServer/DeleteRead", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *plumberServerClient) GetDestination(ctx context.Context, in *GetDestinationRequest, opts ...grpc.CallOption) (*GetDestinationResponse, error) {
-	out := new(GetDestinationResponse)
-	err := c.cc.Invoke(ctx, "/protos.PlumberServer/GetDestination", in, out, opts...)
+func (c *plumberServerClient) GetWrite(ctx context.Context, in *GetWriteRequest, opts ...grpc.CallOption) (*GetWriteResponse, error) {
+	out := new(GetWriteResponse)
+	err := c.cc.Invoke(ctx, "/protos.PlumberServer/GetWrite", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *plumberServerClient) GetAllDestinations(ctx context.Context, in *GetAllDestinationsRequest, opts ...grpc.CallOption) (*GetAllDestinationsResponse, error) {
-	out := new(GetAllDestinationsResponse)
-	err := c.cc.Invoke(ctx, "/protos.PlumberServer/GetAllDestinations", in, out, opts...)
+func (c *plumberServerClient) GetAllWrite(ctx context.Context, in *GetAllWriteRequest, opts ...grpc.CallOption) (*GetAllWriteResponse, error) {
+	out := new(GetAllWriteResponse)
+	err := c.cc.Invoke(ctx, "/protos.PlumberServer/GetAllWrite", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *plumberServerClient) CreateDestination(ctx context.Context, in *CreateDestinationRequest, opts ...grpc.CallOption) (*CreateDestinationResponse, error) {
-	out := new(CreateDestinationResponse)
-	err := c.cc.Invoke(ctx, "/protos.PlumberServer/CreateDestination", in, out, opts...)
+func (c *plumberServerClient) CreateWrite(ctx context.Context, in *CreateWriteRequest, opts ...grpc.CallOption) (*CreateWriteResponse, error) {
+	out := new(CreateWriteResponse)
+	err := c.cc.Invoke(ctx, "/protos.PlumberServer/CreateWrite", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *plumberServerClient) UpdateDestination(ctx context.Context, in *UpdateDestinationRequest, opts ...grpc.CallOption) (*UpdateDestinationResponse, error) {
-	out := new(UpdateDestinationResponse)
-	err := c.cc.Invoke(ctx, "/protos.PlumberServer/UpdateDestination", in, out, opts...)
+func (c *plumberServerClient) UpdateWrite(ctx context.Context, in *UpdateWriteRequest, opts ...grpc.CallOption) (*UpdateWriteResponse, error) {
+	out := new(UpdateWriteResponse)
+	err := c.cc.Invoke(ctx, "/protos.PlumberServer/UpdateWrite", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *plumberServerClient) DeleteDestination(ctx context.Context, in *DeleteDestinationRequest, opts ...grpc.CallOption) (*DeleteDestinationResponse, error) {
-	out := new(DeleteDestinationResponse)
-	err := c.cc.Invoke(ctx, "/protos.PlumberServer/DeleteDestination", in, out, opts...)
+func (c *plumberServerClient) DeleteWrite(ctx context.Context, in *DeleteWriteRequest, opts ...grpc.CallOption) (*DeleteWriteResponse, error) {
+	out := new(DeleteWriteResponse)
+	err := c.cc.Invoke(ctx, "/protos.PlumberServer/DeleteWrite", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -422,16 +422,16 @@ type PlumberServerServer interface {
 	UpdateConnection(context.Context, *UpdateConnectionRequest) (*UpdateConnectionResponse, error)
 	// If there are any active connections, delete will cause them to get closed
 	DeleteConnection(context.Context, *DeleteConnectionRequest) (*DeleteConnectionResponse, error)
-	GetSource(context.Context, *GetSourceRequest) (*GetSourceResponse, error)
-	GetAllSources(context.Context, *GetAllSourcesRequest) (*GetAllSourcesResponse, error)
-	CreateSource(context.Context, *CreateSourceRequest) (*CreateSourceResponse, error)
-	UpdateSource(context.Context, *UpdateSourceRequest) (*UpdateSourceResponse, error)
-	DeleteSource(context.Context, *DeleteSourceRequest) (*DeleteSourceResponse, error)
-	GetDestination(context.Context, *GetDestinationRequest) (*GetDestinationResponse, error)
-	GetAllDestinations(context.Context, *GetAllDestinationsRequest) (*GetAllDestinationsResponse, error)
-	CreateDestination(context.Context, *CreateDestinationRequest) (*CreateDestinationResponse, error)
-	UpdateDestination(context.Context, *UpdateDestinationRequest) (*UpdateDestinationResponse, error)
-	DeleteDestination(context.Context, *DeleteDestinationRequest) (*DeleteDestinationResponse, error)
+	GetRead(context.Context, *GetReadRequest) (*GetReadResponse, error)
+	GetAllRead(context.Context, *GetAllReadRequest) (*GetAllReadResponse, error)
+	CreateRead(context.Context, *CreateReadRequest) (*CreateReadResponse, error)
+	UpdateRead(context.Context, *UpdateReadRequest) (*UpdateReadResponse, error)
+	DeleteRead(context.Context, *DeleteReadRequest) (*DeleteReadResponse, error)
+	GetWrite(context.Context, *GetWriteRequest) (*GetWriteResponse, error)
+	GetAllWrite(context.Context, *GetAllWriteRequest) (*GetAllWriteResponse, error)
+	CreateWrite(context.Context, *CreateWriteRequest) (*CreateWriteResponse, error)
+	UpdateWrite(context.Context, *UpdateWriteRequest) (*UpdateWriteResponse, error)
+	DeleteWrite(context.Context, *DeleteWriteRequest) (*DeleteWriteResponse, error)
 	GetChannel(context.Context, *GetChannelRequest) (*GetChannelResponse, error)
 	GetAllChannels(context.Context, *GetAllChannelsRequest) (*GetAllChannelsResponse, error)
 	CreateChannel(context.Context, *CreateChannelRequest) (*CreateChannelResponse, error)
@@ -471,35 +471,35 @@ func (*UnimplementedPlumberServerServer) UpdateConnection(ctx context.Context, r
 func (*UnimplementedPlumberServerServer) DeleteConnection(ctx context.Context, req *DeleteConnectionRequest) (*DeleteConnectionResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteConnection not implemented")
 }
-func (*UnimplementedPlumberServerServer) GetSource(ctx context.Context, req *GetSourceRequest) (*GetSourceResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetSource not implemented")
+func (*UnimplementedPlumberServerServer) GetRead(ctx context.Context, req *GetReadRequest) (*GetReadResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetRead not implemented")
 }
-func (*UnimplementedPlumberServerServer) GetAllSources(ctx context.Context, req *GetAllSourcesRequest) (*GetAllSourcesResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetAllSources not implemented")
+func (*UnimplementedPlumberServerServer) GetAllRead(ctx context.Context, req *GetAllReadRequest) (*GetAllReadResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetAllRead not implemented")
 }
-func (*UnimplementedPlumberServerServer) CreateSource(ctx context.Context, req *CreateSourceRequest) (*CreateSourceResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method CreateSource not implemented")
+func (*UnimplementedPlumberServerServer) CreateRead(ctx context.Context, req *CreateReadRequest) (*CreateReadResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateRead not implemented")
 }
-func (*UnimplementedPlumberServerServer) UpdateSource(ctx context.Context, req *UpdateSourceRequest) (*UpdateSourceResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UpdateSource not implemented")
+func (*UnimplementedPlumberServerServer) UpdateRead(ctx context.Context, req *UpdateReadRequest) (*UpdateReadResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateRead not implemented")
 }
-func (*UnimplementedPlumberServerServer) DeleteSource(ctx context.Context, req *DeleteSourceRequest) (*DeleteSourceResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method DeleteSource not implemented")
+func (*UnimplementedPlumberServerServer) DeleteRead(ctx context.Context, req *DeleteReadRequest) (*DeleteReadResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteRead not implemented")
 }
-func (*UnimplementedPlumberServerServer) GetDestination(ctx context.Context, req *GetDestinationRequest) (*GetDestinationResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetDestination not implemented")
+func (*UnimplementedPlumberServerServer) GetWrite(ctx context.Context, req *GetWriteRequest) (*GetWriteResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetWrite not implemented")
 }
-func (*UnimplementedPlumberServerServer) GetAllDestinations(ctx context.Context, req *GetAllDestinationsRequest) (*GetAllDestinationsResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetAllDestinations not implemented")
+func (*UnimplementedPlumberServerServer) GetAllWrite(ctx context.Context, req *GetAllWriteRequest) (*GetAllWriteResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetAllWrite not implemented")
 }
-func (*UnimplementedPlumberServerServer) CreateDestination(ctx context.Context, req *CreateDestinationRequest) (*CreateDestinationResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method CreateDestination not implemented")
+func (*UnimplementedPlumberServerServer) CreateWrite(ctx context.Context, req *CreateWriteRequest) (*CreateWriteResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateWrite not implemented")
 }
-func (*UnimplementedPlumberServerServer) UpdateDestination(ctx context.Context, req *UpdateDestinationRequest) (*UpdateDestinationResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UpdateDestination not implemented")
+func (*UnimplementedPlumberServerServer) UpdateWrite(ctx context.Context, req *UpdateWriteRequest) (*UpdateWriteResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateWrite not implemented")
 }
-func (*UnimplementedPlumberServerServer) DeleteDestination(ctx context.Context, req *DeleteDestinationRequest) (*DeleteDestinationResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method DeleteDestination not implemented")
+func (*UnimplementedPlumberServerServer) DeleteWrite(ctx context.Context, req *DeleteWriteRequest) (*DeleteWriteResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteWrite not implemented")
 }
 func (*UnimplementedPlumberServerServer) GetChannel(ctx context.Context, req *GetChannelRequest) (*GetChannelResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetChannel not implemented")
@@ -659,182 +659,182 @@ func _PlumberServer_DeleteConnection_Handler(srv interface{}, ctx context.Contex
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PlumberServer_GetSource_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSourceRequest)
+func _PlumberServer_GetRead_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetReadRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PlumberServerServer).GetSource(ctx, in)
+		return srv.(PlumberServerServer).GetRead(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/protos.PlumberServer/GetSource",
+		FullMethod: "/protos.PlumberServer/GetRead",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PlumberServerServer).GetSource(ctx, req.(*GetSourceRequest))
+		return srv.(PlumberServerServer).GetRead(ctx, req.(*GetReadRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PlumberServer_GetAllSources_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetAllSourcesRequest)
+func _PlumberServer_GetAllRead_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAllReadRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PlumberServerServer).GetAllSources(ctx, in)
+		return srv.(PlumberServerServer).GetAllRead(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/protos.PlumberServer/GetAllSources",
+		FullMethod: "/protos.PlumberServer/GetAllRead",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PlumberServerServer).GetAllSources(ctx, req.(*GetAllSourcesRequest))
+		return srv.(PlumberServerServer).GetAllRead(ctx, req.(*GetAllReadRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PlumberServer_CreateSource_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateSourceRequest)
+func _PlumberServer_CreateRead_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateReadRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PlumberServerServer).CreateSource(ctx, in)
+		return srv.(PlumberServerServer).CreateRead(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/protos.PlumberServer/CreateSource",
+		FullMethod: "/protos.PlumberServer/CreateRead",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PlumberServerServer).CreateSource(ctx, req.(*CreateSourceRequest))
+		return srv.(PlumberServerServer).CreateRead(ctx, req.(*CreateReadRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PlumberServer_UpdateSource_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UpdateSourceRequest)
+func _PlumberServer_UpdateRead_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateReadRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PlumberServerServer).UpdateSource(ctx, in)
+		return srv.(PlumberServerServer).UpdateRead(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/protos.PlumberServer/UpdateSource",
+		FullMethod: "/protos.PlumberServer/UpdateRead",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PlumberServerServer).UpdateSource(ctx, req.(*UpdateSourceRequest))
+		return srv.(PlumberServerServer).UpdateRead(ctx, req.(*UpdateReadRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PlumberServer_DeleteSource_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DeleteSourceRequest)
+func _PlumberServer_DeleteRead_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteReadRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PlumberServerServer).DeleteSource(ctx, in)
+		return srv.(PlumberServerServer).DeleteRead(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/protos.PlumberServer/DeleteSource",
+		FullMethod: "/protos.PlumberServer/DeleteRead",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PlumberServerServer).DeleteSource(ctx, req.(*DeleteSourceRequest))
+		return srv.(PlumberServerServer).DeleteRead(ctx, req.(*DeleteReadRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PlumberServer_GetDestination_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetDestinationRequest)
+func _PlumberServer_GetWrite_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetWriteRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PlumberServerServer).GetDestination(ctx, in)
+		return srv.(PlumberServerServer).GetWrite(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/protos.PlumberServer/GetDestination",
+		FullMethod: "/protos.PlumberServer/GetWrite",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PlumberServerServer).GetDestination(ctx, req.(*GetDestinationRequest))
+		return srv.(PlumberServerServer).GetWrite(ctx, req.(*GetWriteRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PlumberServer_GetAllDestinations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetAllDestinationsRequest)
+func _PlumberServer_GetAllWrite_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAllWriteRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PlumberServerServer).GetAllDestinations(ctx, in)
+		return srv.(PlumberServerServer).GetAllWrite(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/protos.PlumberServer/GetAllDestinations",
+		FullMethod: "/protos.PlumberServer/GetAllWrite",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PlumberServerServer).GetAllDestinations(ctx, req.(*GetAllDestinationsRequest))
+		return srv.(PlumberServerServer).GetAllWrite(ctx, req.(*GetAllWriteRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PlumberServer_CreateDestination_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateDestinationRequest)
+func _PlumberServer_CreateWrite_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateWriteRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PlumberServerServer).CreateDestination(ctx, in)
+		return srv.(PlumberServerServer).CreateWrite(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/protos.PlumberServer/CreateDestination",
+		FullMethod: "/protos.PlumberServer/CreateWrite",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PlumberServerServer).CreateDestination(ctx, req.(*CreateDestinationRequest))
+		return srv.(PlumberServerServer).CreateWrite(ctx, req.(*CreateWriteRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PlumberServer_UpdateDestination_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UpdateDestinationRequest)
+func _PlumberServer_UpdateWrite_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateWriteRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PlumberServerServer).UpdateDestination(ctx, in)
+		return srv.(PlumberServerServer).UpdateWrite(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/protos.PlumberServer/UpdateDestination",
+		FullMethod: "/protos.PlumberServer/UpdateWrite",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PlumberServerServer).UpdateDestination(ctx, req.(*UpdateDestinationRequest))
+		return srv.(PlumberServerServer).UpdateWrite(ctx, req.(*UpdateWriteRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PlumberServer_DeleteDestination_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DeleteDestinationRequest)
+func _PlumberServer_DeleteWrite_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteWriteRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PlumberServerServer).DeleteDestination(ctx, in)
+		return srv.(PlumberServerServer).DeleteWrite(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/protos.PlumberServer/DeleteDestination",
+		FullMethod: "/protos.PlumberServer/DeleteWrite",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PlumberServerServer).DeleteDestination(ctx, req.(*DeleteDestinationRequest))
+		return srv.(PlumberServerServer).DeleteWrite(ctx, req.(*DeleteWriteRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -1138,44 +1138,44 @@ var _PlumberServer_serviceDesc = grpc.ServiceDesc{
 			Handler:    _PlumberServer_DeleteConnection_Handler,
 		},
 		{
-			MethodName: "GetSource",
-			Handler:    _PlumberServer_GetSource_Handler,
+			MethodName: "GetRead",
+			Handler:    _PlumberServer_GetRead_Handler,
 		},
 		{
-			MethodName: "GetAllSources",
-			Handler:    _PlumberServer_GetAllSources_Handler,
+			MethodName: "GetAllRead",
+			Handler:    _PlumberServer_GetAllRead_Handler,
 		},
 		{
-			MethodName: "CreateSource",
-			Handler:    _PlumberServer_CreateSource_Handler,
+			MethodName: "CreateRead",
+			Handler:    _PlumberServer_CreateRead_Handler,
 		},
 		{
-			MethodName: "UpdateSource",
-			Handler:    _PlumberServer_UpdateSource_Handler,
+			MethodName: "UpdateRead",
+			Handler:    _PlumberServer_UpdateRead_Handler,
 		},
 		{
-			MethodName: "DeleteSource",
-			Handler:    _PlumberServer_DeleteSource_Handler,
+			MethodName: "DeleteRead",
+			Handler:    _PlumberServer_DeleteRead_Handler,
 		},
 		{
-			MethodName: "GetDestination",
-			Handler:    _PlumberServer_GetDestination_Handler,
+			MethodName: "GetWrite",
+			Handler:    _PlumberServer_GetWrite_Handler,
 		},
 		{
-			MethodName: "GetAllDestinations",
-			Handler:    _PlumberServer_GetAllDestinations_Handler,
+			MethodName: "GetAllWrite",
+			Handler:    _PlumberServer_GetAllWrite_Handler,
 		},
 		{
-			MethodName: "CreateDestination",
-			Handler:    _PlumberServer_CreateDestination_Handler,
+			MethodName: "CreateWrite",
+			Handler:    _PlumberServer_CreateWrite_Handler,
 		},
 		{
-			MethodName: "UpdateDestination",
-			Handler:    _PlumberServer_UpdateDestination_Handler,
+			MethodName: "UpdateWrite",
+			Handler:    _PlumberServer_UpdateWrite_Handler,
 		},
 		{
-			MethodName: "DeleteDestination",
-			Handler:    _PlumberServer_DeleteDestination_Handler,
+			MethodName: "DeleteWrite",
+			Handler:    _PlumberServer_DeleteWrite_Handler,
 		},
 		{
 			MethodName: "GetChannel",

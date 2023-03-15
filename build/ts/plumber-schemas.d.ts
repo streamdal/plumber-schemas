@@ -107,144 +107,144 @@ export namespace protos {
         public deleteConnection(request: protos.IDeleteConnectionRequest): Promise<protos.DeleteConnectionResponse>;
 
         /**
-         * Calls GetSource.
-         * @param request GetSourceRequest message or plain object
-         * @param callback Node-style callback called with the error, if any, and GetSourceResponse
+         * Calls GetRead.
+         * @param request GetReadRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and GetReadResponse
          */
-        public getSource(request: protos.IGetSourceRequest, callback: protos.PlumberServer.GetSourceCallback): void;
+        public getRead(request: protos.IGetReadRequest, callback: protos.PlumberServer.GetReadCallback): void;
 
         /**
-         * Calls GetSource.
-         * @param request GetSourceRequest message or plain object
+         * Calls GetRead.
+         * @param request GetReadRequest message or plain object
          * @returns Promise
          */
-        public getSource(request: protos.IGetSourceRequest): Promise<protos.GetSourceResponse>;
+        public getRead(request: protos.IGetReadRequest): Promise<protos.GetReadResponse>;
 
         /**
-         * Calls GetAllSources.
-         * @param request GetAllSourcesRequest message or plain object
-         * @param callback Node-style callback called with the error, if any, and GetAllSourcesResponse
+         * Calls GetAllRead.
+         * @param request GetAllReadRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and GetAllReadResponse
          */
-        public getAllSources(request: protos.IGetAllSourcesRequest, callback: protos.PlumberServer.GetAllSourcesCallback): void;
+        public getAllRead(request: protos.IGetAllReadRequest, callback: protos.PlumberServer.GetAllReadCallback): void;
 
         /**
-         * Calls GetAllSources.
-         * @param request GetAllSourcesRequest message or plain object
+         * Calls GetAllRead.
+         * @param request GetAllReadRequest message or plain object
          * @returns Promise
          */
-        public getAllSources(request: protos.IGetAllSourcesRequest): Promise<protos.GetAllSourcesResponse>;
+        public getAllRead(request: protos.IGetAllReadRequest): Promise<protos.GetAllReadResponse>;
 
         /**
-         * Calls CreateSource.
-         * @param request CreateSourceRequest message or plain object
-         * @param callback Node-style callback called with the error, if any, and CreateSourceResponse
+         * Calls CreateRead.
+         * @param request CreateReadRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and CreateReadResponse
          */
-        public createSource(request: protos.ICreateSourceRequest, callback: protos.PlumberServer.CreateSourceCallback): void;
+        public createRead(request: protos.ICreateReadRequest, callback: protos.PlumberServer.CreateReadCallback): void;
 
         /**
-         * Calls CreateSource.
-         * @param request CreateSourceRequest message or plain object
+         * Calls CreateRead.
+         * @param request CreateReadRequest message or plain object
          * @returns Promise
          */
-        public createSource(request: protos.ICreateSourceRequest): Promise<protos.CreateSourceResponse>;
+        public createRead(request: protos.ICreateReadRequest): Promise<protos.CreateReadResponse>;
 
         /**
-         * Calls UpdateSource.
-         * @param request UpdateSourceRequest message or plain object
-         * @param callback Node-style callback called with the error, if any, and UpdateSourceResponse
+         * Calls UpdateRead.
+         * @param request UpdateReadRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and UpdateReadResponse
          */
-        public updateSource(request: protos.IUpdateSourceRequest, callback: protos.PlumberServer.UpdateSourceCallback): void;
+        public updateRead(request: protos.IUpdateReadRequest, callback: protos.PlumberServer.UpdateReadCallback): void;
 
         /**
-         * Calls UpdateSource.
-         * @param request UpdateSourceRequest message or plain object
+         * Calls UpdateRead.
+         * @param request UpdateReadRequest message or plain object
          * @returns Promise
          */
-        public updateSource(request: protos.IUpdateSourceRequest): Promise<protos.UpdateSourceResponse>;
+        public updateRead(request: protos.IUpdateReadRequest): Promise<protos.UpdateReadResponse>;
 
         /**
-         * Calls DeleteSource.
-         * @param request DeleteSourceRequest message or plain object
-         * @param callback Node-style callback called with the error, if any, and DeleteSourceResponse
+         * Calls DeleteRead.
+         * @param request DeleteReadRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and DeleteReadResponse
          */
-        public deleteSource(request: protos.IDeleteSourceRequest, callback: protos.PlumberServer.DeleteSourceCallback): void;
+        public deleteRead(request: protos.IDeleteReadRequest, callback: protos.PlumberServer.DeleteReadCallback): void;
 
         /**
-         * Calls DeleteSource.
-         * @param request DeleteSourceRequest message or plain object
+         * Calls DeleteRead.
+         * @param request DeleteReadRequest message or plain object
          * @returns Promise
          */
-        public deleteSource(request: protos.IDeleteSourceRequest): Promise<protos.DeleteSourceResponse>;
+        public deleteRead(request: protos.IDeleteReadRequest): Promise<protos.DeleteReadResponse>;
 
         /**
-         * Calls GetDestination.
-         * @param request GetDestinationRequest message or plain object
-         * @param callback Node-style callback called with the error, if any, and GetDestinationResponse
+         * Calls GetWrite.
+         * @param request GetWriteRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and GetWriteResponse
          */
-        public getDestination(request: protos.IGetDestinationRequest, callback: protos.PlumberServer.GetDestinationCallback): void;
+        public getWrite(request: protos.IGetWriteRequest, callback: protos.PlumberServer.GetWriteCallback): void;
 
         /**
-         * Calls GetDestination.
-         * @param request GetDestinationRequest message or plain object
+         * Calls GetWrite.
+         * @param request GetWriteRequest message or plain object
          * @returns Promise
          */
-        public getDestination(request: protos.IGetDestinationRequest): Promise<protos.GetDestinationResponse>;
+        public getWrite(request: protos.IGetWriteRequest): Promise<protos.GetWriteResponse>;
 
         /**
-         * Calls GetAllDestinations.
-         * @param request GetAllDestinationsRequest message or plain object
-         * @param callback Node-style callback called with the error, if any, and GetAllDestinationsResponse
+         * Calls GetAllWrite.
+         * @param request GetAllWriteRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and GetAllWriteResponse
          */
-        public getAllDestinations(request: protos.IGetAllDestinationsRequest, callback: protos.PlumberServer.GetAllDestinationsCallback): void;
+        public getAllWrite(request: protos.IGetAllWriteRequest, callback: protos.PlumberServer.GetAllWriteCallback): void;
 
         /**
-         * Calls GetAllDestinations.
-         * @param request GetAllDestinationsRequest message or plain object
+         * Calls GetAllWrite.
+         * @param request GetAllWriteRequest message or plain object
          * @returns Promise
          */
-        public getAllDestinations(request: protos.IGetAllDestinationsRequest): Promise<protos.GetAllDestinationsResponse>;
+        public getAllWrite(request: protos.IGetAllWriteRequest): Promise<protos.GetAllWriteResponse>;
 
         /**
-         * Calls CreateDestination.
-         * @param request CreateDestinationRequest message or plain object
-         * @param callback Node-style callback called with the error, if any, and CreateDestinationResponse
+         * Calls CreateWrite.
+         * @param request CreateWriteRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and CreateWriteResponse
          */
-        public createDestination(request: protos.ICreateDestinationRequest, callback: protos.PlumberServer.CreateDestinationCallback): void;
+        public createWrite(request: protos.ICreateWriteRequest, callback: protos.PlumberServer.CreateWriteCallback): void;
 
         /**
-         * Calls CreateDestination.
-         * @param request CreateDestinationRequest message or plain object
+         * Calls CreateWrite.
+         * @param request CreateWriteRequest message or plain object
          * @returns Promise
          */
-        public createDestination(request: protos.ICreateDestinationRequest): Promise<protos.CreateDestinationResponse>;
+        public createWrite(request: protos.ICreateWriteRequest): Promise<protos.CreateWriteResponse>;
 
         /**
-         * Calls UpdateDestination.
-         * @param request UpdateDestinationRequest message or plain object
-         * @param callback Node-style callback called with the error, if any, and UpdateDestinationResponse
+         * Calls UpdateWrite.
+         * @param request UpdateWriteRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and UpdateWriteResponse
          */
-        public updateDestination(request: protos.IUpdateDestinationRequest, callback: protos.PlumberServer.UpdateDestinationCallback): void;
+        public updateWrite(request: protos.IUpdateWriteRequest, callback: protos.PlumberServer.UpdateWriteCallback): void;
 
         /**
-         * Calls UpdateDestination.
-         * @param request UpdateDestinationRequest message or plain object
+         * Calls UpdateWrite.
+         * @param request UpdateWriteRequest message or plain object
          * @returns Promise
          */
-        public updateDestination(request: protos.IUpdateDestinationRequest): Promise<protos.UpdateDestinationResponse>;
+        public updateWrite(request: protos.IUpdateWriteRequest): Promise<protos.UpdateWriteResponse>;
 
         /**
-         * Calls DeleteDestination.
-         * @param request DeleteDestinationRequest message or plain object
-         * @param callback Node-style callback called with the error, if any, and DeleteDestinationResponse
+         * Calls DeleteWrite.
+         * @param request DeleteWriteRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and DeleteWriteResponse
          */
-        public deleteDestination(request: protos.IDeleteDestinationRequest, callback: protos.PlumberServer.DeleteDestinationCallback): void;
+        public deleteWrite(request: protos.IDeleteWriteRequest, callback: protos.PlumberServer.DeleteWriteCallback): void;
 
         /**
-         * Calls DeleteDestination.
-         * @param request DeleteDestinationRequest message or plain object
+         * Calls DeleteWrite.
+         * @param request DeleteWriteRequest message or plain object
          * @returns Promise
          */
-        public deleteDestination(request: protos.IDeleteDestinationRequest): Promise<protos.DeleteDestinationResponse>;
+        public deleteWrite(request: protos.IDeleteWriteRequest): Promise<protos.DeleteWriteResponse>;
 
         /**
          * Calls GetChannel.
@@ -502,74 +502,74 @@ export namespace protos {
         type DeleteConnectionCallback = (error: (Error|null), response?: protos.DeleteConnectionResponse) => void;
 
         /**
-         * Callback as used by {@link protos.PlumberServer#getSource}.
+         * Callback as used by {@link protos.PlumberServer#getRead}.
          * @param error Error, if any
-         * @param [response] GetSourceResponse
+         * @param [response] GetReadResponse
          */
-        type GetSourceCallback = (error: (Error|null), response?: protos.GetSourceResponse) => void;
+        type GetReadCallback = (error: (Error|null), response?: protos.GetReadResponse) => void;
 
         /**
-         * Callback as used by {@link protos.PlumberServer#getAllSources}.
+         * Callback as used by {@link protos.PlumberServer#getAllRead}.
          * @param error Error, if any
-         * @param [response] GetAllSourcesResponse
+         * @param [response] GetAllReadResponse
          */
-        type GetAllSourcesCallback = (error: (Error|null), response?: protos.GetAllSourcesResponse) => void;
+        type GetAllReadCallback = (error: (Error|null), response?: protos.GetAllReadResponse) => void;
 
         /**
-         * Callback as used by {@link protos.PlumberServer#createSource}.
+         * Callback as used by {@link protos.PlumberServer#createRead}.
          * @param error Error, if any
-         * @param [response] CreateSourceResponse
+         * @param [response] CreateReadResponse
          */
-        type CreateSourceCallback = (error: (Error|null), response?: protos.CreateSourceResponse) => void;
+        type CreateReadCallback = (error: (Error|null), response?: protos.CreateReadResponse) => void;
 
         /**
-         * Callback as used by {@link protos.PlumberServer#updateSource}.
+         * Callback as used by {@link protos.PlumberServer#updateRead}.
          * @param error Error, if any
-         * @param [response] UpdateSourceResponse
+         * @param [response] UpdateReadResponse
          */
-        type UpdateSourceCallback = (error: (Error|null), response?: protos.UpdateSourceResponse) => void;
+        type UpdateReadCallback = (error: (Error|null), response?: protos.UpdateReadResponse) => void;
 
         /**
-         * Callback as used by {@link protos.PlumberServer#deleteSource}.
+         * Callback as used by {@link protos.PlumberServer#deleteRead}.
          * @param error Error, if any
-         * @param [response] DeleteSourceResponse
+         * @param [response] DeleteReadResponse
          */
-        type DeleteSourceCallback = (error: (Error|null), response?: protos.DeleteSourceResponse) => void;
+        type DeleteReadCallback = (error: (Error|null), response?: protos.DeleteReadResponse) => void;
 
         /**
-         * Callback as used by {@link protos.PlumberServer#getDestination}.
+         * Callback as used by {@link protos.PlumberServer#getWrite}.
          * @param error Error, if any
-         * @param [response] GetDestinationResponse
+         * @param [response] GetWriteResponse
          */
-        type GetDestinationCallback = (error: (Error|null), response?: protos.GetDestinationResponse) => void;
+        type GetWriteCallback = (error: (Error|null), response?: protos.GetWriteResponse) => void;
 
         /**
-         * Callback as used by {@link protos.PlumberServer#getAllDestinations}.
+         * Callback as used by {@link protos.PlumberServer#getAllWrite}.
          * @param error Error, if any
-         * @param [response] GetAllDestinationsResponse
+         * @param [response] GetAllWriteResponse
          */
-        type GetAllDestinationsCallback = (error: (Error|null), response?: protos.GetAllDestinationsResponse) => void;
+        type GetAllWriteCallback = (error: (Error|null), response?: protos.GetAllWriteResponse) => void;
 
         /**
-         * Callback as used by {@link protos.PlumberServer#createDestination}.
+         * Callback as used by {@link protos.PlumberServer#createWrite}.
          * @param error Error, if any
-         * @param [response] CreateDestinationResponse
+         * @param [response] CreateWriteResponse
          */
-        type CreateDestinationCallback = (error: (Error|null), response?: protos.CreateDestinationResponse) => void;
+        type CreateWriteCallback = (error: (Error|null), response?: protos.CreateWriteResponse) => void;
 
         /**
-         * Callback as used by {@link protos.PlumberServer#updateDestination}.
+         * Callback as used by {@link protos.PlumberServer#updateWrite}.
          * @param error Error, if any
-         * @param [response] UpdateDestinationResponse
+         * @param [response] UpdateWriteResponse
          */
-        type UpdateDestinationCallback = (error: (Error|null), response?: protos.UpdateDestinationResponse) => void;
+        type UpdateWriteCallback = (error: (Error|null), response?: protos.UpdateWriteResponse) => void;
 
         /**
-         * Callback as used by {@link protos.PlumberServer#deleteDestination}.
+         * Callback as used by {@link protos.PlumberServer#deleteWrite}.
          * @param error Error, if any
-         * @param [response] DeleteDestinationResponse
+         * @param [response] DeleteWriteResponse
          */
-        type DeleteDestinationCallback = (error: (Error|null), response?: protos.DeleteDestinationResponse) => void;
+        type DeleteWriteCallback = (error: (Error|null), response?: protos.DeleteWriteResponse) => void;
 
         /**
          * Callback as used by {@link protos.PlumberServer#getChannel}.
@@ -2662,20 +2662,14 @@ export namespace protos {
         /** Properties of a CreateChannelOptions. */
         interface ICreateChannelOptions {
 
-            /** CreateChannelOptions type */
-            type?: (string|null);
+            /** CreateChannelOptions read */
+            read?: (string|null);
 
-            /** CreateChannelOptions source */
-            source?: (string|null);
-
-            /** CreateChannelOptions destination */
-            destination?: (string|null);
+            /** CreateChannelOptions write */
+            write?: (string|null);
 
             /** CreateChannelOptions settings */
             settings?: (protos.opts.IBaseChannelOptions|null);
-
-            /** CreateChannelOptions streamdalOptions */
-            streamdalOptions?: (protos.opts.IStreamdalChannelOptions|null);
         }
 
         /** Represents a CreateChannelOptions. */
@@ -2687,20 +2681,14 @@ export namespace protos {
              */
             constructor(properties?: protos.opts.ICreateChannelOptions);
 
-            /** CreateChannelOptions type. */
-            public type: string;
+            /** CreateChannelOptions read. */
+            public read: string;
 
-            /** CreateChannelOptions source. */
-            public source: string;
-
-            /** CreateChannelOptions destination. */
-            public destination: string;
+            /** CreateChannelOptions write. */
+            public write: string;
 
             /** CreateChannelOptions settings. */
             public settings?: (protos.opts.IBaseChannelOptions|null);
-
-            /** CreateChannelOptions streamdalOptions. */
-            public streamdalOptions?: (protos.opts.IStreamdalChannelOptions|null);
 
             /**
              * Creates a new CreateChannelOptions instance using the specified properties.
@@ -2870,120 +2858,6 @@ export namespace protos {
 
             /**
              * Converts this BaseChannelOptions to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-        }
-
-        /** Properties of a StreamdalChannelOptions. */
-        interface IStreamdalChannelOptions {
-
-            /** StreamdalChannelOptions collectionToken */
-            collectionToken?: (string|null);
-
-            /** StreamdalChannelOptions deadLetter */
-            deadLetter?: (boolean|null);
-
-            /** StreamdalChannelOptions streamdalGrpcAddress */
-            streamdalGrpcAddress?: (string|null);
-
-            /** StreamdalChannelOptions streamdalGrpcDisableTls */
-            streamdalGrpcDisableTls?: (boolean|null);
-
-            /** StreamdalChannelOptions streamdalGrpcTimeoutSeconds */
-            streamdalGrpcTimeoutSeconds?: (number|null);
-        }
-
-        /** Represents a StreamdalChannelOptions. */
-        class StreamdalChannelOptions implements IStreamdalChannelOptions {
-
-            /**
-             * Constructs a new StreamdalChannelOptions.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: protos.opts.IStreamdalChannelOptions);
-
-            /** StreamdalChannelOptions collectionToken. */
-            public collectionToken: string;
-
-            /** StreamdalChannelOptions deadLetter. */
-            public deadLetter: boolean;
-
-            /** StreamdalChannelOptions streamdalGrpcAddress. */
-            public streamdalGrpcAddress: string;
-
-            /** StreamdalChannelOptions streamdalGrpcDisableTls. */
-            public streamdalGrpcDisableTls: boolean;
-
-            /** StreamdalChannelOptions streamdalGrpcTimeoutSeconds. */
-            public streamdalGrpcTimeoutSeconds: number;
-
-            /**
-             * Creates a new StreamdalChannelOptions instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns StreamdalChannelOptions instance
-             */
-            public static create(properties?: protos.opts.IStreamdalChannelOptions): protos.opts.StreamdalChannelOptions;
-
-            /**
-             * Encodes the specified StreamdalChannelOptions message. Does not implicitly {@link protos.opts.StreamdalChannelOptions.verify|verify} messages.
-             * @param message StreamdalChannelOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: protos.opts.IStreamdalChannelOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified StreamdalChannelOptions message, length delimited. Does not implicitly {@link protos.opts.StreamdalChannelOptions.verify|verify} messages.
-             * @param message StreamdalChannelOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: protos.opts.IStreamdalChannelOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes a StreamdalChannelOptions message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns StreamdalChannelOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.StreamdalChannelOptions;
-
-            /**
-             * Decodes a StreamdalChannelOptions message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns StreamdalChannelOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.StreamdalChannelOptions;
-
-            /**
-             * Verifies a StreamdalChannelOptions message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates a StreamdalChannelOptions message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns StreamdalChannelOptions
-             */
-            public static fromObject(object: { [k: string]: any }): protos.opts.StreamdalChannelOptions;
-
-            /**
-             * Creates a plain object from a StreamdalChannelOptions message. Also converts values to other types if specified.
-             * @param message StreamdalChannelOptions
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: protos.opts.StreamdalChannelOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this StreamdalChannelOptions to JSON.
              * @returns JSON object
              */
             public toJSON(): { [k: string]: any };
@@ -5374,403 +5248,373 @@ export namespace protos {
             public toJSON(): { [k: string]: any };
         }
 
-        /** Properties of a CreateDestinationOptions. */
-        interface ICreateDestinationOptions {
+        /** Properties of a CreateReadOptions. */
+        interface ICreateReadOptions {
 
-            /** CreateDestinationOptions connectionId */
+            /** CreateReadOptions connectionId */
             connectionId?: (string|null);
 
-            /** CreateDestinationOptions name */
+            /** CreateReadOptions name */
             name?: (string|null);
 
-            /** CreateDestinationOptions notes */
+            /** CreateReadOptions notes */
             notes?: (string|null);
 
-            /** CreateDestinationOptions kafka */
-            kafka?: (protos.args.IKafkaWriteArgs|null);
+            /** CreateReadOptions kafka */
+            kafka?: (protos.args.IKafkaSourceArgs|null);
 
-            /** CreateDestinationOptions activemq */
-            activemq?: (protos.args.IActiveMQWriteArgs|null);
+            /** CreateReadOptions awsSqs */
+            awsSqs?: (protos.args.IAWSSQSSourceArgs|null);
 
-            /** CreateDestinationOptions awsSqs */
-            awsSqs?: (protos.args.IAWSSQSWriteArgs|null);
+            /** CreateReadOptions mongo */
+            mongo?: (protos.args.IMongoReadArgs|null);
 
-            /** CreateDestinationOptions awsSns */
-            awsSns?: (protos.args.IAWSSNSWriteArgs|null);
+            /** CreateReadOptions nsq */
+            nsq?: (protos.args.INSQReadArgs|null);
 
-            /** CreateDestinationOptions nats */
-            nats?: (protos.args.INatsWriteArgs|null);
+            /** CreateReadOptions rabbit */
+            rabbit?: (protos.args.IRabbitReadArgs|null);
 
-            /** CreateDestinationOptions natsStreaming */
-            natsStreaming?: (protos.args.INatsStreamingWriteArgs|null);
+            /** CreateReadOptions mqtt */
+            mqtt?: (protos.args.IMQTTReadArgs|null);
 
-            /** CreateDestinationOptions nsq */
-            nsq?: (protos.args.INSQWriteArgs|null);
+            /** CreateReadOptions azureServiceBus */
+            azureServiceBus?: (protos.args.IAzureServiceBusReadArgs|null);
 
-            /** CreateDestinationOptions rabbit */
-            rabbit?: (protos.args.IRabbitWriteArgs|null);
+            /** CreateReadOptions gcpPubsub */
+            gcpPubsub?: (protos.args.IGCPPubSubReadArgs|null);
 
-            /** CreateDestinationOptions mqtt */
-            mqtt?: (protos.args.IMQTTWriteArgs|null);
+            /** CreateReadOptions kubemqQueue */
+            kubemqQueue?: (protos.args.IKubeMQQueueReadArgs|null);
 
-            /** CreateDestinationOptions azureServiceBus */
-            azureServiceBus?: (protos.args.IAzureServiceBusWriteArgs|null);
+            /** CreateReadOptions redisPubsub */
+            redisPubsub?: (protos.args.IRedisPubSubReadArgs|null);
 
-            /** CreateDestinationOptions azureEventHub */
-            azureEventHub?: (protos.args.IAzureEventHubWriteArgs|null);
+            /** CreateReadOptions redisStreams */
+            redisStreams?: (protos.args.IRedisStreamsReadArgs|null);
 
-            /** CreateDestinationOptions gcpPubsub */
-            gcpPubsub?: (protos.args.IGCPPubSubWriteArgs|null);
+            /** CreateReadOptions postgres */
+            postgres?: (protos.args.IPostgresReadArgs|null);
 
-            /** CreateDestinationOptions kubemqQueue */
-            kubemqQueue?: (protos.args.IKubeMQQueueWriteArgs|null);
+            /** CreateReadOptions nats */
+            nats?: (protos.args.INatsReadArgs|null);
 
-            /** CreateDestinationOptions redisPubsub */
-            redisPubsub?: (protos.args.IRedisPubSubWriteArgs|null);
+            /** CreateReadOptions natsStreaming */
+            natsStreaming?: (protos.args.INatsStreamingReadArgs|null);
 
-            /** CreateDestinationOptions redisStreams */
-            redisStreams?: (protos.args.IRedisStreamsWriteArgs|null);
-
-            /** CreateDestinationOptions pulsar */
-            pulsar?: (protos.args.IPulsarWriteArgs|null);
-
-            /** CreateDestinationOptions rabbitStreams */
-            rabbitStreams?: (protos.args.IRabbitStreamsWriteArgs|null);
-
-            /** CreateDestinationOptions natsJetstream */
-            natsJetstream?: (protos.args.INatsJetstreamWriteArgs|null);
-
-            /** CreateDestinationOptions awsKinesis */
-            awsKinesis?: (protos.args.IAWSKinesisWriteArgs|null);
-
-            /** CreateDestinationOptions memphis */
-            memphis?: (protos.args.IMemphisWriteArgs|null);
+            /** CreateReadOptions natsJetstream */
+            natsJetstream?: (protos.args.INatsJetstreamReadArgs|null);
         }
 
-        /** Represents a CreateDestinationOptions. */
-        class CreateDestinationOptions implements ICreateDestinationOptions {
+        /** Represents a CreateReadOptions. */
+        class CreateReadOptions implements ICreateReadOptions {
 
             /**
-             * Constructs a new CreateDestinationOptions.
+             * Constructs a new CreateReadOptions.
              * @param [properties] Properties to set
              */
-            constructor(properties?: protos.opts.ICreateDestinationOptions);
+            constructor(properties?: protos.opts.ICreateReadOptions);
 
-            /** CreateDestinationOptions connectionId. */
+            /** CreateReadOptions connectionId. */
             public connectionId: string;
 
-            /** CreateDestinationOptions name. */
+            /** CreateReadOptions name. */
             public name: string;
 
-            /** CreateDestinationOptions notes. */
+            /** CreateReadOptions notes. */
             public notes: string;
 
-            /** CreateDestinationOptions kafka. */
-            public kafka?: (protos.args.IKafkaWriteArgs|null);
+            /** CreateReadOptions kafka. */
+            public kafka?: (protos.args.IKafkaSourceArgs|null);
 
-            /** CreateDestinationOptions activemq. */
-            public activemq?: (protos.args.IActiveMQWriteArgs|null);
+            /** CreateReadOptions awsSqs. */
+            public awsSqs?: (protos.args.IAWSSQSSourceArgs|null);
 
-            /** CreateDestinationOptions awsSqs. */
-            public awsSqs?: (protos.args.IAWSSQSWriteArgs|null);
+            /** CreateReadOptions mongo. */
+            public mongo?: (protos.args.IMongoReadArgs|null);
 
-            /** CreateDestinationOptions awsSns. */
-            public awsSns?: (protos.args.IAWSSNSWriteArgs|null);
+            /** CreateReadOptions nsq. */
+            public nsq?: (protos.args.INSQReadArgs|null);
 
-            /** CreateDestinationOptions nats. */
-            public nats?: (protos.args.INatsWriteArgs|null);
+            /** CreateReadOptions rabbit. */
+            public rabbit?: (protos.args.IRabbitReadArgs|null);
 
-            /** CreateDestinationOptions natsStreaming. */
-            public natsStreaming?: (protos.args.INatsStreamingWriteArgs|null);
+            /** CreateReadOptions mqtt. */
+            public mqtt?: (protos.args.IMQTTReadArgs|null);
 
-            /** CreateDestinationOptions nsq. */
-            public nsq?: (protos.args.INSQWriteArgs|null);
+            /** CreateReadOptions azureServiceBus. */
+            public azureServiceBus?: (protos.args.IAzureServiceBusReadArgs|null);
 
-            /** CreateDestinationOptions rabbit. */
-            public rabbit?: (protos.args.IRabbitWriteArgs|null);
+            /** CreateReadOptions gcpPubsub. */
+            public gcpPubsub?: (protos.args.IGCPPubSubReadArgs|null);
 
-            /** CreateDestinationOptions mqtt. */
-            public mqtt?: (protos.args.IMQTTWriteArgs|null);
+            /** CreateReadOptions kubemqQueue. */
+            public kubemqQueue?: (protos.args.IKubeMQQueueReadArgs|null);
 
-            /** CreateDestinationOptions azureServiceBus. */
-            public azureServiceBus?: (protos.args.IAzureServiceBusWriteArgs|null);
+            /** CreateReadOptions redisPubsub. */
+            public redisPubsub?: (protos.args.IRedisPubSubReadArgs|null);
 
-            /** CreateDestinationOptions azureEventHub. */
-            public azureEventHub?: (protos.args.IAzureEventHubWriteArgs|null);
+            /** CreateReadOptions redisStreams. */
+            public redisStreams?: (protos.args.IRedisStreamsReadArgs|null);
 
-            /** CreateDestinationOptions gcpPubsub. */
-            public gcpPubsub?: (protos.args.IGCPPubSubWriteArgs|null);
+            /** CreateReadOptions postgres. */
+            public postgres?: (protos.args.IPostgresReadArgs|null);
 
-            /** CreateDestinationOptions kubemqQueue. */
-            public kubemqQueue?: (protos.args.IKubeMQQueueWriteArgs|null);
+            /** CreateReadOptions nats. */
+            public nats?: (protos.args.INatsReadArgs|null);
 
-            /** CreateDestinationOptions redisPubsub. */
-            public redisPubsub?: (protos.args.IRedisPubSubWriteArgs|null);
+            /** CreateReadOptions natsStreaming. */
+            public natsStreaming?: (protos.args.INatsStreamingReadArgs|null);
 
-            /** CreateDestinationOptions redisStreams. */
-            public redisStreams?: (protos.args.IRedisStreamsWriteArgs|null);
-
-            /** CreateDestinationOptions pulsar. */
-            public pulsar?: (protos.args.IPulsarWriteArgs|null);
-
-            /** CreateDestinationOptions rabbitStreams. */
-            public rabbitStreams?: (protos.args.IRabbitStreamsWriteArgs|null);
-
-            /** CreateDestinationOptions natsJetstream. */
-            public natsJetstream?: (protos.args.INatsJetstreamWriteArgs|null);
-
-            /** CreateDestinationOptions awsKinesis. */
-            public awsKinesis?: (protos.args.IAWSKinesisWriteArgs|null);
-
-            /** CreateDestinationOptions memphis. */
-            public memphis?: (protos.args.IMemphisWriteArgs|null);
+            /** CreateReadOptions natsJetstream. */
+            public natsJetstream?: (protos.args.INatsJetstreamReadArgs|null);
 
             /**
-             * Creates a new CreateDestinationOptions instance using the specified properties.
+             * Creates a new CreateReadOptions instance using the specified properties.
              * @param [properties] Properties to set
-             * @returns CreateDestinationOptions instance
+             * @returns CreateReadOptions instance
              */
-            public static create(properties?: protos.opts.ICreateDestinationOptions): protos.opts.CreateDestinationOptions;
+            public static create(properties?: protos.opts.ICreateReadOptions): protos.opts.CreateReadOptions;
 
             /**
-             * Encodes the specified CreateDestinationOptions message. Does not implicitly {@link protos.opts.CreateDestinationOptions.verify|verify} messages.
-             * @param message CreateDestinationOptions message or plain object to encode
+             * Encodes the specified CreateReadOptions message. Does not implicitly {@link protos.opts.CreateReadOptions.verify|verify} messages.
+             * @param message CreateReadOptions message or plain object to encode
              * @param [writer] Writer to encode to
              * @returns Writer
              */
-            public static encode(message: protos.opts.ICreateDestinationOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+            public static encode(message: protos.opts.ICreateReadOptions, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Encodes the specified CreateDestinationOptions message, length delimited. Does not implicitly {@link protos.opts.CreateDestinationOptions.verify|verify} messages.
-             * @param message CreateDestinationOptions message or plain object to encode
+             * Encodes the specified CreateReadOptions message, length delimited. Does not implicitly {@link protos.opts.CreateReadOptions.verify|verify} messages.
+             * @param message CreateReadOptions message or plain object to encode
              * @param [writer] Writer to encode to
              * @returns Writer
              */
-            public static encodeDelimited(message: protos.opts.ICreateDestinationOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+            public static encodeDelimited(message: protos.opts.ICreateReadOptions, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a CreateDestinationOptions message from the specified reader or buffer.
+             * Decodes a CreateReadOptions message from the specified reader or buffer.
              * @param reader Reader or buffer to decode from
              * @param [length] Message length if known beforehand
-             * @returns CreateDestinationOptions
+             * @returns CreateReadOptions
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.CreateDestinationOptions;
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.CreateReadOptions;
 
             /**
-             * Decodes a CreateDestinationOptions message from the specified reader or buffer, length delimited.
+             * Decodes a CreateReadOptions message from the specified reader or buffer, length delimited.
              * @param reader Reader or buffer to decode from
-             * @returns CreateDestinationOptions
+             * @returns CreateReadOptions
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.CreateDestinationOptions;
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.CreateReadOptions;
 
             /**
-             * Verifies a CreateDestinationOptions message.
+             * Verifies a CreateReadOptions message.
              * @param message Plain object to verify
              * @returns `null` if valid, otherwise the reason why it is not
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a CreateDestinationOptions message from a plain object. Also converts values to their respective internal types.
+             * Creates a CreateReadOptions message from a plain object. Also converts values to their respective internal types.
              * @param object Plain object
-             * @returns CreateDestinationOptions
+             * @returns CreateReadOptions
              */
-            public static fromObject(object: { [k: string]: any }): protos.opts.CreateDestinationOptions;
+            public static fromObject(object: { [k: string]: any }): protos.opts.CreateReadOptions;
 
             /**
-             * Creates a plain object from a CreateDestinationOptions message. Also converts values to other types if specified.
-             * @param message CreateDestinationOptions
+             * Creates a plain object from a CreateReadOptions message. Also converts values to other types if specified.
+             * @param message CreateReadOptions
              * @param [options] Conversion options
              * @returns Plain object
              */
-            public static toObject(message: protos.opts.CreateDestinationOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+            public static toObject(message: protos.opts.CreateReadOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
             /**
-             * Converts this CreateDestinationOptions to JSON.
+             * Converts this CreateReadOptions to JSON.
              * @returns JSON object
              */
             public toJSON(): { [k: string]: any };
         }
 
-        /** Properties of a GetDestinationOptions. */
-        interface IGetDestinationOptions {
+        /** Properties of a GetReadOptions. */
+        interface IGetReadOptions {
 
-            /** GetDestinationOptions id */
+            /** GetReadOptions id */
             id?: (string|null);
         }
 
-        /** Represents a GetDestinationOptions. */
-        class GetDestinationOptions implements IGetDestinationOptions {
+        /** Represents a GetReadOptions. */
+        class GetReadOptions implements IGetReadOptions {
 
             /**
-             * Constructs a new GetDestinationOptions.
+             * Constructs a new GetReadOptions.
              * @param [properties] Properties to set
              */
-            constructor(properties?: protos.opts.IGetDestinationOptions);
+            constructor(properties?: protos.opts.IGetReadOptions);
 
-            /** GetDestinationOptions id. */
+            /** GetReadOptions id. */
             public id: string;
 
             /**
-             * Creates a new GetDestinationOptions instance using the specified properties.
+             * Creates a new GetReadOptions instance using the specified properties.
              * @param [properties] Properties to set
-             * @returns GetDestinationOptions instance
+             * @returns GetReadOptions instance
              */
-            public static create(properties?: protos.opts.IGetDestinationOptions): protos.opts.GetDestinationOptions;
+            public static create(properties?: protos.opts.IGetReadOptions): protos.opts.GetReadOptions;
 
             /**
-             * Encodes the specified GetDestinationOptions message. Does not implicitly {@link protos.opts.GetDestinationOptions.verify|verify} messages.
-             * @param message GetDestinationOptions message or plain object to encode
+             * Encodes the specified GetReadOptions message. Does not implicitly {@link protos.opts.GetReadOptions.verify|verify} messages.
+             * @param message GetReadOptions message or plain object to encode
              * @param [writer] Writer to encode to
              * @returns Writer
              */
-            public static encode(message: protos.opts.IGetDestinationOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+            public static encode(message: protos.opts.IGetReadOptions, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Encodes the specified GetDestinationOptions message, length delimited. Does not implicitly {@link protos.opts.GetDestinationOptions.verify|verify} messages.
-             * @param message GetDestinationOptions message or plain object to encode
+             * Encodes the specified GetReadOptions message, length delimited. Does not implicitly {@link protos.opts.GetReadOptions.verify|verify} messages.
+             * @param message GetReadOptions message or plain object to encode
              * @param [writer] Writer to encode to
              * @returns Writer
              */
-            public static encodeDelimited(message: protos.opts.IGetDestinationOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+            public static encodeDelimited(message: protos.opts.IGetReadOptions, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a GetDestinationOptions message from the specified reader or buffer.
+             * Decodes a GetReadOptions message from the specified reader or buffer.
              * @param reader Reader or buffer to decode from
              * @param [length] Message length if known beforehand
-             * @returns GetDestinationOptions
+             * @returns GetReadOptions
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.GetDestinationOptions;
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.GetReadOptions;
 
             /**
-             * Decodes a GetDestinationOptions message from the specified reader or buffer, length delimited.
+             * Decodes a GetReadOptions message from the specified reader or buffer, length delimited.
              * @param reader Reader or buffer to decode from
-             * @returns GetDestinationOptions
+             * @returns GetReadOptions
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.GetDestinationOptions;
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.GetReadOptions;
 
             /**
-             * Verifies a GetDestinationOptions message.
+             * Verifies a GetReadOptions message.
              * @param message Plain object to verify
              * @returns `null` if valid, otherwise the reason why it is not
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a GetDestinationOptions message from a plain object. Also converts values to their respective internal types.
+             * Creates a GetReadOptions message from a plain object. Also converts values to their respective internal types.
              * @param object Plain object
-             * @returns GetDestinationOptions
+             * @returns GetReadOptions
              */
-            public static fromObject(object: { [k: string]: any }): protos.opts.GetDestinationOptions;
+            public static fromObject(object: { [k: string]: any }): protos.opts.GetReadOptions;
 
             /**
-             * Creates a plain object from a GetDestinationOptions message. Also converts values to other types if specified.
-             * @param message GetDestinationOptions
+             * Creates a plain object from a GetReadOptions message. Also converts values to other types if specified.
+             * @param message GetReadOptions
              * @param [options] Conversion options
              * @returns Plain object
              */
-            public static toObject(message: protos.opts.GetDestinationOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+            public static toObject(message: protos.opts.GetReadOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
             /**
-             * Converts this GetDestinationOptions to JSON.
+             * Converts this GetReadOptions to JSON.
              * @returns JSON object
              */
             public toJSON(): { [k: string]: any };
         }
 
-        /** Properties of a DeleteDestinationOptions. */
-        interface IDeleteDestinationOptions {
+        /** Properties of a DeleteReadOptions. */
+        interface IDeleteReadOptions {
 
-            /** DeleteDestinationOptions id */
+            /** DeleteReadOptions id */
             id?: (string|null);
         }
 
-        /** Represents a DeleteDestinationOptions. */
-        class DeleteDestinationOptions implements IDeleteDestinationOptions {
+        /** Represents a DeleteReadOptions. */
+        class DeleteReadOptions implements IDeleteReadOptions {
 
             /**
-             * Constructs a new DeleteDestinationOptions.
+             * Constructs a new DeleteReadOptions.
              * @param [properties] Properties to set
              */
-            constructor(properties?: protos.opts.IDeleteDestinationOptions);
+            constructor(properties?: protos.opts.IDeleteReadOptions);
 
-            /** DeleteDestinationOptions id. */
+            /** DeleteReadOptions id. */
             public id: string;
 
             /**
-             * Creates a new DeleteDestinationOptions instance using the specified properties.
+             * Creates a new DeleteReadOptions instance using the specified properties.
              * @param [properties] Properties to set
-             * @returns DeleteDestinationOptions instance
+             * @returns DeleteReadOptions instance
              */
-            public static create(properties?: protos.opts.IDeleteDestinationOptions): protos.opts.DeleteDestinationOptions;
+            public static create(properties?: protos.opts.IDeleteReadOptions): protos.opts.DeleteReadOptions;
 
             /**
-             * Encodes the specified DeleteDestinationOptions message. Does not implicitly {@link protos.opts.DeleteDestinationOptions.verify|verify} messages.
-             * @param message DeleteDestinationOptions message or plain object to encode
+             * Encodes the specified DeleteReadOptions message. Does not implicitly {@link protos.opts.DeleteReadOptions.verify|verify} messages.
+             * @param message DeleteReadOptions message or plain object to encode
              * @param [writer] Writer to encode to
              * @returns Writer
              */
-            public static encode(message: protos.opts.IDeleteDestinationOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+            public static encode(message: protos.opts.IDeleteReadOptions, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Encodes the specified DeleteDestinationOptions message, length delimited. Does not implicitly {@link protos.opts.DeleteDestinationOptions.verify|verify} messages.
-             * @param message DeleteDestinationOptions message or plain object to encode
+             * Encodes the specified DeleteReadOptions message, length delimited. Does not implicitly {@link protos.opts.DeleteReadOptions.verify|verify} messages.
+             * @param message DeleteReadOptions message or plain object to encode
              * @param [writer] Writer to encode to
              * @returns Writer
              */
-            public static encodeDelimited(message: protos.opts.IDeleteDestinationOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+            public static encodeDelimited(message: protos.opts.IDeleteReadOptions, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a DeleteDestinationOptions message from the specified reader or buffer.
+             * Decodes a DeleteReadOptions message from the specified reader or buffer.
              * @param reader Reader or buffer to decode from
              * @param [length] Message length if known beforehand
-             * @returns DeleteDestinationOptions
+             * @returns DeleteReadOptions
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.DeleteDestinationOptions;
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.DeleteReadOptions;
 
             /**
-             * Decodes a DeleteDestinationOptions message from the specified reader or buffer, length delimited.
+             * Decodes a DeleteReadOptions message from the specified reader or buffer, length delimited.
              * @param reader Reader or buffer to decode from
-             * @returns DeleteDestinationOptions
+             * @returns DeleteReadOptions
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.DeleteDestinationOptions;
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.DeleteReadOptions;
 
             /**
-             * Verifies a DeleteDestinationOptions message.
+             * Verifies a DeleteReadOptions message.
              * @param message Plain object to verify
              * @returns `null` if valid, otherwise the reason why it is not
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a DeleteDestinationOptions message from a plain object. Also converts values to their respective internal types.
+             * Creates a DeleteReadOptions message from a plain object. Also converts values to their respective internal types.
              * @param object Plain object
-             * @returns DeleteDestinationOptions
+             * @returns DeleteReadOptions
              */
-            public static fromObject(object: { [k: string]: any }): protos.opts.DeleteDestinationOptions;
+            public static fromObject(object: { [k: string]: any }): protos.opts.DeleteReadOptions;
 
             /**
-             * Creates a plain object from a DeleteDestinationOptions message. Also converts values to other types if specified.
-             * @param message DeleteDestinationOptions
+             * Creates a plain object from a DeleteReadOptions message. Also converts values to other types if specified.
+             * @param message DeleteReadOptions
              * @param [options] Conversion options
              * @returns Plain object
              */
-            public static toObject(message: protos.opts.DeleteDestinationOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+            public static toObject(message: protos.opts.DeleteReadOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
             /**
-             * Converts this DeleteDestinationOptions to JSON.
+             * Converts this DeleteReadOptions to JSON.
              * @returns JSON object
              */
             public toJSON(): { [k: string]: any };
@@ -5963,378 +5807,6 @@ export namespace protos {
 
             /**
              * Converts this ServerOptions to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-        }
-
-        /** Properties of a CreateSourceOptions. */
-        interface ICreateSourceOptions {
-
-            /** CreateSourceOptions connectionId */
-            connectionId?: (string|null);
-
-            /** CreateSourceOptions name */
-            name?: (string|null);
-
-            /** CreateSourceOptions notes */
-            notes?: (string|null);
-
-            /** CreateSourceOptions kafka */
-            kafka?: (protos.args.IKafkaSourceArgs|null);
-
-            /** CreateSourceOptions awsSqs */
-            awsSqs?: (protos.args.IAWSSQSSourceArgs|null);
-
-            /** CreateSourceOptions mongo */
-            mongo?: (protos.args.IMongoReadArgs|null);
-
-            /** CreateSourceOptions nsq */
-            nsq?: (protos.args.INSQReadArgs|null);
-
-            /** CreateSourceOptions rabbit */
-            rabbit?: (protos.args.IRabbitReadArgs|null);
-
-            /** CreateSourceOptions mqtt */
-            mqtt?: (protos.args.IMQTTReadArgs|null);
-
-            /** CreateSourceOptions azureServiceBus */
-            azureServiceBus?: (protos.args.IAzureServiceBusReadArgs|null);
-
-            /** CreateSourceOptions gcpPubsub */
-            gcpPubsub?: (protos.args.IGCPPubSubReadArgs|null);
-
-            /** CreateSourceOptions kubemqQueue */
-            kubemqQueue?: (protos.args.IKubeMQQueueReadArgs|null);
-
-            /** CreateSourceOptions redisPubsub */
-            redisPubsub?: (protos.args.IRedisPubSubReadArgs|null);
-
-            /** CreateSourceOptions redisStreams */
-            redisStreams?: (protos.args.IRedisStreamsReadArgs|null);
-
-            /** CreateSourceOptions postgres */
-            postgres?: (protos.args.IPostgresReadArgs|null);
-
-            /** CreateSourceOptions nats */
-            nats?: (protos.args.INatsReadArgs|null);
-
-            /** CreateSourceOptions natsStreaming */
-            natsStreaming?: (protos.args.INatsStreamingReadArgs|null);
-
-            /** CreateSourceOptions natsJetstream */
-            natsJetstream?: (protos.args.INatsJetstreamReadArgs|null);
-        }
-
-        /** Represents a CreateSourceOptions. */
-        class CreateSourceOptions implements ICreateSourceOptions {
-
-            /**
-             * Constructs a new CreateSourceOptions.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: protos.opts.ICreateSourceOptions);
-
-            /** CreateSourceOptions connectionId. */
-            public connectionId: string;
-
-            /** CreateSourceOptions name. */
-            public name: string;
-
-            /** CreateSourceOptions notes. */
-            public notes: string;
-
-            /** CreateSourceOptions kafka. */
-            public kafka?: (protos.args.IKafkaSourceArgs|null);
-
-            /** CreateSourceOptions awsSqs. */
-            public awsSqs?: (protos.args.IAWSSQSSourceArgs|null);
-
-            /** CreateSourceOptions mongo. */
-            public mongo?: (protos.args.IMongoReadArgs|null);
-
-            /** CreateSourceOptions nsq. */
-            public nsq?: (protos.args.INSQReadArgs|null);
-
-            /** CreateSourceOptions rabbit. */
-            public rabbit?: (protos.args.IRabbitReadArgs|null);
-
-            /** CreateSourceOptions mqtt. */
-            public mqtt?: (protos.args.IMQTTReadArgs|null);
-
-            /** CreateSourceOptions azureServiceBus. */
-            public azureServiceBus?: (protos.args.IAzureServiceBusReadArgs|null);
-
-            /** CreateSourceOptions gcpPubsub. */
-            public gcpPubsub?: (protos.args.IGCPPubSubReadArgs|null);
-
-            /** CreateSourceOptions kubemqQueue. */
-            public kubemqQueue?: (protos.args.IKubeMQQueueReadArgs|null);
-
-            /** CreateSourceOptions redisPubsub. */
-            public redisPubsub?: (protos.args.IRedisPubSubReadArgs|null);
-
-            /** CreateSourceOptions redisStreams. */
-            public redisStreams?: (protos.args.IRedisStreamsReadArgs|null);
-
-            /** CreateSourceOptions postgres. */
-            public postgres?: (protos.args.IPostgresReadArgs|null);
-
-            /** CreateSourceOptions nats. */
-            public nats?: (protos.args.INatsReadArgs|null);
-
-            /** CreateSourceOptions natsStreaming. */
-            public natsStreaming?: (protos.args.INatsStreamingReadArgs|null);
-
-            /** CreateSourceOptions natsJetstream. */
-            public natsJetstream?: (protos.args.INatsJetstreamReadArgs|null);
-
-            /**
-             * Creates a new CreateSourceOptions instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns CreateSourceOptions instance
-             */
-            public static create(properties?: protos.opts.ICreateSourceOptions): protos.opts.CreateSourceOptions;
-
-            /**
-             * Encodes the specified CreateSourceOptions message. Does not implicitly {@link protos.opts.CreateSourceOptions.verify|verify} messages.
-             * @param message CreateSourceOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: protos.opts.ICreateSourceOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified CreateSourceOptions message, length delimited. Does not implicitly {@link protos.opts.CreateSourceOptions.verify|verify} messages.
-             * @param message CreateSourceOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: protos.opts.ICreateSourceOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes a CreateSourceOptions message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns CreateSourceOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.CreateSourceOptions;
-
-            /**
-             * Decodes a CreateSourceOptions message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns CreateSourceOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.CreateSourceOptions;
-
-            /**
-             * Verifies a CreateSourceOptions message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates a CreateSourceOptions message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns CreateSourceOptions
-             */
-            public static fromObject(object: { [k: string]: any }): protos.opts.CreateSourceOptions;
-
-            /**
-             * Creates a plain object from a CreateSourceOptions message. Also converts values to other types if specified.
-             * @param message CreateSourceOptions
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: protos.opts.CreateSourceOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this CreateSourceOptions to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-        }
-
-        /** Properties of a GetSourceOptions. */
-        interface IGetSourceOptions {
-
-            /** GetSourceOptions id */
-            id?: (string|null);
-        }
-
-        /** Represents a GetSourceOptions. */
-        class GetSourceOptions implements IGetSourceOptions {
-
-            /**
-             * Constructs a new GetSourceOptions.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: protos.opts.IGetSourceOptions);
-
-            /** GetSourceOptions id. */
-            public id: string;
-
-            /**
-             * Creates a new GetSourceOptions instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns GetSourceOptions instance
-             */
-            public static create(properties?: protos.opts.IGetSourceOptions): protos.opts.GetSourceOptions;
-
-            /**
-             * Encodes the specified GetSourceOptions message. Does not implicitly {@link protos.opts.GetSourceOptions.verify|verify} messages.
-             * @param message GetSourceOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: protos.opts.IGetSourceOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified GetSourceOptions message, length delimited. Does not implicitly {@link protos.opts.GetSourceOptions.verify|verify} messages.
-             * @param message GetSourceOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: protos.opts.IGetSourceOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes a GetSourceOptions message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns GetSourceOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.GetSourceOptions;
-
-            /**
-             * Decodes a GetSourceOptions message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns GetSourceOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.GetSourceOptions;
-
-            /**
-             * Verifies a GetSourceOptions message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates a GetSourceOptions message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns GetSourceOptions
-             */
-            public static fromObject(object: { [k: string]: any }): protos.opts.GetSourceOptions;
-
-            /**
-             * Creates a plain object from a GetSourceOptions message. Also converts values to other types if specified.
-             * @param message GetSourceOptions
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: protos.opts.GetSourceOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this GetSourceOptions to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-        }
-
-        /** Properties of a DeleteSourceOptions. */
-        interface IDeleteSourceOptions {
-
-            /** DeleteSourceOptions id */
-            id?: (string|null);
-        }
-
-        /** Represents a DeleteSourceOptions. */
-        class DeleteSourceOptions implements IDeleteSourceOptions {
-
-            /**
-             * Constructs a new DeleteSourceOptions.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: protos.opts.IDeleteSourceOptions);
-
-            /** DeleteSourceOptions id. */
-            public id: string;
-
-            /**
-             * Creates a new DeleteSourceOptions instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns DeleteSourceOptions instance
-             */
-            public static create(properties?: protos.opts.IDeleteSourceOptions): protos.opts.DeleteSourceOptions;
-
-            /**
-             * Encodes the specified DeleteSourceOptions message. Does not implicitly {@link protos.opts.DeleteSourceOptions.verify|verify} messages.
-             * @param message DeleteSourceOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: protos.opts.IDeleteSourceOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified DeleteSourceOptions message, length delimited. Does not implicitly {@link protos.opts.DeleteSourceOptions.verify|verify} messages.
-             * @param message DeleteSourceOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: protos.opts.IDeleteSourceOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes a DeleteSourceOptions message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns DeleteSourceOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.DeleteSourceOptions;
-
-            /**
-             * Decodes a DeleteSourceOptions message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns DeleteSourceOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.DeleteSourceOptions;
-
-            /**
-             * Verifies a DeleteSourceOptions message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates a DeleteSourceOptions message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns DeleteSourceOptions
-             */
-            public static fromObject(object: { [k: string]: any }): protos.opts.DeleteSourceOptions;
-
-            /**
-             * Creates a plain object from a DeleteSourceOptions message. Also converts values to other types if specified.
-             * @param message DeleteSourceOptions
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: protos.opts.DeleteSourceOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this DeleteSourceOptions to JSON.
              * @returns JSON object
              */
             public toJSON(): { [k: string]: any };
@@ -8512,6 +7984,414 @@ export namespace protos {
             public toJSON(): { [k: string]: any };
         }
 
+        /** Properties of a CreateWriteOptions. */
+        interface ICreateWriteOptions {
+
+            /** CreateWriteOptions connectionId */
+            connectionId?: (string|null);
+
+            /** CreateWriteOptions name */
+            name?: (string|null);
+
+            /** CreateWriteOptions notes */
+            notes?: (string|null);
+
+            /** CreateWriteOptions kafka */
+            kafka?: (protos.args.IKafkaWriteArgs|null);
+
+            /** CreateWriteOptions activemq */
+            activemq?: (protos.args.IActiveMQWriteArgs|null);
+
+            /** CreateWriteOptions awsSqs */
+            awsSqs?: (protos.args.IAWSSQSWriteArgs|null);
+
+            /** CreateWriteOptions awsSns */
+            awsSns?: (protos.args.IAWSSNSWriteArgs|null);
+
+            /** CreateWriteOptions nats */
+            nats?: (protos.args.INatsWriteArgs|null);
+
+            /** CreateWriteOptions natsStreaming */
+            natsStreaming?: (protos.args.INatsStreamingWriteArgs|null);
+
+            /** CreateWriteOptions nsq */
+            nsq?: (protos.args.INSQWriteArgs|null);
+
+            /** CreateWriteOptions rabbit */
+            rabbit?: (protos.args.IRabbitWriteArgs|null);
+
+            /** CreateWriteOptions mqtt */
+            mqtt?: (protos.args.IMQTTWriteArgs|null);
+
+            /** CreateWriteOptions azureServiceBus */
+            azureServiceBus?: (protos.args.IAzureServiceBusWriteArgs|null);
+
+            /** CreateWriteOptions azureEventHub */
+            azureEventHub?: (protos.args.IAzureEventHubWriteArgs|null);
+
+            /** CreateWriteOptions gcpPubsub */
+            gcpPubsub?: (protos.args.IGCPPubSubWriteArgs|null);
+
+            /** CreateWriteOptions kubemqQueue */
+            kubemqQueue?: (protos.args.IKubeMQQueueWriteArgs|null);
+
+            /** CreateWriteOptions redisPubsub */
+            redisPubsub?: (protos.args.IRedisPubSubWriteArgs|null);
+
+            /** CreateWriteOptions redisStreams */
+            redisStreams?: (protos.args.IRedisStreamsWriteArgs|null);
+
+            /** CreateWriteOptions pulsar */
+            pulsar?: (protos.args.IPulsarWriteArgs|null);
+
+            /** CreateWriteOptions rabbitStreams */
+            rabbitStreams?: (protos.args.IRabbitStreamsWriteArgs|null);
+
+            /** CreateWriteOptions natsJetstream */
+            natsJetstream?: (protos.args.INatsJetstreamWriteArgs|null);
+
+            /** CreateWriteOptions awsKinesis */
+            awsKinesis?: (protos.args.IAWSKinesisWriteArgs|null);
+
+            /** CreateWriteOptions memphis */
+            memphis?: (protos.args.IMemphisWriteArgs|null);
+
+            /** CreateWriteOptions streamdal */
+            streamdal?: (protos.args.IStreamdalWriteArgs|null);
+        }
+
+        /** Represents a CreateWriteOptions. */
+        class CreateWriteOptions implements ICreateWriteOptions {
+
+            /**
+             * Constructs a new CreateWriteOptions.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.opts.ICreateWriteOptions);
+
+            /** CreateWriteOptions connectionId. */
+            public connectionId: string;
+
+            /** CreateWriteOptions name. */
+            public name: string;
+
+            /** CreateWriteOptions notes. */
+            public notes: string;
+
+            /** CreateWriteOptions kafka. */
+            public kafka?: (protos.args.IKafkaWriteArgs|null);
+
+            /** CreateWriteOptions activemq. */
+            public activemq?: (protos.args.IActiveMQWriteArgs|null);
+
+            /** CreateWriteOptions awsSqs. */
+            public awsSqs?: (protos.args.IAWSSQSWriteArgs|null);
+
+            /** CreateWriteOptions awsSns. */
+            public awsSns?: (protos.args.IAWSSNSWriteArgs|null);
+
+            /** CreateWriteOptions nats. */
+            public nats?: (protos.args.INatsWriteArgs|null);
+
+            /** CreateWriteOptions natsStreaming. */
+            public natsStreaming?: (protos.args.INatsStreamingWriteArgs|null);
+
+            /** CreateWriteOptions nsq. */
+            public nsq?: (protos.args.INSQWriteArgs|null);
+
+            /** CreateWriteOptions rabbit. */
+            public rabbit?: (protos.args.IRabbitWriteArgs|null);
+
+            /** CreateWriteOptions mqtt. */
+            public mqtt?: (protos.args.IMQTTWriteArgs|null);
+
+            /** CreateWriteOptions azureServiceBus. */
+            public azureServiceBus?: (protos.args.IAzureServiceBusWriteArgs|null);
+
+            /** CreateWriteOptions azureEventHub. */
+            public azureEventHub?: (protos.args.IAzureEventHubWriteArgs|null);
+
+            /** CreateWriteOptions gcpPubsub. */
+            public gcpPubsub?: (protos.args.IGCPPubSubWriteArgs|null);
+
+            /** CreateWriteOptions kubemqQueue. */
+            public kubemqQueue?: (protos.args.IKubeMQQueueWriteArgs|null);
+
+            /** CreateWriteOptions redisPubsub. */
+            public redisPubsub?: (protos.args.IRedisPubSubWriteArgs|null);
+
+            /** CreateWriteOptions redisStreams. */
+            public redisStreams?: (protos.args.IRedisStreamsWriteArgs|null);
+
+            /** CreateWriteOptions pulsar. */
+            public pulsar?: (protos.args.IPulsarWriteArgs|null);
+
+            /** CreateWriteOptions rabbitStreams. */
+            public rabbitStreams?: (protos.args.IRabbitStreamsWriteArgs|null);
+
+            /** CreateWriteOptions natsJetstream. */
+            public natsJetstream?: (protos.args.INatsJetstreamWriteArgs|null);
+
+            /** CreateWriteOptions awsKinesis. */
+            public awsKinesis?: (protos.args.IAWSKinesisWriteArgs|null);
+
+            /** CreateWriteOptions memphis. */
+            public memphis?: (protos.args.IMemphisWriteArgs|null);
+
+            /** CreateWriteOptions streamdal. */
+            public streamdal?: (protos.args.IStreamdalWriteArgs|null);
+
+            /**
+             * Creates a new CreateWriteOptions instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns CreateWriteOptions instance
+             */
+            public static create(properties?: protos.opts.ICreateWriteOptions): protos.opts.CreateWriteOptions;
+
+            /**
+             * Encodes the specified CreateWriteOptions message. Does not implicitly {@link protos.opts.CreateWriteOptions.verify|verify} messages.
+             * @param message CreateWriteOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.opts.ICreateWriteOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified CreateWriteOptions message, length delimited. Does not implicitly {@link protos.opts.CreateWriteOptions.verify|verify} messages.
+             * @param message CreateWriteOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.opts.ICreateWriteOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a CreateWriteOptions message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns CreateWriteOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.CreateWriteOptions;
+
+            /**
+             * Decodes a CreateWriteOptions message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns CreateWriteOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.CreateWriteOptions;
+
+            /**
+             * Verifies a CreateWriteOptions message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a CreateWriteOptions message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns CreateWriteOptions
+             */
+            public static fromObject(object: { [k: string]: any }): protos.opts.CreateWriteOptions;
+
+            /**
+             * Creates a plain object from a CreateWriteOptions message. Also converts values to other types if specified.
+             * @param message CreateWriteOptions
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.opts.CreateWriteOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this CreateWriteOptions to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a GetWriteOptions. */
+        interface IGetWriteOptions {
+
+            /** GetWriteOptions id */
+            id?: (string|null);
+        }
+
+        /** Represents a GetWriteOptions. */
+        class GetWriteOptions implements IGetWriteOptions {
+
+            /**
+             * Constructs a new GetWriteOptions.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.opts.IGetWriteOptions);
+
+            /** GetWriteOptions id. */
+            public id: string;
+
+            /**
+             * Creates a new GetWriteOptions instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns GetWriteOptions instance
+             */
+            public static create(properties?: protos.opts.IGetWriteOptions): protos.opts.GetWriteOptions;
+
+            /**
+             * Encodes the specified GetWriteOptions message. Does not implicitly {@link protos.opts.GetWriteOptions.verify|verify} messages.
+             * @param message GetWriteOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.opts.IGetWriteOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified GetWriteOptions message, length delimited. Does not implicitly {@link protos.opts.GetWriteOptions.verify|verify} messages.
+             * @param message GetWriteOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.opts.IGetWriteOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a GetWriteOptions message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns GetWriteOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.GetWriteOptions;
+
+            /**
+             * Decodes a GetWriteOptions message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns GetWriteOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.GetWriteOptions;
+
+            /**
+             * Verifies a GetWriteOptions message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a GetWriteOptions message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns GetWriteOptions
+             */
+            public static fromObject(object: { [k: string]: any }): protos.opts.GetWriteOptions;
+
+            /**
+             * Creates a plain object from a GetWriteOptions message. Also converts values to other types if specified.
+             * @param message GetWriteOptions
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.opts.GetWriteOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this GetWriteOptions to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a DeleteWriteOptions. */
+        interface IDeleteWriteOptions {
+
+            /** DeleteWriteOptions id */
+            id?: (string|null);
+        }
+
+        /** Represents a DeleteWriteOptions. */
+        class DeleteWriteOptions implements IDeleteWriteOptions {
+
+            /**
+             * Constructs a new DeleteWriteOptions.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.opts.IDeleteWriteOptions);
+
+            /** DeleteWriteOptions id. */
+            public id: string;
+
+            /**
+             * Creates a new DeleteWriteOptions instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns DeleteWriteOptions instance
+             */
+            public static create(properties?: protos.opts.IDeleteWriteOptions): protos.opts.DeleteWriteOptions;
+
+            /**
+             * Encodes the specified DeleteWriteOptions message. Does not implicitly {@link protos.opts.DeleteWriteOptions.verify|verify} messages.
+             * @param message DeleteWriteOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.opts.IDeleteWriteOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified DeleteWriteOptions message, length delimited. Does not implicitly {@link protos.opts.DeleteWriteOptions.verify|verify} messages.
+             * @param message DeleteWriteOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.opts.IDeleteWriteOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a DeleteWriteOptions message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns DeleteWriteOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.DeleteWriteOptions;
+
+            /**
+             * Decodes a DeleteWriteOptions message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns DeleteWriteOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.DeleteWriteOptions;
+
+            /**
+             * Verifies a DeleteWriteOptions message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a DeleteWriteOptions message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns DeleteWriteOptions
+             */
+            public static fromObject(object: { [k: string]: any }): protos.opts.DeleteWriteOptions;
+
+            /**
+             * Creates a plain object from a DeleteWriteOptions message. Also converts values to other types if specified.
+             * @param message DeleteWriteOptions
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.opts.DeleteWriteOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this DeleteWriteOptions to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
         /** Properties of a GlobalCLIOptions. */
         interface IGlobalCLIOptions {
 
@@ -9038,10 +8918,10 @@ export namespace protos {
             relay?: (protos.opts.IGetRelayOptions|null);
 
             /** GetOptions source */
-            source?: (protos.opts.IGetSourceOptions|null);
+            source?: (protos.opts.IGetReadOptions|null);
 
             /** GetOptions destination */
-            destination?: (protos.opts.IGetDestinationOptions|null);
+            destination?: (protos.opts.IGetWriteOptions|null);
 
             /** GetOptions channel */
             channel?: (protos.opts.IGetChannelOptions|null);
@@ -9066,10 +8946,10 @@ export namespace protos {
             public relay?: (protos.opts.IGetRelayOptions|null);
 
             /** GetOptions source. */
-            public source?: (protos.opts.IGetSourceOptions|null);
+            public source?: (protos.opts.IGetReadOptions|null);
 
             /** GetOptions destination. */
-            public destination?: (protos.opts.IGetDestinationOptions|null);
+            public destination?: (protos.opts.IGetWriteOptions|null);
 
             /** GetOptions channel. */
             public channel?: (protos.opts.IGetChannelOptions|null);
@@ -9158,10 +9038,10 @@ export namespace protos {
             relay?: (protos.opts.ICreateRelayOptions|null);
 
             /** CreateOptions source */
-            source?: (protos.opts.ICreateSourceOptions|null);
+            source?: (protos.opts.ICreateReadOptions|null);
 
             /** CreateOptions destination */
-            destination?: (protos.opts.ICreateDestinationOptions|null);
+            destination?: (protos.opts.ICreateWriteOptions|null);
 
             /** CreateOptions channel */
             channel?: (protos.opts.ICreateChannelOptions|null);
@@ -9186,10 +9066,10 @@ export namespace protos {
             public relay?: (protos.opts.ICreateRelayOptions|null);
 
             /** CreateOptions source. */
-            public source?: (protos.opts.ICreateSourceOptions|null);
+            public source?: (protos.opts.ICreateReadOptions|null);
 
             /** CreateOptions destination. */
-            public destination?: (protos.opts.ICreateDestinationOptions|null);
+            public destination?: (protos.opts.ICreateWriteOptions|null);
 
             /** CreateOptions channel. */
             public channel?: (protos.opts.ICreateChannelOptions|null);
@@ -9278,10 +9158,10 @@ export namespace protos {
             relay?: (protos.opts.IDeleteRelayOptions|null);
 
             /** DeleteOptions source */
-            source?: (protos.opts.IDeleteSourceOptions|null);
+            source?: (protos.opts.IDeleteReadOptions|null);
 
             /** DeleteOptions destination */
-            destination?: (protos.opts.IDeleteDestinationOptions|null);
+            destination?: (protos.opts.IDeleteWriteOptions|null);
 
             /** DeleteOptions channel */
             channel?: (protos.opts.IDeleteChannelOptions|null);
@@ -9306,10 +9186,10 @@ export namespace protos {
             public relay?: (protos.opts.IDeleteRelayOptions|null);
 
             /** DeleteOptions source. */
-            public source?: (protos.opts.IDeleteSourceOptions|null);
+            public source?: (protos.opts.IDeleteReadOptions|null);
 
             /** DeleteOptions destination. */
-            public destination?: (protos.opts.IDeleteDestinationOptions|null);
+            public destination?: (protos.opts.IDeleteWriteOptions|null);
 
             /** DeleteOptions channel. */
             public channel?: (protos.opts.IDeleteChannelOptions|null);
@@ -25365,6 +25245,120 @@ export namespace protos {
              */
             public toJSON(): { [k: string]: any };
         }
+
+        /** Properties of a StreamdalWriteArgs. */
+        interface IStreamdalWriteArgs {
+
+            /** StreamdalWriteArgs collectionToken */
+            collectionToken?: (string|null);
+
+            /** StreamdalWriteArgs deadLetter */
+            deadLetter?: (boolean|null);
+
+            /** StreamdalWriteArgs streamdalGrpcAddress */
+            streamdalGrpcAddress?: (string|null);
+
+            /** StreamdalWriteArgs streamdalGrpcDisableTls */
+            streamdalGrpcDisableTls?: (boolean|null);
+
+            /** StreamdalWriteArgs streamdalGrpcTimeoutSeconds */
+            streamdalGrpcTimeoutSeconds?: (number|null);
+        }
+
+        /** Represents a StreamdalWriteArgs. */
+        class StreamdalWriteArgs implements IStreamdalWriteArgs {
+
+            /**
+             * Constructs a new StreamdalWriteArgs.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.args.IStreamdalWriteArgs);
+
+            /** StreamdalWriteArgs collectionToken. */
+            public collectionToken: string;
+
+            /** StreamdalWriteArgs deadLetter. */
+            public deadLetter: boolean;
+
+            /** StreamdalWriteArgs streamdalGrpcAddress. */
+            public streamdalGrpcAddress: string;
+
+            /** StreamdalWriteArgs streamdalGrpcDisableTls. */
+            public streamdalGrpcDisableTls: boolean;
+
+            /** StreamdalWriteArgs streamdalGrpcTimeoutSeconds. */
+            public streamdalGrpcTimeoutSeconds: number;
+
+            /**
+             * Creates a new StreamdalWriteArgs instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns StreamdalWriteArgs instance
+             */
+            public static create(properties?: protos.args.IStreamdalWriteArgs): protos.args.StreamdalWriteArgs;
+
+            /**
+             * Encodes the specified StreamdalWriteArgs message. Does not implicitly {@link protos.args.StreamdalWriteArgs.verify|verify} messages.
+             * @param message StreamdalWriteArgs message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.args.IStreamdalWriteArgs, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified StreamdalWriteArgs message, length delimited. Does not implicitly {@link protos.args.StreamdalWriteArgs.verify|verify} messages.
+             * @param message StreamdalWriteArgs message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.args.IStreamdalWriteArgs, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a StreamdalWriteArgs message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns StreamdalWriteArgs
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.args.StreamdalWriteArgs;
+
+            /**
+             * Decodes a StreamdalWriteArgs message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns StreamdalWriteArgs
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.args.StreamdalWriteArgs;
+
+            /**
+             * Verifies a StreamdalWriteArgs message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a StreamdalWriteArgs message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns StreamdalWriteArgs
+             */
+            public static fromObject(object: { [k: string]: any }): protos.args.StreamdalWriteArgs;
+
+            /**
+             * Creates a plain object from a StreamdalWriteArgs message. Also converts values to other types if specified.
+             * @param message StreamdalWriteArgs
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.args.StreamdalWriteArgs, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this StreamdalWriteArgs to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
     }
 
     /** Properties of a GetAllConnectionsRequest. */
@@ -26483,949 +26477,949 @@ export namespace protos {
         public toJSON(): { [k: string]: any };
     }
 
-    /** Properties of a GetAllDestinationsRequest. */
-    interface IGetAllDestinationsRequest {
+    /** Properties of a GetAllReadRequest. */
+    interface IGetAllReadRequest {
 
-        /** GetAllDestinationsRequest auth */
+        /** GetAllReadRequest auth */
         auth?: (protos.common.IAuth|null);
     }
 
-    /** Represents a GetAllDestinationsRequest. */
-    class GetAllDestinationsRequest implements IGetAllDestinationsRequest {
+    /** Represents a GetAllReadRequest. */
+    class GetAllReadRequest implements IGetAllReadRequest {
 
         /**
-         * Constructs a new GetAllDestinationsRequest.
+         * Constructs a new GetAllReadRequest.
          * @param [properties] Properties to set
          */
-        constructor(properties?: protos.IGetAllDestinationsRequest);
+        constructor(properties?: protos.IGetAllReadRequest);
 
-        /** GetAllDestinationsRequest auth. */
+        /** GetAllReadRequest auth. */
         public auth?: (protos.common.IAuth|null);
 
         /**
-         * Creates a new GetAllDestinationsRequest instance using the specified properties.
+         * Creates a new GetAllReadRequest instance using the specified properties.
          * @param [properties] Properties to set
-         * @returns GetAllDestinationsRequest instance
+         * @returns GetAllReadRequest instance
          */
-        public static create(properties?: protos.IGetAllDestinationsRequest): protos.GetAllDestinationsRequest;
+        public static create(properties?: protos.IGetAllReadRequest): protos.GetAllReadRequest;
 
         /**
-         * Encodes the specified GetAllDestinationsRequest message. Does not implicitly {@link protos.GetAllDestinationsRequest.verify|verify} messages.
-         * @param message GetAllDestinationsRequest message or plain object to encode
+         * Encodes the specified GetAllReadRequest message. Does not implicitly {@link protos.GetAllReadRequest.verify|verify} messages.
+         * @param message GetAllReadRequest message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: protos.IGetAllDestinationsRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+        public static encode(message: protos.IGetAllReadRequest, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Encodes the specified GetAllDestinationsRequest message, length delimited. Does not implicitly {@link protos.GetAllDestinationsRequest.verify|verify} messages.
-         * @param message GetAllDestinationsRequest message or plain object to encode
+         * Encodes the specified GetAllReadRequest message, length delimited. Does not implicitly {@link protos.GetAllReadRequest.verify|verify} messages.
+         * @param message GetAllReadRequest message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encodeDelimited(message: protos.IGetAllDestinationsRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+        public static encodeDelimited(message: protos.IGetAllReadRequest, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a GetAllDestinationsRequest message from the specified reader or buffer.
+         * Decodes a GetAllReadRequest message from the specified reader or buffer.
          * @param reader Reader or buffer to decode from
          * @param [length] Message length if known beforehand
-         * @returns GetAllDestinationsRequest
+         * @returns GetAllReadRequest
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.GetAllDestinationsRequest;
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.GetAllReadRequest;
 
         /**
-         * Decodes a GetAllDestinationsRequest message from the specified reader or buffer, length delimited.
+         * Decodes a GetAllReadRequest message from the specified reader or buffer, length delimited.
          * @param reader Reader or buffer to decode from
-         * @returns GetAllDestinationsRequest
+         * @returns GetAllReadRequest
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.GetAllDestinationsRequest;
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.GetAllReadRequest;
 
         /**
-         * Verifies a GetAllDestinationsRequest message.
+         * Verifies a GetAllReadRequest message.
          * @param message Plain object to verify
          * @returns `null` if valid, otherwise the reason why it is not
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a GetAllDestinationsRequest message from a plain object. Also converts values to their respective internal types.
+         * Creates a GetAllReadRequest message from a plain object. Also converts values to their respective internal types.
          * @param object Plain object
-         * @returns GetAllDestinationsRequest
+         * @returns GetAllReadRequest
          */
-        public static fromObject(object: { [k: string]: any }): protos.GetAllDestinationsRequest;
+        public static fromObject(object: { [k: string]: any }): protos.GetAllReadRequest;
 
         /**
-         * Creates a plain object from a GetAllDestinationsRequest message. Also converts values to other types if specified.
-         * @param message GetAllDestinationsRequest
+         * Creates a plain object from a GetAllReadRequest message. Also converts values to other types if specified.
+         * @param message GetAllReadRequest
          * @param [options] Conversion options
          * @returns Plain object
          */
-        public static toObject(message: protos.GetAllDestinationsRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+        public static toObject(message: protos.GetAllReadRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
         /**
-         * Converts this GetAllDestinationsRequest to JSON.
+         * Converts this GetAllReadRequest to JSON.
          * @returns JSON object
          */
         public toJSON(): { [k: string]: any };
     }
 
-    /** Properties of a GetAllDestinationsResponse. */
-    interface IGetAllDestinationsResponse {
+    /** Properties of a GetAllReadResponse. */
+    interface IGetAllReadResponse {
 
-        /** GetAllDestinationsResponse status */
+        /** GetAllReadResponse status */
         status?: (protos.common.IStatus|null);
 
-        /** GetAllDestinationsResponse opts */
-        opts?: (protos.opts.ICreateDestinationOptions[]|null);
+        /** GetAllReadResponse opts */
+        opts?: (protos.opts.ICreateReadOptions[]|null);
     }
 
-    /** Represents a GetAllDestinationsResponse. */
-    class GetAllDestinationsResponse implements IGetAllDestinationsResponse {
+    /** Represents a GetAllReadResponse. */
+    class GetAllReadResponse implements IGetAllReadResponse {
 
         /**
-         * Constructs a new GetAllDestinationsResponse.
+         * Constructs a new GetAllReadResponse.
          * @param [properties] Properties to set
          */
-        constructor(properties?: protos.IGetAllDestinationsResponse);
+        constructor(properties?: protos.IGetAllReadResponse);
 
-        /** GetAllDestinationsResponse status. */
+        /** GetAllReadResponse status. */
         public status?: (protos.common.IStatus|null);
 
-        /** GetAllDestinationsResponse opts. */
-        public opts: protos.opts.ICreateDestinationOptions[];
+        /** GetAllReadResponse opts. */
+        public opts: protos.opts.ICreateReadOptions[];
 
         /**
-         * Creates a new GetAllDestinationsResponse instance using the specified properties.
+         * Creates a new GetAllReadResponse instance using the specified properties.
          * @param [properties] Properties to set
-         * @returns GetAllDestinationsResponse instance
+         * @returns GetAllReadResponse instance
          */
-        public static create(properties?: protos.IGetAllDestinationsResponse): protos.GetAllDestinationsResponse;
+        public static create(properties?: protos.IGetAllReadResponse): protos.GetAllReadResponse;
 
         /**
-         * Encodes the specified GetAllDestinationsResponse message. Does not implicitly {@link protos.GetAllDestinationsResponse.verify|verify} messages.
-         * @param message GetAllDestinationsResponse message or plain object to encode
+         * Encodes the specified GetAllReadResponse message. Does not implicitly {@link protos.GetAllReadResponse.verify|verify} messages.
+         * @param message GetAllReadResponse message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: protos.IGetAllDestinationsResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+        public static encode(message: protos.IGetAllReadResponse, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Encodes the specified GetAllDestinationsResponse message, length delimited. Does not implicitly {@link protos.GetAllDestinationsResponse.verify|verify} messages.
-         * @param message GetAllDestinationsResponse message or plain object to encode
+         * Encodes the specified GetAllReadResponse message, length delimited. Does not implicitly {@link protos.GetAllReadResponse.verify|verify} messages.
+         * @param message GetAllReadResponse message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encodeDelimited(message: protos.IGetAllDestinationsResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+        public static encodeDelimited(message: protos.IGetAllReadResponse, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a GetAllDestinationsResponse message from the specified reader or buffer.
+         * Decodes a GetAllReadResponse message from the specified reader or buffer.
          * @param reader Reader or buffer to decode from
          * @param [length] Message length if known beforehand
-         * @returns GetAllDestinationsResponse
+         * @returns GetAllReadResponse
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.GetAllDestinationsResponse;
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.GetAllReadResponse;
 
         /**
-         * Decodes a GetAllDestinationsResponse message from the specified reader or buffer, length delimited.
+         * Decodes a GetAllReadResponse message from the specified reader or buffer, length delimited.
          * @param reader Reader or buffer to decode from
-         * @returns GetAllDestinationsResponse
+         * @returns GetAllReadResponse
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.GetAllDestinationsResponse;
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.GetAllReadResponse;
 
         /**
-         * Verifies a GetAllDestinationsResponse message.
+         * Verifies a GetAllReadResponse message.
          * @param message Plain object to verify
          * @returns `null` if valid, otherwise the reason why it is not
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a GetAllDestinationsResponse message from a plain object. Also converts values to their respective internal types.
+         * Creates a GetAllReadResponse message from a plain object. Also converts values to their respective internal types.
          * @param object Plain object
-         * @returns GetAllDestinationsResponse
+         * @returns GetAllReadResponse
          */
-        public static fromObject(object: { [k: string]: any }): protos.GetAllDestinationsResponse;
+        public static fromObject(object: { [k: string]: any }): protos.GetAllReadResponse;
 
         /**
-         * Creates a plain object from a GetAllDestinationsResponse message. Also converts values to other types if specified.
-         * @param message GetAllDestinationsResponse
+         * Creates a plain object from a GetAllReadResponse message. Also converts values to other types if specified.
+         * @param message GetAllReadResponse
          * @param [options] Conversion options
          * @returns Plain object
          */
-        public static toObject(message: protos.GetAllDestinationsResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+        public static toObject(message: protos.GetAllReadResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
         /**
-         * Converts this GetAllDestinationsResponse to JSON.
+         * Converts this GetAllReadResponse to JSON.
          * @returns JSON object
          */
         public toJSON(): { [k: string]: any };
     }
 
-    /** Properties of a GetDestinationRequest. */
-    interface IGetDestinationRequest {
+    /** Properties of a GetReadRequest. */
+    interface IGetReadRequest {
 
-        /** GetDestinationRequest auth */
+        /** GetReadRequest auth */
         auth?: (protos.common.IAuth|null);
 
-        /** GetDestinationRequest destinationId */
-        destinationId?: (string|null);
+        /** GetReadRequest readId */
+        readId?: (string|null);
     }
 
-    /** Represents a GetDestinationRequest. */
-    class GetDestinationRequest implements IGetDestinationRequest {
+    /** Represents a GetReadRequest. */
+    class GetReadRequest implements IGetReadRequest {
 
         /**
-         * Constructs a new GetDestinationRequest.
+         * Constructs a new GetReadRequest.
          * @param [properties] Properties to set
          */
-        constructor(properties?: protos.IGetDestinationRequest);
+        constructor(properties?: protos.IGetReadRequest);
 
-        /** GetDestinationRequest auth. */
+        /** GetReadRequest auth. */
         public auth?: (protos.common.IAuth|null);
 
-        /** GetDestinationRequest destinationId. */
-        public destinationId: string;
+        /** GetReadRequest readId. */
+        public readId: string;
 
         /**
-         * Creates a new GetDestinationRequest instance using the specified properties.
+         * Creates a new GetReadRequest instance using the specified properties.
          * @param [properties] Properties to set
-         * @returns GetDestinationRequest instance
+         * @returns GetReadRequest instance
          */
-        public static create(properties?: protos.IGetDestinationRequest): protos.GetDestinationRequest;
+        public static create(properties?: protos.IGetReadRequest): protos.GetReadRequest;
 
         /**
-         * Encodes the specified GetDestinationRequest message. Does not implicitly {@link protos.GetDestinationRequest.verify|verify} messages.
-         * @param message GetDestinationRequest message or plain object to encode
+         * Encodes the specified GetReadRequest message. Does not implicitly {@link protos.GetReadRequest.verify|verify} messages.
+         * @param message GetReadRequest message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: protos.IGetDestinationRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+        public static encode(message: protos.IGetReadRequest, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Encodes the specified GetDestinationRequest message, length delimited. Does not implicitly {@link protos.GetDestinationRequest.verify|verify} messages.
-         * @param message GetDestinationRequest message or plain object to encode
+         * Encodes the specified GetReadRequest message, length delimited. Does not implicitly {@link protos.GetReadRequest.verify|verify} messages.
+         * @param message GetReadRequest message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encodeDelimited(message: protos.IGetDestinationRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+        public static encodeDelimited(message: protos.IGetReadRequest, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a GetDestinationRequest message from the specified reader or buffer.
+         * Decodes a GetReadRequest message from the specified reader or buffer.
          * @param reader Reader or buffer to decode from
          * @param [length] Message length if known beforehand
-         * @returns GetDestinationRequest
+         * @returns GetReadRequest
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.GetDestinationRequest;
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.GetReadRequest;
 
         /**
-         * Decodes a GetDestinationRequest message from the specified reader or buffer, length delimited.
+         * Decodes a GetReadRequest message from the specified reader or buffer, length delimited.
          * @param reader Reader or buffer to decode from
-         * @returns GetDestinationRequest
+         * @returns GetReadRequest
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.GetDestinationRequest;
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.GetReadRequest;
 
         /**
-         * Verifies a GetDestinationRequest message.
+         * Verifies a GetReadRequest message.
          * @param message Plain object to verify
          * @returns `null` if valid, otherwise the reason why it is not
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a GetDestinationRequest message from a plain object. Also converts values to their respective internal types.
+         * Creates a GetReadRequest message from a plain object. Also converts values to their respective internal types.
          * @param object Plain object
-         * @returns GetDestinationRequest
+         * @returns GetReadRequest
          */
-        public static fromObject(object: { [k: string]: any }): protos.GetDestinationRequest;
+        public static fromObject(object: { [k: string]: any }): protos.GetReadRequest;
 
         /**
-         * Creates a plain object from a GetDestinationRequest message. Also converts values to other types if specified.
-         * @param message GetDestinationRequest
+         * Creates a plain object from a GetReadRequest message. Also converts values to other types if specified.
+         * @param message GetReadRequest
          * @param [options] Conversion options
          * @returns Plain object
          */
-        public static toObject(message: protos.GetDestinationRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+        public static toObject(message: protos.GetReadRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
         /**
-         * Converts this GetDestinationRequest to JSON.
+         * Converts this GetReadRequest to JSON.
          * @returns JSON object
          */
         public toJSON(): { [k: string]: any };
     }
 
-    /** Properties of a GetDestinationResponse. */
-    interface IGetDestinationResponse {
+    /** Properties of a GetReadResponse. */
+    interface IGetReadResponse {
 
-        /** GetDestinationResponse status */
+        /** GetReadResponse status */
         status?: (protos.common.IStatus|null);
 
-        /** GetDestinationResponse opts */
-        opts?: (protos.opts.ICreateDestinationOptions|null);
+        /** GetReadResponse opts */
+        opts?: (protos.opts.ICreateReadOptions|null);
     }
 
-    /** Represents a GetDestinationResponse. */
-    class GetDestinationResponse implements IGetDestinationResponse {
+    /** Represents a GetReadResponse. */
+    class GetReadResponse implements IGetReadResponse {
 
         /**
-         * Constructs a new GetDestinationResponse.
+         * Constructs a new GetReadResponse.
          * @param [properties] Properties to set
          */
-        constructor(properties?: protos.IGetDestinationResponse);
+        constructor(properties?: protos.IGetReadResponse);
 
-        /** GetDestinationResponse status. */
+        /** GetReadResponse status. */
         public status?: (protos.common.IStatus|null);
 
-        /** GetDestinationResponse opts. */
-        public opts?: (protos.opts.ICreateDestinationOptions|null);
+        /** GetReadResponse opts. */
+        public opts?: (protos.opts.ICreateReadOptions|null);
 
         /**
-         * Creates a new GetDestinationResponse instance using the specified properties.
+         * Creates a new GetReadResponse instance using the specified properties.
          * @param [properties] Properties to set
-         * @returns GetDestinationResponse instance
+         * @returns GetReadResponse instance
          */
-        public static create(properties?: protos.IGetDestinationResponse): protos.GetDestinationResponse;
+        public static create(properties?: protos.IGetReadResponse): protos.GetReadResponse;
 
         /**
-         * Encodes the specified GetDestinationResponse message. Does not implicitly {@link protos.GetDestinationResponse.verify|verify} messages.
-         * @param message GetDestinationResponse message or plain object to encode
+         * Encodes the specified GetReadResponse message. Does not implicitly {@link protos.GetReadResponse.verify|verify} messages.
+         * @param message GetReadResponse message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: protos.IGetDestinationResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+        public static encode(message: protos.IGetReadResponse, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Encodes the specified GetDestinationResponse message, length delimited. Does not implicitly {@link protos.GetDestinationResponse.verify|verify} messages.
-         * @param message GetDestinationResponse message or plain object to encode
+         * Encodes the specified GetReadResponse message, length delimited. Does not implicitly {@link protos.GetReadResponse.verify|verify} messages.
+         * @param message GetReadResponse message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encodeDelimited(message: protos.IGetDestinationResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+        public static encodeDelimited(message: protos.IGetReadResponse, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a GetDestinationResponse message from the specified reader or buffer.
+         * Decodes a GetReadResponse message from the specified reader or buffer.
          * @param reader Reader or buffer to decode from
          * @param [length] Message length if known beforehand
-         * @returns GetDestinationResponse
+         * @returns GetReadResponse
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.GetDestinationResponse;
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.GetReadResponse;
 
         /**
-         * Decodes a GetDestinationResponse message from the specified reader or buffer, length delimited.
+         * Decodes a GetReadResponse message from the specified reader or buffer, length delimited.
          * @param reader Reader or buffer to decode from
-         * @returns GetDestinationResponse
+         * @returns GetReadResponse
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.GetDestinationResponse;
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.GetReadResponse;
 
         /**
-         * Verifies a GetDestinationResponse message.
+         * Verifies a GetReadResponse message.
          * @param message Plain object to verify
          * @returns `null` if valid, otherwise the reason why it is not
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a GetDestinationResponse message from a plain object. Also converts values to their respective internal types.
+         * Creates a GetReadResponse message from a plain object. Also converts values to their respective internal types.
          * @param object Plain object
-         * @returns GetDestinationResponse
+         * @returns GetReadResponse
          */
-        public static fromObject(object: { [k: string]: any }): protos.GetDestinationResponse;
+        public static fromObject(object: { [k: string]: any }): protos.GetReadResponse;
 
         /**
-         * Creates a plain object from a GetDestinationResponse message. Also converts values to other types if specified.
-         * @param message GetDestinationResponse
+         * Creates a plain object from a GetReadResponse message. Also converts values to other types if specified.
+         * @param message GetReadResponse
          * @param [options] Conversion options
          * @returns Plain object
          */
-        public static toObject(message: protos.GetDestinationResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+        public static toObject(message: protos.GetReadResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
         /**
-         * Converts this GetDestinationResponse to JSON.
+         * Converts this GetReadResponse to JSON.
          * @returns JSON object
          */
         public toJSON(): { [k: string]: any };
     }
 
-    /** Properties of a CreateDestinationRequest. */
-    interface ICreateDestinationRequest {
+    /** Properties of a CreateReadRequest. */
+    interface ICreateReadRequest {
 
-        /** CreateDestinationRequest auth */
+        /** CreateReadRequest auth */
         auth?: (protos.common.IAuth|null);
 
-        /** CreateDestinationRequest opts */
-        opts?: (protos.opts.ICreateDestinationOptions|null);
+        /** CreateReadRequest opts */
+        opts?: (protos.opts.ICreateReadOptions|null);
     }
 
-    /** Represents a CreateDestinationRequest. */
-    class CreateDestinationRequest implements ICreateDestinationRequest {
+    /** Represents a CreateReadRequest. */
+    class CreateReadRequest implements ICreateReadRequest {
 
         /**
-         * Constructs a new CreateDestinationRequest.
+         * Constructs a new CreateReadRequest.
          * @param [properties] Properties to set
          */
-        constructor(properties?: protos.ICreateDestinationRequest);
+        constructor(properties?: protos.ICreateReadRequest);
 
-        /** CreateDestinationRequest auth. */
+        /** CreateReadRequest auth. */
         public auth?: (protos.common.IAuth|null);
 
-        /** CreateDestinationRequest opts. */
-        public opts?: (protos.opts.ICreateDestinationOptions|null);
+        /** CreateReadRequest opts. */
+        public opts?: (protos.opts.ICreateReadOptions|null);
 
         /**
-         * Creates a new CreateDestinationRequest instance using the specified properties.
+         * Creates a new CreateReadRequest instance using the specified properties.
          * @param [properties] Properties to set
-         * @returns CreateDestinationRequest instance
+         * @returns CreateReadRequest instance
          */
-        public static create(properties?: protos.ICreateDestinationRequest): protos.CreateDestinationRequest;
+        public static create(properties?: protos.ICreateReadRequest): protos.CreateReadRequest;
 
         /**
-         * Encodes the specified CreateDestinationRequest message. Does not implicitly {@link protos.CreateDestinationRequest.verify|verify} messages.
-         * @param message CreateDestinationRequest message or plain object to encode
+         * Encodes the specified CreateReadRequest message. Does not implicitly {@link protos.CreateReadRequest.verify|verify} messages.
+         * @param message CreateReadRequest message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: protos.ICreateDestinationRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+        public static encode(message: protos.ICreateReadRequest, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Encodes the specified CreateDestinationRequest message, length delimited. Does not implicitly {@link protos.CreateDestinationRequest.verify|verify} messages.
-         * @param message CreateDestinationRequest message or plain object to encode
+         * Encodes the specified CreateReadRequest message, length delimited. Does not implicitly {@link protos.CreateReadRequest.verify|verify} messages.
+         * @param message CreateReadRequest message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encodeDelimited(message: protos.ICreateDestinationRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+        public static encodeDelimited(message: protos.ICreateReadRequest, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a CreateDestinationRequest message from the specified reader or buffer.
+         * Decodes a CreateReadRequest message from the specified reader or buffer.
          * @param reader Reader or buffer to decode from
          * @param [length] Message length if known beforehand
-         * @returns CreateDestinationRequest
+         * @returns CreateReadRequest
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.CreateDestinationRequest;
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.CreateReadRequest;
 
         /**
-         * Decodes a CreateDestinationRequest message from the specified reader or buffer, length delimited.
+         * Decodes a CreateReadRequest message from the specified reader or buffer, length delimited.
          * @param reader Reader or buffer to decode from
-         * @returns CreateDestinationRequest
+         * @returns CreateReadRequest
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.CreateDestinationRequest;
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.CreateReadRequest;
 
         /**
-         * Verifies a CreateDestinationRequest message.
+         * Verifies a CreateReadRequest message.
          * @param message Plain object to verify
          * @returns `null` if valid, otherwise the reason why it is not
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a CreateDestinationRequest message from a plain object. Also converts values to their respective internal types.
+         * Creates a CreateReadRequest message from a plain object. Also converts values to their respective internal types.
          * @param object Plain object
-         * @returns CreateDestinationRequest
+         * @returns CreateReadRequest
          */
-        public static fromObject(object: { [k: string]: any }): protos.CreateDestinationRequest;
+        public static fromObject(object: { [k: string]: any }): protos.CreateReadRequest;
 
         /**
-         * Creates a plain object from a CreateDestinationRequest message. Also converts values to other types if specified.
-         * @param message CreateDestinationRequest
+         * Creates a plain object from a CreateReadRequest message. Also converts values to other types if specified.
+         * @param message CreateReadRequest
          * @param [options] Conversion options
          * @returns Plain object
          */
-        public static toObject(message: protos.CreateDestinationRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+        public static toObject(message: protos.CreateReadRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
         /**
-         * Converts this CreateDestinationRequest to JSON.
+         * Converts this CreateReadRequest to JSON.
          * @returns JSON object
          */
         public toJSON(): { [k: string]: any };
     }
 
-    /** Properties of a CreateDestinationResponse. */
-    interface ICreateDestinationResponse {
+    /** Properties of a CreateReadResponse. */
+    interface ICreateReadResponse {
 
-        /** CreateDestinationResponse status */
+        /** CreateReadResponse status */
         status?: (protos.common.IStatus|null);
 
-        /** CreateDestinationResponse destinationId */
-        destinationId?: (string|null);
+        /** CreateReadResponse readId */
+        readId?: (string|null);
     }
 
-    /** Represents a CreateDestinationResponse. */
-    class CreateDestinationResponse implements ICreateDestinationResponse {
+    /** Represents a CreateReadResponse. */
+    class CreateReadResponse implements ICreateReadResponse {
 
         /**
-         * Constructs a new CreateDestinationResponse.
+         * Constructs a new CreateReadResponse.
          * @param [properties] Properties to set
          */
-        constructor(properties?: protos.ICreateDestinationResponse);
+        constructor(properties?: protos.ICreateReadResponse);
 
-        /** CreateDestinationResponse status. */
+        /** CreateReadResponse status. */
         public status?: (protos.common.IStatus|null);
 
-        /** CreateDestinationResponse destinationId. */
-        public destinationId: string;
+        /** CreateReadResponse readId. */
+        public readId: string;
 
         /**
-         * Creates a new CreateDestinationResponse instance using the specified properties.
+         * Creates a new CreateReadResponse instance using the specified properties.
          * @param [properties] Properties to set
-         * @returns CreateDestinationResponse instance
+         * @returns CreateReadResponse instance
          */
-        public static create(properties?: protos.ICreateDestinationResponse): protos.CreateDestinationResponse;
+        public static create(properties?: protos.ICreateReadResponse): protos.CreateReadResponse;
 
         /**
-         * Encodes the specified CreateDestinationResponse message. Does not implicitly {@link protos.CreateDestinationResponse.verify|verify} messages.
-         * @param message CreateDestinationResponse message or plain object to encode
+         * Encodes the specified CreateReadResponse message. Does not implicitly {@link protos.CreateReadResponse.verify|verify} messages.
+         * @param message CreateReadResponse message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: protos.ICreateDestinationResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+        public static encode(message: protos.ICreateReadResponse, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Encodes the specified CreateDestinationResponse message, length delimited. Does not implicitly {@link protos.CreateDestinationResponse.verify|verify} messages.
-         * @param message CreateDestinationResponse message or plain object to encode
+         * Encodes the specified CreateReadResponse message, length delimited. Does not implicitly {@link protos.CreateReadResponse.verify|verify} messages.
+         * @param message CreateReadResponse message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encodeDelimited(message: protos.ICreateDestinationResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+        public static encodeDelimited(message: protos.ICreateReadResponse, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a CreateDestinationResponse message from the specified reader or buffer.
+         * Decodes a CreateReadResponse message from the specified reader or buffer.
          * @param reader Reader or buffer to decode from
          * @param [length] Message length if known beforehand
-         * @returns CreateDestinationResponse
+         * @returns CreateReadResponse
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.CreateDestinationResponse;
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.CreateReadResponse;
 
         /**
-         * Decodes a CreateDestinationResponse message from the specified reader or buffer, length delimited.
+         * Decodes a CreateReadResponse message from the specified reader or buffer, length delimited.
          * @param reader Reader or buffer to decode from
-         * @returns CreateDestinationResponse
+         * @returns CreateReadResponse
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.CreateDestinationResponse;
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.CreateReadResponse;
 
         /**
-         * Verifies a CreateDestinationResponse message.
+         * Verifies a CreateReadResponse message.
          * @param message Plain object to verify
          * @returns `null` if valid, otherwise the reason why it is not
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a CreateDestinationResponse message from a plain object. Also converts values to their respective internal types.
+         * Creates a CreateReadResponse message from a plain object. Also converts values to their respective internal types.
          * @param object Plain object
-         * @returns CreateDestinationResponse
+         * @returns CreateReadResponse
          */
-        public static fromObject(object: { [k: string]: any }): protos.CreateDestinationResponse;
+        public static fromObject(object: { [k: string]: any }): protos.CreateReadResponse;
 
         /**
-         * Creates a plain object from a CreateDestinationResponse message. Also converts values to other types if specified.
-         * @param message CreateDestinationResponse
+         * Creates a plain object from a CreateReadResponse message. Also converts values to other types if specified.
+         * @param message CreateReadResponse
          * @param [options] Conversion options
          * @returns Plain object
          */
-        public static toObject(message: protos.CreateDestinationResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+        public static toObject(message: protos.CreateReadResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
         /**
-         * Converts this CreateDestinationResponse to JSON.
+         * Converts this CreateReadResponse to JSON.
          * @returns JSON object
          */
         public toJSON(): { [k: string]: any };
     }
 
-    /** Properties of an UpdateDestinationRequest. */
-    interface IUpdateDestinationRequest {
+    /** Properties of an UpdateReadRequest. */
+    interface IUpdateReadRequest {
 
-        /** UpdateDestinationRequest auth */
+        /** UpdateReadRequest auth */
         auth?: (protos.common.IAuth|null);
 
-        /** UpdateDestinationRequest destinationId */
-        destinationId?: (string|null);
+        /** UpdateReadRequest readId */
+        readId?: (string|null);
 
-        /** UpdateDestinationRequest opts */
-        opts?: (protos.opts.ICreateDestinationOptions|null);
+        /** UpdateReadRequest opts */
+        opts?: (protos.opts.ICreateReadOptions|null);
     }
 
-    /** Represents an UpdateDestinationRequest. */
-    class UpdateDestinationRequest implements IUpdateDestinationRequest {
+    /** Represents an UpdateReadRequest. */
+    class UpdateReadRequest implements IUpdateReadRequest {
 
         /**
-         * Constructs a new UpdateDestinationRequest.
+         * Constructs a new UpdateReadRequest.
          * @param [properties] Properties to set
          */
-        constructor(properties?: protos.IUpdateDestinationRequest);
+        constructor(properties?: protos.IUpdateReadRequest);
 
-        /** UpdateDestinationRequest auth. */
+        /** UpdateReadRequest auth. */
         public auth?: (protos.common.IAuth|null);
 
-        /** UpdateDestinationRequest destinationId. */
-        public destinationId: string;
+        /** UpdateReadRequest readId. */
+        public readId: string;
 
-        /** UpdateDestinationRequest opts. */
-        public opts?: (protos.opts.ICreateDestinationOptions|null);
+        /** UpdateReadRequest opts. */
+        public opts?: (protos.opts.ICreateReadOptions|null);
 
         /**
-         * Creates a new UpdateDestinationRequest instance using the specified properties.
+         * Creates a new UpdateReadRequest instance using the specified properties.
          * @param [properties] Properties to set
-         * @returns UpdateDestinationRequest instance
+         * @returns UpdateReadRequest instance
          */
-        public static create(properties?: protos.IUpdateDestinationRequest): protos.UpdateDestinationRequest;
+        public static create(properties?: protos.IUpdateReadRequest): protos.UpdateReadRequest;
 
         /**
-         * Encodes the specified UpdateDestinationRequest message. Does not implicitly {@link protos.UpdateDestinationRequest.verify|verify} messages.
-         * @param message UpdateDestinationRequest message or plain object to encode
+         * Encodes the specified UpdateReadRequest message. Does not implicitly {@link protos.UpdateReadRequest.verify|verify} messages.
+         * @param message UpdateReadRequest message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: protos.IUpdateDestinationRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+        public static encode(message: protos.IUpdateReadRequest, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Encodes the specified UpdateDestinationRequest message, length delimited. Does not implicitly {@link protos.UpdateDestinationRequest.verify|verify} messages.
-         * @param message UpdateDestinationRequest message or plain object to encode
+         * Encodes the specified UpdateReadRequest message, length delimited. Does not implicitly {@link protos.UpdateReadRequest.verify|verify} messages.
+         * @param message UpdateReadRequest message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encodeDelimited(message: protos.IUpdateDestinationRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+        public static encodeDelimited(message: protos.IUpdateReadRequest, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes an UpdateDestinationRequest message from the specified reader or buffer.
+         * Decodes an UpdateReadRequest message from the specified reader or buffer.
          * @param reader Reader or buffer to decode from
          * @param [length] Message length if known beforehand
-         * @returns UpdateDestinationRequest
+         * @returns UpdateReadRequest
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.UpdateDestinationRequest;
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.UpdateReadRequest;
 
         /**
-         * Decodes an UpdateDestinationRequest message from the specified reader or buffer, length delimited.
+         * Decodes an UpdateReadRequest message from the specified reader or buffer, length delimited.
          * @param reader Reader or buffer to decode from
-         * @returns UpdateDestinationRequest
+         * @returns UpdateReadRequest
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.UpdateDestinationRequest;
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.UpdateReadRequest;
 
         /**
-         * Verifies an UpdateDestinationRequest message.
+         * Verifies an UpdateReadRequest message.
          * @param message Plain object to verify
          * @returns `null` if valid, otherwise the reason why it is not
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates an UpdateDestinationRequest message from a plain object. Also converts values to their respective internal types.
+         * Creates an UpdateReadRequest message from a plain object. Also converts values to their respective internal types.
          * @param object Plain object
-         * @returns UpdateDestinationRequest
+         * @returns UpdateReadRequest
          */
-        public static fromObject(object: { [k: string]: any }): protos.UpdateDestinationRequest;
+        public static fromObject(object: { [k: string]: any }): protos.UpdateReadRequest;
 
         /**
-         * Creates a plain object from an UpdateDestinationRequest message. Also converts values to other types if specified.
-         * @param message UpdateDestinationRequest
+         * Creates a plain object from an UpdateReadRequest message. Also converts values to other types if specified.
+         * @param message UpdateReadRequest
          * @param [options] Conversion options
          * @returns Plain object
          */
-        public static toObject(message: protos.UpdateDestinationRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+        public static toObject(message: protos.UpdateReadRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
         /**
-         * Converts this UpdateDestinationRequest to JSON.
+         * Converts this UpdateReadRequest to JSON.
          * @returns JSON object
          */
         public toJSON(): { [k: string]: any };
     }
 
-    /** Properties of an UpdateDestinationResponse. */
-    interface IUpdateDestinationResponse {
+    /** Properties of an UpdateReadResponse. */
+    interface IUpdateReadResponse {
 
-        /** UpdateDestinationResponse status */
+        /** UpdateReadResponse status */
         status?: (protos.common.IStatus|null);
     }
 
-    /** Represents an UpdateDestinationResponse. */
-    class UpdateDestinationResponse implements IUpdateDestinationResponse {
+    /** Represents an UpdateReadResponse. */
+    class UpdateReadResponse implements IUpdateReadResponse {
 
         /**
-         * Constructs a new UpdateDestinationResponse.
+         * Constructs a new UpdateReadResponse.
          * @param [properties] Properties to set
          */
-        constructor(properties?: protos.IUpdateDestinationResponse);
+        constructor(properties?: protos.IUpdateReadResponse);
 
-        /** UpdateDestinationResponse status. */
+        /** UpdateReadResponse status. */
         public status?: (protos.common.IStatus|null);
 
         /**
-         * Creates a new UpdateDestinationResponse instance using the specified properties.
+         * Creates a new UpdateReadResponse instance using the specified properties.
          * @param [properties] Properties to set
-         * @returns UpdateDestinationResponse instance
+         * @returns UpdateReadResponse instance
          */
-        public static create(properties?: protos.IUpdateDestinationResponse): protos.UpdateDestinationResponse;
+        public static create(properties?: protos.IUpdateReadResponse): protos.UpdateReadResponse;
 
         /**
-         * Encodes the specified UpdateDestinationResponse message. Does not implicitly {@link protos.UpdateDestinationResponse.verify|verify} messages.
-         * @param message UpdateDestinationResponse message or plain object to encode
+         * Encodes the specified UpdateReadResponse message. Does not implicitly {@link protos.UpdateReadResponse.verify|verify} messages.
+         * @param message UpdateReadResponse message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: protos.IUpdateDestinationResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+        public static encode(message: protos.IUpdateReadResponse, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Encodes the specified UpdateDestinationResponse message, length delimited. Does not implicitly {@link protos.UpdateDestinationResponse.verify|verify} messages.
-         * @param message UpdateDestinationResponse message or plain object to encode
+         * Encodes the specified UpdateReadResponse message, length delimited. Does not implicitly {@link protos.UpdateReadResponse.verify|verify} messages.
+         * @param message UpdateReadResponse message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encodeDelimited(message: protos.IUpdateDestinationResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+        public static encodeDelimited(message: protos.IUpdateReadResponse, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes an UpdateDestinationResponse message from the specified reader or buffer.
+         * Decodes an UpdateReadResponse message from the specified reader or buffer.
          * @param reader Reader or buffer to decode from
          * @param [length] Message length if known beforehand
-         * @returns UpdateDestinationResponse
+         * @returns UpdateReadResponse
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.UpdateDestinationResponse;
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.UpdateReadResponse;
 
         /**
-         * Decodes an UpdateDestinationResponse message from the specified reader or buffer, length delimited.
+         * Decodes an UpdateReadResponse message from the specified reader or buffer, length delimited.
          * @param reader Reader or buffer to decode from
-         * @returns UpdateDestinationResponse
+         * @returns UpdateReadResponse
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.UpdateDestinationResponse;
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.UpdateReadResponse;
 
         /**
-         * Verifies an UpdateDestinationResponse message.
+         * Verifies an UpdateReadResponse message.
          * @param message Plain object to verify
          * @returns `null` if valid, otherwise the reason why it is not
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates an UpdateDestinationResponse message from a plain object. Also converts values to their respective internal types.
+         * Creates an UpdateReadResponse message from a plain object. Also converts values to their respective internal types.
          * @param object Plain object
-         * @returns UpdateDestinationResponse
+         * @returns UpdateReadResponse
          */
-        public static fromObject(object: { [k: string]: any }): protos.UpdateDestinationResponse;
+        public static fromObject(object: { [k: string]: any }): protos.UpdateReadResponse;
 
         /**
-         * Creates a plain object from an UpdateDestinationResponse message. Also converts values to other types if specified.
-         * @param message UpdateDestinationResponse
+         * Creates a plain object from an UpdateReadResponse message. Also converts values to other types if specified.
+         * @param message UpdateReadResponse
          * @param [options] Conversion options
          * @returns Plain object
          */
-        public static toObject(message: protos.UpdateDestinationResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+        public static toObject(message: protos.UpdateReadResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
         /**
-         * Converts this UpdateDestinationResponse to JSON.
+         * Converts this UpdateReadResponse to JSON.
          * @returns JSON object
          */
         public toJSON(): { [k: string]: any };
     }
 
-    /** Properties of a DeleteDestinationRequest. */
-    interface IDeleteDestinationRequest {
+    /** Properties of a DeleteReadRequest. */
+    interface IDeleteReadRequest {
 
-        /** DeleteDestinationRequest auth */
+        /** DeleteReadRequest auth */
         auth?: (protos.common.IAuth|null);
 
-        /** DeleteDestinationRequest destinationId */
-        destinationId?: (string|null);
+        /** DeleteReadRequest readId */
+        readId?: (string|null);
     }
 
-    /** Represents a DeleteDestinationRequest. */
-    class DeleteDestinationRequest implements IDeleteDestinationRequest {
+    /** Represents a DeleteReadRequest. */
+    class DeleteReadRequest implements IDeleteReadRequest {
 
         /**
-         * Constructs a new DeleteDestinationRequest.
+         * Constructs a new DeleteReadRequest.
          * @param [properties] Properties to set
          */
-        constructor(properties?: protos.IDeleteDestinationRequest);
+        constructor(properties?: protos.IDeleteReadRequest);
 
-        /** DeleteDestinationRequest auth. */
+        /** DeleteReadRequest auth. */
         public auth?: (protos.common.IAuth|null);
 
-        /** DeleteDestinationRequest destinationId. */
-        public destinationId: string;
+        /** DeleteReadRequest readId. */
+        public readId: string;
 
         /**
-         * Creates a new DeleteDestinationRequest instance using the specified properties.
+         * Creates a new DeleteReadRequest instance using the specified properties.
          * @param [properties] Properties to set
-         * @returns DeleteDestinationRequest instance
+         * @returns DeleteReadRequest instance
          */
-        public static create(properties?: protos.IDeleteDestinationRequest): protos.DeleteDestinationRequest;
+        public static create(properties?: protos.IDeleteReadRequest): protos.DeleteReadRequest;
 
         /**
-         * Encodes the specified DeleteDestinationRequest message. Does not implicitly {@link protos.DeleteDestinationRequest.verify|verify} messages.
-         * @param message DeleteDestinationRequest message or plain object to encode
+         * Encodes the specified DeleteReadRequest message. Does not implicitly {@link protos.DeleteReadRequest.verify|verify} messages.
+         * @param message DeleteReadRequest message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: protos.IDeleteDestinationRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+        public static encode(message: protos.IDeleteReadRequest, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Encodes the specified DeleteDestinationRequest message, length delimited. Does not implicitly {@link protos.DeleteDestinationRequest.verify|verify} messages.
-         * @param message DeleteDestinationRequest message or plain object to encode
+         * Encodes the specified DeleteReadRequest message, length delimited. Does not implicitly {@link protos.DeleteReadRequest.verify|verify} messages.
+         * @param message DeleteReadRequest message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encodeDelimited(message: protos.IDeleteDestinationRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+        public static encodeDelimited(message: protos.IDeleteReadRequest, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a DeleteDestinationRequest message from the specified reader or buffer.
+         * Decodes a DeleteReadRequest message from the specified reader or buffer.
          * @param reader Reader or buffer to decode from
          * @param [length] Message length if known beforehand
-         * @returns DeleteDestinationRequest
+         * @returns DeleteReadRequest
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.DeleteDestinationRequest;
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.DeleteReadRequest;
 
         /**
-         * Decodes a DeleteDestinationRequest message from the specified reader or buffer, length delimited.
+         * Decodes a DeleteReadRequest message from the specified reader or buffer, length delimited.
          * @param reader Reader or buffer to decode from
-         * @returns DeleteDestinationRequest
+         * @returns DeleteReadRequest
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.DeleteDestinationRequest;
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.DeleteReadRequest;
 
         /**
-         * Verifies a DeleteDestinationRequest message.
+         * Verifies a DeleteReadRequest message.
          * @param message Plain object to verify
          * @returns `null` if valid, otherwise the reason why it is not
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a DeleteDestinationRequest message from a plain object. Also converts values to their respective internal types.
+         * Creates a DeleteReadRequest message from a plain object. Also converts values to their respective internal types.
          * @param object Plain object
-         * @returns DeleteDestinationRequest
+         * @returns DeleteReadRequest
          */
-        public static fromObject(object: { [k: string]: any }): protos.DeleteDestinationRequest;
+        public static fromObject(object: { [k: string]: any }): protos.DeleteReadRequest;
 
         /**
-         * Creates a plain object from a DeleteDestinationRequest message. Also converts values to other types if specified.
-         * @param message DeleteDestinationRequest
+         * Creates a plain object from a DeleteReadRequest message. Also converts values to other types if specified.
+         * @param message DeleteReadRequest
          * @param [options] Conversion options
          * @returns Plain object
          */
-        public static toObject(message: protos.DeleteDestinationRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+        public static toObject(message: protos.DeleteReadRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
         /**
-         * Converts this DeleteDestinationRequest to JSON.
+         * Converts this DeleteReadRequest to JSON.
          * @returns JSON object
          */
         public toJSON(): { [k: string]: any };
     }
 
-    /** Properties of a DeleteDestinationResponse. */
-    interface IDeleteDestinationResponse {
+    /** Properties of a DeleteReadResponse. */
+    interface IDeleteReadResponse {
 
-        /** DeleteDestinationResponse status */
+        /** DeleteReadResponse status */
         status?: (protos.common.IStatus|null);
     }
 
-    /** Represents a DeleteDestinationResponse. */
-    class DeleteDestinationResponse implements IDeleteDestinationResponse {
+    /** Represents a DeleteReadResponse. */
+    class DeleteReadResponse implements IDeleteReadResponse {
 
         /**
-         * Constructs a new DeleteDestinationResponse.
+         * Constructs a new DeleteReadResponse.
          * @param [properties] Properties to set
          */
-        constructor(properties?: protos.IDeleteDestinationResponse);
+        constructor(properties?: protos.IDeleteReadResponse);
 
-        /** DeleteDestinationResponse status. */
+        /** DeleteReadResponse status. */
         public status?: (protos.common.IStatus|null);
 
         /**
-         * Creates a new DeleteDestinationResponse instance using the specified properties.
+         * Creates a new DeleteReadResponse instance using the specified properties.
          * @param [properties] Properties to set
-         * @returns DeleteDestinationResponse instance
+         * @returns DeleteReadResponse instance
          */
-        public static create(properties?: protos.IDeleteDestinationResponse): protos.DeleteDestinationResponse;
+        public static create(properties?: protos.IDeleteReadResponse): protos.DeleteReadResponse;
 
         /**
-         * Encodes the specified DeleteDestinationResponse message. Does not implicitly {@link protos.DeleteDestinationResponse.verify|verify} messages.
-         * @param message DeleteDestinationResponse message or plain object to encode
+         * Encodes the specified DeleteReadResponse message. Does not implicitly {@link protos.DeleteReadResponse.verify|verify} messages.
+         * @param message DeleteReadResponse message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: protos.IDeleteDestinationResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+        public static encode(message: protos.IDeleteReadResponse, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Encodes the specified DeleteDestinationResponse message, length delimited. Does not implicitly {@link protos.DeleteDestinationResponse.verify|verify} messages.
-         * @param message DeleteDestinationResponse message or plain object to encode
+         * Encodes the specified DeleteReadResponse message, length delimited. Does not implicitly {@link protos.DeleteReadResponse.verify|verify} messages.
+         * @param message DeleteReadResponse message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encodeDelimited(message: protos.IDeleteDestinationResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+        public static encodeDelimited(message: protos.IDeleteReadResponse, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a DeleteDestinationResponse message from the specified reader or buffer.
+         * Decodes a DeleteReadResponse message from the specified reader or buffer.
          * @param reader Reader or buffer to decode from
          * @param [length] Message length if known beforehand
-         * @returns DeleteDestinationResponse
+         * @returns DeleteReadResponse
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.DeleteDestinationResponse;
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.DeleteReadResponse;
 
         /**
-         * Decodes a DeleteDestinationResponse message from the specified reader or buffer, length delimited.
+         * Decodes a DeleteReadResponse message from the specified reader or buffer, length delimited.
          * @param reader Reader or buffer to decode from
-         * @returns DeleteDestinationResponse
+         * @returns DeleteReadResponse
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.DeleteDestinationResponse;
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.DeleteReadResponse;
 
         /**
-         * Verifies a DeleteDestinationResponse message.
+         * Verifies a DeleteReadResponse message.
          * @param message Plain object to verify
          * @returns `null` if valid, otherwise the reason why it is not
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a DeleteDestinationResponse message from a plain object. Also converts values to their respective internal types.
+         * Creates a DeleteReadResponse message from a plain object. Also converts values to their respective internal types.
          * @param object Plain object
-         * @returns DeleteDestinationResponse
+         * @returns DeleteReadResponse
          */
-        public static fromObject(object: { [k: string]: any }): protos.DeleteDestinationResponse;
+        public static fromObject(object: { [k: string]: any }): protos.DeleteReadResponse;
 
         /**
-         * Creates a plain object from a DeleteDestinationResponse message. Also converts values to other types if specified.
-         * @param message DeleteDestinationResponse
+         * Creates a plain object from a DeleteReadResponse message. Also converts values to other types if specified.
+         * @param message DeleteReadResponse
          * @param [options] Conversion options
          * @returns Plain object
          */
-        public static toObject(message: protos.DeleteDestinationResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+        public static toObject(message: protos.DeleteReadResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
         /**
-         * Converts this DeleteDestinationResponse to JSON.
+         * Converts this DeleteReadResponse to JSON.
          * @returns JSON object
          */
         public toJSON(): { [k: string]: any };
@@ -27606,954 +27600,6 @@ export namespace protos {
 
         /**
          * Converts this GetServerOptionsResponse to JSON.
-         * @returns JSON object
-         */
-        public toJSON(): { [k: string]: any };
-    }
-
-    /** Properties of a GetAllSourcesRequest. */
-    interface IGetAllSourcesRequest {
-
-        /** GetAllSourcesRequest auth */
-        auth?: (protos.common.IAuth|null);
-    }
-
-    /** Represents a GetAllSourcesRequest. */
-    class GetAllSourcesRequest implements IGetAllSourcesRequest {
-
-        /**
-         * Constructs a new GetAllSourcesRequest.
-         * @param [properties] Properties to set
-         */
-        constructor(properties?: protos.IGetAllSourcesRequest);
-
-        /** GetAllSourcesRequest auth. */
-        public auth?: (protos.common.IAuth|null);
-
-        /**
-         * Creates a new GetAllSourcesRequest instance using the specified properties.
-         * @param [properties] Properties to set
-         * @returns GetAllSourcesRequest instance
-         */
-        public static create(properties?: protos.IGetAllSourcesRequest): protos.GetAllSourcesRequest;
-
-        /**
-         * Encodes the specified GetAllSourcesRequest message. Does not implicitly {@link protos.GetAllSourcesRequest.verify|verify} messages.
-         * @param message GetAllSourcesRequest message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encode(message: protos.IGetAllSourcesRequest, writer?: $protobuf.Writer): $protobuf.Writer;
-
-        /**
-         * Encodes the specified GetAllSourcesRequest message, length delimited. Does not implicitly {@link protos.GetAllSourcesRequest.verify|verify} messages.
-         * @param message GetAllSourcesRequest message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encodeDelimited(message: protos.IGetAllSourcesRequest, writer?: $protobuf.Writer): $protobuf.Writer;
-
-        /**
-         * Decodes a GetAllSourcesRequest message from the specified reader or buffer.
-         * @param reader Reader or buffer to decode from
-         * @param [length] Message length if known beforehand
-         * @returns GetAllSourcesRequest
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.GetAllSourcesRequest;
-
-        /**
-         * Decodes a GetAllSourcesRequest message from the specified reader or buffer, length delimited.
-         * @param reader Reader or buffer to decode from
-         * @returns GetAllSourcesRequest
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.GetAllSourcesRequest;
-
-        /**
-         * Verifies a GetAllSourcesRequest message.
-         * @param message Plain object to verify
-         * @returns `null` if valid, otherwise the reason why it is not
-         */
-        public static verify(message: { [k: string]: any }): (string|null);
-
-        /**
-         * Creates a GetAllSourcesRequest message from a plain object. Also converts values to their respective internal types.
-         * @param object Plain object
-         * @returns GetAllSourcesRequest
-         */
-        public static fromObject(object: { [k: string]: any }): protos.GetAllSourcesRequest;
-
-        /**
-         * Creates a plain object from a GetAllSourcesRequest message. Also converts values to other types if specified.
-         * @param message GetAllSourcesRequest
-         * @param [options] Conversion options
-         * @returns Plain object
-         */
-        public static toObject(message: protos.GetAllSourcesRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-        /**
-         * Converts this GetAllSourcesRequest to JSON.
-         * @returns JSON object
-         */
-        public toJSON(): { [k: string]: any };
-    }
-
-    /** Properties of a GetAllSourcesResponse. */
-    interface IGetAllSourcesResponse {
-
-        /** GetAllSourcesResponse status */
-        status?: (protos.common.IStatus|null);
-
-        /** GetAllSourcesResponse opts */
-        opts?: (protos.opts.ICreateSourceOptions[]|null);
-    }
-
-    /** Represents a GetAllSourcesResponse. */
-    class GetAllSourcesResponse implements IGetAllSourcesResponse {
-
-        /**
-         * Constructs a new GetAllSourcesResponse.
-         * @param [properties] Properties to set
-         */
-        constructor(properties?: protos.IGetAllSourcesResponse);
-
-        /** GetAllSourcesResponse status. */
-        public status?: (protos.common.IStatus|null);
-
-        /** GetAllSourcesResponse opts. */
-        public opts: protos.opts.ICreateSourceOptions[];
-
-        /**
-         * Creates a new GetAllSourcesResponse instance using the specified properties.
-         * @param [properties] Properties to set
-         * @returns GetAllSourcesResponse instance
-         */
-        public static create(properties?: protos.IGetAllSourcesResponse): protos.GetAllSourcesResponse;
-
-        /**
-         * Encodes the specified GetAllSourcesResponse message. Does not implicitly {@link protos.GetAllSourcesResponse.verify|verify} messages.
-         * @param message GetAllSourcesResponse message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encode(message: protos.IGetAllSourcesResponse, writer?: $protobuf.Writer): $protobuf.Writer;
-
-        /**
-         * Encodes the specified GetAllSourcesResponse message, length delimited. Does not implicitly {@link protos.GetAllSourcesResponse.verify|verify} messages.
-         * @param message GetAllSourcesResponse message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encodeDelimited(message: protos.IGetAllSourcesResponse, writer?: $protobuf.Writer): $protobuf.Writer;
-
-        /**
-         * Decodes a GetAllSourcesResponse message from the specified reader or buffer.
-         * @param reader Reader or buffer to decode from
-         * @param [length] Message length if known beforehand
-         * @returns GetAllSourcesResponse
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.GetAllSourcesResponse;
-
-        /**
-         * Decodes a GetAllSourcesResponse message from the specified reader or buffer, length delimited.
-         * @param reader Reader or buffer to decode from
-         * @returns GetAllSourcesResponse
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.GetAllSourcesResponse;
-
-        /**
-         * Verifies a GetAllSourcesResponse message.
-         * @param message Plain object to verify
-         * @returns `null` if valid, otherwise the reason why it is not
-         */
-        public static verify(message: { [k: string]: any }): (string|null);
-
-        /**
-         * Creates a GetAllSourcesResponse message from a plain object. Also converts values to their respective internal types.
-         * @param object Plain object
-         * @returns GetAllSourcesResponse
-         */
-        public static fromObject(object: { [k: string]: any }): protos.GetAllSourcesResponse;
-
-        /**
-         * Creates a plain object from a GetAllSourcesResponse message. Also converts values to other types if specified.
-         * @param message GetAllSourcesResponse
-         * @param [options] Conversion options
-         * @returns Plain object
-         */
-        public static toObject(message: protos.GetAllSourcesResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-        /**
-         * Converts this GetAllSourcesResponse to JSON.
-         * @returns JSON object
-         */
-        public toJSON(): { [k: string]: any };
-    }
-
-    /** Properties of a GetSourceRequest. */
-    interface IGetSourceRequest {
-
-        /** GetSourceRequest auth */
-        auth?: (protos.common.IAuth|null);
-
-        /** GetSourceRequest sourceId */
-        sourceId?: (string|null);
-    }
-
-    /** Represents a GetSourceRequest. */
-    class GetSourceRequest implements IGetSourceRequest {
-
-        /**
-         * Constructs a new GetSourceRequest.
-         * @param [properties] Properties to set
-         */
-        constructor(properties?: protos.IGetSourceRequest);
-
-        /** GetSourceRequest auth. */
-        public auth?: (protos.common.IAuth|null);
-
-        /** GetSourceRequest sourceId. */
-        public sourceId: string;
-
-        /**
-         * Creates a new GetSourceRequest instance using the specified properties.
-         * @param [properties] Properties to set
-         * @returns GetSourceRequest instance
-         */
-        public static create(properties?: protos.IGetSourceRequest): protos.GetSourceRequest;
-
-        /**
-         * Encodes the specified GetSourceRequest message. Does not implicitly {@link protos.GetSourceRequest.verify|verify} messages.
-         * @param message GetSourceRequest message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encode(message: protos.IGetSourceRequest, writer?: $protobuf.Writer): $protobuf.Writer;
-
-        /**
-         * Encodes the specified GetSourceRequest message, length delimited. Does not implicitly {@link protos.GetSourceRequest.verify|verify} messages.
-         * @param message GetSourceRequest message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encodeDelimited(message: protos.IGetSourceRequest, writer?: $protobuf.Writer): $protobuf.Writer;
-
-        /**
-         * Decodes a GetSourceRequest message from the specified reader or buffer.
-         * @param reader Reader or buffer to decode from
-         * @param [length] Message length if known beforehand
-         * @returns GetSourceRequest
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.GetSourceRequest;
-
-        /**
-         * Decodes a GetSourceRequest message from the specified reader or buffer, length delimited.
-         * @param reader Reader or buffer to decode from
-         * @returns GetSourceRequest
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.GetSourceRequest;
-
-        /**
-         * Verifies a GetSourceRequest message.
-         * @param message Plain object to verify
-         * @returns `null` if valid, otherwise the reason why it is not
-         */
-        public static verify(message: { [k: string]: any }): (string|null);
-
-        /**
-         * Creates a GetSourceRequest message from a plain object. Also converts values to their respective internal types.
-         * @param object Plain object
-         * @returns GetSourceRequest
-         */
-        public static fromObject(object: { [k: string]: any }): protos.GetSourceRequest;
-
-        /**
-         * Creates a plain object from a GetSourceRequest message. Also converts values to other types if specified.
-         * @param message GetSourceRequest
-         * @param [options] Conversion options
-         * @returns Plain object
-         */
-        public static toObject(message: protos.GetSourceRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-        /**
-         * Converts this GetSourceRequest to JSON.
-         * @returns JSON object
-         */
-        public toJSON(): { [k: string]: any };
-    }
-
-    /** Properties of a GetSourceResponse. */
-    interface IGetSourceResponse {
-
-        /** GetSourceResponse status */
-        status?: (protos.common.IStatus|null);
-
-        /** GetSourceResponse opts */
-        opts?: (protos.opts.ICreateSourceOptions|null);
-    }
-
-    /** Represents a GetSourceResponse. */
-    class GetSourceResponse implements IGetSourceResponse {
-
-        /**
-         * Constructs a new GetSourceResponse.
-         * @param [properties] Properties to set
-         */
-        constructor(properties?: protos.IGetSourceResponse);
-
-        /** GetSourceResponse status. */
-        public status?: (protos.common.IStatus|null);
-
-        /** GetSourceResponse opts. */
-        public opts?: (protos.opts.ICreateSourceOptions|null);
-
-        /**
-         * Creates a new GetSourceResponse instance using the specified properties.
-         * @param [properties] Properties to set
-         * @returns GetSourceResponse instance
-         */
-        public static create(properties?: protos.IGetSourceResponse): protos.GetSourceResponse;
-
-        /**
-         * Encodes the specified GetSourceResponse message. Does not implicitly {@link protos.GetSourceResponse.verify|verify} messages.
-         * @param message GetSourceResponse message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encode(message: protos.IGetSourceResponse, writer?: $protobuf.Writer): $protobuf.Writer;
-
-        /**
-         * Encodes the specified GetSourceResponse message, length delimited. Does not implicitly {@link protos.GetSourceResponse.verify|verify} messages.
-         * @param message GetSourceResponse message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encodeDelimited(message: protos.IGetSourceResponse, writer?: $protobuf.Writer): $protobuf.Writer;
-
-        /**
-         * Decodes a GetSourceResponse message from the specified reader or buffer.
-         * @param reader Reader or buffer to decode from
-         * @param [length] Message length if known beforehand
-         * @returns GetSourceResponse
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.GetSourceResponse;
-
-        /**
-         * Decodes a GetSourceResponse message from the specified reader or buffer, length delimited.
-         * @param reader Reader or buffer to decode from
-         * @returns GetSourceResponse
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.GetSourceResponse;
-
-        /**
-         * Verifies a GetSourceResponse message.
-         * @param message Plain object to verify
-         * @returns `null` if valid, otherwise the reason why it is not
-         */
-        public static verify(message: { [k: string]: any }): (string|null);
-
-        /**
-         * Creates a GetSourceResponse message from a plain object. Also converts values to their respective internal types.
-         * @param object Plain object
-         * @returns GetSourceResponse
-         */
-        public static fromObject(object: { [k: string]: any }): protos.GetSourceResponse;
-
-        /**
-         * Creates a plain object from a GetSourceResponse message. Also converts values to other types if specified.
-         * @param message GetSourceResponse
-         * @param [options] Conversion options
-         * @returns Plain object
-         */
-        public static toObject(message: protos.GetSourceResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-        /**
-         * Converts this GetSourceResponse to JSON.
-         * @returns JSON object
-         */
-        public toJSON(): { [k: string]: any };
-    }
-
-    /** Properties of a CreateSourceRequest. */
-    interface ICreateSourceRequest {
-
-        /** CreateSourceRequest auth */
-        auth?: (protos.common.IAuth|null);
-
-        /** CreateSourceRequest opts */
-        opts?: (protos.opts.ICreateSourceOptions|null);
-    }
-
-    /** Represents a CreateSourceRequest. */
-    class CreateSourceRequest implements ICreateSourceRequest {
-
-        /**
-         * Constructs a new CreateSourceRequest.
-         * @param [properties] Properties to set
-         */
-        constructor(properties?: protos.ICreateSourceRequest);
-
-        /** CreateSourceRequest auth. */
-        public auth?: (protos.common.IAuth|null);
-
-        /** CreateSourceRequest opts. */
-        public opts?: (protos.opts.ICreateSourceOptions|null);
-
-        /**
-         * Creates a new CreateSourceRequest instance using the specified properties.
-         * @param [properties] Properties to set
-         * @returns CreateSourceRequest instance
-         */
-        public static create(properties?: protos.ICreateSourceRequest): protos.CreateSourceRequest;
-
-        /**
-         * Encodes the specified CreateSourceRequest message. Does not implicitly {@link protos.CreateSourceRequest.verify|verify} messages.
-         * @param message CreateSourceRequest message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encode(message: protos.ICreateSourceRequest, writer?: $protobuf.Writer): $protobuf.Writer;
-
-        /**
-         * Encodes the specified CreateSourceRequest message, length delimited. Does not implicitly {@link protos.CreateSourceRequest.verify|verify} messages.
-         * @param message CreateSourceRequest message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encodeDelimited(message: protos.ICreateSourceRequest, writer?: $protobuf.Writer): $protobuf.Writer;
-
-        /**
-         * Decodes a CreateSourceRequest message from the specified reader or buffer.
-         * @param reader Reader or buffer to decode from
-         * @param [length] Message length if known beforehand
-         * @returns CreateSourceRequest
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.CreateSourceRequest;
-
-        /**
-         * Decodes a CreateSourceRequest message from the specified reader or buffer, length delimited.
-         * @param reader Reader or buffer to decode from
-         * @returns CreateSourceRequest
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.CreateSourceRequest;
-
-        /**
-         * Verifies a CreateSourceRequest message.
-         * @param message Plain object to verify
-         * @returns `null` if valid, otherwise the reason why it is not
-         */
-        public static verify(message: { [k: string]: any }): (string|null);
-
-        /**
-         * Creates a CreateSourceRequest message from a plain object. Also converts values to their respective internal types.
-         * @param object Plain object
-         * @returns CreateSourceRequest
-         */
-        public static fromObject(object: { [k: string]: any }): protos.CreateSourceRequest;
-
-        /**
-         * Creates a plain object from a CreateSourceRequest message. Also converts values to other types if specified.
-         * @param message CreateSourceRequest
-         * @param [options] Conversion options
-         * @returns Plain object
-         */
-        public static toObject(message: protos.CreateSourceRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-        /**
-         * Converts this CreateSourceRequest to JSON.
-         * @returns JSON object
-         */
-        public toJSON(): { [k: string]: any };
-    }
-
-    /** Properties of a CreateSourceResponse. */
-    interface ICreateSourceResponse {
-
-        /** CreateSourceResponse status */
-        status?: (protos.common.IStatus|null);
-
-        /** CreateSourceResponse sourceId */
-        sourceId?: (string|null);
-    }
-
-    /** Represents a CreateSourceResponse. */
-    class CreateSourceResponse implements ICreateSourceResponse {
-
-        /**
-         * Constructs a new CreateSourceResponse.
-         * @param [properties] Properties to set
-         */
-        constructor(properties?: protos.ICreateSourceResponse);
-
-        /** CreateSourceResponse status. */
-        public status?: (protos.common.IStatus|null);
-
-        /** CreateSourceResponse sourceId. */
-        public sourceId: string;
-
-        /**
-         * Creates a new CreateSourceResponse instance using the specified properties.
-         * @param [properties] Properties to set
-         * @returns CreateSourceResponse instance
-         */
-        public static create(properties?: protos.ICreateSourceResponse): protos.CreateSourceResponse;
-
-        /**
-         * Encodes the specified CreateSourceResponse message. Does not implicitly {@link protos.CreateSourceResponse.verify|verify} messages.
-         * @param message CreateSourceResponse message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encode(message: protos.ICreateSourceResponse, writer?: $protobuf.Writer): $protobuf.Writer;
-
-        /**
-         * Encodes the specified CreateSourceResponse message, length delimited. Does not implicitly {@link protos.CreateSourceResponse.verify|verify} messages.
-         * @param message CreateSourceResponse message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encodeDelimited(message: protos.ICreateSourceResponse, writer?: $protobuf.Writer): $protobuf.Writer;
-
-        /**
-         * Decodes a CreateSourceResponse message from the specified reader or buffer.
-         * @param reader Reader or buffer to decode from
-         * @param [length] Message length if known beforehand
-         * @returns CreateSourceResponse
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.CreateSourceResponse;
-
-        /**
-         * Decodes a CreateSourceResponse message from the specified reader or buffer, length delimited.
-         * @param reader Reader or buffer to decode from
-         * @returns CreateSourceResponse
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.CreateSourceResponse;
-
-        /**
-         * Verifies a CreateSourceResponse message.
-         * @param message Plain object to verify
-         * @returns `null` if valid, otherwise the reason why it is not
-         */
-        public static verify(message: { [k: string]: any }): (string|null);
-
-        /**
-         * Creates a CreateSourceResponse message from a plain object. Also converts values to their respective internal types.
-         * @param object Plain object
-         * @returns CreateSourceResponse
-         */
-        public static fromObject(object: { [k: string]: any }): protos.CreateSourceResponse;
-
-        /**
-         * Creates a plain object from a CreateSourceResponse message. Also converts values to other types if specified.
-         * @param message CreateSourceResponse
-         * @param [options] Conversion options
-         * @returns Plain object
-         */
-        public static toObject(message: protos.CreateSourceResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-        /**
-         * Converts this CreateSourceResponse to JSON.
-         * @returns JSON object
-         */
-        public toJSON(): { [k: string]: any };
-    }
-
-    /** Properties of an UpdateSourceRequest. */
-    interface IUpdateSourceRequest {
-
-        /** UpdateSourceRequest auth */
-        auth?: (protos.common.IAuth|null);
-
-        /** UpdateSourceRequest sourceId */
-        sourceId?: (string|null);
-
-        /** UpdateSourceRequest opts */
-        opts?: (protos.opts.ICreateSourceOptions|null);
-    }
-
-    /** Represents an UpdateSourceRequest. */
-    class UpdateSourceRequest implements IUpdateSourceRequest {
-
-        /**
-         * Constructs a new UpdateSourceRequest.
-         * @param [properties] Properties to set
-         */
-        constructor(properties?: protos.IUpdateSourceRequest);
-
-        /** UpdateSourceRequest auth. */
-        public auth?: (protos.common.IAuth|null);
-
-        /** UpdateSourceRequest sourceId. */
-        public sourceId: string;
-
-        /** UpdateSourceRequest opts. */
-        public opts?: (protos.opts.ICreateSourceOptions|null);
-
-        /**
-         * Creates a new UpdateSourceRequest instance using the specified properties.
-         * @param [properties] Properties to set
-         * @returns UpdateSourceRequest instance
-         */
-        public static create(properties?: protos.IUpdateSourceRequest): protos.UpdateSourceRequest;
-
-        /**
-         * Encodes the specified UpdateSourceRequest message. Does not implicitly {@link protos.UpdateSourceRequest.verify|verify} messages.
-         * @param message UpdateSourceRequest message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encode(message: protos.IUpdateSourceRequest, writer?: $protobuf.Writer): $protobuf.Writer;
-
-        /**
-         * Encodes the specified UpdateSourceRequest message, length delimited. Does not implicitly {@link protos.UpdateSourceRequest.verify|verify} messages.
-         * @param message UpdateSourceRequest message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encodeDelimited(message: protos.IUpdateSourceRequest, writer?: $protobuf.Writer): $protobuf.Writer;
-
-        /**
-         * Decodes an UpdateSourceRequest message from the specified reader or buffer.
-         * @param reader Reader or buffer to decode from
-         * @param [length] Message length if known beforehand
-         * @returns UpdateSourceRequest
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.UpdateSourceRequest;
-
-        /**
-         * Decodes an UpdateSourceRequest message from the specified reader or buffer, length delimited.
-         * @param reader Reader or buffer to decode from
-         * @returns UpdateSourceRequest
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.UpdateSourceRequest;
-
-        /**
-         * Verifies an UpdateSourceRequest message.
-         * @param message Plain object to verify
-         * @returns `null` if valid, otherwise the reason why it is not
-         */
-        public static verify(message: { [k: string]: any }): (string|null);
-
-        /**
-         * Creates an UpdateSourceRequest message from a plain object. Also converts values to their respective internal types.
-         * @param object Plain object
-         * @returns UpdateSourceRequest
-         */
-        public static fromObject(object: { [k: string]: any }): protos.UpdateSourceRequest;
-
-        /**
-         * Creates a plain object from an UpdateSourceRequest message. Also converts values to other types if specified.
-         * @param message UpdateSourceRequest
-         * @param [options] Conversion options
-         * @returns Plain object
-         */
-        public static toObject(message: protos.UpdateSourceRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-        /**
-         * Converts this UpdateSourceRequest to JSON.
-         * @returns JSON object
-         */
-        public toJSON(): { [k: string]: any };
-    }
-
-    /** Properties of an UpdateSourceResponse. */
-    interface IUpdateSourceResponse {
-
-        /** UpdateSourceResponse status */
-        status?: (protos.common.IStatus|null);
-    }
-
-    /** Represents an UpdateSourceResponse. */
-    class UpdateSourceResponse implements IUpdateSourceResponse {
-
-        /**
-         * Constructs a new UpdateSourceResponse.
-         * @param [properties] Properties to set
-         */
-        constructor(properties?: protos.IUpdateSourceResponse);
-
-        /** UpdateSourceResponse status. */
-        public status?: (protos.common.IStatus|null);
-
-        /**
-         * Creates a new UpdateSourceResponse instance using the specified properties.
-         * @param [properties] Properties to set
-         * @returns UpdateSourceResponse instance
-         */
-        public static create(properties?: protos.IUpdateSourceResponse): protos.UpdateSourceResponse;
-
-        /**
-         * Encodes the specified UpdateSourceResponse message. Does not implicitly {@link protos.UpdateSourceResponse.verify|verify} messages.
-         * @param message UpdateSourceResponse message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encode(message: protos.IUpdateSourceResponse, writer?: $protobuf.Writer): $protobuf.Writer;
-
-        /**
-         * Encodes the specified UpdateSourceResponse message, length delimited. Does not implicitly {@link protos.UpdateSourceResponse.verify|verify} messages.
-         * @param message UpdateSourceResponse message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encodeDelimited(message: protos.IUpdateSourceResponse, writer?: $protobuf.Writer): $protobuf.Writer;
-
-        /**
-         * Decodes an UpdateSourceResponse message from the specified reader or buffer.
-         * @param reader Reader or buffer to decode from
-         * @param [length] Message length if known beforehand
-         * @returns UpdateSourceResponse
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.UpdateSourceResponse;
-
-        /**
-         * Decodes an UpdateSourceResponse message from the specified reader or buffer, length delimited.
-         * @param reader Reader or buffer to decode from
-         * @returns UpdateSourceResponse
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.UpdateSourceResponse;
-
-        /**
-         * Verifies an UpdateSourceResponse message.
-         * @param message Plain object to verify
-         * @returns `null` if valid, otherwise the reason why it is not
-         */
-        public static verify(message: { [k: string]: any }): (string|null);
-
-        /**
-         * Creates an UpdateSourceResponse message from a plain object. Also converts values to their respective internal types.
-         * @param object Plain object
-         * @returns UpdateSourceResponse
-         */
-        public static fromObject(object: { [k: string]: any }): protos.UpdateSourceResponse;
-
-        /**
-         * Creates a plain object from an UpdateSourceResponse message. Also converts values to other types if specified.
-         * @param message UpdateSourceResponse
-         * @param [options] Conversion options
-         * @returns Plain object
-         */
-        public static toObject(message: protos.UpdateSourceResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-        /**
-         * Converts this UpdateSourceResponse to JSON.
-         * @returns JSON object
-         */
-        public toJSON(): { [k: string]: any };
-    }
-
-    /** Properties of a DeleteSourceRequest. */
-    interface IDeleteSourceRequest {
-
-        /** DeleteSourceRequest auth */
-        auth?: (protos.common.IAuth|null);
-
-        /** DeleteSourceRequest sourceId */
-        sourceId?: (string|null);
-    }
-
-    /** Represents a DeleteSourceRequest. */
-    class DeleteSourceRequest implements IDeleteSourceRequest {
-
-        /**
-         * Constructs a new DeleteSourceRequest.
-         * @param [properties] Properties to set
-         */
-        constructor(properties?: protos.IDeleteSourceRequest);
-
-        /** DeleteSourceRequest auth. */
-        public auth?: (protos.common.IAuth|null);
-
-        /** DeleteSourceRequest sourceId. */
-        public sourceId: string;
-
-        /**
-         * Creates a new DeleteSourceRequest instance using the specified properties.
-         * @param [properties] Properties to set
-         * @returns DeleteSourceRequest instance
-         */
-        public static create(properties?: protos.IDeleteSourceRequest): protos.DeleteSourceRequest;
-
-        /**
-         * Encodes the specified DeleteSourceRequest message. Does not implicitly {@link protos.DeleteSourceRequest.verify|verify} messages.
-         * @param message DeleteSourceRequest message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encode(message: protos.IDeleteSourceRequest, writer?: $protobuf.Writer): $protobuf.Writer;
-
-        /**
-         * Encodes the specified DeleteSourceRequest message, length delimited. Does not implicitly {@link protos.DeleteSourceRequest.verify|verify} messages.
-         * @param message DeleteSourceRequest message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encodeDelimited(message: protos.IDeleteSourceRequest, writer?: $protobuf.Writer): $protobuf.Writer;
-
-        /**
-         * Decodes a DeleteSourceRequest message from the specified reader or buffer.
-         * @param reader Reader or buffer to decode from
-         * @param [length] Message length if known beforehand
-         * @returns DeleteSourceRequest
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.DeleteSourceRequest;
-
-        /**
-         * Decodes a DeleteSourceRequest message from the specified reader or buffer, length delimited.
-         * @param reader Reader or buffer to decode from
-         * @returns DeleteSourceRequest
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.DeleteSourceRequest;
-
-        /**
-         * Verifies a DeleteSourceRequest message.
-         * @param message Plain object to verify
-         * @returns `null` if valid, otherwise the reason why it is not
-         */
-        public static verify(message: { [k: string]: any }): (string|null);
-
-        /**
-         * Creates a DeleteSourceRequest message from a plain object. Also converts values to their respective internal types.
-         * @param object Plain object
-         * @returns DeleteSourceRequest
-         */
-        public static fromObject(object: { [k: string]: any }): protos.DeleteSourceRequest;
-
-        /**
-         * Creates a plain object from a DeleteSourceRequest message. Also converts values to other types if specified.
-         * @param message DeleteSourceRequest
-         * @param [options] Conversion options
-         * @returns Plain object
-         */
-        public static toObject(message: protos.DeleteSourceRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-        /**
-         * Converts this DeleteSourceRequest to JSON.
-         * @returns JSON object
-         */
-        public toJSON(): { [k: string]: any };
-    }
-
-    /** Properties of a DeleteSourceResponse. */
-    interface IDeleteSourceResponse {
-
-        /** DeleteSourceResponse status */
-        status?: (protos.common.IStatus|null);
-    }
-
-    /** Represents a DeleteSourceResponse. */
-    class DeleteSourceResponse implements IDeleteSourceResponse {
-
-        /**
-         * Constructs a new DeleteSourceResponse.
-         * @param [properties] Properties to set
-         */
-        constructor(properties?: protos.IDeleteSourceResponse);
-
-        /** DeleteSourceResponse status. */
-        public status?: (protos.common.IStatus|null);
-
-        /**
-         * Creates a new DeleteSourceResponse instance using the specified properties.
-         * @param [properties] Properties to set
-         * @returns DeleteSourceResponse instance
-         */
-        public static create(properties?: protos.IDeleteSourceResponse): protos.DeleteSourceResponse;
-
-        /**
-         * Encodes the specified DeleteSourceResponse message. Does not implicitly {@link protos.DeleteSourceResponse.verify|verify} messages.
-         * @param message DeleteSourceResponse message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encode(message: protos.IDeleteSourceResponse, writer?: $protobuf.Writer): $protobuf.Writer;
-
-        /**
-         * Encodes the specified DeleteSourceResponse message, length delimited. Does not implicitly {@link protos.DeleteSourceResponse.verify|verify} messages.
-         * @param message DeleteSourceResponse message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encodeDelimited(message: protos.IDeleteSourceResponse, writer?: $protobuf.Writer): $protobuf.Writer;
-
-        /**
-         * Decodes a DeleteSourceResponse message from the specified reader or buffer.
-         * @param reader Reader or buffer to decode from
-         * @param [length] Message length if known beforehand
-         * @returns DeleteSourceResponse
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.DeleteSourceResponse;
-
-        /**
-         * Decodes a DeleteSourceResponse message from the specified reader or buffer, length delimited.
-         * @param reader Reader or buffer to decode from
-         * @returns DeleteSourceResponse
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.DeleteSourceResponse;
-
-        /**
-         * Verifies a DeleteSourceResponse message.
-         * @param message Plain object to verify
-         * @returns `null` if valid, otherwise the reason why it is not
-         */
-        public static verify(message: { [k: string]: any }): (string|null);
-
-        /**
-         * Creates a DeleteSourceResponse message from a plain object. Also converts values to their respective internal types.
-         * @param object Plain object
-         * @returns DeleteSourceResponse
-         */
-        public static fromObject(object: { [k: string]: any }): protos.DeleteSourceResponse;
-
-        /**
-         * Creates a plain object from a DeleteSourceResponse message. Also converts values to other types if specified.
-         * @param message DeleteSourceResponse
-         * @param [options] Conversion options
-         * @returns Plain object
-         */
-        public static toObject(message: protos.DeleteSourceResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-        /**
-         * Converts this DeleteSourceResponse to JSON.
          * @returns JSON object
          */
         public toJSON(): { [k: string]: any };
@@ -29879,6 +28925,954 @@ export namespace protos {
         public toJSON(): { [k: string]: any };
     }
 
+    /** Properties of a GetAllWriteRequest. */
+    interface IGetAllWriteRequest {
+
+        /** GetAllWriteRequest auth */
+        auth?: (protos.common.IAuth|null);
+    }
+
+    /** Represents a GetAllWriteRequest. */
+    class GetAllWriteRequest implements IGetAllWriteRequest {
+
+        /**
+         * Constructs a new GetAllWriteRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IGetAllWriteRequest);
+
+        /** GetAllWriteRequest auth. */
+        public auth?: (protos.common.IAuth|null);
+
+        /**
+         * Creates a new GetAllWriteRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns GetAllWriteRequest instance
+         */
+        public static create(properties?: protos.IGetAllWriteRequest): protos.GetAllWriteRequest;
+
+        /**
+         * Encodes the specified GetAllWriteRequest message. Does not implicitly {@link protos.GetAllWriteRequest.verify|verify} messages.
+         * @param message GetAllWriteRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IGetAllWriteRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified GetAllWriteRequest message, length delimited. Does not implicitly {@link protos.GetAllWriteRequest.verify|verify} messages.
+         * @param message GetAllWriteRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IGetAllWriteRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a GetAllWriteRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns GetAllWriteRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.GetAllWriteRequest;
+
+        /**
+         * Decodes a GetAllWriteRequest message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns GetAllWriteRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.GetAllWriteRequest;
+
+        /**
+         * Verifies a GetAllWriteRequest message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a GetAllWriteRequest message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns GetAllWriteRequest
+         */
+        public static fromObject(object: { [k: string]: any }): protos.GetAllWriteRequest;
+
+        /**
+         * Creates a plain object from a GetAllWriteRequest message. Also converts values to other types if specified.
+         * @param message GetAllWriteRequest
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.GetAllWriteRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this GetAllWriteRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a GetAllWriteResponse. */
+    interface IGetAllWriteResponse {
+
+        /** GetAllWriteResponse status */
+        status?: (protos.common.IStatus|null);
+
+        /** GetAllWriteResponse opts */
+        opts?: (protos.opts.ICreateWriteOptions[]|null);
+    }
+
+    /** Represents a GetAllWriteResponse. */
+    class GetAllWriteResponse implements IGetAllWriteResponse {
+
+        /**
+         * Constructs a new GetAllWriteResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IGetAllWriteResponse);
+
+        /** GetAllWriteResponse status. */
+        public status?: (protos.common.IStatus|null);
+
+        /** GetAllWriteResponse opts. */
+        public opts: protos.opts.ICreateWriteOptions[];
+
+        /**
+         * Creates a new GetAllWriteResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns GetAllWriteResponse instance
+         */
+        public static create(properties?: protos.IGetAllWriteResponse): protos.GetAllWriteResponse;
+
+        /**
+         * Encodes the specified GetAllWriteResponse message. Does not implicitly {@link protos.GetAllWriteResponse.verify|verify} messages.
+         * @param message GetAllWriteResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IGetAllWriteResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified GetAllWriteResponse message, length delimited. Does not implicitly {@link protos.GetAllWriteResponse.verify|verify} messages.
+         * @param message GetAllWriteResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IGetAllWriteResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a GetAllWriteResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns GetAllWriteResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.GetAllWriteResponse;
+
+        /**
+         * Decodes a GetAllWriteResponse message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns GetAllWriteResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.GetAllWriteResponse;
+
+        /**
+         * Verifies a GetAllWriteResponse message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a GetAllWriteResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns GetAllWriteResponse
+         */
+        public static fromObject(object: { [k: string]: any }): protos.GetAllWriteResponse;
+
+        /**
+         * Creates a plain object from a GetAllWriteResponse message. Also converts values to other types if specified.
+         * @param message GetAllWriteResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.GetAllWriteResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this GetAllWriteResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a GetWriteRequest. */
+    interface IGetWriteRequest {
+
+        /** GetWriteRequest auth */
+        auth?: (protos.common.IAuth|null);
+
+        /** GetWriteRequest writeId */
+        writeId?: (string|null);
+    }
+
+    /** Represents a GetWriteRequest. */
+    class GetWriteRequest implements IGetWriteRequest {
+
+        /**
+         * Constructs a new GetWriteRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IGetWriteRequest);
+
+        /** GetWriteRequest auth. */
+        public auth?: (protos.common.IAuth|null);
+
+        /** GetWriteRequest writeId. */
+        public writeId: string;
+
+        /**
+         * Creates a new GetWriteRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns GetWriteRequest instance
+         */
+        public static create(properties?: protos.IGetWriteRequest): protos.GetWriteRequest;
+
+        /**
+         * Encodes the specified GetWriteRequest message. Does not implicitly {@link protos.GetWriteRequest.verify|verify} messages.
+         * @param message GetWriteRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IGetWriteRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified GetWriteRequest message, length delimited. Does not implicitly {@link protos.GetWriteRequest.verify|verify} messages.
+         * @param message GetWriteRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IGetWriteRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a GetWriteRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns GetWriteRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.GetWriteRequest;
+
+        /**
+         * Decodes a GetWriteRequest message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns GetWriteRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.GetWriteRequest;
+
+        /**
+         * Verifies a GetWriteRequest message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a GetWriteRequest message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns GetWriteRequest
+         */
+        public static fromObject(object: { [k: string]: any }): protos.GetWriteRequest;
+
+        /**
+         * Creates a plain object from a GetWriteRequest message. Also converts values to other types if specified.
+         * @param message GetWriteRequest
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.GetWriteRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this GetWriteRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a GetWriteResponse. */
+    interface IGetWriteResponse {
+
+        /** GetWriteResponse status */
+        status?: (protos.common.IStatus|null);
+
+        /** GetWriteResponse opts */
+        opts?: (protos.opts.ICreateWriteOptions|null);
+    }
+
+    /** Represents a GetWriteResponse. */
+    class GetWriteResponse implements IGetWriteResponse {
+
+        /**
+         * Constructs a new GetWriteResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IGetWriteResponse);
+
+        /** GetWriteResponse status. */
+        public status?: (protos.common.IStatus|null);
+
+        /** GetWriteResponse opts. */
+        public opts?: (protos.opts.ICreateWriteOptions|null);
+
+        /**
+         * Creates a new GetWriteResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns GetWriteResponse instance
+         */
+        public static create(properties?: protos.IGetWriteResponse): protos.GetWriteResponse;
+
+        /**
+         * Encodes the specified GetWriteResponse message. Does not implicitly {@link protos.GetWriteResponse.verify|verify} messages.
+         * @param message GetWriteResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IGetWriteResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified GetWriteResponse message, length delimited. Does not implicitly {@link protos.GetWriteResponse.verify|verify} messages.
+         * @param message GetWriteResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IGetWriteResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a GetWriteResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns GetWriteResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.GetWriteResponse;
+
+        /**
+         * Decodes a GetWriteResponse message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns GetWriteResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.GetWriteResponse;
+
+        /**
+         * Verifies a GetWriteResponse message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a GetWriteResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns GetWriteResponse
+         */
+        public static fromObject(object: { [k: string]: any }): protos.GetWriteResponse;
+
+        /**
+         * Creates a plain object from a GetWriteResponse message. Also converts values to other types if specified.
+         * @param message GetWriteResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.GetWriteResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this GetWriteResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a CreateWriteRequest. */
+    interface ICreateWriteRequest {
+
+        /** CreateWriteRequest auth */
+        auth?: (protos.common.IAuth|null);
+
+        /** CreateWriteRequest opts */
+        opts?: (protos.opts.ICreateWriteOptions|null);
+    }
+
+    /** Represents a CreateWriteRequest. */
+    class CreateWriteRequest implements ICreateWriteRequest {
+
+        /**
+         * Constructs a new CreateWriteRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.ICreateWriteRequest);
+
+        /** CreateWriteRequest auth. */
+        public auth?: (protos.common.IAuth|null);
+
+        /** CreateWriteRequest opts. */
+        public opts?: (protos.opts.ICreateWriteOptions|null);
+
+        /**
+         * Creates a new CreateWriteRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns CreateWriteRequest instance
+         */
+        public static create(properties?: protos.ICreateWriteRequest): protos.CreateWriteRequest;
+
+        /**
+         * Encodes the specified CreateWriteRequest message. Does not implicitly {@link protos.CreateWriteRequest.verify|verify} messages.
+         * @param message CreateWriteRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.ICreateWriteRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified CreateWriteRequest message, length delimited. Does not implicitly {@link protos.CreateWriteRequest.verify|verify} messages.
+         * @param message CreateWriteRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.ICreateWriteRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a CreateWriteRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns CreateWriteRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.CreateWriteRequest;
+
+        /**
+         * Decodes a CreateWriteRequest message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns CreateWriteRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.CreateWriteRequest;
+
+        /**
+         * Verifies a CreateWriteRequest message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a CreateWriteRequest message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns CreateWriteRequest
+         */
+        public static fromObject(object: { [k: string]: any }): protos.CreateWriteRequest;
+
+        /**
+         * Creates a plain object from a CreateWriteRequest message. Also converts values to other types if specified.
+         * @param message CreateWriteRequest
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.CreateWriteRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this CreateWriteRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a CreateWriteResponse. */
+    interface ICreateWriteResponse {
+
+        /** CreateWriteResponse status */
+        status?: (protos.common.IStatus|null);
+
+        /** CreateWriteResponse writeId */
+        writeId?: (string|null);
+    }
+
+    /** Represents a CreateWriteResponse. */
+    class CreateWriteResponse implements ICreateWriteResponse {
+
+        /**
+         * Constructs a new CreateWriteResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.ICreateWriteResponse);
+
+        /** CreateWriteResponse status. */
+        public status?: (protos.common.IStatus|null);
+
+        /** CreateWriteResponse writeId. */
+        public writeId: string;
+
+        /**
+         * Creates a new CreateWriteResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns CreateWriteResponse instance
+         */
+        public static create(properties?: protos.ICreateWriteResponse): protos.CreateWriteResponse;
+
+        /**
+         * Encodes the specified CreateWriteResponse message. Does not implicitly {@link protos.CreateWriteResponse.verify|verify} messages.
+         * @param message CreateWriteResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.ICreateWriteResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified CreateWriteResponse message, length delimited. Does not implicitly {@link protos.CreateWriteResponse.verify|verify} messages.
+         * @param message CreateWriteResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.ICreateWriteResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a CreateWriteResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns CreateWriteResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.CreateWriteResponse;
+
+        /**
+         * Decodes a CreateWriteResponse message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns CreateWriteResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.CreateWriteResponse;
+
+        /**
+         * Verifies a CreateWriteResponse message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a CreateWriteResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns CreateWriteResponse
+         */
+        public static fromObject(object: { [k: string]: any }): protos.CreateWriteResponse;
+
+        /**
+         * Creates a plain object from a CreateWriteResponse message. Also converts values to other types if specified.
+         * @param message CreateWriteResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.CreateWriteResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this CreateWriteResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of an UpdateWriteRequest. */
+    interface IUpdateWriteRequest {
+
+        /** UpdateWriteRequest auth */
+        auth?: (protos.common.IAuth|null);
+
+        /** UpdateWriteRequest writeId */
+        writeId?: (string|null);
+
+        /** UpdateWriteRequest opts */
+        opts?: (protos.opts.ICreateWriteOptions|null);
+    }
+
+    /** Represents an UpdateWriteRequest. */
+    class UpdateWriteRequest implements IUpdateWriteRequest {
+
+        /**
+         * Constructs a new UpdateWriteRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IUpdateWriteRequest);
+
+        /** UpdateWriteRequest auth. */
+        public auth?: (protos.common.IAuth|null);
+
+        /** UpdateWriteRequest writeId. */
+        public writeId: string;
+
+        /** UpdateWriteRequest opts. */
+        public opts?: (protos.opts.ICreateWriteOptions|null);
+
+        /**
+         * Creates a new UpdateWriteRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns UpdateWriteRequest instance
+         */
+        public static create(properties?: protos.IUpdateWriteRequest): protos.UpdateWriteRequest;
+
+        /**
+         * Encodes the specified UpdateWriteRequest message. Does not implicitly {@link protos.UpdateWriteRequest.verify|verify} messages.
+         * @param message UpdateWriteRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IUpdateWriteRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified UpdateWriteRequest message, length delimited. Does not implicitly {@link protos.UpdateWriteRequest.verify|verify} messages.
+         * @param message UpdateWriteRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IUpdateWriteRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes an UpdateWriteRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns UpdateWriteRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.UpdateWriteRequest;
+
+        /**
+         * Decodes an UpdateWriteRequest message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns UpdateWriteRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.UpdateWriteRequest;
+
+        /**
+         * Verifies an UpdateWriteRequest message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates an UpdateWriteRequest message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns UpdateWriteRequest
+         */
+        public static fromObject(object: { [k: string]: any }): protos.UpdateWriteRequest;
+
+        /**
+         * Creates a plain object from an UpdateWriteRequest message. Also converts values to other types if specified.
+         * @param message UpdateWriteRequest
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.UpdateWriteRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this UpdateWriteRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of an UpdateWriteResponse. */
+    interface IUpdateWriteResponse {
+
+        /** UpdateWriteResponse status */
+        status?: (protos.common.IStatus|null);
+    }
+
+    /** Represents an UpdateWriteResponse. */
+    class UpdateWriteResponse implements IUpdateWriteResponse {
+
+        /**
+         * Constructs a new UpdateWriteResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IUpdateWriteResponse);
+
+        /** UpdateWriteResponse status. */
+        public status?: (protos.common.IStatus|null);
+
+        /**
+         * Creates a new UpdateWriteResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns UpdateWriteResponse instance
+         */
+        public static create(properties?: protos.IUpdateWriteResponse): protos.UpdateWriteResponse;
+
+        /**
+         * Encodes the specified UpdateWriteResponse message. Does not implicitly {@link protos.UpdateWriteResponse.verify|verify} messages.
+         * @param message UpdateWriteResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IUpdateWriteResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified UpdateWriteResponse message, length delimited. Does not implicitly {@link protos.UpdateWriteResponse.verify|verify} messages.
+         * @param message UpdateWriteResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IUpdateWriteResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes an UpdateWriteResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns UpdateWriteResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.UpdateWriteResponse;
+
+        /**
+         * Decodes an UpdateWriteResponse message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns UpdateWriteResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.UpdateWriteResponse;
+
+        /**
+         * Verifies an UpdateWriteResponse message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates an UpdateWriteResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns UpdateWriteResponse
+         */
+        public static fromObject(object: { [k: string]: any }): protos.UpdateWriteResponse;
+
+        /**
+         * Creates a plain object from an UpdateWriteResponse message. Also converts values to other types if specified.
+         * @param message UpdateWriteResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.UpdateWriteResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this UpdateWriteResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a DeleteWriteRequest. */
+    interface IDeleteWriteRequest {
+
+        /** DeleteWriteRequest auth */
+        auth?: (protos.common.IAuth|null);
+
+        /** DeleteWriteRequest writeId */
+        writeId?: (string|null);
+    }
+
+    /** Represents a DeleteWriteRequest. */
+    class DeleteWriteRequest implements IDeleteWriteRequest {
+
+        /**
+         * Constructs a new DeleteWriteRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IDeleteWriteRequest);
+
+        /** DeleteWriteRequest auth. */
+        public auth?: (protos.common.IAuth|null);
+
+        /** DeleteWriteRequest writeId. */
+        public writeId: string;
+
+        /**
+         * Creates a new DeleteWriteRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns DeleteWriteRequest instance
+         */
+        public static create(properties?: protos.IDeleteWriteRequest): protos.DeleteWriteRequest;
+
+        /**
+         * Encodes the specified DeleteWriteRequest message. Does not implicitly {@link protos.DeleteWriteRequest.verify|verify} messages.
+         * @param message DeleteWriteRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IDeleteWriteRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified DeleteWriteRequest message, length delimited. Does not implicitly {@link protos.DeleteWriteRequest.verify|verify} messages.
+         * @param message DeleteWriteRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IDeleteWriteRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a DeleteWriteRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns DeleteWriteRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.DeleteWriteRequest;
+
+        /**
+         * Decodes a DeleteWriteRequest message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns DeleteWriteRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.DeleteWriteRequest;
+
+        /**
+         * Verifies a DeleteWriteRequest message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a DeleteWriteRequest message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns DeleteWriteRequest
+         */
+        public static fromObject(object: { [k: string]: any }): protos.DeleteWriteRequest;
+
+        /**
+         * Creates a plain object from a DeleteWriteRequest message. Also converts values to other types if specified.
+         * @param message DeleteWriteRequest
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.DeleteWriteRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this DeleteWriteRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a DeleteWriteResponse. */
+    interface IDeleteWriteResponse {
+
+        /** DeleteWriteResponse status */
+        status?: (protos.common.IStatus|null);
+    }
+
+    /** Represents a DeleteWriteResponse. */
+    class DeleteWriteResponse implements IDeleteWriteResponse {
+
+        /**
+         * Constructs a new DeleteWriteResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IDeleteWriteResponse);
+
+        /** DeleteWriteResponse status. */
+        public status?: (protos.common.IStatus|null);
+
+        /**
+         * Creates a new DeleteWriteResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns DeleteWriteResponse instance
+         */
+        public static create(properties?: protos.IDeleteWriteResponse): protos.DeleteWriteResponse;
+
+        /**
+         * Encodes the specified DeleteWriteResponse message. Does not implicitly {@link protos.DeleteWriteResponse.verify|verify} messages.
+         * @param message DeleteWriteResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IDeleteWriteResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified DeleteWriteResponse message, length delimited. Does not implicitly {@link protos.DeleteWriteResponse.verify|verify} messages.
+         * @param message DeleteWriteResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IDeleteWriteResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a DeleteWriteResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns DeleteWriteResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.DeleteWriteResponse;
+
+        /**
+         * Decodes a DeleteWriteResponse message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns DeleteWriteResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.DeleteWriteResponse;
+
+        /**
+         * Verifies a DeleteWriteResponse message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a DeleteWriteResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns DeleteWriteResponse
+         */
+        public static fromObject(object: { [k: string]: any }): protos.DeleteWriteResponse;
+
+        /**
+         * Creates a plain object from a DeleteWriteResponse message. Also converts values to other types if specified.
+         * @param message DeleteWriteResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.DeleteWriteResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this DeleteWriteResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
     /** Represents a ForemanClient */
     class ForemanClient extends $protobuf.rpc.Service {
 
@@ -30247,144 +30241,144 @@ export namespace protos {
         public deleteConnection(request: protos.IDeleteConnectionRequest): Promise<protos.DeleteConnectionResponse>;
 
         /**
-         * Calls GetSource.
-         * @param request GetSourceRequest message or plain object
-         * @param callback Node-style callback called with the error, if any, and GetSourceResponse
+         * Calls GetRead.
+         * @param request GetReadRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and GetReadResponse
          */
-        public getSource(request: protos.IGetSourceRequest, callback: protos.ForemanServer.GetSourceCallback): void;
+        public getRead(request: protos.IGetReadRequest, callback: protos.ForemanServer.GetReadCallback): void;
 
         /**
-         * Calls GetSource.
-         * @param request GetSourceRequest message or plain object
+         * Calls GetRead.
+         * @param request GetReadRequest message or plain object
          * @returns Promise
          */
-        public getSource(request: protos.IGetSourceRequest): Promise<protos.GetSourceResponse>;
+        public getRead(request: protos.IGetReadRequest): Promise<protos.GetReadResponse>;
 
         /**
-         * Calls GetAllSources.
-         * @param request GetAllSourcesRequest message or plain object
-         * @param callback Node-style callback called with the error, if any, and GetAllSourcesResponse
+         * Calls GetAllRead.
+         * @param request GetAllReadRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and GetAllReadResponse
          */
-        public getAllSources(request: protos.IGetAllSourcesRequest, callback: protos.ForemanServer.GetAllSourcesCallback): void;
+        public getAllRead(request: protos.IGetAllReadRequest, callback: protos.ForemanServer.GetAllReadCallback): void;
 
         /**
-         * Calls GetAllSources.
-         * @param request GetAllSourcesRequest message or plain object
+         * Calls GetAllRead.
+         * @param request GetAllReadRequest message or plain object
          * @returns Promise
          */
-        public getAllSources(request: protos.IGetAllSourcesRequest): Promise<protos.GetAllSourcesResponse>;
+        public getAllRead(request: protos.IGetAllReadRequest): Promise<protos.GetAllReadResponse>;
 
         /**
-         * Calls CreateSource.
-         * @param request CreateSourceRequest message or plain object
-         * @param callback Node-style callback called with the error, if any, and CreateSourceResponse
+         * Calls CreateRead.
+         * @param request CreateReadRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and CreateReadResponse
          */
-        public createSource(request: protos.ICreateSourceRequest, callback: protos.ForemanServer.CreateSourceCallback): void;
+        public createRead(request: protos.ICreateReadRequest, callback: protos.ForemanServer.CreateReadCallback): void;
 
         /**
-         * Calls CreateSource.
-         * @param request CreateSourceRequest message or plain object
+         * Calls CreateRead.
+         * @param request CreateReadRequest message or plain object
          * @returns Promise
          */
-        public createSource(request: protos.ICreateSourceRequest): Promise<protos.CreateSourceResponse>;
+        public createRead(request: protos.ICreateReadRequest): Promise<protos.CreateReadResponse>;
 
         /**
-         * Calls UpdateSource.
-         * @param request UpdateSourceRequest message or plain object
-         * @param callback Node-style callback called with the error, if any, and UpdateSourceResponse
+         * Calls UpdateRead.
+         * @param request UpdateReadRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and UpdateReadResponse
          */
-        public updateSource(request: protos.IUpdateSourceRequest, callback: protos.ForemanServer.UpdateSourceCallback): void;
+        public updateRead(request: protos.IUpdateReadRequest, callback: protos.ForemanServer.UpdateReadCallback): void;
 
         /**
-         * Calls UpdateSource.
-         * @param request UpdateSourceRequest message or plain object
+         * Calls UpdateRead.
+         * @param request UpdateReadRequest message or plain object
          * @returns Promise
          */
-        public updateSource(request: protos.IUpdateSourceRequest): Promise<protos.UpdateSourceResponse>;
+        public updateRead(request: protos.IUpdateReadRequest): Promise<protos.UpdateReadResponse>;
 
         /**
-         * Calls DeleteSource.
-         * @param request DeleteSourceRequest message or plain object
-         * @param callback Node-style callback called with the error, if any, and DeleteSourceResponse
+         * Calls DeleteRead.
+         * @param request DeleteReadRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and DeleteReadResponse
          */
-        public deleteSource(request: protos.IDeleteSourceRequest, callback: protos.ForemanServer.DeleteSourceCallback): void;
+        public deleteRead(request: protos.IDeleteReadRequest, callback: protos.ForemanServer.DeleteReadCallback): void;
 
         /**
-         * Calls DeleteSource.
-         * @param request DeleteSourceRequest message or plain object
+         * Calls DeleteRead.
+         * @param request DeleteReadRequest message or plain object
          * @returns Promise
          */
-        public deleteSource(request: protos.IDeleteSourceRequest): Promise<protos.DeleteSourceResponse>;
+        public deleteRead(request: protos.IDeleteReadRequest): Promise<protos.DeleteReadResponse>;
 
         /**
-         * Calls GetDestination.
-         * @param request GetDestinationRequest message or plain object
-         * @param callback Node-style callback called with the error, if any, and GetDestinationResponse
+         * Calls GetWrite.
+         * @param request GetWriteRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and GetWriteResponse
          */
-        public getDestination(request: protos.IGetDestinationRequest, callback: protos.ForemanServer.GetDestinationCallback): void;
+        public getWrite(request: protos.IGetWriteRequest, callback: protos.ForemanServer.GetWriteCallback): void;
 
         /**
-         * Calls GetDestination.
-         * @param request GetDestinationRequest message or plain object
+         * Calls GetWrite.
+         * @param request GetWriteRequest message or plain object
          * @returns Promise
          */
-        public getDestination(request: protos.IGetDestinationRequest): Promise<protos.GetDestinationResponse>;
+        public getWrite(request: protos.IGetWriteRequest): Promise<protos.GetWriteResponse>;
 
         /**
-         * Calls GetAllDestinations.
-         * @param request GetAllDestinationsRequest message or plain object
-         * @param callback Node-style callback called with the error, if any, and GetAllDestinationsResponse
+         * Calls GetAllWrite.
+         * @param request GetAllWriteRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and GetAllWriteResponse
          */
-        public getAllDestinations(request: protos.IGetAllDestinationsRequest, callback: protos.ForemanServer.GetAllDestinationsCallback): void;
+        public getAllWrite(request: protos.IGetAllWriteRequest, callback: protos.ForemanServer.GetAllWriteCallback): void;
 
         /**
-         * Calls GetAllDestinations.
-         * @param request GetAllDestinationsRequest message or plain object
+         * Calls GetAllWrite.
+         * @param request GetAllWriteRequest message or plain object
          * @returns Promise
          */
-        public getAllDestinations(request: protos.IGetAllDestinationsRequest): Promise<protos.GetAllDestinationsResponse>;
+        public getAllWrite(request: protos.IGetAllWriteRequest): Promise<protos.GetAllWriteResponse>;
 
         /**
-         * Calls CreateDestination.
-         * @param request CreateDestinationRequest message or plain object
-         * @param callback Node-style callback called with the error, if any, and CreateDestinationResponse
+         * Calls CreateWrite.
+         * @param request CreateWriteRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and CreateWriteResponse
          */
-        public createDestination(request: protos.ICreateDestinationRequest, callback: protos.ForemanServer.CreateDestinationCallback): void;
+        public createWrite(request: protos.ICreateWriteRequest, callback: protos.ForemanServer.CreateWriteCallback): void;
 
         /**
-         * Calls CreateDestination.
-         * @param request CreateDestinationRequest message or plain object
+         * Calls CreateWrite.
+         * @param request CreateWriteRequest message or plain object
          * @returns Promise
          */
-        public createDestination(request: protos.ICreateDestinationRequest): Promise<protos.CreateDestinationResponse>;
+        public createWrite(request: protos.ICreateWriteRequest): Promise<protos.CreateWriteResponse>;
 
         /**
-         * Calls UpdateDestination.
-         * @param request UpdateDestinationRequest message or plain object
-         * @param callback Node-style callback called with the error, if any, and UpdateDestinationResponse
+         * Calls UpdateWrite.
+         * @param request UpdateWriteRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and UpdateWriteResponse
          */
-        public updateDestination(request: protos.IUpdateDestinationRequest, callback: protos.ForemanServer.UpdateDestinationCallback): void;
+        public updateWrite(request: protos.IUpdateWriteRequest, callback: protos.ForemanServer.UpdateWriteCallback): void;
 
         /**
-         * Calls UpdateDestination.
-         * @param request UpdateDestinationRequest message or plain object
+         * Calls UpdateWrite.
+         * @param request UpdateWriteRequest message or plain object
          * @returns Promise
          */
-        public updateDestination(request: protos.IUpdateDestinationRequest): Promise<protos.UpdateDestinationResponse>;
+        public updateWrite(request: protos.IUpdateWriteRequest): Promise<protos.UpdateWriteResponse>;
 
         /**
-         * Calls DeleteDestination.
-         * @param request DeleteDestinationRequest message or plain object
-         * @param callback Node-style callback called with the error, if any, and DeleteDestinationResponse
+         * Calls DeleteWrite.
+         * @param request DeleteWriteRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and DeleteWriteResponse
          */
-        public deleteDestination(request: protos.IDeleteDestinationRequest, callback: protos.ForemanServer.DeleteDestinationCallback): void;
+        public deleteWrite(request: protos.IDeleteWriteRequest, callback: protos.ForemanServer.DeleteWriteCallback): void;
 
         /**
-         * Calls DeleteDestination.
-         * @param request DeleteDestinationRequest message or plain object
+         * Calls DeleteWrite.
+         * @param request DeleteWriteRequest message or plain object
          * @returns Promise
          */
-        public deleteDestination(request: protos.IDeleteDestinationRequest): Promise<protos.DeleteDestinationResponse>;
+        public deleteWrite(request: protos.IDeleteWriteRequest): Promise<protos.DeleteWriteResponse>;
 
         /**
          * Calls GetChannel.
@@ -30649,74 +30643,74 @@ export namespace protos {
         type DeleteConnectionCallback = (error: (Error|null), response?: protos.DeleteConnectionResponse) => void;
 
         /**
-         * Callback as used by {@link protos.ForemanServer#getSource}.
+         * Callback as used by {@link protos.ForemanServer#getRead}.
          * @param error Error, if any
-         * @param [response] GetSourceResponse
+         * @param [response] GetReadResponse
          */
-        type GetSourceCallback = (error: (Error|null), response?: protos.GetSourceResponse) => void;
+        type GetReadCallback = (error: (Error|null), response?: protos.GetReadResponse) => void;
 
         /**
-         * Callback as used by {@link protos.ForemanServer#getAllSources}.
+         * Callback as used by {@link protos.ForemanServer#getAllRead}.
          * @param error Error, if any
-         * @param [response] GetAllSourcesResponse
+         * @param [response] GetAllReadResponse
          */
-        type GetAllSourcesCallback = (error: (Error|null), response?: protos.GetAllSourcesResponse) => void;
+        type GetAllReadCallback = (error: (Error|null), response?: protos.GetAllReadResponse) => void;
 
         /**
-         * Callback as used by {@link protos.ForemanServer#createSource}.
+         * Callback as used by {@link protos.ForemanServer#createRead}.
          * @param error Error, if any
-         * @param [response] CreateSourceResponse
+         * @param [response] CreateReadResponse
          */
-        type CreateSourceCallback = (error: (Error|null), response?: protos.CreateSourceResponse) => void;
+        type CreateReadCallback = (error: (Error|null), response?: protos.CreateReadResponse) => void;
 
         /**
-         * Callback as used by {@link protos.ForemanServer#updateSource}.
+         * Callback as used by {@link protos.ForemanServer#updateRead}.
          * @param error Error, if any
-         * @param [response] UpdateSourceResponse
+         * @param [response] UpdateReadResponse
          */
-        type UpdateSourceCallback = (error: (Error|null), response?: protos.UpdateSourceResponse) => void;
+        type UpdateReadCallback = (error: (Error|null), response?: protos.UpdateReadResponse) => void;
 
         /**
-         * Callback as used by {@link protos.ForemanServer#deleteSource}.
+         * Callback as used by {@link protos.ForemanServer#deleteRead}.
          * @param error Error, if any
-         * @param [response] DeleteSourceResponse
+         * @param [response] DeleteReadResponse
          */
-        type DeleteSourceCallback = (error: (Error|null), response?: protos.DeleteSourceResponse) => void;
+        type DeleteReadCallback = (error: (Error|null), response?: protos.DeleteReadResponse) => void;
 
         /**
-         * Callback as used by {@link protos.ForemanServer#getDestination}.
+         * Callback as used by {@link protos.ForemanServer#getWrite}.
          * @param error Error, if any
-         * @param [response] GetDestinationResponse
+         * @param [response] GetWriteResponse
          */
-        type GetDestinationCallback = (error: (Error|null), response?: protos.GetDestinationResponse) => void;
+        type GetWriteCallback = (error: (Error|null), response?: protos.GetWriteResponse) => void;
 
         /**
-         * Callback as used by {@link protos.ForemanServer#getAllDestinations}.
+         * Callback as used by {@link protos.ForemanServer#getAllWrite}.
          * @param error Error, if any
-         * @param [response] GetAllDestinationsResponse
+         * @param [response] GetAllWriteResponse
          */
-        type GetAllDestinationsCallback = (error: (Error|null), response?: protos.GetAllDestinationsResponse) => void;
+        type GetAllWriteCallback = (error: (Error|null), response?: protos.GetAllWriteResponse) => void;
 
         /**
-         * Callback as used by {@link protos.ForemanServer#createDestination}.
+         * Callback as used by {@link protos.ForemanServer#createWrite}.
          * @param error Error, if any
-         * @param [response] CreateDestinationResponse
+         * @param [response] CreateWriteResponse
          */
-        type CreateDestinationCallback = (error: (Error|null), response?: protos.CreateDestinationResponse) => void;
+        type CreateWriteCallback = (error: (Error|null), response?: protos.CreateWriteResponse) => void;
 
         /**
-         * Callback as used by {@link protos.ForemanServer#updateDestination}.
+         * Callback as used by {@link protos.ForemanServer#updateWrite}.
          * @param error Error, if any
-         * @param [response] UpdateDestinationResponse
+         * @param [response] UpdateWriteResponse
          */
-        type UpdateDestinationCallback = (error: (Error|null), response?: protos.UpdateDestinationResponse) => void;
+        type UpdateWriteCallback = (error: (Error|null), response?: protos.UpdateWriteResponse) => void;
 
         /**
-         * Callback as used by {@link protos.ForemanServer#deleteDestination}.
+         * Callback as used by {@link protos.ForemanServer#deleteWrite}.
          * @param error Error, if any
-         * @param [response] DeleteDestinationResponse
+         * @param [response] DeleteWriteResponse
          */
-        type DeleteDestinationCallback = (error: (Error|null), response?: protos.DeleteDestinationResponse) => void;
+        type DeleteWriteCallback = (error: (Error|null), response?: protos.DeleteWriteResponse) => void;
 
         /**
          * Callback as used by {@link protos.ForemanServer#getChannel}.

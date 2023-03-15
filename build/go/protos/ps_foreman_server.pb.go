@@ -169,55 +169,55 @@ func init() {
 func init() { proto.RegisterFile("ps_foreman_server.proto", fileDescriptor_f45a754b4dc96eaa) }
 
 var fileDescriptor_f45a754b4dc96eaa = []byte{
-	// 762 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x7c, 0x96, 0x5f, 0x4f, 0xdb, 0x30,
-	0x14, 0xc5, 0x05, 0x93, 0xd8, 0x6a, 0x60, 0x63, 0x06, 0x09, 0x28, 0x65, 0x94, 0x3e, 0xf1, 0x32,
-	0x2a, 0xb1, 0x69, 0xcf, 0x63, 0x30, 0xaa, 0x4a, 0x4c, 0x4c, 0x05, 0xa4, 0x69, 0x7b, 0xa8, 0xd2,
-	0xd4, 0xd0, 0x68, 0x49, 0x9c, 0xc5, 0xce, 0xbe, 0xf8, 0xbe, 0xc0, 0x94, 0xf8, 0xba, 0xbe, 0xfe,
-	0x93, 0x3e, 0x21, 0xce, 0xb9, 0xf9, 0xf5, 0xe4, 0xda, 0xbe, 0x31, 0xd9, 0x2f, 0xc4, 0xf4, 0x89,
-	0x97, 0x2c, 0x8b, 0xf2, 0xa9, 0x60, 0xe5, 0x5f, 0x56, 0x9e, 0x17, 0x25, 0x97, 0x9c, 0x6e, 0x34,
-	0x7f, 0x44, 0x77, 0xa7, 0x10, 0xd3, 0x78, 0x11, 0xe5, 0x39, 0x4b, 0x95, 0xa3, 0x14, 0x9e, 0xe7,
-	0x2c, 0x96, 0xa0, 0xec, 0x15, 0x62, 0x3a, 0x67, 0x42, 0x26, 0x79, 0x24, 0x13, 0x9e, 0x83, 0xfa,
-	0xa6, 0x10, 0x16, 0x52, 0x09, 0xbc, 0x2a, 0x63, 0x86, 0x04, 0x59, 0x19, 0xf4, 0xe0, 0x2b, 0xd9,
-	0xfc, 0x9e, 0x56, 0xd9, 0x8c, 0x95, 0xe3, 0xfc, 0x89, 0xd3, 0x7d, 0xf2, 0x52, 0xb2, 0x28, 0x9b,
-	0x26, 0xf3, 0x83, 0xb5, 0xfe, 0xda, 0x59, 0x67, 0xb2, 0x51, 0xff, 0x3b, 0x9e, 0xd3, 0x63, 0x42,
-	0xe2, 0xb4, 0x12, 0x92, 0x95, 0xb5, 0xb7, 0xde, 0x78, 0x1d, 0x50, 0xc6, 0xf3, 0xc1, 0x37, 0xb2,
-	0x7b, 0x9b, 0x08, 0x09, 0x28, 0x31, 0x61, 0x7f, 0x2a, 0x26, 0x64, 0xfd, 0x54, 0x54, 0xc9, 0xc5,
-	0x54, 0xf2, 0xdf, 0x2c, 0x07, 0x62, 0xa7, 0x56, 0x1e, 0x6a, 0x01, 0xff, 0xda, 0x3a, 0xfe, 0xb5,
-	0xc1, 0x88, 0xec, 0xd9, 0x38, 0x51, 0xf0, 0x5c, 0x30, 0x3a, 0x24, 0xaf, 0x0a, 0xd0, 0x0e, 0xd6,
-	0xfa, 0x2f, 0xce, 0x36, 0x2f, 0x76, 0xd5, 0x7b, 0x88, 0x73, 0xf4, 0x16, 0x93, 0x65, 0xd1, 0xc5,
-	0xbf, 0x5d, 0xb2, 0x7d, 0xa3, 0x9a, 0x7d, 0xdf, 0x34, 0x86, 0x8e, 0xc9, 0x16, 0x46, 0xd3, 0x23,
-	0x0d, 0x08, 0xe4, 0xef, 0xf6, 0xc2, 0x26, 0xa4, 0xf9, 0x41, 0xde, 0x8e, 0x98, 0xbc, 0x4c, 0xd3,
-	0x2b, 0xb5, 0x36, 0x09, 0xcf, 0x05, 0xed, 0xeb, 0x47, 0x3c, 0x4b, 0x43, 0x4f, 0x57, 0x54, 0x00,
-	0xf9, 0x96, 0x6c, 0x8f, 0x98, 0x34, 0x0e, 0xed, 0xa1, 0x67, 0x8c, 0xac, 0x89, 0xc7, 0x2d, 0x2e,
-	0xd0, 0x1e, 0xc9, 0xce, 0x55, 0xc9, 0x22, 0xc9, 0x10, 0xf0, 0x44, 0x3f, 0xe2, 0x3a, 0x9a, 0xd9,
-	0x6f, 0x2f, 0x00, 0xec, 0x1d, 0x79, 0xfd, 0xc0, 0x04, 0x4e, 0xb9, 0xcc, 0x61, 0xeb, 0x1a, 0xf9,
-	0xae, 0xcd, 0x36, 0x39, 0x1f, 0x8b, 0x79, 0x4b, 0x4e, 0xd7, 0xf1, 0x72, 0xfa, 0x05, 0x06, 0x7b,
-	0xcd, 0x52, 0x16, 0xc6, 0xba, 0x8e, 0x87, 0xf5, 0x0b, 0x00, 0xfb, 0x99, 0x74, 0x46, 0x4c, 0xde,
-	0x37, 0xa7, 0x8b, 0x1e, 0xa0, 0x15, 0x50, 0x92, 0x06, 0x1d, 0x06, 0x1c, 0x6b, 0x95, 0x2f, 0xd3,
-	0x54, 0xe9, 0xc2, 0x5a, 0x65, 0x23, 0x87, 0x56, 0x19, 0xbb, 0x40, 0x1b, 0x93, 0x2d, 0xb5, 0x54,
-	0x10, 0xe9, 0xc8, 0x5e, 0x40, 0x3b, 0x55, 0x2f, 0x6c, 0x1a, 0x94, 0xea, 0xa6, 0x8b, 0xc2, 0xaa,
-	0x87, 0xb2, 0x4d, 0x83, 0x52, 0x1d, 0x74, 0x51, 0x58, 0xf5, 0x50, 0xb6, 0x69, 0xf6, 0xdb, 0x88,
-	0xc9, 0x6b, 0x33, 0xf5, 0x28, 0xee, 0x08, 0xd2, 0xbd, 0xfd, 0xe6, 0xda, 0x00, 0xfc, 0x45, 0xa8,
-	0x6a, 0x25, 0x32, 0x05, 0x75, 0x8e, 0x27, 0xf6, 0x34, 0x78, 0xb0, 0xaa, 0xc4, 0x0c, 0x07, 0xd5,
-	0x5b, 0x1c, 0xd8, 0x39, 0x54, 0x81, 0xcc, 0xa7, 0x2b, 0x2a, 0x0c, 0x59, 0xb5, 0x3a, 0x48, 0xf6,
-	0x2c, 0x8f, 0x1c, 0xa8, 0x30, 0x64, 0xd5, 0xf9, 0x20, 0xd9, 0xb3, 0x3c, 0x72, 0xa0, 0x02, 0xc8,
-	0x57, 0x84, 0xd4, 0xb3, 0x49, 0x7d, 0xd5, 0x28, 0x3e, 0x13, 0xa0, 0x69, 0x56, 0x37, 0x64, 0x59,
-	0x1b, 0xa0, 0x1e, 0x99, 0xca, 0x10, 0xd4, 0x39, 0x12, 0x5a, 0x0f, 0x6d, 0x00, 0xcb, 0x36, 0x07,
-	0x10, 0xa6, 0x1b, 0x04, 0x73, 0x8e, 0x85, 0x93, 0xed, 0xb8, 0xc5, 0x35, 0x34, 0x98, 0x41, 0x2e,
-	0xcd, 0x92, 0x3d, 0x9a, 0xe3, 0x1a, 0x1a, 0x8c, 0x1e, 0x97, 0x66, 0xc9, 0x1e, 0xcd, 0x71, 0x81,
-	0x76, 0x43, 0x36, 0xef, 0x25, 0x2f, 0x34, 0x6b, 0xd9, 0x65, 0x24, 0x6a, 0xd2, 0x51, 0xd0, 0x33,
-	0xa9, 0x26, 0x4c, 0x54, 0x99, 0x9f, 0xca, 0x92, 0xbd, 0x54, 0x8e, 0x6b, 0x8d, 0xd0, 0x87, 0xe6,
-	0x3e, 0x62, 0x8d, 0x50, 0x25, 0x85, 0x46, 0xa8, 0x76, 0xdc, 0x11, 0xaa, 0x74, 0x6f, 0x84, 0x82,
-	0xdc, 0x32, 0x42, 0x97, 0xae, 0x3b, 0x42, 0x21, 0x92, 0x33, 0x42, 0xed, 0x54, 0xbd, 0xb0, 0x69,
-	0x36, 0x7c, 0xdd, 0x3f, 0x00, 0x1d, 0xe2, 0x9e, 0xda, 0x98, 0x6e, 0xc8, 0x32, 0x79, 0x54, 0xe3,
-	0xdc, 0x3c, 0x58, 0xf5, 0xf2, 0xd8, 0xa6, 0x3b, 0xd2, 0x5d, 0x14, 0x56, 0x5b, 0x46, 0xba, 0x8f,
-	0x52, 0x9b, 0xcc, 0x45, 0x61, 0xb5, 0x65, 0xa4, 0x3b, 0xa8, 0x47, 0xb2, 0x53, 0x7f, 0x16, 0x9b,
-	0x9b, 0xd9, 0x5d, 0xa1, 0xe6, 0xef, 0x09, 0xfe, 0x60, 0x62, 0xc7, 0xfb, 0x34, 0xfb, 0x05, 0x0a,
-	0xfb, 0xe5, 0xd3, 0xcf, 0x8f, 0xcf, 0x89, 0x5c, 0x54, 0xb3, 0xf3, 0x98, 0x67, 0xc3, 0x59, 0x24,
-	0xe3, 0x45, 0xcc, 0xcb, 0x62, 0x08, 0xd7, 0xc2, 0xf7, 0x22, 0x5e, 0xb0, 0x2c, 0x12, 0xc3, 0x59,
-	0x95, 0xa4, 0xf3, 0xe1, 0x33, 0x1f, 0x2a, 0xe0, 0x4c, 0xdd, 0xc0, 0x3f, 0xfc, 0x0f, 0x00, 0x00,
-	0xff, 0xff, 0xc4, 0xe7, 0x45, 0x6e, 0xa3, 0x0b, 0x00, 0x00,
+	// 761 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x7c, 0x96, 0xdf, 0x4f, 0xdb, 0x3a,
+	0x14, 0xc7, 0x05, 0x57, 0x02, 0x6a, 0x7e, 0x5c, 0x6e, 0xb8, 0xba, 0x40, 0x69, 0x2f, 0x1d, 0x4f,
+	0xbc, 0x8c, 0x4a, 0x6c, 0xda, 0xc3, 0xa4, 0x49, 0x63, 0xdd, 0x88, 0x2a, 0x31, 0x31, 0x15, 0xd0,
+	0xa6, 0xbd, 0x44, 0x69, 0x72, 0xa0, 0xd5, 0xd2, 0x24, 0x8b, 0x9d, 0xed, 0x2f, 0xdf, 0xfb, 0x94,
+	0x9c, 0x93, 0xda, 0xc7, 0x4e, 0xf7, 0x84, 0xf2, 0xfd, 0xd8, 0x1f, 0x4e, 0x8f, 0x1d, 0x3b, 0xe2,
+	0x30, 0x97, 0xc1, 0x63, 0x56, 0xc0, 0x22, 0x4c, 0x03, 0x09, 0xc5, 0x0f, 0x28, 0x2e, 0xf2, 0x22,
+	0x53, 0x99, 0xb7, 0x51, 0xff, 0x91, 0xdd, 0xfd, 0x5c, 0x06, 0xd1, 0x2c, 0x4c, 0x53, 0x48, 0x90,
+	0x60, 0x92, 0xa5, 0x29, 0x44, 0x8a, 0x92, 0xdd, 0x5c, 0x06, 0x05, 0x84, 0x31, 0x3d, 0xfe, 0x9d,
+	0x4b, 0xe6, 0xaa, 0x03, 0x55, 0x1a, 0x8a, 0xbd, 0x5c, 0x06, 0x3f, 0x8b, 0xb9, 0x02, 0x7c, 0x3e,
+	0xfb, 0x20, 0xb6, 0x3f, 0x25, 0xe5, 0x62, 0x0a, 0xc5, 0x38, 0x7d, 0xcc, 0xbc, 0x43, 0xb1, 0xa9,
+	0x20, 0x5c, 0x04, 0xf3, 0xf8, 0x68, 0x6d, 0xb0, 0x76, 0xde, 0x99, 0x6c, 0x54, 0x8f, 0xe3, 0xd8,
+	0xeb, 0x0b, 0x11, 0x25, 0xa5, 0x54, 0x50, 0x54, 0x6c, 0xbd, 0x66, 0x1d, 0x4a, 0xc6, 0xf1, 0xd9,
+	0x47, 0x71, 0x70, 0x33, 0x97, 0x8a, 0x54, 0x72, 0x02, 0xdf, 0x4b, 0x90, 0xaa, 0x9a, 0x15, 0x96,
+	0x6a, 0x16, 0xa8, 0xec, 0x1b, 0xa4, 0x64, 0xec, 0x54, 0xc9, 0x7d, 0x15, 0x98, 0xff, 0x6d, 0xdd,
+	0xfc, 0x6f, 0x67, 0xbe, 0xf8, 0x97, 0xeb, 0x64, 0x9e, 0xa5, 0x12, 0xbc, 0xa1, 0xd8, 0xca, 0x29,
+	0x3b, 0x5a, 0x1b, 0xfc, 0x75, 0xbe, 0x7d, 0x79, 0x80, 0xbf, 0x43, 0x5e, 0x18, 0xbf, 0x62, 0xb2,
+	0x1c, 0x74, 0xf9, 0xcb, 0x13, 0xbb, 0xd7, 0xd8, 0xe4, 0xbb, 0xba, 0x2f, 0xde, 0x58, 0xec, 0x98,
+	0x6a, 0xef, 0xa4, 0x11, 0xb4, 0xd4, 0xdf, 0xed, 0xb5, 0x43, 0xaa, 0xe6, 0x8b, 0xf8, 0xc7, 0x07,
+	0x75, 0x95, 0x24, 0x23, 0x5c, 0x93, 0x79, 0x96, 0x4a, 0x6f, 0xd0, 0x4c, 0x71, 0x50, 0x23, 0x7d,
+	0xf6, 0x87, 0x11, 0x64, 0xbe, 0x11, 0xbb, 0x3e, 0x28, 0x4d, 0xbc, 0x9e, 0x31, 0x47, 0xc7, 0x8d,
+	0xb1, 0xbf, 0x82, 0x92, 0xed, 0x41, 0xec, 0x8f, 0x0a, 0x08, 0x15, 0x18, 0xc2, 0xd3, 0x66, 0x8a,
+	0x4d, 0x1a, 0xe7, 0x60, 0xf5, 0x00, 0xd2, 0xde, 0x8a, 0xbd, 0x7b, 0x90, 0x66, 0x95, 0xcb, 0x3a,
+	0x78, 0xde, 0x28, 0xff, 0x5f, 0x85, 0x75, 0x9d, 0x0f, 0x79, 0xbc, 0xa2, 0x4e, 0x9b, 0x38, 0x75,
+	0xba, 0x03, 0xb4, 0xf6, 0x3d, 0x24, 0xd0, 0xae, 0xb5, 0x89, 0xa3, 0x75, 0x07, 0x90, 0xf6, 0xb5,
+	0xd8, 0xf4, 0x41, 0x4d, 0x20, 0x8c, 0xbd, 0xff, 0x8c, 0xfe, 0x57, 0x41, 0x23, 0x39, 0x74, 0x72,
+	0x9a, 0x3b, 0x12, 0x02, 0x17, 0xbf, 0x9e, 0x7e, 0xcc, 0x37, 0x84, 0x69, 0xe8, 0xb6, 0x21, 0x2d,
+	0xc1, 0xb5, 0xe1, 0x12, 0x9d, 0x39, 0x12, 0x13, 0x69, 0x09, 0x36, 0x8e, 0x4b, 0x74, 0xe6, 0x48,
+	0x4c, 0xa4, 0x25, 0xd8, 0x26, 0x2e, 0xd1, 0x99, 0x23, 0x31, 0x11, 0x49, 0xde, 0x88, 0x2d, 0x1f,
+	0xd4, 0xe7, 0xea, 0x6c, 0xf2, 0xcc, 0xc6, 0xd5, 0x49, 0x23, 0x38, 0x72, 0x01, 0x4d, 0xbf, 0x16,
+	0xdb, 0xd8, 0x23, 0x34, 0x58, 0x8d, 0x63, 0x92, 0x93, 0x56, 0xa6, 0x3d, 0xd8, 0x26, 0xcb, 0x63,
+	0x84, 0x8e, 0x87, 0x31, 0xed, 0xc1, 0x4e, 0x59, 0x1e, 0x23, 0x74, 0x3c, 0x8c, 0x69, 0x0f, 0x36,
+	0xcb, 0xf2, 0x18, 0xa1, 0xe3, 0x61, 0x8c, 0x6d, 0xb9, 0x11, 0xde, 0x27, 0x6c, 0xcb, 0x51, 0xd6,
+	0xb6, 0xe5, 0x96, 0x48, 0xbf, 0xf2, 0x74, 0x68, 0x21, 0x90, 0x5e, 0xdf, 0x3a, 0xcc, 0x28, 0x77,
+	0x5e, 0x79, 0x1b, 0xeb, 0x83, 0x8e, 0xce, 0x17, 0x2a, 0xac, 0x67, 0x1d, 0x3b, 0xbc, 0xb6, 0xfe,
+	0x0a, 0xaa, 0x6d, 0x74, 0x0a, 0xd8, 0x36, 0x16, 0x3b, 0x36, 0x8b, 0x6a, 0x1b, 0xbd, 0xfc, 0xb6,
+	0x8d, 0xc5, 0x8e, 0xcd, 0xa2, 0x7a, 0x1d, 0xef, 0x54, 0x96, 0x37, 0xae, 0x65, 0x97, 0x8d, 0xd0,
+	0x59, 0x47, 0xc6, 0x74, 0x55, 0x13, 0x90, 0xe5, 0xc2, 0xad, 0x8a, 0xc5, 0x4e, 0x55, 0x16, 0x25,
+	0xdb, 0x5b, 0xd1, 0xf1, 0x41, 0xdd, 0xd7, 0x5f, 0x08, 0x9e, 0xf9, 0x72, 0x61, 0xd4, 0x58, 0x8e,
+	0x5b, 0x08, 0xbb, 0xaa, 0xae, 0x92, 0x04, 0x73, 0xc9, 0xae, 0x2a, 0x1d, 0xb7, 0x5d, 0x55, 0x26,
+	0x25, 0xdb, 0x58, 0xec, 0xe0, 0xd2, 0x52, 0x49, 0xd6, 0x2b, 0xc6, 0xab, 0xea, 0xb5, 0x43, 0xbd,
+	0xe1, 0xab, 0xfe, 0x91, 0xe8, 0xd8, 0xec, 0x29, 0xd7, 0x74, 0xdb, 0x90, 0xae, 0x07, 0x1b, 0x67,
+	0xd7, 0x63, 0xa6, 0x4e, 0x3d, 0x1c, 0x6a, 0x15, 0xee, 0x33, 0x5b, 0x65, 0xa6, 0x8e, 0x8a, 0x43,
+	0xad, 0xc2, 0x4d, 0x66, 0xab, 0xcc, 0xd4, 0x51, 0x71, 0xa8, 0x2f, 0x47, 0x1f, 0x14, 0x7e, 0x1b,
+	0xdd, 0xe6, 0xf8, 0x09, 0x73, 0x6a, 0xac, 0x11, 0x23, 0xce, 0xe5, 0xe8, 0x0e, 0x40, 0xed, 0xbb,
+	0x57, 0x5f, 0x5f, 0x3e, 0xcd, 0xd5, 0xac, 0x9c, 0x5e, 0x44, 0xd9, 0x62, 0x38, 0x0d, 0x55, 0x34,
+	0x8b, 0xb2, 0x22, 0x1f, 0xd2, 0x87, 0xd9, 0x73, 0x19, 0xcd, 0x60, 0x11, 0xca, 0xe1, 0xb4, 0x9c,
+	0x27, 0xf1, 0xf0, 0x29, 0x1b, 0xa2, 0x70, 0x8a, 0xdf, 0xbe, 0x2f, 0x7e, 0x07, 0x00, 0x00, 0xff,
+	0xff, 0x1b, 0x50, 0x36, 0x83, 0x1d, 0x0b, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -247,16 +247,16 @@ type ForemanServerClient interface {
 	UpdateConnection(ctx context.Context, in *UpdateConnectionRequest, opts ...grpc.CallOption) (*UpdateConnectionResponse, error)
 	// If there are any active connections, delete will cause them to get closed
 	DeleteConnection(ctx context.Context, in *DeleteConnectionRequest, opts ...grpc.CallOption) (*DeleteConnectionResponse, error)
-	GetSource(ctx context.Context, in *GetSourceRequest, opts ...grpc.CallOption) (*GetSourceResponse, error)
-	GetAllSources(ctx context.Context, in *GetAllSourcesRequest, opts ...grpc.CallOption) (*GetAllSourcesResponse, error)
-	CreateSource(ctx context.Context, in *CreateSourceRequest, opts ...grpc.CallOption) (*CreateSourceResponse, error)
-	UpdateSource(ctx context.Context, in *UpdateSourceRequest, opts ...grpc.CallOption) (*UpdateSourceResponse, error)
-	DeleteSource(ctx context.Context, in *DeleteSourceRequest, opts ...grpc.CallOption) (*DeleteSourceResponse, error)
-	GetDestination(ctx context.Context, in *GetDestinationRequest, opts ...grpc.CallOption) (*GetDestinationResponse, error)
-	GetAllDestinations(ctx context.Context, in *GetAllDestinationsRequest, opts ...grpc.CallOption) (*GetAllDestinationsResponse, error)
-	CreateDestination(ctx context.Context, in *CreateDestinationRequest, opts ...grpc.CallOption) (*CreateDestinationResponse, error)
-	UpdateDestination(ctx context.Context, in *UpdateDestinationRequest, opts ...grpc.CallOption) (*UpdateDestinationResponse, error)
-	DeleteDestination(ctx context.Context, in *DeleteDestinationRequest, opts ...grpc.CallOption) (*DeleteDestinationResponse, error)
+	GetRead(ctx context.Context, in *GetReadRequest, opts ...grpc.CallOption) (*GetReadResponse, error)
+	GetAllRead(ctx context.Context, in *GetAllReadRequest, opts ...grpc.CallOption) (*GetAllReadResponse, error)
+	CreateRead(ctx context.Context, in *CreateReadRequest, opts ...grpc.CallOption) (*CreateReadResponse, error)
+	UpdateRead(ctx context.Context, in *UpdateReadRequest, opts ...grpc.CallOption) (*UpdateReadResponse, error)
+	DeleteRead(ctx context.Context, in *DeleteReadRequest, opts ...grpc.CallOption) (*DeleteReadResponse, error)
+	GetWrite(ctx context.Context, in *GetWriteRequest, opts ...grpc.CallOption) (*GetWriteResponse, error)
+	GetAllWrite(ctx context.Context, in *GetAllWriteRequest, opts ...grpc.CallOption) (*GetAllWriteResponse, error)
+	CreateWrite(ctx context.Context, in *CreateWriteRequest, opts ...grpc.CallOption) (*CreateWriteResponse, error)
+	UpdateWrite(ctx context.Context, in *UpdateWriteRequest, opts ...grpc.CallOption) (*UpdateWriteResponse, error)
+	DeleteWrite(ctx context.Context, in *DeleteWriteRequest, opts ...grpc.CallOption) (*DeleteWriteResponse, error)
 	GetChannel(ctx context.Context, in *GetChannelRequest, opts ...grpc.CallOption) (*GetChannelResponse, error)
 	GetAllChannels(ctx context.Context, in *GetAllChannelsRequest, opts ...grpc.CallOption) (*GetAllChannelsResponse, error)
 	CreateChannel(ctx context.Context, in *CreateChannelRequest, opts ...grpc.CallOption) (*CreateChannelResponse, error)
@@ -345,90 +345,90 @@ func (c *foremanServerClient) DeleteConnection(ctx context.Context, in *DeleteCo
 	return out, nil
 }
 
-func (c *foremanServerClient) GetSource(ctx context.Context, in *GetSourceRequest, opts ...grpc.CallOption) (*GetSourceResponse, error) {
-	out := new(GetSourceResponse)
-	err := c.cc.Invoke(ctx, "/protos.ForemanServer/GetSource", in, out, opts...)
+func (c *foremanServerClient) GetRead(ctx context.Context, in *GetReadRequest, opts ...grpc.CallOption) (*GetReadResponse, error) {
+	out := new(GetReadResponse)
+	err := c.cc.Invoke(ctx, "/protos.ForemanServer/GetRead", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *foremanServerClient) GetAllSources(ctx context.Context, in *GetAllSourcesRequest, opts ...grpc.CallOption) (*GetAllSourcesResponse, error) {
-	out := new(GetAllSourcesResponse)
-	err := c.cc.Invoke(ctx, "/protos.ForemanServer/GetAllSources", in, out, opts...)
+func (c *foremanServerClient) GetAllRead(ctx context.Context, in *GetAllReadRequest, opts ...grpc.CallOption) (*GetAllReadResponse, error) {
+	out := new(GetAllReadResponse)
+	err := c.cc.Invoke(ctx, "/protos.ForemanServer/GetAllRead", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *foremanServerClient) CreateSource(ctx context.Context, in *CreateSourceRequest, opts ...grpc.CallOption) (*CreateSourceResponse, error) {
-	out := new(CreateSourceResponse)
-	err := c.cc.Invoke(ctx, "/protos.ForemanServer/CreateSource", in, out, opts...)
+func (c *foremanServerClient) CreateRead(ctx context.Context, in *CreateReadRequest, opts ...grpc.CallOption) (*CreateReadResponse, error) {
+	out := new(CreateReadResponse)
+	err := c.cc.Invoke(ctx, "/protos.ForemanServer/CreateRead", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *foremanServerClient) UpdateSource(ctx context.Context, in *UpdateSourceRequest, opts ...grpc.CallOption) (*UpdateSourceResponse, error) {
-	out := new(UpdateSourceResponse)
-	err := c.cc.Invoke(ctx, "/protos.ForemanServer/UpdateSource", in, out, opts...)
+func (c *foremanServerClient) UpdateRead(ctx context.Context, in *UpdateReadRequest, opts ...grpc.CallOption) (*UpdateReadResponse, error) {
+	out := new(UpdateReadResponse)
+	err := c.cc.Invoke(ctx, "/protos.ForemanServer/UpdateRead", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *foremanServerClient) DeleteSource(ctx context.Context, in *DeleteSourceRequest, opts ...grpc.CallOption) (*DeleteSourceResponse, error) {
-	out := new(DeleteSourceResponse)
-	err := c.cc.Invoke(ctx, "/protos.ForemanServer/DeleteSource", in, out, opts...)
+func (c *foremanServerClient) DeleteRead(ctx context.Context, in *DeleteReadRequest, opts ...grpc.CallOption) (*DeleteReadResponse, error) {
+	out := new(DeleteReadResponse)
+	err := c.cc.Invoke(ctx, "/protos.ForemanServer/DeleteRead", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *foremanServerClient) GetDestination(ctx context.Context, in *GetDestinationRequest, opts ...grpc.CallOption) (*GetDestinationResponse, error) {
-	out := new(GetDestinationResponse)
-	err := c.cc.Invoke(ctx, "/protos.ForemanServer/GetDestination", in, out, opts...)
+func (c *foremanServerClient) GetWrite(ctx context.Context, in *GetWriteRequest, opts ...grpc.CallOption) (*GetWriteResponse, error) {
+	out := new(GetWriteResponse)
+	err := c.cc.Invoke(ctx, "/protos.ForemanServer/GetWrite", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *foremanServerClient) GetAllDestinations(ctx context.Context, in *GetAllDestinationsRequest, opts ...grpc.CallOption) (*GetAllDestinationsResponse, error) {
-	out := new(GetAllDestinationsResponse)
-	err := c.cc.Invoke(ctx, "/protos.ForemanServer/GetAllDestinations", in, out, opts...)
+func (c *foremanServerClient) GetAllWrite(ctx context.Context, in *GetAllWriteRequest, opts ...grpc.CallOption) (*GetAllWriteResponse, error) {
+	out := new(GetAllWriteResponse)
+	err := c.cc.Invoke(ctx, "/protos.ForemanServer/GetAllWrite", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *foremanServerClient) CreateDestination(ctx context.Context, in *CreateDestinationRequest, opts ...grpc.CallOption) (*CreateDestinationResponse, error) {
-	out := new(CreateDestinationResponse)
-	err := c.cc.Invoke(ctx, "/protos.ForemanServer/CreateDestination", in, out, opts...)
+func (c *foremanServerClient) CreateWrite(ctx context.Context, in *CreateWriteRequest, opts ...grpc.CallOption) (*CreateWriteResponse, error) {
+	out := new(CreateWriteResponse)
+	err := c.cc.Invoke(ctx, "/protos.ForemanServer/CreateWrite", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *foremanServerClient) UpdateDestination(ctx context.Context, in *UpdateDestinationRequest, opts ...grpc.CallOption) (*UpdateDestinationResponse, error) {
-	out := new(UpdateDestinationResponse)
-	err := c.cc.Invoke(ctx, "/protos.ForemanServer/UpdateDestination", in, out, opts...)
+func (c *foremanServerClient) UpdateWrite(ctx context.Context, in *UpdateWriteRequest, opts ...grpc.CallOption) (*UpdateWriteResponse, error) {
+	out := new(UpdateWriteResponse)
+	err := c.cc.Invoke(ctx, "/protos.ForemanServer/UpdateWrite", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *foremanServerClient) DeleteDestination(ctx context.Context, in *DeleteDestinationRequest, opts ...grpc.CallOption) (*DeleteDestinationResponse, error) {
-	out := new(DeleteDestinationResponse)
-	err := c.cc.Invoke(ctx, "/protos.ForemanServer/DeleteDestination", in, out, opts...)
+func (c *foremanServerClient) DeleteWrite(ctx context.Context, in *DeleteWriteRequest, opts ...grpc.CallOption) (*DeleteWriteResponse, error) {
+	out := new(DeleteWriteResponse)
+	err := c.cc.Invoke(ctx, "/protos.ForemanServer/DeleteWrite", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -587,16 +587,16 @@ type ForemanServerServer interface {
 	UpdateConnection(context.Context, *UpdateConnectionRequest) (*UpdateConnectionResponse, error)
 	// If there are any active connections, delete will cause them to get closed
 	DeleteConnection(context.Context, *DeleteConnectionRequest) (*DeleteConnectionResponse, error)
-	GetSource(context.Context, *GetSourceRequest) (*GetSourceResponse, error)
-	GetAllSources(context.Context, *GetAllSourcesRequest) (*GetAllSourcesResponse, error)
-	CreateSource(context.Context, *CreateSourceRequest) (*CreateSourceResponse, error)
-	UpdateSource(context.Context, *UpdateSourceRequest) (*UpdateSourceResponse, error)
-	DeleteSource(context.Context, *DeleteSourceRequest) (*DeleteSourceResponse, error)
-	GetDestination(context.Context, *GetDestinationRequest) (*GetDestinationResponse, error)
-	GetAllDestinations(context.Context, *GetAllDestinationsRequest) (*GetAllDestinationsResponse, error)
-	CreateDestination(context.Context, *CreateDestinationRequest) (*CreateDestinationResponse, error)
-	UpdateDestination(context.Context, *UpdateDestinationRequest) (*UpdateDestinationResponse, error)
-	DeleteDestination(context.Context, *DeleteDestinationRequest) (*DeleteDestinationResponse, error)
+	GetRead(context.Context, *GetReadRequest) (*GetReadResponse, error)
+	GetAllRead(context.Context, *GetAllReadRequest) (*GetAllReadResponse, error)
+	CreateRead(context.Context, *CreateReadRequest) (*CreateReadResponse, error)
+	UpdateRead(context.Context, *UpdateReadRequest) (*UpdateReadResponse, error)
+	DeleteRead(context.Context, *DeleteReadRequest) (*DeleteReadResponse, error)
+	GetWrite(context.Context, *GetWriteRequest) (*GetWriteResponse, error)
+	GetAllWrite(context.Context, *GetAllWriteRequest) (*GetAllWriteResponse, error)
+	CreateWrite(context.Context, *CreateWriteRequest) (*CreateWriteResponse, error)
+	UpdateWrite(context.Context, *UpdateWriteRequest) (*UpdateWriteResponse, error)
+	DeleteWrite(context.Context, *DeleteWriteRequest) (*DeleteWriteResponse, error)
 	GetChannel(context.Context, *GetChannelRequest) (*GetChannelResponse, error)
 	GetAllChannels(context.Context, *GetAllChannelsRequest) (*GetAllChannelsResponse, error)
 	CreateChannel(context.Context, *CreateChannelRequest) (*CreateChannelResponse, error)
@@ -639,35 +639,35 @@ func (*UnimplementedForemanServerServer) UpdateConnection(ctx context.Context, r
 func (*UnimplementedForemanServerServer) DeleteConnection(ctx context.Context, req *DeleteConnectionRequest) (*DeleteConnectionResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteConnection not implemented")
 }
-func (*UnimplementedForemanServerServer) GetSource(ctx context.Context, req *GetSourceRequest) (*GetSourceResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetSource not implemented")
+func (*UnimplementedForemanServerServer) GetRead(ctx context.Context, req *GetReadRequest) (*GetReadResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetRead not implemented")
 }
-func (*UnimplementedForemanServerServer) GetAllSources(ctx context.Context, req *GetAllSourcesRequest) (*GetAllSourcesResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetAllSources not implemented")
+func (*UnimplementedForemanServerServer) GetAllRead(ctx context.Context, req *GetAllReadRequest) (*GetAllReadResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetAllRead not implemented")
 }
-func (*UnimplementedForemanServerServer) CreateSource(ctx context.Context, req *CreateSourceRequest) (*CreateSourceResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method CreateSource not implemented")
+func (*UnimplementedForemanServerServer) CreateRead(ctx context.Context, req *CreateReadRequest) (*CreateReadResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateRead not implemented")
 }
-func (*UnimplementedForemanServerServer) UpdateSource(ctx context.Context, req *UpdateSourceRequest) (*UpdateSourceResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UpdateSource not implemented")
+func (*UnimplementedForemanServerServer) UpdateRead(ctx context.Context, req *UpdateReadRequest) (*UpdateReadResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateRead not implemented")
 }
-func (*UnimplementedForemanServerServer) DeleteSource(ctx context.Context, req *DeleteSourceRequest) (*DeleteSourceResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method DeleteSource not implemented")
+func (*UnimplementedForemanServerServer) DeleteRead(ctx context.Context, req *DeleteReadRequest) (*DeleteReadResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteRead not implemented")
 }
-func (*UnimplementedForemanServerServer) GetDestination(ctx context.Context, req *GetDestinationRequest) (*GetDestinationResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetDestination not implemented")
+func (*UnimplementedForemanServerServer) GetWrite(ctx context.Context, req *GetWriteRequest) (*GetWriteResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetWrite not implemented")
 }
-func (*UnimplementedForemanServerServer) GetAllDestinations(ctx context.Context, req *GetAllDestinationsRequest) (*GetAllDestinationsResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetAllDestinations not implemented")
+func (*UnimplementedForemanServerServer) GetAllWrite(ctx context.Context, req *GetAllWriteRequest) (*GetAllWriteResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetAllWrite not implemented")
 }
-func (*UnimplementedForemanServerServer) CreateDestination(ctx context.Context, req *CreateDestinationRequest) (*CreateDestinationResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method CreateDestination not implemented")
+func (*UnimplementedForemanServerServer) CreateWrite(ctx context.Context, req *CreateWriteRequest) (*CreateWriteResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateWrite not implemented")
 }
-func (*UnimplementedForemanServerServer) UpdateDestination(ctx context.Context, req *UpdateDestinationRequest) (*UpdateDestinationResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UpdateDestination not implemented")
+func (*UnimplementedForemanServerServer) UpdateWrite(ctx context.Context, req *UpdateWriteRequest) (*UpdateWriteResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateWrite not implemented")
 }
-func (*UnimplementedForemanServerServer) DeleteDestination(ctx context.Context, req *DeleteDestinationRequest) (*DeleteDestinationResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method DeleteDestination not implemented")
+func (*UnimplementedForemanServerServer) DeleteWrite(ctx context.Context, req *DeleteWriteRequest) (*DeleteWriteResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteWrite not implemented")
 }
 func (*UnimplementedForemanServerServer) GetChannel(ctx context.Context, req *GetChannelRequest) (*GetChannelResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetChannel not implemented")
@@ -845,182 +845,182 @@ func _ForemanServer_DeleteConnection_Handler(srv interface{}, ctx context.Contex
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ForemanServer_GetSource_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSourceRequest)
+func _ForemanServer_GetRead_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetReadRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ForemanServerServer).GetSource(ctx, in)
+		return srv.(ForemanServerServer).GetRead(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/protos.ForemanServer/GetSource",
+		FullMethod: "/protos.ForemanServer/GetRead",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ForemanServerServer).GetSource(ctx, req.(*GetSourceRequest))
+		return srv.(ForemanServerServer).GetRead(ctx, req.(*GetReadRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ForemanServer_GetAllSources_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetAllSourcesRequest)
+func _ForemanServer_GetAllRead_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAllReadRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ForemanServerServer).GetAllSources(ctx, in)
+		return srv.(ForemanServerServer).GetAllRead(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/protos.ForemanServer/GetAllSources",
+		FullMethod: "/protos.ForemanServer/GetAllRead",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ForemanServerServer).GetAllSources(ctx, req.(*GetAllSourcesRequest))
+		return srv.(ForemanServerServer).GetAllRead(ctx, req.(*GetAllReadRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ForemanServer_CreateSource_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateSourceRequest)
+func _ForemanServer_CreateRead_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateReadRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ForemanServerServer).CreateSource(ctx, in)
+		return srv.(ForemanServerServer).CreateRead(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/protos.ForemanServer/CreateSource",
+		FullMethod: "/protos.ForemanServer/CreateRead",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ForemanServerServer).CreateSource(ctx, req.(*CreateSourceRequest))
+		return srv.(ForemanServerServer).CreateRead(ctx, req.(*CreateReadRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ForemanServer_UpdateSource_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UpdateSourceRequest)
+func _ForemanServer_UpdateRead_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateReadRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ForemanServerServer).UpdateSource(ctx, in)
+		return srv.(ForemanServerServer).UpdateRead(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/protos.ForemanServer/UpdateSource",
+		FullMethod: "/protos.ForemanServer/UpdateRead",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ForemanServerServer).UpdateSource(ctx, req.(*UpdateSourceRequest))
+		return srv.(ForemanServerServer).UpdateRead(ctx, req.(*UpdateReadRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ForemanServer_DeleteSource_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DeleteSourceRequest)
+func _ForemanServer_DeleteRead_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteReadRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ForemanServerServer).DeleteSource(ctx, in)
+		return srv.(ForemanServerServer).DeleteRead(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/protos.ForemanServer/DeleteSource",
+		FullMethod: "/protos.ForemanServer/DeleteRead",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ForemanServerServer).DeleteSource(ctx, req.(*DeleteSourceRequest))
+		return srv.(ForemanServerServer).DeleteRead(ctx, req.(*DeleteReadRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ForemanServer_GetDestination_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetDestinationRequest)
+func _ForemanServer_GetWrite_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetWriteRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ForemanServerServer).GetDestination(ctx, in)
+		return srv.(ForemanServerServer).GetWrite(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/protos.ForemanServer/GetDestination",
+		FullMethod: "/protos.ForemanServer/GetWrite",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ForemanServerServer).GetDestination(ctx, req.(*GetDestinationRequest))
+		return srv.(ForemanServerServer).GetWrite(ctx, req.(*GetWriteRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ForemanServer_GetAllDestinations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetAllDestinationsRequest)
+func _ForemanServer_GetAllWrite_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAllWriteRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ForemanServerServer).GetAllDestinations(ctx, in)
+		return srv.(ForemanServerServer).GetAllWrite(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/protos.ForemanServer/GetAllDestinations",
+		FullMethod: "/protos.ForemanServer/GetAllWrite",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ForemanServerServer).GetAllDestinations(ctx, req.(*GetAllDestinationsRequest))
+		return srv.(ForemanServerServer).GetAllWrite(ctx, req.(*GetAllWriteRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ForemanServer_CreateDestination_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateDestinationRequest)
+func _ForemanServer_CreateWrite_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateWriteRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ForemanServerServer).CreateDestination(ctx, in)
+		return srv.(ForemanServerServer).CreateWrite(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/protos.ForemanServer/CreateDestination",
+		FullMethod: "/protos.ForemanServer/CreateWrite",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ForemanServerServer).CreateDestination(ctx, req.(*CreateDestinationRequest))
+		return srv.(ForemanServerServer).CreateWrite(ctx, req.(*CreateWriteRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ForemanServer_UpdateDestination_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UpdateDestinationRequest)
+func _ForemanServer_UpdateWrite_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateWriteRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ForemanServerServer).UpdateDestination(ctx, in)
+		return srv.(ForemanServerServer).UpdateWrite(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/protos.ForemanServer/UpdateDestination",
+		FullMethod: "/protos.ForemanServer/UpdateWrite",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ForemanServerServer).UpdateDestination(ctx, req.(*UpdateDestinationRequest))
+		return srv.(ForemanServerServer).UpdateWrite(ctx, req.(*UpdateWriteRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ForemanServer_DeleteDestination_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DeleteDestinationRequest)
+func _ForemanServer_DeleteWrite_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteWriteRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ForemanServerServer).DeleteDestination(ctx, in)
+		return srv.(ForemanServerServer).DeleteWrite(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/protos.ForemanServer/DeleteDestination",
+		FullMethod: "/protos.ForemanServer/DeleteWrite",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ForemanServerServer).DeleteDestination(ctx, req.(*DeleteDestinationRequest))
+		return srv.(ForemanServerServer).DeleteWrite(ctx, req.(*DeleteWriteRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -1328,44 +1328,44 @@ var _ForemanServer_serviceDesc = grpc.ServiceDesc{
 			Handler:    _ForemanServer_DeleteConnection_Handler,
 		},
 		{
-			MethodName: "GetSource",
-			Handler:    _ForemanServer_GetSource_Handler,
+			MethodName: "GetRead",
+			Handler:    _ForemanServer_GetRead_Handler,
 		},
 		{
-			MethodName: "GetAllSources",
-			Handler:    _ForemanServer_GetAllSources_Handler,
+			MethodName: "GetAllRead",
+			Handler:    _ForemanServer_GetAllRead_Handler,
 		},
 		{
-			MethodName: "CreateSource",
-			Handler:    _ForemanServer_CreateSource_Handler,
+			MethodName: "CreateRead",
+			Handler:    _ForemanServer_CreateRead_Handler,
 		},
 		{
-			MethodName: "UpdateSource",
-			Handler:    _ForemanServer_UpdateSource_Handler,
+			MethodName: "UpdateRead",
+			Handler:    _ForemanServer_UpdateRead_Handler,
 		},
 		{
-			MethodName: "DeleteSource",
-			Handler:    _ForemanServer_DeleteSource_Handler,
+			MethodName: "DeleteRead",
+			Handler:    _ForemanServer_DeleteRead_Handler,
 		},
 		{
-			MethodName: "GetDestination",
-			Handler:    _ForemanServer_GetDestination_Handler,
+			MethodName: "GetWrite",
+			Handler:    _ForemanServer_GetWrite_Handler,
 		},
 		{
-			MethodName: "GetAllDestinations",
-			Handler:    _ForemanServer_GetAllDestinations_Handler,
+			MethodName: "GetAllWrite",
+			Handler:    _ForemanServer_GetAllWrite_Handler,
 		},
 		{
-			MethodName: "CreateDestination",
-			Handler:    _ForemanServer_CreateDestination_Handler,
+			MethodName: "CreateWrite",
+			Handler:    _ForemanServer_CreateWrite_Handler,
 		},
 		{
-			MethodName: "UpdateDestination",
-			Handler:    _ForemanServer_UpdateDestination_Handler,
+			MethodName: "UpdateWrite",
+			Handler:    _ForemanServer_UpdateWrite_Handler,
 		},
 		{
-			MethodName: "DeleteDestination",
-			Handler:    _ForemanServer_DeleteDestination_Handler,
+			MethodName: "DeleteWrite",
+			Handler:    _ForemanServer_DeleteWrite_Handler,
 		},
 		{
 			MethodName: "GetChannel",
