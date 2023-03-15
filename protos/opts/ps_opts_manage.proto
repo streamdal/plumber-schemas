@@ -93,11 +93,11 @@ message CreateOptions {
   // @gotags: kong:"-"
   opts.CreateRelayOptions relay = 2 [deprecated=true];
 
-  // @gotags: kong:"cmd,help='Create source in plumber server'"
-  opts.CreateReadOptions source = 4;
+  // @gotags: kong:"cmd,help='Create read resource in plumber server'"
+  opts.CreateReadOptions read = 4;
 
-  // @gotags: kong:"cmd,help='Create destination in plumber server'"
-  opts.CreateWriteOptions destination = 5;
+  // @gotags: kong:"cmd,help='Create write resource in plumber server'"
+  opts.CreateWriteOptions write = 5;
 
   // @gotags: kong:"cmd,help='Create channel between source and destination in plumber server'"
   opts.CreateChannelOptions channel = 6;
