@@ -5248,205 +5248,313 @@ export namespace protos {
             public toJSON(): { [k: string]: any };
         }
 
-        /** Properties of a CreateReadOptions. */
-        interface ICreateReadOptions {
+        /** Properties of an ExtraCreateChannelReadOptions. */
+        interface IExtraCreateChannelReadOptions {
 
-            /** CreateReadOptions connectionId */
-            connectionId?: (string|null);
+            /** ExtraCreateChannelReadOptions sampleOptions */
+            sampleOptions?: (protos.opts.IReadSampleOptions|null);
 
-            /** CreateReadOptions name */
-            name?: (string|null);
+            /** ExtraCreateChannelReadOptions decodeOptions */
+            decodeOptions?: (protos.encoding.IDecodeOptions|null);
 
-            /** CreateReadOptions notes */
-            notes?: (string|null);
-
-            /** CreateReadOptions kafka */
-            kafka?: (protos.args.IKafkaReadArgs|null);
-
-            /** CreateReadOptions awsSqs */
-            awsSqs?: (protos.args.IAWSSQSReadArgs|null);
-
-            /** CreateReadOptions mongo */
-            mongo?: (protos.args.IMongoReadArgs|null);
-
-            /** CreateReadOptions nsq */
-            nsq?: (protos.args.INSQReadArgs|null);
-
-            /** CreateReadOptions rabbit */
-            rabbit?: (protos.args.IRabbitReadArgs|null);
-
-            /** CreateReadOptions mqtt */
-            mqtt?: (protos.args.IMQTTReadArgs|null);
-
-            /** CreateReadOptions azureServiceBus */
-            azureServiceBus?: (protos.args.IAzureServiceBusReadArgs|null);
-
-            /** CreateReadOptions gcpPubsub */
-            gcpPubsub?: (protos.args.IGCPPubSubReadArgs|null);
-
-            /** CreateReadOptions kubemqQueue */
-            kubemqQueue?: (protos.args.IKubeMQQueueReadArgs|null);
-
-            /** CreateReadOptions redisPubsub */
-            redisPubsub?: (protos.args.IRedisPubSubReadArgs|null);
-
-            /** CreateReadOptions redisStreams */
-            redisStreams?: (protos.args.IRedisStreamsReadArgs|null);
-
-            /** CreateReadOptions postgres */
-            postgres?: (protos.args.IPostgresReadArgs|null);
-
-            /** CreateReadOptions nats */
-            nats?: (protos.args.INatsReadArgs|null);
-
-            /** CreateReadOptions natsStreaming */
-            natsStreaming?: (protos.args.INatsStreamingReadArgs|null);
-
-            /** CreateReadOptions natsJetstream */
-            natsJetstream?: (protos.args.INatsJetstreamReadArgs|null);
-
-            /** CreateReadOptions _readId */
-            _readId?: (string|null);
-
-            /** CreateReadOptions _active */
-            _active?: (boolean|null);
+            /** ExtraCreateChannelReadOptions convertOption */
+            convertOption?: (protos.opts.ConvertOption|null);
         }
 
-        /** Represents a CreateReadOptions. */
-        class CreateReadOptions implements ICreateReadOptions {
+        /** Represents an ExtraCreateChannelReadOptions. */
+        class ExtraCreateChannelReadOptions implements IExtraCreateChannelReadOptions {
 
             /**
-             * Constructs a new CreateReadOptions.
+             * Constructs a new ExtraCreateChannelReadOptions.
              * @param [properties] Properties to set
              */
-            constructor(properties?: protos.opts.ICreateReadOptions);
+            constructor(properties?: protos.opts.IExtraCreateChannelReadOptions);
 
-            /** CreateReadOptions connectionId. */
-            public connectionId: string;
+            /** ExtraCreateChannelReadOptions sampleOptions. */
+            public sampleOptions?: (protos.opts.IReadSampleOptions|null);
 
-            /** CreateReadOptions name. */
-            public name: string;
+            /** ExtraCreateChannelReadOptions decodeOptions. */
+            public decodeOptions?: (protos.encoding.IDecodeOptions|null);
 
-            /** CreateReadOptions notes. */
-            public notes: string;
-
-            /** CreateReadOptions kafka. */
-            public kafka?: (protos.args.IKafkaReadArgs|null);
-
-            /** CreateReadOptions awsSqs. */
-            public awsSqs?: (protos.args.IAWSSQSReadArgs|null);
-
-            /** CreateReadOptions mongo. */
-            public mongo?: (protos.args.IMongoReadArgs|null);
-
-            /** CreateReadOptions nsq. */
-            public nsq?: (protos.args.INSQReadArgs|null);
-
-            /** CreateReadOptions rabbit. */
-            public rabbit?: (protos.args.IRabbitReadArgs|null);
-
-            /** CreateReadOptions mqtt. */
-            public mqtt?: (protos.args.IMQTTReadArgs|null);
-
-            /** CreateReadOptions azureServiceBus. */
-            public azureServiceBus?: (protos.args.IAzureServiceBusReadArgs|null);
-
-            /** CreateReadOptions gcpPubsub. */
-            public gcpPubsub?: (protos.args.IGCPPubSubReadArgs|null);
-
-            /** CreateReadOptions kubemqQueue. */
-            public kubemqQueue?: (protos.args.IKubeMQQueueReadArgs|null);
-
-            /** CreateReadOptions redisPubsub. */
-            public redisPubsub?: (protos.args.IRedisPubSubReadArgs|null);
-
-            /** CreateReadOptions redisStreams. */
-            public redisStreams?: (protos.args.IRedisStreamsReadArgs|null);
-
-            /** CreateReadOptions postgres. */
-            public postgres?: (protos.args.IPostgresReadArgs|null);
-
-            /** CreateReadOptions nats. */
-            public nats?: (protos.args.INatsReadArgs|null);
-
-            /** CreateReadOptions natsStreaming. */
-            public natsStreaming?: (protos.args.INatsStreamingReadArgs|null);
-
-            /** CreateReadOptions natsJetstream. */
-            public natsJetstream?: (protos.args.INatsJetstreamReadArgs|null);
-
-            /** CreateReadOptions _readId. */
-            public _readId: string;
-
-            /** CreateReadOptions _active. */
-            public _active: boolean;
+            /** ExtraCreateChannelReadOptions convertOption. */
+            public convertOption: protos.opts.ConvertOption;
 
             /**
-             * Creates a new CreateReadOptions instance using the specified properties.
+             * Creates a new ExtraCreateChannelReadOptions instance using the specified properties.
              * @param [properties] Properties to set
-             * @returns CreateReadOptions instance
+             * @returns ExtraCreateChannelReadOptions instance
              */
-            public static create(properties?: protos.opts.ICreateReadOptions): protos.opts.CreateReadOptions;
+            public static create(properties?: protos.opts.IExtraCreateChannelReadOptions): protos.opts.ExtraCreateChannelReadOptions;
 
             /**
-             * Encodes the specified CreateReadOptions message. Does not implicitly {@link protos.opts.CreateReadOptions.verify|verify} messages.
-             * @param message CreateReadOptions message or plain object to encode
+             * Encodes the specified ExtraCreateChannelReadOptions message. Does not implicitly {@link protos.opts.ExtraCreateChannelReadOptions.verify|verify} messages.
+             * @param message ExtraCreateChannelReadOptions message or plain object to encode
              * @param [writer] Writer to encode to
              * @returns Writer
              */
-            public static encode(message: protos.opts.ICreateReadOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+            public static encode(message: protos.opts.IExtraCreateChannelReadOptions, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Encodes the specified CreateReadOptions message, length delimited. Does not implicitly {@link protos.opts.CreateReadOptions.verify|verify} messages.
-             * @param message CreateReadOptions message or plain object to encode
+             * Encodes the specified ExtraCreateChannelReadOptions message, length delimited. Does not implicitly {@link protos.opts.ExtraCreateChannelReadOptions.verify|verify} messages.
+             * @param message ExtraCreateChannelReadOptions message or plain object to encode
              * @param [writer] Writer to encode to
              * @returns Writer
              */
-            public static encodeDelimited(message: protos.opts.ICreateReadOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+            public static encodeDelimited(message: protos.opts.IExtraCreateChannelReadOptions, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a CreateReadOptions message from the specified reader or buffer.
+             * Decodes an ExtraCreateChannelReadOptions message from the specified reader or buffer.
              * @param reader Reader or buffer to decode from
              * @param [length] Message length if known beforehand
-             * @returns CreateReadOptions
+             * @returns ExtraCreateChannelReadOptions
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.CreateReadOptions;
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.ExtraCreateChannelReadOptions;
 
             /**
-             * Decodes a CreateReadOptions message from the specified reader or buffer, length delimited.
+             * Decodes an ExtraCreateChannelReadOptions message from the specified reader or buffer, length delimited.
              * @param reader Reader or buffer to decode from
-             * @returns CreateReadOptions
+             * @returns ExtraCreateChannelReadOptions
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.CreateReadOptions;
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.ExtraCreateChannelReadOptions;
 
             /**
-             * Verifies a CreateReadOptions message.
+             * Verifies an ExtraCreateChannelReadOptions message.
              * @param message Plain object to verify
              * @returns `null` if valid, otherwise the reason why it is not
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a CreateReadOptions message from a plain object. Also converts values to their respective internal types.
+             * Creates an ExtraCreateChannelReadOptions message from a plain object. Also converts values to their respective internal types.
              * @param object Plain object
-             * @returns CreateReadOptions
+             * @returns ExtraCreateChannelReadOptions
              */
-            public static fromObject(object: { [k: string]: any }): protos.opts.CreateReadOptions;
+            public static fromObject(object: { [k: string]: any }): protos.opts.ExtraCreateChannelReadOptions;
 
             /**
-             * Creates a plain object from a CreateReadOptions message. Also converts values to other types if specified.
-             * @param message CreateReadOptions
+             * Creates a plain object from an ExtraCreateChannelReadOptions message. Also converts values to other types if specified.
+             * @param message ExtraCreateChannelReadOptions
              * @param [options] Conversion options
              * @returns Plain object
              */
-            public static toObject(message: protos.opts.CreateReadOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+            public static toObject(message: protos.opts.ExtraCreateChannelReadOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
             /**
-             * Converts this CreateReadOptions to JSON.
+             * Converts this ExtraCreateChannelReadOptions to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a CreateChannelReadOptions. */
+        interface ICreateChannelReadOptions {
+
+            /** CreateChannelReadOptions connectionId */
+            connectionId?: (string|null);
+
+            /** CreateChannelReadOptions name */
+            name?: (string|null);
+
+            /** CreateChannelReadOptions notes */
+            notes?: (string|null);
+
+            /** CreateChannelReadOptions extraOptions */
+            extraOptions?: (protos.opts.IExtraCreateChannelReadOptions|null);
+
+            /** CreateChannelReadOptions kafka */
+            kafka?: (protos.args.IKafkaReadArgs|null);
+
+            /** CreateChannelReadOptions awsSqs */
+            awsSqs?: (protos.args.IAWSSQSReadArgs|null);
+
+            /** CreateChannelReadOptions mongo */
+            mongo?: (protos.args.IMongoReadArgs|null);
+
+            /** CreateChannelReadOptions nsq */
+            nsq?: (protos.args.INSQReadArgs|null);
+
+            /** CreateChannelReadOptions rabbit */
+            rabbit?: (protos.args.IRabbitReadArgs|null);
+
+            /** CreateChannelReadOptions mqtt */
+            mqtt?: (protos.args.IMQTTReadArgs|null);
+
+            /** CreateChannelReadOptions azureServiceBus */
+            azureServiceBus?: (protos.args.IAzureServiceBusReadArgs|null);
+
+            /** CreateChannelReadOptions gcpPubsub */
+            gcpPubsub?: (protos.args.IGCPPubSubReadArgs|null);
+
+            /** CreateChannelReadOptions kubemqQueue */
+            kubemqQueue?: (protos.args.IKubeMQQueueReadArgs|null);
+
+            /** CreateChannelReadOptions redisPubsub */
+            redisPubsub?: (protos.args.IRedisPubSubReadArgs|null);
+
+            /** CreateChannelReadOptions redisStreams */
+            redisStreams?: (protos.args.IRedisStreamsReadArgs|null);
+
+            /** CreateChannelReadOptions postgres */
+            postgres?: (protos.args.IPostgresReadArgs|null);
+
+            /** CreateChannelReadOptions nats */
+            nats?: (protos.args.INatsReadArgs|null);
+
+            /** CreateChannelReadOptions natsStreaming */
+            natsStreaming?: (protos.args.INatsStreamingReadArgs|null);
+
+            /** CreateChannelReadOptions natsJetstream */
+            natsJetstream?: (protos.args.INatsJetstreamReadArgs|null);
+
+            /** CreateChannelReadOptions _readId */
+            _readId?: (string|null);
+
+            /** CreateChannelReadOptions _active */
+            _active?: (boolean|null);
+        }
+
+        /** Represents a CreateChannelReadOptions. */
+        class CreateChannelReadOptions implements ICreateChannelReadOptions {
+
+            /**
+             * Constructs a new CreateChannelReadOptions.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.opts.ICreateChannelReadOptions);
+
+            /** CreateChannelReadOptions connectionId. */
+            public connectionId: string;
+
+            /** CreateChannelReadOptions name. */
+            public name: string;
+
+            /** CreateChannelReadOptions notes. */
+            public notes: string;
+
+            /** CreateChannelReadOptions extraOptions. */
+            public extraOptions?: (protos.opts.IExtraCreateChannelReadOptions|null);
+
+            /** CreateChannelReadOptions kafka. */
+            public kafka?: (protos.args.IKafkaReadArgs|null);
+
+            /** CreateChannelReadOptions awsSqs. */
+            public awsSqs?: (protos.args.IAWSSQSReadArgs|null);
+
+            /** CreateChannelReadOptions mongo. */
+            public mongo?: (protos.args.IMongoReadArgs|null);
+
+            /** CreateChannelReadOptions nsq. */
+            public nsq?: (protos.args.INSQReadArgs|null);
+
+            /** CreateChannelReadOptions rabbit. */
+            public rabbit?: (protos.args.IRabbitReadArgs|null);
+
+            /** CreateChannelReadOptions mqtt. */
+            public mqtt?: (protos.args.IMQTTReadArgs|null);
+
+            /** CreateChannelReadOptions azureServiceBus. */
+            public azureServiceBus?: (protos.args.IAzureServiceBusReadArgs|null);
+
+            /** CreateChannelReadOptions gcpPubsub. */
+            public gcpPubsub?: (protos.args.IGCPPubSubReadArgs|null);
+
+            /** CreateChannelReadOptions kubemqQueue. */
+            public kubemqQueue?: (protos.args.IKubeMQQueueReadArgs|null);
+
+            /** CreateChannelReadOptions redisPubsub. */
+            public redisPubsub?: (protos.args.IRedisPubSubReadArgs|null);
+
+            /** CreateChannelReadOptions redisStreams. */
+            public redisStreams?: (protos.args.IRedisStreamsReadArgs|null);
+
+            /** CreateChannelReadOptions postgres. */
+            public postgres?: (protos.args.IPostgresReadArgs|null);
+
+            /** CreateChannelReadOptions nats. */
+            public nats?: (protos.args.INatsReadArgs|null);
+
+            /** CreateChannelReadOptions natsStreaming. */
+            public natsStreaming?: (protos.args.INatsStreamingReadArgs|null);
+
+            /** CreateChannelReadOptions natsJetstream. */
+            public natsJetstream?: (protos.args.INatsJetstreamReadArgs|null);
+
+            /** CreateChannelReadOptions _readId. */
+            public _readId: string;
+
+            /** CreateChannelReadOptions _active. */
+            public _active: boolean;
+
+            /**
+             * Creates a new CreateChannelReadOptions instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns CreateChannelReadOptions instance
+             */
+            public static create(properties?: protos.opts.ICreateChannelReadOptions): protos.opts.CreateChannelReadOptions;
+
+            /**
+             * Encodes the specified CreateChannelReadOptions message. Does not implicitly {@link protos.opts.CreateChannelReadOptions.verify|verify} messages.
+             * @param message CreateChannelReadOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.opts.ICreateChannelReadOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified CreateChannelReadOptions message, length delimited. Does not implicitly {@link protos.opts.CreateChannelReadOptions.verify|verify} messages.
+             * @param message CreateChannelReadOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.opts.ICreateChannelReadOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a CreateChannelReadOptions message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns CreateChannelReadOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.CreateChannelReadOptions;
+
+            /**
+             * Decodes a CreateChannelReadOptions message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns CreateChannelReadOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.CreateChannelReadOptions;
+
+            /**
+             * Verifies a CreateChannelReadOptions message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a CreateChannelReadOptions message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns CreateChannelReadOptions
+             */
+            public static fromObject(object: { [k: string]: any }): protos.opts.CreateChannelReadOptions;
+
+            /**
+             * Creates a plain object from a CreateChannelReadOptions message. Also converts values to other types if specified.
+             * @param message CreateChannelReadOptions
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.opts.CreateChannelReadOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this CreateChannelReadOptions to JSON.
              * @returns JSON object
              */
             public toJSON(): { [k: string]: any };
@@ -5630,6 +5738,2698 @@ export namespace protos {
              * @returns JSON object
              */
             public toJSON(): { [k: string]: any };
+        }
+
+        /** ConvertOption enum. */
+        enum ConvertOption {
+            CONVERT_OPTION_UNSET = 0,
+            CONVERT_OPTION_BASE64 = 1,
+            CONVERT_OPTION_GZIP = 2
+        }
+
+        /** Properties of a ReadCLIOptions. */
+        interface IReadCLIOptions {
+
+            /** ReadCLIOptions verboseOutput */
+            verboseOutput?: (boolean|null);
+
+            /** ReadCLIOptions pretty */
+            pretty?: (boolean|null);
+
+            /** ReadCLIOptions json */
+            json?: (boolean|null);
+        }
+
+        /** Represents a ReadCLIOptions. */
+        class ReadCLIOptions implements IReadCLIOptions {
+
+            /**
+             * Constructs a new ReadCLIOptions.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.opts.IReadCLIOptions);
+
+            /** ReadCLIOptions verboseOutput. */
+            public verboseOutput: boolean;
+
+            /** ReadCLIOptions pretty. */
+            public pretty: boolean;
+
+            /** ReadCLIOptions json. */
+            public json: boolean;
+
+            /**
+             * Creates a new ReadCLIOptions instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns ReadCLIOptions instance
+             */
+            public static create(properties?: protos.opts.IReadCLIOptions): protos.opts.ReadCLIOptions;
+
+            /**
+             * Encodes the specified ReadCLIOptions message. Does not implicitly {@link protos.opts.ReadCLIOptions.verify|verify} messages.
+             * @param message ReadCLIOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.opts.IReadCLIOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified ReadCLIOptions message, length delimited. Does not implicitly {@link protos.opts.ReadCLIOptions.verify|verify} messages.
+             * @param message ReadCLIOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.opts.IReadCLIOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a ReadCLIOptions message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns ReadCLIOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.ReadCLIOptions;
+
+            /**
+             * Decodes a ReadCLIOptions message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns ReadCLIOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.ReadCLIOptions;
+
+            /**
+             * Verifies a ReadCLIOptions message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a ReadCLIOptions message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns ReadCLIOptions
+             */
+            public static fromObject(object: { [k: string]: any }): protos.opts.ReadCLIOptions;
+
+            /**
+             * Creates a plain object from a ReadCLIOptions message. Also converts values to other types if specified.
+             * @param message ReadCLIOptions
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.opts.ReadCLIOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this ReadCLIOptions to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a ReadSampleOptions. */
+        interface IReadSampleOptions {
+
+            /** ReadSampleOptions sampleRate */
+            sampleRate?: (number|null);
+
+            /** ReadSampleOptions sampleIntervalSeconds */
+            sampleIntervalSeconds?: (number|null);
+        }
+
+        /** Represents a ReadSampleOptions. */
+        class ReadSampleOptions implements IReadSampleOptions {
+
+            /**
+             * Constructs a new ReadSampleOptions.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.opts.IReadSampleOptions);
+
+            /** ReadSampleOptions sampleRate. */
+            public sampleRate: number;
+
+            /** ReadSampleOptions sampleIntervalSeconds. */
+            public sampleIntervalSeconds: number;
+
+            /**
+             * Creates a new ReadSampleOptions instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns ReadSampleOptions instance
+             */
+            public static create(properties?: protos.opts.IReadSampleOptions): protos.opts.ReadSampleOptions;
+
+            /**
+             * Encodes the specified ReadSampleOptions message. Does not implicitly {@link protos.opts.ReadSampleOptions.verify|verify} messages.
+             * @param message ReadSampleOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.opts.IReadSampleOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified ReadSampleOptions message, length delimited. Does not implicitly {@link protos.opts.ReadSampleOptions.verify|verify} messages.
+             * @param message ReadSampleOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.opts.IReadSampleOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a ReadSampleOptions message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns ReadSampleOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.ReadSampleOptions;
+
+            /**
+             * Decodes a ReadSampleOptions message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns ReadSampleOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.ReadSampleOptions;
+
+            /**
+             * Verifies a ReadSampleOptions message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a ReadSampleOptions message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns ReadSampleOptions
+             */
+            public static fromObject(object: { [k: string]: any }): protos.opts.ReadSampleOptions;
+
+            /**
+             * Creates a plain object from a ReadSampleOptions message. Also converts values to other types if specified.
+             * @param message ReadSampleOptions
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.opts.ReadSampleOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this ReadSampleOptions to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a ReadFilterOptions. */
+        interface IReadFilterOptions {
+
+            /** ReadFilterOptions query */
+            query?: (string|null);
+        }
+
+        /** Represents a ReadFilterOptions. */
+        class ReadFilterOptions implements IReadFilterOptions {
+
+            /**
+             * Constructs a new ReadFilterOptions.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.opts.IReadFilterOptions);
+
+            /** ReadFilterOptions query. */
+            public query: string;
+
+            /**
+             * Creates a new ReadFilterOptions instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns ReadFilterOptions instance
+             */
+            public static create(properties?: protos.opts.IReadFilterOptions): protos.opts.ReadFilterOptions;
+
+            /**
+             * Encodes the specified ReadFilterOptions message. Does not implicitly {@link protos.opts.ReadFilterOptions.verify|verify} messages.
+             * @param message ReadFilterOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.opts.IReadFilterOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified ReadFilterOptions message, length delimited. Does not implicitly {@link protos.opts.ReadFilterOptions.verify|verify} messages.
+             * @param message ReadFilterOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.opts.IReadFilterOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a ReadFilterOptions message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns ReadFilterOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.ReadFilterOptions;
+
+            /**
+             * Decodes a ReadFilterOptions message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns ReadFilterOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.ReadFilterOptions;
+
+            /**
+             * Verifies a ReadFilterOptions message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a ReadFilterOptions message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns ReadFilterOptions
+             */
+            public static fromObject(object: { [k: string]: any }): protos.opts.ReadFilterOptions;
+
+            /**
+             * Creates a plain object from a ReadFilterOptions message. Also converts values to other types if specified.
+             * @param message ReadFilterOptions
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.opts.ReadFilterOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this ReadFilterOptions to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a CLIReadOptions. */
+        interface ICLIReadOptions {
+
+            /** CLIReadOptions name */
+            name?: (string|null);
+
+            /** CLIReadOptions connectionId */
+            connectionId?: (string|null);
+
+            /** CLIReadOptions continuous */
+            continuous?: (boolean|null);
+
+            /** CLIReadOptions sampleOptions */
+            sampleOptions?: (protos.opts.IReadSampleOptions|null);
+
+            /** CLIReadOptions decodeOptions */
+            decodeOptions?: (protos.encoding.IDecodeOptions|null);
+
+            /** CLIReadOptions convertOutput */
+            convertOutput?: (protos.opts.ConvertOption|null);
+
+            /** CLIReadOptions filter */
+            filter?: (protos.opts.IReadFilterOptions|null);
+
+            /** CLIReadOptions inferSchemaOptions */
+            inferSchemaOptions?: (protos.opts.IInferSchemaOptions|null);
+
+            /** CLIReadOptions _id */
+            _id?: (string|null);
+
+            /** CLIReadOptions _active */
+            _active?: (boolean|null);
+
+            /** CLIReadOptions _cliOptions */
+            _cliOptions?: (protos.opts.IReadCLIOptions|null);
+
+            /** CLIReadOptions kafka */
+            kafka?: (protos.opts.IReadGroupKafkaOptions|null);
+
+            /** CLIReadOptions activemq */
+            activemq?: (protos.opts.IReadGroupActiveMQOptions|null);
+
+            /** CLIReadOptions awsSqs */
+            awsSqs?: (protos.opts.IReadGroupAWSSQSOptions|null);
+
+            /** CLIReadOptions mongo */
+            mongo?: (protos.opts.IReadGroupMongoOptions|null);
+
+            /** CLIReadOptions nats */
+            nats?: (protos.opts.IReadGroupNatsOptions|null);
+
+            /** CLIReadOptions natsStreaming */
+            natsStreaming?: (protos.opts.IReadGroupNatsStreamingOptions|null);
+
+            /** CLIReadOptions nsq */
+            nsq?: (protos.opts.IReadGroupNSQOptions|null);
+
+            /** CLIReadOptions pulsar */
+            pulsar?: (protos.opts.IReadGroupPulsarOptions|null);
+
+            /** CLIReadOptions rabbit */
+            rabbit?: (protos.opts.IReadGroupRabbitOptions|null);
+
+            /** CLIReadOptions rabbitStreams */
+            rabbitStreams?: (protos.opts.IReadGroupRabbitStreamsOptions|null);
+
+            /** CLIReadOptions mqtt */
+            mqtt?: (protos.opts.IReadGroupMQTTOptions|null);
+
+            /** CLIReadOptions azureServiceBus */
+            azureServiceBus?: (protos.opts.IReadGroupAzureServiceBusOptions|null);
+
+            /** CLIReadOptions azureEventHub */
+            azureEventHub?: (protos.opts.IReadGroupAzureEventHubOptions|null);
+
+            /** CLIReadOptions gcpPubsub */
+            gcpPubsub?: (protos.opts.IReadGroupGCPPubSubOptions|null);
+
+            /** CLIReadOptions kubemqQueue */
+            kubemqQueue?: (protos.opts.IReadGroupKubeMQQueueOptions|null);
+
+            /** CLIReadOptions redisPubsub */
+            redisPubsub?: (protos.opts.IReadGroupRedisPubSubOptions|null);
+
+            /** CLIReadOptions redisStreams */
+            redisStreams?: (protos.opts.IReadGroupRedisStreamsOptions|null);
+
+            /** CLIReadOptions postgres */
+            postgres?: (protos.opts.IReadGroupPostgresOptions|null);
+
+            /** CLIReadOptions natsJetstream */
+            natsJetstream?: (protos.opts.IReadGroupNatsJetstreamOptions|null);
+
+            /** CLIReadOptions awsKinesis */
+            awsKinesis?: (protos.opts.IReadGroupAWSKinesisOptions|null);
+
+            /** CLIReadOptions memphis */
+            memphis?: (protos.opts.IReadGroupMemphisOptions|null);
+        }
+
+        /** Represents a CLIReadOptions. */
+        class CLIReadOptions implements ICLIReadOptions {
+
+            /**
+             * Constructs a new CLIReadOptions.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.opts.ICLIReadOptions);
+
+            /** CLIReadOptions name. */
+            public name: string;
+
+            /** CLIReadOptions connectionId. */
+            public connectionId: string;
+
+            /** CLIReadOptions continuous. */
+            public continuous: boolean;
+
+            /** CLIReadOptions sampleOptions. */
+            public sampleOptions?: (protos.opts.IReadSampleOptions|null);
+
+            /** CLIReadOptions decodeOptions. */
+            public decodeOptions?: (protos.encoding.IDecodeOptions|null);
+
+            /** CLIReadOptions convertOutput. */
+            public convertOutput: protos.opts.ConvertOption;
+
+            /** CLIReadOptions filter. */
+            public filter?: (protos.opts.IReadFilterOptions|null);
+
+            /** CLIReadOptions inferSchemaOptions. */
+            public inferSchemaOptions?: (protos.opts.IInferSchemaOptions|null);
+
+            /** CLIReadOptions _id. */
+            public _id: string;
+
+            /** CLIReadOptions _active. */
+            public _active: boolean;
+
+            /** CLIReadOptions _cliOptions. */
+            public _cliOptions?: (protos.opts.IReadCLIOptions|null);
+
+            /** CLIReadOptions kafka. */
+            public kafka?: (protos.opts.IReadGroupKafkaOptions|null);
+
+            /** CLIReadOptions activemq. */
+            public activemq?: (protos.opts.IReadGroupActiveMQOptions|null);
+
+            /** CLIReadOptions awsSqs. */
+            public awsSqs?: (protos.opts.IReadGroupAWSSQSOptions|null);
+
+            /** CLIReadOptions mongo. */
+            public mongo?: (protos.opts.IReadGroupMongoOptions|null);
+
+            /** CLIReadOptions nats. */
+            public nats?: (protos.opts.IReadGroupNatsOptions|null);
+
+            /** CLIReadOptions natsStreaming. */
+            public natsStreaming?: (protos.opts.IReadGroupNatsStreamingOptions|null);
+
+            /** CLIReadOptions nsq. */
+            public nsq?: (protos.opts.IReadGroupNSQOptions|null);
+
+            /** CLIReadOptions pulsar. */
+            public pulsar?: (protos.opts.IReadGroupPulsarOptions|null);
+
+            /** CLIReadOptions rabbit. */
+            public rabbit?: (protos.opts.IReadGroupRabbitOptions|null);
+
+            /** CLIReadOptions rabbitStreams. */
+            public rabbitStreams?: (protos.opts.IReadGroupRabbitStreamsOptions|null);
+
+            /** CLIReadOptions mqtt. */
+            public mqtt?: (protos.opts.IReadGroupMQTTOptions|null);
+
+            /** CLIReadOptions azureServiceBus. */
+            public azureServiceBus?: (protos.opts.IReadGroupAzureServiceBusOptions|null);
+
+            /** CLIReadOptions azureEventHub. */
+            public azureEventHub?: (protos.opts.IReadGroupAzureEventHubOptions|null);
+
+            /** CLIReadOptions gcpPubsub. */
+            public gcpPubsub?: (protos.opts.IReadGroupGCPPubSubOptions|null);
+
+            /** CLIReadOptions kubemqQueue. */
+            public kubemqQueue?: (protos.opts.IReadGroupKubeMQQueueOptions|null);
+
+            /** CLIReadOptions redisPubsub. */
+            public redisPubsub?: (protos.opts.IReadGroupRedisPubSubOptions|null);
+
+            /** CLIReadOptions redisStreams. */
+            public redisStreams?: (protos.opts.IReadGroupRedisStreamsOptions|null);
+
+            /** CLIReadOptions postgres. */
+            public postgres?: (protos.opts.IReadGroupPostgresOptions|null);
+
+            /** CLIReadOptions natsJetstream. */
+            public natsJetstream?: (protos.opts.IReadGroupNatsJetstreamOptions|null);
+
+            /** CLIReadOptions awsKinesis. */
+            public awsKinesis?: (protos.opts.IReadGroupAWSKinesisOptions|null);
+
+            /** CLIReadOptions memphis. */
+            public memphis?: (protos.opts.IReadGroupMemphisOptions|null);
+
+            /**
+             * Creates a new CLIReadOptions instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns CLIReadOptions instance
+             */
+            public static create(properties?: protos.opts.ICLIReadOptions): protos.opts.CLIReadOptions;
+
+            /**
+             * Encodes the specified CLIReadOptions message. Does not implicitly {@link protos.opts.CLIReadOptions.verify|verify} messages.
+             * @param message CLIReadOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.opts.ICLIReadOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified CLIReadOptions message, length delimited. Does not implicitly {@link protos.opts.CLIReadOptions.verify|verify} messages.
+             * @param message CLIReadOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.opts.ICLIReadOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a CLIReadOptions message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns CLIReadOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.CLIReadOptions;
+
+            /**
+             * Decodes a CLIReadOptions message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns CLIReadOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.CLIReadOptions;
+
+            /**
+             * Verifies a CLIReadOptions message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a CLIReadOptions message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns CLIReadOptions
+             */
+            public static fromObject(object: { [k: string]: any }): protos.opts.CLIReadOptions;
+
+            /**
+             * Creates a plain object from a CLIReadOptions message. Also converts values to other types if specified.
+             * @param message CLIReadOptions
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.opts.CLIReadOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this CLIReadOptions to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a ReadGroupKafkaOptions. */
+        interface IReadGroupKafkaOptions {
+
+            /** ReadGroupKafkaOptions _conn */
+            _conn?: (protos.args.IKafkaConn|null);
+
+            /** ReadGroupKafkaOptions args */
+            args?: (protos.args.IKafkaReadArgs|null);
+        }
+
+        /** Represents a ReadGroupKafkaOptions. */
+        class ReadGroupKafkaOptions implements IReadGroupKafkaOptions {
+
+            /**
+             * Constructs a new ReadGroupKafkaOptions.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.opts.IReadGroupKafkaOptions);
+
+            /** ReadGroupKafkaOptions _conn. */
+            public _conn?: (protos.args.IKafkaConn|null);
+
+            /** ReadGroupKafkaOptions args. */
+            public args?: (protos.args.IKafkaReadArgs|null);
+
+            /**
+             * Creates a new ReadGroupKafkaOptions instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns ReadGroupKafkaOptions instance
+             */
+            public static create(properties?: protos.opts.IReadGroupKafkaOptions): protos.opts.ReadGroupKafkaOptions;
+
+            /**
+             * Encodes the specified ReadGroupKafkaOptions message. Does not implicitly {@link protos.opts.ReadGroupKafkaOptions.verify|verify} messages.
+             * @param message ReadGroupKafkaOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.opts.IReadGroupKafkaOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified ReadGroupKafkaOptions message, length delimited. Does not implicitly {@link protos.opts.ReadGroupKafkaOptions.verify|verify} messages.
+             * @param message ReadGroupKafkaOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.opts.IReadGroupKafkaOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a ReadGroupKafkaOptions message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns ReadGroupKafkaOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.ReadGroupKafkaOptions;
+
+            /**
+             * Decodes a ReadGroupKafkaOptions message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns ReadGroupKafkaOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.ReadGroupKafkaOptions;
+
+            /**
+             * Verifies a ReadGroupKafkaOptions message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a ReadGroupKafkaOptions message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns ReadGroupKafkaOptions
+             */
+            public static fromObject(object: { [k: string]: any }): protos.opts.ReadGroupKafkaOptions;
+
+            /**
+             * Creates a plain object from a ReadGroupKafkaOptions message. Also converts values to other types if specified.
+             * @param message ReadGroupKafkaOptions
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.opts.ReadGroupKafkaOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this ReadGroupKafkaOptions to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a ReadGroupActiveMQOptions. */
+        interface IReadGroupActiveMQOptions {
+
+            /** ReadGroupActiveMQOptions _conn */
+            _conn?: (protos.args.IActiveMQConn|null);
+
+            /** ReadGroupActiveMQOptions args */
+            args?: (protos.args.IActiveMQReadArgs|null);
+        }
+
+        /** Represents a ReadGroupActiveMQOptions. */
+        class ReadGroupActiveMQOptions implements IReadGroupActiveMQOptions {
+
+            /**
+             * Constructs a new ReadGroupActiveMQOptions.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.opts.IReadGroupActiveMQOptions);
+
+            /** ReadGroupActiveMQOptions _conn. */
+            public _conn?: (protos.args.IActiveMQConn|null);
+
+            /** ReadGroupActiveMQOptions args. */
+            public args?: (protos.args.IActiveMQReadArgs|null);
+
+            /**
+             * Creates a new ReadGroupActiveMQOptions instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns ReadGroupActiveMQOptions instance
+             */
+            public static create(properties?: protos.opts.IReadGroupActiveMQOptions): protos.opts.ReadGroupActiveMQOptions;
+
+            /**
+             * Encodes the specified ReadGroupActiveMQOptions message. Does not implicitly {@link protos.opts.ReadGroupActiveMQOptions.verify|verify} messages.
+             * @param message ReadGroupActiveMQOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.opts.IReadGroupActiveMQOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified ReadGroupActiveMQOptions message, length delimited. Does not implicitly {@link protos.opts.ReadGroupActiveMQOptions.verify|verify} messages.
+             * @param message ReadGroupActiveMQOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.opts.IReadGroupActiveMQOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a ReadGroupActiveMQOptions message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns ReadGroupActiveMQOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.ReadGroupActiveMQOptions;
+
+            /**
+             * Decodes a ReadGroupActiveMQOptions message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns ReadGroupActiveMQOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.ReadGroupActiveMQOptions;
+
+            /**
+             * Verifies a ReadGroupActiveMQOptions message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a ReadGroupActiveMQOptions message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns ReadGroupActiveMQOptions
+             */
+            public static fromObject(object: { [k: string]: any }): protos.opts.ReadGroupActiveMQOptions;
+
+            /**
+             * Creates a plain object from a ReadGroupActiveMQOptions message. Also converts values to other types if specified.
+             * @param message ReadGroupActiveMQOptions
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.opts.ReadGroupActiveMQOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this ReadGroupActiveMQOptions to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a ReadGroupAWSSQSOptions. */
+        interface IReadGroupAWSSQSOptions {
+
+            /** ReadGroupAWSSQSOptions _conn */
+            _conn?: (protos.args.IAWSSQSConn|null);
+
+            /** ReadGroupAWSSQSOptions args */
+            args?: (protos.args.IAWSSQSReadArgs|null);
+        }
+
+        /** Represents a ReadGroupAWSSQSOptions. */
+        class ReadGroupAWSSQSOptions implements IReadGroupAWSSQSOptions {
+
+            /**
+             * Constructs a new ReadGroupAWSSQSOptions.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.opts.IReadGroupAWSSQSOptions);
+
+            /** ReadGroupAWSSQSOptions _conn. */
+            public _conn?: (protos.args.IAWSSQSConn|null);
+
+            /** ReadGroupAWSSQSOptions args. */
+            public args?: (protos.args.IAWSSQSReadArgs|null);
+
+            /**
+             * Creates a new ReadGroupAWSSQSOptions instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns ReadGroupAWSSQSOptions instance
+             */
+            public static create(properties?: protos.opts.IReadGroupAWSSQSOptions): protos.opts.ReadGroupAWSSQSOptions;
+
+            /**
+             * Encodes the specified ReadGroupAWSSQSOptions message. Does not implicitly {@link protos.opts.ReadGroupAWSSQSOptions.verify|verify} messages.
+             * @param message ReadGroupAWSSQSOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.opts.IReadGroupAWSSQSOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified ReadGroupAWSSQSOptions message, length delimited. Does not implicitly {@link protos.opts.ReadGroupAWSSQSOptions.verify|verify} messages.
+             * @param message ReadGroupAWSSQSOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.opts.IReadGroupAWSSQSOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a ReadGroupAWSSQSOptions message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns ReadGroupAWSSQSOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.ReadGroupAWSSQSOptions;
+
+            /**
+             * Decodes a ReadGroupAWSSQSOptions message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns ReadGroupAWSSQSOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.ReadGroupAWSSQSOptions;
+
+            /**
+             * Verifies a ReadGroupAWSSQSOptions message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a ReadGroupAWSSQSOptions message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns ReadGroupAWSSQSOptions
+             */
+            public static fromObject(object: { [k: string]: any }): protos.opts.ReadGroupAWSSQSOptions;
+
+            /**
+             * Creates a plain object from a ReadGroupAWSSQSOptions message. Also converts values to other types if specified.
+             * @param message ReadGroupAWSSQSOptions
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.opts.ReadGroupAWSSQSOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this ReadGroupAWSSQSOptions to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a ReadGroupMongoOptions. */
+        interface IReadGroupMongoOptions {
+
+            /** ReadGroupMongoOptions _conn */
+            _conn?: (protos.args.IMongoConn|null);
+
+            /** ReadGroupMongoOptions args */
+            args?: (protos.args.IMongoReadArgs|null);
+        }
+
+        /** Represents a ReadGroupMongoOptions. */
+        class ReadGroupMongoOptions implements IReadGroupMongoOptions {
+
+            /**
+             * Constructs a new ReadGroupMongoOptions.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.opts.IReadGroupMongoOptions);
+
+            /** ReadGroupMongoOptions _conn. */
+            public _conn?: (protos.args.IMongoConn|null);
+
+            /** ReadGroupMongoOptions args. */
+            public args?: (protos.args.IMongoReadArgs|null);
+
+            /**
+             * Creates a new ReadGroupMongoOptions instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns ReadGroupMongoOptions instance
+             */
+            public static create(properties?: protos.opts.IReadGroupMongoOptions): protos.opts.ReadGroupMongoOptions;
+
+            /**
+             * Encodes the specified ReadGroupMongoOptions message. Does not implicitly {@link protos.opts.ReadGroupMongoOptions.verify|verify} messages.
+             * @param message ReadGroupMongoOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.opts.IReadGroupMongoOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified ReadGroupMongoOptions message, length delimited. Does not implicitly {@link protos.opts.ReadGroupMongoOptions.verify|verify} messages.
+             * @param message ReadGroupMongoOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.opts.IReadGroupMongoOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a ReadGroupMongoOptions message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns ReadGroupMongoOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.ReadGroupMongoOptions;
+
+            /**
+             * Decodes a ReadGroupMongoOptions message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns ReadGroupMongoOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.ReadGroupMongoOptions;
+
+            /**
+             * Verifies a ReadGroupMongoOptions message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a ReadGroupMongoOptions message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns ReadGroupMongoOptions
+             */
+            public static fromObject(object: { [k: string]: any }): protos.opts.ReadGroupMongoOptions;
+
+            /**
+             * Creates a plain object from a ReadGroupMongoOptions message. Also converts values to other types if specified.
+             * @param message ReadGroupMongoOptions
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.opts.ReadGroupMongoOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this ReadGroupMongoOptions to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a ReadGroupNatsOptions. */
+        interface IReadGroupNatsOptions {
+
+            /** ReadGroupNatsOptions _conn */
+            _conn?: (protos.args.INatsConn|null);
+
+            /** ReadGroupNatsOptions args */
+            args?: (protos.args.INatsReadArgs|null);
+        }
+
+        /** Represents a ReadGroupNatsOptions. */
+        class ReadGroupNatsOptions implements IReadGroupNatsOptions {
+
+            /**
+             * Constructs a new ReadGroupNatsOptions.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.opts.IReadGroupNatsOptions);
+
+            /** ReadGroupNatsOptions _conn. */
+            public _conn?: (protos.args.INatsConn|null);
+
+            /** ReadGroupNatsOptions args. */
+            public args?: (protos.args.INatsReadArgs|null);
+
+            /**
+             * Creates a new ReadGroupNatsOptions instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns ReadGroupNatsOptions instance
+             */
+            public static create(properties?: protos.opts.IReadGroupNatsOptions): protos.opts.ReadGroupNatsOptions;
+
+            /**
+             * Encodes the specified ReadGroupNatsOptions message. Does not implicitly {@link protos.opts.ReadGroupNatsOptions.verify|verify} messages.
+             * @param message ReadGroupNatsOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.opts.IReadGroupNatsOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified ReadGroupNatsOptions message, length delimited. Does not implicitly {@link protos.opts.ReadGroupNatsOptions.verify|verify} messages.
+             * @param message ReadGroupNatsOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.opts.IReadGroupNatsOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a ReadGroupNatsOptions message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns ReadGroupNatsOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.ReadGroupNatsOptions;
+
+            /**
+             * Decodes a ReadGroupNatsOptions message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns ReadGroupNatsOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.ReadGroupNatsOptions;
+
+            /**
+             * Verifies a ReadGroupNatsOptions message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a ReadGroupNatsOptions message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns ReadGroupNatsOptions
+             */
+            public static fromObject(object: { [k: string]: any }): protos.opts.ReadGroupNatsOptions;
+
+            /**
+             * Creates a plain object from a ReadGroupNatsOptions message. Also converts values to other types if specified.
+             * @param message ReadGroupNatsOptions
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.opts.ReadGroupNatsOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this ReadGroupNatsOptions to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a ReadGroupNatsStreamingOptions. */
+        interface IReadGroupNatsStreamingOptions {
+
+            /** ReadGroupNatsStreamingOptions _conn */
+            _conn?: (protos.args.INatsStreamingConn|null);
+
+            /** ReadGroupNatsStreamingOptions args */
+            args?: (protos.args.INatsStreamingReadArgs|null);
+        }
+
+        /** Represents a ReadGroupNatsStreamingOptions. */
+        class ReadGroupNatsStreamingOptions implements IReadGroupNatsStreamingOptions {
+
+            /**
+             * Constructs a new ReadGroupNatsStreamingOptions.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.opts.IReadGroupNatsStreamingOptions);
+
+            /** ReadGroupNatsStreamingOptions _conn. */
+            public _conn?: (protos.args.INatsStreamingConn|null);
+
+            /** ReadGroupNatsStreamingOptions args. */
+            public args?: (protos.args.INatsStreamingReadArgs|null);
+
+            /**
+             * Creates a new ReadGroupNatsStreamingOptions instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns ReadGroupNatsStreamingOptions instance
+             */
+            public static create(properties?: protos.opts.IReadGroupNatsStreamingOptions): protos.opts.ReadGroupNatsStreamingOptions;
+
+            /**
+             * Encodes the specified ReadGroupNatsStreamingOptions message. Does not implicitly {@link protos.opts.ReadGroupNatsStreamingOptions.verify|verify} messages.
+             * @param message ReadGroupNatsStreamingOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.opts.IReadGroupNatsStreamingOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified ReadGroupNatsStreamingOptions message, length delimited. Does not implicitly {@link protos.opts.ReadGroupNatsStreamingOptions.verify|verify} messages.
+             * @param message ReadGroupNatsStreamingOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.opts.IReadGroupNatsStreamingOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a ReadGroupNatsStreamingOptions message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns ReadGroupNatsStreamingOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.ReadGroupNatsStreamingOptions;
+
+            /**
+             * Decodes a ReadGroupNatsStreamingOptions message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns ReadGroupNatsStreamingOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.ReadGroupNatsStreamingOptions;
+
+            /**
+             * Verifies a ReadGroupNatsStreamingOptions message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a ReadGroupNatsStreamingOptions message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns ReadGroupNatsStreamingOptions
+             */
+            public static fromObject(object: { [k: string]: any }): protos.opts.ReadGroupNatsStreamingOptions;
+
+            /**
+             * Creates a plain object from a ReadGroupNatsStreamingOptions message. Also converts values to other types if specified.
+             * @param message ReadGroupNatsStreamingOptions
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.opts.ReadGroupNatsStreamingOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this ReadGroupNatsStreamingOptions to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a ReadGroupNatsJetstreamOptions. */
+        interface IReadGroupNatsJetstreamOptions {
+
+            /** ReadGroupNatsJetstreamOptions _conn */
+            _conn?: (protos.args.INatsJetstreamConn|null);
+
+            /** ReadGroupNatsJetstreamOptions args */
+            args?: (protos.args.INatsJetstreamReadArgs|null);
+        }
+
+        /** Represents a ReadGroupNatsJetstreamOptions. */
+        class ReadGroupNatsJetstreamOptions implements IReadGroupNatsJetstreamOptions {
+
+            /**
+             * Constructs a new ReadGroupNatsJetstreamOptions.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.opts.IReadGroupNatsJetstreamOptions);
+
+            /** ReadGroupNatsJetstreamOptions _conn. */
+            public _conn?: (protos.args.INatsJetstreamConn|null);
+
+            /** ReadGroupNatsJetstreamOptions args. */
+            public args?: (protos.args.INatsJetstreamReadArgs|null);
+
+            /**
+             * Creates a new ReadGroupNatsJetstreamOptions instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns ReadGroupNatsJetstreamOptions instance
+             */
+            public static create(properties?: protos.opts.IReadGroupNatsJetstreamOptions): protos.opts.ReadGroupNatsJetstreamOptions;
+
+            /**
+             * Encodes the specified ReadGroupNatsJetstreamOptions message. Does not implicitly {@link protos.opts.ReadGroupNatsJetstreamOptions.verify|verify} messages.
+             * @param message ReadGroupNatsJetstreamOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.opts.IReadGroupNatsJetstreamOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified ReadGroupNatsJetstreamOptions message, length delimited. Does not implicitly {@link protos.opts.ReadGroupNatsJetstreamOptions.verify|verify} messages.
+             * @param message ReadGroupNatsJetstreamOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.opts.IReadGroupNatsJetstreamOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a ReadGroupNatsJetstreamOptions message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns ReadGroupNatsJetstreamOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.ReadGroupNatsJetstreamOptions;
+
+            /**
+             * Decodes a ReadGroupNatsJetstreamOptions message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns ReadGroupNatsJetstreamOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.ReadGroupNatsJetstreamOptions;
+
+            /**
+             * Verifies a ReadGroupNatsJetstreamOptions message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a ReadGroupNatsJetstreamOptions message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns ReadGroupNatsJetstreamOptions
+             */
+            public static fromObject(object: { [k: string]: any }): protos.opts.ReadGroupNatsJetstreamOptions;
+
+            /**
+             * Creates a plain object from a ReadGroupNatsJetstreamOptions message. Also converts values to other types if specified.
+             * @param message ReadGroupNatsJetstreamOptions
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.opts.ReadGroupNatsJetstreamOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this ReadGroupNatsJetstreamOptions to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a ReadGroupNSQOptions. */
+        interface IReadGroupNSQOptions {
+
+            /** ReadGroupNSQOptions _conn */
+            _conn?: (protos.args.INSQConn|null);
+
+            /** ReadGroupNSQOptions args */
+            args?: (protos.args.INSQReadArgs|null);
+        }
+
+        /** Represents a ReadGroupNSQOptions. */
+        class ReadGroupNSQOptions implements IReadGroupNSQOptions {
+
+            /**
+             * Constructs a new ReadGroupNSQOptions.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.opts.IReadGroupNSQOptions);
+
+            /** ReadGroupNSQOptions _conn. */
+            public _conn?: (protos.args.INSQConn|null);
+
+            /** ReadGroupNSQOptions args. */
+            public args?: (protos.args.INSQReadArgs|null);
+
+            /**
+             * Creates a new ReadGroupNSQOptions instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns ReadGroupNSQOptions instance
+             */
+            public static create(properties?: protos.opts.IReadGroupNSQOptions): protos.opts.ReadGroupNSQOptions;
+
+            /**
+             * Encodes the specified ReadGroupNSQOptions message. Does not implicitly {@link protos.opts.ReadGroupNSQOptions.verify|verify} messages.
+             * @param message ReadGroupNSQOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.opts.IReadGroupNSQOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified ReadGroupNSQOptions message, length delimited. Does not implicitly {@link protos.opts.ReadGroupNSQOptions.verify|verify} messages.
+             * @param message ReadGroupNSQOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.opts.IReadGroupNSQOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a ReadGroupNSQOptions message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns ReadGroupNSQOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.ReadGroupNSQOptions;
+
+            /**
+             * Decodes a ReadGroupNSQOptions message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns ReadGroupNSQOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.ReadGroupNSQOptions;
+
+            /**
+             * Verifies a ReadGroupNSQOptions message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a ReadGroupNSQOptions message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns ReadGroupNSQOptions
+             */
+            public static fromObject(object: { [k: string]: any }): protos.opts.ReadGroupNSQOptions;
+
+            /**
+             * Creates a plain object from a ReadGroupNSQOptions message. Also converts values to other types if specified.
+             * @param message ReadGroupNSQOptions
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.opts.ReadGroupNSQOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this ReadGroupNSQOptions to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a ReadGroupPostgresOptions. */
+        interface IReadGroupPostgresOptions {
+
+            /** ReadGroupPostgresOptions _conn */
+            _conn?: (protos.args.IPostgresConn|null);
+
+            /** ReadGroupPostgresOptions args */
+            args?: (protos.args.IPostgresReadArgs|null);
+        }
+
+        /** Represents a ReadGroupPostgresOptions. */
+        class ReadGroupPostgresOptions implements IReadGroupPostgresOptions {
+
+            /**
+             * Constructs a new ReadGroupPostgresOptions.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.opts.IReadGroupPostgresOptions);
+
+            /** ReadGroupPostgresOptions _conn. */
+            public _conn?: (protos.args.IPostgresConn|null);
+
+            /** ReadGroupPostgresOptions args. */
+            public args?: (protos.args.IPostgresReadArgs|null);
+
+            /**
+             * Creates a new ReadGroupPostgresOptions instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns ReadGroupPostgresOptions instance
+             */
+            public static create(properties?: protos.opts.IReadGroupPostgresOptions): protos.opts.ReadGroupPostgresOptions;
+
+            /**
+             * Encodes the specified ReadGroupPostgresOptions message. Does not implicitly {@link protos.opts.ReadGroupPostgresOptions.verify|verify} messages.
+             * @param message ReadGroupPostgresOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.opts.IReadGroupPostgresOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified ReadGroupPostgresOptions message, length delimited. Does not implicitly {@link protos.opts.ReadGroupPostgresOptions.verify|verify} messages.
+             * @param message ReadGroupPostgresOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.opts.IReadGroupPostgresOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a ReadGroupPostgresOptions message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns ReadGroupPostgresOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.ReadGroupPostgresOptions;
+
+            /**
+             * Decodes a ReadGroupPostgresOptions message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns ReadGroupPostgresOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.ReadGroupPostgresOptions;
+
+            /**
+             * Verifies a ReadGroupPostgresOptions message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a ReadGroupPostgresOptions message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns ReadGroupPostgresOptions
+             */
+            public static fromObject(object: { [k: string]: any }): protos.opts.ReadGroupPostgresOptions;
+
+            /**
+             * Creates a plain object from a ReadGroupPostgresOptions message. Also converts values to other types if specified.
+             * @param message ReadGroupPostgresOptions
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.opts.ReadGroupPostgresOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this ReadGroupPostgresOptions to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a ReadGroupPulsarOptions. */
+        interface IReadGroupPulsarOptions {
+
+            /** ReadGroupPulsarOptions _conn */
+            _conn?: (protos.args.IPulsarConn|null);
+
+            /** ReadGroupPulsarOptions args */
+            args?: (protos.args.IPulsarReadArgs|null);
+        }
+
+        /** Represents a ReadGroupPulsarOptions. */
+        class ReadGroupPulsarOptions implements IReadGroupPulsarOptions {
+
+            /**
+             * Constructs a new ReadGroupPulsarOptions.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.opts.IReadGroupPulsarOptions);
+
+            /** ReadGroupPulsarOptions _conn. */
+            public _conn?: (protos.args.IPulsarConn|null);
+
+            /** ReadGroupPulsarOptions args. */
+            public args?: (protos.args.IPulsarReadArgs|null);
+
+            /**
+             * Creates a new ReadGroupPulsarOptions instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns ReadGroupPulsarOptions instance
+             */
+            public static create(properties?: protos.opts.IReadGroupPulsarOptions): protos.opts.ReadGroupPulsarOptions;
+
+            /**
+             * Encodes the specified ReadGroupPulsarOptions message. Does not implicitly {@link protos.opts.ReadGroupPulsarOptions.verify|verify} messages.
+             * @param message ReadGroupPulsarOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.opts.IReadGroupPulsarOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified ReadGroupPulsarOptions message, length delimited. Does not implicitly {@link protos.opts.ReadGroupPulsarOptions.verify|verify} messages.
+             * @param message ReadGroupPulsarOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.opts.IReadGroupPulsarOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a ReadGroupPulsarOptions message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns ReadGroupPulsarOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.ReadGroupPulsarOptions;
+
+            /**
+             * Decodes a ReadGroupPulsarOptions message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns ReadGroupPulsarOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.ReadGroupPulsarOptions;
+
+            /**
+             * Verifies a ReadGroupPulsarOptions message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a ReadGroupPulsarOptions message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns ReadGroupPulsarOptions
+             */
+            public static fromObject(object: { [k: string]: any }): protos.opts.ReadGroupPulsarOptions;
+
+            /**
+             * Creates a plain object from a ReadGroupPulsarOptions message. Also converts values to other types if specified.
+             * @param message ReadGroupPulsarOptions
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.opts.ReadGroupPulsarOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this ReadGroupPulsarOptions to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a ReadGroupRabbitOptions. */
+        interface IReadGroupRabbitOptions {
+
+            /** ReadGroupRabbitOptions _conn */
+            _conn?: (protos.args.IRabbitConn|null);
+
+            /** ReadGroupRabbitOptions args */
+            args?: (protos.args.IRabbitReadArgs|null);
+        }
+
+        /** Represents a ReadGroupRabbitOptions. */
+        class ReadGroupRabbitOptions implements IReadGroupRabbitOptions {
+
+            /**
+             * Constructs a new ReadGroupRabbitOptions.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.opts.IReadGroupRabbitOptions);
+
+            /** ReadGroupRabbitOptions _conn. */
+            public _conn?: (protos.args.IRabbitConn|null);
+
+            /** ReadGroupRabbitOptions args. */
+            public args?: (protos.args.IRabbitReadArgs|null);
+
+            /**
+             * Creates a new ReadGroupRabbitOptions instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns ReadGroupRabbitOptions instance
+             */
+            public static create(properties?: protos.opts.IReadGroupRabbitOptions): protos.opts.ReadGroupRabbitOptions;
+
+            /**
+             * Encodes the specified ReadGroupRabbitOptions message. Does not implicitly {@link protos.opts.ReadGroupRabbitOptions.verify|verify} messages.
+             * @param message ReadGroupRabbitOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.opts.IReadGroupRabbitOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified ReadGroupRabbitOptions message, length delimited. Does not implicitly {@link protos.opts.ReadGroupRabbitOptions.verify|verify} messages.
+             * @param message ReadGroupRabbitOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.opts.IReadGroupRabbitOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a ReadGroupRabbitOptions message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns ReadGroupRabbitOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.ReadGroupRabbitOptions;
+
+            /**
+             * Decodes a ReadGroupRabbitOptions message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns ReadGroupRabbitOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.ReadGroupRabbitOptions;
+
+            /**
+             * Verifies a ReadGroupRabbitOptions message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a ReadGroupRabbitOptions message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns ReadGroupRabbitOptions
+             */
+            public static fromObject(object: { [k: string]: any }): protos.opts.ReadGroupRabbitOptions;
+
+            /**
+             * Creates a plain object from a ReadGroupRabbitOptions message. Also converts values to other types if specified.
+             * @param message ReadGroupRabbitOptions
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.opts.ReadGroupRabbitOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this ReadGroupRabbitOptions to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a ReadGroupRabbitStreamsOptions. */
+        interface IReadGroupRabbitStreamsOptions {
+
+            /** ReadGroupRabbitStreamsOptions _conn */
+            _conn?: (protos.args.IRabbitStreamsConn|null);
+
+            /** ReadGroupRabbitStreamsOptions args */
+            args?: (protos.args.IRabbitStreamsReadArgs|null);
+        }
+
+        /** Represents a ReadGroupRabbitStreamsOptions. */
+        class ReadGroupRabbitStreamsOptions implements IReadGroupRabbitStreamsOptions {
+
+            /**
+             * Constructs a new ReadGroupRabbitStreamsOptions.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.opts.IReadGroupRabbitStreamsOptions);
+
+            /** ReadGroupRabbitStreamsOptions _conn. */
+            public _conn?: (protos.args.IRabbitStreamsConn|null);
+
+            /** ReadGroupRabbitStreamsOptions args. */
+            public args?: (protos.args.IRabbitStreamsReadArgs|null);
+
+            /**
+             * Creates a new ReadGroupRabbitStreamsOptions instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns ReadGroupRabbitStreamsOptions instance
+             */
+            public static create(properties?: protos.opts.IReadGroupRabbitStreamsOptions): protos.opts.ReadGroupRabbitStreamsOptions;
+
+            /**
+             * Encodes the specified ReadGroupRabbitStreamsOptions message. Does not implicitly {@link protos.opts.ReadGroupRabbitStreamsOptions.verify|verify} messages.
+             * @param message ReadGroupRabbitStreamsOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.opts.IReadGroupRabbitStreamsOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified ReadGroupRabbitStreamsOptions message, length delimited. Does not implicitly {@link protos.opts.ReadGroupRabbitStreamsOptions.verify|verify} messages.
+             * @param message ReadGroupRabbitStreamsOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.opts.IReadGroupRabbitStreamsOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a ReadGroupRabbitStreamsOptions message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns ReadGroupRabbitStreamsOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.ReadGroupRabbitStreamsOptions;
+
+            /**
+             * Decodes a ReadGroupRabbitStreamsOptions message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns ReadGroupRabbitStreamsOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.ReadGroupRabbitStreamsOptions;
+
+            /**
+             * Verifies a ReadGroupRabbitStreamsOptions message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a ReadGroupRabbitStreamsOptions message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns ReadGroupRabbitStreamsOptions
+             */
+            public static fromObject(object: { [k: string]: any }): protos.opts.ReadGroupRabbitStreamsOptions;
+
+            /**
+             * Creates a plain object from a ReadGroupRabbitStreamsOptions message. Also converts values to other types if specified.
+             * @param message ReadGroupRabbitStreamsOptions
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.opts.ReadGroupRabbitStreamsOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this ReadGroupRabbitStreamsOptions to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a ReadGroupRedisPubSubOptions. */
+        interface IReadGroupRedisPubSubOptions {
+
+            /** ReadGroupRedisPubSubOptions _conn */
+            _conn?: (protos.args.IRedisPubSubConn|null);
+
+            /** ReadGroupRedisPubSubOptions args */
+            args?: (protos.args.IRedisPubSubReadArgs|null);
+        }
+
+        /** Represents a ReadGroupRedisPubSubOptions. */
+        class ReadGroupRedisPubSubOptions implements IReadGroupRedisPubSubOptions {
+
+            /**
+             * Constructs a new ReadGroupRedisPubSubOptions.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.opts.IReadGroupRedisPubSubOptions);
+
+            /** ReadGroupRedisPubSubOptions _conn. */
+            public _conn?: (protos.args.IRedisPubSubConn|null);
+
+            /** ReadGroupRedisPubSubOptions args. */
+            public args?: (protos.args.IRedisPubSubReadArgs|null);
+
+            /**
+             * Creates a new ReadGroupRedisPubSubOptions instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns ReadGroupRedisPubSubOptions instance
+             */
+            public static create(properties?: protos.opts.IReadGroupRedisPubSubOptions): protos.opts.ReadGroupRedisPubSubOptions;
+
+            /**
+             * Encodes the specified ReadGroupRedisPubSubOptions message. Does not implicitly {@link protos.opts.ReadGroupRedisPubSubOptions.verify|verify} messages.
+             * @param message ReadGroupRedisPubSubOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.opts.IReadGroupRedisPubSubOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified ReadGroupRedisPubSubOptions message, length delimited. Does not implicitly {@link protos.opts.ReadGroupRedisPubSubOptions.verify|verify} messages.
+             * @param message ReadGroupRedisPubSubOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.opts.IReadGroupRedisPubSubOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a ReadGroupRedisPubSubOptions message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns ReadGroupRedisPubSubOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.ReadGroupRedisPubSubOptions;
+
+            /**
+             * Decodes a ReadGroupRedisPubSubOptions message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns ReadGroupRedisPubSubOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.ReadGroupRedisPubSubOptions;
+
+            /**
+             * Verifies a ReadGroupRedisPubSubOptions message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a ReadGroupRedisPubSubOptions message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns ReadGroupRedisPubSubOptions
+             */
+            public static fromObject(object: { [k: string]: any }): protos.opts.ReadGroupRedisPubSubOptions;
+
+            /**
+             * Creates a plain object from a ReadGroupRedisPubSubOptions message. Also converts values to other types if specified.
+             * @param message ReadGroupRedisPubSubOptions
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.opts.ReadGroupRedisPubSubOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this ReadGroupRedisPubSubOptions to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a ReadGroupRedisStreamsOptions. */
+        interface IReadGroupRedisStreamsOptions {
+
+            /** ReadGroupRedisStreamsOptions _conn */
+            _conn?: (protos.args.IRedisStreamsConn|null);
+
+            /** ReadGroupRedisStreamsOptions args */
+            args?: (protos.args.IRedisStreamsReadArgs|null);
+        }
+
+        /** Represents a ReadGroupRedisStreamsOptions. */
+        class ReadGroupRedisStreamsOptions implements IReadGroupRedisStreamsOptions {
+
+            /**
+             * Constructs a new ReadGroupRedisStreamsOptions.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.opts.IReadGroupRedisStreamsOptions);
+
+            /** ReadGroupRedisStreamsOptions _conn. */
+            public _conn?: (protos.args.IRedisStreamsConn|null);
+
+            /** ReadGroupRedisStreamsOptions args. */
+            public args?: (protos.args.IRedisStreamsReadArgs|null);
+
+            /**
+             * Creates a new ReadGroupRedisStreamsOptions instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns ReadGroupRedisStreamsOptions instance
+             */
+            public static create(properties?: protos.opts.IReadGroupRedisStreamsOptions): protos.opts.ReadGroupRedisStreamsOptions;
+
+            /**
+             * Encodes the specified ReadGroupRedisStreamsOptions message. Does not implicitly {@link protos.opts.ReadGroupRedisStreamsOptions.verify|verify} messages.
+             * @param message ReadGroupRedisStreamsOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.opts.IReadGroupRedisStreamsOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified ReadGroupRedisStreamsOptions message, length delimited. Does not implicitly {@link protos.opts.ReadGroupRedisStreamsOptions.verify|verify} messages.
+             * @param message ReadGroupRedisStreamsOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.opts.IReadGroupRedisStreamsOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a ReadGroupRedisStreamsOptions message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns ReadGroupRedisStreamsOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.ReadGroupRedisStreamsOptions;
+
+            /**
+             * Decodes a ReadGroupRedisStreamsOptions message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns ReadGroupRedisStreamsOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.ReadGroupRedisStreamsOptions;
+
+            /**
+             * Verifies a ReadGroupRedisStreamsOptions message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a ReadGroupRedisStreamsOptions message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns ReadGroupRedisStreamsOptions
+             */
+            public static fromObject(object: { [k: string]: any }): protos.opts.ReadGroupRedisStreamsOptions;
+
+            /**
+             * Creates a plain object from a ReadGroupRedisStreamsOptions message. Also converts values to other types if specified.
+             * @param message ReadGroupRedisStreamsOptions
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.opts.ReadGroupRedisStreamsOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this ReadGroupRedisStreamsOptions to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a ReadGroupAzureEventHubOptions. */
+        interface IReadGroupAzureEventHubOptions {
+
+            /** ReadGroupAzureEventHubOptions _conn */
+            _conn?: (protos.args.IAzureEventHubConn|null);
+
+            /** ReadGroupAzureEventHubOptions args */
+            args?: (protos.args.IAzureEventHubReadArgs|null);
+        }
+
+        /** Represents a ReadGroupAzureEventHubOptions. */
+        class ReadGroupAzureEventHubOptions implements IReadGroupAzureEventHubOptions {
+
+            /**
+             * Constructs a new ReadGroupAzureEventHubOptions.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.opts.IReadGroupAzureEventHubOptions);
+
+            /** ReadGroupAzureEventHubOptions _conn. */
+            public _conn?: (protos.args.IAzureEventHubConn|null);
+
+            /** ReadGroupAzureEventHubOptions args. */
+            public args?: (protos.args.IAzureEventHubReadArgs|null);
+
+            /**
+             * Creates a new ReadGroupAzureEventHubOptions instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns ReadGroupAzureEventHubOptions instance
+             */
+            public static create(properties?: protos.opts.IReadGroupAzureEventHubOptions): protos.opts.ReadGroupAzureEventHubOptions;
+
+            /**
+             * Encodes the specified ReadGroupAzureEventHubOptions message. Does not implicitly {@link protos.opts.ReadGroupAzureEventHubOptions.verify|verify} messages.
+             * @param message ReadGroupAzureEventHubOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.opts.IReadGroupAzureEventHubOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified ReadGroupAzureEventHubOptions message, length delimited. Does not implicitly {@link protos.opts.ReadGroupAzureEventHubOptions.verify|verify} messages.
+             * @param message ReadGroupAzureEventHubOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.opts.IReadGroupAzureEventHubOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a ReadGroupAzureEventHubOptions message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns ReadGroupAzureEventHubOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.ReadGroupAzureEventHubOptions;
+
+            /**
+             * Decodes a ReadGroupAzureEventHubOptions message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns ReadGroupAzureEventHubOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.ReadGroupAzureEventHubOptions;
+
+            /**
+             * Verifies a ReadGroupAzureEventHubOptions message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a ReadGroupAzureEventHubOptions message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns ReadGroupAzureEventHubOptions
+             */
+            public static fromObject(object: { [k: string]: any }): protos.opts.ReadGroupAzureEventHubOptions;
+
+            /**
+             * Creates a plain object from a ReadGroupAzureEventHubOptions message. Also converts values to other types if specified.
+             * @param message ReadGroupAzureEventHubOptions
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.opts.ReadGroupAzureEventHubOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this ReadGroupAzureEventHubOptions to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a ReadGroupAzureServiceBusOptions. */
+        interface IReadGroupAzureServiceBusOptions {
+
+            /** ReadGroupAzureServiceBusOptions _conn */
+            _conn?: (protos.args.IAzureServiceBusConn|null);
+
+            /** ReadGroupAzureServiceBusOptions args */
+            args?: (protos.args.IAzureServiceBusReadArgs|null);
+        }
+
+        /** Represents a ReadGroupAzureServiceBusOptions. */
+        class ReadGroupAzureServiceBusOptions implements IReadGroupAzureServiceBusOptions {
+
+            /**
+             * Constructs a new ReadGroupAzureServiceBusOptions.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.opts.IReadGroupAzureServiceBusOptions);
+
+            /** ReadGroupAzureServiceBusOptions _conn. */
+            public _conn?: (protos.args.IAzureServiceBusConn|null);
+
+            /** ReadGroupAzureServiceBusOptions args. */
+            public args?: (protos.args.IAzureServiceBusReadArgs|null);
+
+            /**
+             * Creates a new ReadGroupAzureServiceBusOptions instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns ReadGroupAzureServiceBusOptions instance
+             */
+            public static create(properties?: protos.opts.IReadGroupAzureServiceBusOptions): protos.opts.ReadGroupAzureServiceBusOptions;
+
+            /**
+             * Encodes the specified ReadGroupAzureServiceBusOptions message. Does not implicitly {@link protos.opts.ReadGroupAzureServiceBusOptions.verify|verify} messages.
+             * @param message ReadGroupAzureServiceBusOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.opts.IReadGroupAzureServiceBusOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified ReadGroupAzureServiceBusOptions message, length delimited. Does not implicitly {@link protos.opts.ReadGroupAzureServiceBusOptions.verify|verify} messages.
+             * @param message ReadGroupAzureServiceBusOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.opts.IReadGroupAzureServiceBusOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a ReadGroupAzureServiceBusOptions message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns ReadGroupAzureServiceBusOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.ReadGroupAzureServiceBusOptions;
+
+            /**
+             * Decodes a ReadGroupAzureServiceBusOptions message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns ReadGroupAzureServiceBusOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.ReadGroupAzureServiceBusOptions;
+
+            /**
+             * Verifies a ReadGroupAzureServiceBusOptions message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a ReadGroupAzureServiceBusOptions message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns ReadGroupAzureServiceBusOptions
+             */
+            public static fromObject(object: { [k: string]: any }): protos.opts.ReadGroupAzureServiceBusOptions;
+
+            /**
+             * Creates a plain object from a ReadGroupAzureServiceBusOptions message. Also converts values to other types if specified.
+             * @param message ReadGroupAzureServiceBusOptions
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.opts.ReadGroupAzureServiceBusOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this ReadGroupAzureServiceBusOptions to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a ReadGroupMQTTOptions. */
+        interface IReadGroupMQTTOptions {
+
+            /** ReadGroupMQTTOptions _conn */
+            _conn?: (protos.args.IMQTTConn|null);
+
+            /** ReadGroupMQTTOptions args */
+            args?: (protos.args.IMQTTReadArgs|null);
+        }
+
+        /** Represents a ReadGroupMQTTOptions. */
+        class ReadGroupMQTTOptions implements IReadGroupMQTTOptions {
+
+            /**
+             * Constructs a new ReadGroupMQTTOptions.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.opts.IReadGroupMQTTOptions);
+
+            /** ReadGroupMQTTOptions _conn. */
+            public _conn?: (protos.args.IMQTTConn|null);
+
+            /** ReadGroupMQTTOptions args. */
+            public args?: (protos.args.IMQTTReadArgs|null);
+
+            /**
+             * Creates a new ReadGroupMQTTOptions instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns ReadGroupMQTTOptions instance
+             */
+            public static create(properties?: protos.opts.IReadGroupMQTTOptions): protos.opts.ReadGroupMQTTOptions;
+
+            /**
+             * Encodes the specified ReadGroupMQTTOptions message. Does not implicitly {@link protos.opts.ReadGroupMQTTOptions.verify|verify} messages.
+             * @param message ReadGroupMQTTOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.opts.IReadGroupMQTTOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified ReadGroupMQTTOptions message, length delimited. Does not implicitly {@link protos.opts.ReadGroupMQTTOptions.verify|verify} messages.
+             * @param message ReadGroupMQTTOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.opts.IReadGroupMQTTOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a ReadGroupMQTTOptions message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns ReadGroupMQTTOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.ReadGroupMQTTOptions;
+
+            /**
+             * Decodes a ReadGroupMQTTOptions message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns ReadGroupMQTTOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.ReadGroupMQTTOptions;
+
+            /**
+             * Verifies a ReadGroupMQTTOptions message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a ReadGroupMQTTOptions message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns ReadGroupMQTTOptions
+             */
+            public static fromObject(object: { [k: string]: any }): protos.opts.ReadGroupMQTTOptions;
+
+            /**
+             * Creates a plain object from a ReadGroupMQTTOptions message. Also converts values to other types if specified.
+             * @param message ReadGroupMQTTOptions
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.opts.ReadGroupMQTTOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this ReadGroupMQTTOptions to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a ReadGroupGCPPubSubOptions. */
+        interface IReadGroupGCPPubSubOptions {
+
+            /** ReadGroupGCPPubSubOptions _conn */
+            _conn?: (protos.args.IGCPPubSubConn|null);
+
+            /** ReadGroupGCPPubSubOptions args */
+            args?: (protos.args.IGCPPubSubReadArgs|null);
+        }
+
+        /** Represents a ReadGroupGCPPubSubOptions. */
+        class ReadGroupGCPPubSubOptions implements IReadGroupGCPPubSubOptions {
+
+            /**
+             * Constructs a new ReadGroupGCPPubSubOptions.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.opts.IReadGroupGCPPubSubOptions);
+
+            /** ReadGroupGCPPubSubOptions _conn. */
+            public _conn?: (protos.args.IGCPPubSubConn|null);
+
+            /** ReadGroupGCPPubSubOptions args. */
+            public args?: (protos.args.IGCPPubSubReadArgs|null);
+
+            /**
+             * Creates a new ReadGroupGCPPubSubOptions instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns ReadGroupGCPPubSubOptions instance
+             */
+            public static create(properties?: protos.opts.IReadGroupGCPPubSubOptions): protos.opts.ReadGroupGCPPubSubOptions;
+
+            /**
+             * Encodes the specified ReadGroupGCPPubSubOptions message. Does not implicitly {@link protos.opts.ReadGroupGCPPubSubOptions.verify|verify} messages.
+             * @param message ReadGroupGCPPubSubOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.opts.IReadGroupGCPPubSubOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified ReadGroupGCPPubSubOptions message, length delimited. Does not implicitly {@link protos.opts.ReadGroupGCPPubSubOptions.verify|verify} messages.
+             * @param message ReadGroupGCPPubSubOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.opts.IReadGroupGCPPubSubOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a ReadGroupGCPPubSubOptions message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns ReadGroupGCPPubSubOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.ReadGroupGCPPubSubOptions;
+
+            /**
+             * Decodes a ReadGroupGCPPubSubOptions message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns ReadGroupGCPPubSubOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.ReadGroupGCPPubSubOptions;
+
+            /**
+             * Verifies a ReadGroupGCPPubSubOptions message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a ReadGroupGCPPubSubOptions message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns ReadGroupGCPPubSubOptions
+             */
+            public static fromObject(object: { [k: string]: any }): protos.opts.ReadGroupGCPPubSubOptions;
+
+            /**
+             * Creates a plain object from a ReadGroupGCPPubSubOptions message. Also converts values to other types if specified.
+             * @param message ReadGroupGCPPubSubOptions
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.opts.ReadGroupGCPPubSubOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this ReadGroupGCPPubSubOptions to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a ReadGroupKubeMQQueueOptions. */
+        interface IReadGroupKubeMQQueueOptions {
+
+            /** ReadGroupKubeMQQueueOptions _conn */
+            _conn?: (protos.args.IKubeMQQueueConn|null);
+
+            /** ReadGroupKubeMQQueueOptions args */
+            args?: (protos.args.IKubeMQQueueReadArgs|null);
+        }
+
+        /** Represents a ReadGroupKubeMQQueueOptions. */
+        class ReadGroupKubeMQQueueOptions implements IReadGroupKubeMQQueueOptions {
+
+            /**
+             * Constructs a new ReadGroupKubeMQQueueOptions.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.opts.IReadGroupKubeMQQueueOptions);
+
+            /** ReadGroupKubeMQQueueOptions _conn. */
+            public _conn?: (protos.args.IKubeMQQueueConn|null);
+
+            /** ReadGroupKubeMQQueueOptions args. */
+            public args?: (protos.args.IKubeMQQueueReadArgs|null);
+
+            /**
+             * Creates a new ReadGroupKubeMQQueueOptions instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns ReadGroupKubeMQQueueOptions instance
+             */
+            public static create(properties?: protos.opts.IReadGroupKubeMQQueueOptions): protos.opts.ReadGroupKubeMQQueueOptions;
+
+            /**
+             * Encodes the specified ReadGroupKubeMQQueueOptions message. Does not implicitly {@link protos.opts.ReadGroupKubeMQQueueOptions.verify|verify} messages.
+             * @param message ReadGroupKubeMQQueueOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.opts.IReadGroupKubeMQQueueOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified ReadGroupKubeMQQueueOptions message, length delimited. Does not implicitly {@link protos.opts.ReadGroupKubeMQQueueOptions.verify|verify} messages.
+             * @param message ReadGroupKubeMQQueueOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.opts.IReadGroupKubeMQQueueOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a ReadGroupKubeMQQueueOptions message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns ReadGroupKubeMQQueueOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.ReadGroupKubeMQQueueOptions;
+
+            /**
+             * Decodes a ReadGroupKubeMQQueueOptions message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns ReadGroupKubeMQQueueOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.ReadGroupKubeMQQueueOptions;
+
+            /**
+             * Verifies a ReadGroupKubeMQQueueOptions message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a ReadGroupKubeMQQueueOptions message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns ReadGroupKubeMQQueueOptions
+             */
+            public static fromObject(object: { [k: string]: any }): protos.opts.ReadGroupKubeMQQueueOptions;
+
+            /**
+             * Creates a plain object from a ReadGroupKubeMQQueueOptions message. Also converts values to other types if specified.
+             * @param message ReadGroupKubeMQQueueOptions
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.opts.ReadGroupKubeMQQueueOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this ReadGroupKubeMQQueueOptions to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a ReadGroupAWSKinesisOptions. */
+        interface IReadGroupAWSKinesisOptions {
+
+            /** ReadGroupAWSKinesisOptions _conn */
+            _conn?: (protos.args.IAWSKinesisConn|null);
+
+            /** ReadGroupAWSKinesisOptions args */
+            args?: (protos.args.IAWSKinesisReadArgs|null);
+        }
+
+        /** Represents a ReadGroupAWSKinesisOptions. */
+        class ReadGroupAWSKinesisOptions implements IReadGroupAWSKinesisOptions {
+
+            /**
+             * Constructs a new ReadGroupAWSKinesisOptions.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.opts.IReadGroupAWSKinesisOptions);
+
+            /** ReadGroupAWSKinesisOptions _conn. */
+            public _conn?: (protos.args.IAWSKinesisConn|null);
+
+            /** ReadGroupAWSKinesisOptions args. */
+            public args?: (protos.args.IAWSKinesisReadArgs|null);
+
+            /**
+             * Creates a new ReadGroupAWSKinesisOptions instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns ReadGroupAWSKinesisOptions instance
+             */
+            public static create(properties?: protos.opts.IReadGroupAWSKinesisOptions): protos.opts.ReadGroupAWSKinesisOptions;
+
+            /**
+             * Encodes the specified ReadGroupAWSKinesisOptions message. Does not implicitly {@link protos.opts.ReadGroupAWSKinesisOptions.verify|verify} messages.
+             * @param message ReadGroupAWSKinesisOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.opts.IReadGroupAWSKinesisOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified ReadGroupAWSKinesisOptions message, length delimited. Does not implicitly {@link protos.opts.ReadGroupAWSKinesisOptions.verify|verify} messages.
+             * @param message ReadGroupAWSKinesisOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.opts.IReadGroupAWSKinesisOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a ReadGroupAWSKinesisOptions message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns ReadGroupAWSKinesisOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.ReadGroupAWSKinesisOptions;
+
+            /**
+             * Decodes a ReadGroupAWSKinesisOptions message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns ReadGroupAWSKinesisOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.ReadGroupAWSKinesisOptions;
+
+            /**
+             * Verifies a ReadGroupAWSKinesisOptions message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a ReadGroupAWSKinesisOptions message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns ReadGroupAWSKinesisOptions
+             */
+            public static fromObject(object: { [k: string]: any }): protos.opts.ReadGroupAWSKinesisOptions;
+
+            /**
+             * Creates a plain object from a ReadGroupAWSKinesisOptions message. Also converts values to other types if specified.
+             * @param message ReadGroupAWSKinesisOptions
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.opts.ReadGroupAWSKinesisOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this ReadGroupAWSKinesisOptions to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a ReadGroupMemphisOptions. */
+        interface IReadGroupMemphisOptions {
+
+            /** ReadGroupMemphisOptions _conn */
+            _conn?: (protos.args.IMemphisConn|null);
+
+            /** ReadGroupMemphisOptions args */
+            args?: (protos.args.IMemphisReadArgs|null);
+        }
+
+        /** Represents a ReadGroupMemphisOptions. */
+        class ReadGroupMemphisOptions implements IReadGroupMemphisOptions {
+
+            /**
+             * Constructs a new ReadGroupMemphisOptions.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.opts.IReadGroupMemphisOptions);
+
+            /** ReadGroupMemphisOptions _conn. */
+            public _conn?: (protos.args.IMemphisConn|null);
+
+            /** ReadGroupMemphisOptions args. */
+            public args?: (protos.args.IMemphisReadArgs|null);
+
+            /**
+             * Creates a new ReadGroupMemphisOptions instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns ReadGroupMemphisOptions instance
+             */
+            public static create(properties?: protos.opts.IReadGroupMemphisOptions): protos.opts.ReadGroupMemphisOptions;
+
+            /**
+             * Encodes the specified ReadGroupMemphisOptions message. Does not implicitly {@link protos.opts.ReadGroupMemphisOptions.verify|verify} messages.
+             * @param message ReadGroupMemphisOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.opts.IReadGroupMemphisOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified ReadGroupMemphisOptions message, length delimited. Does not implicitly {@link protos.opts.ReadGroupMemphisOptions.verify|verify} messages.
+             * @param message ReadGroupMemphisOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.opts.IReadGroupMemphisOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a ReadGroupMemphisOptions message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns ReadGroupMemphisOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.ReadGroupMemphisOptions;
+
+            /**
+             * Decodes a ReadGroupMemphisOptions message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns ReadGroupMemphisOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.ReadGroupMemphisOptions;
+
+            /**
+             * Verifies a ReadGroupMemphisOptions message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a ReadGroupMemphisOptions message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns ReadGroupMemphisOptions
+             */
+            public static fromObject(object: { [k: string]: any }): protos.opts.ReadGroupMemphisOptions;
+
+            /**
+             * Creates a plain object from a ReadGroupMemphisOptions message. Also converts values to other types if specified.
+             * @param message ReadGroupMemphisOptions
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.opts.ReadGroupMemphisOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this ReadGroupMemphisOptions to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of an InferSchemaOptions. */
+        interface IInferSchemaOptions {
+
+            /** InferSchemaOptions type */
+            type?: (protos.opts.InferSchemaOptions.Type|null);
+
+            /** InferSchemaOptions schemaId */
+            schemaId?: (string|null);
+        }
+
+        /** Represents an InferSchemaOptions. */
+        class InferSchemaOptions implements IInferSchemaOptions {
+
+            /**
+             * Constructs a new InferSchemaOptions.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.opts.IInferSchemaOptions);
+
+            /** InferSchemaOptions type. */
+            public type: protos.opts.InferSchemaOptions.Type;
+
+            /** InferSchemaOptions schemaId. */
+            public schemaId: string;
+
+            /**
+             * Creates a new InferSchemaOptions instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns InferSchemaOptions instance
+             */
+            public static create(properties?: protos.opts.IInferSchemaOptions): protos.opts.InferSchemaOptions;
+
+            /**
+             * Encodes the specified InferSchemaOptions message. Does not implicitly {@link protos.opts.InferSchemaOptions.verify|verify} messages.
+             * @param message InferSchemaOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.opts.IInferSchemaOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified InferSchemaOptions message, length delimited. Does not implicitly {@link protos.opts.InferSchemaOptions.verify|verify} messages.
+             * @param message InferSchemaOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.opts.IInferSchemaOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes an InferSchemaOptions message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns InferSchemaOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.InferSchemaOptions;
+
+            /**
+             * Decodes an InferSchemaOptions message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns InferSchemaOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.InferSchemaOptions;
+
+            /**
+             * Verifies an InferSchemaOptions message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates an InferSchemaOptions message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns InferSchemaOptions
+             */
+            public static fromObject(object: { [k: string]: any }): protos.opts.InferSchemaOptions;
+
+            /**
+             * Creates a plain object from an InferSchemaOptions message. Also converts values to other types if specified.
+             * @param message InferSchemaOptions
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.opts.InferSchemaOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this InferSchemaOptions to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        namespace InferSchemaOptions {
+
+            /** Type enum. */
+            enum Type {
+                UNSET = 0,
+                JSONSCHEMA = 1
+            }
         }
 
         /** Properties of a ServerOptions. */
@@ -7996,241 +10796,241 @@ export namespace protos {
             public toJSON(): { [k: string]: any };
         }
 
-        /** Properties of a CreateWriteOptions. */
-        interface ICreateWriteOptions {
+        /** Properties of a CreateChannelWriteOptions. */
+        interface ICreateChannelWriteOptions {
 
-            /** CreateWriteOptions connectionId */
+            /** CreateChannelWriteOptions connectionId */
             connectionId?: (string|null);
 
-            /** CreateWriteOptions name */
+            /** CreateChannelWriteOptions name */
             name?: (string|null);
 
-            /** CreateWriteOptions notes */
+            /** CreateChannelWriteOptions notes */
             notes?: (string|null);
 
-            /** CreateWriteOptions kafka */
+            /** CreateChannelWriteOptions kafka */
             kafka?: (protos.args.IKafkaWriteArgs|null);
 
-            /** CreateWriteOptions activemq */
+            /** CreateChannelWriteOptions activemq */
             activemq?: (protos.args.IActiveMQWriteArgs|null);
 
-            /** CreateWriteOptions awsSqs */
+            /** CreateChannelWriteOptions awsSqs */
             awsSqs?: (protos.args.IAWSSQSWriteArgs|null);
 
-            /** CreateWriteOptions awsSns */
+            /** CreateChannelWriteOptions awsSns */
             awsSns?: (protos.args.IAWSSNSWriteArgs|null);
 
-            /** CreateWriteOptions nats */
+            /** CreateChannelWriteOptions nats */
             nats?: (protos.args.INatsWriteArgs|null);
 
-            /** CreateWriteOptions natsStreaming */
+            /** CreateChannelWriteOptions natsStreaming */
             natsStreaming?: (protos.args.INatsStreamingWriteArgs|null);
 
-            /** CreateWriteOptions nsq */
+            /** CreateChannelWriteOptions nsq */
             nsq?: (protos.args.INSQWriteArgs|null);
 
-            /** CreateWriteOptions rabbit */
+            /** CreateChannelWriteOptions rabbit */
             rabbit?: (protos.args.IRabbitWriteArgs|null);
 
-            /** CreateWriteOptions mqtt */
+            /** CreateChannelWriteOptions mqtt */
             mqtt?: (protos.args.IMQTTWriteArgs|null);
 
-            /** CreateWriteOptions azureServiceBus */
+            /** CreateChannelWriteOptions azureServiceBus */
             azureServiceBus?: (protos.args.IAzureServiceBusWriteArgs|null);
 
-            /** CreateWriteOptions azureEventHub */
+            /** CreateChannelWriteOptions azureEventHub */
             azureEventHub?: (protos.args.IAzureEventHubWriteArgs|null);
 
-            /** CreateWriteOptions gcpPubsub */
+            /** CreateChannelWriteOptions gcpPubsub */
             gcpPubsub?: (protos.args.IGCPPubSubWriteArgs|null);
 
-            /** CreateWriteOptions kubemqQueue */
+            /** CreateChannelWriteOptions kubemqQueue */
             kubemqQueue?: (protos.args.IKubeMQQueueWriteArgs|null);
 
-            /** CreateWriteOptions redisPubsub */
+            /** CreateChannelWriteOptions redisPubsub */
             redisPubsub?: (protos.args.IRedisPubSubWriteArgs|null);
 
-            /** CreateWriteOptions redisStreams */
+            /** CreateChannelWriteOptions redisStreams */
             redisStreams?: (protos.args.IRedisStreamsWriteArgs|null);
 
-            /** CreateWriteOptions pulsar */
+            /** CreateChannelWriteOptions pulsar */
             pulsar?: (protos.args.IPulsarWriteArgs|null);
 
-            /** CreateWriteOptions rabbitStreams */
+            /** CreateChannelWriteOptions rabbitStreams */
             rabbitStreams?: (protos.args.IRabbitStreamsWriteArgs|null);
 
-            /** CreateWriteOptions natsJetstream */
+            /** CreateChannelWriteOptions natsJetstream */
             natsJetstream?: (protos.args.INatsJetstreamWriteArgs|null);
 
-            /** CreateWriteOptions awsKinesis */
+            /** CreateChannelWriteOptions awsKinesis */
             awsKinesis?: (protos.args.IAWSKinesisWriteArgs|null);
 
-            /** CreateWriteOptions memphis */
+            /** CreateChannelWriteOptions memphis */
             memphis?: (protos.args.IMemphisWriteArgs|null);
 
-            /** CreateWriteOptions streamdal */
+            /** CreateChannelWriteOptions streamdal */
             streamdal?: (protos.args.IStreamdalWriteArgs|null);
 
-            /** CreateWriteOptions _writeId */
+            /** CreateChannelWriteOptions _writeId */
             _writeId?: (string|null);
 
-            /** CreateWriteOptions _active */
+            /** CreateChannelWriteOptions _active */
             _active?: (boolean|null);
         }
 
-        /** Represents a CreateWriteOptions. */
-        class CreateWriteOptions implements ICreateWriteOptions {
+        /** Represents a CreateChannelWriteOptions. */
+        class CreateChannelWriteOptions implements ICreateChannelWriteOptions {
 
             /**
-             * Constructs a new CreateWriteOptions.
+             * Constructs a new CreateChannelWriteOptions.
              * @param [properties] Properties to set
              */
-            constructor(properties?: protos.opts.ICreateWriteOptions);
+            constructor(properties?: protos.opts.ICreateChannelWriteOptions);
 
-            /** CreateWriteOptions connectionId. */
+            /** CreateChannelWriteOptions connectionId. */
             public connectionId: string;
 
-            /** CreateWriteOptions name. */
+            /** CreateChannelWriteOptions name. */
             public name: string;
 
-            /** CreateWriteOptions notes. */
+            /** CreateChannelWriteOptions notes. */
             public notes: string;
 
-            /** CreateWriteOptions kafka. */
+            /** CreateChannelWriteOptions kafka. */
             public kafka?: (protos.args.IKafkaWriteArgs|null);
 
-            /** CreateWriteOptions activemq. */
+            /** CreateChannelWriteOptions activemq. */
             public activemq?: (protos.args.IActiveMQWriteArgs|null);
 
-            /** CreateWriteOptions awsSqs. */
+            /** CreateChannelWriteOptions awsSqs. */
             public awsSqs?: (protos.args.IAWSSQSWriteArgs|null);
 
-            /** CreateWriteOptions awsSns. */
+            /** CreateChannelWriteOptions awsSns. */
             public awsSns?: (protos.args.IAWSSNSWriteArgs|null);
 
-            /** CreateWriteOptions nats. */
+            /** CreateChannelWriteOptions nats. */
             public nats?: (protos.args.INatsWriteArgs|null);
 
-            /** CreateWriteOptions natsStreaming. */
+            /** CreateChannelWriteOptions natsStreaming. */
             public natsStreaming?: (protos.args.INatsStreamingWriteArgs|null);
 
-            /** CreateWriteOptions nsq. */
+            /** CreateChannelWriteOptions nsq. */
             public nsq?: (protos.args.INSQWriteArgs|null);
 
-            /** CreateWriteOptions rabbit. */
+            /** CreateChannelWriteOptions rabbit. */
             public rabbit?: (protos.args.IRabbitWriteArgs|null);
 
-            /** CreateWriteOptions mqtt. */
+            /** CreateChannelWriteOptions mqtt. */
             public mqtt?: (protos.args.IMQTTWriteArgs|null);
 
-            /** CreateWriteOptions azureServiceBus. */
+            /** CreateChannelWriteOptions azureServiceBus. */
             public azureServiceBus?: (protos.args.IAzureServiceBusWriteArgs|null);
 
-            /** CreateWriteOptions azureEventHub. */
+            /** CreateChannelWriteOptions azureEventHub. */
             public azureEventHub?: (protos.args.IAzureEventHubWriteArgs|null);
 
-            /** CreateWriteOptions gcpPubsub. */
+            /** CreateChannelWriteOptions gcpPubsub. */
             public gcpPubsub?: (protos.args.IGCPPubSubWriteArgs|null);
 
-            /** CreateWriteOptions kubemqQueue. */
+            /** CreateChannelWriteOptions kubemqQueue. */
             public kubemqQueue?: (protos.args.IKubeMQQueueWriteArgs|null);
 
-            /** CreateWriteOptions redisPubsub. */
+            /** CreateChannelWriteOptions redisPubsub. */
             public redisPubsub?: (protos.args.IRedisPubSubWriteArgs|null);
 
-            /** CreateWriteOptions redisStreams. */
+            /** CreateChannelWriteOptions redisStreams. */
             public redisStreams?: (protos.args.IRedisStreamsWriteArgs|null);
 
-            /** CreateWriteOptions pulsar. */
+            /** CreateChannelWriteOptions pulsar. */
             public pulsar?: (protos.args.IPulsarWriteArgs|null);
 
-            /** CreateWriteOptions rabbitStreams. */
+            /** CreateChannelWriteOptions rabbitStreams. */
             public rabbitStreams?: (protos.args.IRabbitStreamsWriteArgs|null);
 
-            /** CreateWriteOptions natsJetstream. */
+            /** CreateChannelWriteOptions natsJetstream. */
             public natsJetstream?: (protos.args.INatsJetstreamWriteArgs|null);
 
-            /** CreateWriteOptions awsKinesis. */
+            /** CreateChannelWriteOptions awsKinesis. */
             public awsKinesis?: (protos.args.IAWSKinesisWriteArgs|null);
 
-            /** CreateWriteOptions memphis. */
+            /** CreateChannelWriteOptions memphis. */
             public memphis?: (protos.args.IMemphisWriteArgs|null);
 
-            /** CreateWriteOptions streamdal. */
+            /** CreateChannelWriteOptions streamdal. */
             public streamdal?: (protos.args.IStreamdalWriteArgs|null);
 
-            /** CreateWriteOptions _writeId. */
+            /** CreateChannelWriteOptions _writeId. */
             public _writeId: string;
 
-            /** CreateWriteOptions _active. */
+            /** CreateChannelWriteOptions _active. */
             public _active: boolean;
 
             /**
-             * Creates a new CreateWriteOptions instance using the specified properties.
+             * Creates a new CreateChannelWriteOptions instance using the specified properties.
              * @param [properties] Properties to set
-             * @returns CreateWriteOptions instance
+             * @returns CreateChannelWriteOptions instance
              */
-            public static create(properties?: protos.opts.ICreateWriteOptions): protos.opts.CreateWriteOptions;
+            public static create(properties?: protos.opts.ICreateChannelWriteOptions): protos.opts.CreateChannelWriteOptions;
 
             /**
-             * Encodes the specified CreateWriteOptions message. Does not implicitly {@link protos.opts.CreateWriteOptions.verify|verify} messages.
-             * @param message CreateWriteOptions message or plain object to encode
+             * Encodes the specified CreateChannelWriteOptions message. Does not implicitly {@link protos.opts.CreateChannelWriteOptions.verify|verify} messages.
+             * @param message CreateChannelWriteOptions message or plain object to encode
              * @param [writer] Writer to encode to
              * @returns Writer
              */
-            public static encode(message: protos.opts.ICreateWriteOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+            public static encode(message: protos.opts.ICreateChannelWriteOptions, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Encodes the specified CreateWriteOptions message, length delimited. Does not implicitly {@link protos.opts.CreateWriteOptions.verify|verify} messages.
-             * @param message CreateWriteOptions message or plain object to encode
+             * Encodes the specified CreateChannelWriteOptions message, length delimited. Does not implicitly {@link protos.opts.CreateChannelWriteOptions.verify|verify} messages.
+             * @param message CreateChannelWriteOptions message or plain object to encode
              * @param [writer] Writer to encode to
              * @returns Writer
              */
-            public static encodeDelimited(message: protos.opts.ICreateWriteOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+            public static encodeDelimited(message: protos.opts.ICreateChannelWriteOptions, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a CreateWriteOptions message from the specified reader or buffer.
+             * Decodes a CreateChannelWriteOptions message from the specified reader or buffer.
              * @param reader Reader or buffer to decode from
              * @param [length] Message length if known beforehand
-             * @returns CreateWriteOptions
+             * @returns CreateChannelWriteOptions
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.CreateWriteOptions;
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.CreateChannelWriteOptions;
 
             /**
-             * Decodes a CreateWriteOptions message from the specified reader or buffer, length delimited.
+             * Decodes a CreateChannelWriteOptions message from the specified reader or buffer, length delimited.
              * @param reader Reader or buffer to decode from
-             * @returns CreateWriteOptions
+             * @returns CreateChannelWriteOptions
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.CreateWriteOptions;
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.CreateChannelWriteOptions;
 
             /**
-             * Verifies a CreateWriteOptions message.
+             * Verifies a CreateChannelWriteOptions message.
              * @param message Plain object to verify
              * @returns `null` if valid, otherwise the reason why it is not
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a CreateWriteOptions message from a plain object. Also converts values to their respective internal types.
+             * Creates a CreateChannelWriteOptions message from a plain object. Also converts values to their respective internal types.
              * @param object Plain object
-             * @returns CreateWriteOptions
+             * @returns CreateChannelWriteOptions
              */
-            public static fromObject(object: { [k: string]: any }): protos.opts.CreateWriteOptions;
+            public static fromObject(object: { [k: string]: any }): protos.opts.CreateChannelWriteOptions;
 
             /**
-             * Creates a plain object from a CreateWriteOptions message. Also converts values to other types if specified.
-             * @param message CreateWriteOptions
+             * Creates a plain object from a CreateChannelWriteOptions message. Also converts values to other types if specified.
+             * @param message CreateChannelWriteOptions
              * @param [options] Conversion options
              * @returns Plain object
              */
-            public static toObject(message: protos.opts.CreateWriteOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+            public static toObject(message: protos.opts.CreateChannelWriteOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
             /**
-             * Converts this CreateWriteOptions to JSON.
+             * Converts this CreateChannelWriteOptions to JSON.
              * @returns JSON object
              */
             public toJSON(): { [k: string]: any };
@@ -8549,25 +11349,25 @@ export namespace protos {
             global?: (protos.opts.IGlobalCLIOptions|null);
 
             /** CLIOptions read */
-            read?: (protos.opts.IReadOptions|null);
+            read?: (protos.opts.ICLIReadOptions|null);
 
             /** CLIOptions write */
-            write?: (protos.opts.IWriteOptions|null);
+            write?: (protos.opts.ICLIWriteOptions|null);
 
             /** CLIOptions relay */
             relay?: (protos.opts.IRelayOptions|null);
-
-            /** CLIOptions tunnel */
-            tunnel?: (protos.opts.ITunnelOptions|null);
-
-            /** CLIOptions streamdal */
-            streamdal?: (protos.opts.IStreamdalOptions|null);
 
             /** CLIOptions server */
             server?: (protos.opts.IServerOptions|null);
 
             /** CLIOptions manage */
             manage?: (protos.opts.IManageOptions|null);
+
+            /** CLIOptions tunnel */
+            tunnel?: (protos.opts.ITunnelOptions|null);
+
+            /** CLIOptions streamdal */
+            streamdal?: (protos.opts.IStreamdalOptions|null);
         }
 
         /** Represents a CLIOptions. */
@@ -8583,25 +11383,25 @@ export namespace protos {
             public global?: (protos.opts.IGlobalCLIOptions|null);
 
             /** CLIOptions read. */
-            public read?: (protos.opts.IReadOptions|null);
+            public read?: (protos.opts.ICLIReadOptions|null);
 
             /** CLIOptions write. */
-            public write?: (protos.opts.IWriteOptions|null);
+            public write?: (protos.opts.ICLIWriteOptions|null);
 
             /** CLIOptions relay. */
             public relay?: (protos.opts.IRelayOptions|null);
-
-            /** CLIOptions tunnel. */
-            public tunnel?: (protos.opts.ITunnelOptions|null);
-
-            /** CLIOptions streamdal. */
-            public streamdal?: (protos.opts.IStreamdalOptions|null);
 
             /** CLIOptions server. */
             public server?: (protos.opts.IServerOptions|null);
 
             /** CLIOptions manage. */
             public manage?: (protos.opts.IManageOptions|null);
+
+            /** CLIOptions tunnel. */
+            public tunnel?: (protos.opts.ITunnelOptions|null);
+
+            /** CLIOptions streamdal. */
+            public streamdal?: (protos.opts.IStreamdalOptions|null);
 
             /**
              * Creates a new CLIOptions instance using the specified properties.
@@ -9062,10 +11862,10 @@ export namespace protos {
             relay?: (protos.opts.ICreateRelayOptions|null);
 
             /** CreateOptions read */
-            read?: (protos.opts.ICreateReadOptions|null);
+            read?: (protos.opts.ICreateChannelReadOptions|null);
 
             /** CreateOptions write */
-            write?: (protos.opts.ICreateWriteOptions|null);
+            write?: (protos.opts.ICreateChannelWriteOptions|null);
 
             /** CreateOptions channel */
             channel?: (protos.opts.ICreateChannelOptions|null);
@@ -9090,10 +11890,10 @@ export namespace protos {
             public relay?: (protos.opts.ICreateRelayOptions|null);
 
             /** CreateOptions read. */
-            public read?: (protos.opts.ICreateReadOptions|null);
+            public read?: (protos.opts.ICreateChannelReadOptions|null);
 
             /** CreateOptions write. */
-            public write?: (protos.opts.ICreateWriteOptions|null);
+            public write?: (protos.opts.ICreateChannelWriteOptions|null);
 
             /** CreateOptions channel. */
             public channel?: (protos.opts.ICreateChannelOptions|null);
@@ -11092,2698 +13892,6 @@ export namespace protos {
             public toJSON(): { [k: string]: any };
         }
 
-        /** ConvertOption enum. */
-        enum ConvertOption {
-            CONVERT_OPTION_UNSET = 0,
-            CONVERT_OPTION_BASE64 = 1,
-            CONVERT_OPTION_GZIP = 2
-        }
-
-        /** Properties of a ReadCLIOptions. */
-        interface IReadCLIOptions {
-
-            /** ReadCLIOptions verboseOutput */
-            verboseOutput?: (boolean|null);
-
-            /** ReadCLIOptions pretty */
-            pretty?: (boolean|null);
-
-            /** ReadCLIOptions json */
-            json?: (boolean|null);
-        }
-
-        /** Represents a ReadCLIOptions. */
-        class ReadCLIOptions implements IReadCLIOptions {
-
-            /**
-             * Constructs a new ReadCLIOptions.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: protos.opts.IReadCLIOptions);
-
-            /** ReadCLIOptions verboseOutput. */
-            public verboseOutput: boolean;
-
-            /** ReadCLIOptions pretty. */
-            public pretty: boolean;
-
-            /** ReadCLIOptions json. */
-            public json: boolean;
-
-            /**
-             * Creates a new ReadCLIOptions instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns ReadCLIOptions instance
-             */
-            public static create(properties?: protos.opts.IReadCLIOptions): protos.opts.ReadCLIOptions;
-
-            /**
-             * Encodes the specified ReadCLIOptions message. Does not implicitly {@link protos.opts.ReadCLIOptions.verify|verify} messages.
-             * @param message ReadCLIOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: protos.opts.IReadCLIOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified ReadCLIOptions message, length delimited. Does not implicitly {@link protos.opts.ReadCLIOptions.verify|verify} messages.
-             * @param message ReadCLIOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: protos.opts.IReadCLIOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes a ReadCLIOptions message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns ReadCLIOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.ReadCLIOptions;
-
-            /**
-             * Decodes a ReadCLIOptions message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns ReadCLIOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.ReadCLIOptions;
-
-            /**
-             * Verifies a ReadCLIOptions message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates a ReadCLIOptions message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns ReadCLIOptions
-             */
-            public static fromObject(object: { [k: string]: any }): protos.opts.ReadCLIOptions;
-
-            /**
-             * Creates a plain object from a ReadCLIOptions message. Also converts values to other types if specified.
-             * @param message ReadCLIOptions
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: protos.opts.ReadCLIOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this ReadCLIOptions to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-        }
-
-        /** Properties of a ReadSampleOptions. */
-        interface IReadSampleOptions {
-
-            /** ReadSampleOptions sampleRate */
-            sampleRate?: (number|null);
-
-            /** ReadSampleOptions sampleIntervalSeconds */
-            sampleIntervalSeconds?: (number|null);
-        }
-
-        /** Represents a ReadSampleOptions. */
-        class ReadSampleOptions implements IReadSampleOptions {
-
-            /**
-             * Constructs a new ReadSampleOptions.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: protos.opts.IReadSampleOptions);
-
-            /** ReadSampleOptions sampleRate. */
-            public sampleRate: number;
-
-            /** ReadSampleOptions sampleIntervalSeconds. */
-            public sampleIntervalSeconds: number;
-
-            /**
-             * Creates a new ReadSampleOptions instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns ReadSampleOptions instance
-             */
-            public static create(properties?: protos.opts.IReadSampleOptions): protos.opts.ReadSampleOptions;
-
-            /**
-             * Encodes the specified ReadSampleOptions message. Does not implicitly {@link protos.opts.ReadSampleOptions.verify|verify} messages.
-             * @param message ReadSampleOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: protos.opts.IReadSampleOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified ReadSampleOptions message, length delimited. Does not implicitly {@link protos.opts.ReadSampleOptions.verify|verify} messages.
-             * @param message ReadSampleOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: protos.opts.IReadSampleOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes a ReadSampleOptions message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns ReadSampleOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.ReadSampleOptions;
-
-            /**
-             * Decodes a ReadSampleOptions message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns ReadSampleOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.ReadSampleOptions;
-
-            /**
-             * Verifies a ReadSampleOptions message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates a ReadSampleOptions message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns ReadSampleOptions
-             */
-            public static fromObject(object: { [k: string]: any }): protos.opts.ReadSampleOptions;
-
-            /**
-             * Creates a plain object from a ReadSampleOptions message. Also converts values to other types if specified.
-             * @param message ReadSampleOptions
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: protos.opts.ReadSampleOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this ReadSampleOptions to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-        }
-
-        /** Properties of a ReadFilterOptions. */
-        interface IReadFilterOptions {
-
-            /** ReadFilterOptions query */
-            query?: (string|null);
-        }
-
-        /** Represents a ReadFilterOptions. */
-        class ReadFilterOptions implements IReadFilterOptions {
-
-            /**
-             * Constructs a new ReadFilterOptions.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: protos.opts.IReadFilterOptions);
-
-            /** ReadFilterOptions query. */
-            public query: string;
-
-            /**
-             * Creates a new ReadFilterOptions instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns ReadFilterOptions instance
-             */
-            public static create(properties?: protos.opts.IReadFilterOptions): protos.opts.ReadFilterOptions;
-
-            /**
-             * Encodes the specified ReadFilterOptions message. Does not implicitly {@link protos.opts.ReadFilterOptions.verify|verify} messages.
-             * @param message ReadFilterOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: protos.opts.IReadFilterOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified ReadFilterOptions message, length delimited. Does not implicitly {@link protos.opts.ReadFilterOptions.verify|verify} messages.
-             * @param message ReadFilterOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: protos.opts.IReadFilterOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes a ReadFilterOptions message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns ReadFilterOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.ReadFilterOptions;
-
-            /**
-             * Decodes a ReadFilterOptions message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns ReadFilterOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.ReadFilterOptions;
-
-            /**
-             * Verifies a ReadFilterOptions message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates a ReadFilterOptions message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns ReadFilterOptions
-             */
-            public static fromObject(object: { [k: string]: any }): protos.opts.ReadFilterOptions;
-
-            /**
-             * Creates a plain object from a ReadFilterOptions message. Also converts values to other types if specified.
-             * @param message ReadFilterOptions
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: protos.opts.ReadFilterOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this ReadFilterOptions to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-        }
-
-        /** Properties of a ReadOptions. */
-        interface IReadOptions {
-
-            /** ReadOptions name */
-            name?: (string|null);
-
-            /** ReadOptions connectionId */
-            connectionId?: (string|null);
-
-            /** ReadOptions continuous */
-            continuous?: (boolean|null);
-
-            /** ReadOptions sampleOptions */
-            sampleOptions?: (protos.opts.IReadSampleOptions|null);
-
-            /** ReadOptions decodeOptions */
-            decodeOptions?: (protos.encoding.IDecodeOptions|null);
-
-            /** ReadOptions convertOutput */
-            convertOutput?: (protos.opts.ConvertOption|null);
-
-            /** ReadOptions filter */
-            filter?: (protos.opts.IReadFilterOptions|null);
-
-            /** ReadOptions inferSchemaOptions */
-            inferSchemaOptions?: (protos.opts.IInferSchemaOptions|null);
-
-            /** ReadOptions _id */
-            _id?: (string|null);
-
-            /** ReadOptions _active */
-            _active?: (boolean|null);
-
-            /** ReadOptions _cliOptions */
-            _cliOptions?: (protos.opts.IReadCLIOptions|null);
-
-            /** ReadOptions kafka */
-            kafka?: (protos.opts.IReadGroupKafkaOptions|null);
-
-            /** ReadOptions activemq */
-            activemq?: (protos.opts.IReadGroupActiveMQOptions|null);
-
-            /** ReadOptions awsSqs */
-            awsSqs?: (protos.opts.IReadGroupAWSSQSOptions|null);
-
-            /** ReadOptions mongo */
-            mongo?: (protos.opts.IReadGroupMongoOptions|null);
-
-            /** ReadOptions nats */
-            nats?: (protos.opts.IReadGroupNatsOptions|null);
-
-            /** ReadOptions natsStreaming */
-            natsStreaming?: (protos.opts.IReadGroupNatsStreamingOptions|null);
-
-            /** ReadOptions nsq */
-            nsq?: (protos.opts.IReadGroupNSQOptions|null);
-
-            /** ReadOptions pulsar */
-            pulsar?: (protos.opts.IReadGroupPulsarOptions|null);
-
-            /** ReadOptions rabbit */
-            rabbit?: (protos.opts.IReadGroupRabbitOptions|null);
-
-            /** ReadOptions rabbitStreams */
-            rabbitStreams?: (protos.opts.IReadGroupRabbitStreamsOptions|null);
-
-            /** ReadOptions mqtt */
-            mqtt?: (protos.opts.IReadGroupMQTTOptions|null);
-
-            /** ReadOptions azureServiceBus */
-            azureServiceBus?: (protos.opts.IReadGroupAzureServiceBusOptions|null);
-
-            /** ReadOptions azureEventHub */
-            azureEventHub?: (protos.opts.IReadGroupAzureEventHubOptions|null);
-
-            /** ReadOptions gcpPubsub */
-            gcpPubsub?: (protos.opts.IReadGroupGCPPubSubOptions|null);
-
-            /** ReadOptions kubemqQueue */
-            kubemqQueue?: (protos.opts.IReadGroupKubeMQQueueOptions|null);
-
-            /** ReadOptions redisPubsub */
-            redisPubsub?: (protos.opts.IReadGroupRedisPubSubOptions|null);
-
-            /** ReadOptions redisStreams */
-            redisStreams?: (protos.opts.IReadGroupRedisStreamsOptions|null);
-
-            /** ReadOptions postgres */
-            postgres?: (protos.opts.IReadGroupPostgresOptions|null);
-
-            /** ReadOptions natsJetstream */
-            natsJetstream?: (protos.opts.IReadGroupNatsJetstreamOptions|null);
-
-            /** ReadOptions awsKinesis */
-            awsKinesis?: (protos.opts.IReadGroupAWSKinesisOptions|null);
-
-            /** ReadOptions memphis */
-            memphis?: (protos.opts.IReadGroupMemphisOptions|null);
-        }
-
-        /** Represents a ReadOptions. */
-        class ReadOptions implements IReadOptions {
-
-            /**
-             * Constructs a new ReadOptions.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: protos.opts.IReadOptions);
-
-            /** ReadOptions name. */
-            public name: string;
-
-            /** ReadOptions connectionId. */
-            public connectionId: string;
-
-            /** ReadOptions continuous. */
-            public continuous: boolean;
-
-            /** ReadOptions sampleOptions. */
-            public sampleOptions?: (protos.opts.IReadSampleOptions|null);
-
-            /** ReadOptions decodeOptions. */
-            public decodeOptions?: (protos.encoding.IDecodeOptions|null);
-
-            /** ReadOptions convertOutput. */
-            public convertOutput: protos.opts.ConvertOption;
-
-            /** ReadOptions filter. */
-            public filter?: (protos.opts.IReadFilterOptions|null);
-
-            /** ReadOptions inferSchemaOptions. */
-            public inferSchemaOptions?: (protos.opts.IInferSchemaOptions|null);
-
-            /** ReadOptions _id. */
-            public _id: string;
-
-            /** ReadOptions _active. */
-            public _active: boolean;
-
-            /** ReadOptions _cliOptions. */
-            public _cliOptions?: (protos.opts.IReadCLIOptions|null);
-
-            /** ReadOptions kafka. */
-            public kafka?: (protos.opts.IReadGroupKafkaOptions|null);
-
-            /** ReadOptions activemq. */
-            public activemq?: (protos.opts.IReadGroupActiveMQOptions|null);
-
-            /** ReadOptions awsSqs. */
-            public awsSqs?: (protos.opts.IReadGroupAWSSQSOptions|null);
-
-            /** ReadOptions mongo. */
-            public mongo?: (protos.opts.IReadGroupMongoOptions|null);
-
-            /** ReadOptions nats. */
-            public nats?: (protos.opts.IReadGroupNatsOptions|null);
-
-            /** ReadOptions natsStreaming. */
-            public natsStreaming?: (protos.opts.IReadGroupNatsStreamingOptions|null);
-
-            /** ReadOptions nsq. */
-            public nsq?: (protos.opts.IReadGroupNSQOptions|null);
-
-            /** ReadOptions pulsar. */
-            public pulsar?: (protos.opts.IReadGroupPulsarOptions|null);
-
-            /** ReadOptions rabbit. */
-            public rabbit?: (protos.opts.IReadGroupRabbitOptions|null);
-
-            /** ReadOptions rabbitStreams. */
-            public rabbitStreams?: (protos.opts.IReadGroupRabbitStreamsOptions|null);
-
-            /** ReadOptions mqtt. */
-            public mqtt?: (protos.opts.IReadGroupMQTTOptions|null);
-
-            /** ReadOptions azureServiceBus. */
-            public azureServiceBus?: (protos.opts.IReadGroupAzureServiceBusOptions|null);
-
-            /** ReadOptions azureEventHub. */
-            public azureEventHub?: (protos.opts.IReadGroupAzureEventHubOptions|null);
-
-            /** ReadOptions gcpPubsub. */
-            public gcpPubsub?: (protos.opts.IReadGroupGCPPubSubOptions|null);
-
-            /** ReadOptions kubemqQueue. */
-            public kubemqQueue?: (protos.opts.IReadGroupKubeMQQueueOptions|null);
-
-            /** ReadOptions redisPubsub. */
-            public redisPubsub?: (protos.opts.IReadGroupRedisPubSubOptions|null);
-
-            /** ReadOptions redisStreams. */
-            public redisStreams?: (protos.opts.IReadGroupRedisStreamsOptions|null);
-
-            /** ReadOptions postgres. */
-            public postgres?: (protos.opts.IReadGroupPostgresOptions|null);
-
-            /** ReadOptions natsJetstream. */
-            public natsJetstream?: (protos.opts.IReadGroupNatsJetstreamOptions|null);
-
-            /** ReadOptions awsKinesis. */
-            public awsKinesis?: (protos.opts.IReadGroupAWSKinesisOptions|null);
-
-            /** ReadOptions memphis. */
-            public memphis?: (protos.opts.IReadGroupMemphisOptions|null);
-
-            /**
-             * Creates a new ReadOptions instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns ReadOptions instance
-             */
-            public static create(properties?: protos.opts.IReadOptions): protos.opts.ReadOptions;
-
-            /**
-             * Encodes the specified ReadOptions message. Does not implicitly {@link protos.opts.ReadOptions.verify|verify} messages.
-             * @param message ReadOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: protos.opts.IReadOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified ReadOptions message, length delimited. Does not implicitly {@link protos.opts.ReadOptions.verify|verify} messages.
-             * @param message ReadOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: protos.opts.IReadOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes a ReadOptions message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns ReadOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.ReadOptions;
-
-            /**
-             * Decodes a ReadOptions message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns ReadOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.ReadOptions;
-
-            /**
-             * Verifies a ReadOptions message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates a ReadOptions message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns ReadOptions
-             */
-            public static fromObject(object: { [k: string]: any }): protos.opts.ReadOptions;
-
-            /**
-             * Creates a plain object from a ReadOptions message. Also converts values to other types if specified.
-             * @param message ReadOptions
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: protos.opts.ReadOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this ReadOptions to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-        }
-
-        /** Properties of a ReadGroupKafkaOptions. */
-        interface IReadGroupKafkaOptions {
-
-            /** ReadGroupKafkaOptions _conn */
-            _conn?: (protos.args.IKafkaConn|null);
-
-            /** ReadGroupKafkaOptions args */
-            args?: (protos.args.IKafkaReadArgs|null);
-        }
-
-        /** Represents a ReadGroupKafkaOptions. */
-        class ReadGroupKafkaOptions implements IReadGroupKafkaOptions {
-
-            /**
-             * Constructs a new ReadGroupKafkaOptions.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: protos.opts.IReadGroupKafkaOptions);
-
-            /** ReadGroupKafkaOptions _conn. */
-            public _conn?: (protos.args.IKafkaConn|null);
-
-            /** ReadGroupKafkaOptions args. */
-            public args?: (protos.args.IKafkaReadArgs|null);
-
-            /**
-             * Creates a new ReadGroupKafkaOptions instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns ReadGroupKafkaOptions instance
-             */
-            public static create(properties?: protos.opts.IReadGroupKafkaOptions): protos.opts.ReadGroupKafkaOptions;
-
-            /**
-             * Encodes the specified ReadGroupKafkaOptions message. Does not implicitly {@link protos.opts.ReadGroupKafkaOptions.verify|verify} messages.
-             * @param message ReadGroupKafkaOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: protos.opts.IReadGroupKafkaOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified ReadGroupKafkaOptions message, length delimited. Does not implicitly {@link protos.opts.ReadGroupKafkaOptions.verify|verify} messages.
-             * @param message ReadGroupKafkaOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: protos.opts.IReadGroupKafkaOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes a ReadGroupKafkaOptions message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns ReadGroupKafkaOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.ReadGroupKafkaOptions;
-
-            /**
-             * Decodes a ReadGroupKafkaOptions message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns ReadGroupKafkaOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.ReadGroupKafkaOptions;
-
-            /**
-             * Verifies a ReadGroupKafkaOptions message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates a ReadGroupKafkaOptions message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns ReadGroupKafkaOptions
-             */
-            public static fromObject(object: { [k: string]: any }): protos.opts.ReadGroupKafkaOptions;
-
-            /**
-             * Creates a plain object from a ReadGroupKafkaOptions message. Also converts values to other types if specified.
-             * @param message ReadGroupKafkaOptions
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: protos.opts.ReadGroupKafkaOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this ReadGroupKafkaOptions to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-        }
-
-        /** Properties of a ReadGroupActiveMQOptions. */
-        interface IReadGroupActiveMQOptions {
-
-            /** ReadGroupActiveMQOptions _conn */
-            _conn?: (protos.args.IActiveMQConn|null);
-
-            /** ReadGroupActiveMQOptions args */
-            args?: (protos.args.IActiveMQReadArgs|null);
-        }
-
-        /** Represents a ReadGroupActiveMQOptions. */
-        class ReadGroupActiveMQOptions implements IReadGroupActiveMQOptions {
-
-            /**
-             * Constructs a new ReadGroupActiveMQOptions.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: protos.opts.IReadGroupActiveMQOptions);
-
-            /** ReadGroupActiveMQOptions _conn. */
-            public _conn?: (protos.args.IActiveMQConn|null);
-
-            /** ReadGroupActiveMQOptions args. */
-            public args?: (protos.args.IActiveMQReadArgs|null);
-
-            /**
-             * Creates a new ReadGroupActiveMQOptions instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns ReadGroupActiveMQOptions instance
-             */
-            public static create(properties?: protos.opts.IReadGroupActiveMQOptions): protos.opts.ReadGroupActiveMQOptions;
-
-            /**
-             * Encodes the specified ReadGroupActiveMQOptions message. Does not implicitly {@link protos.opts.ReadGroupActiveMQOptions.verify|verify} messages.
-             * @param message ReadGroupActiveMQOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: protos.opts.IReadGroupActiveMQOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified ReadGroupActiveMQOptions message, length delimited. Does not implicitly {@link protos.opts.ReadGroupActiveMQOptions.verify|verify} messages.
-             * @param message ReadGroupActiveMQOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: protos.opts.IReadGroupActiveMQOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes a ReadGroupActiveMQOptions message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns ReadGroupActiveMQOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.ReadGroupActiveMQOptions;
-
-            /**
-             * Decodes a ReadGroupActiveMQOptions message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns ReadGroupActiveMQOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.ReadGroupActiveMQOptions;
-
-            /**
-             * Verifies a ReadGroupActiveMQOptions message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates a ReadGroupActiveMQOptions message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns ReadGroupActiveMQOptions
-             */
-            public static fromObject(object: { [k: string]: any }): protos.opts.ReadGroupActiveMQOptions;
-
-            /**
-             * Creates a plain object from a ReadGroupActiveMQOptions message. Also converts values to other types if specified.
-             * @param message ReadGroupActiveMQOptions
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: protos.opts.ReadGroupActiveMQOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this ReadGroupActiveMQOptions to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-        }
-
-        /** Properties of a ReadGroupAWSSQSOptions. */
-        interface IReadGroupAWSSQSOptions {
-
-            /** ReadGroupAWSSQSOptions _conn */
-            _conn?: (protos.args.IAWSSQSConn|null);
-
-            /** ReadGroupAWSSQSOptions args */
-            args?: (protos.args.IAWSSQSReadArgs|null);
-        }
-
-        /** Represents a ReadGroupAWSSQSOptions. */
-        class ReadGroupAWSSQSOptions implements IReadGroupAWSSQSOptions {
-
-            /**
-             * Constructs a new ReadGroupAWSSQSOptions.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: protos.opts.IReadGroupAWSSQSOptions);
-
-            /** ReadGroupAWSSQSOptions _conn. */
-            public _conn?: (protos.args.IAWSSQSConn|null);
-
-            /** ReadGroupAWSSQSOptions args. */
-            public args?: (protos.args.IAWSSQSReadArgs|null);
-
-            /**
-             * Creates a new ReadGroupAWSSQSOptions instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns ReadGroupAWSSQSOptions instance
-             */
-            public static create(properties?: protos.opts.IReadGroupAWSSQSOptions): protos.opts.ReadGroupAWSSQSOptions;
-
-            /**
-             * Encodes the specified ReadGroupAWSSQSOptions message. Does not implicitly {@link protos.opts.ReadGroupAWSSQSOptions.verify|verify} messages.
-             * @param message ReadGroupAWSSQSOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: protos.opts.IReadGroupAWSSQSOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified ReadGroupAWSSQSOptions message, length delimited. Does not implicitly {@link protos.opts.ReadGroupAWSSQSOptions.verify|verify} messages.
-             * @param message ReadGroupAWSSQSOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: protos.opts.IReadGroupAWSSQSOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes a ReadGroupAWSSQSOptions message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns ReadGroupAWSSQSOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.ReadGroupAWSSQSOptions;
-
-            /**
-             * Decodes a ReadGroupAWSSQSOptions message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns ReadGroupAWSSQSOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.ReadGroupAWSSQSOptions;
-
-            /**
-             * Verifies a ReadGroupAWSSQSOptions message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates a ReadGroupAWSSQSOptions message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns ReadGroupAWSSQSOptions
-             */
-            public static fromObject(object: { [k: string]: any }): protos.opts.ReadGroupAWSSQSOptions;
-
-            /**
-             * Creates a plain object from a ReadGroupAWSSQSOptions message. Also converts values to other types if specified.
-             * @param message ReadGroupAWSSQSOptions
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: protos.opts.ReadGroupAWSSQSOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this ReadGroupAWSSQSOptions to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-        }
-
-        /** Properties of a ReadGroupMongoOptions. */
-        interface IReadGroupMongoOptions {
-
-            /** ReadGroupMongoOptions _conn */
-            _conn?: (protos.args.IMongoConn|null);
-
-            /** ReadGroupMongoOptions args */
-            args?: (protos.args.IMongoReadArgs|null);
-        }
-
-        /** Represents a ReadGroupMongoOptions. */
-        class ReadGroupMongoOptions implements IReadGroupMongoOptions {
-
-            /**
-             * Constructs a new ReadGroupMongoOptions.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: protos.opts.IReadGroupMongoOptions);
-
-            /** ReadGroupMongoOptions _conn. */
-            public _conn?: (protos.args.IMongoConn|null);
-
-            /** ReadGroupMongoOptions args. */
-            public args?: (protos.args.IMongoReadArgs|null);
-
-            /**
-             * Creates a new ReadGroupMongoOptions instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns ReadGroupMongoOptions instance
-             */
-            public static create(properties?: protos.opts.IReadGroupMongoOptions): protos.opts.ReadGroupMongoOptions;
-
-            /**
-             * Encodes the specified ReadGroupMongoOptions message. Does not implicitly {@link protos.opts.ReadGroupMongoOptions.verify|verify} messages.
-             * @param message ReadGroupMongoOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: protos.opts.IReadGroupMongoOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified ReadGroupMongoOptions message, length delimited. Does not implicitly {@link protos.opts.ReadGroupMongoOptions.verify|verify} messages.
-             * @param message ReadGroupMongoOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: protos.opts.IReadGroupMongoOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes a ReadGroupMongoOptions message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns ReadGroupMongoOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.ReadGroupMongoOptions;
-
-            /**
-             * Decodes a ReadGroupMongoOptions message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns ReadGroupMongoOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.ReadGroupMongoOptions;
-
-            /**
-             * Verifies a ReadGroupMongoOptions message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates a ReadGroupMongoOptions message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns ReadGroupMongoOptions
-             */
-            public static fromObject(object: { [k: string]: any }): protos.opts.ReadGroupMongoOptions;
-
-            /**
-             * Creates a plain object from a ReadGroupMongoOptions message. Also converts values to other types if specified.
-             * @param message ReadGroupMongoOptions
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: protos.opts.ReadGroupMongoOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this ReadGroupMongoOptions to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-        }
-
-        /** Properties of a ReadGroupNatsOptions. */
-        interface IReadGroupNatsOptions {
-
-            /** ReadGroupNatsOptions _conn */
-            _conn?: (protos.args.INatsConn|null);
-
-            /** ReadGroupNatsOptions args */
-            args?: (protos.args.INatsReadArgs|null);
-        }
-
-        /** Represents a ReadGroupNatsOptions. */
-        class ReadGroupNatsOptions implements IReadGroupNatsOptions {
-
-            /**
-             * Constructs a new ReadGroupNatsOptions.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: protos.opts.IReadGroupNatsOptions);
-
-            /** ReadGroupNatsOptions _conn. */
-            public _conn?: (protos.args.INatsConn|null);
-
-            /** ReadGroupNatsOptions args. */
-            public args?: (protos.args.INatsReadArgs|null);
-
-            /**
-             * Creates a new ReadGroupNatsOptions instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns ReadGroupNatsOptions instance
-             */
-            public static create(properties?: protos.opts.IReadGroupNatsOptions): protos.opts.ReadGroupNatsOptions;
-
-            /**
-             * Encodes the specified ReadGroupNatsOptions message. Does not implicitly {@link protos.opts.ReadGroupNatsOptions.verify|verify} messages.
-             * @param message ReadGroupNatsOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: protos.opts.IReadGroupNatsOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified ReadGroupNatsOptions message, length delimited. Does not implicitly {@link protos.opts.ReadGroupNatsOptions.verify|verify} messages.
-             * @param message ReadGroupNatsOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: protos.opts.IReadGroupNatsOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes a ReadGroupNatsOptions message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns ReadGroupNatsOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.ReadGroupNatsOptions;
-
-            /**
-             * Decodes a ReadGroupNatsOptions message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns ReadGroupNatsOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.ReadGroupNatsOptions;
-
-            /**
-             * Verifies a ReadGroupNatsOptions message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates a ReadGroupNatsOptions message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns ReadGroupNatsOptions
-             */
-            public static fromObject(object: { [k: string]: any }): protos.opts.ReadGroupNatsOptions;
-
-            /**
-             * Creates a plain object from a ReadGroupNatsOptions message. Also converts values to other types if specified.
-             * @param message ReadGroupNatsOptions
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: protos.opts.ReadGroupNatsOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this ReadGroupNatsOptions to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-        }
-
-        /** Properties of a ReadGroupNatsStreamingOptions. */
-        interface IReadGroupNatsStreamingOptions {
-
-            /** ReadGroupNatsStreamingOptions _conn */
-            _conn?: (protos.args.INatsStreamingConn|null);
-
-            /** ReadGroupNatsStreamingOptions args */
-            args?: (protos.args.INatsStreamingReadArgs|null);
-        }
-
-        /** Represents a ReadGroupNatsStreamingOptions. */
-        class ReadGroupNatsStreamingOptions implements IReadGroupNatsStreamingOptions {
-
-            /**
-             * Constructs a new ReadGroupNatsStreamingOptions.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: protos.opts.IReadGroupNatsStreamingOptions);
-
-            /** ReadGroupNatsStreamingOptions _conn. */
-            public _conn?: (protos.args.INatsStreamingConn|null);
-
-            /** ReadGroupNatsStreamingOptions args. */
-            public args?: (protos.args.INatsStreamingReadArgs|null);
-
-            /**
-             * Creates a new ReadGroupNatsStreamingOptions instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns ReadGroupNatsStreamingOptions instance
-             */
-            public static create(properties?: protos.opts.IReadGroupNatsStreamingOptions): protos.opts.ReadGroupNatsStreamingOptions;
-
-            /**
-             * Encodes the specified ReadGroupNatsStreamingOptions message. Does not implicitly {@link protos.opts.ReadGroupNatsStreamingOptions.verify|verify} messages.
-             * @param message ReadGroupNatsStreamingOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: protos.opts.IReadGroupNatsStreamingOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified ReadGroupNatsStreamingOptions message, length delimited. Does not implicitly {@link protos.opts.ReadGroupNatsStreamingOptions.verify|verify} messages.
-             * @param message ReadGroupNatsStreamingOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: protos.opts.IReadGroupNatsStreamingOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes a ReadGroupNatsStreamingOptions message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns ReadGroupNatsStreamingOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.ReadGroupNatsStreamingOptions;
-
-            /**
-             * Decodes a ReadGroupNatsStreamingOptions message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns ReadGroupNatsStreamingOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.ReadGroupNatsStreamingOptions;
-
-            /**
-             * Verifies a ReadGroupNatsStreamingOptions message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates a ReadGroupNatsStreamingOptions message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns ReadGroupNatsStreamingOptions
-             */
-            public static fromObject(object: { [k: string]: any }): protos.opts.ReadGroupNatsStreamingOptions;
-
-            /**
-             * Creates a plain object from a ReadGroupNatsStreamingOptions message. Also converts values to other types if specified.
-             * @param message ReadGroupNatsStreamingOptions
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: protos.opts.ReadGroupNatsStreamingOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this ReadGroupNatsStreamingOptions to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-        }
-
-        /** Properties of a ReadGroupNatsJetstreamOptions. */
-        interface IReadGroupNatsJetstreamOptions {
-
-            /** ReadGroupNatsJetstreamOptions _conn */
-            _conn?: (protos.args.INatsJetstreamConn|null);
-
-            /** ReadGroupNatsJetstreamOptions args */
-            args?: (protos.args.INatsJetstreamReadArgs|null);
-        }
-
-        /** Represents a ReadGroupNatsJetstreamOptions. */
-        class ReadGroupNatsJetstreamOptions implements IReadGroupNatsJetstreamOptions {
-
-            /**
-             * Constructs a new ReadGroupNatsJetstreamOptions.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: protos.opts.IReadGroupNatsJetstreamOptions);
-
-            /** ReadGroupNatsJetstreamOptions _conn. */
-            public _conn?: (protos.args.INatsJetstreamConn|null);
-
-            /** ReadGroupNatsJetstreamOptions args. */
-            public args?: (protos.args.INatsJetstreamReadArgs|null);
-
-            /**
-             * Creates a new ReadGroupNatsJetstreamOptions instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns ReadGroupNatsJetstreamOptions instance
-             */
-            public static create(properties?: protos.opts.IReadGroupNatsJetstreamOptions): protos.opts.ReadGroupNatsJetstreamOptions;
-
-            /**
-             * Encodes the specified ReadGroupNatsJetstreamOptions message. Does not implicitly {@link protos.opts.ReadGroupNatsJetstreamOptions.verify|verify} messages.
-             * @param message ReadGroupNatsJetstreamOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: protos.opts.IReadGroupNatsJetstreamOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified ReadGroupNatsJetstreamOptions message, length delimited. Does not implicitly {@link protos.opts.ReadGroupNatsJetstreamOptions.verify|verify} messages.
-             * @param message ReadGroupNatsJetstreamOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: protos.opts.IReadGroupNatsJetstreamOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes a ReadGroupNatsJetstreamOptions message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns ReadGroupNatsJetstreamOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.ReadGroupNatsJetstreamOptions;
-
-            /**
-             * Decodes a ReadGroupNatsJetstreamOptions message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns ReadGroupNatsJetstreamOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.ReadGroupNatsJetstreamOptions;
-
-            /**
-             * Verifies a ReadGroupNatsJetstreamOptions message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates a ReadGroupNatsJetstreamOptions message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns ReadGroupNatsJetstreamOptions
-             */
-            public static fromObject(object: { [k: string]: any }): protos.opts.ReadGroupNatsJetstreamOptions;
-
-            /**
-             * Creates a plain object from a ReadGroupNatsJetstreamOptions message. Also converts values to other types if specified.
-             * @param message ReadGroupNatsJetstreamOptions
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: protos.opts.ReadGroupNatsJetstreamOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this ReadGroupNatsJetstreamOptions to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-        }
-
-        /** Properties of a ReadGroupNSQOptions. */
-        interface IReadGroupNSQOptions {
-
-            /** ReadGroupNSQOptions _conn */
-            _conn?: (protos.args.INSQConn|null);
-
-            /** ReadGroupNSQOptions args */
-            args?: (protos.args.INSQReadArgs|null);
-        }
-
-        /** Represents a ReadGroupNSQOptions. */
-        class ReadGroupNSQOptions implements IReadGroupNSQOptions {
-
-            /**
-             * Constructs a new ReadGroupNSQOptions.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: protos.opts.IReadGroupNSQOptions);
-
-            /** ReadGroupNSQOptions _conn. */
-            public _conn?: (protos.args.INSQConn|null);
-
-            /** ReadGroupNSQOptions args. */
-            public args?: (protos.args.INSQReadArgs|null);
-
-            /**
-             * Creates a new ReadGroupNSQOptions instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns ReadGroupNSQOptions instance
-             */
-            public static create(properties?: protos.opts.IReadGroupNSQOptions): protos.opts.ReadGroupNSQOptions;
-
-            /**
-             * Encodes the specified ReadGroupNSQOptions message. Does not implicitly {@link protos.opts.ReadGroupNSQOptions.verify|verify} messages.
-             * @param message ReadGroupNSQOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: protos.opts.IReadGroupNSQOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified ReadGroupNSQOptions message, length delimited. Does not implicitly {@link protos.opts.ReadGroupNSQOptions.verify|verify} messages.
-             * @param message ReadGroupNSQOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: protos.opts.IReadGroupNSQOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes a ReadGroupNSQOptions message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns ReadGroupNSQOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.ReadGroupNSQOptions;
-
-            /**
-             * Decodes a ReadGroupNSQOptions message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns ReadGroupNSQOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.ReadGroupNSQOptions;
-
-            /**
-             * Verifies a ReadGroupNSQOptions message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates a ReadGroupNSQOptions message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns ReadGroupNSQOptions
-             */
-            public static fromObject(object: { [k: string]: any }): protos.opts.ReadGroupNSQOptions;
-
-            /**
-             * Creates a plain object from a ReadGroupNSQOptions message. Also converts values to other types if specified.
-             * @param message ReadGroupNSQOptions
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: protos.opts.ReadGroupNSQOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this ReadGroupNSQOptions to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-        }
-
-        /** Properties of a ReadGroupPostgresOptions. */
-        interface IReadGroupPostgresOptions {
-
-            /** ReadGroupPostgresOptions _conn */
-            _conn?: (protos.args.IPostgresConn|null);
-
-            /** ReadGroupPostgresOptions args */
-            args?: (protos.args.IPostgresReadArgs|null);
-        }
-
-        /** Represents a ReadGroupPostgresOptions. */
-        class ReadGroupPostgresOptions implements IReadGroupPostgresOptions {
-
-            /**
-             * Constructs a new ReadGroupPostgresOptions.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: protos.opts.IReadGroupPostgresOptions);
-
-            /** ReadGroupPostgresOptions _conn. */
-            public _conn?: (protos.args.IPostgresConn|null);
-
-            /** ReadGroupPostgresOptions args. */
-            public args?: (protos.args.IPostgresReadArgs|null);
-
-            /**
-             * Creates a new ReadGroupPostgresOptions instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns ReadGroupPostgresOptions instance
-             */
-            public static create(properties?: protos.opts.IReadGroupPostgresOptions): protos.opts.ReadGroupPostgresOptions;
-
-            /**
-             * Encodes the specified ReadGroupPostgresOptions message. Does not implicitly {@link protos.opts.ReadGroupPostgresOptions.verify|verify} messages.
-             * @param message ReadGroupPostgresOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: protos.opts.IReadGroupPostgresOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified ReadGroupPostgresOptions message, length delimited. Does not implicitly {@link protos.opts.ReadGroupPostgresOptions.verify|verify} messages.
-             * @param message ReadGroupPostgresOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: protos.opts.IReadGroupPostgresOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes a ReadGroupPostgresOptions message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns ReadGroupPostgresOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.ReadGroupPostgresOptions;
-
-            /**
-             * Decodes a ReadGroupPostgresOptions message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns ReadGroupPostgresOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.ReadGroupPostgresOptions;
-
-            /**
-             * Verifies a ReadGroupPostgresOptions message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates a ReadGroupPostgresOptions message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns ReadGroupPostgresOptions
-             */
-            public static fromObject(object: { [k: string]: any }): protos.opts.ReadGroupPostgresOptions;
-
-            /**
-             * Creates a plain object from a ReadGroupPostgresOptions message. Also converts values to other types if specified.
-             * @param message ReadGroupPostgresOptions
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: protos.opts.ReadGroupPostgresOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this ReadGroupPostgresOptions to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-        }
-
-        /** Properties of a ReadGroupPulsarOptions. */
-        interface IReadGroupPulsarOptions {
-
-            /** ReadGroupPulsarOptions _conn */
-            _conn?: (protos.args.IPulsarConn|null);
-
-            /** ReadGroupPulsarOptions args */
-            args?: (protos.args.IPulsarReadArgs|null);
-        }
-
-        /** Represents a ReadGroupPulsarOptions. */
-        class ReadGroupPulsarOptions implements IReadGroupPulsarOptions {
-
-            /**
-             * Constructs a new ReadGroupPulsarOptions.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: protos.opts.IReadGroupPulsarOptions);
-
-            /** ReadGroupPulsarOptions _conn. */
-            public _conn?: (protos.args.IPulsarConn|null);
-
-            /** ReadGroupPulsarOptions args. */
-            public args?: (protos.args.IPulsarReadArgs|null);
-
-            /**
-             * Creates a new ReadGroupPulsarOptions instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns ReadGroupPulsarOptions instance
-             */
-            public static create(properties?: protos.opts.IReadGroupPulsarOptions): protos.opts.ReadGroupPulsarOptions;
-
-            /**
-             * Encodes the specified ReadGroupPulsarOptions message. Does not implicitly {@link protos.opts.ReadGroupPulsarOptions.verify|verify} messages.
-             * @param message ReadGroupPulsarOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: protos.opts.IReadGroupPulsarOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified ReadGroupPulsarOptions message, length delimited. Does not implicitly {@link protos.opts.ReadGroupPulsarOptions.verify|verify} messages.
-             * @param message ReadGroupPulsarOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: protos.opts.IReadGroupPulsarOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes a ReadGroupPulsarOptions message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns ReadGroupPulsarOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.ReadGroupPulsarOptions;
-
-            /**
-             * Decodes a ReadGroupPulsarOptions message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns ReadGroupPulsarOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.ReadGroupPulsarOptions;
-
-            /**
-             * Verifies a ReadGroupPulsarOptions message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates a ReadGroupPulsarOptions message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns ReadGroupPulsarOptions
-             */
-            public static fromObject(object: { [k: string]: any }): protos.opts.ReadGroupPulsarOptions;
-
-            /**
-             * Creates a plain object from a ReadGroupPulsarOptions message. Also converts values to other types if specified.
-             * @param message ReadGroupPulsarOptions
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: protos.opts.ReadGroupPulsarOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this ReadGroupPulsarOptions to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-        }
-
-        /** Properties of a ReadGroupRabbitOptions. */
-        interface IReadGroupRabbitOptions {
-
-            /** ReadGroupRabbitOptions _conn */
-            _conn?: (protos.args.IRabbitConn|null);
-
-            /** ReadGroupRabbitOptions args */
-            args?: (protos.args.IRabbitReadArgs|null);
-        }
-
-        /** Represents a ReadGroupRabbitOptions. */
-        class ReadGroupRabbitOptions implements IReadGroupRabbitOptions {
-
-            /**
-             * Constructs a new ReadGroupRabbitOptions.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: protos.opts.IReadGroupRabbitOptions);
-
-            /** ReadGroupRabbitOptions _conn. */
-            public _conn?: (protos.args.IRabbitConn|null);
-
-            /** ReadGroupRabbitOptions args. */
-            public args?: (protos.args.IRabbitReadArgs|null);
-
-            /**
-             * Creates a new ReadGroupRabbitOptions instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns ReadGroupRabbitOptions instance
-             */
-            public static create(properties?: protos.opts.IReadGroupRabbitOptions): protos.opts.ReadGroupRabbitOptions;
-
-            /**
-             * Encodes the specified ReadGroupRabbitOptions message. Does not implicitly {@link protos.opts.ReadGroupRabbitOptions.verify|verify} messages.
-             * @param message ReadGroupRabbitOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: protos.opts.IReadGroupRabbitOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified ReadGroupRabbitOptions message, length delimited. Does not implicitly {@link protos.opts.ReadGroupRabbitOptions.verify|verify} messages.
-             * @param message ReadGroupRabbitOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: protos.opts.IReadGroupRabbitOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes a ReadGroupRabbitOptions message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns ReadGroupRabbitOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.ReadGroupRabbitOptions;
-
-            /**
-             * Decodes a ReadGroupRabbitOptions message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns ReadGroupRabbitOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.ReadGroupRabbitOptions;
-
-            /**
-             * Verifies a ReadGroupRabbitOptions message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates a ReadGroupRabbitOptions message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns ReadGroupRabbitOptions
-             */
-            public static fromObject(object: { [k: string]: any }): protos.opts.ReadGroupRabbitOptions;
-
-            /**
-             * Creates a plain object from a ReadGroupRabbitOptions message. Also converts values to other types if specified.
-             * @param message ReadGroupRabbitOptions
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: protos.opts.ReadGroupRabbitOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this ReadGroupRabbitOptions to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-        }
-
-        /** Properties of a ReadGroupRabbitStreamsOptions. */
-        interface IReadGroupRabbitStreamsOptions {
-
-            /** ReadGroupRabbitStreamsOptions _conn */
-            _conn?: (protos.args.IRabbitStreamsConn|null);
-
-            /** ReadGroupRabbitStreamsOptions args */
-            args?: (protos.args.IRabbitStreamsReadArgs|null);
-        }
-
-        /** Represents a ReadGroupRabbitStreamsOptions. */
-        class ReadGroupRabbitStreamsOptions implements IReadGroupRabbitStreamsOptions {
-
-            /**
-             * Constructs a new ReadGroupRabbitStreamsOptions.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: protos.opts.IReadGroupRabbitStreamsOptions);
-
-            /** ReadGroupRabbitStreamsOptions _conn. */
-            public _conn?: (protos.args.IRabbitStreamsConn|null);
-
-            /** ReadGroupRabbitStreamsOptions args. */
-            public args?: (protos.args.IRabbitStreamsReadArgs|null);
-
-            /**
-             * Creates a new ReadGroupRabbitStreamsOptions instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns ReadGroupRabbitStreamsOptions instance
-             */
-            public static create(properties?: protos.opts.IReadGroupRabbitStreamsOptions): protos.opts.ReadGroupRabbitStreamsOptions;
-
-            /**
-             * Encodes the specified ReadGroupRabbitStreamsOptions message. Does not implicitly {@link protos.opts.ReadGroupRabbitStreamsOptions.verify|verify} messages.
-             * @param message ReadGroupRabbitStreamsOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: protos.opts.IReadGroupRabbitStreamsOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified ReadGroupRabbitStreamsOptions message, length delimited. Does not implicitly {@link protos.opts.ReadGroupRabbitStreamsOptions.verify|verify} messages.
-             * @param message ReadGroupRabbitStreamsOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: protos.opts.IReadGroupRabbitStreamsOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes a ReadGroupRabbitStreamsOptions message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns ReadGroupRabbitStreamsOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.ReadGroupRabbitStreamsOptions;
-
-            /**
-             * Decodes a ReadGroupRabbitStreamsOptions message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns ReadGroupRabbitStreamsOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.ReadGroupRabbitStreamsOptions;
-
-            /**
-             * Verifies a ReadGroupRabbitStreamsOptions message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates a ReadGroupRabbitStreamsOptions message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns ReadGroupRabbitStreamsOptions
-             */
-            public static fromObject(object: { [k: string]: any }): protos.opts.ReadGroupRabbitStreamsOptions;
-
-            /**
-             * Creates a plain object from a ReadGroupRabbitStreamsOptions message. Also converts values to other types if specified.
-             * @param message ReadGroupRabbitStreamsOptions
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: protos.opts.ReadGroupRabbitStreamsOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this ReadGroupRabbitStreamsOptions to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-        }
-
-        /** Properties of a ReadGroupRedisPubSubOptions. */
-        interface IReadGroupRedisPubSubOptions {
-
-            /** ReadGroupRedisPubSubOptions _conn */
-            _conn?: (protos.args.IRedisPubSubConn|null);
-
-            /** ReadGroupRedisPubSubOptions args */
-            args?: (protos.args.IRedisPubSubReadArgs|null);
-        }
-
-        /** Represents a ReadGroupRedisPubSubOptions. */
-        class ReadGroupRedisPubSubOptions implements IReadGroupRedisPubSubOptions {
-
-            /**
-             * Constructs a new ReadGroupRedisPubSubOptions.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: protos.opts.IReadGroupRedisPubSubOptions);
-
-            /** ReadGroupRedisPubSubOptions _conn. */
-            public _conn?: (protos.args.IRedisPubSubConn|null);
-
-            /** ReadGroupRedisPubSubOptions args. */
-            public args?: (protos.args.IRedisPubSubReadArgs|null);
-
-            /**
-             * Creates a new ReadGroupRedisPubSubOptions instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns ReadGroupRedisPubSubOptions instance
-             */
-            public static create(properties?: protos.opts.IReadGroupRedisPubSubOptions): protos.opts.ReadGroupRedisPubSubOptions;
-
-            /**
-             * Encodes the specified ReadGroupRedisPubSubOptions message. Does not implicitly {@link protos.opts.ReadGroupRedisPubSubOptions.verify|verify} messages.
-             * @param message ReadGroupRedisPubSubOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: protos.opts.IReadGroupRedisPubSubOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified ReadGroupRedisPubSubOptions message, length delimited. Does not implicitly {@link protos.opts.ReadGroupRedisPubSubOptions.verify|verify} messages.
-             * @param message ReadGroupRedisPubSubOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: protos.opts.IReadGroupRedisPubSubOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes a ReadGroupRedisPubSubOptions message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns ReadGroupRedisPubSubOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.ReadGroupRedisPubSubOptions;
-
-            /**
-             * Decodes a ReadGroupRedisPubSubOptions message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns ReadGroupRedisPubSubOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.ReadGroupRedisPubSubOptions;
-
-            /**
-             * Verifies a ReadGroupRedisPubSubOptions message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates a ReadGroupRedisPubSubOptions message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns ReadGroupRedisPubSubOptions
-             */
-            public static fromObject(object: { [k: string]: any }): protos.opts.ReadGroupRedisPubSubOptions;
-
-            /**
-             * Creates a plain object from a ReadGroupRedisPubSubOptions message. Also converts values to other types if specified.
-             * @param message ReadGroupRedisPubSubOptions
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: protos.opts.ReadGroupRedisPubSubOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this ReadGroupRedisPubSubOptions to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-        }
-
-        /** Properties of a ReadGroupRedisStreamsOptions. */
-        interface IReadGroupRedisStreamsOptions {
-
-            /** ReadGroupRedisStreamsOptions _conn */
-            _conn?: (protos.args.IRedisStreamsConn|null);
-
-            /** ReadGroupRedisStreamsOptions args */
-            args?: (protos.args.IRedisStreamsReadArgs|null);
-        }
-
-        /** Represents a ReadGroupRedisStreamsOptions. */
-        class ReadGroupRedisStreamsOptions implements IReadGroupRedisStreamsOptions {
-
-            /**
-             * Constructs a new ReadGroupRedisStreamsOptions.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: protos.opts.IReadGroupRedisStreamsOptions);
-
-            /** ReadGroupRedisStreamsOptions _conn. */
-            public _conn?: (protos.args.IRedisStreamsConn|null);
-
-            /** ReadGroupRedisStreamsOptions args. */
-            public args?: (protos.args.IRedisStreamsReadArgs|null);
-
-            /**
-             * Creates a new ReadGroupRedisStreamsOptions instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns ReadGroupRedisStreamsOptions instance
-             */
-            public static create(properties?: protos.opts.IReadGroupRedisStreamsOptions): protos.opts.ReadGroupRedisStreamsOptions;
-
-            /**
-             * Encodes the specified ReadGroupRedisStreamsOptions message. Does not implicitly {@link protos.opts.ReadGroupRedisStreamsOptions.verify|verify} messages.
-             * @param message ReadGroupRedisStreamsOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: protos.opts.IReadGroupRedisStreamsOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified ReadGroupRedisStreamsOptions message, length delimited. Does not implicitly {@link protos.opts.ReadGroupRedisStreamsOptions.verify|verify} messages.
-             * @param message ReadGroupRedisStreamsOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: protos.opts.IReadGroupRedisStreamsOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes a ReadGroupRedisStreamsOptions message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns ReadGroupRedisStreamsOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.ReadGroupRedisStreamsOptions;
-
-            /**
-             * Decodes a ReadGroupRedisStreamsOptions message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns ReadGroupRedisStreamsOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.ReadGroupRedisStreamsOptions;
-
-            /**
-             * Verifies a ReadGroupRedisStreamsOptions message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates a ReadGroupRedisStreamsOptions message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns ReadGroupRedisStreamsOptions
-             */
-            public static fromObject(object: { [k: string]: any }): protos.opts.ReadGroupRedisStreamsOptions;
-
-            /**
-             * Creates a plain object from a ReadGroupRedisStreamsOptions message. Also converts values to other types if specified.
-             * @param message ReadGroupRedisStreamsOptions
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: protos.opts.ReadGroupRedisStreamsOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this ReadGroupRedisStreamsOptions to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-        }
-
-        /** Properties of a ReadGroupAzureEventHubOptions. */
-        interface IReadGroupAzureEventHubOptions {
-
-            /** ReadGroupAzureEventHubOptions _conn */
-            _conn?: (protos.args.IAzureEventHubConn|null);
-
-            /** ReadGroupAzureEventHubOptions args */
-            args?: (protos.args.IAzureEventHubReadArgs|null);
-        }
-
-        /** Represents a ReadGroupAzureEventHubOptions. */
-        class ReadGroupAzureEventHubOptions implements IReadGroupAzureEventHubOptions {
-
-            /**
-             * Constructs a new ReadGroupAzureEventHubOptions.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: protos.opts.IReadGroupAzureEventHubOptions);
-
-            /** ReadGroupAzureEventHubOptions _conn. */
-            public _conn?: (protos.args.IAzureEventHubConn|null);
-
-            /** ReadGroupAzureEventHubOptions args. */
-            public args?: (protos.args.IAzureEventHubReadArgs|null);
-
-            /**
-             * Creates a new ReadGroupAzureEventHubOptions instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns ReadGroupAzureEventHubOptions instance
-             */
-            public static create(properties?: protos.opts.IReadGroupAzureEventHubOptions): protos.opts.ReadGroupAzureEventHubOptions;
-
-            /**
-             * Encodes the specified ReadGroupAzureEventHubOptions message. Does not implicitly {@link protos.opts.ReadGroupAzureEventHubOptions.verify|verify} messages.
-             * @param message ReadGroupAzureEventHubOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: protos.opts.IReadGroupAzureEventHubOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified ReadGroupAzureEventHubOptions message, length delimited. Does not implicitly {@link protos.opts.ReadGroupAzureEventHubOptions.verify|verify} messages.
-             * @param message ReadGroupAzureEventHubOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: protos.opts.IReadGroupAzureEventHubOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes a ReadGroupAzureEventHubOptions message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns ReadGroupAzureEventHubOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.ReadGroupAzureEventHubOptions;
-
-            /**
-             * Decodes a ReadGroupAzureEventHubOptions message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns ReadGroupAzureEventHubOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.ReadGroupAzureEventHubOptions;
-
-            /**
-             * Verifies a ReadGroupAzureEventHubOptions message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates a ReadGroupAzureEventHubOptions message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns ReadGroupAzureEventHubOptions
-             */
-            public static fromObject(object: { [k: string]: any }): protos.opts.ReadGroupAzureEventHubOptions;
-
-            /**
-             * Creates a plain object from a ReadGroupAzureEventHubOptions message. Also converts values to other types if specified.
-             * @param message ReadGroupAzureEventHubOptions
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: protos.opts.ReadGroupAzureEventHubOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this ReadGroupAzureEventHubOptions to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-        }
-
-        /** Properties of a ReadGroupAzureServiceBusOptions. */
-        interface IReadGroupAzureServiceBusOptions {
-
-            /** ReadGroupAzureServiceBusOptions _conn */
-            _conn?: (protos.args.IAzureServiceBusConn|null);
-
-            /** ReadGroupAzureServiceBusOptions args */
-            args?: (protos.args.IAzureServiceBusReadArgs|null);
-        }
-
-        /** Represents a ReadGroupAzureServiceBusOptions. */
-        class ReadGroupAzureServiceBusOptions implements IReadGroupAzureServiceBusOptions {
-
-            /**
-             * Constructs a new ReadGroupAzureServiceBusOptions.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: protos.opts.IReadGroupAzureServiceBusOptions);
-
-            /** ReadGroupAzureServiceBusOptions _conn. */
-            public _conn?: (protos.args.IAzureServiceBusConn|null);
-
-            /** ReadGroupAzureServiceBusOptions args. */
-            public args?: (protos.args.IAzureServiceBusReadArgs|null);
-
-            /**
-             * Creates a new ReadGroupAzureServiceBusOptions instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns ReadGroupAzureServiceBusOptions instance
-             */
-            public static create(properties?: protos.opts.IReadGroupAzureServiceBusOptions): protos.opts.ReadGroupAzureServiceBusOptions;
-
-            /**
-             * Encodes the specified ReadGroupAzureServiceBusOptions message. Does not implicitly {@link protos.opts.ReadGroupAzureServiceBusOptions.verify|verify} messages.
-             * @param message ReadGroupAzureServiceBusOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: protos.opts.IReadGroupAzureServiceBusOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified ReadGroupAzureServiceBusOptions message, length delimited. Does not implicitly {@link protos.opts.ReadGroupAzureServiceBusOptions.verify|verify} messages.
-             * @param message ReadGroupAzureServiceBusOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: protos.opts.IReadGroupAzureServiceBusOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes a ReadGroupAzureServiceBusOptions message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns ReadGroupAzureServiceBusOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.ReadGroupAzureServiceBusOptions;
-
-            /**
-             * Decodes a ReadGroupAzureServiceBusOptions message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns ReadGroupAzureServiceBusOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.ReadGroupAzureServiceBusOptions;
-
-            /**
-             * Verifies a ReadGroupAzureServiceBusOptions message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates a ReadGroupAzureServiceBusOptions message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns ReadGroupAzureServiceBusOptions
-             */
-            public static fromObject(object: { [k: string]: any }): protos.opts.ReadGroupAzureServiceBusOptions;
-
-            /**
-             * Creates a plain object from a ReadGroupAzureServiceBusOptions message. Also converts values to other types if specified.
-             * @param message ReadGroupAzureServiceBusOptions
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: protos.opts.ReadGroupAzureServiceBusOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this ReadGroupAzureServiceBusOptions to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-        }
-
-        /** Properties of a ReadGroupMQTTOptions. */
-        interface IReadGroupMQTTOptions {
-
-            /** ReadGroupMQTTOptions _conn */
-            _conn?: (protos.args.IMQTTConn|null);
-
-            /** ReadGroupMQTTOptions args */
-            args?: (protos.args.IMQTTReadArgs|null);
-        }
-
-        /** Represents a ReadGroupMQTTOptions. */
-        class ReadGroupMQTTOptions implements IReadGroupMQTTOptions {
-
-            /**
-             * Constructs a new ReadGroupMQTTOptions.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: protos.opts.IReadGroupMQTTOptions);
-
-            /** ReadGroupMQTTOptions _conn. */
-            public _conn?: (protos.args.IMQTTConn|null);
-
-            /** ReadGroupMQTTOptions args. */
-            public args?: (protos.args.IMQTTReadArgs|null);
-
-            /**
-             * Creates a new ReadGroupMQTTOptions instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns ReadGroupMQTTOptions instance
-             */
-            public static create(properties?: protos.opts.IReadGroupMQTTOptions): protos.opts.ReadGroupMQTTOptions;
-
-            /**
-             * Encodes the specified ReadGroupMQTTOptions message. Does not implicitly {@link protos.opts.ReadGroupMQTTOptions.verify|verify} messages.
-             * @param message ReadGroupMQTTOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: protos.opts.IReadGroupMQTTOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified ReadGroupMQTTOptions message, length delimited. Does not implicitly {@link protos.opts.ReadGroupMQTTOptions.verify|verify} messages.
-             * @param message ReadGroupMQTTOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: protos.opts.IReadGroupMQTTOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes a ReadGroupMQTTOptions message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns ReadGroupMQTTOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.ReadGroupMQTTOptions;
-
-            /**
-             * Decodes a ReadGroupMQTTOptions message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns ReadGroupMQTTOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.ReadGroupMQTTOptions;
-
-            /**
-             * Verifies a ReadGroupMQTTOptions message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates a ReadGroupMQTTOptions message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns ReadGroupMQTTOptions
-             */
-            public static fromObject(object: { [k: string]: any }): protos.opts.ReadGroupMQTTOptions;
-
-            /**
-             * Creates a plain object from a ReadGroupMQTTOptions message. Also converts values to other types if specified.
-             * @param message ReadGroupMQTTOptions
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: protos.opts.ReadGroupMQTTOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this ReadGroupMQTTOptions to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-        }
-
-        /** Properties of a ReadGroupGCPPubSubOptions. */
-        interface IReadGroupGCPPubSubOptions {
-
-            /** ReadGroupGCPPubSubOptions _conn */
-            _conn?: (protos.args.IGCPPubSubConn|null);
-
-            /** ReadGroupGCPPubSubOptions args */
-            args?: (protos.args.IGCPPubSubReadArgs|null);
-        }
-
-        /** Represents a ReadGroupGCPPubSubOptions. */
-        class ReadGroupGCPPubSubOptions implements IReadGroupGCPPubSubOptions {
-
-            /**
-             * Constructs a new ReadGroupGCPPubSubOptions.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: protos.opts.IReadGroupGCPPubSubOptions);
-
-            /** ReadGroupGCPPubSubOptions _conn. */
-            public _conn?: (protos.args.IGCPPubSubConn|null);
-
-            /** ReadGroupGCPPubSubOptions args. */
-            public args?: (protos.args.IGCPPubSubReadArgs|null);
-
-            /**
-             * Creates a new ReadGroupGCPPubSubOptions instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns ReadGroupGCPPubSubOptions instance
-             */
-            public static create(properties?: protos.opts.IReadGroupGCPPubSubOptions): protos.opts.ReadGroupGCPPubSubOptions;
-
-            /**
-             * Encodes the specified ReadGroupGCPPubSubOptions message. Does not implicitly {@link protos.opts.ReadGroupGCPPubSubOptions.verify|verify} messages.
-             * @param message ReadGroupGCPPubSubOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: protos.opts.IReadGroupGCPPubSubOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified ReadGroupGCPPubSubOptions message, length delimited. Does not implicitly {@link protos.opts.ReadGroupGCPPubSubOptions.verify|verify} messages.
-             * @param message ReadGroupGCPPubSubOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: protos.opts.IReadGroupGCPPubSubOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes a ReadGroupGCPPubSubOptions message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns ReadGroupGCPPubSubOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.ReadGroupGCPPubSubOptions;
-
-            /**
-             * Decodes a ReadGroupGCPPubSubOptions message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns ReadGroupGCPPubSubOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.ReadGroupGCPPubSubOptions;
-
-            /**
-             * Verifies a ReadGroupGCPPubSubOptions message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates a ReadGroupGCPPubSubOptions message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns ReadGroupGCPPubSubOptions
-             */
-            public static fromObject(object: { [k: string]: any }): protos.opts.ReadGroupGCPPubSubOptions;
-
-            /**
-             * Creates a plain object from a ReadGroupGCPPubSubOptions message. Also converts values to other types if specified.
-             * @param message ReadGroupGCPPubSubOptions
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: protos.opts.ReadGroupGCPPubSubOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this ReadGroupGCPPubSubOptions to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-        }
-
-        /** Properties of a ReadGroupKubeMQQueueOptions. */
-        interface IReadGroupKubeMQQueueOptions {
-
-            /** ReadGroupKubeMQQueueOptions _conn */
-            _conn?: (protos.args.IKubeMQQueueConn|null);
-
-            /** ReadGroupKubeMQQueueOptions args */
-            args?: (protos.args.IKubeMQQueueReadArgs|null);
-        }
-
-        /** Represents a ReadGroupKubeMQQueueOptions. */
-        class ReadGroupKubeMQQueueOptions implements IReadGroupKubeMQQueueOptions {
-
-            /**
-             * Constructs a new ReadGroupKubeMQQueueOptions.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: protos.opts.IReadGroupKubeMQQueueOptions);
-
-            /** ReadGroupKubeMQQueueOptions _conn. */
-            public _conn?: (protos.args.IKubeMQQueueConn|null);
-
-            /** ReadGroupKubeMQQueueOptions args. */
-            public args?: (protos.args.IKubeMQQueueReadArgs|null);
-
-            /**
-             * Creates a new ReadGroupKubeMQQueueOptions instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns ReadGroupKubeMQQueueOptions instance
-             */
-            public static create(properties?: protos.opts.IReadGroupKubeMQQueueOptions): protos.opts.ReadGroupKubeMQQueueOptions;
-
-            /**
-             * Encodes the specified ReadGroupKubeMQQueueOptions message. Does not implicitly {@link protos.opts.ReadGroupKubeMQQueueOptions.verify|verify} messages.
-             * @param message ReadGroupKubeMQQueueOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: protos.opts.IReadGroupKubeMQQueueOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified ReadGroupKubeMQQueueOptions message, length delimited. Does not implicitly {@link protos.opts.ReadGroupKubeMQQueueOptions.verify|verify} messages.
-             * @param message ReadGroupKubeMQQueueOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: protos.opts.IReadGroupKubeMQQueueOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes a ReadGroupKubeMQQueueOptions message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns ReadGroupKubeMQQueueOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.ReadGroupKubeMQQueueOptions;
-
-            /**
-             * Decodes a ReadGroupKubeMQQueueOptions message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns ReadGroupKubeMQQueueOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.ReadGroupKubeMQQueueOptions;
-
-            /**
-             * Verifies a ReadGroupKubeMQQueueOptions message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates a ReadGroupKubeMQQueueOptions message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns ReadGroupKubeMQQueueOptions
-             */
-            public static fromObject(object: { [k: string]: any }): protos.opts.ReadGroupKubeMQQueueOptions;
-
-            /**
-             * Creates a plain object from a ReadGroupKubeMQQueueOptions message. Also converts values to other types if specified.
-             * @param message ReadGroupKubeMQQueueOptions
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: protos.opts.ReadGroupKubeMQQueueOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this ReadGroupKubeMQQueueOptions to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-        }
-
-        /** Properties of a ReadGroupAWSKinesisOptions. */
-        interface IReadGroupAWSKinesisOptions {
-
-            /** ReadGroupAWSKinesisOptions _conn */
-            _conn?: (protos.args.IAWSKinesisConn|null);
-
-            /** ReadGroupAWSKinesisOptions args */
-            args?: (protos.args.IAWSKinesisReadArgs|null);
-        }
-
-        /** Represents a ReadGroupAWSKinesisOptions. */
-        class ReadGroupAWSKinesisOptions implements IReadGroupAWSKinesisOptions {
-
-            /**
-             * Constructs a new ReadGroupAWSKinesisOptions.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: protos.opts.IReadGroupAWSKinesisOptions);
-
-            /** ReadGroupAWSKinesisOptions _conn. */
-            public _conn?: (protos.args.IAWSKinesisConn|null);
-
-            /** ReadGroupAWSKinesisOptions args. */
-            public args?: (protos.args.IAWSKinesisReadArgs|null);
-
-            /**
-             * Creates a new ReadGroupAWSKinesisOptions instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns ReadGroupAWSKinesisOptions instance
-             */
-            public static create(properties?: protos.opts.IReadGroupAWSKinesisOptions): protos.opts.ReadGroupAWSKinesisOptions;
-
-            /**
-             * Encodes the specified ReadGroupAWSKinesisOptions message. Does not implicitly {@link protos.opts.ReadGroupAWSKinesisOptions.verify|verify} messages.
-             * @param message ReadGroupAWSKinesisOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: protos.opts.IReadGroupAWSKinesisOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified ReadGroupAWSKinesisOptions message, length delimited. Does not implicitly {@link protos.opts.ReadGroupAWSKinesisOptions.verify|verify} messages.
-             * @param message ReadGroupAWSKinesisOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: protos.opts.IReadGroupAWSKinesisOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes a ReadGroupAWSKinesisOptions message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns ReadGroupAWSKinesisOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.ReadGroupAWSKinesisOptions;
-
-            /**
-             * Decodes a ReadGroupAWSKinesisOptions message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns ReadGroupAWSKinesisOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.ReadGroupAWSKinesisOptions;
-
-            /**
-             * Verifies a ReadGroupAWSKinesisOptions message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates a ReadGroupAWSKinesisOptions message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns ReadGroupAWSKinesisOptions
-             */
-            public static fromObject(object: { [k: string]: any }): protos.opts.ReadGroupAWSKinesisOptions;
-
-            /**
-             * Creates a plain object from a ReadGroupAWSKinesisOptions message. Also converts values to other types if specified.
-             * @param message ReadGroupAWSKinesisOptions
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: protos.opts.ReadGroupAWSKinesisOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this ReadGroupAWSKinesisOptions to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-        }
-
-        /** Properties of a ReadGroupMemphisOptions. */
-        interface IReadGroupMemphisOptions {
-
-            /** ReadGroupMemphisOptions _conn */
-            _conn?: (protos.args.IMemphisConn|null);
-
-            /** ReadGroupMemphisOptions args */
-            args?: (protos.args.IMemphisReadArgs|null);
-        }
-
-        /** Represents a ReadGroupMemphisOptions. */
-        class ReadGroupMemphisOptions implements IReadGroupMemphisOptions {
-
-            /**
-             * Constructs a new ReadGroupMemphisOptions.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: protos.opts.IReadGroupMemphisOptions);
-
-            /** ReadGroupMemphisOptions _conn. */
-            public _conn?: (protos.args.IMemphisConn|null);
-
-            /** ReadGroupMemphisOptions args. */
-            public args?: (protos.args.IMemphisReadArgs|null);
-
-            /**
-             * Creates a new ReadGroupMemphisOptions instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns ReadGroupMemphisOptions instance
-             */
-            public static create(properties?: protos.opts.IReadGroupMemphisOptions): protos.opts.ReadGroupMemphisOptions;
-
-            /**
-             * Encodes the specified ReadGroupMemphisOptions message. Does not implicitly {@link protos.opts.ReadGroupMemphisOptions.verify|verify} messages.
-             * @param message ReadGroupMemphisOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: protos.opts.IReadGroupMemphisOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified ReadGroupMemphisOptions message, length delimited. Does not implicitly {@link protos.opts.ReadGroupMemphisOptions.verify|verify} messages.
-             * @param message ReadGroupMemphisOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: protos.opts.IReadGroupMemphisOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes a ReadGroupMemphisOptions message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns ReadGroupMemphisOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.ReadGroupMemphisOptions;
-
-            /**
-             * Decodes a ReadGroupMemphisOptions message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns ReadGroupMemphisOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.ReadGroupMemphisOptions;
-
-            /**
-             * Verifies a ReadGroupMemphisOptions message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates a ReadGroupMemphisOptions message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns ReadGroupMemphisOptions
-             */
-            public static fromObject(object: { [k: string]: any }): protos.opts.ReadGroupMemphisOptions;
-
-            /**
-             * Creates a plain object from a ReadGroupMemphisOptions message. Also converts values to other types if specified.
-             * @param message ReadGroupMemphisOptions
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: protos.opts.ReadGroupMemphisOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this ReadGroupMemphisOptions to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-        }
-
-        /** Properties of an InferSchemaOptions. */
-        interface IInferSchemaOptions {
-
-            /** InferSchemaOptions type */
-            type?: (protos.opts.InferSchemaOptions.Type|null);
-
-            /** InferSchemaOptions schemaId */
-            schemaId?: (string|null);
-        }
-
-        /** Represents an InferSchemaOptions. */
-        class InferSchemaOptions implements IInferSchemaOptions {
-
-            /**
-             * Constructs a new InferSchemaOptions.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: protos.opts.IInferSchemaOptions);
-
-            /** InferSchemaOptions type. */
-            public type: protos.opts.InferSchemaOptions.Type;
-
-            /** InferSchemaOptions schemaId. */
-            public schemaId: string;
-
-            /**
-             * Creates a new InferSchemaOptions instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns InferSchemaOptions instance
-             */
-            public static create(properties?: protos.opts.IInferSchemaOptions): protos.opts.InferSchemaOptions;
-
-            /**
-             * Encodes the specified InferSchemaOptions message. Does not implicitly {@link protos.opts.InferSchemaOptions.verify|verify} messages.
-             * @param message InferSchemaOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: protos.opts.IInferSchemaOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified InferSchemaOptions message, length delimited. Does not implicitly {@link protos.opts.InferSchemaOptions.verify|verify} messages.
-             * @param message InferSchemaOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: protos.opts.IInferSchemaOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes an InferSchemaOptions message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns InferSchemaOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.InferSchemaOptions;
-
-            /**
-             * Decodes an InferSchemaOptions message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns InferSchemaOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.InferSchemaOptions;
-
-            /**
-             * Verifies an InferSchemaOptions message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates an InferSchemaOptions message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns InferSchemaOptions
-             */
-            public static fromObject(object: { [k: string]: any }): protos.opts.InferSchemaOptions;
-
-            /**
-             * Creates a plain object from an InferSchemaOptions message. Also converts values to other types if specified.
-             * @param message InferSchemaOptions
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: protos.opts.InferSchemaOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this InferSchemaOptions to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-        }
-
-        namespace InferSchemaOptions {
-
-            /** Type enum. */
-            enum Type {
-                UNSET = 0,
-                JSONSCHEMA = 1
-            }
-        }
-
         /** StreamdalOutputType enum. */
         enum StreamdalOutputType {
             TABLE = 0,
@@ -15512,229 +15620,229 @@ export namespace protos {
             public toJSON(): { [k: string]: any };
         }
 
-        /** Properties of a WriteOptions. */
-        interface IWriteOptions {
+        /** Properties of a CLIWriteOptions. */
+        interface ICLIWriteOptions {
 
-            /** WriteOptions connectionId */
+            /** CLIWriteOptions connectionId */
             connectionId?: (string|null);
 
-            /** WriteOptions record */
+            /** CLIWriteOptions record */
             record?: (protos.records.IWriteRecord|null);
 
-            /** WriteOptions encodeOptions */
+            /** CLIWriteOptions encodeOptions */
             encodeOptions?: (protos.encoding.IEncodeOptions|null);
 
-            /** WriteOptions _cliOptions */
+            /** CLIWriteOptions _cliOptions */
             _cliOptions?: (protos.opts.IWriteCLIOptions|null);
 
-            /** WriteOptions kafka */
+            /** CLIWriteOptions kafka */
             kafka?: (protos.opts.IWriteGroupKafkaOptions|null);
 
-            /** WriteOptions activemq */
+            /** CLIWriteOptions activemq */
             activemq?: (protos.opts.IWriteGroupActiveMQOptions|null);
 
-            /** WriteOptions awsSqs */
+            /** CLIWriteOptions awsSqs */
             awsSqs?: (protos.opts.IWriteGroupAWSSQSOptions|null);
 
-            /** WriteOptions awsSns */
+            /** CLIWriteOptions awsSns */
             awsSns?: (protos.opts.IWriteGroupAWSSNSOptions|null);
 
-            /** WriteOptions nats */
+            /** CLIWriteOptions nats */
             nats?: (protos.opts.IWriteGroupNatsOptions|null);
 
-            /** WriteOptions natsStreaming */
+            /** CLIWriteOptions natsStreaming */
             natsStreaming?: (protos.opts.IWriteGroupNatsStreamingOptions|null);
 
-            /** WriteOptions nsq */
+            /** CLIWriteOptions nsq */
             nsq?: (protos.opts.IWriteGroupNSQOptions|null);
 
-            /** WriteOptions pulsar */
+            /** CLIWriteOptions pulsar */
             pulsar?: (protos.opts.IWriteGroupPulsarOptions|null);
 
-            /** WriteOptions rabbit */
+            /** CLIWriteOptions rabbit */
             rabbit?: (protos.opts.IWriteGroupRabbitOptions|null);
 
-            /** WriteOptions rabbitStreams */
+            /** CLIWriteOptions rabbitStreams */
             rabbitStreams?: (protos.opts.IWriteGroupRabbitStreamsOptions|null);
 
-            /** WriteOptions mqtt */
+            /** CLIWriteOptions mqtt */
             mqtt?: (protos.opts.IWriteGroupMQTTOptions|null);
 
-            /** WriteOptions azureServiceBus */
+            /** CLIWriteOptions azureServiceBus */
             azureServiceBus?: (protos.opts.IWriteGroupAzureServiceBusOptions|null);
 
-            /** WriteOptions azureEventHub */
+            /** CLIWriteOptions azureEventHub */
             azureEventHub?: (protos.opts.IWriteGroupAzureEventHubOptions|null);
 
-            /** WriteOptions gcpPubsub */
+            /** CLIWriteOptions gcpPubsub */
             gcpPubsub?: (protos.opts.IWriteGroupGCPPubSubOptions|null);
 
-            /** WriteOptions kubemqQueue */
+            /** CLIWriteOptions kubemqQueue */
             kubemqQueue?: (protos.opts.IWriteGroupKubeMQQueueOptions|null);
 
-            /** WriteOptions redisPubsub */
+            /** CLIWriteOptions redisPubsub */
             redisPubsub?: (protos.opts.IWriteGroupRedisPubSubOptions|null);
 
-            /** WriteOptions redisStreams */
+            /** CLIWriteOptions redisStreams */
             redisStreams?: (protos.opts.IWriteGroupRedisStreamsOptions|null);
 
-            /** WriteOptions natsJetstream */
+            /** CLIWriteOptions natsJetstream */
             natsJetstream?: (protos.opts.IWriteGroupNatsJetstreamOptions|null);
 
-            /** WriteOptions awsKinesis */
+            /** CLIWriteOptions awsKinesis */
             awsKinesis?: (protos.opts.IWriteGroupAWSKinesisOptions|null);
 
-            /** WriteOptions memphis */
+            /** CLIWriteOptions memphis */
             memphis?: (protos.opts.IWriteGroupMemphisOptions|null);
         }
 
-        /** Represents a WriteOptions. */
-        class WriteOptions implements IWriteOptions {
+        /** Represents a CLIWriteOptions. */
+        class CLIWriteOptions implements ICLIWriteOptions {
 
             /**
-             * Constructs a new WriteOptions.
+             * Constructs a new CLIWriteOptions.
              * @param [properties] Properties to set
              */
-            constructor(properties?: protos.opts.IWriteOptions);
+            constructor(properties?: protos.opts.ICLIWriteOptions);
 
-            /** WriteOptions connectionId. */
+            /** CLIWriteOptions connectionId. */
             public connectionId: string;
 
-            /** WriteOptions record. */
+            /** CLIWriteOptions record. */
             public record?: (protos.records.IWriteRecord|null);
 
-            /** WriteOptions encodeOptions. */
+            /** CLIWriteOptions encodeOptions. */
             public encodeOptions?: (protos.encoding.IEncodeOptions|null);
 
-            /** WriteOptions _cliOptions. */
+            /** CLIWriteOptions _cliOptions. */
             public _cliOptions?: (protos.opts.IWriteCLIOptions|null);
 
-            /** WriteOptions kafka. */
+            /** CLIWriteOptions kafka. */
             public kafka?: (protos.opts.IWriteGroupKafkaOptions|null);
 
-            /** WriteOptions activemq. */
+            /** CLIWriteOptions activemq. */
             public activemq?: (protos.opts.IWriteGroupActiveMQOptions|null);
 
-            /** WriteOptions awsSqs. */
+            /** CLIWriteOptions awsSqs. */
             public awsSqs?: (protos.opts.IWriteGroupAWSSQSOptions|null);
 
-            /** WriteOptions awsSns. */
+            /** CLIWriteOptions awsSns. */
             public awsSns?: (protos.opts.IWriteGroupAWSSNSOptions|null);
 
-            /** WriteOptions nats. */
+            /** CLIWriteOptions nats. */
             public nats?: (protos.opts.IWriteGroupNatsOptions|null);
 
-            /** WriteOptions natsStreaming. */
+            /** CLIWriteOptions natsStreaming. */
             public natsStreaming?: (protos.opts.IWriteGroupNatsStreamingOptions|null);
 
-            /** WriteOptions nsq. */
+            /** CLIWriteOptions nsq. */
             public nsq?: (protos.opts.IWriteGroupNSQOptions|null);
 
-            /** WriteOptions pulsar. */
+            /** CLIWriteOptions pulsar. */
             public pulsar?: (protos.opts.IWriteGroupPulsarOptions|null);
 
-            /** WriteOptions rabbit. */
+            /** CLIWriteOptions rabbit. */
             public rabbit?: (protos.opts.IWriteGroupRabbitOptions|null);
 
-            /** WriteOptions rabbitStreams. */
+            /** CLIWriteOptions rabbitStreams. */
             public rabbitStreams?: (protos.opts.IWriteGroupRabbitStreamsOptions|null);
 
-            /** WriteOptions mqtt. */
+            /** CLIWriteOptions mqtt. */
             public mqtt?: (protos.opts.IWriteGroupMQTTOptions|null);
 
-            /** WriteOptions azureServiceBus. */
+            /** CLIWriteOptions azureServiceBus. */
             public azureServiceBus?: (protos.opts.IWriteGroupAzureServiceBusOptions|null);
 
-            /** WriteOptions azureEventHub. */
+            /** CLIWriteOptions azureEventHub. */
             public azureEventHub?: (protos.opts.IWriteGroupAzureEventHubOptions|null);
 
-            /** WriteOptions gcpPubsub. */
+            /** CLIWriteOptions gcpPubsub. */
             public gcpPubsub?: (protos.opts.IWriteGroupGCPPubSubOptions|null);
 
-            /** WriteOptions kubemqQueue. */
+            /** CLIWriteOptions kubemqQueue. */
             public kubemqQueue?: (protos.opts.IWriteGroupKubeMQQueueOptions|null);
 
-            /** WriteOptions redisPubsub. */
+            /** CLIWriteOptions redisPubsub. */
             public redisPubsub?: (protos.opts.IWriteGroupRedisPubSubOptions|null);
 
-            /** WriteOptions redisStreams. */
+            /** CLIWriteOptions redisStreams. */
             public redisStreams?: (protos.opts.IWriteGroupRedisStreamsOptions|null);
 
-            /** WriteOptions natsJetstream. */
+            /** CLIWriteOptions natsJetstream. */
             public natsJetstream?: (protos.opts.IWriteGroupNatsJetstreamOptions|null);
 
-            /** WriteOptions awsKinesis. */
+            /** CLIWriteOptions awsKinesis. */
             public awsKinesis?: (protos.opts.IWriteGroupAWSKinesisOptions|null);
 
-            /** WriteOptions memphis. */
+            /** CLIWriteOptions memphis. */
             public memphis?: (protos.opts.IWriteGroupMemphisOptions|null);
 
             /**
-             * Creates a new WriteOptions instance using the specified properties.
+             * Creates a new CLIWriteOptions instance using the specified properties.
              * @param [properties] Properties to set
-             * @returns WriteOptions instance
+             * @returns CLIWriteOptions instance
              */
-            public static create(properties?: protos.opts.IWriteOptions): protos.opts.WriteOptions;
+            public static create(properties?: protos.opts.ICLIWriteOptions): protos.opts.CLIWriteOptions;
 
             /**
-             * Encodes the specified WriteOptions message. Does not implicitly {@link protos.opts.WriteOptions.verify|verify} messages.
-             * @param message WriteOptions message or plain object to encode
+             * Encodes the specified CLIWriteOptions message. Does not implicitly {@link protos.opts.CLIWriteOptions.verify|verify} messages.
+             * @param message CLIWriteOptions message or plain object to encode
              * @param [writer] Writer to encode to
              * @returns Writer
              */
-            public static encode(message: protos.opts.IWriteOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+            public static encode(message: protos.opts.ICLIWriteOptions, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Encodes the specified WriteOptions message, length delimited. Does not implicitly {@link protos.opts.WriteOptions.verify|verify} messages.
-             * @param message WriteOptions message or plain object to encode
+             * Encodes the specified CLIWriteOptions message, length delimited. Does not implicitly {@link protos.opts.CLIWriteOptions.verify|verify} messages.
+             * @param message CLIWriteOptions message or plain object to encode
              * @param [writer] Writer to encode to
              * @returns Writer
              */
-            public static encodeDelimited(message: protos.opts.IWriteOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+            public static encodeDelimited(message: protos.opts.ICLIWriteOptions, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a WriteOptions message from the specified reader or buffer.
+             * Decodes a CLIWriteOptions message from the specified reader or buffer.
              * @param reader Reader or buffer to decode from
              * @param [length] Message length if known beforehand
-             * @returns WriteOptions
+             * @returns CLIWriteOptions
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.WriteOptions;
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.opts.CLIWriteOptions;
 
             /**
-             * Decodes a WriteOptions message from the specified reader or buffer, length delimited.
+             * Decodes a CLIWriteOptions message from the specified reader or buffer, length delimited.
              * @param reader Reader or buffer to decode from
-             * @returns WriteOptions
+             * @returns CLIWriteOptions
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.WriteOptions;
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.opts.CLIWriteOptions;
 
             /**
-             * Verifies a WriteOptions message.
+             * Verifies a CLIWriteOptions message.
              * @param message Plain object to verify
              * @returns `null` if valid, otherwise the reason why it is not
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a WriteOptions message from a plain object. Also converts values to their respective internal types.
+             * Creates a CLIWriteOptions message from a plain object. Also converts values to their respective internal types.
              * @param object Plain object
-             * @returns WriteOptions
+             * @returns CLIWriteOptions
              */
-            public static fromObject(object: { [k: string]: any }): protos.opts.WriteOptions;
+            public static fromObject(object: { [k: string]: any }): protos.opts.CLIWriteOptions;
 
             /**
-             * Creates a plain object from a WriteOptions message. Also converts values to other types if specified.
-             * @param message WriteOptions
+             * Creates a plain object from a CLIWriteOptions message. Also converts values to other types if specified.
+             * @param message CLIWriteOptions
              * @param [options] Conversion options
              * @returns Plain object
              */
-            public static toObject(message: protos.opts.WriteOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+            public static toObject(message: protos.opts.CLIWriteOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
             /**
-             * Converts this WriteOptions to JSON.
+             * Converts this CLIWriteOptions to JSON.
              * @returns JSON object
              */
             public toJSON(): { [k: string]: any };
@@ -26598,7 +26706,7 @@ export namespace protos {
         status?: (protos.common.IStatus|null);
 
         /** GetAllReadResponse opts */
-        opts?: (protos.opts.ICreateReadOptions[]|null);
+        opts?: (protos.opts.ICreateChannelReadOptions[]|null);
     }
 
     /** Represents a GetAllReadResponse. */
@@ -26614,7 +26722,7 @@ export namespace protos {
         public status?: (protos.common.IStatus|null);
 
         /** GetAllReadResponse opts. */
-        public opts: protos.opts.ICreateReadOptions[];
+        public opts: protos.opts.ICreateChannelReadOptions[];
 
         /**
          * Creates a new GetAllReadResponse instance using the specified properties.
@@ -26790,7 +26898,7 @@ export namespace protos {
         status?: (protos.common.IStatus|null);
 
         /** GetReadResponse opts */
-        opts?: (protos.opts.ICreateReadOptions|null);
+        opts?: (protos.opts.ICreateChannelReadOptions|null);
     }
 
     /** Represents a GetReadResponse. */
@@ -26806,7 +26914,7 @@ export namespace protos {
         public status?: (protos.common.IStatus|null);
 
         /** GetReadResponse opts. */
-        public opts?: (protos.opts.ICreateReadOptions|null);
+        public opts?: (protos.opts.ICreateChannelReadOptions|null);
 
         /**
          * Creates a new GetReadResponse instance using the specified properties.
@@ -26886,7 +26994,7 @@ export namespace protos {
         auth?: (protos.common.IAuth|null);
 
         /** CreateReadRequest opts */
-        opts?: (protos.opts.ICreateReadOptions|null);
+        opts?: (protos.opts.ICreateChannelReadOptions|null);
     }
 
     /** Represents a CreateReadRequest. */
@@ -26902,7 +27010,7 @@ export namespace protos {
         public auth?: (protos.common.IAuth|null);
 
         /** CreateReadRequest opts. */
-        public opts?: (protos.opts.ICreateReadOptions|null);
+        public opts?: (protos.opts.ICreateChannelReadOptions|null);
 
         /**
          * Creates a new CreateReadRequest instance using the specified properties.
@@ -27081,7 +27189,7 @@ export namespace protos {
         readId?: (string|null);
 
         /** UpdateReadRequest opts */
-        opts?: (protos.opts.ICreateReadOptions|null);
+        opts?: (protos.opts.ICreateChannelReadOptions|null);
     }
 
     /** Represents an UpdateReadRequest. */
@@ -27100,7 +27208,7 @@ export namespace protos {
         public readId: string;
 
         /** UpdateReadRequest opts. */
-        public opts?: (protos.opts.ICreateReadOptions|null);
+        public opts?: (protos.opts.ICreateChannelReadOptions|null);
 
         /**
          * Creates a new UpdateReadRequest instance using the specified properties.
@@ -27447,6 +27555,681 @@ export namespace protos {
          * @returns JSON object
          */
         public toJSON(): { [k: string]: any };
+    }
+
+    /** Namespace encoding. */
+    namespace encoding {
+
+        /** EncodeType enum. */
+        enum EncodeType {
+            ENCODE_TYPE_UNSET = 0,
+            ENCODE_TYPE_JSONPB = 1,
+            ENCODE_TYPE_AVRO = 2
+        }
+
+        /** DecodeType enum. */
+        enum DecodeType {
+            DECODE_TYPE_UNSET = 0,
+            DECODE_TYPE_PROTOBUF = 1,
+            DECODE_TYPE_AVRO = 2,
+            DECODE_TYPE_THRIFT = 3,
+            DECODE_TYPE_FLATBUFFER = 4
+        }
+
+        /** EnvelopeType enum. */
+        enum EnvelopeType {
+            ENVELOPE_TYPE_UNSET = 0,
+            ENVELOPE_TYPE_DEEP = 1,
+            ENVELOPE_TYPE_SHALLOW = 2
+        }
+
+        /** Properties of a ProtobufSettings. */
+        interface IProtobufSettings {
+
+            /** ProtobufSettings protobufRootMessage */
+            protobufRootMessage?: (string|null);
+
+            /** ProtobufSettings protobufDirs */
+            protobufDirs?: (string[]|null);
+
+            /** ProtobufSettings _protobufRootDir */
+            _protobufRootDir?: (string|null);
+
+            /** ProtobufSettings archive */
+            archive?: (Uint8Array|null);
+
+            /** ProtobufSettings _messageDescriptor */
+            _messageDescriptor?: (Uint8Array|null);
+
+            /** ProtobufSettings protobufEnvelopeType */
+            protobufEnvelopeType?: (protos.encoding.EnvelopeType|null);
+
+            /** ProtobufSettings shallowEnvelopeMessage */
+            shallowEnvelopeMessage?: (string|null);
+
+            /** ProtobufSettings shallowEnvelopeFieldNumber */
+            shallowEnvelopeFieldNumber?: (number|null);
+
+            /** ProtobufSettings _shallowEnvelopeMessageDescriptor */
+            _shallowEnvelopeMessageDescriptor?: (Uint8Array|null);
+
+            /** ProtobufSettings protobufDescriptorSet */
+            protobufDescriptorSet?: (string|null);
+        }
+
+        /** Represents a ProtobufSettings. */
+        class ProtobufSettings implements IProtobufSettings {
+
+            /**
+             * Constructs a new ProtobufSettings.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.encoding.IProtobufSettings);
+
+            /** ProtobufSettings protobufRootMessage. */
+            public protobufRootMessage: string;
+
+            /** ProtobufSettings protobufDirs. */
+            public protobufDirs: string[];
+
+            /** ProtobufSettings _protobufRootDir. */
+            public _protobufRootDir: string;
+
+            /** ProtobufSettings archive. */
+            public archive: Uint8Array;
+
+            /** ProtobufSettings _messageDescriptor. */
+            public _messageDescriptor: Uint8Array;
+
+            /** ProtobufSettings protobufEnvelopeType. */
+            public protobufEnvelopeType: protos.encoding.EnvelopeType;
+
+            /** ProtobufSettings shallowEnvelopeMessage. */
+            public shallowEnvelopeMessage: string;
+
+            /** ProtobufSettings shallowEnvelopeFieldNumber. */
+            public shallowEnvelopeFieldNumber: number;
+
+            /** ProtobufSettings _shallowEnvelopeMessageDescriptor. */
+            public _shallowEnvelopeMessageDescriptor: Uint8Array;
+
+            /** ProtobufSettings protobufDescriptorSet. */
+            public protobufDescriptorSet: string;
+
+            /**
+             * Creates a new ProtobufSettings instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns ProtobufSettings instance
+             */
+            public static create(properties?: protos.encoding.IProtobufSettings): protos.encoding.ProtobufSettings;
+
+            /**
+             * Encodes the specified ProtobufSettings message. Does not implicitly {@link protos.encoding.ProtobufSettings.verify|verify} messages.
+             * @param message ProtobufSettings message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.encoding.IProtobufSettings, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified ProtobufSettings message, length delimited. Does not implicitly {@link protos.encoding.ProtobufSettings.verify|verify} messages.
+             * @param message ProtobufSettings message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.encoding.IProtobufSettings, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a ProtobufSettings message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns ProtobufSettings
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.encoding.ProtobufSettings;
+
+            /**
+             * Decodes a ProtobufSettings message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns ProtobufSettings
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.encoding.ProtobufSettings;
+
+            /**
+             * Verifies a ProtobufSettings message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a ProtobufSettings message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns ProtobufSettings
+             */
+            public static fromObject(object: { [k: string]: any }): protos.encoding.ProtobufSettings;
+
+            /**
+             * Creates a plain object from a ProtobufSettings message. Also converts values to other types if specified.
+             * @param message ProtobufSettings
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.encoding.ProtobufSettings, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this ProtobufSettings to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of an AvroSettings. */
+        interface IAvroSettings {
+
+            /** AvroSettings avroSchemaFile */
+            avroSchemaFile?: (string|null);
+
+            /** AvroSettings schema */
+            schema?: (Uint8Array|null);
+        }
+
+        /** Represents an AvroSettings. */
+        class AvroSettings implements IAvroSettings {
+
+            /**
+             * Constructs a new AvroSettings.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.encoding.IAvroSettings);
+
+            /** AvroSettings avroSchemaFile. */
+            public avroSchemaFile: string;
+
+            /** AvroSettings schema. */
+            public schema: Uint8Array;
+
+            /**
+             * Creates a new AvroSettings instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns AvroSettings instance
+             */
+            public static create(properties?: protos.encoding.IAvroSettings): protos.encoding.AvroSettings;
+
+            /**
+             * Encodes the specified AvroSettings message. Does not implicitly {@link protos.encoding.AvroSettings.verify|verify} messages.
+             * @param message AvroSettings message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.encoding.IAvroSettings, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified AvroSettings message, length delimited. Does not implicitly {@link protos.encoding.AvroSettings.verify|verify} messages.
+             * @param message AvroSettings message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.encoding.IAvroSettings, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes an AvroSettings message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns AvroSettings
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.encoding.AvroSettings;
+
+            /**
+             * Decodes an AvroSettings message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns AvroSettings
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.encoding.AvroSettings;
+
+            /**
+             * Verifies an AvroSettings message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates an AvroSettings message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns AvroSettings
+             */
+            public static fromObject(object: { [k: string]: any }): protos.encoding.AvroSettings;
+
+            /**
+             * Creates a plain object from an AvroSettings message. Also converts values to other types if specified.
+             * @param message AvroSettings
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.encoding.AvroSettings, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this AvroSettings to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a ThriftSettings. */
+        interface IThriftSettings {
+
+            /** ThriftSettings thriftDirs */
+            thriftDirs?: (string[]|null);
+
+            /** ThriftSettings thriftStruct */
+            thriftStruct?: (string|null);
+        }
+
+        /** Represents a ThriftSettings. */
+        class ThriftSettings implements IThriftSettings {
+
+            /**
+             * Constructs a new ThriftSettings.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.encoding.IThriftSettings);
+
+            /** ThriftSettings thriftDirs. */
+            public thriftDirs: string[];
+
+            /** ThriftSettings thriftStruct. */
+            public thriftStruct: string;
+
+            /**
+             * Creates a new ThriftSettings instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns ThriftSettings instance
+             */
+            public static create(properties?: protos.encoding.IThriftSettings): protos.encoding.ThriftSettings;
+
+            /**
+             * Encodes the specified ThriftSettings message. Does not implicitly {@link protos.encoding.ThriftSettings.verify|verify} messages.
+             * @param message ThriftSettings message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.encoding.IThriftSettings, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified ThriftSettings message, length delimited. Does not implicitly {@link protos.encoding.ThriftSettings.verify|verify} messages.
+             * @param message ThriftSettings message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.encoding.IThriftSettings, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a ThriftSettings message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns ThriftSettings
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.encoding.ThriftSettings;
+
+            /**
+             * Decodes a ThriftSettings message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns ThriftSettings
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.encoding.ThriftSettings;
+
+            /**
+             * Verifies a ThriftSettings message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a ThriftSettings message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns ThriftSettings
+             */
+            public static fromObject(object: { [k: string]: any }): protos.encoding.ThriftSettings;
+
+            /**
+             * Creates a plain object from a ThriftSettings message. Also converts values to other types if specified.
+             * @param message ThriftSettings
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.encoding.ThriftSettings, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this ThriftSettings to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a JSONSchemaSettings. */
+        interface IJSONSchemaSettings {
+
+            /** JSONSchemaSettings schema */
+            schema?: (Uint8Array|null);
+        }
+
+        /** Represents a JSONSchemaSettings. */
+        class JSONSchemaSettings implements IJSONSchemaSettings {
+
+            /**
+             * Constructs a new JSONSchemaSettings.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.encoding.IJSONSchemaSettings);
+
+            /** JSONSchemaSettings schema. */
+            public schema: Uint8Array;
+
+            /**
+             * Creates a new JSONSchemaSettings instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns JSONSchemaSettings instance
+             */
+            public static create(properties?: protos.encoding.IJSONSchemaSettings): protos.encoding.JSONSchemaSettings;
+
+            /**
+             * Encodes the specified JSONSchemaSettings message. Does not implicitly {@link protos.encoding.JSONSchemaSettings.verify|verify} messages.
+             * @param message JSONSchemaSettings message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.encoding.IJSONSchemaSettings, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified JSONSchemaSettings message, length delimited. Does not implicitly {@link protos.encoding.JSONSchemaSettings.verify|verify} messages.
+             * @param message JSONSchemaSettings message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.encoding.IJSONSchemaSettings, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a JSONSchemaSettings message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns JSONSchemaSettings
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.encoding.JSONSchemaSettings;
+
+            /**
+             * Decodes a JSONSchemaSettings message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns JSONSchemaSettings
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.encoding.JSONSchemaSettings;
+
+            /**
+             * Verifies a JSONSchemaSettings message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a JSONSchemaSettings message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns JSONSchemaSettings
+             */
+            public static fromObject(object: { [k: string]: any }): protos.encoding.JSONSchemaSettings;
+
+            /**
+             * Creates a plain object from a JSONSchemaSettings message. Also converts values to other types if specified.
+             * @param message JSONSchemaSettings
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.encoding.JSONSchemaSettings, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this JSONSchemaSettings to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of an EncodeOptions. */
+        interface IEncodeOptions {
+
+            /** EncodeOptions schemaId */
+            schemaId?: (string|null);
+
+            /** EncodeOptions encodeType */
+            encodeType?: (protos.encoding.EncodeType|null);
+
+            /** EncodeOptions protobufSettings */
+            protobufSettings?: (protos.encoding.IProtobufSettings|null);
+
+            /** EncodeOptions avroSettings */
+            avroSettings?: (protos.encoding.IAvroSettings|null);
+        }
+
+        /** Represents an EncodeOptions. */
+        class EncodeOptions implements IEncodeOptions {
+
+            /**
+             * Constructs a new EncodeOptions.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.encoding.IEncodeOptions);
+
+            /** EncodeOptions schemaId. */
+            public schemaId: string;
+
+            /** EncodeOptions encodeType. */
+            public encodeType: protos.encoding.EncodeType;
+
+            /** EncodeOptions protobufSettings. */
+            public protobufSettings?: (protos.encoding.IProtobufSettings|null);
+
+            /** EncodeOptions avroSettings. */
+            public avroSettings?: (protos.encoding.IAvroSettings|null);
+
+            /**
+             * Creates a new EncodeOptions instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns EncodeOptions instance
+             */
+            public static create(properties?: protos.encoding.IEncodeOptions): protos.encoding.EncodeOptions;
+
+            /**
+             * Encodes the specified EncodeOptions message. Does not implicitly {@link protos.encoding.EncodeOptions.verify|verify} messages.
+             * @param message EncodeOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.encoding.IEncodeOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified EncodeOptions message, length delimited. Does not implicitly {@link protos.encoding.EncodeOptions.verify|verify} messages.
+             * @param message EncodeOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.encoding.IEncodeOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes an EncodeOptions message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns EncodeOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.encoding.EncodeOptions;
+
+            /**
+             * Decodes an EncodeOptions message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns EncodeOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.encoding.EncodeOptions;
+
+            /**
+             * Verifies an EncodeOptions message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates an EncodeOptions message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns EncodeOptions
+             */
+            public static fromObject(object: { [k: string]: any }): protos.encoding.EncodeOptions;
+
+            /**
+             * Creates a plain object from an EncodeOptions message. Also converts values to other types if specified.
+             * @param message EncodeOptions
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.encoding.EncodeOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this EncodeOptions to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a DecodeOptions. */
+        interface IDecodeOptions {
+
+            /** DecodeOptions schemaId */
+            schemaId?: (string|null);
+
+            /** DecodeOptions decodeType */
+            decodeType?: (protos.encoding.DecodeType|null);
+
+            /** DecodeOptions protobufSettings */
+            protobufSettings?: (protos.encoding.IProtobufSettings|null);
+
+            /** DecodeOptions avroSettings */
+            avroSettings?: (protos.encoding.IAvroSettings|null);
+
+            /** DecodeOptions thriftSettings */
+            thriftSettings?: (protos.encoding.IThriftSettings|null);
+        }
+
+        /** Represents a DecodeOptions. */
+        class DecodeOptions implements IDecodeOptions {
+
+            /**
+             * Constructs a new DecodeOptions.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.encoding.IDecodeOptions);
+
+            /** DecodeOptions schemaId. */
+            public schemaId: string;
+
+            /** DecodeOptions decodeType. */
+            public decodeType: protos.encoding.DecodeType;
+
+            /** DecodeOptions protobufSettings. */
+            public protobufSettings?: (protos.encoding.IProtobufSettings|null);
+
+            /** DecodeOptions avroSettings. */
+            public avroSettings?: (protos.encoding.IAvroSettings|null);
+
+            /** DecodeOptions thriftSettings. */
+            public thriftSettings?: (protos.encoding.IThriftSettings|null);
+
+            /**
+             * Creates a new DecodeOptions instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns DecodeOptions instance
+             */
+            public static create(properties?: protos.encoding.IDecodeOptions): protos.encoding.DecodeOptions;
+
+            /**
+             * Encodes the specified DecodeOptions message. Does not implicitly {@link protos.encoding.DecodeOptions.verify|verify} messages.
+             * @param message DecodeOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.encoding.IDecodeOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified DecodeOptions message, length delimited. Does not implicitly {@link protos.encoding.DecodeOptions.verify|verify} messages.
+             * @param message DecodeOptions message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.encoding.IDecodeOptions, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a DecodeOptions message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns DecodeOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.encoding.DecodeOptions;
+
+            /**
+             * Decodes a DecodeOptions message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns DecodeOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.encoding.DecodeOptions;
+
+            /**
+             * Verifies a DecodeOptions message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a DecodeOptions message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns DecodeOptions
+             */
+            public static fromObject(object: { [k: string]: any }): protos.encoding.DecodeOptions;
+
+            /**
+             * Creates a plain object from a DecodeOptions message. Also converts values to other types if specified.
+             * @param message DecodeOptions
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.encoding.DecodeOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this DecodeOptions to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
     }
 
     /** Properties of a GetServerOptionsRequest. */
@@ -29046,7 +29829,7 @@ export namespace protos {
         status?: (protos.common.IStatus|null);
 
         /** GetAllWriteResponse opts */
-        opts?: (protos.opts.ICreateWriteOptions[]|null);
+        opts?: (protos.opts.ICreateChannelWriteOptions[]|null);
     }
 
     /** Represents a GetAllWriteResponse. */
@@ -29062,7 +29845,7 @@ export namespace protos {
         public status?: (protos.common.IStatus|null);
 
         /** GetAllWriteResponse opts. */
-        public opts: protos.opts.ICreateWriteOptions[];
+        public opts: protos.opts.ICreateChannelWriteOptions[];
 
         /**
          * Creates a new GetAllWriteResponse instance using the specified properties.
@@ -29238,7 +30021,7 @@ export namespace protos {
         status?: (protos.common.IStatus|null);
 
         /** GetWriteResponse opts */
-        opts?: (protos.opts.ICreateWriteOptions|null);
+        opts?: (protos.opts.ICreateChannelWriteOptions|null);
     }
 
     /** Represents a GetWriteResponse. */
@@ -29254,7 +30037,7 @@ export namespace protos {
         public status?: (protos.common.IStatus|null);
 
         /** GetWriteResponse opts. */
-        public opts?: (protos.opts.ICreateWriteOptions|null);
+        public opts?: (protos.opts.ICreateChannelWriteOptions|null);
 
         /**
          * Creates a new GetWriteResponse instance using the specified properties.
@@ -29334,7 +30117,7 @@ export namespace protos {
         auth?: (protos.common.IAuth|null);
 
         /** CreateWriteRequest opts */
-        opts?: (protos.opts.ICreateWriteOptions|null);
+        opts?: (protos.opts.ICreateChannelWriteOptions|null);
     }
 
     /** Represents a CreateWriteRequest. */
@@ -29350,7 +30133,7 @@ export namespace protos {
         public auth?: (protos.common.IAuth|null);
 
         /** CreateWriteRequest opts. */
-        public opts?: (protos.opts.ICreateWriteOptions|null);
+        public opts?: (protos.opts.ICreateChannelWriteOptions|null);
 
         /**
          * Creates a new CreateWriteRequest instance using the specified properties.
@@ -29529,7 +30312,7 @@ export namespace protos {
         writeId?: (string|null);
 
         /** UpdateWriteRequest opts */
-        opts?: (protos.opts.ICreateWriteOptions|null);
+        opts?: (protos.opts.ICreateChannelWriteOptions|null);
     }
 
     /** Represents an UpdateWriteRequest. */
@@ -29548,7 +30331,7 @@ export namespace protos {
         public writeId: string;
 
         /** UpdateWriteRequest opts. */
-        public opts?: (protos.opts.ICreateWriteOptions|null);
+        public opts?: (protos.opts.ICreateChannelWriteOptions|null);
 
         /**
          * Creates a new UpdateWriteRequest instance using the specified properties.
@@ -31122,681 +31905,6 @@ export namespace protos {
          * @returns JSON object
          */
         public toJSON(): { [k: string]: any };
-    }
-
-    /** Namespace encoding. */
-    namespace encoding {
-
-        /** EncodeType enum. */
-        enum EncodeType {
-            ENCODE_TYPE_UNSET = 0,
-            ENCODE_TYPE_JSONPB = 1,
-            ENCODE_TYPE_AVRO = 2
-        }
-
-        /** DecodeType enum. */
-        enum DecodeType {
-            DECODE_TYPE_UNSET = 0,
-            DECODE_TYPE_PROTOBUF = 1,
-            DECODE_TYPE_AVRO = 2,
-            DECODE_TYPE_THRIFT = 3,
-            DECODE_TYPE_FLATBUFFER = 4
-        }
-
-        /** EnvelopeType enum. */
-        enum EnvelopeType {
-            ENVELOPE_TYPE_UNSET = 0,
-            ENVELOPE_TYPE_DEEP = 1,
-            ENVELOPE_TYPE_SHALLOW = 2
-        }
-
-        /** Properties of a ProtobufSettings. */
-        interface IProtobufSettings {
-
-            /** ProtobufSettings protobufRootMessage */
-            protobufRootMessage?: (string|null);
-
-            /** ProtobufSettings protobufDirs */
-            protobufDirs?: (string[]|null);
-
-            /** ProtobufSettings _protobufRootDir */
-            _protobufRootDir?: (string|null);
-
-            /** ProtobufSettings archive */
-            archive?: (Uint8Array|null);
-
-            /** ProtobufSettings _messageDescriptor */
-            _messageDescriptor?: (Uint8Array|null);
-
-            /** ProtobufSettings protobufEnvelopeType */
-            protobufEnvelopeType?: (protos.encoding.EnvelopeType|null);
-
-            /** ProtobufSettings shallowEnvelopeMessage */
-            shallowEnvelopeMessage?: (string|null);
-
-            /** ProtobufSettings shallowEnvelopeFieldNumber */
-            shallowEnvelopeFieldNumber?: (number|null);
-
-            /** ProtobufSettings _shallowEnvelopeMessageDescriptor */
-            _shallowEnvelopeMessageDescriptor?: (Uint8Array|null);
-
-            /** ProtobufSettings protobufDescriptorSet */
-            protobufDescriptorSet?: (string|null);
-        }
-
-        /** Represents a ProtobufSettings. */
-        class ProtobufSettings implements IProtobufSettings {
-
-            /**
-             * Constructs a new ProtobufSettings.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: protos.encoding.IProtobufSettings);
-
-            /** ProtobufSettings protobufRootMessage. */
-            public protobufRootMessage: string;
-
-            /** ProtobufSettings protobufDirs. */
-            public protobufDirs: string[];
-
-            /** ProtobufSettings _protobufRootDir. */
-            public _protobufRootDir: string;
-
-            /** ProtobufSettings archive. */
-            public archive: Uint8Array;
-
-            /** ProtobufSettings _messageDescriptor. */
-            public _messageDescriptor: Uint8Array;
-
-            /** ProtobufSettings protobufEnvelopeType. */
-            public protobufEnvelopeType: protos.encoding.EnvelopeType;
-
-            /** ProtobufSettings shallowEnvelopeMessage. */
-            public shallowEnvelopeMessage: string;
-
-            /** ProtobufSettings shallowEnvelopeFieldNumber. */
-            public shallowEnvelopeFieldNumber: number;
-
-            /** ProtobufSettings _shallowEnvelopeMessageDescriptor. */
-            public _shallowEnvelopeMessageDescriptor: Uint8Array;
-
-            /** ProtobufSettings protobufDescriptorSet. */
-            public protobufDescriptorSet: string;
-
-            /**
-             * Creates a new ProtobufSettings instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns ProtobufSettings instance
-             */
-            public static create(properties?: protos.encoding.IProtobufSettings): protos.encoding.ProtobufSettings;
-
-            /**
-             * Encodes the specified ProtobufSettings message. Does not implicitly {@link protos.encoding.ProtobufSettings.verify|verify} messages.
-             * @param message ProtobufSettings message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: protos.encoding.IProtobufSettings, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified ProtobufSettings message, length delimited. Does not implicitly {@link protos.encoding.ProtobufSettings.verify|verify} messages.
-             * @param message ProtobufSettings message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: protos.encoding.IProtobufSettings, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes a ProtobufSettings message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns ProtobufSettings
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.encoding.ProtobufSettings;
-
-            /**
-             * Decodes a ProtobufSettings message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns ProtobufSettings
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.encoding.ProtobufSettings;
-
-            /**
-             * Verifies a ProtobufSettings message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates a ProtobufSettings message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns ProtobufSettings
-             */
-            public static fromObject(object: { [k: string]: any }): protos.encoding.ProtobufSettings;
-
-            /**
-             * Creates a plain object from a ProtobufSettings message. Also converts values to other types if specified.
-             * @param message ProtobufSettings
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: protos.encoding.ProtobufSettings, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this ProtobufSettings to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-        }
-
-        /** Properties of an AvroSettings. */
-        interface IAvroSettings {
-
-            /** AvroSettings avroSchemaFile */
-            avroSchemaFile?: (string|null);
-
-            /** AvroSettings schema */
-            schema?: (Uint8Array|null);
-        }
-
-        /** Represents an AvroSettings. */
-        class AvroSettings implements IAvroSettings {
-
-            /**
-             * Constructs a new AvroSettings.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: protos.encoding.IAvroSettings);
-
-            /** AvroSettings avroSchemaFile. */
-            public avroSchemaFile: string;
-
-            /** AvroSettings schema. */
-            public schema: Uint8Array;
-
-            /**
-             * Creates a new AvroSettings instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns AvroSettings instance
-             */
-            public static create(properties?: protos.encoding.IAvroSettings): protos.encoding.AvroSettings;
-
-            /**
-             * Encodes the specified AvroSettings message. Does not implicitly {@link protos.encoding.AvroSettings.verify|verify} messages.
-             * @param message AvroSettings message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: protos.encoding.IAvroSettings, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified AvroSettings message, length delimited. Does not implicitly {@link protos.encoding.AvroSettings.verify|verify} messages.
-             * @param message AvroSettings message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: protos.encoding.IAvroSettings, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes an AvroSettings message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns AvroSettings
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.encoding.AvroSettings;
-
-            /**
-             * Decodes an AvroSettings message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns AvroSettings
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.encoding.AvroSettings;
-
-            /**
-             * Verifies an AvroSettings message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates an AvroSettings message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns AvroSettings
-             */
-            public static fromObject(object: { [k: string]: any }): protos.encoding.AvroSettings;
-
-            /**
-             * Creates a plain object from an AvroSettings message. Also converts values to other types if specified.
-             * @param message AvroSettings
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: protos.encoding.AvroSettings, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this AvroSettings to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-        }
-
-        /** Properties of a ThriftSettings. */
-        interface IThriftSettings {
-
-            /** ThriftSettings thriftDirs */
-            thriftDirs?: (string[]|null);
-
-            /** ThriftSettings thriftStruct */
-            thriftStruct?: (string|null);
-        }
-
-        /** Represents a ThriftSettings. */
-        class ThriftSettings implements IThriftSettings {
-
-            /**
-             * Constructs a new ThriftSettings.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: protos.encoding.IThriftSettings);
-
-            /** ThriftSettings thriftDirs. */
-            public thriftDirs: string[];
-
-            /** ThriftSettings thriftStruct. */
-            public thriftStruct: string;
-
-            /**
-             * Creates a new ThriftSettings instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns ThriftSettings instance
-             */
-            public static create(properties?: protos.encoding.IThriftSettings): protos.encoding.ThriftSettings;
-
-            /**
-             * Encodes the specified ThriftSettings message. Does not implicitly {@link protos.encoding.ThriftSettings.verify|verify} messages.
-             * @param message ThriftSettings message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: protos.encoding.IThriftSettings, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified ThriftSettings message, length delimited. Does not implicitly {@link protos.encoding.ThriftSettings.verify|verify} messages.
-             * @param message ThriftSettings message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: protos.encoding.IThriftSettings, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes a ThriftSettings message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns ThriftSettings
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.encoding.ThriftSettings;
-
-            /**
-             * Decodes a ThriftSettings message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns ThriftSettings
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.encoding.ThriftSettings;
-
-            /**
-             * Verifies a ThriftSettings message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates a ThriftSettings message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns ThriftSettings
-             */
-            public static fromObject(object: { [k: string]: any }): protos.encoding.ThriftSettings;
-
-            /**
-             * Creates a plain object from a ThriftSettings message. Also converts values to other types if specified.
-             * @param message ThriftSettings
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: protos.encoding.ThriftSettings, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this ThriftSettings to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-        }
-
-        /** Properties of a JSONSchemaSettings. */
-        interface IJSONSchemaSettings {
-
-            /** JSONSchemaSettings schema */
-            schema?: (Uint8Array|null);
-        }
-
-        /** Represents a JSONSchemaSettings. */
-        class JSONSchemaSettings implements IJSONSchemaSettings {
-
-            /**
-             * Constructs a new JSONSchemaSettings.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: protos.encoding.IJSONSchemaSettings);
-
-            /** JSONSchemaSettings schema. */
-            public schema: Uint8Array;
-
-            /**
-             * Creates a new JSONSchemaSettings instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns JSONSchemaSettings instance
-             */
-            public static create(properties?: protos.encoding.IJSONSchemaSettings): protos.encoding.JSONSchemaSettings;
-
-            /**
-             * Encodes the specified JSONSchemaSettings message. Does not implicitly {@link protos.encoding.JSONSchemaSettings.verify|verify} messages.
-             * @param message JSONSchemaSettings message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: protos.encoding.IJSONSchemaSettings, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified JSONSchemaSettings message, length delimited. Does not implicitly {@link protos.encoding.JSONSchemaSettings.verify|verify} messages.
-             * @param message JSONSchemaSettings message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: protos.encoding.IJSONSchemaSettings, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes a JSONSchemaSettings message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns JSONSchemaSettings
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.encoding.JSONSchemaSettings;
-
-            /**
-             * Decodes a JSONSchemaSettings message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns JSONSchemaSettings
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.encoding.JSONSchemaSettings;
-
-            /**
-             * Verifies a JSONSchemaSettings message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates a JSONSchemaSettings message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns JSONSchemaSettings
-             */
-            public static fromObject(object: { [k: string]: any }): protos.encoding.JSONSchemaSettings;
-
-            /**
-             * Creates a plain object from a JSONSchemaSettings message. Also converts values to other types if specified.
-             * @param message JSONSchemaSettings
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: protos.encoding.JSONSchemaSettings, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this JSONSchemaSettings to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-        }
-
-        /** Properties of an EncodeOptions. */
-        interface IEncodeOptions {
-
-            /** EncodeOptions schemaId */
-            schemaId?: (string|null);
-
-            /** EncodeOptions encodeType */
-            encodeType?: (protos.encoding.EncodeType|null);
-
-            /** EncodeOptions protobufSettings */
-            protobufSettings?: (protos.encoding.IProtobufSettings|null);
-
-            /** EncodeOptions avroSettings */
-            avroSettings?: (protos.encoding.IAvroSettings|null);
-        }
-
-        /** Represents an EncodeOptions. */
-        class EncodeOptions implements IEncodeOptions {
-
-            /**
-             * Constructs a new EncodeOptions.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: protos.encoding.IEncodeOptions);
-
-            /** EncodeOptions schemaId. */
-            public schemaId: string;
-
-            /** EncodeOptions encodeType. */
-            public encodeType: protos.encoding.EncodeType;
-
-            /** EncodeOptions protobufSettings. */
-            public protobufSettings?: (protos.encoding.IProtobufSettings|null);
-
-            /** EncodeOptions avroSettings. */
-            public avroSettings?: (protos.encoding.IAvroSettings|null);
-
-            /**
-             * Creates a new EncodeOptions instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns EncodeOptions instance
-             */
-            public static create(properties?: protos.encoding.IEncodeOptions): protos.encoding.EncodeOptions;
-
-            /**
-             * Encodes the specified EncodeOptions message. Does not implicitly {@link protos.encoding.EncodeOptions.verify|verify} messages.
-             * @param message EncodeOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: protos.encoding.IEncodeOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified EncodeOptions message, length delimited. Does not implicitly {@link protos.encoding.EncodeOptions.verify|verify} messages.
-             * @param message EncodeOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: protos.encoding.IEncodeOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes an EncodeOptions message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns EncodeOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.encoding.EncodeOptions;
-
-            /**
-             * Decodes an EncodeOptions message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns EncodeOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.encoding.EncodeOptions;
-
-            /**
-             * Verifies an EncodeOptions message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates an EncodeOptions message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns EncodeOptions
-             */
-            public static fromObject(object: { [k: string]: any }): protos.encoding.EncodeOptions;
-
-            /**
-             * Creates a plain object from an EncodeOptions message. Also converts values to other types if specified.
-             * @param message EncodeOptions
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: protos.encoding.EncodeOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this EncodeOptions to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-        }
-
-        /** Properties of a DecodeOptions. */
-        interface IDecodeOptions {
-
-            /** DecodeOptions schemaId */
-            schemaId?: (string|null);
-
-            /** DecodeOptions decodeType */
-            decodeType?: (protos.encoding.DecodeType|null);
-
-            /** DecodeOptions protobufSettings */
-            protobufSettings?: (protos.encoding.IProtobufSettings|null);
-
-            /** DecodeOptions avroSettings */
-            avroSettings?: (protos.encoding.IAvroSettings|null);
-
-            /** DecodeOptions thriftSettings */
-            thriftSettings?: (protos.encoding.IThriftSettings|null);
-        }
-
-        /** Represents a DecodeOptions. */
-        class DecodeOptions implements IDecodeOptions {
-
-            /**
-             * Constructs a new DecodeOptions.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: protos.encoding.IDecodeOptions);
-
-            /** DecodeOptions schemaId. */
-            public schemaId: string;
-
-            /** DecodeOptions decodeType. */
-            public decodeType: protos.encoding.DecodeType;
-
-            /** DecodeOptions protobufSettings. */
-            public protobufSettings?: (protos.encoding.IProtobufSettings|null);
-
-            /** DecodeOptions avroSettings. */
-            public avroSettings?: (protos.encoding.IAvroSettings|null);
-
-            /** DecodeOptions thriftSettings. */
-            public thriftSettings?: (protos.encoding.IThriftSettings|null);
-
-            /**
-             * Creates a new DecodeOptions instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns DecodeOptions instance
-             */
-            public static create(properties?: protos.encoding.IDecodeOptions): protos.encoding.DecodeOptions;
-
-            /**
-             * Encodes the specified DecodeOptions message. Does not implicitly {@link protos.encoding.DecodeOptions.verify|verify} messages.
-             * @param message DecodeOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: protos.encoding.IDecodeOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified DecodeOptions message, length delimited. Does not implicitly {@link protos.encoding.DecodeOptions.verify|verify} messages.
-             * @param message DecodeOptions message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: protos.encoding.IDecodeOptions, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes a DecodeOptions message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns DecodeOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.encoding.DecodeOptions;
-
-            /**
-             * Decodes a DecodeOptions message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns DecodeOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.encoding.DecodeOptions;
-
-            /**
-             * Verifies a DecodeOptions message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates a DecodeOptions message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns DecodeOptions
-             */
-            public static fromObject(object: { [k: string]: any }): protos.encoding.DecodeOptions;
-
-            /**
-             * Creates a plain object from a DecodeOptions message. Also converts values to other types if specified.
-             * @param message DecodeOptions
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: protos.encoding.DecodeOptions, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this DecodeOptions to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-        }
     }
 
     /** Namespace records. */
