@@ -5304,6 +5304,12 @@ export namespace protos {
 
             /** CreateReadOptions natsJetstream */
             natsJetstream?: (protos.args.INatsJetstreamReadArgs|null);
+
+            /** CreateReadOptions _readId */
+            _readId?: (string|null);
+
+            /** CreateReadOptions _active */
+            _active?: (boolean|null);
         }
 
         /** Represents a CreateReadOptions. */
@@ -5368,6 +5374,12 @@ export namespace protos {
 
             /** CreateReadOptions natsJetstream. */
             public natsJetstream?: (protos.args.INatsJetstreamReadArgs|null);
+
+            /** CreateReadOptions _readId. */
+            public _readId: string;
+
+            /** CreateReadOptions _active. */
+            public _active: boolean;
 
             /**
              * Creates a new CreateReadOptions instance using the specified properties.
@@ -8058,6 +8070,12 @@ export namespace protos {
 
             /** CreateWriteOptions streamdal */
             streamdal?: (protos.args.IStreamdalWriteArgs|null);
+
+            /** CreateWriteOptions _writeId */
+            _writeId?: (string|null);
+
+            /** CreateWriteOptions _active */
+            _active?: (boolean|null);
         }
 
         /** Represents a CreateWriteOptions. */
@@ -8140,6 +8158,12 @@ export namespace protos {
 
             /** CreateWriteOptions streamdal. */
             public streamdal?: (protos.args.IStreamdalWriteArgs|null);
+
+            /** CreateWriteOptions _writeId. */
+            public _writeId: string;
+
+            /** CreateWriteOptions _active. */
+            public _active: boolean;
 
             /**
              * Creates a new CreateWriteOptions instance using the specified properties.
