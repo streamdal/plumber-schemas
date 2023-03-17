@@ -26,7 +26,7 @@ import "args/ps_args_streamdal.proto";
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/opts";
 
-message CreateWriteOptions {
+message CreateChannelWriteOptions {
   // @gotags: kong:"help='ID of the underlying connection',required"
   string connection_id = 1;
 

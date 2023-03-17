@@ -50,23 +50,23 @@ message CLIOptions {
   opts.GlobalCLIOptions global = 1;
 
   // @gotags: kong:"cmd,help='Read message(s) from messaging system'"
-  opts.ReadOptions read = 2;
+  opts.CLIReadOptions read = 2;
 
   // @gotags: kong:"cmd,help='Write message(s) to messaging system'"
-  opts.WriteOptions write = 3;
+  opts.CLIWriteOptions write = 3;
 
   // @gotags: kong:"-"
   opts.RelayOptions relay = 4 [deprecated=true];
-
-  // @gotags: kong:"cmd,help='Use plumber as a destination tunnel in Streamdal'"
-  opts.TunnelOptions tunnel = 5;
-
-  // @gotags: kong:"cmd,help='Control your Streamdal resources via the public API'"
-  opts.StreamdalOptions streamdal = 6;
 
   // @gotags: kong:"cmd,help='Run plumber in server mode'"
   opts.ServerOptions server = 7;
 
   // @gotags: kong:"cmd,help='Manage plumber server'"
   opts.ManageOptions manage = 8;
+
+  // @gotags: kong:"cmd,help='Use plumber as a destination tunnel in Streamdal'"
+  opts.TunnelOptions tunnel = 5;
+
+  // @gotags: kong:"cmd,help='Control your Streamdal resources via the public API'"
+  opts.StreamdalOptions streamdal = 6;
 }

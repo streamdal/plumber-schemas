@@ -40,7 +40,7 @@ message WriteCLIOptions {
 
 // Write is the structure that backends accept for facilitating a write.
 // NOTE: _conn is only used by the CLI - desktop does not need to set it.
-message WriteOptions {
+message CLIWriteOptions {
   // Required for desktop; ignored in CLI.
   // @gotags: kong:"-"
   string connection_id = 1;

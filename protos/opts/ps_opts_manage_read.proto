@@ -17,10 +17,23 @@ import "args/ps_args_postgres.proto";
 import "args/ps_args_rabbit.proto";
 import "args/ps_args_redis_pubsub.proto";
 import "args/ps_args_redis_streams.proto";
+import "encoding/ps_encoding_options.proto";
+import "opts/ps_opts_read.proto";
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/opts";
 
-message CreateReadOptions {
+message ExtraCreateChannelReadOptions {
+  // @gotags: kong:"embed,group=sampling"
+  ReadSampleOptions sample_options = 1;
+
+  // @gotags: kong:"embed,group=decode"
+  encoding.DecodeOptions decode_options = 2;
+
+  // @gotags: kong:"help='Convert read data before it is written (options: unset; base64; gzip)',type=pbenum,pbenum_strip_prefix=CONVERT_OPTION_,pbenum_lowercase,default=unset"
+  ConvertOption convert_option = 3;
+}
+
+message CreateChannelReadOptions {
   // @gotags: kong:"help='ID of the connection to use',required"
   string connection_id = 1;
 
@@ -29,6 +42,9 @@ message CreateReadOptions {
 
   // @gotags: kong:"help='Notes to attach to the source'"
   string notes = 3;
+
+  // @gotags: kong:"embed"
+  ExtraCreateChannelReadOptions extra_options = 4;
 
   // --------------------------------------------------------------------- //
   //                       SUPPORTED BACKENDS (100-999)                    //

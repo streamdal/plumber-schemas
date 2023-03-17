@@ -58,7 +58,7 @@ message ReadFilterOptions {
 }
 
 // Relay is the structure that backends accept for facilitating a relay.
-message ReadOptions {
+message CLIReadOptions {
   // Required; friendly name for the read
   // @gotags: kong:"-"
   string name = 1;
