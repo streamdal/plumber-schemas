@@ -72,7 +72,6 @@ generate/ts:
 	-p ./protos/opts \
 	-p ./protos/encoding \
 	-p ./protos/records \
-	-p ./protos/cloudevent \
 	-o ./build/ts/plumber-schemas.js \
 	./protos/*.proto \
 	./protos/**/*.proto
@@ -89,7 +88,6 @@ generate/go:
 	mkdir -p $(GO_PROTOS_DIR)/encoding
 	mkdir -p $(GO_PROTOS_DIR)/opts
 	mkdir -p $(GO_PROTOS_DIR)/records
-	mkdir -p $(GO_PROTOS_DIR)/cloudevent
 
 	docker run --rm -w $(PWD) -v $(PWD):$(PWD) -w${PWD} jaegertracing/protobuf:0.2.0 \
 	--proto_path=./protos \
@@ -125,12 +123,6 @@ generate/go:
 	--go_opt=paths=source_relative \
 	protos/encoding/*.proto
 
-	docker run --rm -w $(PWD) -v $(PWD):$(PWD) -w${PWD} jaegertracing/protobuf:0.2.0 \
-	--proto_path=./protos/cloudevent \
-	--go_out=plugins=grpc:$(GO_PROTOS_DIR)/cloudevent \
-	--go_opt=paths=source_relative \
-	protos/cloudevent/*.proto
-
 # Because opts imports from base /protos, we have to specify --proto_path=./protos
 # This means that output location will be _inferred_ as '$(GO_PROTOS_DIR)/opts'
 	docker run --rm -w $(PWD) -v $(PWD):$(PWD) -w${PWD} jaegertracing/protobuf:0.2.0 \
@@ -163,7 +155,6 @@ inject-tags:
 	protoc-go-inject-tag -input="$(GO_PROTOS_DIR)/encoding/*.pb.go"
 	protoc-go-inject-tag -input="$(GO_PROTOS_DIR)/opts/*.pb.go"
 	protoc-go-inject-tag -input="$(GO_PROTOS_DIR)/records/*.pb.go"
-	protoc-go-inject-tag -input="$(GO_PROTOS_DIR)/cloudevent/*.pb.go"
 
 .PHONY: clean-go
 clean-go: description = Remove all go build artifacts
