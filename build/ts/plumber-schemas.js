@@ -65223,12 +65223,14 @@ $root.protos = (function() {
          * @property {number} ENCODE_TYPE_UNSET=0 ENCODE_TYPE_UNSET value
          * @property {number} ENCODE_TYPE_JSONPB=1 ENCODE_TYPE_JSONPB value
          * @property {number} ENCODE_TYPE_AVRO=2 ENCODE_TYPE_AVRO value
+         * @property {number} ENCODE_TYPE_CLOUDEVENT=3 ENCODE_TYPE_CLOUDEVENT value
          */
         encoding.EncodeType = (function() {
             var valuesById = {}, values = Object.create(valuesById);
             values[valuesById[0] = "ENCODE_TYPE_UNSET"] = 0;
             values[valuesById[1] = "ENCODE_TYPE_JSONPB"] = 1;
             values[valuesById[2] = "ENCODE_TYPE_AVRO"] = 2;
+            values[valuesById[3] = "ENCODE_TYPE_CLOUDEVENT"] = 3;
             return values;
         })();
 
@@ -66357,6 +66359,326 @@ $root.protos = (function() {
             return JSONSchemaSettings;
         })();
 
+        encoding.CloudEventSettings = (function() {
+
+            /**
+             * Properties of a CloudEventSettings.
+             * @memberof protos.encoding
+             * @interface ICloudEventSettings
+             * @property {string|null} [ceId] CloudEventSettings ceId
+             * @property {string|null} [ceSource] CloudEventSettings ceSource
+             * @property {string|null} [ceType] CloudEventSettings ceType
+             * @property {string|null} [ceSubject] CloudEventSettings ceSubject
+             * @property {string|null} [ceSpecVersion] CloudEventSettings ceSpecVersion
+             * @property {string|null} [ceDataContentType] CloudEventSettings ceDataContentType
+             * @property {string|null} [ceDataSchema] CloudEventSettings ceDataSchema
+             */
+
+            /**
+             * Constructs a new CloudEventSettings.
+             * @memberof protos.encoding
+             * @classdesc Represents a CloudEventSettings.
+             * @implements ICloudEventSettings
+             * @constructor
+             * @param {protos.encoding.ICloudEventSettings=} [properties] Properties to set
+             */
+            function CloudEventSettings(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * CloudEventSettings ceId.
+             * @member {string} ceId
+             * @memberof protos.encoding.CloudEventSettings
+             * @instance
+             */
+            CloudEventSettings.prototype.ceId = "";
+
+            /**
+             * CloudEventSettings ceSource.
+             * @member {string} ceSource
+             * @memberof protos.encoding.CloudEventSettings
+             * @instance
+             */
+            CloudEventSettings.prototype.ceSource = "";
+
+            /**
+             * CloudEventSettings ceType.
+             * @member {string} ceType
+             * @memberof protos.encoding.CloudEventSettings
+             * @instance
+             */
+            CloudEventSettings.prototype.ceType = "";
+
+            /**
+             * CloudEventSettings ceSubject.
+             * @member {string} ceSubject
+             * @memberof protos.encoding.CloudEventSettings
+             * @instance
+             */
+            CloudEventSettings.prototype.ceSubject = "";
+
+            /**
+             * CloudEventSettings ceSpecVersion.
+             * @member {string} ceSpecVersion
+             * @memberof protos.encoding.CloudEventSettings
+             * @instance
+             */
+            CloudEventSettings.prototype.ceSpecVersion = "";
+
+            /**
+             * CloudEventSettings ceDataContentType.
+             * @member {string} ceDataContentType
+             * @memberof protos.encoding.CloudEventSettings
+             * @instance
+             */
+            CloudEventSettings.prototype.ceDataContentType = "";
+
+            /**
+             * CloudEventSettings ceDataSchema.
+             * @member {string} ceDataSchema
+             * @memberof protos.encoding.CloudEventSettings
+             * @instance
+             */
+            CloudEventSettings.prototype.ceDataSchema = "";
+
+            /**
+             * Creates a new CloudEventSettings instance using the specified properties.
+             * @function create
+             * @memberof protos.encoding.CloudEventSettings
+             * @static
+             * @param {protos.encoding.ICloudEventSettings=} [properties] Properties to set
+             * @returns {protos.encoding.CloudEventSettings} CloudEventSettings instance
+             */
+            CloudEventSettings.create = function create(properties) {
+                return new CloudEventSettings(properties);
+            };
+
+            /**
+             * Encodes the specified CloudEventSettings message. Does not implicitly {@link protos.encoding.CloudEventSettings.verify|verify} messages.
+             * @function encode
+             * @memberof protos.encoding.CloudEventSettings
+             * @static
+             * @param {protos.encoding.ICloudEventSettings} message CloudEventSettings message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            CloudEventSettings.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.ceId != null && Object.hasOwnProperty.call(message, "ceId"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.ceId);
+                if (message.ceSource != null && Object.hasOwnProperty.call(message, "ceSource"))
+                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.ceSource);
+                if (message.ceType != null && Object.hasOwnProperty.call(message, "ceType"))
+                    writer.uint32(/* id 3, wireType 2 =*/26).string(message.ceType);
+                if (message.ceSubject != null && Object.hasOwnProperty.call(message, "ceSubject"))
+                    writer.uint32(/* id 4, wireType 2 =*/34).string(message.ceSubject);
+                if (message.ceSpecVersion != null && Object.hasOwnProperty.call(message, "ceSpecVersion"))
+                    writer.uint32(/* id 5, wireType 2 =*/42).string(message.ceSpecVersion);
+                if (message.ceDataContentType != null && Object.hasOwnProperty.call(message, "ceDataContentType"))
+                    writer.uint32(/* id 6, wireType 2 =*/50).string(message.ceDataContentType);
+                if (message.ceDataSchema != null && Object.hasOwnProperty.call(message, "ceDataSchema"))
+                    writer.uint32(/* id 7, wireType 2 =*/58).string(message.ceDataSchema);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified CloudEventSettings message, length delimited. Does not implicitly {@link protos.encoding.CloudEventSettings.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.encoding.CloudEventSettings
+             * @static
+             * @param {protos.encoding.ICloudEventSettings} message CloudEventSettings message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            CloudEventSettings.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a CloudEventSettings message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.encoding.CloudEventSettings
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.encoding.CloudEventSettings} CloudEventSettings
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            CloudEventSettings.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.encoding.CloudEventSettings();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.ceId = reader.string();
+                        break;
+                    case 2:
+                        message.ceSource = reader.string();
+                        break;
+                    case 3:
+                        message.ceType = reader.string();
+                        break;
+                    case 4:
+                        message.ceSubject = reader.string();
+                        break;
+                    case 5:
+                        message.ceSpecVersion = reader.string();
+                        break;
+                    case 6:
+                        message.ceDataContentType = reader.string();
+                        break;
+                    case 7:
+                        message.ceDataSchema = reader.string();
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a CloudEventSettings message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.encoding.CloudEventSettings
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.encoding.CloudEventSettings} CloudEventSettings
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            CloudEventSettings.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a CloudEventSettings message.
+             * @function verify
+             * @memberof protos.encoding.CloudEventSettings
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            CloudEventSettings.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.ceId != null && message.hasOwnProperty("ceId"))
+                    if (!$util.isString(message.ceId))
+                        return "ceId: string expected";
+                if (message.ceSource != null && message.hasOwnProperty("ceSource"))
+                    if (!$util.isString(message.ceSource))
+                        return "ceSource: string expected";
+                if (message.ceType != null && message.hasOwnProperty("ceType"))
+                    if (!$util.isString(message.ceType))
+                        return "ceType: string expected";
+                if (message.ceSubject != null && message.hasOwnProperty("ceSubject"))
+                    if (!$util.isString(message.ceSubject))
+                        return "ceSubject: string expected";
+                if (message.ceSpecVersion != null && message.hasOwnProperty("ceSpecVersion"))
+                    if (!$util.isString(message.ceSpecVersion))
+                        return "ceSpecVersion: string expected";
+                if (message.ceDataContentType != null && message.hasOwnProperty("ceDataContentType"))
+                    if (!$util.isString(message.ceDataContentType))
+                        return "ceDataContentType: string expected";
+                if (message.ceDataSchema != null && message.hasOwnProperty("ceDataSchema"))
+                    if (!$util.isString(message.ceDataSchema))
+                        return "ceDataSchema: string expected";
+                return null;
+            };
+
+            /**
+             * Creates a CloudEventSettings message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.encoding.CloudEventSettings
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.encoding.CloudEventSettings} CloudEventSettings
+             */
+            CloudEventSettings.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.encoding.CloudEventSettings)
+                    return object;
+                var message = new $root.protos.encoding.CloudEventSettings();
+                if (object.ceId != null)
+                    message.ceId = String(object.ceId);
+                if (object.ceSource != null)
+                    message.ceSource = String(object.ceSource);
+                if (object.ceType != null)
+                    message.ceType = String(object.ceType);
+                if (object.ceSubject != null)
+                    message.ceSubject = String(object.ceSubject);
+                if (object.ceSpecVersion != null)
+                    message.ceSpecVersion = String(object.ceSpecVersion);
+                if (object.ceDataContentType != null)
+                    message.ceDataContentType = String(object.ceDataContentType);
+                if (object.ceDataSchema != null)
+                    message.ceDataSchema = String(object.ceDataSchema);
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a CloudEventSettings message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.encoding.CloudEventSettings
+             * @static
+             * @param {protos.encoding.CloudEventSettings} message CloudEventSettings
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            CloudEventSettings.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    object.ceId = "";
+                    object.ceSource = "";
+                    object.ceType = "";
+                    object.ceSubject = "";
+                    object.ceSpecVersion = "";
+                    object.ceDataContentType = "";
+                    object.ceDataSchema = "";
+                }
+                if (message.ceId != null && message.hasOwnProperty("ceId"))
+                    object.ceId = message.ceId;
+                if (message.ceSource != null && message.hasOwnProperty("ceSource"))
+                    object.ceSource = message.ceSource;
+                if (message.ceType != null && message.hasOwnProperty("ceType"))
+                    object.ceType = message.ceType;
+                if (message.ceSubject != null && message.hasOwnProperty("ceSubject"))
+                    object.ceSubject = message.ceSubject;
+                if (message.ceSpecVersion != null && message.hasOwnProperty("ceSpecVersion"))
+                    object.ceSpecVersion = message.ceSpecVersion;
+                if (message.ceDataContentType != null && message.hasOwnProperty("ceDataContentType"))
+                    object.ceDataContentType = message.ceDataContentType;
+                if (message.ceDataSchema != null && message.hasOwnProperty("ceDataSchema"))
+                    object.ceDataSchema = message.ceDataSchema;
+                return object;
+            };
+
+            /**
+             * Converts this CloudEventSettings to JSON.
+             * @function toJSON
+             * @memberof protos.encoding.CloudEventSettings
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            CloudEventSettings.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return CloudEventSettings;
+        })();
+
         encoding.EncodeOptions = (function() {
 
             /**
@@ -66367,6 +66689,7 @@ $root.protos = (function() {
              * @property {protos.encoding.EncodeType|null} [encodeType] EncodeOptions encodeType
              * @property {protos.encoding.IProtobufSettings|null} [protobufSettings] EncodeOptions protobufSettings
              * @property {protos.encoding.IAvroSettings|null} [avroSettings] EncodeOptions avroSettings
+             * @property {protos.encoding.ICloudEventSettings|null} [cloudeventSettings] EncodeOptions cloudeventSettings
              */
 
             /**
@@ -66417,6 +66740,14 @@ $root.protos = (function() {
             EncodeOptions.prototype.avroSettings = null;
 
             /**
+             * EncodeOptions cloudeventSettings.
+             * @member {protos.encoding.ICloudEventSettings|null|undefined} cloudeventSettings
+             * @memberof protos.encoding.EncodeOptions
+             * @instance
+             */
+            EncodeOptions.prototype.cloudeventSettings = null;
+
+            /**
              * Creates a new EncodeOptions instance using the specified properties.
              * @function create
              * @memberof protos.encoding.EncodeOptions
@@ -66448,6 +66779,8 @@ $root.protos = (function() {
                     $root.protos.encoding.ProtobufSettings.encode(message.protobufSettings, writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
                 if (message.avroSettings != null && Object.hasOwnProperty.call(message, "avroSettings"))
                     $root.protos.encoding.AvroSettings.encode(message.avroSettings, writer.uint32(/* id 4, wireType 2 =*/34).fork()).ldelim();
+                if (message.cloudeventSettings != null && Object.hasOwnProperty.call(message, "cloudeventSettings"))
+                    $root.protos.encoding.CloudEventSettings.encode(message.cloudeventSettings, writer.uint32(/* id 5, wireType 2 =*/42).fork()).ldelim();
                 return writer;
             };
 
@@ -66494,6 +66827,9 @@ $root.protos = (function() {
                     case 4:
                         message.avroSettings = $root.protos.encoding.AvroSettings.decode(reader, reader.uint32());
                         break;
+                    case 5:
+                        message.cloudeventSettings = $root.protos.encoding.CloudEventSettings.decode(reader, reader.uint32());
+                        break;
                     default:
                         reader.skipType(tag & 7);
                         break;
@@ -66539,6 +66875,7 @@ $root.protos = (function() {
                     case 0:
                     case 1:
                     case 2:
+                    case 3:
                         break;
                     }
                 if (message.protobufSettings != null && message.hasOwnProperty("protobufSettings")) {
@@ -66550,6 +66887,11 @@ $root.protos = (function() {
                     var error = $root.protos.encoding.AvroSettings.verify(message.avroSettings);
                     if (error)
                         return "avroSettings." + error;
+                }
+                if (message.cloudeventSettings != null && message.hasOwnProperty("cloudeventSettings")) {
+                    var error = $root.protos.encoding.CloudEventSettings.verify(message.cloudeventSettings);
+                    if (error)
+                        return "cloudeventSettings." + error;
                 }
                 return null;
             };
@@ -66581,6 +66923,10 @@ $root.protos = (function() {
                 case 2:
                     message.encodeType = 2;
                     break;
+                case "ENCODE_TYPE_CLOUDEVENT":
+                case 3:
+                    message.encodeType = 3;
+                    break;
                 }
                 if (object.protobufSettings != null) {
                     if (typeof object.protobufSettings !== "object")
@@ -66591,6 +66937,11 @@ $root.protos = (function() {
                     if (typeof object.avroSettings !== "object")
                         throw TypeError(".protos.encoding.EncodeOptions.avroSettings: object expected");
                     message.avroSettings = $root.protos.encoding.AvroSettings.fromObject(object.avroSettings);
+                }
+                if (object.cloudeventSettings != null) {
+                    if (typeof object.cloudeventSettings !== "object")
+                        throw TypeError(".protos.encoding.EncodeOptions.cloudeventSettings: object expected");
+                    message.cloudeventSettings = $root.protos.encoding.CloudEventSettings.fromObject(object.cloudeventSettings);
                 }
                 return message;
             };
@@ -66613,6 +66964,7 @@ $root.protos = (function() {
                     object.encodeType = options.enums === String ? "ENCODE_TYPE_UNSET" : 0;
                     object.protobufSettings = null;
                     object.avroSettings = null;
+                    object.cloudeventSettings = null;
                 }
                 if (message.schemaId != null && message.hasOwnProperty("schemaId"))
                     object.schemaId = message.schemaId;
@@ -66622,6 +66974,8 @@ $root.protos = (function() {
                     object.protobufSettings = $root.protos.encoding.ProtobufSettings.toObject(message.protobufSettings, options);
                 if (message.avroSettings != null && message.hasOwnProperty("avroSettings"))
                     object.avroSettings = $root.protos.encoding.AvroSettings.toObject(message.avroSettings, options);
+                if (message.cloudeventSettings != null && message.hasOwnProperty("cloudeventSettings"))
+                    object.cloudeventSettings = $root.protos.encoding.CloudEventSettings.toObject(message.cloudeventSettings, options);
                 return object;
             };
 

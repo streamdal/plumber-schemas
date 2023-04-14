@@ -27267,7 +27267,8 @@ export namespace protos {
         enum EncodeType {
             ENCODE_TYPE_UNSET = 0,
             ENCODE_TYPE_JSONPB = 1,
-            ENCODE_TYPE_AVRO = 2
+            ENCODE_TYPE_AVRO = 2,
+            ENCODE_TYPE_CLOUDEVENT = 3
         }
 
         /** DecodeType enum. */
@@ -27712,6 +27713,132 @@ export namespace protos {
             public toJSON(): { [k: string]: any };
         }
 
+        /** Properties of a CloudEventSettings. */
+        interface ICloudEventSettings {
+
+            /** CloudEventSettings ceId */
+            ceId?: (string|null);
+
+            /** CloudEventSettings ceSource */
+            ceSource?: (string|null);
+
+            /** CloudEventSettings ceType */
+            ceType?: (string|null);
+
+            /** CloudEventSettings ceSubject */
+            ceSubject?: (string|null);
+
+            /** CloudEventSettings ceSpecVersion */
+            ceSpecVersion?: (string|null);
+
+            /** CloudEventSettings ceDataContentType */
+            ceDataContentType?: (string|null);
+
+            /** CloudEventSettings ceDataSchema */
+            ceDataSchema?: (string|null);
+        }
+
+        /** Represents a CloudEventSettings. */
+        class CloudEventSettings implements ICloudEventSettings {
+
+            /**
+             * Constructs a new CloudEventSettings.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.encoding.ICloudEventSettings);
+
+            /** CloudEventSettings ceId. */
+            public ceId: string;
+
+            /** CloudEventSettings ceSource. */
+            public ceSource: string;
+
+            /** CloudEventSettings ceType. */
+            public ceType: string;
+
+            /** CloudEventSettings ceSubject. */
+            public ceSubject: string;
+
+            /** CloudEventSettings ceSpecVersion. */
+            public ceSpecVersion: string;
+
+            /** CloudEventSettings ceDataContentType. */
+            public ceDataContentType: string;
+
+            /** CloudEventSettings ceDataSchema. */
+            public ceDataSchema: string;
+
+            /**
+             * Creates a new CloudEventSettings instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns CloudEventSettings instance
+             */
+            public static create(properties?: protos.encoding.ICloudEventSettings): protos.encoding.CloudEventSettings;
+
+            /**
+             * Encodes the specified CloudEventSettings message. Does not implicitly {@link protos.encoding.CloudEventSettings.verify|verify} messages.
+             * @param message CloudEventSettings message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.encoding.ICloudEventSettings, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified CloudEventSettings message, length delimited. Does not implicitly {@link protos.encoding.CloudEventSettings.verify|verify} messages.
+             * @param message CloudEventSettings message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.encoding.ICloudEventSettings, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a CloudEventSettings message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns CloudEventSettings
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.encoding.CloudEventSettings;
+
+            /**
+             * Decodes a CloudEventSettings message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns CloudEventSettings
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.encoding.CloudEventSettings;
+
+            /**
+             * Verifies a CloudEventSettings message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a CloudEventSettings message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns CloudEventSettings
+             */
+            public static fromObject(object: { [k: string]: any }): protos.encoding.CloudEventSettings;
+
+            /**
+             * Creates a plain object from a CloudEventSettings message. Also converts values to other types if specified.
+             * @param message CloudEventSettings
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.encoding.CloudEventSettings, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this CloudEventSettings to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
         /** Properties of an EncodeOptions. */
         interface IEncodeOptions {
 
@@ -27726,6 +27853,9 @@ export namespace protos {
 
             /** EncodeOptions avroSettings */
             avroSettings?: (protos.encoding.IAvroSettings|null);
+
+            /** EncodeOptions cloudeventSettings */
+            cloudeventSettings?: (protos.encoding.ICloudEventSettings|null);
         }
 
         /** Represents an EncodeOptions. */
@@ -27748,6 +27878,9 @@ export namespace protos {
 
             /** EncodeOptions avroSettings. */
             public avroSettings?: (protos.encoding.IAvroSettings|null);
+
+            /** EncodeOptions cloudeventSettings. */
+            public cloudeventSettings?: (protos.encoding.ICloudEventSettings|null);
 
             /**
              * Creates a new EncodeOptions instance using the specified properties.
