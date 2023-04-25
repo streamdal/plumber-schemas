@@ -3,7 +3,6 @@ syntax = "proto3";
 package protos;
 
 import "common/ps_common_auth.proto";
-import "common/ps_common_status.proto";
 import "opts/ps_opts_server.proto";
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
